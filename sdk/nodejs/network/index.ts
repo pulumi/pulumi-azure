@@ -360,6 +360,11 @@ export type NetworkManagerDeployment = import("./networkManagerDeployment").Netw
 export const NetworkManagerDeployment: typeof import("./networkManagerDeployment").NetworkManagerDeployment = null as any;
 utilities.lazyLoad(exports, ["NetworkManagerDeployment"], () => require("./networkManagerDeployment"));
 
+export { NetworkManagerIpamPoolArgs, NetworkManagerIpamPoolState } from "./networkManagerIpamPool";
+export type NetworkManagerIpamPool = import("./networkManagerIpamPool").NetworkManagerIpamPool;
+export const NetworkManagerIpamPool: typeof import("./networkManagerIpamPool").NetworkManagerIpamPool = null as any;
+utilities.lazyLoad(exports, ["NetworkManagerIpamPool"], () => require("./networkManagerIpamPool"));
+
 export { NetworkManagerManagementGroupConnectionArgs, NetworkManagerManagementGroupConnectionState } from "./networkManagerManagementGroupConnection";
 export type NetworkManagerManagementGroupConnection = import("./networkManagerManagementGroupConnection").NetworkManagerManagementGroupConnection;
 export const NetworkManagerManagementGroupConnection: typeof import("./networkManagerManagementGroupConnection").NetworkManagerManagementGroupConnection = null as any;
@@ -687,6 +692,8 @@ const _module = {
                 return new NetworkManagerConnectivityConfiguration(name, <any>undefined, { urn })
             case "azure:network/networkManagerDeployment:NetworkManagerDeployment":
                 return new NetworkManagerDeployment(name, <any>undefined, { urn })
+            case "azure:network/networkManagerIpamPool:NetworkManagerIpamPool":
+                return new NetworkManagerIpamPool(name, <any>undefined, { urn })
             case "azure:network/networkManagerManagementGroupConnection:NetworkManagerManagementGroupConnection":
                 return new NetworkManagerManagementGroupConnection(name, <any>undefined, { urn })
             case "azure:network/networkManagerNetworkGroup:NetworkManagerNetworkGroup":
@@ -828,6 +835,7 @@ pulumi.runtime.registerResourceModule("azure", "network/networkManagerAdminRule"
 pulumi.runtime.registerResourceModule("azure", "network/networkManagerAdminRuleCollection", _module)
 pulumi.runtime.registerResourceModule("azure", "network/networkManagerConnectivityConfiguration", _module)
 pulumi.runtime.registerResourceModule("azure", "network/networkManagerDeployment", _module)
+pulumi.runtime.registerResourceModule("azure", "network/networkManagerIpamPool", _module)
 pulumi.runtime.registerResourceModule("azure", "network/networkManagerManagementGroupConnection", _module)
 pulumi.runtime.registerResourceModule("azure", "network/networkManagerNetworkGroup", _module)
 pulumi.runtime.registerResourceModule("azure", "network/networkManagerScopeConnection", _module)

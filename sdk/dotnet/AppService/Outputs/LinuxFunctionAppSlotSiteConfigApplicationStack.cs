@@ -26,7 +26,7 @@ namespace Pulumi.Azure.AppService.Outputs
         /// </summary>
         public readonly string? JavaVersion;
         /// <summary>
-        /// The version of Node to use. Possible values include `12`, `14`, `16`, `18` and `20`
+        /// The version of Node to use. Possible values include `12`, `14`, `16`, `18`, `20` and `22`.
         /// </summary>
         public readonly string? NodeVersion;
         /// <summary>
@@ -34,7 +34,7 @@ namespace Pulumi.Azure.AppService.Outputs
         /// </summary>
         public readonly string? PowershellCoreVersion;
         /// <summary>
-        /// The version of Python to use. Possible values are `3.12`, `3.11`, `3.10`, `3.9`, `3.8` and `3.7`.
+        /// The version of Python to use. Possible values are `3.13`, `3.12`, `3.11`, `3.10`, `3.9`, `3.8` and `3.7`.
         /// </summary>
         public readonly string? PythonVersion;
         /// <summary>

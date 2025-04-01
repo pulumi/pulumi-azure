@@ -15,10 +15,20 @@ namespace Pulumi.Azure.PostgreSql.Outputs
     {
         /// <summary>
         /// A list of User Assigned Managed Identity IDs to be assigned to this PostgreSQL Flexible Server. Required if used together with `customer_managed_key` block.
+        /// 
+        /// &gt; **Note**: `identity_ids` is required when `type` is set to `UserAssigned`.
         /// </summary>
         public readonly ImmutableArray<string> IdentityIds;
         /// <summary>
-        /// Specifies the type of Managed Service Identity that should be configured on this PostgreSQL Flexible Server. The only possible value is `UserAssigned`.
+        /// The Principal ID associated with this Managed Service Identity.
+        /// </summary>
+        public readonly string? PrincipalId;
+        /// <summary>
+        /// The Tenant ID associated with this Managed Service Identity.
+        /// </summary>
+        public readonly string? TenantId;
+        /// <summary>
+        /// Specifies the type of Managed Service Identity that should be configured on this PostgreSQL Flexible Server. Possible values are `UserAssigned` and `SystemAssigned`.
         /// </summary>
         public readonly string Type;
 
@@ -26,9 +36,15 @@ namespace Pulumi.Azure.PostgreSql.Outputs
         private FlexibleServerIdentity(
             ImmutableArray<string> identityIds,
 
+            string? principalId,
+
+            string? tenantId,
+
             string type)
         {
             IdentityIds = identityIds;
+            PrincipalId = principalId;
+            TenantId = tenantId;
             Type = type;
         }
     }

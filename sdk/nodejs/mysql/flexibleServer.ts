@@ -200,6 +200,8 @@ export class FlexibleServer extends pulumi.CustomResource {
     public readonly skuName!: pulumi.Output<string>;
     /**
      * The resource ID of the source MySQL Flexible Server to be restored. Required when `createMode` is `PointInTimeRestore`, `GeoRestore`, and `Replica`. Changing this forces a new MySQL Flexible Server to be created.
+     *
+     * > **Note:** The replica server is always created in the same resource group and subscription as the source server.
      */
     public readonly sourceServerId!: pulumi.Output<string | undefined>;
     /**
@@ -398,6 +400,8 @@ export interface FlexibleServerState {
     skuName?: pulumi.Input<string>;
     /**
      * The resource ID of the source MySQL Flexible Server to be restored. Required when `createMode` is `PointInTimeRestore`, `GeoRestore`, and `Replica`. Changing this forces a new MySQL Flexible Server to be created.
+     *
+     * > **Note:** The replica server is always created in the same resource group and subscription as the source server.
      */
     sourceServerId?: pulumi.Input<string>;
     /**
@@ -507,6 +511,8 @@ export interface FlexibleServerArgs {
     skuName?: pulumi.Input<string>;
     /**
      * The resource ID of the source MySQL Flexible Server to be restored. Required when `createMode` is `PointInTimeRestore`, `GeoRestore`, and `Replica`. Changing this forces a new MySQL Flexible Server to be created.
+     *
+     * > **Note:** The replica server is always created in the same resource group and subscription as the source server.
      */
     sourceServerId?: pulumi.Input<string>;
     /**

@@ -104,6 +104,20 @@ public class ThreeTierVirtualInstance extends com.pulumi.resources.CustomResourc
         return Codegen.optional(this.managedResourceGroupName);
     }
     /**
+     * The network access type for managed resources. Possible values are `Private` and `Public`. Defaults to `Public`.
+     * 
+     */
+    @Export(name="managedResourcesNetworkAccessType", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> managedResourcesNetworkAccessType;
+
+    /**
+     * @return The network access type for managed resources. Possible values are `Private` and `Public`. Defaults to `Public`.
+     * 
+     */
+    public Output<Optional<String>> managedResourcesNetworkAccessType() {
+        return Codegen.optional(this.managedResourcesNetworkAccessType);
+    }
+    /**
      * Specifies the name of this SAP Three Tier Virtual Instance. Changing this forces a new resource to be created.
      * 
      */

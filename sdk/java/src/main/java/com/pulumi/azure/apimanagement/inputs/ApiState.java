@@ -101,12 +101,16 @@ public final class ApiState extends com.pulumi.resources.ResourceArgs {
     /**
      * A `import` block as documented below.
      * 
+     * &gt; **NOTE:** The `display_name`, `description`, `contact`, and `license` fields can be imported by the `import` block, which might cause a drift if these fields are set along with the `import` block.
+     * 
      */
     @Import(name="import")
     private @Nullable Output<ApiImportArgs> import_;
 
     /**
      * @return A `import` block as documented below.
+     * 
+     * &gt; **NOTE:** The `display_name`, `description`, `contact`, and `license` fields can be imported by the `import` block, which might cause a drift if these fields are set along with the `import` block.
      * 
      */
     public Optional<Output<ApiImportArgs>> import_() {
@@ -562,6 +566,8 @@ public final class ApiState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param import_ A `import` block as documented below.
          * 
+         * &gt; **NOTE:** The `display_name`, `description`, `contact`, and `license` fields can be imported by the `import` block, which might cause a drift if these fields are set along with the `import` block.
+         * 
          * @return builder
          * 
          */
@@ -572,6 +578,8 @@ public final class ApiState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param import_ A `import` block as documented below.
+         * 
+         * &gt; **NOTE:** The `display_name`, `description`, `contact`, and `license` fields can be imported by the `import` block, which might cause a drift if these fields are set along with the `import` block.
          * 
          * @return builder
          * 

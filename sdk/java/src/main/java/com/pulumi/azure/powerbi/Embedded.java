@@ -147,14 +147,14 @@ public class Embedded extends com.pulumi.resources.CustomResource {
         return this.resourceGroupName;
     }
     /**
-     * Sets the PowerBI Embedded&#39;s pricing level&#39;s SKU. Possible values include: `A1`, `A2`, `A3`, `A4`, `A5`, `A6`.
+     * Sets the PowerBI Embedded&#39;s pricing level&#39;s SKU. Possible values include: `A1`, `A2`, `A3`, `A4`, `A5`, `A6`, `A7` and `A8`.
      * 
      */
     @Export(name="skuName", refs={String.class}, tree="[0]")
     private Output<String> skuName;
 
     /**
-     * @return Sets the PowerBI Embedded&#39;s pricing level&#39;s SKU. Possible values include: `A1`, `A2`, `A3`, `A4`, `A5`, `A6`.
+     * @return Sets the PowerBI Embedded&#39;s pricing level&#39;s SKU. Possible values include: `A1`, `A2`, `A3`, `A4`, `A5`, `A6`, `A7` and `A8`.
      * 
      */
     public Output<String> skuName() {

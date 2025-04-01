@@ -25,7 +25,8 @@ class RestorePointArgs:
                  name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a RestorePoint resource.
-        :param pulumi.Input[bool] crash_consistency_mode_enabled: Is Crash Consistent the Consistency Mode of the Virtual Machine Restore Point. Defaults to `false`. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] virtual_machine_restore_point_collection_id: Specifies the ID of the Virtual Machine Restore Point Collection the Virtual Machine Restore Point will be associated with. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] crash_consistency_mode_enabled: Whether the Consistency Mode of the Virtual Machine Restore Point is set to `CrashConsistent`. Defaults to `false`. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] excluded_disks: A list of disks that will be excluded from the Virtual Machine Restore Point. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Virtual Machine Restore Point. Changing this forces a new resource to be created.
         """
@@ -40,6 +41,9 @@ class RestorePointArgs:
     @property
     @pulumi.getter(name="virtualMachineRestorePointCollectionId")
     def virtual_machine_restore_point_collection_id(self) -> pulumi.Input[str]:
+        """
+        Specifies the ID of the Virtual Machine Restore Point Collection the Virtual Machine Restore Point will be associated with. Changing this forces a new resource to be created.
+        """
         return pulumi.get(self, "virtual_machine_restore_point_collection_id")
 
     @virtual_machine_restore_point_collection_id.setter
@@ -50,7 +54,7 @@ class RestorePointArgs:
     @pulumi.getter(name="crashConsistencyModeEnabled")
     def crash_consistency_mode_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        Is Crash Consistent the Consistency Mode of the Virtual Machine Restore Point. Defaults to `false`. Changing this forces a new resource to be created.
+        Whether the Consistency Mode of the Virtual Machine Restore Point is set to `CrashConsistent`. Defaults to `false`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "crash_consistency_mode_enabled")
 
@@ -92,9 +96,10 @@ class _RestorePointState:
                  virtual_machine_restore_point_collection_id: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering RestorePoint resources.
-        :param pulumi.Input[bool] crash_consistency_mode_enabled: Is Crash Consistent the Consistency Mode of the Virtual Machine Restore Point. Defaults to `false`. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] crash_consistency_mode_enabled: Whether the Consistency Mode of the Virtual Machine Restore Point is set to `CrashConsistent`. Defaults to `false`. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] excluded_disks: A list of disks that will be excluded from the Virtual Machine Restore Point. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Virtual Machine Restore Point. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] virtual_machine_restore_point_collection_id: Specifies the ID of the Virtual Machine Restore Point Collection the Virtual Machine Restore Point will be associated with. Changing this forces a new resource to be created.
         """
         if crash_consistency_mode_enabled is not None:
             pulumi.set(__self__, "crash_consistency_mode_enabled", crash_consistency_mode_enabled)
@@ -109,7 +114,7 @@ class _RestorePointState:
     @pulumi.getter(name="crashConsistencyModeEnabled")
     def crash_consistency_mode_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        Is Crash Consistent the Consistency Mode of the Virtual Machine Restore Point. Defaults to `false`. Changing this forces a new resource to be created.
+        Whether the Consistency Mode of the Virtual Machine Restore Point is set to `CrashConsistent`. Defaults to `false`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "crash_consistency_mode_enabled")
 
@@ -144,6 +149,9 @@ class _RestorePointState:
     @property
     @pulumi.getter(name="virtualMachineRestorePointCollectionId")
     def virtual_machine_restore_point_collection_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the ID of the Virtual Machine Restore Point Collection the Virtual Machine Restore Point will be associated with. Changing this forces a new resource to be created.
+        """
         return pulumi.get(self, "virtual_machine_restore_point_collection_id")
 
     @virtual_machine_restore_point_collection_id.setter
@@ -164,6 +172,66 @@ class RestorePoint(pulumi.CustomResource):
         """
         Manages a Virtual Machine Restore Point.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+        import pulumi_std as std
+
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_virtual_network = azure.network.VirtualNetwork("example",
+            name="example-network",
+            address_spaces=["10.0.0.0/16"],
+            location=example.location,
+            resource_group_name=example.name)
+        example_subnet = azure.network.Subnet("example",
+            name="internal",
+            resource_group_name=example.name,
+            virtual_network_name=example_virtual_network.name,
+            address_prefixes=["10.0.2.0/24"])
+        example_network_interface = azure.network.NetworkInterface("example",
+            name="example-nic",
+            location=example.location,
+            resource_group_name=example.name,
+            ip_configurations=[{
+                "name": "internal",
+                "subnet_id": example_subnet.id,
+                "private_ip_address_allocation": "Dynamic",
+            }])
+        example_linux_virtual_machine = azure.compute.LinuxVirtualMachine("example",
+            name="example-machine",
+            resource_group_name=example.name,
+            location=example.location,
+            size="Standard_F2",
+            admin_username="adminuser",
+            network_interface_ids=[example_network_interface.id],
+            admin_ssh_keys=[{
+                "username": "adminuser",
+                "public_key": std.file(input="~/.ssh/id_rsa.pub").result,
+            }],
+            os_disk={
+                "caching": "ReadWrite",
+                "storage_account_type": "Standard_LRS",
+            },
+            source_image_reference={
+                "publisher": "Canonical",
+                "offer": "0001-com-ubuntu-server-jammy",
+                "sku": "22_04-lts",
+                "version": "latest",
+            })
+        example_restore_point_collection = azure.compute.RestorePointCollection("example",
+            name="example-collection",
+            resource_group_name=example.name,
+            location=example_linux_virtual_machine.location,
+            source_virtual_machine_id=example_linux_virtual_machine.id)
+        example_restore_point = azure.compute.RestorePoint("example",
+            name="example-restore-point",
+            virtual_machine_restore_point_collection_id=example_restore_point_collection.id)
+        ```
+
         ## Import
 
         Virtual Machine Restore Point can be imported using the `resource id`, e.g.
@@ -174,9 +242,10 @@ class RestorePoint(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[bool] crash_consistency_mode_enabled: Is Crash Consistent the Consistency Mode of the Virtual Machine Restore Point. Defaults to `false`. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] crash_consistency_mode_enabled: Whether the Consistency Mode of the Virtual Machine Restore Point is set to `CrashConsistent`. Defaults to `false`. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] excluded_disks: A list of disks that will be excluded from the Virtual Machine Restore Point. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Virtual Machine Restore Point. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] virtual_machine_restore_point_collection_id: Specifies the ID of the Virtual Machine Restore Point Collection the Virtual Machine Restore Point will be associated with. Changing this forces a new resource to be created.
         """
         ...
     @overload
@@ -186,6 +255,66 @@ class RestorePoint(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Virtual Machine Restore Point.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+        import pulumi_std as std
+
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_virtual_network = azure.network.VirtualNetwork("example",
+            name="example-network",
+            address_spaces=["10.0.0.0/16"],
+            location=example.location,
+            resource_group_name=example.name)
+        example_subnet = azure.network.Subnet("example",
+            name="internal",
+            resource_group_name=example.name,
+            virtual_network_name=example_virtual_network.name,
+            address_prefixes=["10.0.2.0/24"])
+        example_network_interface = azure.network.NetworkInterface("example",
+            name="example-nic",
+            location=example.location,
+            resource_group_name=example.name,
+            ip_configurations=[{
+                "name": "internal",
+                "subnet_id": example_subnet.id,
+                "private_ip_address_allocation": "Dynamic",
+            }])
+        example_linux_virtual_machine = azure.compute.LinuxVirtualMachine("example",
+            name="example-machine",
+            resource_group_name=example.name,
+            location=example.location,
+            size="Standard_F2",
+            admin_username="adminuser",
+            network_interface_ids=[example_network_interface.id],
+            admin_ssh_keys=[{
+                "username": "adminuser",
+                "public_key": std.file(input="~/.ssh/id_rsa.pub").result,
+            }],
+            os_disk={
+                "caching": "ReadWrite",
+                "storage_account_type": "Standard_LRS",
+            },
+            source_image_reference={
+                "publisher": "Canonical",
+                "offer": "0001-com-ubuntu-server-jammy",
+                "sku": "22_04-lts",
+                "version": "latest",
+            })
+        example_restore_point_collection = azure.compute.RestorePointCollection("example",
+            name="example-collection",
+            resource_group_name=example.name,
+            location=example_linux_virtual_machine.location,
+            source_virtual_machine_id=example_linux_virtual_machine.id)
+        example_restore_point = azure.compute.RestorePoint("example",
+            name="example-restore-point",
+            virtual_machine_restore_point_collection_id=example_restore_point_collection.id)
+        ```
 
         ## Import
 
@@ -250,9 +379,10 @@ class RestorePoint(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[bool] crash_consistency_mode_enabled: Is Crash Consistent the Consistency Mode of the Virtual Machine Restore Point. Defaults to `false`. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] crash_consistency_mode_enabled: Whether the Consistency Mode of the Virtual Machine Restore Point is set to `CrashConsistent`. Defaults to `false`. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] excluded_disks: A list of disks that will be excluded from the Virtual Machine Restore Point. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Virtual Machine Restore Point. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] virtual_machine_restore_point_collection_id: Specifies the ID of the Virtual Machine Restore Point Collection the Virtual Machine Restore Point will be associated with. Changing this forces a new resource to be created.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -268,7 +398,7 @@ class RestorePoint(pulumi.CustomResource):
     @pulumi.getter(name="crashConsistencyModeEnabled")
     def crash_consistency_mode_enabled(self) -> pulumi.Output[Optional[bool]]:
         """
-        Is Crash Consistent the Consistency Mode of the Virtual Machine Restore Point. Defaults to `false`. Changing this forces a new resource to be created.
+        Whether the Consistency Mode of the Virtual Machine Restore Point is set to `CrashConsistent`. Defaults to `false`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "crash_consistency_mode_enabled")
 
@@ -291,5 +421,8 @@ class RestorePoint(pulumi.CustomResource):
     @property
     @pulumi.getter(name="virtualMachineRestorePointCollectionId")
     def virtual_machine_restore_point_collection_id(self) -> pulumi.Output[str]:
+        """
+        Specifies the ID of the Virtual Machine Restore Point Collection the Virtual Machine Restore Point will be associated with. Changing this forces a new resource to be created.
+        """
         return pulumi.get(self, "virtual_machine_restore_point_collection_id")
 

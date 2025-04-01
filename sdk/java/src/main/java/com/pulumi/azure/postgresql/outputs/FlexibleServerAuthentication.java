@@ -13,12 +13,12 @@ import javax.annotation.Nullable;
 @CustomType
 public final class FlexibleServerAuthentication {
     /**
-     * @return Whether or not Active Directory authentication is allowed to access the PostgreSQL Flexible Server. Defaults to `false`.
+     * @return Whether Active Directory authentication is allowed to access the PostgreSQL Flexible Server. Defaults to `false`.
      * 
      */
     private @Nullable Boolean activeDirectoryAuthEnabled;
     /**
-     * @return Whether or not password authentication is allowed to access the PostgreSQL Flexible Server. Defaults to `true`.
+     * @return Whether password authentication is allowed to access the PostgreSQL Flexible Server. Defaults to `true`.
      * 
      */
     private @Nullable Boolean passwordAuthEnabled;
@@ -34,14 +34,14 @@ public final class FlexibleServerAuthentication {
 
     private FlexibleServerAuthentication() {}
     /**
-     * @return Whether or not Active Directory authentication is allowed to access the PostgreSQL Flexible Server. Defaults to `false`.
+     * @return Whether Active Directory authentication is allowed to access the PostgreSQL Flexible Server. Defaults to `false`.
      * 
      */
     public Optional<Boolean> activeDirectoryAuthEnabled() {
         return Optional.ofNullable(this.activeDirectoryAuthEnabled);
     }
     /**
-     * @return Whether or not password authentication is allowed to access the PostgreSQL Flexible Server. Defaults to `true`.
+     * @return Whether password authentication is allowed to access the PostgreSQL Flexible Server. Defaults to `true`.
      * 
      */
     public Optional<Boolean> passwordAuthEnabled() {

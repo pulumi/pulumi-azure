@@ -98,7 +98,7 @@ type Group struct {
 	//
 	// > **Note:** DNS label/name is not supported when deploying to virtual networks.
 	DnsNameLabel pulumi.StringPtrOutput `pulumi:"dnsNameLabel"`
-	// The value representing the security enum. `Noreuse`, `ResourceGroupReuse`, `SubscriptionReuse`, `TenantReuse` or `Unsecure`. Defaults to `Unsecure`.
+	// The value representing the security enum. `Noreuse`, `ResourceGroupReuse`, `SubscriptionReuse`, `TenantReuse` or `Unsecure`. Defaults to `Unsecure`. Changing this forces a new resource to be created.
 	DnsNameLabelReusePolicy pulumi.StringPtrOutput `pulumi:"dnsNameLabelReusePolicy"`
 	// Zero or more `exposedPort` blocks as defined below. Changing this forces a new resource to be created.
 	//
@@ -199,7 +199,7 @@ type groupState struct {
 	//
 	// > **Note:** DNS label/name is not supported when deploying to virtual networks.
 	DnsNameLabel *string `pulumi:"dnsNameLabel"`
-	// The value representing the security enum. `Noreuse`, `ResourceGroupReuse`, `SubscriptionReuse`, `TenantReuse` or `Unsecure`. Defaults to `Unsecure`.
+	// The value representing the security enum. `Noreuse`, `ResourceGroupReuse`, `SubscriptionReuse`, `TenantReuse` or `Unsecure`. Defaults to `Unsecure`. Changing this forces a new resource to be created.
 	DnsNameLabelReusePolicy *string `pulumi:"dnsNameLabelReusePolicy"`
 	// Zero or more `exposedPort` blocks as defined below. Changing this forces a new resource to be created.
 	//
@@ -262,7 +262,7 @@ type GroupState struct {
 	//
 	// > **Note:** DNS label/name is not supported when deploying to virtual networks.
 	DnsNameLabel pulumi.StringPtrInput
-	// The value representing the security enum. `Noreuse`, `ResourceGroupReuse`, `SubscriptionReuse`, `TenantReuse` or `Unsecure`. Defaults to `Unsecure`.
+	// The value representing the security enum. `Noreuse`, `ResourceGroupReuse`, `SubscriptionReuse`, `TenantReuse` or `Unsecure`. Defaults to `Unsecure`. Changing this forces a new resource to be created.
 	DnsNameLabelReusePolicy pulumi.StringPtrInput
 	// Zero or more `exposedPort` blocks as defined below. Changing this forces a new resource to be created.
 	//
@@ -329,7 +329,7 @@ type groupArgs struct {
 	//
 	// > **Note:** DNS label/name is not supported when deploying to virtual networks.
 	DnsNameLabel *string `pulumi:"dnsNameLabel"`
-	// The value representing the security enum. `Noreuse`, `ResourceGroupReuse`, `SubscriptionReuse`, `TenantReuse` or `Unsecure`. Defaults to `Unsecure`.
+	// The value representing the security enum. `Noreuse`, `ResourceGroupReuse`, `SubscriptionReuse`, `TenantReuse` or `Unsecure`. Defaults to `Unsecure`. Changing this forces a new resource to be created.
 	DnsNameLabelReusePolicy *string `pulumi:"dnsNameLabelReusePolicy"`
 	// Zero or more `exposedPort` blocks as defined below. Changing this forces a new resource to be created.
 	//
@@ -389,7 +389,7 @@ type GroupArgs struct {
 	//
 	// > **Note:** DNS label/name is not supported when deploying to virtual networks.
 	DnsNameLabel pulumi.StringPtrInput
-	// The value representing the security enum. `Noreuse`, `ResourceGroupReuse`, `SubscriptionReuse`, `TenantReuse` or `Unsecure`. Defaults to `Unsecure`.
+	// The value representing the security enum. `Noreuse`, `ResourceGroupReuse`, `SubscriptionReuse`, `TenantReuse` or `Unsecure`. Defaults to `Unsecure`. Changing this forces a new resource to be created.
 	DnsNameLabelReusePolicy pulumi.StringPtrInput
 	// Zero or more `exposedPort` blocks as defined below. Changing this forces a new resource to be created.
 	//
@@ -546,7 +546,7 @@ func (o GroupOutput) DnsNameLabel() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Group) pulumi.StringPtrOutput { return v.DnsNameLabel }).(pulumi.StringPtrOutput)
 }
 
-// The value representing the security enum. `Noreuse`, `ResourceGroupReuse`, `SubscriptionReuse`, `TenantReuse` or `Unsecure`. Defaults to `Unsecure`.
+// The value representing the security enum. `Noreuse`, `ResourceGroupReuse`, `SubscriptionReuse`, `TenantReuse` or `Unsecure`. Defaults to `Unsecure`. Changing this forces a new resource to be created.
 func (o GroupOutput) DnsNameLabelReusePolicy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Group) pulumi.StringPtrOutput { return v.DnsNameLabelReusePolicy }).(pulumi.StringPtrOutput)
 }

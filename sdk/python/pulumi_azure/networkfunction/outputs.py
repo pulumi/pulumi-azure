@@ -42,6 +42,8 @@ class CollectorPolicyIpfxEmission(dict):
                  destination_types: str):
         """
         :param str destination_types: A list of emission destination types. The only possible value is `AzureMonitor`. Changing this forces a new Network Function Collector Policy to be created.
+               
+               > **Note:** Please use the `monitoring.DiagnosticSetting` resource to forward logs to a Log Analytics Workspace.
         """
         pulumi.set(__self__, "destination_types", destination_types)
 
@@ -50,6 +52,8 @@ class CollectorPolicyIpfxEmission(dict):
     def destination_types(self) -> str:
         """
         A list of emission destination types. The only possible value is `AzureMonitor`. Changing this forces a new Network Function Collector Policy to be created.
+
+        > **Note:** Please use the `monitoring.DiagnosticSetting` resource to forward logs to a Log Analytics Workspace.
         """
         return pulumi.get(self, "destination_types")
 

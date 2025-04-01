@@ -173,7 +173,7 @@ namespace Pulumi.Azure.ContainerApp
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// The profile of the workload to scope the container app execution. A `workload_profile` block as defined below.
+        /// One or more `workload_profile` blocks as defined below.
         /// </summary>
         [Output("workloadProfiles")]
         public Output<ImmutableArray<Outputs.EnvironmentWorkloadProfile>> WorkloadProfiles { get; private set; } = null!;
@@ -332,7 +332,7 @@ namespace Pulumi.Azure.ContainerApp
         private InputList<Inputs.EnvironmentWorkloadProfileArgs>? _workloadProfiles;
 
         /// <summary>
-        /// The profile of the workload to scope the container app execution. A `workload_profile` block as defined below.
+        /// One or more `workload_profile` blocks as defined below.
         /// </summary>
         public InputList<Inputs.EnvironmentWorkloadProfileArgs> WorkloadProfiles
         {
@@ -488,7 +488,7 @@ namespace Pulumi.Azure.ContainerApp
         private InputList<Inputs.EnvironmentWorkloadProfileGetArgs>? _workloadProfiles;
 
         /// <summary>
-        /// The profile of the workload to scope the container app execution. A `workload_profile` block as defined below.
+        /// One or more `workload_profile` blocks as defined below.
         /// </summary>
         public InputList<Inputs.EnvironmentWorkloadProfileGetArgs> WorkloadProfiles
         {

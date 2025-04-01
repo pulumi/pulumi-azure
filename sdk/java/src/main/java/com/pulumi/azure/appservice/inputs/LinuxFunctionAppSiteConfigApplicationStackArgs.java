@@ -98,14 +98,14 @@ public final class LinuxFunctionAppSiteConfigApplicationStackArgs extends com.pu
     }
 
     /**
-     * The version of Python to run. Possible values are `3.12`, `3.11`, `3.10`, `3.9`, `3.8` and `3.7`.
+     * The version of Python to run. Possible values are `3.13`, `3.12`, `3.11`, `3.10`, `3.9`, `3.8` and `3.7`.
      * 
      */
     @Import(name="pythonVersion")
     private @Nullable Output<String> pythonVersion;
 
     /**
-     * @return The version of Python to run. Possible values are `3.12`, `3.11`, `3.10`, `3.9`, `3.8` and `3.7`.
+     * @return The version of Python to run. Possible values are `3.13`, `3.12`, `3.11`, `3.10`, `3.9`, `3.8` and `3.7`.
      * 
      */
     public Optional<Output<String>> pythonVersion() {
@@ -293,7 +293,7 @@ public final class LinuxFunctionAppSiteConfigApplicationStackArgs extends com.pu
         }
 
         /**
-         * @param pythonVersion The version of Python to run. Possible values are `3.12`, `3.11`, `3.10`, `3.9`, `3.8` and `3.7`.
+         * @param pythonVersion The version of Python to run. Possible values are `3.13`, `3.12`, `3.11`, `3.10`, `3.9`, `3.8` and `3.7`.
          * 
          * @return builder
          * 
@@ -304,7 +304,7 @@ public final class LinuxFunctionAppSiteConfigApplicationStackArgs extends com.pu
         }
 
         /**
-         * @param pythonVersion The version of Python to run. Possible values are `3.12`, `3.11`, `3.10`, `3.9`, `3.8` and `3.7`.
+         * @param pythonVersion The version of Python to run. Possible values are `3.13`, `3.12`, `3.11`, `3.10`, `3.9`, `3.8` and `3.7`.
          * 
          * @return builder
          * 

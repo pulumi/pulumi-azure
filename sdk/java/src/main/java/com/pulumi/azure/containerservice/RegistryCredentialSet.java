@@ -67,7 +67,7 @@ import javax.annotation.Nullable;
  * 
  *         var exampleRegistryCredentialSet = new RegistryCredentialSet("exampleRegistryCredentialSet", RegistryCredentialSetArgs.builder()
  *             .name("exampleCredentialSet")
- *             .containerRegistryId("azurerm_container_registry.example.id")
+ *             .containerRegistryId(exampleRegistry.id())
  *             .loginServer("docker.io")
  *             .identity(RegistryCredentialSetIdentityArgs.builder()
  *                 .type("SystemAssigned")
@@ -173,7 +173,7 @@ import javax.annotation.Nullable;
  * 
  *         var exampleRegistryCredentialSet = new RegistryCredentialSet("exampleRegistryCredentialSet", RegistryCredentialSetArgs.builder()
  *             .name("exampleCredentialSet")
- *             .containerRegistryId("azurerm_container_registry.example.id")
+ *             .containerRegistryId(exampleRegistry.id())
  *             .loginServer("docker.io")
  *             .identity(RegistryCredentialSetIdentityArgs.builder()
  *                 .type("SystemAssigned")

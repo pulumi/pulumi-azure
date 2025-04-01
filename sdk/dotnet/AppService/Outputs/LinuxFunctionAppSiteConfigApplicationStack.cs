@@ -36,7 +36,7 @@ namespace Pulumi.Azure.AppService.Outputs
         /// </summary>
         public readonly string? PowershellCoreVersion;
         /// <summary>
-        /// The version of Python to run. Possible values are `3.12`, `3.11`, `3.10`, `3.9`, `3.8` and `3.7`.
+        /// The version of Python to run. Possible values are `3.13`, `3.12`, `3.11`, `3.10`, `3.9`, `3.8` and `3.7`.
         /// </summary>
         public readonly string? PythonVersion;
         /// <summary>

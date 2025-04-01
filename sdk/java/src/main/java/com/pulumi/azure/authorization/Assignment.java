@@ -334,7 +334,9 @@ import javax.annotation.Nullable;
  * 
  * * for scope `Resource Group`, the id format is `/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Authorization/roleAssignments/00000000-0000-0000-0000-000000000000`
  * 
- * * for scope referencing a Key Vault, the id format is `/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.KeyVault/vaults/vaultname/providers/Microsoft.Authorization/roleAssignments/00000000-0000-0000-0000-000000000000`
+ * * for scope `Key Vault`, the id format is `/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.KeyVault/vaults/vault1/providers/Microsoft.Authorization/roleAssignments/00000000-0000-0000-0000-000000000000`
+ * 
+ * * for scope `Storage Account`, the id format is `/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Storage/storageAccounts/storageAccount1/providers/Microsoft.Authorization/roleAssignments/00000000-0000-0000-0000-000000000000`
  * 
  * text
  * 

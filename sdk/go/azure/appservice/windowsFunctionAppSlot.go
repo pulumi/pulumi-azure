@@ -172,8 +172,10 @@ type WindowsFunctionAppSlot struct {
 	// > **NOTE:** One of `storageAccountAccessKey` or `storageUsesManagedIdentity` must be specified when using `storageAccountName`.
 	StorageUsesManagedIdentity pulumi.BoolPtrOutput `pulumi:"storageUsesManagedIdentity"`
 	// A mapping of tags which should be assigned to the Windows Function App Slot.
-	Tags                   pulumi.StringMapOutput `pulumi:"tags"`
-	VirtualNetworkSubnetId pulumi.StringPtrOutput `pulumi:"virtualNetworkSubnetId"`
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// Whether backup and restore operations over the linked virtual network are enabled. Defaults to `false`.
+	VirtualNetworkBackupRestoreEnabled pulumi.BoolPtrOutput   `pulumi:"virtualNetworkBackupRestoreEnabled"`
+	VirtualNetworkSubnetId             pulumi.StringPtrOutput `pulumi:"virtualNetworkSubnetId"`
 	// Specifies whether traffic for the image pull should be routed over virtual network. Defaults to `false`.
 	//
 	// > **Note:** The feature can also be enabled via the app setting `WEBSITE_PULL_IMAGE_OVER_VNET`. The Setting is enabled by default for app running in the App Service Environment.
@@ -306,8 +308,10 @@ type windowsFunctionAppSlotState struct {
 	// > **NOTE:** One of `storageAccountAccessKey` or `storageUsesManagedIdentity` must be specified when using `storageAccountName`.
 	StorageUsesManagedIdentity *bool `pulumi:"storageUsesManagedIdentity"`
 	// A mapping of tags which should be assigned to the Windows Function App Slot.
-	Tags                   map[string]string `pulumi:"tags"`
-	VirtualNetworkSubnetId *string           `pulumi:"virtualNetworkSubnetId"`
+	Tags map[string]string `pulumi:"tags"`
+	// Whether backup and restore operations over the linked virtual network are enabled. Defaults to `false`.
+	VirtualNetworkBackupRestoreEnabled *bool   `pulumi:"virtualNetworkBackupRestoreEnabled"`
+	VirtualNetworkSubnetId             *string `pulumi:"virtualNetworkSubnetId"`
 	// Specifies whether traffic for the image pull should be routed over virtual network. Defaults to `false`.
 	//
 	// > **Note:** The feature can also be enabled via the app setting `WEBSITE_PULL_IMAGE_OVER_VNET`. The Setting is enabled by default for app running in the App Service Environment.
@@ -396,8 +400,10 @@ type WindowsFunctionAppSlotState struct {
 	// > **NOTE:** One of `storageAccountAccessKey` or `storageUsesManagedIdentity` must be specified when using `storageAccountName`.
 	StorageUsesManagedIdentity pulumi.BoolPtrInput
 	// A mapping of tags which should be assigned to the Windows Function App Slot.
-	Tags                   pulumi.StringMapInput
-	VirtualNetworkSubnetId pulumi.StringPtrInput
+	Tags pulumi.StringMapInput
+	// Whether backup and restore operations over the linked virtual network are enabled. Defaults to `false`.
+	VirtualNetworkBackupRestoreEnabled pulumi.BoolPtrInput
+	VirtualNetworkSubnetId             pulumi.StringPtrInput
 	// Specifies whether traffic for the image pull should be routed over virtual network. Defaults to `false`.
 	//
 	// > **Note:** The feature can also be enabled via the app setting `WEBSITE_PULL_IMAGE_OVER_VNET`. The Setting is enabled by default for app running in the App Service Environment.
@@ -472,8 +478,10 @@ type windowsFunctionAppSlotArgs struct {
 	// > **NOTE:** One of `storageAccountAccessKey` or `storageUsesManagedIdentity` must be specified when using `storageAccountName`.
 	StorageUsesManagedIdentity *bool `pulumi:"storageUsesManagedIdentity"`
 	// A mapping of tags which should be assigned to the Windows Function App Slot.
-	Tags                   map[string]string `pulumi:"tags"`
-	VirtualNetworkSubnetId *string           `pulumi:"virtualNetworkSubnetId"`
+	Tags map[string]string `pulumi:"tags"`
+	// Whether backup and restore operations over the linked virtual network are enabled. Defaults to `false`.
+	VirtualNetworkBackupRestoreEnabled *bool   `pulumi:"virtualNetworkBackupRestoreEnabled"`
+	VirtualNetworkSubnetId             *string `pulumi:"virtualNetworkSubnetId"`
 	// Specifies whether traffic for the image pull should be routed over virtual network. Defaults to `false`.
 	//
 	// > **Note:** The feature can also be enabled via the app setting `WEBSITE_PULL_IMAGE_OVER_VNET`. The Setting is enabled by default for app running in the App Service Environment.
@@ -545,8 +553,10 @@ type WindowsFunctionAppSlotArgs struct {
 	// > **NOTE:** One of `storageAccountAccessKey` or `storageUsesManagedIdentity` must be specified when using `storageAccountName`.
 	StorageUsesManagedIdentity pulumi.BoolPtrInput
 	// A mapping of tags which should be assigned to the Windows Function App Slot.
-	Tags                   pulumi.StringMapInput
-	VirtualNetworkSubnetId pulumi.StringPtrInput
+	Tags pulumi.StringMapInput
+	// Whether backup and restore operations over the linked virtual network are enabled. Defaults to `false`.
+	VirtualNetworkBackupRestoreEnabled pulumi.BoolPtrInput
+	VirtualNetworkSubnetId             pulumi.StringPtrInput
 	// Specifies whether traffic for the image pull should be routed over virtual network. Defaults to `false`.
 	//
 	// > **Note:** The feature can also be enabled via the app setting `WEBSITE_PULL_IMAGE_OVER_VNET`. The Setting is enabled by default for app running in the App Service Environment.
@@ -837,6 +847,11 @@ func (o WindowsFunctionAppSlotOutput) StorageUsesManagedIdentity() pulumi.BoolPt
 // A mapping of tags which should be assigned to the Windows Function App Slot.
 func (o WindowsFunctionAppSlotOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *WindowsFunctionAppSlot) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Whether backup and restore operations over the linked virtual network are enabled. Defaults to `false`.
+func (o WindowsFunctionAppSlotOutput) VirtualNetworkBackupRestoreEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *WindowsFunctionAppSlot) pulumi.BoolPtrOutput { return v.VirtualNetworkBackupRestoreEnabled }).(pulumi.BoolPtrOutput)
 }
 
 func (o WindowsFunctionAppSlotOutput) VirtualNetworkSubnetId() pulumi.StringPtrOutput {

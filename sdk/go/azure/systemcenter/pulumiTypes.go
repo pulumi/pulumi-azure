@@ -13,6 +13,891 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+type VirtualMachineManagerVirtualMachineInstanceHardware struct {
+	// The number of vCPUs for the Virtual Machine. Possible values are between `1` and `64`.
+	CpuCount *int `pulumi:"cpuCount"`
+	// The max dynamic memory for the Virtual Machine. Possible values are between `32` and `1048576`.
+	DynamicMemoryMaxInMb *int `pulumi:"dynamicMemoryMaxInMb"`
+	// The min dynamic memory for the Virtual Machine. Possible values are between `32` and `1048576`.
+	DynamicMemoryMinInMb *int `pulumi:"dynamicMemoryMinInMb"`
+	// Whether processor compatibility mode for live migration of Virtual Machines is enabled.
+	LimitCpuForMigrationEnabled *bool `pulumi:"limitCpuForMigrationEnabled"`
+	// The size of a Virtual Machine's memory. Possible values are between `32` and `1048576`.
+	MemoryInMb *int `pulumi:"memoryInMb"`
+}
+
+// VirtualMachineManagerVirtualMachineInstanceHardwareInput is an input type that accepts VirtualMachineManagerVirtualMachineInstanceHardwareArgs and VirtualMachineManagerVirtualMachineInstanceHardwareOutput values.
+// You can construct a concrete instance of `VirtualMachineManagerVirtualMachineInstanceHardwareInput` via:
+//
+//	VirtualMachineManagerVirtualMachineInstanceHardwareArgs{...}
+type VirtualMachineManagerVirtualMachineInstanceHardwareInput interface {
+	pulumi.Input
+
+	ToVirtualMachineManagerVirtualMachineInstanceHardwareOutput() VirtualMachineManagerVirtualMachineInstanceHardwareOutput
+	ToVirtualMachineManagerVirtualMachineInstanceHardwareOutputWithContext(context.Context) VirtualMachineManagerVirtualMachineInstanceHardwareOutput
+}
+
+type VirtualMachineManagerVirtualMachineInstanceHardwareArgs struct {
+	// The number of vCPUs for the Virtual Machine. Possible values are between `1` and `64`.
+	CpuCount pulumi.IntPtrInput `pulumi:"cpuCount"`
+	// The max dynamic memory for the Virtual Machine. Possible values are between `32` and `1048576`.
+	DynamicMemoryMaxInMb pulumi.IntPtrInput `pulumi:"dynamicMemoryMaxInMb"`
+	// The min dynamic memory for the Virtual Machine. Possible values are between `32` and `1048576`.
+	DynamicMemoryMinInMb pulumi.IntPtrInput `pulumi:"dynamicMemoryMinInMb"`
+	// Whether processor compatibility mode for live migration of Virtual Machines is enabled.
+	LimitCpuForMigrationEnabled pulumi.BoolPtrInput `pulumi:"limitCpuForMigrationEnabled"`
+	// The size of a Virtual Machine's memory. Possible values are between `32` and `1048576`.
+	MemoryInMb pulumi.IntPtrInput `pulumi:"memoryInMb"`
+}
+
+func (VirtualMachineManagerVirtualMachineInstanceHardwareArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualMachineManagerVirtualMachineInstanceHardware)(nil)).Elem()
+}
+
+func (i VirtualMachineManagerVirtualMachineInstanceHardwareArgs) ToVirtualMachineManagerVirtualMachineInstanceHardwareOutput() VirtualMachineManagerVirtualMachineInstanceHardwareOutput {
+	return i.ToVirtualMachineManagerVirtualMachineInstanceHardwareOutputWithContext(context.Background())
+}
+
+func (i VirtualMachineManagerVirtualMachineInstanceHardwareArgs) ToVirtualMachineManagerVirtualMachineInstanceHardwareOutputWithContext(ctx context.Context) VirtualMachineManagerVirtualMachineInstanceHardwareOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualMachineManagerVirtualMachineInstanceHardwareOutput)
+}
+
+func (i VirtualMachineManagerVirtualMachineInstanceHardwareArgs) ToVirtualMachineManagerVirtualMachineInstanceHardwarePtrOutput() VirtualMachineManagerVirtualMachineInstanceHardwarePtrOutput {
+	return i.ToVirtualMachineManagerVirtualMachineInstanceHardwarePtrOutputWithContext(context.Background())
+}
+
+func (i VirtualMachineManagerVirtualMachineInstanceHardwareArgs) ToVirtualMachineManagerVirtualMachineInstanceHardwarePtrOutputWithContext(ctx context.Context) VirtualMachineManagerVirtualMachineInstanceHardwarePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualMachineManagerVirtualMachineInstanceHardwareOutput).ToVirtualMachineManagerVirtualMachineInstanceHardwarePtrOutputWithContext(ctx)
+}
+
+// VirtualMachineManagerVirtualMachineInstanceHardwarePtrInput is an input type that accepts VirtualMachineManagerVirtualMachineInstanceHardwareArgs, VirtualMachineManagerVirtualMachineInstanceHardwarePtr and VirtualMachineManagerVirtualMachineInstanceHardwarePtrOutput values.
+// You can construct a concrete instance of `VirtualMachineManagerVirtualMachineInstanceHardwarePtrInput` via:
+//
+//	        VirtualMachineManagerVirtualMachineInstanceHardwareArgs{...}
+//
+//	or:
+//
+//	        nil
+type VirtualMachineManagerVirtualMachineInstanceHardwarePtrInput interface {
+	pulumi.Input
+
+	ToVirtualMachineManagerVirtualMachineInstanceHardwarePtrOutput() VirtualMachineManagerVirtualMachineInstanceHardwarePtrOutput
+	ToVirtualMachineManagerVirtualMachineInstanceHardwarePtrOutputWithContext(context.Context) VirtualMachineManagerVirtualMachineInstanceHardwarePtrOutput
+}
+
+type virtualMachineManagerVirtualMachineInstanceHardwarePtrType VirtualMachineManagerVirtualMachineInstanceHardwareArgs
+
+func VirtualMachineManagerVirtualMachineInstanceHardwarePtr(v *VirtualMachineManagerVirtualMachineInstanceHardwareArgs) VirtualMachineManagerVirtualMachineInstanceHardwarePtrInput {
+	return (*virtualMachineManagerVirtualMachineInstanceHardwarePtrType)(v)
+}
+
+func (*virtualMachineManagerVirtualMachineInstanceHardwarePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualMachineManagerVirtualMachineInstanceHardware)(nil)).Elem()
+}
+
+func (i *virtualMachineManagerVirtualMachineInstanceHardwarePtrType) ToVirtualMachineManagerVirtualMachineInstanceHardwarePtrOutput() VirtualMachineManagerVirtualMachineInstanceHardwarePtrOutput {
+	return i.ToVirtualMachineManagerVirtualMachineInstanceHardwarePtrOutputWithContext(context.Background())
+}
+
+func (i *virtualMachineManagerVirtualMachineInstanceHardwarePtrType) ToVirtualMachineManagerVirtualMachineInstanceHardwarePtrOutputWithContext(ctx context.Context) VirtualMachineManagerVirtualMachineInstanceHardwarePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualMachineManagerVirtualMachineInstanceHardwarePtrOutput)
+}
+
+type VirtualMachineManagerVirtualMachineInstanceHardwareOutput struct{ *pulumi.OutputState }
+
+func (VirtualMachineManagerVirtualMachineInstanceHardwareOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualMachineManagerVirtualMachineInstanceHardware)(nil)).Elem()
+}
+
+func (o VirtualMachineManagerVirtualMachineInstanceHardwareOutput) ToVirtualMachineManagerVirtualMachineInstanceHardwareOutput() VirtualMachineManagerVirtualMachineInstanceHardwareOutput {
+	return o
+}
+
+func (o VirtualMachineManagerVirtualMachineInstanceHardwareOutput) ToVirtualMachineManagerVirtualMachineInstanceHardwareOutputWithContext(ctx context.Context) VirtualMachineManagerVirtualMachineInstanceHardwareOutput {
+	return o
+}
+
+func (o VirtualMachineManagerVirtualMachineInstanceHardwareOutput) ToVirtualMachineManagerVirtualMachineInstanceHardwarePtrOutput() VirtualMachineManagerVirtualMachineInstanceHardwarePtrOutput {
+	return o.ToVirtualMachineManagerVirtualMachineInstanceHardwarePtrOutputWithContext(context.Background())
+}
+
+func (o VirtualMachineManagerVirtualMachineInstanceHardwareOutput) ToVirtualMachineManagerVirtualMachineInstanceHardwarePtrOutputWithContext(ctx context.Context) VirtualMachineManagerVirtualMachineInstanceHardwarePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualMachineManagerVirtualMachineInstanceHardware) *VirtualMachineManagerVirtualMachineInstanceHardware {
+		return &v
+	}).(VirtualMachineManagerVirtualMachineInstanceHardwarePtrOutput)
+}
+
+// The number of vCPUs for the Virtual Machine. Possible values are between `1` and `64`.
+func (o VirtualMachineManagerVirtualMachineInstanceHardwareOutput) CpuCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v VirtualMachineManagerVirtualMachineInstanceHardware) *int { return v.CpuCount }).(pulumi.IntPtrOutput)
+}
+
+// The max dynamic memory for the Virtual Machine. Possible values are between `32` and `1048576`.
+func (o VirtualMachineManagerVirtualMachineInstanceHardwareOutput) DynamicMemoryMaxInMb() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v VirtualMachineManagerVirtualMachineInstanceHardware) *int { return v.DynamicMemoryMaxInMb }).(pulumi.IntPtrOutput)
+}
+
+// The min dynamic memory for the Virtual Machine. Possible values are between `32` and `1048576`.
+func (o VirtualMachineManagerVirtualMachineInstanceHardwareOutput) DynamicMemoryMinInMb() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v VirtualMachineManagerVirtualMachineInstanceHardware) *int { return v.DynamicMemoryMinInMb }).(pulumi.IntPtrOutput)
+}
+
+// Whether processor compatibility mode for live migration of Virtual Machines is enabled.
+func (o VirtualMachineManagerVirtualMachineInstanceHardwareOutput) LimitCpuForMigrationEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v VirtualMachineManagerVirtualMachineInstanceHardware) *bool {
+		return v.LimitCpuForMigrationEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The size of a Virtual Machine's memory. Possible values are between `32` and `1048576`.
+func (o VirtualMachineManagerVirtualMachineInstanceHardwareOutput) MemoryInMb() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v VirtualMachineManagerVirtualMachineInstanceHardware) *int { return v.MemoryInMb }).(pulumi.IntPtrOutput)
+}
+
+type VirtualMachineManagerVirtualMachineInstanceHardwarePtrOutput struct{ *pulumi.OutputState }
+
+func (VirtualMachineManagerVirtualMachineInstanceHardwarePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualMachineManagerVirtualMachineInstanceHardware)(nil)).Elem()
+}
+
+func (o VirtualMachineManagerVirtualMachineInstanceHardwarePtrOutput) ToVirtualMachineManagerVirtualMachineInstanceHardwarePtrOutput() VirtualMachineManagerVirtualMachineInstanceHardwarePtrOutput {
+	return o
+}
+
+func (o VirtualMachineManagerVirtualMachineInstanceHardwarePtrOutput) ToVirtualMachineManagerVirtualMachineInstanceHardwarePtrOutputWithContext(ctx context.Context) VirtualMachineManagerVirtualMachineInstanceHardwarePtrOutput {
+	return o
+}
+
+func (o VirtualMachineManagerVirtualMachineInstanceHardwarePtrOutput) Elem() VirtualMachineManagerVirtualMachineInstanceHardwareOutput {
+	return o.ApplyT(func(v *VirtualMachineManagerVirtualMachineInstanceHardware) VirtualMachineManagerVirtualMachineInstanceHardware {
+		if v != nil {
+			return *v
+		}
+		var ret VirtualMachineManagerVirtualMachineInstanceHardware
+		return ret
+	}).(VirtualMachineManagerVirtualMachineInstanceHardwareOutput)
+}
+
+// The number of vCPUs for the Virtual Machine. Possible values are between `1` and `64`.
+func (o VirtualMachineManagerVirtualMachineInstanceHardwarePtrOutput) CpuCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *VirtualMachineManagerVirtualMachineInstanceHardware) *int {
+		if v == nil {
+			return nil
+		}
+		return v.CpuCount
+	}).(pulumi.IntPtrOutput)
+}
+
+// The max dynamic memory for the Virtual Machine. Possible values are between `32` and `1048576`.
+func (o VirtualMachineManagerVirtualMachineInstanceHardwarePtrOutput) DynamicMemoryMaxInMb() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *VirtualMachineManagerVirtualMachineInstanceHardware) *int {
+		if v == nil {
+			return nil
+		}
+		return v.DynamicMemoryMaxInMb
+	}).(pulumi.IntPtrOutput)
+}
+
+// The min dynamic memory for the Virtual Machine. Possible values are between `32` and `1048576`.
+func (o VirtualMachineManagerVirtualMachineInstanceHardwarePtrOutput) DynamicMemoryMinInMb() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *VirtualMachineManagerVirtualMachineInstanceHardware) *int {
+		if v == nil {
+			return nil
+		}
+		return v.DynamicMemoryMinInMb
+	}).(pulumi.IntPtrOutput)
+}
+
+// Whether processor compatibility mode for live migration of Virtual Machines is enabled.
+func (o VirtualMachineManagerVirtualMachineInstanceHardwarePtrOutput) LimitCpuForMigrationEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *VirtualMachineManagerVirtualMachineInstanceHardware) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.LimitCpuForMigrationEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The size of a Virtual Machine's memory. Possible values are between `32` and `1048576`.
+func (o VirtualMachineManagerVirtualMachineInstanceHardwarePtrOutput) MemoryInMb() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *VirtualMachineManagerVirtualMachineInstanceHardware) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MemoryInMb
+	}).(pulumi.IntPtrOutput)
+}
+
+type VirtualMachineManagerVirtualMachineInstanceInfrastructure struct {
+	// The type of checkpoint supported for the Virtual Machine. Possible values are `Disabled`, `Production`, `ProductionOnly` and `Standard`.
+	CheckpointType *string `pulumi:"checkpointType"`
+	// The ID of the System Center Virtual Machine Manager Cloud resource to use for deploying the Virtual Machine. Changing this forces a new resource to be created.
+	SystemCenterVirtualMachineManagerCloudId *string `pulumi:"systemCenterVirtualMachineManagerCloudId"`
+	// The ID of the System Center Virtual Machine Manager Inventory Item for System Center Virtual Machine Manager Virtual Machine Instance. Changing this forces a new resource to be created.
+	SystemCenterVirtualMachineManagerInventoryItemId *string `pulumi:"systemCenterVirtualMachineManagerInventoryItemId"`
+	// The ID of the System Center Virtual Machine Manager Virtual Machine Template to use for deploying the Virtual Machine. Changing this forces a new resource to be created.
+	SystemCenterVirtualMachineManagerTemplateId *string `pulumi:"systemCenterVirtualMachineManagerTemplateId"`
+	// The ID of the System Center Virtual Machine Manager Virtual Machine. Changing this forces a new resource to be created.
+	SystemCenterVirtualMachineManagerVirtualMachineServerId *string `pulumi:"systemCenterVirtualMachineManagerVirtualMachineServerId"`
+}
+
+// VirtualMachineManagerVirtualMachineInstanceInfrastructureInput is an input type that accepts VirtualMachineManagerVirtualMachineInstanceInfrastructureArgs and VirtualMachineManagerVirtualMachineInstanceInfrastructureOutput values.
+// You can construct a concrete instance of `VirtualMachineManagerVirtualMachineInstanceInfrastructureInput` via:
+//
+//	VirtualMachineManagerVirtualMachineInstanceInfrastructureArgs{...}
+type VirtualMachineManagerVirtualMachineInstanceInfrastructureInput interface {
+	pulumi.Input
+
+	ToVirtualMachineManagerVirtualMachineInstanceInfrastructureOutput() VirtualMachineManagerVirtualMachineInstanceInfrastructureOutput
+	ToVirtualMachineManagerVirtualMachineInstanceInfrastructureOutputWithContext(context.Context) VirtualMachineManagerVirtualMachineInstanceInfrastructureOutput
+}
+
+type VirtualMachineManagerVirtualMachineInstanceInfrastructureArgs struct {
+	// The type of checkpoint supported for the Virtual Machine. Possible values are `Disabled`, `Production`, `ProductionOnly` and `Standard`.
+	CheckpointType pulumi.StringPtrInput `pulumi:"checkpointType"`
+	// The ID of the System Center Virtual Machine Manager Cloud resource to use for deploying the Virtual Machine. Changing this forces a new resource to be created.
+	SystemCenterVirtualMachineManagerCloudId pulumi.StringPtrInput `pulumi:"systemCenterVirtualMachineManagerCloudId"`
+	// The ID of the System Center Virtual Machine Manager Inventory Item for System Center Virtual Machine Manager Virtual Machine Instance. Changing this forces a new resource to be created.
+	SystemCenterVirtualMachineManagerInventoryItemId pulumi.StringPtrInput `pulumi:"systemCenterVirtualMachineManagerInventoryItemId"`
+	// The ID of the System Center Virtual Machine Manager Virtual Machine Template to use for deploying the Virtual Machine. Changing this forces a new resource to be created.
+	SystemCenterVirtualMachineManagerTemplateId pulumi.StringPtrInput `pulumi:"systemCenterVirtualMachineManagerTemplateId"`
+	// The ID of the System Center Virtual Machine Manager Virtual Machine. Changing this forces a new resource to be created.
+	SystemCenterVirtualMachineManagerVirtualMachineServerId pulumi.StringPtrInput `pulumi:"systemCenterVirtualMachineManagerVirtualMachineServerId"`
+}
+
+func (VirtualMachineManagerVirtualMachineInstanceInfrastructureArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualMachineManagerVirtualMachineInstanceInfrastructure)(nil)).Elem()
+}
+
+func (i VirtualMachineManagerVirtualMachineInstanceInfrastructureArgs) ToVirtualMachineManagerVirtualMachineInstanceInfrastructureOutput() VirtualMachineManagerVirtualMachineInstanceInfrastructureOutput {
+	return i.ToVirtualMachineManagerVirtualMachineInstanceInfrastructureOutputWithContext(context.Background())
+}
+
+func (i VirtualMachineManagerVirtualMachineInstanceInfrastructureArgs) ToVirtualMachineManagerVirtualMachineInstanceInfrastructureOutputWithContext(ctx context.Context) VirtualMachineManagerVirtualMachineInstanceInfrastructureOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualMachineManagerVirtualMachineInstanceInfrastructureOutput)
+}
+
+func (i VirtualMachineManagerVirtualMachineInstanceInfrastructureArgs) ToVirtualMachineManagerVirtualMachineInstanceInfrastructurePtrOutput() VirtualMachineManagerVirtualMachineInstanceInfrastructurePtrOutput {
+	return i.ToVirtualMachineManagerVirtualMachineInstanceInfrastructurePtrOutputWithContext(context.Background())
+}
+
+func (i VirtualMachineManagerVirtualMachineInstanceInfrastructureArgs) ToVirtualMachineManagerVirtualMachineInstanceInfrastructurePtrOutputWithContext(ctx context.Context) VirtualMachineManagerVirtualMachineInstanceInfrastructurePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualMachineManagerVirtualMachineInstanceInfrastructureOutput).ToVirtualMachineManagerVirtualMachineInstanceInfrastructurePtrOutputWithContext(ctx)
+}
+
+// VirtualMachineManagerVirtualMachineInstanceInfrastructurePtrInput is an input type that accepts VirtualMachineManagerVirtualMachineInstanceInfrastructureArgs, VirtualMachineManagerVirtualMachineInstanceInfrastructurePtr and VirtualMachineManagerVirtualMachineInstanceInfrastructurePtrOutput values.
+// You can construct a concrete instance of `VirtualMachineManagerVirtualMachineInstanceInfrastructurePtrInput` via:
+//
+//	        VirtualMachineManagerVirtualMachineInstanceInfrastructureArgs{...}
+//
+//	or:
+//
+//	        nil
+type VirtualMachineManagerVirtualMachineInstanceInfrastructurePtrInput interface {
+	pulumi.Input
+
+	ToVirtualMachineManagerVirtualMachineInstanceInfrastructurePtrOutput() VirtualMachineManagerVirtualMachineInstanceInfrastructurePtrOutput
+	ToVirtualMachineManagerVirtualMachineInstanceInfrastructurePtrOutputWithContext(context.Context) VirtualMachineManagerVirtualMachineInstanceInfrastructurePtrOutput
+}
+
+type virtualMachineManagerVirtualMachineInstanceInfrastructurePtrType VirtualMachineManagerVirtualMachineInstanceInfrastructureArgs
+
+func VirtualMachineManagerVirtualMachineInstanceInfrastructurePtr(v *VirtualMachineManagerVirtualMachineInstanceInfrastructureArgs) VirtualMachineManagerVirtualMachineInstanceInfrastructurePtrInput {
+	return (*virtualMachineManagerVirtualMachineInstanceInfrastructurePtrType)(v)
+}
+
+func (*virtualMachineManagerVirtualMachineInstanceInfrastructurePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualMachineManagerVirtualMachineInstanceInfrastructure)(nil)).Elem()
+}
+
+func (i *virtualMachineManagerVirtualMachineInstanceInfrastructurePtrType) ToVirtualMachineManagerVirtualMachineInstanceInfrastructurePtrOutput() VirtualMachineManagerVirtualMachineInstanceInfrastructurePtrOutput {
+	return i.ToVirtualMachineManagerVirtualMachineInstanceInfrastructurePtrOutputWithContext(context.Background())
+}
+
+func (i *virtualMachineManagerVirtualMachineInstanceInfrastructurePtrType) ToVirtualMachineManagerVirtualMachineInstanceInfrastructurePtrOutputWithContext(ctx context.Context) VirtualMachineManagerVirtualMachineInstanceInfrastructurePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualMachineManagerVirtualMachineInstanceInfrastructurePtrOutput)
+}
+
+type VirtualMachineManagerVirtualMachineInstanceInfrastructureOutput struct{ *pulumi.OutputState }
+
+func (VirtualMachineManagerVirtualMachineInstanceInfrastructureOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualMachineManagerVirtualMachineInstanceInfrastructure)(nil)).Elem()
+}
+
+func (o VirtualMachineManagerVirtualMachineInstanceInfrastructureOutput) ToVirtualMachineManagerVirtualMachineInstanceInfrastructureOutput() VirtualMachineManagerVirtualMachineInstanceInfrastructureOutput {
+	return o
+}
+
+func (o VirtualMachineManagerVirtualMachineInstanceInfrastructureOutput) ToVirtualMachineManagerVirtualMachineInstanceInfrastructureOutputWithContext(ctx context.Context) VirtualMachineManagerVirtualMachineInstanceInfrastructureOutput {
+	return o
+}
+
+func (o VirtualMachineManagerVirtualMachineInstanceInfrastructureOutput) ToVirtualMachineManagerVirtualMachineInstanceInfrastructurePtrOutput() VirtualMachineManagerVirtualMachineInstanceInfrastructurePtrOutput {
+	return o.ToVirtualMachineManagerVirtualMachineInstanceInfrastructurePtrOutputWithContext(context.Background())
+}
+
+func (o VirtualMachineManagerVirtualMachineInstanceInfrastructureOutput) ToVirtualMachineManagerVirtualMachineInstanceInfrastructurePtrOutputWithContext(ctx context.Context) VirtualMachineManagerVirtualMachineInstanceInfrastructurePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualMachineManagerVirtualMachineInstanceInfrastructure) *VirtualMachineManagerVirtualMachineInstanceInfrastructure {
+		return &v
+	}).(VirtualMachineManagerVirtualMachineInstanceInfrastructurePtrOutput)
+}
+
+// The type of checkpoint supported for the Virtual Machine. Possible values are `Disabled`, `Production`, `ProductionOnly` and `Standard`.
+func (o VirtualMachineManagerVirtualMachineInstanceInfrastructureOutput) CheckpointType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VirtualMachineManagerVirtualMachineInstanceInfrastructure) *string { return v.CheckpointType }).(pulumi.StringPtrOutput)
+}
+
+// The ID of the System Center Virtual Machine Manager Cloud resource to use for deploying the Virtual Machine. Changing this forces a new resource to be created.
+func (o VirtualMachineManagerVirtualMachineInstanceInfrastructureOutput) SystemCenterVirtualMachineManagerCloudId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VirtualMachineManagerVirtualMachineInstanceInfrastructure) *string {
+		return v.SystemCenterVirtualMachineManagerCloudId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The ID of the System Center Virtual Machine Manager Inventory Item for System Center Virtual Machine Manager Virtual Machine Instance. Changing this forces a new resource to be created.
+func (o VirtualMachineManagerVirtualMachineInstanceInfrastructureOutput) SystemCenterVirtualMachineManagerInventoryItemId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VirtualMachineManagerVirtualMachineInstanceInfrastructure) *string {
+		return v.SystemCenterVirtualMachineManagerInventoryItemId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The ID of the System Center Virtual Machine Manager Virtual Machine Template to use for deploying the Virtual Machine. Changing this forces a new resource to be created.
+func (o VirtualMachineManagerVirtualMachineInstanceInfrastructureOutput) SystemCenterVirtualMachineManagerTemplateId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VirtualMachineManagerVirtualMachineInstanceInfrastructure) *string {
+		return v.SystemCenterVirtualMachineManagerTemplateId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The ID of the System Center Virtual Machine Manager Virtual Machine. Changing this forces a new resource to be created.
+func (o VirtualMachineManagerVirtualMachineInstanceInfrastructureOutput) SystemCenterVirtualMachineManagerVirtualMachineServerId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VirtualMachineManagerVirtualMachineInstanceInfrastructure) *string {
+		return v.SystemCenterVirtualMachineManagerVirtualMachineServerId
+	}).(pulumi.StringPtrOutput)
+}
+
+type VirtualMachineManagerVirtualMachineInstanceInfrastructurePtrOutput struct{ *pulumi.OutputState }
+
+func (VirtualMachineManagerVirtualMachineInstanceInfrastructurePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualMachineManagerVirtualMachineInstanceInfrastructure)(nil)).Elem()
+}
+
+func (o VirtualMachineManagerVirtualMachineInstanceInfrastructurePtrOutput) ToVirtualMachineManagerVirtualMachineInstanceInfrastructurePtrOutput() VirtualMachineManagerVirtualMachineInstanceInfrastructurePtrOutput {
+	return o
+}
+
+func (o VirtualMachineManagerVirtualMachineInstanceInfrastructurePtrOutput) ToVirtualMachineManagerVirtualMachineInstanceInfrastructurePtrOutputWithContext(ctx context.Context) VirtualMachineManagerVirtualMachineInstanceInfrastructurePtrOutput {
+	return o
+}
+
+func (o VirtualMachineManagerVirtualMachineInstanceInfrastructurePtrOutput) Elem() VirtualMachineManagerVirtualMachineInstanceInfrastructureOutput {
+	return o.ApplyT(func(v *VirtualMachineManagerVirtualMachineInstanceInfrastructure) VirtualMachineManagerVirtualMachineInstanceInfrastructure {
+		if v != nil {
+			return *v
+		}
+		var ret VirtualMachineManagerVirtualMachineInstanceInfrastructure
+		return ret
+	}).(VirtualMachineManagerVirtualMachineInstanceInfrastructureOutput)
+}
+
+// The type of checkpoint supported for the Virtual Machine. Possible values are `Disabled`, `Production`, `ProductionOnly` and `Standard`.
+func (o VirtualMachineManagerVirtualMachineInstanceInfrastructurePtrOutput) CheckpointType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VirtualMachineManagerVirtualMachineInstanceInfrastructure) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CheckpointType
+	}).(pulumi.StringPtrOutput)
+}
+
+// The ID of the System Center Virtual Machine Manager Cloud resource to use for deploying the Virtual Machine. Changing this forces a new resource to be created.
+func (o VirtualMachineManagerVirtualMachineInstanceInfrastructurePtrOutput) SystemCenterVirtualMachineManagerCloudId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VirtualMachineManagerVirtualMachineInstanceInfrastructure) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SystemCenterVirtualMachineManagerCloudId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The ID of the System Center Virtual Machine Manager Inventory Item for System Center Virtual Machine Manager Virtual Machine Instance. Changing this forces a new resource to be created.
+func (o VirtualMachineManagerVirtualMachineInstanceInfrastructurePtrOutput) SystemCenterVirtualMachineManagerInventoryItemId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VirtualMachineManagerVirtualMachineInstanceInfrastructure) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SystemCenterVirtualMachineManagerInventoryItemId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The ID of the System Center Virtual Machine Manager Virtual Machine Template to use for deploying the Virtual Machine. Changing this forces a new resource to be created.
+func (o VirtualMachineManagerVirtualMachineInstanceInfrastructurePtrOutput) SystemCenterVirtualMachineManagerTemplateId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VirtualMachineManagerVirtualMachineInstanceInfrastructure) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SystemCenterVirtualMachineManagerTemplateId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The ID of the System Center Virtual Machine Manager Virtual Machine. Changing this forces a new resource to be created.
+func (o VirtualMachineManagerVirtualMachineInstanceInfrastructurePtrOutput) SystemCenterVirtualMachineManagerVirtualMachineServerId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VirtualMachineManagerVirtualMachineInstanceInfrastructure) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SystemCenterVirtualMachineManagerVirtualMachineServerId
+	}).(pulumi.StringPtrOutput)
+}
+
+type VirtualMachineManagerVirtualMachineInstanceNetworkInterface struct {
+	// The IPv4 address type. Possible values are `Dynamic` and `Static`.
+	Ipv4AddressType *string `pulumi:"ipv4AddressType"`
+	// The IPv6 address type. Possible values are `Dynamic` and `Static`.
+	Ipv6AddressType *string `pulumi:"ipv6AddressType"`
+	// The MAC address type. Possible values are `Dynamic` and `Static`.
+	MacAddressType *string `pulumi:"macAddressType"`
+	// The name of the Virtual Network in System Center Virtual Machine Manager Server that the Network Interface is connected to.
+	Name string `pulumi:"name"`
+	// The ID of the System Center Virtual Machine Manager Virtual Network to connect the Network Interface.
+	VirtualNetworkId *string `pulumi:"virtualNetworkId"`
+}
+
+// VirtualMachineManagerVirtualMachineInstanceNetworkInterfaceInput is an input type that accepts VirtualMachineManagerVirtualMachineInstanceNetworkInterfaceArgs and VirtualMachineManagerVirtualMachineInstanceNetworkInterfaceOutput values.
+// You can construct a concrete instance of `VirtualMachineManagerVirtualMachineInstanceNetworkInterfaceInput` via:
+//
+//	VirtualMachineManagerVirtualMachineInstanceNetworkInterfaceArgs{...}
+type VirtualMachineManagerVirtualMachineInstanceNetworkInterfaceInput interface {
+	pulumi.Input
+
+	ToVirtualMachineManagerVirtualMachineInstanceNetworkInterfaceOutput() VirtualMachineManagerVirtualMachineInstanceNetworkInterfaceOutput
+	ToVirtualMachineManagerVirtualMachineInstanceNetworkInterfaceOutputWithContext(context.Context) VirtualMachineManagerVirtualMachineInstanceNetworkInterfaceOutput
+}
+
+type VirtualMachineManagerVirtualMachineInstanceNetworkInterfaceArgs struct {
+	// The IPv4 address type. Possible values are `Dynamic` and `Static`.
+	Ipv4AddressType pulumi.StringPtrInput `pulumi:"ipv4AddressType"`
+	// The IPv6 address type. Possible values are `Dynamic` and `Static`.
+	Ipv6AddressType pulumi.StringPtrInput `pulumi:"ipv6AddressType"`
+	// The MAC address type. Possible values are `Dynamic` and `Static`.
+	MacAddressType pulumi.StringPtrInput `pulumi:"macAddressType"`
+	// The name of the Virtual Network in System Center Virtual Machine Manager Server that the Network Interface is connected to.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The ID of the System Center Virtual Machine Manager Virtual Network to connect the Network Interface.
+	VirtualNetworkId pulumi.StringPtrInput `pulumi:"virtualNetworkId"`
+}
+
+func (VirtualMachineManagerVirtualMachineInstanceNetworkInterfaceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualMachineManagerVirtualMachineInstanceNetworkInterface)(nil)).Elem()
+}
+
+func (i VirtualMachineManagerVirtualMachineInstanceNetworkInterfaceArgs) ToVirtualMachineManagerVirtualMachineInstanceNetworkInterfaceOutput() VirtualMachineManagerVirtualMachineInstanceNetworkInterfaceOutput {
+	return i.ToVirtualMachineManagerVirtualMachineInstanceNetworkInterfaceOutputWithContext(context.Background())
+}
+
+func (i VirtualMachineManagerVirtualMachineInstanceNetworkInterfaceArgs) ToVirtualMachineManagerVirtualMachineInstanceNetworkInterfaceOutputWithContext(ctx context.Context) VirtualMachineManagerVirtualMachineInstanceNetworkInterfaceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualMachineManagerVirtualMachineInstanceNetworkInterfaceOutput)
+}
+
+// VirtualMachineManagerVirtualMachineInstanceNetworkInterfaceArrayInput is an input type that accepts VirtualMachineManagerVirtualMachineInstanceNetworkInterfaceArray and VirtualMachineManagerVirtualMachineInstanceNetworkInterfaceArrayOutput values.
+// You can construct a concrete instance of `VirtualMachineManagerVirtualMachineInstanceNetworkInterfaceArrayInput` via:
+//
+//	VirtualMachineManagerVirtualMachineInstanceNetworkInterfaceArray{ VirtualMachineManagerVirtualMachineInstanceNetworkInterfaceArgs{...} }
+type VirtualMachineManagerVirtualMachineInstanceNetworkInterfaceArrayInput interface {
+	pulumi.Input
+
+	ToVirtualMachineManagerVirtualMachineInstanceNetworkInterfaceArrayOutput() VirtualMachineManagerVirtualMachineInstanceNetworkInterfaceArrayOutput
+	ToVirtualMachineManagerVirtualMachineInstanceNetworkInterfaceArrayOutputWithContext(context.Context) VirtualMachineManagerVirtualMachineInstanceNetworkInterfaceArrayOutput
+}
+
+type VirtualMachineManagerVirtualMachineInstanceNetworkInterfaceArray []VirtualMachineManagerVirtualMachineInstanceNetworkInterfaceInput
+
+func (VirtualMachineManagerVirtualMachineInstanceNetworkInterfaceArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]VirtualMachineManagerVirtualMachineInstanceNetworkInterface)(nil)).Elem()
+}
+
+func (i VirtualMachineManagerVirtualMachineInstanceNetworkInterfaceArray) ToVirtualMachineManagerVirtualMachineInstanceNetworkInterfaceArrayOutput() VirtualMachineManagerVirtualMachineInstanceNetworkInterfaceArrayOutput {
+	return i.ToVirtualMachineManagerVirtualMachineInstanceNetworkInterfaceArrayOutputWithContext(context.Background())
+}
+
+func (i VirtualMachineManagerVirtualMachineInstanceNetworkInterfaceArray) ToVirtualMachineManagerVirtualMachineInstanceNetworkInterfaceArrayOutputWithContext(ctx context.Context) VirtualMachineManagerVirtualMachineInstanceNetworkInterfaceArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualMachineManagerVirtualMachineInstanceNetworkInterfaceArrayOutput)
+}
+
+type VirtualMachineManagerVirtualMachineInstanceNetworkInterfaceOutput struct{ *pulumi.OutputState }
+
+func (VirtualMachineManagerVirtualMachineInstanceNetworkInterfaceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualMachineManagerVirtualMachineInstanceNetworkInterface)(nil)).Elem()
+}
+
+func (o VirtualMachineManagerVirtualMachineInstanceNetworkInterfaceOutput) ToVirtualMachineManagerVirtualMachineInstanceNetworkInterfaceOutput() VirtualMachineManagerVirtualMachineInstanceNetworkInterfaceOutput {
+	return o
+}
+
+func (o VirtualMachineManagerVirtualMachineInstanceNetworkInterfaceOutput) ToVirtualMachineManagerVirtualMachineInstanceNetworkInterfaceOutputWithContext(ctx context.Context) VirtualMachineManagerVirtualMachineInstanceNetworkInterfaceOutput {
+	return o
+}
+
+// The IPv4 address type. Possible values are `Dynamic` and `Static`.
+func (o VirtualMachineManagerVirtualMachineInstanceNetworkInterfaceOutput) Ipv4AddressType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VirtualMachineManagerVirtualMachineInstanceNetworkInterface) *string { return v.Ipv4AddressType }).(pulumi.StringPtrOutput)
+}
+
+// The IPv6 address type. Possible values are `Dynamic` and `Static`.
+func (o VirtualMachineManagerVirtualMachineInstanceNetworkInterfaceOutput) Ipv6AddressType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VirtualMachineManagerVirtualMachineInstanceNetworkInterface) *string { return v.Ipv6AddressType }).(pulumi.StringPtrOutput)
+}
+
+// The MAC address type. Possible values are `Dynamic` and `Static`.
+func (o VirtualMachineManagerVirtualMachineInstanceNetworkInterfaceOutput) MacAddressType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VirtualMachineManagerVirtualMachineInstanceNetworkInterface) *string { return v.MacAddressType }).(pulumi.StringPtrOutput)
+}
+
+// The name of the Virtual Network in System Center Virtual Machine Manager Server that the Network Interface is connected to.
+func (o VirtualMachineManagerVirtualMachineInstanceNetworkInterfaceOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v VirtualMachineManagerVirtualMachineInstanceNetworkInterface) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The ID of the System Center Virtual Machine Manager Virtual Network to connect the Network Interface.
+func (o VirtualMachineManagerVirtualMachineInstanceNetworkInterfaceOutput) VirtualNetworkId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VirtualMachineManagerVirtualMachineInstanceNetworkInterface) *string { return v.VirtualNetworkId }).(pulumi.StringPtrOutput)
+}
+
+type VirtualMachineManagerVirtualMachineInstanceNetworkInterfaceArrayOutput struct{ *pulumi.OutputState }
+
+func (VirtualMachineManagerVirtualMachineInstanceNetworkInterfaceArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]VirtualMachineManagerVirtualMachineInstanceNetworkInterface)(nil)).Elem()
+}
+
+func (o VirtualMachineManagerVirtualMachineInstanceNetworkInterfaceArrayOutput) ToVirtualMachineManagerVirtualMachineInstanceNetworkInterfaceArrayOutput() VirtualMachineManagerVirtualMachineInstanceNetworkInterfaceArrayOutput {
+	return o
+}
+
+func (o VirtualMachineManagerVirtualMachineInstanceNetworkInterfaceArrayOutput) ToVirtualMachineManagerVirtualMachineInstanceNetworkInterfaceArrayOutputWithContext(ctx context.Context) VirtualMachineManagerVirtualMachineInstanceNetworkInterfaceArrayOutput {
+	return o
+}
+
+func (o VirtualMachineManagerVirtualMachineInstanceNetworkInterfaceArrayOutput) Index(i pulumi.IntInput) VirtualMachineManagerVirtualMachineInstanceNetworkInterfaceOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) VirtualMachineManagerVirtualMachineInstanceNetworkInterface {
+		return vs[0].([]VirtualMachineManagerVirtualMachineInstanceNetworkInterface)[vs[1].(int)]
+	}).(VirtualMachineManagerVirtualMachineInstanceNetworkInterfaceOutput)
+}
+
+type VirtualMachineManagerVirtualMachineInstanceOperatingSystem struct {
+	// The admin password of the Virtual Machine. Changing this forces a new resource to be created.
+	AdminPassword *string `pulumi:"adminPassword"`
+	// The computer name of the Virtual Machine. Changing this forces a new resource to be created.
+	ComputerName string `pulumi:"computerName"`
+}
+
+// VirtualMachineManagerVirtualMachineInstanceOperatingSystemInput is an input type that accepts VirtualMachineManagerVirtualMachineInstanceOperatingSystemArgs and VirtualMachineManagerVirtualMachineInstanceOperatingSystemOutput values.
+// You can construct a concrete instance of `VirtualMachineManagerVirtualMachineInstanceOperatingSystemInput` via:
+//
+//	VirtualMachineManagerVirtualMachineInstanceOperatingSystemArgs{...}
+type VirtualMachineManagerVirtualMachineInstanceOperatingSystemInput interface {
+	pulumi.Input
+
+	ToVirtualMachineManagerVirtualMachineInstanceOperatingSystemOutput() VirtualMachineManagerVirtualMachineInstanceOperatingSystemOutput
+	ToVirtualMachineManagerVirtualMachineInstanceOperatingSystemOutputWithContext(context.Context) VirtualMachineManagerVirtualMachineInstanceOperatingSystemOutput
+}
+
+type VirtualMachineManagerVirtualMachineInstanceOperatingSystemArgs struct {
+	// The admin password of the Virtual Machine. Changing this forces a new resource to be created.
+	AdminPassword pulumi.StringPtrInput `pulumi:"adminPassword"`
+	// The computer name of the Virtual Machine. Changing this forces a new resource to be created.
+	ComputerName pulumi.StringInput `pulumi:"computerName"`
+}
+
+func (VirtualMachineManagerVirtualMachineInstanceOperatingSystemArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualMachineManagerVirtualMachineInstanceOperatingSystem)(nil)).Elem()
+}
+
+func (i VirtualMachineManagerVirtualMachineInstanceOperatingSystemArgs) ToVirtualMachineManagerVirtualMachineInstanceOperatingSystemOutput() VirtualMachineManagerVirtualMachineInstanceOperatingSystemOutput {
+	return i.ToVirtualMachineManagerVirtualMachineInstanceOperatingSystemOutputWithContext(context.Background())
+}
+
+func (i VirtualMachineManagerVirtualMachineInstanceOperatingSystemArgs) ToVirtualMachineManagerVirtualMachineInstanceOperatingSystemOutputWithContext(ctx context.Context) VirtualMachineManagerVirtualMachineInstanceOperatingSystemOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualMachineManagerVirtualMachineInstanceOperatingSystemOutput)
+}
+
+func (i VirtualMachineManagerVirtualMachineInstanceOperatingSystemArgs) ToVirtualMachineManagerVirtualMachineInstanceOperatingSystemPtrOutput() VirtualMachineManagerVirtualMachineInstanceOperatingSystemPtrOutput {
+	return i.ToVirtualMachineManagerVirtualMachineInstanceOperatingSystemPtrOutputWithContext(context.Background())
+}
+
+func (i VirtualMachineManagerVirtualMachineInstanceOperatingSystemArgs) ToVirtualMachineManagerVirtualMachineInstanceOperatingSystemPtrOutputWithContext(ctx context.Context) VirtualMachineManagerVirtualMachineInstanceOperatingSystemPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualMachineManagerVirtualMachineInstanceOperatingSystemOutput).ToVirtualMachineManagerVirtualMachineInstanceOperatingSystemPtrOutputWithContext(ctx)
+}
+
+// VirtualMachineManagerVirtualMachineInstanceOperatingSystemPtrInput is an input type that accepts VirtualMachineManagerVirtualMachineInstanceOperatingSystemArgs, VirtualMachineManagerVirtualMachineInstanceOperatingSystemPtr and VirtualMachineManagerVirtualMachineInstanceOperatingSystemPtrOutput values.
+// You can construct a concrete instance of `VirtualMachineManagerVirtualMachineInstanceOperatingSystemPtrInput` via:
+//
+//	        VirtualMachineManagerVirtualMachineInstanceOperatingSystemArgs{...}
+//
+//	or:
+//
+//	        nil
+type VirtualMachineManagerVirtualMachineInstanceOperatingSystemPtrInput interface {
+	pulumi.Input
+
+	ToVirtualMachineManagerVirtualMachineInstanceOperatingSystemPtrOutput() VirtualMachineManagerVirtualMachineInstanceOperatingSystemPtrOutput
+	ToVirtualMachineManagerVirtualMachineInstanceOperatingSystemPtrOutputWithContext(context.Context) VirtualMachineManagerVirtualMachineInstanceOperatingSystemPtrOutput
+}
+
+type virtualMachineManagerVirtualMachineInstanceOperatingSystemPtrType VirtualMachineManagerVirtualMachineInstanceOperatingSystemArgs
+
+func VirtualMachineManagerVirtualMachineInstanceOperatingSystemPtr(v *VirtualMachineManagerVirtualMachineInstanceOperatingSystemArgs) VirtualMachineManagerVirtualMachineInstanceOperatingSystemPtrInput {
+	return (*virtualMachineManagerVirtualMachineInstanceOperatingSystemPtrType)(v)
+}
+
+func (*virtualMachineManagerVirtualMachineInstanceOperatingSystemPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualMachineManagerVirtualMachineInstanceOperatingSystem)(nil)).Elem()
+}
+
+func (i *virtualMachineManagerVirtualMachineInstanceOperatingSystemPtrType) ToVirtualMachineManagerVirtualMachineInstanceOperatingSystemPtrOutput() VirtualMachineManagerVirtualMachineInstanceOperatingSystemPtrOutput {
+	return i.ToVirtualMachineManagerVirtualMachineInstanceOperatingSystemPtrOutputWithContext(context.Background())
+}
+
+func (i *virtualMachineManagerVirtualMachineInstanceOperatingSystemPtrType) ToVirtualMachineManagerVirtualMachineInstanceOperatingSystemPtrOutputWithContext(ctx context.Context) VirtualMachineManagerVirtualMachineInstanceOperatingSystemPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualMachineManagerVirtualMachineInstanceOperatingSystemPtrOutput)
+}
+
+type VirtualMachineManagerVirtualMachineInstanceOperatingSystemOutput struct{ *pulumi.OutputState }
+
+func (VirtualMachineManagerVirtualMachineInstanceOperatingSystemOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualMachineManagerVirtualMachineInstanceOperatingSystem)(nil)).Elem()
+}
+
+func (o VirtualMachineManagerVirtualMachineInstanceOperatingSystemOutput) ToVirtualMachineManagerVirtualMachineInstanceOperatingSystemOutput() VirtualMachineManagerVirtualMachineInstanceOperatingSystemOutput {
+	return o
+}
+
+func (o VirtualMachineManagerVirtualMachineInstanceOperatingSystemOutput) ToVirtualMachineManagerVirtualMachineInstanceOperatingSystemOutputWithContext(ctx context.Context) VirtualMachineManagerVirtualMachineInstanceOperatingSystemOutput {
+	return o
+}
+
+func (o VirtualMachineManagerVirtualMachineInstanceOperatingSystemOutput) ToVirtualMachineManagerVirtualMachineInstanceOperatingSystemPtrOutput() VirtualMachineManagerVirtualMachineInstanceOperatingSystemPtrOutput {
+	return o.ToVirtualMachineManagerVirtualMachineInstanceOperatingSystemPtrOutputWithContext(context.Background())
+}
+
+func (o VirtualMachineManagerVirtualMachineInstanceOperatingSystemOutput) ToVirtualMachineManagerVirtualMachineInstanceOperatingSystemPtrOutputWithContext(ctx context.Context) VirtualMachineManagerVirtualMachineInstanceOperatingSystemPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualMachineManagerVirtualMachineInstanceOperatingSystem) *VirtualMachineManagerVirtualMachineInstanceOperatingSystem {
+		return &v
+	}).(VirtualMachineManagerVirtualMachineInstanceOperatingSystemPtrOutput)
+}
+
+// The admin password of the Virtual Machine. Changing this forces a new resource to be created.
+func (o VirtualMachineManagerVirtualMachineInstanceOperatingSystemOutput) AdminPassword() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VirtualMachineManagerVirtualMachineInstanceOperatingSystem) *string { return v.AdminPassword }).(pulumi.StringPtrOutput)
+}
+
+// The computer name of the Virtual Machine. Changing this forces a new resource to be created.
+func (o VirtualMachineManagerVirtualMachineInstanceOperatingSystemOutput) ComputerName() pulumi.StringOutput {
+	return o.ApplyT(func(v VirtualMachineManagerVirtualMachineInstanceOperatingSystem) string { return v.ComputerName }).(pulumi.StringOutput)
+}
+
+type VirtualMachineManagerVirtualMachineInstanceOperatingSystemPtrOutput struct{ *pulumi.OutputState }
+
+func (VirtualMachineManagerVirtualMachineInstanceOperatingSystemPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualMachineManagerVirtualMachineInstanceOperatingSystem)(nil)).Elem()
+}
+
+func (o VirtualMachineManagerVirtualMachineInstanceOperatingSystemPtrOutput) ToVirtualMachineManagerVirtualMachineInstanceOperatingSystemPtrOutput() VirtualMachineManagerVirtualMachineInstanceOperatingSystemPtrOutput {
+	return o
+}
+
+func (o VirtualMachineManagerVirtualMachineInstanceOperatingSystemPtrOutput) ToVirtualMachineManagerVirtualMachineInstanceOperatingSystemPtrOutputWithContext(ctx context.Context) VirtualMachineManagerVirtualMachineInstanceOperatingSystemPtrOutput {
+	return o
+}
+
+func (o VirtualMachineManagerVirtualMachineInstanceOperatingSystemPtrOutput) Elem() VirtualMachineManagerVirtualMachineInstanceOperatingSystemOutput {
+	return o.ApplyT(func(v *VirtualMachineManagerVirtualMachineInstanceOperatingSystem) VirtualMachineManagerVirtualMachineInstanceOperatingSystem {
+		if v != nil {
+			return *v
+		}
+		var ret VirtualMachineManagerVirtualMachineInstanceOperatingSystem
+		return ret
+	}).(VirtualMachineManagerVirtualMachineInstanceOperatingSystemOutput)
+}
+
+// The admin password of the Virtual Machine. Changing this forces a new resource to be created.
+func (o VirtualMachineManagerVirtualMachineInstanceOperatingSystemPtrOutput) AdminPassword() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VirtualMachineManagerVirtualMachineInstanceOperatingSystem) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AdminPassword
+	}).(pulumi.StringPtrOutput)
+}
+
+// The computer name of the Virtual Machine. Changing this forces a new resource to be created.
+func (o VirtualMachineManagerVirtualMachineInstanceOperatingSystemPtrOutput) ComputerName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VirtualMachineManagerVirtualMachineInstanceOperatingSystem) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ComputerName
+	}).(pulumi.StringPtrOutput)
+}
+
+type VirtualMachineManagerVirtualMachineInstanceStorageDisk struct {
+	// The disk bus. Possible values are between `0` and `3`.
+	Bus *int `pulumi:"bus"`
+	// The disk bus type. Possible values are `IDE` and `SCSI`.
+	BusType *string `pulumi:"busType"`
+	// The disk total size.
+	DiskSizeGb *int `pulumi:"diskSizeGb"`
+	// The disk lun. Possible values are between `0` and `63`.
+	Lun *int `pulumi:"lun"`
+	// The name of the disk.
+	Name *string `pulumi:"name"`
+	// The name of the Storage QoS policy.
+	StorageQosPolicyName *string `pulumi:"storageQosPolicyName"`
+	// The disk ID in the System Center Virtual Machine Manager Virtual Machine Template. Changing this forces a new resource to be created.
+	TemplateDiskId *string `pulumi:"templateDiskId"`
+	// The disk vhd type. Possible values are `Dynamic` and `Fixed`.
+	VhdType *string `pulumi:"vhdType"`
+}
+
+// VirtualMachineManagerVirtualMachineInstanceStorageDiskInput is an input type that accepts VirtualMachineManagerVirtualMachineInstanceStorageDiskArgs and VirtualMachineManagerVirtualMachineInstanceStorageDiskOutput values.
+// You can construct a concrete instance of `VirtualMachineManagerVirtualMachineInstanceStorageDiskInput` via:
+//
+//	VirtualMachineManagerVirtualMachineInstanceStorageDiskArgs{...}
+type VirtualMachineManagerVirtualMachineInstanceStorageDiskInput interface {
+	pulumi.Input
+
+	ToVirtualMachineManagerVirtualMachineInstanceStorageDiskOutput() VirtualMachineManagerVirtualMachineInstanceStorageDiskOutput
+	ToVirtualMachineManagerVirtualMachineInstanceStorageDiskOutputWithContext(context.Context) VirtualMachineManagerVirtualMachineInstanceStorageDiskOutput
+}
+
+type VirtualMachineManagerVirtualMachineInstanceStorageDiskArgs struct {
+	// The disk bus. Possible values are between `0` and `3`.
+	Bus pulumi.IntPtrInput `pulumi:"bus"`
+	// The disk bus type. Possible values are `IDE` and `SCSI`.
+	BusType pulumi.StringPtrInput `pulumi:"busType"`
+	// The disk total size.
+	DiskSizeGb pulumi.IntPtrInput `pulumi:"diskSizeGb"`
+	// The disk lun. Possible values are between `0` and `63`.
+	Lun pulumi.IntPtrInput `pulumi:"lun"`
+	// The name of the disk.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// The name of the Storage QoS policy.
+	StorageQosPolicyName pulumi.StringPtrInput `pulumi:"storageQosPolicyName"`
+	// The disk ID in the System Center Virtual Machine Manager Virtual Machine Template. Changing this forces a new resource to be created.
+	TemplateDiskId pulumi.StringPtrInput `pulumi:"templateDiskId"`
+	// The disk vhd type. Possible values are `Dynamic` and `Fixed`.
+	VhdType pulumi.StringPtrInput `pulumi:"vhdType"`
+}
+
+func (VirtualMachineManagerVirtualMachineInstanceStorageDiskArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualMachineManagerVirtualMachineInstanceStorageDisk)(nil)).Elem()
+}
+
+func (i VirtualMachineManagerVirtualMachineInstanceStorageDiskArgs) ToVirtualMachineManagerVirtualMachineInstanceStorageDiskOutput() VirtualMachineManagerVirtualMachineInstanceStorageDiskOutput {
+	return i.ToVirtualMachineManagerVirtualMachineInstanceStorageDiskOutputWithContext(context.Background())
+}
+
+func (i VirtualMachineManagerVirtualMachineInstanceStorageDiskArgs) ToVirtualMachineManagerVirtualMachineInstanceStorageDiskOutputWithContext(ctx context.Context) VirtualMachineManagerVirtualMachineInstanceStorageDiskOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualMachineManagerVirtualMachineInstanceStorageDiskOutput)
+}
+
+// VirtualMachineManagerVirtualMachineInstanceStorageDiskArrayInput is an input type that accepts VirtualMachineManagerVirtualMachineInstanceStorageDiskArray and VirtualMachineManagerVirtualMachineInstanceStorageDiskArrayOutput values.
+// You can construct a concrete instance of `VirtualMachineManagerVirtualMachineInstanceStorageDiskArrayInput` via:
+//
+//	VirtualMachineManagerVirtualMachineInstanceStorageDiskArray{ VirtualMachineManagerVirtualMachineInstanceStorageDiskArgs{...} }
+type VirtualMachineManagerVirtualMachineInstanceStorageDiskArrayInput interface {
+	pulumi.Input
+
+	ToVirtualMachineManagerVirtualMachineInstanceStorageDiskArrayOutput() VirtualMachineManagerVirtualMachineInstanceStorageDiskArrayOutput
+	ToVirtualMachineManagerVirtualMachineInstanceStorageDiskArrayOutputWithContext(context.Context) VirtualMachineManagerVirtualMachineInstanceStorageDiskArrayOutput
+}
+
+type VirtualMachineManagerVirtualMachineInstanceStorageDiskArray []VirtualMachineManagerVirtualMachineInstanceStorageDiskInput
+
+func (VirtualMachineManagerVirtualMachineInstanceStorageDiskArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]VirtualMachineManagerVirtualMachineInstanceStorageDisk)(nil)).Elem()
+}
+
+func (i VirtualMachineManagerVirtualMachineInstanceStorageDiskArray) ToVirtualMachineManagerVirtualMachineInstanceStorageDiskArrayOutput() VirtualMachineManagerVirtualMachineInstanceStorageDiskArrayOutput {
+	return i.ToVirtualMachineManagerVirtualMachineInstanceStorageDiskArrayOutputWithContext(context.Background())
+}
+
+func (i VirtualMachineManagerVirtualMachineInstanceStorageDiskArray) ToVirtualMachineManagerVirtualMachineInstanceStorageDiskArrayOutputWithContext(ctx context.Context) VirtualMachineManagerVirtualMachineInstanceStorageDiskArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualMachineManagerVirtualMachineInstanceStorageDiskArrayOutput)
+}
+
+type VirtualMachineManagerVirtualMachineInstanceStorageDiskOutput struct{ *pulumi.OutputState }
+
+func (VirtualMachineManagerVirtualMachineInstanceStorageDiskOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualMachineManagerVirtualMachineInstanceStorageDisk)(nil)).Elem()
+}
+
+func (o VirtualMachineManagerVirtualMachineInstanceStorageDiskOutput) ToVirtualMachineManagerVirtualMachineInstanceStorageDiskOutput() VirtualMachineManagerVirtualMachineInstanceStorageDiskOutput {
+	return o
+}
+
+func (o VirtualMachineManagerVirtualMachineInstanceStorageDiskOutput) ToVirtualMachineManagerVirtualMachineInstanceStorageDiskOutputWithContext(ctx context.Context) VirtualMachineManagerVirtualMachineInstanceStorageDiskOutput {
+	return o
+}
+
+// The disk bus. Possible values are between `0` and `3`.
+func (o VirtualMachineManagerVirtualMachineInstanceStorageDiskOutput) Bus() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v VirtualMachineManagerVirtualMachineInstanceStorageDisk) *int { return v.Bus }).(pulumi.IntPtrOutput)
+}
+
+// The disk bus type. Possible values are `IDE` and `SCSI`.
+func (o VirtualMachineManagerVirtualMachineInstanceStorageDiskOutput) BusType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VirtualMachineManagerVirtualMachineInstanceStorageDisk) *string { return v.BusType }).(pulumi.StringPtrOutput)
+}
+
+// The disk total size.
+func (o VirtualMachineManagerVirtualMachineInstanceStorageDiskOutput) DiskSizeGb() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v VirtualMachineManagerVirtualMachineInstanceStorageDisk) *int { return v.DiskSizeGb }).(pulumi.IntPtrOutput)
+}
+
+// The disk lun. Possible values are between `0` and `63`.
+func (o VirtualMachineManagerVirtualMachineInstanceStorageDiskOutput) Lun() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v VirtualMachineManagerVirtualMachineInstanceStorageDisk) *int { return v.Lun }).(pulumi.IntPtrOutput)
+}
+
+// The name of the disk.
+func (o VirtualMachineManagerVirtualMachineInstanceStorageDiskOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VirtualMachineManagerVirtualMachineInstanceStorageDisk) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// The name of the Storage QoS policy.
+func (o VirtualMachineManagerVirtualMachineInstanceStorageDiskOutput) StorageQosPolicyName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VirtualMachineManagerVirtualMachineInstanceStorageDisk) *string { return v.StorageQosPolicyName }).(pulumi.StringPtrOutput)
+}
+
+// The disk ID in the System Center Virtual Machine Manager Virtual Machine Template. Changing this forces a new resource to be created.
+func (o VirtualMachineManagerVirtualMachineInstanceStorageDiskOutput) TemplateDiskId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VirtualMachineManagerVirtualMachineInstanceStorageDisk) *string { return v.TemplateDiskId }).(pulumi.StringPtrOutput)
+}
+
+// The disk vhd type. Possible values are `Dynamic` and `Fixed`.
+func (o VirtualMachineManagerVirtualMachineInstanceStorageDiskOutput) VhdType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VirtualMachineManagerVirtualMachineInstanceStorageDisk) *string { return v.VhdType }).(pulumi.StringPtrOutput)
+}
+
+type VirtualMachineManagerVirtualMachineInstanceStorageDiskArrayOutput struct{ *pulumi.OutputState }
+
+func (VirtualMachineManagerVirtualMachineInstanceStorageDiskArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]VirtualMachineManagerVirtualMachineInstanceStorageDisk)(nil)).Elem()
+}
+
+func (o VirtualMachineManagerVirtualMachineInstanceStorageDiskArrayOutput) ToVirtualMachineManagerVirtualMachineInstanceStorageDiskArrayOutput() VirtualMachineManagerVirtualMachineInstanceStorageDiskArrayOutput {
+	return o
+}
+
+func (o VirtualMachineManagerVirtualMachineInstanceStorageDiskArrayOutput) ToVirtualMachineManagerVirtualMachineInstanceStorageDiskArrayOutputWithContext(ctx context.Context) VirtualMachineManagerVirtualMachineInstanceStorageDiskArrayOutput {
+	return o
+}
+
+func (o VirtualMachineManagerVirtualMachineInstanceStorageDiskArrayOutput) Index(i pulumi.IntInput) VirtualMachineManagerVirtualMachineInstanceStorageDiskOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) VirtualMachineManagerVirtualMachineInstanceStorageDisk {
+		return vs[0].([]VirtualMachineManagerVirtualMachineInstanceStorageDisk)[vs[1].(int)]
+	}).(VirtualMachineManagerVirtualMachineInstanceStorageDiskOutput)
+}
+
 type GetVirtualMachineManagerInventoryItemsInventoryItem struct {
 	// The ID of the System Center Virtual Machine Manager Inventory Item.
 	Id string `pulumi:"id"`
@@ -129,8 +1014,28 @@ func (o GetVirtualMachineManagerInventoryItemsInventoryItemArrayOutput) Index(i 
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*VirtualMachineManagerVirtualMachineInstanceHardwareInput)(nil)).Elem(), VirtualMachineManagerVirtualMachineInstanceHardwareArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VirtualMachineManagerVirtualMachineInstanceHardwarePtrInput)(nil)).Elem(), VirtualMachineManagerVirtualMachineInstanceHardwareArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VirtualMachineManagerVirtualMachineInstanceInfrastructureInput)(nil)).Elem(), VirtualMachineManagerVirtualMachineInstanceInfrastructureArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VirtualMachineManagerVirtualMachineInstanceInfrastructurePtrInput)(nil)).Elem(), VirtualMachineManagerVirtualMachineInstanceInfrastructureArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VirtualMachineManagerVirtualMachineInstanceNetworkInterfaceInput)(nil)).Elem(), VirtualMachineManagerVirtualMachineInstanceNetworkInterfaceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VirtualMachineManagerVirtualMachineInstanceNetworkInterfaceArrayInput)(nil)).Elem(), VirtualMachineManagerVirtualMachineInstanceNetworkInterfaceArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VirtualMachineManagerVirtualMachineInstanceOperatingSystemInput)(nil)).Elem(), VirtualMachineManagerVirtualMachineInstanceOperatingSystemArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VirtualMachineManagerVirtualMachineInstanceOperatingSystemPtrInput)(nil)).Elem(), VirtualMachineManagerVirtualMachineInstanceOperatingSystemArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VirtualMachineManagerVirtualMachineInstanceStorageDiskInput)(nil)).Elem(), VirtualMachineManagerVirtualMachineInstanceStorageDiskArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VirtualMachineManagerVirtualMachineInstanceStorageDiskArrayInput)(nil)).Elem(), VirtualMachineManagerVirtualMachineInstanceStorageDiskArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetVirtualMachineManagerInventoryItemsInventoryItemInput)(nil)).Elem(), GetVirtualMachineManagerInventoryItemsInventoryItemArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetVirtualMachineManagerInventoryItemsInventoryItemArrayInput)(nil)).Elem(), GetVirtualMachineManagerInventoryItemsInventoryItemArray{})
+	pulumi.RegisterOutputType(VirtualMachineManagerVirtualMachineInstanceHardwareOutput{})
+	pulumi.RegisterOutputType(VirtualMachineManagerVirtualMachineInstanceHardwarePtrOutput{})
+	pulumi.RegisterOutputType(VirtualMachineManagerVirtualMachineInstanceInfrastructureOutput{})
+	pulumi.RegisterOutputType(VirtualMachineManagerVirtualMachineInstanceInfrastructurePtrOutput{})
+	pulumi.RegisterOutputType(VirtualMachineManagerVirtualMachineInstanceNetworkInterfaceOutput{})
+	pulumi.RegisterOutputType(VirtualMachineManagerVirtualMachineInstanceNetworkInterfaceArrayOutput{})
+	pulumi.RegisterOutputType(VirtualMachineManagerVirtualMachineInstanceOperatingSystemOutput{})
+	pulumi.RegisterOutputType(VirtualMachineManagerVirtualMachineInstanceOperatingSystemPtrOutput{})
+	pulumi.RegisterOutputType(VirtualMachineManagerVirtualMachineInstanceStorageDiskOutput{})
+	pulumi.RegisterOutputType(VirtualMachineManagerVirtualMachineInstanceStorageDiskArrayOutput{})
 	pulumi.RegisterOutputType(GetVirtualMachineManagerInventoryItemsInventoryItemOutput{})
 	pulumi.RegisterOutputType(GetVirtualMachineManagerInventoryItemsInventoryItemArrayOutput{})
 }

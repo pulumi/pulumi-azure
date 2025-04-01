@@ -2491,8 +2491,6 @@ func (o ScheduleMonthlyOccurrencePtrOutput) Occurrence() pulumi.IntPtrOutput {
 
 type SoftwareUpdateConfigurationLinux struct {
 	// Specifies the list of update classifications included in the Software Update Configuration. Possible values are `Unclassified`, `Critical`, `Security` and `Other`.
-	//
-	// > **NOTE:** The `classificationsIncluded` property will become `Required` in version 4.0 of the Provider.
 	ClassificationsIncludeds []string `pulumi:"classificationsIncludeds"`
 	// Specifies a list of packages to excluded from the Software Update Configuration.
 	ExcludedPackages []string `pulumi:"excludedPackages"`
@@ -2515,8 +2513,6 @@ type SoftwareUpdateConfigurationLinuxInput interface {
 
 type SoftwareUpdateConfigurationLinuxArgs struct {
 	// Specifies the list of update classifications included in the Software Update Configuration. Possible values are `Unclassified`, `Critical`, `Security` and `Other`.
-	//
-	// > **NOTE:** The `classificationsIncluded` property will become `Required` in version 4.0 of the Provider.
 	ClassificationsIncludeds pulumi.StringArrayInput `pulumi:"classificationsIncludeds"`
 	// Specifies a list of packages to excluded from the Software Update Configuration.
 	ExcludedPackages pulumi.StringArrayInput `pulumi:"excludedPackages"`
@@ -2604,8 +2600,6 @@ func (o SoftwareUpdateConfigurationLinuxOutput) ToSoftwareUpdateConfigurationLin
 }
 
 // Specifies the list of update classifications included in the Software Update Configuration. Possible values are `Unclassified`, `Critical`, `Security` and `Other`.
-//
-// > **NOTE:** The `classificationsIncluded` property will become `Required` in version 4.0 of the Provider.
 func (o SoftwareUpdateConfigurationLinuxOutput) ClassificationsIncludeds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v SoftwareUpdateConfigurationLinux) []string { return v.ClassificationsIncludeds }).(pulumi.StringArrayOutput)
 }
@@ -2650,8 +2644,6 @@ func (o SoftwareUpdateConfigurationLinuxPtrOutput) Elem() SoftwareUpdateConfigur
 }
 
 // Specifies the list of update classifications included in the Software Update Configuration. Possible values are `Unclassified`, `Critical`, `Security` and `Other`.
-//
-// > **NOTE:** The `classificationsIncluded` property will become `Required` in version 4.0 of the Provider.
 func (o SoftwareUpdateConfigurationLinuxPtrOutput) ClassificationsIncludeds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *SoftwareUpdateConfigurationLinux) []string {
 		if v == nil {
@@ -4059,8 +4051,6 @@ func (o SoftwareUpdateConfigurationTargetNonAzureQueryArrayOutput) Index(i pulum
 
 type SoftwareUpdateConfigurationWindows struct {
 	// Specifies the list of update classification. Possible values are `Unclassified`, `Critical`, `Security`, `UpdateRollup`, `FeaturePack`, `ServicePack`, `Definition`, `Tools` and `Updates`.
-	//
-	// > **NOTE:** The `classificationsIncluded` property will become `Required` in version 4.0 of the Provider.
 	ClassificationsIncludeds []string `pulumi:"classificationsIncludeds"`
 	// Specifies a list of knowledge base numbers excluded.
 	ExcludedKnowledgeBaseNumbers []string `pulumi:"excludedKnowledgeBaseNumbers"`
@@ -4083,8 +4073,6 @@ type SoftwareUpdateConfigurationWindowsInput interface {
 
 type SoftwareUpdateConfigurationWindowsArgs struct {
 	// Specifies the list of update classification. Possible values are `Unclassified`, `Critical`, `Security`, `UpdateRollup`, `FeaturePack`, `ServicePack`, `Definition`, `Tools` and `Updates`.
-	//
-	// > **NOTE:** The `classificationsIncluded` property will become `Required` in version 4.0 of the Provider.
 	ClassificationsIncludeds pulumi.StringArrayInput `pulumi:"classificationsIncludeds"`
 	// Specifies a list of knowledge base numbers excluded.
 	ExcludedKnowledgeBaseNumbers pulumi.StringArrayInput `pulumi:"excludedKnowledgeBaseNumbers"`
@@ -4172,8 +4160,6 @@ func (o SoftwareUpdateConfigurationWindowsOutput) ToSoftwareUpdateConfigurationW
 }
 
 // Specifies the list of update classification. Possible values are `Unclassified`, `Critical`, `Security`, `UpdateRollup`, `FeaturePack`, `ServicePack`, `Definition`, `Tools` and `Updates`.
-//
-// > **NOTE:** The `classificationsIncluded` property will become `Required` in version 4.0 of the Provider.
 func (o SoftwareUpdateConfigurationWindowsOutput) ClassificationsIncludeds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v SoftwareUpdateConfigurationWindows) []string { return v.ClassificationsIncludeds }).(pulumi.StringArrayOutput)
 }
@@ -4218,8 +4204,6 @@ func (o SoftwareUpdateConfigurationWindowsPtrOutput) Elem() SoftwareUpdateConfig
 }
 
 // Specifies the list of update classification. Possible values are `Unclassified`, `Critical`, `Security`, `UpdateRollup`, `FeaturePack`, `ServicePack`, `Definition`, `Tools` and `Updates`.
-//
-// > **NOTE:** The `classificationsIncluded` property will become `Required` in version 4.0 of the Provider.
 func (o SoftwareUpdateConfigurationWindowsPtrOutput) ClassificationsIncludeds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *SoftwareUpdateConfigurationWindows) []string {
 		if v == nil {

@@ -323,7 +323,7 @@ class GrafanaManagedPrivateEndpoint(pulumi.CustomResource):
             name="example-dg",
             resource_group_name=example.name,
             location=example.location,
-            grafana_major_version="10",
+            grafana_major_version="11",
             public_network_access_enabled=False,
             azure_monitor_workspace_integrations=[{
                 "resource_id": example_workspace.id,
@@ -385,7 +385,7 @@ class GrafanaManagedPrivateEndpoint(pulumi.CustomResource):
             name="example-dg",
             resource_group_name=example.name,
             location=example.location,
-            grafana_major_version="10",
+            grafana_major_version="11",
             public_network_access_enabled=False,
             azure_monitor_workspace_integrations=[{
                 "resource_id": example_workspace.id,

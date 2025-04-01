@@ -13,13 +13,13 @@ namespace Pulumi.Azure.EventHub.Inputs
     public sealed class NamespaceNetworkRuleSetNetworkRuleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Should the ServiceBus Namespace Network Rule Set ignore missing Virtual Network Service Endpoint option in the Subnet? Defaults to `false`.
+        /// Should the Service Bus Namespace Network Rule Set ignore missing Virtual Network Service Endpoint option in the Subnet? Defaults to `false`.
         /// </summary>
         [Input("ignoreMissingVnetServiceEndpoint")]
         public Input<bool>? IgnoreMissingVnetServiceEndpoint { get; set; }
 
         /// <summary>
-        /// The Subnet ID which should be able to access this ServiceBus Namespace.
+        /// The Subnet ID which should be able to access this Service Bus Namespace.
         /// </summary>
         [Input("subnetId", required: true)]
         public Input<string> SubnetId { get; set; } = null!;

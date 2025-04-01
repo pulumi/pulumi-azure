@@ -92,7 +92,7 @@ namespace Pulumi.Azure.EventHub
         public Output<string> DefaultSecondaryKey { get; private set; } = null!;
 
         /// <summary>
-        /// The URL to access the ServiceBus Namespace.
+        /// The URL to access the Service Bus Namespace.
         /// </summary>
         [Output("endpoint")]
         public Output<string> Endpoint { get; private set; } = null!;
@@ -124,7 +124,7 @@ namespace Pulumi.Azure.EventHub
         public Output<string?> MinimumTlsVersion { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the name of the ServiceBus Namespace resource . Changing this forces a new resource to be created.
+        /// Specifies the name of the Service Bus Namespace resource . Changing this forces a new resource to be created.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -260,7 +260,7 @@ namespace Pulumi.Azure.EventHub
         public Input<string>? MinimumTlsVersion { get; set; }
 
         /// <summary>
-        /// Specifies the name of the ServiceBus Namespace resource . Changing this forces a new resource to be created.
+        /// Specifies the name of the Service Bus Namespace resource . Changing this forces a new resource to be created.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -395,7 +395,7 @@ namespace Pulumi.Azure.EventHub
         }
 
         /// <summary>
-        /// The URL to access the ServiceBus Namespace.
+        /// The URL to access the Service Bus Namespace.
         /// </summary>
         [Input("endpoint")]
         public Input<string>? Endpoint { get; set; }
@@ -427,7 +427,7 @@ namespace Pulumi.Azure.EventHub
         public Input<string>? MinimumTlsVersion { get; set; }
 
         /// <summary>
-        /// Specifies the name of the ServiceBus Namespace resource . Changing this forces a new resource to be created.
+        /// Specifies the name of the Service Bus Namespace resource . Changing this forces a new resource to be created.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }

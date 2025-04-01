@@ -34,14 +34,14 @@ public final class DataCollectionRuleDataSourcesLogFileArgs extends com.pulumi.r
     }
 
     /**
-     * The data format of the log files. possible value is `text`.
+     * The data format of the log files. Possible values are `text` and `json`.
      * 
      */
     @Import(name="format", required=true)
     private Output<String> format;
 
     /**
-     * @return The data format of the log files. possible value is `text`.
+     * @return The data format of the log files. Possible values are `text` and `json`.
      * 
      */
     public Output<String> format() {
@@ -153,7 +153,7 @@ public final class DataCollectionRuleDataSourcesLogFileArgs extends com.pulumi.r
         }
 
         /**
-         * @param format The data format of the log files. possible value is `text`.
+         * @param format The data format of the log files. Possible values are `text` and `json`.
          * 
          * @return builder
          * 
@@ -164,7 +164,7 @@ public final class DataCollectionRuleDataSourcesLogFileArgs extends com.pulumi.r
         }
 
         /**
-         * @param format The data format of the log files. possible value is `text`.
+         * @param format The data format of the log files. Possible values are `text` and `json`.
          * 
          * @return builder
          * 

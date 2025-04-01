@@ -18,14 +18,14 @@ public final class ApiConnectionArgs extends com.pulumi.resources.ResourceArgs {
     public static final ApiConnectionArgs Empty = new ApiConnectionArgs();
 
     /**
-     * A display name for this API Connection. Defaults to `Service Bus`. Changing this forces a new API Connection to be created.
+     * A display name for this API Connection.
      * 
      */
     @Import(name="displayName")
     private @Nullable Output<String> displayName;
 
     /**
-     * @return A display name for this API Connection. Defaults to `Service Bus`. Changing this forces a new API Connection to be created.
+     * @return A display name for this API Connection.
      * 
      */
     public Optional<Output<String>> displayName() {
@@ -129,7 +129,7 @@ public final class ApiConnectionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param displayName A display name for this API Connection. Defaults to `Service Bus`. Changing this forces a new API Connection to be created.
+         * @param displayName A display name for this API Connection.
          * 
          * @return builder
          * 
@@ -140,7 +140,7 @@ public final class ApiConnectionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param displayName A display name for this API Connection. Defaults to `Service Bus`. Changing this forces a new API Connection to be created.
+         * @param displayName A display name for this API Connection.
          * 
          * @return builder
          * 

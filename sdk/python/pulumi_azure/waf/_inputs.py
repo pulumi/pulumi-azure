@@ -50,6 +50,8 @@ if not MYPY:
         action: pulumi.Input[str]
         """
         Type of action. Possible values are `Allow`, `Block` and `Log`.
+
+        > **Note:** If the `rule_type` is specified as `RateLimitRule`, the `Allow` is not supported.
         """
         match_conditions: pulumi.Input[Sequence[pulumi.Input['PolicyCustomRuleMatchConditionArgsDict']]]
         """
@@ -100,6 +102,8 @@ class PolicyCustomRuleArgs:
                  rate_limit_threshold: Optional[pulumi.Input[int]] = None):
         """
         :param pulumi.Input[str] action: Type of action. Possible values are `Allow`, `Block` and `Log`.
+               
+               > **Note:** If the `rule_type` is specified as `RateLimitRule`, the `Allow` is not supported.
         :param pulumi.Input[Sequence[pulumi.Input['PolicyCustomRuleMatchConditionArgs']]] match_conditions: One or more `match_conditions` blocks as defined below.
         :param pulumi.Input[int] priority: Describes priority of the rule. Rules with a lower value will be evaluated before rules with a higher value.
         :param pulumi.Input[str] rule_type: Describes the type of rule. Possible values are `MatchRule`, `RateLimitRule` and `Invalid`.
@@ -129,6 +133,8 @@ class PolicyCustomRuleArgs:
     def action(self) -> pulumi.Input[str]:
         """
         Type of action. Possible values are `Allow`, `Block` and `Log`.
+
+        > **Note:** If the `rule_type` is specified as `RateLimitRule`, the `Allow` is not supported.
         """
         return pulumi.get(self, "action")
 

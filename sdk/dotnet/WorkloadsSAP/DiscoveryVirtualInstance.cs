@@ -94,6 +94,12 @@ namespace Pulumi.Azure.WorkloadsSAP
         public Output<string?> ManagedResourceGroupName { get; private set; } = null!;
 
         /// <summary>
+        /// The network access type for managed resources. Possible values are `Private` and `Public`. Defaults to `Public`.
+        /// </summary>
+        [Output("managedResourcesNetworkAccessType")]
+        public Output<string?> ManagedResourcesNetworkAccessType { get; private set; } = null!;
+
+        /// <summary>
         /// The name of the custom Storage Account created by the service in the managed Resource Group. Changing this forces a new resource to be created.
         /// </summary>
         [Output("managedStorageAccountName")]
@@ -200,6 +206,12 @@ namespace Pulumi.Azure.WorkloadsSAP
         public Input<string>? ManagedResourceGroupName { get; set; }
 
         /// <summary>
+        /// The network access type for managed resources. Possible values are `Private` and `Public`. Defaults to `Public`.
+        /// </summary>
+        [Input("managedResourcesNetworkAccessType")]
+        public Input<string>? ManagedResourcesNetworkAccessType { get; set; }
+
+        /// <summary>
         /// The name of the custom Storage Account created by the service in the managed Resource Group. Changing this forces a new resource to be created.
         /// </summary>
         [Input("managedStorageAccountName")]
@@ -272,6 +284,12 @@ namespace Pulumi.Azure.WorkloadsSAP
         /// </summary>
         [Input("managedResourceGroupName")]
         public Input<string>? ManagedResourceGroupName { get; set; }
+
+        /// <summary>
+        /// The network access type for managed resources. Possible values are `Private` and `Public`. Defaults to `Public`.
+        /// </summary>
+        [Input("managedResourcesNetworkAccessType")]
+        public Input<string>? ManagedResourcesNetworkAccessType { get; set; }
 
         /// <summary>
         /// The name of the custom Storage Account created by the service in the managed Resource Group. Changing this forces a new resource to be created.

@@ -68,7 +68,7 @@ import javax.annotation.Nullable;
  *             .resourceGroupName(example.name())
  *             .accountName(exampleAccount.name())
  *             .nodeAgentSkuId("batch.node.ubuntu 16.04")
- *             .vmSize("Standard_A1")
+ *             .vmSize("STANDARD_A1_V2")
  *             .fixedScale(PoolFixedScaleArgs.builder()
  *                 .targetDedicatedNodes(1)
  *                 .build())

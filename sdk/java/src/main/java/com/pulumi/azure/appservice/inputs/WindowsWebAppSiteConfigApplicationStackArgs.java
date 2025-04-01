@@ -226,7 +226,7 @@ public final class WindowsWebAppSiteConfigApplicationStackArgs extends com.pulum
     }
 
     /**
-     * The version of node to use when `current_stack` is set to `node`. Possible values are `~12`, `~14`, `~16`, `~18` and `~20`.
+     * The version of node to use when `current_stack` is set to `node`. Possible values are `~12`, `~14`, `~16`, `~18`, `~20` and `~22`.
      * 
      * &gt; **NOTE:** This property conflicts with `java_version`.
      * 
@@ -235,7 +235,7 @@ public final class WindowsWebAppSiteConfigApplicationStackArgs extends com.pulum
     private @Nullable Output<String> nodeVersion;
 
     /**
-     * @return The version of node to use when `current_stack` is set to `node`. Possible values are `~12`, `~14`, `~16`, `~18` and `~20`.
+     * @return The version of node to use when `current_stack` is set to `node`. Possible values are `~12`, `~14`, `~16`, `~18`, `~20` and `~22`.
      * 
      * &gt; **NOTE:** This property conflicts with `java_version`.
      * 
@@ -281,7 +281,7 @@ public final class WindowsWebAppSiteConfigApplicationStackArgs extends com.pulum
     /**
      * The version of Tomcat the Java App should use. Conflicts with `java_embedded_server_enabled`
      * 
-     * &gt; **NOTE:** See the official documentation for current supported versions.  Some example valuess include: `10.0`, `10.0.20`.
+     * &gt; **NOTE:** See the official documentation for current supported versions. Some example values include: `10.0`, `10.0.20`.
      * 
      */
     @Import(name="tomcatVersion")
@@ -290,7 +290,7 @@ public final class WindowsWebAppSiteConfigApplicationStackArgs extends com.pulum
     /**
      * @return The version of Tomcat the Java App should use. Conflicts with `java_embedded_server_enabled`
      * 
-     * &gt; **NOTE:** See the official documentation for current supported versions.  Some example valuess include: `10.0`, `10.0.20`.
+     * &gt; **NOTE:** See the official documentation for current supported versions. Some example values include: `10.0`, `10.0.20`.
      * 
      */
     public Optional<Output<String>> tomcatVersion() {
@@ -611,7 +611,7 @@ public final class WindowsWebAppSiteConfigApplicationStackArgs extends com.pulum
         }
 
         /**
-         * @param nodeVersion The version of node to use when `current_stack` is set to `node`. Possible values are `~12`, `~14`, `~16`, `~18` and `~20`.
+         * @param nodeVersion The version of node to use when `current_stack` is set to `node`. Possible values are `~12`, `~14`, `~16`, `~18`, `~20` and `~22`.
          * 
          * &gt; **NOTE:** This property conflicts with `java_version`.
          * 
@@ -624,7 +624,7 @@ public final class WindowsWebAppSiteConfigApplicationStackArgs extends com.pulum
         }
 
         /**
-         * @param nodeVersion The version of node to use when `current_stack` is set to `node`. Possible values are `~12`, `~14`, `~16`, `~18` and `~20`.
+         * @param nodeVersion The version of node to use when `current_stack` is set to `node`. Possible values are `~12`, `~14`, `~16`, `~18`, `~20` and `~22`.
          * 
          * &gt; **NOTE:** This property conflicts with `java_version`.
          * 
@@ -684,7 +684,7 @@ public final class WindowsWebAppSiteConfigApplicationStackArgs extends com.pulum
         /**
          * @param tomcatVersion The version of Tomcat the Java App should use. Conflicts with `java_embedded_server_enabled`
          * 
-         * &gt; **NOTE:** See the official documentation for current supported versions.  Some example valuess include: `10.0`, `10.0.20`.
+         * &gt; **NOTE:** See the official documentation for current supported versions. Some example values include: `10.0`, `10.0.20`.
          * 
          * @return builder
          * 
@@ -697,7 +697,7 @@ public final class WindowsWebAppSiteConfigApplicationStackArgs extends com.pulum
         /**
          * @param tomcatVersion The version of Tomcat the Java App should use. Conflicts with `java_embedded_server_enabled`
          * 
-         * &gt; **NOTE:** See the official documentation for current supported versions.  Some example valuess include: `10.0`, `10.0.20`.
+         * &gt; **NOTE:** See the official documentation for current supported versions. Some example values include: `10.0`, `10.0.20`.
          * 
          * @return builder
          * 

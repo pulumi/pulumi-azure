@@ -191,14 +191,14 @@ public class LinkedServiceSftp extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.hostKeyFingerprint);
     }
     /**
-     * The integration runtime reference to associate with the Data Factory Linked Service.
+     * The name of the integration runtime to associate with the Data Factory Linked Service.
      * 
      */
     @Export(name="integrationRuntimeName", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> integrationRuntimeName;
 
     /**
-     * @return The integration runtime reference to associate with the Data Factory Linked Service.
+     * @return The name of the integration runtime to associate with the Data Factory Linked Service.
      * 
      */
     public Output<Optional<String>> integrationRuntimeName() {

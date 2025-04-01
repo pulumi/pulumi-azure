@@ -51,6 +51,7 @@ class LinuxFunctionAppArgs:
                  storage_key_vault_secret_id: Optional[pulumi.Input[str]] = None,
                  storage_uses_managed_identity: Optional[pulumi.Input[bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 virtual_network_backup_restore_enabled: Optional[pulumi.Input[bool]] = None,
                  virtual_network_subnet_id: Optional[pulumi.Input[str]] = None,
                  vnet_image_pull_enabled: Optional[pulumi.Input[bool]] = None,
                  webdeploy_publish_basic_authentication_enabled: Optional[pulumi.Input[bool]] = None,
@@ -96,6 +97,7 @@ class LinuxFunctionAppArgs:
                
                > **NOTE:** One of `storage_account_access_key` or `storage_uses_managed_identity` must be specified when using `storage_account_name`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Linux Function App.
+        :param pulumi.Input[bool] virtual_network_backup_restore_enabled: Whether backup and restore operations over the linked virtual network are enabled. Defaults to `false`.
         :param pulumi.Input[bool] vnet_image_pull_enabled: Should the traffic for the image pull be routed over virtual network enabled. Defaults to `false`.
                
                > **Note:** The feature can also be enabled via the app setting `WEBSITE_PULL_IMAGE_OVER_VNET`. Must be set to `true` when running in an App Service Environment.
@@ -163,6 +165,8 @@ class LinuxFunctionAppArgs:
             pulumi.set(__self__, "storage_uses_managed_identity", storage_uses_managed_identity)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if virtual_network_backup_restore_enabled is not None:
+            pulumi.set(__self__, "virtual_network_backup_restore_enabled", virtual_network_backup_restore_enabled)
         if virtual_network_subnet_id is not None:
             pulumi.set(__self__, "virtual_network_subnet_id", virtual_network_subnet_id)
         if vnet_image_pull_enabled is not None:
@@ -542,6 +546,18 @@ class LinuxFunctionAppArgs:
         pulumi.set(self, "tags", value)
 
     @property
+    @pulumi.getter(name="virtualNetworkBackupRestoreEnabled")
+    def virtual_network_backup_restore_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether backup and restore operations over the linked virtual network are enabled. Defaults to `false`.
+        """
+        return pulumi.get(self, "virtual_network_backup_restore_enabled")
+
+    @virtual_network_backup_restore_enabled.setter
+    def virtual_network_backup_restore_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "virtual_network_backup_restore_enabled", value)
+
+    @property
     @pulumi.getter(name="virtualNetworkSubnetId")
     def virtual_network_subnet_id(self) -> Optional[pulumi.Input[str]]:
         return pulumi.get(self, "virtual_network_subnet_id")
@@ -635,6 +651,7 @@ class _LinuxFunctionAppState:
                  storage_key_vault_secret_id: Optional[pulumi.Input[str]] = None,
                  storage_uses_managed_identity: Optional[pulumi.Input[bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 virtual_network_backup_restore_enabled: Optional[pulumi.Input[bool]] = None,
                  virtual_network_subnet_id: Optional[pulumi.Input[str]] = None,
                  vnet_image_pull_enabled: Optional[pulumi.Input[bool]] = None,
                  webdeploy_publish_basic_authentication_enabled: Optional[pulumi.Input[bool]] = None,
@@ -689,6 +706,7 @@ class _LinuxFunctionAppState:
                
                > **NOTE:** One of `storage_account_access_key` or `storage_uses_managed_identity` must be specified when using `storage_account_name`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Linux Function App.
+        :param pulumi.Input[bool] virtual_network_backup_restore_enabled: Whether backup and restore operations over the linked virtual network are enabled. Defaults to `false`.
         :param pulumi.Input[bool] vnet_image_pull_enabled: Should the traffic for the image pull be routed over virtual network enabled. Defaults to `false`.
                
                > **Note:** The feature can also be enabled via the app setting `WEBSITE_PULL_IMAGE_OVER_VNET`. Must be set to `true` when running in an App Service Environment.
@@ -777,6 +795,8 @@ class _LinuxFunctionAppState:
             pulumi.set(__self__, "storage_uses_managed_identity", storage_uses_managed_identity)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if virtual_network_backup_restore_enabled is not None:
+            pulumi.set(__self__, "virtual_network_backup_restore_enabled", virtual_network_backup_restore_enabled)
         if virtual_network_subnet_id is not None:
             pulumi.set(__self__, "virtual_network_subnet_id", virtual_network_subnet_id)
         if vnet_image_pull_enabled is not None:
@@ -1264,6 +1284,18 @@ class _LinuxFunctionAppState:
         pulumi.set(self, "tags", value)
 
     @property
+    @pulumi.getter(name="virtualNetworkBackupRestoreEnabled")
+    def virtual_network_backup_restore_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether backup and restore operations over the linked virtual network are enabled. Defaults to `false`.
+        """
+        return pulumi.get(self, "virtual_network_backup_restore_enabled")
+
+    @virtual_network_backup_restore_enabled.setter
+    def virtual_network_backup_restore_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "virtual_network_backup_restore_enabled", value)
+
+    @property
     @pulumi.getter(name="virtualNetworkSubnetId")
     def virtual_network_subnet_id(self) -> Optional[pulumi.Input[str]]:
         return pulumi.get(self, "virtual_network_subnet_id")
@@ -1350,6 +1382,7 @@ class LinuxFunctionApp(pulumi.CustomResource):
                  storage_key_vault_secret_id: Optional[pulumi.Input[str]] = None,
                  storage_uses_managed_identity: Optional[pulumi.Input[bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 virtual_network_backup_restore_enabled: Optional[pulumi.Input[bool]] = None,
                  virtual_network_subnet_id: Optional[pulumi.Input[str]] = None,
                  vnet_image_pull_enabled: Optional[pulumi.Input[bool]] = None,
                  webdeploy_publish_basic_authentication_enabled: Optional[pulumi.Input[bool]] = None,
@@ -1436,6 +1469,7 @@ class LinuxFunctionApp(pulumi.CustomResource):
                
                > **NOTE:** One of `storage_account_access_key` or `storage_uses_managed_identity` must be specified when using `storage_account_name`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Linux Function App.
+        :param pulumi.Input[bool] virtual_network_backup_restore_enabled: Whether backup and restore operations over the linked virtual network are enabled. Defaults to `false`.
         :param pulumi.Input[bool] vnet_image_pull_enabled: Should the traffic for the image pull be routed over virtual network enabled. Defaults to `false`.
                
                > **Note:** The feature can also be enabled via the app setting `WEBSITE_PULL_IMAGE_OVER_VNET`. Must be set to `true` when running in an App Service Environment.
@@ -1537,6 +1571,7 @@ class LinuxFunctionApp(pulumi.CustomResource):
                  storage_key_vault_secret_id: Optional[pulumi.Input[str]] = None,
                  storage_uses_managed_identity: Optional[pulumi.Input[bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 virtual_network_backup_restore_enabled: Optional[pulumi.Input[bool]] = None,
                  virtual_network_subnet_id: Optional[pulumi.Input[str]] = None,
                  vnet_image_pull_enabled: Optional[pulumi.Input[bool]] = None,
                  webdeploy_publish_basic_authentication_enabled: Optional[pulumi.Input[bool]] = None,
@@ -1586,6 +1621,7 @@ class LinuxFunctionApp(pulumi.CustomResource):
             __props__.__dict__["storage_key_vault_secret_id"] = storage_key_vault_secret_id
             __props__.__dict__["storage_uses_managed_identity"] = storage_uses_managed_identity
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["virtual_network_backup_restore_enabled"] = virtual_network_backup_restore_enabled
             __props__.__dict__["virtual_network_subnet_id"] = virtual_network_subnet_id
             __props__.__dict__["vnet_image_pull_enabled"] = vnet_image_pull_enabled
             __props__.__dict__["webdeploy_publish_basic_authentication_enabled"] = webdeploy_publish_basic_authentication_enabled
@@ -1650,6 +1686,7 @@ class LinuxFunctionApp(pulumi.CustomResource):
             storage_key_vault_secret_id: Optional[pulumi.Input[str]] = None,
             storage_uses_managed_identity: Optional[pulumi.Input[bool]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+            virtual_network_backup_restore_enabled: Optional[pulumi.Input[bool]] = None,
             virtual_network_subnet_id: Optional[pulumi.Input[str]] = None,
             vnet_image_pull_enabled: Optional[pulumi.Input[bool]] = None,
             webdeploy_publish_basic_authentication_enabled: Optional[pulumi.Input[bool]] = None,
@@ -1709,6 +1746,7 @@ class LinuxFunctionApp(pulumi.CustomResource):
                
                > **NOTE:** One of `storage_account_access_key` or `storage_uses_managed_identity` must be specified when using `storage_account_name`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Linux Function App.
+        :param pulumi.Input[bool] virtual_network_backup_restore_enabled: Whether backup and restore operations over the linked virtual network are enabled. Defaults to `false`.
         :param pulumi.Input[bool] vnet_image_pull_enabled: Should the traffic for the image pull be routed over virtual network enabled. Defaults to `false`.
                
                > **Note:** The feature can also be enabled via the app setting `WEBSITE_PULL_IMAGE_OVER_VNET`. Must be set to `true` when running in an App Service Environment.
@@ -1762,6 +1800,7 @@ class LinuxFunctionApp(pulumi.CustomResource):
         __props__.__dict__["storage_key_vault_secret_id"] = storage_key_vault_secret_id
         __props__.__dict__["storage_uses_managed_identity"] = storage_uses_managed_identity
         __props__.__dict__["tags"] = tags
+        __props__.__dict__["virtual_network_backup_restore_enabled"] = virtual_network_backup_restore_enabled
         __props__.__dict__["virtual_network_subnet_id"] = virtual_network_subnet_id
         __props__.__dict__["vnet_image_pull_enabled"] = vnet_image_pull_enabled
         __props__.__dict__["webdeploy_publish_basic_authentication_enabled"] = webdeploy_publish_basic_authentication_enabled
@@ -2088,6 +2127,14 @@ class LinuxFunctionApp(pulumi.CustomResource):
         A mapping of tags which should be assigned to the Linux Function App.
         """
         return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter(name="virtualNetworkBackupRestoreEnabled")
+    def virtual_network_backup_restore_enabled(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Whether backup and restore operations over the linked virtual network are enabled. Defaults to `false`.
+        """
+        return pulumi.get(self, "virtual_network_backup_restore_enabled")
 
     @property
     @pulumi.getter(name="virtualNetworkSubnetId")

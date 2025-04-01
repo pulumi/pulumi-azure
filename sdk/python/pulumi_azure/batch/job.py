@@ -256,7 +256,7 @@ class Job(pulumi.CustomResource):
             resource_group_name=example.name,
             account_name=example_account.name,
             node_agent_sku_id="batch.node.ubuntu 16.04",
-            vm_size="Standard_A1",
+            vm_size="STANDARD_A1_V2",
             fixed_scale={
                 "target_dedicated_nodes": 1,
             },
@@ -315,7 +315,7 @@ class Job(pulumi.CustomResource):
             resource_group_name=example.name,
             account_name=example_account.name,
             node_agent_sku_id="batch.node.ubuntu 16.04",
-            vm_size="Standard_A1",
+            vm_size="STANDARD_A1_V2",
             fixed_scale={
                 "target_dedicated_nodes": 1,
             },

@@ -18,7 +18,7 @@ namespace Pulumi.Azure.ServiceBus.Outputs
         /// </summary>
         public readonly string? DefaultAction;
         /// <summary>
-        /// One or more IP Addresses, or CIDR Blocks which should be able to access the ServiceBus Namespace.
+        /// One or more IP Addresses, or CIDR Blocks which should be able to access the Service Bus Namespace.
         /// </summary>
         public readonly ImmutableArray<string> IpRules;
         /// <summary>

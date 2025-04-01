@@ -41,7 +41,7 @@ namespace Pulumi.Azure.Batch
     ///         ResourceGroupName = example.Name,
     ///         AccountName = exampleAccount.Name,
     ///         NodeAgentSkuId = "batch.node.ubuntu 16.04",
-    ///         VmSize = "Standard_A1",
+    ///         VmSize = "STANDARD_A1_V2",
     ///         FixedScale = new Azure.Batch.Inputs.PoolFixedScaleArgs
     ///         {
     ///             TargetDedicatedNodes = 1,

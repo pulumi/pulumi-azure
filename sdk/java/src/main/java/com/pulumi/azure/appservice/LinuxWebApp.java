@@ -552,6 +552,20 @@ public class LinuxWebApp extends com.pulumi.resources.CustomResource {
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
+    /**
+     * Whether backup and restore operations over the linked virtual network are enabled. Defaults to `false`.
+     * 
+     */
+    @Export(name="virtualNetworkBackupRestoreEnabled", refs={Boolean.class}, tree="[0]")
+    private Output</* @Nullable */ Boolean> virtualNetworkBackupRestoreEnabled;
+
+    /**
+     * @return Whether backup and restore operations over the linked virtual network are enabled. Defaults to `false`.
+     * 
+     */
+    public Output<Optional<Boolean>> virtualNetworkBackupRestoreEnabled() {
+        return Codegen.optional(this.virtualNetworkBackupRestoreEnabled);
+    }
     @Export(name="virtualNetworkSubnetId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> virtualNetworkSubnetId;
 

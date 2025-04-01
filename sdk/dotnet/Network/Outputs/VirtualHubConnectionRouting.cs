@@ -34,6 +34,10 @@ namespace Pulumi.Azure.Network.Outputs
         /// </summary>
         public readonly string? StaticVnetLocalRouteOverrideCriteria;
         /// <summary>
+        /// Whether the static routes should be propagated to the Virtual Hub. Defaults to `true`.
+        /// </summary>
+        public readonly bool? StaticVnetPropagateStaticRoutesEnabled;
+        /// <summary>
         /// A `static_vnet_route` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.VirtualHubConnectionRoutingStaticVnetRoute> StaticVnetRoutes;
@@ -50,6 +54,8 @@ namespace Pulumi.Azure.Network.Outputs
 
             string? staticVnetLocalRouteOverrideCriteria,
 
+            bool? staticVnetPropagateStaticRoutesEnabled,
+
             ImmutableArray<Outputs.VirtualHubConnectionRoutingStaticVnetRoute> staticVnetRoutes)
         {
             AssociatedRouteTableId = associatedRouteTableId;
@@ -57,6 +63,7 @@ namespace Pulumi.Azure.Network.Outputs
             OutboundRouteMapId = outboundRouteMapId;
             PropagatedRouteTable = propagatedRouteTable;
             StaticVnetLocalRouteOverrideCriteria = staticVnetLocalRouteOverrideCriteria;
+            StaticVnetPropagateStaticRoutesEnabled = staticVnetPropagateStaticRoutesEnabled;
             StaticVnetRoutes = staticVnetRoutes;
         }
     }

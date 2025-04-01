@@ -45,6 +45,7 @@ class WindowsWebAppArgs:
                  sticky_settings: Optional[pulumi.Input['WindowsWebAppStickySettingsArgs']] = None,
                  storage_accounts: Optional[pulumi.Input[Sequence[pulumi.Input['WindowsWebAppStorageAccountArgs']]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 virtual_network_backup_restore_enabled: Optional[pulumi.Input[bool]] = None,
                  virtual_network_subnet_id: Optional[pulumi.Input[str]] = None,
                  webdeploy_publish_basic_authentication_enabled: Optional[pulumi.Input[bool]] = None,
                  zip_deploy_file: Optional[pulumi.Input[str]] = None):
@@ -76,6 +77,7 @@ class WindowsWebAppArgs:
                
                > **Note:** Using this value requires `WEBSITE_RUN_FROM_PACKAGE=1` to be set on the App in `app_settings`. Refer to the [Azure docs](https://docs.microsoft.com/en-us/azure/app-service/deploy-run-package) for further details.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Windows Web App.
+        :param pulumi.Input[bool] virtual_network_backup_restore_enabled: Whether backup and restore operations over the linked virtual network are enabled. Defaults to `false`.
         :param pulumi.Input[bool] webdeploy_publish_basic_authentication_enabled: Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to `true`.
                
                > **NOTE:** Setting this value to true will disable the ability to use `zip_deploy_file` which currently relies on the default publishing profile.
@@ -128,6 +130,8 @@ class WindowsWebAppArgs:
             pulumi.set(__self__, "storage_accounts", storage_accounts)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if virtual_network_backup_restore_enabled is not None:
+            pulumi.set(__self__, "virtual_network_backup_restore_enabled", virtual_network_backup_restore_enabled)
         if virtual_network_subnet_id is not None:
             pulumi.set(__self__, "virtual_network_subnet_id", virtual_network_subnet_id)
         if webdeploy_publish_basic_authentication_enabled is not None:
@@ -426,6 +430,18 @@ class WindowsWebAppArgs:
         pulumi.set(self, "tags", value)
 
     @property
+    @pulumi.getter(name="virtualNetworkBackupRestoreEnabled")
+    def virtual_network_backup_restore_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether backup and restore operations over the linked virtual network are enabled. Defaults to `false`.
+        """
+        return pulumi.get(self, "virtual_network_backup_restore_enabled")
+
+    @virtual_network_backup_restore_enabled.setter
+    def virtual_network_backup_restore_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "virtual_network_backup_restore_enabled", value)
+
+    @property
     @pulumi.getter(name="virtualNetworkSubnetId")
     def virtual_network_subnet_id(self) -> Optional[pulumi.Input[str]]:
         return pulumi.get(self, "virtual_network_subnet_id")
@@ -499,6 +515,7 @@ class _WindowsWebAppState:
                  sticky_settings: Optional[pulumi.Input['WindowsWebAppStickySettingsArgs']] = None,
                  storage_accounts: Optional[pulumi.Input[Sequence[pulumi.Input['WindowsWebAppStorageAccountArgs']]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 virtual_network_backup_restore_enabled: Optional[pulumi.Input[bool]] = None,
                  virtual_network_subnet_id: Optional[pulumi.Input[str]] = None,
                  webdeploy_publish_basic_authentication_enabled: Optional[pulumi.Input[bool]] = None,
                  zip_deploy_file: Optional[pulumi.Input[str]] = None):
@@ -539,6 +556,7 @@ class _WindowsWebAppState:
                
                > **Note:** Using this value requires `WEBSITE_RUN_FROM_PACKAGE=1` to be set on the App in `app_settings`. Refer to the [Azure docs](https://docs.microsoft.com/en-us/azure/app-service/deploy-run-package) for further details.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Windows Web App.
+        :param pulumi.Input[bool] virtual_network_backup_restore_enabled: Whether backup and restore operations over the linked virtual network are enabled. Defaults to `false`.
         :param pulumi.Input[bool] webdeploy_publish_basic_authentication_enabled: Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to `true`.
                
                > **NOTE:** Setting this value to true will disable the ability to use `zip_deploy_file` which currently relies on the default publishing profile.
@@ -612,6 +630,8 @@ class _WindowsWebAppState:
             pulumi.set(__self__, "storage_accounts", storage_accounts)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if virtual_network_backup_restore_enabled is not None:
+            pulumi.set(__self__, "virtual_network_backup_restore_enabled", virtual_network_backup_restore_enabled)
         if virtual_network_subnet_id is not None:
             pulumi.set(__self__, "virtual_network_subnet_id", virtual_network_subnet_id)
         if webdeploy_publish_basic_authentication_enabled is not None:
@@ -1018,6 +1038,18 @@ class _WindowsWebAppState:
         pulumi.set(self, "tags", value)
 
     @property
+    @pulumi.getter(name="virtualNetworkBackupRestoreEnabled")
+    def virtual_network_backup_restore_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether backup and restore operations over the linked virtual network are enabled. Defaults to `false`.
+        """
+        return pulumi.get(self, "virtual_network_backup_restore_enabled")
+
+    @virtual_network_backup_restore_enabled.setter
+    def virtual_network_backup_restore_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "virtual_network_backup_restore_enabled", value)
+
+    @property
     @pulumi.getter(name="virtualNetworkSubnetId")
     def virtual_network_subnet_id(self) -> Optional[pulumi.Input[str]]:
         return pulumi.get(self, "virtual_network_subnet_id")
@@ -1084,6 +1116,7 @@ class WindowsWebApp(pulumi.CustomResource):
                  sticky_settings: Optional[pulumi.Input[Union['WindowsWebAppStickySettingsArgs', 'WindowsWebAppStickySettingsArgsDict']]] = None,
                  storage_accounts: Optional[pulumi.Input[Sequence[pulumi.Input[Union['WindowsWebAppStorageAccountArgs', 'WindowsWebAppStorageAccountArgsDict']]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 virtual_network_backup_restore_enabled: Optional[pulumi.Input[bool]] = None,
                  virtual_network_subnet_id: Optional[pulumi.Input[str]] = None,
                  webdeploy_publish_basic_authentication_enabled: Optional[pulumi.Input[bool]] = None,
                  zip_deploy_file: Optional[pulumi.Input[str]] = None,
@@ -1150,6 +1183,7 @@ class WindowsWebApp(pulumi.CustomResource):
                
                > **Note:** Using this value requires `WEBSITE_RUN_FROM_PACKAGE=1` to be set on the App in `app_settings`. Refer to the [Azure docs](https://docs.microsoft.com/en-us/azure/app-service/deploy-run-package) for further details.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Windows Web App.
+        :param pulumi.Input[bool] virtual_network_backup_restore_enabled: Whether backup and restore operations over the linked virtual network are enabled. Defaults to `false`.
         :param pulumi.Input[bool] webdeploy_publish_basic_authentication_enabled: Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to `true`.
                
                > **NOTE:** Setting this value to true will disable the ability to use `zip_deploy_file` which currently relies on the default publishing profile.
@@ -1236,6 +1270,7 @@ class WindowsWebApp(pulumi.CustomResource):
                  sticky_settings: Optional[pulumi.Input[Union['WindowsWebAppStickySettingsArgs', 'WindowsWebAppStickySettingsArgsDict']]] = None,
                  storage_accounts: Optional[pulumi.Input[Sequence[pulumi.Input[Union['WindowsWebAppStorageAccountArgs', 'WindowsWebAppStorageAccountArgsDict']]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 virtual_network_backup_restore_enabled: Optional[pulumi.Input[bool]] = None,
                  virtual_network_subnet_id: Optional[pulumi.Input[str]] = None,
                  webdeploy_publish_basic_authentication_enabled: Optional[pulumi.Input[bool]] = None,
                  zip_deploy_file: Optional[pulumi.Input[str]] = None,
@@ -1278,6 +1313,7 @@ class WindowsWebApp(pulumi.CustomResource):
             __props__.__dict__["sticky_settings"] = sticky_settings
             __props__.__dict__["storage_accounts"] = storage_accounts
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["virtual_network_backup_restore_enabled"] = virtual_network_backup_restore_enabled
             __props__.__dict__["virtual_network_subnet_id"] = virtual_network_subnet_id
             __props__.__dict__["webdeploy_publish_basic_authentication_enabled"] = webdeploy_publish_basic_authentication_enabled
             __props__.__dict__["zip_deploy_file"] = zip_deploy_file
@@ -1335,6 +1371,7 @@ class WindowsWebApp(pulumi.CustomResource):
             sticky_settings: Optional[pulumi.Input[Union['WindowsWebAppStickySettingsArgs', 'WindowsWebAppStickySettingsArgsDict']]] = None,
             storage_accounts: Optional[pulumi.Input[Sequence[pulumi.Input[Union['WindowsWebAppStorageAccountArgs', 'WindowsWebAppStorageAccountArgsDict']]]]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+            virtual_network_backup_restore_enabled: Optional[pulumi.Input[bool]] = None,
             virtual_network_subnet_id: Optional[pulumi.Input[str]] = None,
             webdeploy_publish_basic_authentication_enabled: Optional[pulumi.Input[bool]] = None,
             zip_deploy_file: Optional[pulumi.Input[str]] = None) -> 'WindowsWebApp':
@@ -1380,6 +1417,7 @@ class WindowsWebApp(pulumi.CustomResource):
                
                > **Note:** Using this value requires `WEBSITE_RUN_FROM_PACKAGE=1` to be set on the App in `app_settings`. Refer to the [Azure docs](https://docs.microsoft.com/en-us/azure/app-service/deploy-run-package) for further details.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Windows Web App.
+        :param pulumi.Input[bool] virtual_network_backup_restore_enabled: Whether backup and restore operations over the linked virtual network are enabled. Defaults to `false`.
         :param pulumi.Input[bool] webdeploy_publish_basic_authentication_enabled: Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to `true`.
                
                > **NOTE:** Setting this value to true will disable the ability to use `zip_deploy_file` which currently relies on the default publishing profile.
@@ -1424,6 +1462,7 @@ class WindowsWebApp(pulumi.CustomResource):
         __props__.__dict__["sticky_settings"] = sticky_settings
         __props__.__dict__["storage_accounts"] = storage_accounts
         __props__.__dict__["tags"] = tags
+        __props__.__dict__["virtual_network_backup_restore_enabled"] = virtual_network_backup_restore_enabled
         __props__.__dict__["virtual_network_subnet_id"] = virtual_network_subnet_id
         __props__.__dict__["webdeploy_publish_basic_authentication_enabled"] = webdeploy_publish_basic_authentication_enabled
         __props__.__dict__["zip_deploy_file"] = zip_deploy_file
@@ -1694,6 +1733,14 @@ class WindowsWebApp(pulumi.CustomResource):
         A mapping of tags which should be assigned to the Windows Web App.
         """
         return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter(name="virtualNetworkBackupRestoreEnabled")
+    def virtual_network_backup_restore_enabled(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Whether backup and restore operations over the linked virtual network are enabled. Defaults to `false`.
+        """
+        return pulumi.get(self, "virtual_network_backup_restore_enabled")
 
     @property
     @pulumi.getter(name="virtualNetworkSubnetId")

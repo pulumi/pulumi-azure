@@ -14,26 +14,26 @@ import javax.annotation.Nullable;
 @CustomType
 public final class NamespaceNetworkRuleSetNetworkRule {
     /**
-     * @return Should the ServiceBus Namespace Network Rule Set ignore missing Virtual Network Service Endpoint option in the Subnet? Defaults to `false`.
+     * @return Should the Service Bus Namespace Network Rule Set ignore missing Virtual Network Service Endpoint option in the Subnet? Defaults to `false`.
      * 
      */
     private @Nullable Boolean ignoreMissingVnetServiceEndpoint;
     /**
-     * @return The Subnet ID which should be able to access this ServiceBus Namespace.
+     * @return The Subnet ID which should be able to access this Service Bus Namespace.
      * 
      */
     private String subnetId;
 
     private NamespaceNetworkRuleSetNetworkRule() {}
     /**
-     * @return Should the ServiceBus Namespace Network Rule Set ignore missing Virtual Network Service Endpoint option in the Subnet? Defaults to `false`.
+     * @return Should the Service Bus Namespace Network Rule Set ignore missing Virtual Network Service Endpoint option in the Subnet? Defaults to `false`.
      * 
      */
     public Optional<Boolean> ignoreMissingVnetServiceEndpoint() {
         return Optional.ofNullable(this.ignoreMissingVnetServiceEndpoint);
     }
     /**
-     * @return The Subnet ID which should be able to access this ServiceBus Namespace.
+     * @return The Subnet ID which should be able to access this Service Bus Namespace.
      * 
      */
     public String subnetId() {

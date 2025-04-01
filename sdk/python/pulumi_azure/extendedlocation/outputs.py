@@ -16,6 +16,7 @@ from .. import _utilities
 
 __all__ = [
     'CustomLocationAuthentication',
+    'GetCustomLocationAuthenticationResult',
 ]
 
 @pulumi.output_type
@@ -46,5 +47,34 @@ class CustomLocationAuthentication(dict):
         Specifies the type of authentication.
         """
         return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class GetCustomLocationAuthenticationResult(dict):
+    def __init__(__self__, *,
+                 type: str,
+                 value: str):
+        """
+        :param str type: The type of authentication.
+        :param str value: The value of authentication.
+        """
+        pulumi.set(__self__, "type", type)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The type of authentication.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        """
+        The value of authentication.
+        """
+        return pulumi.get(self, "value")
 
 

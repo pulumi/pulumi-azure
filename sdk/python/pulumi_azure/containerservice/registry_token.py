@@ -201,7 +201,7 @@ class RegistryToken(pulumi.CustomResource):
                  scope_map_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Manages an Azure Container Registry token. Tokens are a preview feature only available in Premium SKU Container registries.
+        Manages an Azure Container Registry token associated to a scope map. For more information on scope maps and their tokens see the [product documentation](https://learn.microsoft.com/en-us/azure/container-registry/container-registry-repository-scoped-permissions).
 
         ```python
         import pulumi
@@ -214,7 +214,7 @@ class RegistryToken(pulumi.CustomResource):
             name="example",
             resource_group_name=example.name,
             location=example.location,
-            sku="Premium",
+            sku="Basic",
             admin_enabled=False,
             georeplications=[
                 {
@@ -262,7 +262,7 @@ class RegistryToken(pulumi.CustomResource):
                  args: RegistryTokenArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Manages an Azure Container Registry token. Tokens are a preview feature only available in Premium SKU Container registries.
+        Manages an Azure Container Registry token associated to a scope map. For more information on scope maps and their tokens see the [product documentation](https://learn.microsoft.com/en-us/azure/container-registry/container-registry-repository-scoped-permissions).
 
         ```python
         import pulumi
@@ -275,7 +275,7 @@ class RegistryToken(pulumi.CustomResource):
             name="example",
             resource_group_name=example.name,
             location=example.location,
-            sku="Premium",
+            sku="Basic",
             admin_enabled=False,
             georeplications=[
                 {

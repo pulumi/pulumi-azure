@@ -11,6 +11,7 @@ from .function_javascript_uda import *
 from .get_job import *
 from .job import *
 from .job_schedule import *
+from .job_storage_account import *
 from .managed_private_endpoint import *
 from .output_blob import *
 from .output_cosmosdb import *

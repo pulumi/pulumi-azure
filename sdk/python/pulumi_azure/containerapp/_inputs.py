@@ -3287,6 +3287,10 @@ if not MYPY:
         """
         The name of the volume.
         """
+        mount_options: NotRequired[pulumi.Input[str]]
+        """
+        Mount options used while mounting the AzureFile. Must be a comma-separated string e.g. `dir_mode=0751,file_mode=0751`.
+        """
         storage_name: NotRequired[pulumi.Input[str]]
         """
         The name of the `AzureFile` storage.
@@ -3302,14 +3306,18 @@ elif False:
 class AppTemplateVolumeArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
+                 mount_options: Optional[pulumi.Input[str]] = None,
                  storage_name: Optional[pulumi.Input[str]] = None,
                  storage_type: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] name: The name of the volume.
+        :param pulumi.Input[str] mount_options: Mount options used while mounting the AzureFile. Must be a comma-separated string e.g. `dir_mode=0751,file_mode=0751`.
         :param pulumi.Input[str] storage_name: The name of the `AzureFile` storage.
         :param pulumi.Input[str] storage_type: The type of storage volume. Possible values are `AzureFile`, `EmptyDir` and `Secret`. Defaults to `EmptyDir`.
         """
         pulumi.set(__self__, "name", name)
+        if mount_options is not None:
+            pulumi.set(__self__, "mount_options", mount_options)
         if storage_name is not None:
             pulumi.set(__self__, "storage_name", storage_name)
         if storage_type is not None:
@@ -3326,6 +3334,18 @@ class AppTemplateVolumeArgs:
     @name.setter
     def name(self, value: pulumi.Input[str]):
         pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="mountOptions")
+    def mount_options(self) -> Optional[pulumi.Input[str]]:
+        """
+        Mount options used while mounting the AzureFile. Must be a comma-separated string e.g. `dir_mode=0751,file_mode=0751`.
+        """
+        return pulumi.get(self, "mount_options")
+
+    @mount_options.setter
+    def mount_options(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "mount_options", value)
 
     @property
     @pulumi.getter(name="storageName")
@@ -5932,6 +5952,10 @@ if not MYPY:
         """
         The name of the volume.
         """
+        mount_options: NotRequired[pulumi.Input[str]]
+        """
+        Mount options used while mounting the AzureFile. Must be a comma-separated string e.g. `dir_mode=0751,file_mode=0751`.
+        """
         storage_name: NotRequired[pulumi.Input[str]]
         """
         The name of the storage to use for the volume.
@@ -5947,14 +5971,18 @@ elif False:
 class JobTemplateVolumeArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
+                 mount_options: Optional[pulumi.Input[str]] = None,
                  storage_name: Optional[pulumi.Input[str]] = None,
                  storage_type: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] name: The name of the volume.
+        :param pulumi.Input[str] mount_options: Mount options used while mounting the AzureFile. Must be a comma-separated string e.g. `dir_mode=0751,file_mode=0751`.
         :param pulumi.Input[str] storage_name: The name of the storage to use for the volume.
         :param pulumi.Input[str] storage_type: The type of storage to use for the volume. Possible values are `AzureFile`, `EmptyDir` and `Secret`.
         """
         pulumi.set(__self__, "name", name)
+        if mount_options is not None:
+            pulumi.set(__self__, "mount_options", mount_options)
         if storage_name is not None:
             pulumi.set(__self__, "storage_name", storage_name)
         if storage_type is not None:
@@ -5971,6 +5999,18 @@ class JobTemplateVolumeArgs:
     @name.setter
     def name(self, value: pulumi.Input[str]):
         pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="mountOptions")
+    def mount_options(self) -> Optional[pulumi.Input[str]]:
+        """
+        Mount options used while mounting the AzureFile. Must be a comma-separated string e.g. `dir_mode=0751,file_mode=0751`.
+        """
+        return pulumi.get(self, "mount_options")
+
+    @mount_options.setter
+    def mount_options(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "mount_options", value)
 
     @property
     @pulumi.getter(name="storageName")

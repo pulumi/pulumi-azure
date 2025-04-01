@@ -16,7 +16,7 @@ import (
 //
 // > **NOTE:** Multiple Node Pools are only supported when the Kubernetes Cluster is using Virtual Machine Scale Sets.
 //
-// > **Note:** Changing certain properties is done by cycling the node pool. When cycling it, it doesn’t perform cordon and drain, and it will disrupt rescheduling pods currently running on the previous node pool. `temporaryNameForRotation` must be specified when changing any of the following properties: `fipsEnabled`, `hostEncryptionEnabled`, `kubeletConfig`, `linuxOsConfig`, `maxPods`, `nodePublicIpEnabled`, `osDiskSizeGb`, `osDiskType`, `podSubnetId`, `snapshotId`, `ultraSsdEnabled`, `vmSize`, `vnetSubnetId`, `zones`.
+// > **Note:** Changing certain properties is done by cycling the node pool. When cycling it, it doesn’t perform cordon and drain, and it will disrupt rescheduling pods currently running on the previous node pool. `temporaryNameForRotation` must be specified when changing any of the following properties: `fipsEnabled`, `hostEncryptionEnabled`, `kubeletConfig`, `kubeletDiskType`, `linuxOsConfig`, `maxPods`, `nodePublicIpEnabled`, `osDiskSizeGb`, `osDiskType`, `podSubnetId`, `snapshotId`, `ultraSsdEnabled`, `vmSize`, `vnetSubnetId`, `zones`.
 //
 // ## Example Usage
 //
@@ -110,7 +110,7 @@ type KubernetesClusterNodePool struct {
 	HostGroupId pulumi.StringPtrOutput `pulumi:"hostGroupId"`
 	// A `kubeletConfig` block as defined below. Changing this requires specifying `temporaryNameForRotation`.
 	KubeletConfig KubernetesClusterNodePoolKubeletConfigPtrOutput `pulumi:"kubeletConfig"`
-	// The type of disk used by kubelet. Possible values are `OS` and `Temporary`.
+	// The type of disk used by kubelet. Possible values are `OS` and `Temporary`. Changing this property requires specifying `temporaryNameForRotation`.
 	KubeletDiskType pulumi.StringOutput `pulumi:"kubeletDiskType"`
 	// The ID of the Kubernetes Cluster where this Node Pool should exist. Changing this forces a new resource to be created.
 	//
@@ -251,7 +251,7 @@ type kubernetesClusterNodePoolState struct {
 	HostGroupId *string `pulumi:"hostGroupId"`
 	// A `kubeletConfig` block as defined below. Changing this requires specifying `temporaryNameForRotation`.
 	KubeletConfig *KubernetesClusterNodePoolKubeletConfig `pulumi:"kubeletConfig"`
-	// The type of disk used by kubelet. Possible values are `OS` and `Temporary`.
+	// The type of disk used by kubelet. Possible values are `OS` and `Temporary`. Changing this property requires specifying `temporaryNameForRotation`.
 	KubeletDiskType *string `pulumi:"kubeletDiskType"`
 	// The ID of the Kubernetes Cluster where this Node Pool should exist. Changing this forces a new resource to be created.
 	//
@@ -357,7 +357,7 @@ type KubernetesClusterNodePoolState struct {
 	HostGroupId pulumi.StringPtrInput
 	// A `kubeletConfig` block as defined below. Changing this requires specifying `temporaryNameForRotation`.
 	KubeletConfig KubernetesClusterNodePoolKubeletConfigPtrInput
-	// The type of disk used by kubelet. Possible values are `OS` and `Temporary`.
+	// The type of disk used by kubelet. Possible values are `OS` and `Temporary`. Changing this property requires specifying `temporaryNameForRotation`.
 	KubeletDiskType pulumi.StringPtrInput
 	// The ID of the Kubernetes Cluster where this Node Pool should exist. Changing this forces a new resource to be created.
 	//
@@ -467,7 +467,7 @@ type kubernetesClusterNodePoolArgs struct {
 	HostGroupId *string `pulumi:"hostGroupId"`
 	// A `kubeletConfig` block as defined below. Changing this requires specifying `temporaryNameForRotation`.
 	KubeletConfig *KubernetesClusterNodePoolKubeletConfig `pulumi:"kubeletConfig"`
-	// The type of disk used by kubelet. Possible values are `OS` and `Temporary`.
+	// The type of disk used by kubelet. Possible values are `OS` and `Temporary`. Changing this property requires specifying `temporaryNameForRotation`.
 	KubeletDiskType *string `pulumi:"kubeletDiskType"`
 	// The ID of the Kubernetes Cluster where this Node Pool should exist. Changing this forces a new resource to be created.
 	//
@@ -574,7 +574,7 @@ type KubernetesClusterNodePoolArgs struct {
 	HostGroupId pulumi.StringPtrInput
 	// A `kubeletConfig` block as defined below. Changing this requires specifying `temporaryNameForRotation`.
 	KubeletConfig KubernetesClusterNodePoolKubeletConfigPtrInput
-	// The type of disk used by kubelet. Possible values are `OS` and `Temporary`.
+	// The type of disk used by kubelet. Possible values are `OS` and `Temporary`. Changing this property requires specifying `temporaryNameForRotation`.
 	KubeletDiskType pulumi.StringPtrInput
 	// The ID of the Kubernetes Cluster where this Node Pool should exist. Changing this forces a new resource to be created.
 	//
@@ -792,7 +792,7 @@ func (o KubernetesClusterNodePoolOutput) KubeletConfig() KubernetesClusterNodePo
 	}).(KubernetesClusterNodePoolKubeletConfigPtrOutput)
 }
 
-// The type of disk used by kubelet. Possible values are `OS` and `Temporary`.
+// The type of disk used by kubelet. Possible values are `OS` and `Temporary`. Changing this property requires specifying `temporaryNameForRotation`.
 func (o KubernetesClusterNodePoolOutput) KubeletDiskType() pulumi.StringOutput {
 	return o.ApplyT(func(v *KubernetesClusterNodePool) pulumi.StringOutput { return v.KubeletDiskType }).(pulumi.StringOutput)
 }

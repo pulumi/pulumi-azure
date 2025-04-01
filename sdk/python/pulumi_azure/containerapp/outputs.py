@@ -2502,7 +2502,9 @@ class AppTemplateVolume(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "storageName":
+        if key == "mountOptions":
+            suggest = "mount_options"
+        elif key == "storageName":
             suggest = "storage_name"
         elif key == "storageType":
             suggest = "storage_type"
@@ -2520,14 +2522,18 @@ class AppTemplateVolume(dict):
 
     def __init__(__self__, *,
                  name: str,
+                 mount_options: Optional[str] = None,
                  storage_name: Optional[str] = None,
                  storage_type: Optional[str] = None):
         """
         :param str name: The name of the volume.
+        :param str mount_options: Mount options used while mounting the AzureFile. Must be a comma-separated string e.g. `dir_mode=0751,file_mode=0751`.
         :param str storage_name: The name of the `AzureFile` storage.
         :param str storage_type: The type of storage volume. Possible values are `AzureFile`, `EmptyDir` and `Secret`. Defaults to `EmptyDir`.
         """
         pulumi.set(__self__, "name", name)
+        if mount_options is not None:
+            pulumi.set(__self__, "mount_options", mount_options)
         if storage_name is not None:
             pulumi.set(__self__, "storage_name", storage_name)
         if storage_type is not None:
@@ -2540,6 +2546,14 @@ class AppTemplateVolume(dict):
         The name of the volume.
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="mountOptions")
+    def mount_options(self) -> Optional[str]:
+        """
+        Mount options used while mounting the AzureFile. Must be a comma-separated string e.g. `dir_mode=0751,file_mode=0751`.
+        """
+        return pulumi.get(self, "mount_options")
 
     @property
     @pulumi.getter(name="storageName")
@@ -4510,7 +4524,9 @@ class JobTemplateVolume(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "storageName":
+        if key == "mountOptions":
+            suggest = "mount_options"
+        elif key == "storageName":
             suggest = "storage_name"
         elif key == "storageType":
             suggest = "storage_type"
@@ -4528,14 +4544,18 @@ class JobTemplateVolume(dict):
 
     def __init__(__self__, *,
                  name: str,
+                 mount_options: Optional[str] = None,
                  storage_name: Optional[str] = None,
                  storage_type: Optional[str] = None):
         """
         :param str name: The name of the volume.
+        :param str mount_options: Mount options used while mounting the AzureFile. Must be a comma-separated string e.g. `dir_mode=0751,file_mode=0751`.
         :param str storage_name: The name of the storage to use for the volume.
         :param str storage_type: The type of storage to use for the volume. Possible values are `AzureFile`, `EmptyDir` and `Secret`.
         """
         pulumi.set(__self__, "name", name)
+        if mount_options is not None:
+            pulumi.set(__self__, "mount_options", mount_options)
         if storage_name is not None:
             pulumi.set(__self__, "storage_name", storage_name)
         if storage_type is not None:
@@ -4548,6 +4568,14 @@ class JobTemplateVolume(dict):
         The name of the volume.
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="mountOptions")
+    def mount_options(self) -> Optional[str]:
+        """
+        Mount options used while mounting the AzureFile. Must be a comma-separated string e.g. `dir_mode=0751,file_mode=0751`.
+        """
+        return pulumi.get(self, "mount_options")
 
     @property
     @pulumi.getter(name="storageName")
@@ -6215,17 +6243,28 @@ class GetAppTemplateTcpScaleRuleAuthenticationResult(dict):
 @pulumi.output_type
 class GetAppTemplateVolumeResult(dict):
     def __init__(__self__, *,
+                 mount_options: str,
                  name: str,
                  storage_name: str,
                  storage_type: str):
         """
+        :param str mount_options: Mount options used while mounting the AzureFile.
         :param str name: The name of the Container App.
         :param str storage_name: The name of the `AzureFile` storage.
         :param str storage_type: The type of storage volume. Possible values include `AzureFile` and `EmptyDir`. Defaults to `EmptyDir`.
         """
+        pulumi.set(__self__, "mount_options", mount_options)
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "storage_name", storage_name)
         pulumi.set(__self__, "storage_type", storage_type)
+
+    @property
+    @pulumi.getter(name="mountOptions")
+    def mount_options(self) -> str:
+        """
+        Mount options used while mounting the AzureFile.
+        """
+        return pulumi.get(self, "mount_options")
 
     @property
     @pulumi.getter

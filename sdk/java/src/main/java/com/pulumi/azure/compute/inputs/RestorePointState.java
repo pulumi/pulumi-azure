@@ -18,14 +18,14 @@ public final class RestorePointState extends com.pulumi.resources.ResourceArgs {
     public static final RestorePointState Empty = new RestorePointState();
 
     /**
-     * Is Crash Consistent the Consistency Mode of the Virtual Machine Restore Point. Defaults to `false`. Changing this forces a new resource to be created.
+     * Whether the Consistency Mode of the Virtual Machine Restore Point is set to `CrashConsistent`. Defaults to `false`. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="crashConsistencyModeEnabled")
     private @Nullable Output<Boolean> crashConsistencyModeEnabled;
 
     /**
-     * @return Is Crash Consistent the Consistency Mode of the Virtual Machine Restore Point. Defaults to `false`. Changing this forces a new resource to be created.
+     * @return Whether the Consistency Mode of the Virtual Machine Restore Point is set to `CrashConsistent`. Defaults to `false`. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<Boolean>> crashConsistencyModeEnabled() {
@@ -62,9 +62,17 @@ public final class RestorePointState extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.name);
     }
 
+    /**
+     * Specifies the ID of the Virtual Machine Restore Point Collection the Virtual Machine Restore Point will be associated with. Changing this forces a new resource to be created.
+     * 
+     */
     @Import(name="virtualMachineRestorePointCollectionId")
     private @Nullable Output<String> virtualMachineRestorePointCollectionId;
 
+    /**
+     * @return Specifies the ID of the Virtual Machine Restore Point Collection the Virtual Machine Restore Point will be associated with. Changing this forces a new resource to be created.
+     * 
+     */
     public Optional<Output<String>> virtualMachineRestorePointCollectionId() {
         return Optional.ofNullable(this.virtualMachineRestorePointCollectionId);
     }
@@ -97,7 +105,7 @@ public final class RestorePointState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param crashConsistencyModeEnabled Is Crash Consistent the Consistency Mode of the Virtual Machine Restore Point. Defaults to `false`. Changing this forces a new resource to be created.
+         * @param crashConsistencyModeEnabled Whether the Consistency Mode of the Virtual Machine Restore Point is set to `CrashConsistent`. Defaults to `false`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -108,7 +116,7 @@ public final class RestorePointState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param crashConsistencyModeEnabled Is Crash Consistent the Consistency Mode of the Virtual Machine Restore Point. Defaults to `false`. Changing this forces a new resource to be created.
+         * @param crashConsistencyModeEnabled Whether the Consistency Mode of the Virtual Machine Restore Point is set to `CrashConsistent`. Defaults to `false`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -169,11 +177,23 @@ public final class RestorePointState extends com.pulumi.resources.ResourceArgs {
             return name(Output.of(name));
         }
 
+        /**
+         * @param virtualMachineRestorePointCollectionId Specifies the ID of the Virtual Machine Restore Point Collection the Virtual Machine Restore Point will be associated with. Changing this forces a new resource to be created.
+         * 
+         * @return builder
+         * 
+         */
         public Builder virtualMachineRestorePointCollectionId(@Nullable Output<String> virtualMachineRestorePointCollectionId) {
             $.virtualMachineRestorePointCollectionId = virtualMachineRestorePointCollectionId;
             return this;
         }
 
+        /**
+         * @param virtualMachineRestorePointCollectionId Specifies the ID of the Virtual Machine Restore Point Collection the Virtual Machine Restore Point will be associated with. Changing this forces a new resource to be created.
+         * 
+         * @return builder
+         * 
+         */
         public Builder virtualMachineRestorePointCollectionId(String virtualMachineRestorePointCollectionId) {
             return virtualMachineRestorePointCollectionId(Output.of(virtualMachineRestorePointCollectionId));
         }

@@ -18,14 +18,14 @@ public final class NamespaceNetworkRuleSetNetworkRuleArgs extends com.pulumi.res
     public static final NamespaceNetworkRuleSetNetworkRuleArgs Empty = new NamespaceNetworkRuleSetNetworkRuleArgs();
 
     /**
-     * Should the ServiceBus Namespace Network Rule Set ignore missing Virtual Network Service Endpoint option in the Subnet? Defaults to `false`.
+     * Should the Service Bus Namespace Network Rule Set ignore missing Virtual Network Service Endpoint option in the Subnet? Defaults to `false`.
      * 
      */
     @Import(name="ignoreMissingVnetServiceEndpoint")
     private @Nullable Output<Boolean> ignoreMissingVnetServiceEndpoint;
 
     /**
-     * @return Should the ServiceBus Namespace Network Rule Set ignore missing Virtual Network Service Endpoint option in the Subnet? Defaults to `false`.
+     * @return Should the Service Bus Namespace Network Rule Set ignore missing Virtual Network Service Endpoint option in the Subnet? Defaults to `false`.
      * 
      */
     public Optional<Output<Boolean>> ignoreMissingVnetServiceEndpoint() {
@@ -33,14 +33,14 @@ public final class NamespaceNetworkRuleSetNetworkRuleArgs extends com.pulumi.res
     }
 
     /**
-     * The Subnet ID which should be able to access this ServiceBus Namespace.
+     * The Subnet ID which should be able to access this Service Bus Namespace.
      * 
      */
     @Import(name="subnetId", required=true)
     private Output<String> subnetId;
 
     /**
-     * @return The Subnet ID which should be able to access this ServiceBus Namespace.
+     * @return The Subnet ID which should be able to access this Service Bus Namespace.
      * 
      */
     public Output<String> subnetId() {
@@ -73,7 +73,7 @@ public final class NamespaceNetworkRuleSetNetworkRuleArgs extends com.pulumi.res
         }
 
         /**
-         * @param ignoreMissingVnetServiceEndpoint Should the ServiceBus Namespace Network Rule Set ignore missing Virtual Network Service Endpoint option in the Subnet? Defaults to `false`.
+         * @param ignoreMissingVnetServiceEndpoint Should the Service Bus Namespace Network Rule Set ignore missing Virtual Network Service Endpoint option in the Subnet? Defaults to `false`.
          * 
          * @return builder
          * 
@@ -84,7 +84,7 @@ public final class NamespaceNetworkRuleSetNetworkRuleArgs extends com.pulumi.res
         }
 
         /**
-         * @param ignoreMissingVnetServiceEndpoint Should the ServiceBus Namespace Network Rule Set ignore missing Virtual Network Service Endpoint option in the Subnet? Defaults to `false`.
+         * @param ignoreMissingVnetServiceEndpoint Should the Service Bus Namespace Network Rule Set ignore missing Virtual Network Service Endpoint option in the Subnet? Defaults to `false`.
          * 
          * @return builder
          * 
@@ -94,7 +94,7 @@ public final class NamespaceNetworkRuleSetNetworkRuleArgs extends com.pulumi.res
         }
 
         /**
-         * @param subnetId The Subnet ID which should be able to access this ServiceBus Namespace.
+         * @param subnetId The Subnet ID which should be able to access this Service Bus Namespace.
          * 
          * @return builder
          * 
@@ -105,7 +105,7 @@ public final class NamespaceNetworkRuleSetNetworkRuleArgs extends com.pulumi.res
         }
 
         /**
-         * @param subnetId The Subnet ID which should be able to access this ServiceBus Namespace.
+         * @param subnetId The Subnet ID which should be able to access this Service Bus Namespace.
          * 
          * @return builder
          * 

@@ -27,7 +27,7 @@ class GetWindowsFunctionAppResult:
     """
     A collection of values returned by getWindowsFunctionApp.
     """
-    def __init__(__self__, app_settings=None, auth_settings=None, auth_settings_v2s=None, backups=None, builtin_logging_enabled=None, client_certificate_enabled=None, client_certificate_exclusion_paths=None, client_certificate_mode=None, connection_strings=None, content_share_force_disabled=None, custom_domain_verification_id=None, daily_memory_time_quota=None, default_hostname=None, enabled=None, ftp_publish_basic_authentication_enabled=None, functions_extension_version=None, hosting_environment_id=None, https_only=None, id=None, identities=None, kind=None, location=None, name=None, outbound_ip_address_lists=None, outbound_ip_addresses=None, possible_outbound_ip_address_lists=None, possible_outbound_ip_addresses=None, public_network_access_enabled=None, resource_group_name=None, service_plan_id=None, site_configs=None, site_credentials=None, sticky_settings=None, storage_account_access_key=None, storage_account_name=None, storage_key_vault_secret_id=None, storage_uses_managed_identity=None, tags=None, virtual_network_subnet_id=None, webdeploy_publish_basic_authentication_enabled=None):
+    def __init__(__self__, app_settings=None, auth_settings=None, auth_settings_v2s=None, backups=None, builtin_logging_enabled=None, client_certificate_enabled=None, client_certificate_exclusion_paths=None, client_certificate_mode=None, connection_strings=None, content_share_force_disabled=None, custom_domain_verification_id=None, daily_memory_time_quota=None, default_hostname=None, enabled=None, ftp_publish_basic_authentication_enabled=None, functions_extension_version=None, hosting_environment_id=None, https_only=None, id=None, identities=None, kind=None, location=None, name=None, outbound_ip_address_lists=None, outbound_ip_addresses=None, possible_outbound_ip_address_lists=None, possible_outbound_ip_addresses=None, public_network_access_enabled=None, resource_group_name=None, service_plan_id=None, site_configs=None, site_credentials=None, sticky_settings=None, storage_account_access_key=None, storage_account_name=None, storage_key_vault_secret_id=None, storage_uses_managed_identity=None, tags=None, virtual_network_backup_restore_enabled=None, virtual_network_subnet_id=None, webdeploy_publish_basic_authentication_enabled=None):
         if app_settings and not isinstance(app_settings, dict):
             raise TypeError("Expected argument 'app_settings' to be a dict")
         pulumi.set(__self__, "app_settings", app_settings)
@@ -142,6 +142,9 @@ class GetWindowsFunctionAppResult:
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
+        if virtual_network_backup_restore_enabled and not isinstance(virtual_network_backup_restore_enabled, bool):
+            raise TypeError("Expected argument 'virtual_network_backup_restore_enabled' to be a bool")
+        pulumi.set(__self__, "virtual_network_backup_restore_enabled", virtual_network_backup_restore_enabled)
         if virtual_network_subnet_id and not isinstance(virtual_network_subnet_id, str):
             raise TypeError("Expected argument 'virtual_network_subnet_id' to be a str")
         pulumi.set(__self__, "virtual_network_subnet_id", virtual_network_subnet_id)
@@ -451,6 +454,14 @@ class GetWindowsFunctionAppResult:
         return pulumi.get(self, "tags")
 
     @property
+    @pulumi.getter(name="virtualNetworkBackupRestoreEnabled")
+    def virtual_network_backup_restore_enabled(self) -> bool:
+        """
+        Whether backup and restore operations over the linked virtual network are enabled.
+        """
+        return pulumi.get(self, "virtual_network_backup_restore_enabled")
+
+    @property
     @pulumi.getter(name="virtualNetworkSubnetId")
     def virtual_network_subnet_id(self) -> str:
         """
@@ -511,6 +522,7 @@ class AwaitableGetWindowsFunctionAppResult(GetWindowsFunctionAppResult):
             storage_key_vault_secret_id=self.storage_key_vault_secret_id,
             storage_uses_managed_identity=self.storage_uses_managed_identity,
             tags=self.tags,
+            virtual_network_backup_restore_enabled=self.virtual_network_backup_restore_enabled,
             virtual_network_subnet_id=self.virtual_network_subnet_id,
             webdeploy_publish_basic_authentication_enabled=self.webdeploy_publish_basic_authentication_enabled)
 
@@ -581,6 +593,7 @@ def get_windows_function_app(name: Optional[str] = None,
         storage_key_vault_secret_id=pulumi.get(__ret__, 'storage_key_vault_secret_id'),
         storage_uses_managed_identity=pulumi.get(__ret__, 'storage_uses_managed_identity'),
         tags=pulumi.get(__ret__, 'tags'),
+        virtual_network_backup_restore_enabled=pulumi.get(__ret__, 'virtual_network_backup_restore_enabled'),
         virtual_network_subnet_id=pulumi.get(__ret__, 'virtual_network_subnet_id'),
         webdeploy_publish_basic_authentication_enabled=pulumi.get(__ret__, 'webdeploy_publish_basic_authentication_enabled'))
 def get_windows_function_app_output(name: Optional[pulumi.Input[str]] = None,
@@ -648,5 +661,6 @@ def get_windows_function_app_output(name: Optional[pulumi.Input[str]] = None,
         storage_key_vault_secret_id=pulumi.get(__response__, 'storage_key_vault_secret_id'),
         storage_uses_managed_identity=pulumi.get(__response__, 'storage_uses_managed_identity'),
         tags=pulumi.get(__response__, 'tags'),
+        virtual_network_backup_restore_enabled=pulumi.get(__response__, 'virtual_network_backup_restore_enabled'),
         virtual_network_subnet_id=pulumi.get(__response__, 'virtual_network_subnet_id'),
         webdeploy_publish_basic_authentication_enabled=pulumi.get(__response__, 'webdeploy_publish_basic_authentication_enabled')))

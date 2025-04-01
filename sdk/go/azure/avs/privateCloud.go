@@ -98,7 +98,7 @@ type PrivateCloud struct {
 	ProvisioningSubnetCidr pulumi.StringOutput `pulumi:"provisioningSubnetCidr"`
 	// The name of the Resource Group where the Azure VMware Solution Private Cloud should exist. Changing this forces a new Azure VMware Solution Private Cloud to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
-	// The Name of the SKU used for this Azure VMware Solution Private Cloud. Possible values are `av20`, `av36`, `av36t`, `av36p`, `av36pt`, `av52`, `av52t`, and `av64`. Changing this forces a new Azure VMware Solution Private Cloud to be created.
+	// The Name of the SKU used for this Azure VMware Solution Private Cloud. Possible values are `av20`, `av36`, `av36t`, `av36p`, `av36pt`, `av48`, `av48t`, `av52`, `av52t`, and `av64`. Changing this forces a new Azure VMware Solution Private Cloud to be created.
 	SkuName pulumi.StringOutput `pulumi:"skuName"`
 	// A mapping of tags which should be assigned to the Azure VMware Solution Private Cloud.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
@@ -193,7 +193,7 @@ type privateCloudState struct {
 	ProvisioningSubnetCidr *string `pulumi:"provisioningSubnetCidr"`
 	// The name of the Resource Group where the Azure VMware Solution Private Cloud should exist. Changing this forces a new Azure VMware Solution Private Cloud to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
-	// The Name of the SKU used for this Azure VMware Solution Private Cloud. Possible values are `av20`, `av36`, `av36t`, `av36p`, `av36pt`, `av52`, `av52t`, and `av64`. Changing this forces a new Azure VMware Solution Private Cloud to be created.
+	// The Name of the SKU used for this Azure VMware Solution Private Cloud. Possible values are `av20`, `av36`, `av36t`, `av36p`, `av36pt`, `av48`, `av48t`, `av52`, `av52t`, and `av64`. Changing this forces a new Azure VMware Solution Private Cloud to be created.
 	SkuName *string `pulumi:"skuName"`
 	// A mapping of tags which should be assigned to the Azure VMware Solution Private Cloud.
 	Tags map[string]string `pulumi:"tags"`
@@ -236,7 +236,7 @@ type PrivateCloudState struct {
 	ProvisioningSubnetCidr pulumi.StringPtrInput
 	// The name of the Resource Group where the Azure VMware Solution Private Cloud should exist. Changing this forces a new Azure VMware Solution Private Cloud to be created.
 	ResourceGroupName pulumi.StringPtrInput
-	// The Name of the SKU used for this Azure VMware Solution Private Cloud. Possible values are `av20`, `av36`, `av36t`, `av36p`, `av36pt`, `av52`, `av52t`, and `av64`. Changing this forces a new Azure VMware Solution Private Cloud to be created.
+	// The Name of the SKU used for this Azure VMware Solution Private Cloud. Possible values are `av20`, `av36`, `av36t`, `av36p`, `av36pt`, `av48`, `av48t`, `av52`, `av52t`, and `av64`. Changing this forces a new Azure VMware Solution Private Cloud to be created.
 	SkuName pulumi.StringPtrInput
 	// A mapping of tags which should be assigned to the Azure VMware Solution Private Cloud.
 	Tags pulumi.StringMapInput
@@ -271,7 +271,7 @@ type privateCloudArgs struct {
 	NsxtPassword *string `pulumi:"nsxtPassword"`
 	// The name of the Resource Group where the Azure VMware Solution Private Cloud should exist. Changing this forces a new Azure VMware Solution Private Cloud to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The Name of the SKU used for this Azure VMware Solution Private Cloud. Possible values are `av20`, `av36`, `av36t`, `av36p`, `av36pt`, `av52`, `av52t`, and `av64`. Changing this forces a new Azure VMware Solution Private Cloud to be created.
+	// The Name of the SKU used for this Azure VMware Solution Private Cloud. Possible values are `av20`, `av36`, `av36t`, `av36p`, `av36pt`, `av48`, `av48t`, `av52`, `av52t`, and `av64`. Changing this forces a new Azure VMware Solution Private Cloud to be created.
 	SkuName string `pulumi:"skuName"`
 	// A mapping of tags which should be assigned to the Azure VMware Solution Private Cloud.
 	Tags map[string]string `pulumi:"tags"`
@@ -297,7 +297,7 @@ type PrivateCloudArgs struct {
 	NsxtPassword pulumi.StringPtrInput
 	// The name of the Resource Group where the Azure VMware Solution Private Cloud should exist. Changing this forces a new Azure VMware Solution Private Cloud to be created.
 	ResourceGroupName pulumi.StringInput
-	// The Name of the SKU used for this Azure VMware Solution Private Cloud. Possible values are `av20`, `av36`, `av36t`, `av36p`, `av36pt`, `av52`, `av52t`, and `av64`. Changing this forces a new Azure VMware Solution Private Cloud to be created.
+	// The Name of the SKU used for this Azure VMware Solution Private Cloud. Possible values are `av20`, `av36`, `av36t`, `av36p`, `av36pt`, `av48`, `av48t`, `av52`, `av52t`, and `av64`. Changing this forces a new Azure VMware Solution Private Cloud to be created.
 	SkuName pulumi.StringInput
 	// A mapping of tags which should be assigned to the Azure VMware Solution Private Cloud.
 	Tags pulumi.StringMapInput
@@ -459,7 +459,7 @@ func (o PrivateCloudOutput) ResourceGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v *PrivateCloud) pulumi.StringOutput { return v.ResourceGroupName }).(pulumi.StringOutput)
 }
 
-// The Name of the SKU used for this Azure VMware Solution Private Cloud. Possible values are `av20`, `av36`, `av36t`, `av36p`, `av36pt`, `av52`, `av52t`, and `av64`. Changing this forces a new Azure VMware Solution Private Cloud to be created.
+// The Name of the SKU used for this Azure VMware Solution Private Cloud. Possible values are `av20`, `av36`, `av36t`, `av36p`, `av36pt`, `av48`, `av48t`, `av52`, `av52t`, and `av64`. Changing this forces a new Azure VMware Solution Private Cloud to be created.
 func (o PrivateCloudOutput) SkuName() pulumi.StringOutput {
 	return o.ApplyT(func(v *PrivateCloud) pulumi.StringOutput { return v.SkuName }).(pulumi.StringOutput)
 }

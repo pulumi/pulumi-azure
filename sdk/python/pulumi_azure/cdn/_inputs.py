@@ -85,6 +85,10 @@ __all__ = [
     'FrontdoorFirewallPolicyCustomRuleArgsDict',
     'FrontdoorFirewallPolicyCustomRuleMatchConditionArgs',
     'FrontdoorFirewallPolicyCustomRuleMatchConditionArgsDict',
+    'FrontdoorFirewallPolicyLogScrubbingArgs',
+    'FrontdoorFirewallPolicyLogScrubbingArgsDict',
+    'FrontdoorFirewallPolicyLogScrubbingScrubbingRuleArgs',
+    'FrontdoorFirewallPolicyLogScrubbingScrubbingRuleArgsDict',
     'FrontdoorFirewallPolicyManagedRuleArgs',
     'FrontdoorFirewallPolicyManagedRuleArgsDict',
     'FrontdoorFirewallPolicyManagedRuleExclusionArgs',
@@ -3558,6 +3562,166 @@ class FrontdoorFirewallPolicyCustomRuleMatchConditionArgs:
     @transforms.setter
     def transforms(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "transforms", value)
+
+
+if not MYPY:
+    class FrontdoorFirewallPolicyLogScrubbingArgsDict(TypedDict):
+        scrubbing_rules: pulumi.Input[Sequence[pulumi.Input['FrontdoorFirewallPolicyLogScrubbingScrubbingRuleArgsDict']]]
+        """
+        One or more `scrubbing_rule` blocks as defined below.
+
+        > **Note:** For more information on masking sensitive data in Azure Front Door please see the [product documentation](https://learn.microsoft.com/azure/web-application-firewall/afds/waf-sensitive-data-protection-configure-frontdoor).
+        """
+        enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Is log scrubbing enabled? Possible values are `true` or `false`. Defaults to `true`.
+        """
+elif False:
+    FrontdoorFirewallPolicyLogScrubbingArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class FrontdoorFirewallPolicyLogScrubbingArgs:
+    def __init__(__self__, *,
+                 scrubbing_rules: pulumi.Input[Sequence[pulumi.Input['FrontdoorFirewallPolicyLogScrubbingScrubbingRuleArgs']]],
+                 enabled: Optional[pulumi.Input[bool]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['FrontdoorFirewallPolicyLogScrubbingScrubbingRuleArgs']]] scrubbing_rules: One or more `scrubbing_rule` blocks as defined below.
+               
+               > **Note:** For more information on masking sensitive data in Azure Front Door please see the [product documentation](https://learn.microsoft.com/azure/web-application-firewall/afds/waf-sensitive-data-protection-configure-frontdoor).
+        :param pulumi.Input[bool] enabled: Is log scrubbing enabled? Possible values are `true` or `false`. Defaults to `true`.
+        """
+        pulumi.set(__self__, "scrubbing_rules", scrubbing_rules)
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+
+    @property
+    @pulumi.getter(name="scrubbingRules")
+    def scrubbing_rules(self) -> pulumi.Input[Sequence[pulumi.Input['FrontdoorFirewallPolicyLogScrubbingScrubbingRuleArgs']]]:
+        """
+        One or more `scrubbing_rule` blocks as defined below.
+
+        > **Note:** For more information on masking sensitive data in Azure Front Door please see the [product documentation](https://learn.microsoft.com/azure/web-application-firewall/afds/waf-sensitive-data-protection-configure-frontdoor).
+        """
+        return pulumi.get(self, "scrubbing_rules")
+
+    @scrubbing_rules.setter
+    def scrubbing_rules(self, value: pulumi.Input[Sequence[pulumi.Input['FrontdoorFirewallPolicyLogScrubbingScrubbingRuleArgs']]]):
+        pulumi.set(self, "scrubbing_rules", value)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Is log scrubbing enabled? Possible values are `true` or `false`. Defaults to `true`.
+        """
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enabled", value)
+
+
+if not MYPY:
+    class FrontdoorFirewallPolicyLogScrubbingScrubbingRuleArgsDict(TypedDict):
+        match_variable: pulumi.Input[str]
+        """
+        The variable to be scrubbed from the logs. Possible values include `QueryStringArgNames`, `RequestBodyJsonArgNames`, `RequestBodyPostArgNames`, `RequestCookieNames`, `RequestHeaderNames`, `RequestIPAddress`, or `RequestUri`.
+
+        > **Note:** `RequestIPAddress` and `RequestUri` must use the `EqualsAny` `operator`.
+        """
+        enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Is this `scrubbing_rule` enabled? Defaults to `true`.
+        """
+        operator: NotRequired[pulumi.Input[str]]
+        """
+        When the `match_variable` is a collection, operate on the `selector` to specify which elements in the collection this `scrubbing_rule` applies to. Possible values are `Equals` or `EqualsAny`. Defaults to `Equals`.
+        """
+        selector: NotRequired[pulumi.Input[str]]
+        """
+        When the `match_variable` is a collection, the `operator` is used to specify which elements in the collection this `scrubbing_rule` applies to.
+
+        > **Note:** The `selector` field cannot be set if the `operator` is set to `EqualsAny`.
+        """
+elif False:
+    FrontdoorFirewallPolicyLogScrubbingScrubbingRuleArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class FrontdoorFirewallPolicyLogScrubbingScrubbingRuleArgs:
+    def __init__(__self__, *,
+                 match_variable: pulumi.Input[str],
+                 enabled: Optional[pulumi.Input[bool]] = None,
+                 operator: Optional[pulumi.Input[str]] = None,
+                 selector: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] match_variable: The variable to be scrubbed from the logs. Possible values include `QueryStringArgNames`, `RequestBodyJsonArgNames`, `RequestBodyPostArgNames`, `RequestCookieNames`, `RequestHeaderNames`, `RequestIPAddress`, or `RequestUri`.
+               
+               > **Note:** `RequestIPAddress` and `RequestUri` must use the `EqualsAny` `operator`.
+        :param pulumi.Input[bool] enabled: Is this `scrubbing_rule` enabled? Defaults to `true`.
+        :param pulumi.Input[str] operator: When the `match_variable` is a collection, operate on the `selector` to specify which elements in the collection this `scrubbing_rule` applies to. Possible values are `Equals` or `EqualsAny`. Defaults to `Equals`.
+        :param pulumi.Input[str] selector: When the `match_variable` is a collection, the `operator` is used to specify which elements in the collection this `scrubbing_rule` applies to.
+               
+               > **Note:** The `selector` field cannot be set if the `operator` is set to `EqualsAny`.
+        """
+        pulumi.set(__self__, "match_variable", match_variable)
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if operator is not None:
+            pulumi.set(__self__, "operator", operator)
+        if selector is not None:
+            pulumi.set(__self__, "selector", selector)
+
+    @property
+    @pulumi.getter(name="matchVariable")
+    def match_variable(self) -> pulumi.Input[str]:
+        """
+        The variable to be scrubbed from the logs. Possible values include `QueryStringArgNames`, `RequestBodyJsonArgNames`, `RequestBodyPostArgNames`, `RequestCookieNames`, `RequestHeaderNames`, `RequestIPAddress`, or `RequestUri`.
+
+        > **Note:** `RequestIPAddress` and `RequestUri` must use the `EqualsAny` `operator`.
+        """
+        return pulumi.get(self, "match_variable")
+
+    @match_variable.setter
+    def match_variable(self, value: pulumi.Input[str]):
+        pulumi.set(self, "match_variable", value)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Is this `scrubbing_rule` enabled? Defaults to `true`.
+        """
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enabled", value)
+
+    @property
+    @pulumi.getter
+    def operator(self) -> Optional[pulumi.Input[str]]:
+        """
+        When the `match_variable` is a collection, operate on the `selector` to specify which elements in the collection this `scrubbing_rule` applies to. Possible values are `Equals` or `EqualsAny`. Defaults to `Equals`.
+        """
+        return pulumi.get(self, "operator")
+
+    @operator.setter
+    def operator(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "operator", value)
+
+    @property
+    @pulumi.getter
+    def selector(self) -> Optional[pulumi.Input[str]]:
+        """
+        When the `match_variable` is a collection, the `operator` is used to specify which elements in the collection this `scrubbing_rule` applies to.
+
+        > **Note:** The `selector` field cannot be set if the `operator` is set to `EqualsAny`.
+        """
+        return pulumi.get(self, "selector")
+
+    @selector.setter
+    def selector(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "selector", value)
 
 
 if not MYPY:

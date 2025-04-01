@@ -273,6 +273,7 @@ namespace Pulumi.Azure.AppService
         /// A mapping of tags assigned to the Windows Web App.
         /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
+        public readonly bool VirtualNetworkBackupRestoreEnabled;
         /// <summary>
         /// The subnet id which the Windows Web App is vNet Integrated with.
         /// </summary>
@@ -350,6 +351,8 @@ namespace Pulumi.Azure.AppService
 
             ImmutableDictionary<string, string> tags,
 
+            bool virtualNetworkBackupRestoreEnabled,
+
             string virtualNetworkSubnetId,
 
             bool webdeployPublishBasicAuthenticationEnabled)
@@ -387,6 +390,7 @@ namespace Pulumi.Azure.AppService
             StickySettings = stickySettings;
             StorageAccounts = storageAccounts;
             Tags = tags;
+            VirtualNetworkBackupRestoreEnabled = virtualNetworkBackupRestoreEnabled;
             VirtualNetworkSubnetId = virtualNetworkSubnetId;
             WebdeployPublishBasicAuthenticationEnabled = webdeployPublishBasicAuthenticationEnabled;
         }

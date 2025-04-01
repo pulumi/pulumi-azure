@@ -15,14 +15,14 @@ public final class FirewallPolicyTlsCertificateArgs extends com.pulumi.resources
     public static final FirewallPolicyTlsCertificateArgs Empty = new FirewallPolicyTlsCertificateArgs();
 
     /**
-     * The ID of the Key Vault, where the secret or certificate is stored.
+     * The Secret Identifier (URI) of the certificate stored in Azure Key Vault, either as a secret or certificate.
      * 
      */
     @Import(name="keyVaultSecretId", required=true)
     private Output<String> keyVaultSecretId;
 
     /**
-     * @return The ID of the Key Vault, where the secret or certificate is stored.
+     * @return The Secret Identifier (URI) of the certificate stored in Azure Key Vault, either as a secret or certificate.
      * 
      */
     public Output<String> keyVaultSecretId() {
@@ -70,7 +70,7 @@ public final class FirewallPolicyTlsCertificateArgs extends com.pulumi.resources
         }
 
         /**
-         * @param keyVaultSecretId The ID of the Key Vault, where the secret or certificate is stored.
+         * @param keyVaultSecretId The Secret Identifier (URI) of the certificate stored in Azure Key Vault, either as a secret or certificate.
          * 
          * @return builder
          * 
@@ -81,7 +81,7 @@ public final class FirewallPolicyTlsCertificateArgs extends com.pulumi.resources
         }
 
         /**
-         * @param keyVaultSecretId The ID of the Key Vault, where the secret or certificate is stored.
+         * @param keyVaultSecretId The Secret Identifier (URI) of the certificate stored in Azure Key Vault, either as a secret or certificate.
          * 
          * @return builder
          * 

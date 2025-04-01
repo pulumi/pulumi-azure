@@ -124,7 +124,8 @@ type LookupWindowsWebAppResult struct {
 	// A `storageAccount` block as defined below.
 	StorageAccounts []GetWindowsWebAppStorageAccount `pulumi:"storageAccounts"`
 	// A mapping of tags assigned to the Windows Web App.
-	Tags map[string]string `pulumi:"tags"`
+	Tags                               map[string]string `pulumi:"tags"`
+	VirtualNetworkBackupRestoreEnabled bool              `pulumi:"virtualNetworkBackupRestoreEnabled"`
 	// The subnet id which the Windows Web App is vNet Integrated with.
 	VirtualNetworkSubnetId string `pulumi:"virtualNetworkSubnetId"`
 	// Are the default WebDeploy Basic Authentication publishing credentials enabled.
@@ -329,6 +330,10 @@ func (o LookupWindowsWebAppResultOutput) StorageAccounts() GetWindowsWebAppStora
 // A mapping of tags assigned to the Windows Web App.
 func (o LookupWindowsWebAppResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupWindowsWebAppResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+func (o LookupWindowsWebAppResultOutput) VirtualNetworkBackupRestoreEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v LookupWindowsWebAppResult) bool { return v.VirtualNetworkBackupRestoreEnabled }).(pulumi.BoolOutput)
 }
 
 // The subnet id which the Windows Web App is vNet Integrated with.

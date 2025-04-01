@@ -86,14 +86,18 @@ import javax.annotation.Nullable;
 @ResourceType(type="azure:fabric/capacity:Capacity")
 public class Capacity extends com.pulumi.resources.CustomResource {
     /**
-     * An array of administrator user identities. The member must be an Entra member user or a service principal.
+     * An array of administrator user identities. The member must be an Entra user or a service principal.
+     * 
+     * &gt; **Note:** If the member is an Entra user, use user principal name (UPN) format. If the user is a service principal, use object ID.
      * 
      */
     @Export(name="administrationMembers", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> administrationMembers;
 
     /**
-     * @return An array of administrator user identities. The member must be an Entra member user or a service principal.
+     * @return An array of administrator user identities. The member must be an Entra user or a service principal.
+     * 
+     * &gt; **Note:** If the member is an Entra user, use user principal name (UPN) format. If the user is a service principal, use object ID.
      * 
      */
     public Output<Optional<List<String>>> administrationMembers() {

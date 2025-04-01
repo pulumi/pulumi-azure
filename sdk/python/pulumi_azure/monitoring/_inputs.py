@@ -6322,7 +6322,7 @@ if not MYPY:
         """
         format: pulumi.Input[str]
         """
-        The data format of the log files. possible value is `text`.
+        The data format of the log files. Possible values are `text` and `json`.
         """
         name: pulumi.Input[str]
         """
@@ -6349,7 +6349,7 @@ class DataCollectionRuleDataSourcesLogFileArgs:
                  settings: Optional[pulumi.Input['DataCollectionRuleDataSourcesLogFileSettingsArgs']] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[str]]] file_patterns: Specifies a list of file patterns where the log files are located. For example, `C:\\\\JavaLogs\\\\*.log`.
-        :param pulumi.Input[str] format: The data format of the log files. possible value is `text`.
+        :param pulumi.Input[str] format: The data format of the log files. Possible values are `text` and `json`.
         :param pulumi.Input[str] name: The name which should be used for this data source. This name should be unique across all data sources regardless of type within the Data Collection Rule.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] streams: Specifies a list of streams that this data source will be sent to. A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to. Possible value should be custom stream names.
         :param pulumi.Input['DataCollectionRuleDataSourcesLogFileSettingsArgs'] settings: A `settings` block as defined below.
@@ -6377,7 +6377,7 @@ class DataCollectionRuleDataSourcesLogFileArgs:
     @pulumi.getter
     def format(self) -> pulumi.Input[str]:
         """
-        The data format of the log files. possible value is `text`.
+        The data format of the log files. Possible values are `text` and `json`.
         """
         return pulumi.get(self, "format")
 
@@ -7931,8 +7931,8 @@ class DiagnosticSettingMetricArgs:
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
         if retention_policy is not None:
-            warnings.warn("""`retention_policy` has been deprecated in favor of `storage.ManagementPolicy` resource - to learn more https://aka.ms/diagnostic_settings_log_retention""", DeprecationWarning)
-            pulumi.log.warn("""retention_policy is deprecated: `retention_policy` has been deprecated in favor of `storage.ManagementPolicy` resource - to learn more https://aka.ms/diagnostic_settings_log_retention""")
+            warnings.warn("""`retention_policy` has been deprecated in favor of the `storage.ManagementPolicy` resource and will be removed in v5.0 of the AzureRM provider - to learn more go to https://aka.ms/diagnostic_settings_log_retention""", DeprecationWarning)
+            pulumi.log.warn("""retention_policy is deprecated: `retention_policy` has been deprecated in favor of the `storage.ManagementPolicy` resource and will be removed in v5.0 of the AzureRM provider - to learn more go to https://aka.ms/diagnostic_settings_log_retention""")
         if retention_policy is not None:
             pulumi.set(__self__, "retention_policy", retention_policy)
 
@@ -7964,7 +7964,7 @@ class DiagnosticSettingMetricArgs:
 
     @property
     @pulumi.getter(name="retentionPolicy")
-    @_utilities.deprecated("""`retention_policy` has been deprecated in favor of `storage.ManagementPolicy` resource - to learn more https://aka.ms/diagnostic_settings_log_retention""")
+    @_utilities.deprecated("""`retention_policy` has been deprecated in favor of the `storage.ManagementPolicy` resource and will be removed in v5.0 of the AzureRM provider - to learn more go to https://aka.ms/diagnostic_settings_log_retention""")
     def retention_policy(self) -> Optional[pulumi.Input['DiagnosticSettingMetricRetentionPolicyArgs']]:
         return pulumi.get(self, "retention_policy")
 

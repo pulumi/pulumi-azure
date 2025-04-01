@@ -74,8 +74,8 @@ import javax.annotation.Nullable;
  * 
  *         var exampleMonitorSsoConfiguration = new MonitorSsoConfiguration("exampleMonitorSsoConfiguration", MonitorSsoConfigurationArgs.builder()
  *             .datadogMonitorId(exampleMonitor.id())
- *             .singleSignOnEnabled("Enable")
- *             .enterpriseApplicationId("XXXX")
+ *             .singleSignOn("Enable")
+ *             .enterpriseApplicationId("00000000-0000-0000-0000-000000000000")
  *             .build());
  * 
  *     }}{@code
@@ -152,16 +152,28 @@ public class MonitorSsoConfiguration extends com.pulumi.resources.CustomResource
         return this.name;
     }
     /**
-     * The state of SingleSignOn configuration. Possible values are `Enable` and `Disable`.
+     * The state of SingleSignOn configuration. Possible values are `Enable`, `Disable`, `Initial` and `Existing`.
      * 
      */
+    @Export(name="singleSignOn", refs={String.class}, tree="[0]")
+    private Output<String> singleSignOn;
+
+    /**
+     * @return The state of SingleSignOn configuration. Possible values are `Enable`, `Disable`, `Initial` and `Existing`.
+     * 
+     */
+    public Output<String> singleSignOn() {
+        return this.singleSignOn;
+    }
+    /**
+     * @deprecated
+     * `single_sign_on_enabled` has been deprecated in favour of the `single_sign_on` property and will be removed in v5.0 of the AzureRM Provider.
+     * 
+     */
+    @Deprecated /* `single_sign_on_enabled` has been deprecated in favour of the `single_sign_on` property and will be removed in v5.0 of the AzureRM Provider. */
     @Export(name="singleSignOnEnabled", refs={String.class}, tree="[0]")
     private Output<String> singleSignOnEnabled;
 
-    /**
-     * @return The state of SingleSignOn configuration. Possible values are `Enable` and `Disable`.
-     * 
-     */
     public Output<String> singleSignOnEnabled() {
         return this.singleSignOnEnabled;
     }

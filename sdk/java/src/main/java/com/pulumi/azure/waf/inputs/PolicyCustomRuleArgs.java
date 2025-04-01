@@ -23,12 +23,16 @@ public final class PolicyCustomRuleArgs extends com.pulumi.resources.ResourceArg
     /**
      * Type of action. Possible values are `Allow`, `Block` and `Log`.
      * 
+     * &gt; **Note:** If the `rule_type` is specified as `RateLimitRule`, the `Allow` is not supported.
+     * 
      */
     @Import(name="action", required=true)
     private Output<String> action;
 
     /**
      * @return Type of action. Possible values are `Allow`, `Block` and `Log`.
+     * 
+     * &gt; **Note:** If the `rule_type` is specified as `RateLimitRule`, the `Allow` is not supported.
      * 
      */
     public Output<String> action() {
@@ -190,6 +194,8 @@ public final class PolicyCustomRuleArgs extends com.pulumi.resources.ResourceArg
         /**
          * @param action Type of action. Possible values are `Allow`, `Block` and `Log`.
          * 
+         * &gt; **Note:** If the `rule_type` is specified as `RateLimitRule`, the `Allow` is not supported.
+         * 
          * @return builder
          * 
          */
@@ -200,6 +206,8 @@ public final class PolicyCustomRuleArgs extends com.pulumi.resources.ResourceArg
 
         /**
          * @param action Type of action. Possible values are `Allow`, `Block` and `Log`.
+         * 
+         * &gt; **Note:** If the `rule_type` is specified as `RateLimitRule`, the `Allow` is not supported.
          * 
          * @return builder
          * 

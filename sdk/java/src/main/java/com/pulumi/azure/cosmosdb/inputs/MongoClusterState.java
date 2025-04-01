@@ -3,6 +3,7 @@
 
 package com.pulumi.azure.cosmosdb.inputs;
 
+import com.pulumi.azure.cosmosdb.inputs.MongoClusterConnectionStringArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.Integer;
@@ -49,14 +50,14 @@ public final class MongoClusterState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The compute tier to assign to the MongoDB Cluster. Possible values are `Free`, `M25`, `M30`, `M40`, `M50`, `M60` and `M80`.
+     * The compute tier to assign to the MongoDB Cluster. Possible values are `Free`, `M10`, `M20`, `M25`, `M30`, `M40`, `M50`, `M60`, `M80`, and `M200`.
      * 
      */
     @Import(name="computeTier")
     private @Nullable Output<String> computeTier;
 
     /**
-     * @return The compute tier to assign to the MongoDB Cluster. Possible values are `Free`, `M25`, `M30`, `M40`, `M50`, `M60` and `M80`.
+     * @return The compute tier to assign to the MongoDB Cluster. Possible values are `Free`, `M10`, `M20`, `M25`, `M30`, `M40`, `M50`, `M60`, `M80`, and `M200`.
      * 
      */
     public Optional<Output<String>> computeTier() {
@@ -64,9 +65,22 @@ public final class MongoClusterState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The creation mode for the MongoDB Cluster. Possibles values are `Default` and `GeoReplica`. Defaults to `Default`. Changing this forces a new resource to be created.
+     * The list of `connection_strings` blocks as defined below.
      * 
-     * &gt; **Note** The creation mode `GeoReplica` is currently in preview. It is only available when `preview_features` is set.
+     */
+    @Import(name="connectionStrings")
+    private @Nullable Output<List<MongoClusterConnectionStringArgs>> connectionStrings;
+
+    /**
+     * @return The list of `connection_strings` blocks as defined below.
+     * 
+     */
+    public Optional<Output<List<MongoClusterConnectionStringArgs>>> connectionStrings() {
+        return Optional.ofNullable(this.connectionStrings);
+    }
+
+    /**
+     * The creation mode for the MongoDB Cluster. Possibles values are `Default` and `GeoReplica`. Defaults to `Default`. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="createMode")
@@ -74,8 +88,6 @@ public final class MongoClusterState extends com.pulumi.resources.ResourceArgs {
 
     /**
      * @return The creation mode for the MongoDB Cluster. Possibles values are `Default` and `GeoReplica`. Defaults to `Default`. Changing this forces a new resource to be created.
-     * 
-     * &gt; **Note** The creation mode `GeoReplica` is currently in preview. It is only available when `preview_features` is set.
      * 
      */
     public Optional<Output<String>> createMode() {
@@ -268,6 +280,7 @@ public final class MongoClusterState extends com.pulumi.resources.ResourceArgs {
         this.administratorPassword = $.administratorPassword;
         this.administratorUsername = $.administratorUsername;
         this.computeTier = $.computeTier;
+        this.connectionStrings = $.connectionStrings;
         this.createMode = $.createMode;
         this.highAvailabilityMode = $.highAvailabilityMode;
         this.location = $.location;
@@ -344,7 +357,7 @@ public final class MongoClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param computeTier The compute tier to assign to the MongoDB Cluster. Possible values are `Free`, `M25`, `M30`, `M40`, `M50`, `M60` and `M80`.
+         * @param computeTier The compute tier to assign to the MongoDB Cluster. Possible values are `Free`, `M10`, `M20`, `M25`, `M30`, `M40`, `M50`, `M60`, `M80`, and `M200`.
          * 
          * @return builder
          * 
@@ -355,7 +368,7 @@ public final class MongoClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param computeTier The compute tier to assign to the MongoDB Cluster. Possible values are `Free`, `M25`, `M30`, `M40`, `M50`, `M60` and `M80`.
+         * @param computeTier The compute tier to assign to the MongoDB Cluster. Possible values are `Free`, `M10`, `M20`, `M25`, `M30`, `M40`, `M50`, `M60`, `M80`, and `M200`.
          * 
          * @return builder
          * 
@@ -365,9 +378,38 @@ public final class MongoClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param createMode The creation mode for the MongoDB Cluster. Possibles values are `Default` and `GeoReplica`. Defaults to `Default`. Changing this forces a new resource to be created.
+         * @param connectionStrings The list of `connection_strings` blocks as defined below.
          * 
-         * &gt; **Note** The creation mode `GeoReplica` is currently in preview. It is only available when `preview_features` is set.
+         * @return builder
+         * 
+         */
+        public Builder connectionStrings(@Nullable Output<List<MongoClusterConnectionStringArgs>> connectionStrings) {
+            $.connectionStrings = connectionStrings;
+            return this;
+        }
+
+        /**
+         * @param connectionStrings The list of `connection_strings` blocks as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder connectionStrings(List<MongoClusterConnectionStringArgs> connectionStrings) {
+            return connectionStrings(Output.of(connectionStrings));
+        }
+
+        /**
+         * @param connectionStrings The list of `connection_strings` blocks as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder connectionStrings(MongoClusterConnectionStringArgs... connectionStrings) {
+            return connectionStrings(List.of(connectionStrings));
+        }
+
+        /**
+         * @param createMode The creation mode for the MongoDB Cluster. Possibles values are `Default` and `GeoReplica`. Defaults to `Default`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -379,8 +421,6 @@ public final class MongoClusterState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param createMode The creation mode for the MongoDB Cluster. Possibles values are `Default` and `GeoReplica`. Defaults to `Default`. Changing this forces a new resource to be created.
-         * 
-         * &gt; **Note** The creation mode `GeoReplica` is currently in preview. It is only available when `preview_features` is set.
          * 
          * @return builder
          * 

@@ -35,14 +35,14 @@ public final class NetworkManagerState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * A description of the network manager.
+     * A description of the Network Manager.
      * 
      */
     @Import(name="description")
     private @Nullable Output<String> description;
 
     /**
-     * @return A description of the network manager.
+     * @return A description of the Network Manager.
      * 
      */
     public Optional<Output<String>> description() {
@@ -50,14 +50,14 @@ public final class NetworkManagerState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * Specifies the Azure Region where the Network Managers should exist. Changing this forces a new resource to be created.
+     * Specifies the Azure Region where the Network Manager should exist. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="location")
     private @Nullable Output<String> location;
 
     /**
-     * @return Specifies the Azure Region where the Network Managers should exist. Changing this forces a new resource to be created.
+     * @return Specifies the Azure Region where the Network Manager should exist. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> location() {
@@ -65,14 +65,14 @@ public final class NetworkManagerState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * Specifies the name which should be used for this Network Managers. Changing this forces a new Network Managers to be created.
+     * Specifies the name which should be used for this Network Manager. Changing this forces a new Network Manager to be created.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return Specifies the name which should be used for this Network Managers. Changing this forces a new Network Managers to be created.
+     * @return Specifies the name which should be used for this Network Manager. Changing this forces a new Network Manager to be created.
      * 
      */
     public Optional<Output<String>> name() {
@@ -80,14 +80,14 @@ public final class NetworkManagerState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * Specifies the name of the Resource Group where the Network Managers should exist. Changing this forces a new Network Managers to be created.
+     * Specifies the name of the Resource Group where the Network Manager should exist. Changing this forces a new Network Manager to be created.
      * 
      */
     @Import(name="resourceGroupName")
     private @Nullable Output<String> resourceGroupName;
 
     /**
-     * @return Specifies the name of the Resource Group where the Network Managers should exist. Changing this forces a new Network Managers to be created.
+     * @return Specifies the name of the Resource Group where the Network Manager should exist. Changing this forces a new Network Manager to be created.
      * 
      */
     public Optional<Output<String>> resourceGroupName() {
@@ -110,14 +110,14 @@ public final class NetworkManagerState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * A list of configuration deployment type. Possible values are `Connectivity`, `SecurityAdmin` and `Routing`, corresponds to if Connectivity Configuration, Security Admin Configuration or Routing Configuration is allowed for the Network Manager.
+     * A list of configuration deployment types. Possible values are `Connectivity`, `SecurityAdmin` and `Routing`, which specify whether Connectivity Configuration, Security Admin Configuration or Routing Configuration are allowed for the Network Manager.
      * 
      */
     @Import(name="scopeAccesses")
     private @Nullable Output<List<String>> scopeAccesses;
 
     /**
-     * @return A list of configuration deployment type. Possible values are `Connectivity`, `SecurityAdmin` and `Routing`, corresponds to if Connectivity Configuration, Security Admin Configuration or Routing Configuration is allowed for the Network Manager.
+     * @return A list of configuration deployment types. Possible values are `Connectivity`, `SecurityAdmin` and `Routing`, which specify whether Connectivity Configuration, Security Admin Configuration or Routing Configuration are allowed for the Network Manager.
      * 
      */
     public Optional<Output<List<String>>> scopeAccesses() {
@@ -125,14 +125,14 @@ public final class NetworkManagerState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * A mapping of tags which should be assigned to the Network Managers.
+     * A mapping of tags which should be assigned to the Network Manager.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return A mapping of tags which should be assigned to the Network Managers.
+     * @return A mapping of tags which should be assigned to the Network Manager.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -202,7 +202,7 @@ public final class NetworkManagerState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param description A description of the network manager.
+         * @param description A description of the Network Manager.
          * 
          * @return builder
          * 
@@ -213,7 +213,7 @@ public final class NetworkManagerState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param description A description of the network manager.
+         * @param description A description of the Network Manager.
          * 
          * @return builder
          * 
@@ -223,7 +223,7 @@ public final class NetworkManagerState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param location Specifies the Azure Region where the Network Managers should exist. Changing this forces a new resource to be created.
+         * @param location Specifies the Azure Region where the Network Manager should exist. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -234,7 +234,7 @@ public final class NetworkManagerState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param location Specifies the Azure Region where the Network Managers should exist. Changing this forces a new resource to be created.
+         * @param location Specifies the Azure Region where the Network Manager should exist. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -244,7 +244,7 @@ public final class NetworkManagerState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param name Specifies the name which should be used for this Network Managers. Changing this forces a new Network Managers to be created.
+         * @param name Specifies the name which should be used for this Network Manager. Changing this forces a new Network Manager to be created.
          * 
          * @return builder
          * 
@@ -255,7 +255,7 @@ public final class NetworkManagerState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param name Specifies the name which should be used for this Network Managers. Changing this forces a new Network Managers to be created.
+         * @param name Specifies the name which should be used for this Network Manager. Changing this forces a new Network Manager to be created.
          * 
          * @return builder
          * 
@@ -265,7 +265,7 @@ public final class NetworkManagerState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param resourceGroupName Specifies the name of the Resource Group where the Network Managers should exist. Changing this forces a new Network Managers to be created.
+         * @param resourceGroupName Specifies the name of the Resource Group where the Network Manager should exist. Changing this forces a new Network Manager to be created.
          * 
          * @return builder
          * 
@@ -276,7 +276,7 @@ public final class NetworkManagerState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param resourceGroupName Specifies the name of the Resource Group where the Network Managers should exist. Changing this forces a new Network Managers to be created.
+         * @param resourceGroupName Specifies the name of the Resource Group where the Network Manager should exist. Changing this forces a new Network Manager to be created.
          * 
          * @return builder
          * 
@@ -307,7 +307,7 @@ public final class NetworkManagerState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param scopeAccesses A list of configuration deployment type. Possible values are `Connectivity`, `SecurityAdmin` and `Routing`, corresponds to if Connectivity Configuration, Security Admin Configuration or Routing Configuration is allowed for the Network Manager.
+         * @param scopeAccesses A list of configuration deployment types. Possible values are `Connectivity`, `SecurityAdmin` and `Routing`, which specify whether Connectivity Configuration, Security Admin Configuration or Routing Configuration are allowed for the Network Manager.
          * 
          * @return builder
          * 
@@ -318,7 +318,7 @@ public final class NetworkManagerState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param scopeAccesses A list of configuration deployment type. Possible values are `Connectivity`, `SecurityAdmin` and `Routing`, corresponds to if Connectivity Configuration, Security Admin Configuration or Routing Configuration is allowed for the Network Manager.
+         * @param scopeAccesses A list of configuration deployment types. Possible values are `Connectivity`, `SecurityAdmin` and `Routing`, which specify whether Connectivity Configuration, Security Admin Configuration or Routing Configuration are allowed for the Network Manager.
          * 
          * @return builder
          * 
@@ -328,7 +328,7 @@ public final class NetworkManagerState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param scopeAccesses A list of configuration deployment type. Possible values are `Connectivity`, `SecurityAdmin` and `Routing`, corresponds to if Connectivity Configuration, Security Admin Configuration or Routing Configuration is allowed for the Network Manager.
+         * @param scopeAccesses A list of configuration deployment types. Possible values are `Connectivity`, `SecurityAdmin` and `Routing`, which specify whether Connectivity Configuration, Security Admin Configuration or Routing Configuration are allowed for the Network Manager.
          * 
          * @return builder
          * 
@@ -338,7 +338,7 @@ public final class NetworkManagerState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param tags A mapping of tags which should be assigned to the Network Managers.
+         * @param tags A mapping of tags which should be assigned to the Network Manager.
          * 
          * @return builder
          * 
@@ -349,7 +349,7 @@ public final class NetworkManagerState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param tags A mapping of tags which should be assigned to the Network Managers.
+         * @param tags A mapping of tags which should be assigned to the Network Manager.
          * 
          * @return builder
          * 

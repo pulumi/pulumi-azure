@@ -1333,7 +1333,7 @@ type ReplicationRecoveryPlanBootRecoveryGroup struct {
 	PostActions []ReplicationRecoveryPlanBootRecoveryGroupPostAction `pulumi:"postActions"`
 	// one or more `action` block as defined below. which will be executed before the group recovery.
 	PreActions []ReplicationRecoveryPlanBootRecoveryGroupPreAction `pulumi:"preActions"`
-	// One or more protected VM IDs. It must not be specified when `type` is `Shutdown`.
+	// One or more protected VM IDs.
 	ReplicatedProtectedItems []string `pulumi:"replicatedProtectedItems"`
 }
 
@@ -1353,7 +1353,7 @@ type ReplicationRecoveryPlanBootRecoveryGroupArgs struct {
 	PostActions ReplicationRecoveryPlanBootRecoveryGroupPostActionArrayInput `pulumi:"postActions"`
 	// one or more `action` block as defined below. which will be executed before the group recovery.
 	PreActions ReplicationRecoveryPlanBootRecoveryGroupPreActionArrayInput `pulumi:"preActions"`
-	// One or more protected VM IDs. It must not be specified when `type` is `Shutdown`.
+	// One or more protected VM IDs.
 	ReplicatedProtectedItems pulumi.StringArrayInput `pulumi:"replicatedProtectedItems"`
 }
 
@@ -1422,7 +1422,7 @@ func (o ReplicationRecoveryPlanBootRecoveryGroupOutput) PreActions() Replication
 	}).(ReplicationRecoveryPlanBootRecoveryGroupPreActionArrayOutput)
 }
 
-// One or more protected VM IDs. It must not be specified when `type` is `Shutdown`.
+// One or more protected VM IDs.
 func (o ReplicationRecoveryPlanBootRecoveryGroupOutput) ReplicatedProtectedItems() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ReplicationRecoveryPlanBootRecoveryGroup) []string { return v.ReplicatedProtectedItems }).(pulumi.StringArrayOutput)
 }

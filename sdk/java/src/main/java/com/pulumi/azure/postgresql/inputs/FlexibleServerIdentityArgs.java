@@ -9,6 +9,8 @@ import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class FlexibleServerIdentityArgs extends com.pulumi.resources.ResourceArgs {
@@ -18,27 +20,61 @@ public final class FlexibleServerIdentityArgs extends com.pulumi.resources.Resou
     /**
      * A list of User Assigned Managed Identity IDs to be assigned to this PostgreSQL Flexible Server. Required if used together with `customer_managed_key` block.
      * 
+     * &gt; **Note**: `identity_ids` is required when `type` is set to `UserAssigned`.
+     * 
      */
-    @Import(name="identityIds", required=true)
-    private Output<List<String>> identityIds;
+    @Import(name="identityIds")
+    private @Nullable Output<List<String>> identityIds;
 
     /**
      * @return A list of User Assigned Managed Identity IDs to be assigned to this PostgreSQL Flexible Server. Required if used together with `customer_managed_key` block.
      * 
+     * &gt; **Note**: `identity_ids` is required when `type` is set to `UserAssigned`.
+     * 
      */
-    public Output<List<String>> identityIds() {
-        return this.identityIds;
+    public Optional<Output<List<String>>> identityIds() {
+        return Optional.ofNullable(this.identityIds);
     }
 
     /**
-     * Specifies the type of Managed Service Identity that should be configured on this PostgreSQL Flexible Server. The only possible value is `UserAssigned`.
+     * The Principal ID associated with this Managed Service Identity.
+     * 
+     */
+    @Import(name="principalId")
+    private @Nullable Output<String> principalId;
+
+    /**
+     * @return The Principal ID associated with this Managed Service Identity.
+     * 
+     */
+    public Optional<Output<String>> principalId() {
+        return Optional.ofNullable(this.principalId);
+    }
+
+    /**
+     * The Tenant ID associated with this Managed Service Identity.
+     * 
+     */
+    @Import(name="tenantId")
+    private @Nullable Output<String> tenantId;
+
+    /**
+     * @return The Tenant ID associated with this Managed Service Identity.
+     * 
+     */
+    public Optional<Output<String>> tenantId() {
+        return Optional.ofNullable(this.tenantId);
+    }
+
+    /**
+     * Specifies the type of Managed Service Identity that should be configured on this PostgreSQL Flexible Server. Possible values are `UserAssigned` and `SystemAssigned`.
      * 
      */
     @Import(name="type", required=true)
     private Output<String> type;
 
     /**
-     * @return Specifies the type of Managed Service Identity that should be configured on this PostgreSQL Flexible Server. The only possible value is `UserAssigned`.
+     * @return Specifies the type of Managed Service Identity that should be configured on this PostgreSQL Flexible Server. Possible values are `UserAssigned` and `SystemAssigned`.
      * 
      */
     public Output<String> type() {
@@ -49,6 +85,8 @@ public final class FlexibleServerIdentityArgs extends com.pulumi.resources.Resou
 
     private FlexibleServerIdentityArgs(FlexibleServerIdentityArgs $) {
         this.identityIds = $.identityIds;
+        this.principalId = $.principalId;
+        this.tenantId = $.tenantId;
         this.type = $.type;
     }
 
@@ -73,16 +111,20 @@ public final class FlexibleServerIdentityArgs extends com.pulumi.resources.Resou
         /**
          * @param identityIds A list of User Assigned Managed Identity IDs to be assigned to this PostgreSQL Flexible Server. Required if used together with `customer_managed_key` block.
          * 
+         * &gt; **Note**: `identity_ids` is required when `type` is set to `UserAssigned`.
+         * 
          * @return builder
          * 
          */
-        public Builder identityIds(Output<List<String>> identityIds) {
+        public Builder identityIds(@Nullable Output<List<String>> identityIds) {
             $.identityIds = identityIds;
             return this;
         }
 
         /**
          * @param identityIds A list of User Assigned Managed Identity IDs to be assigned to this PostgreSQL Flexible Server. Required if used together with `customer_managed_key` block.
+         * 
+         * &gt; **Note**: `identity_ids` is required when `type` is set to `UserAssigned`.
          * 
          * @return builder
          * 
@@ -94,6 +136,8 @@ public final class FlexibleServerIdentityArgs extends com.pulumi.resources.Resou
         /**
          * @param identityIds A list of User Assigned Managed Identity IDs to be assigned to this PostgreSQL Flexible Server. Required if used together with `customer_managed_key` block.
          * 
+         * &gt; **Note**: `identity_ids` is required when `type` is set to `UserAssigned`.
+         * 
          * @return builder
          * 
          */
@@ -102,7 +146,49 @@ public final class FlexibleServerIdentityArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param type Specifies the type of Managed Service Identity that should be configured on this PostgreSQL Flexible Server. The only possible value is `UserAssigned`.
+         * @param principalId The Principal ID associated with this Managed Service Identity.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder principalId(@Nullable Output<String> principalId) {
+            $.principalId = principalId;
+            return this;
+        }
+
+        /**
+         * @param principalId The Principal ID associated with this Managed Service Identity.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder principalId(String principalId) {
+            return principalId(Output.of(principalId));
+        }
+
+        /**
+         * @param tenantId The Tenant ID associated with this Managed Service Identity.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder tenantId(@Nullable Output<String> tenantId) {
+            $.tenantId = tenantId;
+            return this;
+        }
+
+        /**
+         * @param tenantId The Tenant ID associated with this Managed Service Identity.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder tenantId(String tenantId) {
+            return tenantId(Output.of(tenantId));
+        }
+
+        /**
+         * @param type Specifies the type of Managed Service Identity that should be configured on this PostgreSQL Flexible Server. Possible values are `UserAssigned` and `SystemAssigned`.
          * 
          * @return builder
          * 
@@ -113,7 +199,7 @@ public final class FlexibleServerIdentityArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param type Specifies the type of Managed Service Identity that should be configured on this PostgreSQL Flexible Server. The only possible value is `UserAssigned`.
+         * @param type Specifies the type of Managed Service Identity that should be configured on this PostgreSQL Flexible Server. Possible values are `UserAssigned` and `SystemAssigned`.
          * 
          * @return builder
          * 
@@ -123,9 +209,6 @@ public final class FlexibleServerIdentityArgs extends com.pulumi.resources.Resou
         }
 
         public FlexibleServerIdentityArgs build() {
-            if ($.identityIds == null) {
-                throw new MissingRequiredPropertyException("FlexibleServerIdentityArgs", "identityIds");
-            }
             if ($.type == null) {
                 throw new MissingRequiredPropertyException("FlexibleServerIdentityArgs", "type");
             }

@@ -1992,7 +1992,7 @@ public final class KeyvaultFunctions {
         return Deployment.getInstance().invokeAsync("azure:keyvault/getManagedHardwareSecurityModuleKey:getManagedHardwareSecurityModuleKey", TypeShape.of(GetManagedHardwareSecurityModuleKeyResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Use this data source to access information about an existing KeyVault Role Definition.
+     * Use this data source to access information about an existing Key Vault Managed Hardware Security Module Role Definition.
      * 
      * ## Example Usage
      * 
@@ -2020,7 +2020,7 @@ public final class KeyvaultFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = KeyvaultFunctions.getManagedHardwareSecurityModuleRoleDefinition(GetManagedHardwareSecurityModuleRoleDefinitionArgs.builder()
-     *             .vaultBaseUrl(test.hsmUri())
+     *             .managedHsmId(exampleAzurermKeyVaultManagedHardwareSecurityModule.id())
      *             .name("21dbd100-6940-42c2-9190-5d6cb909625b")
      *             .build());
      * 
@@ -2036,7 +2036,7 @@ public final class KeyvaultFunctions {
         return getManagedHardwareSecurityModuleRoleDefinition(args, InvokeOptions.Empty);
     }
     /**
-     * Use this data source to access information about an existing KeyVault Role Definition.
+     * Use this data source to access information about an existing Key Vault Managed Hardware Security Module Role Definition.
      * 
      * ## Example Usage
      * 
@@ -2064,7 +2064,7 @@ public final class KeyvaultFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = KeyvaultFunctions.getManagedHardwareSecurityModuleRoleDefinition(GetManagedHardwareSecurityModuleRoleDefinitionArgs.builder()
-     *             .vaultBaseUrl(test.hsmUri())
+     *             .managedHsmId(exampleAzurermKeyVaultManagedHardwareSecurityModule.id())
      *             .name("21dbd100-6940-42c2-9190-5d6cb909625b")
      *             .build());
      * 
@@ -2080,7 +2080,7 @@ public final class KeyvaultFunctions {
         return getManagedHardwareSecurityModuleRoleDefinitionPlain(args, InvokeOptions.Empty);
     }
     /**
-     * Use this data source to access information about an existing KeyVault Role Definition.
+     * Use this data source to access information about an existing Key Vault Managed Hardware Security Module Role Definition.
      * 
      * ## Example Usage
      * 
@@ -2108,7 +2108,7 @@ public final class KeyvaultFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = KeyvaultFunctions.getManagedHardwareSecurityModuleRoleDefinition(GetManagedHardwareSecurityModuleRoleDefinitionArgs.builder()
-     *             .vaultBaseUrl(test.hsmUri())
+     *             .managedHsmId(exampleAzurermKeyVaultManagedHardwareSecurityModule.id())
      *             .name("21dbd100-6940-42c2-9190-5d6cb909625b")
      *             .build());
      * 
@@ -2124,7 +2124,7 @@ public final class KeyvaultFunctions {
         return Deployment.getInstance().invoke("azure:keyvault/getManagedHardwareSecurityModuleRoleDefinition:getManagedHardwareSecurityModuleRoleDefinition", TypeShape.of(GetManagedHardwareSecurityModuleRoleDefinitionResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Use this data source to access information about an existing KeyVault Role Definition.
+     * Use this data source to access information about an existing Key Vault Managed Hardware Security Module Role Definition.
      * 
      * ## Example Usage
      * 
@@ -2152,7 +2152,7 @@ public final class KeyvaultFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = KeyvaultFunctions.getManagedHardwareSecurityModuleRoleDefinition(GetManagedHardwareSecurityModuleRoleDefinitionArgs.builder()
-     *             .vaultBaseUrl(test.hsmUri())
+     *             .managedHsmId(exampleAzurermKeyVaultManagedHardwareSecurityModule.id())
      *             .name("21dbd100-6940-42c2-9190-5d6cb909625b")
      *             .build());
      * 
@@ -2168,7 +2168,7 @@ public final class KeyvaultFunctions {
         return Deployment.getInstance().invoke("azure:keyvault/getManagedHardwareSecurityModuleRoleDefinition:getManagedHardwareSecurityModuleRoleDefinition", TypeShape.of(GetManagedHardwareSecurityModuleRoleDefinitionResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Use this data source to access information about an existing KeyVault Role Definition.
+     * Use this data source to access information about an existing Key Vault Managed Hardware Security Module Role Definition.
      * 
      * ## Example Usage
      * 
@@ -2196,7 +2196,7 @@ public final class KeyvaultFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = KeyvaultFunctions.getManagedHardwareSecurityModuleRoleDefinition(GetManagedHardwareSecurityModuleRoleDefinitionArgs.builder()
-     *             .vaultBaseUrl(test.hsmUri())
+     *             .managedHsmId(exampleAzurermKeyVaultManagedHardwareSecurityModule.id())
      *             .name("21dbd100-6940-42c2-9190-5d6cb909625b")
      *             .build());
      * 

@@ -8,16 +8,30 @@ import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class FlexibleServerIdentity {
     /**
      * @return A list of User Assigned Managed Identity IDs to be assigned to this PostgreSQL Flexible Server. Required if used together with `customer_managed_key` block.
      * 
+     * &gt; **Note**: `identity_ids` is required when `type` is set to `UserAssigned`.
+     * 
      */
-    private List<String> identityIds;
+    private @Nullable List<String> identityIds;
     /**
-     * @return Specifies the type of Managed Service Identity that should be configured on this PostgreSQL Flexible Server. The only possible value is `UserAssigned`.
+     * @return The Principal ID associated with this Managed Service Identity.
+     * 
+     */
+    private @Nullable String principalId;
+    /**
+     * @return The Tenant ID associated with this Managed Service Identity.
+     * 
+     */
+    private @Nullable String tenantId;
+    /**
+     * @return Specifies the type of Managed Service Identity that should be configured on this PostgreSQL Flexible Server. Possible values are `UserAssigned` and `SystemAssigned`.
      * 
      */
     private String type;
@@ -26,12 +40,28 @@ public final class FlexibleServerIdentity {
     /**
      * @return A list of User Assigned Managed Identity IDs to be assigned to this PostgreSQL Flexible Server. Required if used together with `customer_managed_key` block.
      * 
+     * &gt; **Note**: `identity_ids` is required when `type` is set to `UserAssigned`.
+     * 
      */
     public List<String> identityIds() {
-        return this.identityIds;
+        return this.identityIds == null ? List.of() : this.identityIds;
     }
     /**
-     * @return Specifies the type of Managed Service Identity that should be configured on this PostgreSQL Flexible Server. The only possible value is `UserAssigned`.
+     * @return The Principal ID associated with this Managed Service Identity.
+     * 
+     */
+    public Optional<String> principalId() {
+        return Optional.ofNullable(this.principalId);
+    }
+    /**
+     * @return The Tenant ID associated with this Managed Service Identity.
+     * 
+     */
+    public Optional<String> tenantId() {
+        return Optional.ofNullable(this.tenantId);
+    }
+    /**
+     * @return Specifies the type of Managed Service Identity that should be configured on this PostgreSQL Flexible Server. Possible values are `UserAssigned` and `SystemAssigned`.
      * 
      */
     public String type() {
@@ -47,25 +77,39 @@ public final class FlexibleServerIdentity {
     }
     @CustomType.Builder
     public static final class Builder {
-        private List<String> identityIds;
+        private @Nullable List<String> identityIds;
+        private @Nullable String principalId;
+        private @Nullable String tenantId;
         private String type;
         public Builder() {}
         public Builder(FlexibleServerIdentity defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.identityIds = defaults.identityIds;
+    	      this.principalId = defaults.principalId;
+    	      this.tenantId = defaults.tenantId;
     	      this.type = defaults.type;
         }
 
         @CustomType.Setter
-        public Builder identityIds(List<String> identityIds) {
-            if (identityIds == null) {
-              throw new MissingRequiredPropertyException("FlexibleServerIdentity", "identityIds");
-            }
+        public Builder identityIds(@Nullable List<String> identityIds) {
+
             this.identityIds = identityIds;
             return this;
         }
         public Builder identityIds(String... identityIds) {
             return identityIds(List.of(identityIds));
+        }
+        @CustomType.Setter
+        public Builder principalId(@Nullable String principalId) {
+
+            this.principalId = principalId;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder tenantId(@Nullable String tenantId) {
+
+            this.tenantId = tenantId;
+            return this;
         }
         @CustomType.Setter
         public Builder type(String type) {
@@ -78,6 +122,8 @@ public final class FlexibleServerIdentity {
         public FlexibleServerIdentity build() {
             final var _resultValue = new FlexibleServerIdentity();
             _resultValue.identityIds = identityIds;
+            _resultValue.principalId = principalId;
+            _resultValue.tenantId = tenantId;
             _resultValue.type = type;
             return _resultValue;
         }

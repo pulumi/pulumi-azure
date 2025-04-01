@@ -45,14 +45,26 @@ import (
 //				return err
 //			}
 //			_, err = cdn.NewFrontdoorFirewallPolicy(ctx, "example", &cdn.FrontdoorFirewallPolicyArgs{
-//				Name:                          pulumi.String("examplecdnfdwafpolicy"),
-//				ResourceGroupName:             example.Name,
-//				SkuName:                       exampleFrontdoorProfile.SkuName,
-//				Enabled:                       pulumi.Bool(true),
-//				Mode:                          pulumi.String("Prevention"),
-//				RedirectUrl:                   pulumi.String("https://www.contoso.com"),
-//				CustomBlockResponseStatusCode: pulumi.Int(403),
-//				CustomBlockResponseBody:       pulumi.String("PGh0bWw+CjxoZWFkZXI+PHRpdGxlPkhlbGxvPC90aXRsZT48L2hlYWRlcj4KPGJvZHk+CkhlbGxvIHdvcmxkCjwvYm9keT4KPC9odG1sPg=="),
+//				Name:                                 pulumi.String("examplecdnfdwafpolicy"),
+//				ResourceGroupName:                    example.Name,
+//				SkuName:                              exampleFrontdoorProfile.SkuName,
+//				Enabled:                              pulumi.Bool(true),
+//				Mode:                                 pulumi.String("Prevention"),
+//				RedirectUrl:                          pulumi.String("https://www.contoso.com"),
+//				CustomBlockResponseStatusCode:        pulumi.Int(403),
+//				CustomBlockResponseBody:              pulumi.String("PGh0bWw+CjxoZWFkZXI+PHRpdGxlPkhlbGxvPC90aXRsZT48L2hlYWRlcj4KPGJvZHk+CkhlbGxvIHdvcmxkCjwvYm9keT4KPC9odG1sPg=="),
+//				JsChallengeCookieExpirationInMinutes: pulumi.Int(45),
+//				LogScrubbing: &cdn.FrontdoorFirewallPolicyLogScrubbingArgs{
+//					Enabled: pulumi.Bool(true),
+//					ScrubbingRules: cdn.FrontdoorFirewallPolicyLogScrubbingScrubbingRuleArray{
+//						&cdn.FrontdoorFirewallPolicyLogScrubbingScrubbingRuleArgs{
+//							Enabled:       pulumi.Bool(true),
+//							MatchVariable: pulumi.String("RequestCookieNames"),
+//							Operator:      pulumi.String("Equals"),
+//							Selector:      pulumi.String("ChocolateChip"),
+//						},
+//					},
+//				},
 //				CustomRules: cdn.FrontdoorFirewallPolicyCustomRuleArray{
 //					&cdn.FrontdoorFirewallPolicyCustomRuleArgs{
 //						Name:                       pulumi.String("Rule1"),
@@ -77,7 +89,7 @@ import (
 //					&cdn.FrontdoorFirewallPolicyCustomRuleArgs{
 //						Name:                       pulumi.String("Rule2"),
 //						Enabled:                    pulumi.Bool(true),
-//						Priority:                   pulumi.Int(2),
+//						Priority:                   pulumi.Int(50),
 //						RateLimitDurationInMinutes: pulumi.Int(1),
 //						RateLimitThreshold:         pulumi.Int(10),
 //						Type:                       pulumi.String("MatchRule"),
@@ -106,11 +118,31 @@ import (
 //							},
 //						},
 //					},
+//					&cdn.FrontdoorFirewallPolicyCustomRuleArgs{
+//						Name:                       pulumi.String("CustomJSChallenge"),
+//						Enabled:                    pulumi.Bool(true),
+//						Priority:                   pulumi.Int(100),
+//						RateLimitDurationInMinutes: pulumi.Int(1),
+//						RateLimitThreshold:         pulumi.Int(10),
+//						Type:                       pulumi.String("MatchRule"),
+//						Action:                     pulumi.String("JSChallenge"),
+//						MatchConditions: cdn.FrontdoorFirewallPolicyCustomRuleMatchConditionArray{
+//							&cdn.FrontdoorFirewallPolicyCustomRuleMatchConditionArgs{
+//								MatchVariable:     pulumi.String("RemoteAddr"),
+//								Operator:          pulumi.String("IPMatch"),
+//								NegationCondition: pulumi.Bool(false),
+//								MatchValues: pulumi.StringArray{
+//									pulumi.String("192.168.1.0/24"),
+//								},
+//							},
+//						},
+//					},
 //				},
 //				ManagedRules: cdn.FrontdoorFirewallPolicyManagedRuleArray{
 //					&cdn.FrontdoorFirewallPolicyManagedRuleArgs{
 //						Type:    pulumi.String("DefaultRuleSet"),
 //						Version: pulumi.String("1.0"),
+//						Action:  pulumi.String("Log"),
 //						Exclusions: cdn.FrontdoorFirewallPolicyManagedRuleExclusionArray{
 //							&cdn.FrontdoorFirewallPolicyManagedRuleExclusionArgs{
 //								MatchVariable: pulumi.String("QueryStringArgNames"),
@@ -156,8 +188,20 @@ import (
 //					},
 //					&cdn.FrontdoorFirewallPolicyManagedRuleArgs{
 //						Type:    pulumi.String("Microsoft_BotManagerRuleSet"),
-//						Version: pulumi.String("1.0"),
+//						Version: pulumi.String("1.1"),
 //						Action:  pulumi.String("Log"),
+//						Overrides: cdn.FrontdoorFirewallPolicyManagedRuleOverrideArray{
+//							&cdn.FrontdoorFirewallPolicyManagedRuleOverrideArgs{
+//								RuleGroupName: pulumi.String("BadBots"),
+//								Rules: cdn.FrontdoorFirewallPolicyManagedRuleOverrideRuleArray{
+//									&cdn.FrontdoorFirewallPolicyManagedRuleOverrideRuleArgs{
+//										Action:  pulumi.String("JSChallenge"),
+//										Enabled: pulumi.Bool(true),
+//										RuleId:  pulumi.String("Bot100200"),
+//									},
+//								},
+//							},
+//						},
 //					},
 //				},
 //			})
@@ -169,6 +213,22 @@ import (
 //	}
 //
 // ```
+//
+// ## `scrubbingRule` Examples:
+//
+// The following table shows examples of `scrubbingRule`'s that can be used to protect sensitive data:
+//
+// | Match Variable               | Operator       | Selector      | What Gets Scrubbed                                                            |
+// | :--------------------------- | :------------- | :------------ | :---------------------------------------------------------------------------- |
+// | `RequestHeaderNames`         | Equals         | keyToBlock    | {"matchVariableName":"HeaderValue:keyToBlock","matchVariableValue":"****"}    |
+// | `RequestCookieNames`         | Equals         | cookieToBlock | {"matchVariableName":"CookieValue:cookieToBlock","matchVariableValue":"****"} |
+// | `RequestBodyPostArgNames`    | Equals         | var           | {"matchVariableName":"PostParamValue:var","matchVariableValue":"****"}        |
+// | `RequestBodyJsonArgNames`    | Equals         | JsonValue     | {"matchVariableName":"JsonValue:key","matchVariableValue":"****"}             |
+// | `QueryStringArgNames`        | Equals         | foo           | {"matchVariableName":"QueryParamValue:foo","matchVariableValue":"****"}       |
+// | `RequestIPAddress`           | Equals Any     | Not Supported | {"matchVariableName":"ClientIP","matchVariableValue":"****"}                  |
+// | `RequestUri`                 | Equals Any     | Not Supported | {"matchVariableName":"URI","matchVariableValue":"****"}                       |
+//
+// ***
 //
 // ## Import
 //
@@ -196,6 +256,10 @@ type FrontdoorFirewallPolicy struct {
 	//
 	// !> **Note:** Setting the`jsChallengeCookieExpirationInMinutes` policy is currently in **PREVIEW**. Please see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 	JsChallengeCookieExpirationInMinutes pulumi.IntOutput `pulumi:"jsChallengeCookieExpirationInMinutes"`
+	// A `logScrubbing` block as defined below.
+	//
+	// !> **Note:** Setting the`logScrubbing` block is currently in **PREVIEW**. Please see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+	LogScrubbing FrontdoorFirewallPolicyLogScrubbingPtrOutput `pulumi:"logScrubbing"`
 	// One or more `managedRule` blocks as defined below.
 	ManagedRules FrontdoorFirewallPolicyManagedRuleArrayOutput `pulumi:"managedRules"`
 	// The Front Door Firewall Policy mode. Possible values are `Detection`, `Prevention`.
@@ -273,6 +337,10 @@ type frontdoorFirewallPolicyState struct {
 	//
 	// !> **Note:** Setting the`jsChallengeCookieExpirationInMinutes` policy is currently in **PREVIEW**. Please see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 	JsChallengeCookieExpirationInMinutes *int `pulumi:"jsChallengeCookieExpirationInMinutes"`
+	// A `logScrubbing` block as defined below.
+	//
+	// !> **Note:** Setting the`logScrubbing` block is currently in **PREVIEW**. Please see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+	LogScrubbing *FrontdoorFirewallPolicyLogScrubbing `pulumi:"logScrubbing"`
 	// One or more `managedRule` blocks as defined below.
 	ManagedRules []FrontdoorFirewallPolicyManagedRule `pulumi:"managedRules"`
 	// The Front Door Firewall Policy mode. Possible values are `Detection`, `Prevention`.
@@ -312,6 +380,10 @@ type FrontdoorFirewallPolicyState struct {
 	//
 	// !> **Note:** Setting the`jsChallengeCookieExpirationInMinutes` policy is currently in **PREVIEW**. Please see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 	JsChallengeCookieExpirationInMinutes pulumi.IntPtrInput
+	// A `logScrubbing` block as defined below.
+	//
+	// !> **Note:** Setting the`logScrubbing` block is currently in **PREVIEW**. Please see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+	LogScrubbing FrontdoorFirewallPolicyLogScrubbingPtrInput
 	// One or more `managedRule` blocks as defined below.
 	ManagedRules FrontdoorFirewallPolicyManagedRuleArrayInput
 	// The Front Door Firewall Policy mode. Possible values are `Detection`, `Prevention`.
@@ -353,6 +425,10 @@ type frontdoorFirewallPolicyArgs struct {
 	//
 	// !> **Note:** Setting the`jsChallengeCookieExpirationInMinutes` policy is currently in **PREVIEW**. Please see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 	JsChallengeCookieExpirationInMinutes *int `pulumi:"jsChallengeCookieExpirationInMinutes"`
+	// A `logScrubbing` block as defined below.
+	//
+	// !> **Note:** Setting the`logScrubbing` block is currently in **PREVIEW**. Please see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+	LogScrubbing *FrontdoorFirewallPolicyLogScrubbing `pulumi:"logScrubbing"`
 	// One or more `managedRule` blocks as defined below.
 	ManagedRules []FrontdoorFirewallPolicyManagedRule `pulumi:"managedRules"`
 	// The Front Door Firewall Policy mode. Possible values are `Detection`, `Prevention`.
@@ -391,6 +467,10 @@ type FrontdoorFirewallPolicyArgs struct {
 	//
 	// !> **Note:** Setting the`jsChallengeCookieExpirationInMinutes` policy is currently in **PREVIEW**. Please see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 	JsChallengeCookieExpirationInMinutes pulumi.IntPtrInput
+	// A `logScrubbing` block as defined below.
+	//
+	// !> **Note:** Setting the`logScrubbing` block is currently in **PREVIEW**. Please see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+	LogScrubbing FrontdoorFirewallPolicyLogScrubbingPtrInput
 	// One or more `managedRule` blocks as defined below.
 	ManagedRules FrontdoorFirewallPolicyManagedRuleArrayInput
 	// The Front Door Firewall Policy mode. Possible values are `Detection`, `Prevention`.
@@ -532,6 +612,13 @@ func (o FrontdoorFirewallPolicyOutput) FrontendEndpointIds() pulumi.StringArrayO
 // !> **Note:** Setting the`jsChallengeCookieExpirationInMinutes` policy is currently in **PREVIEW**. Please see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 func (o FrontdoorFirewallPolicyOutput) JsChallengeCookieExpirationInMinutes() pulumi.IntOutput {
 	return o.ApplyT(func(v *FrontdoorFirewallPolicy) pulumi.IntOutput { return v.JsChallengeCookieExpirationInMinutes }).(pulumi.IntOutput)
+}
+
+// A `logScrubbing` block as defined below.
+//
+// !> **Note:** Setting the`logScrubbing` block is currently in **PREVIEW**. Please see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+func (o FrontdoorFirewallPolicyOutput) LogScrubbing() FrontdoorFirewallPolicyLogScrubbingPtrOutput {
+	return o.ApplyT(func(v *FrontdoorFirewallPolicy) FrontdoorFirewallPolicyLogScrubbingPtrOutput { return v.LogScrubbing }).(FrontdoorFirewallPolicyLogScrubbingPtrOutput)
 }
 
 // One or more `managedRule` blocks as defined below.

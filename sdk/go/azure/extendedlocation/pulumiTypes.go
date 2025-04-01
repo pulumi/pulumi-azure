@@ -169,9 +169,119 @@ func (o CustomLocationAuthenticationPtrOutput) Value() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type GetCustomLocationAuthentication struct {
+	// The type of authentication.
+	Type string `pulumi:"type"`
+	// The value of authentication.
+	Value string `pulumi:"value"`
+}
+
+// GetCustomLocationAuthenticationInput is an input type that accepts GetCustomLocationAuthenticationArgs and GetCustomLocationAuthenticationOutput values.
+// You can construct a concrete instance of `GetCustomLocationAuthenticationInput` via:
+//
+//	GetCustomLocationAuthenticationArgs{...}
+type GetCustomLocationAuthenticationInput interface {
+	pulumi.Input
+
+	ToGetCustomLocationAuthenticationOutput() GetCustomLocationAuthenticationOutput
+	ToGetCustomLocationAuthenticationOutputWithContext(context.Context) GetCustomLocationAuthenticationOutput
+}
+
+type GetCustomLocationAuthenticationArgs struct {
+	// The type of authentication.
+	Type pulumi.StringInput `pulumi:"type"`
+	// The value of authentication.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (GetCustomLocationAuthenticationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCustomLocationAuthentication)(nil)).Elem()
+}
+
+func (i GetCustomLocationAuthenticationArgs) ToGetCustomLocationAuthenticationOutput() GetCustomLocationAuthenticationOutput {
+	return i.ToGetCustomLocationAuthenticationOutputWithContext(context.Background())
+}
+
+func (i GetCustomLocationAuthenticationArgs) ToGetCustomLocationAuthenticationOutputWithContext(ctx context.Context) GetCustomLocationAuthenticationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCustomLocationAuthenticationOutput)
+}
+
+// GetCustomLocationAuthenticationArrayInput is an input type that accepts GetCustomLocationAuthenticationArray and GetCustomLocationAuthenticationArrayOutput values.
+// You can construct a concrete instance of `GetCustomLocationAuthenticationArrayInput` via:
+//
+//	GetCustomLocationAuthenticationArray{ GetCustomLocationAuthenticationArgs{...} }
+type GetCustomLocationAuthenticationArrayInput interface {
+	pulumi.Input
+
+	ToGetCustomLocationAuthenticationArrayOutput() GetCustomLocationAuthenticationArrayOutput
+	ToGetCustomLocationAuthenticationArrayOutputWithContext(context.Context) GetCustomLocationAuthenticationArrayOutput
+}
+
+type GetCustomLocationAuthenticationArray []GetCustomLocationAuthenticationInput
+
+func (GetCustomLocationAuthenticationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetCustomLocationAuthentication)(nil)).Elem()
+}
+
+func (i GetCustomLocationAuthenticationArray) ToGetCustomLocationAuthenticationArrayOutput() GetCustomLocationAuthenticationArrayOutput {
+	return i.ToGetCustomLocationAuthenticationArrayOutputWithContext(context.Background())
+}
+
+func (i GetCustomLocationAuthenticationArray) ToGetCustomLocationAuthenticationArrayOutputWithContext(ctx context.Context) GetCustomLocationAuthenticationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCustomLocationAuthenticationArrayOutput)
+}
+
+type GetCustomLocationAuthenticationOutput struct{ *pulumi.OutputState }
+
+func (GetCustomLocationAuthenticationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCustomLocationAuthentication)(nil)).Elem()
+}
+
+func (o GetCustomLocationAuthenticationOutput) ToGetCustomLocationAuthenticationOutput() GetCustomLocationAuthenticationOutput {
+	return o
+}
+
+func (o GetCustomLocationAuthenticationOutput) ToGetCustomLocationAuthenticationOutputWithContext(ctx context.Context) GetCustomLocationAuthenticationOutput {
+	return o
+}
+
+// The type of authentication.
+func (o GetCustomLocationAuthenticationOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCustomLocationAuthentication) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// The value of authentication.
+func (o GetCustomLocationAuthenticationOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCustomLocationAuthentication) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type GetCustomLocationAuthenticationArrayOutput struct{ *pulumi.OutputState }
+
+func (GetCustomLocationAuthenticationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetCustomLocationAuthentication)(nil)).Elem()
+}
+
+func (o GetCustomLocationAuthenticationArrayOutput) ToGetCustomLocationAuthenticationArrayOutput() GetCustomLocationAuthenticationArrayOutput {
+	return o
+}
+
+func (o GetCustomLocationAuthenticationArrayOutput) ToGetCustomLocationAuthenticationArrayOutputWithContext(ctx context.Context) GetCustomLocationAuthenticationArrayOutput {
+	return o
+}
+
+func (o GetCustomLocationAuthenticationArrayOutput) Index(i pulumi.IntInput) GetCustomLocationAuthenticationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetCustomLocationAuthentication {
+		return vs[0].([]GetCustomLocationAuthentication)[vs[1].(int)]
+	}).(GetCustomLocationAuthenticationOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*CustomLocationAuthenticationInput)(nil)).Elem(), CustomLocationAuthenticationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CustomLocationAuthenticationPtrInput)(nil)).Elem(), CustomLocationAuthenticationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetCustomLocationAuthenticationInput)(nil)).Elem(), GetCustomLocationAuthenticationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetCustomLocationAuthenticationArrayInput)(nil)).Elem(), GetCustomLocationAuthenticationArray{})
 	pulumi.RegisterOutputType(CustomLocationAuthenticationOutput{})
 	pulumi.RegisterOutputType(CustomLocationAuthenticationPtrOutput{})
+	pulumi.RegisterOutputType(GetCustomLocationAuthenticationOutput{})
+	pulumi.RegisterOutputType(GetCustomLocationAuthenticationArrayOutput{})
 }

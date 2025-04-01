@@ -40,7 +40,7 @@ namespace Pulumi.Azure.SiteRecovery.Inputs
         private InputList<string>? _replicatedProtectedItems;
 
         /// <summary>
-        /// One or more protected VM IDs. It must not be specified when `type` is `Shutdown`.
+        /// One or more protected VM IDs.
         /// </summary>
         public InputList<string> ReplicatedProtectedItems
         {

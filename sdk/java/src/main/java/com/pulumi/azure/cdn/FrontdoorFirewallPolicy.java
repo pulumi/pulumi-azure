@@ -7,6 +7,7 @@ import com.pulumi.azure.Utilities;
 import com.pulumi.azure.cdn.FrontdoorFirewallPolicyArgs;
 import com.pulumi.azure.cdn.inputs.FrontdoorFirewallPolicyState;
 import com.pulumi.azure.cdn.outputs.FrontdoorFirewallPolicyCustomRule;
+import com.pulumi.azure.cdn.outputs.FrontdoorFirewallPolicyLogScrubbing;
 import com.pulumi.azure.cdn.outputs.FrontdoorFirewallPolicyManagedRule;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
@@ -39,6 +40,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.cdn.FrontdoorProfileArgs;
  * import com.pulumi.azure.cdn.FrontdoorFirewallPolicy;
  * import com.pulumi.azure.cdn.FrontdoorFirewallPolicyArgs;
+ * import com.pulumi.azure.cdn.inputs.FrontdoorFirewallPolicyLogScrubbingArgs;
  * import com.pulumi.azure.cdn.inputs.FrontdoorFirewallPolicyCustomRuleArgs;
  * import com.pulumi.azure.cdn.inputs.FrontdoorFirewallPolicyManagedRuleArgs;
  * import java.util.List;
@@ -74,6 +76,16 @@ import javax.annotation.Nullable;
  *             .redirectUrl("https://www.contoso.com")
  *             .customBlockResponseStatusCode(403)
  *             .customBlockResponseBody("PGh0bWw+CjxoZWFkZXI+PHRpdGxlPkhlbGxvPC90aXRsZT48L2hlYWRlcj4KPGJvZHk+CkhlbGxvIHdvcmxkCjwvYm9keT4KPC9odG1sPg==")
+ *             .jsChallengeCookieExpirationInMinutes(45)
+ *             .logScrubbing(FrontdoorFirewallPolicyLogScrubbingArgs.builder()
+ *                 .enabled(true)
+ *                 .scrubbingRules(FrontdoorFirewallPolicyLogScrubbingScrubbingRuleArgs.builder()
+ *                     .enabled(true)
+ *                     .matchVariable("RequestCookieNames")
+ *                     .operator("Equals")
+ *                     .selector("ChocolateChip")
+ *                     .build())
+ *                 .build())
  *             .customRules(            
  *                 FrontdoorFirewallPolicyCustomRuleArgs.builder()
  *                     .name("Rule1")
@@ -95,7 +107,7 @@ import javax.annotation.Nullable;
  *                 FrontdoorFirewallPolicyCustomRuleArgs.builder()
  *                     .name("Rule2")
  *                     .enabled(true)
- *                     .priority(2)
+ *                     .priority(50)
  *                     .rateLimitDurationInMinutes(1)
  *                     .rateLimitThreshold(10)
  *                     .type("MatchRule")
@@ -117,11 +129,27 @@ import javax.annotation.Nullable;
  *                                 "Lowercase",
  *                                 "Trim")
  *                             .build())
+ *                     .build(),
+ *                 FrontdoorFirewallPolicyCustomRuleArgs.builder()
+ *                     .name("CustomJSChallenge")
+ *                     .enabled(true)
+ *                     .priority(100)
+ *                     .rateLimitDurationInMinutes(1)
+ *                     .rateLimitThreshold(10)
+ *                     .type("MatchRule")
+ *                     .action("JSChallenge")
+ *                     .matchConditions(FrontdoorFirewallPolicyCustomRuleMatchConditionArgs.builder()
+ *                         .matchVariable("RemoteAddr")
+ *                         .operator("IPMatch")
+ *                         .negationCondition(false)
+ *                         .matchValues("192.168.1.0/24")
+ *                         .build())
  *                     .build())
  *             .managedRules(            
  *                 FrontdoorFirewallPolicyManagedRuleArgs.builder()
  *                     .type("DefaultRuleSet")
  *                     .version("1.0")
+ *                     .action("Log")
  *                     .exclusions(FrontdoorFirewallPolicyManagedRuleExclusionArgs.builder()
  *                         .matchVariable("QueryStringArgNames")
  *                         .operator("Equals")
@@ -156,8 +184,16 @@ import javax.annotation.Nullable;
  *                     .build(),
  *                 FrontdoorFirewallPolicyManagedRuleArgs.builder()
  *                     .type("Microsoft_BotManagerRuleSet")
- *                     .version("1.0")
+ *                     .version("1.1")
  *                     .action("Log")
+ *                     .overrides(FrontdoorFirewallPolicyManagedRuleOverrideArgs.builder()
+ *                         .ruleGroupName("BadBots")
+ *                         .rules(FrontdoorFirewallPolicyManagedRuleOverrideRuleArgs.builder()
+ *                             .action("JSChallenge")
+ *                             .enabled(true)
+ *                             .ruleId("Bot100200")
+ *                             .build())
+ *                         .build())
  *                     .build())
  *             .build());
  * 
@@ -166,6 +202,22 @@ import javax.annotation.Nullable;
  * }
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
+ * 
+ * ## `scrubbing_rule` Examples:
+ * 
+ * The following table shows examples of `scrubbing_rule`&#39;s that can be used to protect sensitive data:
+ * 
+ * | Match Variable               | Operator       | Selector      | What Gets Scrubbed                                                            |
+ * | :--------------------------- | :------------- | :------------ | :---------------------------------------------------------------------------- |
+ * | `RequestHeaderNames`         | Equals         | keyToBlock    | {&#34;matchVariableName&#34;:&#34;HeaderValue:keyToBlock&#34;,&#34;matchVariableValue&#34;:&#34;****&#34;}    |
+ * | `RequestCookieNames`         | Equals         | cookieToBlock | {&#34;matchVariableName&#34;:&#34;CookieValue:cookieToBlock&#34;,&#34;matchVariableValue&#34;:&#34;****&#34;} |
+ * | `RequestBodyPostArgNames`    | Equals         | var           | {&#34;matchVariableName&#34;:&#34;PostParamValue:var&#34;,&#34;matchVariableValue&#34;:&#34;****&#34;}        |
+ * | `RequestBodyJsonArgNames`    | Equals         | JsonValue     | {&#34;matchVariableName&#34;:&#34;JsonValue:key&#34;,&#34;matchVariableValue&#34;:&#34;****&#34;}             |
+ * | `QueryStringArgNames`        | Equals         | foo           | {&#34;matchVariableName&#34;:&#34;QueryParamValue:foo&#34;,&#34;matchVariableValue&#34;:&#34;****&#34;}       |
+ * | `RequestIPAddress`           | Equals Any     | Not Supported | {&#34;matchVariableName&#34;:&#34;ClientIP&#34;,&#34;matchVariableValue&#34;:&#34;****&#34;}                  |
+ * | `RequestUri`                 | Equals Any     | Not Supported | {&#34;matchVariableName&#34;:&#34;URI&#34;,&#34;matchVariableValue&#34;:&#34;****&#34;}                       |
+ * 
+ * ***
  * 
  * ## Import
  * 
@@ -269,6 +321,24 @@ public class FrontdoorFirewallPolicy extends com.pulumi.resources.CustomResource
      */
     public Output<Integer> jsChallengeCookieExpirationInMinutes() {
         return this.jsChallengeCookieExpirationInMinutes;
+    }
+    /**
+     * A `log_scrubbing` block as defined below.
+     * 
+     * !&gt; **Note:** Setting the`log_scrubbing` block is currently in **PREVIEW**. Please see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+     * 
+     */
+    @Export(name="logScrubbing", refs={FrontdoorFirewallPolicyLogScrubbing.class}, tree="[0]")
+    private Output</* @Nullable */ FrontdoorFirewallPolicyLogScrubbing> logScrubbing;
+
+    /**
+     * @return A `log_scrubbing` block as defined below.
+     * 
+     * !&gt; **Note:** Setting the`log_scrubbing` block is currently in **PREVIEW**. Please see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+     * 
+     */
+    public Output<Optional<FrontdoorFirewallPolicyLogScrubbing>> logScrubbing() {
+        return Codegen.optional(this.logScrubbing);
     }
     /**
      * One or more `managed_rule` blocks as defined below.

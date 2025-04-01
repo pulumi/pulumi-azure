@@ -61,7 +61,7 @@ namespace Pulumi.Azure.ContainerService.Inputs
         public Input<Inputs.KubernetesClusterDefaultNodePoolKubeletConfigGetArgs>? KubeletConfig { get; set; }
 
         /// <summary>
-        /// The type of disk used by kubelet. Possible values are `OS` and `Temporary`.
+        /// The type of disk used by kubelet. Possible values are `OS` and `Temporary`. `temporary_name_for_rotation` must be specified when changing this block.
         /// </summary>
         [Input("kubeletDiskType")]
         public Input<string>? KubeletDiskType { get; set; }

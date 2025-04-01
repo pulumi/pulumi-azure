@@ -11466,7 +11466,7 @@ func (o DataCollectionRuleDataSourcesIisLogArrayOutput) Index(i pulumi.IntInput)
 type DataCollectionRuleDataSourcesLogFile struct {
 	// Specifies a list of file patterns where the log files are located. For example, `C:\\JavaLogs\\*.log`.
 	FilePatterns []string `pulumi:"filePatterns"`
-	// The data format of the log files. possible value is `text`.
+	// The data format of the log files. Possible values are `text` and `json`.
 	Format string `pulumi:"format"`
 	// The name which should be used for this data source. This name should be unique across all data sources regardless of type within the Data Collection Rule.
 	Name string `pulumi:"name"`
@@ -11490,7 +11490,7 @@ type DataCollectionRuleDataSourcesLogFileInput interface {
 type DataCollectionRuleDataSourcesLogFileArgs struct {
 	// Specifies a list of file patterns where the log files are located. For example, `C:\\JavaLogs\\*.log`.
 	FilePatterns pulumi.StringArrayInput `pulumi:"filePatterns"`
-	// The data format of the log files. possible value is `text`.
+	// The data format of the log files. Possible values are `text` and `json`.
 	Format pulumi.StringInput `pulumi:"format"`
 	// The name which should be used for this data source. This name should be unique across all data sources regardless of type within the Data Collection Rule.
 	Name pulumi.StringInput `pulumi:"name"`
@@ -11556,7 +11556,7 @@ func (o DataCollectionRuleDataSourcesLogFileOutput) FilePatterns() pulumi.String
 	return o.ApplyT(func(v DataCollectionRuleDataSourcesLogFile) []string { return v.FilePatterns }).(pulumi.StringArrayOutput)
 }
 
-// The data format of the log files. possible value is `text`.
+// The data format of the log files. Possible values are `text` and `json`.
 func (o DataCollectionRuleDataSourcesLogFileOutput) Format() pulumi.StringOutput {
 	return o.ApplyT(func(v DataCollectionRuleDataSourcesLogFile) string { return v.Format }).(pulumi.StringOutput)
 }
@@ -14688,7 +14688,7 @@ type DiagnosticSettingMetric struct {
 	Category string `pulumi:"category"`
 	// Is this Diagnostic Metric enabled? Defaults to `true`.
 	Enabled *bool `pulumi:"enabled"`
-	// Deprecated: `retentionPolicy` has been deprecated in favor of `storage.ManagementPolicy` resource - to learn more https://aka.ms/diagnostic_settings_log_retention
+	// Deprecated: `retentionPolicy` has been deprecated in favor of the `storage.ManagementPolicy` resource and will be removed in v5.0 of the AzureRM provider - to learn more go to https://aka.ms/diagnostic_settings_log_retention
 	RetentionPolicy *DiagnosticSettingMetricRetentionPolicy `pulumi:"retentionPolicy"`
 }
 
@@ -14710,7 +14710,7 @@ type DiagnosticSettingMetricArgs struct {
 	Category pulumi.StringInput `pulumi:"category"`
 	// Is this Diagnostic Metric enabled? Defaults to `true`.
 	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
-	// Deprecated: `retentionPolicy` has been deprecated in favor of `storage.ManagementPolicy` resource - to learn more https://aka.ms/diagnostic_settings_log_retention
+	// Deprecated: `retentionPolicy` has been deprecated in favor of the `storage.ManagementPolicy` resource and will be removed in v5.0 of the AzureRM provider - to learn more go to https://aka.ms/diagnostic_settings_log_retention
 	RetentionPolicy DiagnosticSettingMetricRetentionPolicyPtrInput `pulumi:"retentionPolicy"`
 }
 
@@ -14777,7 +14777,7 @@ func (o DiagnosticSettingMetricOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v DiagnosticSettingMetric) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
-// Deprecated: `retentionPolicy` has been deprecated in favor of `storage.ManagementPolicy` resource - to learn more https://aka.ms/diagnostic_settings_log_retention
+// Deprecated: `retentionPolicy` has been deprecated in favor of the `storage.ManagementPolicy` resource and will be removed in v5.0 of the AzureRM provider - to learn more go to https://aka.ms/diagnostic_settings_log_retention
 func (o DiagnosticSettingMetricOutput) RetentionPolicy() DiagnosticSettingMetricRetentionPolicyPtrOutput {
 	return o.ApplyT(func(v DiagnosticSettingMetric) *DiagnosticSettingMetricRetentionPolicy { return v.RetentionPolicy }).(DiagnosticSettingMetricRetentionPolicyPtrOutput)
 }

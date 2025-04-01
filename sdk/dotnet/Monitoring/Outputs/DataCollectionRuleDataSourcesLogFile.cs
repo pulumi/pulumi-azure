@@ -18,7 +18,7 @@ namespace Pulumi.Azure.Monitoring.Outputs
         /// </summary>
         public readonly ImmutableArray<string> FilePatterns;
         /// <summary>
-        /// The data format of the log files. possible value is `text`.
+        /// The data format of the log files. Possible values are `text` and `json`.
         /// </summary>
         public readonly string Format;
         /// <summary>

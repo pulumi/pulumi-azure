@@ -201,6 +201,11 @@ public final class GetLinuxWebAppResult {
      */
     private String usage;
     /**
+     * @return Whether backup and restore operations over the linked virtual network are enabled.
+     * 
+     */
+    private Boolean virtualNetworkBackupRestoreEnabled;
+    /**
      * @return The subnet id which the Linux Web App is vNet Integrated with.
      * 
      */
@@ -464,6 +469,13 @@ public final class GetLinuxWebAppResult {
         return this.usage;
     }
     /**
+     * @return Whether backup and restore operations over the linked virtual network are enabled.
+     * 
+     */
+    public Boolean virtualNetworkBackupRestoreEnabled() {
+        return this.virtualNetworkBackupRestoreEnabled;
+    }
+    /**
      * @return The subnet id which the Linux Web App is vNet Integrated with.
      * 
      */
@@ -524,6 +536,7 @@ public final class GetLinuxWebAppResult {
         private List<GetLinuxWebAppStorageAccount> storageAccounts;
         private Map<String,String> tags;
         private String usage;
+        private Boolean virtualNetworkBackupRestoreEnabled;
         private String virtualNetworkSubnetId;
         private Boolean webdeployPublishBasicAuthenticationEnabled;
         public Builder() {}
@@ -566,6 +579,7 @@ public final class GetLinuxWebAppResult {
     	      this.storageAccounts = defaults.storageAccounts;
     	      this.tags = defaults.tags;
     	      this.usage = defaults.usage;
+    	      this.virtualNetworkBackupRestoreEnabled = defaults.virtualNetworkBackupRestoreEnabled;
     	      this.virtualNetworkSubnetId = defaults.virtualNetworkSubnetId;
     	      this.webdeployPublishBasicAuthenticationEnabled = defaults.webdeployPublishBasicAuthenticationEnabled;
         }
@@ -903,6 +917,14 @@ public final class GetLinuxWebAppResult {
             return this;
         }
         @CustomType.Setter
+        public Builder virtualNetworkBackupRestoreEnabled(Boolean virtualNetworkBackupRestoreEnabled) {
+            if (virtualNetworkBackupRestoreEnabled == null) {
+              throw new MissingRequiredPropertyException("GetLinuxWebAppResult", "virtualNetworkBackupRestoreEnabled");
+            }
+            this.virtualNetworkBackupRestoreEnabled = virtualNetworkBackupRestoreEnabled;
+            return this;
+        }
+        @CustomType.Setter
         public Builder virtualNetworkSubnetId(String virtualNetworkSubnetId) {
             if (virtualNetworkSubnetId == null) {
               throw new MissingRequiredPropertyException("GetLinuxWebAppResult", "virtualNetworkSubnetId");
@@ -957,6 +979,7 @@ public final class GetLinuxWebAppResult {
             _resultValue.storageAccounts = storageAccounts;
             _resultValue.tags = tags;
             _resultValue.usage = usage;
+            _resultValue.virtualNetworkBackupRestoreEnabled = virtualNetworkBackupRestoreEnabled;
             _resultValue.virtualNetworkSubnetId = virtualNetworkSubnetId;
             _resultValue.webdeployPublishBasicAuthenticationEnabled = webdeployPublishBasicAuthenticationEnabled;
             return _resultValue;

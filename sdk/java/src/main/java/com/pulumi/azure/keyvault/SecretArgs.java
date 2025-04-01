@@ -6,6 +6,7 @@ package com.pulumi.azure.keyvault;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
+import java.lang.Integer;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -33,14 +34,14 @@ public final class SecretArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Expiration UTC datetime (Y-m-d&#39;T&#39;H:M:S&#39;Z&#39;). Removing this forces a new resource to be created.
+     * Expiration UTC datetime (Y-m-d&#39;T&#39;H:M:S&#39;Z&#39;).
      * 
      */
     @Import(name="expirationDate")
     private @Nullable Output<String> expirationDate;
 
     /**
-     * @return Expiration UTC datetime (Y-m-d&#39;T&#39;H:M:S&#39;Z&#39;). Removing this forces a new resource to be created.
+     * @return Expiration UTC datetime (Y-m-d&#39;T&#39;H:M:S&#39;Z&#39;).
      * 
      */
     public Optional<Output<String>> expirationDate() {
@@ -110,20 +111,35 @@ public final class SecretArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * Specifies the value of the Key Vault Secret. Changing this will create a new version of the Key Vault Secret.
      * 
-     * &gt; **Note:** Key Vault strips newlines. To preserve newlines in multi-line secrets try replacing them with `\n` or by base 64 encoding them with `replace(file(&#34;my_secret_file&#34;), &#34;/\n/&#34;, &#34;\n&#34;)` or `base64encode(file(&#34;my_secret_file&#34;))`, respectively.
-     * 
      */
-    @Import(name="value", required=true)
-    private Output<String> value;
+    @Import(name="value")
+    private @Nullable Output<String> value;
 
     /**
      * @return Specifies the value of the Key Vault Secret. Changing this will create a new version of the Key Vault Secret.
      * 
+     */
+    public Optional<Output<String>> value() {
+        return Optional.ofNullable(this.value);
+    }
+
+    /**
+     * An integer value used to trigger an update for `value_wo`. This property should be incremented when updating `value_wo`.
+     * 
      * &gt; **Note:** Key Vault strips newlines. To preserve newlines in multi-line secrets try replacing them with `\n` or by base 64 encoding them with `replace(file(&#34;my_secret_file&#34;), &#34;/\n/&#34;, &#34;\n&#34;)` or `base64encode(file(&#34;my_secret_file&#34;))`, respectively.
      * 
      */
-    public Output<String> value() {
-        return this.value;
+    @Import(name="valueWoVersion")
+    private @Nullable Output<Integer> valueWoVersion;
+
+    /**
+     * @return An integer value used to trigger an update for `value_wo`. This property should be incremented when updating `value_wo`.
+     * 
+     * &gt; **Note:** Key Vault strips newlines. To preserve newlines in multi-line secrets try replacing them with `\n` or by base 64 encoding them with `replace(file(&#34;my_secret_file&#34;), &#34;/\n/&#34;, &#34;\n&#34;)` or `base64encode(file(&#34;my_secret_file&#34;))`, respectively.
+     * 
+     */
+    public Optional<Output<Integer>> valueWoVersion() {
+        return Optional.ofNullable(this.valueWoVersion);
     }
 
     private SecretArgs() {}
@@ -136,6 +152,7 @@ public final class SecretArgs extends com.pulumi.resources.ResourceArgs {
         this.notBeforeDate = $.notBeforeDate;
         this.tags = $.tags;
         this.value = $.value;
+        this.valueWoVersion = $.valueWoVersion;
     }
 
     public static Builder builder() {
@@ -178,7 +195,7 @@ public final class SecretArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param expirationDate Expiration UTC datetime (Y-m-d&#39;T&#39;H:M:S&#39;Z&#39;). Removing this forces a new resource to be created.
+         * @param expirationDate Expiration UTC datetime (Y-m-d&#39;T&#39;H:M:S&#39;Z&#39;).
          * 
          * @return builder
          * 
@@ -189,7 +206,7 @@ public final class SecretArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param expirationDate Expiration UTC datetime (Y-m-d&#39;T&#39;H:M:S&#39;Z&#39;). Removing this forces a new resource to be created.
+         * @param expirationDate Expiration UTC datetime (Y-m-d&#39;T&#39;H:M:S&#39;Z&#39;).
          * 
          * @return builder
          * 
@@ -285,20 +302,16 @@ public final class SecretArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param value Specifies the value of the Key Vault Secret. Changing this will create a new version of the Key Vault Secret.
          * 
-         * &gt; **Note:** Key Vault strips newlines. To preserve newlines in multi-line secrets try replacing them with `\n` or by base 64 encoding them with `replace(file(&#34;my_secret_file&#34;), &#34;/\n/&#34;, &#34;\n&#34;)` or `base64encode(file(&#34;my_secret_file&#34;))`, respectively.
-         * 
          * @return builder
          * 
          */
-        public Builder value(Output<String> value) {
+        public Builder value(@Nullable Output<String> value) {
             $.value = value;
             return this;
         }
 
         /**
          * @param value Specifies the value of the Key Vault Secret. Changing this will create a new version of the Key Vault Secret.
-         * 
-         * &gt; **Note:** Key Vault strips newlines. To preserve newlines in multi-line secrets try replacing them with `\n` or by base 64 encoding them with `replace(file(&#34;my_secret_file&#34;), &#34;/\n/&#34;, &#34;\n&#34;)` or `base64encode(file(&#34;my_secret_file&#34;))`, respectively.
          * 
          * @return builder
          * 
@@ -307,12 +320,34 @@ public final class SecretArgs extends com.pulumi.resources.ResourceArgs {
             return value(Output.of(value));
         }
 
+        /**
+         * @param valueWoVersion An integer value used to trigger an update for `value_wo`. This property should be incremented when updating `value_wo`.
+         * 
+         * &gt; **Note:** Key Vault strips newlines. To preserve newlines in multi-line secrets try replacing them with `\n` or by base 64 encoding them with `replace(file(&#34;my_secret_file&#34;), &#34;/\n/&#34;, &#34;\n&#34;)` or `base64encode(file(&#34;my_secret_file&#34;))`, respectively.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder valueWoVersion(@Nullable Output<Integer> valueWoVersion) {
+            $.valueWoVersion = valueWoVersion;
+            return this;
+        }
+
+        /**
+         * @param valueWoVersion An integer value used to trigger an update for `value_wo`. This property should be incremented when updating `value_wo`.
+         * 
+         * &gt; **Note:** Key Vault strips newlines. To preserve newlines in multi-line secrets try replacing them with `\n` or by base 64 encoding them with `replace(file(&#34;my_secret_file&#34;), &#34;/\n/&#34;, &#34;\n&#34;)` or `base64encode(file(&#34;my_secret_file&#34;))`, respectively.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder valueWoVersion(Integer valueWoVersion) {
+            return valueWoVersion(Output.of(valueWoVersion));
+        }
+
         public SecretArgs build() {
             if ($.keyVaultId == null) {
                 throw new MissingRequiredPropertyException("SecretArgs", "keyVaultId");
-            }
-            if ($.value == null) {
-                throw new MissingRequiredPropertyException("SecretArgs", "value");
             }
             return $;
         }

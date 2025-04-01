@@ -130,14 +130,14 @@ public final class LinkedServiceSftpArgs extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * The integration runtime reference to associate with the Data Factory Linked Service.
+     * The name of the integration runtime to associate with the Data Factory Linked Service.
      * 
      */
     @Import(name="integrationRuntimeName")
     private @Nullable Output<String> integrationRuntimeName;
 
     /**
-     * @return The integration runtime reference to associate with the Data Factory Linked Service.
+     * @return The name of the integration runtime to associate with the Data Factory Linked Service.
      * 
      */
     public Optional<Output<String>> integrationRuntimeName() {
@@ -433,7 +433,7 @@ public final class LinkedServiceSftpArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param integrationRuntimeName The integration runtime reference to associate with the Data Factory Linked Service.
+         * @param integrationRuntimeName The name of the integration runtime to associate with the Data Factory Linked Service.
          * 
          * @return builder
          * 
@@ -444,7 +444,7 @@ public final class LinkedServiceSftpArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param integrationRuntimeName The integration runtime reference to associate with the Data Factory Linked Service.
+         * @param integrationRuntimeName The name of the integration runtime to associate with the Data Factory Linked Service.
          * 
          * @return builder
          * 

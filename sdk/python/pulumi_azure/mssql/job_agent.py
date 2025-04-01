@@ -13,6 +13,8 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
+from . import outputs
+from ._inputs import *
 
 __all__ = ['JobAgentArgs', 'JobAgent']
 
@@ -20,21 +22,29 @@ __all__ = ['JobAgentArgs', 'JobAgent']
 class JobAgentArgs:
     def __init__(__self__, *,
                  database_id: pulumi.Input[str],
+                 identity: Optional[pulumi.Input['JobAgentIdentityArgs']] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 sku: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a JobAgent resource.
-        :param pulumi.Input[str] database_id: The ID of the database to store metadata for the Elastic Job Agent. Changing this forces a new Elastic Job Agent to be created.
-        :param pulumi.Input[str] location: The Azure Region where the Elastic Job Agent should exist. Changing this forces a new Elastic Job Agent to be created.
+        :param pulumi.Input[str] database_id: The ID of the database to store metadata for this Elastic Job Agent. Changing this forces a new Elastic Job Agent to be created.
+        :param pulumi.Input['JobAgentIdentityArgs'] identity: An `identity` block as defined below.
+        :param pulumi.Input[str] location: The Azure Region where this Elastic Job Agent should exist. Changing this forces a new Elastic Job Agent to be created.
         :param pulumi.Input[str] name: The name which should be used for this Elastic Job Agent. Changing this forces a new Elastic Job Agent to be created.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Database.
+        :param pulumi.Input[str] sku: The name of the SKU to use for this Elastic Job Agent. Possible values are `JA100`, `JA200`, `JA400`, and `JA800`. Defaults to `JA100`.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to this Elastic Job Agent.
         """
         pulumi.set(__self__, "database_id", database_id)
+        if identity is not None:
+            pulumi.set(__self__, "identity", identity)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if sku is not None:
+            pulumi.set(__self__, "sku", sku)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -42,7 +52,7 @@ class JobAgentArgs:
     @pulumi.getter(name="databaseId")
     def database_id(self) -> pulumi.Input[str]:
         """
-        The ID of the database to store metadata for the Elastic Job Agent. Changing this forces a new Elastic Job Agent to be created.
+        The ID of the database to store metadata for this Elastic Job Agent. Changing this forces a new Elastic Job Agent to be created.
         """
         return pulumi.get(self, "database_id")
 
@@ -52,9 +62,21 @@ class JobAgentArgs:
 
     @property
     @pulumi.getter
+    def identity(self) -> Optional[pulumi.Input['JobAgentIdentityArgs']]:
+        """
+        An `identity` block as defined below.
+        """
+        return pulumi.get(self, "identity")
+
+    @identity.setter
+    def identity(self, value: Optional[pulumi.Input['JobAgentIdentityArgs']]):
+        pulumi.set(self, "identity", value)
+
+    @property
+    @pulumi.getter
     def location(self) -> Optional[pulumi.Input[str]]:
         """
-        The Azure Region where the Elastic Job Agent should exist. Changing this forces a new Elastic Job Agent to be created.
+        The Azure Region where this Elastic Job Agent should exist. Changing this forces a new Elastic Job Agent to be created.
         """
         return pulumi.get(self, "location")
 
@@ -76,9 +98,21 @@ class JobAgentArgs:
 
     @property
     @pulumi.getter
+    def sku(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the SKU to use for this Elastic Job Agent. Possible values are `JA100`, `JA200`, `JA400`, and `JA800`. Defaults to `JA100`.
+        """
+        return pulumi.get(self, "sku")
+
+    @sku.setter
+    def sku(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "sku", value)
+
+    @property
+    @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        A mapping of tags which should be assigned to the Database.
+        A mapping of tags which should be assigned to this Elastic Job Agent.
         """
         return pulumi.get(self, "tags")
 
@@ -91,22 +125,30 @@ class JobAgentArgs:
 class _JobAgentState:
     def __init__(__self__, *,
                  database_id: Optional[pulumi.Input[str]] = None,
+                 identity: Optional[pulumi.Input['JobAgentIdentityArgs']] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 sku: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         Input properties used for looking up and filtering JobAgent resources.
-        :param pulumi.Input[str] database_id: The ID of the database to store metadata for the Elastic Job Agent. Changing this forces a new Elastic Job Agent to be created.
-        :param pulumi.Input[str] location: The Azure Region where the Elastic Job Agent should exist. Changing this forces a new Elastic Job Agent to be created.
+        :param pulumi.Input[str] database_id: The ID of the database to store metadata for this Elastic Job Agent. Changing this forces a new Elastic Job Agent to be created.
+        :param pulumi.Input['JobAgentIdentityArgs'] identity: An `identity` block as defined below.
+        :param pulumi.Input[str] location: The Azure Region where this Elastic Job Agent should exist. Changing this forces a new Elastic Job Agent to be created.
         :param pulumi.Input[str] name: The name which should be used for this Elastic Job Agent. Changing this forces a new Elastic Job Agent to be created.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Database.
+        :param pulumi.Input[str] sku: The name of the SKU to use for this Elastic Job Agent. Possible values are `JA100`, `JA200`, `JA400`, and `JA800`. Defaults to `JA100`.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to this Elastic Job Agent.
         """
         if database_id is not None:
             pulumi.set(__self__, "database_id", database_id)
+        if identity is not None:
+            pulumi.set(__self__, "identity", identity)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if sku is not None:
+            pulumi.set(__self__, "sku", sku)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -114,7 +156,7 @@ class _JobAgentState:
     @pulumi.getter(name="databaseId")
     def database_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The ID of the database to store metadata for the Elastic Job Agent. Changing this forces a new Elastic Job Agent to be created.
+        The ID of the database to store metadata for this Elastic Job Agent. Changing this forces a new Elastic Job Agent to be created.
         """
         return pulumi.get(self, "database_id")
 
@@ -124,9 +166,21 @@ class _JobAgentState:
 
     @property
     @pulumi.getter
+    def identity(self) -> Optional[pulumi.Input['JobAgentIdentityArgs']]:
+        """
+        An `identity` block as defined below.
+        """
+        return pulumi.get(self, "identity")
+
+    @identity.setter
+    def identity(self, value: Optional[pulumi.Input['JobAgentIdentityArgs']]):
+        pulumi.set(self, "identity", value)
+
+    @property
+    @pulumi.getter
     def location(self) -> Optional[pulumi.Input[str]]:
         """
-        The Azure Region where the Elastic Job Agent should exist. Changing this forces a new Elastic Job Agent to be created.
+        The Azure Region where this Elastic Job Agent should exist. Changing this forces a new Elastic Job Agent to be created.
         """
         return pulumi.get(self, "location")
 
@@ -148,9 +202,21 @@ class _JobAgentState:
 
     @property
     @pulumi.getter
+    def sku(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the SKU to use for this Elastic Job Agent. Possible values are `JA100`, `JA200`, `JA400`, and `JA800`. Defaults to `JA100`.
+        """
+        return pulumi.get(self, "sku")
+
+    @sku.setter
+    def sku(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "sku", value)
+
+    @property
+    @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        A mapping of tags which should be assigned to the Database.
+        A mapping of tags which should be assigned to this Elastic Job Agent.
         """
         return pulumi.get(self, "tags")
 
@@ -165,8 +231,10 @@ class JobAgent(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  database_id: Optional[pulumi.Input[str]] = None,
+                 identity: Optional[pulumi.Input[Union['JobAgentIdentityArgs', 'JobAgentIdentityArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 sku: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
@@ -209,10 +277,12 @@ class JobAgent(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] database_id: The ID of the database to store metadata for the Elastic Job Agent. Changing this forces a new Elastic Job Agent to be created.
-        :param pulumi.Input[str] location: The Azure Region where the Elastic Job Agent should exist. Changing this forces a new Elastic Job Agent to be created.
+        :param pulumi.Input[str] database_id: The ID of the database to store metadata for this Elastic Job Agent. Changing this forces a new Elastic Job Agent to be created.
+        :param pulumi.Input[Union['JobAgentIdentityArgs', 'JobAgentIdentityArgsDict']] identity: An `identity` block as defined below.
+        :param pulumi.Input[str] location: The Azure Region where this Elastic Job Agent should exist. Changing this forces a new Elastic Job Agent to be created.
         :param pulumi.Input[str] name: The name which should be used for this Elastic Job Agent. Changing this forces a new Elastic Job Agent to be created.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Database.
+        :param pulumi.Input[str] sku: The name of the SKU to use for this Elastic Job Agent. Possible values are `JA100`, `JA200`, `JA400`, and `JA800`. Defaults to `JA100`.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to this Elastic Job Agent.
         """
         ...
     @overload
@@ -274,8 +344,10 @@ class JobAgent(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  database_id: Optional[pulumi.Input[str]] = None,
+                 identity: Optional[pulumi.Input[Union['JobAgentIdentityArgs', 'JobAgentIdentityArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 sku: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -289,8 +361,10 @@ class JobAgent(pulumi.CustomResource):
             if database_id is None and not opts.urn:
                 raise TypeError("Missing required property 'database_id'")
             __props__.__dict__["database_id"] = database_id
+            __props__.__dict__["identity"] = identity
             __props__.__dict__["location"] = location
             __props__.__dict__["name"] = name
+            __props__.__dict__["sku"] = sku
             __props__.__dict__["tags"] = tags
         super(JobAgent, __self__).__init__(
             'azure:mssql/jobAgent:JobAgent',
@@ -303,8 +377,10 @@ class JobAgent(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             database_id: Optional[pulumi.Input[str]] = None,
+            identity: Optional[pulumi.Input[Union['JobAgentIdentityArgs', 'JobAgentIdentityArgsDict']]] = None,
             location: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
+            sku: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None) -> 'JobAgent':
         """
         Get an existing JobAgent resource's state with the given name, id, and optional extra
@@ -313,18 +389,22 @@ class JobAgent(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] database_id: The ID of the database to store metadata for the Elastic Job Agent. Changing this forces a new Elastic Job Agent to be created.
-        :param pulumi.Input[str] location: The Azure Region where the Elastic Job Agent should exist. Changing this forces a new Elastic Job Agent to be created.
+        :param pulumi.Input[str] database_id: The ID of the database to store metadata for this Elastic Job Agent. Changing this forces a new Elastic Job Agent to be created.
+        :param pulumi.Input[Union['JobAgentIdentityArgs', 'JobAgentIdentityArgsDict']] identity: An `identity` block as defined below.
+        :param pulumi.Input[str] location: The Azure Region where this Elastic Job Agent should exist. Changing this forces a new Elastic Job Agent to be created.
         :param pulumi.Input[str] name: The name which should be used for this Elastic Job Agent. Changing this forces a new Elastic Job Agent to be created.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Database.
+        :param pulumi.Input[str] sku: The name of the SKU to use for this Elastic Job Agent. Possible values are `JA100`, `JA200`, `JA400`, and `JA800`. Defaults to `JA100`.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to this Elastic Job Agent.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = _JobAgentState.__new__(_JobAgentState)
 
         __props__.__dict__["database_id"] = database_id
+        __props__.__dict__["identity"] = identity
         __props__.__dict__["location"] = location
         __props__.__dict__["name"] = name
+        __props__.__dict__["sku"] = sku
         __props__.__dict__["tags"] = tags
         return JobAgent(resource_name, opts=opts, __props__=__props__)
 
@@ -332,15 +412,23 @@ class JobAgent(pulumi.CustomResource):
     @pulumi.getter(name="databaseId")
     def database_id(self) -> pulumi.Output[str]:
         """
-        The ID of the database to store metadata for the Elastic Job Agent. Changing this forces a new Elastic Job Agent to be created.
+        The ID of the database to store metadata for this Elastic Job Agent. Changing this forces a new Elastic Job Agent to be created.
         """
         return pulumi.get(self, "database_id")
 
     @property
     @pulumi.getter
+    def identity(self) -> pulumi.Output[Optional['outputs.JobAgentIdentity']]:
+        """
+        An `identity` block as defined below.
+        """
+        return pulumi.get(self, "identity")
+
+    @property
+    @pulumi.getter
     def location(self) -> pulumi.Output[str]:
         """
-        The Azure Region where the Elastic Job Agent should exist. Changing this forces a new Elastic Job Agent to be created.
+        The Azure Region where this Elastic Job Agent should exist. Changing this forces a new Elastic Job Agent to be created.
         """
         return pulumi.get(self, "location")
 
@@ -354,9 +442,17 @@ class JobAgent(pulumi.CustomResource):
 
     @property
     @pulumi.getter
+    def sku(self) -> pulumi.Output[Optional[str]]:
+        """
+        The name of the SKU to use for this Elastic Job Agent. Possible values are `JA100`, `JA200`, `JA400`, and `JA800`. Defaults to `JA100`.
+        """
+        return pulumi.get(self, "sku")
+
+    @property
+    @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
-        A mapping of tags which should be assigned to the Database.
+        A mapping of tags which should be assigned to this Elastic Job Agent.
         """
         return pulumi.get(self, "tags")
 

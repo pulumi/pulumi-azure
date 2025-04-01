@@ -228,8 +228,16 @@ class LinkedService(pulumi.CustomResource):
 
         Log Analytics Workspaces can be imported using the `resource id`, e.g.
 
+        When `read_access_id` has been specified:
+
         ```sh
         $ pulumi import azure:loganalytics/linkedService:LinkedService example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.OperationalInsights/workspaces/workspace1/linkedServices/Automation
+        ```
+
+        When `read_access_id` has been omitted:
+
+        ```sh
+        $ pulumi import azure:loganalytics/linkedService:LinkedService example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.OperationalInsights/workspaces/workspace1/linkedServices/Cluster
         ```
 
         :param str resource_name: The name of the resource.
@@ -283,8 +291,16 @@ class LinkedService(pulumi.CustomResource):
 
         Log Analytics Workspaces can be imported using the `resource id`, e.g.
 
+        When `read_access_id` has been specified:
+
         ```sh
         $ pulumi import azure:loganalytics/linkedService:LinkedService example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.OperationalInsights/workspaces/workspace1/linkedServices/Automation
+        ```
+
+        When `read_access_id` has been omitted:
+
+        ```sh
+        $ pulumi import azure:loganalytics/linkedService:LinkedService example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.OperationalInsights/workspaces/workspace1/linkedServices/Cluster
         ```
 
         :param str resource_name: The name of the resource.

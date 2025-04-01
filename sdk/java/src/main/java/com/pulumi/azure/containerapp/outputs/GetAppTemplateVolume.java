@@ -11,6 +11,11 @@ import java.util.Objects;
 @CustomType
 public final class GetAppTemplateVolume {
     /**
+     * @return Mount options used while mounting the AzureFile.
+     * 
+     */
+    private String mountOptions;
+    /**
      * @return The name of the Container App.
      * 
      */
@@ -27,6 +32,13 @@ public final class GetAppTemplateVolume {
     private String storageType;
 
     private GetAppTemplateVolume() {}
+    /**
+     * @return Mount options used while mounting the AzureFile.
+     * 
+     */
+    public String mountOptions() {
+        return this.mountOptions;
+    }
     /**
      * @return The name of the Container App.
      * 
@@ -58,17 +70,27 @@ public final class GetAppTemplateVolume {
     }
     @CustomType.Builder
     public static final class Builder {
+        private String mountOptions;
         private String name;
         private String storageName;
         private String storageType;
         public Builder() {}
         public Builder(GetAppTemplateVolume defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.mountOptions = defaults.mountOptions;
     	      this.name = defaults.name;
     	      this.storageName = defaults.storageName;
     	      this.storageType = defaults.storageType;
         }
 
+        @CustomType.Setter
+        public Builder mountOptions(String mountOptions) {
+            if (mountOptions == null) {
+              throw new MissingRequiredPropertyException("GetAppTemplateVolume", "mountOptions");
+            }
+            this.mountOptions = mountOptions;
+            return this;
+        }
         @CustomType.Setter
         public Builder name(String name) {
             if (name == null) {
@@ -95,6 +117,7 @@ public final class GetAppTemplateVolume {
         }
         public GetAppTemplateVolume build() {
             final var _resultValue = new GetAppTemplateVolume();
+            _resultValue.mountOptions = mountOptions;
             _resultValue.name = name;
             _resultValue.storageName = storageName;
             _resultValue.storageType = storageType;

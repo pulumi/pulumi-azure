@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.ContainerService
 {
     /// <summary>
-    /// Manages an Azure Container Registry scope map.  Scope Maps are a preview feature only available in Premium SKU Container registries.
+    /// Manages an Azure Container Registry scope map.  For more information on scope maps see the [product documentation](https://learn.microsoft.com/en-us/azure/container-registry/container-registry-repository-scoped-permissions).
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
@@ -31,7 +31,7 @@ namespace Pulumi.Azure.ContainerService
     ///         Name = "exampleregistry",
     ///         ResourceGroupName = example.Name,
     ///         Location = example.Location,
-    ///         Sku = "Premium",
+    ///         Sku = "Basic",
     ///         AdminEnabled = false,
     ///         Georeplications = new[]
     ///         {

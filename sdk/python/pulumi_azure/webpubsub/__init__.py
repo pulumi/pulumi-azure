@@ -13,5 +13,6 @@ from .hub import *
 from .network_acl import *
 from .service import *
 from .shared_private_link_resource import *
+from .socketio import *
 from ._inputs import *
 from . import outputs

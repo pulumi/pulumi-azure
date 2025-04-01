@@ -107,7 +107,7 @@ export class Group extends pulumi.CustomResource {
      */
     public readonly dnsNameLabel!: pulumi.Output<string | undefined>;
     /**
-     * The value representing the security enum. `Noreuse`, `ResourceGroupReuse`, `SubscriptionReuse`, `TenantReuse` or `Unsecure`. Defaults to `Unsecure`.
+     * The value representing the security enum. `Noreuse`, `ResourceGroupReuse`, `SubscriptionReuse`, `TenantReuse` or `Unsecure`. Defaults to `Unsecure`. Changing this forces a new resource to be created.
      */
     public readonly dnsNameLabelReusePolicy!: pulumi.Output<string | undefined>;
     /**
@@ -302,7 +302,7 @@ export interface GroupState {
      */
     dnsNameLabel?: pulumi.Input<string>;
     /**
-     * The value representing the security enum. `Noreuse`, `ResourceGroupReuse`, `SubscriptionReuse`, `TenantReuse` or `Unsecure`. Defaults to `Unsecure`.
+     * The value representing the security enum. `Noreuse`, `ResourceGroupReuse`, `SubscriptionReuse`, `TenantReuse` or `Unsecure`. Defaults to `Unsecure`. Changing this forces a new resource to be created.
      */
     dnsNameLabelReusePolicy?: pulumi.Input<string>;
     /**
@@ -418,7 +418,7 @@ export interface GroupArgs {
      */
     dnsNameLabel?: pulumi.Input<string>;
     /**
-     * The value representing the security enum. `Noreuse`, `ResourceGroupReuse`, `SubscriptionReuse`, `TenantReuse` or `Unsecure`. Defaults to `Unsecure`.
+     * The value representing the security enum. `Noreuse`, `ResourceGroupReuse`, `SubscriptionReuse`, `TenantReuse` or `Unsecure`. Defaults to `Unsecure`. Changing this forces a new resource to be created.
      */
     dnsNameLabelReusePolicy?: pulumi.Input<string>;
     /**

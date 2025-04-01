@@ -170,14 +170,14 @@ public class Namespace extends com.pulumi.resources.CustomResource {
         return this.defaultSecondaryKey;
     }
     /**
-     * The URL to access the ServiceBus Namespace.
+     * The URL to access the Service Bus Namespace.
      * 
      */
     @Export(name="endpoint", refs={String.class}, tree="[0]")
     private Output<String> endpoint;
 
     /**
-     * @return The URL to access the ServiceBus Namespace.
+     * @return The URL to access the Service Bus Namespace.
      * 
      */
     public Output<String> endpoint() {
@@ -244,14 +244,14 @@ public class Namespace extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.minimumTlsVersion);
     }
     /**
-     * Specifies the name of the ServiceBus Namespace resource . Changing this forces a new resource to be created.
+     * Specifies the name of the Service Bus Namespace resource . Changing this forces a new resource to be created.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return Specifies the name of the ServiceBus Namespace resource . Changing this forces a new resource to be created.
+     * @return Specifies the name of the Service Bus Namespace resource . Changing this forces a new resource to be created.
      * 
      */
     public Output<String> name() {

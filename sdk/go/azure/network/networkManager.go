@@ -12,7 +12,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Manages a Network Managers.
+// Manages a Network Manager.
 //
 // ## Example Usage
 //
@@ -69,7 +69,7 @@ import (
 //
 // ## Import
 //
-// Network Managers can be imported using the `resource id`, e.g.
+// Network Manager can be imported using the `resource id`, e.g.
 //
 // ```sh
 // $ pulumi import azure:network/networkManager:NetworkManager example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.Network/networkManagers/networkManager1
@@ -79,19 +79,19 @@ type NetworkManager struct {
 
 	// One or more `crossTenantScopes` blocks as defined below.
 	CrossTenantScopes NetworkManagerCrossTenantScopeArrayOutput `pulumi:"crossTenantScopes"`
-	// A description of the network manager.
+	// A description of the Network Manager.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// Specifies the Azure Region where the Network Managers should exist. Changing this forces a new resource to be created.
+	// Specifies the Azure Region where the Network Manager should exist. Changing this forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
-	// Specifies the name which should be used for this Network Managers. Changing this forces a new Network Managers to be created.
+	// Specifies the name which should be used for this Network Manager. Changing this forces a new Network Manager to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Specifies the name of the Resource Group where the Network Managers should exist. Changing this forces a new Network Managers to be created.
+	// Specifies the name of the Resource Group where the Network Manager should exist. Changing this forces a new Network Manager to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// A `scope` block as defined below.
 	Scope NetworkManagerScopeOutput `pulumi:"scope"`
-	// A list of configuration deployment type. Possible values are `Connectivity`, `SecurityAdmin` and `Routing`, corresponds to if Connectivity Configuration, Security Admin Configuration or Routing Configuration is allowed for the Network Manager.
+	// A list of configuration deployment types. Possible values are `Connectivity`, `SecurityAdmin` and `Routing`, which specify whether Connectivity Configuration, Security Admin Configuration or Routing Configuration are allowed for the Network Manager.
 	ScopeAccesses pulumi.StringArrayOutput `pulumi:"scopeAccesses"`
-	// A mapping of tags which should be assigned to the Network Managers.
+	// A mapping of tags which should be assigned to the Network Manager.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 }
 
@@ -107,9 +107,6 @@ func NewNetworkManager(ctx *pulumi.Context,
 	}
 	if args.Scope == nil {
 		return nil, errors.New("invalid value for required argument 'Scope'")
-	}
-	if args.ScopeAccesses == nil {
-		return nil, errors.New("invalid value for required argument 'ScopeAccesses'")
 	}
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource NetworkManager
@@ -136,38 +133,38 @@ func GetNetworkManager(ctx *pulumi.Context,
 type networkManagerState struct {
 	// One or more `crossTenantScopes` blocks as defined below.
 	CrossTenantScopes []NetworkManagerCrossTenantScope `pulumi:"crossTenantScopes"`
-	// A description of the network manager.
+	// A description of the Network Manager.
 	Description *string `pulumi:"description"`
-	// Specifies the Azure Region where the Network Managers should exist. Changing this forces a new resource to be created.
+	// Specifies the Azure Region where the Network Manager should exist. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
-	// Specifies the name which should be used for this Network Managers. Changing this forces a new Network Managers to be created.
+	// Specifies the name which should be used for this Network Manager. Changing this forces a new Network Manager to be created.
 	Name *string `pulumi:"name"`
-	// Specifies the name of the Resource Group where the Network Managers should exist. Changing this forces a new Network Managers to be created.
+	// Specifies the name of the Resource Group where the Network Manager should exist. Changing this forces a new Network Manager to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// A `scope` block as defined below.
 	Scope *NetworkManagerScope `pulumi:"scope"`
-	// A list of configuration deployment type. Possible values are `Connectivity`, `SecurityAdmin` and `Routing`, corresponds to if Connectivity Configuration, Security Admin Configuration or Routing Configuration is allowed for the Network Manager.
+	// A list of configuration deployment types. Possible values are `Connectivity`, `SecurityAdmin` and `Routing`, which specify whether Connectivity Configuration, Security Admin Configuration or Routing Configuration are allowed for the Network Manager.
 	ScopeAccesses []string `pulumi:"scopeAccesses"`
-	// A mapping of tags which should be assigned to the Network Managers.
+	// A mapping of tags which should be assigned to the Network Manager.
 	Tags map[string]string `pulumi:"tags"`
 }
 
 type NetworkManagerState struct {
 	// One or more `crossTenantScopes` blocks as defined below.
 	CrossTenantScopes NetworkManagerCrossTenantScopeArrayInput
-	// A description of the network manager.
+	// A description of the Network Manager.
 	Description pulumi.StringPtrInput
-	// Specifies the Azure Region where the Network Managers should exist. Changing this forces a new resource to be created.
+	// Specifies the Azure Region where the Network Manager should exist. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
-	// Specifies the name which should be used for this Network Managers. Changing this forces a new Network Managers to be created.
+	// Specifies the name which should be used for this Network Manager. Changing this forces a new Network Manager to be created.
 	Name pulumi.StringPtrInput
-	// Specifies the name of the Resource Group where the Network Managers should exist. Changing this forces a new Network Managers to be created.
+	// Specifies the name of the Resource Group where the Network Manager should exist. Changing this forces a new Network Manager to be created.
 	ResourceGroupName pulumi.StringPtrInput
 	// A `scope` block as defined below.
 	Scope NetworkManagerScopePtrInput
-	// A list of configuration deployment type. Possible values are `Connectivity`, `SecurityAdmin` and `Routing`, corresponds to if Connectivity Configuration, Security Admin Configuration or Routing Configuration is allowed for the Network Manager.
+	// A list of configuration deployment types. Possible values are `Connectivity`, `SecurityAdmin` and `Routing`, which specify whether Connectivity Configuration, Security Admin Configuration or Routing Configuration are allowed for the Network Manager.
 	ScopeAccesses pulumi.StringArrayInput
-	// A mapping of tags which should be assigned to the Network Managers.
+	// A mapping of tags which should be assigned to the Network Manager.
 	Tags pulumi.StringMapInput
 }
 
@@ -176,37 +173,37 @@ func (NetworkManagerState) ElementType() reflect.Type {
 }
 
 type networkManagerArgs struct {
-	// A description of the network manager.
+	// A description of the Network Manager.
 	Description *string `pulumi:"description"`
-	// Specifies the Azure Region where the Network Managers should exist. Changing this forces a new resource to be created.
+	// Specifies the Azure Region where the Network Manager should exist. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
-	// Specifies the name which should be used for this Network Managers. Changing this forces a new Network Managers to be created.
+	// Specifies the name which should be used for this Network Manager. Changing this forces a new Network Manager to be created.
 	Name *string `pulumi:"name"`
-	// Specifies the name of the Resource Group where the Network Managers should exist. Changing this forces a new Network Managers to be created.
+	// Specifies the name of the Resource Group where the Network Manager should exist. Changing this forces a new Network Manager to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// A `scope` block as defined below.
 	Scope NetworkManagerScope `pulumi:"scope"`
-	// A list of configuration deployment type. Possible values are `Connectivity`, `SecurityAdmin` and `Routing`, corresponds to if Connectivity Configuration, Security Admin Configuration or Routing Configuration is allowed for the Network Manager.
+	// A list of configuration deployment types. Possible values are `Connectivity`, `SecurityAdmin` and `Routing`, which specify whether Connectivity Configuration, Security Admin Configuration or Routing Configuration are allowed for the Network Manager.
 	ScopeAccesses []string `pulumi:"scopeAccesses"`
-	// A mapping of tags which should be assigned to the Network Managers.
+	// A mapping of tags which should be assigned to the Network Manager.
 	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a NetworkManager resource.
 type NetworkManagerArgs struct {
-	// A description of the network manager.
+	// A description of the Network Manager.
 	Description pulumi.StringPtrInput
-	// Specifies the Azure Region where the Network Managers should exist. Changing this forces a new resource to be created.
+	// Specifies the Azure Region where the Network Manager should exist. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
-	// Specifies the name which should be used for this Network Managers. Changing this forces a new Network Managers to be created.
+	// Specifies the name which should be used for this Network Manager. Changing this forces a new Network Manager to be created.
 	Name pulumi.StringPtrInput
-	// Specifies the name of the Resource Group where the Network Managers should exist. Changing this forces a new Network Managers to be created.
+	// Specifies the name of the Resource Group where the Network Manager should exist. Changing this forces a new Network Manager to be created.
 	ResourceGroupName pulumi.StringInput
 	// A `scope` block as defined below.
 	Scope NetworkManagerScopeInput
-	// A list of configuration deployment type. Possible values are `Connectivity`, `SecurityAdmin` and `Routing`, corresponds to if Connectivity Configuration, Security Admin Configuration or Routing Configuration is allowed for the Network Manager.
+	// A list of configuration deployment types. Possible values are `Connectivity`, `SecurityAdmin` and `Routing`, which specify whether Connectivity Configuration, Security Admin Configuration or Routing Configuration are allowed for the Network Manager.
 	ScopeAccesses pulumi.StringArrayInput
-	// A mapping of tags which should be assigned to the Network Managers.
+	// A mapping of tags which should be assigned to the Network Manager.
 	Tags pulumi.StringMapInput
 }
 
@@ -302,22 +299,22 @@ func (o NetworkManagerOutput) CrossTenantScopes() NetworkManagerCrossTenantScope
 	return o.ApplyT(func(v *NetworkManager) NetworkManagerCrossTenantScopeArrayOutput { return v.CrossTenantScopes }).(NetworkManagerCrossTenantScopeArrayOutput)
 }
 
-// A description of the network manager.
+// A description of the Network Manager.
 func (o NetworkManagerOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NetworkManager) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the Azure Region where the Network Managers should exist. Changing this forces a new resource to be created.
+// Specifies the Azure Region where the Network Manager should exist. Changing this forces a new resource to be created.
 func (o NetworkManagerOutput) Location() pulumi.StringOutput {
 	return o.ApplyT(func(v *NetworkManager) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
 }
 
-// Specifies the name which should be used for this Network Managers. Changing this forces a new Network Managers to be created.
+// Specifies the name which should be used for this Network Manager. Changing this forces a new Network Manager to be created.
 func (o NetworkManagerOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *NetworkManager) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Specifies the name of the Resource Group where the Network Managers should exist. Changing this forces a new Network Managers to be created.
+// Specifies the name of the Resource Group where the Network Manager should exist. Changing this forces a new Network Manager to be created.
 func (o NetworkManagerOutput) ResourceGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v *NetworkManager) pulumi.StringOutput { return v.ResourceGroupName }).(pulumi.StringOutput)
 }
@@ -327,12 +324,12 @@ func (o NetworkManagerOutput) Scope() NetworkManagerScopeOutput {
 	return o.ApplyT(func(v *NetworkManager) NetworkManagerScopeOutput { return v.Scope }).(NetworkManagerScopeOutput)
 }
 
-// A list of configuration deployment type. Possible values are `Connectivity`, `SecurityAdmin` and `Routing`, corresponds to if Connectivity Configuration, Security Admin Configuration or Routing Configuration is allowed for the Network Manager.
+// A list of configuration deployment types. Possible values are `Connectivity`, `SecurityAdmin` and `Routing`, which specify whether Connectivity Configuration, Security Admin Configuration or Routing Configuration are allowed for the Network Manager.
 func (o NetworkManagerOutput) ScopeAccesses() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *NetworkManager) pulumi.StringArrayOutput { return v.ScopeAccesses }).(pulumi.StringArrayOutput)
 }
 
-// A mapping of tags which should be assigned to the Network Managers.
+// A mapping of tags which should be assigned to the Network Manager.
 func (o NetworkManagerOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *NetworkManager) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }

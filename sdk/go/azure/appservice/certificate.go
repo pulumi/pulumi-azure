@@ -71,7 +71,7 @@ import (
 type Certificate struct {
 	pulumi.CustomResourceState
 
-	// The ID of the associated App Service plan. Must be specified when the certificate is used inside an App Service Environment hosted App Service or with Premium App Service plans. Changing this forces a new resource to be created.
+	// The ID of the associated App Service plan. Must be specified when the certificate is used inside an App Service Environment hosted App Service or with Basic and Premium App Service plans. Changing this forces a new resource to be created.
 	AppServicePlanId pulumi.StringPtrOutput `pulumi:"appServicePlanId"`
 	// The expiration date for the certificate.
 	ExpirationDate pulumi.StringOutput `pulumi:"expirationDate"`
@@ -155,7 +155,7 @@ func GetCertificate(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Certificate resources.
 type certificateState struct {
-	// The ID of the associated App Service plan. Must be specified when the certificate is used inside an App Service Environment hosted App Service or with Premium App Service plans. Changing this forces a new resource to be created.
+	// The ID of the associated App Service plan. Must be specified when the certificate is used inside an App Service Environment hosted App Service or with Basic and Premium App Service plans. Changing this forces a new resource to be created.
 	AppServicePlanId *string `pulumi:"appServicePlanId"`
 	// The expiration date for the certificate.
 	ExpirationDate *string `pulumi:"expirationDate"`
@@ -196,7 +196,7 @@ type certificateState struct {
 }
 
 type CertificateState struct {
-	// The ID of the associated App Service plan. Must be specified when the certificate is used inside an App Service Environment hosted App Service or with Premium App Service plans. Changing this forces a new resource to be created.
+	// The ID of the associated App Service plan. Must be specified when the certificate is used inside an App Service Environment hosted App Service or with Basic and Premium App Service plans. Changing this forces a new resource to be created.
 	AppServicePlanId pulumi.StringPtrInput
 	// The expiration date for the certificate.
 	ExpirationDate pulumi.StringPtrInput
@@ -241,7 +241,7 @@ func (CertificateState) ElementType() reflect.Type {
 }
 
 type certificateArgs struct {
-	// The ID of the associated App Service plan. Must be specified when the certificate is used inside an App Service Environment hosted App Service or with Premium App Service plans. Changing this forces a new resource to be created.
+	// The ID of the associated App Service plan. Must be specified when the certificate is used inside an App Service Environment hosted App Service or with Basic and Premium App Service plans. Changing this forces a new resource to be created.
 	AppServicePlanId *string `pulumi:"appServicePlanId"`
 	KeyVaultId       *string `pulumi:"keyVaultId"`
 	// The ID of the Key Vault secret. Changing this forces a new resource to be created.
@@ -267,7 +267,7 @@ type certificateArgs struct {
 
 // The set of arguments for constructing a Certificate resource.
 type CertificateArgs struct {
-	// The ID of the associated App Service plan. Must be specified when the certificate is used inside an App Service Environment hosted App Service or with Premium App Service plans. Changing this forces a new resource to be created.
+	// The ID of the associated App Service plan. Must be specified when the certificate is used inside an App Service Environment hosted App Service or with Basic and Premium App Service plans. Changing this forces a new resource to be created.
 	AppServicePlanId pulumi.StringPtrInput
 	KeyVaultId       pulumi.StringPtrInput
 	// The ID of the Key Vault secret. Changing this forces a new resource to be created.
@@ -378,7 +378,7 @@ func (o CertificateOutput) ToCertificateOutputWithContext(ctx context.Context) C
 	return o
 }
 
-// The ID of the associated App Service plan. Must be specified when the certificate is used inside an App Service Environment hosted App Service or with Premium App Service plans. Changing this forces a new resource to be created.
+// The ID of the associated App Service plan. Must be specified when the certificate is used inside an App Service Environment hosted App Service or with Basic and Premium App Service plans. Changing this forces a new resource to be created.
 func (o CertificateOutput) AppServicePlanId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Certificate) pulumi.StringPtrOutput { return v.AppServicePlanId }).(pulumi.StringPtrOutput)
 }

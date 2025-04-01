@@ -37,8 +37,8 @@ import * as utilities from "../utilities";
  * });
  * const exampleMonitorSsoConfiguration = new azure.datadog.MonitorSsoConfiguration("example", {
  *     datadogMonitorId: exampleMonitor.id,
- *     singleSignOnEnabled: "Enable",
- *     enterpriseApplicationId: "XXXX",
+ *     singleSignOn: "Enable",
+ *     enterpriseApplicationId: "00000000-0000-0000-0000-000000000000",
  * });
  * ```
  *
@@ -95,7 +95,11 @@ export class MonitorSsoConfiguration extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The state of SingleSignOn configuration. Possible values are `Enable` and `Disable`.
+     * The state of SingleSignOn configuration. Possible values are `Enable`, `Disable`, `Initial` and `Existing`.
+     */
+    public readonly singleSignOn!: pulumi.Output<string>;
+    /**
+     * @deprecated `singleSignOnEnabled` has been deprecated in favour of the `singleSignOn` property and will be removed in v5.0 of the AzureRM Provider.
      */
     public readonly singleSignOnEnabled!: pulumi.Output<string>;
 
@@ -116,6 +120,7 @@ export class MonitorSsoConfiguration extends pulumi.CustomResource {
             resourceInputs["enterpriseApplicationId"] = state ? state.enterpriseApplicationId : undefined;
             resourceInputs["loginUrl"] = state ? state.loginUrl : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["singleSignOn"] = state ? state.singleSignOn : undefined;
             resourceInputs["singleSignOnEnabled"] = state ? state.singleSignOnEnabled : undefined;
         } else {
             const args = argsOrState as MonitorSsoConfigurationArgs | undefined;
@@ -125,12 +130,10 @@ export class MonitorSsoConfiguration extends pulumi.CustomResource {
             if ((!args || args.enterpriseApplicationId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'enterpriseApplicationId'");
             }
-            if ((!args || args.singleSignOnEnabled === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'singleSignOnEnabled'");
-            }
             resourceInputs["datadogMonitorId"] = args ? args.datadogMonitorId : undefined;
             resourceInputs["enterpriseApplicationId"] = args ? args.enterpriseApplicationId : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["singleSignOn"] = args ? args.singleSignOn : undefined;
             resourceInputs["singleSignOnEnabled"] = args ? args.singleSignOnEnabled : undefined;
             resourceInputs["loginUrl"] = undefined /*out*/;
         }
@@ -160,7 +163,11 @@ export interface MonitorSsoConfigurationState {
      */
     name?: pulumi.Input<string>;
     /**
-     * The state of SingleSignOn configuration. Possible values are `Enable` and `Disable`.
+     * The state of SingleSignOn configuration. Possible values are `Enable`, `Disable`, `Initial` and `Existing`.
+     */
+    singleSignOn?: pulumi.Input<string>;
+    /**
+     * @deprecated `singleSignOnEnabled` has been deprecated in favour of the `singleSignOn` property and will be removed in v5.0 of the AzureRM Provider.
      */
     singleSignOnEnabled?: pulumi.Input<string>;
 }
@@ -182,7 +189,11 @@ export interface MonitorSsoConfigurationArgs {
      */
     name?: pulumi.Input<string>;
     /**
-     * The state of SingleSignOn configuration. Possible values are `Enable` and `Disable`.
+     * The state of SingleSignOn configuration. Possible values are `Enable`, `Disable`, `Initial` and `Existing`.
      */
-    singleSignOnEnabled: pulumi.Input<string>;
+    singleSignOn?: pulumi.Input<string>;
+    /**
+     * @deprecated `singleSignOnEnabled` has been deprecated in favour of the `singleSignOn` property and will be removed in v5.0 of the AzureRM Provider.
+     */
+    singleSignOnEnabled?: pulumi.Input<string>;
 }

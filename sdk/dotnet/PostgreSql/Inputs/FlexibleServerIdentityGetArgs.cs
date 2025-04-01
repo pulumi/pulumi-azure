@@ -12,11 +12,13 @@ namespace Pulumi.Azure.PostgreSql.Inputs
 
     public sealed class FlexibleServerIdentityGetArgs : global::Pulumi.ResourceArgs
     {
-        [Input("identityIds", required: true)]
+        [Input("identityIds")]
         private InputList<string>? _identityIds;
 
         /// <summary>
         /// A list of User Assigned Managed Identity IDs to be assigned to this PostgreSQL Flexible Server. Required if used together with `customer_managed_key` block.
+        /// 
+        /// &gt; **Note**: `identity_ids` is required when `type` is set to `UserAssigned`.
         /// </summary>
         public InputList<string> IdentityIds
         {
@@ -25,7 +27,19 @@ namespace Pulumi.Azure.PostgreSql.Inputs
         }
 
         /// <summary>
-        /// Specifies the type of Managed Service Identity that should be configured on this PostgreSQL Flexible Server. The only possible value is `UserAssigned`.
+        /// The Principal ID associated with this Managed Service Identity.
+        /// </summary>
+        [Input("principalId")]
+        public Input<string>? PrincipalId { get; set; }
+
+        /// <summary>
+        /// The Tenant ID associated with this Managed Service Identity.
+        /// </summary>
+        [Input("tenantId")]
+        public Input<string>? TenantId { get; set; }
+
+        /// <summary>
+        /// Specifies the type of Managed Service Identity that should be configured on this PostgreSQL Flexible Server. Possible values are `UserAssigned` and `SystemAssigned`.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;

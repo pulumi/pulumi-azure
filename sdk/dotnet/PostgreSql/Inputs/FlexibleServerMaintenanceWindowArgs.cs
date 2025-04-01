@@ -27,7 +27,7 @@ namespace Pulumi.Azure.PostgreSql.Inputs
         /// <summary>
         /// The start minute for maintenance window. Defaults to `0`.
         /// 
-        /// &gt; **NOTE** The specified `maintenance_window` is always defined in UTC time. When unspecified, the maintenance window falls back to the default [system-managed](https://learn.microsoft.com/en-us/azure/postgresql/flexible-server/how-to-maintenance-portal#specify-maintenance-schedule-options).
+        /// &gt; **Note:** The specified `maintenance_window` is always defined in UTC time. When unspecified, the maintenance window falls back to the default [system-managed](https://learn.microsoft.com/en-us/azure/postgresql/flexible-server/how-to-maintenance-portal#specify-maintenance-schedule-options).
         /// </summary>
         [Input("startMinute")]
         public Input<int>? StartMinute { get; set; }

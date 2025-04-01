@@ -40,7 +40,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = containerservice.NewRegistry(ctx, "example", &containerservice.RegistryArgs{
+//			exampleRegistry, err := containerservice.NewRegistry(ctx, "example", &containerservice.RegistryArgs{
 //				Name:              pulumi.String("exampleContainerRegistry"),
 //				ResourceGroupName: example.Name,
 //				Location:          example.Location,
@@ -51,7 +51,7 @@ import (
 //			}
 //			_, err = containerservice.NewRegistryCredentialSet(ctx, "example", &containerservice.RegistryCredentialSetArgs{
 //				Name:                pulumi.String("exampleCredentialSet"),
-//				ContainerRegistryId: pulumi.String("azurerm_container_registry.example.id"),
+//				ContainerRegistryId: exampleRegistry.ID(),
 //				LoginServer:         pulumi.String("docker.io"),
 //				Identity: &containerservice.RegistryCredentialSetIdentityArgs{
 //					Type: pulumi.String("SystemAssigned"),
@@ -140,7 +140,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = containerservice.NewRegistry(ctx, "example", &containerservice.RegistryArgs{
+//			exampleRegistry, err := containerservice.NewRegistry(ctx, "example", &containerservice.RegistryArgs{
 //				Name:              pulumi.String("exampleContainerRegistry"),
 //				ResourceGroupName: example.Name,
 //				Location:          example.Location,
@@ -151,7 +151,7 @@ import (
 //			}
 //			exampleRegistryCredentialSet, err := containerservice.NewRegistryCredentialSet(ctx, "example", &containerservice.RegistryCredentialSetArgs{
 //				Name:                pulumi.String("exampleCredentialSet"),
-//				ContainerRegistryId: pulumi.String("azurerm_container_registry.example.id"),
+//				ContainerRegistryId: exampleRegistry.ID(),
 //				LoginServer:         pulumi.String("docker.io"),
 //				Identity: &containerservice.RegistryCredentialSetIdentityArgs{
 //					Type: pulumi.String("SystemAssigned"),

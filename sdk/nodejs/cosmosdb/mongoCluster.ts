@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -107,13 +109,15 @@ export class MongoCluster extends pulumi.CustomResource {
      */
     public readonly administratorUsername!: pulumi.Output<string | undefined>;
     /**
-     * The compute tier to assign to the MongoDB Cluster. Possible values are `Free`, `M25`, `M30`, `M40`, `M50`, `M60` and `M80`.
+     * The compute tier to assign to the MongoDB Cluster. Possible values are `Free`, `M10`, `M20`, `M25`, `M30`, `M40`, `M50`, `M60`, `M80`, and `M200`.
      */
     public readonly computeTier!: pulumi.Output<string | undefined>;
     /**
+     * The list of `connectionStrings` blocks as defined below.
+     */
+    public /*out*/ readonly connectionStrings!: pulumi.Output<outputs.cosmosdb.MongoClusterConnectionString[]>;
+    /**
      * The creation mode for the MongoDB Cluster. Possibles values are `Default` and `GeoReplica`. Defaults to `Default`. Changing this forces a new resource to be created.
-     *
-     * > **Note** The creation mode `GeoReplica` is currently in preview. It is only available when `previewFeatures` is set.
      */
     public readonly createMode!: pulumi.Output<string | undefined>;
     /**
@@ -181,6 +185,7 @@ export class MongoCluster extends pulumi.CustomResource {
             resourceInputs["administratorPassword"] = state ? state.administratorPassword : undefined;
             resourceInputs["administratorUsername"] = state ? state.administratorUsername : undefined;
             resourceInputs["computeTier"] = state ? state.computeTier : undefined;
+            resourceInputs["connectionStrings"] = state ? state.connectionStrings : undefined;
             resourceInputs["createMode"] = state ? state.createMode : undefined;
             resourceInputs["highAvailabilityMode"] = state ? state.highAvailabilityMode : undefined;
             resourceInputs["location"] = state ? state.location : undefined;
@@ -215,9 +220,10 @@ export class MongoCluster extends pulumi.CustomResource {
             resourceInputs["storageSizeInGb"] = args ? args.storageSizeInGb : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["version"] = args ? args.version : undefined;
+            resourceInputs["connectionStrings"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["administratorPassword"] };
+        const secretOpts = { additionalSecretOutputs: ["administratorPassword", "connectionStrings"] };
         opts = pulumi.mergeOptions(opts, secretOpts);
         super(MongoCluster.__pulumiType, name, resourceInputs, opts);
     }
@@ -236,13 +242,15 @@ export interface MongoClusterState {
      */
     administratorUsername?: pulumi.Input<string>;
     /**
-     * The compute tier to assign to the MongoDB Cluster. Possible values are `Free`, `M25`, `M30`, `M40`, `M50`, `M60` and `M80`.
+     * The compute tier to assign to the MongoDB Cluster. Possible values are `Free`, `M10`, `M20`, `M25`, `M30`, `M40`, `M50`, `M60`, `M80`, and `M200`.
      */
     computeTier?: pulumi.Input<string>;
     /**
+     * The list of `connectionStrings` blocks as defined below.
+     */
+    connectionStrings?: pulumi.Input<pulumi.Input<inputs.cosmosdb.MongoClusterConnectionString>[]>;
+    /**
      * The creation mode for the MongoDB Cluster. Possibles values are `Default` and `GeoReplica`. Defaults to `Default`. Changing this forces a new resource to be created.
-     *
-     * > **Note** The creation mode `GeoReplica` is currently in preview. It is only available when `previewFeatures` is set.
      */
     createMode?: pulumi.Input<string>;
     /**
@@ -308,13 +316,11 @@ export interface MongoClusterArgs {
      */
     administratorUsername?: pulumi.Input<string>;
     /**
-     * The compute tier to assign to the MongoDB Cluster. Possible values are `Free`, `M25`, `M30`, `M40`, `M50`, `M60` and `M80`.
+     * The compute tier to assign to the MongoDB Cluster. Possible values are `Free`, `M10`, `M20`, `M25`, `M30`, `M40`, `M50`, `M60`, `M80`, and `M200`.
      */
     computeTier?: pulumi.Input<string>;
     /**
      * The creation mode for the MongoDB Cluster. Possibles values are `Default` and `GeoReplica`. Defaults to `Default`. Changing this forces a new resource to be created.
-     *
-     * > **Note** The creation mode `GeoReplica` is currently in preview. It is only available when `previewFeatures` is set.
      */
     createMode?: pulumi.Input<string>;
     /**

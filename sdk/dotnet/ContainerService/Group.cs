@@ -110,7 +110,7 @@ namespace Pulumi.Azure.ContainerService
         public Output<string?> DnsNameLabel { get; private set; } = null!;
 
         /// <summary>
-        /// The value representing the security enum. `Noreuse`, `ResourceGroupReuse`, `SubscriptionReuse`, `TenantReuse` or `Unsecure`. Defaults to `Unsecure`.
+        /// The value representing the security enum. `Noreuse`, `ResourceGroupReuse`, `SubscriptionReuse`, `TenantReuse` or `Unsecure`. Defaults to `Unsecure`. Changing this forces a new resource to be created.
         /// </summary>
         [Output("dnsNameLabelReusePolicy")]
         public Output<string?> DnsNameLabelReusePolicy { get; private set; } = null!;
@@ -319,7 +319,7 @@ namespace Pulumi.Azure.ContainerService
         public Input<string>? DnsNameLabel { get; set; }
 
         /// <summary>
-        /// The value representing the security enum. `Noreuse`, `ResourceGroupReuse`, `SubscriptionReuse`, `TenantReuse` or `Unsecure`. Defaults to `Unsecure`.
+        /// The value representing the security enum. `Noreuse`, `ResourceGroupReuse`, `SubscriptionReuse`, `TenantReuse` or `Unsecure`. Defaults to `Unsecure`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("dnsNameLabelReusePolicy")]
         public Input<string>? DnsNameLabelReusePolicy { get; set; }
@@ -508,7 +508,7 @@ namespace Pulumi.Azure.ContainerService
         public Input<string>? DnsNameLabel { get; set; }
 
         /// <summary>
-        /// The value representing the security enum. `Noreuse`, `ResourceGroupReuse`, `SubscriptionReuse`, `TenantReuse` or `Unsecure`. Defaults to `Unsecure`.
+        /// The value representing the security enum. `Noreuse`, `ResourceGroupReuse`, `SubscriptionReuse`, `TenantReuse` or `Unsecure`. Defaults to `Unsecure`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("dnsNameLabelReusePolicy")]
         public Input<string>? DnsNameLabelReusePolicy { get; set; }

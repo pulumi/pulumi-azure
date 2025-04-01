@@ -9,6 +9,8 @@ from .get_virtual_machine_manager_inventory_items import *
 from .virtual_machine_manager_availability_set import *
 from .virtual_machine_manager_cloud import *
 from .virtual_machine_manager_server import *
+from .virtual_machine_manager_virtual_machine_instance import *
 from .virtual_machine_manager_virtual_machine_template import *
 from .virtual_machine_manager_virtual_network import *
+from ._inputs import *
 from . import outputs

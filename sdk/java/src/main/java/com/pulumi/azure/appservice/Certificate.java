@@ -81,14 +81,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="azure:appservice/certificate:Certificate")
 public class Certificate extends com.pulumi.resources.CustomResource {
     /**
-     * The ID of the associated App Service plan. Must be specified when the certificate is used inside an App Service Environment hosted App Service or with Premium App Service plans. Changing this forces a new resource to be created.
+     * The ID of the associated App Service plan. Must be specified when the certificate is used inside an App Service Environment hosted App Service or with Basic and Premium App Service plans. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="appServicePlanId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> appServicePlanId;
 
     /**
-     * @return The ID of the associated App Service plan. Must be specified when the certificate is used inside an App Service Environment hosted App Service or with Premium App Service plans. Changing this forces a new resource to be created.
+     * @return The ID of the associated App Service plan. Must be specified when the certificate is used inside an App Service Environment hosted App Service or with Basic and Premium App Service plans. Changing this forces a new resource to be created.
      * 
      */
     public Output<Optional<String>> appServicePlanId() {

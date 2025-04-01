@@ -9,10 +9,17 @@ import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
 import javax.annotation.Nullable;
 
 @CustomType
 public final class AIServicesNetworkAcls {
+    /**
+     * @return Whether to allow trusted Azure Services to access the service. Possible values are `None` and `AzureServices`. Defaults to `AzureServices`.
+     * *
+     * 
+     */
+    private @Nullable String bypass;
     /**
      * @return The Default Action to use when no rules match from `ip_rules` / `virtual_network_rules`. Possible values are `Allow` and `Deny`.
      * 
@@ -30,6 +37,14 @@ public final class AIServicesNetworkAcls {
     private @Nullable List<AIServicesNetworkAclsVirtualNetworkRule> virtualNetworkRules;
 
     private AIServicesNetworkAcls() {}
+    /**
+     * @return Whether to allow trusted Azure Services to access the service. Possible values are `None` and `AzureServices`. Defaults to `AzureServices`.
+     * *
+     * 
+     */
+    public Optional<String> bypass() {
+        return Optional.ofNullable(this.bypass);
+    }
     /**
      * @return The Default Action to use when no rules match from `ip_rules` / `virtual_network_rules`. Possible values are `Allow` and `Deny`.
      * 
@@ -61,17 +76,25 @@ public final class AIServicesNetworkAcls {
     }
     @CustomType.Builder
     public static final class Builder {
+        private @Nullable String bypass;
         private String defaultAction;
         private @Nullable List<String> ipRules;
         private @Nullable List<AIServicesNetworkAclsVirtualNetworkRule> virtualNetworkRules;
         public Builder() {}
         public Builder(AIServicesNetworkAcls defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.bypass = defaults.bypass;
     	      this.defaultAction = defaults.defaultAction;
     	      this.ipRules = defaults.ipRules;
     	      this.virtualNetworkRules = defaults.virtualNetworkRules;
         }
 
+        @CustomType.Setter
+        public Builder bypass(@Nullable String bypass) {
+
+            this.bypass = bypass;
+            return this;
+        }
         @CustomType.Setter
         public Builder defaultAction(String defaultAction) {
             if (defaultAction == null) {
@@ -100,6 +123,7 @@ public final class AIServicesNetworkAcls {
         }
         public AIServicesNetworkAcls build() {
             final var _resultValue = new AIServicesNetworkAcls();
+            _resultValue.bypass = bypass;
             _resultValue.defaultAction = defaultAction;
             _resultValue.ipRules = ipRules;
             _resultValue.virtualNetworkRules = virtualNetworkRules;

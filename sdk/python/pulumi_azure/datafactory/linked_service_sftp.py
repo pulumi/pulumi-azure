@@ -47,7 +47,7 @@ class LinkedServiceSftpArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] annotations: List of tags that can be used for describing the Data Factory Linked Service.
         :param pulumi.Input[str] description: The description for the Data Factory Linked Service.
         :param pulumi.Input[str] host_key_fingerprint: The host key fingerprint of the SFTP server.
-        :param pulumi.Input[str] integration_runtime_name: The integration runtime reference to associate with the Data Factory Linked Service.
+        :param pulumi.Input[str] integration_runtime_name: The name of the integration runtime to associate with the Data Factory Linked Service.
         :param pulumi.Input[str] name: Specifies the name of the Data Factory Linked Service. Changing this forces a new resource to be created. Must be unique within a data factory. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: A map of parameters to associate with the Data Factory Linked Service.
         :param pulumi.Input[bool] skip_host_key_validation: Whether to validate host key fingerprint while connecting. If set to `false`, `host_key_fingerprint` must also be set.
@@ -201,7 +201,7 @@ class LinkedServiceSftpArgs:
     @pulumi.getter(name="integrationRuntimeName")
     def integration_runtime_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The integration runtime reference to associate with the Data Factory Linked Service.
+        The name of the integration runtime to associate with the Data Factory Linked Service.
         """
         return pulumi.get(self, "integration_runtime_name")
 
@@ -274,7 +274,7 @@ class _LinkedServiceSftpState:
         :param pulumi.Input[str] description: The description for the Data Factory Linked Service.
         :param pulumi.Input[str] host: The SFTP server hostname.
         :param pulumi.Input[str] host_key_fingerprint: The host key fingerprint of the SFTP server.
-        :param pulumi.Input[str] integration_runtime_name: The integration runtime reference to associate with the Data Factory Linked Service.
+        :param pulumi.Input[str] integration_runtime_name: The name of the integration runtime to associate with the Data Factory Linked Service.
         :param pulumi.Input[str] name: Specifies the name of the Data Factory Linked Service. Changing this forces a new resource to be created. Must be unique within a data factory. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: A map of parameters to associate with the Data Factory Linked Service.
         :param pulumi.Input[str] password: Password to logon to the SFTP Server for Basic Authentication.
@@ -401,7 +401,7 @@ class _LinkedServiceSftpState:
     @pulumi.getter(name="integrationRuntimeName")
     def integration_runtime_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The integration runtime reference to associate with the Data Factory Linked Service.
+        The name of the integration runtime to associate with the Data Factory Linked Service.
         """
         return pulumi.get(self, "integration_runtime_name")
 
@@ -547,7 +547,7 @@ class LinkedServiceSftp(pulumi.CustomResource):
         :param pulumi.Input[str] description: The description for the Data Factory Linked Service.
         :param pulumi.Input[str] host: The SFTP server hostname.
         :param pulumi.Input[str] host_key_fingerprint: The host key fingerprint of the SFTP server.
-        :param pulumi.Input[str] integration_runtime_name: The integration runtime reference to associate with the Data Factory Linked Service.
+        :param pulumi.Input[str] integration_runtime_name: The name of the integration runtime to associate with the Data Factory Linked Service.
         :param pulumi.Input[str] name: Specifies the name of the Data Factory Linked Service. Changing this forces a new resource to be created. Must be unique within a data factory. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: A map of parameters to associate with the Data Factory Linked Service.
         :param pulumi.Input[str] password: Password to logon to the SFTP Server for Basic Authentication.
@@ -701,7 +701,7 @@ class LinkedServiceSftp(pulumi.CustomResource):
         :param pulumi.Input[str] description: The description for the Data Factory Linked Service.
         :param pulumi.Input[str] host: The SFTP server hostname.
         :param pulumi.Input[str] host_key_fingerprint: The host key fingerprint of the SFTP server.
-        :param pulumi.Input[str] integration_runtime_name: The integration runtime reference to associate with the Data Factory Linked Service.
+        :param pulumi.Input[str] integration_runtime_name: The name of the integration runtime to associate with the Data Factory Linked Service.
         :param pulumi.Input[str] name: Specifies the name of the Data Factory Linked Service. Changing this forces a new resource to be created. Must be unique within a data factory. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: A map of parameters to associate with the Data Factory Linked Service.
         :param pulumi.Input[str] password: Password to logon to the SFTP Server for Basic Authentication.
@@ -791,7 +791,7 @@ class LinkedServiceSftp(pulumi.CustomResource):
     @pulumi.getter(name="integrationRuntimeName")
     def integration_runtime_name(self) -> pulumi.Output[Optional[str]]:
         """
-        The integration runtime reference to associate with the Data Factory Linked Service.
+        The name of the integration runtime to associate with the Data Factory Linked Service.
         """
         return pulumi.get(self, "integration_runtime_name")
 

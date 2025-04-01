@@ -20,7 +20,7 @@ public final class NamespaceNetworkRuleSet {
      */
     private @Nullable String defaultAction;
     /**
-     * @return One or more IP Addresses, or CIDR Blocks which should be able to access the ServiceBus Namespace.
+     * @return One or more IP Addresses, or CIDR Blocks which should be able to access the Service Bus Namespace.
      * 
      */
     private @Nullable List<String> ipRules;
@@ -51,7 +51,7 @@ public final class NamespaceNetworkRuleSet {
         return Optional.ofNullable(this.defaultAction);
     }
     /**
-     * @return One or more IP Addresses, or CIDR Blocks which should be able to access the ServiceBus Namespace.
+     * @return One or more IP Addresses, or CIDR Blocks which should be able to access the Service Bus Namespace.
      * 
      */
     public List<String> ipRules() {

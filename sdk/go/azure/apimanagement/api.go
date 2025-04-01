@@ -92,6 +92,8 @@ type Api struct {
 	// The display name of the API.
 	DisplayName pulumi.StringOutput `pulumi:"displayName"`
 	// A `import` block as documented below.
+	//
+	// > **NOTE:** The `displayName`, `description`, `contact`, and `license` fields can be imported by the `import` block, which might cause a drift if these fields are set along with the `import` block.
 	Import ApiImportPtrOutput `pulumi:"import"`
 	// Is this the current API Revision?
 	IsCurrent pulumi.BoolOutput `pulumi:"isCurrent"`
@@ -187,6 +189,8 @@ type apiState struct {
 	// The display name of the API.
 	DisplayName *string `pulumi:"displayName"`
 	// A `import` block as documented below.
+	//
+	// > **NOTE:** The `displayName`, `description`, `contact`, and `license` fields can be imported by the `import` block, which might cause a drift if these fields are set along with the `import` block.
 	Import *ApiImport `pulumi:"import"`
 	// Is this the current API Revision?
 	IsCurrent *bool `pulumi:"isCurrent"`
@@ -244,6 +248,8 @@ type ApiState struct {
 	// The display name of the API.
 	DisplayName pulumi.StringPtrInput
 	// A `import` block as documented below.
+	//
+	// > **NOTE:** The `displayName`, `description`, `contact`, and `license` fields can be imported by the `import` block, which might cause a drift if these fields are set along with the `import` block.
 	Import ApiImportPtrInput
 	// Is this the current API Revision?
 	IsCurrent pulumi.BoolPtrInput
@@ -305,6 +311,8 @@ type apiArgs struct {
 	// The display name of the API.
 	DisplayName *string `pulumi:"displayName"`
 	// A `import` block as documented below.
+	//
+	// > **NOTE:** The `displayName`, `description`, `contact`, and `license` fields can be imported by the `import` block, which might cause a drift if these fields are set along with the `import` block.
 	Import *ApiImport `pulumi:"import"`
 	// A `license` block as documented below.
 	License *ApiLicense `pulumi:"license"`
@@ -359,6 +367,8 @@ type ApiArgs struct {
 	// The display name of the API.
 	DisplayName pulumi.StringPtrInput
 	// A `import` block as documented below.
+	//
+	// > **NOTE:** The `displayName`, `description`, `contact`, and `license` fields can be imported by the `import` block, which might cause a drift if these fields are set along with the `import` block.
 	Import ApiImportPtrInput
 	// A `license` block as documented below.
 	License ApiLicensePtrInput
@@ -513,6 +523,8 @@ func (o ApiOutput) DisplayName() pulumi.StringOutput {
 }
 
 // A `import` block as documented below.
+//
+// > **NOTE:** The `displayName`, `description`, `contact`, and `license` fields can be imported by the `import` block, which might cause a drift if these fields are set along with the `import` block.
 func (o ApiOutput) Import() ApiImportPtrOutput {
 	return o.ApplyT(func(v *Api) ApiImportPtrOutput { return v.Import }).(ApiImportPtrOutput)
 }

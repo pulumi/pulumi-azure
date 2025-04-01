@@ -23,30 +23,31 @@ class NetworkManagerArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[str],
                  scope: pulumi.Input['NetworkManagerScopeArgs'],
-                 scope_accesses: pulumi.Input[Sequence[pulumi.Input[str]]],
                  description: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 scope_accesses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a NetworkManager resource.
-        :param pulumi.Input[str] resource_group_name: Specifies the name of the Resource Group where the Network Managers should exist. Changing this forces a new Network Managers to be created.
+        :param pulumi.Input[str] resource_group_name: Specifies the name of the Resource Group where the Network Manager should exist. Changing this forces a new Network Manager to be created.
         :param pulumi.Input['NetworkManagerScopeArgs'] scope: A `scope` block as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] scope_accesses: A list of configuration deployment type. Possible values are `Connectivity`, `SecurityAdmin` and `Routing`, corresponds to if Connectivity Configuration, Security Admin Configuration or Routing Configuration is allowed for the Network Manager.
-        :param pulumi.Input[str] description: A description of the network manager.
-        :param pulumi.Input[str] location: Specifies the Azure Region where the Network Managers should exist. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] name: Specifies the name which should be used for this Network Managers. Changing this forces a new Network Managers to be created.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Network Managers.
+        :param pulumi.Input[str] description: A description of the Network Manager.
+        :param pulumi.Input[str] location: Specifies the Azure Region where the Network Manager should exist. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] name: Specifies the name which should be used for this Network Manager. Changing this forces a new Network Manager to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] scope_accesses: A list of configuration deployment types. Possible values are `Connectivity`, `SecurityAdmin` and `Routing`, which specify whether Connectivity Configuration, Security Admin Configuration or Routing Configuration are allowed for the Network Manager.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Network Manager.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "scope", scope)
-        pulumi.set(__self__, "scope_accesses", scope_accesses)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if scope_accesses is not None:
+            pulumi.set(__self__, "scope_accesses", scope_accesses)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -54,7 +55,7 @@ class NetworkManagerArgs:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[str]:
         """
-        Specifies the name of the Resource Group where the Network Managers should exist. Changing this forces a new Network Managers to be created.
+        Specifies the name of the Resource Group where the Network Manager should exist. Changing this forces a new Network Manager to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -75,22 +76,10 @@ class NetworkManagerArgs:
         pulumi.set(self, "scope", value)
 
     @property
-    @pulumi.getter(name="scopeAccesses")
-    def scope_accesses(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
-        """
-        A list of configuration deployment type. Possible values are `Connectivity`, `SecurityAdmin` and `Routing`, corresponds to if Connectivity Configuration, Security Admin Configuration or Routing Configuration is allowed for the Network Manager.
-        """
-        return pulumi.get(self, "scope_accesses")
-
-    @scope_accesses.setter
-    def scope_accesses(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
-        pulumi.set(self, "scope_accesses", value)
-
-    @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
         """
-        A description of the network manager.
+        A description of the Network Manager.
         """
         return pulumi.get(self, "description")
 
@@ -102,7 +91,7 @@ class NetworkManagerArgs:
     @pulumi.getter
     def location(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the Azure Region where the Network Managers should exist. Changing this forces a new resource to be created.
+        Specifies the Azure Region where the Network Manager should exist. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "location")
 
@@ -114,7 +103,7 @@ class NetworkManagerArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the name which should be used for this Network Managers. Changing this forces a new Network Managers to be created.
+        Specifies the name which should be used for this Network Manager. Changing this forces a new Network Manager to be created.
         """
         return pulumi.get(self, "name")
 
@@ -123,10 +112,22 @@ class NetworkManagerArgs:
         pulumi.set(self, "name", value)
 
     @property
+    @pulumi.getter(name="scopeAccesses")
+    def scope_accesses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of configuration deployment types. Possible values are `Connectivity`, `SecurityAdmin` and `Routing`, which specify whether Connectivity Configuration, Security Admin Configuration or Routing Configuration are allowed for the Network Manager.
+        """
+        return pulumi.get(self, "scope_accesses")
+
+    @scope_accesses.setter
+    def scope_accesses(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "scope_accesses", value)
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        A mapping of tags which should be assigned to the Network Managers.
+        A mapping of tags which should be assigned to the Network Manager.
         """
         return pulumi.get(self, "tags")
 
@@ -149,13 +150,13 @@ class _NetworkManagerState:
         """
         Input properties used for looking up and filtering NetworkManager resources.
         :param pulumi.Input[Sequence[pulumi.Input['NetworkManagerCrossTenantScopeArgs']]] cross_tenant_scopes: One or more `cross_tenant_scopes` blocks as defined below.
-        :param pulumi.Input[str] description: A description of the network manager.
-        :param pulumi.Input[str] location: Specifies the Azure Region where the Network Managers should exist. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] name: Specifies the name which should be used for this Network Managers. Changing this forces a new Network Managers to be created.
-        :param pulumi.Input[str] resource_group_name: Specifies the name of the Resource Group where the Network Managers should exist. Changing this forces a new Network Managers to be created.
+        :param pulumi.Input[str] description: A description of the Network Manager.
+        :param pulumi.Input[str] location: Specifies the Azure Region where the Network Manager should exist. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] name: Specifies the name which should be used for this Network Manager. Changing this forces a new Network Manager to be created.
+        :param pulumi.Input[str] resource_group_name: Specifies the name of the Resource Group where the Network Manager should exist. Changing this forces a new Network Manager to be created.
         :param pulumi.Input['NetworkManagerScopeArgs'] scope: A `scope` block as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] scope_accesses: A list of configuration deployment type. Possible values are `Connectivity`, `SecurityAdmin` and `Routing`, corresponds to if Connectivity Configuration, Security Admin Configuration or Routing Configuration is allowed for the Network Manager.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Network Managers.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] scope_accesses: A list of configuration deployment types. Possible values are `Connectivity`, `SecurityAdmin` and `Routing`, which specify whether Connectivity Configuration, Security Admin Configuration or Routing Configuration are allowed for the Network Manager.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Network Manager.
         """
         if cross_tenant_scopes is not None:
             pulumi.set(__self__, "cross_tenant_scopes", cross_tenant_scopes)
@@ -190,7 +191,7 @@ class _NetworkManagerState:
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
         """
-        A description of the network manager.
+        A description of the Network Manager.
         """
         return pulumi.get(self, "description")
 
@@ -202,7 +203,7 @@ class _NetworkManagerState:
     @pulumi.getter
     def location(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the Azure Region where the Network Managers should exist. Changing this forces a new resource to be created.
+        Specifies the Azure Region where the Network Manager should exist. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "location")
 
@@ -214,7 +215,7 @@ class _NetworkManagerState:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the name which should be used for this Network Managers. Changing this forces a new Network Managers to be created.
+        Specifies the name which should be used for this Network Manager. Changing this forces a new Network Manager to be created.
         """
         return pulumi.get(self, "name")
 
@@ -226,7 +227,7 @@ class _NetworkManagerState:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the name of the Resource Group where the Network Managers should exist. Changing this forces a new Network Managers to be created.
+        Specifies the name of the Resource Group where the Network Manager should exist. Changing this forces a new Network Manager to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -250,7 +251,7 @@ class _NetworkManagerState:
     @pulumi.getter(name="scopeAccesses")
     def scope_accesses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        A list of configuration deployment type. Possible values are `Connectivity`, `SecurityAdmin` and `Routing`, corresponds to if Connectivity Configuration, Security Admin Configuration or Routing Configuration is allowed for the Network Manager.
+        A list of configuration deployment types. Possible values are `Connectivity`, `SecurityAdmin` and `Routing`, which specify whether Connectivity Configuration, Security Admin Configuration or Routing Configuration are allowed for the Network Manager.
         """
         return pulumi.get(self, "scope_accesses")
 
@@ -262,7 +263,7 @@ class _NetworkManagerState:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        A mapping of tags which should be assigned to the Network Managers.
+        A mapping of tags which should be assigned to the Network Manager.
         """
         return pulumi.get(self, "tags")
 
@@ -285,7 +286,7 @@ class NetworkManager(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
-        Manages a Network Managers.
+        Manages a Network Manager.
 
         ## Example Usage
 
@@ -316,7 +317,7 @@ class NetworkManager(pulumi.CustomResource):
 
         ## Import
 
-        Network Managers can be imported using the `resource id`, e.g.
+        Network Manager can be imported using the `resource id`, e.g.
 
         ```sh
         $ pulumi import azure:network/networkManager:NetworkManager example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.Network/networkManagers/networkManager1
@@ -324,13 +325,13 @@ class NetworkManager(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] description: A description of the network manager.
-        :param pulumi.Input[str] location: Specifies the Azure Region where the Network Managers should exist. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] name: Specifies the name which should be used for this Network Managers. Changing this forces a new Network Managers to be created.
-        :param pulumi.Input[str] resource_group_name: Specifies the name of the Resource Group where the Network Managers should exist. Changing this forces a new Network Managers to be created.
+        :param pulumi.Input[str] description: A description of the Network Manager.
+        :param pulumi.Input[str] location: Specifies the Azure Region where the Network Manager should exist. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] name: Specifies the name which should be used for this Network Manager. Changing this forces a new Network Manager to be created.
+        :param pulumi.Input[str] resource_group_name: Specifies the name of the Resource Group where the Network Manager should exist. Changing this forces a new Network Manager to be created.
         :param pulumi.Input[Union['NetworkManagerScopeArgs', 'NetworkManagerScopeArgsDict']] scope: A `scope` block as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] scope_accesses: A list of configuration deployment type. Possible values are `Connectivity`, `SecurityAdmin` and `Routing`, corresponds to if Connectivity Configuration, Security Admin Configuration or Routing Configuration is allowed for the Network Manager.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Network Managers.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] scope_accesses: A list of configuration deployment types. Possible values are `Connectivity`, `SecurityAdmin` and `Routing`, which specify whether Connectivity Configuration, Security Admin Configuration or Routing Configuration are allowed for the Network Manager.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Network Manager.
         """
         ...
     @overload
@@ -339,7 +340,7 @@ class NetworkManager(pulumi.CustomResource):
                  args: NetworkManagerArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Manages a Network Managers.
+        Manages a Network Manager.
 
         ## Example Usage
 
@@ -370,7 +371,7 @@ class NetworkManager(pulumi.CustomResource):
 
         ## Import
 
-        Network Managers can be imported using the `resource id`, e.g.
+        Network Manager can be imported using the `resource id`, e.g.
 
         ```sh
         $ pulumi import azure:network/networkManager:NetworkManager example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.Network/networkManagers/networkManager1
@@ -416,8 +417,6 @@ class NetworkManager(pulumi.CustomResource):
             if scope is None and not opts.urn:
                 raise TypeError("Missing required property 'scope'")
             __props__.__dict__["scope"] = scope
-            if scope_accesses is None and not opts.urn:
-                raise TypeError("Missing required property 'scope_accesses'")
             __props__.__dict__["scope_accesses"] = scope_accesses
             __props__.__dict__["tags"] = tags
             __props__.__dict__["cross_tenant_scopes"] = None
@@ -447,13 +446,13 @@ class NetworkManager(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['NetworkManagerCrossTenantScopeArgs', 'NetworkManagerCrossTenantScopeArgsDict']]]] cross_tenant_scopes: One or more `cross_tenant_scopes` blocks as defined below.
-        :param pulumi.Input[str] description: A description of the network manager.
-        :param pulumi.Input[str] location: Specifies the Azure Region where the Network Managers should exist. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] name: Specifies the name which should be used for this Network Managers. Changing this forces a new Network Managers to be created.
-        :param pulumi.Input[str] resource_group_name: Specifies the name of the Resource Group where the Network Managers should exist. Changing this forces a new Network Managers to be created.
+        :param pulumi.Input[str] description: A description of the Network Manager.
+        :param pulumi.Input[str] location: Specifies the Azure Region where the Network Manager should exist. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] name: Specifies the name which should be used for this Network Manager. Changing this forces a new Network Manager to be created.
+        :param pulumi.Input[str] resource_group_name: Specifies the name of the Resource Group where the Network Manager should exist. Changing this forces a new Network Manager to be created.
         :param pulumi.Input[Union['NetworkManagerScopeArgs', 'NetworkManagerScopeArgsDict']] scope: A `scope` block as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] scope_accesses: A list of configuration deployment type. Possible values are `Connectivity`, `SecurityAdmin` and `Routing`, corresponds to if Connectivity Configuration, Security Admin Configuration or Routing Configuration is allowed for the Network Manager.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Network Managers.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] scope_accesses: A list of configuration deployment types. Possible values are `Connectivity`, `SecurityAdmin` and `Routing`, which specify whether Connectivity Configuration, Security Admin Configuration or Routing Configuration are allowed for the Network Manager.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Network Manager.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -481,7 +480,7 @@ class NetworkManager(pulumi.CustomResource):
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
         """
-        A description of the network manager.
+        A description of the Network Manager.
         """
         return pulumi.get(self, "description")
 
@@ -489,7 +488,7 @@ class NetworkManager(pulumi.CustomResource):
     @pulumi.getter
     def location(self) -> pulumi.Output[str]:
         """
-        Specifies the Azure Region where the Network Managers should exist. Changing this forces a new resource to be created.
+        Specifies the Azure Region where the Network Manager should exist. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "location")
 
@@ -497,7 +496,7 @@ class NetworkManager(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        Specifies the name which should be used for this Network Managers. Changing this forces a new Network Managers to be created.
+        Specifies the name which should be used for this Network Manager. Changing this forces a new Network Manager to be created.
         """
         return pulumi.get(self, "name")
 
@@ -505,7 +504,7 @@ class NetworkManager(pulumi.CustomResource):
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Output[str]:
         """
-        Specifies the name of the Resource Group where the Network Managers should exist. Changing this forces a new Network Managers to be created.
+        Specifies the name of the Resource Group where the Network Manager should exist. Changing this forces a new Network Manager to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -519,9 +518,9 @@ class NetworkManager(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="scopeAccesses")
-    def scope_accesses(self) -> pulumi.Output[Sequence[str]]:
+    def scope_accesses(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
-        A list of configuration deployment type. Possible values are `Connectivity`, `SecurityAdmin` and `Routing`, corresponds to if Connectivity Configuration, Security Admin Configuration or Routing Configuration is allowed for the Network Manager.
+        A list of configuration deployment types. Possible values are `Connectivity`, `SecurityAdmin` and `Routing`, which specify whether Connectivity Configuration, Security Admin Configuration or Routing Configuration are allowed for the Network Manager.
         """
         return pulumi.get(self, "scope_accesses")
 
@@ -529,7 +528,7 @@ class NetworkManager(pulumi.CustomResource):
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
-        A mapping of tags which should be assigned to the Network Managers.
+        A mapping of tags which should be assigned to the Network Manager.
         """
         return pulumi.get(self, "tags")
 

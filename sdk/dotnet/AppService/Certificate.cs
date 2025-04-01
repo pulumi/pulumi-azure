@@ -58,7 +58,7 @@ namespace Pulumi.Azure.AppService
     public partial class Certificate : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The ID of the associated App Service plan. Must be specified when the certificate is used inside an App Service Environment hosted App Service or with Premium App Service plans. Changing this forces a new resource to be created.
+        /// The ID of the associated App Service plan. Must be specified when the certificate is used inside an App Service Environment hosted App Service or with Basic and Premium App Service plans. Changing this forces a new resource to be created.
         /// </summary>
         [Output("appServicePlanId")]
         public Output<string?> AppServicePlanId { get; private set; } = null!;
@@ -211,7 +211,7 @@ namespace Pulumi.Azure.AppService
     public sealed class CertificateArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The ID of the associated App Service plan. Must be specified when the certificate is used inside an App Service Environment hosted App Service or with Premium App Service plans. Changing this forces a new resource to be created.
+        /// The ID of the associated App Service plan. Must be specified when the certificate is used inside an App Service Environment hosted App Service or with Basic and Premium App Service plans. Changing this forces a new resource to be created.
         /// </summary>
         [Input("appServicePlanId")]
         public Input<string>? AppServicePlanId { get; set; }
@@ -298,7 +298,7 @@ namespace Pulumi.Azure.AppService
     public sealed class CertificateState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The ID of the associated App Service plan. Must be specified when the certificate is used inside an App Service Environment hosted App Service or with Premium App Service plans. Changing this forces a new resource to be created.
+        /// The ID of the associated App Service plan. Must be specified when the certificate is used inside an App Service Environment hosted App Service or with Basic and Premium App Service plans. Changing this forces a new resource to be created.
         /// </summary>
         [Input("appServicePlanId")]
         public Input<string>? AppServicePlanId { get; set; }

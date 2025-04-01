@@ -46,6 +46,7 @@ class CloudVmClusterArgs:
                  scan_listener_port_tcp: Optional[pulumi.Input[int]] = None,
                  scan_listener_port_tcp_ssl: Optional[pulumi.Input[int]] = None,
                  sparse_diskgroup_enabled: Optional[pulumi.Input[bool]] = None,
+                 system_version: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  time_zone: Optional[pulumi.Input[str]] = None,
                  zone_id: Optional[pulumi.Input[str]] = None):
@@ -76,6 +77,7 @@ class CloudVmClusterArgs:
         :param pulumi.Input[int] scan_listener_port_tcp: The TCP Single Client Access Name (SCAN) port. The default port to 1521. Changing this forces a new Cloud VM Cluster to be created.
         :param pulumi.Input[int] scan_listener_port_tcp_ssl: The TCPS Single Client Access Name (SCAN) port. The default port to 2484. Changing this forces a new Cloud VM Cluster to be created.
         :param pulumi.Input[bool] sparse_diskgroup_enabled: If true, the sparse disk group is configured for the Cloud VM Cluster. If `false`, the sparse disk group is not created. Changing this forces a new Cloud VM Cluster to be created.
+        :param pulumi.Input[str] system_version: Operating system version of the Exadata image. System version must be <= Db server major version (the first two parts of the DB server version eg 23.1.X.X.XXXX). Accepted Values for Grid Infrastructure (GI) version 19.0.0.0 are 22.1.30.0.0.241204, 22.1.32.0.0.250205, 22.1.31.0.0.250110, 23.1.20.0.0.241112, 23.1.21.0.0.241204, 23.1.22.0.0.250119, 23.1.23.0.0.250207. For Grid Infrastructure (GI) version 23.0.0.0 allowed system versions are 23.1.19.0.0.241015, 23.1.20.0.0.241112, 23.1.22.0.0.250119, 23.1.21.0.0.241204, 23.1.23.0.0.250207.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Cloud VM Cluster.
         :param pulumi.Input[str] time_zone: The time zone of the Cloud VM Cluster. For details, see [Exadata Infrastructure Time Zones](https://docs.cloud.oracle.com/iaas/Content/Database/References/timezones.htm). Changing this forces a new Cloud VM Cluster to be created.
         :param pulumi.Input[str] zone_id: The OCID of the OCI Private DNS Zone to be associated with the Cloud VM Cluster. This is required for specifying your own private domain name. Changing this forces a new Cloud VM Cluster to be created.
@@ -119,6 +121,8 @@ class CloudVmClusterArgs:
             pulumi.set(__self__, "scan_listener_port_tcp_ssl", scan_listener_port_tcp_ssl)
         if sparse_diskgroup_enabled is not None:
             pulumi.set(__self__, "sparse_diskgroup_enabled", sparse_diskgroup_enabled)
+        if system_version is not None:
+            pulumi.set(__self__, "system_version", system_version)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if time_zone is not None:
@@ -427,6 +431,18 @@ class CloudVmClusterArgs:
         pulumi.set(self, "sparse_diskgroup_enabled", value)
 
     @property
+    @pulumi.getter(name="systemVersion")
+    def system_version(self) -> Optional[pulumi.Input[str]]:
+        """
+        Operating system version of the Exadata image. System version must be <= Db server major version (the first two parts of the DB server version eg 23.1.X.X.XXXX). Accepted Values for Grid Infrastructure (GI) version 19.0.0.0 are 22.1.30.0.0.241204, 22.1.32.0.0.250205, 22.1.31.0.0.250110, 23.1.20.0.0.241112, 23.1.21.0.0.241204, 23.1.22.0.0.250119, 23.1.23.0.0.250207. For Grid Infrastructure (GI) version 23.0.0.0 allowed system versions are 23.1.19.0.0.241015, 23.1.20.0.0.241112, 23.1.22.0.0.250119, 23.1.21.0.0.241204, 23.1.23.0.0.250207.
+        """
+        return pulumi.get(self, "system_version")
+
+    @system_version.setter
+    def system_version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "system_version", value)
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
@@ -492,6 +508,7 @@ class _CloudVmClusterState:
                  sparse_diskgroup_enabled: Optional[pulumi.Input[bool]] = None,
                  ssh_public_keys: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  subnet_id: Optional[pulumi.Input[str]] = None,
+                 system_version: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  time_zone: Optional[pulumi.Input[str]] = None,
                  virtual_network_id: Optional[pulumi.Input[str]] = None,
@@ -524,6 +541,7 @@ class _CloudVmClusterState:
         :param pulumi.Input[bool] sparse_diskgroup_enabled: If true, the sparse disk group is configured for the Cloud VM Cluster. If `false`, the sparse disk group is not created. Changing this forces a new Cloud VM Cluster to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] ssh_public_keys: The public key portion of one or more key pairs used for SSH access to the Cloud VM Cluster. Changing this forces a new Cloud VM Cluster to be created.
         :param pulumi.Input[str] subnet_id: The ID of the subnet associated with the Cloud VM Cluster. Changing this forces a new Cloud VM Cluster to be created.
+        :param pulumi.Input[str] system_version: Operating system version of the Exadata image. System version must be <= Db server major version (the first two parts of the DB server version eg 23.1.X.X.XXXX). Accepted Values for Grid Infrastructure (GI) version 19.0.0.0 are 22.1.30.0.0.241204, 22.1.32.0.0.250205, 22.1.31.0.0.250110, 23.1.20.0.0.241112, 23.1.21.0.0.241204, 23.1.22.0.0.250119, 23.1.23.0.0.250207. For Grid Infrastructure (GI) version 23.0.0.0 allowed system versions are 23.1.19.0.0.241015, 23.1.20.0.0.241112, 23.1.22.0.0.250119, 23.1.21.0.0.241204, 23.1.23.0.0.250207.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Cloud VM Cluster.
         :param pulumi.Input[str] time_zone: The time zone of the Cloud VM Cluster. For details, see [Exadata Infrastructure Time Zones](https://docs.cloud.oracle.com/iaas/Content/Database/References/timezones.htm). Changing this forces a new Cloud VM Cluster to be created.
         :param pulumi.Input[str] virtual_network_id: The ID of the Virtual Network associated with the Cloud VM Cluster. Changing this forces a new Cloud VM Cluster to be created.
@@ -581,6 +599,8 @@ class _CloudVmClusterState:
             pulumi.set(__self__, "ssh_public_keys", ssh_public_keys)
         if subnet_id is not None:
             pulumi.set(__self__, "subnet_id", subnet_id)
+        if system_version is not None:
+            pulumi.set(__self__, "system_version", system_version)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if time_zone is not None:
@@ -903,6 +923,18 @@ class _CloudVmClusterState:
         pulumi.set(self, "subnet_id", value)
 
     @property
+    @pulumi.getter(name="systemVersion")
+    def system_version(self) -> Optional[pulumi.Input[str]]:
+        """
+        Operating system version of the Exadata image. System version must be <= Db server major version (the first two parts of the DB server version eg 23.1.X.X.XXXX). Accepted Values for Grid Infrastructure (GI) version 19.0.0.0 are 22.1.30.0.0.241204, 22.1.32.0.0.250205, 22.1.31.0.0.250110, 23.1.20.0.0.241112, 23.1.21.0.0.241204, 23.1.22.0.0.250119, 23.1.23.0.0.250207. For Grid Infrastructure (GI) version 23.0.0.0 allowed system versions are 23.1.19.0.0.241015, 23.1.20.0.0.241112, 23.1.22.0.0.250119, 23.1.21.0.0.241204, 23.1.23.0.0.250207.
+        """
+        return pulumi.get(self, "system_version")
+
+    @system_version.setter
+    def system_version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "system_version", value)
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
@@ -980,6 +1012,7 @@ class CloudVmCluster(pulumi.CustomResource):
                  sparse_diskgroup_enabled: Optional[pulumi.Input[bool]] = None,
                  ssh_public_keys: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  subnet_id: Optional[pulumi.Input[str]] = None,
+                 system_version: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  time_zone: Optional[pulumi.Input[str]] = None,
                  virtual_network_id: Optional[pulumi.Input[str]] = None,
@@ -1042,7 +1075,8 @@ class CloudVmCluster(pulumi.CustomResource):
             cloud_exadata_infrastructure_id=example_exadata_infrastructure.id,
             cpu_core_count=2,
             hostname="hostname",
-            subnet_id=example_subnet.id)
+            subnet_id=example_subnet.id,
+            system_version="23.1.19.0.0.241015")
         ```
 
         ## Import
@@ -1079,6 +1113,7 @@ class CloudVmCluster(pulumi.CustomResource):
         :param pulumi.Input[bool] sparse_diskgroup_enabled: If true, the sparse disk group is configured for the Cloud VM Cluster. If `false`, the sparse disk group is not created. Changing this forces a new Cloud VM Cluster to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] ssh_public_keys: The public key portion of one or more key pairs used for SSH access to the Cloud VM Cluster. Changing this forces a new Cloud VM Cluster to be created.
         :param pulumi.Input[str] subnet_id: The ID of the subnet associated with the Cloud VM Cluster. Changing this forces a new Cloud VM Cluster to be created.
+        :param pulumi.Input[str] system_version: Operating system version of the Exadata image. System version must be <= Db server major version (the first two parts of the DB server version eg 23.1.X.X.XXXX). Accepted Values for Grid Infrastructure (GI) version 19.0.0.0 are 22.1.30.0.0.241204, 22.1.32.0.0.250205, 22.1.31.0.0.250110, 23.1.20.0.0.241112, 23.1.21.0.0.241204, 23.1.22.0.0.250119, 23.1.23.0.0.250207. For Grid Infrastructure (GI) version 23.0.0.0 allowed system versions are 23.1.19.0.0.241015, 23.1.20.0.0.241112, 23.1.22.0.0.250119, 23.1.21.0.0.241204, 23.1.23.0.0.250207.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Cloud VM Cluster.
         :param pulumi.Input[str] time_zone: The time zone of the Cloud VM Cluster. For details, see [Exadata Infrastructure Time Zones](https://docs.cloud.oracle.com/iaas/Content/Database/References/timezones.htm). Changing this forces a new Cloud VM Cluster to be created.
         :param pulumi.Input[str] virtual_network_id: The ID of the Virtual Network associated with the Cloud VM Cluster. Changing this forces a new Cloud VM Cluster to be created.
@@ -1147,7 +1182,8 @@ class CloudVmCluster(pulumi.CustomResource):
             cloud_exadata_infrastructure_id=example_exadata_infrastructure.id,
             cpu_core_count=2,
             hostname="hostname",
-            subnet_id=example_subnet.id)
+            subnet_id=example_subnet.id,
+            system_version="23.1.19.0.0.241015")
         ```
 
         ## Import
@@ -1197,6 +1233,7 @@ class CloudVmCluster(pulumi.CustomResource):
                  sparse_diskgroup_enabled: Optional[pulumi.Input[bool]] = None,
                  ssh_public_keys: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  subnet_id: Optional[pulumi.Input[str]] = None,
+                 system_version: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  time_zone: Optional[pulumi.Input[str]] = None,
                  virtual_network_id: Optional[pulumi.Input[str]] = None,
@@ -1254,6 +1291,7 @@ class CloudVmCluster(pulumi.CustomResource):
             if subnet_id is None and not opts.urn:
                 raise TypeError("Missing required property 'subnet_id'")
             __props__.__dict__["subnet_id"] = subnet_id
+            __props__.__dict__["system_version"] = system_version
             __props__.__dict__["tags"] = tags
             __props__.__dict__["time_zone"] = time_zone
             if virtual_network_id is None and not opts.urn:
@@ -1298,6 +1336,7 @@ class CloudVmCluster(pulumi.CustomResource):
             sparse_diskgroup_enabled: Optional[pulumi.Input[bool]] = None,
             ssh_public_keys: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             subnet_id: Optional[pulumi.Input[str]] = None,
+            system_version: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             time_zone: Optional[pulumi.Input[str]] = None,
             virtual_network_id: Optional[pulumi.Input[str]] = None,
@@ -1335,6 +1374,7 @@ class CloudVmCluster(pulumi.CustomResource):
         :param pulumi.Input[bool] sparse_diskgroup_enabled: If true, the sparse disk group is configured for the Cloud VM Cluster. If `false`, the sparse disk group is not created. Changing this forces a new Cloud VM Cluster to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] ssh_public_keys: The public key portion of one or more key pairs used for SSH access to the Cloud VM Cluster. Changing this forces a new Cloud VM Cluster to be created.
         :param pulumi.Input[str] subnet_id: The ID of the subnet associated with the Cloud VM Cluster. Changing this forces a new Cloud VM Cluster to be created.
+        :param pulumi.Input[str] system_version: Operating system version of the Exadata image. System version must be <= Db server major version (the first two parts of the DB server version eg 23.1.X.X.XXXX). Accepted Values for Grid Infrastructure (GI) version 19.0.0.0 are 22.1.30.0.0.241204, 22.1.32.0.0.250205, 22.1.31.0.0.250110, 23.1.20.0.0.241112, 23.1.21.0.0.241204, 23.1.22.0.0.250119, 23.1.23.0.0.250207. For Grid Infrastructure (GI) version 23.0.0.0 allowed system versions are 23.1.19.0.0.241015, 23.1.20.0.0.241112, 23.1.22.0.0.250119, 23.1.21.0.0.241204, 23.1.23.0.0.250207.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Cloud VM Cluster.
         :param pulumi.Input[str] time_zone: The time zone of the Cloud VM Cluster. For details, see [Exadata Infrastructure Time Zones](https://docs.cloud.oracle.com/iaas/Content/Database/References/timezones.htm). Changing this forces a new Cloud VM Cluster to be created.
         :param pulumi.Input[str] virtual_network_id: The ID of the Virtual Network associated with the Cloud VM Cluster. Changing this forces a new Cloud VM Cluster to be created.
@@ -1370,6 +1410,7 @@ class CloudVmCluster(pulumi.CustomResource):
         __props__.__dict__["sparse_diskgroup_enabled"] = sparse_diskgroup_enabled
         __props__.__dict__["ssh_public_keys"] = ssh_public_keys
         __props__.__dict__["subnet_id"] = subnet_id
+        __props__.__dict__["system_version"] = system_version
         __props__.__dict__["tags"] = tags
         __props__.__dict__["time_zone"] = time_zone
         __props__.__dict__["virtual_network_id"] = virtual_network_id
@@ -1583,6 +1624,14 @@ class CloudVmCluster(pulumi.CustomResource):
         The ID of the subnet associated with the Cloud VM Cluster. Changing this forces a new Cloud VM Cluster to be created.
         """
         return pulumi.get(self, "subnet_id")
+
+    @property
+    @pulumi.getter(name="systemVersion")
+    def system_version(self) -> pulumi.Output[Optional[str]]:
+        """
+        Operating system version of the Exadata image. System version must be <= Db server major version (the first two parts of the DB server version eg 23.1.X.X.XXXX). Accepted Values for Grid Infrastructure (GI) version 19.0.0.0 are 22.1.30.0.0.241204, 22.1.32.0.0.250205, 22.1.31.0.0.250110, 23.1.20.0.0.241112, 23.1.21.0.0.241204, 23.1.22.0.0.250119, 23.1.23.0.0.250207. For Grid Infrastructure (GI) version 23.0.0.0 allowed system versions are 23.1.19.0.0.241015, 23.1.20.0.0.241112, 23.1.22.0.0.250119, 23.1.21.0.0.241204, 23.1.23.0.0.250207.
+        """
+        return pulumi.get(self, "system_version")
 
     @property
     @pulumi.getter

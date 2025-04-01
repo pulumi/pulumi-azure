@@ -49,14 +49,14 @@ public final class ReplicationRecoveryPlanBootRecoveryGroupArgs extends com.pulu
     }
 
     /**
-     * One or more protected VM IDs. It must not be specified when `type` is `Shutdown`.
+     * One or more protected VM IDs.
      * 
      */
     @Import(name="replicatedProtectedItems")
     private @Nullable Output<List<String>> replicatedProtectedItems;
 
     /**
-     * @return One or more protected VM IDs. It must not be specified when `type` is `Shutdown`.
+     * @return One or more protected VM IDs.
      * 
      */
     public Optional<Output<List<String>>> replicatedProtectedItems() {
@@ -152,7 +152,7 @@ public final class ReplicationRecoveryPlanBootRecoveryGroupArgs extends com.pulu
         }
 
         /**
-         * @param replicatedProtectedItems One or more protected VM IDs. It must not be specified when `type` is `Shutdown`.
+         * @param replicatedProtectedItems One or more protected VM IDs.
          * 
          * @return builder
          * 
@@ -163,7 +163,7 @@ public final class ReplicationRecoveryPlanBootRecoveryGroupArgs extends com.pulu
         }
 
         /**
-         * @param replicatedProtectedItems One or more protected VM IDs. It must not be specified when `type` is `Shutdown`.
+         * @param replicatedProtectedItems One or more protected VM IDs.
          * 
          * @return builder
          * 
@@ -173,7 +173,7 @@ public final class ReplicationRecoveryPlanBootRecoveryGroupArgs extends com.pulu
         }
 
         /**
-         * @param replicatedProtectedItems One or more protected VM IDs. It must not be specified when `type` is `Shutdown`.
+         * @param replicatedProtectedItems One or more protected VM IDs.
          * 
          * @return builder
          * 

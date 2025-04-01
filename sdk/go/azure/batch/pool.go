@@ -84,7 +84,7 @@ import (
 //				ResourceGroupName: example.Name,
 //				AccountName:       exampleAccount2.Name,
 //				DisplayName:       pulumi.String("Test Acc Pool Auto"),
-//				VmSize:            pulumi.String("Standard_A1"),
+//				VmSize:            pulumi.String("STANDARD_A1_V2"),
 //				NodeAgentSkuId:    pulumi.String("batch.node.ubuntu 20.04"),
 //				AutoScale: &batch.PoolAutoScaleArgs{
 //					EvaluationInterval: pulumi.String("PT15M"),

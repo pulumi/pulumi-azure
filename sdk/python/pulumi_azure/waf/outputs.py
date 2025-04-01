@@ -70,6 +70,8 @@ class PolicyCustomRule(dict):
                  rate_limit_threshold: Optional[int] = None):
         """
         :param str action: Type of action. Possible values are `Allow`, `Block` and `Log`.
+               
+               > **Note:** If the `rule_type` is specified as `RateLimitRule`, the `Allow` is not supported.
         :param Sequence['PolicyCustomRuleMatchConditionArgs'] match_conditions: One or more `match_conditions` blocks as defined below.
         :param int priority: Describes priority of the rule. Rules with a lower value will be evaluated before rules with a higher value.
         :param str rule_type: Describes the type of rule. Possible values are `MatchRule`, `RateLimitRule` and `Invalid`.
@@ -99,6 +101,8 @@ class PolicyCustomRule(dict):
     def action(self) -> str:
         """
         Type of action. Possible values are `Allow`, `Block` and `Log`.
+
+        > **Note:** If the `rule_type` is specified as `RateLimitRule`, the `Allow` is not supported.
         """
         return pulumi.get(self, "action")
 

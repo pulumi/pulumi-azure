@@ -3891,7 +3891,7 @@ export namespace appservice {
          */
         scmIpRestrictions?: pulumi.Input<pulumi.Input<inputs.appservice.AppFlexConsumptionSiteConfigScmIpRestriction>[]>;
         /**
-         * Configures the minimum version of TLS required for SSL requests to the SCM site Possible values include: `1.0`, `1.1`, and `1.2`. Defaults to `1.2`.
+         * Configures the minimum version of TLS required for SSL requests to the SCM site Possible values include: `1.0`, `1.1`, and  `1.2`. Defaults to `1.2`.
          */
         scmMinimumTlsVersion?: pulumi.Input<string>;
         /**
@@ -6403,7 +6403,7 @@ export namespace appservice {
          */
         powershellCoreVersion?: pulumi.Input<string>;
         /**
-         * The version of Python to run. Possible values are `3.12`, `3.11`, `3.10`, `3.9`, `3.8` and `3.7`.
+         * The version of Python to run. Possible values are `3.13`, `3.12`, `3.11`, `3.10`, `3.9`, `3.8` and `3.7`.
          */
         pythonVersion?: pulumi.Input<string>;
         /**
@@ -7008,7 +7008,7 @@ export namespace appservice {
 
     export interface LinuxFunctionAppSlotAuthSettingsV2GithubV2 {
         /**
-         * The ID of the GitHub app used for login..
+         * The ID of the GitHub app used for login.
          */
         clientId: pulumi.Input<string>;
         /**
@@ -7399,7 +7399,7 @@ export namespace appservice {
          */
         javaVersion?: pulumi.Input<string>;
         /**
-         * The version of Node to use. Possible values include `12`, `14`, `16`, `18` and `20`
+         * The version of Node to use. Possible values include `12`, `14`, `16`, `18`, `20` and `22`.
          */
         nodeVersion?: pulumi.Input<string>;
         /**
@@ -7407,7 +7407,7 @@ export namespace appservice {
          */
         powershellCoreVersion?: pulumi.Input<string>;
         /**
-         * The version of Python to use. Possible values are `3.12`, `3.11`, `3.10`, `3.9`, `3.8` and `3.7`.
+         * The version of Python to use. Possible values are `3.13`, `3.12`, `3.11`, `3.10`, `3.9`, `3.8` and `3.7`.
          */
         pythonVersion?: pulumi.Input<string>;
         /**
@@ -7544,7 +7544,7 @@ export namespace appservice {
          */
         serviceTag?: pulumi.Input<string>;
         /**
-         * The Virtual Network Subnet ID used for this IP Restriction.ENDEXPERIMENT
+         * The Virtual Network Subnet ID used for this IP Restriction.
          *
          * > **NOTE:** One and only one of `ipAddress`, `serviceTag` or `virtualNetworkSubnetId` must be specified.
          */
@@ -8541,7 +8541,7 @@ export namespace appservice {
          */
         phpVersion?: pulumi.Input<string>;
         /**
-         * The version of Python to run. Possible values include `3.7`, `3.8`, `3.9`, `3.10`, `3.11` and `3.12`.
+         * The version of Python to run. Possible values include `3.13`, `3.12`, `3.11`, `3.10`, `3.9`, `3.8` and `3.7`.
          */
         pythonVersion?: pulumi.Input<string>;
         /**
@@ -9228,7 +9228,7 @@ export namespace appservice {
 
     export interface LinuxWebAppSlotAuthSettingsV2GithubV2 {
         /**
-         * The ID of the GitHub app used for login..
+         * The ID of the GitHub app used for login.
          */
         clientId: pulumi.Input<string>;
         /**
@@ -9694,7 +9694,7 @@ export namespace appservice {
          */
         phpVersion?: pulumi.Input<string>;
         /**
-         * The version of Python to run. Possible values include `3.7`, `3.8`, `3.9`, `3.10`, `3.11` and `3.12`.
+         * The version of Python to run. Possible values include `3.13`, `3.12`, `3.11`, `3.10`, `3.9`, `3.8` and `3.7`.
          */
         pythonVersion?: pulumi.Input<string>;
         /**
@@ -11140,7 +11140,7 @@ export namespace appservice {
 
     export interface WindowsFunctionAppAuthSettingsV2GithubV2 {
         /**
-         * The ID of the GitHub app used for login..
+         * The ID of the GitHub app used for login.
          */
         clientId: pulumi.Input<string>;
         /**
@@ -12103,7 +12103,7 @@ export namespace appservice {
 
     export interface WindowsFunctionAppSlotAuthSettingsV2GithubV2 {
         /**
-         * The ID of the GitHub app used for login..
+         * The ID of the GitHub app used for login.
          */
         clientId: pulumi.Input<string>;
         /**
@@ -12596,7 +12596,7 @@ export namespace appservice {
          */
         serviceTag?: pulumi.Input<string>;
         /**
-         * The Virtual Network Subnet ID used for this IP Restriction.ENDEXPERIMENT
+         * The Virtual Network Subnet ID used for this IP Restriction.
          *
          * > **NOTE:** Exactly one of `ipAddress`, `serviceTag` or `virtualNetworkSubnetId` must be specified.
          */
@@ -13129,7 +13129,7 @@ export namespace appservice {
 
     export interface WindowsWebAppAuthSettingsV2GithubV2 {
         /**
-         * The ID of the GitHub app used for login..
+         * The ID of the GitHub app used for login.
          */
         clientId: pulumi.Input<string>;
         /**
@@ -13608,7 +13608,7 @@ export namespace appservice {
          */
         javaVersion?: pulumi.Input<string>;
         /**
-         * The version of node to use when `currentStack` is set to `node`. Possible values are `~12`, `~14`, `~16`, `~18` and `~20`.
+         * The version of node to use when `currentStack` is set to `node`. Possible values are `~12`, `~14`, `~16`, `~18`, `~20` and `~22`.
          *
          * > **NOTE:** This property conflicts with `javaVersion`.
          */
@@ -13626,7 +13626,7 @@ export namespace appservice {
         /**
          * The version of Tomcat the Java App should use. Conflicts with `javaEmbeddedServerEnabled`
          *
-         * > **NOTE:** See the official documentation for current supported versions.  Some example valuess include: `10.0`, `10.0.20`.
+         * > **NOTE:** See the official documentation for current supported versions. Some example values include: `10.0`, `10.0.20`.
          */
         tomcatVersion?: pulumi.Input<string>;
     }
@@ -14843,7 +14843,7 @@ export namespace appservice {
          */
         javaVersion?: pulumi.Input<string>;
         /**
-         * The version of node to use when `currentStack` is set to `node`. Possible values include `~12`, `~14`, `~16`, `~18` and `~20`.
+         * The version of node to use when `currentStack` is set to `node`. Possible values include `~12`, `~14`, `~16`, `~18`, `~20` and `~22`.
          *
          * > **NOTE:** This property conflicts with `javaVersion`.
          */
@@ -15930,8 +15930,6 @@ export namespace automation {
     export interface SoftwareUpdateConfigurationLinux {
         /**
          * Specifies the list of update classifications included in the Software Update Configuration. Possible values are `Unclassified`, `Critical`, `Security` and `Other`.
-         *
-         * > **NOTE:** The `classificationsIncluded` property will become `Required` in version 4.0 of the Provider.
          */
         classificationsIncludeds: pulumi.Input<pulumi.Input<string>[]>;
         /**
@@ -16085,8 +16083,6 @@ export namespace automation {
     export interface SoftwareUpdateConfigurationWindows {
         /**
          * Specifies the list of update classification. Possible values are `Unclassified`, `Critical`, `Security`, `UpdateRollup`, `FeaturePack`, `ServicePack`, `Definition`, `Tools` and `Updates`.
-         *
-         * > **NOTE:** The `classificationsIncluded` property will become `Required` in version 4.0 of the Provider.
          */
         classificationsIncludeds: pulumi.Input<pulumi.Input<string>[]>;
         /**
@@ -18055,6 +18051,42 @@ export namespace cdn {
         transforms?: pulumi.Input<pulumi.Input<string>[]>;
     }
 
+    export interface FrontdoorFirewallPolicyLogScrubbing {
+        /**
+         * Is log scrubbing enabled? Possible values are `true` or `false`. Defaults to `true`.
+         */
+        enabled?: pulumi.Input<boolean>;
+        /**
+         * One or more `scrubbingRule` blocks as defined below.
+         *
+         * > **Note:** For more information on masking sensitive data in Azure Front Door please see the [product documentation](https://learn.microsoft.com/azure/web-application-firewall/afds/waf-sensitive-data-protection-configure-frontdoor).
+         */
+        scrubbingRules: pulumi.Input<pulumi.Input<inputs.cdn.FrontdoorFirewallPolicyLogScrubbingScrubbingRule>[]>;
+    }
+
+    export interface FrontdoorFirewallPolicyLogScrubbingScrubbingRule {
+        /**
+         * Is this `scrubbingRule` enabled? Defaults to `true`.
+         */
+        enabled?: pulumi.Input<boolean>;
+        /**
+         * The variable to be scrubbed from the logs. Possible values include `QueryStringArgNames`, `RequestBodyJsonArgNames`, `RequestBodyPostArgNames`, `RequestCookieNames`, `RequestHeaderNames`, `RequestIPAddress`, or `RequestUri`.
+         *
+         * > **Note:** `RequestIPAddress` and `RequestUri` must use the `EqualsAny` `operator`.
+         */
+        matchVariable: pulumi.Input<string>;
+        /**
+         * When the `matchVariable` is a collection, operate on the `selector` to specify which elements in the collection this `scrubbingRule` applies to. Possible values are `Equals` or `EqualsAny`. Defaults to `Equals`.
+         */
+        operator?: pulumi.Input<string>;
+        /**
+         * When the `matchVariable` is a collection, the `operator` is used to specify which elements in the collection this `scrubbingRule` applies to.
+         *
+         * > **Note:** The `selector` field cannot be set if the `operator` is set to `EqualsAny`.
+         */
+        selector?: pulumi.Input<string>;
+    }
+
     export interface FrontdoorFirewallPolicyManagedRule {
         /**
          * The action to perform for all default rule set rules when the managed rule is matched or when the anomaly score is 5 or greater depending on which version of the default rule set you are using. Possible values include `Allow`, `Log`, `Block`, or `Redirect`.
@@ -19037,6 +19069,11 @@ export namespace cognitive {
     }
 
     export interface AIServicesNetworkAcls {
+        /**
+         * Whether to allow trusted Azure Services to access the service. Possible values are `None` and `AzureServices`. Defaults to `AzureServices`.
+         * *
+         */
+        bypass?: pulumi.Input<string>;
         /**
          * The Default Action to use when no rules match from `ipRules` / `virtualNetworkRules`. Possible values are `Allow` and `Deny`.
          */
@@ -23633,6 +23670,10 @@ export namespace containerapp {
 
     export interface AppTemplateVolume {
         /**
+         * Mount options used while mounting the AzureFile. Must be a comma-separated string e.g. `dir_mode=0751,file_mode=0751`.
+         */
+        mountOptions?: pulumi.Input<string>;
+        /**
          * The name of the volume.
          */
         name: pulumi.Input<string>;
@@ -24190,6 +24231,10 @@ export namespace containerapp {
     }
 
     export interface JobTemplateVolume {
+        /**
+         * Mount options used while mounting the AzureFile. Must be a comma-separated string e.g. `dir_mode=0751,file_mode=0751`.
+         */
+        mountOptions?: pulumi.Input<string>;
         /**
          * The name of the volume.
          */
@@ -25150,7 +25195,7 @@ export namespace containerservice {
          */
         kubeletConfig?: pulumi.Input<inputs.containerservice.KubernetesClusterDefaultNodePoolKubeletConfig>;
         /**
-         * The type of disk used by kubelet. Possible values are `OS` and `Temporary`.
+         * The type of disk used by kubelet. Possible values are `OS` and `Temporary`. `temporaryNameForRotation` must be specified when changing this block.
          */
         kubeletDiskType?: pulumi.Input<string>;
         /**
@@ -27762,6 +27807,21 @@ export namespace cosmosdb {
          * A list of paths to use for this unique key. Changing this forces a new resource to be created.
          */
         paths: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface MongoClusterConnectionString {
+        /**
+         * The description of the connection string.
+         */
+        description?: pulumi.Input<string>;
+        /**
+         * The name which should be used for the MongoDB Cluster. Changing this forces a new resource to be created.
+         */
+        name?: pulumi.Input<string>;
+        /**
+         * The value of the Mongo Cluster connection string. The `<user>:<password>` placeholder returned from API will be replaced by the real `administratorUsername` and `administratorPassword` if available in the state.
+         */
+        value?: pulumi.Input<string>;
     }
 
     export interface MongoCollectionAutoscaleSettings {
@@ -33064,28 +33124,28 @@ export namespace eventhub {
          */
         infrastructureEncryptionEnabled?: pulumi.Input<boolean>;
         /**
-         * The ID of the Key Vault Key which should be used to Encrypt the data in this ServiceBus Namespace.
+         * The ID of the Key Vault Key which should be used to Encrypt the data in this Service Bus Namespace.
          */
         keyVaultKeyId: pulumi.Input<string>;
     }
 
     export interface NamespaceIdentity {
         /**
-         * Specifies a list of User Assigned Managed Identity IDs to be assigned to this ServiceBus namespace.
+         * Specifies a list of User Assigned Managed Identity IDs to be assigned to this Service Bus namespace.
          *
          * > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
          */
         identityIds?: pulumi.Input<pulumi.Input<string>[]>;
         /**
-         * The Principal ID for the Service Principal associated with the Managed Service Identity of this ServiceBus Namespace.
+         * The Principal ID for the Service Principal associated with the Managed Service Identity of this Service Bus Namespace.
          */
         principalId?: pulumi.Input<string>;
         /**
-         * The Tenant ID for the Service Principal associated with the Managed Service Identity of this ServiceBus Namespace.
+         * The Tenant ID for the Service Principal associated with the Managed Service Identity of this Service Bus Namespace.
          */
         tenantId?: pulumi.Input<string>;
         /**
-         * Specifies the type of Managed Service Identity that should be configured on this ServiceBus Namespace. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
+         * Specifies the type of Managed Service Identity that should be configured on this Service Bus Namespace. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
          */
         type: pulumi.Input<string>;
     }
@@ -33096,7 +33156,7 @@ export namespace eventhub {
          */
         defaultAction?: pulumi.Input<string>;
         /**
-         * One or more IP Addresses, or CIDR Blocks which should be able to access the ServiceBus Namespace.
+         * One or more IP Addresses, or CIDR Blocks which should be able to access the Service Bus Namespace.
          */
         ipRules?: pulumi.Input<pulumi.Input<string>[]>;
         /**
@@ -33117,11 +33177,11 @@ export namespace eventhub {
 
     export interface NamespaceNetworkRuleSetNetworkRule {
         /**
-         * Should the ServiceBus Namespace Network Rule Set ignore missing Virtual Network Service Endpoint option in the Subnet? Defaults to `false`.
+         * Should the Service Bus Namespace Network Rule Set ignore missing Virtual Network Service Endpoint option in the Subnet? Defaults to `false`.
          */
         ignoreMissingVnetServiceEndpoint?: pulumi.Input<boolean>;
         /**
-         * The Subnet ID which should be able to access this ServiceBus Namespace.
+         * The Subnet ID which should be able to access this Service Bus Namespace.
          */
         subnetId: pulumi.Input<string>;
     }
@@ -33196,6 +33256,7 @@ export namespace extendedlocation {
          */
         value: pulumi.Input<string>;
     }
+
 }
 
 export namespace fabric {
@@ -41243,7 +41304,7 @@ export namespace monitoring {
          */
         filePatterns: pulumi.Input<pulumi.Input<string>[]>;
         /**
-         * The data format of the log files. possible value is `text`.
+         * The data format of the log files. Possible values are `text` and `json`.
          */
         format: pulumi.Input<string>;
         /**
@@ -41594,7 +41655,7 @@ export namespace monitoring {
          */
         enabled?: pulumi.Input<boolean>;
         /**
-         * @deprecated `retentionPolicy` has been deprecated in favor of `azure.storage.ManagementPolicy` resource - to learn more https://aka.ms/diagnostic_settings_log_retention
+         * @deprecated `retentionPolicy` has been deprecated in favor of the `azure.storage.ManagementPolicy` resource and will be removed in v5.0 of the AzureRM provider - to learn more go to https://aka.ms/diagnostic_settings_log_retention
          */
         retentionPolicy?: pulumi.Input<inputs.monitoring.DiagnosticSettingMetricRetentionPolicy>;
     }
@@ -42093,6 +42154,17 @@ export namespace mssql {
          * The failover policy of the read-write endpoint for the failover group. Possible values are `Automatic` or `Manual`.
          */
         mode: pulumi.Input<string>;
+    }
+
+    export interface JobAgentIdentity {
+        /**
+         * Specifies a list of User Assigned Managed Identity IDs to assign to this Elastic Job Agent.
+         */
+        identityIds: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Specifies the type of Managed Service Identity that should be configured on this Elastic Job Agent. Currently only `UserAssigned` is supported.
+         */
+        type: pulumi.Input<string>;
     }
 
     export interface JobStepOutputTarget {
@@ -44925,7 +44997,7 @@ export namespace network {
 
     export interface FirewallPolicyTlsCertificate {
         /**
-         * The ID of the Key Vault, where the secret or certificate is stored.
+         * The Secret Identifier (URI) of the certificate stored in Azure Key Vault, either as a secret or certificate.
          */
         keyVaultSecretId: pulumi.Input<string>;
         /**
@@ -45772,6 +45844,10 @@ export namespace network {
          * The static VNet local route override criteria that is used to determine whether NVA in spoke VNet is bypassed for traffic with destination in spoke VNet. Possible values are `Contains` and `Equal`. Defaults to `Contains`. Changing this forces a new resource to be created.
          */
         staticVnetLocalRouteOverrideCriteria?: pulumi.Input<string>;
+        /**
+         * Whether the static routes should be propagated to the Virtual Hub. Defaults to `true`.
+         */
+        staticVnetPropagateStaticRoutesEnabled?: pulumi.Input<boolean>;
         /**
          * A `staticVnetRoute` block as defined below.
          */
@@ -46710,6 +46786,8 @@ export namespace networkfunction {
     export interface CollectorPolicyIpfxEmission {
         /**
          * A list of emission destination types. The only possible value is `AzureMonitor`. Changing this forces a new Network Function Collector Policy to be created.
+         *
+         * > **Note:** Please use the `azure.monitoring.DiagnosticSetting` resource to forward logs to a Log Analytics Workspace.
          */
         destinationTypes: pulumi.Input<string>;
     }
@@ -46974,7 +47052,7 @@ export namespace operationalinsights {
         /**
          * Specifies the identity type of the Log Analytics Workspace. Possible values are `SystemAssigned` (where Azure will generate a Service Principal for you) and `UserAssigned` where you can specify the Service Principal IDs in the `identityIds` field.
          *
-         * > **NOTE:** When `type` is set to `SystemAssigned`, The assigned `principalId` and `tenantId` can be retrieved after the Log Analytics Workspace has been created.
+         * > **Note:** When `type` is set to `SystemAssigned`, The assigned `principalId` and `tenantId` can be retrieved after the Log Analytics Workspace has been created.
          */
         type: pulumi.Input<string>;
     }
@@ -47926,11 +48004,11 @@ export namespace policy {
 export namespace postgresql {
     export interface FlexibleServerAuthentication {
         /**
-         * Whether or not Active Directory authentication is allowed to access the PostgreSQL Flexible Server. Defaults to `false`.
+         * Whether Active Directory authentication is allowed to access the PostgreSQL Flexible Server. Defaults to `false`.
          */
         activeDirectoryAuthEnabled?: pulumi.Input<boolean>;
         /**
-         * Whether or not password authentication is allowed to access the PostgreSQL Flexible Server. Defaults to `true`.
+         * Whether password authentication is allowed to access the PostgreSQL Flexible Server. Defaults to `true`.
          */
         passwordAuthEnabled?: pulumi.Input<boolean>;
         /**
@@ -47945,21 +48023,25 @@ export namespace postgresql {
 
     export interface FlexibleServerCustomerManagedKey {
         /**
-         * The ID of the geo backup Key Vault Key. It can't cross region and need Customer Managed Key in same region as geo backup.
+         * The versioned ID of the geo backup Key Vault Key.
+         *
+         * > **Note:** The key vault in which this key exists must be in the same region as the geo-redundant backup.
          */
         geoBackupKeyVaultKeyId?: pulumi.Input<string>;
         /**
-         * The geo backup user managed identity id for a Customer Managed Key. Should be added with `identityIds`. It can't cross region and need identity in same region as geo backup.
+         * The geo backup user managed identity id for a Customer Managed Key. Must be added to `identity.identity_ids`.
+         *
+         * > **Note:** This managed identity cannot be the same as `primaryUserAssignedIdentityId`, additionally this identity must be created in the same region as the geo-redundant backup.
          *
          * > **Note:** `primaryUserAssignedIdentityId` or `geoBackupUserAssignedIdentityId` is required when `type` is set to `UserAssigned`.
          */
         geoBackupUserAssignedIdentityId?: pulumi.Input<string>;
         /**
-         * The ID of the Key Vault Key.
+         * The versioned ID of the Key Vault Key.
          */
         keyVaultKeyId: pulumi.Input<string>;
         /**
-         * Specifies the primary user managed identity id for a Customer Managed Key. Should be added with `identityIds`.
+         * Specifies the primary user managed identity id for a Customer Managed Key. Must be added to `identity.identity_ids`.
          */
         primaryUserAssignedIdentityId?: pulumi.Input<string>;
     }
@@ -47975,10 +48057,20 @@ export namespace postgresql {
     export interface FlexibleServerIdentity {
         /**
          * A list of User Assigned Managed Identity IDs to be assigned to this PostgreSQL Flexible Server. Required if used together with `customerManagedKey` block.
+         *
+         * > **Note**: `identityIds` is required when `type` is set to `UserAssigned`.
          */
-        identityIds: pulumi.Input<pulumi.Input<string>[]>;
+        identityIds?: pulumi.Input<pulumi.Input<string>[]>;
         /**
-         * Specifies the type of Managed Service Identity that should be configured on this PostgreSQL Flexible Server. The only possible value is `UserAssigned`.
+         * The Principal ID associated with this Managed Service Identity.
+         */
+        principalId?: pulumi.Input<string>;
+        /**
+         * The Tenant ID associated with this Managed Service Identity.
+         */
+        tenantId?: pulumi.Input<string>;
+        /**
+         * Specifies the type of Managed Service Identity that should be configured on this PostgreSQL Flexible Server. Possible values are `UserAssigned` and `SystemAssigned`.
          */
         type: pulumi.Input<string>;
     }
@@ -47995,7 +48087,7 @@ export namespace postgresql {
         /**
          * The start minute for maintenance window. Defaults to `0`.
          *
-         * > **NOTE** The specified `maintenanceWindow` is always defined in UTC time. When unspecified, the maintenance window falls back to the default [system-managed](https://learn.microsoft.com/en-us/azure/postgresql/flexible-server/how-to-maintenance-portal#specify-maintenance-schedule-options).
+         * > **Note:** The specified `maintenanceWindow` is always defined in UTC time. When unspecified, the maintenance window falls back to the default [system-managed](https://learn.microsoft.com/en-us/azure/postgresql/flexible-server/how-to-maintenance-portal#specify-maintenance-schedule-options).
          */
         startMinute?: pulumi.Input<number>;
     }
@@ -49514,28 +49606,28 @@ export namespace servicebus {
          */
         infrastructureEncryptionEnabled?: pulumi.Input<boolean>;
         /**
-         * The ID of the Key Vault Key which should be used to Encrypt the data in this ServiceBus Namespace.
+         * The ID of the Key Vault Key which should be used to Encrypt the data in this Service Bus Namespace.
          */
         keyVaultKeyId: pulumi.Input<string>;
     }
 
     export interface NamespaceIdentity {
         /**
-         * Specifies a list of User Assigned Managed Identity IDs to be assigned to this ServiceBus namespace.
+         * Specifies a list of User Assigned Managed Identity IDs to be assigned to this Service Bus namespace.
          *
          * > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
          */
         identityIds?: pulumi.Input<pulumi.Input<string>[]>;
         /**
-         * The Principal ID for the Service Principal associated with the Managed Service Identity of this ServiceBus Namespace.
+         * The Principal ID for the Service Principal associated with the Managed Service Identity of this Service Bus Namespace.
          */
         principalId?: pulumi.Input<string>;
         /**
-         * The Tenant ID for the Service Principal associated with the Managed Service Identity of this ServiceBus Namespace.
+         * The Tenant ID for the Service Principal associated with the Managed Service Identity of this Service Bus Namespace.
          */
         tenantId?: pulumi.Input<string>;
         /**
-         * Specifies the type of Managed Service Identity that should be configured on this ServiceBus Namespace. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
+         * Specifies the type of Managed Service Identity that should be configured on this Service Bus Namespace. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
          */
         type: pulumi.Input<string>;
     }
@@ -49546,7 +49638,7 @@ export namespace servicebus {
          */
         defaultAction?: pulumi.Input<string>;
         /**
-         * One or more IP Addresses, or CIDR Blocks which should be able to access the ServiceBus Namespace.
+         * One or more IP Addresses, or CIDR Blocks which should be able to access the Service Bus Namespace.
          */
         ipRules?: pulumi.Input<pulumi.Input<string>[]>;
         /**
@@ -49567,11 +49659,11 @@ export namespace servicebus {
 
     export interface NamespaceNetworkRuleSetNetworkRule {
         /**
-         * Should the ServiceBus Namespace Network Rule Set ignore missing Virtual Network Service Endpoint option in the Subnet? Defaults to `false`.
+         * Should the Service Bus Namespace Network Rule Set ignore missing Virtual Network Service Endpoint option in the Subnet? Defaults to `false`.
          */
         ignoreMissingVnetServiceEndpoint?: pulumi.Input<boolean>;
         /**
-         * The Subnet ID which should be able to access this ServiceBus Namespace.
+         * The Subnet ID which should be able to access this Service Bus Namespace.
          */
         subnetId: pulumi.Input<string>;
     }
@@ -50398,7 +50490,7 @@ export namespace siterecovery {
          */
         preActions?: pulumi.Input<pulumi.Input<inputs.siterecovery.ReplicationRecoveryPlanBootRecoveryGroupPreAction>[]>;
         /**
-         * One or more protected VM IDs. It must not be specified when `type` is `Shutdown`.
+         * One or more protected VM IDs.
          */
         replicatedProtectedItems?: pulumi.Input<pulumi.Input<string>[]>;
     }
@@ -52738,6 +52830,120 @@ export namespace synapse {
 }
 
 export namespace systemcenter {
+    export interface VirtualMachineManagerVirtualMachineInstanceHardware {
+        /**
+         * The number of vCPUs for the Virtual Machine. Possible values are between `1` and `64`.
+         */
+        cpuCount?: pulumi.Input<number>;
+        /**
+         * The max dynamic memory for the Virtual Machine. Possible values are between `32` and `1048576`.
+         */
+        dynamicMemoryMaxInMb?: pulumi.Input<number>;
+        /**
+         * The min dynamic memory for the Virtual Machine. Possible values are between `32` and `1048576`.
+         */
+        dynamicMemoryMinInMb?: pulumi.Input<number>;
+        /**
+         * Whether processor compatibility mode for live migration of Virtual Machines is enabled.
+         */
+        limitCpuForMigrationEnabled?: pulumi.Input<boolean>;
+        /**
+         * The size of a Virtual Machine's memory. Possible values are between `32` and `1048576`.
+         */
+        memoryInMb?: pulumi.Input<number>;
+    }
+
+    export interface VirtualMachineManagerVirtualMachineInstanceInfrastructure {
+        /**
+         * The type of checkpoint supported for the Virtual Machine. Possible values are `Disabled`, `Production`, `ProductionOnly` and `Standard`.
+         */
+        checkpointType?: pulumi.Input<string>;
+        /**
+         * The ID of the System Center Virtual Machine Manager Cloud resource to use for deploying the Virtual Machine. Changing this forces a new resource to be created.
+         */
+        systemCenterVirtualMachineManagerCloudId?: pulumi.Input<string>;
+        /**
+         * The ID of the System Center Virtual Machine Manager Inventory Item for System Center Virtual Machine Manager Virtual Machine Instance. Changing this forces a new resource to be created.
+         */
+        systemCenterVirtualMachineManagerInventoryItemId?: pulumi.Input<string>;
+        /**
+         * The ID of the System Center Virtual Machine Manager Virtual Machine Template to use for deploying the Virtual Machine. Changing this forces a new resource to be created.
+         */
+        systemCenterVirtualMachineManagerTemplateId?: pulumi.Input<string>;
+        /**
+         * The ID of the System Center Virtual Machine Manager Virtual Machine. Changing this forces a new resource to be created.
+         */
+        systemCenterVirtualMachineManagerVirtualMachineServerId?: pulumi.Input<string>;
+    }
+
+    export interface VirtualMachineManagerVirtualMachineInstanceNetworkInterface {
+        /**
+         * The IPv4 address type. Possible values are `Dynamic` and `Static`.
+         */
+        ipv4AddressType?: pulumi.Input<string>;
+        /**
+         * The IPv6 address type. Possible values are `Dynamic` and `Static`.
+         */
+        ipv6AddressType?: pulumi.Input<string>;
+        /**
+         * The MAC address type. Possible values are `Dynamic` and `Static`.
+         */
+        macAddressType?: pulumi.Input<string>;
+        /**
+         * The name of the Virtual Network in System Center Virtual Machine Manager Server that the Network Interface is connected to.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * The ID of the System Center Virtual Machine Manager Virtual Network to connect the Network Interface.
+         */
+        virtualNetworkId?: pulumi.Input<string>;
+    }
+
+    export interface VirtualMachineManagerVirtualMachineInstanceOperatingSystem {
+        /**
+         * The admin password of the Virtual Machine. Changing this forces a new resource to be created.
+         */
+        adminPassword?: pulumi.Input<string>;
+        /**
+         * The computer name of the Virtual Machine. Changing this forces a new resource to be created.
+         */
+        computerName: pulumi.Input<string>;
+    }
+
+    export interface VirtualMachineManagerVirtualMachineInstanceStorageDisk {
+        /**
+         * The disk bus. Possible values are between `0` and `3`.
+         */
+        bus?: pulumi.Input<number>;
+        /**
+         * The disk bus type. Possible values are `IDE` and `SCSI`.
+         */
+        busType?: pulumi.Input<string>;
+        /**
+         * The disk total size.
+         */
+        diskSizeGb?: pulumi.Input<number>;
+        /**
+         * The disk lun. Possible values are between `0` and `63`.
+         */
+        lun?: pulumi.Input<number>;
+        /**
+         * The name of the disk.
+         */
+        name?: pulumi.Input<string>;
+        /**
+         * The name of the Storage QoS policy.
+         */
+        storageQosPolicyName?: pulumi.Input<string>;
+        /**
+         * The disk ID in the System Center Virtual Machine Manager Virtual Machine Template. Changing this forces a new resource to be created.
+         */
+        templateDiskId?: pulumi.Input<string>;
+        /**
+         * The disk vhd type. Possible values are `Dynamic` and `Fixed`.
+         */
+        vhdType?: pulumi.Input<string>;
+    }
 }
 
 export namespace trafficmanager {
@@ -52856,6 +53062,8 @@ export namespace waf {
     export interface PolicyCustomRule {
         /**
          * Type of action. Possible values are `Allow`, `Block` and `Log`.
+         *
+         * > **Note:** If the `ruleType` is specified as `RateLimitRule`, the `Allow` is not supported.
          */
         action: pulumi.Input<string>;
         /**
@@ -53208,6 +53416,34 @@ export namespace webpubsub {
          * Whether the log category `MessagingLogs` is enabled? Defaults to `true`
          */
         messagingLogsEnabled?: pulumi.Input<boolean>;
+    }
+
+    export interface SocketioIdentity {
+        /**
+         * Specifies a list of User Assigned Managed Identity IDs for this Web PubSub Service.
+         *
+         * > **Note:** `identityIds` is required when `type` is `UserAssigned`.
+         */
+        identityIds?: pulumi.Input<pulumi.Input<string>[]>;
+        principalId?: pulumi.Input<string>;
+        tenantId?: pulumi.Input<string>;
+        /**
+         * The type of Managed Identity for this Web PubSub Service. Possible Values are `SystemAssigned` and `UserAssigned`.
+         */
+        type: pulumi.Input<string>;
+    }
+
+    export interface SocketioSku {
+        /**
+         * The number of units associated with this Web PubSub Service. Defaults to `1`. Possible values are `1`, `2`, `3`, `4`, `5`, `6`, `7`, `8`, `9`, `10`, `20`, `30`, `40`, `50`, `60`, `70`, `80`, `90`, `100`, `200`, `300`, `400`, `500`, `600`, `700`, `800`, `900` and `1000`.
+         *
+         * > **Note:** The valid range depends on which `sku` is used. For `Free_F1` only `1` is supported, for `Standard_S1` and `Premium_P1` `1` through `100` are supported, and for `Premium_P2` the minimum capacity is `100`.
+         */
+        capacity?: pulumi.Input<number>;
+        /**
+         * The name which should be used for this Web PubSub Service. Changing this forces a new Web PubSub Service to be created.
+         */
+        name: pulumi.Input<string>;
     }
 }
 

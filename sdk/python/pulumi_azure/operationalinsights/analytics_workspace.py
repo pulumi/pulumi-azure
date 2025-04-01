@@ -42,9 +42,7 @@ class AnalyticsWorkspaceArgs:
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the Log Analytics workspace is created. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] allow_resource_only_permissions: Specifies if the log Analytics Workspace allow users accessing to data associated with resources they have permission to view, without permission to workspace. Defaults to `true`.
         :param pulumi.Input[bool] cmk_for_query_forced: Is Customer Managed Storage mandatory for query management?
-        :param pulumi.Input[float] daily_quota_gb: The workspace daily quota for ingestion in GB. Defaults to -1 (unlimited) if omitted.
-               
-               > **NOTE:** When `sku` is set to `Free` this field should not be set and has a default value of `0.5`.
+        :param pulumi.Input[float] daily_quota_gb: The workspace daily quota for ingestion in GB. Defaults to `-1` (unlimited) if omitted.
         :param pulumi.Input[str] data_collection_rule_id: The ID of the Data Collection Rule to use for this workspace.
         :param pulumi.Input['AnalyticsWorkspaceIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[bool] immediate_data_purge_on30_days_enabled: Whether to remove the data in the Log Analytics Workspace immediately after 30 days.
@@ -55,16 +53,16 @@ class AnalyticsWorkspaceArgs:
         :param pulumi.Input[str] name: Specifies the name of the Log Analytics Workspace. Workspace name should include 4-63 letters, digits or '-'. The '-' shouldn't be the first or the last symbol. Changing this forces a new resource to be created.
         :param pulumi.Input[int] reservation_capacity_in_gb_per_day: The capacity reservation level in GB for this workspace. Possible values are `100`, `200`, `300`, `400`, `500`, `1000`, `2000` and `5000`.
                
-               > **NOTE:** `reservation_capacity_in_gb_per_day` can only be used when the `sku` is set to `CapacityReservation`.
-        :param pulumi.Input[int] retention_in_days: The workspace data retention in days. Possible values are either 7 (Free Tier only) or range between 30 and 730.
-        :param pulumi.Input[str] sku: Specifies the SKU of the Log Analytics Workspace. Possible values are `PerNode`, `Premium`, `Standard`, `Standalone`, `Unlimited`, `CapacityReservation`, and `PerGB2018` (new SKU as of `2018-04-03`). Defaults to `PerGB2018`.
+               > **Note:** `reservation_capacity_in_gb_per_day` can only be used when the `sku` is set to `CapacityReservation`.
+        :param pulumi.Input[int] retention_in_days: The workspace data retention in days. Possible values are between `30` and `730`.
+        :param pulumi.Input[str] sku: Specifies the SKU of the Log Analytics Workspace. Possible values are `PerNode`, `Premium`, `Standard`, `Standalone`, `Unlimited`, `CapacityReservation`, `PerGB2018`, and `LACluster`. Defaults to `PerGB2018`.
                
-               > **NOTE:** A new pricing model took effect on `2018-04-03`, which requires the SKU `PerGB2018`. If you're provisioned resources before this date you have the option of remaining with the previous Pricing SKU and using the other SKUs defined above. More information about [the Pricing SKUs is available at the following URI](https://aka.ms/PricingTierWarning).
+               > **Note:** `sku` should only be set to `LACluster` when the Log Analytics Workspace is linked to a Log Analytics Cluster. Additionally, `sku` cannot be modified while linked.
                
-               > **NOTE:** Changing `sku` forces a new Log Analytics Workspace to be created, except when changing between `PerGB2018` and `CapacityReservation`. However, changing `sku` to `CapacityReservation` or changing `reservation_capacity_in_gb_per_day` to a higher tier will lead to a 31-days commitment period, during which the SKU cannot be changed to a lower one. Please refer to [official documentation](https://learn.microsoft.com/en-us/azure/azure-monitor/logs/cost-logs#commitment-tiers) for further information.
+               > **Note:** Changing `sku` forces a new Log Analytics Workspace to be created, except when changing between `PerGB2018` and `CapacityReservation`. Changing `sku` to `CapacityReservation` or changing `reservation_capacity_in_gb_per_day` to a higher tier will lead to a 31-days commitment period, during which the SKU cannot be changed to a lower one. Please refer to [official documentation](https://learn.microsoft.com/en-us/azure/azure-monitor/logs/cost-logs#commitment-tiers) for further information.
+               
+               > **Note:** A new pricing model took effect on `2018-04-03`, which requires the SKU `PerGB2018`. If you've provisioned resources before this date you have the option of remaining with the previous Pricing SKU and using the other SKUs defined above. More information about [the Pricing SKUs is available at the following URI](https://aka.ms/PricingTierWarning).
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
-               
-               > **NOTE:** If a `operationalinsights.AnalyticsWorkspace` is connected to a `loganalytics.Cluster` via a `loganalytics.LinkedService` you will not be able to modify the workspaces `sku` field until the link between the workspace and the cluster has been broken by deleting the `loganalytics.LinkedService` resource. All other fields are modifiable while the workspace is linked to a cluster.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if allow_resource_only_permissions is not None:
@@ -138,9 +136,7 @@ class AnalyticsWorkspaceArgs:
     @pulumi.getter(name="dailyQuotaGb")
     def daily_quota_gb(self) -> Optional[pulumi.Input[float]]:
         """
-        The workspace daily quota for ingestion in GB. Defaults to -1 (unlimited) if omitted.
-
-        > **NOTE:** When `sku` is set to `Free` this field should not be set and has a default value of `0.5`.
+        The workspace daily quota for ingestion in GB. Defaults to `-1` (unlimited) if omitted.
         """
         return pulumi.get(self, "daily_quota_gb")
 
@@ -250,7 +246,7 @@ class AnalyticsWorkspaceArgs:
         """
         The capacity reservation level in GB for this workspace. Possible values are `100`, `200`, `300`, `400`, `500`, `1000`, `2000` and `5000`.
 
-        > **NOTE:** `reservation_capacity_in_gb_per_day` can only be used when the `sku` is set to `CapacityReservation`.
+        > **Note:** `reservation_capacity_in_gb_per_day` can only be used when the `sku` is set to `CapacityReservation`.
         """
         return pulumi.get(self, "reservation_capacity_in_gb_per_day")
 
@@ -262,7 +258,7 @@ class AnalyticsWorkspaceArgs:
     @pulumi.getter(name="retentionInDays")
     def retention_in_days(self) -> Optional[pulumi.Input[int]]:
         """
-        The workspace data retention in days. Possible values are either 7 (Free Tier only) or range between 30 and 730.
+        The workspace data retention in days. Possible values are between `30` and `730`.
         """
         return pulumi.get(self, "retention_in_days")
 
@@ -274,11 +270,13 @@ class AnalyticsWorkspaceArgs:
     @pulumi.getter
     def sku(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the SKU of the Log Analytics Workspace. Possible values are `PerNode`, `Premium`, `Standard`, `Standalone`, `Unlimited`, `CapacityReservation`, and `PerGB2018` (new SKU as of `2018-04-03`). Defaults to `PerGB2018`.
+        Specifies the SKU of the Log Analytics Workspace. Possible values are `PerNode`, `Premium`, `Standard`, `Standalone`, `Unlimited`, `CapacityReservation`, `PerGB2018`, and `LACluster`. Defaults to `PerGB2018`.
 
-        > **NOTE:** A new pricing model took effect on `2018-04-03`, which requires the SKU `PerGB2018`. If you're provisioned resources before this date you have the option of remaining with the previous Pricing SKU and using the other SKUs defined above. More information about [the Pricing SKUs is available at the following URI](https://aka.ms/PricingTierWarning).
+        > **Note:** `sku` should only be set to `LACluster` when the Log Analytics Workspace is linked to a Log Analytics Cluster. Additionally, `sku` cannot be modified while linked.
 
-        > **NOTE:** Changing `sku` forces a new Log Analytics Workspace to be created, except when changing between `PerGB2018` and `CapacityReservation`. However, changing `sku` to `CapacityReservation` or changing `reservation_capacity_in_gb_per_day` to a higher tier will lead to a 31-days commitment period, during which the SKU cannot be changed to a lower one. Please refer to [official documentation](https://learn.microsoft.com/en-us/azure/azure-monitor/logs/cost-logs#commitment-tiers) for further information.
+        > **Note:** Changing `sku` forces a new Log Analytics Workspace to be created, except when changing between `PerGB2018` and `CapacityReservation`. Changing `sku` to `CapacityReservation` or changing `reservation_capacity_in_gb_per_day` to a higher tier will lead to a 31-days commitment period, during which the SKU cannot be changed to a lower one. Please refer to [official documentation](https://learn.microsoft.com/en-us/azure/azure-monitor/logs/cost-logs#commitment-tiers) for further information.
+
+        > **Note:** A new pricing model took effect on `2018-04-03`, which requires the SKU `PerGB2018`. If you've provisioned resources before this date you have the option of remaining with the previous Pricing SKU and using the other SKUs defined above. More information about [the Pricing SKUs is available at the following URI](https://aka.ms/PricingTierWarning).
         """
         return pulumi.get(self, "sku")
 
@@ -291,8 +289,6 @@ class AnalyticsWorkspaceArgs:
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
         A mapping of tags to assign to the resource.
-
-        > **NOTE:** If a `operationalinsights.AnalyticsWorkspace` is connected to a `loganalytics.Cluster` via a `loganalytics.LinkedService` you will not be able to modify the workspaces `sku` field until the link between the workspace and the cluster has been broken by deleting the `loganalytics.LinkedService` resource. All other fields are modifiable while the workspace is linked to a cluster.
         """
         return pulumi.get(self, "tags")
 
@@ -327,9 +323,7 @@ class _AnalyticsWorkspaceState:
         Input properties used for looking up and filtering AnalyticsWorkspace resources.
         :param pulumi.Input[bool] allow_resource_only_permissions: Specifies if the log Analytics Workspace allow users accessing to data associated with resources they have permission to view, without permission to workspace. Defaults to `true`.
         :param pulumi.Input[bool] cmk_for_query_forced: Is Customer Managed Storage mandatory for query management?
-        :param pulumi.Input[float] daily_quota_gb: The workspace daily quota for ingestion in GB. Defaults to -1 (unlimited) if omitted.
-               
-               > **NOTE:** When `sku` is set to `Free` this field should not be set and has a default value of `0.5`.
+        :param pulumi.Input[float] daily_quota_gb: The workspace daily quota for ingestion in GB. Defaults to `-1` (unlimited) if omitted.
         :param pulumi.Input[str] data_collection_rule_id: The ID of the Data Collection Rule to use for this workspace.
         :param pulumi.Input['AnalyticsWorkspaceIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[bool] immediate_data_purge_on30_days_enabled: Whether to remove the data in the Log Analytics Workspace immediately after 30 days.
@@ -341,18 +335,18 @@ class _AnalyticsWorkspaceState:
         :param pulumi.Input[str] primary_shared_key: The Primary shared key for the Log Analytics Workspace.
         :param pulumi.Input[int] reservation_capacity_in_gb_per_day: The capacity reservation level in GB for this workspace. Possible values are `100`, `200`, `300`, `400`, `500`, `1000`, `2000` and `5000`.
                
-               > **NOTE:** `reservation_capacity_in_gb_per_day` can only be used when the `sku` is set to `CapacityReservation`.
+               > **Note:** `reservation_capacity_in_gb_per_day` can only be used when the `sku` is set to `CapacityReservation`.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the Log Analytics workspace is created. Changing this forces a new resource to be created.
-        :param pulumi.Input[int] retention_in_days: The workspace data retention in days. Possible values are either 7 (Free Tier only) or range between 30 and 730.
+        :param pulumi.Input[int] retention_in_days: The workspace data retention in days. Possible values are between `30` and `730`.
         :param pulumi.Input[str] secondary_shared_key: The Secondary shared key for the Log Analytics Workspace.
-        :param pulumi.Input[str] sku: Specifies the SKU of the Log Analytics Workspace. Possible values are `PerNode`, `Premium`, `Standard`, `Standalone`, `Unlimited`, `CapacityReservation`, and `PerGB2018` (new SKU as of `2018-04-03`). Defaults to `PerGB2018`.
+        :param pulumi.Input[str] sku: Specifies the SKU of the Log Analytics Workspace. Possible values are `PerNode`, `Premium`, `Standard`, `Standalone`, `Unlimited`, `CapacityReservation`, `PerGB2018`, and `LACluster`. Defaults to `PerGB2018`.
                
-               > **NOTE:** A new pricing model took effect on `2018-04-03`, which requires the SKU `PerGB2018`. If you're provisioned resources before this date you have the option of remaining with the previous Pricing SKU and using the other SKUs defined above. More information about [the Pricing SKUs is available at the following URI](https://aka.ms/PricingTierWarning).
+               > **Note:** `sku` should only be set to `LACluster` when the Log Analytics Workspace is linked to a Log Analytics Cluster. Additionally, `sku` cannot be modified while linked.
                
-               > **NOTE:** Changing `sku` forces a new Log Analytics Workspace to be created, except when changing between `PerGB2018` and `CapacityReservation`. However, changing `sku` to `CapacityReservation` or changing `reservation_capacity_in_gb_per_day` to a higher tier will lead to a 31-days commitment period, during which the SKU cannot be changed to a lower one. Please refer to [official documentation](https://learn.microsoft.com/en-us/azure/azure-monitor/logs/cost-logs#commitment-tiers) for further information.
+               > **Note:** Changing `sku` forces a new Log Analytics Workspace to be created, except when changing between `PerGB2018` and `CapacityReservation`. Changing `sku` to `CapacityReservation` or changing `reservation_capacity_in_gb_per_day` to a higher tier will lead to a 31-days commitment period, during which the SKU cannot be changed to a lower one. Please refer to [official documentation](https://learn.microsoft.com/en-us/azure/azure-monitor/logs/cost-logs#commitment-tiers) for further information.
+               
+               > **Note:** A new pricing model took effect on `2018-04-03`, which requires the SKU `PerGB2018`. If you've provisioned resources before this date you have the option of remaining with the previous Pricing SKU and using the other SKUs defined above. More information about [the Pricing SKUs is available at the following URI](https://aka.ms/PricingTierWarning).
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
-               
-               > **NOTE:** If a `operationalinsights.AnalyticsWorkspace` is connected to a `loganalytics.Cluster` via a `loganalytics.LinkedService` you will not be able to modify the workspaces `sku` field until the link between the workspace and the cluster has been broken by deleting the `loganalytics.LinkedService` resource. All other fields are modifiable while the workspace is linked to a cluster.
         :param pulumi.Input[str] workspace_id: The Workspace (or Customer) ID for the Log Analytics Workspace.
         """
         if allow_resource_only_permissions is not None:
@@ -422,9 +416,7 @@ class _AnalyticsWorkspaceState:
     @pulumi.getter(name="dailyQuotaGb")
     def daily_quota_gb(self) -> Optional[pulumi.Input[float]]:
         """
-        The workspace daily quota for ingestion in GB. Defaults to -1 (unlimited) if omitted.
-
-        > **NOTE:** When `sku` is set to `Free` this field should not be set and has a default value of `0.5`.
+        The workspace daily quota for ingestion in GB. Defaults to `-1` (unlimited) if omitted.
         """
         return pulumi.get(self, "daily_quota_gb")
 
@@ -546,7 +538,7 @@ class _AnalyticsWorkspaceState:
         """
         The capacity reservation level in GB for this workspace. Possible values are `100`, `200`, `300`, `400`, `500`, `1000`, `2000` and `5000`.
 
-        > **NOTE:** `reservation_capacity_in_gb_per_day` can only be used when the `sku` is set to `CapacityReservation`.
+        > **Note:** `reservation_capacity_in_gb_per_day` can only be used when the `sku` is set to `CapacityReservation`.
         """
         return pulumi.get(self, "reservation_capacity_in_gb_per_day")
 
@@ -570,7 +562,7 @@ class _AnalyticsWorkspaceState:
     @pulumi.getter(name="retentionInDays")
     def retention_in_days(self) -> Optional[pulumi.Input[int]]:
         """
-        The workspace data retention in days. Possible values are either 7 (Free Tier only) or range between 30 and 730.
+        The workspace data retention in days. Possible values are between `30` and `730`.
         """
         return pulumi.get(self, "retention_in_days")
 
@@ -594,11 +586,13 @@ class _AnalyticsWorkspaceState:
     @pulumi.getter
     def sku(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the SKU of the Log Analytics Workspace. Possible values are `PerNode`, `Premium`, `Standard`, `Standalone`, `Unlimited`, `CapacityReservation`, and `PerGB2018` (new SKU as of `2018-04-03`). Defaults to `PerGB2018`.
+        Specifies the SKU of the Log Analytics Workspace. Possible values are `PerNode`, `Premium`, `Standard`, `Standalone`, `Unlimited`, `CapacityReservation`, `PerGB2018`, and `LACluster`. Defaults to `PerGB2018`.
 
-        > **NOTE:** A new pricing model took effect on `2018-04-03`, which requires the SKU `PerGB2018`. If you're provisioned resources before this date you have the option of remaining with the previous Pricing SKU and using the other SKUs defined above. More information about [the Pricing SKUs is available at the following URI](https://aka.ms/PricingTierWarning).
+        > **Note:** `sku` should only be set to `LACluster` when the Log Analytics Workspace is linked to a Log Analytics Cluster. Additionally, `sku` cannot be modified while linked.
 
-        > **NOTE:** Changing `sku` forces a new Log Analytics Workspace to be created, except when changing between `PerGB2018` and `CapacityReservation`. However, changing `sku` to `CapacityReservation` or changing `reservation_capacity_in_gb_per_day` to a higher tier will lead to a 31-days commitment period, during which the SKU cannot be changed to a lower one. Please refer to [official documentation](https://learn.microsoft.com/en-us/azure/azure-monitor/logs/cost-logs#commitment-tiers) for further information.
+        > **Note:** Changing `sku` forces a new Log Analytics Workspace to be created, except when changing between `PerGB2018` and `CapacityReservation`. Changing `sku` to `CapacityReservation` or changing `reservation_capacity_in_gb_per_day` to a higher tier will lead to a 31-days commitment period, during which the SKU cannot be changed to a lower one. Please refer to [official documentation](https://learn.microsoft.com/en-us/azure/azure-monitor/logs/cost-logs#commitment-tiers) for further information.
+
+        > **Note:** A new pricing model took effect on `2018-04-03`, which requires the SKU `PerGB2018`. If you've provisioned resources before this date you have the option of remaining with the previous Pricing SKU and using the other SKUs defined above. More information about [the Pricing SKUs is available at the following URI](https://aka.ms/PricingTierWarning).
         """
         return pulumi.get(self, "sku")
 
@@ -611,8 +605,6 @@ class _AnalyticsWorkspaceState:
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
         A mapping of tags to assign to the resource.
-
-        > **NOTE:** If a `operationalinsights.AnalyticsWorkspace` is connected to a `loganalytics.Cluster` via a `loganalytics.LinkedService` you will not be able to modify the workspaces `sku` field until the link between the workspace and the cluster has been broken by deleting the `loganalytics.LinkedService` resource. All other fields are modifiable while the workspace is linked to a cluster.
         """
         return pulumi.get(self, "tags")
 
@@ -668,7 +660,7 @@ class AnalyticsWorkspace(pulumi.CustomResource):
             name="example-resources",
             location="West Europe")
         example_analytics_workspace = azure.operationalinsights.AnalyticsWorkspace("example",
-            name="acctest-01",
+            name="example",
             location=example.location,
             resource_group_name=example.name,
             sku="PerGB2018",
@@ -687,9 +679,7 @@ class AnalyticsWorkspace(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] allow_resource_only_permissions: Specifies if the log Analytics Workspace allow users accessing to data associated with resources they have permission to view, without permission to workspace. Defaults to `true`.
         :param pulumi.Input[bool] cmk_for_query_forced: Is Customer Managed Storage mandatory for query management?
-        :param pulumi.Input[float] daily_quota_gb: The workspace daily quota for ingestion in GB. Defaults to -1 (unlimited) if omitted.
-               
-               > **NOTE:** When `sku` is set to `Free` this field should not be set and has a default value of `0.5`.
+        :param pulumi.Input[float] daily_quota_gb: The workspace daily quota for ingestion in GB. Defaults to `-1` (unlimited) if omitted.
         :param pulumi.Input[str] data_collection_rule_id: The ID of the Data Collection Rule to use for this workspace.
         :param pulumi.Input[Union['AnalyticsWorkspaceIdentityArgs', 'AnalyticsWorkspaceIdentityArgsDict']] identity: An `identity` block as defined below.
         :param pulumi.Input[bool] immediate_data_purge_on30_days_enabled: Whether to remove the data in the Log Analytics Workspace immediately after 30 days.
@@ -700,17 +690,17 @@ class AnalyticsWorkspace(pulumi.CustomResource):
         :param pulumi.Input[str] name: Specifies the name of the Log Analytics Workspace. Workspace name should include 4-63 letters, digits or '-'. The '-' shouldn't be the first or the last symbol. Changing this forces a new resource to be created.
         :param pulumi.Input[int] reservation_capacity_in_gb_per_day: The capacity reservation level in GB for this workspace. Possible values are `100`, `200`, `300`, `400`, `500`, `1000`, `2000` and `5000`.
                
-               > **NOTE:** `reservation_capacity_in_gb_per_day` can only be used when the `sku` is set to `CapacityReservation`.
+               > **Note:** `reservation_capacity_in_gb_per_day` can only be used when the `sku` is set to `CapacityReservation`.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the Log Analytics workspace is created. Changing this forces a new resource to be created.
-        :param pulumi.Input[int] retention_in_days: The workspace data retention in days. Possible values are either 7 (Free Tier only) or range between 30 and 730.
-        :param pulumi.Input[str] sku: Specifies the SKU of the Log Analytics Workspace. Possible values are `PerNode`, `Premium`, `Standard`, `Standalone`, `Unlimited`, `CapacityReservation`, and `PerGB2018` (new SKU as of `2018-04-03`). Defaults to `PerGB2018`.
+        :param pulumi.Input[int] retention_in_days: The workspace data retention in days. Possible values are between `30` and `730`.
+        :param pulumi.Input[str] sku: Specifies the SKU of the Log Analytics Workspace. Possible values are `PerNode`, `Premium`, `Standard`, `Standalone`, `Unlimited`, `CapacityReservation`, `PerGB2018`, and `LACluster`. Defaults to `PerGB2018`.
                
-               > **NOTE:** A new pricing model took effect on `2018-04-03`, which requires the SKU `PerGB2018`. If you're provisioned resources before this date you have the option of remaining with the previous Pricing SKU and using the other SKUs defined above. More information about [the Pricing SKUs is available at the following URI](https://aka.ms/PricingTierWarning).
+               > **Note:** `sku` should only be set to `LACluster` when the Log Analytics Workspace is linked to a Log Analytics Cluster. Additionally, `sku` cannot be modified while linked.
                
-               > **NOTE:** Changing `sku` forces a new Log Analytics Workspace to be created, except when changing between `PerGB2018` and `CapacityReservation`. However, changing `sku` to `CapacityReservation` or changing `reservation_capacity_in_gb_per_day` to a higher tier will lead to a 31-days commitment period, during which the SKU cannot be changed to a lower one. Please refer to [official documentation](https://learn.microsoft.com/en-us/azure/azure-monitor/logs/cost-logs#commitment-tiers) for further information.
+               > **Note:** Changing `sku` forces a new Log Analytics Workspace to be created, except when changing between `PerGB2018` and `CapacityReservation`. Changing `sku` to `CapacityReservation` or changing `reservation_capacity_in_gb_per_day` to a higher tier will lead to a 31-days commitment period, during which the SKU cannot be changed to a lower one. Please refer to [official documentation](https://learn.microsoft.com/en-us/azure/azure-monitor/logs/cost-logs#commitment-tiers) for further information.
+               
+               > **Note:** A new pricing model took effect on `2018-04-03`, which requires the SKU `PerGB2018`. If you've provisioned resources before this date you have the option of remaining with the previous Pricing SKU and using the other SKUs defined above. More information about [the Pricing SKUs is available at the following URI](https://aka.ms/PricingTierWarning).
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
-               
-               > **NOTE:** If a `operationalinsights.AnalyticsWorkspace` is connected to a `loganalytics.Cluster` via a `loganalytics.LinkedService` you will not be able to modify the workspaces `sku` field until the link between the workspace and the cluster has been broken by deleting the `loganalytics.LinkedService` resource. All other fields are modifiable while the workspace is linked to a cluster.
         """
         ...
     @overload
@@ -731,7 +721,7 @@ class AnalyticsWorkspace(pulumi.CustomResource):
             name="example-resources",
             location="West Europe")
         example_analytics_workspace = azure.operationalinsights.AnalyticsWorkspace("example",
-            name="acctest-01",
+            name="example",
             location=example.location,
             resource_group_name=example.name,
             sku="PerGB2018",
@@ -847,9 +837,7 @@ class AnalyticsWorkspace(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] allow_resource_only_permissions: Specifies if the log Analytics Workspace allow users accessing to data associated with resources they have permission to view, without permission to workspace. Defaults to `true`.
         :param pulumi.Input[bool] cmk_for_query_forced: Is Customer Managed Storage mandatory for query management?
-        :param pulumi.Input[float] daily_quota_gb: The workspace daily quota for ingestion in GB. Defaults to -1 (unlimited) if omitted.
-               
-               > **NOTE:** When `sku` is set to `Free` this field should not be set and has a default value of `0.5`.
+        :param pulumi.Input[float] daily_quota_gb: The workspace daily quota for ingestion in GB. Defaults to `-1` (unlimited) if omitted.
         :param pulumi.Input[str] data_collection_rule_id: The ID of the Data Collection Rule to use for this workspace.
         :param pulumi.Input[Union['AnalyticsWorkspaceIdentityArgs', 'AnalyticsWorkspaceIdentityArgsDict']] identity: An `identity` block as defined below.
         :param pulumi.Input[bool] immediate_data_purge_on30_days_enabled: Whether to remove the data in the Log Analytics Workspace immediately after 30 days.
@@ -861,18 +849,18 @@ class AnalyticsWorkspace(pulumi.CustomResource):
         :param pulumi.Input[str] primary_shared_key: The Primary shared key for the Log Analytics Workspace.
         :param pulumi.Input[int] reservation_capacity_in_gb_per_day: The capacity reservation level in GB for this workspace. Possible values are `100`, `200`, `300`, `400`, `500`, `1000`, `2000` and `5000`.
                
-               > **NOTE:** `reservation_capacity_in_gb_per_day` can only be used when the `sku` is set to `CapacityReservation`.
+               > **Note:** `reservation_capacity_in_gb_per_day` can only be used when the `sku` is set to `CapacityReservation`.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the Log Analytics workspace is created. Changing this forces a new resource to be created.
-        :param pulumi.Input[int] retention_in_days: The workspace data retention in days. Possible values are either 7 (Free Tier only) or range between 30 and 730.
+        :param pulumi.Input[int] retention_in_days: The workspace data retention in days. Possible values are between `30` and `730`.
         :param pulumi.Input[str] secondary_shared_key: The Secondary shared key for the Log Analytics Workspace.
-        :param pulumi.Input[str] sku: Specifies the SKU of the Log Analytics Workspace. Possible values are `PerNode`, `Premium`, `Standard`, `Standalone`, `Unlimited`, `CapacityReservation`, and `PerGB2018` (new SKU as of `2018-04-03`). Defaults to `PerGB2018`.
+        :param pulumi.Input[str] sku: Specifies the SKU of the Log Analytics Workspace. Possible values are `PerNode`, `Premium`, `Standard`, `Standalone`, `Unlimited`, `CapacityReservation`, `PerGB2018`, and `LACluster`. Defaults to `PerGB2018`.
                
-               > **NOTE:** A new pricing model took effect on `2018-04-03`, which requires the SKU `PerGB2018`. If you're provisioned resources before this date you have the option of remaining with the previous Pricing SKU and using the other SKUs defined above. More information about [the Pricing SKUs is available at the following URI](https://aka.ms/PricingTierWarning).
+               > **Note:** `sku` should only be set to `LACluster` when the Log Analytics Workspace is linked to a Log Analytics Cluster. Additionally, `sku` cannot be modified while linked.
                
-               > **NOTE:** Changing `sku` forces a new Log Analytics Workspace to be created, except when changing between `PerGB2018` and `CapacityReservation`. However, changing `sku` to `CapacityReservation` or changing `reservation_capacity_in_gb_per_day` to a higher tier will lead to a 31-days commitment period, during which the SKU cannot be changed to a lower one. Please refer to [official documentation](https://learn.microsoft.com/en-us/azure/azure-monitor/logs/cost-logs#commitment-tiers) for further information.
+               > **Note:** Changing `sku` forces a new Log Analytics Workspace to be created, except when changing between `PerGB2018` and `CapacityReservation`. Changing `sku` to `CapacityReservation` or changing `reservation_capacity_in_gb_per_day` to a higher tier will lead to a 31-days commitment period, during which the SKU cannot be changed to a lower one. Please refer to [official documentation](https://learn.microsoft.com/en-us/azure/azure-monitor/logs/cost-logs#commitment-tiers) for further information.
+               
+               > **Note:** A new pricing model took effect on `2018-04-03`, which requires the SKU `PerGB2018`. If you've provisioned resources before this date you have the option of remaining with the previous Pricing SKU and using the other SKUs defined above. More information about [the Pricing SKUs is available at the following URI](https://aka.ms/PricingTierWarning).
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
-               
-               > **NOTE:** If a `operationalinsights.AnalyticsWorkspace` is connected to a `loganalytics.Cluster` via a `loganalytics.LinkedService` you will not be able to modify the workspaces `sku` field until the link between the workspace and the cluster has been broken by deleting the `loganalytics.LinkedService` resource. All other fields are modifiable while the workspace is linked to a cluster.
         :param pulumi.Input[str] workspace_id: The Workspace (or Customer) ID for the Log Analytics Workspace.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -920,9 +908,7 @@ class AnalyticsWorkspace(pulumi.CustomResource):
     @pulumi.getter(name="dailyQuotaGb")
     def daily_quota_gb(self) -> pulumi.Output[Optional[float]]:
         """
-        The workspace daily quota for ingestion in GB. Defaults to -1 (unlimited) if omitted.
-
-        > **NOTE:** When `sku` is set to `Free` this field should not be set and has a default value of `0.5`.
+        The workspace daily quota for ingestion in GB. Defaults to `-1` (unlimited) if omitted.
         """
         return pulumi.get(self, "daily_quota_gb")
 
@@ -1004,7 +990,7 @@ class AnalyticsWorkspace(pulumi.CustomResource):
         """
         The capacity reservation level in GB for this workspace. Possible values are `100`, `200`, `300`, `400`, `500`, `1000`, `2000` and `5000`.
 
-        > **NOTE:** `reservation_capacity_in_gb_per_day` can only be used when the `sku` is set to `CapacityReservation`.
+        > **Note:** `reservation_capacity_in_gb_per_day` can only be used when the `sku` is set to `CapacityReservation`.
         """
         return pulumi.get(self, "reservation_capacity_in_gb_per_day")
 
@@ -1020,7 +1006,7 @@ class AnalyticsWorkspace(pulumi.CustomResource):
     @pulumi.getter(name="retentionInDays")
     def retention_in_days(self) -> pulumi.Output[int]:
         """
-        The workspace data retention in days. Possible values are either 7 (Free Tier only) or range between 30 and 730.
+        The workspace data retention in days. Possible values are between `30` and `730`.
         """
         return pulumi.get(self, "retention_in_days")
 
@@ -1036,11 +1022,13 @@ class AnalyticsWorkspace(pulumi.CustomResource):
     @pulumi.getter
     def sku(self) -> pulumi.Output[str]:
         """
-        Specifies the SKU of the Log Analytics Workspace. Possible values are `PerNode`, `Premium`, `Standard`, `Standalone`, `Unlimited`, `CapacityReservation`, and `PerGB2018` (new SKU as of `2018-04-03`). Defaults to `PerGB2018`.
+        Specifies the SKU of the Log Analytics Workspace. Possible values are `PerNode`, `Premium`, `Standard`, `Standalone`, `Unlimited`, `CapacityReservation`, `PerGB2018`, and `LACluster`. Defaults to `PerGB2018`.
 
-        > **NOTE:** A new pricing model took effect on `2018-04-03`, which requires the SKU `PerGB2018`. If you're provisioned resources before this date you have the option of remaining with the previous Pricing SKU and using the other SKUs defined above. More information about [the Pricing SKUs is available at the following URI](https://aka.ms/PricingTierWarning).
+        > **Note:** `sku` should only be set to `LACluster` when the Log Analytics Workspace is linked to a Log Analytics Cluster. Additionally, `sku` cannot be modified while linked.
 
-        > **NOTE:** Changing `sku` forces a new Log Analytics Workspace to be created, except when changing between `PerGB2018` and `CapacityReservation`. However, changing `sku` to `CapacityReservation` or changing `reservation_capacity_in_gb_per_day` to a higher tier will lead to a 31-days commitment period, during which the SKU cannot be changed to a lower one. Please refer to [official documentation](https://learn.microsoft.com/en-us/azure/azure-monitor/logs/cost-logs#commitment-tiers) for further information.
+        > **Note:** Changing `sku` forces a new Log Analytics Workspace to be created, except when changing between `PerGB2018` and `CapacityReservation`. Changing `sku` to `CapacityReservation` or changing `reservation_capacity_in_gb_per_day` to a higher tier will lead to a 31-days commitment period, during which the SKU cannot be changed to a lower one. Please refer to [official documentation](https://learn.microsoft.com/en-us/azure/azure-monitor/logs/cost-logs#commitment-tiers) for further information.
+
+        > **Note:** A new pricing model took effect on `2018-04-03`, which requires the SKU `PerGB2018`. If you've provisioned resources before this date you have the option of remaining with the previous Pricing SKU and using the other SKUs defined above. More information about [the Pricing SKUs is available at the following URI](https://aka.ms/PricingTierWarning).
         """
         return pulumi.get(self, "sku")
 
@@ -1049,8 +1037,6 @@ class AnalyticsWorkspace(pulumi.CustomResource):
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         A mapping of tags to assign to the resource.
-
-        > **NOTE:** If a `operationalinsights.AnalyticsWorkspace` is connected to a `loganalytics.Cluster` via a `loganalytics.LinkedService` you will not be able to modify the workspaces `sku` field until the link between the workspace and the cluster has been broken by deleting the `loganalytics.LinkedService` resource. All other fields are modifiable while the workspace is linked to a cluster.
         """
         return pulumi.get(self, "tags")
 

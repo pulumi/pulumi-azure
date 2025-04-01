@@ -7,7 +7,7 @@ import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
- * Manages a Network Managers.
+ * Manages a Network Manager.
  *
  * ## Example Usage
  *
@@ -40,7 +40,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Network Managers can be imported using the `resource id`, e.g.
+ * Network Manager can be imported using the `resource id`, e.g.
  *
  * ```sh
  * $ pulumi import azure:network/networkManager:NetworkManager example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.Network/networkManagers/networkManager1
@@ -79,19 +79,19 @@ export class NetworkManager extends pulumi.CustomResource {
      */
     public /*out*/ readonly crossTenantScopes!: pulumi.Output<outputs.network.NetworkManagerCrossTenantScope[]>;
     /**
-     * A description of the network manager.
+     * A description of the Network Manager.
      */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
-     * Specifies the Azure Region where the Network Managers should exist. Changing this forces a new resource to be created.
+     * Specifies the Azure Region where the Network Manager should exist. Changing this forces a new resource to be created.
      */
     public readonly location!: pulumi.Output<string>;
     /**
-     * Specifies the name which should be used for this Network Managers. Changing this forces a new Network Managers to be created.
+     * Specifies the name which should be used for this Network Manager. Changing this forces a new Network Manager to be created.
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Specifies the name of the Resource Group where the Network Managers should exist. Changing this forces a new Network Managers to be created.
+     * Specifies the name of the Resource Group where the Network Manager should exist. Changing this forces a new Network Manager to be created.
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
     /**
@@ -99,11 +99,11 @@ export class NetworkManager extends pulumi.CustomResource {
      */
     public readonly scope!: pulumi.Output<outputs.network.NetworkManagerScope>;
     /**
-     * A list of configuration deployment type. Possible values are `Connectivity`, `SecurityAdmin` and `Routing`, corresponds to if Connectivity Configuration, Security Admin Configuration or Routing Configuration is allowed for the Network Manager.
+     * A list of configuration deployment types. Possible values are `Connectivity`, `SecurityAdmin` and `Routing`, which specify whether Connectivity Configuration, Security Admin Configuration or Routing Configuration are allowed for the Network Manager.
      */
-    public readonly scopeAccesses!: pulumi.Output<string[]>;
+    public readonly scopeAccesses!: pulumi.Output<string[] | undefined>;
     /**
-     * A mapping of tags which should be assigned to the Network Managers.
+     * A mapping of tags which should be assigned to the Network Manager.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
 
@@ -136,9 +136,6 @@ export class NetworkManager extends pulumi.CustomResource {
             if ((!args || args.scope === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'scope'");
             }
-            if ((!args || args.scopeAccesses === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'scopeAccesses'");
-            }
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
@@ -162,19 +159,19 @@ export interface NetworkManagerState {
      */
     crossTenantScopes?: pulumi.Input<pulumi.Input<inputs.network.NetworkManagerCrossTenantScope>[]>;
     /**
-     * A description of the network manager.
+     * A description of the Network Manager.
      */
     description?: pulumi.Input<string>;
     /**
-     * Specifies the Azure Region where the Network Managers should exist. Changing this forces a new resource to be created.
+     * Specifies the Azure Region where the Network Manager should exist. Changing this forces a new resource to be created.
      */
     location?: pulumi.Input<string>;
     /**
-     * Specifies the name which should be used for this Network Managers. Changing this forces a new Network Managers to be created.
+     * Specifies the name which should be used for this Network Manager. Changing this forces a new Network Manager to be created.
      */
     name?: pulumi.Input<string>;
     /**
-     * Specifies the name of the Resource Group where the Network Managers should exist. Changing this forces a new Network Managers to be created.
+     * Specifies the name of the Resource Group where the Network Manager should exist. Changing this forces a new Network Manager to be created.
      */
     resourceGroupName?: pulumi.Input<string>;
     /**
@@ -182,11 +179,11 @@ export interface NetworkManagerState {
      */
     scope?: pulumi.Input<inputs.network.NetworkManagerScope>;
     /**
-     * A list of configuration deployment type. Possible values are `Connectivity`, `SecurityAdmin` and `Routing`, corresponds to if Connectivity Configuration, Security Admin Configuration or Routing Configuration is allowed for the Network Manager.
+     * A list of configuration deployment types. Possible values are `Connectivity`, `SecurityAdmin` and `Routing`, which specify whether Connectivity Configuration, Security Admin Configuration or Routing Configuration are allowed for the Network Manager.
      */
     scopeAccesses?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * A mapping of tags which should be assigned to the Network Managers.
+     * A mapping of tags which should be assigned to the Network Manager.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
@@ -196,19 +193,19 @@ export interface NetworkManagerState {
  */
 export interface NetworkManagerArgs {
     /**
-     * A description of the network manager.
+     * A description of the Network Manager.
      */
     description?: pulumi.Input<string>;
     /**
-     * Specifies the Azure Region where the Network Managers should exist. Changing this forces a new resource to be created.
+     * Specifies the Azure Region where the Network Manager should exist. Changing this forces a new resource to be created.
      */
     location?: pulumi.Input<string>;
     /**
-     * Specifies the name which should be used for this Network Managers. Changing this forces a new Network Managers to be created.
+     * Specifies the name which should be used for this Network Manager. Changing this forces a new Network Manager to be created.
      */
     name?: pulumi.Input<string>;
     /**
-     * Specifies the name of the Resource Group where the Network Managers should exist. Changing this forces a new Network Managers to be created.
+     * Specifies the name of the Resource Group where the Network Manager should exist. Changing this forces a new Network Manager to be created.
      */
     resourceGroupName: pulumi.Input<string>;
     /**
@@ -216,11 +213,11 @@ export interface NetworkManagerArgs {
      */
     scope: pulumi.Input<inputs.network.NetworkManagerScope>;
     /**
-     * A list of configuration deployment type. Possible values are `Connectivity`, `SecurityAdmin` and `Routing`, corresponds to if Connectivity Configuration, Security Admin Configuration or Routing Configuration is allowed for the Network Manager.
+     * A list of configuration deployment types. Possible values are `Connectivity`, `SecurityAdmin` and `Routing`, which specify whether Connectivity Configuration, Security Admin Configuration or Routing Configuration are allowed for the Network Manager.
      */
-    scopeAccesses: pulumi.Input<pulumi.Input<string>[]>;
+    scopeAccesses?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * A mapping of tags which should be assigned to the Network Managers.
+     * A mapping of tags which should be assigned to the Network Manager.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

@@ -74,7 +74,9 @@ import (
 type Capacity struct {
 	pulumi.CustomResourceState
 
-	// An array of administrator user identities. The member must be an Entra member user or a service principal.
+	// An array of administrator user identities. The member must be an Entra user or a service principal.
+	//
+	// > **Note:** If the member is an Entra user, use user principal name (UPN) format. If the user is a service principal, use object ID.
 	AdministrationMembers pulumi.StringArrayOutput `pulumi:"administrationMembers"`
 	// The supported Azure location where the Fabric Capacity exists. Changing this forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
@@ -124,7 +126,9 @@ func GetCapacity(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Capacity resources.
 type capacityState struct {
-	// An array of administrator user identities. The member must be an Entra member user or a service principal.
+	// An array of administrator user identities. The member must be an Entra user or a service principal.
+	//
+	// > **Note:** If the member is an Entra user, use user principal name (UPN) format. If the user is a service principal, use object ID.
 	AdministrationMembers []string `pulumi:"administrationMembers"`
 	// The supported Azure location where the Fabric Capacity exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
@@ -139,7 +143,9 @@ type capacityState struct {
 }
 
 type CapacityState struct {
-	// An array of administrator user identities. The member must be an Entra member user or a service principal.
+	// An array of administrator user identities. The member must be an Entra user or a service principal.
+	//
+	// > **Note:** If the member is an Entra user, use user principal name (UPN) format. If the user is a service principal, use object ID.
 	AdministrationMembers pulumi.StringArrayInput
 	// The supported Azure location where the Fabric Capacity exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
@@ -158,7 +164,9 @@ func (CapacityState) ElementType() reflect.Type {
 }
 
 type capacityArgs struct {
-	// An array of administrator user identities. The member must be an Entra member user or a service principal.
+	// An array of administrator user identities. The member must be an Entra user or a service principal.
+	//
+	// > **Note:** If the member is an Entra user, use user principal name (UPN) format. If the user is a service principal, use object ID.
 	AdministrationMembers []string `pulumi:"administrationMembers"`
 	// The supported Azure location where the Fabric Capacity exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
@@ -174,7 +182,9 @@ type capacityArgs struct {
 
 // The set of arguments for constructing a Capacity resource.
 type CapacityArgs struct {
-	// An array of administrator user identities. The member must be an Entra member user or a service principal.
+	// An array of administrator user identities. The member must be an Entra user or a service principal.
+	//
+	// > **Note:** If the member is an Entra user, use user principal name (UPN) format. If the user is a service principal, use object ID.
 	AdministrationMembers pulumi.StringArrayInput
 	// The supported Azure location where the Fabric Capacity exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
@@ -275,7 +285,9 @@ func (o CapacityOutput) ToCapacityOutputWithContext(ctx context.Context) Capacit
 	return o
 }
 
-// An array of administrator user identities. The member must be an Entra member user or a service principal.
+// An array of administrator user identities. The member must be an Entra user or a service principal.
+//
+// > **Note:** If the member is an Entra user, use user principal name (UPN) format. If the user is a service principal, use object ID.
 func (o CapacityOutput) AdministrationMembers() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Capacity) pulumi.StringArrayOutput { return v.AdministrationMembers }).(pulumi.StringArrayOutput)
 }

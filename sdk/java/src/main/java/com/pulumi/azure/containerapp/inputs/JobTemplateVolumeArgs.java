@@ -17,6 +17,21 @@ public final class JobTemplateVolumeArgs extends com.pulumi.resources.ResourceAr
     public static final JobTemplateVolumeArgs Empty = new JobTemplateVolumeArgs();
 
     /**
+     * Mount options used while mounting the AzureFile. Must be a comma-separated string e.g. `dir_mode=0751,file_mode=0751`.
+     * 
+     */
+    @Import(name="mountOptions")
+    private @Nullable Output<String> mountOptions;
+
+    /**
+     * @return Mount options used while mounting the AzureFile. Must be a comma-separated string e.g. `dir_mode=0751,file_mode=0751`.
+     * 
+     */
+    public Optional<Output<String>> mountOptions() {
+        return Optional.ofNullable(this.mountOptions);
+    }
+
+    /**
      * The name of the volume.
      * 
      */
@@ -64,6 +79,7 @@ public final class JobTemplateVolumeArgs extends com.pulumi.resources.ResourceAr
     private JobTemplateVolumeArgs() {}
 
     private JobTemplateVolumeArgs(JobTemplateVolumeArgs $) {
+        this.mountOptions = $.mountOptions;
         this.name = $.name;
         this.storageName = $.storageName;
         this.storageType = $.storageType;
@@ -85,6 +101,27 @@ public final class JobTemplateVolumeArgs extends com.pulumi.resources.ResourceAr
 
         public Builder(JobTemplateVolumeArgs defaults) {
             $ = new JobTemplateVolumeArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param mountOptions Mount options used while mounting the AzureFile. Must be a comma-separated string e.g. `dir_mode=0751,file_mode=0751`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder mountOptions(@Nullable Output<String> mountOptions) {
+            $.mountOptions = mountOptions;
+            return this;
+        }
+
+        /**
+         * @param mountOptions Mount options used while mounting the AzureFile. Must be a comma-separated string e.g. `dir_mode=0751,file_mode=0751`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder mountOptions(String mountOptions) {
+            return mountOptions(Output.of(mountOptions));
         }
 
         /**

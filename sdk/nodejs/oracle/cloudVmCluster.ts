@@ -72,6 +72,7 @@ import * as utilities from "../utilities";
  *     cpuCoreCount: 2,
  *     hostname: "hostname",
  *     subnetId: exampleSubnet.id,
+ *     systemVersion: "23.1.19.0.0.241015",
  * });
  * ```
  *
@@ -216,6 +217,10 @@ export class CloudVmCluster extends pulumi.CustomResource {
      */
     public readonly subnetId!: pulumi.Output<string>;
     /**
+     * Operating system version of the Exadata image. System version must be <= Db server major version (the first two parts of the DB server version eg 23.1.X.X.XXXX). Accepted Values for Grid Infrastructure (GI) version 19.0.0.0 are 22.1.30.0.0.241204, 22.1.32.0.0.250205, 22.1.31.0.0.250110, 23.1.20.0.0.241112, 23.1.21.0.0.241204, 23.1.22.0.0.250119, 23.1.23.0.0.250207. For Grid Infrastructure (GI) version 23.0.0.0 allowed system versions are 23.1.19.0.0.241015, 23.1.20.0.0.241112, 23.1.22.0.0.250119, 23.1.21.0.0.241204, 23.1.23.0.0.250207.
+     */
+    public readonly systemVersion!: pulumi.Output<string | undefined>;
+    /**
      * A mapping of tags which should be assigned to the Cloud VM Cluster.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
@@ -271,6 +276,7 @@ export class CloudVmCluster extends pulumi.CustomResource {
             resourceInputs["sparseDiskgroupEnabled"] = state ? state.sparseDiskgroupEnabled : undefined;
             resourceInputs["sshPublicKeys"] = state ? state.sshPublicKeys : undefined;
             resourceInputs["subnetId"] = state ? state.subnetId : undefined;
+            resourceInputs["systemVersion"] = state ? state.systemVersion : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["timeZone"] = state ? state.timeZone : undefined;
             resourceInputs["virtualNetworkId"] = state ? state.virtualNetworkId : undefined;
@@ -334,6 +340,7 @@ export class CloudVmCluster extends pulumi.CustomResource {
             resourceInputs["sparseDiskgroupEnabled"] = args ? args.sparseDiskgroupEnabled : undefined;
             resourceInputs["sshPublicKeys"] = args ? args.sshPublicKeys : undefined;
             resourceInputs["subnetId"] = args ? args.subnetId : undefined;
+            resourceInputs["systemVersion"] = args ? args.systemVersion : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["timeZone"] = args ? args.timeZone : undefined;
             resourceInputs["virtualNetworkId"] = args ? args.virtualNetworkId : undefined;
@@ -455,6 +462,10 @@ export interface CloudVmClusterState {
      */
     subnetId?: pulumi.Input<string>;
     /**
+     * Operating system version of the Exadata image. System version must be <= Db server major version (the first two parts of the DB server version eg 23.1.X.X.XXXX). Accepted Values for Grid Infrastructure (GI) version 19.0.0.0 are 22.1.30.0.0.241204, 22.1.32.0.0.250205, 22.1.31.0.0.250110, 23.1.20.0.0.241112, 23.1.21.0.0.241204, 23.1.22.0.0.250119, 23.1.23.0.0.250207. For Grid Infrastructure (GI) version 23.0.0.0 allowed system versions are 23.1.19.0.0.241015, 23.1.20.0.0.241112, 23.1.22.0.0.250119, 23.1.21.0.0.241204, 23.1.23.0.0.250207.
+     */
+    systemVersion?: pulumi.Input<string>;
+    /**
      * A mapping of tags which should be assigned to the Cloud VM Cluster.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
@@ -572,6 +583,10 @@ export interface CloudVmClusterArgs {
      * The ID of the subnet associated with the Cloud VM Cluster. Changing this forces a new Cloud VM Cluster to be created.
      */
     subnetId: pulumi.Input<string>;
+    /**
+     * Operating system version of the Exadata image. System version must be <= Db server major version (the first two parts of the DB server version eg 23.1.X.X.XXXX). Accepted Values for Grid Infrastructure (GI) version 19.0.0.0 are 22.1.30.0.0.241204, 22.1.32.0.0.250205, 22.1.31.0.0.250110, 23.1.20.0.0.241112, 23.1.21.0.0.241204, 23.1.22.0.0.250119, 23.1.23.0.0.250207. For Grid Infrastructure (GI) version 23.0.0.0 allowed system versions are 23.1.19.0.0.241015, 23.1.20.0.0.241112, 23.1.22.0.0.250119, 23.1.21.0.0.241204, 23.1.23.0.0.250207.
+     */
+    systemVersion?: pulumi.Input<string>;
     /**
      * A mapping of tags which should be assigned to the Cloud VM Cluster.
      */

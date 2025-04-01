@@ -39,7 +39,7 @@ if not MYPY:
         """
         key_vault_key_id: pulumi.Input[str]
         """
-        The ID of the Key Vault Key which should be used to Encrypt the data in this ServiceBus Namespace.
+        The ID of the Key Vault Key which should be used to Encrypt the data in this Service Bus Namespace.
         """
         infrastructure_encryption_enabled: NotRequired[pulumi.Input[bool]]
         """
@@ -56,7 +56,7 @@ class NamespaceCustomerManagedKeyArgs:
                  infrastructure_encryption_enabled: Optional[pulumi.Input[bool]] = None):
         """
         :param pulumi.Input[str] identity_id: The ID of the User Assigned Identity that has access to the key.
-        :param pulumi.Input[str] key_vault_key_id: The ID of the Key Vault Key which should be used to Encrypt the data in this ServiceBus Namespace.
+        :param pulumi.Input[str] key_vault_key_id: The ID of the Key Vault Key which should be used to Encrypt the data in this Service Bus Namespace.
         :param pulumi.Input[bool] infrastructure_encryption_enabled: Used to specify whether enable Infrastructure Encryption (Double Encryption). Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "identity_id", identity_id)
@@ -80,7 +80,7 @@ class NamespaceCustomerManagedKeyArgs:
     @pulumi.getter(name="keyVaultKeyId")
     def key_vault_key_id(self) -> pulumi.Input[str]:
         """
-        The ID of the Key Vault Key which should be used to Encrypt the data in this ServiceBus Namespace.
+        The ID of the Key Vault Key which should be used to Encrypt the data in this Service Bus Namespace.
         """
         return pulumi.get(self, "key_vault_key_id")
 
@@ -105,21 +105,21 @@ if not MYPY:
     class NamespaceIdentityArgsDict(TypedDict):
         type: pulumi.Input[str]
         """
-        Specifies the type of Managed Service Identity that should be configured on this ServiceBus Namespace. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
+        Specifies the type of Managed Service Identity that should be configured on this Service Bus Namespace. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
         """
         identity_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
         """
-        Specifies a list of User Assigned Managed Identity IDs to be assigned to this ServiceBus namespace.
+        Specifies a list of User Assigned Managed Identity IDs to be assigned to this Service Bus namespace.
 
         > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
         """
         principal_id: NotRequired[pulumi.Input[str]]
         """
-        The Principal ID for the Service Principal associated with the Managed Service Identity of this ServiceBus Namespace.
+        The Principal ID for the Service Principal associated with the Managed Service Identity of this Service Bus Namespace.
         """
         tenant_id: NotRequired[pulumi.Input[str]]
         """
-        The Tenant ID for the Service Principal associated with the Managed Service Identity of this ServiceBus Namespace.
+        The Tenant ID for the Service Principal associated with the Managed Service Identity of this Service Bus Namespace.
         """
 elif False:
     NamespaceIdentityArgsDict: TypeAlias = Mapping[str, Any]
@@ -132,12 +132,12 @@ class NamespaceIdentityArgs:
                  principal_id: Optional[pulumi.Input[str]] = None,
                  tenant_id: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] type: Specifies the type of Managed Service Identity that should be configured on this ServiceBus Namespace. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] identity_ids: Specifies a list of User Assigned Managed Identity IDs to be assigned to this ServiceBus namespace.
+        :param pulumi.Input[str] type: Specifies the type of Managed Service Identity that should be configured on this Service Bus Namespace. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] identity_ids: Specifies a list of User Assigned Managed Identity IDs to be assigned to this Service Bus namespace.
                
                > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
-        :param pulumi.Input[str] principal_id: The Principal ID for the Service Principal associated with the Managed Service Identity of this ServiceBus Namespace.
-        :param pulumi.Input[str] tenant_id: The Tenant ID for the Service Principal associated with the Managed Service Identity of this ServiceBus Namespace.
+        :param pulumi.Input[str] principal_id: The Principal ID for the Service Principal associated with the Managed Service Identity of this Service Bus Namespace.
+        :param pulumi.Input[str] tenant_id: The Tenant ID for the Service Principal associated with the Managed Service Identity of this Service Bus Namespace.
         """
         pulumi.set(__self__, "type", type)
         if identity_ids is not None:
@@ -151,7 +151,7 @@ class NamespaceIdentityArgs:
     @pulumi.getter
     def type(self) -> pulumi.Input[str]:
         """
-        Specifies the type of Managed Service Identity that should be configured on this ServiceBus Namespace. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
+        Specifies the type of Managed Service Identity that should be configured on this Service Bus Namespace. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
         """
         return pulumi.get(self, "type")
 
@@ -163,7 +163,7 @@ class NamespaceIdentityArgs:
     @pulumi.getter(name="identityIds")
     def identity_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        Specifies a list of User Assigned Managed Identity IDs to be assigned to this ServiceBus namespace.
+        Specifies a list of User Assigned Managed Identity IDs to be assigned to this Service Bus namespace.
 
         > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
         """
@@ -177,7 +177,7 @@ class NamespaceIdentityArgs:
     @pulumi.getter(name="principalId")
     def principal_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The Principal ID for the Service Principal associated with the Managed Service Identity of this ServiceBus Namespace.
+        The Principal ID for the Service Principal associated with the Managed Service Identity of this Service Bus Namespace.
         """
         return pulumi.get(self, "principal_id")
 
@@ -189,7 +189,7 @@ class NamespaceIdentityArgs:
     @pulumi.getter(name="tenantId")
     def tenant_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The Tenant ID for the Service Principal associated with the Managed Service Identity of this ServiceBus Namespace.
+        The Tenant ID for the Service Principal associated with the Managed Service Identity of this Service Bus Namespace.
         """
         return pulumi.get(self, "tenant_id")
 
@@ -206,7 +206,7 @@ if not MYPY:
         """
         ip_rules: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
         """
-        One or more IP Addresses, or CIDR Blocks which should be able to access the ServiceBus Namespace.
+        One or more IP Addresses, or CIDR Blocks which should be able to access the Service Bus Namespace.
         """
         network_rules: NotRequired[pulumi.Input[Sequence[pulumi.Input['NamespaceNetworkRuleSetNetworkRuleArgsDict']]]]
         """
@@ -235,7 +235,7 @@ class NamespaceNetworkRuleSetArgs:
                  trusted_services_allowed: Optional[pulumi.Input[bool]] = None):
         """
         :param pulumi.Input[str] default_action: Specifies the default action for the Network Rule Set. Possible values are `Allow` and `Deny`. Defaults to `Allow`.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] ip_rules: One or more IP Addresses, or CIDR Blocks which should be able to access the ServiceBus Namespace.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] ip_rules: One or more IP Addresses, or CIDR Blocks which should be able to access the Service Bus Namespace.
         :param pulumi.Input[Sequence[pulumi.Input['NamespaceNetworkRuleSetNetworkRuleArgs']]] network_rules: One or more `network_rules` blocks as defined below.
         :param pulumi.Input[bool] public_network_access_enabled: Whether to allow traffic over public network. Possible values are `true` and `false`. Defaults to `true`.
                
@@ -269,7 +269,7 @@ class NamespaceNetworkRuleSetArgs:
     @pulumi.getter(name="ipRules")
     def ip_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        One or more IP Addresses, or CIDR Blocks which should be able to access the ServiceBus Namespace.
+        One or more IP Addresses, or CIDR Blocks which should be able to access the Service Bus Namespace.
         """
         return pulumi.get(self, "ip_rules")
 
@@ -320,11 +320,11 @@ if not MYPY:
     class NamespaceNetworkRuleSetNetworkRuleArgsDict(TypedDict):
         subnet_id: pulumi.Input[str]
         """
-        The Subnet ID which should be able to access this ServiceBus Namespace.
+        The Subnet ID which should be able to access this Service Bus Namespace.
         """
         ignore_missing_vnet_service_endpoint: NotRequired[pulumi.Input[bool]]
         """
-        Should the ServiceBus Namespace Network Rule Set ignore missing Virtual Network Service Endpoint option in the Subnet? Defaults to `false`.
+        Should the Service Bus Namespace Network Rule Set ignore missing Virtual Network Service Endpoint option in the Subnet? Defaults to `false`.
         """
 elif False:
     NamespaceNetworkRuleSetNetworkRuleArgsDict: TypeAlias = Mapping[str, Any]
@@ -335,8 +335,8 @@ class NamespaceNetworkRuleSetNetworkRuleArgs:
                  subnet_id: pulumi.Input[str],
                  ignore_missing_vnet_service_endpoint: Optional[pulumi.Input[bool]] = None):
         """
-        :param pulumi.Input[str] subnet_id: The Subnet ID which should be able to access this ServiceBus Namespace.
-        :param pulumi.Input[bool] ignore_missing_vnet_service_endpoint: Should the ServiceBus Namespace Network Rule Set ignore missing Virtual Network Service Endpoint option in the Subnet? Defaults to `false`.
+        :param pulumi.Input[str] subnet_id: The Subnet ID which should be able to access this Service Bus Namespace.
+        :param pulumi.Input[bool] ignore_missing_vnet_service_endpoint: Should the Service Bus Namespace Network Rule Set ignore missing Virtual Network Service Endpoint option in the Subnet? Defaults to `false`.
         """
         pulumi.set(__self__, "subnet_id", subnet_id)
         if ignore_missing_vnet_service_endpoint is not None:
@@ -346,7 +346,7 @@ class NamespaceNetworkRuleSetNetworkRuleArgs:
     @pulumi.getter(name="subnetId")
     def subnet_id(self) -> pulumi.Input[str]:
         """
-        The Subnet ID which should be able to access this ServiceBus Namespace.
+        The Subnet ID which should be able to access this Service Bus Namespace.
         """
         return pulumi.get(self, "subnet_id")
 
@@ -358,7 +358,7 @@ class NamespaceNetworkRuleSetNetworkRuleArgs:
     @pulumi.getter(name="ignoreMissingVnetServiceEndpoint")
     def ignore_missing_vnet_service_endpoint(self) -> Optional[pulumi.Input[bool]]:
         """
-        Should the ServiceBus Namespace Network Rule Set ignore missing Virtual Network Service Endpoint option in the Subnet? Defaults to `false`.
+        Should the Service Bus Namespace Network Rule Set ignore missing Virtual Network Service Endpoint option in the Subnet? Defaults to `false`.
         """
         return pulumi.get(self, "ignore_missing_vnet_service_endpoint")
 

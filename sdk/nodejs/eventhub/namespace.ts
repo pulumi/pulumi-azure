@@ -94,7 +94,7 @@ export class Namespace extends pulumi.CustomResource {
      */
     public /*out*/ readonly defaultSecondaryKey!: pulumi.Output<string>;
     /**
-     * The URL to access the ServiceBus Namespace.
+     * The URL to access the Service Bus Namespace.
      */
     public /*out*/ readonly endpoint!: pulumi.Output<string>;
     /**
@@ -116,7 +116,7 @@ export class Namespace extends pulumi.CustomResource {
      */
     public readonly minimumTlsVersion!: pulumi.Output<string | undefined>;
     /**
-     * Specifies the name of the ServiceBus Namespace resource . Changing this forces a new resource to be created.
+     * Specifies the name of the Service Bus Namespace resource . Changing this forces a new resource to be created.
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -244,7 +244,7 @@ export interface NamespaceState {
      */
     defaultSecondaryKey?: pulumi.Input<string>;
     /**
-     * The URL to access the ServiceBus Namespace.
+     * The URL to access the Service Bus Namespace.
      */
     endpoint?: pulumi.Input<string>;
     /**
@@ -266,7 +266,7 @@ export interface NamespaceState {
      */
     minimumTlsVersion?: pulumi.Input<string>;
     /**
-     * Specifies the name of the ServiceBus Namespace resource . Changing this forces a new resource to be created.
+     * Specifies the name of the Service Bus Namespace resource . Changing this forces a new resource to be created.
      */
     name?: pulumi.Input<string>;
     /**
@@ -329,7 +329,7 @@ export interface NamespaceArgs {
      */
     minimumTlsVersion?: pulumi.Input<string>;
     /**
-     * Specifies the name of the ServiceBus Namespace resource . Changing this forces a new resource to be created.
+     * Specifies the name of the Service Bus Namespace resource . Changing this forces a new resource to be created.
      */
     name?: pulumi.Input<string>;
     /**

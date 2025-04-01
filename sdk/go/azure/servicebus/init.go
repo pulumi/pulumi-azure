@@ -25,6 +25,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Namespace{}
 	case "azure:servicebus/namespaceAuthorizationRule:NamespaceAuthorizationRule":
 		r = &NamespaceAuthorizationRule{}
+	case "azure:servicebus/namespaceCustomerManagedKey:NamespaceCustomerManagedKey":
+		r = &NamespaceCustomerManagedKey{}
 	case "azure:servicebus/namespaceDisasterRecoveryConfig:NamespaceDisasterRecoveryConfig":
 		r = &NamespaceDisasterRecoveryConfig{}
 	case "azure:servicebus/queue:Queue":
@@ -60,6 +62,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"azure",
 		"servicebus/namespaceAuthorizationRule",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"servicebus/namespaceCustomerManagedKey",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

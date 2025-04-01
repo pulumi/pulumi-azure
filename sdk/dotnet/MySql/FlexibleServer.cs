@@ -258,6 +258,8 @@ namespace Pulumi.Azure.MySql
 
         /// <summary>
         /// The resource ID of the source MySQL Flexible Server to be restored. Required when `create_mode` is `PointInTimeRestore`, `GeoRestore`, and `Replica`. Changing this forces a new MySQL Flexible Server to be created.
+        /// 
+        /// &gt; **Note:** The replica server is always created in the same resource group and subscription as the source server.
         /// </summary>
         [Output("sourceServerId")]
         public Output<string?> SourceServerId { get; private set; } = null!;
@@ -467,6 +469,8 @@ namespace Pulumi.Azure.MySql
 
         /// <summary>
         /// The resource ID of the source MySQL Flexible Server to be restored. Required when `create_mode` is `PointInTimeRestore`, `GeoRestore`, and `Replica`. Changing this forces a new MySQL Flexible Server to be created.
+        /// 
+        /// &gt; **Note:** The replica server is always created in the same resource group and subscription as the source server.
         /// </summary>
         [Input("sourceServerId")]
         public Input<string>? SourceServerId { get; set; }
@@ -658,6 +662,8 @@ namespace Pulumi.Azure.MySql
 
         /// <summary>
         /// The resource ID of the source MySQL Flexible Server to be restored. Required when `create_mode` is `PointInTimeRestore`, `GeoRestore`, and `Replica`. Changing this forces a new MySQL Flexible Server to be created.
+        /// 
+        /// &gt; **Note:** The replica server is always created in the same resource group and subscription as the source server.
         /// </summary>
         [Input("sourceServerId")]
         public Input<string>? SourceServerId { get; set; }

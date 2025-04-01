@@ -353,6 +353,13 @@ public final class LinuxWebAppSlotArgs extends com.pulumi.resources.ResourceArgs
         return Optional.ofNullable(this.tags);
     }
 
+    @Import(name="virtualNetworkBackupRestoreEnabled")
+    private @Nullable Output<Boolean> virtualNetworkBackupRestoreEnabled;
+
+    public Optional<Output<Boolean>> virtualNetworkBackupRestoreEnabled() {
+        return Optional.ofNullable(this.virtualNetworkBackupRestoreEnabled);
+    }
+
     @Import(name="virtualNetworkSubnetId")
     private @Nullable Output<String> virtualNetworkSubnetId;
 
@@ -423,6 +430,7 @@ public final class LinuxWebAppSlotArgs extends com.pulumi.resources.ResourceArgs
         this.siteConfig = $.siteConfig;
         this.storageAccounts = $.storageAccounts;
         this.tags = $.tags;
+        this.virtualNetworkBackupRestoreEnabled = $.virtualNetworkBackupRestoreEnabled;
         this.virtualNetworkSubnetId = $.virtualNetworkSubnetId;
         this.webdeployPublishBasicAuthenticationEnabled = $.webdeployPublishBasicAuthenticationEnabled;
         this.zipDeployFile = $.zipDeployFile;
@@ -918,6 +926,15 @@ public final class LinuxWebAppSlotArgs extends com.pulumi.resources.ResourceArgs
          */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
+        }
+
+        public Builder virtualNetworkBackupRestoreEnabled(@Nullable Output<Boolean> virtualNetworkBackupRestoreEnabled) {
+            $.virtualNetworkBackupRestoreEnabled = virtualNetworkBackupRestoreEnabled;
+            return this;
+        }
+
+        public Builder virtualNetworkBackupRestoreEnabled(Boolean virtualNetworkBackupRestoreEnabled) {
+            return virtualNetworkBackupRestoreEnabled(Output.of(virtualNetworkBackupRestoreEnabled));
         }
 
         public Builder virtualNetworkSubnetId(@Nullable Output<String> virtualNetworkSubnetId) {

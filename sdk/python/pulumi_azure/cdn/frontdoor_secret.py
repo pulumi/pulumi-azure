@@ -175,7 +175,7 @@ class FrontdoorSecret(pulumi.CustomResource):
         import pulumi_std as std
 
         current = azure.core.get_client_config()
-        frontdoor = azuread.get_service_principal(display_name="Microsoft.Azure.Cdn")
+        frontdoor = azuread.get_service_principal(display_name="Microsoft.AzurefrontDoor-Cdn")
         example = azure.core.ResourceGroup("example",
             name="example-cdn-frontdoor",
             location="West Europe")
@@ -271,7 +271,7 @@ class FrontdoorSecret(pulumi.CustomResource):
         import pulumi_std as std
 
         current = azure.core.get_client_config()
-        frontdoor = azuread.get_service_principal(display_name="Microsoft.Azure.Cdn")
+        frontdoor = azuread.get_service_principal(display_name="Microsoft.AzurefrontDoor-Cdn")
         example = azure.core.ResourceGroup("example",
             name="example-cdn-frontdoor",
             location="West Europe")

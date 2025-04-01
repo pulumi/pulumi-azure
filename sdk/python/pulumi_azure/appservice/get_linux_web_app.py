@@ -27,7 +27,7 @@ class GetLinuxWebAppResult:
     """
     A collection of values returned by getLinuxWebApp.
     """
-    def __init__(__self__, app_metadata=None, app_settings=None, auth_settings=None, auth_settings_v2s=None, availability=None, backups=None, client_affinity_enabled=None, client_certificate_enabled=None, client_certificate_exclusion_paths=None, client_certificate_mode=None, connection_strings=None, custom_domain_verification_id=None, default_hostname=None, enabled=None, ftp_publish_basic_authentication_enabled=None, hosting_environment_id=None, https_only=None, id=None, identities=None, key_vault_reference_identity_id=None, kind=None, location=None, logs=None, name=None, outbound_ip_address_lists=None, outbound_ip_addresses=None, possible_outbound_ip_address_lists=None, possible_outbound_ip_addresses=None, public_network_access_enabled=None, resource_group_name=None, service_plan_id=None, site_configs=None, site_credentials=None, sticky_settings=None, storage_accounts=None, tags=None, usage=None, virtual_network_subnet_id=None, webdeploy_publish_basic_authentication_enabled=None):
+    def __init__(__self__, app_metadata=None, app_settings=None, auth_settings=None, auth_settings_v2s=None, availability=None, backups=None, client_affinity_enabled=None, client_certificate_enabled=None, client_certificate_exclusion_paths=None, client_certificate_mode=None, connection_strings=None, custom_domain_verification_id=None, default_hostname=None, enabled=None, ftp_publish_basic_authentication_enabled=None, hosting_environment_id=None, https_only=None, id=None, identities=None, key_vault_reference_identity_id=None, kind=None, location=None, logs=None, name=None, outbound_ip_address_lists=None, outbound_ip_addresses=None, possible_outbound_ip_address_lists=None, possible_outbound_ip_addresses=None, public_network_access_enabled=None, resource_group_name=None, service_plan_id=None, site_configs=None, site_credentials=None, sticky_settings=None, storage_accounts=None, tags=None, usage=None, virtual_network_backup_restore_enabled=None, virtual_network_subnet_id=None, webdeploy_publish_basic_authentication_enabled=None):
         if app_metadata and not isinstance(app_metadata, dict):
             raise TypeError("Expected argument 'app_metadata' to be a dict")
         pulumi.set(__self__, "app_metadata", app_metadata)
@@ -139,6 +139,9 @@ class GetLinuxWebAppResult:
         if usage and not isinstance(usage, str):
             raise TypeError("Expected argument 'usage' to be a str")
         pulumi.set(__self__, "usage", usage)
+        if virtual_network_backup_restore_enabled and not isinstance(virtual_network_backup_restore_enabled, bool):
+            raise TypeError("Expected argument 'virtual_network_backup_restore_enabled' to be a bool")
+        pulumi.set(__self__, "virtual_network_backup_restore_enabled", virtual_network_backup_restore_enabled)
         if virtual_network_subnet_id and not isinstance(virtual_network_subnet_id, str):
             raise TypeError("Expected argument 'virtual_network_subnet_id' to be a str")
         pulumi.set(__self__, "virtual_network_subnet_id", virtual_network_subnet_id)
@@ -437,6 +440,14 @@ class GetLinuxWebAppResult:
         return pulumi.get(self, "usage")
 
     @property
+    @pulumi.getter(name="virtualNetworkBackupRestoreEnabled")
+    def virtual_network_backup_restore_enabled(self) -> bool:
+        """
+        Whether backup and restore operations over the linked virtual network are enabled.
+        """
+        return pulumi.get(self, "virtual_network_backup_restore_enabled")
+
+    @property
     @pulumi.getter(name="virtualNetworkSubnetId")
     def virtual_network_subnet_id(self) -> str:
         """
@@ -496,6 +507,7 @@ class AwaitableGetLinuxWebAppResult(GetLinuxWebAppResult):
             storage_accounts=self.storage_accounts,
             tags=self.tags,
             usage=self.usage,
+            virtual_network_backup_restore_enabled=self.virtual_network_backup_restore_enabled,
             virtual_network_subnet_id=self.virtual_network_subnet_id,
             webdeploy_publish_basic_authentication_enabled=self.webdeploy_publish_basic_authentication_enabled)
 
@@ -565,6 +577,7 @@ def get_linux_web_app(name: Optional[str] = None,
         storage_accounts=pulumi.get(__ret__, 'storage_accounts'),
         tags=pulumi.get(__ret__, 'tags'),
         usage=pulumi.get(__ret__, 'usage'),
+        virtual_network_backup_restore_enabled=pulumi.get(__ret__, 'virtual_network_backup_restore_enabled'),
         virtual_network_subnet_id=pulumi.get(__ret__, 'virtual_network_subnet_id'),
         webdeploy_publish_basic_authentication_enabled=pulumi.get(__ret__, 'webdeploy_publish_basic_authentication_enabled'))
 def get_linux_web_app_output(name: Optional[pulumi.Input[str]] = None,
@@ -631,5 +644,6 @@ def get_linux_web_app_output(name: Optional[pulumi.Input[str]] = None,
         storage_accounts=pulumi.get(__response__, 'storage_accounts'),
         tags=pulumi.get(__response__, 'tags'),
         usage=pulumi.get(__response__, 'usage'),
+        virtual_network_backup_restore_enabled=pulumi.get(__response__, 'virtual_network_backup_restore_enabled'),
         virtual_network_subnet_id=pulumi.get(__response__, 'virtual_network_subnet_id'),
         webdeploy_publish_basic_authentication_enabled=pulumi.get(__response__, 'webdeploy_publish_basic_authentication_enabled')))

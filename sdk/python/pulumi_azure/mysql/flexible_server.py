@@ -79,6 +79,8 @@ class FlexibleServerArgs:
                
                > **NOTE:** `sku_name` should start with SKU tier `B (Burstable)`, `GP (General Purpose)`, `MO (Memory Optimized)` like `B_Standard_B1s`.
         :param pulumi.Input[str] source_server_id: The resource ID of the source MySQL Flexible Server to be restored. Required when `create_mode` is `PointInTimeRestore`, `GeoRestore`, and `Replica`. Changing this forces a new MySQL Flexible Server to be created.
+               
+               > **Note:** The replica server is always created in the same resource group and subscription as the source server.
         :param pulumi.Input['FlexibleServerStorageArgs'] storage: A `storage` block as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the MySQL Flexible Server.
         :param pulumi.Input[str] version: The version of the MySQL Flexible Server to use. Possible values are `5.7`, and `8.0.21`. Changing this forces a new MySQL Flexible Server to be created.
@@ -364,6 +366,8 @@ class FlexibleServerArgs:
     def source_server_id(self) -> Optional[pulumi.Input[str]]:
         """
         The resource ID of the source MySQL Flexible Server to be restored. Required when `create_mode` is `PointInTimeRestore`, `GeoRestore`, and `Replica`. Changing this forces a new MySQL Flexible Server to be created.
+
+        > **Note:** The replica server is always created in the same resource group and subscription as the source server.
         """
         return pulumi.get(self, "source_server_id")
 
@@ -484,6 +488,8 @@ class _FlexibleServerState:
                
                > **NOTE:** `sku_name` should start with SKU tier `B (Burstable)`, `GP (General Purpose)`, `MO (Memory Optimized)` like `B_Standard_B1s`.
         :param pulumi.Input[str] source_server_id: The resource ID of the source MySQL Flexible Server to be restored. Required when `create_mode` is `PointInTimeRestore`, `GeoRestore`, and `Replica`. Changing this forces a new MySQL Flexible Server to be created.
+               
+               > **Note:** The replica server is always created in the same resource group and subscription as the source server.
         :param pulumi.Input['FlexibleServerStorageArgs'] storage: A `storage` block as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the MySQL Flexible Server.
         :param pulumi.Input[str] version: The version of the MySQL Flexible Server to use. Possible values are `5.7`, and `8.0.21`. Changing this forces a new MySQL Flexible Server to be created.
@@ -812,6 +818,8 @@ class _FlexibleServerState:
     def source_server_id(self) -> Optional[pulumi.Input[str]]:
         """
         The resource ID of the source MySQL Flexible Server to be restored. Required when `create_mode` is `PointInTimeRestore`, `GeoRestore`, and `Replica`. Changing this forces a new MySQL Flexible Server to be created.
+
+        > **Note:** The replica server is always created in the same resource group and subscription as the source server.
         """
         return pulumi.get(self, "source_server_id")
 
@@ -988,6 +996,8 @@ class FlexibleServer(pulumi.CustomResource):
                
                > **NOTE:** `sku_name` should start with SKU tier `B (Burstable)`, `GP (General Purpose)`, `MO (Memory Optimized)` like `B_Standard_B1s`.
         :param pulumi.Input[str] source_server_id: The resource ID of the source MySQL Flexible Server to be restored. Required when `create_mode` is `PointInTimeRestore`, `GeoRestore`, and `Replica`. Changing this forces a new MySQL Flexible Server to be created.
+               
+               > **Note:** The replica server is always created in the same resource group and subscription as the source server.
         :param pulumi.Input[Union['FlexibleServerStorageArgs', 'FlexibleServerStorageArgsDict']] storage: A `storage` block as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the MySQL Flexible Server.
         :param pulumi.Input[str] version: The version of the MySQL Flexible Server to use. Possible values are `5.7`, and `8.0.21`. Changing this forces a new MySQL Flexible Server to be created.
@@ -1213,6 +1223,8 @@ class FlexibleServer(pulumi.CustomResource):
                
                > **NOTE:** `sku_name` should start with SKU tier `B (Burstable)`, `GP (General Purpose)`, `MO (Memory Optimized)` like `B_Standard_B1s`.
         :param pulumi.Input[str] source_server_id: The resource ID of the source MySQL Flexible Server to be restored. Required when `create_mode` is `PointInTimeRestore`, `GeoRestore`, and `Replica`. Changing this forces a new MySQL Flexible Server to be created.
+               
+               > **Note:** The replica server is always created in the same resource group and subscription as the source server.
         :param pulumi.Input[Union['FlexibleServerStorageArgs', 'FlexibleServerStorageArgsDict']] storage: A `storage` block as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the MySQL Flexible Server.
         :param pulumi.Input[str] version: The version of the MySQL Flexible Server to use. Possible values are `5.7`, and `8.0.21`. Changing this forces a new MySQL Flexible Server to be created.
@@ -1436,6 +1448,8 @@ class FlexibleServer(pulumi.CustomResource):
     def source_server_id(self) -> pulumi.Output[Optional[str]]:
         """
         The resource ID of the source MySQL Flexible Server to be restored. Required when `create_mode` is `PointInTimeRestore`, `GeoRestore`, and `Replica`. Changing this forces a new MySQL Flexible Server to be created.
+
+        > **Note:** The replica server is always created in the same resource group and subscription as the source server.
         """
         return pulumi.get(self, "source_server_id")
 

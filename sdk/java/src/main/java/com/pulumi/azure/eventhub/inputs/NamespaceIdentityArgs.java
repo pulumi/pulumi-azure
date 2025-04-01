@@ -18,7 +18,7 @@ public final class NamespaceIdentityArgs extends com.pulumi.resources.ResourceAr
     public static final NamespaceIdentityArgs Empty = new NamespaceIdentityArgs();
 
     /**
-     * Specifies a list of User Assigned Managed Identity IDs to be assigned to this ServiceBus namespace.
+     * Specifies a list of User Assigned Managed Identity IDs to be assigned to this Service Bus namespace.
      * 
      * &gt; **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
      * 
@@ -27,7 +27,7 @@ public final class NamespaceIdentityArgs extends com.pulumi.resources.ResourceAr
     private @Nullable Output<List<String>> identityIds;
 
     /**
-     * @return Specifies a list of User Assigned Managed Identity IDs to be assigned to this ServiceBus namespace.
+     * @return Specifies a list of User Assigned Managed Identity IDs to be assigned to this Service Bus namespace.
      * 
      * &gt; **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
      * 
@@ -37,14 +37,14 @@ public final class NamespaceIdentityArgs extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * The Principal ID for the Service Principal associated with the Managed Service Identity of this ServiceBus Namespace.
+     * The Principal ID for the Service Principal associated with the Managed Service Identity of this Service Bus Namespace.
      * 
      */
     @Import(name="principalId")
     private @Nullable Output<String> principalId;
 
     /**
-     * @return The Principal ID for the Service Principal associated with the Managed Service Identity of this ServiceBus Namespace.
+     * @return The Principal ID for the Service Principal associated with the Managed Service Identity of this Service Bus Namespace.
      * 
      */
     public Optional<Output<String>> principalId() {
@@ -52,14 +52,14 @@ public final class NamespaceIdentityArgs extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * The Tenant ID for the Service Principal associated with the Managed Service Identity of this ServiceBus Namespace.
+     * The Tenant ID for the Service Principal associated with the Managed Service Identity of this Service Bus Namespace.
      * 
      */
     @Import(name="tenantId")
     private @Nullable Output<String> tenantId;
 
     /**
-     * @return The Tenant ID for the Service Principal associated with the Managed Service Identity of this ServiceBus Namespace.
+     * @return The Tenant ID for the Service Principal associated with the Managed Service Identity of this Service Bus Namespace.
      * 
      */
     public Optional<Output<String>> tenantId() {
@@ -67,14 +67,14 @@ public final class NamespaceIdentityArgs extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * Specifies the type of Managed Service Identity that should be configured on this ServiceBus Namespace. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
+     * Specifies the type of Managed Service Identity that should be configured on this Service Bus Namespace. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
      * 
      */
     @Import(name="type", required=true)
     private Output<String> type;
 
     /**
-     * @return Specifies the type of Managed Service Identity that should be configured on this ServiceBus Namespace. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
+     * @return Specifies the type of Managed Service Identity that should be configured on this Service Bus Namespace. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
      * 
      */
     public Output<String> type() {
@@ -109,7 +109,7 @@ public final class NamespaceIdentityArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param identityIds Specifies a list of User Assigned Managed Identity IDs to be assigned to this ServiceBus namespace.
+         * @param identityIds Specifies a list of User Assigned Managed Identity IDs to be assigned to this Service Bus namespace.
          * 
          * &gt; **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
          * 
@@ -122,7 +122,7 @@ public final class NamespaceIdentityArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param identityIds Specifies a list of User Assigned Managed Identity IDs to be assigned to this ServiceBus namespace.
+         * @param identityIds Specifies a list of User Assigned Managed Identity IDs to be assigned to this Service Bus namespace.
          * 
          * &gt; **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
          * 
@@ -134,7 +134,7 @@ public final class NamespaceIdentityArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param identityIds Specifies a list of User Assigned Managed Identity IDs to be assigned to this ServiceBus namespace.
+         * @param identityIds Specifies a list of User Assigned Managed Identity IDs to be assigned to this Service Bus namespace.
          * 
          * &gt; **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
          * 
@@ -146,7 +146,7 @@ public final class NamespaceIdentityArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param principalId The Principal ID for the Service Principal associated with the Managed Service Identity of this ServiceBus Namespace.
+         * @param principalId The Principal ID for the Service Principal associated with the Managed Service Identity of this Service Bus Namespace.
          * 
          * @return builder
          * 
@@ -157,7 +157,7 @@ public final class NamespaceIdentityArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param principalId The Principal ID for the Service Principal associated with the Managed Service Identity of this ServiceBus Namespace.
+         * @param principalId The Principal ID for the Service Principal associated with the Managed Service Identity of this Service Bus Namespace.
          * 
          * @return builder
          * 
@@ -167,7 +167,7 @@ public final class NamespaceIdentityArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param tenantId The Tenant ID for the Service Principal associated with the Managed Service Identity of this ServiceBus Namespace.
+         * @param tenantId The Tenant ID for the Service Principal associated with the Managed Service Identity of this Service Bus Namespace.
          * 
          * @return builder
          * 
@@ -178,7 +178,7 @@ public final class NamespaceIdentityArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param tenantId The Tenant ID for the Service Principal associated with the Managed Service Identity of this ServiceBus Namespace.
+         * @param tenantId The Tenant ID for the Service Principal associated with the Managed Service Identity of this Service Bus Namespace.
          * 
          * @return builder
          * 
@@ -188,7 +188,7 @@ public final class NamespaceIdentityArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param type Specifies the type of Managed Service Identity that should be configured on this ServiceBus Namespace. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
+         * @param type Specifies the type of Managed Service Identity that should be configured on this Service Bus Namespace. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
          * 
          * @return builder
          * 
@@ -199,7 +199,7 @@ public final class NamespaceIdentityArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param type Specifies the type of Managed Service Identity that should be configured on this ServiceBus Namespace. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
+         * @param type Specifies the type of Managed Service Identity that should be configured on this Service Bus Namespace. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
          * 
          * @return builder
          * 

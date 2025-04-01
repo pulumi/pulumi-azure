@@ -71,7 +71,7 @@ namespace Pulumi.Azure.Batch
     ///         ResourceGroupName = example.Name,
     ///         AccountName = exampleAccount2.Name,
     ///         DisplayName = "Test Acc Pool Auto",
-    ///         VmSize = "Standard_A1",
+    ///         VmSize = "STANDARD_A1_V2",
     ///         NodeAgentSkuId = "batch.node.ubuntu 20.04",
     ///         AutoScale = new Azure.Batch.Inputs.PoolAutoScaleArgs
     ///         {

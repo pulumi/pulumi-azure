@@ -15,6 +15,8 @@ namespace Pulumi.Azure.Waf.Outputs
     {
         /// <summary>
         /// Type of action. Possible values are `Allow`, `Block` and `Log`.
+        /// 
+        /// &gt; **Note:** If the `rule_type` is specified as `RateLimitRule`, the `Allow` is not supported.
         /// </summary>
         public readonly string Action;
         /// <summary>

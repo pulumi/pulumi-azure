@@ -11,7 +11,35 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Use this data source to access information about an existing KeyVault Role Definition.
+// Use this data source to access information about an existing Key Vault Managed Hardware Security Module Role Definition.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/keyvault"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			example, err := keyvault.LookupManagedHardwareSecurityModuleRoleDefinition(ctx, &keyvault.LookupManagedHardwareSecurityModuleRoleDefinitionArgs{
+//				ManagedHsmId: exampleAzurermKeyVaultManagedHardwareSecurityModule.Id,
+//				Name:         "21dbd100-6940-42c2-9190-5d6cb909625b",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			ctx.Export("id", example.ResourceManagerId)
+//			return nil
+//		})
+//	}
+//
+// ```
 func LookupManagedHardwareSecurityModuleRoleDefinition(ctx *pulumi.Context, args *LookupManagedHardwareSecurityModuleRoleDefinitionArgs, opts ...pulumi.InvokeOption) (*LookupManagedHardwareSecurityModuleRoleDefinitionResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupManagedHardwareSecurityModuleRoleDefinitionResult
@@ -24,16 +52,17 @@ func LookupManagedHardwareSecurityModuleRoleDefinition(ctx *pulumi.Context, args
 
 // A collection of arguments for invoking getManagedHardwareSecurityModuleRoleDefinition.
 type LookupManagedHardwareSecurityModuleRoleDefinitionArgs struct {
+	// The ID of the Key Vault Managed Hardware Security Module.
 	ManagedHsmId string `pulumi:"managedHsmId"`
-	// The name in UUID notation of this KeyVault Role Definition.
+	// The name in UUID notation of this Key Vault Managed Hardware Security Module Role Definition.
 	Name string `pulumi:"name"`
 }
 
 // A collection of values returned by getManagedHardwareSecurityModuleRoleDefinition.
 type LookupManagedHardwareSecurityModuleRoleDefinitionResult struct {
-	// A list of assignable role scope. Possible values are `/` and `/keys`.
+	// A list of assignable role scopes. Possible values are `/` and `/keys`.
 	AssignableScopes []string `pulumi:"assignableScopes"`
-	// A text description of this role definition.
+	// A text description of the Key Vault Managed Hardware Security Module Role Definition.
 	Description string `pulumi:"description"`
 	// The provider-assigned unique ID for this managed resource.
 	Id           string `pulumi:"id"`
@@ -41,11 +70,11 @@ type LookupManagedHardwareSecurityModuleRoleDefinitionResult struct {
 	Name         string `pulumi:"name"`
 	// A `permission` block as defined below.
 	Permissions []GetManagedHardwareSecurityModuleRoleDefinitionPermission `pulumi:"permissions"`
-	// The ID of the role definition resource without base url.
+	// The ID of the Key Vault Managed Hardware Security Module Role Definition resource without base url.
 	ResourceManagerId string `pulumi:"resourceManagerId"`
-	// The role name of the role definition.
+	// The display name of the Key Vault Managed Hardware Security Module Role Definition.
 	RoleName string `pulumi:"roleName"`
-	// The type of the role definition. Possible values are `AKVBuiltInRole` and `CustomRole`.
+	// The type of the Key Vault Managed Hardware Security Module Role Definition. Possible values are `AKVBuiltInRole` and `CustomRole`.
 	RoleType string `pulumi:"roleType"`
 }
 
@@ -60,8 +89,9 @@ func LookupManagedHardwareSecurityModuleRoleDefinitionOutput(ctx *pulumi.Context
 
 // A collection of arguments for invoking getManagedHardwareSecurityModuleRoleDefinition.
 type LookupManagedHardwareSecurityModuleRoleDefinitionOutputArgs struct {
+	// The ID of the Key Vault Managed Hardware Security Module.
 	ManagedHsmId pulumi.StringInput `pulumi:"managedHsmId"`
-	// The name in UUID notation of this KeyVault Role Definition.
+	// The name in UUID notation of this Key Vault Managed Hardware Security Module Role Definition.
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -84,12 +114,12 @@ func (o LookupManagedHardwareSecurityModuleRoleDefinitionResultOutput) ToLookupM
 	return o
 }
 
-// A list of assignable role scope. Possible values are `/` and `/keys`.
+// A list of assignable role scopes. Possible values are `/` and `/keys`.
 func (o LookupManagedHardwareSecurityModuleRoleDefinitionResultOutput) AssignableScopes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupManagedHardwareSecurityModuleRoleDefinitionResult) []string { return v.AssignableScopes }).(pulumi.StringArrayOutput)
 }
 
-// A text description of this role definition.
+// A text description of the Key Vault Managed Hardware Security Module Role Definition.
 func (o LookupManagedHardwareSecurityModuleRoleDefinitionResultOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupManagedHardwareSecurityModuleRoleDefinitionResult) string { return v.Description }).(pulumi.StringOutput)
 }
@@ -114,17 +144,17 @@ func (o LookupManagedHardwareSecurityModuleRoleDefinitionResultOutput) Permissio
 	}).(GetManagedHardwareSecurityModuleRoleDefinitionPermissionArrayOutput)
 }
 
-// The ID of the role definition resource without base url.
+// The ID of the Key Vault Managed Hardware Security Module Role Definition resource without base url.
 func (o LookupManagedHardwareSecurityModuleRoleDefinitionResultOutput) ResourceManagerId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupManagedHardwareSecurityModuleRoleDefinitionResult) string { return v.ResourceManagerId }).(pulumi.StringOutput)
 }
 
-// The role name of the role definition.
+// The display name of the Key Vault Managed Hardware Security Module Role Definition.
 func (o LookupManagedHardwareSecurityModuleRoleDefinitionResultOutput) RoleName() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupManagedHardwareSecurityModuleRoleDefinitionResult) string { return v.RoleName }).(pulumi.StringOutput)
 }
 
-// The type of the role definition. Possible values are `AKVBuiltInRole` and `CustomRole`.
+// The type of the Key Vault Managed Hardware Security Module Role Definition. Possible values are `AKVBuiltInRole` and `CustomRole`.
 func (o LookupManagedHardwareSecurityModuleRoleDefinitionResultOutput) RoleType() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupManagedHardwareSecurityModuleRoleDefinitionResult) string { return v.RoleType }).(pulumi.StringOutput)
 }

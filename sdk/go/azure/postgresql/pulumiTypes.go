@@ -14,9 +14,9 @@ import (
 var _ = internal.GetEnvOrDefault
 
 type FlexibleServerAuthentication struct {
-	// Whether or not Active Directory authentication is allowed to access the PostgreSQL Flexible Server. Defaults to `false`.
+	// Whether Active Directory authentication is allowed to access the PostgreSQL Flexible Server. Defaults to `false`.
 	ActiveDirectoryAuthEnabled *bool `pulumi:"activeDirectoryAuthEnabled"`
-	// Whether or not password authentication is allowed to access the PostgreSQL Flexible Server. Defaults to `true`.
+	// Whether password authentication is allowed to access the PostgreSQL Flexible Server. Defaults to `true`.
 	PasswordAuthEnabled *bool `pulumi:"passwordAuthEnabled"`
 	// The Tenant ID of the Azure Active Directory which is used by the Active Directory authentication. `activeDirectoryAuthEnabled` must be set to `true`.
 	//
@@ -38,9 +38,9 @@ type FlexibleServerAuthenticationInput interface {
 }
 
 type FlexibleServerAuthenticationArgs struct {
-	// Whether or not Active Directory authentication is allowed to access the PostgreSQL Flexible Server. Defaults to `false`.
+	// Whether Active Directory authentication is allowed to access the PostgreSQL Flexible Server. Defaults to `false`.
 	ActiveDirectoryAuthEnabled pulumi.BoolPtrInput `pulumi:"activeDirectoryAuthEnabled"`
-	// Whether or not password authentication is allowed to access the PostgreSQL Flexible Server. Defaults to `true`.
+	// Whether password authentication is allowed to access the PostgreSQL Flexible Server. Defaults to `true`.
 	PasswordAuthEnabled pulumi.BoolPtrInput `pulumi:"passwordAuthEnabled"`
 	// The Tenant ID of the Azure Active Directory which is used by the Active Directory authentication. `activeDirectoryAuthEnabled` must be set to `true`.
 	//
@@ -127,12 +127,12 @@ func (o FlexibleServerAuthenticationOutput) ToFlexibleServerAuthenticationPtrOut
 	}).(FlexibleServerAuthenticationPtrOutput)
 }
 
-// Whether or not Active Directory authentication is allowed to access the PostgreSQL Flexible Server. Defaults to `false`.
+// Whether Active Directory authentication is allowed to access the PostgreSQL Flexible Server. Defaults to `false`.
 func (o FlexibleServerAuthenticationOutput) ActiveDirectoryAuthEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v FlexibleServerAuthentication) *bool { return v.ActiveDirectoryAuthEnabled }).(pulumi.BoolPtrOutput)
 }
 
-// Whether or not password authentication is allowed to access the PostgreSQL Flexible Server. Defaults to `true`.
+// Whether password authentication is allowed to access the PostgreSQL Flexible Server. Defaults to `true`.
 func (o FlexibleServerAuthenticationOutput) PasswordAuthEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v FlexibleServerAuthentication) *bool { return v.PasswordAuthEnabled }).(pulumi.BoolPtrOutput)
 }
@@ -170,7 +170,7 @@ func (o FlexibleServerAuthenticationPtrOutput) Elem() FlexibleServerAuthenticati
 	}).(FlexibleServerAuthenticationOutput)
 }
 
-// Whether or not Active Directory authentication is allowed to access the PostgreSQL Flexible Server. Defaults to `false`.
+// Whether Active Directory authentication is allowed to access the PostgreSQL Flexible Server. Defaults to `false`.
 func (o FlexibleServerAuthenticationPtrOutput) ActiveDirectoryAuthEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *FlexibleServerAuthentication) *bool {
 		if v == nil {
@@ -180,7 +180,7 @@ func (o FlexibleServerAuthenticationPtrOutput) ActiveDirectoryAuthEnabled() pulu
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Whether or not password authentication is allowed to access the PostgreSQL Flexible Server. Defaults to `true`.
+// Whether password authentication is allowed to access the PostgreSQL Flexible Server. Defaults to `true`.
 func (o FlexibleServerAuthenticationPtrOutput) PasswordAuthEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *FlexibleServerAuthentication) *bool {
 		if v == nil {
@@ -205,15 +205,19 @@ func (o FlexibleServerAuthenticationPtrOutput) TenantId() pulumi.StringPtrOutput
 }
 
 type FlexibleServerCustomerManagedKey struct {
-	// The ID of the geo backup Key Vault Key. It can't cross region and need Customer Managed Key in same region as geo backup.
+	// The versioned ID of the geo backup Key Vault Key.
+	//
+	// > **Note:** The key vault in which this key exists must be in the same region as the geo-redundant backup.
 	GeoBackupKeyVaultKeyId *string `pulumi:"geoBackupKeyVaultKeyId"`
-	// The geo backup user managed identity id for a Customer Managed Key. Should be added with `identityIds`. It can't cross region and need identity in same region as geo backup.
+	// The geo backup user managed identity id for a Customer Managed Key. Must be added to `identity.identity_ids`.
+	//
+	// > **Note:** This managed identity cannot be the same as `primaryUserAssignedIdentityId`, additionally this identity must be created in the same region as the geo-redundant backup.
 	//
 	// > **Note:** `primaryUserAssignedIdentityId` or `geoBackupUserAssignedIdentityId` is required when `type` is set to `UserAssigned`.
 	GeoBackupUserAssignedIdentityId *string `pulumi:"geoBackupUserAssignedIdentityId"`
-	// The ID of the Key Vault Key.
+	// The versioned ID of the Key Vault Key.
 	KeyVaultKeyId string `pulumi:"keyVaultKeyId"`
-	// Specifies the primary user managed identity id for a Customer Managed Key. Should be added with `identityIds`.
+	// Specifies the primary user managed identity id for a Customer Managed Key. Must be added to `identity.identity_ids`.
 	PrimaryUserAssignedIdentityId *string `pulumi:"primaryUserAssignedIdentityId"`
 }
 
@@ -229,15 +233,19 @@ type FlexibleServerCustomerManagedKeyInput interface {
 }
 
 type FlexibleServerCustomerManagedKeyArgs struct {
-	// The ID of the geo backup Key Vault Key. It can't cross region and need Customer Managed Key in same region as geo backup.
+	// The versioned ID of the geo backup Key Vault Key.
+	//
+	// > **Note:** The key vault in which this key exists must be in the same region as the geo-redundant backup.
 	GeoBackupKeyVaultKeyId pulumi.StringPtrInput `pulumi:"geoBackupKeyVaultKeyId"`
-	// The geo backup user managed identity id for a Customer Managed Key. Should be added with `identityIds`. It can't cross region and need identity in same region as geo backup.
+	// The geo backup user managed identity id for a Customer Managed Key. Must be added to `identity.identity_ids`.
+	//
+	// > **Note:** This managed identity cannot be the same as `primaryUserAssignedIdentityId`, additionally this identity must be created in the same region as the geo-redundant backup.
 	//
 	// > **Note:** `primaryUserAssignedIdentityId` or `geoBackupUserAssignedIdentityId` is required when `type` is set to `UserAssigned`.
 	GeoBackupUserAssignedIdentityId pulumi.StringPtrInput `pulumi:"geoBackupUserAssignedIdentityId"`
-	// The ID of the Key Vault Key.
+	// The versioned ID of the Key Vault Key.
 	KeyVaultKeyId pulumi.StringInput `pulumi:"keyVaultKeyId"`
-	// Specifies the primary user managed identity id for a Customer Managed Key. Should be added with `identityIds`.
+	// Specifies the primary user managed identity id for a Customer Managed Key. Must be added to `identity.identity_ids`.
 	PrimaryUserAssignedIdentityId pulumi.StringPtrInput `pulumi:"primaryUserAssignedIdentityId"`
 }
 
@@ -318,24 +326,28 @@ func (o FlexibleServerCustomerManagedKeyOutput) ToFlexibleServerCustomerManagedK
 	}).(FlexibleServerCustomerManagedKeyPtrOutput)
 }
 
-// The ID of the geo backup Key Vault Key. It can't cross region and need Customer Managed Key in same region as geo backup.
+// The versioned ID of the geo backup Key Vault Key.
+//
+// > **Note:** The key vault in which this key exists must be in the same region as the geo-redundant backup.
 func (o FlexibleServerCustomerManagedKeyOutput) GeoBackupKeyVaultKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FlexibleServerCustomerManagedKey) *string { return v.GeoBackupKeyVaultKeyId }).(pulumi.StringPtrOutput)
 }
 
-// The geo backup user managed identity id for a Customer Managed Key. Should be added with `identityIds`. It can't cross region and need identity in same region as geo backup.
+// The geo backup user managed identity id for a Customer Managed Key. Must be added to `identity.identity_ids`.
+//
+// > **Note:** This managed identity cannot be the same as `primaryUserAssignedIdentityId`, additionally this identity must be created in the same region as the geo-redundant backup.
 //
 // > **Note:** `primaryUserAssignedIdentityId` or `geoBackupUserAssignedIdentityId` is required when `type` is set to `UserAssigned`.
 func (o FlexibleServerCustomerManagedKeyOutput) GeoBackupUserAssignedIdentityId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FlexibleServerCustomerManagedKey) *string { return v.GeoBackupUserAssignedIdentityId }).(pulumi.StringPtrOutput)
 }
 
-// The ID of the Key Vault Key.
+// The versioned ID of the Key Vault Key.
 func (o FlexibleServerCustomerManagedKeyOutput) KeyVaultKeyId() pulumi.StringOutput {
 	return o.ApplyT(func(v FlexibleServerCustomerManagedKey) string { return v.KeyVaultKeyId }).(pulumi.StringOutput)
 }
 
-// Specifies the primary user managed identity id for a Customer Managed Key. Should be added with `identityIds`.
+// Specifies the primary user managed identity id for a Customer Managed Key. Must be added to `identity.identity_ids`.
 func (o FlexibleServerCustomerManagedKeyOutput) PrimaryUserAssignedIdentityId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FlexibleServerCustomerManagedKey) *string { return v.PrimaryUserAssignedIdentityId }).(pulumi.StringPtrOutput)
 }
@@ -364,7 +376,9 @@ func (o FlexibleServerCustomerManagedKeyPtrOutput) Elem() FlexibleServerCustomer
 	}).(FlexibleServerCustomerManagedKeyOutput)
 }
 
-// The ID of the geo backup Key Vault Key. It can't cross region and need Customer Managed Key in same region as geo backup.
+// The versioned ID of the geo backup Key Vault Key.
+//
+// > **Note:** The key vault in which this key exists must be in the same region as the geo-redundant backup.
 func (o FlexibleServerCustomerManagedKeyPtrOutput) GeoBackupKeyVaultKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FlexibleServerCustomerManagedKey) *string {
 		if v == nil {
@@ -374,7 +388,9 @@ func (o FlexibleServerCustomerManagedKeyPtrOutput) GeoBackupKeyVaultKeyId() pulu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The geo backup user managed identity id for a Customer Managed Key. Should be added with `identityIds`. It can't cross region and need identity in same region as geo backup.
+// The geo backup user managed identity id for a Customer Managed Key. Must be added to `identity.identity_ids`.
+//
+// > **Note:** This managed identity cannot be the same as `primaryUserAssignedIdentityId`, additionally this identity must be created in the same region as the geo-redundant backup.
 //
 // > **Note:** `primaryUserAssignedIdentityId` or `geoBackupUserAssignedIdentityId` is required when `type` is set to `UserAssigned`.
 func (o FlexibleServerCustomerManagedKeyPtrOutput) GeoBackupUserAssignedIdentityId() pulumi.StringPtrOutput {
@@ -386,7 +402,7 @@ func (o FlexibleServerCustomerManagedKeyPtrOutput) GeoBackupUserAssignedIdentity
 	}).(pulumi.StringPtrOutput)
 }
 
-// The ID of the Key Vault Key.
+// The versioned ID of the Key Vault Key.
 func (o FlexibleServerCustomerManagedKeyPtrOutput) KeyVaultKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FlexibleServerCustomerManagedKey) *string {
 		if v == nil {
@@ -396,7 +412,7 @@ func (o FlexibleServerCustomerManagedKeyPtrOutput) KeyVaultKeyId() pulumi.String
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies the primary user managed identity id for a Customer Managed Key. Should be added with `identityIds`.
+// Specifies the primary user managed identity id for a Customer Managed Key. Must be added to `identity.identity_ids`.
 func (o FlexibleServerCustomerManagedKeyPtrOutput) PrimaryUserAssignedIdentityId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FlexibleServerCustomerManagedKey) *string {
 		if v == nil {
@@ -560,8 +576,14 @@ func (o FlexibleServerHighAvailabilityPtrOutput) StandbyAvailabilityZone() pulum
 
 type FlexibleServerIdentity struct {
 	// A list of User Assigned Managed Identity IDs to be assigned to this PostgreSQL Flexible Server. Required if used together with `customerManagedKey` block.
+	//
+	// > **Note**: `identityIds` is required when `type` is set to `UserAssigned`.
 	IdentityIds []string `pulumi:"identityIds"`
-	// Specifies the type of Managed Service Identity that should be configured on this PostgreSQL Flexible Server. The only possible value is `UserAssigned`.
+	// The Principal ID associated with this Managed Service Identity.
+	PrincipalId *string `pulumi:"principalId"`
+	// The Tenant ID associated with this Managed Service Identity.
+	TenantId *string `pulumi:"tenantId"`
+	// Specifies the type of Managed Service Identity that should be configured on this PostgreSQL Flexible Server. Possible values are `UserAssigned` and `SystemAssigned`.
 	Type string `pulumi:"type"`
 }
 
@@ -578,8 +600,14 @@ type FlexibleServerIdentityInput interface {
 
 type FlexibleServerIdentityArgs struct {
 	// A list of User Assigned Managed Identity IDs to be assigned to this PostgreSQL Flexible Server. Required if used together with `customerManagedKey` block.
+	//
+	// > **Note**: `identityIds` is required when `type` is set to `UserAssigned`.
 	IdentityIds pulumi.StringArrayInput `pulumi:"identityIds"`
-	// Specifies the type of Managed Service Identity that should be configured on this PostgreSQL Flexible Server. The only possible value is `UserAssigned`.
+	// The Principal ID associated with this Managed Service Identity.
+	PrincipalId pulumi.StringPtrInput `pulumi:"principalId"`
+	// The Tenant ID associated with this Managed Service Identity.
+	TenantId pulumi.StringPtrInput `pulumi:"tenantId"`
+	// Specifies the type of Managed Service Identity that should be configured on this PostgreSQL Flexible Server. Possible values are `UserAssigned` and `SystemAssigned`.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -661,11 +689,23 @@ func (o FlexibleServerIdentityOutput) ToFlexibleServerIdentityPtrOutputWithConte
 }
 
 // A list of User Assigned Managed Identity IDs to be assigned to this PostgreSQL Flexible Server. Required if used together with `customerManagedKey` block.
+//
+// > **Note**: `identityIds` is required when `type` is set to `UserAssigned`.
 func (o FlexibleServerIdentityOutput) IdentityIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v FlexibleServerIdentity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
 }
 
-// Specifies the type of Managed Service Identity that should be configured on this PostgreSQL Flexible Server. The only possible value is `UserAssigned`.
+// The Principal ID associated with this Managed Service Identity.
+func (o FlexibleServerIdentityOutput) PrincipalId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FlexibleServerIdentity) *string { return v.PrincipalId }).(pulumi.StringPtrOutput)
+}
+
+// The Tenant ID associated with this Managed Service Identity.
+func (o FlexibleServerIdentityOutput) TenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FlexibleServerIdentity) *string { return v.TenantId }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the type of Managed Service Identity that should be configured on this PostgreSQL Flexible Server. Possible values are `UserAssigned` and `SystemAssigned`.
 func (o FlexibleServerIdentityOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v FlexibleServerIdentity) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -695,6 +735,8 @@ func (o FlexibleServerIdentityPtrOutput) Elem() FlexibleServerIdentityOutput {
 }
 
 // A list of User Assigned Managed Identity IDs to be assigned to this PostgreSQL Flexible Server. Required if used together with `customerManagedKey` block.
+//
+// > **Note**: `identityIds` is required when `type` is set to `UserAssigned`.
 func (o FlexibleServerIdentityPtrOutput) IdentityIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *FlexibleServerIdentity) []string {
 		if v == nil {
@@ -704,7 +746,27 @@ func (o FlexibleServerIdentityPtrOutput) IdentityIds() pulumi.StringArrayOutput 
 	}).(pulumi.StringArrayOutput)
 }
 
-// Specifies the type of Managed Service Identity that should be configured on this PostgreSQL Flexible Server. The only possible value is `UserAssigned`.
+// The Principal ID associated with this Managed Service Identity.
+func (o FlexibleServerIdentityPtrOutput) PrincipalId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FlexibleServerIdentity) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PrincipalId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Tenant ID associated with this Managed Service Identity.
+func (o FlexibleServerIdentityPtrOutput) TenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FlexibleServerIdentity) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TenantId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies the type of Managed Service Identity that should be configured on this PostgreSQL Flexible Server. Possible values are `UserAssigned` and `SystemAssigned`.
 func (o FlexibleServerIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FlexibleServerIdentity) *string {
 		if v == nil {
@@ -721,7 +783,7 @@ type FlexibleServerMaintenanceWindow struct {
 	StartHour *int `pulumi:"startHour"`
 	// The start minute for maintenance window. Defaults to `0`.
 	//
-	// > **NOTE** The specified `maintenanceWindow` is always defined in UTC time. When unspecified, the maintenance window falls back to the default [system-managed](https://learn.microsoft.com/en-us/azure/postgresql/flexible-server/how-to-maintenance-portal#specify-maintenance-schedule-options).
+	// > **Note:** The specified `maintenanceWindow` is always defined in UTC time. When unspecified, the maintenance window falls back to the default [system-managed](https://learn.microsoft.com/en-us/azure/postgresql/flexible-server/how-to-maintenance-portal#specify-maintenance-schedule-options).
 	StartMinute *int `pulumi:"startMinute"`
 }
 
@@ -743,7 +805,7 @@ type FlexibleServerMaintenanceWindowArgs struct {
 	StartHour pulumi.IntPtrInput `pulumi:"startHour"`
 	// The start minute for maintenance window. Defaults to `0`.
 	//
-	// > **NOTE** The specified `maintenanceWindow` is always defined in UTC time. When unspecified, the maintenance window falls back to the default [system-managed](https://learn.microsoft.com/en-us/azure/postgresql/flexible-server/how-to-maintenance-portal#specify-maintenance-schedule-options).
+	// > **Note:** The specified `maintenanceWindow` is always defined in UTC time. When unspecified, the maintenance window falls back to the default [system-managed](https://learn.microsoft.com/en-us/azure/postgresql/flexible-server/how-to-maintenance-portal#specify-maintenance-schedule-options).
 	StartMinute pulumi.IntPtrInput `pulumi:"startMinute"`
 }
 
@@ -836,7 +898,7 @@ func (o FlexibleServerMaintenanceWindowOutput) StartHour() pulumi.IntPtrOutput {
 
 // The start minute for maintenance window. Defaults to `0`.
 //
-// > **NOTE** The specified `maintenanceWindow` is always defined in UTC time. When unspecified, the maintenance window falls back to the default [system-managed](https://learn.microsoft.com/en-us/azure/postgresql/flexible-server/how-to-maintenance-portal#specify-maintenance-schedule-options).
+// > **Note:** The specified `maintenanceWindow` is always defined in UTC time. When unspecified, the maintenance window falls back to the default [system-managed](https://learn.microsoft.com/en-us/azure/postgresql/flexible-server/how-to-maintenance-portal#specify-maintenance-schedule-options).
 func (o FlexibleServerMaintenanceWindowOutput) StartMinute() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v FlexibleServerMaintenanceWindow) *int { return v.StartMinute }).(pulumi.IntPtrOutput)
 }
@@ -887,7 +949,7 @@ func (o FlexibleServerMaintenanceWindowPtrOutput) StartHour() pulumi.IntPtrOutpu
 
 // The start minute for maintenance window. Defaults to `0`.
 //
-// > **NOTE** The specified `maintenanceWindow` is always defined in UTC time. When unspecified, the maintenance window falls back to the default [system-managed](https://learn.microsoft.com/en-us/azure/postgresql/flexible-server/how-to-maintenance-portal#specify-maintenance-schedule-options).
+// > **Note:** The specified `maintenanceWindow` is always defined in UTC time. When unspecified, the maintenance window falls back to the default [system-managed](https://learn.microsoft.com/en-us/azure/postgresql/flexible-server/how-to-maintenance-portal#specify-maintenance-schedule-options).
 func (o FlexibleServerMaintenanceWindowPtrOutput) StartMinute() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *FlexibleServerMaintenanceWindow) *int {
 		if v == nil {

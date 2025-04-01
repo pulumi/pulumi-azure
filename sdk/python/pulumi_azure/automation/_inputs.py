@@ -1204,8 +1204,6 @@ if not MYPY:
         classifications_includeds: pulumi.Input[Sequence[pulumi.Input[str]]]
         """
         Specifies the list of update classifications included in the Software Update Configuration. Possible values are `Unclassified`, `Critical`, `Security` and `Other`.
-
-        > **NOTE:** The `classifications_included` property will become `Required` in version 4.0 of the Provider.
         """
         excluded_packages: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
         """
@@ -1231,8 +1229,6 @@ class SoftwareUpdateConfigurationLinuxArgs:
                  reboot: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[str]]] classifications_includeds: Specifies the list of update classifications included in the Software Update Configuration. Possible values are `Unclassified`, `Critical`, `Security` and `Other`.
-               
-               > **NOTE:** The `classifications_included` property will become `Required` in version 4.0 of the Provider.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] excluded_packages: Specifies a list of packages to excluded from the Software Update Configuration.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] included_packages: Specifies a list of packages to included from the Software Update Configuration.
         :param pulumi.Input[str] reboot: Specifies the reboot settings after software update, possible values are `IfRequired`, `Never`, `RebootOnly` and `Always`. Defaults to `IfRequired`.
@@ -1250,8 +1246,6 @@ class SoftwareUpdateConfigurationLinuxArgs:
     def classifications_includeds(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
         """
         Specifies the list of update classifications included in the Software Update Configuration. Possible values are `Unclassified`, `Critical`, `Security` and `Other`.
-
-        > **NOTE:** The `classifications_included` property will become `Required` in version 4.0 of the Provider.
         """
         return pulumi.get(self, "classifications_includeds")
 
@@ -1990,8 +1984,6 @@ if not MYPY:
         classifications_includeds: pulumi.Input[Sequence[pulumi.Input[str]]]
         """
         Specifies the list of update classification. Possible values are `Unclassified`, `Critical`, `Security`, `UpdateRollup`, `FeaturePack`, `ServicePack`, `Definition`, `Tools` and `Updates`.
-
-        > **NOTE:** The `classifications_included` property will become `Required` in version 4.0 of the Provider.
         """
         excluded_knowledge_base_numbers: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
         """
@@ -2017,8 +2009,6 @@ class SoftwareUpdateConfigurationWindowsArgs:
                  reboot: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[str]]] classifications_includeds: Specifies the list of update classification. Possible values are `Unclassified`, `Critical`, `Security`, `UpdateRollup`, `FeaturePack`, `ServicePack`, `Definition`, `Tools` and `Updates`.
-               
-               > **NOTE:** The `classifications_included` property will become `Required` in version 4.0 of the Provider.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] excluded_knowledge_base_numbers: Specifies a list of knowledge base numbers excluded.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] included_knowledge_base_numbers: Specifies a list of knowledge base numbers included.
         :param pulumi.Input[str] reboot: Specifies the reboot settings after software update, possible values are `IfRequired`, `Never`, `RebootOnly` and `Always`. Defaults to `IfRequired`.
@@ -2036,8 +2026,6 @@ class SoftwareUpdateConfigurationWindowsArgs:
     def classifications_includeds(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
         """
         Specifies the list of update classification. Possible values are `Unclassified`, `Critical`, `Security`, `UpdateRollup`, `FeaturePack`, `ServicePack`, `Definition`, `Tools` and `Updates`.
-
-        > **NOTE:** The `classifications_included` property will become `Required` in version 4.0 of the Provider.
         """
         return pulumi.get(self, "classifications_includeds")
 

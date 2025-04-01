@@ -26,7 +26,7 @@ import * as utilities from "../utilities";
  * });
  * const exampleContainer = new azure.storage.Container("example", {
  *     name: "content",
- *     storageAccountName: exampleAccount.name,
+ *     storageAccountId: exampleAccount.id,
  *     containerAccessType: "private",
  * });
  * const exampleBlob = new azure.storage.Blob("example", {

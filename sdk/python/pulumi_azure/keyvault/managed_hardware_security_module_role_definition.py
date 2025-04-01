@@ -28,10 +28,11 @@ class ManagedHardwareSecurityModuleRoleDefinitionArgs:
                  role_name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a ManagedHardwareSecurityModuleRoleDefinition resource.
-        :param pulumi.Input[str] description: Specifies a text description about this KeyVault Role Definition.
-        :param pulumi.Input[str] name: The name which should be used for this KeyVault Role Definition. Changing this forces a new KeyVault Role Definition to be created.
+        :param pulumi.Input[str] managed_hsm_id: The ID of the Key Vault Managed Hardware Security Module. Changing this forces a new Key Vault Managed Hardware Security Module Role Definition to be created.
+        :param pulumi.Input[str] description: Specifies a text description about this Key Vault Managed Hardware Security Module Role Definition.
+        :param pulumi.Input[str] name: The name in UUID notation of this Key Vault Managed Hardware Security Module Role Definition. Changing this forces a new Key Vault Managed Hardware Security Module Role Definition to be created.
         :param pulumi.Input[Sequence[pulumi.Input['ManagedHardwareSecurityModuleRoleDefinitionPermissionArgs']]] permissions: One or more `permission` blocks as defined below.
-        :param pulumi.Input[str] role_name: Specify a name for this KeyVault Role Definition.
+        :param pulumi.Input[str] role_name: Specify a display name for this Key Vault Managed Hardware Security Module Role Definition.
         """
         pulumi.set(__self__, "managed_hsm_id", managed_hsm_id)
         if description is not None:
@@ -46,6 +47,9 @@ class ManagedHardwareSecurityModuleRoleDefinitionArgs:
     @property
     @pulumi.getter(name="managedHsmId")
     def managed_hsm_id(self) -> pulumi.Input[str]:
+        """
+        The ID of the Key Vault Managed Hardware Security Module. Changing this forces a new Key Vault Managed Hardware Security Module Role Definition to be created.
+        """
         return pulumi.get(self, "managed_hsm_id")
 
     @managed_hsm_id.setter
@@ -56,7 +60,7 @@ class ManagedHardwareSecurityModuleRoleDefinitionArgs:
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies a text description about this KeyVault Role Definition.
+        Specifies a text description about this Key Vault Managed Hardware Security Module Role Definition.
         """
         return pulumi.get(self, "description")
 
@@ -68,7 +72,7 @@ class ManagedHardwareSecurityModuleRoleDefinitionArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name which should be used for this KeyVault Role Definition. Changing this forces a new KeyVault Role Definition to be created.
+        The name in UUID notation of this Key Vault Managed Hardware Security Module Role Definition. Changing this forces a new Key Vault Managed Hardware Security Module Role Definition to be created.
         """
         return pulumi.get(self, "name")
 
@@ -92,7 +96,7 @@ class ManagedHardwareSecurityModuleRoleDefinitionArgs:
     @pulumi.getter(name="roleName")
     def role_name(self) -> Optional[pulumi.Input[str]]:
         """
-        Specify a name for this KeyVault Role Definition.
+        Specify a display name for this Key Vault Managed Hardware Security Module Role Definition.
         """
         return pulumi.get(self, "role_name")
 
@@ -113,11 +117,12 @@ class _ManagedHardwareSecurityModuleRoleDefinitionState:
                  role_type: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering ManagedHardwareSecurityModuleRoleDefinition resources.
-        :param pulumi.Input[str] description: Specifies a text description about this KeyVault Role Definition.
-        :param pulumi.Input[str] name: The name which should be used for this KeyVault Role Definition. Changing this forces a new KeyVault Role Definition to be created.
+        :param pulumi.Input[str] description: Specifies a text description about this Key Vault Managed Hardware Security Module Role Definition.
+        :param pulumi.Input[str] managed_hsm_id: The ID of the Key Vault Managed Hardware Security Module. Changing this forces a new Key Vault Managed Hardware Security Module Role Definition to be created.
+        :param pulumi.Input[str] name: The name in UUID notation of this Key Vault Managed Hardware Security Module Role Definition. Changing this forces a new Key Vault Managed Hardware Security Module Role Definition to be created.
         :param pulumi.Input[Sequence[pulumi.Input['ManagedHardwareSecurityModuleRoleDefinitionPermissionArgs']]] permissions: One or more `permission` blocks as defined below.
         :param pulumi.Input[str] resource_manager_id: The ID of the role definition resource without Key Vault base URL.
-        :param pulumi.Input[str] role_name: Specify a name for this KeyVault Role Definition.
+        :param pulumi.Input[str] role_name: Specify a display name for this Key Vault Managed Hardware Security Module Role Definition.
         :param pulumi.Input[str] role_type: The type of the role definition. Possible values are `AKVBuiltInRole` and `CustomRole`.
         """
         if description is not None:
@@ -139,7 +144,7 @@ class _ManagedHardwareSecurityModuleRoleDefinitionState:
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies a text description about this KeyVault Role Definition.
+        Specifies a text description about this Key Vault Managed Hardware Security Module Role Definition.
         """
         return pulumi.get(self, "description")
 
@@ -150,6 +155,9 @@ class _ManagedHardwareSecurityModuleRoleDefinitionState:
     @property
     @pulumi.getter(name="managedHsmId")
     def managed_hsm_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the Key Vault Managed Hardware Security Module. Changing this forces a new Key Vault Managed Hardware Security Module Role Definition to be created.
+        """
         return pulumi.get(self, "managed_hsm_id")
 
     @managed_hsm_id.setter
@@ -160,7 +168,7 @@ class _ManagedHardwareSecurityModuleRoleDefinitionState:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name which should be used for this KeyVault Role Definition. Changing this forces a new KeyVault Role Definition to be created.
+        The name in UUID notation of this Key Vault Managed Hardware Security Module Role Definition. Changing this forces a new Key Vault Managed Hardware Security Module Role Definition to be created.
         """
         return pulumi.get(self, "name")
 
@@ -196,7 +204,7 @@ class _ManagedHardwareSecurityModuleRoleDefinitionState:
     @pulumi.getter(name="roleName")
     def role_name(self) -> Optional[pulumi.Input[str]]:
         """
-        Specify a name for this KeyVault Role Definition.
+        Specify a display name for this Key Vault Managed Hardware Security Module Role Definition.
         """
         return pulumi.get(self, "role_name")
 
@@ -229,11 +237,11 @@ class ManagedHardwareSecurityModuleRoleDefinition(pulumi.CustomResource):
                  role_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Manages a KeyVault Managed Hardware Security Module Role Definition. This resource works together with Managed hardware security module resource.
+        Manages a Key Vault Managed Hardware Security Module Role Definition. This resource works together with Managed hardware security module resource.
 
         ## Import
 
-        KeyVaults can be imported using the `resource id`, e.g.
+        Key Vault Managed Hardware Security Module Role Definitions can be imported using the `resource id`, e.g.
 
         ```sh
         $ pulumi import azure:keyvault/managedHardwareSecurityModuleRoleDefinition:ManagedHardwareSecurityModuleRoleDefinition example https://0000.managedhsm.azure.net///RoleDefinition/00000000-0000-0000-0000-000000000000
@@ -241,10 +249,11 @@ class ManagedHardwareSecurityModuleRoleDefinition(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] description: Specifies a text description about this KeyVault Role Definition.
-        :param pulumi.Input[str] name: The name which should be used for this KeyVault Role Definition. Changing this forces a new KeyVault Role Definition to be created.
+        :param pulumi.Input[str] description: Specifies a text description about this Key Vault Managed Hardware Security Module Role Definition.
+        :param pulumi.Input[str] managed_hsm_id: The ID of the Key Vault Managed Hardware Security Module. Changing this forces a new Key Vault Managed Hardware Security Module Role Definition to be created.
+        :param pulumi.Input[str] name: The name in UUID notation of this Key Vault Managed Hardware Security Module Role Definition. Changing this forces a new Key Vault Managed Hardware Security Module Role Definition to be created.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ManagedHardwareSecurityModuleRoleDefinitionPermissionArgs', 'ManagedHardwareSecurityModuleRoleDefinitionPermissionArgsDict']]]] permissions: One or more `permission` blocks as defined below.
-        :param pulumi.Input[str] role_name: Specify a name for this KeyVault Role Definition.
+        :param pulumi.Input[str] role_name: Specify a display name for this Key Vault Managed Hardware Security Module Role Definition.
         """
         ...
     @overload
@@ -253,11 +262,11 @@ class ManagedHardwareSecurityModuleRoleDefinition(pulumi.CustomResource):
                  args: ManagedHardwareSecurityModuleRoleDefinitionArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Manages a KeyVault Managed Hardware Security Module Role Definition. This resource works together with Managed hardware security module resource.
+        Manages a Key Vault Managed Hardware Security Module Role Definition. This resource works together with Managed hardware security module resource.
 
         ## Import
 
-        KeyVaults can be imported using the `resource id`, e.g.
+        Key Vault Managed Hardware Security Module Role Definitions can be imported using the `resource id`, e.g.
 
         ```sh
         $ pulumi import azure:keyvault/managedHardwareSecurityModuleRoleDefinition:ManagedHardwareSecurityModuleRoleDefinition example https://0000.managedhsm.azure.net///RoleDefinition/00000000-0000-0000-0000-000000000000
@@ -325,11 +334,12 @@ class ManagedHardwareSecurityModuleRoleDefinition(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] description: Specifies a text description about this KeyVault Role Definition.
-        :param pulumi.Input[str] name: The name which should be used for this KeyVault Role Definition. Changing this forces a new KeyVault Role Definition to be created.
+        :param pulumi.Input[str] description: Specifies a text description about this Key Vault Managed Hardware Security Module Role Definition.
+        :param pulumi.Input[str] managed_hsm_id: The ID of the Key Vault Managed Hardware Security Module. Changing this forces a new Key Vault Managed Hardware Security Module Role Definition to be created.
+        :param pulumi.Input[str] name: The name in UUID notation of this Key Vault Managed Hardware Security Module Role Definition. Changing this forces a new Key Vault Managed Hardware Security Module Role Definition to be created.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ManagedHardwareSecurityModuleRoleDefinitionPermissionArgs', 'ManagedHardwareSecurityModuleRoleDefinitionPermissionArgsDict']]]] permissions: One or more `permission` blocks as defined below.
         :param pulumi.Input[str] resource_manager_id: The ID of the role definition resource without Key Vault base URL.
-        :param pulumi.Input[str] role_name: Specify a name for this KeyVault Role Definition.
+        :param pulumi.Input[str] role_name: Specify a display name for this Key Vault Managed Hardware Security Module Role Definition.
         :param pulumi.Input[str] role_type: The type of the role definition. Possible values are `AKVBuiltInRole` and `CustomRole`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -349,20 +359,23 @@ class ManagedHardwareSecurityModuleRoleDefinition(pulumi.CustomResource):
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
         """
-        Specifies a text description about this KeyVault Role Definition.
+        Specifies a text description about this Key Vault Managed Hardware Security Module Role Definition.
         """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter(name="managedHsmId")
     def managed_hsm_id(self) -> pulumi.Output[str]:
+        """
+        The ID of the Key Vault Managed Hardware Security Module. Changing this forces a new Key Vault Managed Hardware Security Module Role Definition to be created.
+        """
         return pulumi.get(self, "managed_hsm_id")
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        The name which should be used for this KeyVault Role Definition. Changing this forces a new KeyVault Role Definition to be created.
+        The name in UUID notation of this Key Vault Managed Hardware Security Module Role Definition. Changing this forces a new Key Vault Managed Hardware Security Module Role Definition to be created.
         """
         return pulumi.get(self, "name")
 
@@ -386,7 +399,7 @@ class ManagedHardwareSecurityModuleRoleDefinition(pulumi.CustomResource):
     @pulumi.getter(name="roleName")
     def role_name(self) -> pulumi.Output[Optional[str]]:
         """
-        Specify a name for this KeyVault Role Definition.
+        Specify a display name for this Key Vault Managed Hardware Security Module Role Definition.
         """
         return pulumi.get(self, "role_name")
 

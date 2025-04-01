@@ -16,7 +16,7 @@ namespace Pulumi.Azure.ServiceBus.Inputs
         private InputList<string>? _identityIds;
 
         /// <summary>
-        /// Specifies a list of User Assigned Managed Identity IDs to be assigned to this ServiceBus namespace.
+        /// Specifies a list of User Assigned Managed Identity IDs to be assigned to this Service Bus namespace.
         /// 
         /// &gt; **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
         /// </summary>
@@ -27,19 +27,19 @@ namespace Pulumi.Azure.ServiceBus.Inputs
         }
 
         /// <summary>
-        /// The Principal ID for the Service Principal associated with the Managed Service Identity of this ServiceBus Namespace.
+        /// The Principal ID for the Service Principal associated with the Managed Service Identity of this Service Bus Namespace.
         /// </summary>
         [Input("principalId")]
         public Input<string>? PrincipalId { get; set; }
 
         /// <summary>
-        /// The Tenant ID for the Service Principal associated with the Managed Service Identity of this ServiceBus Namespace.
+        /// The Tenant ID for the Service Principal associated with the Managed Service Identity of this Service Bus Namespace.
         /// </summary>
         [Input("tenantId")]
         public Input<string>? TenantId { get; set; }
 
         /// <summary>
-        /// Specifies the type of Managed Service Identity that should be configured on this ServiceBus Namespace. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
+        /// Specifies the type of Managed Service Identity that should be configured on this Service Bus Namespace. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;

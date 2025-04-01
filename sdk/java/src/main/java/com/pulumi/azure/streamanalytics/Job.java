@@ -210,12 +210,16 @@ public class Job extends com.pulumi.resources.CustomResource {
     /**
      * The details of the job storage account. A `job_storage_account` block as defined below.
      * 
+     * &gt; **Note:** `content_storage_policy` must be set to `JobStorageAccount` when specifying `job_storage_account`.
+     * 
      */
     @Export(name="jobStorageAccounts", refs={List.class,JobJobStorageAccount.class}, tree="[0,1]")
     private Output</* @Nullable */ List<JobJobStorageAccount>> jobStorageAccounts;
 
     /**
      * @return The details of the job storage account. A `job_storage_account` block as defined below.
+     * 
+     * &gt; **Note:** `content_storage_policy` must be set to `JobStorageAccount` when specifying `job_storage_account`.
      * 
      */
     public Output<Optional<List<JobJobStorageAccount>>> jobStorageAccounts() {

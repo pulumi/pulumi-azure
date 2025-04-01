@@ -80,13 +80,17 @@ import (
 type JobAgent struct {
 	pulumi.CustomResourceState
 
-	// The ID of the database to store metadata for the Elastic Job Agent. Changing this forces a new Elastic Job Agent to be created.
+	// The ID of the database to store metadata for this Elastic Job Agent. Changing this forces a new Elastic Job Agent to be created.
 	DatabaseId pulumi.StringOutput `pulumi:"databaseId"`
-	// The Azure Region where the Elastic Job Agent should exist. Changing this forces a new Elastic Job Agent to be created.
+	// An `identity` block as defined below.
+	Identity JobAgentIdentityPtrOutput `pulumi:"identity"`
+	// The Azure Region where this Elastic Job Agent should exist. Changing this forces a new Elastic Job Agent to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
 	// The name which should be used for this Elastic Job Agent. Changing this forces a new Elastic Job Agent to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// A mapping of tags which should be assigned to the Database.
+	// The name of the SKU to use for this Elastic Job Agent. Possible values are `JA100`, `JA200`, `JA400`, and `JA800`. Defaults to `JA100`.
+	Sku pulumi.StringPtrOutput `pulumi:"sku"`
+	// A mapping of tags which should be assigned to this Elastic Job Agent.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 }
 
@@ -123,24 +127,32 @@ func GetJobAgent(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering JobAgent resources.
 type jobAgentState struct {
-	// The ID of the database to store metadata for the Elastic Job Agent. Changing this forces a new Elastic Job Agent to be created.
+	// The ID of the database to store metadata for this Elastic Job Agent. Changing this forces a new Elastic Job Agent to be created.
 	DatabaseId *string `pulumi:"databaseId"`
-	// The Azure Region where the Elastic Job Agent should exist. Changing this forces a new Elastic Job Agent to be created.
+	// An `identity` block as defined below.
+	Identity *JobAgentIdentity `pulumi:"identity"`
+	// The Azure Region where this Elastic Job Agent should exist. Changing this forces a new Elastic Job Agent to be created.
 	Location *string `pulumi:"location"`
 	// The name which should be used for this Elastic Job Agent. Changing this forces a new Elastic Job Agent to be created.
 	Name *string `pulumi:"name"`
-	// A mapping of tags which should be assigned to the Database.
+	// The name of the SKU to use for this Elastic Job Agent. Possible values are `JA100`, `JA200`, `JA400`, and `JA800`. Defaults to `JA100`.
+	Sku *string `pulumi:"sku"`
+	// A mapping of tags which should be assigned to this Elastic Job Agent.
 	Tags map[string]string `pulumi:"tags"`
 }
 
 type JobAgentState struct {
-	// The ID of the database to store metadata for the Elastic Job Agent. Changing this forces a new Elastic Job Agent to be created.
+	// The ID of the database to store metadata for this Elastic Job Agent. Changing this forces a new Elastic Job Agent to be created.
 	DatabaseId pulumi.StringPtrInput
-	// The Azure Region where the Elastic Job Agent should exist. Changing this forces a new Elastic Job Agent to be created.
+	// An `identity` block as defined below.
+	Identity JobAgentIdentityPtrInput
+	// The Azure Region where this Elastic Job Agent should exist. Changing this forces a new Elastic Job Agent to be created.
 	Location pulumi.StringPtrInput
 	// The name which should be used for this Elastic Job Agent. Changing this forces a new Elastic Job Agent to be created.
 	Name pulumi.StringPtrInput
-	// A mapping of tags which should be assigned to the Database.
+	// The name of the SKU to use for this Elastic Job Agent. Possible values are `JA100`, `JA200`, `JA400`, and `JA800`. Defaults to `JA100`.
+	Sku pulumi.StringPtrInput
+	// A mapping of tags which should be assigned to this Elastic Job Agent.
 	Tags pulumi.StringMapInput
 }
 
@@ -149,25 +161,33 @@ func (JobAgentState) ElementType() reflect.Type {
 }
 
 type jobAgentArgs struct {
-	// The ID of the database to store metadata for the Elastic Job Agent. Changing this forces a new Elastic Job Agent to be created.
+	// The ID of the database to store metadata for this Elastic Job Agent. Changing this forces a new Elastic Job Agent to be created.
 	DatabaseId string `pulumi:"databaseId"`
-	// The Azure Region where the Elastic Job Agent should exist. Changing this forces a new Elastic Job Agent to be created.
+	// An `identity` block as defined below.
+	Identity *JobAgentIdentity `pulumi:"identity"`
+	// The Azure Region where this Elastic Job Agent should exist. Changing this forces a new Elastic Job Agent to be created.
 	Location *string `pulumi:"location"`
 	// The name which should be used for this Elastic Job Agent. Changing this forces a new Elastic Job Agent to be created.
 	Name *string `pulumi:"name"`
-	// A mapping of tags which should be assigned to the Database.
+	// The name of the SKU to use for this Elastic Job Agent. Possible values are `JA100`, `JA200`, `JA400`, and `JA800`. Defaults to `JA100`.
+	Sku *string `pulumi:"sku"`
+	// A mapping of tags which should be assigned to this Elastic Job Agent.
 	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a JobAgent resource.
 type JobAgentArgs struct {
-	// The ID of the database to store metadata for the Elastic Job Agent. Changing this forces a new Elastic Job Agent to be created.
+	// The ID of the database to store metadata for this Elastic Job Agent. Changing this forces a new Elastic Job Agent to be created.
 	DatabaseId pulumi.StringInput
-	// The Azure Region where the Elastic Job Agent should exist. Changing this forces a new Elastic Job Agent to be created.
+	// An `identity` block as defined below.
+	Identity JobAgentIdentityPtrInput
+	// The Azure Region where this Elastic Job Agent should exist. Changing this forces a new Elastic Job Agent to be created.
 	Location pulumi.StringPtrInput
 	// The name which should be used for this Elastic Job Agent. Changing this forces a new Elastic Job Agent to be created.
 	Name pulumi.StringPtrInput
-	// A mapping of tags which should be assigned to the Database.
+	// The name of the SKU to use for this Elastic Job Agent. Possible values are `JA100`, `JA200`, `JA400`, and `JA800`. Defaults to `JA100`.
+	Sku pulumi.StringPtrInput
+	// A mapping of tags which should be assigned to this Elastic Job Agent.
 	Tags pulumi.StringMapInput
 }
 
@@ -258,12 +278,17 @@ func (o JobAgentOutput) ToJobAgentOutputWithContext(ctx context.Context) JobAgen
 	return o
 }
 
-// The ID of the database to store metadata for the Elastic Job Agent. Changing this forces a new Elastic Job Agent to be created.
+// The ID of the database to store metadata for this Elastic Job Agent. Changing this forces a new Elastic Job Agent to be created.
 func (o JobAgentOutput) DatabaseId() pulumi.StringOutput {
 	return o.ApplyT(func(v *JobAgent) pulumi.StringOutput { return v.DatabaseId }).(pulumi.StringOutput)
 }
 
-// The Azure Region where the Elastic Job Agent should exist. Changing this forces a new Elastic Job Agent to be created.
+// An `identity` block as defined below.
+func (o JobAgentOutput) Identity() JobAgentIdentityPtrOutput {
+	return o.ApplyT(func(v *JobAgent) JobAgentIdentityPtrOutput { return v.Identity }).(JobAgentIdentityPtrOutput)
+}
+
+// The Azure Region where this Elastic Job Agent should exist. Changing this forces a new Elastic Job Agent to be created.
 func (o JobAgentOutput) Location() pulumi.StringOutput {
 	return o.ApplyT(func(v *JobAgent) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
 }
@@ -273,7 +298,12 @@ func (o JobAgentOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *JobAgent) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// A mapping of tags which should be assigned to the Database.
+// The name of the SKU to use for this Elastic Job Agent. Possible values are `JA100`, `JA200`, `JA400`, and `JA800`. Defaults to `JA100`.
+func (o JobAgentOutput) Sku() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *JobAgent) pulumi.StringPtrOutput { return v.Sku }).(pulumi.StringPtrOutput)
+}
+
+// A mapping of tags which should be assigned to this Elastic Job Agent.
 func (o JobAgentOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *JobAgent) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }

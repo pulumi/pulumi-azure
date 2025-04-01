@@ -35,6 +35,8 @@ __all__ = [
     'FailoverGroupPartnerServerArgsDict',
     'FailoverGroupReadWriteEndpointFailoverPolicyArgs',
     'FailoverGroupReadWriteEndpointFailoverPolicyArgsDict',
+    'JobAgentIdentityArgs',
+    'JobAgentIdentityArgsDict',
     'JobStepOutputTargetArgs',
     'JobStepOutputTargetArgsDict',
     'JobTargetGroupJobTargetArgs',
@@ -889,6 +891,56 @@ class FailoverGroupReadWriteEndpointFailoverPolicyArgs:
     @grace_minutes.setter
     def grace_minutes(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "grace_minutes", value)
+
+
+if not MYPY:
+    class JobAgentIdentityArgsDict(TypedDict):
+        identity_ids: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        Specifies a list of User Assigned Managed Identity IDs to assign to this Elastic Job Agent.
+        """
+        type: pulumi.Input[str]
+        """
+        Specifies the type of Managed Service Identity that should be configured on this Elastic Job Agent. Currently only `UserAssigned` is supported.
+        """
+elif False:
+    JobAgentIdentityArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class JobAgentIdentityArgs:
+    def __init__(__self__, *,
+                 identity_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
+                 type: pulumi.Input[str]):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] identity_ids: Specifies a list of User Assigned Managed Identity IDs to assign to this Elastic Job Agent.
+        :param pulumi.Input[str] type: Specifies the type of Managed Service Identity that should be configured on this Elastic Job Agent. Currently only `UserAssigned` is supported.
+        """
+        pulumi.set(__self__, "identity_ids", identity_ids)
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="identityIds")
+    def identity_ids(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        Specifies a list of User Assigned Managed Identity IDs to assign to this Elastic Job Agent.
+        """
+        return pulumi.get(self, "identity_ids")
+
+    @identity_ids.setter
+    def identity_ids(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "identity_ids", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        Specifies the type of Managed Service Identity that should be configured on this Elastic Job Agent. Currently only `UserAssigned` is supported.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
 
 
 if not MYPY:

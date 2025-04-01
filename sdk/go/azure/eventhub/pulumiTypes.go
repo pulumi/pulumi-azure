@@ -6633,7 +6633,7 @@ type NamespaceCustomerManagedKeyType struct {
 	IdentityId string `pulumi:"identityId"`
 	// Used to specify whether enable Infrastructure Encryption (Double Encryption). Changing this forces a new resource to be created.
 	InfrastructureEncryptionEnabled *bool `pulumi:"infrastructureEncryptionEnabled"`
-	// The ID of the Key Vault Key which should be used to Encrypt the data in this ServiceBus Namespace.
+	// The ID of the Key Vault Key which should be used to Encrypt the data in this Service Bus Namespace.
 	KeyVaultKeyId string `pulumi:"keyVaultKeyId"`
 }
 
@@ -6653,7 +6653,7 @@ type NamespaceCustomerManagedKeyTypeArgs struct {
 	IdentityId pulumi.StringInput `pulumi:"identityId"`
 	// Used to specify whether enable Infrastructure Encryption (Double Encryption). Changing this forces a new resource to be created.
 	InfrastructureEncryptionEnabled pulumi.BoolPtrInput `pulumi:"infrastructureEncryptionEnabled"`
-	// The ID of the Key Vault Key which should be used to Encrypt the data in this ServiceBus Namespace.
+	// The ID of the Key Vault Key which should be used to Encrypt the data in this Service Bus Namespace.
 	KeyVaultKeyId pulumi.StringInput `pulumi:"keyVaultKeyId"`
 }
 
@@ -6744,7 +6744,7 @@ func (o NamespaceCustomerManagedKeyTypeOutput) InfrastructureEncryptionEnabled()
 	return o.ApplyT(func(v NamespaceCustomerManagedKeyType) *bool { return v.InfrastructureEncryptionEnabled }).(pulumi.BoolPtrOutput)
 }
 
-// The ID of the Key Vault Key which should be used to Encrypt the data in this ServiceBus Namespace.
+// The ID of the Key Vault Key which should be used to Encrypt the data in this Service Bus Namespace.
 func (o NamespaceCustomerManagedKeyTypeOutput) KeyVaultKeyId() pulumi.StringOutput {
 	return o.ApplyT(func(v NamespaceCustomerManagedKeyType) string { return v.KeyVaultKeyId }).(pulumi.StringOutput)
 }
@@ -6793,7 +6793,7 @@ func (o NamespaceCustomerManagedKeyTypePtrOutput) InfrastructureEncryptionEnable
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The ID of the Key Vault Key which should be used to Encrypt the data in this ServiceBus Namespace.
+// The ID of the Key Vault Key which should be used to Encrypt the data in this Service Bus Namespace.
 func (o NamespaceCustomerManagedKeyTypePtrOutput) KeyVaultKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NamespaceCustomerManagedKeyType) *string {
 		if v == nil {
@@ -6804,15 +6804,15 @@ func (o NamespaceCustomerManagedKeyTypePtrOutput) KeyVaultKeyId() pulumi.StringP
 }
 
 type NamespaceIdentity struct {
-	// Specifies a list of User Assigned Managed Identity IDs to be assigned to this ServiceBus namespace.
+	// Specifies a list of User Assigned Managed Identity IDs to be assigned to this Service Bus namespace.
 	//
 	// > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
 	IdentityIds []string `pulumi:"identityIds"`
-	// The Principal ID for the Service Principal associated with the Managed Service Identity of this ServiceBus Namespace.
+	// The Principal ID for the Service Principal associated with the Managed Service Identity of this Service Bus Namespace.
 	PrincipalId *string `pulumi:"principalId"`
-	// The Tenant ID for the Service Principal associated with the Managed Service Identity of this ServiceBus Namespace.
+	// The Tenant ID for the Service Principal associated with the Managed Service Identity of this Service Bus Namespace.
 	TenantId *string `pulumi:"tenantId"`
-	// Specifies the type of Managed Service Identity that should be configured on this ServiceBus Namespace. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
+	// Specifies the type of Managed Service Identity that should be configured on this Service Bus Namespace. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
 	Type string `pulumi:"type"`
 }
 
@@ -6828,15 +6828,15 @@ type NamespaceIdentityInput interface {
 }
 
 type NamespaceIdentityArgs struct {
-	// Specifies a list of User Assigned Managed Identity IDs to be assigned to this ServiceBus namespace.
+	// Specifies a list of User Assigned Managed Identity IDs to be assigned to this Service Bus namespace.
 	//
 	// > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
 	IdentityIds pulumi.StringArrayInput `pulumi:"identityIds"`
-	// The Principal ID for the Service Principal associated with the Managed Service Identity of this ServiceBus Namespace.
+	// The Principal ID for the Service Principal associated with the Managed Service Identity of this Service Bus Namespace.
 	PrincipalId pulumi.StringPtrInput `pulumi:"principalId"`
-	// The Tenant ID for the Service Principal associated with the Managed Service Identity of this ServiceBus Namespace.
+	// The Tenant ID for the Service Principal associated with the Managed Service Identity of this Service Bus Namespace.
 	TenantId pulumi.StringPtrInput `pulumi:"tenantId"`
-	// Specifies the type of Managed Service Identity that should be configured on this ServiceBus Namespace. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
+	// Specifies the type of Managed Service Identity that should be configured on this Service Bus Namespace. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -6917,24 +6917,24 @@ func (o NamespaceIdentityOutput) ToNamespaceIdentityPtrOutputWithContext(ctx con
 	}).(NamespaceIdentityPtrOutput)
 }
 
-// Specifies a list of User Assigned Managed Identity IDs to be assigned to this ServiceBus namespace.
+// Specifies a list of User Assigned Managed Identity IDs to be assigned to this Service Bus namespace.
 //
 // > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
 func (o NamespaceIdentityOutput) IdentityIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v NamespaceIdentity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
 }
 
-// The Principal ID for the Service Principal associated with the Managed Service Identity of this ServiceBus Namespace.
+// The Principal ID for the Service Principal associated with the Managed Service Identity of this Service Bus Namespace.
 func (o NamespaceIdentityOutput) PrincipalId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NamespaceIdentity) *string { return v.PrincipalId }).(pulumi.StringPtrOutput)
 }
 
-// The Tenant ID for the Service Principal associated with the Managed Service Identity of this ServiceBus Namespace.
+// The Tenant ID for the Service Principal associated with the Managed Service Identity of this Service Bus Namespace.
 func (o NamespaceIdentityOutput) TenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NamespaceIdentity) *string { return v.TenantId }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the type of Managed Service Identity that should be configured on this ServiceBus Namespace. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
+// Specifies the type of Managed Service Identity that should be configured on this Service Bus Namespace. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
 func (o NamespaceIdentityOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v NamespaceIdentity) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -6963,7 +6963,7 @@ func (o NamespaceIdentityPtrOutput) Elem() NamespaceIdentityOutput {
 	}).(NamespaceIdentityOutput)
 }
 
-// Specifies a list of User Assigned Managed Identity IDs to be assigned to this ServiceBus namespace.
+// Specifies a list of User Assigned Managed Identity IDs to be assigned to this Service Bus namespace.
 //
 // > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
 func (o NamespaceIdentityPtrOutput) IdentityIds() pulumi.StringArrayOutput {
@@ -6975,7 +6975,7 @@ func (o NamespaceIdentityPtrOutput) IdentityIds() pulumi.StringArrayOutput {
 	}).(pulumi.StringArrayOutput)
 }
 
-// The Principal ID for the Service Principal associated with the Managed Service Identity of this ServiceBus Namespace.
+// The Principal ID for the Service Principal associated with the Managed Service Identity of this Service Bus Namespace.
 func (o NamespaceIdentityPtrOutput) PrincipalId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NamespaceIdentity) *string {
 		if v == nil {
@@ -6985,7 +6985,7 @@ func (o NamespaceIdentityPtrOutput) PrincipalId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The Tenant ID for the Service Principal associated with the Managed Service Identity of this ServiceBus Namespace.
+// The Tenant ID for the Service Principal associated with the Managed Service Identity of this Service Bus Namespace.
 func (o NamespaceIdentityPtrOutput) TenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NamespaceIdentity) *string {
 		if v == nil {
@@ -6995,7 +6995,7 @@ func (o NamespaceIdentityPtrOutput) TenantId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies the type of Managed Service Identity that should be configured on this ServiceBus Namespace. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
+// Specifies the type of Managed Service Identity that should be configured on this Service Bus Namespace. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
 func (o NamespaceIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NamespaceIdentity) *string {
 		if v == nil {
@@ -7008,7 +7008,7 @@ func (o NamespaceIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 type NamespaceNetworkRuleSet struct {
 	// Specifies the default action for the Network Rule Set. Possible values are `Allow` and `Deny`. Defaults to `Allow`.
 	DefaultAction *string `pulumi:"defaultAction"`
-	// One or more IP Addresses, or CIDR Blocks which should be able to access the ServiceBus Namespace.
+	// One or more IP Addresses, or CIDR Blocks which should be able to access the Service Bus Namespace.
 	IpRules []string `pulumi:"ipRules"`
 	// One or more `networkRules` blocks as defined below.
 	NetworkRules []NamespaceNetworkRuleSetNetworkRule `pulumi:"networkRules"`
@@ -7034,7 +7034,7 @@ type NamespaceNetworkRuleSetInput interface {
 type NamespaceNetworkRuleSetArgs struct {
 	// Specifies the default action for the Network Rule Set. Possible values are `Allow` and `Deny`. Defaults to `Allow`.
 	DefaultAction pulumi.StringPtrInput `pulumi:"defaultAction"`
-	// One or more IP Addresses, or CIDR Blocks which should be able to access the ServiceBus Namespace.
+	// One or more IP Addresses, or CIDR Blocks which should be able to access the Service Bus Namespace.
 	IpRules pulumi.StringArrayInput `pulumi:"ipRules"`
 	// One or more `networkRules` blocks as defined below.
 	NetworkRules NamespaceNetworkRuleSetNetworkRuleArrayInput `pulumi:"networkRules"`
@@ -7128,7 +7128,7 @@ func (o NamespaceNetworkRuleSetOutput) DefaultAction() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NamespaceNetworkRuleSet) *string { return v.DefaultAction }).(pulumi.StringPtrOutput)
 }
 
-// One or more IP Addresses, or CIDR Blocks which should be able to access the ServiceBus Namespace.
+// One or more IP Addresses, or CIDR Blocks which should be able to access the Service Bus Namespace.
 func (o NamespaceNetworkRuleSetOutput) IpRules() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v NamespaceNetworkRuleSet) []string { return v.IpRules }).(pulumi.StringArrayOutput)
 }
@@ -7184,7 +7184,7 @@ func (o NamespaceNetworkRuleSetPtrOutput) DefaultAction() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// One or more IP Addresses, or CIDR Blocks which should be able to access the ServiceBus Namespace.
+// One or more IP Addresses, or CIDR Blocks which should be able to access the Service Bus Namespace.
 func (o NamespaceNetworkRuleSetPtrOutput) IpRules() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *NamespaceNetworkRuleSet) []string {
 		if v == nil {
@@ -7227,9 +7227,9 @@ func (o NamespaceNetworkRuleSetPtrOutput) TrustedServicesAllowed() pulumi.BoolPt
 }
 
 type NamespaceNetworkRuleSetNetworkRule struct {
-	// Should the ServiceBus Namespace Network Rule Set ignore missing Virtual Network Service Endpoint option in the Subnet? Defaults to `false`.
+	// Should the Service Bus Namespace Network Rule Set ignore missing Virtual Network Service Endpoint option in the Subnet? Defaults to `false`.
 	IgnoreMissingVnetServiceEndpoint *bool `pulumi:"ignoreMissingVnetServiceEndpoint"`
-	// The Subnet ID which should be able to access this ServiceBus Namespace.
+	// The Subnet ID which should be able to access this Service Bus Namespace.
 	SubnetId string `pulumi:"subnetId"`
 }
 
@@ -7245,9 +7245,9 @@ type NamespaceNetworkRuleSetNetworkRuleInput interface {
 }
 
 type NamespaceNetworkRuleSetNetworkRuleArgs struct {
-	// Should the ServiceBus Namespace Network Rule Set ignore missing Virtual Network Service Endpoint option in the Subnet? Defaults to `false`.
+	// Should the Service Bus Namespace Network Rule Set ignore missing Virtual Network Service Endpoint option in the Subnet? Defaults to `false`.
 	IgnoreMissingVnetServiceEndpoint pulumi.BoolPtrInput `pulumi:"ignoreMissingVnetServiceEndpoint"`
-	// The Subnet ID which should be able to access this ServiceBus Namespace.
+	// The Subnet ID which should be able to access this Service Bus Namespace.
 	SubnetId pulumi.StringInput `pulumi:"subnetId"`
 }
 
@@ -7302,12 +7302,12 @@ func (o NamespaceNetworkRuleSetNetworkRuleOutput) ToNamespaceNetworkRuleSetNetwo
 	return o
 }
 
-// Should the ServiceBus Namespace Network Rule Set ignore missing Virtual Network Service Endpoint option in the Subnet? Defaults to `false`.
+// Should the Service Bus Namespace Network Rule Set ignore missing Virtual Network Service Endpoint option in the Subnet? Defaults to `false`.
 func (o NamespaceNetworkRuleSetNetworkRuleOutput) IgnoreMissingVnetServiceEndpoint() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v NamespaceNetworkRuleSetNetworkRule) *bool { return v.IgnoreMissingVnetServiceEndpoint }).(pulumi.BoolPtrOutput)
 }
 
-// The Subnet ID which should be able to access this ServiceBus Namespace.
+// The Subnet ID which should be able to access this Service Bus Namespace.
 func (o NamespaceNetworkRuleSetNetworkRuleOutput) SubnetId() pulumi.StringOutput {
 	return o.ApplyT(func(v NamespaceNetworkRuleSetNetworkRule) string { return v.SubnetId }).(pulumi.StringOutput)
 }

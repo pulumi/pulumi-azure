@@ -68,6 +68,10 @@ export class ThreeTierVirtualInstance extends pulumi.CustomResource {
      */
     public readonly managedResourceGroupName!: pulumi.Output<string | undefined>;
     /**
+     * The network access type for managed resources. Possible values are `Private` and `Public`. Defaults to `Public`.
+     */
+    public readonly managedResourcesNetworkAccessType!: pulumi.Output<string | undefined>;
+    /**
      * Specifies the name of this SAP Three Tier Virtual Instance. Changing this forces a new resource to be created.
      */
     public readonly name!: pulumi.Output<string>;
@@ -110,6 +114,7 @@ export class ThreeTierVirtualInstance extends pulumi.CustomResource {
             resourceInputs["identity"] = state ? state.identity : undefined;
             resourceInputs["location"] = state ? state.location : undefined;
             resourceInputs["managedResourceGroupName"] = state ? state.managedResourceGroupName : undefined;
+            resourceInputs["managedResourcesNetworkAccessType"] = state ? state.managedResourcesNetworkAccessType : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             resourceInputs["sapFqdn"] = state ? state.sapFqdn : undefined;
@@ -141,6 +146,7 @@ export class ThreeTierVirtualInstance extends pulumi.CustomResource {
             resourceInputs["identity"] = args ? args.identity : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["managedResourceGroupName"] = args ? args.managedResourceGroupName : undefined;
+            resourceInputs["managedResourcesNetworkAccessType"] = args ? args.managedResourcesNetworkAccessType : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["sapFqdn"] = args ? args.sapFqdn : undefined;
@@ -177,6 +183,10 @@ export interface ThreeTierVirtualInstanceState {
      * The name of the managed Resource Group for the SAP Three Tier Virtual Instance. Changing this forces a new resource to be created.
      */
     managedResourceGroupName?: pulumi.Input<string>;
+    /**
+     * The network access type for managed resources. Possible values are `Private` and `Public`. Defaults to `Public`.
+     */
+    managedResourcesNetworkAccessType?: pulumi.Input<string>;
     /**
      * Specifies the name of this SAP Three Tier Virtual Instance. Changing this forces a new resource to be created.
      */
@@ -227,6 +237,10 @@ export interface ThreeTierVirtualInstanceArgs {
      * The name of the managed Resource Group for the SAP Three Tier Virtual Instance. Changing this forces a new resource to be created.
      */
     managedResourceGroupName?: pulumi.Input<string>;
+    /**
+     * The network access type for managed resources. Possible values are `Private` and `Public`. Defaults to `Public`.
+     */
+    managedResourcesNetworkAccessType?: pulumi.Input<string>;
     /**
      * Specifies the name of this SAP Three Tier Virtual Instance. Changing this forces a new resource to be created.
      */

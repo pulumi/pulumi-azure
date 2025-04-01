@@ -6,6 +6,7 @@ package com.pulumi.azure.mssql;
 import com.pulumi.azure.Utilities;
 import com.pulumi.azure.mssql.JobAgentArgs;
 import com.pulumi.azure.mssql.inputs.JobAgentState;
+import com.pulumi.azure.mssql.outputs.JobAgentIdentity;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
@@ -94,28 +95,42 @@ import javax.annotation.Nullable;
 @ResourceType(type="azure:mssql/jobAgent:JobAgent")
 public class JobAgent extends com.pulumi.resources.CustomResource {
     /**
-     * The ID of the database to store metadata for the Elastic Job Agent. Changing this forces a new Elastic Job Agent to be created.
+     * The ID of the database to store metadata for this Elastic Job Agent. Changing this forces a new Elastic Job Agent to be created.
      * 
      */
     @Export(name="databaseId", refs={String.class}, tree="[0]")
     private Output<String> databaseId;
 
     /**
-     * @return The ID of the database to store metadata for the Elastic Job Agent. Changing this forces a new Elastic Job Agent to be created.
+     * @return The ID of the database to store metadata for this Elastic Job Agent. Changing this forces a new Elastic Job Agent to be created.
      * 
      */
     public Output<String> databaseId() {
         return this.databaseId;
     }
     /**
-     * The Azure Region where the Elastic Job Agent should exist. Changing this forces a new Elastic Job Agent to be created.
+     * An `identity` block as defined below.
+     * 
+     */
+    @Export(name="identity", refs={JobAgentIdentity.class}, tree="[0]")
+    private Output</* @Nullable */ JobAgentIdentity> identity;
+
+    /**
+     * @return An `identity` block as defined below.
+     * 
+     */
+    public Output<Optional<JobAgentIdentity>> identity() {
+        return Codegen.optional(this.identity);
+    }
+    /**
+     * The Azure Region where this Elastic Job Agent should exist. Changing this forces a new Elastic Job Agent to be created.
      * 
      */
     @Export(name="location", refs={String.class}, tree="[0]")
     private Output<String> location;
 
     /**
-     * @return The Azure Region where the Elastic Job Agent should exist. Changing this forces a new Elastic Job Agent to be created.
+     * @return The Azure Region where this Elastic Job Agent should exist. Changing this forces a new Elastic Job Agent to be created.
      * 
      */
     public Output<String> location() {
@@ -136,14 +151,28 @@ public class JobAgent extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
-     * A mapping of tags which should be assigned to the Database.
+     * The name of the SKU to use for this Elastic Job Agent. Possible values are `JA100`, `JA200`, `JA400`, and `JA800`. Defaults to `JA100`.
+     * 
+     */
+    @Export(name="sku", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> sku;
+
+    /**
+     * @return The name of the SKU to use for this Elastic Job Agent. Possible values are `JA100`, `JA200`, `JA400`, and `JA800`. Defaults to `JA100`.
+     * 
+     */
+    public Output<Optional<String>> sku() {
+        return Codegen.optional(this.sku);
+    }
+    /**
+     * A mapping of tags which should be assigned to this Elastic Job Agent.
      * 
      */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
-     * @return A mapping of tags which should be assigned to the Database.
+     * @return A mapping of tags which should be assigned to this Elastic Job Agent.
      * 
      */
     public Output<Optional<Map<String,String>>> tags() {

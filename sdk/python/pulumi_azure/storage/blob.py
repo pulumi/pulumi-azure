@@ -582,7 +582,7 @@ class Blob(pulumi.CustomResource):
             account_replication_type="LRS")
         example_container = azure.storage.Container("example",
             name="content",
-            storage_account_name=example_account.name,
+            storage_account_id=example_account.id,
             container_access_type="private")
         example_blob = azure.storage.Blob("example",
             name="my-awesome-content.zip",
@@ -648,7 +648,7 @@ class Blob(pulumi.CustomResource):
             account_replication_type="LRS")
         example_container = azure.storage.Container("example",
             name="content",
-            storage_account_name=example_account.name,
+            storage_account_id=example_account.id,
             container_access_type="private")
         example_blob = azure.storage.Blob("example",
             name="my-awesome-content.zip",

@@ -100,6 +100,8 @@ export class Api extends pulumi.CustomResource {
     public readonly displayName!: pulumi.Output<string>;
     /**
      * A `import` block as documented below.
+     *
+     * > **NOTE:** The `displayName`, `description`, `contact`, and `license` fields can be imported by the `import` block, which might cause a drift if these fields are set along with the `import` block.
      */
     public readonly import!: pulumi.Output<outputs.apimanagement.ApiImport | undefined>;
     /**
@@ -289,6 +291,8 @@ export interface ApiState {
     displayName?: pulumi.Input<string>;
     /**
      * A `import` block as documented below.
+     *
+     * > **NOTE:** The `displayName`, `description`, `contact`, and `license` fields can be imported by the `import` block, which might cause a drift if these fields are set along with the `import` block.
      */
     import?: pulumi.Input<inputs.apimanagement.ApiImport>;
     /**
@@ -399,6 +403,8 @@ export interface ApiArgs {
     displayName?: pulumi.Input<string>;
     /**
      * A `import` block as documented below.
+     *
+     * > **NOTE:** The `displayName`, `description`, `contact`, and `license` fields can be imported by the `import` block, which might cause a drift if these fields are set along with the `import` block.
      */
     import?: pulumi.Input<inputs.apimanagement.ApiImport>;
     /**

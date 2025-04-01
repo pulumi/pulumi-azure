@@ -184,6 +184,7 @@ public final class GetWindowsWebAppResult {
      * 
      */
     private Map<String,String> tags;
+    private Boolean virtualNetworkBackupRestoreEnabled;
     /**
      * @return The subnet id which the Windows Web App is vNet Integrated with.
      * 
@@ -423,6 +424,9 @@ public final class GetWindowsWebAppResult {
     public Map<String,String> tags() {
         return this.tags;
     }
+    public Boolean virtualNetworkBackupRestoreEnabled() {
+        return this.virtualNetworkBackupRestoreEnabled;
+    }
     /**
      * @return The subnet id which the Windows Web App is vNet Integrated with.
      * 
@@ -480,6 +484,7 @@ public final class GetWindowsWebAppResult {
         private List<GetWindowsWebAppStickySetting> stickySettings;
         private List<GetWindowsWebAppStorageAccount> storageAccounts;
         private Map<String,String> tags;
+        private Boolean virtualNetworkBackupRestoreEnabled;
         private String virtualNetworkSubnetId;
         private Boolean webdeployPublishBasicAuthenticationEnabled;
         public Builder() {}
@@ -518,6 +523,7 @@ public final class GetWindowsWebAppResult {
     	      this.stickySettings = defaults.stickySettings;
     	      this.storageAccounts = defaults.storageAccounts;
     	      this.tags = defaults.tags;
+    	      this.virtualNetworkBackupRestoreEnabled = defaults.virtualNetworkBackupRestoreEnabled;
     	      this.virtualNetworkSubnetId = defaults.virtualNetworkSubnetId;
     	      this.webdeployPublishBasicAuthenticationEnabled = defaults.webdeployPublishBasicAuthenticationEnabled;
         }
@@ -823,6 +829,14 @@ public final class GetWindowsWebAppResult {
             return this;
         }
         @CustomType.Setter
+        public Builder virtualNetworkBackupRestoreEnabled(Boolean virtualNetworkBackupRestoreEnabled) {
+            if (virtualNetworkBackupRestoreEnabled == null) {
+              throw new MissingRequiredPropertyException("GetWindowsWebAppResult", "virtualNetworkBackupRestoreEnabled");
+            }
+            this.virtualNetworkBackupRestoreEnabled = virtualNetworkBackupRestoreEnabled;
+            return this;
+        }
+        @CustomType.Setter
         public Builder virtualNetworkSubnetId(String virtualNetworkSubnetId) {
             if (virtualNetworkSubnetId == null) {
               throw new MissingRequiredPropertyException("GetWindowsWebAppResult", "virtualNetworkSubnetId");
@@ -873,6 +887,7 @@ public final class GetWindowsWebAppResult {
             _resultValue.stickySettings = stickySettings;
             _resultValue.storageAccounts = storageAccounts;
             _resultValue.tags = tags;
+            _resultValue.virtualNetworkBackupRestoreEnabled = virtualNetworkBackupRestoreEnabled;
             _resultValue.virtualNetworkSubnetId = virtualNetworkSubnetId;
             _resultValue.webdeployPublishBasicAuthenticationEnabled = webdeployPublishBasicAuthenticationEnabled;
             return _resultValue;

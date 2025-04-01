@@ -88,7 +88,7 @@ type LinkedServiceSftp struct {
 	Host pulumi.StringOutput `pulumi:"host"`
 	// The host key fingerprint of the SFTP server.
 	HostKeyFingerprint pulumi.StringPtrOutput `pulumi:"hostKeyFingerprint"`
-	// The integration runtime reference to associate with the Data Factory Linked Service.
+	// The name of the integration runtime to associate with the Data Factory Linked Service.
 	IntegrationRuntimeName pulumi.StringPtrOutput `pulumi:"integrationRuntimeName"`
 	// Specifies the name of the Data Factory Linked Service. Changing this forces a new resource to be created. Must be unique within a data factory. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -175,7 +175,7 @@ type linkedServiceSftpState struct {
 	Host *string `pulumi:"host"`
 	// The host key fingerprint of the SFTP server.
 	HostKeyFingerprint *string `pulumi:"hostKeyFingerprint"`
-	// The integration runtime reference to associate with the Data Factory Linked Service.
+	// The name of the integration runtime to associate with the Data Factory Linked Service.
 	IntegrationRuntimeName *string `pulumi:"integrationRuntimeName"`
 	// Specifies the name of the Data Factory Linked Service. Changing this forces a new resource to be created. Must be unique within a data factory. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
 	Name *string `pulumi:"name"`
@@ -208,7 +208,7 @@ type LinkedServiceSftpState struct {
 	Host pulumi.StringPtrInput
 	// The host key fingerprint of the SFTP server.
 	HostKeyFingerprint pulumi.StringPtrInput
-	// The integration runtime reference to associate with the Data Factory Linked Service.
+	// The name of the integration runtime to associate with the Data Factory Linked Service.
 	IntegrationRuntimeName pulumi.StringPtrInput
 	// Specifies the name of the Data Factory Linked Service. Changing this forces a new resource to be created. Must be unique within a data factory. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
 	Name pulumi.StringPtrInput
@@ -245,7 +245,7 @@ type linkedServiceSftpArgs struct {
 	Host string `pulumi:"host"`
 	// The host key fingerprint of the SFTP server.
 	HostKeyFingerprint *string `pulumi:"hostKeyFingerprint"`
-	// The integration runtime reference to associate with the Data Factory Linked Service.
+	// The name of the integration runtime to associate with the Data Factory Linked Service.
 	IntegrationRuntimeName *string `pulumi:"integrationRuntimeName"`
 	// Specifies the name of the Data Factory Linked Service. Changing this forces a new resource to be created. Must be unique within a data factory. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
 	Name *string `pulumi:"name"`
@@ -279,7 +279,7 @@ type LinkedServiceSftpArgs struct {
 	Host pulumi.StringInput
 	// The host key fingerprint of the SFTP server.
 	HostKeyFingerprint pulumi.StringPtrInput
-	// The integration runtime reference to associate with the Data Factory Linked Service.
+	// The name of the integration runtime to associate with the Data Factory Linked Service.
 	IntegrationRuntimeName pulumi.StringPtrInput
 	// Specifies the name of the Data Factory Linked Service. Changing this forces a new resource to be created. Must be unique within a data factory. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
 	Name pulumi.StringPtrInput
@@ -419,7 +419,7 @@ func (o LinkedServiceSftpOutput) HostKeyFingerprint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LinkedServiceSftp) pulumi.StringPtrOutput { return v.HostKeyFingerprint }).(pulumi.StringPtrOutput)
 }
 
-// The integration runtime reference to associate with the Data Factory Linked Service.
+// The name of the integration runtime to associate with the Data Factory Linked Service.
 func (o LinkedServiceSftpOutput) IntegrationRuntimeName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LinkedServiceSftp) pulumi.StringPtrOutput { return v.IntegrationRuntimeName }).(pulumi.StringPtrOutput)
 }

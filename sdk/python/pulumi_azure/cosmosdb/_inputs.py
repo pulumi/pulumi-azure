@@ -69,6 +69,8 @@ __all__ = [
     'GremlinGraphIndexPolicySpatialIndexArgsDict',
     'GremlinGraphUniqueKeyArgs',
     'GremlinGraphUniqueKeyArgsDict',
+    'MongoClusterConnectionStringArgs',
+    'MongoClusterConnectionStringArgsDict',
     'MongoCollectionAutoscaleSettingsArgs',
     'MongoCollectionAutoscaleSettingsArgsDict',
     'MongoCollectionIndexArgs',
@@ -1706,6 +1708,78 @@ class GremlinGraphUniqueKeyArgs:
     @paths.setter
     def paths(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
         pulumi.set(self, "paths", value)
+
+
+if not MYPY:
+    class MongoClusterConnectionStringArgsDict(TypedDict):
+        description: NotRequired[pulumi.Input[str]]
+        """
+        The description of the connection string.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        The name which should be used for the MongoDB Cluster. Changing this forces a new resource to be created.
+        """
+        value: NotRequired[pulumi.Input[str]]
+        """
+        The value of the Mongo Cluster connection string. The `<user>:<password>` placeholder returned from API will be replaced by the real `administrator_username` and `administrator_password` if available in the state.
+        """
+elif False:
+    MongoClusterConnectionStringArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class MongoClusterConnectionStringArgs:
+    def __init__(__self__, *,
+                 description: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 value: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] description: The description of the connection string.
+        :param pulumi.Input[str] name: The name which should be used for the MongoDB Cluster. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] value: The value of the Mongo Cluster connection string. The `<user>:<password>` placeholder returned from API will be replaced by the real `administrator_username` and `administrator_password` if available in the state.
+        """
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        The description of the connection string.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name which should be used for the MongoDB Cluster. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[pulumi.Input[str]]:
+        """
+        The value of the Mongo Cluster connection string. The `<user>:<password>` placeholder returned from API will be replaced by the real `administrator_username` and `administrator_password` if available in the state.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "value", value)
 
 
 if not MYPY:

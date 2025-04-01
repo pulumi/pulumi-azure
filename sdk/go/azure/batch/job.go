@@ -49,7 +49,7 @@ import (
 //				ResourceGroupName: example.Name,
 //				AccountName:       exampleAccount.Name,
 //				NodeAgentSkuId:    pulumi.String("batch.node.ubuntu 16.04"),
-//				VmSize:            pulumi.String("Standard_A1"),
+//				VmSize:            pulumi.String("STANDARD_A1_V2"),
 //				FixedScale: &batch.PoolFixedScaleArgs{
 //					TargetDedicatedNodes: pulumi.Int(1),
 //				},

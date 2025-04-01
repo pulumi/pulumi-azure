@@ -37,11 +37,11 @@ if not MYPY:
     class FlexibleServerAuthenticationArgsDict(TypedDict):
         active_directory_auth_enabled: NotRequired[pulumi.Input[bool]]
         """
-        Whether or not Active Directory authentication is allowed to access the PostgreSQL Flexible Server. Defaults to `false`.
+        Whether Active Directory authentication is allowed to access the PostgreSQL Flexible Server. Defaults to `false`.
         """
         password_auth_enabled: NotRequired[pulumi.Input[bool]]
         """
-        Whether or not password authentication is allowed to access the PostgreSQL Flexible Server. Defaults to `true`.
+        Whether password authentication is allowed to access the PostgreSQL Flexible Server. Defaults to `true`.
         """
         tenant_id: NotRequired[pulumi.Input[str]]
         """
@@ -61,8 +61,8 @@ class FlexibleServerAuthenticationArgs:
                  password_auth_enabled: Optional[pulumi.Input[bool]] = None,
                  tenant_id: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[bool] active_directory_auth_enabled: Whether or not Active Directory authentication is allowed to access the PostgreSQL Flexible Server. Defaults to `false`.
-        :param pulumi.Input[bool] password_auth_enabled: Whether or not password authentication is allowed to access the PostgreSQL Flexible Server. Defaults to `true`.
+        :param pulumi.Input[bool] active_directory_auth_enabled: Whether Active Directory authentication is allowed to access the PostgreSQL Flexible Server. Defaults to `false`.
+        :param pulumi.Input[bool] password_auth_enabled: Whether password authentication is allowed to access the PostgreSQL Flexible Server. Defaults to `true`.
         :param pulumi.Input[str] tenant_id: The Tenant ID of the Azure Active Directory which is used by the Active Directory authentication. `active_directory_auth_enabled` must be set to `true`.
                
                > **Note:** Setting `active_directory_auth_enabled` to `true` requires a Service Principal for the Postgres Flexible Server. For more details see [this document](https://learn.microsoft.com/en-us/azure/postgresql/flexible-server/how-to-configure-sign-in-azure-ad-authentication).
@@ -80,7 +80,7 @@ class FlexibleServerAuthenticationArgs:
     @pulumi.getter(name="activeDirectoryAuthEnabled")
     def active_directory_auth_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        Whether or not Active Directory authentication is allowed to access the PostgreSQL Flexible Server. Defaults to `false`.
+        Whether Active Directory authentication is allowed to access the PostgreSQL Flexible Server. Defaults to `false`.
         """
         return pulumi.get(self, "active_directory_auth_enabled")
 
@@ -92,7 +92,7 @@ class FlexibleServerAuthenticationArgs:
     @pulumi.getter(name="passwordAuthEnabled")
     def password_auth_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        Whether or not password authentication is allowed to access the PostgreSQL Flexible Server. Defaults to `true`.
+        Whether password authentication is allowed to access the PostgreSQL Flexible Server. Defaults to `true`.
         """
         return pulumi.get(self, "password_auth_enabled")
 
@@ -121,21 +121,25 @@ if not MYPY:
     class FlexibleServerCustomerManagedKeyArgsDict(TypedDict):
         key_vault_key_id: pulumi.Input[str]
         """
-        The ID of the Key Vault Key.
+        The versioned ID of the Key Vault Key.
         """
         geo_backup_key_vault_key_id: NotRequired[pulumi.Input[str]]
         """
-        The ID of the geo backup Key Vault Key. It can't cross region and need Customer Managed Key in same region as geo backup.
+        The versioned ID of the geo backup Key Vault Key.
+
+        > **Note:** The key vault in which this key exists must be in the same region as the geo-redundant backup.
         """
         geo_backup_user_assigned_identity_id: NotRequired[pulumi.Input[str]]
         """
-        The geo backup user managed identity id for a Customer Managed Key. Should be added with `identity_ids`. It can't cross region and need identity in same region as geo backup.
+        The geo backup user managed identity id for a Customer Managed Key. Must be added to `identity.identity_ids`.
+
+        > **Note:** This managed identity cannot be the same as `primary_user_assigned_identity_id`, additionally this identity must be created in the same region as the geo-redundant backup.
 
         > **Note:** `primary_user_assigned_identity_id` or `geo_backup_user_assigned_identity_id` is required when `type` is set to `UserAssigned`.
         """
         primary_user_assigned_identity_id: NotRequired[pulumi.Input[str]]
         """
-        Specifies the primary user managed identity id for a Customer Managed Key. Should be added with `identity_ids`.
+        Specifies the primary user managed identity id for a Customer Managed Key. Must be added to `identity.identity_ids`.
         """
 elif False:
     FlexibleServerCustomerManagedKeyArgsDict: TypeAlias = Mapping[str, Any]
@@ -148,12 +152,16 @@ class FlexibleServerCustomerManagedKeyArgs:
                  geo_backup_user_assigned_identity_id: Optional[pulumi.Input[str]] = None,
                  primary_user_assigned_identity_id: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] key_vault_key_id: The ID of the Key Vault Key.
-        :param pulumi.Input[str] geo_backup_key_vault_key_id: The ID of the geo backup Key Vault Key. It can't cross region and need Customer Managed Key in same region as geo backup.
-        :param pulumi.Input[str] geo_backup_user_assigned_identity_id: The geo backup user managed identity id for a Customer Managed Key. Should be added with `identity_ids`. It can't cross region and need identity in same region as geo backup.
+        :param pulumi.Input[str] key_vault_key_id: The versioned ID of the Key Vault Key.
+        :param pulumi.Input[str] geo_backup_key_vault_key_id: The versioned ID of the geo backup Key Vault Key.
+               
+               > **Note:** The key vault in which this key exists must be in the same region as the geo-redundant backup.
+        :param pulumi.Input[str] geo_backup_user_assigned_identity_id: The geo backup user managed identity id for a Customer Managed Key. Must be added to `identity.identity_ids`.
+               
+               > **Note:** This managed identity cannot be the same as `primary_user_assigned_identity_id`, additionally this identity must be created in the same region as the geo-redundant backup.
                
                > **Note:** `primary_user_assigned_identity_id` or `geo_backup_user_assigned_identity_id` is required when `type` is set to `UserAssigned`.
-        :param pulumi.Input[str] primary_user_assigned_identity_id: Specifies the primary user managed identity id for a Customer Managed Key. Should be added with `identity_ids`.
+        :param pulumi.Input[str] primary_user_assigned_identity_id: Specifies the primary user managed identity id for a Customer Managed Key. Must be added to `identity.identity_ids`.
         """
         pulumi.set(__self__, "key_vault_key_id", key_vault_key_id)
         if geo_backup_key_vault_key_id is not None:
@@ -167,7 +175,7 @@ class FlexibleServerCustomerManagedKeyArgs:
     @pulumi.getter(name="keyVaultKeyId")
     def key_vault_key_id(self) -> pulumi.Input[str]:
         """
-        The ID of the Key Vault Key.
+        The versioned ID of the Key Vault Key.
         """
         return pulumi.get(self, "key_vault_key_id")
 
@@ -179,7 +187,9 @@ class FlexibleServerCustomerManagedKeyArgs:
     @pulumi.getter(name="geoBackupKeyVaultKeyId")
     def geo_backup_key_vault_key_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The ID of the geo backup Key Vault Key. It can't cross region and need Customer Managed Key in same region as geo backup.
+        The versioned ID of the geo backup Key Vault Key.
+
+        > **Note:** The key vault in which this key exists must be in the same region as the geo-redundant backup.
         """
         return pulumi.get(self, "geo_backup_key_vault_key_id")
 
@@ -191,7 +201,9 @@ class FlexibleServerCustomerManagedKeyArgs:
     @pulumi.getter(name="geoBackupUserAssignedIdentityId")
     def geo_backup_user_assigned_identity_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The geo backup user managed identity id for a Customer Managed Key. Should be added with `identity_ids`. It can't cross region and need identity in same region as geo backup.
+        The geo backup user managed identity id for a Customer Managed Key. Must be added to `identity.identity_ids`.
+
+        > **Note:** This managed identity cannot be the same as `primary_user_assigned_identity_id`, additionally this identity must be created in the same region as the geo-redundant backup.
 
         > **Note:** `primary_user_assigned_identity_id` or `geo_backup_user_assigned_identity_id` is required when `type` is set to `UserAssigned`.
         """
@@ -205,7 +217,7 @@ class FlexibleServerCustomerManagedKeyArgs:
     @pulumi.getter(name="primaryUserAssignedIdentityId")
     def primary_user_assigned_identity_id(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the primary user managed identity id for a Customer Managed Key. Should be added with `identity_ids`.
+        Specifies the primary user managed identity id for a Customer Managed Key. Must be added to `identity.identity_ids`.
         """
         return pulumi.get(self, "primary_user_assigned_identity_id")
 
@@ -260,13 +272,23 @@ class FlexibleServerHighAvailabilityArgs:
 
 if not MYPY:
     class FlexibleServerIdentityArgsDict(TypedDict):
-        identity_ids: pulumi.Input[Sequence[pulumi.Input[str]]]
-        """
-        A list of User Assigned Managed Identity IDs to be assigned to this PostgreSQL Flexible Server. Required if used together with `customer_managed_key` block.
-        """
         type: pulumi.Input[str]
         """
-        Specifies the type of Managed Service Identity that should be configured on this PostgreSQL Flexible Server. The only possible value is `UserAssigned`.
+        Specifies the type of Managed Service Identity that should be configured on this PostgreSQL Flexible Server. Possible values are `UserAssigned` and `SystemAssigned`.
+        """
+        identity_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        A list of User Assigned Managed Identity IDs to be assigned to this PostgreSQL Flexible Server. Required if used together with `customer_managed_key` block.
+
+        > **Note**: `identity_ids` is required when `type` is set to `UserAssigned`.
+        """
+        principal_id: NotRequired[pulumi.Input[str]]
+        """
+        The Principal ID associated with this Managed Service Identity.
+        """
+        tenant_id: NotRequired[pulumi.Input[str]]
+        """
+        The Tenant ID associated with this Managed Service Identity.
         """
 elif False:
     FlexibleServerIdentityArgsDict: TypeAlias = Mapping[str, Any]
@@ -274,38 +296,75 @@ elif False:
 @pulumi.input_type
 class FlexibleServerIdentityArgs:
     def __init__(__self__, *,
-                 identity_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
-                 type: pulumi.Input[str]):
+                 type: pulumi.Input[str],
+                 identity_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 principal_id: Optional[pulumi.Input[str]] = None,
+                 tenant_id: Optional[pulumi.Input[str]] = None):
         """
+        :param pulumi.Input[str] type: Specifies the type of Managed Service Identity that should be configured on this PostgreSQL Flexible Server. Possible values are `UserAssigned` and `SystemAssigned`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] identity_ids: A list of User Assigned Managed Identity IDs to be assigned to this PostgreSQL Flexible Server. Required if used together with `customer_managed_key` block.
-        :param pulumi.Input[str] type: Specifies the type of Managed Service Identity that should be configured on this PostgreSQL Flexible Server. The only possible value is `UserAssigned`.
+               
+               > **Note**: `identity_ids` is required when `type` is set to `UserAssigned`.
+        :param pulumi.Input[str] principal_id: The Principal ID associated with this Managed Service Identity.
+        :param pulumi.Input[str] tenant_id: The Tenant ID associated with this Managed Service Identity.
         """
-        pulumi.set(__self__, "identity_ids", identity_ids)
         pulumi.set(__self__, "type", type)
-
-    @property
-    @pulumi.getter(name="identityIds")
-    def identity_ids(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
-        """
-        A list of User Assigned Managed Identity IDs to be assigned to this PostgreSQL Flexible Server. Required if used together with `customer_managed_key` block.
-        """
-        return pulumi.get(self, "identity_ids")
-
-    @identity_ids.setter
-    def identity_ids(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
-        pulumi.set(self, "identity_ids", value)
+        if identity_ids is not None:
+            pulumi.set(__self__, "identity_ids", identity_ids)
+        if principal_id is not None:
+            pulumi.set(__self__, "principal_id", principal_id)
+        if tenant_id is not None:
+            pulumi.set(__self__, "tenant_id", tenant_id)
 
     @property
     @pulumi.getter
     def type(self) -> pulumi.Input[str]:
         """
-        Specifies the type of Managed Service Identity that should be configured on this PostgreSQL Flexible Server. The only possible value is `UserAssigned`.
+        Specifies the type of Managed Service Identity that should be configured on this PostgreSQL Flexible Server. Possible values are `UserAssigned` and `SystemAssigned`.
         """
         return pulumi.get(self, "type")
 
     @type.setter
     def type(self, value: pulumi.Input[str]):
         pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="identityIds")
+    def identity_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of User Assigned Managed Identity IDs to be assigned to this PostgreSQL Flexible Server. Required if used together with `customer_managed_key` block.
+
+        > **Note**: `identity_ids` is required when `type` is set to `UserAssigned`.
+        """
+        return pulumi.get(self, "identity_ids")
+
+    @identity_ids.setter
+    def identity_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "identity_ids", value)
+
+    @property
+    @pulumi.getter(name="principalId")
+    def principal_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Principal ID associated with this Managed Service Identity.
+        """
+        return pulumi.get(self, "principal_id")
+
+    @principal_id.setter
+    def principal_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "principal_id", value)
+
+    @property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Tenant ID associated with this Managed Service Identity.
+        """
+        return pulumi.get(self, "tenant_id")
+
+    @tenant_id.setter
+    def tenant_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "tenant_id", value)
 
 
 if not MYPY:
@@ -322,7 +381,7 @@ if not MYPY:
         """
         The start minute for maintenance window. Defaults to `0`.
 
-        > **NOTE** The specified `maintenance_window` is always defined in UTC time. When unspecified, the maintenance window falls back to the default [system-managed](https://learn.microsoft.com/en-us/azure/postgresql/flexible-server/how-to-maintenance-portal#specify-maintenance-schedule-options).
+        > **Note:** The specified `maintenance_window` is always defined in UTC time. When unspecified, the maintenance window falls back to the default [system-managed](https://learn.microsoft.com/en-us/azure/postgresql/flexible-server/how-to-maintenance-portal#specify-maintenance-schedule-options).
         """
 elif False:
     FlexibleServerMaintenanceWindowArgsDict: TypeAlias = Mapping[str, Any]
@@ -338,7 +397,7 @@ class FlexibleServerMaintenanceWindowArgs:
         :param pulumi.Input[int] start_hour: The start hour for maintenance window. Defaults to `0`.
         :param pulumi.Input[int] start_minute: The start minute for maintenance window. Defaults to `0`.
                
-               > **NOTE** The specified `maintenance_window` is always defined in UTC time. When unspecified, the maintenance window falls back to the default [system-managed](https://learn.microsoft.com/en-us/azure/postgresql/flexible-server/how-to-maintenance-portal#specify-maintenance-schedule-options).
+               > **Note:** The specified `maintenance_window` is always defined in UTC time. When unspecified, the maintenance window falls back to the default [system-managed](https://learn.microsoft.com/en-us/azure/postgresql/flexible-server/how-to-maintenance-portal#specify-maintenance-schedule-options).
         """
         if day_of_week is not None:
             pulumi.set(__self__, "day_of_week", day_of_week)
@@ -377,7 +436,7 @@ class FlexibleServerMaintenanceWindowArgs:
         """
         The start minute for maintenance window. Defaults to `0`.
 
-        > **NOTE** The specified `maintenance_window` is always defined in UTC time. When unspecified, the maintenance window falls back to the default [system-managed](https://learn.microsoft.com/en-us/azure/postgresql/flexible-server/how-to-maintenance-portal#specify-maintenance-schedule-options).
+        > **Note:** The specified `maintenance_window` is always defined in UTC time. When unspecified, the maintenance window falls back to the default [system-managed](https://learn.microsoft.com/en-us/azure/postgresql/flexible-server/how-to-maintenance-portal#specify-maintenance-schedule-options).
         """
         return pulumi.get(self, "start_minute")
 

@@ -43,7 +43,7 @@ namespace Pulumi.Azure.ContainerService
     ///     var exampleRegistryCredentialSet = new Azure.ContainerService.RegistryCredentialSet("example", new()
     ///     {
     ///         Name = "exampleCredentialSet",
-    ///         ContainerRegistryId = "azurerm_container_registry.example.id",
+    ///         ContainerRegistryId = exampleRegistry.Id,
     ///         LoginServer = "docker.io",
     ///         Identity = new Azure.ContainerService.Inputs.RegistryCredentialSetIdentityArgs
     ///         {
@@ -131,7 +131,7 @@ namespace Pulumi.Azure.ContainerService
     ///     var exampleRegistryCredentialSet = new Azure.ContainerService.RegistryCredentialSet("example", new()
     ///     {
     ///         Name = "exampleCredentialSet",
-    ///         ContainerRegistryId = "azurerm_container_registry.example.id",
+    ///         ContainerRegistryId = exampleRegistry.Id,
     ///         LoginServer = "docker.io",
     ///         Identity = new Azure.ContainerService.Inputs.RegistryCredentialSetIdentityArgs
     ///         {

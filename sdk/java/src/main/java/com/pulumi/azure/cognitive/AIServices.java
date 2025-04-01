@@ -84,12 +84,16 @@ public class AIServices extends com.pulumi.resources.CustomResource {
     /**
      * The subdomain name used for token-based authentication. This property is required when `network_acls` is specified. Changing this forces a new resource to be created.
      * 
+     * &gt; **Note:** If you do not specify a `custom_subdomain_name` then you will not be able to attach a Private Endpoint to the resource.
+     * 
      */
     @Export(name="customSubdomainName", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> customSubdomainName;
 
     /**
      * @return The subdomain name used for token-based authentication. This property is required when `network_acls` is specified. Changing this forces a new resource to be created.
+     * 
+     * &gt; **Note:** If you do not specify a `custom_subdomain_name` then you will not be able to attach a Private Endpoint to the resource.
      * 
      */
     public Output<Optional<String>> customSubdomainName() {

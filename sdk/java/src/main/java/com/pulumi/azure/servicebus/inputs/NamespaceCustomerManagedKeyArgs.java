@@ -48,14 +48,14 @@ public final class NamespaceCustomerManagedKeyArgs extends com.pulumi.resources.
     }
 
     /**
-     * The ID of the Key Vault Key which should be used to Encrypt the data in this ServiceBus Namespace.
+     * The ID of the Key Vault Key which should be used to Encrypt the data in this Service Bus Namespace.
      * 
      */
     @Import(name="keyVaultKeyId", required=true)
     private Output<String> keyVaultKeyId;
 
     /**
-     * @return The ID of the Key Vault Key which should be used to Encrypt the data in this ServiceBus Namespace.
+     * @return The ID of the Key Vault Key which should be used to Encrypt the data in this Service Bus Namespace.
      * 
      */
     public Output<String> keyVaultKeyId() {
@@ -131,7 +131,7 @@ public final class NamespaceCustomerManagedKeyArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param keyVaultKeyId The ID of the Key Vault Key which should be used to Encrypt the data in this ServiceBus Namespace.
+         * @param keyVaultKeyId The ID of the Key Vault Key which should be used to Encrypt the data in this Service Bus Namespace.
          * 
          * @return builder
          * 
@@ -142,7 +142,7 @@ public final class NamespaceCustomerManagedKeyArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param keyVaultKeyId The ID of the Key Vault Key which should be used to Encrypt the data in this ServiceBus Namespace.
+         * @param keyVaultKeyId The ID of the Key Vault Key which should be used to Encrypt the data in this Service Bus Namespace.
          * 
          * @return builder
          * 

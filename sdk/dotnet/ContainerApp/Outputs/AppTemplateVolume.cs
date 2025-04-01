@@ -14,6 +14,10 @@ namespace Pulumi.Azure.ContainerApp.Outputs
     public sealed class AppTemplateVolume
     {
         /// <summary>
+        /// Mount options used while mounting the AzureFile. Must be a comma-separated string e.g. `dir_mode=0751,file_mode=0751`.
+        /// </summary>
+        public readonly string? MountOptions;
+        /// <summary>
         /// The name of the volume.
         /// </summary>
         public readonly string Name;
@@ -28,12 +32,15 @@ namespace Pulumi.Azure.ContainerApp.Outputs
 
         [OutputConstructor]
         private AppTemplateVolume(
+            string? mountOptions,
+
             string name,
 
             string? storageName,
 
             string? storageType)
         {
+            MountOptions = mountOptions;
             Name = name;
             StorageName = storageName;
             StorageType = storageType;

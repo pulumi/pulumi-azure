@@ -31,7 +31,7 @@ import * as utilities from "../utilities";
  * });
  * const exampleRegistryCredentialSet = new azure.containerservice.RegistryCredentialSet("example", {
  *     name: "exampleCredentialSet",
- *     containerRegistryId: "azurerm_container_registry.example.id",
+ *     containerRegistryId: exampleRegistry.id,
  *     loginServer: "docker.io",
  *     identity: {
  *         type: "SystemAssigned",
@@ -94,7 +94,7 @@ import * as utilities from "../utilities";
  * });
  * const exampleRegistryCredentialSet = new azure.containerservice.RegistryCredentialSet("example", {
  *     name: "exampleCredentialSet",
- *     containerRegistryId: "azurerm_container_registry.example.id",
+ *     containerRegistryId: exampleRegistry.id,
  *     loginServer: "docker.io",
  *     identity: {
  *         type: "SystemAssigned",

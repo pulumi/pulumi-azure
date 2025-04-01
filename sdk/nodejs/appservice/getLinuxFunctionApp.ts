@@ -206,6 +206,10 @@ export interface GetLinuxFunctionAppResult {
      */
     readonly usage: string;
     /**
+     * Whether backup and restore operations over the linked virtual network are enabled.
+     */
+    readonly virtualNetworkBackupRestoreEnabled: boolean;
+    /**
      * The Virtual Network Subnet ID used for this IP Restriction.
      */
     readonly virtualNetworkSubnetId: string;

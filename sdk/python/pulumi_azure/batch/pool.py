@@ -1082,7 +1082,7 @@ class Pool(pulumi.CustomResource):
             resource_group_name=example.name,
             account_name=example_account2.name,
             display_name="Test Acc Pool Auto",
-            vm_size="Standard_A1",
+            vm_size="STANDARD_A1_V2",
             node_agent_sku_id="batch.node.ubuntu 20.04",
             auto_scale={
                 "evaluation_interval": "PT15M",
@@ -1220,7 +1220,7 @@ class Pool(pulumi.CustomResource):
             resource_group_name=example.name,
             account_name=example_account2.name,
             display_name="Test Acc Pool Auto",
-            vm_size="Standard_A1",
+            vm_size="STANDARD_A1_V2",
             node_agent_sku_id="batch.node.ubuntu 20.04",
             auto_scale={
                 "evaluation_interval": "PT15M",

@@ -65,8 +65,8 @@ import * as utilities from "../utilities";
  * });
  * const exampleProject = new azure.aifoundry.Project("example", {
  *     name: "example",
- *     location: exampleAzurermAiServicesHub.location,
- *     aiServicesHubId: exampleAzurermAiServicesHub.id,
+ *     location: exampleHub.location,
+ *     aiServicesHubId: exampleHub.id,
  * });
  * ```
  *
@@ -107,7 +107,7 @@ export class Project extends pulumi.CustomResource {
     }
 
     /**
-     * The AI Services Hub ID under which this Project should be created. Changing this forces a new AI Foundry Project to be created.
+     * The AI Foundry ID under which this Project should be created. Changing this forces a new AI Foundry Project to be created.
      */
     public readonly aiServicesHubId!: pulumi.Output<string>;
     /**
@@ -190,7 +190,7 @@ export class Project extends pulumi.CustomResource {
  */
 export interface ProjectState {
     /**
-     * The AI Services Hub ID under which this Project should be created. Changing this forces a new AI Foundry Project to be created.
+     * The AI Foundry ID under which this Project should be created. Changing this forces a new AI Foundry Project to be created.
      */
     aiServicesHubId?: pulumi.Input<string>;
     /**
@@ -232,7 +232,7 @@ export interface ProjectState {
  */
 export interface ProjectArgs {
     /**
-     * The AI Services Hub ID under which this Project should be created. Changing this forces a new AI Foundry Project to be created.
+     * The AI Foundry ID under which this Project should be created. Changing this forces a new AI Foundry Project to be created.
      */
     aiServicesHubId: pulumi.Input<string>;
     /**

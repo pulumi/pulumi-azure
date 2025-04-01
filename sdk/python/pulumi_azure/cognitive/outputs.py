@@ -200,14 +200,19 @@ class AIServicesNetworkAcls(dict):
 
     def __init__(__self__, *,
                  default_action: str,
+                 bypass: Optional[str] = None,
                  ip_rules: Optional[Sequence[str]] = None,
                  virtual_network_rules: Optional[Sequence['outputs.AIServicesNetworkAclsVirtualNetworkRule']] = None):
         """
         :param str default_action: The Default Action to use when no rules match from `ip_rules` / `virtual_network_rules`. Possible values are `Allow` and `Deny`.
+        :param str bypass: Whether to allow trusted Azure Services to access the service. Possible values are `None` and `AzureServices`. Defaults to `AzureServices`.
+               *
         :param Sequence[str] ip_rules: One or more IP Addresses, or CIDR Blocks which should be able to access the AI Services Account.
         :param Sequence['AIServicesNetworkAclsVirtualNetworkRuleArgs'] virtual_network_rules: A `virtual_network_rules` block as defined below.
         """
         pulumi.set(__self__, "default_action", default_action)
+        if bypass is not None:
+            pulumi.set(__self__, "bypass", bypass)
         if ip_rules is not None:
             pulumi.set(__self__, "ip_rules", ip_rules)
         if virtual_network_rules is not None:
@@ -220,6 +225,15 @@ class AIServicesNetworkAcls(dict):
         The Default Action to use when no rules match from `ip_rules` / `virtual_network_rules`. Possible values are `Allow` and `Deny`.
         """
         return pulumi.get(self, "default_action")
+
+    @property
+    @pulumi.getter
+    def bypass(self) -> Optional[str]:
+        """
+        Whether to allow trusted Azure Services to access the service. Possible values are `None` and `AzureServices`. Defaults to `AzureServices`.
+        *
+        """
+        return pulumi.get(self, "bypass")
 
     @property
     @pulumi.getter(name="ipRules")

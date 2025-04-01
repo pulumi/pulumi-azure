@@ -18,8 +18,6 @@ import javax.annotation.Nullable;
 /**
  * Manages a CDN Profile to create a collection of CDN Endpoints.
  * 
- * !&gt; **Be Aware:** Azure is rolling out a breaking change on Friday 9th April 2021 which may cause issues with the CDN/FrontDoor resources. More information is available in this GitHub issue - however unfortunately this may necessitate a breaking change to the CDN and FrontDoor resources, more information will be posted in the GitHub issue as the necessary changes are identified.
- * 
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;

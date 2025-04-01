@@ -48,7 +48,7 @@ import (
 //			}
 //			exampleContainer, err := storage.NewContainer(ctx, "example", &storage.ContainerArgs{
 //				Name:                pulumi.String("content"),
-//				StorageAccountName:  exampleAccount.Name,
+//				StorageAccountId:    exampleAccount.ID(),
 //				ContainerAccessType: pulumi.String("private"),
 //			})
 //			if err != nil {

@@ -27,6 +27,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &VirtualMachineManagerCloud{}
 	case "azure:systemcenter/virtualMachineManagerServer:VirtualMachineManagerServer":
 		r = &VirtualMachineManagerServer{}
+	case "azure:systemcenter/virtualMachineManagerVirtualMachineInstance:VirtualMachineManagerVirtualMachineInstance":
+		r = &VirtualMachineManagerVirtualMachineInstance{}
 	case "azure:systemcenter/virtualMachineManagerVirtualMachineTemplate:VirtualMachineManagerVirtualMachineTemplate":
 		r = &VirtualMachineManagerVirtualMachineTemplate{}
 	case "azure:systemcenter/virtualMachineManagerVirtualNetwork:VirtualMachineManagerVirtualNetwork":
@@ -57,6 +59,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"azure",
 		"systemcenter/virtualMachineManagerServer",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"systemcenter/virtualMachineManagerVirtualMachineInstance",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

@@ -83,7 +83,7 @@ export class Embedded extends pulumi.CustomResource {
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
     /**
-     * Sets the PowerBI Embedded's pricing level's SKU. Possible values include: `A1`, `A2`, `A3`, `A4`, `A5`, `A6`.
+     * Sets the PowerBI Embedded's pricing level's SKU. Possible values include: `A1`, `A2`, `A3`, `A4`, `A5`, `A6`, `A7` and `A8`.
      */
     public readonly skuName!: pulumi.Output<string>;
     /**
@@ -160,7 +160,7 @@ export interface EmbeddedState {
      */
     resourceGroupName?: pulumi.Input<string>;
     /**
-     * Sets the PowerBI Embedded's pricing level's SKU. Possible values include: `A1`, `A2`, `A3`, `A4`, `A5`, `A6`.
+     * Sets the PowerBI Embedded's pricing level's SKU. Possible values include: `A1`, `A2`, `A3`, `A4`, `A5`, `A6`, `A7` and `A8`.
      */
     skuName?: pulumi.Input<string>;
     /**
@@ -194,7 +194,7 @@ export interface EmbeddedArgs {
      */
     resourceGroupName: pulumi.Input<string>;
     /**
-     * Sets the PowerBI Embedded's pricing level's SKU. Possible values include: `A1`, `A2`, `A3`, `A4`, `A5`, `A6`.
+     * Sets the PowerBI Embedded's pricing level's SKU. Possible values include: `A1`, `A2`, `A3`, `A4`, `A5`, `A6`, `A7` and `A8`.
      */
     skuName: pulumi.Input<string>;
     /**

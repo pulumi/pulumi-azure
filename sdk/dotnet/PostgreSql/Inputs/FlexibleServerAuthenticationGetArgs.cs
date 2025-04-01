@@ -13,13 +13,13 @@ namespace Pulumi.Azure.PostgreSql.Inputs
     public sealed class FlexibleServerAuthenticationGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Whether or not Active Directory authentication is allowed to access the PostgreSQL Flexible Server. Defaults to `false`.
+        /// Whether Active Directory authentication is allowed to access the PostgreSQL Flexible Server. Defaults to `false`.
         /// </summary>
         [Input("activeDirectoryAuthEnabled")]
         public Input<bool>? ActiveDirectoryAuthEnabled { get; set; }
 
         /// <summary>
-        /// Whether or not password authentication is allowed to access the PostgreSQL Flexible Server. Defaults to `true`.
+        /// Whether password authentication is allowed to access the PostgreSQL Flexible Server. Defaults to `true`.
         /// </summary>
         [Input("passwordAuthEnabled")]
         public Input<bool>? PasswordAuthEnabled { get; set; }

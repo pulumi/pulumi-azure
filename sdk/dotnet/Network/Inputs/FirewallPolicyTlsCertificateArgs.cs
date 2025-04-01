@@ -13,7 +13,7 @@ namespace Pulumi.Azure.Network.Inputs
     public sealed class FirewallPolicyTlsCertificateArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The ID of the Key Vault, where the secret or certificate is stored.
+        /// The Secret Identifier (URI) of the certificate stored in Azure Key Vault, either as a secret or certificate.
         /// </summary>
         [Input("keyVaultSecretId", required: true)]
         public Input<string> KeyVaultSecretId { get; set; } = null!;

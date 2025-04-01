@@ -65,6 +65,8 @@ type AIServices struct {
 	pulumi.CustomResourceState
 
 	// The subdomain name used for token-based authentication. This property is required when `networkAcls` is specified. Changing this forces a new resource to be created.
+	//
+	// > **Note:** If you do not specify a `customSubdomainName` then you will not be able to attach a Private Endpoint to the resource.
 	CustomSubdomainName pulumi.StringPtrOutput `pulumi:"customSubdomainName"`
 	// A `customerManagedKey` block as documented below.
 	CustomerManagedKey AIServicesCustomerManagedKeyPtrOutput `pulumi:"customerManagedKey"`
@@ -144,6 +146,8 @@ func GetAIServices(ctx *pulumi.Context,
 // Input properties used for looking up and filtering AIServices resources.
 type aiservicesState struct {
 	// The subdomain name used for token-based authentication. This property is required when `networkAcls` is specified. Changing this forces a new resource to be created.
+	//
+	// > **Note:** If you do not specify a `customSubdomainName` then you will not be able to attach a Private Endpoint to the resource.
 	CustomSubdomainName *string `pulumi:"customSubdomainName"`
 	// A `customerManagedKey` block as documented below.
 	CustomerManagedKey *AIServicesCustomerManagedKey `pulumi:"customerManagedKey"`
@@ -183,6 +187,8 @@ type aiservicesState struct {
 
 type AIServicesState struct {
 	// The subdomain name used for token-based authentication. This property is required when `networkAcls` is specified. Changing this forces a new resource to be created.
+	//
+	// > **Note:** If you do not specify a `customSubdomainName` then you will not be able to attach a Private Endpoint to the resource.
 	CustomSubdomainName pulumi.StringPtrInput
 	// A `customerManagedKey` block as documented below.
 	CustomerManagedKey AIServicesCustomerManagedKeyPtrInput
@@ -226,6 +232,8 @@ func (AIServicesState) ElementType() reflect.Type {
 
 type aiservicesArgs struct {
 	// The subdomain name used for token-based authentication. This property is required when `networkAcls` is specified. Changing this forces a new resource to be created.
+	//
+	// > **Note:** If you do not specify a `customSubdomainName` then you will not be able to attach a Private Endpoint to the resource.
 	CustomSubdomainName *string `pulumi:"customSubdomainName"`
 	// A `customerManagedKey` block as documented below.
 	CustomerManagedKey *AIServicesCustomerManagedKey `pulumi:"customerManagedKey"`
@@ -260,6 +268,8 @@ type aiservicesArgs struct {
 // The set of arguments for constructing a AIServices resource.
 type AIServicesArgs struct {
 	// The subdomain name used for token-based authentication. This property is required when `networkAcls` is specified. Changing this forces a new resource to be created.
+	//
+	// > **Note:** If you do not specify a `customSubdomainName` then you will not be able to attach a Private Endpoint to the resource.
 	CustomSubdomainName pulumi.StringPtrInput
 	// A `customerManagedKey` block as documented below.
 	CustomerManagedKey AIServicesCustomerManagedKeyPtrInput
@@ -379,6 +389,8 @@ func (o AIServicesOutput) ToAIServicesOutputWithContext(ctx context.Context) AIS
 }
 
 // The subdomain name used for token-based authentication. This property is required when `networkAcls` is specified. Changing this forces a new resource to be created.
+//
+// > **Note:** If you do not specify a `customSubdomainName` then you will not be able to attach a Private Endpoint to the resource.
 func (o AIServicesOutput) CustomSubdomainName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AIServices) pulumi.StringPtrOutput { return v.CustomSubdomainName }).(pulumi.StringPtrOutput)
 }

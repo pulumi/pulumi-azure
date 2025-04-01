@@ -14,21 +14,25 @@ namespace Pulumi.Azure.PostgreSql.Outputs
     public sealed class FlexibleServerCustomerManagedKey
     {
         /// <summary>
-        /// The ID of the geo backup Key Vault Key. It can't cross region and need Customer Managed Key in same region as geo backup.
+        /// The versioned ID of the geo backup Key Vault Key.
+        /// 
+        /// &gt; **Note:** The key vault in which this key exists must be in the same region as the geo-redundant backup.
         /// </summary>
         public readonly string? GeoBackupKeyVaultKeyId;
         /// <summary>
-        /// The geo backup user managed identity id for a Customer Managed Key. Should be added with `identity_ids`. It can't cross region and need identity in same region as geo backup.
+        /// The geo backup user managed identity id for a Customer Managed Key. Must be added to `identity.identity_ids`.
+        /// 
+        /// &gt; **Note:** This managed identity cannot be the same as `primary_user_assigned_identity_id`, additionally this identity must be created in the same region as the geo-redundant backup.
         /// 
         /// &gt; **Note:** `primary_user_assigned_identity_id` or `geo_backup_user_assigned_identity_id` is required when `type` is set to `UserAssigned`.
         /// </summary>
         public readonly string? GeoBackupUserAssignedIdentityId;
         /// <summary>
-        /// The ID of the Key Vault Key.
+        /// The versioned ID of the Key Vault Key.
         /// </summary>
         public readonly string KeyVaultKeyId;
         /// <summary>
-        /// Specifies the primary user managed identity id for a Customer Managed Key. Should be added with `identity_ids`.
+        /// Specifies the primary user managed identity id for a Customer Managed Key. Must be added to `identity.identity_ids`.
         /// </summary>
         public readonly string? PrimaryUserAssignedIdentityId;
 

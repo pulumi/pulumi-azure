@@ -7215,7 +7215,7 @@ type KubernetesClusterDefaultNodePool struct {
 	HostGroupId *string `pulumi:"hostGroupId"`
 	// A `kubeletConfig` block as defined below. `temporaryNameForRotation` must be specified when changing this block.
 	KubeletConfig *KubernetesClusterDefaultNodePoolKubeletConfig `pulumi:"kubeletConfig"`
-	// The type of disk used by kubelet. Possible values are `OS` and `Temporary`.
+	// The type of disk used by kubelet. Possible values are `OS` and `Temporary`. `temporaryNameForRotation` must be specified when changing this block.
 	KubeletDiskType *string `pulumi:"kubeletDiskType"`
 	// A `linuxOsConfig` block as defined below. `temporaryNameForRotation` must be specified when changing this block.
 	LinuxOsConfig *KubernetesClusterDefaultNodePoolLinuxOsConfig `pulumi:"linuxOsConfig"`
@@ -7314,7 +7314,7 @@ type KubernetesClusterDefaultNodePoolArgs struct {
 	HostGroupId pulumi.StringPtrInput `pulumi:"hostGroupId"`
 	// A `kubeletConfig` block as defined below. `temporaryNameForRotation` must be specified when changing this block.
 	KubeletConfig KubernetesClusterDefaultNodePoolKubeletConfigPtrInput `pulumi:"kubeletConfig"`
-	// The type of disk used by kubelet. Possible values are `OS` and `Temporary`.
+	// The type of disk used by kubelet. Possible values are `OS` and `Temporary`. `temporaryNameForRotation` must be specified when changing this block.
 	KubeletDiskType pulumi.StringPtrInput `pulumi:"kubeletDiskType"`
 	// A `linuxOsConfig` block as defined below. `temporaryNameForRotation` must be specified when changing this block.
 	LinuxOsConfig KubernetesClusterDefaultNodePoolLinuxOsConfigPtrInput `pulumi:"linuxOsConfig"`
@@ -7501,7 +7501,7 @@ func (o KubernetesClusterDefaultNodePoolOutput) KubeletConfig() KubernetesCluste
 	}).(KubernetesClusterDefaultNodePoolKubeletConfigPtrOutput)
 }
 
-// The type of disk used by kubelet. Possible values are `OS` and `Temporary`.
+// The type of disk used by kubelet. Possible values are `OS` and `Temporary`. `temporaryNameForRotation` must be specified when changing this block.
 func (o KubernetesClusterDefaultNodePoolOutput) KubeletDiskType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KubernetesClusterDefaultNodePool) *string { return v.KubeletDiskType }).(pulumi.StringPtrOutput)
 }
@@ -7759,7 +7759,7 @@ func (o KubernetesClusterDefaultNodePoolPtrOutput) KubeletConfig() KubernetesClu
 	}).(KubernetesClusterDefaultNodePoolKubeletConfigPtrOutput)
 }
 
-// The type of disk used by kubelet. Possible values are `OS` and `Temporary`.
+// The type of disk used by kubelet. Possible values are `OS` and `Temporary`. `temporaryNameForRotation` must be specified when changing this block.
 func (o KubernetesClusterDefaultNodePoolPtrOutput) KubeletDiskType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KubernetesClusterDefaultNodePool) *string {
 		if v == nil {

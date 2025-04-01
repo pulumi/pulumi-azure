@@ -26,12 +26,16 @@ public final class AIServicesArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * The subdomain name used for token-based authentication. This property is required when `network_acls` is specified. Changing this forces a new resource to be created.
      * 
+     * &gt; **Note:** If you do not specify a `custom_subdomain_name` then you will not be able to attach a Private Endpoint to the resource.
+     * 
      */
     @Import(name="customSubdomainName")
     private @Nullable Output<String> customSubdomainName;
 
     /**
      * @return The subdomain name used for token-based authentication. This property is required when `network_acls` is specified. Changing this forces a new resource to be created.
+     * 
+     * &gt; **Note:** If you do not specify a `custom_subdomain_name` then you will not be able to attach a Private Endpoint to the resource.
      * 
      */
     public Optional<Output<String>> customSubdomainName() {
@@ -277,6 +281,8 @@ public final class AIServicesArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param customSubdomainName The subdomain name used for token-based authentication. This property is required when `network_acls` is specified. Changing this forces a new resource to be created.
          * 
+         * &gt; **Note:** If you do not specify a `custom_subdomain_name` then you will not be able to attach a Private Endpoint to the resource.
+         * 
          * @return builder
          * 
          */
@@ -287,6 +293,8 @@ public final class AIServicesArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param customSubdomainName The subdomain name used for token-based authentication. This property is required when `network_acls` is specified. Changing this forces a new resource to be created.
+         * 
+         * &gt; **Note:** If you do not specify a `custom_subdomain_name` then you will not be able to attach a Private Endpoint to the resource.
          * 
          * @return builder
          * 

@@ -35,6 +35,11 @@ export type JobSchedule = import("./jobSchedule").JobSchedule;
 export const JobSchedule: typeof import("./jobSchedule").JobSchedule = null as any;
 utilities.lazyLoad(exports, ["JobSchedule"], () => require("./jobSchedule"));
 
+export { JobStorageAccountArgs, JobStorageAccountState } from "./jobStorageAccount";
+export type JobStorageAccount = import("./jobStorageAccount").JobStorageAccount;
+export const JobStorageAccount: typeof import("./jobStorageAccount").JobStorageAccount = null as any;
+utilities.lazyLoad(exports, ["JobStorageAccount"], () => require("./jobStorageAccount"));
+
 export { ManagedPrivateEndpointArgs, ManagedPrivateEndpointState } from "./managedPrivateEndpoint";
 export type ManagedPrivateEndpoint = import("./managedPrivateEndpoint").ManagedPrivateEndpoint;
 export const ManagedPrivateEndpoint: typeof import("./managedPrivateEndpoint").ManagedPrivateEndpoint = null as any;
@@ -135,6 +140,8 @@ const _module = {
                 return new Job(name, <any>undefined, { urn })
             case "azure:streamanalytics/jobSchedule:JobSchedule":
                 return new JobSchedule(name, <any>undefined, { urn })
+            case "azure:streamanalytics/jobStorageAccount:JobStorageAccount":
+                return new JobStorageAccount(name, <any>undefined, { urn })
             case "azure:streamanalytics/managedPrivateEndpoint:ManagedPrivateEndpoint":
                 return new ManagedPrivateEndpoint(name, <any>undefined, { urn })
             case "azure:streamanalytics/outputBlob:OutputBlob":
@@ -179,6 +186,7 @@ pulumi.runtime.registerResourceModule("azure", "streamanalytics/functionJavaScri
 pulumi.runtime.registerResourceModule("azure", "streamanalytics/functionJavascriptUda", _module)
 pulumi.runtime.registerResourceModule("azure", "streamanalytics/job", _module)
 pulumi.runtime.registerResourceModule("azure", "streamanalytics/jobSchedule", _module)
+pulumi.runtime.registerResourceModule("azure", "streamanalytics/jobStorageAccount", _module)
 pulumi.runtime.registerResourceModule("azure", "streamanalytics/managedPrivateEndpoint", _module)
 pulumi.runtime.registerResourceModule("azure", "streamanalytics/outputBlob", _module)
 pulumi.runtime.registerResourceModule("azure", "streamanalytics/outputCosmosdb", _module)

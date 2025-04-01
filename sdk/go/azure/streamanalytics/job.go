@@ -91,6 +91,8 @@ type Job struct {
 	// The Job ID assigned by the Stream Analytics Job.
 	JobId pulumi.StringOutput `pulumi:"jobId"`
 	// The details of the job storage account. A `jobStorageAccount` block as defined below.
+	//
+	// > **Note:** `contentStoragePolicy` must be set to `JobStorageAccount` when specifying `jobStorageAccount`.
 	JobStorageAccounts JobJobStorageAccountArrayOutput `pulumi:"jobStorageAccounts"`
 	// The Azure Region in which the Resource Group exists. Changing this forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
@@ -171,6 +173,8 @@ type jobState struct {
 	// The Job ID assigned by the Stream Analytics Job.
 	JobId *string `pulumi:"jobId"`
 	// The details of the job storage account. A `jobStorageAccount` block as defined below.
+	//
+	// > **Note:** `contentStoragePolicy` must be set to `JobStorageAccount` when specifying `jobStorageAccount`.
 	JobStorageAccounts []JobJobStorageAccount `pulumi:"jobStorageAccounts"`
 	// The Azure Region in which the Resource Group exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
@@ -216,6 +220,8 @@ type JobState struct {
 	// The Job ID assigned by the Stream Analytics Job.
 	JobId pulumi.StringPtrInput
 	// The details of the job storage account. A `jobStorageAccount` block as defined below.
+	//
+	// > **Note:** `contentStoragePolicy` must be set to `JobStorageAccount` when specifying `jobStorageAccount`.
 	JobStorageAccounts JobJobStorageAccountArrayInput
 	// The Azure Region in which the Resource Group exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
@@ -263,6 +269,8 @@ type jobArgs struct {
 	// An `identity` block as defined below.
 	Identity *JobIdentity `pulumi:"identity"`
 	// The details of the job storage account. A `jobStorageAccount` block as defined below.
+	//
+	// > **Note:** `contentStoragePolicy` must be set to `JobStorageAccount` when specifying `jobStorageAccount`.
 	JobStorageAccounts []JobJobStorageAccount `pulumi:"jobStorageAccounts"`
 	// The Azure Region in which the Resource Group exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
@@ -307,6 +315,8 @@ type JobArgs struct {
 	// An `identity` block as defined below.
 	Identity JobIdentityPtrInput
 	// The details of the job storage account. A `jobStorageAccount` block as defined below.
+	//
+	// > **Note:** `contentStoragePolicy` must be set to `JobStorageAccount` when specifying `jobStorageAccount`.
 	JobStorageAccounts JobJobStorageAccountArrayInput
 	// The Azure Region in which the Resource Group exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
@@ -462,6 +472,8 @@ func (o JobOutput) JobId() pulumi.StringOutput {
 }
 
 // The details of the job storage account. A `jobStorageAccount` block as defined below.
+//
+// > **Note:** `contentStoragePolicy` must be set to `JobStorageAccount` when specifying `jobStorageAccount`.
 func (o JobOutput) JobStorageAccounts() JobJobStorageAccountArrayOutput {
 	return o.ApplyT(func(v *Job) JobJobStorageAccountArrayOutput { return v.JobStorageAccounts }).(JobJobStorageAccountArrayOutput)
 }

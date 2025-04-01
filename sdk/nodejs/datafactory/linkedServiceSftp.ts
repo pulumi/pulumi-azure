@@ -100,7 +100,7 @@ export class LinkedServiceSftp extends pulumi.CustomResource {
      */
     public readonly hostKeyFingerprint!: pulumi.Output<string | undefined>;
     /**
-     * The integration runtime reference to associate with the Data Factory Linked Service.
+     * The name of the integration runtime to associate with the Data Factory Linked Service.
      */
     public readonly integrationRuntimeName!: pulumi.Output<string | undefined>;
     /**
@@ -232,7 +232,7 @@ export interface LinkedServiceSftpState {
      */
     hostKeyFingerprint?: pulumi.Input<string>;
     /**
-     * The integration runtime reference to associate with the Data Factory Linked Service.
+     * The name of the integration runtime to associate with the Data Factory Linked Service.
      */
     integrationRuntimeName?: pulumi.Input<string>;
     /**
@@ -296,7 +296,7 @@ export interface LinkedServiceSftpArgs {
      */
     hostKeyFingerprint?: pulumi.Input<string>;
     /**
-     * The integration runtime reference to associate with the Data Factory Linked Service.
+     * The name of the integration runtime to associate with the Data Factory Linked Service.
      */
     integrationRuntimeName?: pulumi.Input<string>;
     /**

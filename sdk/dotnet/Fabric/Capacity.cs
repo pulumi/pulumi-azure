@@ -65,7 +65,9 @@ namespace Pulumi.Azure.Fabric
     public partial class Capacity : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// An array of administrator user identities. The member must be an Entra member user or a service principal.
+        /// An array of administrator user identities. The member must be an Entra user or a service principal.
+        /// 
+        /// &gt; **Note:** If the member is an Entra user, use user principal name (UPN) format. If the user is a service principal, use object ID.
         /// </summary>
         [Output("administrationMembers")]
         public Output<ImmutableArray<string>> AdministrationMembers { get; private set; } = null!;
@@ -150,7 +152,9 @@ namespace Pulumi.Azure.Fabric
         private InputList<string>? _administrationMembers;
 
         /// <summary>
-        /// An array of administrator user identities. The member must be an Entra member user or a service principal.
+        /// An array of administrator user identities. The member must be an Entra user or a service principal.
+        /// 
+        /// &gt; **Note:** If the member is an Entra user, use user principal name (UPN) format. If the user is a service principal, use object ID.
         /// </summary>
         public InputList<string> AdministrationMembers
         {
@@ -206,7 +210,9 @@ namespace Pulumi.Azure.Fabric
         private InputList<string>? _administrationMembers;
 
         /// <summary>
-        /// An array of administrator user identities. The member must be an Entra member user or a service principal.
+        /// An array of administrator user identities. The member must be an Entra user or a service principal.
+        /// 
+        /// &gt; **Note:** If the member is an Entra user, use user principal name (UPN) format. If the user is a service principal, use object ID.
         /// </summary>
         public InputList<string> AdministrationMembers
         {

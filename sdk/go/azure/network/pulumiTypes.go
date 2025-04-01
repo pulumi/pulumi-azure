@@ -11683,7 +11683,7 @@ func (o FirewallPolicyThreatIntelligenceAllowlistPtrOutput) IpAddresses() pulumi
 }
 
 type FirewallPolicyTlsCertificate struct {
-	// The ID of the Key Vault, where the secret or certificate is stored.
+	// The Secret Identifier (URI) of the certificate stored in Azure Key Vault, either as a secret or certificate.
 	KeyVaultSecretId string `pulumi:"keyVaultSecretId"`
 	// The name of the certificate.
 	Name string `pulumi:"name"`
@@ -11701,7 +11701,7 @@ type FirewallPolicyTlsCertificateInput interface {
 }
 
 type FirewallPolicyTlsCertificateArgs struct {
-	// The ID of the Key Vault, where the secret or certificate is stored.
+	// The Secret Identifier (URI) of the certificate stored in Azure Key Vault, either as a secret or certificate.
 	KeyVaultSecretId pulumi.StringInput `pulumi:"keyVaultSecretId"`
 	// The name of the certificate.
 	Name pulumi.StringInput `pulumi:"name"`
@@ -11784,7 +11784,7 @@ func (o FirewallPolicyTlsCertificateOutput) ToFirewallPolicyTlsCertificatePtrOut
 	}).(FirewallPolicyTlsCertificatePtrOutput)
 }
 
-// The ID of the Key Vault, where the secret or certificate is stored.
+// The Secret Identifier (URI) of the certificate stored in Azure Key Vault, either as a secret or certificate.
 func (o FirewallPolicyTlsCertificateOutput) KeyVaultSecretId() pulumi.StringOutput {
 	return o.ApplyT(func(v FirewallPolicyTlsCertificate) string { return v.KeyVaultSecretId }).(pulumi.StringOutput)
 }
@@ -11818,7 +11818,7 @@ func (o FirewallPolicyTlsCertificatePtrOutput) Elem() FirewallPolicyTlsCertifica
 	}).(FirewallPolicyTlsCertificateOutput)
 }
 
-// The ID of the Key Vault, where the secret or certificate is stored.
+// The Secret Identifier (URI) of the certificate stored in Azure Key Vault, either as a secret or certificate.
 func (o FirewallPolicyTlsCertificatePtrOutput) KeyVaultSecretId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FirewallPolicyTlsCertificate) *string {
 		if v == nil {
@@ -18507,6 +18507,8 @@ type VirtualHubConnectionRouting struct {
 	PropagatedRouteTable *VirtualHubConnectionRoutingPropagatedRouteTable `pulumi:"propagatedRouteTable"`
 	// The static VNet local route override criteria that is used to determine whether NVA in spoke VNet is bypassed for traffic with destination in spoke VNet. Possible values are `Contains` and `Equal`. Defaults to `Contains`. Changing this forces a new resource to be created.
 	StaticVnetLocalRouteOverrideCriteria *string `pulumi:"staticVnetLocalRouteOverrideCriteria"`
+	// Whether the static routes should be propagated to the Virtual Hub. Defaults to `true`.
+	StaticVnetPropagateStaticRoutesEnabled *bool `pulumi:"staticVnetPropagateStaticRoutesEnabled"`
 	// A `staticVnetRoute` block as defined below.
 	StaticVnetRoutes []VirtualHubConnectionRoutingStaticVnetRoute `pulumi:"staticVnetRoutes"`
 }
@@ -18533,6 +18535,8 @@ type VirtualHubConnectionRoutingArgs struct {
 	PropagatedRouteTable VirtualHubConnectionRoutingPropagatedRouteTablePtrInput `pulumi:"propagatedRouteTable"`
 	// The static VNet local route override criteria that is used to determine whether NVA in spoke VNet is bypassed for traffic with destination in spoke VNet. Possible values are `Contains` and `Equal`. Defaults to `Contains`. Changing this forces a new resource to be created.
 	StaticVnetLocalRouteOverrideCriteria pulumi.StringPtrInput `pulumi:"staticVnetLocalRouteOverrideCriteria"`
+	// Whether the static routes should be propagated to the Virtual Hub. Defaults to `true`.
+	StaticVnetPropagateStaticRoutesEnabled pulumi.BoolPtrInput `pulumi:"staticVnetPropagateStaticRoutesEnabled"`
 	// A `staticVnetRoute` block as defined below.
 	StaticVnetRoutes VirtualHubConnectionRoutingStaticVnetRouteArrayInput `pulumi:"staticVnetRoutes"`
 }
@@ -18641,6 +18645,11 @@ func (o VirtualHubConnectionRoutingOutput) StaticVnetLocalRouteOverrideCriteria(
 	return o.ApplyT(func(v VirtualHubConnectionRouting) *string { return v.StaticVnetLocalRouteOverrideCriteria }).(pulumi.StringPtrOutput)
 }
 
+// Whether the static routes should be propagated to the Virtual Hub. Defaults to `true`.
+func (o VirtualHubConnectionRoutingOutput) StaticVnetPropagateStaticRoutesEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v VirtualHubConnectionRouting) *bool { return v.StaticVnetPropagateStaticRoutesEnabled }).(pulumi.BoolPtrOutput)
+}
+
 // A `staticVnetRoute` block as defined below.
 func (o VirtualHubConnectionRoutingOutput) StaticVnetRoutes() VirtualHubConnectionRoutingStaticVnetRouteArrayOutput {
 	return o.ApplyT(func(v VirtualHubConnectionRouting) []VirtualHubConnectionRoutingStaticVnetRoute {
@@ -18720,6 +18729,16 @@ func (o VirtualHubConnectionRoutingPtrOutput) StaticVnetLocalRouteOverrideCriter
 		}
 		return v.StaticVnetLocalRouteOverrideCriteria
 	}).(pulumi.StringPtrOutput)
+}
+
+// Whether the static routes should be propagated to the Virtual Hub. Defaults to `true`.
+func (o VirtualHubConnectionRoutingPtrOutput) StaticVnetPropagateStaticRoutesEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *VirtualHubConnectionRouting) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.StaticVnetPropagateStaticRoutesEnabled
+	}).(pulumi.BoolPtrOutput)
 }
 
 // A `staticVnetRoute` block as defined below.
@@ -34667,6 +34686,8 @@ type GetVirtualHubConnectionRouting struct {
 	PropagatedRouteTables []GetVirtualHubConnectionRoutingPropagatedRouteTable `pulumi:"propagatedRouteTables"`
 	// The static VNet local route override criteria that is used to determine whether NVA in spoke VNet is bypassed for traffic with destination in spoke VNet.
 	StaticVnetLocalRouteOverrideCriteria string `pulumi:"staticVnetLocalRouteOverrideCriteria"`
+	// Whether the static routes should be propagated to the Virtual Hub or not.
+	StaticVnetPropagateStaticRoutesEnabled bool `pulumi:"staticVnetPropagateStaticRoutesEnabled"`
 	// A `staticVnetRoute` block as defined below.
 	StaticVnetRoutes []GetVirtualHubConnectionRoutingStaticVnetRoute `pulumi:"staticVnetRoutes"`
 }
@@ -34693,6 +34714,8 @@ type GetVirtualHubConnectionRoutingArgs struct {
 	PropagatedRouteTables GetVirtualHubConnectionRoutingPropagatedRouteTableArrayInput `pulumi:"propagatedRouteTables"`
 	// The static VNet local route override criteria that is used to determine whether NVA in spoke VNet is bypassed for traffic with destination in spoke VNet.
 	StaticVnetLocalRouteOverrideCriteria pulumi.StringInput `pulumi:"staticVnetLocalRouteOverrideCriteria"`
+	// Whether the static routes should be propagated to the Virtual Hub or not.
+	StaticVnetPropagateStaticRoutesEnabled pulumi.BoolInput `pulumi:"staticVnetPropagateStaticRoutesEnabled"`
 	// A `staticVnetRoute` block as defined below.
 	StaticVnetRoutes GetVirtualHubConnectionRoutingStaticVnetRouteArrayInput `pulumi:"staticVnetRoutes"`
 }
@@ -34773,6 +34796,11 @@ func (o GetVirtualHubConnectionRoutingOutput) PropagatedRouteTables() GetVirtual
 // The static VNet local route override criteria that is used to determine whether NVA in spoke VNet is bypassed for traffic with destination in spoke VNet.
 func (o GetVirtualHubConnectionRoutingOutput) StaticVnetLocalRouteOverrideCriteria() pulumi.StringOutput {
 	return o.ApplyT(func(v GetVirtualHubConnectionRouting) string { return v.StaticVnetLocalRouteOverrideCriteria }).(pulumi.StringOutput)
+}
+
+// Whether the static routes should be propagated to the Virtual Hub or not.
+func (o GetVirtualHubConnectionRoutingOutput) StaticVnetPropagateStaticRoutesEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetVirtualHubConnectionRouting) bool { return v.StaticVnetPropagateStaticRoutesEnabled }).(pulumi.BoolOutput)
 }
 
 // A `staticVnetRoute` block as defined below.

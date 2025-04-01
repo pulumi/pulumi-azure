@@ -49,6 +49,7 @@ class WindowsFunctionAppSlotArgs:
                  storage_key_vault_secret_id: Optional[pulumi.Input[str]] = None,
                  storage_uses_managed_identity: Optional[pulumi.Input[bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 virtual_network_backup_restore_enabled: Optional[pulumi.Input[bool]] = None,
                  virtual_network_subnet_id: Optional[pulumi.Input[str]] = None,
                  vnet_image_pull_enabled: Optional[pulumi.Input[bool]] = None,
                  webdeploy_publish_basic_authentication_enabled: Optional[pulumi.Input[bool]] = None):
@@ -88,6 +89,7 @@ class WindowsFunctionAppSlotArgs:
                
                > **NOTE:** One of `storage_account_access_key` or `storage_uses_managed_identity` must be specified when using `storage_account_name`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Windows Function App Slot.
+        :param pulumi.Input[bool] virtual_network_backup_restore_enabled: Whether backup and restore operations over the linked virtual network are enabled. Defaults to `false`.
         :param pulumi.Input[bool] vnet_image_pull_enabled: Specifies whether traffic for the image pull should be routed over virtual network. Defaults to `false`.
                
                > **Note:** The feature can also be enabled via the app setting `WEBSITE_PULL_IMAGE_OVER_VNET`. The Setting is enabled by default for app running in the App Service Environment.
@@ -147,6 +149,8 @@ class WindowsFunctionAppSlotArgs:
             pulumi.set(__self__, "storage_uses_managed_identity", storage_uses_managed_identity)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if virtual_network_backup_restore_enabled is not None:
+            pulumi.set(__self__, "virtual_network_backup_restore_enabled", virtual_network_backup_restore_enabled)
         if virtual_network_subnet_id is not None:
             pulumi.set(__self__, "virtual_network_subnet_id", virtual_network_subnet_id)
         if vnet_image_pull_enabled is not None:
@@ -497,6 +501,18 @@ class WindowsFunctionAppSlotArgs:
         pulumi.set(self, "tags", value)
 
     @property
+    @pulumi.getter(name="virtualNetworkBackupRestoreEnabled")
+    def virtual_network_backup_restore_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether backup and restore operations over the linked virtual network are enabled. Defaults to `false`.
+        """
+        return pulumi.get(self, "virtual_network_backup_restore_enabled")
+
+    @virtual_network_backup_restore_enabled.setter
+    def virtual_network_backup_restore_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "virtual_network_backup_restore_enabled", value)
+
+    @property
     @pulumi.getter(name="virtualNetworkSubnetId")
     def virtual_network_subnet_id(self) -> Optional[pulumi.Input[str]]:
         return pulumi.get(self, "virtual_network_subnet_id")
@@ -572,6 +588,7 @@ class _WindowsFunctionAppSlotState:
                  storage_key_vault_secret_id: Optional[pulumi.Input[str]] = None,
                  storage_uses_managed_identity: Optional[pulumi.Input[bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 virtual_network_backup_restore_enabled: Optional[pulumi.Input[bool]] = None,
                  virtual_network_subnet_id: Optional[pulumi.Input[str]] = None,
                  vnet_image_pull_enabled: Optional[pulumi.Input[bool]] = None,
                  webdeploy_publish_basic_authentication_enabled: Optional[pulumi.Input[bool]] = None):
@@ -620,6 +637,7 @@ class _WindowsFunctionAppSlotState:
                
                > **NOTE:** One of `storage_account_access_key` or `storage_uses_managed_identity` must be specified when using `storage_account_name`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Windows Function App Slot.
+        :param pulumi.Input[bool] virtual_network_backup_restore_enabled: Whether backup and restore operations over the linked virtual network are enabled. Defaults to `false`.
         :param pulumi.Input[bool] vnet_image_pull_enabled: Specifies whether traffic for the image pull should be routed over virtual network. Defaults to `false`.
                
                > **Note:** The feature can also be enabled via the app setting `WEBSITE_PULL_IMAGE_OVER_VNET`. The Setting is enabled by default for app running in the App Service Environment.
@@ -699,6 +717,8 @@ class _WindowsFunctionAppSlotState:
             pulumi.set(__self__, "storage_uses_managed_identity", storage_uses_managed_identity)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if virtual_network_backup_restore_enabled is not None:
+            pulumi.set(__self__, "virtual_network_backup_restore_enabled", virtual_network_backup_restore_enabled)
         if virtual_network_subnet_id is not None:
             pulumi.set(__self__, "virtual_network_subnet_id", virtual_network_subnet_id)
         if vnet_image_pull_enabled is not None:
@@ -1157,6 +1177,18 @@ class _WindowsFunctionAppSlotState:
         pulumi.set(self, "tags", value)
 
     @property
+    @pulumi.getter(name="virtualNetworkBackupRestoreEnabled")
+    def virtual_network_backup_restore_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether backup and restore operations over the linked virtual network are enabled. Defaults to `false`.
+        """
+        return pulumi.get(self, "virtual_network_backup_restore_enabled")
+
+    @virtual_network_backup_restore_enabled.setter
+    def virtual_network_backup_restore_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "virtual_network_backup_restore_enabled", value)
+
+    @property
     @pulumi.getter(name="virtualNetworkSubnetId")
     def virtual_network_subnet_id(self) -> Optional[pulumi.Input[str]]:
         return pulumi.get(self, "virtual_network_subnet_id")
@@ -1225,6 +1257,7 @@ class WindowsFunctionAppSlot(pulumi.CustomResource):
                  storage_key_vault_secret_id: Optional[pulumi.Input[str]] = None,
                  storage_uses_managed_identity: Optional[pulumi.Input[bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 virtual_network_backup_restore_enabled: Optional[pulumi.Input[bool]] = None,
                  virtual_network_subnet_id: Optional[pulumi.Input[str]] = None,
                  vnet_image_pull_enabled: Optional[pulumi.Input[bool]] = None,
                  webdeploy_publish_basic_authentication_enabled: Optional[pulumi.Input[bool]] = None,
@@ -1311,6 +1344,7 @@ class WindowsFunctionAppSlot(pulumi.CustomResource):
                
                > **NOTE:** One of `storage_account_access_key` or `storage_uses_managed_identity` must be specified when using `storage_account_name`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Windows Function App Slot.
+        :param pulumi.Input[bool] virtual_network_backup_restore_enabled: Whether backup and restore operations over the linked virtual network are enabled. Defaults to `false`.
         :param pulumi.Input[bool] vnet_image_pull_enabled: Specifies whether traffic for the image pull should be routed over virtual network. Defaults to `false`.
                
                > **Note:** The feature can also be enabled via the app setting `WEBSITE_PULL_IMAGE_OVER_VNET`. The Setting is enabled by default for app running in the App Service Environment.
@@ -1411,6 +1445,7 @@ class WindowsFunctionAppSlot(pulumi.CustomResource):
                  storage_key_vault_secret_id: Optional[pulumi.Input[str]] = None,
                  storage_uses_managed_identity: Optional[pulumi.Input[bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 virtual_network_backup_restore_enabled: Optional[pulumi.Input[bool]] = None,
                  virtual_network_subnet_id: Optional[pulumi.Input[str]] = None,
                  vnet_image_pull_enabled: Optional[pulumi.Input[bool]] = None,
                  webdeploy_publish_basic_authentication_enabled: Optional[pulumi.Input[bool]] = None,
@@ -1455,6 +1490,7 @@ class WindowsFunctionAppSlot(pulumi.CustomResource):
             __props__.__dict__["storage_key_vault_secret_id"] = storage_key_vault_secret_id
             __props__.__dict__["storage_uses_managed_identity"] = storage_uses_managed_identity
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["virtual_network_backup_restore_enabled"] = virtual_network_backup_restore_enabled
             __props__.__dict__["virtual_network_subnet_id"] = virtual_network_subnet_id
             __props__.__dict__["vnet_image_pull_enabled"] = vnet_image_pull_enabled
             __props__.__dict__["webdeploy_publish_basic_authentication_enabled"] = webdeploy_publish_basic_authentication_enabled
@@ -1516,6 +1552,7 @@ class WindowsFunctionAppSlot(pulumi.CustomResource):
             storage_key_vault_secret_id: Optional[pulumi.Input[str]] = None,
             storage_uses_managed_identity: Optional[pulumi.Input[bool]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+            virtual_network_backup_restore_enabled: Optional[pulumi.Input[bool]] = None,
             virtual_network_subnet_id: Optional[pulumi.Input[str]] = None,
             vnet_image_pull_enabled: Optional[pulumi.Input[bool]] = None,
             webdeploy_publish_basic_authentication_enabled: Optional[pulumi.Input[bool]] = None) -> 'WindowsFunctionAppSlot':
@@ -1569,6 +1606,7 @@ class WindowsFunctionAppSlot(pulumi.CustomResource):
                
                > **NOTE:** One of `storage_account_access_key` or `storage_uses_managed_identity` must be specified when using `storage_account_name`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Windows Function App Slot.
+        :param pulumi.Input[bool] virtual_network_backup_restore_enabled: Whether backup and restore operations over the linked virtual network are enabled. Defaults to `false`.
         :param pulumi.Input[bool] vnet_image_pull_enabled: Specifies whether traffic for the image pull should be routed over virtual network. Defaults to `false`.
                
                > **Note:** The feature can also be enabled via the app setting `WEBSITE_PULL_IMAGE_OVER_VNET`. The Setting is enabled by default for app running in the App Service Environment.
@@ -1615,6 +1653,7 @@ class WindowsFunctionAppSlot(pulumi.CustomResource):
         __props__.__dict__["storage_key_vault_secret_id"] = storage_key_vault_secret_id
         __props__.__dict__["storage_uses_managed_identity"] = storage_uses_managed_identity
         __props__.__dict__["tags"] = tags
+        __props__.__dict__["virtual_network_backup_restore_enabled"] = virtual_network_backup_restore_enabled
         __props__.__dict__["virtual_network_subnet_id"] = virtual_network_subnet_id
         __props__.__dict__["vnet_image_pull_enabled"] = vnet_image_pull_enabled
         __props__.__dict__["webdeploy_publish_basic_authentication_enabled"] = webdeploy_publish_basic_authentication_enabled
@@ -1921,6 +1960,14 @@ class WindowsFunctionAppSlot(pulumi.CustomResource):
         A mapping of tags which should be assigned to the Windows Function App Slot.
         """
         return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter(name="virtualNetworkBackupRestoreEnabled")
+    def virtual_network_backup_restore_enabled(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Whether backup and restore operations over the linked virtual network are enabled. Defaults to `false`.
+        """
+        return pulumi.get(self, "virtual_network_backup_restore_enabled")
 
     @property
     @pulumi.getter(name="virtualNetworkSubnetId")

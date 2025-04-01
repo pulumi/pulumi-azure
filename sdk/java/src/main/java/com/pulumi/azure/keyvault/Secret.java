@@ -10,6 +10,7 @@ import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
+import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -117,14 +118,14 @@ public class Secret extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.contentType);
     }
     /**
-     * Expiration UTC datetime (Y-m-d&#39;T&#39;H:M:S&#39;Z&#39;). Removing this forces a new resource to be created.
+     * Expiration UTC datetime (Y-m-d&#39;T&#39;H:M:S&#39;Z&#39;).
      * 
      */
     @Export(name="expirationDate", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> expirationDate;
 
     /**
-     * @return Expiration UTC datetime (Y-m-d&#39;T&#39;H:M:S&#39;Z&#39;). Removing this forces a new resource to be created.
+     * @return Expiration UTC datetime (Y-m-d&#39;T&#39;H:M:S&#39;Z&#39;).
      * 
      */
     public Output<Optional<String>> expirationDate() {
@@ -217,20 +218,34 @@ public class Secret extends com.pulumi.resources.CustomResource {
     /**
      * Specifies the value of the Key Vault Secret. Changing this will create a new version of the Key Vault Secret.
      * 
-     * &gt; **Note:** Key Vault strips newlines. To preserve newlines in multi-line secrets try replacing them with `\n` or by base 64 encoding them with `replace(file(&#34;my_secret_file&#34;), &#34;/\n/&#34;, &#34;\n&#34;)` or `base64encode(file(&#34;my_secret_file&#34;))`, respectively.
-     * 
      */
     @Export(name="value", refs={String.class}, tree="[0]")
-    private Output<String> value;
+    private Output</* @Nullable */ String> value;
 
     /**
      * @return Specifies the value of the Key Vault Secret. Changing this will create a new version of the Key Vault Secret.
      * 
+     */
+    public Output<Optional<String>> value() {
+        return Codegen.optional(this.value);
+    }
+    /**
+     * An integer value used to trigger an update for `value_wo`. This property should be incremented when updating `value_wo`.
+     * 
      * &gt; **Note:** Key Vault strips newlines. To preserve newlines in multi-line secrets try replacing them with `\n` or by base 64 encoding them with `replace(file(&#34;my_secret_file&#34;), &#34;/\n/&#34;, &#34;\n&#34;)` or `base64encode(file(&#34;my_secret_file&#34;))`, respectively.
      * 
      */
-    public Output<String> value() {
-        return this.value;
+    @Export(name="valueWoVersion", refs={Integer.class}, tree="[0]")
+    private Output</* @Nullable */ Integer> valueWoVersion;
+
+    /**
+     * @return An integer value used to trigger an update for `value_wo`. This property should be incremented when updating `value_wo`.
+     * 
+     * &gt; **Note:** Key Vault strips newlines. To preserve newlines in multi-line secrets try replacing them with `\n` or by base 64 encoding them with `replace(file(&#34;my_secret_file&#34;), &#34;/\n/&#34;, &#34;\n&#34;)` or `base64encode(file(&#34;my_secret_file&#34;))`, respectively.
+     * 
+     */
+    public Output<Optional<Integer>> valueWoVersion() {
+        return Codegen.optional(this.valueWoVersion);
     }
     /**
      * The current version of the Key Vault Secret.

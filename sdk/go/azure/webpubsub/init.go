@@ -33,6 +33,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Service{}
 	case "azure:webpubsub/sharedPrivateLinkResource:SharedPrivateLinkResource":
 		r = &SharedPrivateLinkResource{}
+	case "azure:webpubsub/socketio:Socketio":
+		r = &Socketio{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
@@ -74,6 +76,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"azure",
 		"webpubsub/sharedPrivateLinkResource",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"webpubsub/socketio",
 		&module{version},
 	)
 }

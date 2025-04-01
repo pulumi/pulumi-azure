@@ -49,7 +49,7 @@ public final class LinuxFunctionAppSlotSiteConfigScmIpRestriction {
      */
     private @Nullable String serviceTag;
     /**
-     * @return The Virtual Network Subnet ID used for this IP Restriction.ENDEXPERIMENT
+     * @return The Virtual Network Subnet ID used for this IP Restriction.
      * 
      * &gt; **NOTE:** One and only one of `ip_address`, `service_tag` or `virtual_network_subnet_id` must be specified.
      * 
@@ -107,7 +107,7 @@ public final class LinuxFunctionAppSlotSiteConfigScmIpRestriction {
         return Optional.ofNullable(this.serviceTag);
     }
     /**
-     * @return The Virtual Network Subnet ID used for this IP Restriction.ENDEXPERIMENT
+     * @return The Virtual Network Subnet ID used for this IP Restriction.
      * 
      * &gt; **NOTE:** One and only one of `ip_address`, `service_tag` or `virtual_network_subnet_id` must be specified.
      * 

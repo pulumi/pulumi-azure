@@ -2529,7 +2529,7 @@ class GetManagedHardwareSecurityModuleRoleDefinitionPermissionResult(dict):
         :param Sequence[str] actions: A list of action permission granted.
         :param Sequence[str] data_actions: A list of data action permission granted.
         :param Sequence[str] not_actions: A list of action permission excluded (but not denied).
-        :param Sequence[str] not_data_actions: (Optional) A list of data action permission granted.
+        :param Sequence[str] not_data_actions: A list of data action permission granted.
         """
         pulumi.set(__self__, "actions", actions)
         pulumi.set(__self__, "data_actions", data_actions)
@@ -2564,7 +2564,7 @@ class GetManagedHardwareSecurityModuleRoleDefinitionPermissionResult(dict):
     @pulumi.getter(name="notDataActions")
     def not_data_actions(self) -> Sequence[str]:
         """
-        (Optional) A list of data action permission granted.
+        A list of data action permission granted.
         """
         return pulumi.get(self, "not_data_actions")
 

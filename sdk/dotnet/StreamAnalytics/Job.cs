@@ -117,6 +117,8 @@ namespace Pulumi.Azure.StreamAnalytics
 
         /// <summary>
         /// The details of the job storage account. A `job_storage_account` block as defined below.
+        /// 
+        /// &gt; **Note:** `content_storage_policy` must be set to `JobStorageAccount` when specifying `job_storage_account`.
         /// </summary>
         [Output("jobStorageAccounts")]
         public Output<ImmutableArray<Outputs.JobJobStorageAccount>> JobStorageAccounts { get; private set; } = null!;
@@ -274,6 +276,8 @@ namespace Pulumi.Azure.StreamAnalytics
 
         /// <summary>
         /// The details of the job storage account. A `job_storage_account` block as defined below.
+        /// 
+        /// &gt; **Note:** `content_storage_policy` must be set to `JobStorageAccount` when specifying `job_storage_account`.
         /// </summary>
         public InputList<Inputs.JobJobStorageAccountArgs> JobStorageAccounts
         {
@@ -407,6 +411,8 @@ namespace Pulumi.Azure.StreamAnalytics
 
         /// <summary>
         /// The details of the job storage account. A `job_storage_account` block as defined below.
+        /// 
+        /// &gt; **Note:** `content_storage_policy` must be set to `JobStorageAccount` when specifying `job_storage_account`.
         /// </summary>
         public InputList<Inputs.JobJobStorageAccountGetArgs> JobStorageAccounts
         {

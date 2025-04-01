@@ -14,6 +14,124 @@ import (
 
 // Manages a Virtual Machine Restore Point.
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/compute"
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/network"
+//	"github.com/pulumi/pulumi-std/sdk/go/std"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-resources"),
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleVirtualNetwork, err := network.NewVirtualNetwork(ctx, "example", &network.VirtualNetworkArgs{
+//				Name: pulumi.String("example-network"),
+//				AddressSpaces: pulumi.StringArray{
+//					pulumi.String("10.0.0.0/16"),
+//				},
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleSubnet, err := network.NewSubnet(ctx, "example", &network.SubnetArgs{
+//				Name:               pulumi.String("internal"),
+//				ResourceGroupName:  example.Name,
+//				VirtualNetworkName: exampleVirtualNetwork.Name,
+//				AddressPrefixes: pulumi.StringArray{
+//					pulumi.String("10.0.2.0/24"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleNetworkInterface, err := network.NewNetworkInterface(ctx, "example", &network.NetworkInterfaceArgs{
+//				Name:              pulumi.String("example-nic"),
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
+//				IpConfigurations: network.NetworkInterfaceIpConfigurationArray{
+//					&network.NetworkInterfaceIpConfigurationArgs{
+//						Name:                       pulumi.String("internal"),
+//						SubnetId:                   exampleSubnet.ID(),
+//						PrivateIpAddressAllocation: pulumi.String("Dynamic"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			invokeFile, err := std.File(ctx, &std.FileArgs{
+//				Input: "~/.ssh/id_rsa.pub",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			exampleLinuxVirtualMachine, err := compute.NewLinuxVirtualMachine(ctx, "example", &compute.LinuxVirtualMachineArgs{
+//				Name:              pulumi.String("example-machine"),
+//				ResourceGroupName: example.Name,
+//				Location:          example.Location,
+//				Size:              pulumi.String("Standard_F2"),
+//				AdminUsername:     pulumi.String("adminuser"),
+//				NetworkInterfaceIds: pulumi.StringArray{
+//					exampleNetworkInterface.ID(),
+//				},
+//				AdminSshKeys: compute.LinuxVirtualMachineAdminSshKeyArray{
+//					&compute.LinuxVirtualMachineAdminSshKeyArgs{
+//						Username:  pulumi.String("adminuser"),
+//						PublicKey: pulumi.String(invokeFile.Result),
+//					},
+//				},
+//				OsDisk: &compute.LinuxVirtualMachineOsDiskArgs{
+//					Caching:            pulumi.String("ReadWrite"),
+//					StorageAccountType: pulumi.String("Standard_LRS"),
+//				},
+//				SourceImageReference: &compute.LinuxVirtualMachineSourceImageReferenceArgs{
+//					Publisher: pulumi.String("Canonical"),
+//					Offer:     pulumi.String("0001-com-ubuntu-server-jammy"),
+//					Sku:       pulumi.String("22_04-lts"),
+//					Version:   pulumi.String("latest"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleRestorePointCollection, err := compute.NewRestorePointCollection(ctx, "example", &compute.RestorePointCollectionArgs{
+//				Name:                   pulumi.String("example-collection"),
+//				ResourceGroupName:      example.Name,
+//				Location:               exampleLinuxVirtualMachine.Location,
+//				SourceVirtualMachineId: exampleLinuxVirtualMachine.ID(),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = compute.NewRestorePoint(ctx, "example", &compute.RestorePointArgs{
+//				Name:                                   pulumi.String("example-restore-point"),
+//				VirtualMachineRestorePointCollectionId: exampleRestorePointCollection.ID(),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // Virtual Machine Restore Point can be imported using the `resource id`, e.g.
@@ -24,12 +142,13 @@ import (
 type RestorePoint struct {
 	pulumi.CustomResourceState
 
-	// Is Crash Consistent the Consistency Mode of the Virtual Machine Restore Point. Defaults to `false`. Changing this forces a new resource to be created.
+	// Whether the Consistency Mode of the Virtual Machine Restore Point is set to `CrashConsistent`. Defaults to `false`. Changing this forces a new resource to be created.
 	CrashConsistencyModeEnabled pulumi.BoolPtrOutput `pulumi:"crashConsistencyModeEnabled"`
 	// A list of disks that will be excluded from the Virtual Machine Restore Point. Changing this forces a new resource to be created.
 	ExcludedDisks pulumi.StringArrayOutput `pulumi:"excludedDisks"`
 	// Specifies the name of the Virtual Machine Restore Point. Changing this forces a new resource to be created.
-	Name                                   pulumi.StringOutput `pulumi:"name"`
+	Name pulumi.StringOutput `pulumi:"name"`
+	// Specifies the ID of the Virtual Machine Restore Point Collection the Virtual Machine Restore Point will be associated with. Changing this forces a new resource to be created.
 	VirtualMachineRestorePointCollectionId pulumi.StringOutput `pulumi:"virtualMachineRestorePointCollectionId"`
 }
 
@@ -66,22 +185,24 @@ func GetRestorePoint(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering RestorePoint resources.
 type restorePointState struct {
-	// Is Crash Consistent the Consistency Mode of the Virtual Machine Restore Point. Defaults to `false`. Changing this forces a new resource to be created.
+	// Whether the Consistency Mode of the Virtual Machine Restore Point is set to `CrashConsistent`. Defaults to `false`. Changing this forces a new resource to be created.
 	CrashConsistencyModeEnabled *bool `pulumi:"crashConsistencyModeEnabled"`
 	// A list of disks that will be excluded from the Virtual Machine Restore Point. Changing this forces a new resource to be created.
 	ExcludedDisks []string `pulumi:"excludedDisks"`
 	// Specifies the name of the Virtual Machine Restore Point. Changing this forces a new resource to be created.
-	Name                                   *string `pulumi:"name"`
+	Name *string `pulumi:"name"`
+	// Specifies the ID of the Virtual Machine Restore Point Collection the Virtual Machine Restore Point will be associated with. Changing this forces a new resource to be created.
 	VirtualMachineRestorePointCollectionId *string `pulumi:"virtualMachineRestorePointCollectionId"`
 }
 
 type RestorePointState struct {
-	// Is Crash Consistent the Consistency Mode of the Virtual Machine Restore Point. Defaults to `false`. Changing this forces a new resource to be created.
+	// Whether the Consistency Mode of the Virtual Machine Restore Point is set to `CrashConsistent`. Defaults to `false`. Changing this forces a new resource to be created.
 	CrashConsistencyModeEnabled pulumi.BoolPtrInput
 	// A list of disks that will be excluded from the Virtual Machine Restore Point. Changing this forces a new resource to be created.
 	ExcludedDisks pulumi.StringArrayInput
 	// Specifies the name of the Virtual Machine Restore Point. Changing this forces a new resource to be created.
-	Name                                   pulumi.StringPtrInput
+	Name pulumi.StringPtrInput
+	// Specifies the ID of the Virtual Machine Restore Point Collection the Virtual Machine Restore Point will be associated with. Changing this forces a new resource to be created.
 	VirtualMachineRestorePointCollectionId pulumi.StringPtrInput
 }
 
@@ -90,23 +211,25 @@ func (RestorePointState) ElementType() reflect.Type {
 }
 
 type restorePointArgs struct {
-	// Is Crash Consistent the Consistency Mode of the Virtual Machine Restore Point. Defaults to `false`. Changing this forces a new resource to be created.
+	// Whether the Consistency Mode of the Virtual Machine Restore Point is set to `CrashConsistent`. Defaults to `false`. Changing this forces a new resource to be created.
 	CrashConsistencyModeEnabled *bool `pulumi:"crashConsistencyModeEnabled"`
 	// A list of disks that will be excluded from the Virtual Machine Restore Point. Changing this forces a new resource to be created.
 	ExcludedDisks []string `pulumi:"excludedDisks"`
 	// Specifies the name of the Virtual Machine Restore Point. Changing this forces a new resource to be created.
-	Name                                   *string `pulumi:"name"`
-	VirtualMachineRestorePointCollectionId string  `pulumi:"virtualMachineRestorePointCollectionId"`
+	Name *string `pulumi:"name"`
+	// Specifies the ID of the Virtual Machine Restore Point Collection the Virtual Machine Restore Point will be associated with. Changing this forces a new resource to be created.
+	VirtualMachineRestorePointCollectionId string `pulumi:"virtualMachineRestorePointCollectionId"`
 }
 
 // The set of arguments for constructing a RestorePoint resource.
 type RestorePointArgs struct {
-	// Is Crash Consistent the Consistency Mode of the Virtual Machine Restore Point. Defaults to `false`. Changing this forces a new resource to be created.
+	// Whether the Consistency Mode of the Virtual Machine Restore Point is set to `CrashConsistent`. Defaults to `false`. Changing this forces a new resource to be created.
 	CrashConsistencyModeEnabled pulumi.BoolPtrInput
 	// A list of disks that will be excluded from the Virtual Machine Restore Point. Changing this forces a new resource to be created.
 	ExcludedDisks pulumi.StringArrayInput
 	// Specifies the name of the Virtual Machine Restore Point. Changing this forces a new resource to be created.
-	Name                                   pulumi.StringPtrInput
+	Name pulumi.StringPtrInput
+	// Specifies the ID of the Virtual Machine Restore Point Collection the Virtual Machine Restore Point will be associated with. Changing this forces a new resource to be created.
 	VirtualMachineRestorePointCollectionId pulumi.StringInput
 }
 
@@ -197,7 +320,7 @@ func (o RestorePointOutput) ToRestorePointOutputWithContext(ctx context.Context)
 	return o
 }
 
-// Is Crash Consistent the Consistency Mode of the Virtual Machine Restore Point. Defaults to `false`. Changing this forces a new resource to be created.
+// Whether the Consistency Mode of the Virtual Machine Restore Point is set to `CrashConsistent`. Defaults to `false`. Changing this forces a new resource to be created.
 func (o RestorePointOutput) CrashConsistencyModeEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *RestorePoint) pulumi.BoolPtrOutput { return v.CrashConsistencyModeEnabled }).(pulumi.BoolPtrOutput)
 }
@@ -212,6 +335,7 @@ func (o RestorePointOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *RestorePoint) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
+// Specifies the ID of the Virtual Machine Restore Point Collection the Virtual Machine Restore Point will be associated with. Changing this forces a new resource to be created.
 func (o RestorePointOutput) VirtualMachineRestorePointCollectionId() pulumi.StringOutput {
 	return o.ApplyT(func(v *RestorePoint) pulumi.StringOutput { return v.VirtualMachineRestorePointCollectionId }).(pulumi.StringOutput)
 }

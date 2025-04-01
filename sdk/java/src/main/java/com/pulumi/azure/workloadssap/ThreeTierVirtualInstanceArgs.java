@@ -95,6 +95,21 @@ public final class ThreeTierVirtualInstanceArgs extends com.pulumi.resources.Res
     }
 
     /**
+     * The network access type for managed resources. Possible values are `Private` and `Public`. Defaults to `Public`.
+     * 
+     */
+    @Import(name="managedResourcesNetworkAccessType")
+    private @Nullable Output<String> managedResourcesNetworkAccessType;
+
+    /**
+     * @return The network access type for managed resources. Possible values are `Private` and `Public`. Defaults to `Public`.
+     * 
+     */
+    public Optional<Output<String>> managedResourcesNetworkAccessType() {
+        return Optional.ofNullable(this.managedResourcesNetworkAccessType);
+    }
+
+    /**
      * Specifies the name of this SAP Three Tier Virtual Instance. Changing this forces a new resource to be created.
      * 
      */
@@ -192,6 +207,7 @@ public final class ThreeTierVirtualInstanceArgs extends com.pulumi.resources.Res
         this.identity = $.identity;
         this.location = $.location;
         this.managedResourceGroupName = $.managedResourceGroupName;
+        this.managedResourcesNetworkAccessType = $.managedResourcesNetworkAccessType;
         this.name = $.name;
         this.resourceGroupName = $.resourceGroupName;
         this.sapFqdn = $.sapFqdn;
@@ -321,6 +337,27 @@ public final class ThreeTierVirtualInstanceArgs extends com.pulumi.resources.Res
          */
         public Builder managedResourceGroupName(String managedResourceGroupName) {
             return managedResourceGroupName(Output.of(managedResourceGroupName));
+        }
+
+        /**
+         * @param managedResourcesNetworkAccessType The network access type for managed resources. Possible values are `Private` and `Public`. Defaults to `Public`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder managedResourcesNetworkAccessType(@Nullable Output<String> managedResourcesNetworkAccessType) {
+            $.managedResourcesNetworkAccessType = managedResourcesNetworkAccessType;
+            return this;
+        }
+
+        /**
+         * @param managedResourcesNetworkAccessType The network access type for managed resources. Possible values are `Private` and `Public`. Defaults to `Public`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder managedResourcesNetworkAccessType(String managedResourcesNetworkAccessType) {
+            return managedResourcesNetworkAccessType(Output.of(managedResourcesNetworkAccessType));
         }
 
         /**

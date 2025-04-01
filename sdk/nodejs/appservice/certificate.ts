@@ -68,7 +68,7 @@ export class Certificate extends pulumi.CustomResource {
     }
 
     /**
-     * The ID of the associated App Service plan. Must be specified when the certificate is used inside an App Service Environment hosted App Service or with Premium App Service plans. Changing this forces a new resource to be created.
+     * The ID of the associated App Service plan. Must be specified when the certificate is used inside an App Service Environment hosted App Service or with Basic and Premium App Service plans. Changing this forces a new resource to be created.
      */
     public readonly appServicePlanId!: pulumi.Output<string | undefined>;
     /**
@@ -201,7 +201,7 @@ export class Certificate extends pulumi.CustomResource {
  */
 export interface CertificateState {
     /**
-     * The ID of the associated App Service plan. Must be specified when the certificate is used inside an App Service Environment hosted App Service or with Premium App Service plans. Changing this forces a new resource to be created.
+     * The ID of the associated App Service plan. Must be specified when the certificate is used inside an App Service Environment hosted App Service or with Basic and Premium App Service plans. Changing this forces a new resource to be created.
      */
     appServicePlanId?: pulumi.Input<string>;
     /**
@@ -275,7 +275,7 @@ export interface CertificateState {
  */
 export interface CertificateArgs {
     /**
-     * The ID of the associated App Service plan. Must be specified when the certificate is used inside an App Service Environment hosted App Service or with Premium App Service plans. Changing this forces a new resource to be created.
+     * The ID of the associated App Service plan. Must be specified when the certificate is used inside an App Service Environment hosted App Service or with Basic and Premium App Service plans. Changing this forces a new resource to be created.
      */
     appServicePlanId?: pulumi.Input<string>;
     keyVaultId?: pulumi.Input<string>;

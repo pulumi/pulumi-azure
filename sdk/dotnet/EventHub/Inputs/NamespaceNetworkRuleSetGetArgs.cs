@@ -22,7 +22,7 @@ namespace Pulumi.Azure.EventHub.Inputs
         private InputList<string>? _ipRules;
 
         /// <summary>
-        /// One or more IP Addresses, or CIDR Blocks which should be able to access the ServiceBus Namespace.
+        /// One or more IP Addresses, or CIDR Blocks which should be able to access the Service Bus Namespace.
         /// </summary>
         public InputList<string> IpRules
         {

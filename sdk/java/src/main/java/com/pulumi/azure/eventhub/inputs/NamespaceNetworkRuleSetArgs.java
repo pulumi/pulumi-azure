@@ -34,14 +34,14 @@ public final class NamespaceNetworkRuleSetArgs extends com.pulumi.resources.Reso
     }
 
     /**
-     * One or more IP Addresses, or CIDR Blocks which should be able to access the ServiceBus Namespace.
+     * One or more IP Addresses, or CIDR Blocks which should be able to access the Service Bus Namespace.
      * 
      */
     @Import(name="ipRules")
     private @Nullable Output<List<String>> ipRules;
 
     /**
-     * @return One or more IP Addresses, or CIDR Blocks which should be able to access the ServiceBus Namespace.
+     * @return One or more IP Addresses, or CIDR Blocks which should be able to access the Service Bus Namespace.
      * 
      */
     public Optional<Output<List<String>>> ipRules() {
@@ -147,7 +147,7 @@ public final class NamespaceNetworkRuleSetArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param ipRules One or more IP Addresses, or CIDR Blocks which should be able to access the ServiceBus Namespace.
+         * @param ipRules One or more IP Addresses, or CIDR Blocks which should be able to access the Service Bus Namespace.
          * 
          * @return builder
          * 
@@ -158,7 +158,7 @@ public final class NamespaceNetworkRuleSetArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param ipRules One or more IP Addresses, or CIDR Blocks which should be able to access the ServiceBus Namespace.
+         * @param ipRules One or more IP Addresses, or CIDR Blocks which should be able to access the Service Bus Namespace.
          * 
          * @return builder
          * 
@@ -168,7 +168,7 @@ public final class NamespaceNetworkRuleSetArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param ipRules One or more IP Addresses, or CIDR Blocks which should be able to access the ServiceBus Namespace.
+         * @param ipRules One or more IP Addresses, or CIDR Blocks which should be able to access the Service Bus Namespace.
          * 
          * @return builder
          * 

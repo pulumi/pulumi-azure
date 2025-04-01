@@ -88,7 +88,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = aifoundry.NewHub(ctx, "example", &aifoundry.HubArgs{
+//			exampleHub, err := aifoundry.NewHub(ctx, "example", &aifoundry.HubArgs{
 //				Name:              pulumi.String("exampleaihub"),
 //				Location:          exampleAIServices.Location,
 //				ResourceGroupName: example.Name,
@@ -103,8 +103,8 @@ import (
 //			}
 //			_, err = aifoundry.NewProject(ctx, "example", &aifoundry.ProjectArgs{
 //				Name:            pulumi.String("example"),
-//				Location:        pulumi.Any(exampleAzurermAiServicesHub.Location),
-//				AiServicesHubId: pulumi.Any(exampleAzurermAiServicesHub.Id),
+//				Location:        exampleHub.Location,
+//				AiServicesHubId: exampleHub.ID(),
 //			})
 //			if err != nil {
 //				return err
@@ -125,7 +125,7 @@ import (
 type Project struct {
 	pulumi.CustomResourceState
 
-	// The AI Services Hub ID under which this Project should be created. Changing this forces a new AI Foundry Project to be created.
+	// The AI Foundry ID under which this Project should be created. Changing this forces a new AI Foundry Project to be created.
 	AiServicesHubId pulumi.StringOutput `pulumi:"aiServicesHubId"`
 	// The description of this AI Foundry Project.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
@@ -178,7 +178,7 @@ func GetProject(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Project resources.
 type projectState struct {
-	// The AI Services Hub ID under which this Project should be created. Changing this forces a new AI Foundry Project to be created.
+	// The AI Foundry ID under which this Project should be created. Changing this forces a new AI Foundry Project to be created.
 	AiServicesHubId *string `pulumi:"aiServicesHubId"`
 	// The description of this AI Foundry Project.
 	Description *string `pulumi:"description"`
@@ -199,7 +199,7 @@ type projectState struct {
 }
 
 type ProjectState struct {
-	// The AI Services Hub ID under which this Project should be created. Changing this forces a new AI Foundry Project to be created.
+	// The AI Foundry ID under which this Project should be created. Changing this forces a new AI Foundry Project to be created.
 	AiServicesHubId pulumi.StringPtrInput
 	// The description of this AI Foundry Project.
 	Description pulumi.StringPtrInput
@@ -224,7 +224,7 @@ func (ProjectState) ElementType() reflect.Type {
 }
 
 type projectArgs struct {
-	// The AI Services Hub ID under which this Project should be created. Changing this forces a new AI Foundry Project to be created.
+	// The AI Foundry ID under which this Project should be created. Changing this forces a new AI Foundry Project to be created.
 	AiServicesHubId string `pulumi:"aiServicesHubId"`
 	// The description of this AI Foundry Project.
 	Description *string `pulumi:"description"`
@@ -244,7 +244,7 @@ type projectArgs struct {
 
 // The set of arguments for constructing a Project resource.
 type ProjectArgs struct {
-	// The AI Services Hub ID under which this Project should be created. Changing this forces a new AI Foundry Project to be created.
+	// The AI Foundry ID under which this Project should be created. Changing this forces a new AI Foundry Project to be created.
 	AiServicesHubId pulumi.StringInput
 	// The description of this AI Foundry Project.
 	Description pulumi.StringPtrInput
@@ -349,7 +349,7 @@ func (o ProjectOutput) ToProjectOutputWithContext(ctx context.Context) ProjectOu
 	return o
 }
 
-// The AI Services Hub ID under which this Project should be created. Changing this forces a new AI Foundry Project to be created.
+// The AI Foundry ID under which this Project should be created. Changing this forces a new AI Foundry Project to be created.
 func (o ProjectOutput) AiServicesHubId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Project) pulumi.StringOutput { return v.AiServicesHubId }).(pulumi.StringOutput)
 }

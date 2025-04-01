@@ -57,7 +57,7 @@ class AppFlexConsumptionArgs:
         :param pulumi.Input[str] runtime_version: The Runtime version of the Linux Function App. The values are diff from different runtime version. The supported values are `8.0`, `9.0` for `dotnet-isolated`, `20` for `node`, `3.10`, `3.11` for `python`, `11`, `17` for `java`, `7.4` for `powershell`.
         :param pulumi.Input[str] service_plan_id: The ID of the App Service Plan within which to create this Function App.
         :param pulumi.Input['AppFlexConsumptionSiteConfigArgs'] site_config: A `site_config` block as defined below.
-        :param pulumi.Input[str] storage_authentication_type: The authentication type which will be used to access the backend storage account for the Function App. Possible values are `storageaccountconnectionstring`, `systemassignedidentity`, and `userassignedidentity`.
+        :param pulumi.Input[str] storage_authentication_type: The authentication type which will be used to access the backend storage account for the Function App. Possible values are `StorageAccountConnectionString`, `SystemAssignedIdentity`, and `UserAssignedIdentity`.
         :param pulumi.Input[str] storage_container_endpoint: The backend storage container endpoint which will be used by this Function App.
         :param pulumi.Input[str] storage_container_type: The storage container type used for the Function App. The current supported type is `blobContainer`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] app_settings: A map of key-value pairs for [App
@@ -70,7 +70,7 @@ class AppFlexConsumptionArgs:
         :param pulumi.Input[Sequence[pulumi.Input['AppFlexConsumptionConnectionStringArgs']]] connection_strings: One or more `connection_string` blocks as defined below.
         :param pulumi.Input[bool] enabled: Is the Function App enabled? Defaults to `true`.
         :param pulumi.Input['AppFlexConsumptionIdentityArgs'] identity: A `identity` block as defined below.
-        :param pulumi.Input[int] instance_memory_in_mb: A mapping of tags which should be assigned to the Linux Function App.
+        :param pulumi.Input[int] instance_memory_in_mb: The memory size of the instances on which your app runs. The [currently supported values](https://learn.microsoft.com/en-us/azure/azure-functions/flex-consumption-plan#instance-memory) are `2048` or `4096`.
         :param pulumi.Input[str] location: The Azure Region where the Function App should exist. Changing this forces a new Function App to be created.
         :param pulumi.Input[int] maximum_instance_count: The number of workers this function app can scale out to.
         :param pulumi.Input[str] name: The name which should be used for this Function App. Changing this forces a new Function App to be created. Limit the function name to 32 characters to avoid naming collisions. For more information about [Function App naming rule](https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/resource-name-rules#microsoftweb) and [Host ID Collisions](https://github.com/Azure/azure-functions-host/wiki/Host-IDs#host-id-collisions)
@@ -78,10 +78,10 @@ class AppFlexConsumptionArgs:
         :param pulumi.Input['AppFlexConsumptionStickySettingsArgs'] sticky_settings: A `sticky_settings` block as defined below.
         :param pulumi.Input[str] storage_access_key: The access key which will be used to access the backend storage account for the Function App.
                
-               > **Note:** The`storage_access_key` must be specified when `storage_authentication_type` sets to `storageaccountconnectionstring`.
+               > **Note:** The `storage_access_key` must be specified when `storage_authentication_type` is set to `StorageAccountConnectionString`.
         :param pulumi.Input[str] storage_user_assigned_identity_id: The user assigned Managed Identity to access the storage account. Conflicts with `storage_account_access_key`.
                
-               > **Note:** The`storage_user_assigned_identity_id` must be specified when `storage_authentication_type` sets to `userassignedidentity`.
+               > **Note:** The `storage_user_assigned_identity_id` must be specified when `storage_authentication_type` is set to `UserAssignedIdentity`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Linux Function App.
         :param pulumi.Input[bool] webdeploy_publish_basic_authentication_enabled: Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to `true`.
                
@@ -205,7 +205,7 @@ class AppFlexConsumptionArgs:
     @pulumi.getter(name="storageAuthenticationType")
     def storage_authentication_type(self) -> pulumi.Input[str]:
         """
-        The authentication type which will be used to access the backend storage account for the Function App. Possible values are `storageaccountconnectionstring`, `systemassignedidentity`, and `userassignedidentity`.
+        The authentication type which will be used to access the backend storage account for the Function App. Possible values are `StorageAccountConnectionString`, `SystemAssignedIdentity`, and `UserAssignedIdentity`.
         """
         return pulumi.get(self, "storage_authentication_type")
 
@@ -350,7 +350,7 @@ class AppFlexConsumptionArgs:
     @pulumi.getter(name="instanceMemoryInMb")
     def instance_memory_in_mb(self) -> Optional[pulumi.Input[int]]:
         """
-        A mapping of tags which should be assigned to the Linux Function App.
+        The memory size of the instances on which your app runs. The [currently supported values](https://learn.microsoft.com/en-us/azure/azure-functions/flex-consumption-plan#instance-memory) are `2048` or `4096`.
         """
         return pulumi.get(self, "instance_memory_in_mb")
 
@@ -424,7 +424,7 @@ class AppFlexConsumptionArgs:
         """
         The access key which will be used to access the backend storage account for the Function App.
 
-        > **Note:** The`storage_access_key` must be specified when `storage_authentication_type` sets to `storageaccountconnectionstring`.
+        > **Note:** The `storage_access_key` must be specified when `storage_authentication_type` is set to `StorageAccountConnectionString`.
         """
         return pulumi.get(self, "storage_access_key")
 
@@ -438,7 +438,7 @@ class AppFlexConsumptionArgs:
         """
         The user assigned Managed Identity to access the storage account. Conflicts with `storage_account_access_key`.
 
-        > **Note:** The`storage_user_assigned_identity_id` must be specified when `storage_authentication_type` sets to `userassignedidentity`.
+        > **Note:** The `storage_user_assigned_identity_id` must be specified when `storage_authentication_type` is set to `UserAssignedIdentity`.
         """
         return pulumi.get(self, "storage_user_assigned_identity_id")
 
@@ -552,7 +552,7 @@ class _AppFlexConsumptionState:
         :param pulumi.Input[bool] enabled: Is the Function App enabled? Defaults to `true`.
         :param pulumi.Input[str] hosting_environment_id: The ID of the App Service Environment used by Function App.
         :param pulumi.Input['AppFlexConsumptionIdentityArgs'] identity: A `identity` block as defined below.
-        :param pulumi.Input[int] instance_memory_in_mb: A mapping of tags which should be assigned to the Linux Function App.
+        :param pulumi.Input[int] instance_memory_in_mb: The memory size of the instances on which your app runs. The [currently supported values](https://learn.microsoft.com/en-us/azure/azure-functions/flex-consumption-plan#instance-memory) are `2048` or `4096`.
         :param pulumi.Input[str] kind: The Kind value for this Linux Function App.
         :param pulumi.Input[str] location: The Azure Region where the Function App should exist. Changing this forces a new Function App to be created.
         :param pulumi.Input[int] maximum_instance_count: The number of workers this function app can scale out to.
@@ -571,13 +571,13 @@ class _AppFlexConsumptionState:
         :param pulumi.Input['AppFlexConsumptionStickySettingsArgs'] sticky_settings: A `sticky_settings` block as defined below.
         :param pulumi.Input[str] storage_access_key: The access key which will be used to access the backend storage account for the Function App.
                
-               > **Note:** The`storage_access_key` must be specified when `storage_authentication_type` sets to `storageaccountconnectionstring`.
-        :param pulumi.Input[str] storage_authentication_type: The authentication type which will be used to access the backend storage account for the Function App. Possible values are `storageaccountconnectionstring`, `systemassignedidentity`, and `userassignedidentity`.
+               > **Note:** The `storage_access_key` must be specified when `storage_authentication_type` is set to `StorageAccountConnectionString`.
+        :param pulumi.Input[str] storage_authentication_type: The authentication type which will be used to access the backend storage account for the Function App. Possible values are `StorageAccountConnectionString`, `SystemAssignedIdentity`, and `UserAssignedIdentity`.
         :param pulumi.Input[str] storage_container_endpoint: The backend storage container endpoint which will be used by this Function App.
         :param pulumi.Input[str] storage_container_type: The storage container type used for the Function App. The current supported type is `blobContainer`.
         :param pulumi.Input[str] storage_user_assigned_identity_id: The user assigned Managed Identity to access the storage account. Conflicts with `storage_account_access_key`.
                
-               > **Note:** The`storage_user_assigned_identity_id` must be specified when `storage_authentication_type` sets to `userassignedidentity`.
+               > **Note:** The `storage_user_assigned_identity_id` must be specified when `storage_authentication_type` is set to `UserAssignedIdentity`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Linux Function App.
         :param pulumi.Input[bool] webdeploy_publish_basic_authentication_enabled: Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to `true`.
                
@@ -812,7 +812,7 @@ class _AppFlexConsumptionState:
     @pulumi.getter(name="instanceMemoryInMb")
     def instance_memory_in_mb(self) -> Optional[pulumi.Input[int]]:
         """
-        A mapping of tags which should be assigned to the Linux Function App.
+        The memory size of the instances on which your app runs. The [currently supported values](https://learn.microsoft.com/en-us/azure/azure-functions/flex-consumption-plan#instance-memory) are `2048` or `4096`.
         """
         return pulumi.get(self, "instance_memory_in_mb")
 
@@ -1018,7 +1018,7 @@ class _AppFlexConsumptionState:
         """
         The access key which will be used to access the backend storage account for the Function App.
 
-        > **Note:** The`storage_access_key` must be specified when `storage_authentication_type` sets to `storageaccountconnectionstring`.
+        > **Note:** The `storage_access_key` must be specified when `storage_authentication_type` is set to `StorageAccountConnectionString`.
         """
         return pulumi.get(self, "storage_access_key")
 
@@ -1030,7 +1030,7 @@ class _AppFlexConsumptionState:
     @pulumi.getter(name="storageAuthenticationType")
     def storage_authentication_type(self) -> Optional[pulumi.Input[str]]:
         """
-        The authentication type which will be used to access the backend storage account for the Function App. Possible values are `storageaccountconnectionstring`, `systemassignedidentity`, and `userassignedidentity`.
+        The authentication type which will be used to access the backend storage account for the Function App. Possible values are `StorageAccountConnectionString`, `SystemAssignedIdentity`, and `UserAssignedIdentity`.
         """
         return pulumi.get(self, "storage_authentication_type")
 
@@ -1068,7 +1068,7 @@ class _AppFlexConsumptionState:
         """
         The user assigned Managed Identity to access the storage account. Conflicts with `storage_account_access_key`.
 
-        > **Note:** The`storage_user_assigned_identity_id` must be specified when `storage_authentication_type` sets to `userassignedidentity`.
+        > **Note:** The `storage_user_assigned_identity_id` must be specified when `storage_authentication_type` is set to `UserAssignedIdentity`.
         """
         return pulumi.get(self, "storage_user_assigned_identity_id")
 
@@ -1193,8 +1193,13 @@ class AppFlexConsumption(pulumi.CustomResource):
             name="example-linux-function-app",
             resource_group_name=example.name,
             location=example.location,
+            service_plan_id=example_service_plan.id,
             storage_container_type="blobContainer",
-            storage_container_endpoint=example_container.id,
+            storage_container_endpoint=pulumi.Output.all(
+                primary_blob_endpoint=example_account.primary_blob_endpoint,
+                name=example_container.name
+        ).apply(lambda resolved_outputs: f"{resolved_outputs['primary_blob_endpoint']}{resolved_outputs['name']}")
+        ,
             storage_authentication_type="StorageAccountConnectionString",
             storage_access_key=example_account.primary_access_key,
             runtime_name="node",
@@ -1223,7 +1228,7 @@ class AppFlexConsumption(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[Union['AppFlexConsumptionConnectionStringArgs', 'AppFlexConsumptionConnectionStringArgsDict']]]] connection_strings: One or more `connection_string` blocks as defined below.
         :param pulumi.Input[bool] enabled: Is the Function App enabled? Defaults to `true`.
         :param pulumi.Input[Union['AppFlexConsumptionIdentityArgs', 'AppFlexConsumptionIdentityArgsDict']] identity: A `identity` block as defined below.
-        :param pulumi.Input[int] instance_memory_in_mb: A mapping of tags which should be assigned to the Linux Function App.
+        :param pulumi.Input[int] instance_memory_in_mb: The memory size of the instances on which your app runs. The [currently supported values](https://learn.microsoft.com/en-us/azure/azure-functions/flex-consumption-plan#instance-memory) are `2048` or `4096`.
         :param pulumi.Input[str] location: The Azure Region where the Function App should exist. Changing this forces a new Function App to be created.
         :param pulumi.Input[int] maximum_instance_count: The number of workers this function app can scale out to.
         :param pulumi.Input[str] name: The name which should be used for this Function App. Changing this forces a new Function App to be created. Limit the function name to 32 characters to avoid naming collisions. For more information about [Function App naming rule](https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/resource-name-rules#microsoftweb) and [Host ID Collisions](https://github.com/Azure/azure-functions-host/wiki/Host-IDs#host-id-collisions)
@@ -1236,13 +1241,13 @@ class AppFlexConsumption(pulumi.CustomResource):
         :param pulumi.Input[Union['AppFlexConsumptionStickySettingsArgs', 'AppFlexConsumptionStickySettingsArgsDict']] sticky_settings: A `sticky_settings` block as defined below.
         :param pulumi.Input[str] storage_access_key: The access key which will be used to access the backend storage account for the Function App.
                
-               > **Note:** The`storage_access_key` must be specified when `storage_authentication_type` sets to `storageaccountconnectionstring`.
-        :param pulumi.Input[str] storage_authentication_type: The authentication type which will be used to access the backend storage account for the Function App. Possible values are `storageaccountconnectionstring`, `systemassignedidentity`, and `userassignedidentity`.
+               > **Note:** The `storage_access_key` must be specified when `storage_authentication_type` is set to `StorageAccountConnectionString`.
+        :param pulumi.Input[str] storage_authentication_type: The authentication type which will be used to access the backend storage account for the Function App. Possible values are `StorageAccountConnectionString`, `SystemAssignedIdentity`, and `UserAssignedIdentity`.
         :param pulumi.Input[str] storage_container_endpoint: The backend storage container endpoint which will be used by this Function App.
         :param pulumi.Input[str] storage_container_type: The storage container type used for the Function App. The current supported type is `blobContainer`.
         :param pulumi.Input[str] storage_user_assigned_identity_id: The user assigned Managed Identity to access the storage account. Conflicts with `storage_account_access_key`.
                
-               > **Note:** The`storage_user_assigned_identity_id` must be specified when `storage_authentication_type` sets to `userassignedidentity`.
+               > **Note:** The `storage_user_assigned_identity_id` must be specified when `storage_authentication_type` is set to `UserAssignedIdentity`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Linux Function App.
         :param pulumi.Input[bool] webdeploy_publish_basic_authentication_enabled: Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to `true`.
                
@@ -1289,8 +1294,13 @@ class AppFlexConsumption(pulumi.CustomResource):
             name="example-linux-function-app",
             resource_group_name=example.name,
             location=example.location,
+            service_plan_id=example_service_plan.id,
             storage_container_type="blobContainer",
-            storage_container_endpoint=example_container.id,
+            storage_container_endpoint=pulumi.Output.all(
+                primary_blob_endpoint=example_account.primary_blob_endpoint,
+                name=example_container.name
+        ).apply(lambda resolved_outputs: f"{resolved_outputs['primary_blob_endpoint']}{resolved_outputs['name']}")
+        ,
             storage_authentication_type="StorageAccountConnectionString",
             storage_access_key=example_account.primary_access_key,
             runtime_name="node",
@@ -1484,7 +1494,7 @@ class AppFlexConsumption(pulumi.CustomResource):
         :param pulumi.Input[bool] enabled: Is the Function App enabled? Defaults to `true`.
         :param pulumi.Input[str] hosting_environment_id: The ID of the App Service Environment used by Function App.
         :param pulumi.Input[Union['AppFlexConsumptionIdentityArgs', 'AppFlexConsumptionIdentityArgsDict']] identity: A `identity` block as defined below.
-        :param pulumi.Input[int] instance_memory_in_mb: A mapping of tags which should be assigned to the Linux Function App.
+        :param pulumi.Input[int] instance_memory_in_mb: The memory size of the instances on which your app runs. The [currently supported values](https://learn.microsoft.com/en-us/azure/azure-functions/flex-consumption-plan#instance-memory) are `2048` or `4096`.
         :param pulumi.Input[str] kind: The Kind value for this Linux Function App.
         :param pulumi.Input[str] location: The Azure Region where the Function App should exist. Changing this forces a new Function App to be created.
         :param pulumi.Input[int] maximum_instance_count: The number of workers this function app can scale out to.
@@ -1503,13 +1513,13 @@ class AppFlexConsumption(pulumi.CustomResource):
         :param pulumi.Input[Union['AppFlexConsumptionStickySettingsArgs', 'AppFlexConsumptionStickySettingsArgsDict']] sticky_settings: A `sticky_settings` block as defined below.
         :param pulumi.Input[str] storage_access_key: The access key which will be used to access the backend storage account for the Function App.
                
-               > **Note:** The`storage_access_key` must be specified when `storage_authentication_type` sets to `storageaccountconnectionstring`.
-        :param pulumi.Input[str] storage_authentication_type: The authentication type which will be used to access the backend storage account for the Function App. Possible values are `storageaccountconnectionstring`, `systemassignedidentity`, and `userassignedidentity`.
+               > **Note:** The `storage_access_key` must be specified when `storage_authentication_type` is set to `StorageAccountConnectionString`.
+        :param pulumi.Input[str] storage_authentication_type: The authentication type which will be used to access the backend storage account for the Function App. Possible values are `StorageAccountConnectionString`, `SystemAssignedIdentity`, and `UserAssignedIdentity`.
         :param pulumi.Input[str] storage_container_endpoint: The backend storage container endpoint which will be used by this Function App.
         :param pulumi.Input[str] storage_container_type: The storage container type used for the Function App. The current supported type is `blobContainer`.
         :param pulumi.Input[str] storage_user_assigned_identity_id: The user assigned Managed Identity to access the storage account. Conflicts with `storage_account_access_key`.
                
-               > **Note:** The`storage_user_assigned_identity_id` must be specified when `storage_authentication_type` sets to `userassignedidentity`.
+               > **Note:** The `storage_user_assigned_identity_id` must be specified when `storage_authentication_type` is set to `UserAssignedIdentity`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Linux Function App.
         :param pulumi.Input[bool] webdeploy_publish_basic_authentication_enabled: Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to `true`.
                
@@ -1663,7 +1673,7 @@ class AppFlexConsumption(pulumi.CustomResource):
     @pulumi.getter(name="instanceMemoryInMb")
     def instance_memory_in_mb(self) -> pulumi.Output[Optional[int]]:
         """
-        A mapping of tags which should be assigned to the Linux Function App.
+        The memory size of the instances on which your app runs. The [currently supported values](https://learn.microsoft.com/en-us/azure/azure-functions/flex-consumption-plan#instance-memory) are `2048` or `4096`.
         """
         return pulumi.get(self, "instance_memory_in_mb")
 
@@ -1801,7 +1811,7 @@ class AppFlexConsumption(pulumi.CustomResource):
         """
         The access key which will be used to access the backend storage account for the Function App.
 
-        > **Note:** The`storage_access_key` must be specified when `storage_authentication_type` sets to `storageaccountconnectionstring`.
+        > **Note:** The `storage_access_key` must be specified when `storage_authentication_type` is set to `StorageAccountConnectionString`.
         """
         return pulumi.get(self, "storage_access_key")
 
@@ -1809,7 +1819,7 @@ class AppFlexConsumption(pulumi.CustomResource):
     @pulumi.getter(name="storageAuthenticationType")
     def storage_authentication_type(self) -> pulumi.Output[str]:
         """
-        The authentication type which will be used to access the backend storage account for the Function App. Possible values are `storageaccountconnectionstring`, `systemassignedidentity`, and `userassignedidentity`.
+        The authentication type which will be used to access the backend storage account for the Function App. Possible values are `StorageAccountConnectionString`, `SystemAssignedIdentity`, and `UserAssignedIdentity`.
         """
         return pulumi.get(self, "storage_authentication_type")
 
@@ -1835,7 +1845,7 @@ class AppFlexConsumption(pulumi.CustomResource):
         """
         The user assigned Managed Identity to access the storage account. Conflicts with `storage_account_access_key`.
 
-        > **Note:** The`storage_user_assigned_identity_id` must be specified when `storage_authentication_type` sets to `userassignedidentity`.
+        > **Note:** The `storage_user_assigned_identity_id` must be specified when `storage_authentication_type` is set to `UserAssignedIdentity`.
         """
         return pulumi.get(self, "storage_user_assigned_identity_id")
 

@@ -6,6 +6,7 @@ package com.pulumi.azure.cosmosdb;
 import com.pulumi.azure.Utilities;
 import com.pulumi.azure.cosmosdb.MongoClusterArgs;
 import com.pulumi.azure.cosmosdb.inputs.MongoClusterState;
+import com.pulumi.azure.cosmosdb.outputs.MongoClusterConnectionString;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
@@ -170,23 +171,35 @@ public class MongoCluster extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.administratorUsername);
     }
     /**
-     * The compute tier to assign to the MongoDB Cluster. Possible values are `Free`, `M25`, `M30`, `M40`, `M50`, `M60` and `M80`.
+     * The compute tier to assign to the MongoDB Cluster. Possible values are `Free`, `M10`, `M20`, `M25`, `M30`, `M40`, `M50`, `M60`, `M80`, and `M200`.
      * 
      */
     @Export(name="computeTier", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> computeTier;
 
     /**
-     * @return The compute tier to assign to the MongoDB Cluster. Possible values are `Free`, `M25`, `M30`, `M40`, `M50`, `M60` and `M80`.
+     * @return The compute tier to assign to the MongoDB Cluster. Possible values are `Free`, `M10`, `M20`, `M25`, `M30`, `M40`, `M50`, `M60`, `M80`, and `M200`.
      * 
      */
     public Output<Optional<String>> computeTier() {
         return Codegen.optional(this.computeTier);
     }
     /**
-     * The creation mode for the MongoDB Cluster. Possibles values are `Default` and `GeoReplica`. Defaults to `Default`. Changing this forces a new resource to be created.
+     * The list of `connection_strings` blocks as defined below.
      * 
-     * &gt; **Note** The creation mode `GeoReplica` is currently in preview. It is only available when `preview_features` is set.
+     */
+    @Export(name="connectionStrings", refs={List.class,MongoClusterConnectionString.class}, tree="[0,1]")
+    private Output<List<MongoClusterConnectionString>> connectionStrings;
+
+    /**
+     * @return The list of `connection_strings` blocks as defined below.
+     * 
+     */
+    public Output<List<MongoClusterConnectionString>> connectionStrings() {
+        return this.connectionStrings;
+    }
+    /**
+     * The creation mode for the MongoDB Cluster. Possibles values are `Default` and `GeoReplica`. Defaults to `Default`. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="createMode", refs={String.class}, tree="[0]")
@@ -194,8 +207,6 @@ public class MongoCluster extends com.pulumi.resources.CustomResource {
 
     /**
      * @return The creation mode for the MongoDB Cluster. Possibles values are `Default` and `GeoReplica`. Defaults to `Default`. Changing this forces a new resource to be created.
-     * 
-     * &gt; **Note** The creation mode `GeoReplica` is currently in preview. It is only available when `preview_features` is set.
      * 
      */
     public Output<Optional<String>> createMode() {
@@ -410,7 +421,8 @@ public class MongoCluster extends com.pulumi.resources.CustomResource {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .additionalSecretOutputs(List.of(
-                "administratorPassword"
+                "administratorPassword",
+                "connectionStrings"
             ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);

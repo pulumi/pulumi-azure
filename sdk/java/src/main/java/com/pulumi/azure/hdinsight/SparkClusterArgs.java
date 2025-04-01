@@ -351,6 +351,21 @@ public final class SparkClusterArgs extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.tlsMinVersion);
     }
 
+    /**
+     * A list of Availability Zones which should be used for this HDInsight Spark Cluster. Chaning this forces a new resource to be created.
+     * 
+     */
+    @Import(name="zones")
+    private @Nullable Output<List<String>> zones;
+
+    /**
+     * @return A list of Availability Zones which should be used for this HDInsight Spark Cluster. Chaning this forces a new resource to be created.
+     * 
+     */
+    public Optional<Output<List<String>>> zones() {
+        return Optional.ofNullable(this.zones);
+    }
+
     private SparkClusterArgs() {}
 
     private SparkClusterArgs(SparkClusterArgs $) {
@@ -375,6 +390,7 @@ public final class SparkClusterArgs extends com.pulumi.resources.ResourceArgs {
         this.tags = $.tags;
         this.tier = $.tier;
         this.tlsMinVersion = $.tlsMinVersion;
+        this.zones = $.zones;
     }
 
     public static Builder builder() {
@@ -858,6 +874,37 @@ public final class SparkClusterArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder tlsMinVersion(String tlsMinVersion) {
             return tlsMinVersion(Output.of(tlsMinVersion));
+        }
+
+        /**
+         * @param zones A list of Availability Zones which should be used for this HDInsight Spark Cluster. Chaning this forces a new resource to be created.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder zones(@Nullable Output<List<String>> zones) {
+            $.zones = zones;
+            return this;
+        }
+
+        /**
+         * @param zones A list of Availability Zones which should be used for this HDInsight Spark Cluster. Chaning this forces a new resource to be created.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder zones(List<String> zones) {
+            return zones(Output.of(zones));
+        }
+
+        /**
+         * @param zones A list of Availability Zones which should be used for this HDInsight Spark Cluster. Chaning this forces a new resource to be created.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder zones(String... zones) {
+            return zones(List.of(zones));
         }
 
         public SparkClusterArgs build() {

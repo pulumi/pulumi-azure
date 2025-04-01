@@ -4,6 +4,7 @@
 package com.pulumi.azure.cdn;
 
 import com.pulumi.azure.cdn.inputs.FrontdoorFirewallPolicyCustomRuleArgs;
+import com.pulumi.azure.cdn.inputs.FrontdoorFirewallPolicyLogScrubbingArgs;
 import com.pulumi.azure.cdn.inputs.FrontdoorFirewallPolicyManagedRuleArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
@@ -103,6 +104,25 @@ public final class FrontdoorFirewallPolicyArgs extends com.pulumi.resources.Reso
      */
     public Optional<Output<Integer>> jsChallengeCookieExpirationInMinutes() {
         return Optional.ofNullable(this.jsChallengeCookieExpirationInMinutes);
+    }
+
+    /**
+     * A `log_scrubbing` block as defined below.
+     * 
+     * !&gt; **Note:** Setting the`log_scrubbing` block is currently in **PREVIEW**. Please see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+     * 
+     */
+    @Import(name="logScrubbing")
+    private @Nullable Output<FrontdoorFirewallPolicyLogScrubbingArgs> logScrubbing;
+
+    /**
+     * @return A `log_scrubbing` block as defined below.
+     * 
+     * !&gt; **Note:** Setting the`log_scrubbing` block is currently in **PREVIEW**. Please see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+     * 
+     */
+    public Optional<Output<FrontdoorFirewallPolicyLogScrubbingArgs>> logScrubbing() {
+        return Optional.ofNullable(this.logScrubbing);
     }
 
     /**
@@ -241,6 +261,7 @@ public final class FrontdoorFirewallPolicyArgs extends com.pulumi.resources.Reso
         this.customRules = $.customRules;
         this.enabled = $.enabled;
         this.jsChallengeCookieExpirationInMinutes = $.jsChallengeCookieExpirationInMinutes;
+        this.logScrubbing = $.logScrubbing;
         this.managedRules = $.managedRules;
         this.mode = $.mode;
         this.name = $.name;
@@ -390,6 +411,31 @@ public final class FrontdoorFirewallPolicyArgs extends com.pulumi.resources.Reso
          */
         public Builder jsChallengeCookieExpirationInMinutes(Integer jsChallengeCookieExpirationInMinutes) {
             return jsChallengeCookieExpirationInMinutes(Output.of(jsChallengeCookieExpirationInMinutes));
+        }
+
+        /**
+         * @param logScrubbing A `log_scrubbing` block as defined below.
+         * 
+         * !&gt; **Note:** Setting the`log_scrubbing` block is currently in **PREVIEW**. Please see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder logScrubbing(@Nullable Output<FrontdoorFirewallPolicyLogScrubbingArgs> logScrubbing) {
+            $.logScrubbing = logScrubbing;
+            return this;
+        }
+
+        /**
+         * @param logScrubbing A `log_scrubbing` block as defined below.
+         * 
+         * !&gt; **Note:** Setting the`log_scrubbing` block is currently in **PREVIEW**. Please see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder logScrubbing(FrontdoorFirewallPolicyLogScrubbingArgs logScrubbing) {
+            return logScrubbing(Output.of(logScrubbing));
         }
 
         /**

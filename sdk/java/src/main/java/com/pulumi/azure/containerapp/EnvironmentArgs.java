@@ -206,14 +206,14 @@ public final class EnvironmentArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The profile of the workload to scope the container app execution. A `workload_profile` block as defined below.
+     * One or more `workload_profile` blocks as defined below.
      * 
      */
     @Import(name="workloadProfiles")
     private @Nullable Output<List<EnvironmentWorkloadProfileArgs>> workloadProfiles;
 
     /**
-     * @return The profile of the workload to scope the container app execution. A `workload_profile` block as defined below.
+     * @return One or more `workload_profile` blocks as defined below.
      * 
      */
     public Optional<Output<List<EnvironmentWorkloadProfileArgs>>> workloadProfiles() {
@@ -527,7 +527,7 @@ public final class EnvironmentArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param workloadProfiles The profile of the workload to scope the container app execution. A `workload_profile` block as defined below.
+         * @param workloadProfiles One or more `workload_profile` blocks as defined below.
          * 
          * @return builder
          * 
@@ -538,7 +538,7 @@ public final class EnvironmentArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param workloadProfiles The profile of the workload to scope the container app execution. A `workload_profile` block as defined below.
+         * @param workloadProfiles One or more `workload_profile` blocks as defined below.
          * 
          * @return builder
          * 
@@ -548,7 +548,7 @@ public final class EnvironmentArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param workloadProfiles The profile of the workload to scope the container app execution. A `workload_profile` block as defined below.
+         * @param workloadProfiles One or more `workload_profile` blocks as defined below.
          * 
          * @return builder
          * 

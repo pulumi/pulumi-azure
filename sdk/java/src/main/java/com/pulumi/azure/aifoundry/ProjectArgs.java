@@ -20,14 +20,14 @@ public final class ProjectArgs extends com.pulumi.resources.ResourceArgs {
     public static final ProjectArgs Empty = new ProjectArgs();
 
     /**
-     * The AI Services Hub ID under which this Project should be created. Changing this forces a new AI Foundry Project to be created.
+     * The AI Foundry ID under which this Project should be created. Changing this forces a new AI Foundry Project to be created.
      * 
      */
     @Import(name="aiServicesHubId", required=true)
     private Output<String> aiServicesHubId;
 
     /**
-     * @return The AI Services Hub ID under which this Project should be created. Changing this forces a new AI Foundry Project to be created.
+     * @return The AI Foundry ID under which this Project should be created. Changing this forces a new AI Foundry Project to be created.
      * 
      */
     public Output<String> aiServicesHubId() {
@@ -171,7 +171,7 @@ public final class ProjectArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param aiServicesHubId The AI Services Hub ID under which this Project should be created. Changing this forces a new AI Foundry Project to be created.
+         * @param aiServicesHubId The AI Foundry ID under which this Project should be created. Changing this forces a new AI Foundry Project to be created.
          * 
          * @return builder
          * 
@@ -182,7 +182,7 @@ public final class ProjectArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param aiServicesHubId The AI Services Hub ID under which this Project should be created. Changing this forces a new AI Foundry Project to be created.
+         * @param aiServicesHubId The AI Foundry ID under which this Project should be created. Changing this forces a new AI Foundry Project to be created.
          * 
          * @return builder
          * 

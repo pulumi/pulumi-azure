@@ -239,6 +239,10 @@ export class WindowsFunctionAppSlot extends pulumi.CustomResource {
      * A mapping of tags which should be assigned to the Windows Function App Slot.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * Whether backup and restore operations over the linked virtual network are enabled. Defaults to `false`.
+     */
+    public readonly virtualNetworkBackupRestoreEnabled!: pulumi.Output<boolean | undefined>;
     public readonly virtualNetworkSubnetId!: pulumi.Output<string | undefined>;
     /**
      * Specifies whether traffic for the image pull should be routed over virtual network. Defaults to `false`.
@@ -301,6 +305,7 @@ export class WindowsFunctionAppSlot extends pulumi.CustomResource {
             resourceInputs["storageKeyVaultSecretId"] = state ? state.storageKeyVaultSecretId : undefined;
             resourceInputs["storageUsesManagedIdentity"] = state ? state.storageUsesManagedIdentity : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["virtualNetworkBackupRestoreEnabled"] = state ? state.virtualNetworkBackupRestoreEnabled : undefined;
             resourceInputs["virtualNetworkSubnetId"] = state ? state.virtualNetworkSubnetId : undefined;
             resourceInputs["vnetImagePullEnabled"] = state ? state.vnetImagePullEnabled : undefined;
             resourceInputs["webdeployPublishBasicAuthenticationEnabled"] = state ? state.webdeployPublishBasicAuthenticationEnabled : undefined;
@@ -340,6 +345,7 @@ export class WindowsFunctionAppSlot extends pulumi.CustomResource {
             resourceInputs["storageKeyVaultSecretId"] = args ? args.storageKeyVaultSecretId : undefined;
             resourceInputs["storageUsesManagedIdentity"] = args ? args.storageUsesManagedIdentity : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["virtualNetworkBackupRestoreEnabled"] = args ? args.virtualNetworkBackupRestoreEnabled : undefined;
             resourceInputs["virtualNetworkSubnetId"] = args ? args.virtualNetworkSubnetId : undefined;
             resourceInputs["vnetImagePullEnabled"] = args ? args.vnetImagePullEnabled : undefined;
             resourceInputs["webdeployPublishBasicAuthenticationEnabled"] = args ? args.webdeployPublishBasicAuthenticationEnabled : undefined;
@@ -518,6 +524,10 @@ export interface WindowsFunctionAppSlotState {
      * A mapping of tags which should be assigned to the Windows Function App Slot.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Whether backup and restore operations over the linked virtual network are enabled. Defaults to `false`.
+     */
+    virtualNetworkBackupRestoreEnabled?: pulumi.Input<boolean>;
     virtualNetworkSubnetId?: pulumi.Input<string>;
     /**
      * Specifies whether traffic for the image pull should be routed over virtual network. Defaults to `false`.
@@ -653,6 +663,10 @@ export interface WindowsFunctionAppSlotArgs {
      * A mapping of tags which should be assigned to the Windows Function App Slot.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Whether backup and restore operations over the linked virtual network are enabled. Defaults to `false`.
+     */
+    virtualNetworkBackupRestoreEnabled?: pulumi.Input<boolean>;
     virtualNetworkSubnetId?: pulumi.Input<string>;
     /**
      * Specifies whether traffic for the image pull should be routed over virtual network. Defaults to `false`.

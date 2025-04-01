@@ -247,6 +247,12 @@ namespace Pulumi.Azure.HDInsight
         [Output("tlsMinVersion")]
         public Output<string?> TlsMinVersion { get; private set; } = null!;
 
+        /// <summary>
+        /// A list of Availability Zones which should be used for this HDInsight Spark Cluster. Chaning this forces a new resource to be created.
+        /// </summary>
+        [Output("zones")]
+        public Output<ImmutableArray<string>> Zones { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a SparkCluster resource with the given unique name, arguments, and options.
@@ -439,6 +445,18 @@ namespace Pulumi.Azure.HDInsight
         [Input("tlsMinVersion")]
         public Input<string>? TlsMinVersion { get; set; }
 
+        [Input("zones")]
+        private InputList<string>? _zones;
+
+        /// <summary>
+        /// A list of Availability Zones which should be used for this HDInsight Spark Cluster. Chaning this forces a new resource to be created.
+        /// </summary>
+        public InputList<string> Zones
+        {
+            get => _zones ?? (_zones = new InputList<string>());
+            set => _zones = value;
+        }
+
         public SparkClusterArgs()
         {
         }
@@ -604,6 +622,18 @@ namespace Pulumi.Azure.HDInsight
         /// </summary>
         [Input("tlsMinVersion")]
         public Input<string>? TlsMinVersion { get; set; }
+
+        [Input("zones")]
+        private InputList<string>? _zones;
+
+        /// <summary>
+        /// A list of Availability Zones which should be used for this HDInsight Spark Cluster. Chaning this forces a new resource to be created.
+        /// </summary>
+        public InputList<string> Zones
+        {
+            get => _zones ?? (_zones = new InputList<string>());
+            set => _zones = value;
+        }
 
         public SparkClusterState()
         {

@@ -14,7 +14,7 @@ namespace Pulumi.Azure.AppService.Outputs
     public sealed class LinuxWebAppSlotAuthSettingsV2GithubV2
     {
         /// <summary>
-        /// The ID of the GitHub app used for login..
+        /// The ID of the GitHub app used for login.
         /// </summary>
         public readonly string ClientId;
         /// <summary>

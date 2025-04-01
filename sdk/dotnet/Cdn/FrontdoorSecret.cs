@@ -38,7 +38,7 @@ namespace Pulumi.Azure.Cdn
     /// 
     ///     var frontdoor = AzureAD.GetServicePrincipal.Invoke(new()
     ///     {
-    ///         DisplayName = "Microsoft.Azure.Cdn",
+    ///         DisplayName = "Microsoft.AzurefrontDoor-Cdn",
     ///     });
     /// 
     ///     var example = new Azure.Core.ResourceGroup("example", new()
