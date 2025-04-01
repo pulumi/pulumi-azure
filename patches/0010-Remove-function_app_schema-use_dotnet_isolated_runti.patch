@@ -6,7 +6,7 @@ Subject: [PATCH] Remove function_app_schema use_dotnet_isolated_runtime
 
 
 diff --git a/internal/services/appservice/helpers/function_app_schema.go b/internal/services/appservice/helpers/function_app_schema.go
-index dc04c4e480..40dd4f4a23 100644
+index feb4c9d191..662838cec1 100644
 --- a/internal/services/appservice/helpers/function_app_schema.go
 +++ b/internal/services/appservice/helpers/function_app_schema.go
 @@ -1367,10 +1367,11 @@ func linuxFunctionAppStackSchema() *pluginsdk.Schema {
