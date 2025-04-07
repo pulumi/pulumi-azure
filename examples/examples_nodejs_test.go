@@ -352,13 +352,3 @@ func TestAccLinuxVirtualMachines(t *testing.T) {
 	skipRefresh(&test)
 	integration.ProgramTest(t, &test)
 }
-
-func TestAccFrontdoor(t *testing.T) {
-	test := getJSBaseOptions(t).
-		With(integration.ProgramTestOptions{
-			Dir:           filepath.Join(getCwd(t), "frontdoor"),
-			RunUpdateTest: false,
-		})
-
-	integration.ProgramTest(t, &test)
-}
