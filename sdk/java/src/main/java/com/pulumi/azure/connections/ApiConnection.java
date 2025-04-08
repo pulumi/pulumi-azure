@@ -69,7 +69,7 @@ import javax.annotation.Nullable;
  *         var exampleApiConnection = new ApiConnection("exampleApiConnection", ApiConnectionArgs.builder()
  *             .name("example-connection")
  *             .resourceGroupName(exampleResourceGroup.name())
- *             .managedApiId(example.applyValue(getManagedApiResult -> getManagedApiResult).applyValue(example -> example.applyValue(getManagedApiResult -> getManagedApiResult.id())))
+ *             .managedApiId(example.applyValue(_example -> _example.id()))
  *             .displayName("Example 1")
  *             .parameterValues(Map.of("connectionString", exampleNamespace.defaultPrimaryConnectionString()))
  *             .tags(Map.of("Hello", "World"))

@@ -50,10 +50,10 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         final var example = CoreFunctions.getClientConfig();
+ *         final var example = CoreFunctions.getClientConfig(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
  * 
  *         final var exampleGetGroup = ManagementFunctions.getGroup(GetGroupArgs.builder()
- *             .name(example.applyValue(getClientConfigResult -> getClientConfigResult.tenantId()))
+ *             .name(example.tenantId())
  *             .build());
  * 
  *         var exampleResourceGroup = new ResourceGroup("exampleResourceGroup", ResourceGroupArgs.builder()

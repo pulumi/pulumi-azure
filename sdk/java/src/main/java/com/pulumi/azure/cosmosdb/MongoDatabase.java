@@ -53,8 +53,8 @@ import javax.annotation.Nullable;
  * 
  *         var exampleMongoDatabase = new MongoDatabase("exampleMongoDatabase", MongoDatabaseArgs.builder()
  *             .name("tfex-cosmos-mongo-db")
- *             .resourceGroupName(example.applyValue(getAccountResult -> getAccountResult.resourceGroupName()))
- *             .accountName(example.applyValue(getAccountResult -> getAccountResult.name()))
+ *             .resourceGroupName(example.resourceGroupName())
+ *             .accountName(example.name())
  *             .throughput(400)
  *             .build());
  * 

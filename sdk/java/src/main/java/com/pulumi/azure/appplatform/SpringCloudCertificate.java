@@ -65,7 +65,7 @@ import javax.annotation.Nullable;
  *             .location("West Europe")
  *             .build());
  * 
- *         final var current = CoreFunctions.getClientConfig();
+ *         final var current = CoreFunctions.getClientConfig(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
  * 
  *         final var example = AzureadFunctions.getServicePrincipal(GetServicePrincipalArgs.builder()
  *             .displayName("Azure Spring Cloud Resource Provider")
@@ -75,12 +75,12 @@ import javax.annotation.Nullable;
  *             .name("keyvaultcertexample")
  *             .location(exampleResourceGroup.location())
  *             .resourceGroupName(exampleResourceGroup.name())
- *             .tenantId(current.applyValue(getClientConfigResult -> getClientConfigResult.tenantId()))
+ *             .tenantId(current.tenantId())
  *             .skuName("standard")
  *             .accessPolicies(            
  *                 KeyVaultAccessPolicyArgs.builder()
- *                     .tenantId(current.applyValue(getClientConfigResult -> getClientConfigResult.tenantId()))
- *                     .objectId(current.applyValue(getClientConfigResult -> getClientConfigResult.objectId()))
+ *                     .tenantId(current.tenantId())
+ *                     .objectId(current.objectId())
  *                     .secretPermissions("Set")
  *                     .certificatePermissions(                    
  *                         "Create",
@@ -89,8 +89,8 @@ import javax.annotation.Nullable;
  *                         "Update")
  *                     .build(),
  *                 KeyVaultAccessPolicyArgs.builder()
- *                     .tenantId(current.applyValue(getClientConfigResult -> getClientConfigResult.tenantId()))
- *                     .objectId(example.applyValue(getServicePrincipalResult -> getServicePrincipalResult.objectId()))
+ *                     .tenantId(current.tenantId())
+ *                     .objectId(example.objectId())
  *                     .secretPermissions(                    
  *                         "Get",
  *                         "List")

@@ -62,7 +62,7 @@ import javax.annotation.Nullable;
  *         var exampleExtension = new Extension("exampleExtension", ExtensionArgs.builder()
  *             .name("example")
  *             .location("West Europe")
- *             .arcMachineId(example.applyValue(getResult -> getResult).applyValue(example -> example.applyValue(getResult -> getResult.id())))
+ *             .arcMachineId(example.applyValue(_example -> _example.id()))
  *             .publisher("Microsoft.Azure.Monitor")
  *             .type("AzureMonitorLinuxAgent")
  *             .build());

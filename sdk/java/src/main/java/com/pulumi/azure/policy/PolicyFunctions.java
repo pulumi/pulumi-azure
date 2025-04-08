@@ -60,7 +60,7 @@ public final class PolicyFunctions {
      *             .scopeId(exampleAzurermResourceGroup.id())
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getPolicyAssignmentResult -> getPolicyAssignmentResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -104,7 +104,7 @@ public final class PolicyFunctions {
      *             .scopeId(exampleAzurermResourceGroup.id())
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getPolicyAssignmentResult -> getPolicyAssignmentResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -148,7 +148,7 @@ public final class PolicyFunctions {
      *             .scopeId(exampleAzurermResourceGroup.id())
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getPolicyAssignmentResult -> getPolicyAssignmentResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -192,7 +192,7 @@ public final class PolicyFunctions {
      *             .scopeId(exampleAzurermResourceGroup.id())
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getPolicyAssignmentResult -> getPolicyAssignmentResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -236,7 +236,7 @@ public final class PolicyFunctions {
      *             .scopeId(exampleAzurermResourceGroup.id())
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getPolicyAssignmentResult -> getPolicyAssignmentResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -279,7 +279,7 @@ public final class PolicyFunctions {
      *             .displayName("Allowed resource types")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getPolicyDefintionResult -> getPolicyDefintionResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -322,7 +322,7 @@ public final class PolicyFunctions {
      *             .displayName("Allowed resource types")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getPolicyDefintionResult -> getPolicyDefintionResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -365,7 +365,7 @@ public final class PolicyFunctions {
      *             .displayName("Allowed resource types")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getPolicyDefintionResult -> getPolicyDefintionResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -408,7 +408,7 @@ public final class PolicyFunctions {
      *             .displayName("Allowed resource types")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getPolicyDefintionResult -> getPolicyDefintionResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -451,7 +451,7 @@ public final class PolicyFunctions {
      *             .displayName("Allowed resource types")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getPolicyDefintionResult -> getPolicyDefintionResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -494,7 +494,7 @@ public final class PolicyFunctions {
      *             .displayName("Allowed resource types")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getPolicyDefintionResult -> getPolicyDefintionResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -537,7 +537,7 @@ public final class PolicyFunctions {
      *             .displayName("Allowed resource types")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getPolicyDefintionResult -> getPolicyDefintionResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -580,7 +580,7 @@ public final class PolicyFunctions {
      *             .displayName("Allowed resource types")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getPolicyDefintionBuiltInResult -> getPolicyDefintionBuiltInResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -623,7 +623,7 @@ public final class PolicyFunctions {
      *             .displayName("Allowed resource types")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getPolicyDefintionBuiltInResult -> getPolicyDefintionBuiltInResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -666,7 +666,7 @@ public final class PolicyFunctions {
      *             .displayName("Allowed resource types")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getPolicyDefintionBuiltInResult -> getPolicyDefintionBuiltInResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -709,7 +709,7 @@ public final class PolicyFunctions {
      *             .displayName("Allowed resource types")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getPolicyDefintionBuiltInResult -> getPolicyDefintionBuiltInResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -752,7 +752,7 @@ public final class PolicyFunctions {
      *             .displayName("Allowed resource types")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getPolicyDefintionBuiltInResult -> getPolicyDefintionBuiltInResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -795,7 +795,7 @@ public final class PolicyFunctions {
      *             .displayName("Allowed resource types")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getPolicyDefintionBuiltInResult -> getPolicyDefintionBuiltInResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -838,7 +838,7 @@ public final class PolicyFunctions {
      *             .displayName("Allowed resource types")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getPolicyDefintionBuiltInResult -> getPolicyDefintionBuiltInResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -881,7 +881,7 @@ public final class PolicyFunctions {
      *             .displayName("Policy Set Definition Example")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getPolicySetDefinitionResult -> getPolicySetDefinitionResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -924,7 +924,7 @@ public final class PolicyFunctions {
      *             .displayName("Policy Set Definition Example")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getPolicySetDefinitionResult -> getPolicySetDefinitionResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -967,7 +967,7 @@ public final class PolicyFunctions {
      *             .displayName("Policy Set Definition Example")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getPolicySetDefinitionResult -> getPolicySetDefinitionResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -1010,7 +1010,7 @@ public final class PolicyFunctions {
      *             .displayName("Policy Set Definition Example")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getPolicySetDefinitionResult -> getPolicySetDefinitionResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -1053,7 +1053,7 @@ public final class PolicyFunctions {
      *             .displayName("Policy Set Definition Example")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getPolicySetDefinitionResult -> getPolicySetDefinitionResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -1096,7 +1096,7 @@ public final class PolicyFunctions {
      *             .displayName("Policy Set Definition Example")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getPolicySetDefinitionResult -> getPolicySetDefinitionResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -1139,7 +1139,7 @@ public final class PolicyFunctions {
      *             .displayName("Policy Set Definition Example")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getPolicySetDefinitionResult -> getPolicySetDefinitionResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -1184,7 +1184,7 @@ public final class PolicyFunctions {
      *             .virtualMachineName("example-vm")
      *             .build());
      * 
-     *         ctx.export("complianceStatus", example.applyValue(getVirtualMachineConfigurationAssignmentResult -> getVirtualMachineConfigurationAssignmentResult.complianceStatus()));
+     *         ctx.export("complianceStatus", example.complianceStatus());
      *     }
      * }
      * }
@@ -1229,7 +1229,7 @@ public final class PolicyFunctions {
      *             .virtualMachineName("example-vm")
      *             .build());
      * 
-     *         ctx.export("complianceStatus", example.applyValue(getVirtualMachineConfigurationAssignmentResult -> getVirtualMachineConfigurationAssignmentResult.complianceStatus()));
+     *         ctx.export("complianceStatus", example.complianceStatus());
      *     }
      * }
      * }
@@ -1274,7 +1274,7 @@ public final class PolicyFunctions {
      *             .virtualMachineName("example-vm")
      *             .build());
      * 
-     *         ctx.export("complianceStatus", example.applyValue(getVirtualMachineConfigurationAssignmentResult -> getVirtualMachineConfigurationAssignmentResult.complianceStatus()));
+     *         ctx.export("complianceStatus", example.complianceStatus());
      *     }
      * }
      * }
@@ -1319,7 +1319,7 @@ public final class PolicyFunctions {
      *             .virtualMachineName("example-vm")
      *             .build());
      * 
-     *         ctx.export("complianceStatus", example.applyValue(getVirtualMachineConfigurationAssignmentResult -> getVirtualMachineConfigurationAssignmentResult.complianceStatus()));
+     *         ctx.export("complianceStatus", example.complianceStatus());
      *     }
      * }
      * }
@@ -1364,7 +1364,7 @@ public final class PolicyFunctions {
      *             .virtualMachineName("example-vm")
      *             .build());
      * 
-     *         ctx.export("complianceStatus", example.applyValue(getVirtualMachineConfigurationAssignmentResult -> getVirtualMachineConfigurationAssignmentResult.complianceStatus()));
+     *         ctx.export("complianceStatus", example.complianceStatus());
      *     }
      * }
      * }

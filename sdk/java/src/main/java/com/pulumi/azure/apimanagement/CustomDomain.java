@@ -89,7 +89,7 @@ import javax.annotation.Nullable;
  * 
  *         var exampleCertificate = new Certificate("exampleCertificate", CertificateArgs.builder()
  *             .name("example-certificate")
- *             .keyVaultId(example.applyValue(getKeyVaultResult -> getKeyVaultResult.id()))
+ *             .keyVaultId(example.id())
  *             .certificatePolicy(CertificateCertificatePolicyArgs.builder()
  *                 .issuerParameters(CertificateCertificatePolicyIssuerParametersArgs.builder()
  *                     .name("Self")

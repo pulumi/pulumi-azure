@@ -58,7 +58,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         final var current = CoreFunctions.getClientConfig();
+ *         final var current = CoreFunctions.getClientConfig(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
  * 
  *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example-resources")
@@ -92,7 +92,7 @@ import javax.annotation.Nullable;
  *             .name("example-et")
  *             .location(example.location())
  *             .devCenterProjectId(exampleProject.id())
- *             .deploymentTargetId(String.format("/subscriptions/%s", current.applyValue(getClientConfigResult -> getClientConfigResult.subscriptionId())))
+ *             .deploymentTargetId(String.format("/subscriptions/%s", current.subscriptionId()))
  *             .identity(ProjectEnvironmentTypeIdentityArgs.builder()
  *                 .type("SystemAssigned")
  *                 .build())

@@ -57,7 +57,7 @@ public final class AppconfigurationFunctions {
      *             .label("somelabel")
      *             .build());
      * 
-     *         ctx.export("value", test.applyValue(getConfigurationKeyResult -> getConfigurationKeyResult.value()));
+     *         ctx.export("value", test.value());
      *     }
      * }
      * }
@@ -104,7 +104,7 @@ public final class AppconfigurationFunctions {
      *             .label("somelabel")
      *             .build());
      * 
-     *         ctx.export("value", test.applyValue(getConfigurationKeyResult -> getConfigurationKeyResult.value()));
+     *         ctx.export("value", test.value());
      *     }
      * }
      * }
@@ -151,7 +151,7 @@ public final class AppconfigurationFunctions {
      *             .label("somelabel")
      *             .build());
      * 
-     *         ctx.export("value", test.applyValue(getConfigurationKeyResult -> getConfigurationKeyResult.value()));
+     *         ctx.export("value", test.value());
      *     }
      * }
      * }
@@ -198,7 +198,7 @@ public final class AppconfigurationFunctions {
      *             .label("somelabel")
      *             .build());
      * 
-     *         ctx.export("value", test.applyValue(getConfigurationKeyResult -> getConfigurationKeyResult.value()));
+     *         ctx.export("value", test.value());
      *     }
      * }
      * }
@@ -245,7 +245,7 @@ public final class AppconfigurationFunctions {
      *             .label("somelabel")
      *             .build());
      * 
-     *         ctx.export("value", test.applyValue(getConfigurationKeyResult -> getConfigurationKeyResult.value()));
+     *         ctx.export("value", test.value());
      *     }
      * }
      * }
@@ -290,7 +290,7 @@ public final class AppconfigurationFunctions {
      *             .configurationStoreId(appconf.id())
      *             .build());
      * 
-     *         ctx.export("value", test.applyValue(getConfigurationKeysResult -> getConfigurationKeysResult.items()));
+     *         ctx.export("value", test.items());
      *     }
      * }
      * }
@@ -335,7 +335,7 @@ public final class AppconfigurationFunctions {
      *             .configurationStoreId(appconf.id())
      *             .build());
      * 
-     *         ctx.export("value", test.applyValue(getConfigurationKeysResult -> getConfigurationKeysResult.items()));
+     *         ctx.export("value", test.items());
      *     }
      * }
      * }
@@ -380,7 +380,7 @@ public final class AppconfigurationFunctions {
      *             .configurationStoreId(appconf.id())
      *             .build());
      * 
-     *         ctx.export("value", test.applyValue(getConfigurationKeysResult -> getConfigurationKeysResult.items()));
+     *         ctx.export("value", test.items());
      *     }
      * }
      * }
@@ -425,7 +425,7 @@ public final class AppconfigurationFunctions {
      *             .configurationStoreId(appconf.id())
      *             .build());
      * 
-     *         ctx.export("value", test.applyValue(getConfigurationKeysResult -> getConfigurationKeysResult.items()));
+     *         ctx.export("value", test.items());
      *     }
      * }
      * }
@@ -470,7 +470,7 @@ public final class AppconfigurationFunctions {
      *             .configurationStoreId(appconf.id())
      *             .build());
      * 
-     *         ctx.export("value", test.applyValue(getConfigurationKeysResult -> getConfigurationKeysResult.items()));
+     *         ctx.export("value", test.items());
      *     }
      * }
      * }
@@ -514,7 +514,7 @@ public final class AppconfigurationFunctions {
      *             .resourceGroupName("existing")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getConfigurationStoreResult -> getConfigurationStoreResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -558,7 +558,7 @@ public final class AppconfigurationFunctions {
      *             .resourceGroupName("existing")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getConfigurationStoreResult -> getConfigurationStoreResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -602,7 +602,7 @@ public final class AppconfigurationFunctions {
      *             .resourceGroupName("existing")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getConfigurationStoreResult -> getConfigurationStoreResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -646,7 +646,7 @@ public final class AppconfigurationFunctions {
      *             .resourceGroupName("existing")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getConfigurationStoreResult -> getConfigurationStoreResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -690,7 +690,7 @@ public final class AppconfigurationFunctions {
      *             .resourceGroupName("existing")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getConfigurationStoreResult -> getConfigurationStoreResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }

@@ -87,6 +87,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.core.ResourceGroupArgs;
  * import com.pulumi.azure.customip.Prefix;
  * import com.pulumi.azure.customip.PrefixArgs;
+ * import com.pulumi.std.StdFunctions;
+ * import com.pulumi.std.inputs.CidrsubnetArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -119,7 +121,11 @@ import javax.annotation.Nullable;
  *             .location(test.location())
  *             .resourceGroupName(test.name())
  *             .parentCustomIpPrefixId(global.id())
- *             .cidr(global.cidr().applyValue(cidr -> StdFunctions.cidrsubnet()).applyValue(invoke -> invoke.result()))
+ *             .cidr(global.cidr().applyValue(_cidr -> StdFunctions.cidrsubnet(CidrsubnetArgs.builder()
+ *                 .input(_cidr)
+ *                 .newbits(16)
+ *                 .netnum(1)
+ *                 .build())).applyValue(_invoke -> _invoke.result()))
  *             .zones("1")
  *             .build());
  * 

@@ -76,7 +76,7 @@ public final class ContainerserviceFunctions {
      *             .resourceGroupName("existing-resource-group")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getClusterNodePoolResult -> getClusterNodePoolResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -121,7 +121,7 @@ public final class ContainerserviceFunctions {
      *             .resourceGroupName("existing-resource-group")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getClusterNodePoolResult -> getClusterNodePoolResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -166,7 +166,7 @@ public final class ContainerserviceFunctions {
      *             .resourceGroupName("existing-resource-group")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getClusterNodePoolResult -> getClusterNodePoolResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -211,7 +211,7 @@ public final class ContainerserviceFunctions {
      *             .resourceGroupName("existing-resource-group")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getClusterNodePoolResult -> getClusterNodePoolResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -256,7 +256,7 @@ public final class ContainerserviceFunctions {
      *             .resourceGroupName("existing-resource-group")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getClusterNodePoolResult -> getClusterNodePoolResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -300,7 +300,7 @@ public final class ContainerserviceFunctions {
      *             .resourceGroupName("example-resource-group")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getFleetManagerResult -> getFleetManagerResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -344,7 +344,7 @@ public final class ContainerserviceFunctions {
      *             .resourceGroupName("example-resource-group")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getFleetManagerResult -> getFleetManagerResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -388,7 +388,7 @@ public final class ContainerserviceFunctions {
      *             .resourceGroupName("example-resource-group")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getFleetManagerResult -> getFleetManagerResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -432,7 +432,7 @@ public final class ContainerserviceFunctions {
      *             .resourceGroupName("example-resource-group")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getFleetManagerResult -> getFleetManagerResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -476,7 +476,7 @@ public final class ContainerserviceFunctions {
      *             .resourceGroupName("example-resource-group")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getFleetManagerResult -> getFleetManagerResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -520,9 +520,9 @@ public final class ContainerserviceFunctions {
      *             .resourceGroupName("existing")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getGroupResult -> getGroupResult.id()));
-     *         ctx.export("ipAddress", example.applyValue(getGroupResult -> getGroupResult.ipAddress()));
-     *         ctx.export("fqdn", example.applyValue(getGroupResult -> getGroupResult.fqdn()));
+     *         ctx.export("id", example.id());
+     *         ctx.export("ipAddress", example.ipAddress());
+     *         ctx.export("fqdn", example.fqdn());
      *     }
      * }
      * }
@@ -566,9 +566,9 @@ public final class ContainerserviceFunctions {
      *             .resourceGroupName("existing")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getGroupResult -> getGroupResult.id()));
-     *         ctx.export("ipAddress", example.applyValue(getGroupResult -> getGroupResult.ipAddress()));
-     *         ctx.export("fqdn", example.applyValue(getGroupResult -> getGroupResult.fqdn()));
+     *         ctx.export("id", example.id());
+     *         ctx.export("ipAddress", example.ipAddress());
+     *         ctx.export("fqdn", example.fqdn());
      *     }
      * }
      * }
@@ -612,9 +612,9 @@ public final class ContainerserviceFunctions {
      *             .resourceGroupName("existing")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getGroupResult -> getGroupResult.id()));
-     *         ctx.export("ipAddress", example.applyValue(getGroupResult -> getGroupResult.ipAddress()));
-     *         ctx.export("fqdn", example.applyValue(getGroupResult -> getGroupResult.fqdn()));
+     *         ctx.export("id", example.id());
+     *         ctx.export("ipAddress", example.ipAddress());
+     *         ctx.export("fqdn", example.fqdn());
      *     }
      * }
      * }
@@ -658,9 +658,9 @@ public final class ContainerserviceFunctions {
      *             .resourceGroupName("existing")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getGroupResult -> getGroupResult.id()));
-     *         ctx.export("ipAddress", example.applyValue(getGroupResult -> getGroupResult.ipAddress()));
-     *         ctx.export("fqdn", example.applyValue(getGroupResult -> getGroupResult.fqdn()));
+     *         ctx.export("id", example.id());
+     *         ctx.export("ipAddress", example.ipAddress());
+     *         ctx.export("fqdn", example.fqdn());
      *     }
      * }
      * }
@@ -704,9 +704,9 @@ public final class ContainerserviceFunctions {
      *             .resourceGroupName("existing")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getGroupResult -> getGroupResult.id()));
-     *         ctx.export("ipAddress", example.applyValue(getGroupResult -> getGroupResult.ipAddress()));
-     *         ctx.export("fqdn", example.applyValue(getGroupResult -> getGroupResult.fqdn()));
+     *         ctx.export("id", example.id());
+     *         ctx.export("ipAddress", example.ipAddress());
+     *         ctx.export("fqdn", example.fqdn());
      *     }
      * }
      * }
@@ -1179,8 +1179,8 @@ public final class ContainerserviceFunctions {
      *             .location("West Europe")
      *             .build());
      * 
-     *         ctx.export("versions", current.applyValue(getKubernetesServiceVersionsResult -> getKubernetesServiceVersionsResult.versions()));
-     *         ctx.export("latestVersion", current.applyValue(getKubernetesServiceVersionsResult -> getKubernetesServiceVersionsResult.latestVersion()));
+     *         ctx.export("versions", current.versions());
+     *         ctx.export("latestVersion", current.latestVersion());
      *     }
      * }
      * }
@@ -1223,8 +1223,8 @@ public final class ContainerserviceFunctions {
      *             .location("West Europe")
      *             .build());
      * 
-     *         ctx.export("versions", current.applyValue(getKubernetesServiceVersionsResult -> getKubernetesServiceVersionsResult.versions()));
-     *         ctx.export("latestVersion", current.applyValue(getKubernetesServiceVersionsResult -> getKubernetesServiceVersionsResult.latestVersion()));
+     *         ctx.export("versions", current.versions());
+     *         ctx.export("latestVersion", current.latestVersion());
      *     }
      * }
      * }
@@ -1267,8 +1267,8 @@ public final class ContainerserviceFunctions {
      *             .location("West Europe")
      *             .build());
      * 
-     *         ctx.export("versions", current.applyValue(getKubernetesServiceVersionsResult -> getKubernetesServiceVersionsResult.versions()));
-     *         ctx.export("latestVersion", current.applyValue(getKubernetesServiceVersionsResult -> getKubernetesServiceVersionsResult.latestVersion()));
+     *         ctx.export("versions", current.versions());
+     *         ctx.export("latestVersion", current.latestVersion());
      *     }
      * }
      * }
@@ -1311,8 +1311,8 @@ public final class ContainerserviceFunctions {
      *             .location("West Europe")
      *             .build());
      * 
-     *         ctx.export("versions", current.applyValue(getKubernetesServiceVersionsResult -> getKubernetesServiceVersionsResult.versions()));
-     *         ctx.export("latestVersion", current.applyValue(getKubernetesServiceVersionsResult -> getKubernetesServiceVersionsResult.latestVersion()));
+     *         ctx.export("versions", current.versions());
+     *         ctx.export("latestVersion", current.latestVersion());
      *     }
      * }
      * }
@@ -1355,8 +1355,8 @@ public final class ContainerserviceFunctions {
      *             .location("West Europe")
      *             .build());
      * 
-     *         ctx.export("versions", current.applyValue(getKubernetesServiceVersionsResult -> getKubernetesServiceVersionsResult.versions()));
-     *         ctx.export("latestVersion", current.applyValue(getKubernetesServiceVersionsResult -> getKubernetesServiceVersionsResult.latestVersion()));
+     *         ctx.export("versions", current.versions());
+     *         ctx.export("latestVersion", current.latestVersion());
      *     }
      * }
      * }
@@ -1400,7 +1400,7 @@ public final class ContainerserviceFunctions {
      *             .resourceGroupName("test")
      *             .build());
      * 
-     *         ctx.export("loginServer", example.applyValue(getRegistryResult -> getRegistryResult.loginServer()));
+     *         ctx.export("loginServer", example.loginServer());
      *     }
      * }
      * }
@@ -1444,7 +1444,7 @@ public final class ContainerserviceFunctions {
      *             .resourceGroupName("test")
      *             .build());
      * 
-     *         ctx.export("loginServer", example.applyValue(getRegistryResult -> getRegistryResult.loginServer()));
+     *         ctx.export("loginServer", example.loginServer());
      *     }
      * }
      * }
@@ -1488,7 +1488,7 @@ public final class ContainerserviceFunctions {
      *             .resourceGroupName("test")
      *             .build());
      * 
-     *         ctx.export("loginServer", example.applyValue(getRegistryResult -> getRegistryResult.loginServer()));
+     *         ctx.export("loginServer", example.loginServer());
      *     }
      * }
      * }
@@ -1532,7 +1532,7 @@ public final class ContainerserviceFunctions {
      *             .resourceGroupName("test")
      *             .build());
      * 
-     *         ctx.export("loginServer", example.applyValue(getRegistryResult -> getRegistryResult.loginServer()));
+     *         ctx.export("loginServer", example.loginServer());
      *     }
      * }
      * }
@@ -1576,7 +1576,7 @@ public final class ContainerserviceFunctions {
      *             .resourceGroupName("test")
      *             .build());
      * 
-     *         ctx.export("loginServer", example.applyValue(getRegistryResult -> getRegistryResult.loginServer()));
+     *         ctx.export("loginServer", example.loginServer());
      *     }
      * }
      * }
@@ -1593,38 +1593,6 @@ public final class ContainerserviceFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * <pre>
-     * {@code
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.containerservice.ContainerserviceFunctions;
-     * import com.pulumi.azure.containerservice.inputs.GetRegistryArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = ContainerserviceFunctions.getRegistry(GetRegistryArgs.builder()
-     *             .name("testacr")
-     *             .containerRegistryId("test")
-     *             .build());
-     * 
-     *         ctx.export("cacheRuleSourceRepo", exampleAzurermContainerRegistryCacheRule.sourceRepo());
-     *     }
-     * }
-     * }
-     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1637,38 +1605,6 @@ public final class ContainerserviceFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * <pre>
-     * {@code
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.containerservice.ContainerserviceFunctions;
-     * import com.pulumi.azure.containerservice.inputs.GetRegistryArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = ContainerserviceFunctions.getRegistry(GetRegistryArgs.builder()
-     *             .name("testacr")
-     *             .containerRegistryId("test")
-     *             .build());
-     * 
-     *         ctx.export("cacheRuleSourceRepo", exampleAzurermContainerRegistryCacheRule.sourceRepo());
-     *     }
-     * }
-     * }
-     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1681,38 +1617,6 @@ public final class ContainerserviceFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * <pre>
-     * {@code
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.containerservice.ContainerserviceFunctions;
-     * import com.pulumi.azure.containerservice.inputs.GetRegistryArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = ContainerserviceFunctions.getRegistry(GetRegistryArgs.builder()
-     *             .name("testacr")
-     *             .containerRegistryId("test")
-     *             .build());
-     * 
-     *         ctx.export("cacheRuleSourceRepo", exampleAzurermContainerRegistryCacheRule.sourceRepo());
-     *     }
-     * }
-     * }
-     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1725,38 +1629,6 @@ public final class ContainerserviceFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * <pre>
-     * {@code
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.containerservice.ContainerserviceFunctions;
-     * import com.pulumi.azure.containerservice.inputs.GetRegistryArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = ContainerserviceFunctions.getRegistry(GetRegistryArgs.builder()
-     *             .name("testacr")
-     *             .containerRegistryId("test")
-     *             .build());
-     * 
-     *         ctx.export("cacheRuleSourceRepo", exampleAzurermContainerRegistryCacheRule.sourceRepo());
-     *     }
-     * }
-     * }
-     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1769,38 +1641,6 @@ public final class ContainerserviceFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * <pre>
-     * {@code
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.containerservice.ContainerserviceFunctions;
-     * import com.pulumi.azure.containerservice.inputs.GetRegistryArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = ContainerserviceFunctions.getRegistry(GetRegistryArgs.builder()
-     *             .name("testacr")
-     *             .containerRegistryId("test")
-     *             .build());
-     * 
-     *         ctx.export("cacheRuleSourceRepo", exampleAzurermContainerRegistryCacheRule.sourceRepo());
-     *     }
-     * }
-     * }
-     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1841,7 +1681,7 @@ public final class ContainerserviceFunctions {
      *             .containerRegistryName("example-registry")
      *             .build());
      * 
-     *         ctx.export("actions", example.applyValue(getRegistryScopeMapResult -> getRegistryScopeMapResult.actions()));
+     *         ctx.export("actions", example.actions());
      *     }
      * }
      * }
@@ -1886,7 +1726,7 @@ public final class ContainerserviceFunctions {
      *             .containerRegistryName("example-registry")
      *             .build());
      * 
-     *         ctx.export("actions", example.applyValue(getRegistryScopeMapResult -> getRegistryScopeMapResult.actions()));
+     *         ctx.export("actions", example.actions());
      *     }
      * }
      * }
@@ -1931,7 +1771,7 @@ public final class ContainerserviceFunctions {
      *             .containerRegistryName("example-registry")
      *             .build());
      * 
-     *         ctx.export("actions", example.applyValue(getRegistryScopeMapResult -> getRegistryScopeMapResult.actions()));
+     *         ctx.export("actions", example.actions());
      *     }
      * }
      * }
@@ -1976,7 +1816,7 @@ public final class ContainerserviceFunctions {
      *             .containerRegistryName("example-registry")
      *             .build());
      * 
-     *         ctx.export("actions", example.applyValue(getRegistryScopeMapResult -> getRegistryScopeMapResult.actions()));
+     *         ctx.export("actions", example.actions());
      *     }
      * }
      * }
@@ -2021,7 +1861,7 @@ public final class ContainerserviceFunctions {
      *             .containerRegistryName("example-registry")
      *             .build());
      * 
-     *         ctx.export("actions", example.applyValue(getRegistryScopeMapResult -> getRegistryScopeMapResult.actions()));
+     *         ctx.export("actions", example.actions());
      *     }
      * }
      * }
@@ -2066,7 +1906,7 @@ public final class ContainerserviceFunctions {
      *             .containerRegistryName("example-registry")
      *             .build());
      * 
-     *         ctx.export("scopeMapId", example.applyValue(getRegistryTokenResult -> getRegistryTokenResult.scopeMapId()));
+     *         ctx.export("scopeMapId", example.scopeMapId());
      *     }
      * }
      * }
@@ -2111,7 +1951,7 @@ public final class ContainerserviceFunctions {
      *             .containerRegistryName("example-registry")
      *             .build());
      * 
-     *         ctx.export("scopeMapId", example.applyValue(getRegistryTokenResult -> getRegistryTokenResult.scopeMapId()));
+     *         ctx.export("scopeMapId", example.scopeMapId());
      *     }
      * }
      * }
@@ -2156,7 +1996,7 @@ public final class ContainerserviceFunctions {
      *             .containerRegistryName("example-registry")
      *             .build());
      * 
-     *         ctx.export("scopeMapId", example.applyValue(getRegistryTokenResult -> getRegistryTokenResult.scopeMapId()));
+     *         ctx.export("scopeMapId", example.scopeMapId());
      *     }
      * }
      * }
@@ -2201,7 +2041,7 @@ public final class ContainerserviceFunctions {
      *             .containerRegistryName("example-registry")
      *             .build());
      * 
-     *         ctx.export("scopeMapId", example.applyValue(getRegistryTokenResult -> getRegistryTokenResult.scopeMapId()));
+     *         ctx.export("scopeMapId", example.scopeMapId());
      *     }
      * }
      * }
@@ -2246,7 +2086,7 @@ public final class ContainerserviceFunctions {
      *             .containerRegistryName("example-registry")
      *             .build());
      * 
-     *         ctx.export("scopeMapId", example.applyValue(getRegistryTokenResult -> getRegistryTokenResult.scopeMapId()));
+     *         ctx.export("scopeMapId", example.scopeMapId());
      *     }
      * }
      * }

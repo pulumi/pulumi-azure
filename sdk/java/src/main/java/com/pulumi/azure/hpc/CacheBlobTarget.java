@@ -108,13 +108,13 @@ import javax.annotation.Nullable;
  *         var exampleStorageAccountContrib = new Assignment("exampleStorageAccountContrib", AssignmentArgs.builder()
  *             .scope(exampleAccount.id())
  *             .roleDefinitionName("Storage Account Contributor")
- *             .principalId(example.applyValue(getServicePrincipalResult -> getServicePrincipalResult.objectId()))
+ *             .principalId(example.objectId())
  *             .build());
  * 
  *         var exampleStorageBlobDataContrib = new Assignment("exampleStorageBlobDataContrib", AssignmentArgs.builder()
  *             .scope(exampleAccount.id())
  *             .roleDefinitionName("Storage Blob Data Contributor")
- *             .principalId(example.applyValue(getServicePrincipalResult -> getServicePrincipalResult.objectId()))
+ *             .principalId(example.objectId())
  *             .build());
  * 
  *         var exampleCacheBlobTarget = new CacheBlobTarget("exampleCacheBlobTarget", CacheBlobTargetArgs.builder()

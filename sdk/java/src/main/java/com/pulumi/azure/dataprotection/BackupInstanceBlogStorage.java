@@ -82,7 +82,7 @@ import javax.annotation.Nullable;
  *         var exampleAssignment = new Assignment("exampleAssignment", AssignmentArgs.builder()
  *             .scope(exampleAccount.id())
  *             .roleDefinitionName("Storage Account Backup Contributor")
- *             .principalId(exampleBackupVault.identity().applyValue(identity -> identity.principalId()))
+ *             .principalId(exampleBackupVault.identity().applyValue(_identity -> _identity.principalId()))
  *             .build());
  * 
  *         var exampleBackupPolicyBlobStorage = new BackupPolicyBlobStorage("exampleBackupPolicyBlobStorage", BackupPolicyBlobStorageArgs.builder()

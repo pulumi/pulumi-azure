@@ -295,8 +295,8 @@ public final class MobileFunctions {
      *             .build());
      * 
      *         final var exampleGetNetworkAttachedDataNetwork = MobileFunctions.getNetworkAttachedDataNetwork(GetNetworkAttachedDataNetworkArgs.builder()
-     *             .mobileNetworkDataNetworkName(example.applyValue(getNetworkPacketCoreControlPlaneResult -> getNetworkPacketCoreControlPlaneResult.name()))
-     *             .mobileNetworkPacketCoreDataPlaneId(example.applyValue(getNetworkPacketCoreControlPlaneResult -> getNetworkPacketCoreControlPlaneResult.id()))
+     *             .mobileNetworkDataNetworkName(example.name())
+     *             .mobileNetworkPacketCoreDataPlaneId(example.id())
      *             .build());
      * 
      *     }
@@ -344,8 +344,8 @@ public final class MobileFunctions {
      *             .build());
      * 
      *         final var exampleGetNetworkAttachedDataNetwork = MobileFunctions.getNetworkAttachedDataNetwork(GetNetworkAttachedDataNetworkArgs.builder()
-     *             .mobileNetworkDataNetworkName(example.applyValue(getNetworkPacketCoreControlPlaneResult -> getNetworkPacketCoreControlPlaneResult.name()))
-     *             .mobileNetworkPacketCoreDataPlaneId(example.applyValue(getNetworkPacketCoreControlPlaneResult -> getNetworkPacketCoreControlPlaneResult.id()))
+     *             .mobileNetworkDataNetworkName(example.name())
+     *             .mobileNetworkPacketCoreDataPlaneId(example.id())
      *             .build());
      * 
      *     }
@@ -393,8 +393,8 @@ public final class MobileFunctions {
      *             .build());
      * 
      *         final var exampleGetNetworkAttachedDataNetwork = MobileFunctions.getNetworkAttachedDataNetwork(GetNetworkAttachedDataNetworkArgs.builder()
-     *             .mobileNetworkDataNetworkName(example.applyValue(getNetworkPacketCoreControlPlaneResult -> getNetworkPacketCoreControlPlaneResult.name()))
-     *             .mobileNetworkPacketCoreDataPlaneId(example.applyValue(getNetworkPacketCoreControlPlaneResult -> getNetworkPacketCoreControlPlaneResult.id()))
+     *             .mobileNetworkDataNetworkName(example.name())
+     *             .mobileNetworkPacketCoreDataPlaneId(example.id())
      *             .build());
      * 
      *     }
@@ -442,8 +442,8 @@ public final class MobileFunctions {
      *             .build());
      * 
      *         final var exampleGetNetworkAttachedDataNetwork = MobileFunctions.getNetworkAttachedDataNetwork(GetNetworkAttachedDataNetworkArgs.builder()
-     *             .mobileNetworkDataNetworkName(example.applyValue(getNetworkPacketCoreControlPlaneResult -> getNetworkPacketCoreControlPlaneResult.name()))
-     *             .mobileNetworkPacketCoreDataPlaneId(example.applyValue(getNetworkPacketCoreControlPlaneResult -> getNetworkPacketCoreControlPlaneResult.id()))
+     *             .mobileNetworkDataNetworkName(example.name())
+     *             .mobileNetworkPacketCoreDataPlaneId(example.id())
      *             .build());
      * 
      *     }
@@ -491,8 +491,8 @@ public final class MobileFunctions {
      *             .build());
      * 
      *         final var exampleGetNetworkAttachedDataNetwork = MobileFunctions.getNetworkAttachedDataNetwork(GetNetworkAttachedDataNetworkArgs.builder()
-     *             .mobileNetworkDataNetworkName(example.applyValue(getNetworkPacketCoreControlPlaneResult -> getNetworkPacketCoreControlPlaneResult.name()))
-     *             .mobileNetworkPacketCoreDataPlaneId(example.applyValue(getNetworkPacketCoreControlPlaneResult -> getNetworkPacketCoreControlPlaneResult.id()))
+     *             .mobileNetworkDataNetworkName(example.name())
+     *             .mobileNetworkPacketCoreDataPlaneId(example.id())
      *             .build());
      * 
      *     }
@@ -541,7 +541,7 @@ public final class MobileFunctions {
      * 
      *         final var exampleGetNetworkDataNetwork = MobileFunctions.getNetworkDataNetwork(GetNetworkDataNetworkArgs.builder()
      *             .name("example-mndn")
-     *             .mobileNetworkId(example.applyValue(getNetworkResult -> getNetworkResult.id()))
+     *             .mobileNetworkId(example.id())
      *             .build());
      * 
      *     }
@@ -590,7 +590,7 @@ public final class MobileFunctions {
      * 
      *         final var exampleGetNetworkDataNetwork = MobileFunctions.getNetworkDataNetwork(GetNetworkDataNetworkArgs.builder()
      *             .name("example-mndn")
-     *             .mobileNetworkId(example.applyValue(getNetworkResult -> getNetworkResult.id()))
+     *             .mobileNetworkId(example.id())
      *             .build());
      * 
      *     }
@@ -639,7 +639,7 @@ public final class MobileFunctions {
      * 
      *         final var exampleGetNetworkDataNetwork = MobileFunctions.getNetworkDataNetwork(GetNetworkDataNetworkArgs.builder()
      *             .name("example-mndn")
-     *             .mobileNetworkId(example.applyValue(getNetworkResult -> getNetworkResult.id()))
+     *             .mobileNetworkId(example.id())
      *             .build());
      * 
      *     }
@@ -688,7 +688,7 @@ public final class MobileFunctions {
      * 
      *         final var exampleGetNetworkDataNetwork = MobileFunctions.getNetworkDataNetwork(GetNetworkDataNetworkArgs.builder()
      *             .name("example-mndn")
-     *             .mobileNetworkId(example.applyValue(getNetworkResult -> getNetworkResult.id()))
+     *             .mobileNetworkId(example.id())
      *             .build());
      * 
      *     }
@@ -737,7 +737,7 @@ public final class MobileFunctions {
      * 
      *         final var exampleGetNetworkDataNetwork = MobileFunctions.getNetworkDataNetwork(GetNetworkDataNetworkArgs.builder()
      *             .name("example-mndn")
-     *             .mobileNetworkId(example.applyValue(getNetworkResult -> getNetworkResult.id()))
+     *             .mobileNetworkId(example.id())
      *             .build());
      * 
      *     }
@@ -1001,7 +1001,7 @@ public final class MobileFunctions {
      * 
      *         final var exampleGetNetworkPacketCoreDataPlane = MobileFunctions.getNetworkPacketCoreDataPlane(GetNetworkPacketCoreDataPlaneArgs.builder()
      *             .name("example-mnpcdp")
-     *             .mobileNetworkPacketCoreControlPlaneId(example.applyValue(getNetworkPacketCoreControlPlaneResult -> getNetworkPacketCoreControlPlaneResult.id()))
+     *             .mobileNetworkPacketCoreControlPlaneId(example.id())
      *             .build());
      * 
      *     }
@@ -1050,7 +1050,7 @@ public final class MobileFunctions {
      * 
      *         final var exampleGetNetworkPacketCoreDataPlane = MobileFunctions.getNetworkPacketCoreDataPlane(GetNetworkPacketCoreDataPlaneArgs.builder()
      *             .name("example-mnpcdp")
-     *             .mobileNetworkPacketCoreControlPlaneId(example.applyValue(getNetworkPacketCoreControlPlaneResult -> getNetworkPacketCoreControlPlaneResult.id()))
+     *             .mobileNetworkPacketCoreControlPlaneId(example.id())
      *             .build());
      * 
      *     }
@@ -1099,7 +1099,7 @@ public final class MobileFunctions {
      * 
      *         final var exampleGetNetworkPacketCoreDataPlane = MobileFunctions.getNetworkPacketCoreDataPlane(GetNetworkPacketCoreDataPlaneArgs.builder()
      *             .name("example-mnpcdp")
-     *             .mobileNetworkPacketCoreControlPlaneId(example.applyValue(getNetworkPacketCoreControlPlaneResult -> getNetworkPacketCoreControlPlaneResult.id()))
+     *             .mobileNetworkPacketCoreControlPlaneId(example.id())
      *             .build());
      * 
      *     }
@@ -1148,7 +1148,7 @@ public final class MobileFunctions {
      * 
      *         final var exampleGetNetworkPacketCoreDataPlane = MobileFunctions.getNetworkPacketCoreDataPlane(GetNetworkPacketCoreDataPlaneArgs.builder()
      *             .name("example-mnpcdp")
-     *             .mobileNetworkPacketCoreControlPlaneId(example.applyValue(getNetworkPacketCoreControlPlaneResult -> getNetworkPacketCoreControlPlaneResult.id()))
+     *             .mobileNetworkPacketCoreControlPlaneId(example.id())
      *             .build());
      * 
      *     }
@@ -1197,7 +1197,7 @@ public final class MobileFunctions {
      * 
      *         final var exampleGetNetworkPacketCoreDataPlane = MobileFunctions.getNetworkPacketCoreDataPlane(GetNetworkPacketCoreDataPlaneArgs.builder()
      *             .name("example-mnpcdp")
-     *             .mobileNetworkPacketCoreControlPlaneId(example.applyValue(getNetworkPacketCoreControlPlaneResult -> getNetworkPacketCoreControlPlaneResult.id()))
+     *             .mobileNetworkPacketCoreControlPlaneId(example.id())
      *             .build());
      * 
      *     }
@@ -1247,7 +1247,7 @@ public final class MobileFunctions {
      * 
      *         var exampleNetworkService = new NetworkService("exampleNetworkService", NetworkServiceArgs.builder()
      *             .name("example-mns")
-     *             .mobileNetworkId(example.applyValue(getNetworkResult -> getNetworkResult.id()))
+     *             .mobileNetworkId(example.id())
      *             .build());
      * 
      *     }
@@ -1297,7 +1297,7 @@ public final class MobileFunctions {
      * 
      *         var exampleNetworkService = new NetworkService("exampleNetworkService", NetworkServiceArgs.builder()
      *             .name("example-mns")
-     *             .mobileNetworkId(example.applyValue(getNetworkResult -> getNetworkResult.id()))
+     *             .mobileNetworkId(example.id())
      *             .build());
      * 
      *     }
@@ -1347,7 +1347,7 @@ public final class MobileFunctions {
      * 
      *         var exampleNetworkService = new NetworkService("exampleNetworkService", NetworkServiceArgs.builder()
      *             .name("example-mns")
-     *             .mobileNetworkId(example.applyValue(getNetworkResult -> getNetworkResult.id()))
+     *             .mobileNetworkId(example.id())
      *             .build());
      * 
      *     }
@@ -1397,7 +1397,7 @@ public final class MobileFunctions {
      * 
      *         var exampleNetworkService = new NetworkService("exampleNetworkService", NetworkServiceArgs.builder()
      *             .name("example-mns")
-     *             .mobileNetworkId(example.applyValue(getNetworkResult -> getNetworkResult.id()))
+     *             .mobileNetworkId(example.id())
      *             .build());
      * 
      *     }
@@ -1447,7 +1447,7 @@ public final class MobileFunctions {
      * 
      *         var exampleNetworkService = new NetworkService("exampleNetworkService", NetworkServiceArgs.builder()
      *             .name("example-mns")
-     *             .mobileNetworkId(example.applyValue(getNetworkResult -> getNetworkResult.id()))
+     *             .mobileNetworkId(example.id())
      *             .build());
      * 
      *     }
@@ -1466,43 +1466,6 @@ public final class MobileFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * <pre>
-     * {@code
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.mobile.MobileFunctions;
-     * import com.pulumi.azure.mobile.inputs.GetNetworkSimGroupArgs;
-     * import com.pulumi.azure.mobile.inputs.GetNetworkSimArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = MobileFunctions.getNetworkSimGroup(GetNetworkSimGroupArgs.builder()
-     *             .name("example-mnsg")
-     *             .resourceGroupName("example-rg")
-     *             .build());
-     * 
-     *         final var exampleGetNetworkSim = MobileFunctions.getNetworkSim(GetNetworkSimArgs.builder()
-     *             .name("example-sim")
-     *             .mobileNetworkSimGroupId(example.applyValue(getNetworkSimGroupResult -> getNetworkSimGroupResult.id()))
-     *             .build());
-     * 
-     *     }
-     * }
-     * }
-     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1515,43 +1478,6 @@ public final class MobileFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * <pre>
-     * {@code
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.mobile.MobileFunctions;
-     * import com.pulumi.azure.mobile.inputs.GetNetworkSimGroupArgs;
-     * import com.pulumi.azure.mobile.inputs.GetNetworkSimArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = MobileFunctions.getNetworkSimGroup(GetNetworkSimGroupArgs.builder()
-     *             .name("example-mnsg")
-     *             .resourceGroupName("example-rg")
-     *             .build());
-     * 
-     *         final var exampleGetNetworkSim = MobileFunctions.getNetworkSim(GetNetworkSimArgs.builder()
-     *             .name("example-sim")
-     *             .mobileNetworkSimGroupId(example.applyValue(getNetworkSimGroupResult -> getNetworkSimGroupResult.id()))
-     *             .build());
-     * 
-     *     }
-     * }
-     * }
-     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1564,43 +1490,6 @@ public final class MobileFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * <pre>
-     * {@code
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.mobile.MobileFunctions;
-     * import com.pulumi.azure.mobile.inputs.GetNetworkSimGroupArgs;
-     * import com.pulumi.azure.mobile.inputs.GetNetworkSimArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = MobileFunctions.getNetworkSimGroup(GetNetworkSimGroupArgs.builder()
-     *             .name("example-mnsg")
-     *             .resourceGroupName("example-rg")
-     *             .build());
-     * 
-     *         final var exampleGetNetworkSim = MobileFunctions.getNetworkSim(GetNetworkSimArgs.builder()
-     *             .name("example-sim")
-     *             .mobileNetworkSimGroupId(example.applyValue(getNetworkSimGroupResult -> getNetworkSimGroupResult.id()))
-     *             .build());
-     * 
-     *     }
-     * }
-     * }
-     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1613,43 +1502,6 @@ public final class MobileFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * <pre>
-     * {@code
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.mobile.MobileFunctions;
-     * import com.pulumi.azure.mobile.inputs.GetNetworkSimGroupArgs;
-     * import com.pulumi.azure.mobile.inputs.GetNetworkSimArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = MobileFunctions.getNetworkSimGroup(GetNetworkSimGroupArgs.builder()
-     *             .name("example-mnsg")
-     *             .resourceGroupName("example-rg")
-     *             .build());
-     * 
-     *         final var exampleGetNetworkSim = MobileFunctions.getNetworkSim(GetNetworkSimArgs.builder()
-     *             .name("example-sim")
-     *             .mobileNetworkSimGroupId(example.applyValue(getNetworkSimGroupResult -> getNetworkSimGroupResult.id()))
-     *             .build());
-     * 
-     *     }
-     * }
-     * }
-     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1662,43 +1514,6 @@ public final class MobileFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * <pre>
-     * {@code
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.mobile.MobileFunctions;
-     * import com.pulumi.azure.mobile.inputs.GetNetworkSimGroupArgs;
-     * import com.pulumi.azure.mobile.inputs.GetNetworkSimArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = MobileFunctions.getNetworkSimGroup(GetNetworkSimGroupArgs.builder()
-     *             .name("example-mnsg")
-     *             .resourceGroupName("example-rg")
-     *             .build());
-     * 
-     *         final var exampleGetNetworkSim = MobileFunctions.getNetworkSim(GetNetworkSimArgs.builder()
-     *             .name("example-sim")
-     *             .mobileNetworkSimGroupId(example.applyValue(getNetworkSimGroupResult -> getNetworkSimGroupResult.id()))
-     *             .build());
-     * 
-     *     }
-     * }
-     * }
-     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1741,7 +1556,7 @@ public final class MobileFunctions {
      * 
      *         final var exampleGetNetworkSimGroup = MobileFunctions.getNetworkSimGroup(GetNetworkSimGroupArgs.builder()
      *             .name("example-mnsg")
-     *             .mobileNetworkId(example.applyValue(getNetworkResult -> getNetworkResult.id()))
+     *             .mobileNetworkId(example.id())
      *             .build());
      * 
      *     }
@@ -1790,7 +1605,7 @@ public final class MobileFunctions {
      * 
      *         final var exampleGetNetworkSimGroup = MobileFunctions.getNetworkSimGroup(GetNetworkSimGroupArgs.builder()
      *             .name("example-mnsg")
-     *             .mobileNetworkId(example.applyValue(getNetworkResult -> getNetworkResult.id()))
+     *             .mobileNetworkId(example.id())
      *             .build());
      * 
      *     }
@@ -1839,7 +1654,7 @@ public final class MobileFunctions {
      * 
      *         final var exampleGetNetworkSimGroup = MobileFunctions.getNetworkSimGroup(GetNetworkSimGroupArgs.builder()
      *             .name("example-mnsg")
-     *             .mobileNetworkId(example.applyValue(getNetworkResult -> getNetworkResult.id()))
+     *             .mobileNetworkId(example.id())
      *             .build());
      * 
      *     }
@@ -1888,7 +1703,7 @@ public final class MobileFunctions {
      * 
      *         final var exampleGetNetworkSimGroup = MobileFunctions.getNetworkSimGroup(GetNetworkSimGroupArgs.builder()
      *             .name("example-mnsg")
-     *             .mobileNetworkId(example.applyValue(getNetworkResult -> getNetworkResult.id()))
+     *             .mobileNetworkId(example.id())
      *             .build());
      * 
      *     }
@@ -1937,7 +1752,7 @@ public final class MobileFunctions {
      * 
      *         final var exampleGetNetworkSimGroup = MobileFunctions.getNetworkSimGroup(GetNetworkSimGroupArgs.builder()
      *             .name("example-mnsg")
-     *             .mobileNetworkId(example.applyValue(getNetworkResult -> getNetworkResult.id()))
+     *             .mobileNetworkId(example.id())
      *             .build());
      * 
      *     }
@@ -1986,7 +1801,7 @@ public final class MobileFunctions {
      * 
      *         final var exampleGetNetworkSimPolicy = MobileFunctions.getNetworkSimPolicy(GetNetworkSimPolicyArgs.builder()
      *             .name("example-mnsp")
-     *             .mobileNetworkId(example.applyValue(getNetworkResult -> getNetworkResult.id()))
+     *             .mobileNetworkId(example.id())
      *             .build());
      * 
      *     }
@@ -2035,7 +1850,7 @@ public final class MobileFunctions {
      * 
      *         final var exampleGetNetworkSimPolicy = MobileFunctions.getNetworkSimPolicy(GetNetworkSimPolicyArgs.builder()
      *             .name("example-mnsp")
-     *             .mobileNetworkId(example.applyValue(getNetworkResult -> getNetworkResult.id()))
+     *             .mobileNetworkId(example.id())
      *             .build());
      * 
      *     }
@@ -2084,7 +1899,7 @@ public final class MobileFunctions {
      * 
      *         final var exampleGetNetworkSimPolicy = MobileFunctions.getNetworkSimPolicy(GetNetworkSimPolicyArgs.builder()
      *             .name("example-mnsp")
-     *             .mobileNetworkId(example.applyValue(getNetworkResult -> getNetworkResult.id()))
+     *             .mobileNetworkId(example.id())
      *             .build());
      * 
      *     }
@@ -2133,7 +1948,7 @@ public final class MobileFunctions {
      * 
      *         final var exampleGetNetworkSimPolicy = MobileFunctions.getNetworkSimPolicy(GetNetworkSimPolicyArgs.builder()
      *             .name("example-mnsp")
-     *             .mobileNetworkId(example.applyValue(getNetworkResult -> getNetworkResult.id()))
+     *             .mobileNetworkId(example.id())
      *             .build());
      * 
      *     }
@@ -2182,7 +1997,7 @@ public final class MobileFunctions {
      * 
      *         final var exampleGetNetworkSimPolicy = MobileFunctions.getNetworkSimPolicy(GetNetworkSimPolicyArgs.builder()
      *             .name("example-mnsp")
-     *             .mobileNetworkId(example.applyValue(getNetworkResult -> getNetworkResult.id()))
+     *             .mobileNetworkId(example.id())
      *             .build());
      * 
      *     }
@@ -2231,7 +2046,7 @@ public final class MobileFunctions {
      * 
      *         final var exampleGetNetworkSite = MobileFunctions.getNetworkSite(GetNetworkSiteArgs.builder()
      *             .name("example-mns")
-     *             .mobileNetworkId(example.applyValue(getNetworkResult -> getNetworkResult.id()))
+     *             .mobileNetworkId(example.id())
      *             .build());
      * 
      *     }
@@ -2280,7 +2095,7 @@ public final class MobileFunctions {
      * 
      *         final var exampleGetNetworkSite = MobileFunctions.getNetworkSite(GetNetworkSiteArgs.builder()
      *             .name("example-mns")
-     *             .mobileNetworkId(example.applyValue(getNetworkResult -> getNetworkResult.id()))
+     *             .mobileNetworkId(example.id())
      *             .build());
      * 
      *     }
@@ -2329,7 +2144,7 @@ public final class MobileFunctions {
      * 
      *         final var exampleGetNetworkSite = MobileFunctions.getNetworkSite(GetNetworkSiteArgs.builder()
      *             .name("example-mns")
-     *             .mobileNetworkId(example.applyValue(getNetworkResult -> getNetworkResult.id()))
+     *             .mobileNetworkId(example.id())
      *             .build());
      * 
      *     }
@@ -2378,7 +2193,7 @@ public final class MobileFunctions {
      * 
      *         final var exampleGetNetworkSite = MobileFunctions.getNetworkSite(GetNetworkSiteArgs.builder()
      *             .name("example-mns")
-     *             .mobileNetworkId(example.applyValue(getNetworkResult -> getNetworkResult.id()))
+     *             .mobileNetworkId(example.id())
      *             .build());
      * 
      *     }
@@ -2427,7 +2242,7 @@ public final class MobileFunctions {
      * 
      *         final var exampleGetNetworkSite = MobileFunctions.getNetworkSite(GetNetworkSiteArgs.builder()
      *             .name("example-mns")
-     *             .mobileNetworkId(example.applyValue(getNetworkResult -> getNetworkResult.id()))
+     *             .mobileNetworkId(example.id())
      *             .build());
      * 
      *     }

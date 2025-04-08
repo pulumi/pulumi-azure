@@ -59,11 +59,11 @@ import javax.annotation.Nullable;
  *             .location("West Europe")
  *             .build());
  * 
- *         final var current = CoreFunctions.getClientConfig();
+ *         final var current = CoreFunctions.getClientConfig(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
  * 
  *         var exampleGroup = new Group("exampleGroup", GroupArgs.builder()
  *             .displayName("example-adg")
- *             .owners(current.applyValue(getClientConfigResult -> getClientConfigResult.objectId()))
+ *             .owners(current.objectId())
  *             .securityEnabled(true)
  *             .build());
  * 
@@ -74,7 +74,7 @@ import javax.annotation.Nullable;
  *             .azureActiveDirectory(ProvisionedClusterAzureActiveDirectoryArgs.builder()
  *                 .azureRbacEnabled(true)
  *                 .adminGroupObjectIds(exampleGroup.id())
- *                 .tenantId(current.applyValue(getClientConfigResult -> getClientConfigResult.tenantId()))
+ *                 .tenantId(current.tenantId())
  *                 .build())
  *             .identity(ProvisionedClusterIdentityArgs.builder()
  *                 .type("SystemAssigned")

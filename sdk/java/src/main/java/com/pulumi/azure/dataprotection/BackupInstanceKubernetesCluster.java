@@ -70,7 +70,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         final var current = CoreFunctions.getClientConfig();
+ *         final var current = CoreFunctions.getClientConfig(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
  * 
  *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example")
@@ -140,51 +140,51 @@ import javax.annotation.Nullable;
  *                 Map.entry("configuration.backupStorageLocation.bucket", exampleContainer.name()),
  *                 Map.entry("configuration.backupStorageLocation.config.resourceGroup", example.name()),
  *                 Map.entry("configuration.backupStorageLocation.config.storageAccount", exampleAccount.name()),
- *                 Map.entry("configuration.backupStorageLocation.config.subscriptionId", current.applyValue(getClientConfigResult -> getClientConfigResult.subscriptionId())),
- *                 Map.entry("credentials.tenantId", current.applyValue(getClientConfigResult -> getClientConfigResult.tenantId()))
+ *                 Map.entry("configuration.backupStorageLocation.config.subscriptionId", current.subscriptionId()),
+ *                 Map.entry("credentials.tenantId", current.tenantId())
  *             ))
  *             .build());
  * 
  *         var testExtensionAndStorageAccountPermission = new Assignment("testExtensionAndStorageAccountPermission", AssignmentArgs.builder()
  *             .scope(exampleAccount.id())
  *             .roleDefinitionName("Storage Account Contributor")
- *             .principalId(exampleKubernetesClusterExtension.aksAssignedIdentities().applyValue(aksAssignedIdentities -> aksAssignedIdentities[0].principalId()))
+ *             .principalId(exampleKubernetesClusterExtension.aksAssignedIdentities().applyValue(_aksAssignedIdentities -> _aksAssignedIdentities[0].principalId()))
  *             .build());
  * 
  *         var testVaultMsiReadOnCluster = new Assignment("testVaultMsiReadOnCluster", AssignmentArgs.builder()
  *             .scope(exampleKubernetesCluster.id())
  *             .roleDefinitionName("Reader")
- *             .principalId(exampleBackupVault.identity().applyValue(identity -> identity.principalId()))
+ *             .principalId(exampleBackupVault.identity().applyValue(_identity -> _identity.principalId()))
  *             .build());
  * 
  *         var testVaultMsiReadOnSnapRg = new Assignment("testVaultMsiReadOnSnapRg", AssignmentArgs.builder()
  *             .scope(snap.id())
  *             .roleDefinitionName("Reader")
- *             .principalId(exampleBackupVault.identity().applyValue(identity -> identity.principalId()))
+ *             .principalId(exampleBackupVault.identity().applyValue(_identity -> _identity.principalId()))
  *             .build());
  * 
  *         var testVaultMsiSnapshotContributorOnSnapRg = new Assignment("testVaultMsiSnapshotContributorOnSnapRg", AssignmentArgs.builder()
  *             .scope(snap.id())
  *             .roleDefinitionName("Disk Snapshot Contributor")
- *             .principalId(exampleBackupVault.identity().applyValue(identity -> identity.principalId()))
+ *             .principalId(exampleBackupVault.identity().applyValue(_identity -> _identity.principalId()))
  *             .build());
  * 
  *         var testVaultDataOperatorOnSnapRg = new Assignment("testVaultDataOperatorOnSnapRg", AssignmentArgs.builder()
  *             .scope(snap.id())
  *             .roleDefinitionName("Data Operator for Managed Disks")
- *             .principalId(exampleBackupVault.identity().applyValue(identity -> identity.principalId()))
+ *             .principalId(exampleBackupVault.identity().applyValue(_identity -> _identity.principalId()))
  *             .build());
  * 
  *         var testVaultDataContributorOnStorage = new Assignment("testVaultDataContributorOnStorage", AssignmentArgs.builder()
  *             .scope(exampleAccount.id())
  *             .roleDefinitionName("Storage Blob Data Contributor")
- *             .principalId(exampleBackupVault.identity().applyValue(identity -> identity.principalId()))
+ *             .principalId(exampleBackupVault.identity().applyValue(_identity -> _identity.principalId()))
  *             .build());
  * 
  *         var testClusterMsiContributorOnSnapRg = new Assignment("testClusterMsiContributorOnSnapRg", AssignmentArgs.builder()
  *             .scope(snap.id())
  *             .roleDefinitionName("Contributor")
- *             .principalId(exampleKubernetesCluster.identity().applyValue(identity -> identity.principalId()))
+ *             .principalId(exampleKubernetesCluster.identity().applyValue(_identity -> _identity.principalId()))
  *             .build());
  * 
  *         var exampleBackupPolicyKubernetesCluster = new BackupPolicyKubernetesCluster("exampleBackupPolicyKubernetesCluster", BackupPolicyKubernetesClusterArgs.builder()

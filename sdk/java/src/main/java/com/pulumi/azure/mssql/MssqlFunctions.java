@@ -78,7 +78,7 @@ public final class MssqlFunctions {
      *             .serverId(exampleServer.id())
      *             .build());
      * 
-     *         ctx.export("databaseId", example.applyValue(getDatabaseResult -> getDatabaseResult).applyValue(example -> example.applyValue(getDatabaseResult -> getDatabaseResult.id())));
+     *         ctx.export("databaseId", example.applyValue(_example -> _example.id()));
      *     }
      * }
      * }
@@ -140,7 +140,7 @@ public final class MssqlFunctions {
      *             .serverId(exampleServer.id())
      *             .build());
      * 
-     *         ctx.export("databaseId", example.applyValue(getDatabaseResult -> getDatabaseResult).applyValue(example -> example.applyValue(getDatabaseResult -> getDatabaseResult.id())));
+     *         ctx.export("databaseId", example.applyValue(_example -> _example.id()));
      *     }
      * }
      * }
@@ -202,7 +202,7 @@ public final class MssqlFunctions {
      *             .serverId(exampleServer.id())
      *             .build());
      * 
-     *         ctx.export("databaseId", example.applyValue(getDatabaseResult -> getDatabaseResult).applyValue(example -> example.applyValue(getDatabaseResult -> getDatabaseResult.id())));
+     *         ctx.export("databaseId", example.applyValue(_example -> _example.id()));
      *     }
      * }
      * }
@@ -264,7 +264,7 @@ public final class MssqlFunctions {
      *             .serverId(exampleServer.id())
      *             .build());
      * 
-     *         ctx.export("databaseId", example.applyValue(getDatabaseResult -> getDatabaseResult).applyValue(example -> example.applyValue(getDatabaseResult -> getDatabaseResult.id())));
+     *         ctx.export("databaseId", example.applyValue(_example -> _example.id()));
      *     }
      * }
      * }
@@ -326,7 +326,7 @@ public final class MssqlFunctions {
      *             .serverId(exampleServer.id())
      *             .build());
      * 
-     *         ctx.export("databaseId", example.applyValue(getDatabaseResult -> getDatabaseResult).applyValue(example -> example.applyValue(getDatabaseResult -> getDatabaseResult.id())));
+     *         ctx.export("databaseId", example.applyValue(_example -> _example.id()));
      *     }
      * }
      * }
@@ -371,7 +371,7 @@ public final class MssqlFunctions {
      *             .serverName("example-sql-server")
      *             .build());
      * 
-     *         ctx.export("elasticpoolId", example.applyValue(getElasticPoolResult -> getElasticPoolResult.id()));
+     *         ctx.export("elasticpoolId", example.id());
      *     }
      * }
      * }
@@ -416,7 +416,7 @@ public final class MssqlFunctions {
      *             .serverName("example-sql-server")
      *             .build());
      * 
-     *         ctx.export("elasticpoolId", example.applyValue(getElasticPoolResult -> getElasticPoolResult.id()));
+     *         ctx.export("elasticpoolId", example.id());
      *     }
      * }
      * }
@@ -461,7 +461,7 @@ public final class MssqlFunctions {
      *             .serverName("example-sql-server")
      *             .build());
      * 
-     *         ctx.export("elasticpoolId", example.applyValue(getElasticPoolResult -> getElasticPoolResult.id()));
+     *         ctx.export("elasticpoolId", example.id());
      *     }
      * }
      * }
@@ -506,7 +506,7 @@ public final class MssqlFunctions {
      *             .serverName("example-sql-server")
      *             .build());
      * 
-     *         ctx.export("elasticpoolId", example.applyValue(getElasticPoolResult -> getElasticPoolResult.id()));
+     *         ctx.export("elasticpoolId", example.id());
      *     }
      * }
      * }
@@ -551,7 +551,7 @@ public final class MssqlFunctions {
      *             .serverName("example-sql-server")
      *             .build());
      * 
-     *         ctx.export("elasticpoolId", example.applyValue(getElasticPoolResult -> getElasticPoolResult.id()));
+     *         ctx.export("elasticpoolId", example.id());
      *     }
      * }
      * }
@@ -568,38 +568,6 @@ public final class MssqlFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * <pre>
-     * {@code
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.mssql.MssqlFunctions;
-     * import com.pulumi.azure.mssql.inputs.GetManagedDatabaseArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = MssqlFunctions.getManagedDatabase(GetManagedDatabaseArgs.builder()
-     *             .name("example")
-     *             .resourceGroupName(exampleAzurermResourceGroup.name())
-     *             .managedInstanceName(exampleAzurermMssqlManagedInstance.name())
-     *             .build());
-     * 
-     *     }
-     * }
-     * }
-     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -612,38 +580,6 @@ public final class MssqlFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * <pre>
-     * {@code
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.mssql.MssqlFunctions;
-     * import com.pulumi.azure.mssql.inputs.GetManagedDatabaseArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = MssqlFunctions.getManagedDatabase(GetManagedDatabaseArgs.builder()
-     *             .name("example")
-     *             .resourceGroupName(exampleAzurermResourceGroup.name())
-     *             .managedInstanceName(exampleAzurermMssqlManagedInstance.name())
-     *             .build());
-     * 
-     *     }
-     * }
-     * }
-     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -656,38 +592,6 @@ public final class MssqlFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * <pre>
-     * {@code
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.mssql.MssqlFunctions;
-     * import com.pulumi.azure.mssql.inputs.GetManagedDatabaseArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = MssqlFunctions.getManagedDatabase(GetManagedDatabaseArgs.builder()
-     *             .name("example")
-     *             .resourceGroupName(exampleAzurermResourceGroup.name())
-     *             .managedInstanceName(exampleAzurermMssqlManagedInstance.name())
-     *             .build());
-     * 
-     *     }
-     * }
-     * }
-     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -700,38 +604,6 @@ public final class MssqlFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * <pre>
-     * {@code
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.mssql.MssqlFunctions;
-     * import com.pulumi.azure.mssql.inputs.GetManagedDatabaseArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = MssqlFunctions.getManagedDatabase(GetManagedDatabaseArgs.builder()
-     *             .name("example")
-     *             .resourceGroupName(exampleAzurermResourceGroup.name())
-     *             .managedInstanceName(exampleAzurermMssqlManagedInstance.name())
-     *             .build());
-     * 
-     *     }
-     * }
-     * }
-     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -744,38 +616,6 @@ public final class MssqlFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * <pre>
-     * {@code
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.mssql.MssqlFunctions;
-     * import com.pulumi.azure.mssql.inputs.GetManagedDatabaseArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = MssqlFunctions.getManagedDatabase(GetManagedDatabaseArgs.builder()
-     *             .name("example")
-     *             .resourceGroupName(exampleAzurermResourceGroup.name())
-     *             .managedInstanceName(exampleAzurermMssqlManagedInstance.name())
-     *             .build());
-     * 
-     *     }
-     * }
-     * }
-     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -1030,7 +870,7 @@ public final class MssqlFunctions {
      *             .resourceGroupName("existingResGroup")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getServerResult -> getServerResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -1074,7 +914,7 @@ public final class MssqlFunctions {
      *             .resourceGroupName("existingResGroup")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getServerResult -> getServerResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -1118,7 +958,7 @@ public final class MssqlFunctions {
      *             .resourceGroupName("existingResGroup")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getServerResult -> getServerResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -1162,7 +1002,7 @@ public final class MssqlFunctions {
      *             .resourceGroupName("existingResGroup")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getServerResult -> getServerResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -1206,7 +1046,7 @@ public final class MssqlFunctions {
      *             .resourceGroupName("existingResGroup")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getServerResult -> getServerResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }

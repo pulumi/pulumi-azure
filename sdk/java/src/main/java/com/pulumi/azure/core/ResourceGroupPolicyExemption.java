@@ -62,11 +62,11 @@ import javax.annotation.Nullable;
  *         var exampleResourceGroupPolicyAssignment = new ResourceGroupPolicyAssignment("exampleResourceGroupPolicyAssignment", ResourceGroupPolicyAssignmentArgs.builder()
  *             .name("exampleAssignment")
  *             .resourceGroupId(exampleResourceGroup.id())
- *             .policyDefinitionId(example.applyValue(getPolicyDefintionResult -> getPolicyDefintionResult.id()))
- *             .parameters(exampleResourceGroup.location().applyValue(location -> serializeJson(
+ *             .policyDefinitionId(example.id())
+ *             .parameters(exampleResourceGroup.location().applyValue(_location -> serializeJson(
  *                 jsonObject(
  *                     jsonProperty("listOfAllowedLocations", jsonObject(
- *                         jsonProperty("value", jsonArray(location))
+ *                         jsonProperty("value", jsonArray(_location))
  *                     ))
  *                 ))))
  *             .build());

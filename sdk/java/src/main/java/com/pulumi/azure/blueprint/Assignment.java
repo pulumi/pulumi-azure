@@ -42,10 +42,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.core.ResourceGroupArgs;
  * import com.pulumi.azure.authorization.UserAssignedIdentity;
  * import com.pulumi.azure.authorization.UserAssignedIdentityArgs;
- * import com.pulumi.azure.authorization.Assignment;
- * import com.pulumi.azure.authorization.AssignmentArgs;
- * import com.pulumi.azure.blueprint.Assignment;
- * import com.pulumi.azure.blueprint.AssignmentArgs;
  * import com.pulumi.azure.blueprint.inputs.AssignmentIdentityArgs;
  * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
@@ -61,18 +57,19 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         final var current = CoreFunctions.getClientConfig();
+ *         final var current = CoreFunctions.getClientConfig(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
  * 
- *         final var example = CoreFunctions.getSubscription();
+ *         final var example = CoreFunctions.getSubscription(GetSubscriptionArgs.builder()
+ *             .build());
  * 
  *         final var exampleGetDefinition = BlueprintFunctions.getDefinition(GetDefinitionArgs.builder()
  *             .name("exampleBlueprint")
- *             .scopeId(example.applyValue(getSubscriptionResult -> getSubscriptionResult.id()))
+ *             .scopeId(example.id())
  *             .build());
  * 
  *         final var exampleGetPublishedVersion = BlueprintFunctions.getPublishedVersion(GetPublishedVersionArgs.builder()
- *             .scopeId(exampleGetDefinition.applyValue(getDefinitionResult -> getDefinitionResult.scopeId()))
- *             .blueprintName(exampleGetDefinition.applyValue(getDefinitionResult -> getDefinitionResult.name()))
+ *             .scopeId(exampleGetDefinition.scopeId())
+ *             .blueprintName(exampleGetDefinition.name())
  *             .version("v1.0.0")
  *             .build());
  * 
@@ -88,25 +85,25 @@ import javax.annotation.Nullable;
  *             .name("bp-user-example")
  *             .build());
  * 
- *         var operator = new Assignment("operator", AssignmentArgs.builder()
- *             .scope(example.applyValue(getSubscriptionResult -> getSubscriptionResult.id()))
+ *         var operator = new com.pulumi.azure.authorization.Assignment("operator", com.pulumi.azure.authorization.AssignmentArgs.builder()
+ *             .scope(example.id())
  *             .roleDefinitionName("Blueprint Operator")
  *             .principalId(exampleUserAssignedIdentity.principalId())
  *             .build());
  * 
- *         var owner = new Assignment("owner", AssignmentArgs.builder()
- *             .scope(example.applyValue(getSubscriptionResult -> getSubscriptionResult.id()))
+ *         var owner = new com.pulumi.azure.authorization.Assignment("owner", com.pulumi.azure.authorization.AssignmentArgs.builder()
+ *             .scope(example.id())
  *             .roleDefinitionName("Owner")
  *             .principalId(exampleUserAssignedIdentity.principalId())
  *             .build());
  * 
- *         var exampleAssignment = new Assignment("exampleAssignment", AssignmentArgs.builder()
+ *         var exampleAssignment = new com.pulumi.azure.blueprint.Assignment("exampleAssignment", com.pulumi.azure.blueprint.AssignmentArgs.builder()
  *             .name("testAccBPAssignment")
- *             .targetSubscriptionId(example.applyValue(getSubscriptionResult -> getSubscriptionResult.id()))
- *             .versionId(exampleGetPublishedVersion.applyValue(getPublishedVersionResult -> getPublishedVersionResult.id()))
+ *             .targetSubscriptionId(example.id())
+ *             .versionId(exampleGetPublishedVersion.id())
  *             .location(exampleResourceGroup.location())
  *             .lockMode("AllResourcesDoNotDelete")
- *             .lockExcludePrincipals(current.applyValue(getClientConfigResult -> getClientConfigResult.objectId()))
+ *             .lockExcludePrincipals(current.objectId())
  *             .identity(AssignmentIdentityArgs.builder()
  *                 .type("UserAssigned")
  *                 .identityIds(exampleUserAssignedIdentity.id())

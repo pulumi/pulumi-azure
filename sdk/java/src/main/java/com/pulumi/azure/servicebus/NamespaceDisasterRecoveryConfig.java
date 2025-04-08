@@ -61,7 +61,7 @@ import javax.annotation.Nullable;
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .sku("Premium")
- *             .capacity("1")
+ *             .capacity(1)
  *             .build());
  * 
  *         var secondary = new Namespace("secondary", NamespaceArgs.builder()
@@ -69,7 +69,7 @@ import javax.annotation.Nullable;
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .sku("Premium")
- *             .capacity("1")
+ *             .capacity(1)
  *             .build());
  * 
  *         var exampleNamespaceAuthorizationRule = new NamespaceAuthorizationRule("exampleNamespaceAuthorizationRule", NamespaceAuthorizationRuleArgs.builder()

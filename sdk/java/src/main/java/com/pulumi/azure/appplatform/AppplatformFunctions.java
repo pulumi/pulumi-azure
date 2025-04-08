@@ -52,7 +52,7 @@ public final class AppplatformFunctions {
      *             .serviceName(exampleAzurermSpringCloudApp.serviceName())
      *             .build());
      * 
-     *         ctx.export("springCloudAppId", example.applyValue(getSpringCloudAppResult -> getSpringCloudAppResult.id()));
+     *         ctx.export("springCloudAppId", example.id());
      *     }
      * }
      * }
@@ -97,7 +97,7 @@ public final class AppplatformFunctions {
      *             .serviceName(exampleAzurermSpringCloudApp.serviceName())
      *             .build());
      * 
-     *         ctx.export("springCloudAppId", example.applyValue(getSpringCloudAppResult -> getSpringCloudAppResult.id()));
+     *         ctx.export("springCloudAppId", example.id());
      *     }
      * }
      * }
@@ -142,7 +142,7 @@ public final class AppplatformFunctions {
      *             .serviceName(exampleAzurermSpringCloudApp.serviceName())
      *             .build());
      * 
-     *         ctx.export("springCloudAppId", example.applyValue(getSpringCloudAppResult -> getSpringCloudAppResult.id()));
+     *         ctx.export("springCloudAppId", example.id());
      *     }
      * }
      * }
@@ -187,7 +187,7 @@ public final class AppplatformFunctions {
      *             .serviceName(exampleAzurermSpringCloudApp.serviceName())
      *             .build());
      * 
-     *         ctx.export("springCloudAppId", example.applyValue(getSpringCloudAppResult -> getSpringCloudAppResult.id()));
+     *         ctx.export("springCloudAppId", example.id());
      *     }
      * }
      * }
@@ -232,7 +232,7 @@ public final class AppplatformFunctions {
      *             .serviceName(exampleAzurermSpringCloudApp.serviceName())
      *             .build());
      * 
-     *         ctx.export("springCloudAppId", example.applyValue(getSpringCloudAppResult -> getSpringCloudAppResult.id()));
+     *         ctx.export("springCloudAppId", example.id());
      *     }
      * }
      * }
@@ -276,7 +276,7 @@ public final class AppplatformFunctions {
      *             .resourceGroupName(exampleAzurermSpringCloudService.resourceGroupName())
      *             .build());
      * 
-     *         ctx.export("springCloudServiceId", example.applyValue(getSpringCloudServiceResult -> getSpringCloudServiceResult.id()));
+     *         ctx.export("springCloudServiceId", example.id());
      *     }
      * }
      * }
@@ -320,7 +320,7 @@ public final class AppplatformFunctions {
      *             .resourceGroupName(exampleAzurermSpringCloudService.resourceGroupName())
      *             .build());
      * 
-     *         ctx.export("springCloudServiceId", example.applyValue(getSpringCloudServiceResult -> getSpringCloudServiceResult.id()));
+     *         ctx.export("springCloudServiceId", example.id());
      *     }
      * }
      * }
@@ -364,7 +364,7 @@ public final class AppplatformFunctions {
      *             .resourceGroupName(exampleAzurermSpringCloudService.resourceGroupName())
      *             .build());
      * 
-     *         ctx.export("springCloudServiceId", example.applyValue(getSpringCloudServiceResult -> getSpringCloudServiceResult.id()));
+     *         ctx.export("springCloudServiceId", example.id());
      *     }
      * }
      * }
@@ -408,7 +408,7 @@ public final class AppplatformFunctions {
      *             .resourceGroupName(exampleAzurermSpringCloudService.resourceGroupName())
      *             .build());
      * 
-     *         ctx.export("springCloudServiceId", example.applyValue(getSpringCloudServiceResult -> getSpringCloudServiceResult.id()));
+     *         ctx.export("springCloudServiceId", example.id());
      *     }
      * }
      * }
@@ -452,7 +452,7 @@ public final class AppplatformFunctions {
      *             .resourceGroupName(exampleAzurermSpringCloudService.resourceGroupName())
      *             .build());
      * 
-     *         ctx.export("springCloudServiceId", example.applyValue(getSpringCloudServiceResult -> getSpringCloudServiceResult.id()));
+     *         ctx.export("springCloudServiceId", example.id());
      *     }
      * }
      * }

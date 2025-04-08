@@ -95,8 +95,8 @@ import javax.annotation.Nullable;
  * 
  *         var exampleCNameRecord = new CNameRecord("exampleCNameRecord", CNameRecordArgs.builder()
  *             .name("example")
- *             .zoneName(example.applyValue(getZoneResult -> getZoneResult.name()))
- *             .resourceGroupName(example.applyValue(getZoneResult -> getZoneResult.resourceGroupName()))
+ *             .zoneName(example.name())
+ *             .resourceGroupName(example.resourceGroupName())
  *             .ttl(3600)
  *             .targetResourceId(exampleEndpoint.id())
  *             .build());
@@ -104,7 +104,7 @@ import javax.annotation.Nullable;
  *         var exampleEndpointCustomDomain = new EndpointCustomDomain("exampleEndpointCustomDomain", EndpointCustomDomainArgs.builder()
  *             .name("example-domain")
  *             .cdnEndpointId(exampleEndpoint.id())
- *             .hostName(exampleCNameRecord.name().applyValue(name -> String.format("%s.%s", name,example.applyValue(getZoneResult -> getZoneResult.name()))))
+ *             .hostName(exampleCNameRecord.name().applyValue(_name -> String.format("%s.%s", _name,example.name())))
  *             .build());
  * 
  *     }

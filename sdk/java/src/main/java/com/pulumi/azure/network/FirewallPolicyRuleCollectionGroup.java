@@ -121,7 +121,7 @@ import javax.annotation.Nullable;
  *                     .destinationAddress("192.168.1.1")
  *                     .destinationPorts("80")
  *                     .translatedAddress("192.168.0.1")
- *                     .translatedPort("8080")
+ *                     .translatedPort(8080)
  *                     .build())
  *                 .build())
  *             .build());

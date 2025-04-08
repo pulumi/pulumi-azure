@@ -54,8 +54,8 @@ import javax.annotation.Nullable;
  * 
  *         var exampleAuthorizationServer = new AuthorizationServer("exampleAuthorizationServer", AuthorizationServerArgs.builder()
  *             .name("test-server")
- *             .apiManagementName(example.applyValue(getServiceResult -> getServiceResult.name()))
- *             .resourceGroupName(example.applyValue(getServiceResult -> getServiceResult.resourceGroupName()))
+ *             .apiManagementName(example.name())
+ *             .resourceGroupName(example.resourceGroupName())
  *             .displayName("Test Server")
  *             .authorizationEndpoint("https://example.mydomain.com/client/authorize")
  *             .clientId("42424242-4242-4242-4242-424242424242")

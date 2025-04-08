@@ -60,7 +60,7 @@ import javax.annotation.Nullable;
  *             .name("example-dg")
  *             .resourceGroupName(example.name())
  *             .location("West Europe")
- *             .grafanaMajorVersion(11)
+ *             .grafanaMajorVersion("11")
  *             .apiKeyEnabled(true)
  *             .deterministicOutboundIpEnabled(true)
  *             .publicNetworkAccessEnabled(false)

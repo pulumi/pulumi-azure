@@ -54,7 +54,7 @@ public final class NginxFunctions {
      *             .nginxDeploymentId(exampleAzurermNginxDeployment.id())
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getCertificateResult -> getCertificateResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -98,7 +98,7 @@ public final class NginxFunctions {
      *             .nginxDeploymentId(exampleAzurermNginxDeployment.id())
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getCertificateResult -> getCertificateResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -142,7 +142,7 @@ public final class NginxFunctions {
      *             .nginxDeploymentId(exampleAzurermNginxDeployment.id())
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getCertificateResult -> getCertificateResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -186,7 +186,7 @@ public final class NginxFunctions {
      *             .nginxDeploymentId(exampleAzurermNginxDeployment.id())
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getCertificateResult -> getCertificateResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -230,7 +230,7 @@ public final class NginxFunctions {
      *             .nginxDeploymentId(exampleAzurermNginxDeployment.id())
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getCertificateResult -> getCertificateResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -273,7 +273,7 @@ public final class NginxFunctions {
      *             .nginxDeploymentId(exampleAzurermNginxDeployment.id())
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getConfigurationResult -> getConfigurationResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -316,7 +316,7 @@ public final class NginxFunctions {
      *             .nginxDeploymentId(exampleAzurermNginxDeployment.id())
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getConfigurationResult -> getConfigurationResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -359,7 +359,7 @@ public final class NginxFunctions {
      *             .nginxDeploymentId(exampleAzurermNginxDeployment.id())
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getConfigurationResult -> getConfigurationResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -402,7 +402,7 @@ public final class NginxFunctions {
      *             .nginxDeploymentId(exampleAzurermNginxDeployment.id())
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getConfigurationResult -> getConfigurationResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -445,7 +445,7 @@ public final class NginxFunctions {
      *             .nginxDeploymentId(exampleAzurermNginxDeployment.id())
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getConfigurationResult -> getConfigurationResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -489,7 +489,7 @@ public final class NginxFunctions {
      *             .resourceGroupName("existing")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getDeploymentResult -> getDeploymentResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -533,7 +533,7 @@ public final class NginxFunctions {
      *             .resourceGroupName("existing")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getDeploymentResult -> getDeploymentResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -577,7 +577,7 @@ public final class NginxFunctions {
      *             .resourceGroupName("existing")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getDeploymentResult -> getDeploymentResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -621,7 +621,7 @@ public final class NginxFunctions {
      *             .resourceGroupName("existing")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getDeploymentResult -> getDeploymentResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -665,7 +665,7 @@ public final class NginxFunctions {
      *             .resourceGroupName("existing")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getDeploymentResult -> getDeploymentResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }

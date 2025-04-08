@@ -87,7 +87,7 @@ import javax.annotation.Nullable;
  *         var exampleAssignment = new Assignment("exampleAssignment", AssignmentArgs.builder()
  *             .scope(exampleCluster.id())
  *             .roleDefinitionName("Contributor")
- *             .principalId(exampleAccount.identity().applyValue(identity -> identity.principalId()))
+ *             .principalId(exampleAccount.identity().applyValue(_identity -> _identity.principalId()))
  *             .build());
  * 
  *         var exampleDatasetKustoCluster = new DatasetKustoCluster("exampleDatasetKustoCluster", DatasetKustoClusterArgs.builder()

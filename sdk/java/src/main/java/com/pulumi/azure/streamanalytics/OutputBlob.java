@@ -80,8 +80,8 @@ import javax.annotation.Nullable;
  * 
  *         var exampleOutputBlob = new OutputBlob("exampleOutputBlob", OutputBlobArgs.builder()
  *             .name("output-to-blob-storage")
- *             .streamAnalyticsJobName(example.applyValue(getJobResult -> getJobResult).applyValue(example -> example.applyValue(getJobResult -> getJobResult.name())))
- *             .resourceGroupName(example.applyValue(getJobResult -> getJobResult).applyValue(example -> example.applyValue(getJobResult -> getJobResult.resourceGroupName())))
+ *             .streamAnalyticsJobName(example.applyValue(_example -> _example.name()))
+ *             .resourceGroupName(example.applyValue(_example -> _example.resourceGroupName()))
  *             .storageAccountName(exampleAccount.name())
  *             .storageAccountKey(exampleAccount.primaryAccessKey())
  *             .storageContainerName(exampleContainer.name())

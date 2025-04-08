@@ -78,7 +78,8 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .timeZoneId("Pacific Standard Time")
  *             .taskType("LabVmsStartupTask")
- *             .notificationSettings()
+ *             .notificationSettings(ScheduleNotificationSettingsArgs.builder()
+ *                 .build())
  *             .tags(Map.of("environment", "Production"))
  *             .build());
  * 

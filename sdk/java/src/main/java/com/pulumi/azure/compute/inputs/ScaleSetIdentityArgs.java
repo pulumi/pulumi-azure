@@ -67,7 +67,7 @@ public final class ScaleSetIdentityArgs extends com.pulumi.resources.ResourceArg
      *                 .build())
      *             .build());
      * 
-     *         ctx.export("principalId", example.identity().applyValue(identity -> identity.principalId()));
+     *         ctx.export("principalId", example.identity().applyValue(_identity -> _identity.principalId()));
      *     }
      * }
      * }
@@ -128,7 +128,7 @@ public final class ScaleSetIdentityArgs extends com.pulumi.resources.ResourceArg
      *                 .build())
      *             .build());
      * 
-     *         ctx.export("principalId", example.identity().applyValue(identity -> identity.principalId()));
+     *         ctx.export("principalId", example.identity().applyValue(_identity -> _identity.principalId()));
      *     }
      * }
      * }
@@ -246,7 +246,7 @@ public final class ScaleSetIdentityArgs extends com.pulumi.resources.ResourceArg
          *                 .build())
          *             .build());
          * 
-         *         ctx.export("principalId", example.identity().applyValue(identity -> identity.principalId()));
+         *         ctx.export("principalId", example.identity().applyValue(_identity -> _identity.principalId()));
          *     }
          * }
          * }
@@ -311,7 +311,7 @@ public final class ScaleSetIdentityArgs extends com.pulumi.resources.ResourceArg
          *                 .build())
          *             .build());
          * 
-         *         ctx.export("principalId", example.identity().applyValue(identity -> identity.principalId()));
+         *         ctx.export("principalId", example.identity().applyValue(_identity -> _identity.principalId()));
          *     }
          * }
          * }
@@ -375,7 +375,7 @@ public final class ScaleSetIdentityArgs extends com.pulumi.resources.ResourceArg
          *                 .build())
          *             .build());
          * 
-         *         ctx.export("principalId", example.identity().applyValue(identity -> identity.principalId()));
+         *         ctx.export("principalId", example.identity().applyValue(_identity -> _identity.principalId()));
          *     }
          * }
          * }

@@ -87,7 +87,7 @@ import javax.annotation.Nullable;
  *         var vm1 = new ProtectedVM("vm1", ProtectedVMArgs.builder()
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .recoveryVaultName(exampleVault.name())
- *             .sourceVmId(example.applyValue(getVirtualMachineResult -> getVirtualMachineResult).applyValue(example -> example.applyValue(getVirtualMachineResult -> getVirtualMachineResult.id())))
+ *             .sourceVmId(example.applyValue(_example -> _example.id()))
  *             .backupPolicyId(examplePolicyVM.id())
  *             .build());
  * 

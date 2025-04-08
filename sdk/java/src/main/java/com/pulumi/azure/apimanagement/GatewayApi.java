@@ -52,19 +52,19 @@ import javax.annotation.Nullable;
  * 
  *         final var exampleGetApi = ApimanagementFunctions.getApi(GetApiArgs.builder()
  *             .name("search-api")
- *             .apiManagementName(example.applyValue(getServiceResult -> getServiceResult.name()))
- *             .resourceGroupName(example.applyValue(getServiceResult -> getServiceResult.resourceGroupName()))
+ *             .apiManagementName(example.name())
+ *             .resourceGroupName(example.resourceGroupName())
  *             .revision("2")
  *             .build());
  * 
  *         final var exampleGetGateway = ApimanagementFunctions.getGateway(GetGatewayArgs.builder()
  *             .name("example-gateway")
- *             .apiManagementId(example.applyValue(getServiceResult -> getServiceResult.id()))
+ *             .apiManagementId(example.id())
  *             .build());
  * 
  *         var exampleGatewayApi = new GatewayApi("exampleGatewayApi", GatewayApiArgs.builder()
- *             .gatewayId(exampleGetGateway.applyValue(getGatewayResult -> getGatewayResult.id()))
- *             .apiId(exampleGetApi.applyValue(getApiResult -> getApiResult.id()))
+ *             .gatewayId(exampleGetGateway.id())
+ *             .apiId(exampleGetApi.id())
  *             .build());
  * 
  *     }

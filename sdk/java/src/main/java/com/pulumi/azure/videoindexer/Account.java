@@ -32,10 +32,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.azure.core.ResourceGroup;
  * import com.pulumi.azure.core.ResourceGroupArgs;
- * import com.pulumi.azure.storage.Account;
- * import com.pulumi.azure.storage.AccountArgs;
- * import com.pulumi.azure.videoindexer.Account;
- * import com.pulumi.azure.videoindexer.AccountArgs;
  * import com.pulumi.azure.videoindexer.inputs.AccountStorageArgs;
  * import com.pulumi.azure.videoindexer.inputs.AccountIdentityArgs;
  * import java.util.List;
@@ -56,7 +52,7 @@ import javax.annotation.Nullable;
  *             .location("West Europe")
  *             .build());
  * 
- *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()
+ *         var exampleAccount = new com.pulumi.azure.storage.Account("exampleAccount", com.pulumi.azure.storage.AccountArgs.builder()
  *             .name("example")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
@@ -64,7 +60,7 @@ import javax.annotation.Nullable;
  *             .accountReplicationType("LRS")
  *             .build());
  * 
- *         var exampleAccount2 = new Account("exampleAccount2", AccountArgs.builder()
+ *         var exampleAccount2 = new com.pulumi.azure.videoindexer.Account("exampleAccount2", com.pulumi.azure.videoindexer.AccountArgs.builder()
  *             .name("example")
  *             .resourceGroupName(example.name())
  *             .location("West Europe")

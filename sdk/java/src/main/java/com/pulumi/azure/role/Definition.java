@@ -47,17 +47,18 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         final var primary = CoreFunctions.getSubscription();
+ *         final var primary = CoreFunctions.getSubscription(GetSubscriptionArgs.builder()
+ *             .build());
  * 
  *         var example = new RoleDefinition("example", RoleDefinitionArgs.builder()
  *             .name("my-custom-role")
- *             .scope(primary.applyValue(getSubscriptionResult -> getSubscriptionResult.id()))
+ *             .scope(primary.id())
  *             .description("This is a custom role created")
  *             .permissions(RoleDefinitionPermissionArgs.builder()
  *                 .actions("*")
  *                 .notActions()
  *                 .build())
- *             .assignableScopes(primary.applyValue(getSubscriptionResult -> getSubscriptionResult.id()))
+ *             .assignableScopes(primary.id())
  *             .build());
  * 
  *     }
@@ -95,11 +96,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         final var current = CoreFunctions.getSubscription();
+ *         final var current = CoreFunctions.getSubscription(GetSubscriptionArgs.builder()
+ *             .build());
  * 
  *         var example = new Group("example", GroupArgs.builder()
  *             .displayName("ParentGroup")
- *             .subscriptionIds(current.applyValue(getSubscriptionResult -> getSubscriptionResult.subscriptionId()))
+ *             .subscriptionIds(current.subscriptionId())
  *             .build());
  * 
  *         var exampleRoleDefinition = new RoleDefinition("exampleRoleDefinition", RoleDefinitionArgs.builder()

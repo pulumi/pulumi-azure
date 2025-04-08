@@ -56,9 +56,9 @@ import javax.annotation.Nullable;
  * 
  *         var exampleApiOperation = new ApiOperation("exampleApiOperation", ApiOperationArgs.builder()
  *             .operationId("user-delete")
- *             .apiName(example.applyValue(getApiResult -> getApiResult.name()))
- *             .apiManagementName(example.applyValue(getApiResult -> getApiResult.apiManagementName()))
- *             .resourceGroupName(example.applyValue(getApiResult -> getApiResult.resourceGroupName()))
+ *             .apiName(example.name())
+ *             .apiManagementName(example.apiManagementName())
+ *             .resourceGroupName(example.resourceGroupName())
  *             .displayName("Delete User Operation")
  *             .method("DELETE")
  *             .urlTemplate("/users/{id}/delete")

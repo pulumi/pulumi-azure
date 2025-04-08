@@ -48,7 +48,7 @@ public final class ManagedapplicationFunctions {
      *             .resourceGroupName("exampleresources")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getDefinitionResult -> getDefinitionResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -92,7 +92,7 @@ public final class ManagedapplicationFunctions {
      *             .resourceGroupName("exampleresources")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getDefinitionResult -> getDefinitionResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -136,7 +136,7 @@ public final class ManagedapplicationFunctions {
      *             .resourceGroupName("exampleresources")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getDefinitionResult -> getDefinitionResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -180,7 +180,7 @@ public final class ManagedapplicationFunctions {
      *             .resourceGroupName("exampleresources")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getDefinitionResult -> getDefinitionResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -224,7 +224,7 @@ public final class ManagedapplicationFunctions {
      *             .resourceGroupName("exampleresources")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getDefinitionResult -> getDefinitionResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }

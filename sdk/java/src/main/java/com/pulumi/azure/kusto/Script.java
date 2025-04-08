@@ -124,7 +124,7 @@ import javax.annotation.Nullable;
  *             .name("example")
  *             .databaseId(exampleDatabase.id())
  *             .url(exampleBlob.id())
- *             .sasToken(example.applyValue(getAccountBlobContainerSASResult -> getAccountBlobContainerSASResult).applyValue(example -> example.applyValue(getAccountBlobContainerSASResult -> getAccountBlobContainerSASResult.sas())))
+ *             .sasToken(example.applyValue(_example -> _example.sas()))
  *             .continueOnErrorsEnabled(true)
  *             .forceAnUpdateWhenValueChanged("first")
  *             .build());

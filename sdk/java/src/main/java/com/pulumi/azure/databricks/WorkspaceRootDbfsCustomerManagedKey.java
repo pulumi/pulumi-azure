@@ -56,7 +56,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         final var current = CoreFunctions.getClientConfig();
+ *         final var current = CoreFunctions.getClientConfig(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
  * 
  *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example-resources")
@@ -76,7 +76,7 @@ import javax.annotation.Nullable;
  *             .name("examplekeyvault")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .tenantId(current.applyValue(getClientConfigResult -> getClientConfigResult.tenantId()))
+ *             .tenantId(current.tenantId())
  *             .skuName("premium")
  *             .purgeProtectionEnabled(true)
  *             .softDeleteRetentionDays(7)
@@ -85,7 +85,7 @@ import javax.annotation.Nullable;
  *         var terraform = new AccessPolicy("terraform", AccessPolicyArgs.builder()
  *             .keyVaultId(exampleKeyVault.id())
  *             .tenantId(exampleKeyVault.tenantId())
- *             .objectId(current.applyValue(getClientConfigResult -> getClientConfigResult.objectId()))
+ *             .objectId(current.objectId())
  *             .keyPermissions(            
  *                 "Create",
  *                 "Delete",
@@ -117,8 +117,8 @@ import javax.annotation.Nullable;
  * 
  *         var databricks = new AccessPolicy("databricks", AccessPolicyArgs.builder()
  *             .keyVaultId(exampleKeyVault.id())
- *             .tenantId(exampleWorkspace.storageAccountIdentities().applyValue(storageAccountIdentities -> storageAccountIdentities[0].tenantId()))
- *             .objectId(exampleWorkspace.storageAccountIdentities().applyValue(storageAccountIdentities -> storageAccountIdentities[0].principalId()))
+ *             .tenantId(exampleWorkspace.storageAccountIdentities().applyValue(_storageAccountIdentities -> _storageAccountIdentities[0].tenantId()))
+ *             .objectId(exampleWorkspace.storageAccountIdentities().applyValue(_storageAccountIdentities -> _storageAccountIdentities[0].principalId()))
  *             .keyPermissions(            
  *                 "Create",
  *                 "Delete",

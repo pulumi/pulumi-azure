@@ -48,7 +48,7 @@ public final class ExtendedlocationFunctions {
      *             .resourceGroupName(exampleAzurermResourceGroup.name())
      *             .build());
      * 
-     *         ctx.export("customLocationId", example.applyValue(getCustomLocationResult -> getCustomLocationResult.id()));
+     *         ctx.export("customLocationId", example.id());
      *     }
      * }
      * }
@@ -92,7 +92,7 @@ public final class ExtendedlocationFunctions {
      *             .resourceGroupName(exampleAzurermResourceGroup.name())
      *             .build());
      * 
-     *         ctx.export("customLocationId", example.applyValue(getCustomLocationResult -> getCustomLocationResult.id()));
+     *         ctx.export("customLocationId", example.id());
      *     }
      * }
      * }
@@ -136,7 +136,7 @@ public final class ExtendedlocationFunctions {
      *             .resourceGroupName(exampleAzurermResourceGroup.name())
      *             .build());
      * 
-     *         ctx.export("customLocationId", example.applyValue(getCustomLocationResult -> getCustomLocationResult.id()));
+     *         ctx.export("customLocationId", example.id());
      *     }
      * }
      * }
@@ -180,7 +180,7 @@ public final class ExtendedlocationFunctions {
      *             .resourceGroupName(exampleAzurermResourceGroup.name())
      *             .build());
      * 
-     *         ctx.export("customLocationId", example.applyValue(getCustomLocationResult -> getCustomLocationResult.id()));
+     *         ctx.export("customLocationId", example.id());
      *     }
      * }
      * }
@@ -224,7 +224,7 @@ public final class ExtendedlocationFunctions {
      *             .resourceGroupName(exampleAzurermResourceGroup.name())
      *             .build());
      * 
-     *         ctx.export("customLocationId", example.applyValue(getCustomLocationResult -> getCustomLocationResult.id()));
+     *         ctx.export("customLocationId", example.id());
      *     }
      * }
      * }

@@ -63,19 +63,19 @@ import javax.annotation.Nullable;
  * 
  *         final var exampleGetBackendAddressPool = LbFunctions.getBackendAddressPool(GetBackendAddressPoolArgs.builder()
  *             .name("first")
- *             .loadbalancerId(exampleGetLB.applyValue(getLBResult -> getLBResult.id()))
+ *             .loadbalancerId(exampleGetLB.id())
  *             .build());
  * 
  *         var exampleBackendAddressPoolAddress = new BackendAddressPoolAddress("exampleBackendAddressPoolAddress", BackendAddressPoolAddressArgs.builder()
  *             .name("example")
- *             .backendAddressPoolId(exampleGetBackendAddressPool.applyValue(getBackendAddressPoolResult -> getBackendAddressPoolResult.id()))
- *             .virtualNetworkId(example.applyValue(getVirtualNetworkResult -> getVirtualNetworkResult.id()))
+ *             .backendAddressPoolId(exampleGetBackendAddressPool.id())
+ *             .virtualNetworkId(example.id())
  *             .ipAddress("10.0.0.1")
  *             .build());
  * 
  *         final var backend-pool-cr = LbFunctions.getBackendAddressPool(GetBackendAddressPoolArgs.builder()
  *             .name("globalLBBackendPool")
- *             .loadbalancerId(exampleGetLB.applyValue(getLBResult -> getLBResult.id()))
+ *             .loadbalancerId(exampleGetLB.id())
  *             .build());
  * 
  *         var example_1 = new BackendAddressPoolAddress("example-1", BackendAddressPoolAddressArgs.builder()

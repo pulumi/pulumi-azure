@@ -74,9 +74,9 @@ public final class CoreFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var current = CoreFunctions.getClientConfig();
+     *         final var current = CoreFunctions.getClientConfig(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
-     *         ctx.export("accountId", current.applyValue(getClientConfigResult -> getClientConfigResult.clientId()));
+     *         ctx.export("accountId", current.clientId());
      *     }
      * }
      * }
@@ -114,9 +114,9 @@ public final class CoreFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var current = CoreFunctions.getClientConfig();
+     *         final var current = CoreFunctions.getClientConfig(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
-     *         ctx.export("accountId", current.applyValue(getClientConfigResult -> getClientConfigResult.clientId()));
+     *         ctx.export("accountId", current.clientId());
      *     }
      * }
      * }
@@ -154,9 +154,9 @@ public final class CoreFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var current = CoreFunctions.getClientConfig();
+     *         final var current = CoreFunctions.getClientConfig(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
-     *         ctx.export("accountId", current.applyValue(getClientConfigResult -> getClientConfigResult.clientId()));
+     *         ctx.export("accountId", current.clientId());
      *     }
      * }
      * }
@@ -194,9 +194,9 @@ public final class CoreFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var current = CoreFunctions.getClientConfig();
+     *         final var current = CoreFunctions.getClientConfig(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
-     *         ctx.export("accountId", current.applyValue(getClientConfigResult -> getClientConfigResult.clientId()));
+     *         ctx.export("accountId", current.clientId());
      *     }
      * }
      * }
@@ -234,9 +234,9 @@ public final class CoreFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var current = CoreFunctions.getClientConfig();
+     *         final var current = CoreFunctions.getClientConfig(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
-     *         ctx.export("accountId", current.applyValue(getClientConfigResult -> getClientConfigResult.clientId()));
+     *         ctx.export("accountId", current.clientId());
      *     }
      * }
      * }
@@ -274,9 +274,9 @@ public final class CoreFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var current = CoreFunctions.getClientConfig();
+     *         final var current = CoreFunctions.getClientConfig(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
-     *         ctx.export("accountId", current.applyValue(getClientConfigResult -> getClientConfigResult.clientId()));
+     *         ctx.export("accountId", current.clientId());
      *     }
      * }
      * }
@@ -314,9 +314,9 @@ public final class CoreFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var current = CoreFunctions.getClientConfig();
+     *         final var current = CoreFunctions.getClientConfig(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
-     *         ctx.export("accountId", current.applyValue(getClientConfigResult -> getClientConfigResult.clientId()));
+     *         ctx.export("accountId", current.clientId());
      *     }
      * }
      * }
@@ -779,7 +779,7 @@ public final class CoreFunctions {
      *             .name("existing")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getResourceGroupResult -> getResourceGroupResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -822,7 +822,7 @@ public final class CoreFunctions {
      *             .name("existing")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getResourceGroupResult -> getResourceGroupResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -865,7 +865,7 @@ public final class CoreFunctions {
      *             .name("existing")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getResourceGroupResult -> getResourceGroupResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -908,7 +908,7 @@ public final class CoreFunctions {
      *             .name("existing")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getResourceGroupResult -> getResourceGroupResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -951,7 +951,7 @@ public final class CoreFunctions {
      *             .name("existing")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getResourceGroupResult -> getResourceGroupResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -1074,9 +1074,10 @@ public final class CoreFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var current = CoreFunctions.getSubscription();
+     *         final var current = CoreFunctions.getSubscription(GetSubscriptionArgs.builder()
+     *             .build());
      * 
-     *         ctx.export("currentSubscriptionDisplayName", current.applyValue(getSubscriptionResult -> getSubscriptionResult.displayName()));
+     *         ctx.export("currentSubscriptionDisplayName", current.displayName());
      *     }
      * }
      * }
@@ -1115,9 +1116,10 @@ public final class CoreFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var current = CoreFunctions.getSubscription();
+     *         final var current = CoreFunctions.getSubscription(GetSubscriptionArgs.builder()
+     *             .build());
      * 
-     *         ctx.export("currentSubscriptionDisplayName", current.applyValue(getSubscriptionResult -> getSubscriptionResult.displayName()));
+     *         ctx.export("currentSubscriptionDisplayName", current.displayName());
      *     }
      * }
      * }
@@ -1156,9 +1158,10 @@ public final class CoreFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var current = CoreFunctions.getSubscription();
+     *         final var current = CoreFunctions.getSubscription(GetSubscriptionArgs.builder()
+     *             .build());
      * 
-     *         ctx.export("currentSubscriptionDisplayName", current.applyValue(getSubscriptionResult -> getSubscriptionResult.displayName()));
+     *         ctx.export("currentSubscriptionDisplayName", current.displayName());
      *     }
      * }
      * }
@@ -1197,9 +1200,10 @@ public final class CoreFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var current = CoreFunctions.getSubscription();
+     *         final var current = CoreFunctions.getSubscription(GetSubscriptionArgs.builder()
+     *             .build());
      * 
-     *         ctx.export("currentSubscriptionDisplayName", current.applyValue(getSubscriptionResult -> getSubscriptionResult.displayName()));
+     *         ctx.export("currentSubscriptionDisplayName", current.displayName());
      *     }
      * }
      * }
@@ -1238,9 +1242,10 @@ public final class CoreFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var current = CoreFunctions.getSubscription();
+     *         final var current = CoreFunctions.getSubscription(GetSubscriptionArgs.builder()
+     *             .build());
      * 
-     *         ctx.export("currentSubscriptionDisplayName", current.applyValue(getSubscriptionResult -> getSubscriptionResult.displayName()));
+     *         ctx.export("currentSubscriptionDisplayName", current.displayName());
      *     }
      * }
      * }
@@ -1279,9 +1284,10 @@ public final class CoreFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var current = CoreFunctions.getSubscription();
+     *         final var current = CoreFunctions.getSubscription(GetSubscriptionArgs.builder()
+     *             .build());
      * 
-     *         ctx.export("currentSubscriptionDisplayName", current.applyValue(getSubscriptionResult -> getSubscriptionResult.displayName()));
+     *         ctx.export("currentSubscriptionDisplayName", current.displayName());
      *     }
      * }
      * }
@@ -1320,9 +1326,10 @@ public final class CoreFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var current = CoreFunctions.getSubscription();
+     *         final var current = CoreFunctions.getSubscription(GetSubscriptionArgs.builder()
+     *             .build());
      * 
-     *         ctx.export("currentSubscriptionDisplayName", current.applyValue(getSubscriptionResult -> getSubscriptionResult.displayName()));
+     *         ctx.export("currentSubscriptionDisplayName", current.displayName());
      *     }
      * }
      * }
@@ -1396,10 +1403,11 @@ public final class CoreFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var available = CoreFunctions.getSubscriptions();
+     *         final var available = CoreFunctions.getSubscriptions(GetSubscriptionsArgs.builder()
+     *             .build());
      * 
-     *         ctx.export("availableSubscriptions", available.applyValue(getSubscriptionsResult -> getSubscriptionsResult.subscriptions()));
-     *         ctx.export("firstAvailableSubscriptionDisplayName", available.applyValue(getSubscriptionsResult -> getSubscriptionsResult.subscriptions()[0].displayName()));
+     *         ctx.export("availableSubscriptions", available.subscriptions());
+     *         ctx.export("firstAvailableSubscriptionDisplayName", available.subscriptions()[0].displayName());
      *     }
      * }
      * }
@@ -1438,10 +1446,11 @@ public final class CoreFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var available = CoreFunctions.getSubscriptions();
+     *         final var available = CoreFunctions.getSubscriptions(GetSubscriptionsArgs.builder()
+     *             .build());
      * 
-     *         ctx.export("availableSubscriptions", available.applyValue(getSubscriptionsResult -> getSubscriptionsResult.subscriptions()));
-     *         ctx.export("firstAvailableSubscriptionDisplayName", available.applyValue(getSubscriptionsResult -> getSubscriptionsResult.subscriptions()[0].displayName()));
+     *         ctx.export("availableSubscriptions", available.subscriptions());
+     *         ctx.export("firstAvailableSubscriptionDisplayName", available.subscriptions()[0].displayName());
      *     }
      * }
      * }
@@ -1480,10 +1489,11 @@ public final class CoreFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var available = CoreFunctions.getSubscriptions();
+     *         final var available = CoreFunctions.getSubscriptions(GetSubscriptionsArgs.builder()
+     *             .build());
      * 
-     *         ctx.export("availableSubscriptions", available.applyValue(getSubscriptionsResult -> getSubscriptionsResult.subscriptions()));
-     *         ctx.export("firstAvailableSubscriptionDisplayName", available.applyValue(getSubscriptionsResult -> getSubscriptionsResult.subscriptions()[0].displayName()));
+     *         ctx.export("availableSubscriptions", available.subscriptions());
+     *         ctx.export("firstAvailableSubscriptionDisplayName", available.subscriptions()[0].displayName());
      *     }
      * }
      * }
@@ -1522,10 +1532,11 @@ public final class CoreFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var available = CoreFunctions.getSubscriptions();
+     *         final var available = CoreFunctions.getSubscriptions(GetSubscriptionsArgs.builder()
+     *             .build());
      * 
-     *         ctx.export("availableSubscriptions", available.applyValue(getSubscriptionsResult -> getSubscriptionsResult.subscriptions()));
-     *         ctx.export("firstAvailableSubscriptionDisplayName", available.applyValue(getSubscriptionsResult -> getSubscriptionsResult.subscriptions()[0].displayName()));
+     *         ctx.export("availableSubscriptions", available.subscriptions());
+     *         ctx.export("firstAvailableSubscriptionDisplayName", available.subscriptions()[0].displayName());
      *     }
      * }
      * }
@@ -1564,10 +1575,11 @@ public final class CoreFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var available = CoreFunctions.getSubscriptions();
+     *         final var available = CoreFunctions.getSubscriptions(GetSubscriptionsArgs.builder()
+     *             .build());
      * 
-     *         ctx.export("availableSubscriptions", available.applyValue(getSubscriptionsResult -> getSubscriptionsResult.subscriptions()));
-     *         ctx.export("firstAvailableSubscriptionDisplayName", available.applyValue(getSubscriptionsResult -> getSubscriptionsResult.subscriptions()[0].displayName()));
+     *         ctx.export("availableSubscriptions", available.subscriptions());
+     *         ctx.export("firstAvailableSubscriptionDisplayName", available.subscriptions()[0].displayName());
      *     }
      * }
      * }
@@ -1606,10 +1618,11 @@ public final class CoreFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var available = CoreFunctions.getSubscriptions();
+     *         final var available = CoreFunctions.getSubscriptions(GetSubscriptionsArgs.builder()
+     *             .build());
      * 
-     *         ctx.export("availableSubscriptions", available.applyValue(getSubscriptionsResult -> getSubscriptionsResult.subscriptions()));
-     *         ctx.export("firstAvailableSubscriptionDisplayName", available.applyValue(getSubscriptionsResult -> getSubscriptionsResult.subscriptions()[0].displayName()));
+     *         ctx.export("availableSubscriptions", available.subscriptions());
+     *         ctx.export("firstAvailableSubscriptionDisplayName", available.subscriptions()[0].displayName());
      *     }
      * }
      * }
@@ -1648,10 +1661,11 @@ public final class CoreFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var available = CoreFunctions.getSubscriptions();
+     *         final var available = CoreFunctions.getSubscriptions(GetSubscriptionsArgs.builder()
+     *             .build());
      * 
-     *         ctx.export("availableSubscriptions", available.applyValue(getSubscriptionsResult -> getSubscriptionsResult.subscriptions()));
-     *         ctx.export("firstAvailableSubscriptionDisplayName", available.applyValue(getSubscriptionsResult -> getSubscriptionsResult.subscriptions()[0].displayName()));
+     *         ctx.export("availableSubscriptions", available.subscriptions());
+     *         ctx.export("firstAvailableSubscriptionDisplayName", available.subscriptions()[0].displayName());
      *     }
      * }
      * }
@@ -1696,7 +1710,7 @@ public final class CoreFunctions {
      *             .version("v1.0.4")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getTemplateSpecVersionResult -> getTemplateSpecVersionResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -1741,7 +1755,7 @@ public final class CoreFunctions {
      *             .version("v1.0.4")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getTemplateSpecVersionResult -> getTemplateSpecVersionResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -1786,7 +1800,7 @@ public final class CoreFunctions {
      *             .version("v1.0.4")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getTemplateSpecVersionResult -> getTemplateSpecVersionResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -1831,7 +1845,7 @@ public final class CoreFunctions {
      *             .version("v1.0.4")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getTemplateSpecVersionResult -> getTemplateSpecVersionResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -1876,7 +1890,7 @@ public final class CoreFunctions {
      *             .version("v1.0.4")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getTemplateSpecVersionResult -> getTemplateSpecVersionResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -1957,9 +1971,9 @@ public final class CoreFunctions {
      *             .resourceGroupName("name_of_resource_group")
      *             .build());
      * 
-     *         ctx.export("uaiClientId", example.applyValue(getUserAssignedIdentityResult -> getUserAssignedIdentityResult.clientId()));
-     *         ctx.export("uaiPrincipalId", example.applyValue(getUserAssignedIdentityResult -> getUserAssignedIdentityResult.principalId()));
-     *         ctx.export("uaiTenantId", example.applyValue(getUserAssignedIdentityResult -> getUserAssignedIdentityResult.tenantId()));
+     *         ctx.export("uaiClientId", example.clientId());
+     *         ctx.export("uaiPrincipalId", example.principalId());
+     *         ctx.export("uaiTenantId", example.tenantId());
      *     }
      * }
      * }
@@ -2009,9 +2023,9 @@ public final class CoreFunctions {
      *             .resourceGroupName("name_of_resource_group")
      *             .build());
      * 
-     *         ctx.export("uaiClientId", example.applyValue(getUserAssignedIdentityResult -> getUserAssignedIdentityResult.clientId()));
-     *         ctx.export("uaiPrincipalId", example.applyValue(getUserAssignedIdentityResult -> getUserAssignedIdentityResult.principalId()));
-     *         ctx.export("uaiTenantId", example.applyValue(getUserAssignedIdentityResult -> getUserAssignedIdentityResult.tenantId()));
+     *         ctx.export("uaiClientId", example.clientId());
+     *         ctx.export("uaiPrincipalId", example.principalId());
+     *         ctx.export("uaiTenantId", example.tenantId());
      *     }
      * }
      * }
@@ -2061,9 +2075,9 @@ public final class CoreFunctions {
      *             .resourceGroupName("name_of_resource_group")
      *             .build());
      * 
-     *         ctx.export("uaiClientId", example.applyValue(getUserAssignedIdentityResult -> getUserAssignedIdentityResult.clientId()));
-     *         ctx.export("uaiPrincipalId", example.applyValue(getUserAssignedIdentityResult -> getUserAssignedIdentityResult.principalId()));
-     *         ctx.export("uaiTenantId", example.applyValue(getUserAssignedIdentityResult -> getUserAssignedIdentityResult.tenantId()));
+     *         ctx.export("uaiClientId", example.clientId());
+     *         ctx.export("uaiPrincipalId", example.principalId());
+     *         ctx.export("uaiTenantId", example.tenantId());
      *     }
      * }
      * }
@@ -2113,9 +2127,9 @@ public final class CoreFunctions {
      *             .resourceGroupName("name_of_resource_group")
      *             .build());
      * 
-     *         ctx.export("uaiClientId", example.applyValue(getUserAssignedIdentityResult -> getUserAssignedIdentityResult.clientId()));
-     *         ctx.export("uaiPrincipalId", example.applyValue(getUserAssignedIdentityResult -> getUserAssignedIdentityResult.principalId()));
-     *         ctx.export("uaiTenantId", example.applyValue(getUserAssignedIdentityResult -> getUserAssignedIdentityResult.tenantId()));
+     *         ctx.export("uaiClientId", example.clientId());
+     *         ctx.export("uaiPrincipalId", example.principalId());
+     *         ctx.export("uaiTenantId", example.tenantId());
      *     }
      * }
      * }
@@ -2165,9 +2179,9 @@ public final class CoreFunctions {
      *             .resourceGroupName("name_of_resource_group")
      *             .build());
      * 
-     *         ctx.export("uaiClientId", example.applyValue(getUserAssignedIdentityResult -> getUserAssignedIdentityResult.clientId()));
-     *         ctx.export("uaiPrincipalId", example.applyValue(getUserAssignedIdentityResult -> getUserAssignedIdentityResult.principalId()));
-     *         ctx.export("uaiTenantId", example.applyValue(getUserAssignedIdentityResult -> getUserAssignedIdentityResult.tenantId()));
+     *         ctx.export("uaiClientId", example.clientId());
+     *         ctx.export("uaiPrincipalId", example.principalId());
+     *         ctx.export("uaiTenantId", example.tenantId());
      *     }
      * }
      * }

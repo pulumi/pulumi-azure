@@ -57,7 +57,7 @@ public final class BatchFunctions {
      *             .resourceGroupName("test")
      *             .build());
      * 
-     *         ctx.export("poolAllocationMode", example.applyValue(getAccountResult -> getAccountResult.poolAllocationMode()));
+     *         ctx.export("poolAllocationMode", example.poolAllocationMode());
      *     }
      * }
      * }
@@ -101,7 +101,7 @@ public final class BatchFunctions {
      *             .resourceGroupName("test")
      *             .build());
      * 
-     *         ctx.export("poolAllocationMode", example.applyValue(getAccountResult -> getAccountResult.poolAllocationMode()));
+     *         ctx.export("poolAllocationMode", example.poolAllocationMode());
      *     }
      * }
      * }
@@ -145,7 +145,7 @@ public final class BatchFunctions {
      *             .resourceGroupName("test")
      *             .build());
      * 
-     *         ctx.export("poolAllocationMode", example.applyValue(getAccountResult -> getAccountResult.poolAllocationMode()));
+     *         ctx.export("poolAllocationMode", example.poolAllocationMode());
      *     }
      * }
      * }
@@ -189,7 +189,7 @@ public final class BatchFunctions {
      *             .resourceGroupName("test")
      *             .build());
      * 
-     *         ctx.export("poolAllocationMode", example.applyValue(getAccountResult -> getAccountResult.poolAllocationMode()));
+     *         ctx.export("poolAllocationMode", example.poolAllocationMode());
      *     }
      * }
      * }
@@ -233,7 +233,7 @@ public final class BatchFunctions {
      *             .resourceGroupName("test")
      *             .build());
      * 
-     *         ctx.export("poolAllocationMode", example.applyValue(getAccountResult -> getAccountResult.poolAllocationMode()));
+     *         ctx.export("poolAllocationMode", example.poolAllocationMode());
      *     }
      * }
      * }
@@ -278,7 +278,7 @@ public final class BatchFunctions {
      *             .accountName("testbatchaccount")
      *             .build());
      * 
-     *         ctx.export("batchApplicationId", example.applyValue(getApplicationResult -> getApplicationResult.id()));
+     *         ctx.export("batchApplicationId", example.id());
      *     }
      * }
      * }
@@ -323,7 +323,7 @@ public final class BatchFunctions {
      *             .accountName("testbatchaccount")
      *             .build());
      * 
-     *         ctx.export("batchApplicationId", example.applyValue(getApplicationResult -> getApplicationResult.id()));
+     *         ctx.export("batchApplicationId", example.id());
      *     }
      * }
      * }
@@ -368,7 +368,7 @@ public final class BatchFunctions {
      *             .accountName("testbatchaccount")
      *             .build());
      * 
-     *         ctx.export("batchApplicationId", example.applyValue(getApplicationResult -> getApplicationResult.id()));
+     *         ctx.export("batchApplicationId", example.id());
      *     }
      * }
      * }
@@ -413,7 +413,7 @@ public final class BatchFunctions {
      *             .accountName("testbatchaccount")
      *             .build());
      * 
-     *         ctx.export("batchApplicationId", example.applyValue(getApplicationResult -> getApplicationResult.id()));
+     *         ctx.export("batchApplicationId", example.id());
      *     }
      * }
      * }
@@ -458,7 +458,7 @@ public final class BatchFunctions {
      *             .accountName("testbatchaccount")
      *             .build());
      * 
-     *         ctx.export("batchApplicationId", example.applyValue(getApplicationResult -> getApplicationResult.id()));
+     *         ctx.export("batchApplicationId", example.id());
      *     }
      * }
      * }
@@ -503,7 +503,7 @@ public final class BatchFunctions {
      *             .resourceGroupName("example")
      *             .build());
      * 
-     *         ctx.export("thumbprint", example.applyValue(getCertificateResult -> getCertificateResult.thumbprint()));
+     *         ctx.export("thumbprint", example.thumbprint());
      *     }
      * }
      * }
@@ -548,7 +548,7 @@ public final class BatchFunctions {
      *             .resourceGroupName("example")
      *             .build());
      * 
-     *         ctx.export("thumbprint", example.applyValue(getCertificateResult -> getCertificateResult.thumbprint()));
+     *         ctx.export("thumbprint", example.thumbprint());
      *     }
      * }
      * }
@@ -593,7 +593,7 @@ public final class BatchFunctions {
      *             .resourceGroupName("example")
      *             .build());
      * 
-     *         ctx.export("thumbprint", example.applyValue(getCertificateResult -> getCertificateResult.thumbprint()));
+     *         ctx.export("thumbprint", example.thumbprint());
      *     }
      * }
      * }
@@ -638,7 +638,7 @@ public final class BatchFunctions {
      *             .resourceGroupName("example")
      *             .build());
      * 
-     *         ctx.export("thumbprint", example.applyValue(getCertificateResult -> getCertificateResult.thumbprint()));
+     *         ctx.export("thumbprint", example.thumbprint());
      *     }
      * }
      * }
@@ -683,7 +683,7 @@ public final class BatchFunctions {
      *             .resourceGroupName("example")
      *             .build());
      * 
-     *         ctx.export("thumbprint", example.applyValue(getCertificateResult -> getCertificateResult.thumbprint()));
+     *         ctx.export("thumbprint", example.thumbprint());
      *     }
      * }
      * }

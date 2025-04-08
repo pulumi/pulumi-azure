@@ -54,7 +54,7 @@ public final class DesktopvirtualizationFunctions {
      *             .resourceGroupName("existing")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getApplicationGroupResult -> getApplicationGroupResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -98,7 +98,7 @@ public final class DesktopvirtualizationFunctions {
      *             .resourceGroupName("existing")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getApplicationGroupResult -> getApplicationGroupResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -142,7 +142,7 @@ public final class DesktopvirtualizationFunctions {
      *             .resourceGroupName("existing")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getApplicationGroupResult -> getApplicationGroupResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -186,7 +186,7 @@ public final class DesktopvirtualizationFunctions {
      *             .resourceGroupName("existing")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getApplicationGroupResult -> getApplicationGroupResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -230,7 +230,7 @@ public final class DesktopvirtualizationFunctions {
      *             .resourceGroupName("existing")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getApplicationGroupResult -> getApplicationGroupResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -489,7 +489,7 @@ public final class DesktopvirtualizationFunctions {
      *             .resourceGroupName("existing")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getWorkspaceResult -> getWorkspaceResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -533,7 +533,7 @@ public final class DesktopvirtualizationFunctions {
      *             .resourceGroupName("existing")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getWorkspaceResult -> getWorkspaceResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -577,7 +577,7 @@ public final class DesktopvirtualizationFunctions {
      *             .resourceGroupName("existing")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getWorkspaceResult -> getWorkspaceResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -621,7 +621,7 @@ public final class DesktopvirtualizationFunctions {
      *             .resourceGroupName("existing")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getWorkspaceResult -> getWorkspaceResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -665,7 +665,7 @@ public final class DesktopvirtualizationFunctions {
      *             .resourceGroupName("existing")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getWorkspaceResult -> getWorkspaceResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }

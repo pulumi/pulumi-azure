@@ -492,7 +492,7 @@ public final class IotFunctions {
      *             .resourceGroupName("existing")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getIotHubResult -> getIotHubResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -536,7 +536,7 @@ public final class IotFunctions {
      *             .resourceGroupName("existing")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getIotHubResult -> getIotHubResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -580,7 +580,7 @@ public final class IotFunctions {
      *             .resourceGroupName("existing")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getIotHubResult -> getIotHubResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -624,7 +624,7 @@ public final class IotFunctions {
      *             .resourceGroupName("existing")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getIotHubResult -> getIotHubResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -668,7 +668,7 @@ public final class IotFunctions {
      *             .resourceGroupName("existing")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getIotHubResult -> getIotHubResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }

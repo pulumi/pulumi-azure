@@ -105,6 +105,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.network.VirtualNetworkArgs;
  * import com.pulumi.azure.network.VirtualNetworkPeering;
  * import com.pulumi.azure.network.VirtualNetworkPeeringArgs;
+ * import com.pulumi.std.StdFunctions;
+ * import com.pulumi.std.inputs.JoinArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -142,7 +144,10 @@ import javax.annotation.Nullable;
  *             .resourceGroupName(example.name())
  *             .virtualNetworkName(example_1.name())
  *             .remoteVirtualNetworkId(example_2.id())
- *             .triggers(Map.of("remote_address_space", StdFunctions.join().applyValue(invoke -> invoke.result())))
+ *             .triggers(Map.of("remote_address_space", StdFunctions.join(JoinArgs.builder()
+ *                 .separator(",")
+ *                 .input(example_2.addressSpaces())
+ *                 .build()).applyValue(_invoke -> _invoke.result())))
  *             .build());
  * 
  *         var example_2VirtualNetworkPeering = new VirtualNetworkPeering("example-2VirtualNetworkPeering", VirtualNetworkPeeringArgs.builder()
@@ -150,7 +155,10 @@ import javax.annotation.Nullable;
  *             .resourceGroupName(example.name())
  *             .virtualNetworkName(example_2.name())
  *             .remoteVirtualNetworkId(example_1.id())
- *             .triggers(Map.of("remote_address_space", StdFunctions.join().applyValue(invoke -> invoke.result())))
+ *             .triggers(Map.of("remote_address_space", StdFunctions.join(JoinArgs.builder()
+ *                 .separator(",")
+ *                 .input(example_1.addressSpaces())
+ *                 .build()).applyValue(_invoke -> _invoke.result())))
  *             .build());
  * 
  *     }

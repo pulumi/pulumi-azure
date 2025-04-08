@@ -113,15 +113,16 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         final var primary = CoreFunctions.getSubscription();
+ *         final var primary = CoreFunctions.getSubscription(GetSubscriptionArgs.builder()
+ *             .build());
  * 
  *         final var monitoringReader = AuthorizationFunctions.getRoleDefinition(GetRoleDefinitionArgs.builder()
  *             .name("Monitoring Reader")
  *             .build());
  * 
  *         var example = new Assignment("example", AssignmentArgs.builder()
- *             .scope(primary.applyValue(getSubscriptionResult -> getSubscriptionResult.id()))
- *             .roleDefinitionId(String.format("%s%s", primary.applyValue(getSubscriptionResult -> getSubscriptionResult.id()),monitoringReader.applyValue(getRoleDefinitionResult -> getRoleDefinitionResult.id())))
+ *             .scope(primary.id())
+ *             .roleDefinitionId(String.format("%s%s", primary.id(),monitoringReader.id()))
  *             .principalId(exampleAzurermNewRelicMonitor.identity()[0].principalId())
  *             .build());
  * 

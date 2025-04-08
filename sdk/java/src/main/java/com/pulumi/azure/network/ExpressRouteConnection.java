@@ -103,7 +103,7 @@ import javax.annotation.Nullable;
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .expressRoutePortId(exampleExpressRoutePort.id())
- *             .bandwidthInGbps(5)
+ *             .bandwidthInGbps(5.0)
  *             .sku(ExpressRouteCircuitSkuArgs.builder()
  *                 .tier("Standard")
  *                 .family("MeteredData")

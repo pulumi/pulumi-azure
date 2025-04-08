@@ -58,9 +58,9 @@ import javax.annotation.Nullable;
  * 
  *         var exampleImage = new Image("exampleImage", ImageArgs.builder()
  *             .name("exampleimage")
- *             .location(example.applyValue(getVirtualMachineResult -> getVirtualMachineResult.location()))
- *             .resourceGroupName(example.applyValue(getVirtualMachineResult -> getVirtualMachineResult.name()))
- *             .sourceVirtualMachineId(example.applyValue(getVirtualMachineResult -> getVirtualMachineResult.id()))
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
+ *             .sourceVirtualMachineId(example.id())
  *             .build());
  * 
  *     }

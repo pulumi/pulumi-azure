@@ -63,17 +63,18 @@ import javax.annotation.Nullable;
  * 
  *         var exampleGroupSubscriptionAssociation = new GroupSubscriptionAssociation("exampleGroupSubscriptionAssociation", GroupSubscriptionAssociationArgs.builder()
  *             .managementGroupId(example.id())
- *             .subscriptionId(alt.applyValue(getSubscriptionResult -> getSubscriptionResult.id()))
+ *             .subscriptionId(alt.id())
  *             .build());
  * 
- *         final var current = CoreFunctions.getSubscription();
+ *         final var current = CoreFunctions.getSubscription(GetSubscriptionArgs.builder()
+ *             .build());
  * 
- *         final var currentGetClientConfig = CoreFunctions.getClientConfig();
+ *         final var currentGetClientConfig = CoreFunctions.getClientConfig(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
  * 
  *         var networkContributor = new Assignment("networkContributor", AssignmentArgs.builder()
  *             .scope(example.id())
  *             .roleDefinitionName("Network Contributor")
- *             .principalId(currentGetClientConfig.applyValue(getClientConfigResult -> getClientConfigResult.objectId()))
+ *             .principalId(currentGetClientConfig.objectId())
  *             .build());
  * 
  *         var exampleResourceGroup = new ResourceGroup("exampleResourceGroup", ResourceGroupArgs.builder()
@@ -86,7 +87,7 @@ import javax.annotation.Nullable;
  *             .location(exampleResourceGroup.location())
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .scope(NetworkManagerScopeArgs.builder()
- *                 .subscriptionIds(current.applyValue(getSubscriptionResult -> getSubscriptionResult.id()))
+ *                 .subscriptionIds(current.id())
  *                 .build())
  *             .scopeAccesses("SecurityAdmin")
  *             .build());

@@ -314,7 +314,7 @@ import (
 // Site Recovery Fabric can be imported using the `resource id`, e.g.
 //
 // ```sh
-// $ pulumi import azure:siterecovery/replicationRecoveryPlan:ReplicationRecoveryPlan azurerm_site_recovery_replication_recovery_plan.example /subscriptions/00000000-0000-0000-0000-00000000000/resourceGroups/groupName/providers/Microsoft.RecoveryServices/vaults/vaultName/replicationRecoveryPlans/planName
+// $ pulumi import azure:siterecovery/replicationRecoveryPlan:ReplicationRecoveryPlan  azurerm_site_recovery_replication_recovery_plan.example /subscriptions/00000000-0000-0000-0000-00000000000/resourceGroups/groupName/providers/Microsoft.RecoveryServices/vaults/vaultName/replicationRecoveryPlans/planName
 // ```
 type ReplicationRecoveryPlan struct {
 	pulumi.CustomResourceState

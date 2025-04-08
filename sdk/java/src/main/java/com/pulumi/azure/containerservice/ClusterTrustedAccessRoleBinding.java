@@ -71,7 +71,7 @@ import javax.annotation.Nullable;
  *             .applicationType("example-value")
  *             .build());
  * 
- *         final var test = CoreFunctions.getClientConfig();
+ *         final var test = CoreFunctions.getClientConfig(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
  * 
  *         var exampleKeyVault = new KeyVault("exampleKeyVault", KeyVaultArgs.builder()
  *             .name("example")

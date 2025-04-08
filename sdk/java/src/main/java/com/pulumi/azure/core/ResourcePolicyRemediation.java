@@ -79,11 +79,11 @@ import javax.annotation.Nullable;
  *             .name("assignment1")
  *             .resourceId(exampleVirtualNetwork.id())
  *             .policyDefinitionId(exampleDefinition.id())
- *             .parameters(example.location().applyValue(location -> serializeJson(
+ *             .parameters(example.location().applyValue(_location -> serializeJson(
  *                 jsonObject(
  *                     jsonProperty("listOfAllowedLocations", jsonObject(
  *                         jsonProperty("value", jsonArray(
- *                             location, 
+ *                             _location, 
  *                             "East US"
  *                         ))
  *                     ))

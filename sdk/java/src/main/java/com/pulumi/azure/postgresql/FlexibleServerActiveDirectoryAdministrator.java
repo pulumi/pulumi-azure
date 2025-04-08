@@ -49,10 +49,10 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         final var current = CoreFunctions.getClientConfig();
+ *         final var current = CoreFunctions.getClientConfig(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
  * 
  *         final var example = AzureadFunctions.getServicePrincipal(GetServicePrincipalArgs.builder()
- *             .objectId(current.applyValue(getClientConfigResult -> getClientConfigResult.objectId()))
+ *             .objectId(current.objectId())
  *             .build());
  * 
  *         var exampleResourceGroup = new ResourceGroup("exampleResourceGroup", ResourceGroupArgs.builder()
@@ -72,16 +72,16 @@ import javax.annotation.Nullable;
  *             .zone("2")
  *             .authentication(FlexibleServerAuthenticationArgs.builder()
  *                 .activeDirectoryAuthEnabled(true)
- *                 .tenantId(current.applyValue(getClientConfigResult -> getClientConfigResult.tenantId()))
+ *                 .tenantId(current.tenantId())
  *                 .build())
  *             .build());
  * 
  *         var exampleFlexibleServerActiveDirectoryAdministrator = new FlexibleServerActiveDirectoryAdministrator("exampleFlexibleServerActiveDirectoryAdministrator", FlexibleServerActiveDirectoryAdministratorArgs.builder()
  *             .serverName(exampleFlexibleServer.name())
  *             .resourceGroupName(exampleResourceGroup.name())
- *             .tenantId(current.applyValue(getClientConfigResult -> getClientConfigResult.tenantId()))
- *             .objectId(example.applyValue(getServicePrincipalResult -> getServicePrincipalResult.objectId()))
- *             .principalName(example.applyValue(getServicePrincipalResult -> getServicePrincipalResult.displayName()))
+ *             .tenantId(current.tenantId())
+ *             .objectId(example.objectId())
+ *             .principalName(example.displayName())
  *             .principalType("ServicePrincipal")
  *             .build());
  * 

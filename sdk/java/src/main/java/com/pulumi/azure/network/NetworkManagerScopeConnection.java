@@ -54,9 +54,10 @@ import javax.annotation.Nullable;
  *             .location("West Europe")
  *             .build());
  * 
- *         final var current = CoreFunctions.getClientConfig();
+ *         final var current = CoreFunctions.getClientConfig(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
  * 
- *         final var currentGetSubscription = CoreFunctions.getSubscription();
+ *         final var currentGetSubscription = CoreFunctions.getSubscription(GetSubscriptionArgs.builder()
+ *             .build());
  * 
  *         final var alt = CoreFunctions.getSubscription(GetSubscriptionArgs.builder()
  *             .subscriptionId("00000000-0000-0000-0000-000000000000")
@@ -67,7 +68,7 @@ import javax.annotation.Nullable;
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .scope(NetworkManagerScopeArgs.builder()
- *                 .subscriptionIds(currentGetSubscription.applyValue(getSubscriptionResult -> getSubscriptionResult.id()))
+ *                 .subscriptionIds(currentGetSubscription.id())
  *                 .build())
  *             .scopeAccesses("SecurityAdmin")
  *             .build());
@@ -75,8 +76,8 @@ import javax.annotation.Nullable;
  *         var exampleNetworkManagerScopeConnection = new NetworkManagerScopeConnection("exampleNetworkManagerScopeConnection", NetworkManagerScopeConnectionArgs.builder()
  *             .name("example-nsc")
  *             .networkManagerId(exampleNetworkManager.id())
- *             .tenantId(current.applyValue(getClientConfigResult -> getClientConfigResult.tenantId()))
- *             .targetScopeId(alt.applyValue(getSubscriptionResult -> getSubscriptionResult.id()))
+ *             .tenantId(current.tenantId())
+ *             .targetScopeId(alt.id())
  *             .description("example")
  *             .build());
  * 

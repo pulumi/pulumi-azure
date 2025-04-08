@@ -66,7 +66,7 @@ import javax.annotation.Nullable;
  *                 .rangeStart("210.117.252.0")
  *                 .rangeEnd("210.117.252.255")
  *                 .build())
- *             .tags(Map.of("abc", 123))
+ *             .tags(Map.of("abc", "123"))
  *             .build());
  * 
  *     }}{@code

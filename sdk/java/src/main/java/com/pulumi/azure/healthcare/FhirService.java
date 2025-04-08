@@ -62,7 +62,7 @@ import javax.annotation.Nullable;
  *             .location("West Europe")
  *             .build());
  * 
- *         final var current = CoreFunctions.getClientConfig();
+ *         final var current = CoreFunctions.getClientConfig(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
  * 
  *         var exampleWorkspace = new Workspace("exampleWorkspace", WorkspaceArgs.builder()
  *             .name("example")
@@ -80,7 +80,7 @@ import javax.annotation.Nullable;
  *                 .authority("https://login.microsoftonline.com/tenantId")
  *                 .audience("https://tfexfhir.fhir.azurehealthcareapis.com")
  *                 .build())
- *             .accessPolicyObjectIds(current.applyValue(getClientConfigResult -> getClientConfigResult.objectId()))
+ *             .accessPolicyObjectIds(current.objectId())
  *             .identity(FhirServiceIdentityArgs.builder()
  *                 .type("SystemAssigned")
  *                 .build())

@@ -79,17 +79,17 @@ import javax.annotation.Nullable;
  * 
  *         final var exampleGetKey = KeyvaultFunctions.getKey(GetKeyArgs.builder()
  *             .name("example-key")
- *             .keyVaultId(exampleGetKeyVault.applyValue(getKeyVaultResult -> getKeyVaultResult.id()))
+ *             .keyVaultId(exampleGetKeyVault.id())
  *             .build());
  * 
  *         var exampleNetworkSimGroup = new NetworkSimGroup("exampleNetworkSimGroup", NetworkSimGroupArgs.builder()
  *             .name("example-mnsg")
  *             .location(exampleResourceGroup.location())
  *             .mobileNetworkId(exampleNetwork.id())
- *             .encryptionKeyUrl(exampleGetKey.applyValue(getKeyResult -> getKeyResult.id()))
+ *             .encryptionKeyUrl(exampleGetKey.id())
  *             .identity(NetworkSimGroupIdentityArgs.builder()
  *                 .type("SystemAssigned, UserAssigned")
- *                 .identityIds(example.applyValue(getUserAssignedIdentityResult -> getUserAssignedIdentityResult.id()))
+ *                 .identityIds(example.id())
  *                 .build())
  *             .tags(Map.of("key", "value"))
  *             .build());

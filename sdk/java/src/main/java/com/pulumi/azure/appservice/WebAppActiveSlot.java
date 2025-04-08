@@ -73,13 +73,15 @@ import javax.annotation.Nullable;
  *             .resourceGroupName(example.name())
  *             .location(exampleServicePlan.location())
  *             .servicePlanId(exampleServicePlan.id())
- *             .siteConfig()
+ *             .siteConfig(WindowsWebAppSiteConfigArgs.builder()
+ *                 .build())
  *             .build());
  * 
  *         var exampleWindowsWebAppSlot = new WindowsWebAppSlot("exampleWindowsWebAppSlot", WindowsWebAppSlotArgs.builder()
  *             .name("example-windows-web-app-slot")
  *             .appServiceId(exampleWindowsWebApp.name())
- *             .siteConfig()
+ *             .siteConfig(WindowsWebAppSlotSiteConfigArgs.builder()
+ *                 .build())
  *             .build());
  * 
  *         var exampleWebAppActiveSlot = new WebAppActiveSlot("exampleWebAppActiveSlot", WebAppActiveSlotArgs.builder()

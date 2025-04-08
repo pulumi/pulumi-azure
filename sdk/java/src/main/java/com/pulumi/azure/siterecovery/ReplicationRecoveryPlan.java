@@ -264,7 +264,7 @@ import javax.annotation.Nullable;
  *             .targetRecoveryFabricId(secondaryFabric.id())
  *             .targetRecoveryProtectionContainerId(secondaryProtectionContainer.id())
  *             .managedDisks(ReplicatedVMManagedDiskArgs.builder()
- *                 .diskId(vm.storageOsDisk().applyValue(storageOsDisk -> storageOsDisk.managedDiskId()))
+ *                 .diskId(vm.storageOsDisk().applyValue(_storageOsDisk -> _storageOsDisk.managedDiskId()))
  *                 .stagingStorageAccountId(primaryAccount.id())
  *                 .targetResourceGroupId(secondary.id())
  *                 .targetDiskType("Premium_LRS")
@@ -286,8 +286,10 @@ import javax.annotation.Nullable;
  *             .recoveryVaultId(vault.id())
  *             .sourceRecoveryFabricId(primaryFabric.id())
  *             .targetRecoveryFabricId(secondaryFabric.id())
- *             .shutdownRecoveryGroup()
- *             .failoverRecoveryGroup()
+ *             .shutdownRecoveryGroup(ReplicationRecoveryPlanShutdownRecoveryGroupArgs.builder()
+ *                 .build())
+ *             .failoverRecoveryGroup(ReplicationRecoveryPlanFailoverRecoveryGroupArgs.builder()
+ *                 .build())
  *             .bootRecoveryGroups(ReplicationRecoveryPlanBootRecoveryGroupArgs.builder()
  *                 .replicatedProtectedItems(vm_replication.id())
  *                 .build())
@@ -304,7 +306,7 @@ import javax.annotation.Nullable;
  * Site Recovery Fabric can be imported using the `resource id`, e.g.
  * 
  * ```sh
- * $ pulumi import azure:siterecovery/replicationRecoveryPlan:ReplicationRecoveryPlan azurerm_site_recovery_replication_recovery_plan.example /subscriptions/00000000-0000-0000-0000-00000000000/resourceGroups/groupName/providers/Microsoft.RecoveryServices/vaults/vaultName/replicationRecoveryPlans/planName
+ * $ pulumi import azure:siterecovery/replicationRecoveryPlan:ReplicationRecoveryPlan  azurerm_site_recovery_replication_recovery_plan.example /subscriptions/00000000-0000-0000-0000-00000000000/resourceGroups/groupName/providers/Microsoft.RecoveryServices/vaults/vaultName/replicationRecoveryPlans/planName
  * ```
  * 
  */

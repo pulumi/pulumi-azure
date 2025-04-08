@@ -78,7 +78,8 @@ import javax.annotation.Nullable;
  *             .resourceGroupName(example.name())
  *             .location(exampleServicePlan.location())
  *             .servicePlanId(exampleServicePlan.id())
- *             .siteConfig()
+ *             .siteConfig(WindowsWebAppSiteConfigArgs.builder()
+ *                 .build())
  *             .build());
  * 
  *     }

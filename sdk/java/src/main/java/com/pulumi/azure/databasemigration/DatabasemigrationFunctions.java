@@ -52,7 +52,7 @@ public final class DatabasemigrationFunctions {
      *             .serviceName("example-dbms")
      *             .build());
      * 
-     *         ctx.export("name", example.applyValue(getProjectResult -> getProjectResult.name()));
+     *         ctx.export("name", example.name());
      *     }
      * }
      * }
@@ -97,7 +97,7 @@ public final class DatabasemigrationFunctions {
      *             .serviceName("example-dbms")
      *             .build());
      * 
-     *         ctx.export("name", example.applyValue(getProjectResult -> getProjectResult.name()));
+     *         ctx.export("name", example.name());
      *     }
      * }
      * }
@@ -142,7 +142,7 @@ public final class DatabasemigrationFunctions {
      *             .serviceName("example-dbms")
      *             .build());
      * 
-     *         ctx.export("name", example.applyValue(getProjectResult -> getProjectResult.name()));
+     *         ctx.export("name", example.name());
      *     }
      * }
      * }
@@ -187,7 +187,7 @@ public final class DatabasemigrationFunctions {
      *             .serviceName("example-dbms")
      *             .build());
      * 
-     *         ctx.export("name", example.applyValue(getProjectResult -> getProjectResult.name()));
+     *         ctx.export("name", example.name());
      *     }
      * }
      * }
@@ -232,7 +232,7 @@ public final class DatabasemigrationFunctions {
      *             .serviceName("example-dbms")
      *             .build());
      * 
-     *         ctx.export("name", example.applyValue(getProjectResult -> getProjectResult.name()));
+     *         ctx.export("name", example.name());
      *     }
      * }
      * }
@@ -276,7 +276,7 @@ public final class DatabasemigrationFunctions {
      *             .resourceGroupName("example-rg")
      *             .build());
      * 
-     *         ctx.export("azurermDmsId", example.applyValue(getServiceResult -> getServiceResult.id()));
+     *         ctx.export("azurermDmsId", example.id());
      *     }
      * }
      * }
@@ -320,7 +320,7 @@ public final class DatabasemigrationFunctions {
      *             .resourceGroupName("example-rg")
      *             .build());
      * 
-     *         ctx.export("azurermDmsId", example.applyValue(getServiceResult -> getServiceResult.id()));
+     *         ctx.export("azurermDmsId", example.id());
      *     }
      * }
      * }
@@ -364,7 +364,7 @@ public final class DatabasemigrationFunctions {
      *             .resourceGroupName("example-rg")
      *             .build());
      * 
-     *         ctx.export("azurermDmsId", example.applyValue(getServiceResult -> getServiceResult.id()));
+     *         ctx.export("azurermDmsId", example.id());
      *     }
      * }
      * }
@@ -408,7 +408,7 @@ public final class DatabasemigrationFunctions {
      *             .resourceGroupName("example-rg")
      *             .build());
      * 
-     *         ctx.export("azurermDmsId", example.applyValue(getServiceResult -> getServiceResult.id()));
+     *         ctx.export("azurermDmsId", example.id());
      *     }
      * }
      * }
@@ -452,7 +452,7 @@ public final class DatabasemigrationFunctions {
      *             .resourceGroupName("example-rg")
      *             .build());
      * 
-     *         ctx.export("azurermDmsId", example.applyValue(getServiceResult -> getServiceResult.id()));
+     *         ctx.export("azurermDmsId", example.id());
      *     }
      * }
      * }

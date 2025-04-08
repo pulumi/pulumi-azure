@@ -106,7 +106,7 @@ import javax.annotation.Nullable;
  *             .name(exampleRandomUuid.result())
  *             .scope(exampleResourceGroup.id())
  *             .roleDefinitionId(exampleRoleDefinition.roleDefinitionResourceId())
- *             .principalId(example.applyValue(getServicePrincipalResult -> getServicePrincipalResult.id()))
+ *             .principalId(example.id())
  *             .skipServicePrincipalAadCheck(true)
  *             .build());
  * 

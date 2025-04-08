@@ -92,7 +92,7 @@ import javax.annotation.Nullable;
  *                 .metricName("Transactions")
  *                 .aggregation("Total")
  *                 .operator("GreaterThan")
- *                 .threshold(50)
+ *                 .threshold(50.0)
  *                 .dimensions(MetricAlertCriteriaDimensionArgs.builder()
  *                     .name("ApiName")
  *                     .operator("Include")

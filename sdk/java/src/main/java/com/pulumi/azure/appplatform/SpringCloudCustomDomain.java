@@ -39,6 +39,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.dns.CNameRecordArgs;
  * import com.pulumi.azure.appplatform.SpringCloudCustomDomain;
  * import com.pulumi.azure.appplatform.SpringCloudCustomDomainArgs;
+ * import com.pulumi.std.StdFunctions;
+ * import com.pulumi.std.inputs.JoinArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -76,14 +78,19 @@ import javax.annotation.Nullable;
  * 
  *         var exampleCNameRecord = new CNameRecord("exampleCNameRecord", CNameRecordArgs.builder()
  *             .name("record1")
- *             .zoneName(example.applyValue(getZoneResult -> getZoneResult).applyValue(example -> example.applyValue(getZoneResult -> getZoneResult.name())))
- *             .resourceGroupName(example.applyValue(getZoneResult -> getZoneResult).applyValue(example -> example.applyValue(getZoneResult -> getZoneResult.resourceGroupName())))
+ *             .zoneName(example.applyValue(_example -> _example.name()))
+ *             .resourceGroupName(example.applyValue(_example -> _example.resourceGroupName()))
  *             .ttl(300)
  *             .record(exampleSpringCloudApp.fqdn())
  *             .build());
  * 
  *         var exampleSpringCloudCustomDomain = new SpringCloudCustomDomain("exampleSpringCloudCustomDomain", SpringCloudCustomDomainArgs.builder()
- *             .name(StdFunctions.join().applyValue(invoke -> invoke.result()))
+ *             .name(StdFunctions.join(JoinArgs.builder()
+ *                 .separator(".")
+ *                 .input(                
+ *                     exampleCNameRecord.name(),
+ *                     exampleCNameRecord.zoneName())
+ *                 .build()).applyValue(_invoke -> _invoke.result()))
  *             .springCloudAppId(exampleSpringCloudApp.id())
  *             .build());
  * 

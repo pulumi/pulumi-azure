@@ -15,7 +15,7 @@ import * as utilities from "../utilities";
  *
  * const config = new pulumi.Config();
  * // The name of the Arc Machine.
- * const arcMachineName = config.requireObject("arcMachineName");
+ * const arcMachineName = config.requireObject<any>("arcMachineName");
  * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
  *     name: "example-resources",
  *     location: "West Europe",

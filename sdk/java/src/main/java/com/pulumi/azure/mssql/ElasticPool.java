@@ -74,7 +74,7 @@ import javax.annotation.Nullable;
  *             .location(example.location())
  *             .serverName(exampleServer.name())
  *             .licenseType("LicenseIncluded")
- *             .maxSizeGb(756)
+ *             .maxSizeGb(756.0)
  *             .sku(ElasticPoolSkuArgs.builder()
  *                 .name("BasicPool")
  *                 .tier("Basic")
@@ -83,7 +83,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .perDatabaseSettings(ElasticPoolPerDatabaseSettingsArgs.builder()
  *                 .minCapacity(0.25)
- *                 .maxCapacity(4)
+ *                 .maxCapacity(4.0)
  *                 .build())
  *             .build());
  * 

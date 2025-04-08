@@ -34,6 +34,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.automation.AccountArgs;
  * import com.pulumi.azure.automation.ConnectionServicePrincipal;
  * import com.pulumi.azure.automation.ConnectionServicePrincipalArgs;
+ * import com.pulumi.std.StdFunctions;
+ * import com.pulumi.std.inputs.FileArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -52,7 +54,7 @@ import javax.annotation.Nullable;
  *             .location("West Europe")
  *             .build());
  * 
- *         final var example = CoreFunctions.getClientConfig();
+ *         final var example = CoreFunctions.getClientConfig(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
  * 
  *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()
  *             .name("account-example")
@@ -66,8 +68,8 @@ import javax.annotation.Nullable;
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .automationAccountName(exampleAccount.name())
  *             .applicationId("00000000-0000-0000-0000-000000000000")
- *             .tenantId(example.applyValue(getClientConfigResult -> getClientConfigResult.tenantId()))
- *             .subscriptionId(example.applyValue(getClientConfigResult -> getClientConfigResult.subscriptionId()))
+ *             .tenantId(example.tenantId())
+ *             .subscriptionId(example.subscriptionId())
  *             .certificateThumbprint(StdFunctions.file(FileArgs.builder()
  *                 .input("automation_certificate_test.thumb")
  *                 .build()).result())

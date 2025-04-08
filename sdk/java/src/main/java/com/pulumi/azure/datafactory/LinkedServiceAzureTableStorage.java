@@ -69,7 +69,7 @@ import javax.annotation.Nullable;
  *         var exampleLinkedServiceAzureTableStorage = new LinkedServiceAzureTableStorage("exampleLinkedServiceAzureTableStorage", LinkedServiceAzureTableStorageArgs.builder()
  *             .name("example")
  *             .dataFactoryId(exampleFactory.id())
- *             .connectionString(example.applyValue(getAccountResult -> getAccountResult).applyValue(example -> example.applyValue(getAccountResult -> getAccountResult.primaryConnectionString())))
+ *             .connectionString(example.applyValue(_example -> _example.primaryConnectionString()))
  *             .build());
  * 
  *     }

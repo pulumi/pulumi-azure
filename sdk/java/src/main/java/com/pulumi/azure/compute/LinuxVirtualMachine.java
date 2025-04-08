@@ -71,6 +71,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.compute.inputs.LinuxVirtualMachineAdminSshKeyArgs;
  * import com.pulumi.azure.compute.inputs.LinuxVirtualMachineOsDiskArgs;
  * import com.pulumi.azure.compute.inputs.LinuxVirtualMachineSourceImageReferenceArgs;
+ * import com.pulumi.std.StdFunctions;
+ * import com.pulumi.std.inputs.FileArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;

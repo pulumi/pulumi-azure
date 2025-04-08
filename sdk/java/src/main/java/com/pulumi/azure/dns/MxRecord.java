@@ -66,11 +66,11 @@ import javax.annotation.Nullable;
  *             .ttl(300)
  *             .records(            
  *                 MxRecordRecordArgs.builder()
- *                     .preference(10)
+ *                     .preference("10")
  *                     .exchange("mail1.contoso.com")
  *                     .build(),
  *                 MxRecordRecordArgs.builder()
- *                     .preference(20)
+ *                     .preference("20")
  *                     .exchange("mail2.contoso.com")
  *                     .build())
  *             .tags(Map.of("Environment", "Production"))

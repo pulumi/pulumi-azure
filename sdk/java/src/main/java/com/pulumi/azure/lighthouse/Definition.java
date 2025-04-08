@@ -60,7 +60,7 @@ import javax.annotation.Nullable;
  *             .scope("/subscriptions/00000000-0000-0000-0000-000000000000")
  *             .authorizations(DefinitionAuthorizationArgs.builder()
  *                 .principalId("00000000-0000-0000-0000-000000000000")
- *                 .roleDefinitionId(contributor.applyValue(getRoleDefinitionResult -> getRoleDefinitionResult.roleDefinitionId()))
+ *                 .roleDefinitionId(contributor.roleDefinitionId())
  *                 .principalDisplayName("Tier 1 Support")
  *                 .build())
  *             .build());

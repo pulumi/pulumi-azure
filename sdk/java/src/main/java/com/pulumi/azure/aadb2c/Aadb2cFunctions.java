@@ -48,7 +48,7 @@ public final class Aadb2cFunctions {
      *             .domainName("exampleb2ctenant.onmicrosoft.com")
      *             .build());
      * 
-     *         ctx.export("tenantId", example.applyValue(getDirectoryResult -> getDirectoryResult.tenantId()));
+     *         ctx.export("tenantId", example.tenantId());
      *     }
      * }
      * }
@@ -92,7 +92,7 @@ public final class Aadb2cFunctions {
      *             .domainName("exampleb2ctenant.onmicrosoft.com")
      *             .build());
      * 
-     *         ctx.export("tenantId", example.applyValue(getDirectoryResult -> getDirectoryResult.tenantId()));
+     *         ctx.export("tenantId", example.tenantId());
      *     }
      * }
      * }
@@ -136,7 +136,7 @@ public final class Aadb2cFunctions {
      *             .domainName("exampleb2ctenant.onmicrosoft.com")
      *             .build());
      * 
-     *         ctx.export("tenantId", example.applyValue(getDirectoryResult -> getDirectoryResult.tenantId()));
+     *         ctx.export("tenantId", example.tenantId());
      *     }
      * }
      * }
@@ -180,7 +180,7 @@ public final class Aadb2cFunctions {
      *             .domainName("exampleb2ctenant.onmicrosoft.com")
      *             .build());
      * 
-     *         ctx.export("tenantId", example.applyValue(getDirectoryResult -> getDirectoryResult.tenantId()));
+     *         ctx.export("tenantId", example.tenantId());
      *     }
      * }
      * }
@@ -224,7 +224,7 @@ public final class Aadb2cFunctions {
      *             .domainName("exampleb2ctenant.onmicrosoft.com")
      *             .build());
      * 
-     *         ctx.export("tenantId", example.applyValue(getDirectoryResult -> getDirectoryResult.tenantId()));
+     *         ctx.export("tenantId", example.tenantId());
      *     }
      * }
      * }

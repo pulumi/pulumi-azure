@@ -91,14 +91,16 @@ import javax.annotation.Nullable;
  *             .location(example.location())
  *             .storageAccountName(exampleAccount.name())
  *             .servicePlanId(exampleServicePlan.id())
- *             .siteConfig()
+ *             .siteConfig(WindowsFunctionAppSiteConfigArgs.builder()
+ *                 .build())
  *             .build());
  * 
  *         var exampleWindowsFunctionAppSlot = new WindowsFunctionAppSlot("exampleWindowsFunctionAppSlot", WindowsFunctionAppSlotArgs.builder()
  *             .name("example-slot")
  *             .functionAppId(exampleWindowsFunctionApp.id())
  *             .storageAccountName(exampleAccount.name())
- *             .siteConfig()
+ *             .siteConfig(WindowsFunctionAppSlotSiteConfigArgs.builder()
+ *                 .build())
  *             .build());
  * 
  *     }
