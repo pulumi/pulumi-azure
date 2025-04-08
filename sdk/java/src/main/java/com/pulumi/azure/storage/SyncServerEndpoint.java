@@ -106,7 +106,7 @@ import javax.annotation.Nullable;
  *         var exampleSyncServerEndpoint = new SyncServerEndpoint("exampleSyncServerEndpoint", SyncServerEndpointArgs.builder()
  *             .name("example-storage-sync-server-endpoint")
  *             .storageSyncGroupId(exampleSyncGroup.id())
- *             .registeredServerId(exampleSync.registeredServers().applyValue(registeredServers -> registeredServers[0]))
+ *             .registeredServerId(exampleSync.registeredServers().applyValue(_registeredServers -> _registeredServers[0]))
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(exampleSyncCloudEndpoint)
  *                 .build());

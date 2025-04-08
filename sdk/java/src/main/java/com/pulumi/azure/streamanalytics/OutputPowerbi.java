@@ -52,12 +52,12 @@ import javax.annotation.Nullable;
  * 
  *         final var exampleGetJob = StreamanalyticsFunctions.getJob(GetJobArgs.builder()
  *             .name("example-job")
- *             .resourceGroupName(example.applyValue(getResourceGroupResult -> getResourceGroupResult.name()))
+ *             .resourceGroupName(example.name())
  *             .build());
  * 
  *         var exampleOutputPowerbi = new OutputPowerbi("exampleOutputPowerbi", OutputPowerbiArgs.builder()
  *             .name("output-to-powerbi")
- *             .streamAnalyticsJobId(exampleGetJob.applyValue(getJobResult -> getJobResult.id()))
+ *             .streamAnalyticsJobId(exampleGetJob.id())
  *             .dataset("example-dataset")
  *             .table("example-table")
  *             .groupId("00000000-0000-0000-0000-000000000000")

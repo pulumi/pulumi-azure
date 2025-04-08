@@ -49,7 +49,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         final var current = CoreFunctions.getClientConfig();
+ *         final var current = CoreFunctions.getClientConfig(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
  * 
  *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example-resources")
@@ -60,7 +60,7 @@ import javax.annotation.Nullable;
  *             .name("example-ffc")
  *             .resourceGroupName(example.name())
  *             .location("West Europe")
- *             .administrationMembers(current.applyValue(getClientConfigResult -> getClientConfigResult.objectId()))
+ *             .administrationMembers(current.objectId())
  *             .sku(CapacitySkuArgs.builder()
  *                 .name("F32")
  *                 .tier("Fabric")

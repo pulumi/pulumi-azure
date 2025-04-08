@@ -60,10 +60,10 @@ public final class LbFunctions {
      * 
      *         final var exampleGetBackendAddressPool = LbFunctions.getBackendAddressPool(GetBackendAddressPoolArgs.builder()
      *             .name("first")
-     *             .loadbalancerId(example.applyValue(getLBResult -> getLBResult.id()))
+     *             .loadbalancerId(example.id())
      *             .build());
      * 
-     *         ctx.export("backendAddressPoolId", exampleGetBackendAddressPool.applyValue(getBackendAddressPoolResult -> getBackendAddressPoolResult.id()));
+     *         ctx.export("backendAddressPoolId", exampleGetBackendAddressPool.id());
      *         ctx.export("backendIpConfigurationIds", beap.backendIpConfigurations().stream().map(element -> element.id()).collect(toList()));
      *     }
      * }
@@ -111,10 +111,10 @@ public final class LbFunctions {
      * 
      *         final var exampleGetBackendAddressPool = LbFunctions.getBackendAddressPool(GetBackendAddressPoolArgs.builder()
      *             .name("first")
-     *             .loadbalancerId(example.applyValue(getLBResult -> getLBResult.id()))
+     *             .loadbalancerId(example.id())
      *             .build());
      * 
-     *         ctx.export("backendAddressPoolId", exampleGetBackendAddressPool.applyValue(getBackendAddressPoolResult -> getBackendAddressPoolResult.id()));
+     *         ctx.export("backendAddressPoolId", exampleGetBackendAddressPool.id());
      *         ctx.export("backendIpConfigurationIds", beap.backendIpConfigurations().stream().map(element -> element.id()).collect(toList()));
      *     }
      * }
@@ -162,10 +162,10 @@ public final class LbFunctions {
      * 
      *         final var exampleGetBackendAddressPool = LbFunctions.getBackendAddressPool(GetBackendAddressPoolArgs.builder()
      *             .name("first")
-     *             .loadbalancerId(example.applyValue(getLBResult -> getLBResult.id()))
+     *             .loadbalancerId(example.id())
      *             .build());
      * 
-     *         ctx.export("backendAddressPoolId", exampleGetBackendAddressPool.applyValue(getBackendAddressPoolResult -> getBackendAddressPoolResult.id()));
+     *         ctx.export("backendAddressPoolId", exampleGetBackendAddressPool.id());
      *         ctx.export("backendIpConfigurationIds", beap.backendIpConfigurations().stream().map(element -> element.id()).collect(toList()));
      *     }
      * }
@@ -213,10 +213,10 @@ public final class LbFunctions {
      * 
      *         final var exampleGetBackendAddressPool = LbFunctions.getBackendAddressPool(GetBackendAddressPoolArgs.builder()
      *             .name("first")
-     *             .loadbalancerId(example.applyValue(getLBResult -> getLBResult.id()))
+     *             .loadbalancerId(example.id())
      *             .build());
      * 
-     *         ctx.export("backendAddressPoolId", exampleGetBackendAddressPool.applyValue(getBackendAddressPoolResult -> getBackendAddressPoolResult.id()));
+     *         ctx.export("backendAddressPoolId", exampleGetBackendAddressPool.id());
      *         ctx.export("backendIpConfigurationIds", beap.backendIpConfigurations().stream().map(element -> element.id()).collect(toList()));
      *     }
      * }
@@ -264,10 +264,10 @@ public final class LbFunctions {
      * 
      *         final var exampleGetBackendAddressPool = LbFunctions.getBackendAddressPool(GetBackendAddressPoolArgs.builder()
      *             .name("first")
-     *             .loadbalancerId(example.applyValue(getLBResult -> getLBResult.id()))
+     *             .loadbalancerId(example.id())
      *             .build());
      * 
-     *         ctx.export("backendAddressPoolId", exampleGetBackendAddressPool.applyValue(getBackendAddressPoolResult -> getBackendAddressPoolResult.id()));
+     *         ctx.export("backendAddressPoolId", exampleGetBackendAddressPool.id());
      *         ctx.export("backendIpConfigurationIds", beap.backendIpConfigurations().stream().map(element -> element.id()).collect(toList()));
      *     }
      * }
@@ -312,7 +312,7 @@ public final class LbFunctions {
      *             .resourceGroupName("example-resources")
      *             .build());
      * 
-     *         ctx.export("loadbalancerId", example.applyValue(getLBResult -> getLBResult.id()));
+     *         ctx.export("loadbalancerId", example.id());
      *     }
      * }
      * }
@@ -356,7 +356,7 @@ public final class LbFunctions {
      *             .resourceGroupName("example-resources")
      *             .build());
      * 
-     *         ctx.export("loadbalancerId", example.applyValue(getLBResult -> getLBResult.id()));
+     *         ctx.export("loadbalancerId", example.id());
      *     }
      * }
      * }
@@ -400,7 +400,7 @@ public final class LbFunctions {
      *             .resourceGroupName("example-resources")
      *             .build());
      * 
-     *         ctx.export("loadbalancerId", example.applyValue(getLBResult -> getLBResult.id()));
+     *         ctx.export("loadbalancerId", example.id());
      *     }
      * }
      * }
@@ -444,7 +444,7 @@ public final class LbFunctions {
      *             .resourceGroupName("example-resources")
      *             .build());
      * 
-     *         ctx.export("loadbalancerId", example.applyValue(getLBResult -> getLBResult.id()));
+     *         ctx.export("loadbalancerId", example.id());
      *     }
      * }
      * }
@@ -488,7 +488,7 @@ public final class LbFunctions {
      *             .resourceGroupName("example-resources")
      *             .build());
      * 
-     *         ctx.export("loadbalancerId", example.applyValue(getLBResult -> getLBResult.id()));
+     *         ctx.export("loadbalancerId", example.id());
      *     }
      * }
      * }
@@ -532,7 +532,7 @@ public final class LbFunctions {
      *             .loadbalancerId("existing_load_balancer_id")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getLBOutboundRuleResult -> getLBOutboundRuleResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -576,7 +576,7 @@ public final class LbFunctions {
      *             .loadbalancerId("existing_load_balancer_id")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getLBOutboundRuleResult -> getLBOutboundRuleResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -620,7 +620,7 @@ public final class LbFunctions {
      *             .loadbalancerId("existing_load_balancer_id")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getLBOutboundRuleResult -> getLBOutboundRuleResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -664,7 +664,7 @@ public final class LbFunctions {
      *             .loadbalancerId("existing_load_balancer_id")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getLBOutboundRuleResult -> getLBOutboundRuleResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -708,7 +708,7 @@ public final class LbFunctions {
      *             .loadbalancerId("existing_load_balancer_id")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getLBOutboundRuleResult -> getLBOutboundRuleResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -725,45 +725,6 @@ public final class LbFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * <pre>
-     * {@code
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.lb.LbFunctions;
-     * import com.pulumi.azure.lb.inputs.GetLBArgs;
-     * import com.pulumi.azure.lb.inputs.GetLBRuleArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = LbFunctions.getLB(GetLBArgs.builder()
-     *             .name("example-lb")
-     *             .resourceGroupName("example-resources")
-     *             .build());
-     * 
-     *         final var exampleGetLBRule = LbFunctions.getLBRule(GetLBRuleArgs.builder()
-     *             .name("first")
-     *             .resourceGroupName("example-resources")
-     *             .loadbalancerId(example.applyValue(getLBResult -> getLBResult.id()))
-     *             .build());
-     * 
-     *         ctx.export("lbRuleId", exampleGetLBRule.applyValue(getLBRuleResult -> getLBRuleResult.id()));
-     *     }
-     * }
-     * }
-     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -776,45 +737,6 @@ public final class LbFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * <pre>
-     * {@code
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.lb.LbFunctions;
-     * import com.pulumi.azure.lb.inputs.GetLBArgs;
-     * import com.pulumi.azure.lb.inputs.GetLBRuleArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = LbFunctions.getLB(GetLBArgs.builder()
-     *             .name("example-lb")
-     *             .resourceGroupName("example-resources")
-     *             .build());
-     * 
-     *         final var exampleGetLBRule = LbFunctions.getLBRule(GetLBRuleArgs.builder()
-     *             .name("first")
-     *             .resourceGroupName("example-resources")
-     *             .loadbalancerId(example.applyValue(getLBResult -> getLBResult.id()))
-     *             .build());
-     * 
-     *         ctx.export("lbRuleId", exampleGetLBRule.applyValue(getLBRuleResult -> getLBRuleResult.id()));
-     *     }
-     * }
-     * }
-     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -827,45 +749,6 @@ public final class LbFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * <pre>
-     * {@code
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.lb.LbFunctions;
-     * import com.pulumi.azure.lb.inputs.GetLBArgs;
-     * import com.pulumi.azure.lb.inputs.GetLBRuleArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = LbFunctions.getLB(GetLBArgs.builder()
-     *             .name("example-lb")
-     *             .resourceGroupName("example-resources")
-     *             .build());
-     * 
-     *         final var exampleGetLBRule = LbFunctions.getLBRule(GetLBRuleArgs.builder()
-     *             .name("first")
-     *             .resourceGroupName("example-resources")
-     *             .loadbalancerId(example.applyValue(getLBResult -> getLBResult.id()))
-     *             .build());
-     * 
-     *         ctx.export("lbRuleId", exampleGetLBRule.applyValue(getLBRuleResult -> getLBRuleResult.id()));
-     *     }
-     * }
-     * }
-     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -878,45 +761,6 @@ public final class LbFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * <pre>
-     * {@code
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.lb.LbFunctions;
-     * import com.pulumi.azure.lb.inputs.GetLBArgs;
-     * import com.pulumi.azure.lb.inputs.GetLBRuleArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = LbFunctions.getLB(GetLBArgs.builder()
-     *             .name("example-lb")
-     *             .resourceGroupName("example-resources")
-     *             .build());
-     * 
-     *         final var exampleGetLBRule = LbFunctions.getLBRule(GetLBRuleArgs.builder()
-     *             .name("first")
-     *             .resourceGroupName("example-resources")
-     *             .loadbalancerId(example.applyValue(getLBResult -> getLBResult.id()))
-     *             .build());
-     * 
-     *         ctx.export("lbRuleId", exampleGetLBRule.applyValue(getLBRuleResult -> getLBRuleResult.id()));
-     *     }
-     * }
-     * }
-     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
@@ -929,45 +773,6 @@ public final class LbFunctions {
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * <pre>
-     * {@code
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.azure.lb.LbFunctions;
-     * import com.pulumi.azure.lb.inputs.GetLBArgs;
-     * import com.pulumi.azure.lb.inputs.GetLBRuleArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var example = LbFunctions.getLB(GetLBArgs.builder()
-     *             .name("example-lb")
-     *             .resourceGroupName("example-resources")
-     *             .build());
-     * 
-     *         final var exampleGetLBRule = LbFunctions.getLBRule(GetLBRuleArgs.builder()
-     *             .name("first")
-     *             .resourceGroupName("example-resources")
-     *             .loadbalancerId(example.applyValue(getLBResult -> getLBResult.id()))
-     *             .build());
-     * 
-     *         ctx.export("lbRuleId", exampleGetLBRule.applyValue(getLBRuleResult -> getLBRuleResult.id()));
-     *     }
-     * }
-     * }
-     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */

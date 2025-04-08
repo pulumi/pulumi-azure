@@ -48,7 +48,7 @@ public final class OperationalinsightsFunctions {
      *             .resourceGroupName("acctest")
      *             .build());
      * 
-     *         ctx.export("logAnalyticsWorkspaceId", example.applyValue(getAnalyticsWorkspaceResult -> getAnalyticsWorkspaceResult.workspaceId()));
+     *         ctx.export("logAnalyticsWorkspaceId", example.workspaceId());
      *     }
      * }
      * }
@@ -92,7 +92,7 @@ public final class OperationalinsightsFunctions {
      *             .resourceGroupName("acctest")
      *             .build());
      * 
-     *         ctx.export("logAnalyticsWorkspaceId", example.applyValue(getAnalyticsWorkspaceResult -> getAnalyticsWorkspaceResult.workspaceId()));
+     *         ctx.export("logAnalyticsWorkspaceId", example.workspaceId());
      *     }
      * }
      * }
@@ -136,7 +136,7 @@ public final class OperationalinsightsFunctions {
      *             .resourceGroupName("acctest")
      *             .build());
      * 
-     *         ctx.export("logAnalyticsWorkspaceId", example.applyValue(getAnalyticsWorkspaceResult -> getAnalyticsWorkspaceResult.workspaceId()));
+     *         ctx.export("logAnalyticsWorkspaceId", example.workspaceId());
      *     }
      * }
      * }
@@ -180,7 +180,7 @@ public final class OperationalinsightsFunctions {
      *             .resourceGroupName("acctest")
      *             .build());
      * 
-     *         ctx.export("logAnalyticsWorkspaceId", example.applyValue(getAnalyticsWorkspaceResult -> getAnalyticsWorkspaceResult.workspaceId()));
+     *         ctx.export("logAnalyticsWorkspaceId", example.workspaceId());
      *     }
      * }
      * }
@@ -224,7 +224,7 @@ public final class OperationalinsightsFunctions {
      *             .resourceGroupName("acctest")
      *             .build());
      * 
-     *         ctx.export("logAnalyticsWorkspaceId", example.applyValue(getAnalyticsWorkspaceResult -> getAnalyticsWorkspaceResult.workspaceId()));
+     *         ctx.export("logAnalyticsWorkspaceId", example.workspaceId());
      *     }
      * }
      * }

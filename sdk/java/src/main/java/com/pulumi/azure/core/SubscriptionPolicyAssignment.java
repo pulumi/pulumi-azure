@@ -52,7 +52,8 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         final var current = CoreFunctions.getSubscription();
+ *         final var current = CoreFunctions.getSubscription(GetSubscriptionArgs.builder()
+ *             .build());
  * 
  *         var example = new Definition("example", DefinitionArgs.builder()
  *             .name("only-deploy-in-westeurope")
@@ -77,7 +78,7 @@ import javax.annotation.Nullable;
  *         var exampleSubscriptionPolicyAssignment = new SubscriptionPolicyAssignment("exampleSubscriptionPolicyAssignment", SubscriptionPolicyAssignmentArgs.builder()
  *             .name("example")
  *             .policyDefinitionId(example.id())
- *             .subscriptionId(current.applyValue(getSubscriptionResult -> getSubscriptionResult.id()))
+ *             .subscriptionId(current.id())
  *             .build());
  * 
  *     }

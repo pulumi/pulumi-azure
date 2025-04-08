@@ -74,7 +74,7 @@ public final class ApimanagementFunctions {
      *             .revision("2")
      *             .build());
      * 
-     *         ctx.export("apiManagementApiId", example.applyValue(getApiResult -> getApiResult.id()));
+     *         ctx.export("apiManagementApiId", example.id());
      *     }
      * }
      * }
@@ -120,7 +120,7 @@ public final class ApimanagementFunctions {
      *             .revision("2")
      *             .build());
      * 
-     *         ctx.export("apiManagementApiId", example.applyValue(getApiResult -> getApiResult.id()));
+     *         ctx.export("apiManagementApiId", example.id());
      *     }
      * }
      * }
@@ -166,7 +166,7 @@ public final class ApimanagementFunctions {
      *             .revision("2")
      *             .build());
      * 
-     *         ctx.export("apiManagementApiId", example.applyValue(getApiResult -> getApiResult.id()));
+     *         ctx.export("apiManagementApiId", example.id());
      *     }
      * }
      * }
@@ -212,7 +212,7 @@ public final class ApimanagementFunctions {
      *             .revision("2")
      *             .build());
      * 
-     *         ctx.export("apiManagementApiId", example.applyValue(getApiResult -> getApiResult.id()));
+     *         ctx.export("apiManagementApiId", example.id());
      *     }
      * }
      * }
@@ -258,7 +258,7 @@ public final class ApimanagementFunctions {
      *             .revision("2")
      *             .build());
      * 
-     *         ctx.export("apiManagementApiId", example.applyValue(getApiResult -> getApiResult.id()));
+     *         ctx.export("apiManagementApiId", example.id());
      *     }
      * }
      * }
@@ -303,7 +303,7 @@ public final class ApimanagementFunctions {
      *             .name("example-api-version-set")
      *             .build());
      * 
-     *         ctx.export("apiManagementApiVersionSetId", example.applyValue(getApiVersionSetResult -> getApiVersionSetResult.id()));
+     *         ctx.export("apiManagementApiVersionSetId", example.id());
      *     }
      * }
      * }
@@ -348,7 +348,7 @@ public final class ApimanagementFunctions {
      *             .name("example-api-version-set")
      *             .build());
      * 
-     *         ctx.export("apiManagementApiVersionSetId", example.applyValue(getApiVersionSetResult -> getApiVersionSetResult.id()));
+     *         ctx.export("apiManagementApiVersionSetId", example.id());
      *     }
      * }
      * }
@@ -393,7 +393,7 @@ public final class ApimanagementFunctions {
      *             .name("example-api-version-set")
      *             .build());
      * 
-     *         ctx.export("apiManagementApiVersionSetId", example.applyValue(getApiVersionSetResult -> getApiVersionSetResult.id()));
+     *         ctx.export("apiManagementApiVersionSetId", example.id());
      *     }
      * }
      * }
@@ -438,7 +438,7 @@ public final class ApimanagementFunctions {
      *             .name("example-api-version-set")
      *             .build());
      * 
-     *         ctx.export("apiManagementApiVersionSetId", example.applyValue(getApiVersionSetResult -> getApiVersionSetResult.id()));
+     *         ctx.export("apiManagementApiVersionSetId", example.id());
      *     }
      * }
      * }
@@ -483,7 +483,7 @@ public final class ApimanagementFunctions {
      *             .name("example-api-version-set")
      *             .build());
      * 
-     *         ctx.export("apiManagementApiVersionSetId", example.applyValue(getApiVersionSetResult -> getApiVersionSetResult.id()));
+     *         ctx.export("apiManagementApiVersionSetId", example.id());
      *     }
      * }
      * }
@@ -530,7 +530,7 @@ public final class ApimanagementFunctions {
      * 
      *         final var exampleGetGateway = ApimanagementFunctions.getGateway(GetGatewayArgs.builder()
      *             .name("example-api-gateway")
-     *             .apiManagementId(example.applyValue(getServiceResult -> getServiceResult.id()))
+     *             .apiManagementId(example.id())
      *             .build());
      * 
      *     }
@@ -579,7 +579,7 @@ public final class ApimanagementFunctions {
      * 
      *         final var exampleGetGateway = ApimanagementFunctions.getGateway(GetGatewayArgs.builder()
      *             .name("example-api-gateway")
-     *             .apiManagementId(example.applyValue(getServiceResult -> getServiceResult.id()))
+     *             .apiManagementId(example.id())
      *             .build());
      * 
      *     }
@@ -628,7 +628,7 @@ public final class ApimanagementFunctions {
      * 
      *         final var exampleGetGateway = ApimanagementFunctions.getGateway(GetGatewayArgs.builder()
      *             .name("example-api-gateway")
-     *             .apiManagementId(example.applyValue(getServiceResult -> getServiceResult.id()))
+     *             .apiManagementId(example.id())
      *             .build());
      * 
      *     }
@@ -677,7 +677,7 @@ public final class ApimanagementFunctions {
      * 
      *         final var exampleGetGateway = ApimanagementFunctions.getGateway(GetGatewayArgs.builder()
      *             .name("example-api-gateway")
-     *             .apiManagementId(example.applyValue(getServiceResult -> getServiceResult.id()))
+     *             .apiManagementId(example.id())
      *             .build());
      * 
      *     }
@@ -726,7 +726,7 @@ public final class ApimanagementFunctions {
      * 
      *         final var exampleGetGateway = ApimanagementFunctions.getGateway(GetGatewayArgs.builder()
      *             .name("example-api-gateway")
-     *             .apiManagementId(example.applyValue(getServiceResult -> getServiceResult.id()))
+     *             .apiManagementId(example.id())
      *             .build());
      * 
      *     }
@@ -781,11 +781,11 @@ public final class ApimanagementFunctions {
      * 
      *         final var exampleGetGatewayHostNameConfiguration = ApimanagementFunctions.getGatewayHostNameConfiguration(GetGatewayHostNameConfigurationArgs.builder()
      *             .name("example-host-configuration")
-     *             .apiManagementId(example.applyValue(getServiceResult -> getServiceResult.id()))
-     *             .gatewayName(exampleGetGateway.applyValue(getGatewayResult -> getGatewayResult.name()))
+     *             .apiManagementId(example.id())
+     *             .gatewayName(exampleGetGateway.name())
      *             .build());
      * 
-     *         ctx.export("hostName", exampleGetGatewayHostNameConfiguration.applyValue(getGatewayHostNameConfigurationResult -> getGatewayHostNameConfigurationResult.hostName()));
+     *         ctx.export("hostName", exampleGetGatewayHostNameConfiguration.hostName());
      *     }
      * }
      * }
@@ -838,11 +838,11 @@ public final class ApimanagementFunctions {
      * 
      *         final var exampleGetGatewayHostNameConfiguration = ApimanagementFunctions.getGatewayHostNameConfiguration(GetGatewayHostNameConfigurationArgs.builder()
      *             .name("example-host-configuration")
-     *             .apiManagementId(example.applyValue(getServiceResult -> getServiceResult.id()))
-     *             .gatewayName(exampleGetGateway.applyValue(getGatewayResult -> getGatewayResult.name()))
+     *             .apiManagementId(example.id())
+     *             .gatewayName(exampleGetGateway.name())
      *             .build());
      * 
-     *         ctx.export("hostName", exampleGetGatewayHostNameConfiguration.applyValue(getGatewayHostNameConfigurationResult -> getGatewayHostNameConfigurationResult.hostName()));
+     *         ctx.export("hostName", exampleGetGatewayHostNameConfiguration.hostName());
      *     }
      * }
      * }
@@ -895,11 +895,11 @@ public final class ApimanagementFunctions {
      * 
      *         final var exampleGetGatewayHostNameConfiguration = ApimanagementFunctions.getGatewayHostNameConfiguration(GetGatewayHostNameConfigurationArgs.builder()
      *             .name("example-host-configuration")
-     *             .apiManagementId(example.applyValue(getServiceResult -> getServiceResult.id()))
-     *             .gatewayName(exampleGetGateway.applyValue(getGatewayResult -> getGatewayResult.name()))
+     *             .apiManagementId(example.id())
+     *             .gatewayName(exampleGetGateway.name())
      *             .build());
      * 
-     *         ctx.export("hostName", exampleGetGatewayHostNameConfiguration.applyValue(getGatewayHostNameConfigurationResult -> getGatewayHostNameConfigurationResult.hostName()));
+     *         ctx.export("hostName", exampleGetGatewayHostNameConfiguration.hostName());
      *     }
      * }
      * }
@@ -952,11 +952,11 @@ public final class ApimanagementFunctions {
      * 
      *         final var exampleGetGatewayHostNameConfiguration = ApimanagementFunctions.getGatewayHostNameConfiguration(GetGatewayHostNameConfigurationArgs.builder()
      *             .name("example-host-configuration")
-     *             .apiManagementId(example.applyValue(getServiceResult -> getServiceResult.id()))
-     *             .gatewayName(exampleGetGateway.applyValue(getGatewayResult -> getGatewayResult.name()))
+     *             .apiManagementId(example.id())
+     *             .gatewayName(exampleGetGateway.name())
      *             .build());
      * 
-     *         ctx.export("hostName", exampleGetGatewayHostNameConfiguration.applyValue(getGatewayHostNameConfigurationResult -> getGatewayHostNameConfigurationResult.hostName()));
+     *         ctx.export("hostName", exampleGetGatewayHostNameConfiguration.hostName());
      *     }
      * }
      * }
@@ -1009,11 +1009,11 @@ public final class ApimanagementFunctions {
      * 
      *         final var exampleGetGatewayHostNameConfiguration = ApimanagementFunctions.getGatewayHostNameConfiguration(GetGatewayHostNameConfigurationArgs.builder()
      *             .name("example-host-configuration")
-     *             .apiManagementId(example.applyValue(getServiceResult -> getServiceResult.id()))
-     *             .gatewayName(exampleGetGateway.applyValue(getGatewayResult -> getGatewayResult.name()))
+     *             .apiManagementId(example.id())
+     *             .gatewayName(exampleGetGateway.name())
      *             .build());
      * 
-     *         ctx.export("hostName", exampleGetGatewayHostNameConfiguration.applyValue(getGatewayHostNameConfigurationResult -> getGatewayHostNameConfigurationResult.hostName()));
+     *         ctx.export("hostName", exampleGetGatewayHostNameConfiguration.hostName());
      *     }
      * }
      * }
@@ -1058,7 +1058,7 @@ public final class ApimanagementFunctions {
      *             .resourceGroupName("search-service")
      *             .build());
      * 
-     *         ctx.export("groupType", example.applyValue(getGroupResult -> getGroupResult.type()));
+     *         ctx.export("groupType", example.type());
      *     }
      * }
      * }
@@ -1103,7 +1103,7 @@ public final class ApimanagementFunctions {
      *             .resourceGroupName("search-service")
      *             .build());
      * 
-     *         ctx.export("groupType", example.applyValue(getGroupResult -> getGroupResult.type()));
+     *         ctx.export("groupType", example.type());
      *     }
      * }
      * }
@@ -1148,7 +1148,7 @@ public final class ApimanagementFunctions {
      *             .resourceGroupName("search-service")
      *             .build());
      * 
-     *         ctx.export("groupType", example.applyValue(getGroupResult -> getGroupResult.type()));
+     *         ctx.export("groupType", example.type());
      *     }
      * }
      * }
@@ -1193,7 +1193,7 @@ public final class ApimanagementFunctions {
      *             .resourceGroupName("search-service")
      *             .build());
      * 
-     *         ctx.export("groupType", example.applyValue(getGroupResult -> getGroupResult.type()));
+     *         ctx.export("groupType", example.type());
      *     }
      * }
      * }
@@ -1238,7 +1238,7 @@ public final class ApimanagementFunctions {
      *             .resourceGroupName("search-service")
      *             .build());
      * 
-     *         ctx.export("groupType", example.applyValue(getGroupResult -> getGroupResult.type()));
+     *         ctx.export("groupType", example.type());
      *     }
      * }
      * }
@@ -1283,7 +1283,7 @@ public final class ApimanagementFunctions {
      *             .resourceGroupName("search-service")
      *             .build());
      * 
-     *         ctx.export("productTerms", example.applyValue(getProductResult -> getProductResult.terms()));
+     *         ctx.export("productTerms", example.terms());
      *     }
      * }
      * }
@@ -1328,7 +1328,7 @@ public final class ApimanagementFunctions {
      *             .resourceGroupName("search-service")
      *             .build());
      * 
-     *         ctx.export("productTerms", example.applyValue(getProductResult -> getProductResult.terms()));
+     *         ctx.export("productTerms", example.terms());
      *     }
      * }
      * }
@@ -1373,7 +1373,7 @@ public final class ApimanagementFunctions {
      *             .resourceGroupName("search-service")
      *             .build());
      * 
-     *         ctx.export("productTerms", example.applyValue(getProductResult -> getProductResult.terms()));
+     *         ctx.export("productTerms", example.terms());
      *     }
      * }
      * }
@@ -1418,7 +1418,7 @@ public final class ApimanagementFunctions {
      *             .resourceGroupName("search-service")
      *             .build());
      * 
-     *         ctx.export("productTerms", example.applyValue(getProductResult -> getProductResult.terms()));
+     *         ctx.export("productTerms", example.terms());
      *     }
      * }
      * }
@@ -1463,7 +1463,7 @@ public final class ApimanagementFunctions {
      *             .resourceGroupName("search-service")
      *             .build());
      * 
-     *         ctx.export("productTerms", example.applyValue(getProductResult -> getProductResult.terms()));
+     *         ctx.export("productTerms", example.terms());
      *     }
      * }
      * }
@@ -1507,7 +1507,7 @@ public final class ApimanagementFunctions {
      *             .resourceGroupName("search-service")
      *             .build());
      * 
-     *         ctx.export("apiManagementId", example.applyValue(getServiceResult -> getServiceResult.id()));
+     *         ctx.export("apiManagementId", example.id());
      *     }
      * }
      * }
@@ -1551,7 +1551,7 @@ public final class ApimanagementFunctions {
      *             .resourceGroupName("search-service")
      *             .build());
      * 
-     *         ctx.export("apiManagementId", example.applyValue(getServiceResult -> getServiceResult.id()));
+     *         ctx.export("apiManagementId", example.id());
      *     }
      * }
      * }
@@ -1595,7 +1595,7 @@ public final class ApimanagementFunctions {
      *             .resourceGroupName("search-service")
      *             .build());
      * 
-     *         ctx.export("apiManagementId", example.applyValue(getServiceResult -> getServiceResult.id()));
+     *         ctx.export("apiManagementId", example.id());
      *     }
      * }
      * }
@@ -1639,7 +1639,7 @@ public final class ApimanagementFunctions {
      *             .resourceGroupName("search-service")
      *             .build());
      * 
-     *         ctx.export("apiManagementId", example.applyValue(getServiceResult -> getServiceResult.id()));
+     *         ctx.export("apiManagementId", example.id());
      *     }
      * }
      * }
@@ -1683,7 +1683,7 @@ public final class ApimanagementFunctions {
      *             .resourceGroupName("search-service")
      *             .build());
      * 
-     *         ctx.export("apiManagementId", example.applyValue(getServiceResult -> getServiceResult.id()));
+     *         ctx.export("apiManagementId", example.id());
      *     }
      * }
      * }
@@ -1727,7 +1727,7 @@ public final class ApimanagementFunctions {
      *             .subscriptionId("example-subscription-id")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getSubscriptionResult -> getSubscriptionResult.subscriptionId()));
+     *         ctx.export("id", example.subscriptionId());
      *     }
      * }
      * }
@@ -1771,7 +1771,7 @@ public final class ApimanagementFunctions {
      *             .subscriptionId("example-subscription-id")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getSubscriptionResult -> getSubscriptionResult.subscriptionId()));
+     *         ctx.export("id", example.subscriptionId());
      *     }
      * }
      * }
@@ -1815,7 +1815,7 @@ public final class ApimanagementFunctions {
      *             .subscriptionId("example-subscription-id")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getSubscriptionResult -> getSubscriptionResult.subscriptionId()));
+     *         ctx.export("id", example.subscriptionId());
      *     }
      * }
      * }
@@ -1859,7 +1859,7 @@ public final class ApimanagementFunctions {
      *             .subscriptionId("example-subscription-id")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getSubscriptionResult -> getSubscriptionResult.subscriptionId()));
+     *         ctx.export("id", example.subscriptionId());
      *     }
      * }
      * }
@@ -1903,7 +1903,7 @@ public final class ApimanagementFunctions {
      *             .subscriptionId("example-subscription-id")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getSubscriptionResult -> getSubscriptionResult.subscriptionId()));
+     *         ctx.export("id", example.subscriptionId());
      *     }
      * }
      * }

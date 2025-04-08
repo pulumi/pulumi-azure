@@ -68,7 +68,8 @@ import javax.annotation.Nullable;
  *         var exampleFrontdoorOriginGroup = new FrontdoorOriginGroup("exampleFrontdoorOriginGroup", FrontdoorOriginGroupArgs.builder()
  *             .name("example-origingroup")
  *             .cdnFrontdoorProfileId(exampleFrontdoorProfile.id())
- *             .loadBalancing()
+ *             .loadBalancing(FrontdoorOriginGroupLoadBalancingArgs.builder()
+ *                 .build())
  *             .build());
  * 
  *         var exampleFrontdoorOrigin = new FrontdoorOrigin("exampleFrontdoorOrigin", FrontdoorOriginArgs.builder()
@@ -153,7 +154,8 @@ import javax.annotation.Nullable;
  *         var exampleFrontdoorOriginGroup = new FrontdoorOriginGroup("exampleFrontdoorOriginGroup", FrontdoorOriginGroupArgs.builder()
  *             .name("example-origin-group")
  *             .cdnFrontdoorProfileId(exampleFrontdoorProfile.id())
- *             .loadBalancing()
+ *             .loadBalancing(FrontdoorOriginGroupLoadBalancingArgs.builder()
+ *                 .build())
  *             .build());
  * 
  *         var exampleFrontdoorOrigin = new FrontdoorOrigin("exampleFrontdoorOrigin", FrontdoorOriginArgs.builder()
@@ -226,7 +228,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         final var current = CoreFunctions.getClientConfig();
+ *         final var current = CoreFunctions.getClientConfig(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
  * 
  *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example-resources")
@@ -271,8 +273,8 @@ import javax.annotation.Nullable;
  *             .name("pls-example")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
- *             .visibilitySubscriptionIds(current.applyValue(getClientConfigResult -> getClientConfigResult.subscriptionId()))
- *             .loadBalancerFrontendIpConfigurationIds(exampleLoadBalancer.frontendIpConfigurations().applyValue(frontendIpConfigurations -> frontendIpConfigurations[0].id()))
+ *             .visibilitySubscriptionIds(current.subscriptionId())
+ *             .loadBalancerFrontendIpConfigurationIds(exampleLoadBalancer.frontendIpConfigurations().applyValue(_frontendIpConfigurations -> _frontendIpConfigurations[0].id()))
  *             .natIpConfigurations(LinkServiceNatIpConfigurationArgs.builder()
  *                 .name("primary")
  *                 .privateIpAddress("10.5.1.17")

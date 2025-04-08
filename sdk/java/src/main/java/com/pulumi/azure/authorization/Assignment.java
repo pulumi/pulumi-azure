@@ -49,14 +49,15 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         final var primary = CoreFunctions.getSubscription();
+ *         final var primary = CoreFunctions.getSubscription(GetSubscriptionArgs.builder()
+ *             .build());
  * 
- *         final var example = CoreFunctions.getClientConfig();
+ *         final var example = CoreFunctions.getClientConfig(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
  * 
  *         var exampleAssignment = new Assignment("exampleAssignment", AssignmentArgs.builder()
- *             .scope(primary.applyValue(getSubscriptionResult -> getSubscriptionResult.id()))
+ *             .scope(primary.id())
  *             .roleDefinitionName("Reader")
- *             .principalId(example.applyValue(getClientConfigResult -> getClientConfigResult.objectId()))
+ *             .principalId(example.objectId())
  *             .build());
  * 
  *     }
@@ -95,26 +96,27 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         final var primary = CoreFunctions.getSubscription();
+ *         final var primary = CoreFunctions.getSubscription(GetSubscriptionArgs.builder()
+ *             .build());
  * 
- *         final var example = CoreFunctions.getClientConfig();
+ *         final var example = CoreFunctions.getClientConfig(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
  * 
  *         var exampleRoleDefinition = new RoleDefinition("exampleRoleDefinition", RoleDefinitionArgs.builder()
  *             .roleDefinitionId("00000000-0000-0000-0000-000000000000")
  *             .name("my-custom-role-definition")
- *             .scope(primary.applyValue(getSubscriptionResult -> getSubscriptionResult.id()))
+ *             .scope(primary.id())
  *             .permissions(RoleDefinitionPermissionArgs.builder()
  *                 .actions("Microsoft.Resources/subscriptions/resourceGroups/read")
  *                 .notActions()
  *                 .build())
- *             .assignableScopes(primary.applyValue(getSubscriptionResult -> getSubscriptionResult.id()))
+ *             .assignableScopes(primary.id())
  *             .build());
  * 
  *         var exampleAssignment = new Assignment("exampleAssignment", AssignmentArgs.builder()
  *             .name("00000000-0000-0000-0000-000000000000")
- *             .scope(primary.applyValue(getSubscriptionResult -> getSubscriptionResult.id()))
+ *             .scope(primary.id())
  *             .roleDefinitionId(exampleRoleDefinition.roleDefinitionResourceId())
- *             .principalId(example.applyValue(getClientConfigResult -> getClientConfigResult.objectId()))
+ *             .principalId(example.objectId())
  *             .build());
  * 
  *     }
@@ -153,26 +155,27 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         final var primary = CoreFunctions.getSubscription();
+ *         final var primary = CoreFunctions.getSubscription(GetSubscriptionArgs.builder()
+ *             .build());
  * 
- *         final var example = CoreFunctions.getClientConfig();
+ *         final var example = CoreFunctions.getClientConfig(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
  * 
  *         var exampleRoleDefinition = new RoleDefinition("exampleRoleDefinition", RoleDefinitionArgs.builder()
  *             .roleDefinitionId("00000000-0000-0000-0000-000000000000")
  *             .name("my-custom-role-definition")
- *             .scope(primary.applyValue(getSubscriptionResult -> getSubscriptionResult.id()))
+ *             .scope(primary.id())
  *             .permissions(RoleDefinitionPermissionArgs.builder()
  *                 .actions("Microsoft.Resources/subscriptions/resourceGroups/read")
  *                 .notActions()
  *                 .build())
- *             .assignableScopes(primary.applyValue(getSubscriptionResult -> getSubscriptionResult.id()))
+ *             .assignableScopes(primary.id())
  *             .build());
  * 
  *         var exampleAssignment = new Assignment("exampleAssignment", AssignmentArgs.builder()
  *             .name("00000000-0000-0000-0000-000000000000")
- *             .scope(primary.applyValue(getSubscriptionResult -> getSubscriptionResult.id()))
+ *             .scope(primary.id())
  *             .roleDefinitionId(exampleRoleDefinition.roleDefinitionResourceId())
- *             .principalId(example.applyValue(getClientConfigResult -> getClientConfigResult.objectId()))
+ *             .principalId(example.objectId())
  *             .build());
  * 
  *     }
@@ -213,9 +216,10 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         final var primary = CoreFunctions.getSubscription();
+ *         final var primary = CoreFunctions.getSubscription(GetSubscriptionArgs.builder()
+ *             .build());
  * 
- *         final var example = CoreFunctions.getClientConfig();
+ *         final var example = CoreFunctions.getClientConfig(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
  * 
  *         final var exampleGetGroup = ManagementFunctions.getGroup(GetGroupArgs.builder()
  *             .name("00000000-0000-0000-0000-000000000000")
@@ -224,19 +228,19 @@ import javax.annotation.Nullable;
  *         var exampleRoleDefinition = new RoleDefinition("exampleRoleDefinition", RoleDefinitionArgs.builder()
  *             .roleDefinitionId("00000000-0000-0000-0000-000000000000")
  *             .name("my-custom-role-definition")
- *             .scope(primary.applyValue(getSubscriptionResult -> getSubscriptionResult.id()))
+ *             .scope(primary.id())
  *             .permissions(RoleDefinitionPermissionArgs.builder()
  *                 .actions("Microsoft.Resources/subscriptions/resourceGroups/read")
  *                 .notActions()
  *                 .build())
- *             .assignableScopes(primary.applyValue(getSubscriptionResult -> getSubscriptionResult.id()))
+ *             .assignableScopes(primary.id())
  *             .build());
  * 
  *         var exampleAssignment = new Assignment("exampleAssignment", AssignmentArgs.builder()
  *             .name("00000000-0000-0000-0000-000000000000")
  *             .scope(primaryAzurermManagementGroup.id())
  *             .roleDefinitionId(exampleRoleDefinition.roleDefinitionResourceId())
- *             .principalId(example.applyValue(getClientConfigResult -> getClientConfigResult.objectId()))
+ *             .principalId(example.objectId())
  *             .build());
  * 
  *     }
@@ -261,6 +265,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.authorization.inputs.GetRoleDefinitionArgs;
  * import com.pulumi.azure.authorization.Assignment;
  * import com.pulumi.azure.authorization.AssignmentArgs;
+ * import com.pulumi.std.StdFunctions;
+ * import com.pulumi.std.inputs.BasenameArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -274,9 +280,10 @@ import javax.annotation.Nullable;
  *     }}{@code
  * 
  *     public static void stack(Context ctx) }{{@code
- *         final var primary = CoreFunctions.getSubscription();
+ *         final var primary = CoreFunctions.getSubscription(GetSubscriptionArgs.builder()
+ *             .build());
  * 
- *         final var example = CoreFunctions.getClientConfig();
+ *         final var example = CoreFunctions.getClientConfig(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
  * 
  *         final var builtin = AuthorizationFunctions.getRoleDefinition(GetRoleDefinitionArgs.builder()
  *             .name("Reader")
@@ -284,8 +291,8 @@ import javax.annotation.Nullable;
  * 
  *         var exampleAssignment = new Assignment("exampleAssignment", AssignmentArgs.builder()
  *             .roleDefinitionName("Role Based Access Control Administrator")
- *             .scope(primary.applyValue(getSubscriptionResult -> getSubscriptionResult.id()))
- *             .principalId(example.applyValue(getClientConfigResult -> getClientConfigResult.objectId()))
+ *             .scope(primary.id())
+ *             .principalId(example.objectId())
  *             .principalType("ServicePrincipal")
  *             .description("Role Based Access Control Administrator role assignment with ABAC Condition.")
  *             .conditionVersion("2.0")
@@ -310,9 +317,9 @@ import javax.annotation.Nullable;
  *  )
  * )
  * ", StdFunctions.basename(BasenameArgs.builder()
- *                 .input(builtin.applyValue(getRoleDefinitionResult -> getRoleDefinitionResult.roleDefinitionId()))
+ *                 .input(builtin.roleDefinitionId())
  *                 .build()).result(),StdFunctions.basename(BasenameArgs.builder()
- *                 .input(builtin.applyValue(getRoleDefinitionResult -> getRoleDefinitionResult.roleDefinitionId()))
+ *                 .input(builtin.roleDefinitionId())
  *                 .build()).result()))
  *             .build());
  * 

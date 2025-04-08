@@ -110,19 +110,19 @@ import javax.annotation.Nullable;
  *             .allocationMethod("Static")
  *             .build());
  * 
- *         final var backendAddressPoolName = exampleVirtualNetwork.name().applyValue(name -> String.format("%s-beap", name));
+ *         final var backendAddressPoolName = exampleVirtualNetwork.name().applyValue(_name -> String.format("%s-beap", _name));
  * 
- *         final var frontendPortName = exampleVirtualNetwork.name().applyValue(name -> String.format("%s-feport", name));
+ *         final var frontendPortName = exampleVirtualNetwork.name().applyValue(_name -> String.format("%s-feport", _name));
  * 
- *         final var frontendIpConfigurationName = exampleVirtualNetwork.name().applyValue(name -> String.format("%s-feip", name));
+ *         final var frontendIpConfigurationName = exampleVirtualNetwork.name().applyValue(_name -> String.format("%s-feip", _name));
  * 
- *         final var httpSettingName = exampleVirtualNetwork.name().applyValue(name -> String.format("%s-be-htst", name));
+ *         final var httpSettingName = exampleVirtualNetwork.name().applyValue(_name -> String.format("%s-be-htst", _name));
  * 
- *         final var listenerName = exampleVirtualNetwork.name().applyValue(name -> String.format("%s-httplstn", name));
+ *         final var listenerName = exampleVirtualNetwork.name().applyValue(_name -> String.format("%s-httplstn", _name));
  * 
- *         final var requestRoutingRuleName = exampleVirtualNetwork.name().applyValue(name -> String.format("%s-rqrt", name));
+ *         final var requestRoutingRuleName = exampleVirtualNetwork.name().applyValue(_name -> String.format("%s-rqrt", _name));
  * 
- *         final var redirectConfigurationName = exampleVirtualNetwork.name().applyValue(name -> String.format("%s-rdrcfg", name));
+ *         final var redirectConfigurationName = exampleVirtualNetwork.name().applyValue(_name -> String.format("%s-rdrcfg", _name));
  * 
  *         var network = new ApplicationGateway("network", ApplicationGatewayArgs.builder()
  *             .name("example-appgateway")

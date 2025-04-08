@@ -90,7 +90,8 @@ import javax.annotation.Nullable;
  *             .storageAccountName(exampleAccount.name())
  *             .storageAccountAccessKey(exampleAccount.primaryAccessKey())
  *             .servicePlanId(exampleServicePlan.id())
- *             .siteConfig()
+ *             .siteConfig(WindowsFunctionAppSiteConfigArgs.builder()
+ *                 .build())
  *             .build());
  * 
  *     }

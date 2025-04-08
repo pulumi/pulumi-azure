@@ -77,7 +77,7 @@ public final class DnsFunctions {
      *             .resourceGroupName("test-rg")
      *             .build());
      * 
-     *         ctx.export("dnsAaaaRecordId", example.applyValue(getAAAARecordResult -> getAAAARecordResult.id()));
+     *         ctx.export("dnsAaaaRecordId", example.id());
      *     }
      * }
      * }
@@ -120,7 +120,7 @@ public final class DnsFunctions {
      *             .resourceGroupName("test-rg")
      *             .build());
      * 
-     *         ctx.export("dnsAaaaRecordId", example.applyValue(getAAAARecordResult -> getAAAARecordResult.id()));
+     *         ctx.export("dnsAaaaRecordId", example.id());
      *     }
      * }
      * }
@@ -163,7 +163,7 @@ public final class DnsFunctions {
      *             .resourceGroupName("test-rg")
      *             .build());
      * 
-     *         ctx.export("dnsAaaaRecordId", example.applyValue(getAAAARecordResult -> getAAAARecordResult.id()));
+     *         ctx.export("dnsAaaaRecordId", example.id());
      *     }
      * }
      * }
@@ -206,7 +206,7 @@ public final class DnsFunctions {
      *             .resourceGroupName("test-rg")
      *             .build());
      * 
-     *         ctx.export("dnsAaaaRecordId", example.applyValue(getAAAARecordResult -> getAAAARecordResult.id()));
+     *         ctx.export("dnsAaaaRecordId", example.id());
      *     }
      * }
      * }
@@ -249,7 +249,7 @@ public final class DnsFunctions {
      *             .resourceGroupName("test-rg")
      *             .build());
      * 
-     *         ctx.export("dnsAaaaRecordId", example.applyValue(getAAAARecordResult -> getAAAARecordResult.id()));
+     *         ctx.export("dnsAaaaRecordId", example.id());
      *     }
      * }
      * }
@@ -292,7 +292,7 @@ public final class DnsFunctions {
      *             .resourceGroupName("test-rg")
      *             .build());
      * 
-     *         ctx.export("dnsARecordId", example.applyValue(getARecordResult -> getARecordResult.id()));
+     *         ctx.export("dnsARecordId", example.id());
      *     }
      * }
      * }
@@ -335,7 +335,7 @@ public final class DnsFunctions {
      *             .resourceGroupName("test-rg")
      *             .build());
      * 
-     *         ctx.export("dnsARecordId", example.applyValue(getARecordResult -> getARecordResult.id()));
+     *         ctx.export("dnsARecordId", example.id());
      *     }
      * }
      * }
@@ -378,7 +378,7 @@ public final class DnsFunctions {
      *             .resourceGroupName("test-rg")
      *             .build());
      * 
-     *         ctx.export("dnsARecordId", example.applyValue(getARecordResult -> getARecordResult.id()));
+     *         ctx.export("dnsARecordId", example.id());
      *     }
      * }
      * }
@@ -421,7 +421,7 @@ public final class DnsFunctions {
      *             .resourceGroupName("test-rg")
      *             .build());
      * 
-     *         ctx.export("dnsARecordId", example.applyValue(getARecordResult -> getARecordResult.id()));
+     *         ctx.export("dnsARecordId", example.id());
      *     }
      * }
      * }
@@ -464,7 +464,7 @@ public final class DnsFunctions {
      *             .resourceGroupName("test-rg")
      *             .build());
      * 
-     *         ctx.export("dnsARecordId", example.applyValue(getARecordResult -> getARecordResult.id()));
+     *         ctx.export("dnsARecordId", example.id());
      *     }
      * }
      * }
@@ -507,7 +507,7 @@ public final class DnsFunctions {
      *             .resourceGroupName("test-rg")
      *             .build());
      * 
-     *         ctx.export("dnsCaaRecordId", example.applyValue(getCAARecordResult -> getCAARecordResult.id()));
+     *         ctx.export("dnsCaaRecordId", example.id());
      *     }
      * }
      * }
@@ -550,7 +550,7 @@ public final class DnsFunctions {
      *             .resourceGroupName("test-rg")
      *             .build());
      * 
-     *         ctx.export("dnsCaaRecordId", example.applyValue(getCAARecordResult -> getCAARecordResult.id()));
+     *         ctx.export("dnsCaaRecordId", example.id());
      *     }
      * }
      * }
@@ -593,7 +593,7 @@ public final class DnsFunctions {
      *             .resourceGroupName("test-rg")
      *             .build());
      * 
-     *         ctx.export("dnsCaaRecordId", example.applyValue(getCAARecordResult -> getCAARecordResult.id()));
+     *         ctx.export("dnsCaaRecordId", example.id());
      *     }
      * }
      * }
@@ -636,7 +636,7 @@ public final class DnsFunctions {
      *             .resourceGroupName("test-rg")
      *             .build());
      * 
-     *         ctx.export("dnsCaaRecordId", example.applyValue(getCAARecordResult -> getCAARecordResult.id()));
+     *         ctx.export("dnsCaaRecordId", example.id());
      *     }
      * }
      * }
@@ -679,7 +679,7 @@ public final class DnsFunctions {
      *             .resourceGroupName("test-rg")
      *             .build());
      * 
-     *         ctx.export("dnsCaaRecordId", example.applyValue(getCAARecordResult -> getCAARecordResult.id()));
+     *         ctx.export("dnsCaaRecordId", example.id());
      *     }
      * }
      * }
@@ -722,7 +722,7 @@ public final class DnsFunctions {
      *             .resourceGroupName("test-rg")
      *             .build());
      * 
-     *         ctx.export("dnsCnameRecordId", example.applyValue(getCnameRecordResult -> getCnameRecordResult.id()));
+     *         ctx.export("dnsCnameRecordId", example.id());
      *     }
      * }
      * }
@@ -765,7 +765,7 @@ public final class DnsFunctions {
      *             .resourceGroupName("test-rg")
      *             .build());
      * 
-     *         ctx.export("dnsCnameRecordId", example.applyValue(getCnameRecordResult -> getCnameRecordResult.id()));
+     *         ctx.export("dnsCnameRecordId", example.id());
      *     }
      * }
      * }
@@ -808,7 +808,7 @@ public final class DnsFunctions {
      *             .resourceGroupName("test-rg")
      *             .build());
      * 
-     *         ctx.export("dnsCnameRecordId", example.applyValue(getCnameRecordResult -> getCnameRecordResult.id()));
+     *         ctx.export("dnsCnameRecordId", example.id());
      *     }
      * }
      * }
@@ -851,7 +851,7 @@ public final class DnsFunctions {
      *             .resourceGroupName("test-rg")
      *             .build());
      * 
-     *         ctx.export("dnsCnameRecordId", example.applyValue(getCnameRecordResult -> getCnameRecordResult.id()));
+     *         ctx.export("dnsCnameRecordId", example.id());
      *     }
      * }
      * }
@@ -894,7 +894,7 @@ public final class DnsFunctions {
      *             .resourceGroupName("test-rg")
      *             .build());
      * 
-     *         ctx.export("dnsCnameRecordId", example.applyValue(getCnameRecordResult -> getCnameRecordResult.id()));
+     *         ctx.export("dnsCnameRecordId", example.id());
      *     }
      * }
      * }
@@ -937,7 +937,7 @@ public final class DnsFunctions {
      *             .resourceGroupName("test-rg")
      *             .build());
      * 
-     *         ctx.export("dnsMxRecordId", example.applyValue(getMxRecordResult -> getMxRecordResult.id()));
+     *         ctx.export("dnsMxRecordId", example.id());
      *     }
      * }
      * }
@@ -980,7 +980,7 @@ public final class DnsFunctions {
      *             .resourceGroupName("test-rg")
      *             .build());
      * 
-     *         ctx.export("dnsMxRecordId", example.applyValue(getMxRecordResult -> getMxRecordResult.id()));
+     *         ctx.export("dnsMxRecordId", example.id());
      *     }
      * }
      * }
@@ -1023,7 +1023,7 @@ public final class DnsFunctions {
      *             .resourceGroupName("test-rg")
      *             .build());
      * 
-     *         ctx.export("dnsMxRecordId", example.applyValue(getMxRecordResult -> getMxRecordResult.id()));
+     *         ctx.export("dnsMxRecordId", example.id());
      *     }
      * }
      * }
@@ -1066,7 +1066,7 @@ public final class DnsFunctions {
      *             .resourceGroupName("test-rg")
      *             .build());
      * 
-     *         ctx.export("dnsMxRecordId", example.applyValue(getMxRecordResult -> getMxRecordResult.id()));
+     *         ctx.export("dnsMxRecordId", example.id());
      *     }
      * }
      * }
@@ -1109,7 +1109,7 @@ public final class DnsFunctions {
      *             .resourceGroupName("test-rg")
      *             .build());
      * 
-     *         ctx.export("dnsMxRecordId", example.applyValue(getMxRecordResult -> getMxRecordResult.id()));
+     *         ctx.export("dnsMxRecordId", example.id());
      *     }
      * }
      * }
@@ -1152,7 +1152,7 @@ public final class DnsFunctions {
      *             .resourceGroupName("test-rg")
      *             .build());
      * 
-     *         ctx.export("dnsNsRecordId", example.applyValue(getNsRecordResult -> getNsRecordResult.id()));
+     *         ctx.export("dnsNsRecordId", example.id());
      *     }
      * }
      * }
@@ -1195,7 +1195,7 @@ public final class DnsFunctions {
      *             .resourceGroupName("test-rg")
      *             .build());
      * 
-     *         ctx.export("dnsNsRecordId", example.applyValue(getNsRecordResult -> getNsRecordResult.id()));
+     *         ctx.export("dnsNsRecordId", example.id());
      *     }
      * }
      * }
@@ -1238,7 +1238,7 @@ public final class DnsFunctions {
      *             .resourceGroupName("test-rg")
      *             .build());
      * 
-     *         ctx.export("dnsNsRecordId", example.applyValue(getNsRecordResult -> getNsRecordResult.id()));
+     *         ctx.export("dnsNsRecordId", example.id());
      *     }
      * }
      * }
@@ -1281,7 +1281,7 @@ public final class DnsFunctions {
      *             .resourceGroupName("test-rg")
      *             .build());
      * 
-     *         ctx.export("dnsNsRecordId", example.applyValue(getNsRecordResult -> getNsRecordResult.id()));
+     *         ctx.export("dnsNsRecordId", example.id());
      *     }
      * }
      * }
@@ -1324,7 +1324,7 @@ public final class DnsFunctions {
      *             .resourceGroupName("test-rg")
      *             .build());
      * 
-     *         ctx.export("dnsNsRecordId", example.applyValue(getNsRecordResult -> getNsRecordResult.id()));
+     *         ctx.export("dnsNsRecordId", example.id());
      *     }
      * }
      * }
@@ -1367,7 +1367,7 @@ public final class DnsFunctions {
      *             .resourceGroupName("test-rg")
      *             .build());
      * 
-     *         ctx.export("dnsPtrRecordId", example.applyValue(getPtrRecordResult -> getPtrRecordResult.id()));
+     *         ctx.export("dnsPtrRecordId", example.id());
      *     }
      * }
      * }
@@ -1410,7 +1410,7 @@ public final class DnsFunctions {
      *             .resourceGroupName("test-rg")
      *             .build());
      * 
-     *         ctx.export("dnsPtrRecordId", example.applyValue(getPtrRecordResult -> getPtrRecordResult.id()));
+     *         ctx.export("dnsPtrRecordId", example.id());
      *     }
      * }
      * }
@@ -1453,7 +1453,7 @@ public final class DnsFunctions {
      *             .resourceGroupName("test-rg")
      *             .build());
      * 
-     *         ctx.export("dnsPtrRecordId", example.applyValue(getPtrRecordResult -> getPtrRecordResult.id()));
+     *         ctx.export("dnsPtrRecordId", example.id());
      *     }
      * }
      * }
@@ -1496,7 +1496,7 @@ public final class DnsFunctions {
      *             .resourceGroupName("test-rg")
      *             .build());
      * 
-     *         ctx.export("dnsPtrRecordId", example.applyValue(getPtrRecordResult -> getPtrRecordResult.id()));
+     *         ctx.export("dnsPtrRecordId", example.id());
      *     }
      * }
      * }
@@ -1539,7 +1539,7 @@ public final class DnsFunctions {
      *             .resourceGroupName("test-rg")
      *             .build());
      * 
-     *         ctx.export("dnsPtrRecordId", example.applyValue(getPtrRecordResult -> getPtrRecordResult.id()));
+     *         ctx.export("dnsPtrRecordId", example.id());
      *     }
      * }
      * }
@@ -1581,7 +1581,7 @@ public final class DnsFunctions {
      *             .resourceGroupName("test-rg")
      *             .build());
      * 
-     *         ctx.export("dnsSoaRecordId", example.applyValue(getSoaRecordResult -> getSoaRecordResult.id()));
+     *         ctx.export("dnsSoaRecordId", example.id());
      *     }
      * }
      * }
@@ -1623,7 +1623,7 @@ public final class DnsFunctions {
      *             .resourceGroupName("test-rg")
      *             .build());
      * 
-     *         ctx.export("dnsSoaRecordId", example.applyValue(getSoaRecordResult -> getSoaRecordResult.id()));
+     *         ctx.export("dnsSoaRecordId", example.id());
      *     }
      * }
      * }
@@ -1665,7 +1665,7 @@ public final class DnsFunctions {
      *             .resourceGroupName("test-rg")
      *             .build());
      * 
-     *         ctx.export("dnsSoaRecordId", example.applyValue(getSoaRecordResult -> getSoaRecordResult.id()));
+     *         ctx.export("dnsSoaRecordId", example.id());
      *     }
      * }
      * }
@@ -1707,7 +1707,7 @@ public final class DnsFunctions {
      *             .resourceGroupName("test-rg")
      *             .build());
      * 
-     *         ctx.export("dnsSoaRecordId", example.applyValue(getSoaRecordResult -> getSoaRecordResult.id()));
+     *         ctx.export("dnsSoaRecordId", example.id());
      *     }
      * }
      * }
@@ -1749,7 +1749,7 @@ public final class DnsFunctions {
      *             .resourceGroupName("test-rg")
      *             .build());
      * 
-     *         ctx.export("dnsSoaRecordId", example.applyValue(getSoaRecordResult -> getSoaRecordResult.id()));
+     *         ctx.export("dnsSoaRecordId", example.id());
      *     }
      * }
      * }
@@ -1792,7 +1792,7 @@ public final class DnsFunctions {
      *             .resourceGroupName("test-rg")
      *             .build());
      * 
-     *         ctx.export("dnsSrvRecordId", example.applyValue(getSrvRecordResult -> getSrvRecordResult.id()));
+     *         ctx.export("dnsSrvRecordId", example.id());
      *     }
      * }
      * }
@@ -1835,7 +1835,7 @@ public final class DnsFunctions {
      *             .resourceGroupName("test-rg")
      *             .build());
      * 
-     *         ctx.export("dnsSrvRecordId", example.applyValue(getSrvRecordResult -> getSrvRecordResult.id()));
+     *         ctx.export("dnsSrvRecordId", example.id());
      *     }
      * }
      * }
@@ -1878,7 +1878,7 @@ public final class DnsFunctions {
      *             .resourceGroupName("test-rg")
      *             .build());
      * 
-     *         ctx.export("dnsSrvRecordId", example.applyValue(getSrvRecordResult -> getSrvRecordResult.id()));
+     *         ctx.export("dnsSrvRecordId", example.id());
      *     }
      * }
      * }
@@ -1921,7 +1921,7 @@ public final class DnsFunctions {
      *             .resourceGroupName("test-rg")
      *             .build());
      * 
-     *         ctx.export("dnsSrvRecordId", example.applyValue(getSrvRecordResult -> getSrvRecordResult.id()));
+     *         ctx.export("dnsSrvRecordId", example.id());
      *     }
      * }
      * }
@@ -1964,7 +1964,7 @@ public final class DnsFunctions {
      *             .resourceGroupName("test-rg")
      *             .build());
      * 
-     *         ctx.export("dnsSrvRecordId", example.applyValue(getSrvRecordResult -> getSrvRecordResult.id()));
+     *         ctx.export("dnsSrvRecordId", example.id());
      *     }
      * }
      * }
@@ -2007,7 +2007,7 @@ public final class DnsFunctions {
      *             .resourceGroupName("test-rg")
      *             .build());
      * 
-     *         ctx.export("dnsTxtRecordId", example.applyValue(getTxtRecordResult -> getTxtRecordResult.id()));
+     *         ctx.export("dnsTxtRecordId", example.id());
      *     }
      * }
      * }
@@ -2050,7 +2050,7 @@ public final class DnsFunctions {
      *             .resourceGroupName("test-rg")
      *             .build());
      * 
-     *         ctx.export("dnsTxtRecordId", example.applyValue(getTxtRecordResult -> getTxtRecordResult.id()));
+     *         ctx.export("dnsTxtRecordId", example.id());
      *     }
      * }
      * }
@@ -2093,7 +2093,7 @@ public final class DnsFunctions {
      *             .resourceGroupName("test-rg")
      *             .build());
      * 
-     *         ctx.export("dnsTxtRecordId", example.applyValue(getTxtRecordResult -> getTxtRecordResult.id()));
+     *         ctx.export("dnsTxtRecordId", example.id());
      *     }
      * }
      * }
@@ -2136,7 +2136,7 @@ public final class DnsFunctions {
      *             .resourceGroupName("test-rg")
      *             .build());
      * 
-     *         ctx.export("dnsTxtRecordId", example.applyValue(getTxtRecordResult -> getTxtRecordResult.id()));
+     *         ctx.export("dnsTxtRecordId", example.id());
      *     }
      * }
      * }
@@ -2179,7 +2179,7 @@ public final class DnsFunctions {
      *             .resourceGroupName("test-rg")
      *             .build());
      * 
-     *         ctx.export("dnsTxtRecordId", example.applyValue(getTxtRecordResult -> getTxtRecordResult.id()));
+     *         ctx.export("dnsTxtRecordId", example.id());
      *     }
      * }
      * }
@@ -2223,7 +2223,7 @@ public final class DnsFunctions {
      *             .resourceGroupName("search-service")
      *             .build());
      * 
-     *         ctx.export("dnsZoneId", example.applyValue(getZoneResult -> getZoneResult.id()));
+     *         ctx.export("dnsZoneId", example.id());
      *     }
      * }
      * }
@@ -2267,7 +2267,7 @@ public final class DnsFunctions {
      *             .resourceGroupName("search-service")
      *             .build());
      * 
-     *         ctx.export("dnsZoneId", example.applyValue(getZoneResult -> getZoneResult.id()));
+     *         ctx.export("dnsZoneId", example.id());
      *     }
      * }
      * }
@@ -2311,7 +2311,7 @@ public final class DnsFunctions {
      *             .resourceGroupName("search-service")
      *             .build());
      * 
-     *         ctx.export("dnsZoneId", example.applyValue(getZoneResult -> getZoneResult.id()));
+     *         ctx.export("dnsZoneId", example.id());
      *     }
      * }
      * }
@@ -2355,7 +2355,7 @@ public final class DnsFunctions {
      *             .resourceGroupName("search-service")
      *             .build());
      * 
-     *         ctx.export("dnsZoneId", example.applyValue(getZoneResult -> getZoneResult.id()));
+     *         ctx.export("dnsZoneId", example.id());
      *     }
      * }
      * }
@@ -2399,7 +2399,7 @@ public final class DnsFunctions {
      *             .resourceGroupName("search-service")
      *             .build());
      * 
-     *         ctx.export("dnsZoneId", example.applyValue(getZoneResult -> getZoneResult.id()));
+     *         ctx.export("dnsZoneId", example.id());
      *     }
      * }
      * }

@@ -87,7 +87,7 @@ import javax.annotation.Nullable;
  *             .location(example.location())
  *             .sku(IoTHubSkuArgs.builder()
  *                 .name("B1")
- *                 .capacity("1")
+ *                 .capacity(1)
  *                 .build())
  *             .tags(Map.of("purpose", "example"))
  *             .build());

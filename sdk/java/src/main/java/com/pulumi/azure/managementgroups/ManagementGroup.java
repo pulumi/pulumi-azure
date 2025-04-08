@@ -46,17 +46,18 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         final var current = CoreFunctions.getSubscription();
+ *         final var current = CoreFunctions.getSubscription(GetSubscriptionArgs.builder()
+ *             .build());
  * 
  *         var exampleParent = new Group("exampleParent", GroupArgs.builder()
  *             .displayName("ParentGroup")
- *             .subscriptionIds(current.applyValue(getSubscriptionResult -> getSubscriptionResult.subscriptionId()))
+ *             .subscriptionIds(current.subscriptionId())
  *             .build());
  * 
  *         var exampleChild = new Group("exampleChild", GroupArgs.builder()
  *             .displayName("ChildGroup")
  *             .parentManagementGroupId(exampleParent.id())
- *             .subscriptionIds(current.applyValue(getSubscriptionResult -> getSubscriptionResult.subscriptionId()))
+ *             .subscriptionIds(current.subscriptionId())
  *             .build());
  * 
  *     }

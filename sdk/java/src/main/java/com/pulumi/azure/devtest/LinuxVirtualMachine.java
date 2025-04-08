@@ -42,6 +42,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.devtest.LinuxVirtualMachine;
  * import com.pulumi.azure.devtest.LinuxVirtualMachineArgs;
  * import com.pulumi.azure.devtest.inputs.LinuxVirtualMachineGalleryImageReferenceArgs;
+ * import com.pulumi.std.StdFunctions;
+ * import com.pulumi.std.inputs.FileArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -88,7 +90,7 @@ import javax.annotation.Nullable;
  *                 .input("~/.ssh/id_rsa.pub")
  *                 .build()).result())
  *             .labVirtualNetworkId(exampleVirtualNetwork.id())
- *             .labSubnetName(exampleVirtualNetwork.subnet().applyValue(subnet -> subnet.name()))
+ *             .labSubnetName(exampleVirtualNetwork.subnet().applyValue(_subnet -> _subnet.name()))
  *             .storageType("Premium")
  *             .notes("Some notes about this Virtual Machine.")
  *             .galleryImageReference(LinuxVirtualMachineGalleryImageReferenceArgs.builder()

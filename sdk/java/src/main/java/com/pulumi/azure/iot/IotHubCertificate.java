@@ -36,6 +36,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.iot.inputs.IotHubDpsSkuArgs;
  * import com.pulumi.azure.iot.IotHubCertificate;
  * import com.pulumi.azure.iot.IotHubCertificateArgs;
+ * import com.pulumi.std.StdFunctions;
+ * import com.pulumi.std.inputs.Filebase64Args;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -60,7 +62,7 @@ import javax.annotation.Nullable;
  *             .location(example.location())
  *             .sku(IotHubDpsSkuArgs.builder()
  *                 .name("S1")
- *                 .capacity("1")
+ *                 .capacity(1)
  *                 .build())
  *             .build());
  * 

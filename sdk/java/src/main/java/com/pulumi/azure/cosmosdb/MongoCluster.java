@@ -59,10 +59,10 @@ import javax.annotation.Nullable;
  *             .location(example.location())
  *             .administratorUsername("adminTerraform")
  *             .administratorPassword("QAZwsx123")
- *             .shardCount("1")
+ *             .shardCount(1)
  *             .computeTier("Free")
  *             .highAvailabilityMode("Disabled")
- *             .storageSizeInGb("32")
+ *             .storageSizeInGb(32)
  *             .build());
  * 
  *     }
@@ -109,10 +109,10 @@ import javax.annotation.Nullable;
  *             .location(example.location())
  *             .administratorUsername("adminTerraform")
  *             .administratorPassword("QAZwsx123")
- *             .shardCount("1")
+ *             .shardCount(1)
  *             .computeTier("M30")
  *             .highAvailabilityMode("ZoneRedundantPreferred")
- *             .storageSizeInGb("64")
+ *             .storageSizeInGb(64)
  *             .previewFeatures("GeoReplicas")
  *             .build());
  * 

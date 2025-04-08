@@ -81,8 +81,8 @@ import javax.annotation.Nullable;
  * 
  *         var exampleOutputEventHub = new OutputEventHub("exampleOutputEventHub", OutputEventHubArgs.builder()
  *             .name("output-to-eventhub")
- *             .streamAnalyticsJobName(example.applyValue(getJobResult -> getJobResult).applyValue(example -> example.applyValue(getJobResult -> getJobResult.name())))
- *             .resourceGroupName(example.applyValue(getJobResult -> getJobResult).applyValue(example -> example.applyValue(getJobResult -> getJobResult.resourceGroupName())))
+ *             .streamAnalyticsJobName(example.applyValue(_example -> _example.name()))
+ *             .resourceGroupName(example.applyValue(_example -> _example.resourceGroupName()))
  *             .eventhubName(exampleEventHub.name())
  *             .servicebusNamespace(exampleEventHubNamespace.name())
  *             .sharedAccessPolicyKey(exampleEventHubNamespace.defaultPrimaryKey())

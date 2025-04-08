@@ -50,10 +50,10 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleGroupUser = new GroupUser("exampleGroupUser", GroupUserArgs.builder()
- *             .userId(example.applyValue(getUserResult -> getUserResult.id()))
+ *             .userId(example.id())
  *             .groupName("example-group")
- *             .resourceGroupName(example.applyValue(getUserResult -> getUserResult.resourceGroupName()))
- *             .apiManagementName(example.applyValue(getUserResult -> getUserResult.apiManagementName()))
+ *             .resourceGroupName(example.resourceGroupName())
+ *             .apiManagementName(example.apiManagementName())
  *             .build());
  * 
  *     }

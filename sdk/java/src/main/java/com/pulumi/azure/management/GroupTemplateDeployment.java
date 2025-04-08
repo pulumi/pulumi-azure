@@ -56,7 +56,7 @@ import javax.annotation.Nullable;
  *         var exampleGroupTemplateDeployment = new GroupTemplateDeployment("exampleGroupTemplateDeployment", GroupTemplateDeploymentArgs.builder()
  *             .name("example")
  *             .location("West Europe")
- *             .managementGroupId(example.applyValue(getGroupResult -> getGroupResult.id()))
+ *             .managementGroupId(example.id())
  *             .templateContent("""
  * {
  *   "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
@@ -120,6 +120,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.management.inputs.GetGroupArgs;
  * import com.pulumi.azure.management.GroupTemplateDeployment;
  * import com.pulumi.azure.management.GroupTemplateDeploymentArgs;
+ * import com.pulumi.std.StdFunctions;
+ * import com.pulumi.std.inputs.FileArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -140,7 +142,7 @@ import javax.annotation.Nullable;
  *         var exampleGroupTemplateDeployment = new GroupTemplateDeployment("exampleGroupTemplateDeployment", GroupTemplateDeploymentArgs.builder()
  *             .name("example")
  *             .location("West Europe")
- *             .managementGroupId(example.applyValue(getGroupResult -> getGroupResult.id()))
+ *             .managementGroupId(example.id())
  *             .templateContent(StdFunctions.file(FileArgs.builder()
  *                 .input("templates/example-deploy-template.json")
  *                 .build()).result())
@@ -195,8 +197,8 @@ import javax.annotation.Nullable;
  *         var exampleGroupTemplateDeployment = new GroupTemplateDeployment("exampleGroupTemplateDeployment", GroupTemplateDeploymentArgs.builder()
  *             .name("example")
  *             .location("West Europe")
- *             .managementGroupId(example.applyValue(getGroupResult -> getGroupResult.id()))
- *             .templateSpecVersionId(exampleGetTemplateSpecVersion.applyValue(getTemplateSpecVersionResult -> getTemplateSpecVersionResult.id()))
+ *             .managementGroupId(example.id())
+ *             .templateSpecVersionId(exampleGetTemplateSpecVersion.id())
  *             .build());
  * 
  *     }

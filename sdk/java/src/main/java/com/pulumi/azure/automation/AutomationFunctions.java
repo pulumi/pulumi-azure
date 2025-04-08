@@ -69,7 +69,7 @@ public final class AutomationFunctions {
      *             .resourceGroupName("example-resources")
      *             .build());
      * 
-     *         ctx.export("automationAccountId", example.applyValue(getAccountResult -> getAccountResult.id()));
+     *         ctx.export("automationAccountId", example.id());
      *     }
      * }
      * }
@@ -113,7 +113,7 @@ public final class AutomationFunctions {
      *             .resourceGroupName("example-resources")
      *             .build());
      * 
-     *         ctx.export("automationAccountId", example.applyValue(getAccountResult -> getAccountResult.id()));
+     *         ctx.export("automationAccountId", example.id());
      *     }
      * }
      * }
@@ -157,7 +157,7 @@ public final class AutomationFunctions {
      *             .resourceGroupName("example-resources")
      *             .build());
      * 
-     *         ctx.export("automationAccountId", example.applyValue(getAccountResult -> getAccountResult.id()));
+     *         ctx.export("automationAccountId", example.id());
      *     }
      * }
      * }
@@ -201,7 +201,7 @@ public final class AutomationFunctions {
      *             .resourceGroupName("example-resources")
      *             .build());
      * 
-     *         ctx.export("automationAccountId", example.applyValue(getAccountResult -> getAccountResult.id()));
+     *         ctx.export("automationAccountId", example.id());
      *     }
      * }
      * }
@@ -245,7 +245,7 @@ public final class AutomationFunctions {
      *             .resourceGroupName("example-resources")
      *             .build());
      * 
-     *         ctx.export("automationAccountId", example.applyValue(getAccountResult -> getAccountResult.id()));
+     *         ctx.export("automationAccountId", example.id());
      *     }
      * }
      * }
@@ -290,7 +290,7 @@ public final class AutomationFunctions {
      *             .automationAccountName("tfex-example-account")
      *             .build());
      * 
-     *         ctx.export("variableId", example.applyValue(getBoolVariableResult -> getBoolVariableResult.id()));
+     *         ctx.export("variableId", example.id());
      *     }
      * }
      * }
@@ -335,7 +335,7 @@ public final class AutomationFunctions {
      *             .automationAccountName("tfex-example-account")
      *             .build());
      * 
-     *         ctx.export("variableId", example.applyValue(getBoolVariableResult -> getBoolVariableResult.id()));
+     *         ctx.export("variableId", example.id());
      *     }
      * }
      * }
@@ -380,7 +380,7 @@ public final class AutomationFunctions {
      *             .automationAccountName("tfex-example-account")
      *             .build());
      * 
-     *         ctx.export("variableId", example.applyValue(getBoolVariableResult -> getBoolVariableResult.id()));
+     *         ctx.export("variableId", example.id());
      *     }
      * }
      * }
@@ -425,7 +425,7 @@ public final class AutomationFunctions {
      *             .automationAccountName("tfex-example-account")
      *             .build());
      * 
-     *         ctx.export("variableId", example.applyValue(getBoolVariableResult -> getBoolVariableResult.id()));
+     *         ctx.export("variableId", example.id());
      *     }
      * }
      * }
@@ -470,7 +470,7 @@ public final class AutomationFunctions {
      *             .automationAccountName("tfex-example-account")
      *             .build());
      * 
-     *         ctx.export("variableId", example.applyValue(getBoolVariableResult -> getBoolVariableResult.id()));
+     *         ctx.export("variableId", example.id());
      *     }
      * }
      * }
@@ -515,7 +515,7 @@ public final class AutomationFunctions {
      *             .automationAccountName("tfex-example-account")
      *             .build());
      * 
-     *         ctx.export("variableId", example.applyValue(getDateTimeVariableResult -> getDateTimeVariableResult.id()));
+     *         ctx.export("variableId", example.id());
      *     }
      * }
      * }
@@ -560,7 +560,7 @@ public final class AutomationFunctions {
      *             .automationAccountName("tfex-example-account")
      *             .build());
      * 
-     *         ctx.export("variableId", example.applyValue(getDateTimeVariableResult -> getDateTimeVariableResult.id()));
+     *         ctx.export("variableId", example.id());
      *     }
      * }
      * }
@@ -605,7 +605,7 @@ public final class AutomationFunctions {
      *             .automationAccountName("tfex-example-account")
      *             .build());
      * 
-     *         ctx.export("variableId", example.applyValue(getDateTimeVariableResult -> getDateTimeVariableResult.id()));
+     *         ctx.export("variableId", example.id());
      *     }
      * }
      * }
@@ -650,7 +650,7 @@ public final class AutomationFunctions {
      *             .automationAccountName("tfex-example-account")
      *             .build());
      * 
-     *         ctx.export("variableId", example.applyValue(getDateTimeVariableResult -> getDateTimeVariableResult.id()));
+     *         ctx.export("variableId", example.id());
      *     }
      * }
      * }
@@ -695,7 +695,7 @@ public final class AutomationFunctions {
      *             .automationAccountName("tfex-example-account")
      *             .build());
      * 
-     *         ctx.export("variableId", example.applyValue(getDateTimeVariableResult -> getDateTimeVariableResult.id()));
+     *         ctx.export("variableId", example.id());
      *     }
      * }
      * }
@@ -740,7 +740,7 @@ public final class AutomationFunctions {
      *             .automationAccountName("tfex-example-account")
      *             .build());
      * 
-     *         ctx.export("variableId", example.applyValue(getIntVariableResult -> getIntVariableResult.id()));
+     *         ctx.export("variableId", example.id());
      *     }
      * }
      * }
@@ -785,7 +785,7 @@ public final class AutomationFunctions {
      *             .automationAccountName("tfex-example-account")
      *             .build());
      * 
-     *         ctx.export("variableId", example.applyValue(getIntVariableResult -> getIntVariableResult.id()));
+     *         ctx.export("variableId", example.id());
      *     }
      * }
      * }
@@ -830,7 +830,7 @@ public final class AutomationFunctions {
      *             .automationAccountName("tfex-example-account")
      *             .build());
      * 
-     *         ctx.export("variableId", example.applyValue(getIntVariableResult -> getIntVariableResult.id()));
+     *         ctx.export("variableId", example.id());
      *     }
      * }
      * }
@@ -875,7 +875,7 @@ public final class AutomationFunctions {
      *             .automationAccountName("tfex-example-account")
      *             .build());
      * 
-     *         ctx.export("variableId", example.applyValue(getIntVariableResult -> getIntVariableResult.id()));
+     *         ctx.export("variableId", example.id());
      *     }
      * }
      * }
@@ -920,7 +920,7 @@ public final class AutomationFunctions {
      *             .automationAccountName("tfex-example-account")
      *             .build());
      * 
-     *         ctx.export("variableId", example.applyValue(getIntVariableResult -> getIntVariableResult.id()));
+     *         ctx.export("variableId", example.id());
      *     }
      * }
      * }
@@ -965,7 +965,7 @@ public final class AutomationFunctions {
      *             .automationAccountName("existing-automation")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getRunbookResult -> getRunbookResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -1010,7 +1010,7 @@ public final class AutomationFunctions {
      *             .automationAccountName("existing-automation")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getRunbookResult -> getRunbookResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -1055,7 +1055,7 @@ public final class AutomationFunctions {
      *             .automationAccountName("existing-automation")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getRunbookResult -> getRunbookResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -1100,7 +1100,7 @@ public final class AutomationFunctions {
      *             .automationAccountName("existing-automation")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getRunbookResult -> getRunbookResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -1145,7 +1145,7 @@ public final class AutomationFunctions {
      *             .automationAccountName("existing-automation")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getRunbookResult -> getRunbookResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -1190,7 +1190,7 @@ public final class AutomationFunctions {
      *             .automationAccountName("tfex-example-account")
      *             .build());
      * 
-     *         ctx.export("variableId", example.applyValue(getStringVariableResult -> getStringVariableResult.id()));
+     *         ctx.export("variableId", example.id());
      *     }
      * }
      * }
@@ -1235,7 +1235,7 @@ public final class AutomationFunctions {
      *             .automationAccountName("tfex-example-account")
      *             .build());
      * 
-     *         ctx.export("variableId", example.applyValue(getStringVariableResult -> getStringVariableResult.id()));
+     *         ctx.export("variableId", example.id());
      *     }
      * }
      * }
@@ -1280,7 +1280,7 @@ public final class AutomationFunctions {
      *             .automationAccountName("tfex-example-account")
      *             .build());
      * 
-     *         ctx.export("variableId", example.applyValue(getStringVariableResult -> getStringVariableResult.id()));
+     *         ctx.export("variableId", example.id());
      *     }
      * }
      * }
@@ -1325,7 +1325,7 @@ public final class AutomationFunctions {
      *             .automationAccountName("tfex-example-account")
      *             .build());
      * 
-     *         ctx.export("variableId", example.applyValue(getStringVariableResult -> getStringVariableResult.id()));
+     *         ctx.export("variableId", example.id());
      *     }
      * }
      * }
@@ -1370,7 +1370,7 @@ public final class AutomationFunctions {
      *             .automationAccountName("tfex-example-account")
      *             .build());
      * 
-     *         ctx.export("variableId", example.applyValue(getStringVariableResult -> getStringVariableResult.id()));
+     *         ctx.export("variableId", example.id());
      *     }
      * }
      * }
@@ -1451,7 +1451,7 @@ public final class AutomationFunctions {
      *             .build());
      * 
      *         final var exampleGetVariables = AutomationFunctions.getVariables(GetVariablesArgs.builder()
-     *             .automationAccountId(example.applyValue(getAccountResult -> getAccountResult.id()))
+     *             .automationAccountId(example.id())
      *             .build());
      * 
      *         ctx.export("stringVars", exampleAzurermAutomationVariableString.string());
@@ -1500,7 +1500,7 @@ public final class AutomationFunctions {
      *             .build());
      * 
      *         final var exampleGetVariables = AutomationFunctions.getVariables(GetVariablesArgs.builder()
-     *             .automationAccountId(example.applyValue(getAccountResult -> getAccountResult.id()))
+     *             .automationAccountId(example.id())
      *             .build());
      * 
      *         ctx.export("stringVars", exampleAzurermAutomationVariableString.string());
@@ -1549,7 +1549,7 @@ public final class AutomationFunctions {
      *             .build());
      * 
      *         final var exampleGetVariables = AutomationFunctions.getVariables(GetVariablesArgs.builder()
-     *             .automationAccountId(example.applyValue(getAccountResult -> getAccountResult.id()))
+     *             .automationAccountId(example.id())
      *             .build());
      * 
      *         ctx.export("stringVars", exampleAzurermAutomationVariableString.string());
@@ -1598,7 +1598,7 @@ public final class AutomationFunctions {
      *             .build());
      * 
      *         final var exampleGetVariables = AutomationFunctions.getVariables(GetVariablesArgs.builder()
-     *             .automationAccountId(example.applyValue(getAccountResult -> getAccountResult.id()))
+     *             .automationAccountId(example.id())
      *             .build());
      * 
      *         ctx.export("stringVars", exampleAzurermAutomationVariableString.string());
@@ -1647,7 +1647,7 @@ public final class AutomationFunctions {
      *             .build());
      * 
      *         final var exampleGetVariables = AutomationFunctions.getVariables(GetVariablesArgs.builder()
-     *             .automationAccountId(example.applyValue(getAccountResult -> getAccountResult.id()))
+     *             .automationAccountId(example.id())
      *             .build());
      * 
      *         ctx.export("stringVars", exampleAzurermAutomationVariableString.string());

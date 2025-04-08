@@ -56,13 +56,13 @@ import javax.annotation.Nullable;
  * 
  *         final var exampleGetJob = StreamanalyticsFunctions.getJob(GetJobArgs.builder()
  *             .name("example-job")
- *             .resourceGroupName(example.applyValue(getResourceGroupResult -> getResourceGroupResult.name()))
+ *             .resourceGroupName(example.name())
  *             .build());
  * 
  *         var exampleFunctionJavaScriptUDF = new FunctionJavaScriptUDF("exampleFunctionJavaScriptUDF", FunctionJavaScriptUDFArgs.builder()
  *             .name("example-javascript-function")
- *             .streamAnalyticsJobName(exampleGetJob.applyValue(getJobResult -> getJobResult.name()))
- *             .resourceGroupName(exampleGetJob.applyValue(getJobResult -> getJobResult.resourceGroupName()))
+ *             .streamAnalyticsJobName(exampleGetJob.name())
+ *             .resourceGroupName(exampleGetJob.resourceGroupName())
  *             .script("""
  * function getRandomNumber(in) {
  *   return in;

@@ -307,7 +307,7 @@ public final class PrivatednsFunctions {
      *             .resourceGroupName("test-rg")
      *             .build());
      * 
-     *         ctx.export("privateDnsARecordId", example.applyValue(getARecordResult -> getARecordResult.id()));
+     *         ctx.export("privateDnsARecordId", example.id());
      *     }
      * }
      * }
@@ -350,7 +350,7 @@ public final class PrivatednsFunctions {
      *             .resourceGroupName("test-rg")
      *             .build());
      * 
-     *         ctx.export("privateDnsARecordId", example.applyValue(getARecordResult -> getARecordResult.id()));
+     *         ctx.export("privateDnsARecordId", example.id());
      *     }
      * }
      * }
@@ -393,7 +393,7 @@ public final class PrivatednsFunctions {
      *             .resourceGroupName("test-rg")
      *             .build());
      * 
-     *         ctx.export("privateDnsARecordId", example.applyValue(getARecordResult -> getARecordResult.id()));
+     *         ctx.export("privateDnsARecordId", example.id());
      *     }
      * }
      * }
@@ -436,7 +436,7 @@ public final class PrivatednsFunctions {
      *             .resourceGroupName("test-rg")
      *             .build());
      * 
-     *         ctx.export("privateDnsARecordId", example.applyValue(getARecordResult -> getARecordResult.id()));
+     *         ctx.export("privateDnsARecordId", example.id());
      *     }
      * }
      * }
@@ -479,7 +479,7 @@ public final class PrivatednsFunctions {
      *             .resourceGroupName("test-rg")
      *             .build());
      * 
-     *         ctx.export("privateDnsARecordId", example.applyValue(getARecordResult -> getARecordResult.id()));
+     *         ctx.export("privateDnsARecordId", example.id());
      *     }
      * }
      * }
@@ -738,7 +738,7 @@ public final class PrivatednsFunctions {
      *             .resourceGroupName("contoso-dns")
      *             .build());
      * 
-     *         ctx.export("privateDnsZoneId", example.applyValue(getDnsZoneResult -> getDnsZoneResult.id()));
+     *         ctx.export("privateDnsZoneId", example.id());
      *     }
      * }
      * }
@@ -782,7 +782,7 @@ public final class PrivatednsFunctions {
      *             .resourceGroupName("contoso-dns")
      *             .build());
      * 
-     *         ctx.export("privateDnsZoneId", example.applyValue(getDnsZoneResult -> getDnsZoneResult.id()));
+     *         ctx.export("privateDnsZoneId", example.id());
      *     }
      * }
      * }
@@ -826,7 +826,7 @@ public final class PrivatednsFunctions {
      *             .resourceGroupName("contoso-dns")
      *             .build());
      * 
-     *         ctx.export("privateDnsZoneId", example.applyValue(getDnsZoneResult -> getDnsZoneResult.id()));
+     *         ctx.export("privateDnsZoneId", example.id());
      *     }
      * }
      * }
@@ -870,7 +870,7 @@ public final class PrivatednsFunctions {
      *             .resourceGroupName("contoso-dns")
      *             .build());
      * 
-     *         ctx.export("privateDnsZoneId", example.applyValue(getDnsZoneResult -> getDnsZoneResult.id()));
+     *         ctx.export("privateDnsZoneId", example.id());
      *     }
      * }
      * }
@@ -914,7 +914,7 @@ public final class PrivatednsFunctions {
      *             .resourceGroupName("contoso-dns")
      *             .build());
      * 
-     *         ctx.export("privateDnsZoneId", example.applyValue(getDnsZoneResult -> getDnsZoneResult.id()));
+     *         ctx.export("privateDnsZoneId", example.id());
      *     }
      * }
      * }
@@ -2657,7 +2657,7 @@ public final class PrivatednsFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.azurerm.privateDnsSoaRecord;
-     * import com.pulumi.azurerm.PrivateDnsSoaRecordArgs;
+     * import com.pulumi.azurerm.privateDnsSoaRecordArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -2699,7 +2699,7 @@ public final class PrivatednsFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.azurerm.privateDnsSoaRecord;
-     * import com.pulumi.azurerm.PrivateDnsSoaRecordArgs;
+     * import com.pulumi.azurerm.privateDnsSoaRecordArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -2741,7 +2741,7 @@ public final class PrivatednsFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.azurerm.privateDnsSoaRecord;
-     * import com.pulumi.azurerm.PrivateDnsSoaRecordArgs;
+     * import com.pulumi.azurerm.privateDnsSoaRecordArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -2783,7 +2783,7 @@ public final class PrivatednsFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.azurerm.privateDnsSoaRecord;
-     * import com.pulumi.azurerm.PrivateDnsSoaRecordArgs;
+     * import com.pulumi.azurerm.privateDnsSoaRecordArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -2825,7 +2825,7 @@ public final class PrivatednsFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.azurerm.privateDnsSoaRecord;
-     * import com.pulumi.azurerm.PrivateDnsSoaRecordArgs;
+     * import com.pulumi.azurerm.privateDnsSoaRecordArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -3319,7 +3319,7 @@ public final class PrivatednsFunctions {
      *             .privateDnsZoneName("test-zone")
      *             .build());
      * 
-     *         ctx.export("privateDnsARecordId", example.applyValue(getZoneVirtualNetworkLinkResult -> getZoneVirtualNetworkLinkResult.id()));
+     *         ctx.export("privateDnsARecordId", example.id());
      *     }
      * }
      * }
@@ -3364,7 +3364,7 @@ public final class PrivatednsFunctions {
      *             .privateDnsZoneName("test-zone")
      *             .build());
      * 
-     *         ctx.export("privateDnsARecordId", example.applyValue(getZoneVirtualNetworkLinkResult -> getZoneVirtualNetworkLinkResult.id()));
+     *         ctx.export("privateDnsARecordId", example.id());
      *     }
      * }
      * }
@@ -3409,7 +3409,7 @@ public final class PrivatednsFunctions {
      *             .privateDnsZoneName("test-zone")
      *             .build());
      * 
-     *         ctx.export("privateDnsARecordId", example.applyValue(getZoneVirtualNetworkLinkResult -> getZoneVirtualNetworkLinkResult.id()));
+     *         ctx.export("privateDnsARecordId", example.id());
      *     }
      * }
      * }
@@ -3454,7 +3454,7 @@ public final class PrivatednsFunctions {
      *             .privateDnsZoneName("test-zone")
      *             .build());
      * 
-     *         ctx.export("privateDnsARecordId", example.applyValue(getZoneVirtualNetworkLinkResult -> getZoneVirtualNetworkLinkResult.id()));
+     *         ctx.export("privateDnsARecordId", example.id());
      *     }
      * }
      * }
@@ -3499,7 +3499,7 @@ public final class PrivatednsFunctions {
      *             .privateDnsZoneName("test-zone")
      *             .build());
      * 
-     *         ctx.export("privateDnsARecordId", example.applyValue(getZoneVirtualNetworkLinkResult -> getZoneVirtualNetworkLinkResult.id()));
+     *         ctx.export("privateDnsARecordId", example.id());
      *     }
      * }
      * }

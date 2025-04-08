@@ -86,21 +86,21 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         final var current = CoreFunctions.getClientConfig();
+ *         final var current = CoreFunctions.getClientConfig(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
  * 
  *         var exampleKeyVault = new KeyVault("exampleKeyVault", KeyVaultArgs.builder()
  *             .name("examplekv")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .tenantId(current.applyValue(getClientConfigResult -> getClientConfigResult.tenantId()))
+ *             .tenantId(current.tenantId())
  *             .skuName("standard")
  *             .purgeProtectionEnabled(true)
  *             .build());
  * 
  *         var exampleAccessPolicy = new AccessPolicy("exampleAccessPolicy", AccessPolicyArgs.builder()
  *             .keyVaultId(exampleKeyVault.id())
- *             .tenantId(exampleEventHubNamespace.identity().applyValue(identity -> identity.tenantId()))
- *             .objectId(exampleEventHubNamespace.identity().applyValue(identity -> identity.principalId()))
+ *             .tenantId(exampleEventHubNamespace.identity().applyValue(_identity -> _identity.tenantId()))
+ *             .objectId(exampleEventHubNamespace.identity().applyValue(_identity -> _identity.principalId()))
  *             .keyPermissions(            
  *                 "Get",
  *                 "UnwrapKey",
@@ -109,8 +109,8 @@ import javax.annotation.Nullable;
  * 
  *         var example2 = new AccessPolicy("example2", AccessPolicyArgs.builder()
  *             .keyVaultId(exampleKeyVault.id())
- *             .tenantId(current.applyValue(getClientConfigResult -> getClientConfigResult.tenantId()))
- *             .objectId(current.applyValue(getClientConfigResult -> getClientConfigResult.objectId()))
+ *             .tenantId(current.tenantId())
+ *             .objectId(current.objectId())
  *             .keyPermissions(            
  *                 "Create",
  *                 "Delete",
@@ -222,13 +222,13 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         final var current = CoreFunctions.getClientConfig();
+ *         final var current = CoreFunctions.getClientConfig(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
  * 
  *         var exampleKeyVault = new KeyVault("exampleKeyVault", KeyVaultArgs.builder()
  *             .name("examplekv")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .tenantId(current.applyValue(getClientConfigResult -> getClientConfigResult.tenantId()))
+ *             .tenantId(current.tenantId())
  *             .skuName("standard")
  *             .purgeProtectionEnabled(true)
  *             .build());
@@ -245,8 +245,8 @@ import javax.annotation.Nullable;
  * 
  *         var example2 = new AccessPolicy("example2", AccessPolicyArgs.builder()
  *             .keyVaultId(exampleKeyVault.id())
- *             .tenantId(current.applyValue(getClientConfigResult -> getClientConfigResult.tenantId()))
- *             .objectId(current.applyValue(getClientConfigResult -> getClientConfigResult.objectId()))
+ *             .tenantId(current.tenantId())
+ *             .objectId(current.objectId())
  *             .keyPermissions(            
  *                 "Create",
  *                 "Delete",

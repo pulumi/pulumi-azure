@@ -37,6 +37,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.apimanagement.NamedValueArgs;
  * import com.pulumi.azure.apimanagement.Policy;
  * import com.pulumi.azure.apimanagement.PolicyArgs;
+ * import com.pulumi.std.StdFunctions;
+ * import com.pulumi.std.inputs.FileArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;

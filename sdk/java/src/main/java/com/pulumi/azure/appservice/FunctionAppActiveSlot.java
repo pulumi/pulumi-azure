@@ -84,14 +84,16 @@ import javax.annotation.Nullable;
  *             .location(example.location())
  *             .storageAccountName(exampleAccount.name())
  *             .servicePlanId(exampleServicePlan.id())
- *             .siteConfig()
+ *             .siteConfig(WindowsFunctionAppSiteConfigArgs.builder()
+ *                 .build())
  *             .build());
  * 
  *         var exampleWindowsFunctionAppSlot = new WindowsFunctionAppSlot("exampleWindowsFunctionAppSlot", WindowsFunctionAppSlotArgs.builder()
  *             .name("example-windows-function-app-slot")
  *             .functionAppId(exampleWindowsFunctionApp.id())
  *             .storageAccountName(exampleAccount.name())
- *             .siteConfig()
+ *             .siteConfig(WindowsFunctionAppSlotSiteConfigArgs.builder()
+ *                 .build())
  *             .build());
  * 
  *         var exampleFunctionAppActiveSlot = new FunctionAppActiveSlot("exampleFunctionAppActiveSlot", FunctionAppActiveSlotArgs.builder()
@@ -168,14 +170,16 @@ import javax.annotation.Nullable;
  *             .location(example.location())
  *             .servicePlanId(exampleServicePlan.id())
  *             .storageAccountName(exampleAccount.name())
- *             .siteConfig()
+ *             .siteConfig(LinuxFunctionAppSiteConfigArgs.builder()
+ *                 .build())
  *             .build());
  * 
  *         var exampleLinuxFunctionAppSlot = new LinuxFunctionAppSlot("exampleLinuxFunctionAppSlot", LinuxFunctionAppSlotArgs.builder()
  *             .name("example-linux-function-app-slot")
  *             .functionAppId(exampleLinuxFunctionApp.name())
  *             .storageAccountName(exampleAccount.name())
- *             .siteConfig()
+ *             .siteConfig(LinuxFunctionAppSlotSiteConfigArgs.builder()
+ *                 .build())
  *             .build());
  * 
  *         var exampleFunctionAppActiveSlot = new FunctionAppActiveSlot("exampleFunctionAppActiveSlot", FunctionAppActiveSlotArgs.builder()

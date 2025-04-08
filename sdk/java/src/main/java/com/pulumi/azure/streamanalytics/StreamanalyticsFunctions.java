@@ -48,7 +48,7 @@ public final class StreamanalyticsFunctions {
      *             .resourceGroupName("example-resources")
      *             .build());
      * 
-     *         ctx.export("jobId", example.applyValue(getJobResult -> getJobResult.jobId()));
+     *         ctx.export("jobId", example.jobId());
      *     }
      * }
      * }
@@ -92,7 +92,7 @@ public final class StreamanalyticsFunctions {
      *             .resourceGroupName("example-resources")
      *             .build());
      * 
-     *         ctx.export("jobId", example.applyValue(getJobResult -> getJobResult.jobId()));
+     *         ctx.export("jobId", example.jobId());
      *     }
      * }
      * }
@@ -136,7 +136,7 @@ public final class StreamanalyticsFunctions {
      *             .resourceGroupName("example-resources")
      *             .build());
      * 
-     *         ctx.export("jobId", example.applyValue(getJobResult -> getJobResult.jobId()));
+     *         ctx.export("jobId", example.jobId());
      *     }
      * }
      * }
@@ -180,7 +180,7 @@ public final class StreamanalyticsFunctions {
      *             .resourceGroupName("example-resources")
      *             .build());
      * 
-     *         ctx.export("jobId", example.applyValue(getJobResult -> getJobResult.jobId()));
+     *         ctx.export("jobId", example.jobId());
      *     }
      * }
      * }
@@ -224,7 +224,7 @@ public final class StreamanalyticsFunctions {
      *             .resourceGroupName("example-resources")
      *             .build());
      * 
-     *         ctx.export("jobId", example.applyValue(getJobResult -> getJobResult.jobId()));
+     *         ctx.export("jobId", example.jobId());
      *     }
      * }
      * }

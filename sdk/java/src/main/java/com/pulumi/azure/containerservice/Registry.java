@@ -68,12 +68,14 @@ import javax.annotation.Nullable;
  *                 RegistryGeoreplicationArgs.builder()
  *                     .location("East US")
  *                     .zoneRedundancyEnabled(true)
- *                     .tags()
+ *                     .tags(Map.ofEntries(
+ *                     ))
  *                     .build(),
  *                 RegistryGeoreplicationArgs.builder()
  *                     .location("North Europe")
  *                     .zoneRedundancyEnabled(true)
- *                     .tags()
+ *                     .tags(Map.ofEntries(
+ *                     ))
  *                     .build())
  *             .build());
  * 
@@ -142,7 +144,7 @@ import javax.annotation.Nullable;
  *                 .identityIds(exampleUserAssignedIdentity.id())
  *                 .build())
  *             .encryption(RegistryEncryptionArgs.builder()
- *                 .keyVaultKeyId(example.applyValue(getKeyResult -> getKeyResult.id()))
+ *                 .keyVaultKeyId(example.id())
  *                 .identityClientId(exampleUserAssignedIdentity.clientId())
  *                 .build())
  *             .build());
@@ -215,7 +217,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleAssignment = new Assignment("exampleAssignment", AssignmentArgs.builder()
- *             .principalId(exampleKubernetesCluster.kubeletIdentity().applyValue(kubeletIdentity -> kubeletIdentity.objectId()))
+ *             .principalId(exampleKubernetesCluster.kubeletIdentity().applyValue(_kubeletIdentity -> _kubeletIdentity.objectId()))
  *             .roleDefinitionName("AcrPull")
  *             .scope(exampleRegistry.id())
  *             .skipServicePrincipalAadCheck(true)

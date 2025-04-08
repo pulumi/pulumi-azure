@@ -94,7 +94,7 @@ import javax.annotation.Nullable;
  *                 .metricName("UsedCapacity")
  *                 .aggregation("Average")
  *                 .operator("LessThan")
- *                 .threshold(10)
+ *                 .threshold(10.0)
  *                 .build())
  *             .actions(MetricAlertActionArgs.builder()
  *                 .actionGroupId(exampleActionGroup.id())

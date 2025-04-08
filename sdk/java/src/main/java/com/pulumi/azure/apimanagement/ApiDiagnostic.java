@@ -114,7 +114,7 @@ import javax.annotation.Nullable;
  *             .apiManagementName(exampleService.name())
  *             .apiName(exampleApi.name())
  *             .apiManagementLoggerId(exampleLogger.id())
- *             .samplingPercentage(5)
+ *             .samplingPercentage(5.0)
  *             .alwaysLogErrors(true)
  *             .logClientIp(true)
  *             .verbosity("verbose")

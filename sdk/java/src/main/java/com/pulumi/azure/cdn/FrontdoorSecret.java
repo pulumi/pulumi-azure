@@ -17,6 +17,12 @@ import javax.annotation.Nullable;
 /**
  * Manages a Front Door (standard/premium) Secret.
  * 
+ * ## Required Key Vault Permissions
+ * 
+ * !&gt;**IMPORTANT:** You must add an `Access Policy` to your `azure.keyvault.KeyVault` for the `Microsoft.AzurefrontDoor-Cdn` Enterprise Application Object ID.
+ * 
+ * This can be created by running Az Powershell command like this:
+ * 
  * ```New-AzADServicePrincipal -ApplicationId &#34;00000000-0000-0000-0000-000000000000&#34;```
  * 
  * | Object ID                                | Key Permissions | Secret Permissions   | Certificate Permissions                       |
@@ -49,6 +55,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.keyvault.Certificate;
  * import com.pulumi.azure.keyvault.CertificateArgs;
  * import com.pulumi.azure.keyvault.inputs.CertificateCertificateArgs;
+ * import com.pulumi.std.StdFunctions;
+ * import com.pulumi.std.inputs.Filebase64Args;
  * import com.pulumi.azure.cdn.FrontdoorProfile;
  * import com.pulumi.azure.cdn.FrontdoorProfileArgs;
  * import com.pulumi.azure.cdn.FrontdoorSecret;
@@ -67,7 +75,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         final var current = CoreFunctions.getClientConfig();
+ *         final var current = CoreFunctions.getClientConfig(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
  * 
  *         final var frontdoor = AzureadFunctions.getServicePrincipal(GetServicePrincipalArgs.builder()
  *             .displayName("Microsoft.AzurefrontDoor-Cdn")
@@ -82,7 +90,7 @@ import javax.annotation.Nullable;
  *             .name("example-keyvault")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .tenantId(current.applyValue(getClientConfigResult -> getClientConfigResult.tenantId()))
+ *             .tenantId(current.tenantId())
  *             .skuName("premium")
  *             .softDeleteRetentionDays(7)
  *             .networkAcls(KeyVaultNetworkAclsArgs.builder()
@@ -92,13 +100,13 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .accessPolicies(            
  *                 KeyVaultAccessPolicyArgs.builder()
- *                     .tenantId(current.applyValue(getClientConfigResult -> getClientConfigResult.tenantId()))
- *                     .objectId(frontdoor.applyValue(getServicePrincipalResult -> getServicePrincipalResult.objectId()))
+ *                     .tenantId(current.tenantId())
+ *                     .objectId(frontdoor.objectId())
  *                     .secretPermissions("Get")
  *                     .build(),
  *                 KeyVaultAccessPolicyArgs.builder()
- *                     .tenantId(current.applyValue(getClientConfigResult -> getClientConfigResult.tenantId()))
- *                     .objectId(current.applyValue(getClientConfigResult -> getClientConfigResult.objectId()))
+ *                     .tenantId(current.tenantId())
+ *                     .objectId(current.objectId())
  *                     .certificatePermissions(                    
  *                         "Get",
  *                         "Import",

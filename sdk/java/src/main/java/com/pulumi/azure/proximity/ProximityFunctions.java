@@ -48,7 +48,7 @@ public final class ProximityFunctions {
      *             .resourceGroupName("my-resource-group")
      *             .build());
      * 
-     *         ctx.export("proximityPlacementGroupId", example.applyValue(getPlacementGroupResult -> getPlacementGroupResult.id()));
+     *         ctx.export("proximityPlacementGroupId", example.id());
      *     }
      * }
      * }
@@ -92,7 +92,7 @@ public final class ProximityFunctions {
      *             .resourceGroupName("my-resource-group")
      *             .build());
      * 
-     *         ctx.export("proximityPlacementGroupId", example.applyValue(getPlacementGroupResult -> getPlacementGroupResult.id()));
+     *         ctx.export("proximityPlacementGroupId", example.id());
      *     }
      * }
      * }
@@ -136,7 +136,7 @@ public final class ProximityFunctions {
      *             .resourceGroupName("my-resource-group")
      *             .build());
      * 
-     *         ctx.export("proximityPlacementGroupId", example.applyValue(getPlacementGroupResult -> getPlacementGroupResult.id()));
+     *         ctx.export("proximityPlacementGroupId", example.id());
      *     }
      * }
      * }
@@ -180,7 +180,7 @@ public final class ProximityFunctions {
      *             .resourceGroupName("my-resource-group")
      *             .build());
      * 
-     *         ctx.export("proximityPlacementGroupId", example.applyValue(getPlacementGroupResult -> getPlacementGroupResult.id()));
+     *         ctx.export("proximityPlacementGroupId", example.id());
      *     }
      * }
      * }
@@ -224,7 +224,7 @@ public final class ProximityFunctions {
      *             .resourceGroupName("my-resource-group")
      *             .build());
      * 
-     *         ctx.export("proximityPlacementGroupId", example.applyValue(getPlacementGroupResult -> getPlacementGroupResult.id()));
+     *         ctx.export("proximityPlacementGroupId", example.id());
      *     }
      * }
      * }

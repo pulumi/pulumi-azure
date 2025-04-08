@@ -79,7 +79,7 @@ import javax.annotation.Nullable;
  * 
  *         var exampleResourcePolicyAssignment = new ResourcePolicyAssignment("exampleResourcePolicyAssignment", ResourcePolicyAssignmentArgs.builder()
  *             .name("example-policy-assignment")
- *             .resourceId(example.applyValue(getVirtualNetworkResult -> getVirtualNetworkResult.id()))
+ *             .resourceId(example.id())
  *             .policyDefinitionId(exampleDefinition.id())
  *             .build());
  * 

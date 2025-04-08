@@ -75,7 +75,7 @@ import javax.annotation.Nullable;
  *             .accountTier("Standard")
  *             .accountReplicationType("LRS")
  *             .accountKind("StorageV2")
- *             .isHnsEnabled("true")
+ *             .isHnsEnabled(true)
  *             .build());
  * 
  *         var exampleDataLakeGen2Filesystem = new DataLakeGen2Filesystem("exampleDataLakeGen2Filesystem", DataLakeGen2FilesystemArgs.builder()
@@ -83,21 +83,21 @@ import javax.annotation.Nullable;
  *             .storageAccountId(exampleAccount.id())
  *             .build());
  * 
- *         final var current = CoreFunctions.getClientConfig();
+ *         final var current = CoreFunctions.getClientConfig(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
  * 
  *         var exampleKeyVault = new KeyVault("exampleKeyVault", KeyVaultArgs.builder()
  *             .name("example")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .tenantId(current.applyValue(getClientConfigResult -> getClientConfigResult.tenantId()))
+ *             .tenantId(current.tenantId())
  *             .skuName("standard")
  *             .purgeProtectionEnabled(true)
  *             .build());
  * 
  *         var deployer = new AccessPolicy("deployer", AccessPolicyArgs.builder()
  *             .keyVaultId(exampleKeyVault.id())
- *             .tenantId(current.applyValue(getClientConfigResult -> getClientConfigResult.tenantId()))
- *             .objectId(current.applyValue(getClientConfigResult -> getClientConfigResult.objectId()))
+ *             .tenantId(current.tenantId())
+ *             .objectId(current.objectId())
  *             .keyPermissions(            
  *                 "Create",
  *                 "Get",
@@ -137,8 +137,8 @@ import javax.annotation.Nullable;
  * 
  *         var workspacePolicy = new AccessPolicy("workspacePolicy", AccessPolicyArgs.builder()
  *             .keyVaultId(exampleKeyVault.id())
- *             .tenantId(exampleWorkspace.identity().applyValue(identity -> identity.tenantId()))
- *             .objectId(exampleWorkspace.identity().applyValue(identity -> identity.principalId()))
+ *             .tenantId(exampleWorkspace.identity().applyValue(_identity -> _identity.tenantId()))
+ *             .objectId(exampleWorkspace.identity().applyValue(_identity -> _identity.principalId()))
  *             .keyPermissions(            
  *                 "Get",
  *                 "WrapKey",

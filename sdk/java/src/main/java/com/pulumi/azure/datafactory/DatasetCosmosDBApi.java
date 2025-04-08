@@ -72,7 +72,7 @@ import javax.annotation.Nullable;
  *         var exampleLinkedServiceCosmosDb = new LinkedServiceCosmosDb("exampleLinkedServiceCosmosDb", LinkedServiceCosmosDbArgs.builder()
  *             .name("example")
  *             .dataFactoryId(exampleFactory.id())
- *             .accountEndpoint(example.applyValue(getAccountResult -> getAccountResult.endpoint()))
+ *             .accountEndpoint(example.endpoint())
  *             .database("foo")
  *             .build());
  * 

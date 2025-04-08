@@ -55,14 +55,15 @@ import javax.annotation.Nullable;
  *             .location("West Europe")
  *             .build());
  * 
- *         final var current = CoreFunctions.getSubscription();
+ *         final var current = CoreFunctions.getSubscription(GetSubscriptionArgs.builder()
+ *             .build());
  * 
  *         var exampleNetworkManager = new NetworkManager("exampleNetworkManager", NetworkManagerArgs.builder()
  *             .name("example-nm")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
  *             .scope(NetworkManagerScopeArgs.builder()
- *                 .subscriptionIds(current.applyValue(getSubscriptionResult -> getSubscriptionResult.id()))
+ *                 .subscriptionIds(current.id())
  *                 .build())
  *             .scopeAccesses("Connectivity")
  *             .build());

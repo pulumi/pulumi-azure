@@ -95,7 +95,7 @@ import javax.annotation.Nullable;
  *             .location(exampleResourceGroup.location())
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .customLocationId(exampleVirtualMachineManagerServer.customLocationId())
- *             .systemCenterVirtualMachineManagerServerInventoryItemId(example.applyValue(getVirtualMachineManagerInventoryItemsResult -> getVirtualMachineManagerInventoryItemsResult).applyValue(example -> example.applyValue(getVirtualMachineManagerInventoryItemsResult -> getVirtualMachineManagerInventoryItemsResult.inventoryItems()[0].id())))
+ *             .systemCenterVirtualMachineManagerServerInventoryItemId(example.applyValue(_example -> _example.inventoryItems()[0].id()))
  *             .build());
  * 
  *         final var example2 = SystemcenterFunctions.getVirtualMachineManagerInventoryItems(GetVirtualMachineManagerInventoryItemsArgs.builder()
@@ -108,7 +108,7 @@ import javax.annotation.Nullable;
  *             .location(exampleResourceGroup.location())
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .customLocationId(exampleVirtualMachineManagerServer.customLocationId())
- *             .systemCenterVirtualMachineManagerServerInventoryItemId(example2.applyValue(getVirtualMachineManagerInventoryItemsResult -> getVirtualMachineManagerInventoryItemsResult).applyValue(example2 -> example2.applyValue(getVirtualMachineManagerInventoryItemsResult -> getVirtualMachineManagerInventoryItemsResult.inventoryItems()[0].id())))
+ *             .systemCenterVirtualMachineManagerServerInventoryItemId(example2.applyValue(_example2 -> _example2.inventoryItems()[0].id()))
  *             .build());
  * 
  *         var exampleVirtualMachineManagerVirtualMachineInstance = new VirtualMachineManagerVirtualMachineInstance("exampleVirtualMachineManagerVirtualMachineInstance", VirtualMachineManagerVirtualMachineInstanceArgs.builder()

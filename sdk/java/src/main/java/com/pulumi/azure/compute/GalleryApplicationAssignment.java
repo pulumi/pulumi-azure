@@ -127,7 +127,7 @@ import javax.annotation.Nullable;
  * 
  *         var exampleGalleryApplicationAssignment = new GalleryApplicationAssignment("exampleGalleryApplicationAssignment", GalleryApplicationAssignmentArgs.builder()
  *             .galleryApplicationVersionId(exampleGalleryApplicationVersion.id())
- *             .virtualMachineId(example.applyValue(getVirtualMachineResult -> getVirtualMachineResult.id()))
+ *             .virtualMachineId(example.id())
  *             .build());
  * 
  *     }

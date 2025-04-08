@@ -64,7 +64,7 @@ import javax.annotation.Nullable;
  *             .resourceGroupName(test.name())
  *             .storageAccountType("Standard_LRS")
  *             .createOption("Empty")
- *             .diskSizeGb("1")
+ *             .diskSizeGb(1)
  *             .build());
  * 
  *         var testManagedDiskSasToken = new ManagedDiskSasToken("testManagedDiskSasToken", ManagedDiskSasTokenArgs.builder()

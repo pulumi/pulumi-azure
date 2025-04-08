@@ -42,10 +42,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.appservice.AppServiceArgs;
  * import com.pulumi.azure.relay.Namespace;
  * import com.pulumi.azure.relay.NamespaceArgs;
- * import com.pulumi.azure.relay.HybridConnection;
- * import com.pulumi.azure.relay.HybridConnectionArgs;
- * import com.pulumi.azure.appservice.HybridConnection;
- * import com.pulumi.azure.appservice.HybridConnectionArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -88,14 +84,14 @@ import javax.annotation.Nullable;
  *             .skuName("Standard")
  *             .build());
  * 
- *         var exampleHybridConnection = new HybridConnection("exampleHybridConnection", HybridConnectionArgs.builder()
+ *         var exampleHybridConnection = new com.pulumi.azure.relay.HybridConnection("exampleHybridConnection", com.pulumi.azure.relay.HybridConnectionArgs.builder()
  *             .name("exampleRHC1")
  *             .resourceGroupName(example.name())
  *             .relayNamespaceName(exampleNamespace.name())
  *             .userMetadata("examplemetadata")
  *             .build());
  * 
- *         var exampleHybridConnection2 = new HybridConnection("exampleHybridConnection2", HybridConnectionArgs.builder()
+ *         var exampleHybridConnection2 = new com.pulumi.azure.appservice.HybridConnection("exampleHybridConnection2", com.pulumi.azure.appservice.HybridConnectionArgs.builder()
  *             .appServiceName(exampleAppService.name())
  *             .resourceGroupName(example.name())
  *             .relayId(exampleHybridConnection.id())

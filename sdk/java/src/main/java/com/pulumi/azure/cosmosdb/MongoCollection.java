@@ -59,16 +59,16 @@ import javax.annotation.Nullable;
  * 
  *         var exampleMongoDatabase = new MongoDatabase("exampleMongoDatabase", MongoDatabaseArgs.builder()
  *             .name("tfex-cosmos-mongo-db")
- *             .resourceGroupName(example.applyValue(getAccountResult -> getAccountResult.resourceGroupName()))
- *             .accountName(example.applyValue(getAccountResult -> getAccountResult.name()))
+ *             .resourceGroupName(example.resourceGroupName())
+ *             .accountName(example.name())
  *             .build());
  * 
  *         var exampleMongoCollection = new MongoCollection("exampleMongoCollection", MongoCollectionArgs.builder()
  *             .name("tfex-cosmos-mongo-db")
- *             .resourceGroupName(example.applyValue(getAccountResult -> getAccountResult.resourceGroupName()))
- *             .accountName(example.applyValue(getAccountResult -> getAccountResult.name()))
+ *             .resourceGroupName(example.resourceGroupName())
+ *             .accountName(example.name())
  *             .databaseName(exampleMongoDatabase.name())
- *             .defaultTtlSeconds("777")
+ *             .defaultTtlSeconds(777)
  *             .shardKey("uniqueKey")
  *             .throughput(400)
  *             .indices(MongoCollectionIndexArgs.builder()

@@ -56,7 +56,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         final var current = CoreFunctions.getClientConfig();
+ *         final var current = CoreFunctions.getClientConfig(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
  * 
  *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example-resources")
@@ -67,7 +67,7 @@ import javax.annotation.Nullable;
  *             .name("examplekv")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .tenantId(current.applyValue(getClientConfigResult -> getClientConfigResult.tenantId()))
+ *             .tenantId(current.tenantId())
  *             .skuName("standard")
  *             .purgeProtectionEnabled(true)
  *             .build());
@@ -87,8 +87,8 @@ import javax.annotation.Nullable;
  * 
  *         var cluster = new AccessPolicy("cluster", AccessPolicyArgs.builder()
  *             .keyVaultId(exampleKeyVault.id())
- *             .tenantId(current.applyValue(getClientConfigResult -> getClientConfigResult.tenantId()))
- *             .objectId(exampleCluster.identity().applyValue(identity -> identity.principalId()))
+ *             .tenantId(current.tenantId())
+ *             .objectId(exampleCluster.identity().applyValue(_identity -> _identity.principalId()))
  *             .keyPermissions(            
  *                 "Get",
  *                 "UnwrapKey",
@@ -97,8 +97,8 @@ import javax.annotation.Nullable;
  * 
  *         var client = new AccessPolicy("client", AccessPolicyArgs.builder()
  *             .keyVaultId(exampleKeyVault.id())
- *             .tenantId(current.applyValue(getClientConfigResult -> getClientConfigResult.tenantId()))
- *             .objectId(current.applyValue(getClientConfigResult -> getClientConfigResult.objectId()))
+ *             .tenantId(current.tenantId())
+ *             .objectId(current.objectId())
  *             .keyPermissions(            
  *                 "Get",
  *                 "List",

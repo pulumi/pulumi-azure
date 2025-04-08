@@ -54,7 +54,7 @@ public final class DatafactoryFunctions {
      *             .resourceGroupName("existing-rg")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getFactoryResult -> getFactoryResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -98,7 +98,7 @@ public final class DatafactoryFunctions {
      *             .resourceGroupName("existing-rg")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getFactoryResult -> getFactoryResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -142,7 +142,7 @@ public final class DatafactoryFunctions {
      *             .resourceGroupName("existing-rg")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getFactoryResult -> getFactoryResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -186,7 +186,7 @@ public final class DatafactoryFunctions {
      *             .resourceGroupName("existing-rg")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getFactoryResult -> getFactoryResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -230,7 +230,7 @@ public final class DatafactoryFunctions {
      *             .resourceGroupName("existing-rg")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getFactoryResult -> getFactoryResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -274,7 +274,7 @@ public final class DatafactoryFunctions {
      *             .dataFactoryId("/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.DataFactory/factories/datafactory1")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getTriggerScheduleResult -> getTriggerScheduleResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -318,7 +318,7 @@ public final class DatafactoryFunctions {
      *             .dataFactoryId("/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.DataFactory/factories/datafactory1")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getTriggerScheduleResult -> getTriggerScheduleResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -362,7 +362,7 @@ public final class DatafactoryFunctions {
      *             .dataFactoryId("/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.DataFactory/factories/datafactory1")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getTriggerScheduleResult -> getTriggerScheduleResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -406,7 +406,7 @@ public final class DatafactoryFunctions {
      *             .dataFactoryId("/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.DataFactory/factories/datafactory1")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getTriggerScheduleResult -> getTriggerScheduleResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -450,7 +450,7 @@ public final class DatafactoryFunctions {
      *             .dataFactoryId("/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.DataFactory/factories/datafactory1")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getTriggerScheduleResult -> getTriggerScheduleResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -493,7 +493,7 @@ public final class DatafactoryFunctions {
      *             .dataFactoryId("/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.DataFactory/factories/datafactory1")
      *             .build());
      * 
-     *         ctx.export("items", example.applyValue(getTriggerSchedulesResult -> getTriggerSchedulesResult.items()));
+     *         ctx.export("items", example.items());
      *     }
      * }
      * }
@@ -536,7 +536,7 @@ public final class DatafactoryFunctions {
      *             .dataFactoryId("/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.DataFactory/factories/datafactory1")
      *             .build());
      * 
-     *         ctx.export("items", example.applyValue(getTriggerSchedulesResult -> getTriggerSchedulesResult.items()));
+     *         ctx.export("items", example.items());
      *     }
      * }
      * }
@@ -579,7 +579,7 @@ public final class DatafactoryFunctions {
      *             .dataFactoryId("/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.DataFactory/factories/datafactory1")
      *             .build());
      * 
-     *         ctx.export("items", example.applyValue(getTriggerSchedulesResult -> getTriggerSchedulesResult.items()));
+     *         ctx.export("items", example.items());
      *     }
      * }
      * }
@@ -622,7 +622,7 @@ public final class DatafactoryFunctions {
      *             .dataFactoryId("/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.DataFactory/factories/datafactory1")
      *             .build());
      * 
-     *         ctx.export("items", example.applyValue(getTriggerSchedulesResult -> getTriggerSchedulesResult.items()));
+     *         ctx.export("items", example.items());
      *     }
      * }
      * }
@@ -665,7 +665,7 @@ public final class DatafactoryFunctions {
      *             .dataFactoryId("/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.DataFactory/factories/datafactory1")
      *             .build());
      * 
-     *         ctx.export("items", example.applyValue(getTriggerSchedulesResult -> getTriggerSchedulesResult.items()));
+     *         ctx.export("items", example.items());
      *     }
      * }
      * }

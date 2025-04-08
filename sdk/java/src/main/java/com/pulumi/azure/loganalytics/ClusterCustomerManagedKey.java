@@ -57,7 +57,7 @@ import javax.annotation.Nullable;
  *             .location("West Europe")
  *             .build());
  * 
- *         final var current = CoreFunctions.getClientConfig();
+ *         final var current = CoreFunctions.getClientConfig(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
  * 
  *         var exampleCluster = new Cluster("exampleCluster", ClusterArgs.builder()
  *             .name("example-cluster")
@@ -72,12 +72,12 @@ import javax.annotation.Nullable;
  *             .name("keyvaultkeyexample")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .tenantId(current.applyValue(getClientConfigResult -> getClientConfigResult.tenantId()))
+ *             .tenantId(current.tenantId())
  *             .skuName("premium")
  *             .accessPolicies(            
  *                 KeyVaultAccessPolicyArgs.builder()
- *                     .tenantId(current.applyValue(getClientConfigResult -> getClientConfigResult.tenantId()))
- *                     .objectId(current.applyValue(getClientConfigResult -> getClientConfigResult.objectId()))
+ *                     .tenantId(current.tenantId())
+ *                     .objectId(current.objectId())
  *                     .keyPermissions(                    
  *                         "Create",
  *                         "Get",
@@ -85,8 +85,8 @@ import javax.annotation.Nullable;
  *                     .secretPermissions("Set")
  *                     .build(),
  *                 KeyVaultAccessPolicyArgs.builder()
- *                     .tenantId(exampleCluster.identity().applyValue(identity -> identity.tenantId()))
- *                     .objectId(exampleCluster.identity().applyValue(identity -> identity.principalId()))
+ *                     .tenantId(exampleCluster.identity().applyValue(_identity -> _identity.tenantId()))
+ *                     .objectId(exampleCluster.identity().applyValue(_identity -> _identity.principalId()))
  *                     .keyPermissions(                    
  *                         "Get",
  *                         "Unwrapkey",

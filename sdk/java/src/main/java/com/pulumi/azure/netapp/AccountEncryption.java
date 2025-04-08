@@ -62,7 +62,7 @@ import javax.annotation.Nullable;
  *             .location("West Europe")
  *             .build());
  * 
- *         final var current = CoreFunctions.getClientConfig();
+ *         final var current = CoreFunctions.getClientConfig(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
  * 
  *         var exampleUserAssignedIdentity = new UserAssignedIdentity("exampleUserAssignedIdentity", UserAssignedIdentityArgs.builder()
  *             .name("anf-user-assigned-identity")
@@ -83,7 +83,7 @@ import javax.annotation.Nullable;
  *             .accessPolicies(            
  *                 KeyVaultAccessPolicyArgs.builder()
  *                     .tenantId("00000000-0000-0000-0000-000000000000")
- *                     .objectId(current.applyValue(getClientConfigResult -> getClientConfigResult.objectId()))
+ *                     .objectId(current.objectId())
  *                     .keyPermissions(                    
  *                         "Get",
  *                         "Create",

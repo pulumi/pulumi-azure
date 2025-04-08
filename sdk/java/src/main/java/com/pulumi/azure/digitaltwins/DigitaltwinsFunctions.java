@@ -48,7 +48,7 @@ public final class DigitaltwinsFunctions {
      *             .resourceGroupName("existing-resgroup")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getInstanceResult -> getInstanceResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -92,7 +92,7 @@ public final class DigitaltwinsFunctions {
      *             .resourceGroupName("existing-resgroup")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getInstanceResult -> getInstanceResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -136,7 +136,7 @@ public final class DigitaltwinsFunctions {
      *             .resourceGroupName("existing-resgroup")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getInstanceResult -> getInstanceResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -180,7 +180,7 @@ public final class DigitaltwinsFunctions {
      *             .resourceGroupName("existing-resgroup")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getInstanceResult -> getInstanceResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -224,7 +224,7 @@ public final class DigitaltwinsFunctions {
      *             .resourceGroupName("existing-resgroup")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getInstanceResult -> getInstanceResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }

@@ -35,6 +35,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.appservice.AppServiceArgs;
  * import com.pulumi.azure.appservice.PublicCertificate;
  * import com.pulumi.azure.appservice.PublicCertificateArgs;
+ * import com.pulumi.std.StdFunctions;
+ * import com.pulumi.std.inputs.Filebase64Args;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;

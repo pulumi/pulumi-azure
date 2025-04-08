@@ -52,7 +52,7 @@ import javax.annotation.Nullable;
  *         var exampleTenantTemplateDeployment = new TenantTemplateDeployment("exampleTenantTemplateDeployment", TenantTemplateDeploymentArgs.builder()
  *             .name("example")
  *             .location("West Europe")
- *             .templateSpecVersionId(example.applyValue(getTemplateSpecVersionResult -> getTemplateSpecVersionResult.id()))
+ *             .templateSpecVersionId(example.id())
  *             .build());
  * 
  *     }

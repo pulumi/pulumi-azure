@@ -297,7 +297,7 @@ public final class EventhubFunctions {
      *             .resourceGroupName("search-service")
      *             .build());
      * 
-     *         ctx.export("eventhubId", example.applyValue(getClusterResult -> getClusterResult.id()));
+     *         ctx.export("eventhubId", example.id());
      *     }
      * }
      * }
@@ -341,7 +341,7 @@ public final class EventhubFunctions {
      *             .resourceGroupName("search-service")
      *             .build());
      * 
-     *         ctx.export("eventhubId", example.applyValue(getClusterResult -> getClusterResult.id()));
+     *         ctx.export("eventhubId", example.id());
      *     }
      * }
      * }
@@ -385,7 +385,7 @@ public final class EventhubFunctions {
      *             .resourceGroupName("search-service")
      *             .build());
      * 
-     *         ctx.export("eventhubId", example.applyValue(getClusterResult -> getClusterResult.id()));
+     *         ctx.export("eventhubId", example.id());
      *     }
      * }
      * }
@@ -429,7 +429,7 @@ public final class EventhubFunctions {
      *             .resourceGroupName("search-service")
      *             .build());
      * 
-     *         ctx.export("eventhubId", example.applyValue(getClusterResult -> getClusterResult.id()));
+     *         ctx.export("eventhubId", example.id());
      *     }
      * }
      * }
@@ -473,7 +473,7 @@ public final class EventhubFunctions {
      *             .resourceGroupName("search-service")
      *             .build());
      * 
-     *         ctx.export("eventhubId", example.applyValue(getClusterResult -> getClusterResult.id()));
+     *         ctx.export("eventhubId", example.id());
      *     }
      * }
      * }
@@ -743,7 +743,7 @@ public final class EventhubFunctions {
      *             .namespaceName("search-eventhubns")
      *             .build());
      * 
-     *         ctx.export("eventhubId", example.applyValue(getEventHubResult -> getEventHubResult.id()));
+     *         ctx.export("eventhubId", example.id());
      *     }
      * }
      * }
@@ -788,7 +788,7 @@ public final class EventhubFunctions {
      *             .namespaceName("search-eventhubns")
      *             .build());
      * 
-     *         ctx.export("eventhubId", example.applyValue(getEventHubResult -> getEventHubResult.id()));
+     *         ctx.export("eventhubId", example.id());
      *     }
      * }
      * }
@@ -833,7 +833,7 @@ public final class EventhubFunctions {
      *             .namespaceName("search-eventhubns")
      *             .build());
      * 
-     *         ctx.export("eventhubId", example.applyValue(getEventHubResult -> getEventHubResult.id()));
+     *         ctx.export("eventhubId", example.id());
      *     }
      * }
      * }
@@ -878,7 +878,7 @@ public final class EventhubFunctions {
      *             .namespaceName("search-eventhubns")
      *             .build());
      * 
-     *         ctx.export("eventhubId", example.applyValue(getEventHubResult -> getEventHubResult.id()));
+     *         ctx.export("eventhubId", example.id());
      *     }
      * }
      * }
@@ -923,7 +923,7 @@ public final class EventhubFunctions {
      *             .namespaceName("search-eventhubns")
      *             .build());
      * 
-     *         ctx.export("eventhubId", example.applyValue(getEventHubResult -> getEventHubResult.id()));
+     *         ctx.export("eventhubId", example.id());
      *     }
      * }
      * }
@@ -967,7 +967,7 @@ public final class EventhubFunctions {
      *             .resourceGroupName("search-service")
      *             .build());
      * 
-     *         ctx.export("eventhubNamespaceId", example.applyValue(getNamespaceResult -> getNamespaceResult.id()));
+     *         ctx.export("eventhubNamespaceId", example.id());
      *     }
      * }
      * }
@@ -1015,7 +1015,7 @@ public final class EventhubFunctions {
      *             .resourceGroupName("search-service")
      *             .build());
      * 
-     *         ctx.export("eventhubNamespaceId", example.applyValue(getNamespaceResult -> getNamespaceResult.id()));
+     *         ctx.export("eventhubNamespaceId", example.id());
      *     }
      * }
      * }
@@ -1063,7 +1063,7 @@ public final class EventhubFunctions {
      *             .resourceGroupName("search-service")
      *             .build());
      * 
-     *         ctx.export("eventhubNamespaceId", example.applyValue(getNamespaceResult -> getNamespaceResult.id()));
+     *         ctx.export("eventhubNamespaceId", example.id());
      *     }
      * }
      * }
@@ -1111,7 +1111,7 @@ public final class EventhubFunctions {
      *             .resourceGroupName("search-service")
      *             .build());
      * 
-     *         ctx.export("eventhubNamespaceId", example.applyValue(getNamespaceResult -> getNamespaceResult.id()));
+     *         ctx.export("eventhubNamespaceId", example.id());
      *     }
      * }
      * }
@@ -1159,7 +1159,7 @@ public final class EventhubFunctions {
      *             .resourceGroupName("search-service")
      *             .build());
      * 
-     *         ctx.export("eventhubNamespaceId", example.applyValue(getNamespaceResult -> getNamespaceResult.id()));
+     *         ctx.export("eventhubNamespaceId", example.id());
      *     }
      * }
      * }
@@ -1207,7 +1207,7 @@ public final class EventhubFunctions {
      *             .resourceGroupName("search-service")
      *             .build());
      * 
-     *         ctx.export("eventhubNamespaceId", example.applyValue(getNamespaceResult -> getNamespaceResult.id()));
+     *         ctx.export("eventhubNamespaceId", example.id());
      *     }
      * }
      * }
@@ -1251,7 +1251,7 @@ public final class EventhubFunctions {
      *             .resourceGroupName("search-service")
      *             .build());
      * 
-     *         ctx.export("eventhubNamespaceId", example.applyValue(getNamespaceResult -> getNamespaceResult.id()));
+     *         ctx.export("eventhubNamespaceId", example.id());
      *     }
      * }
      * }
@@ -1295,7 +1295,7 @@ public final class EventhubFunctions {
      *             .resourceGroupName("search-service")
      *             .build());
      * 
-     *         ctx.export("eventhubNamespaceId", example.applyValue(getNamespaceResult -> getNamespaceResult.id()));
+     *         ctx.export("eventhubNamespaceId", example.id());
      *     }
      * }
      * }
@@ -1339,7 +1339,7 @@ public final class EventhubFunctions {
      *             .resourceGroupName("search-service")
      *             .build());
      * 
-     *         ctx.export("eventhubNamespaceId", example.applyValue(getNamespaceResult -> getNamespaceResult.id()));
+     *         ctx.export("eventhubNamespaceId", example.id());
      *     }
      * }
      * }
@@ -1383,7 +1383,7 @@ public final class EventhubFunctions {
      *             .resourceGroupName("search-service")
      *             .build());
      * 
-     *         ctx.export("eventhubNamespaceId", example.applyValue(getNamespaceResult -> getNamespaceResult.id()));
+     *         ctx.export("eventhubNamespaceId", example.id());
      *     }
      * }
      * }
@@ -1428,7 +1428,7 @@ public final class EventhubFunctions {
      *             .namespaceName("example-ns")
      *             .build());
      * 
-     *         ctx.export("eventhubAuthorizationRuleId", example.applyValue(getNamespaceAuthorizationRuleResult -> getNamespaceAuthorizationRuleResult.id()));
+     *         ctx.export("eventhubAuthorizationRuleId", example.id());
      *     }
      * }
      * }
@@ -1473,7 +1473,7 @@ public final class EventhubFunctions {
      *             .namespaceName("example-ns")
      *             .build());
      * 
-     *         ctx.export("eventhubAuthorizationRuleId", example.applyValue(getNamespaceAuthorizationRuleResult -> getNamespaceAuthorizationRuleResult.id()));
+     *         ctx.export("eventhubAuthorizationRuleId", example.id());
      *     }
      * }
      * }
@@ -1518,7 +1518,7 @@ public final class EventhubFunctions {
      *             .namespaceName("example-ns")
      *             .build());
      * 
-     *         ctx.export("eventhubAuthorizationRuleId", example.applyValue(getNamespaceAuthorizationRuleResult -> getNamespaceAuthorizationRuleResult.id()));
+     *         ctx.export("eventhubAuthorizationRuleId", example.id());
      *     }
      * }
      * }
@@ -1563,7 +1563,7 @@ public final class EventhubFunctions {
      *             .namespaceName("example-ns")
      *             .build());
      * 
-     *         ctx.export("eventhubAuthorizationRuleId", example.applyValue(getNamespaceAuthorizationRuleResult -> getNamespaceAuthorizationRuleResult.id()));
+     *         ctx.export("eventhubAuthorizationRuleId", example.id());
      *     }
      * }
      * }
@@ -1608,7 +1608,7 @@ public final class EventhubFunctions {
      *             .namespaceName("example-ns")
      *             .build());
      * 
-     *         ctx.export("eventhubAuthorizationRuleId", example.applyValue(getNamespaceAuthorizationRuleResult -> getNamespaceAuthorizationRuleResult.id()));
+     *         ctx.export("eventhubAuthorizationRuleId", example.id());
      *     }
      * }
      * }
@@ -1693,10 +1693,10 @@ public final class EventhubFunctions {
      *             .resourceGroupName(exampleResourceGroup.name())
      *             .build());
      * 
-     *         final var exampleGetSas = EventhubFunctions.getSas(GetSasArgs.builder()
-     *             .connectionString(example.applyValue(getAuthorizationRuleResult -> getAuthorizationRuleResult).applyValue(example -> example.applyValue(getAuthorizationRuleResult -> getAuthorizationRuleResult.primaryConnectionString())))
+     *         final var exampleGetSas = example.applyValue(_example -> EventhubFunctions.getSas(GetSasArgs.builder()
+     *             .connectionString(_example.primaryConnectionString())
      *             .expiry("2023-06-23T00:00:00Z")
-     *             .build());
+     *             .build()));
      * 
      *     }
      * }
@@ -1782,10 +1782,10 @@ public final class EventhubFunctions {
      *             .resourceGroupName(exampleResourceGroup.name())
      *             .build());
      * 
-     *         final var exampleGetSas = EventhubFunctions.getSas(GetSasArgs.builder()
-     *             .connectionString(example.applyValue(getAuthorizationRuleResult -> getAuthorizationRuleResult).applyValue(example -> example.applyValue(getAuthorizationRuleResult -> getAuthorizationRuleResult.primaryConnectionString())))
+     *         final var exampleGetSas = example.applyValue(_example -> EventhubFunctions.getSas(GetSasArgs.builder()
+     *             .connectionString(_example.primaryConnectionString())
      *             .expiry("2023-06-23T00:00:00Z")
-     *             .build());
+     *             .build()));
      * 
      *     }
      * }
@@ -1871,10 +1871,10 @@ public final class EventhubFunctions {
      *             .resourceGroupName(exampleResourceGroup.name())
      *             .build());
      * 
-     *         final var exampleGetSas = EventhubFunctions.getSas(GetSasArgs.builder()
-     *             .connectionString(example.applyValue(getAuthorizationRuleResult -> getAuthorizationRuleResult).applyValue(example -> example.applyValue(getAuthorizationRuleResult -> getAuthorizationRuleResult.primaryConnectionString())))
+     *         final var exampleGetSas = example.applyValue(_example -> EventhubFunctions.getSas(GetSasArgs.builder()
+     *             .connectionString(_example.primaryConnectionString())
      *             .expiry("2023-06-23T00:00:00Z")
-     *             .build());
+     *             .build()));
      * 
      *     }
      * }
@@ -1960,10 +1960,10 @@ public final class EventhubFunctions {
      *             .resourceGroupName(exampleResourceGroup.name())
      *             .build());
      * 
-     *         final var exampleGetSas = EventhubFunctions.getSas(GetSasArgs.builder()
-     *             .connectionString(example.applyValue(getAuthorizationRuleResult -> getAuthorizationRuleResult).applyValue(example -> example.applyValue(getAuthorizationRuleResult -> getAuthorizationRuleResult.primaryConnectionString())))
+     *         final var exampleGetSas = example.applyValue(_example -> EventhubFunctions.getSas(GetSasArgs.builder()
+     *             .connectionString(_example.primaryConnectionString())
      *             .expiry("2023-06-23T00:00:00Z")
-     *             .build());
+     *             .build()));
      * 
      *     }
      * }
@@ -2049,10 +2049,10 @@ public final class EventhubFunctions {
      *             .resourceGroupName(exampleResourceGroup.name())
      *             .build());
      * 
-     *         final var exampleGetSas = EventhubFunctions.getSas(GetSasArgs.builder()
-     *             .connectionString(example.applyValue(getAuthorizationRuleResult -> getAuthorizationRuleResult).applyValue(example -> example.applyValue(getAuthorizationRuleResult -> getAuthorizationRuleResult.primaryConnectionString())))
+     *         final var exampleGetSas = example.applyValue(_example -> EventhubFunctions.getSas(GetSasArgs.builder()
+     *             .connectionString(_example.primaryConnectionString())
      *             .expiry("2023-06-23T00:00:00Z")
-     *             .build());
+     *             .build()));
      * 
      *     }
      * }
@@ -2097,7 +2097,7 @@ public final class EventhubFunctions {
      *             .resourceGroupName("example-resources")
      *             .build());
      * 
-     *         ctx.export("location", example.applyValue(getNamespaceResult -> getNamespaceResult.location()));
+     *         ctx.export("location", example.location());
      *     }
      * }
      * }
@@ -2145,7 +2145,7 @@ public final class EventhubFunctions {
      *             .resourceGroupName("example-resources")
      *             .build());
      * 
-     *         ctx.export("location", example.applyValue(getNamespaceResult -> getNamespaceResult.location()));
+     *         ctx.export("location", example.location());
      *     }
      * }
      * }
@@ -2193,7 +2193,7 @@ public final class EventhubFunctions {
      *             .resourceGroupName("example-resources")
      *             .build());
      * 
-     *         ctx.export("location", example.applyValue(getNamespaceResult -> getNamespaceResult.location()));
+     *         ctx.export("location", example.location());
      *     }
      * }
      * }
@@ -2241,7 +2241,7 @@ public final class EventhubFunctions {
      *             .resourceGroupName("example-resources")
      *             .build());
      * 
-     *         ctx.export("location", example.applyValue(getNamespaceResult -> getNamespaceResult.location()));
+     *         ctx.export("location", example.location());
      *     }
      * }
      * }
@@ -2289,7 +2289,7 @@ public final class EventhubFunctions {
      *             .resourceGroupName("example-resources")
      *             .build());
      * 
-     *         ctx.export("location", example.applyValue(getNamespaceResult -> getNamespaceResult.location()));
+     *         ctx.export("location", example.location());
      *     }
      * }
      * }

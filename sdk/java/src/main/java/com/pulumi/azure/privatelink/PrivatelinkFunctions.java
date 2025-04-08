@@ -54,7 +54,7 @@ public final class PrivatelinkFunctions {
      *             .resourceGroupName("example-rg")
      *             .build());
      * 
-     *         ctx.export("privateEndpointStatus", example.applyValue(getEndpointConnectionResult -> getEndpointConnectionResult.privateServiceConnections()[0].status()));
+     *         ctx.export("privateEndpointStatus", example.privateServiceConnections()[0].status());
      *     }
      * }
      * }
@@ -98,7 +98,7 @@ public final class PrivatelinkFunctions {
      *             .resourceGroupName("example-rg")
      *             .build());
      * 
-     *         ctx.export("privateEndpointStatus", example.applyValue(getEndpointConnectionResult -> getEndpointConnectionResult.privateServiceConnections()[0].status()));
+     *         ctx.export("privateEndpointStatus", example.privateServiceConnections()[0].status());
      *     }
      * }
      * }
@@ -142,7 +142,7 @@ public final class PrivatelinkFunctions {
      *             .resourceGroupName("example-rg")
      *             .build());
      * 
-     *         ctx.export("privateEndpointStatus", example.applyValue(getEndpointConnectionResult -> getEndpointConnectionResult.privateServiceConnections()[0].status()));
+     *         ctx.export("privateEndpointStatus", example.privateServiceConnections()[0].status());
      *     }
      * }
      * }
@@ -186,7 +186,7 @@ public final class PrivatelinkFunctions {
      *             .resourceGroupName("example-rg")
      *             .build());
      * 
-     *         ctx.export("privateEndpointStatus", example.applyValue(getEndpointConnectionResult -> getEndpointConnectionResult.privateServiceConnections()[0].status()));
+     *         ctx.export("privateEndpointStatus", example.privateServiceConnections()[0].status());
      *     }
      * }
      * }
@@ -230,7 +230,7 @@ public final class PrivatelinkFunctions {
      *             .resourceGroupName("example-rg")
      *             .build());
      * 
-     *         ctx.export("privateEndpointStatus", example.applyValue(getEndpointConnectionResult -> getEndpointConnectionResult.privateServiceConnections()[0].status()));
+     *         ctx.export("privateEndpointStatus", example.privateServiceConnections()[0].status());
      *     }
      * }
      * }
@@ -274,7 +274,7 @@ public final class PrivatelinkFunctions {
      *             .resourceGroupName("PrivateLinkServiceRG")
      *             .build());
      * 
-     *         ctx.export("privateLinkServiceId", example.applyValue(getServiceResult -> getServiceResult.id()));
+     *         ctx.export("privateLinkServiceId", example.id());
      *     }
      * }
      * }
@@ -318,7 +318,7 @@ public final class PrivatelinkFunctions {
      *             .resourceGroupName("PrivateLinkServiceRG")
      *             .build());
      * 
-     *         ctx.export("privateLinkServiceId", example.applyValue(getServiceResult -> getServiceResult.id()));
+     *         ctx.export("privateLinkServiceId", example.id());
      *     }
      * }
      * }
@@ -362,7 +362,7 @@ public final class PrivatelinkFunctions {
      *             .resourceGroupName("PrivateLinkServiceRG")
      *             .build());
      * 
-     *         ctx.export("privateLinkServiceId", example.applyValue(getServiceResult -> getServiceResult.id()));
+     *         ctx.export("privateLinkServiceId", example.id());
      *     }
      * }
      * }
@@ -406,7 +406,7 @@ public final class PrivatelinkFunctions {
      *             .resourceGroupName("PrivateLinkServiceRG")
      *             .build());
      * 
-     *         ctx.export("privateLinkServiceId", example.applyValue(getServiceResult -> getServiceResult.id()));
+     *         ctx.export("privateLinkServiceId", example.id());
      *     }
      * }
      * }
@@ -450,7 +450,7 @@ public final class PrivatelinkFunctions {
      *             .resourceGroupName("PrivateLinkServiceRG")
      *             .build());
      * 
-     *         ctx.export("privateLinkServiceId", example.applyValue(getServiceResult -> getServiceResult.id()));
+     *         ctx.export("privateLinkServiceId", example.id());
      *     }
      * }
      * }
@@ -494,7 +494,7 @@ public final class PrivatelinkFunctions {
      *             .resourceGroupName(exampleAzurermResourceGroup.name())
      *             .build());
      * 
-     *         ctx.export("privateEndpointStatus", example.applyValue(getServiceEndpointConnectionsResult -> getServiceEndpointConnectionsResult.privateEndpointConnections()[0].status()));
+     *         ctx.export("privateEndpointStatus", example.privateEndpointConnections()[0].status());
      *     }
      * }
      * }
@@ -538,7 +538,7 @@ public final class PrivatelinkFunctions {
      *             .resourceGroupName(exampleAzurermResourceGroup.name())
      *             .build());
      * 
-     *         ctx.export("privateEndpointStatus", example.applyValue(getServiceEndpointConnectionsResult -> getServiceEndpointConnectionsResult.privateEndpointConnections()[0].status()));
+     *         ctx.export("privateEndpointStatus", example.privateEndpointConnections()[0].status());
      *     }
      * }
      * }
@@ -582,7 +582,7 @@ public final class PrivatelinkFunctions {
      *             .resourceGroupName(exampleAzurermResourceGroup.name())
      *             .build());
      * 
-     *         ctx.export("privateEndpointStatus", example.applyValue(getServiceEndpointConnectionsResult -> getServiceEndpointConnectionsResult.privateEndpointConnections()[0].status()));
+     *         ctx.export("privateEndpointStatus", example.privateEndpointConnections()[0].status());
      *     }
      * }
      * }
@@ -626,7 +626,7 @@ public final class PrivatelinkFunctions {
      *             .resourceGroupName(exampleAzurermResourceGroup.name())
      *             .build());
      * 
-     *         ctx.export("privateEndpointStatus", example.applyValue(getServiceEndpointConnectionsResult -> getServiceEndpointConnectionsResult.privateEndpointConnections()[0].status()));
+     *         ctx.export("privateEndpointStatus", example.privateEndpointConnections()[0].status());
      *     }
      * }
      * }
@@ -670,7 +670,7 @@ public final class PrivatelinkFunctions {
      *             .resourceGroupName(exampleAzurermResourceGroup.name())
      *             .build());
      * 
-     *         ctx.export("privateEndpointStatus", example.applyValue(getServiceEndpointConnectionsResult -> getServiceEndpointConnectionsResult.privateEndpointConnections()[0].status()));
+     *         ctx.export("privateEndpointStatus", example.privateEndpointConnections()[0].status());
      *     }
      * }
      * }

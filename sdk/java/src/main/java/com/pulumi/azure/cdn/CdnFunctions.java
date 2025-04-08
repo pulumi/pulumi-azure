@@ -1599,7 +1599,7 @@ public final class CdnFunctions {
      *             .resourceGroupName("example-resources")
      *             .build());
      * 
-     *         ctx.export("cdnProfileId", example.applyValue(getProfileResult -> getProfileResult.id()));
+     *         ctx.export("cdnProfileId", example.id());
      *     }
      * }
      * }
@@ -1643,7 +1643,7 @@ public final class CdnFunctions {
      *             .resourceGroupName("example-resources")
      *             .build());
      * 
-     *         ctx.export("cdnProfileId", example.applyValue(getProfileResult -> getProfileResult.id()));
+     *         ctx.export("cdnProfileId", example.id());
      *     }
      * }
      * }
@@ -1687,7 +1687,7 @@ public final class CdnFunctions {
      *             .resourceGroupName("example-resources")
      *             .build());
      * 
-     *         ctx.export("cdnProfileId", example.applyValue(getProfileResult -> getProfileResult.id()));
+     *         ctx.export("cdnProfileId", example.id());
      *     }
      * }
      * }
@@ -1731,7 +1731,7 @@ public final class CdnFunctions {
      *             .resourceGroupName("example-resources")
      *             .build());
      * 
-     *         ctx.export("cdnProfileId", example.applyValue(getProfileResult -> getProfileResult.id()));
+     *         ctx.export("cdnProfileId", example.id());
      *     }
      * }
      * }
@@ -1775,7 +1775,7 @@ public final class CdnFunctions {
      *             .resourceGroupName("example-resources")
      *             .build());
      * 
-     *         ctx.export("cdnProfileId", example.applyValue(getProfileResult -> getProfileResult.id()));
+     *         ctx.export("cdnProfileId", example.id());
      *     }
      * }
      * }

@@ -34,9 +34,9 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.streamanalytics.StreamanalyticsFunctions;
  * import com.pulumi.azure.streamanalytics.inputs.GetJobArgs;
  * import com.pulumi.azurerm.sqlServer;
- * import com.pulumi.azurerm.SqlServerArgs;
+ * import com.pulumi.azurerm.sqlServerArgs;
  * import com.pulumi.azurerm.sqlDatabase;
- * import com.pulumi.azurerm.SqlDatabaseArgs;
+ * import com.pulumi.azurerm.sqlDatabaseArgs;
  * import com.pulumi.azure.streamanalytics.OutputMssql;
  * import com.pulumi.azure.streamanalytics.OutputMssqlArgs;
  * import java.util.List;
@@ -84,8 +84,8 @@ import javax.annotation.Nullable;
  * 
  *         var exampleOutputMssql = new OutputMssql("exampleOutputMssql", OutputMssqlArgs.builder()
  *             .name("example-output-sql")
- *             .streamAnalyticsJobName(example.applyValue(getJobResult -> getJobResult).applyValue(example -> example.applyValue(getJobResult -> getJobResult.name())))
- *             .resourceGroupName(example.applyValue(getJobResult -> getJobResult).applyValue(example -> example.applyValue(getJobResult -> getJobResult.resourceGroupName())))
+ *             .streamAnalyticsJobName(example.applyValue(_example -> _example.name()))
+ *             .resourceGroupName(example.applyValue(_example -> _example.resourceGroupName()))
  *             .server(exampleSqlServer.fullyQualifiedDomainName())
  *             .user(exampleSqlServer.administratorLogin())
  *             .password(exampleSqlServer.administratorLoginPassword())

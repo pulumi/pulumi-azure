@@ -37,6 +37,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.apimanagement.inputs.GatewayLocationDataArgs;
  * import com.pulumi.azure.apimanagement.Certificate;
  * import com.pulumi.azure.apimanagement.CertificateArgs;
+ * import com.pulumi.std.StdFunctions;
+ * import com.pulumi.std.inputs.Filebase64Args;
  * import com.pulumi.azure.apimanagement.GatewayCertificateAuthority;
  * import com.pulumi.azure.apimanagement.GatewayCertificateAuthorityArgs;
  * import java.util.List;

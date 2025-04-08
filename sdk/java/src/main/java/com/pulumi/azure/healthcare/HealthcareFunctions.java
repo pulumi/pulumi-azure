@@ -60,7 +60,7 @@ public final class HealthcareFunctions {
      *             .workspaceId(exampleAzurermHealthcareWorkspace.id())
      *             .build());
      * 
-     *         ctx.export("azurermHealthcareDicomService", example.applyValue(getDicomServiceResult -> getDicomServiceResult.id()));
+     *         ctx.export("azurermHealthcareDicomService", example.id());
      *     }
      * }
      * }
@@ -104,7 +104,7 @@ public final class HealthcareFunctions {
      *             .workspaceId(exampleAzurermHealthcareWorkspace.id())
      *             .build());
      * 
-     *         ctx.export("azurermHealthcareDicomService", example.applyValue(getDicomServiceResult -> getDicomServiceResult.id()));
+     *         ctx.export("azurermHealthcareDicomService", example.id());
      *     }
      * }
      * }
@@ -148,7 +148,7 @@ public final class HealthcareFunctions {
      *             .workspaceId(exampleAzurermHealthcareWorkspace.id())
      *             .build());
      * 
-     *         ctx.export("azurermHealthcareDicomService", example.applyValue(getDicomServiceResult -> getDicomServiceResult.id()));
+     *         ctx.export("azurermHealthcareDicomService", example.id());
      *     }
      * }
      * }
@@ -192,7 +192,7 @@ public final class HealthcareFunctions {
      *             .workspaceId(exampleAzurermHealthcareWorkspace.id())
      *             .build());
      * 
-     *         ctx.export("azurermHealthcareDicomService", example.applyValue(getDicomServiceResult -> getDicomServiceResult.id()));
+     *         ctx.export("azurermHealthcareDicomService", example.id());
      *     }
      * }
      * }
@@ -236,7 +236,7 @@ public final class HealthcareFunctions {
      *             .workspaceId(exampleAzurermHealthcareWorkspace.id())
      *             .build());
      * 
-     *         ctx.export("azurermHealthcareDicomService", example.applyValue(getDicomServiceResult -> getDicomServiceResult.id()));
+     *         ctx.export("azurermHealthcareDicomService", example.id());
      *     }
      * }
      * }
@@ -315,7 +315,7 @@ public final class HealthcareFunctions {
      *             .workspaceId("tfexwks")
      *             .build());
      * 
-     *         ctx.export("azurermHealthcareMedtechServiceId", example.applyValue(getMedtechServiceResult -> getMedtechServiceResult.id()));
+     *         ctx.export("azurermHealthcareMedtechServiceId", example.id());
      *     }
      * }
      * }
@@ -359,7 +359,7 @@ public final class HealthcareFunctions {
      *             .workspaceId("tfexwks")
      *             .build());
      * 
-     *         ctx.export("azurermHealthcareMedtechServiceId", example.applyValue(getMedtechServiceResult -> getMedtechServiceResult.id()));
+     *         ctx.export("azurermHealthcareMedtechServiceId", example.id());
      *     }
      * }
      * }
@@ -403,7 +403,7 @@ public final class HealthcareFunctions {
      *             .workspaceId("tfexwks")
      *             .build());
      * 
-     *         ctx.export("azurermHealthcareMedtechServiceId", example.applyValue(getMedtechServiceResult -> getMedtechServiceResult.id()));
+     *         ctx.export("azurermHealthcareMedtechServiceId", example.id());
      *     }
      * }
      * }
@@ -447,7 +447,7 @@ public final class HealthcareFunctions {
      *             .workspaceId("tfexwks")
      *             .build());
      * 
-     *         ctx.export("azurermHealthcareMedtechServiceId", example.applyValue(getMedtechServiceResult -> getMedtechServiceResult.id()));
+     *         ctx.export("azurermHealthcareMedtechServiceId", example.id());
      *     }
      * }
      * }
@@ -491,7 +491,7 @@ public final class HealthcareFunctions {
      *             .workspaceId("tfexwks")
      *             .build());
      * 
-     *         ctx.export("azurermHealthcareMedtechServiceId", example.applyValue(getMedtechServiceResult -> getMedtechServiceResult.id()));
+     *         ctx.export("azurermHealthcareMedtechServiceId", example.id());
      *     }
      * }
      * }
@@ -536,7 +536,7 @@ public final class HealthcareFunctions {
      *             .location("westus2")
      *             .build());
      * 
-     *         ctx.export("healthcareServiceId", example.applyValue(getServiceResult -> getServiceResult.id()));
+     *         ctx.export("healthcareServiceId", example.id());
      *     }
      * }
      * }
@@ -581,7 +581,7 @@ public final class HealthcareFunctions {
      *             .location("westus2")
      *             .build());
      * 
-     *         ctx.export("healthcareServiceId", example.applyValue(getServiceResult -> getServiceResult.id()));
+     *         ctx.export("healthcareServiceId", example.id());
      *     }
      * }
      * }
@@ -626,7 +626,7 @@ public final class HealthcareFunctions {
      *             .location("westus2")
      *             .build());
      * 
-     *         ctx.export("healthcareServiceId", example.applyValue(getServiceResult -> getServiceResult.id()));
+     *         ctx.export("healthcareServiceId", example.id());
      *     }
      * }
      * }
@@ -671,7 +671,7 @@ public final class HealthcareFunctions {
      *             .location("westus2")
      *             .build());
      * 
-     *         ctx.export("healthcareServiceId", example.applyValue(getServiceResult -> getServiceResult.id()));
+     *         ctx.export("healthcareServiceId", example.id());
      *     }
      * }
      * }
@@ -716,7 +716,7 @@ public final class HealthcareFunctions {
      *             .location("westus2")
      *             .build());
      * 
-     *         ctx.export("healthcareServiceId", example.applyValue(getServiceResult -> getServiceResult.id()));
+     *         ctx.export("healthcareServiceId", example.id());
      *     }
      * }
      * }
@@ -760,7 +760,7 @@ public final class HealthcareFunctions {
      *             .resourceGroupName("example-resources")
      *             .build());
      * 
-     *         ctx.export("healthcareWorkspaceId", example.applyValue(getWorkspaceResult -> getWorkspaceResult.id()));
+     *         ctx.export("healthcareWorkspaceId", example.id());
      *     }
      * }
      * }
@@ -804,7 +804,7 @@ public final class HealthcareFunctions {
      *             .resourceGroupName("example-resources")
      *             .build());
      * 
-     *         ctx.export("healthcareWorkspaceId", example.applyValue(getWorkspaceResult -> getWorkspaceResult.id()));
+     *         ctx.export("healthcareWorkspaceId", example.id());
      *     }
      * }
      * }
@@ -848,7 +848,7 @@ public final class HealthcareFunctions {
      *             .resourceGroupName("example-resources")
      *             .build());
      * 
-     *         ctx.export("healthcareWorkspaceId", example.applyValue(getWorkspaceResult -> getWorkspaceResult.id()));
+     *         ctx.export("healthcareWorkspaceId", example.id());
      *     }
      * }
      * }
@@ -892,7 +892,7 @@ public final class HealthcareFunctions {
      *             .resourceGroupName("example-resources")
      *             .build());
      * 
-     *         ctx.export("healthcareWorkspaceId", example.applyValue(getWorkspaceResult -> getWorkspaceResult.id()));
+     *         ctx.export("healthcareWorkspaceId", example.id());
      *     }
      * }
      * }
@@ -936,7 +936,7 @@ public final class HealthcareFunctions {
      *             .resourceGroupName("example-resources")
      *             .build());
      * 
-     *         ctx.export("healthcareWorkspaceId", example.applyValue(getWorkspaceResult -> getWorkspaceResult.id()));
+     *         ctx.export("healthcareWorkspaceId", example.id());
      *     }
      * }
      * }

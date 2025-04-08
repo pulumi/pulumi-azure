@@ -291,7 +291,7 @@ public final class DashboardFunctions {
      *             .resourceGroupName("example-rg")
      *             .build());
      * 
-     *         ctx.export("name", example.applyValue(getGrafanaResult -> getGrafanaResult.name()));
+     *         ctx.export("name", example.name());
      *     }
      * }
      * }
@@ -335,7 +335,7 @@ public final class DashboardFunctions {
      *             .resourceGroupName("example-rg")
      *             .build());
      * 
-     *         ctx.export("name", example.applyValue(getGrafanaResult -> getGrafanaResult.name()));
+     *         ctx.export("name", example.name());
      *     }
      * }
      * }
@@ -379,7 +379,7 @@ public final class DashboardFunctions {
      *             .resourceGroupName("example-rg")
      *             .build());
      * 
-     *         ctx.export("name", example.applyValue(getGrafanaResult -> getGrafanaResult.name()));
+     *         ctx.export("name", example.name());
      *     }
      * }
      * }
@@ -423,7 +423,7 @@ public final class DashboardFunctions {
      *             .resourceGroupName("example-rg")
      *             .build());
      * 
-     *         ctx.export("name", example.applyValue(getGrafanaResult -> getGrafanaResult.name()));
+     *         ctx.export("name", example.name());
      *     }
      * }
      * }
@@ -467,7 +467,7 @@ public final class DashboardFunctions {
      *             .resourceGroupName("example-rg")
      *             .build());
      * 
-     *         ctx.export("name", example.applyValue(getGrafanaResult -> getGrafanaResult.name()));
+     *         ctx.export("name", example.name());
      *     }
      * }
      * }

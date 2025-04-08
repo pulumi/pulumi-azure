@@ -53,8 +53,8 @@ import javax.annotation.Nullable;
  * 
  *         var exampleSqlDatabase = new SqlDatabase("exampleSqlDatabase", SqlDatabaseArgs.builder()
  *             .name("tfex-cosmos-sql-db")
- *             .resourceGroupName(example.applyValue(getAccountResult -> getAccountResult.resourceGroupName()))
- *             .accountName(example.applyValue(getAccountResult -> getAccountResult.name()))
+ *             .resourceGroupName(example.resourceGroupName())
+ *             .accountName(example.name())
  *             .throughput(400)
  *             .build());
  * 

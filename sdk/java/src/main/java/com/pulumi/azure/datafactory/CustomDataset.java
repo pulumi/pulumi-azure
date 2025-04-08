@@ -84,11 +84,11 @@ import javax.annotation.Nullable;
  *             .name("example")
  *             .dataFactoryId(exampleFactory.id())
  *             .type("AzureBlobStorage")
- *             .typePropertiesJson(exampleAccount.primaryConnectionString().applyValue(primaryConnectionString -> """
+ *             .typePropertiesJson(exampleAccount.primaryConnectionString().applyValue(_primaryConnectionString -> """
  * {
  *   "connectionString":"%s"
  * }
- * ", primaryConnectionString)))
+ * ", _primaryConnectionString)))
  *             .build());
  * 
  *         var exampleContainer = new Container("exampleContainer", ContainerArgs.builder()
@@ -105,7 +105,7 @@ import javax.annotation.Nullable;
  *                 .name(exampleLinkedCustomService.name())
  *                 .parameters(Map.of("key1", "value1"))
  *                 .build())
- *             .typePropertiesJson(exampleContainer.name().applyValue(name -> """
+ *             .typePropertiesJson(exampleContainer.name().applyValue(_name -> """
  * {
  *   "location": {
  *     "container":"%s",
@@ -115,7 +115,7 @@ import javax.annotation.Nullable;
  *   },
  *   "encodingName":"UTF-8"
  * }
- * ", name)))
+ * ", _name)))
  *             .description("test description")
  *             .annotations(            
  *                 "test1",

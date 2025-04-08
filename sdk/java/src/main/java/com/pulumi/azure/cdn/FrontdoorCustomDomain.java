@@ -98,6 +98,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.dns.TxtRecord;
  * import com.pulumi.azure.dns.TxtRecordArgs;
  * import com.pulumi.azure.dns.inputs.TxtRecordRecordArgs;
+ * import com.pulumi.std.StdFunctions;
+ * import com.pulumi.std.inputs.JoinArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;

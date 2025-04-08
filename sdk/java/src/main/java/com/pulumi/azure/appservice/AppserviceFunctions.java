@@ -89,7 +89,7 @@ public final class AppserviceFunctions {
      *             .resourceGroupName("search-service")
      *             .build());
      * 
-     *         ctx.export("appServiceId", example.applyValue(getAppServiceResult -> getAppServiceResult.id()));
+     *         ctx.export("appServiceId", example.id());
      *     }
      * }
      * }
@@ -135,7 +135,7 @@ public final class AppserviceFunctions {
      *             .resourceGroupName("search-service")
      *             .build());
      * 
-     *         ctx.export("appServiceId", example.applyValue(getAppServiceResult -> getAppServiceResult.id()));
+     *         ctx.export("appServiceId", example.id());
      *     }
      * }
      * }
@@ -181,7 +181,7 @@ public final class AppserviceFunctions {
      *             .resourceGroupName("search-service")
      *             .build());
      * 
-     *         ctx.export("appServiceId", example.applyValue(getAppServiceResult -> getAppServiceResult.id()));
+     *         ctx.export("appServiceId", example.id());
      *     }
      * }
      * }
@@ -227,7 +227,7 @@ public final class AppserviceFunctions {
      *             .resourceGroupName("search-service")
      *             .build());
      * 
-     *         ctx.export("appServiceId", example.applyValue(getAppServiceResult -> getAppServiceResult.id()));
+     *         ctx.export("appServiceId", example.id());
      *     }
      * }
      * }
@@ -273,7 +273,7 @@ public final class AppserviceFunctions {
      *             .resourceGroupName("search-service")
      *             .build());
      * 
-     *         ctx.export("appServiceId", example.applyValue(getAppServiceResult -> getAppServiceResult.id()));
+     *         ctx.export("appServiceId", example.id());
      *     }
      * }
      * }
@@ -319,7 +319,7 @@ public final class AppserviceFunctions {
      *             .resourceGroupName("search-service")
      *             .build());
      * 
-     *         ctx.export("appServicePlanId", example.applyValue(getAppServicePlanResult -> getAppServicePlanResult.id()));
+     *         ctx.export("appServicePlanId", example.id());
      *     }
      * }
      * }
@@ -365,7 +365,7 @@ public final class AppserviceFunctions {
      *             .resourceGroupName("search-service")
      *             .build());
      * 
-     *         ctx.export("appServicePlanId", example.applyValue(getAppServicePlanResult -> getAppServicePlanResult.id()));
+     *         ctx.export("appServicePlanId", example.id());
      *     }
      * }
      * }
@@ -411,7 +411,7 @@ public final class AppserviceFunctions {
      *             .resourceGroupName("search-service")
      *             .build());
      * 
-     *         ctx.export("appServicePlanId", example.applyValue(getAppServicePlanResult -> getAppServicePlanResult.id()));
+     *         ctx.export("appServicePlanId", example.id());
      *     }
      * }
      * }
@@ -457,7 +457,7 @@ public final class AppserviceFunctions {
      *             .resourceGroupName("search-service")
      *             .build());
      * 
-     *         ctx.export("appServicePlanId", example.applyValue(getAppServicePlanResult -> getAppServicePlanResult.id()));
+     *         ctx.export("appServicePlanId", example.id());
      *     }
      * }
      * }
@@ -503,7 +503,7 @@ public final class AppserviceFunctions {
      *             .resourceGroupName("search-service")
      *             .build());
      * 
-     *         ctx.export("appServicePlanId", example.applyValue(getAppServicePlanResult -> getAppServicePlanResult.id()));
+     *         ctx.export("appServicePlanId", example.id());
      *     }
      * }
      * }
@@ -547,7 +547,7 @@ public final class AppserviceFunctions {
      *             .resourceGroupName("example-rg")
      *             .build());
      * 
-     *         ctx.export("appServiceCertificateId", example.applyValue(getCertificateResult -> getCertificateResult.id()));
+     *         ctx.export("appServiceCertificateId", example.id());
      *     }
      * }
      * }
@@ -591,7 +591,7 @@ public final class AppserviceFunctions {
      *             .resourceGroupName("example-rg")
      *             .build());
      * 
-     *         ctx.export("appServiceCertificateId", example.applyValue(getCertificateResult -> getCertificateResult.id()));
+     *         ctx.export("appServiceCertificateId", example.id());
      *     }
      * }
      * }
@@ -635,7 +635,7 @@ public final class AppserviceFunctions {
      *             .resourceGroupName("example-rg")
      *             .build());
      * 
-     *         ctx.export("appServiceCertificateId", example.applyValue(getCertificateResult -> getCertificateResult.id()));
+     *         ctx.export("appServiceCertificateId", example.id());
      *     }
      * }
      * }
@@ -679,7 +679,7 @@ public final class AppserviceFunctions {
      *             .resourceGroupName("example-rg")
      *             .build());
      * 
-     *         ctx.export("appServiceCertificateId", example.applyValue(getCertificateResult -> getCertificateResult.id()));
+     *         ctx.export("appServiceCertificateId", example.id());
      *     }
      * }
      * }
@@ -723,7 +723,7 @@ public final class AppserviceFunctions {
      *             .resourceGroupName("example-rg")
      *             .build());
      * 
-     *         ctx.export("appServiceCertificateId", example.applyValue(getCertificateResult -> getCertificateResult.id()));
+     *         ctx.export("appServiceCertificateId", example.id());
      *     }
      * }
      * }
@@ -767,7 +767,7 @@ public final class AppserviceFunctions {
      *             .resourceGroupName("example-resources")
      *             .build());
      * 
-     *         ctx.export("certificateOrderId", example.applyValue(getCertificateOrderResult -> getCertificateOrderResult.id()));
+     *         ctx.export("certificateOrderId", example.id());
      *     }
      * }
      * }
@@ -811,7 +811,7 @@ public final class AppserviceFunctions {
      *             .resourceGroupName("example-resources")
      *             .build());
      * 
-     *         ctx.export("certificateOrderId", example.applyValue(getCertificateOrderResult -> getCertificateOrderResult.id()));
+     *         ctx.export("certificateOrderId", example.id());
      *     }
      * }
      * }
@@ -855,7 +855,7 @@ public final class AppserviceFunctions {
      *             .resourceGroupName("example-resources")
      *             .build());
      * 
-     *         ctx.export("certificateOrderId", example.applyValue(getCertificateOrderResult -> getCertificateOrderResult.id()));
+     *         ctx.export("certificateOrderId", example.id());
      *     }
      * }
      * }
@@ -899,7 +899,7 @@ public final class AppserviceFunctions {
      *             .resourceGroupName("example-resources")
      *             .build());
      * 
-     *         ctx.export("certificateOrderId", example.applyValue(getCertificateOrderResult -> getCertificateOrderResult.id()));
+     *         ctx.export("certificateOrderId", example.id());
      *     }
      * }
      * }
@@ -943,7 +943,7 @@ public final class AppserviceFunctions {
      *             .resourceGroupName("example-resources")
      *             .build());
      * 
-     *         ctx.export("certificateOrderId", example.applyValue(getCertificateOrderResult -> getCertificateOrderResult.id()));
+     *         ctx.export("certificateOrderId", example.id());
      *     }
      * }
      * }
@@ -987,7 +987,7 @@ public final class AppserviceFunctions {
      *             .resourceGroupName("example-resource-group")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getEnvironmentV3Result -> getEnvironmentV3Result.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -1031,7 +1031,7 @@ public final class AppserviceFunctions {
      *             .resourceGroupName("example-resource-group")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getEnvironmentV3Result -> getEnvironmentV3Result.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -1075,7 +1075,7 @@ public final class AppserviceFunctions {
      *             .resourceGroupName("example-resource-group")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getEnvironmentV3Result -> getEnvironmentV3Result.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -1119,7 +1119,7 @@ public final class AppserviceFunctions {
      *             .resourceGroupName("example-resource-group")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getEnvironmentV3Result -> getEnvironmentV3Result.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -1163,7 +1163,7 @@ public final class AppserviceFunctions {
      *             .resourceGroupName("example-resource-group")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getEnvironmentV3Result -> getEnvironmentV3Result.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -1647,7 +1647,7 @@ public final class AppserviceFunctions {
      *             .resourceGroupName("existing")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getLinuxFunctionAppResult -> getLinuxFunctionAppResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -1691,7 +1691,7 @@ public final class AppserviceFunctions {
      *             .resourceGroupName("existing")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getLinuxFunctionAppResult -> getLinuxFunctionAppResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -1735,7 +1735,7 @@ public final class AppserviceFunctions {
      *             .resourceGroupName("existing")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getLinuxFunctionAppResult -> getLinuxFunctionAppResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -1779,7 +1779,7 @@ public final class AppserviceFunctions {
      *             .resourceGroupName("existing")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getLinuxFunctionAppResult -> getLinuxFunctionAppResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -1823,7 +1823,7 @@ public final class AppserviceFunctions {
      *             .resourceGroupName("existing")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getLinuxFunctionAppResult -> getLinuxFunctionAppResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -1867,7 +1867,7 @@ public final class AppserviceFunctions {
      *             .resourceGroupName("existing")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getLinuxWebAppResult -> getLinuxWebAppResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -1911,7 +1911,7 @@ public final class AppserviceFunctions {
      *             .resourceGroupName("existing")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getLinuxWebAppResult -> getLinuxWebAppResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -1955,7 +1955,7 @@ public final class AppserviceFunctions {
      *             .resourceGroupName("existing")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getLinuxWebAppResult -> getLinuxWebAppResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -1999,7 +1999,7 @@ public final class AppserviceFunctions {
      *             .resourceGroupName("existing")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getLinuxWebAppResult -> getLinuxWebAppResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -2043,7 +2043,7 @@ public final class AppserviceFunctions {
      *             .resourceGroupName("existing")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getLinuxWebAppResult -> getLinuxWebAppResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -2087,7 +2087,7 @@ public final class AppserviceFunctions {
      *             .resourceGroupName("existing")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getServicePlanResult -> getServicePlanResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -2131,7 +2131,7 @@ public final class AppserviceFunctions {
      *             .resourceGroupName("existing")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getServicePlanResult -> getServicePlanResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -2175,7 +2175,7 @@ public final class AppserviceFunctions {
      *             .resourceGroupName("existing")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getServicePlanResult -> getServicePlanResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -2219,7 +2219,7 @@ public final class AppserviceFunctions {
      *             .resourceGroupName("existing")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getServicePlanResult -> getServicePlanResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -2263,7 +2263,7 @@ public final class AppserviceFunctions {
      *             .resourceGroupName("existing")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getServicePlanResult -> getServicePlanResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -2727,7 +2727,7 @@ public final class AppserviceFunctions {
      *             .resourceGroupName("existing")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getWindowsFunctionAppResult -> getWindowsFunctionAppResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -2771,7 +2771,7 @@ public final class AppserviceFunctions {
      *             .resourceGroupName("existing")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getWindowsFunctionAppResult -> getWindowsFunctionAppResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -2815,7 +2815,7 @@ public final class AppserviceFunctions {
      *             .resourceGroupName("existing")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getWindowsFunctionAppResult -> getWindowsFunctionAppResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -2859,7 +2859,7 @@ public final class AppserviceFunctions {
      *             .resourceGroupName("existing")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getWindowsFunctionAppResult -> getWindowsFunctionAppResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -2903,7 +2903,7 @@ public final class AppserviceFunctions {
      *             .resourceGroupName("existing")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getWindowsFunctionAppResult -> getWindowsFunctionAppResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -2947,7 +2947,7 @@ public final class AppserviceFunctions {
      *             .resourceGroupName("existing")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getWindowsWebAppResult -> getWindowsWebAppResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -2991,7 +2991,7 @@ public final class AppserviceFunctions {
      *             .resourceGroupName("existing")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getWindowsWebAppResult -> getWindowsWebAppResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -3035,7 +3035,7 @@ public final class AppserviceFunctions {
      *             .resourceGroupName("existing")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getWindowsWebAppResult -> getWindowsWebAppResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -3079,7 +3079,7 @@ public final class AppserviceFunctions {
      *             .resourceGroupName("existing")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getWindowsWebAppResult -> getWindowsWebAppResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -3123,7 +3123,7 @@ public final class AppserviceFunctions {
      *             .resourceGroupName("existing")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getWindowsWebAppResult -> getWindowsWebAppResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }

@@ -52,7 +52,8 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         final var example = CoreFunctions.getSubscription();
+ *         final var example = CoreFunctions.getSubscription(GetSubscriptionArgs.builder()
+ *             .build());
  * 
  *         final var exampleGetPolicyDefintion = PolicyFunctions.getPolicyDefintion(GetPolicyDefintionArgs.builder()
  *             .displayName("Allowed resource types")
@@ -60,8 +61,8 @@ import javax.annotation.Nullable;
  * 
  *         var exampleSubscriptionPolicyAssignment = new SubscriptionPolicyAssignment("exampleSubscriptionPolicyAssignment", SubscriptionPolicyAssignmentArgs.builder()
  *             .name("exampleAssignment")
- *             .subscriptionId(example.applyValue(getSubscriptionResult -> getSubscriptionResult.id()))
- *             .policyDefinitionId(exampleGetPolicyDefintion.applyValue(getPolicyDefintionResult -> getPolicyDefintionResult.id()))
+ *             .subscriptionId(example.id())
+ *             .policyDefinitionId(exampleGetPolicyDefintion.id())
  *             .parameters(serializeJson(
  *                 jsonObject(
  *                     jsonProperty("listOfAllowedLocations", jsonObject(
@@ -75,7 +76,7 @@ import javax.annotation.Nullable;
  * 
  *         var exampleSubscriptionPolicyRemediation = new SubscriptionPolicyRemediation("exampleSubscriptionPolicyRemediation", SubscriptionPolicyRemediationArgs.builder()
  *             .name("example")
- *             .subscriptionId(example.applyValue(getSubscriptionResult -> getSubscriptionResult.id()))
+ *             .subscriptionId(example.id())
  *             .policyAssignmentId(exampleSubscriptionPolicyAssignment.id())
  *             .build());
  * 

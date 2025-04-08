@@ -32,7 +32,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.desktopvirtualization.HostPool;
  * import com.pulumi.azure.desktopvirtualization.HostPoolArgs;
  * import com.pulumi.azure.desktopvirtualization.getHostPoolRegistrationInfo;
- * import com.pulumi.azure.desktopvirtualization.GetHostPoolRegistrationInfoArgs;
+ * import com.pulumi.azure.desktopvirtualization.getHostPoolRegistrationInfoArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;

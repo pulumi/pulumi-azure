@@ -47,30 +47,31 @@ public final class RoleFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var primary = CoreFunctions.getSubscription();
+     *         final var primary = CoreFunctions.getSubscription(GetSubscriptionArgs.builder()
+     *             .build());
      * 
      *         var customRoleDefinition = new RoleDefinition("customRoleDefinition", RoleDefinitionArgs.builder()
      *             .roleDefinitionId("00000000-0000-0000-0000-000000000000")
      *             .name("CustomRoleDef")
-     *             .scope(primary.applyValue(getSubscriptionResult -> getSubscriptionResult.id()))
+     *             .scope(primary.id())
      *             .build());
      * 
-     *         final var custom = AuthorizationFunctions.getRoleDefinition(GetRoleDefinitionArgs.builder()
-     *             .roleDefinitionId(customRoleDefinition.roleDefinitionId())
-     *             .scope(primary.applyValue(getSubscriptionResult -> getSubscriptionResult.id()))
-     *             .build());
+     *         final var custom = customRoleDefinition.roleDefinitionId().applyValue(_roleDefinitionId -> AuthorizationFunctions.getRoleDefinition(GetRoleDefinitionArgs.builder()
+     *             .roleDefinitionId(_roleDefinitionId)
+     *             .scope(primary.id())
+     *             .build()));
      * 
-     *         final var custom-byname = AuthorizationFunctions.getRoleDefinition(GetRoleDefinitionArgs.builder()
-     *             .name(customRoleDefinition.name())
-     *             .scope(primary.applyValue(getSubscriptionResult -> getSubscriptionResult.id()))
-     *             .build());
+     *         final var custom-byname = customRoleDefinition.name().applyValue(_name -> AuthorizationFunctions.getRoleDefinition(GetRoleDefinitionArgs.builder()
+     *             .name(_name)
+     *             .scope(primary.id())
+     *             .build()));
      * 
      *         final var builtin = AuthorizationFunctions.getRoleDefinition(GetRoleDefinitionArgs.builder()
      *             .name("Contributor")
      *             .build());
      * 
-     *         ctx.export("customRoleDefinitionId", custom.applyValue(getRoleDefinitionResult -> getRoleDefinitionResult).applyValue(custom -> custom.applyValue(getRoleDefinitionResult -> getRoleDefinitionResult.id())));
-     *         ctx.export("contributorRoleDefinitionId", builtin.applyValue(getRoleDefinitionResult -> getRoleDefinitionResult.id()));
+     *         ctx.export("customRoleDefinitionId", custom.applyValue(_custom -> _custom.id()));
+     *         ctx.export("contributorRoleDefinitionId", builtin.id());
      *     }
      * }
      * }
@@ -117,30 +118,31 @@ public final class RoleFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var primary = CoreFunctions.getSubscription();
+     *         final var primary = CoreFunctions.getSubscription(GetSubscriptionArgs.builder()
+     *             .build());
      * 
      *         var customRoleDefinition = new RoleDefinition("customRoleDefinition", RoleDefinitionArgs.builder()
      *             .roleDefinitionId("00000000-0000-0000-0000-000000000000")
      *             .name("CustomRoleDef")
-     *             .scope(primary.applyValue(getSubscriptionResult -> getSubscriptionResult.id()))
+     *             .scope(primary.id())
      *             .build());
      * 
-     *         final var custom = AuthorizationFunctions.getRoleDefinition(GetRoleDefinitionArgs.builder()
-     *             .roleDefinitionId(customRoleDefinition.roleDefinitionId())
-     *             .scope(primary.applyValue(getSubscriptionResult -> getSubscriptionResult.id()))
-     *             .build());
+     *         final var custom = customRoleDefinition.roleDefinitionId().applyValue(_roleDefinitionId -> AuthorizationFunctions.getRoleDefinition(GetRoleDefinitionArgs.builder()
+     *             .roleDefinitionId(_roleDefinitionId)
+     *             .scope(primary.id())
+     *             .build()));
      * 
-     *         final var custom-byname = AuthorizationFunctions.getRoleDefinition(GetRoleDefinitionArgs.builder()
-     *             .name(customRoleDefinition.name())
-     *             .scope(primary.applyValue(getSubscriptionResult -> getSubscriptionResult.id()))
-     *             .build());
+     *         final var custom-byname = customRoleDefinition.name().applyValue(_name -> AuthorizationFunctions.getRoleDefinition(GetRoleDefinitionArgs.builder()
+     *             .name(_name)
+     *             .scope(primary.id())
+     *             .build()));
      * 
      *         final var builtin = AuthorizationFunctions.getRoleDefinition(GetRoleDefinitionArgs.builder()
      *             .name("Contributor")
      *             .build());
      * 
-     *         ctx.export("customRoleDefinitionId", custom.applyValue(getRoleDefinitionResult -> getRoleDefinitionResult).applyValue(custom -> custom.applyValue(getRoleDefinitionResult -> getRoleDefinitionResult.id())));
-     *         ctx.export("contributorRoleDefinitionId", builtin.applyValue(getRoleDefinitionResult -> getRoleDefinitionResult.id()));
+     *         ctx.export("customRoleDefinitionId", custom.applyValue(_custom -> _custom.id()));
+     *         ctx.export("contributorRoleDefinitionId", builtin.id());
      *     }
      * }
      * }
@@ -187,30 +189,31 @@ public final class RoleFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var primary = CoreFunctions.getSubscription();
+     *         final var primary = CoreFunctions.getSubscription(GetSubscriptionArgs.builder()
+     *             .build());
      * 
      *         var customRoleDefinition = new RoleDefinition("customRoleDefinition", RoleDefinitionArgs.builder()
      *             .roleDefinitionId("00000000-0000-0000-0000-000000000000")
      *             .name("CustomRoleDef")
-     *             .scope(primary.applyValue(getSubscriptionResult -> getSubscriptionResult.id()))
+     *             .scope(primary.id())
      *             .build());
      * 
-     *         final var custom = AuthorizationFunctions.getRoleDefinition(GetRoleDefinitionArgs.builder()
-     *             .roleDefinitionId(customRoleDefinition.roleDefinitionId())
-     *             .scope(primary.applyValue(getSubscriptionResult -> getSubscriptionResult.id()))
-     *             .build());
+     *         final var custom = customRoleDefinition.roleDefinitionId().applyValue(_roleDefinitionId -> AuthorizationFunctions.getRoleDefinition(GetRoleDefinitionArgs.builder()
+     *             .roleDefinitionId(_roleDefinitionId)
+     *             .scope(primary.id())
+     *             .build()));
      * 
-     *         final var custom-byname = AuthorizationFunctions.getRoleDefinition(GetRoleDefinitionArgs.builder()
-     *             .name(customRoleDefinition.name())
-     *             .scope(primary.applyValue(getSubscriptionResult -> getSubscriptionResult.id()))
-     *             .build());
+     *         final var custom-byname = customRoleDefinition.name().applyValue(_name -> AuthorizationFunctions.getRoleDefinition(GetRoleDefinitionArgs.builder()
+     *             .name(_name)
+     *             .scope(primary.id())
+     *             .build()));
      * 
      *         final var builtin = AuthorizationFunctions.getRoleDefinition(GetRoleDefinitionArgs.builder()
      *             .name("Contributor")
      *             .build());
      * 
-     *         ctx.export("customRoleDefinitionId", custom.applyValue(getRoleDefinitionResult -> getRoleDefinitionResult).applyValue(custom -> custom.applyValue(getRoleDefinitionResult -> getRoleDefinitionResult.id())));
-     *         ctx.export("contributorRoleDefinitionId", builtin.applyValue(getRoleDefinitionResult -> getRoleDefinitionResult.id()));
+     *         ctx.export("customRoleDefinitionId", custom.applyValue(_custom -> _custom.id()));
+     *         ctx.export("contributorRoleDefinitionId", builtin.id());
      *     }
      * }
      * }
@@ -257,30 +260,31 @@ public final class RoleFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var primary = CoreFunctions.getSubscription();
+     *         final var primary = CoreFunctions.getSubscription(GetSubscriptionArgs.builder()
+     *             .build());
      * 
      *         var customRoleDefinition = new RoleDefinition("customRoleDefinition", RoleDefinitionArgs.builder()
      *             .roleDefinitionId("00000000-0000-0000-0000-000000000000")
      *             .name("CustomRoleDef")
-     *             .scope(primary.applyValue(getSubscriptionResult -> getSubscriptionResult.id()))
+     *             .scope(primary.id())
      *             .build());
      * 
-     *         final var custom = AuthorizationFunctions.getRoleDefinition(GetRoleDefinitionArgs.builder()
-     *             .roleDefinitionId(customRoleDefinition.roleDefinitionId())
-     *             .scope(primary.applyValue(getSubscriptionResult -> getSubscriptionResult.id()))
-     *             .build());
+     *         final var custom = customRoleDefinition.roleDefinitionId().applyValue(_roleDefinitionId -> AuthorizationFunctions.getRoleDefinition(GetRoleDefinitionArgs.builder()
+     *             .roleDefinitionId(_roleDefinitionId)
+     *             .scope(primary.id())
+     *             .build()));
      * 
-     *         final var custom-byname = AuthorizationFunctions.getRoleDefinition(GetRoleDefinitionArgs.builder()
-     *             .name(customRoleDefinition.name())
-     *             .scope(primary.applyValue(getSubscriptionResult -> getSubscriptionResult.id()))
-     *             .build());
+     *         final var custom-byname = customRoleDefinition.name().applyValue(_name -> AuthorizationFunctions.getRoleDefinition(GetRoleDefinitionArgs.builder()
+     *             .name(_name)
+     *             .scope(primary.id())
+     *             .build()));
      * 
      *         final var builtin = AuthorizationFunctions.getRoleDefinition(GetRoleDefinitionArgs.builder()
      *             .name("Contributor")
      *             .build());
      * 
-     *         ctx.export("customRoleDefinitionId", custom.applyValue(getRoleDefinitionResult -> getRoleDefinitionResult).applyValue(custom -> custom.applyValue(getRoleDefinitionResult -> getRoleDefinitionResult.id())));
-     *         ctx.export("contributorRoleDefinitionId", builtin.applyValue(getRoleDefinitionResult -> getRoleDefinitionResult.id()));
+     *         ctx.export("customRoleDefinitionId", custom.applyValue(_custom -> _custom.id()));
+     *         ctx.export("contributorRoleDefinitionId", builtin.id());
      *     }
      * }
      * }
@@ -327,30 +331,31 @@ public final class RoleFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var primary = CoreFunctions.getSubscription();
+     *         final var primary = CoreFunctions.getSubscription(GetSubscriptionArgs.builder()
+     *             .build());
      * 
      *         var customRoleDefinition = new RoleDefinition("customRoleDefinition", RoleDefinitionArgs.builder()
      *             .roleDefinitionId("00000000-0000-0000-0000-000000000000")
      *             .name("CustomRoleDef")
-     *             .scope(primary.applyValue(getSubscriptionResult -> getSubscriptionResult.id()))
+     *             .scope(primary.id())
      *             .build());
      * 
-     *         final var custom = AuthorizationFunctions.getRoleDefinition(GetRoleDefinitionArgs.builder()
-     *             .roleDefinitionId(customRoleDefinition.roleDefinitionId())
-     *             .scope(primary.applyValue(getSubscriptionResult -> getSubscriptionResult.id()))
-     *             .build());
+     *         final var custom = customRoleDefinition.roleDefinitionId().applyValue(_roleDefinitionId -> AuthorizationFunctions.getRoleDefinition(GetRoleDefinitionArgs.builder()
+     *             .roleDefinitionId(_roleDefinitionId)
+     *             .scope(primary.id())
+     *             .build()));
      * 
-     *         final var custom-byname = AuthorizationFunctions.getRoleDefinition(GetRoleDefinitionArgs.builder()
-     *             .name(customRoleDefinition.name())
-     *             .scope(primary.applyValue(getSubscriptionResult -> getSubscriptionResult.id()))
-     *             .build());
+     *         final var custom-byname = customRoleDefinition.name().applyValue(_name -> AuthorizationFunctions.getRoleDefinition(GetRoleDefinitionArgs.builder()
+     *             .name(_name)
+     *             .scope(primary.id())
+     *             .build()));
      * 
      *         final var builtin = AuthorizationFunctions.getRoleDefinition(GetRoleDefinitionArgs.builder()
      *             .name("Contributor")
      *             .build());
      * 
-     *         ctx.export("customRoleDefinitionId", custom.applyValue(getRoleDefinitionResult -> getRoleDefinitionResult).applyValue(custom -> custom.applyValue(getRoleDefinitionResult -> getRoleDefinitionResult.id())));
-     *         ctx.export("contributorRoleDefinitionId", builtin.applyValue(getRoleDefinitionResult -> getRoleDefinitionResult.id()));
+     *         ctx.export("customRoleDefinitionId", custom.applyValue(_custom -> _custom.id()));
+     *         ctx.export("contributorRoleDefinitionId", builtin.id());
      *     }
      * }
      * }
@@ -397,30 +402,31 @@ public final class RoleFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var primary = CoreFunctions.getSubscription();
+     *         final var primary = CoreFunctions.getSubscription(GetSubscriptionArgs.builder()
+     *             .build());
      * 
      *         var customRoleDefinition = new RoleDefinition("customRoleDefinition", RoleDefinitionArgs.builder()
      *             .roleDefinitionId("00000000-0000-0000-0000-000000000000")
      *             .name("CustomRoleDef")
-     *             .scope(primary.applyValue(getSubscriptionResult -> getSubscriptionResult.id()))
+     *             .scope(primary.id())
      *             .build());
      * 
-     *         final var custom = AuthorizationFunctions.getRoleDefinition(GetRoleDefinitionArgs.builder()
-     *             .roleDefinitionId(customRoleDefinition.roleDefinitionId())
-     *             .scope(primary.applyValue(getSubscriptionResult -> getSubscriptionResult.id()))
-     *             .build());
+     *         final var custom = customRoleDefinition.roleDefinitionId().applyValue(_roleDefinitionId -> AuthorizationFunctions.getRoleDefinition(GetRoleDefinitionArgs.builder()
+     *             .roleDefinitionId(_roleDefinitionId)
+     *             .scope(primary.id())
+     *             .build()));
      * 
-     *         final var custom-byname = AuthorizationFunctions.getRoleDefinition(GetRoleDefinitionArgs.builder()
-     *             .name(customRoleDefinition.name())
-     *             .scope(primary.applyValue(getSubscriptionResult -> getSubscriptionResult.id()))
-     *             .build());
+     *         final var custom-byname = customRoleDefinition.name().applyValue(_name -> AuthorizationFunctions.getRoleDefinition(GetRoleDefinitionArgs.builder()
+     *             .name(_name)
+     *             .scope(primary.id())
+     *             .build()));
      * 
      *         final var builtin = AuthorizationFunctions.getRoleDefinition(GetRoleDefinitionArgs.builder()
      *             .name("Contributor")
      *             .build());
      * 
-     *         ctx.export("customRoleDefinitionId", custom.applyValue(getRoleDefinitionResult -> getRoleDefinitionResult).applyValue(custom -> custom.applyValue(getRoleDefinitionResult -> getRoleDefinitionResult.id())));
-     *         ctx.export("contributorRoleDefinitionId", builtin.applyValue(getRoleDefinitionResult -> getRoleDefinitionResult.id()));
+     *         ctx.export("customRoleDefinitionId", custom.applyValue(_custom -> _custom.id()));
+     *         ctx.export("contributorRoleDefinitionId", builtin.id());
      *     }
      * }
      * }
@@ -467,30 +473,31 @@ public final class RoleFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var primary = CoreFunctions.getSubscription();
+     *         final var primary = CoreFunctions.getSubscription(GetSubscriptionArgs.builder()
+     *             .build());
      * 
      *         var customRoleDefinition = new RoleDefinition("customRoleDefinition", RoleDefinitionArgs.builder()
      *             .roleDefinitionId("00000000-0000-0000-0000-000000000000")
      *             .name("CustomRoleDef")
-     *             .scope(primary.applyValue(getSubscriptionResult -> getSubscriptionResult.id()))
+     *             .scope(primary.id())
      *             .build());
      * 
-     *         final var custom = AuthorizationFunctions.getRoleDefinition(GetRoleDefinitionArgs.builder()
-     *             .roleDefinitionId(customRoleDefinition.roleDefinitionId())
-     *             .scope(primary.applyValue(getSubscriptionResult -> getSubscriptionResult.id()))
-     *             .build());
+     *         final var custom = customRoleDefinition.roleDefinitionId().applyValue(_roleDefinitionId -> AuthorizationFunctions.getRoleDefinition(GetRoleDefinitionArgs.builder()
+     *             .roleDefinitionId(_roleDefinitionId)
+     *             .scope(primary.id())
+     *             .build()));
      * 
-     *         final var custom-byname = AuthorizationFunctions.getRoleDefinition(GetRoleDefinitionArgs.builder()
-     *             .name(customRoleDefinition.name())
-     *             .scope(primary.applyValue(getSubscriptionResult -> getSubscriptionResult.id()))
-     *             .build());
+     *         final var custom-byname = customRoleDefinition.name().applyValue(_name -> AuthorizationFunctions.getRoleDefinition(GetRoleDefinitionArgs.builder()
+     *             .name(_name)
+     *             .scope(primary.id())
+     *             .build()));
      * 
      *         final var builtin = AuthorizationFunctions.getRoleDefinition(GetRoleDefinitionArgs.builder()
      *             .name("Contributor")
      *             .build());
      * 
-     *         ctx.export("customRoleDefinitionId", custom.applyValue(getRoleDefinitionResult -> getRoleDefinitionResult).applyValue(custom -> custom.applyValue(getRoleDefinitionResult -> getRoleDefinitionResult.id())));
-     *         ctx.export("contributorRoleDefinitionId", builtin.applyValue(getRoleDefinitionResult -> getRoleDefinitionResult.id()));
+     *         ctx.export("customRoleDefinitionId", custom.applyValue(_custom -> _custom.id()));
+     *         ctx.export("contributorRoleDefinitionId", builtin.id());
      *     }
      * }
      * }

@@ -52,7 +52,7 @@ import javax.annotation.Nullable;
  *             .location("West Europe")
  *             .build());
  * 
- *         final var example = CoreFunctions.getClientConfig();
+ *         final var example = CoreFunctions.getClientConfig(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
  * 
  *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()
  *             .name("account-example")
@@ -67,7 +67,7 @@ import javax.annotation.Nullable;
  *             .automationAccountName(exampleAccount.name())
  *             .certificateAssetName("cert1")
  *             .subscriptionName("subs1")
- *             .subscriptionId(example.applyValue(getClientConfigResult -> getClientConfigResult.subscriptionId()))
+ *             .subscriptionId(example.subscriptionId())
  *             .build());
  * 
  *     }

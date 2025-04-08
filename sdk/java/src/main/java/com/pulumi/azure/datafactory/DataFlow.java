@@ -92,11 +92,11 @@ import javax.annotation.Nullable;
  *             .name("linked_service")
  *             .dataFactoryId(exampleFactory.id())
  *             .type("AzureBlobStorage")
- *             .typePropertiesJson(exampleAccount.primaryConnectionString().applyValue(primaryConnectionString -> """
+ *             .typePropertiesJson(exampleAccount.primaryConnectionString().applyValue(_primaryConnectionString -> """
  * {
  *   "connectionString": "%s"
  * }
- * ", primaryConnectionString)))
+ * ", _primaryConnectionString)))
  *             .build());
  * 
  *         var example1 = new DatasetJson("example1", DatasetJsonArgs.builder()

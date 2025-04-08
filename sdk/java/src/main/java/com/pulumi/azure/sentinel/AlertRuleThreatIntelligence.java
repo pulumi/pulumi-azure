@@ -84,7 +84,7 @@ import javax.annotation.Nullable;
  *         var exampleAlertRuleThreatIntelligence = new AlertRuleThreatIntelligence("exampleAlertRuleThreatIntelligence", AlertRuleThreatIntelligenceArgs.builder()
  *             .name("example-rule")
  *             .logAnalyticsWorkspaceId(exampleAnalyticsSolution.workspaceResourceId())
- *             .alertRuleTemplateGuid(example.applyValue(getAlertRuleTemplateResult -> getAlertRuleTemplateResult).applyValue(example -> example.applyValue(getAlertRuleTemplateResult -> getAlertRuleTemplateResult.name())))
+ *             .alertRuleTemplateGuid(example.applyValue(_example -> _example.name()))
  *             .build());
  * 
  *     }
