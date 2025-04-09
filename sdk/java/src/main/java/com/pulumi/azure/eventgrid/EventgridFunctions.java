@@ -57,7 +57,7 @@ public final class EventgridFunctions {
      *             .resourceGroupName("example-resources")
      *             .build());
      * 
-     *         ctx.export("eventgridDomainMappingTopic", example.applyValue(getDomainResult -> getDomainResult.inputMappingFields()[0].topic()));
+     *         ctx.export("eventgridDomainMappingTopic", example.inputMappingFields()[0].topic());
      *     }
      * }
      * }
@@ -101,7 +101,7 @@ public final class EventgridFunctions {
      *             .resourceGroupName("example-resources")
      *             .build());
      * 
-     *         ctx.export("eventgridDomainMappingTopic", example.applyValue(getDomainResult -> getDomainResult.inputMappingFields()[0].topic()));
+     *         ctx.export("eventgridDomainMappingTopic", example.inputMappingFields()[0].topic());
      *     }
      * }
      * }
@@ -145,7 +145,7 @@ public final class EventgridFunctions {
      *             .resourceGroupName("example-resources")
      *             .build());
      * 
-     *         ctx.export("eventgridDomainMappingTopic", example.applyValue(getDomainResult -> getDomainResult.inputMappingFields()[0].topic()));
+     *         ctx.export("eventgridDomainMappingTopic", example.inputMappingFields()[0].topic());
      *     }
      * }
      * }
@@ -189,7 +189,7 @@ public final class EventgridFunctions {
      *             .resourceGroupName("example-resources")
      *             .build());
      * 
-     *         ctx.export("eventgridDomainMappingTopic", example.applyValue(getDomainResult -> getDomainResult.inputMappingFields()[0].topic()));
+     *         ctx.export("eventgridDomainMappingTopic", example.inputMappingFields()[0].topic());
      *     }
      * }
      * }
@@ -233,7 +233,7 @@ public final class EventgridFunctions {
      *             .resourceGroupName("example-resources")
      *             .build());
      * 
-     *         ctx.export("eventgridDomainMappingTopic", example.applyValue(getDomainResult -> getDomainResult.inputMappingFields()[0].topic()));
+     *         ctx.export("eventgridDomainMappingTopic", example.inputMappingFields()[0].topic());
      *     }
      * }
      * }

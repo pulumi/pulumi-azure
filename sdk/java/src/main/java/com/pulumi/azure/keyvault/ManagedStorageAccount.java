@@ -52,7 +52,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         final var current = CoreFunctions.getClientConfig();
+ *         final var current = CoreFunctions.getClientConfig(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
  * 
  *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example-resources")
@@ -71,11 +71,11 @@ import javax.annotation.Nullable;
  *             .name("keyvaultname")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .tenantId(current.applyValue(getClientConfigResult -> getClientConfigResult.tenantId()))
+ *             .tenantId(current.tenantId())
  *             .skuName("standard")
  *             .accessPolicies(KeyVaultAccessPolicyArgs.builder()
- *                 .tenantId(current.applyValue(getClientConfigResult -> getClientConfigResult.tenantId()))
- *                 .objectId(current.applyValue(getClientConfigResult -> getClientConfigResult.objectId()))
+ *                 .tenantId(current.tenantId())
+ *                 .objectId(current.objectId())
  *                 .secretPermissions(                
  *                     "Get",
  *                     "Delete")
@@ -144,7 +144,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         final var current = CoreFunctions.getClientConfig();
+ *         final var current = CoreFunctions.getClientConfig(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
  * 
  *         final var test = AzureadFunctions.getServicePrincipal(GetServicePrincipalArgs.builder()
  *             .applicationId("cfa8b339-82a2-471a-a3c9-0fc0be7a4093")
@@ -167,11 +167,11 @@ import javax.annotation.Nullable;
  *             .name("keyvaultname")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .tenantId(current.applyValue(getClientConfigResult -> getClientConfigResult.tenantId()))
+ *             .tenantId(current.tenantId())
  *             .skuName("standard")
  *             .accessPolicies(KeyVaultAccessPolicyArgs.builder()
- *                 .tenantId(current.applyValue(getClientConfigResult -> getClientConfigResult.tenantId()))
- *                 .objectId(current.applyValue(getClientConfigResult -> getClientConfigResult.objectId()))
+ *                 .tenantId(current.tenantId())
+ *                 .objectId(current.objectId())
  *                 .secretPermissions(                
  *                     "Get",
  *                     "Delete")
@@ -190,7 +190,7 @@ import javax.annotation.Nullable;
  *         var exampleAssignment = new Assignment("exampleAssignment", AssignmentArgs.builder()
  *             .scope(exampleAccount.id())
  *             .roleDefinitionName("Storage Account Key Operator Service Role")
- *             .principalId(test.applyValue(getServicePrincipalResult -> getServicePrincipalResult.id()))
+ *             .principalId(test.id())
  *             .build());
  * 
  *         var exampleManagedStorageAccount = new ManagedStorageAccount("exampleManagedStorageAccount", ManagedStorageAccountArgs.builder()

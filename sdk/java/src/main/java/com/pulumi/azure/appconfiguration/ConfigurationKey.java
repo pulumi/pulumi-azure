@@ -67,12 +67,12 @@ import javax.annotation.Nullable;
  *             .location(example.location())
  *             .build());
  * 
- *         final var current = CoreFunctions.getClientConfig();
+ *         final var current = CoreFunctions.getClientConfig(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
  * 
  *         var appconfDataowner = new Assignment("appconfDataowner", AssignmentArgs.builder()
  *             .scope(appconf.id())
  *             .roleDefinitionName("App Configuration Data Owner")
- *             .principalId(current.applyValue(getClientConfigResult -> getClientConfigResult.objectId()))
+ *             .principalId(current.objectId())
  *             .build());
  * 
  *         var test = new ConfigurationKey("test", ConfigurationKeyArgs.builder()
@@ -139,18 +139,18 @@ import javax.annotation.Nullable;
  *             .location(example.location())
  *             .build());
  * 
- *         final var current = CoreFunctions.getClientConfig();
+ *         final var current = CoreFunctions.getClientConfig(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
  * 
  *         var kv = new KeyVault("kv", KeyVaultArgs.builder()
  *             .name("kv")
  *             .location(testAzurermResourceGroup.location())
  *             .resourceGroupName(testAzurermResourceGroup.name())
- *             .tenantId(current.applyValue(getClientConfigResult -> getClientConfigResult.tenantId()))
+ *             .tenantId(current.tenantId())
  *             .skuName("premium")
  *             .softDeleteRetentionDays(7)
  *             .accessPolicies(KeyVaultAccessPolicyArgs.builder()
- *                 .tenantId(current.applyValue(getClientConfigResult -> getClientConfigResult.tenantId()))
- *                 .objectId(current.applyValue(getClientConfigResult -> getClientConfigResult.objectId()))
+ *                 .tenantId(current.tenantId())
+ *                 .objectId(current.objectId())
  *                 .keyPermissions(                
  *                     "Create",
  *                     "Get")
@@ -172,7 +172,7 @@ import javax.annotation.Nullable;
  *         var appconfDataowner = new Assignment("appconfDataowner", AssignmentArgs.builder()
  *             .scope(appconf.id())
  *             .roleDefinitionName("App Configuration Data Owner")
- *             .principalId(current.applyValue(getClientConfigResult -> getClientConfigResult.objectId()))
+ *             .principalId(current.objectId())
  *             .build());
  * 
  *         var test = new ConfigurationKey("test", ConfigurationKeyArgs.builder()

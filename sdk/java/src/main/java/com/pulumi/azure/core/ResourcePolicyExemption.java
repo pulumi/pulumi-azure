@@ -71,7 +71,7 @@ import javax.annotation.Nullable;
  *         var exampleResourcePolicyAssignment = new ResourcePolicyAssignment("exampleResourcePolicyAssignment", ResourcePolicyAssignmentArgs.builder()
  *             .name("assignment1")
  *             .resourceId(exampleVirtualNetwork.id())
- *             .policyDefinitionId(example.applyValue(getPolicySetDefinitionResult -> getPolicySetDefinitionResult.id()))
+ *             .policyDefinitionId(example.id())
  *             .location(exampleResourceGroup.location())
  *             .identity(ResourcePolicyAssignmentIdentityArgs.builder()
  *                 .type("SystemAssigned")

@@ -56,7 +56,8 @@ import javax.annotation.Nullable;
  *     }}{@code
  * 
  *     public static void stack(Context ctx) }{{@code
- *         final var current = CoreFunctions.getSubscription();
+ *         final var current = CoreFunctions.getSubscription(GetSubscriptionArgs.builder()
+ *             .build());
  * 
  *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example")
@@ -71,8 +72,8 @@ import javax.annotation.Nullable;
  * 
  *         var exampleBudgetSubscription = new BudgetSubscription("exampleBudgetSubscription", BudgetSubscriptionArgs.builder()
  *             .name("example")
- *             .subscriptionId(current.applyValue(getSubscriptionResult -> getSubscriptionResult.id()))
- *             .amount(1000)
+ *             .subscriptionId(current.id())
+ *             .amount(1000.0)
  *             .timeGrain("Monthly")
  *             .timePeriod(BudgetSubscriptionTimePeriodArgs.builder()
  *                 .startDate("2022-06-01T00:00:00Z")

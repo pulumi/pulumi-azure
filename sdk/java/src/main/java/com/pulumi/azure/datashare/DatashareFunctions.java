@@ -63,7 +63,7 @@ public final class DatashareFunctions {
      *             .resourceGroupName("example-resource-group")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getAccountResult -> getAccountResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -107,7 +107,7 @@ public final class DatashareFunctions {
      *             .resourceGroupName("example-resource-group")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getAccountResult -> getAccountResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -151,7 +151,7 @@ public final class DatashareFunctions {
      *             .resourceGroupName("example-resource-group")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getAccountResult -> getAccountResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -195,7 +195,7 @@ public final class DatashareFunctions {
      *             .resourceGroupName("example-resource-group")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getAccountResult -> getAccountResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -239,7 +239,7 @@ public final class DatashareFunctions {
      *             .resourceGroupName("example-resource-group")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getAccountResult -> getAccountResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -283,7 +283,7 @@ public final class DatashareFunctions {
      *             .dataShareId("example-share-id")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getDatasetBlobStorageResult -> getDatasetBlobStorageResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -327,7 +327,7 @@ public final class DatashareFunctions {
      *             .dataShareId("example-share-id")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getDatasetBlobStorageResult -> getDatasetBlobStorageResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -371,7 +371,7 @@ public final class DatashareFunctions {
      *             .dataShareId("example-share-id")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getDatasetBlobStorageResult -> getDatasetBlobStorageResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -415,7 +415,7 @@ public final class DatashareFunctions {
      *             .dataShareId("example-share-id")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getDatasetBlobStorageResult -> getDatasetBlobStorageResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -459,7 +459,7 @@ public final class DatashareFunctions {
      *             .dataShareId("example-share-id")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getDatasetBlobStorageResult -> getDatasetBlobStorageResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -503,7 +503,7 @@ public final class DatashareFunctions {
      *             .shareId("example-share-id")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getDatasetDataLakeGen2Result -> getDatasetDataLakeGen2Result.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -547,7 +547,7 @@ public final class DatashareFunctions {
      *             .shareId("example-share-id")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getDatasetDataLakeGen2Result -> getDatasetDataLakeGen2Result.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -591,7 +591,7 @@ public final class DatashareFunctions {
      *             .shareId("example-share-id")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getDatasetDataLakeGen2Result -> getDatasetDataLakeGen2Result.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -635,7 +635,7 @@ public final class DatashareFunctions {
      *             .shareId("example-share-id")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getDatasetDataLakeGen2Result -> getDatasetDataLakeGen2Result.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -679,7 +679,7 @@ public final class DatashareFunctions {
      *             .shareId("example-share-id")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getDatasetDataLakeGen2Result -> getDatasetDataLakeGen2Result.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -723,7 +723,7 @@ public final class DatashareFunctions {
      *             .shareId("example-share-id")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getDatasetKustoClusterResult -> getDatasetKustoClusterResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -767,7 +767,7 @@ public final class DatashareFunctions {
      *             .shareId("example-share-id")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getDatasetKustoClusterResult -> getDatasetKustoClusterResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -811,7 +811,7 @@ public final class DatashareFunctions {
      *             .shareId("example-share-id")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getDatasetKustoClusterResult -> getDatasetKustoClusterResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -855,7 +855,7 @@ public final class DatashareFunctions {
      *             .shareId("example-share-id")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getDatasetKustoClusterResult -> getDatasetKustoClusterResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -899,7 +899,7 @@ public final class DatashareFunctions {
      *             .shareId("example-share-id")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getDatasetKustoClusterResult -> getDatasetKustoClusterResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -943,7 +943,7 @@ public final class DatashareFunctions {
      *             .shareId("example-share-id")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getDatasetKustoDatabaseResult -> getDatasetKustoDatabaseResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -987,7 +987,7 @@ public final class DatashareFunctions {
      *             .shareId("example-share-id")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getDatasetKustoDatabaseResult -> getDatasetKustoDatabaseResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -1031,7 +1031,7 @@ public final class DatashareFunctions {
      *             .shareId("example-share-id")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getDatasetKustoDatabaseResult -> getDatasetKustoDatabaseResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -1075,7 +1075,7 @@ public final class DatashareFunctions {
      *             .shareId("example-share-id")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getDatasetKustoDatabaseResult -> getDatasetKustoDatabaseResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -1119,7 +1119,7 @@ public final class DatashareFunctions {
      *             .shareId("example-share-id")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getDatasetKustoDatabaseResult -> getDatasetKustoDatabaseResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -1166,10 +1166,10 @@ public final class DatashareFunctions {
      * 
      *         final var exampleGetShare = DatashareFunctions.getShare(GetShareArgs.builder()
      *             .name("existing")
-     *             .accountId(example.applyValue(getAccountResult -> getAccountResult.id()))
+     *             .accountId(example.id())
      *             .build());
      * 
-     *         ctx.export("id", exampleGetShare.applyValue(getShareResult -> getShareResult.id()));
+     *         ctx.export("id", exampleGetShare.id());
      *     }
      * }
      * }
@@ -1216,10 +1216,10 @@ public final class DatashareFunctions {
      * 
      *         final var exampleGetShare = DatashareFunctions.getShare(GetShareArgs.builder()
      *             .name("existing")
-     *             .accountId(example.applyValue(getAccountResult -> getAccountResult.id()))
+     *             .accountId(example.id())
      *             .build());
      * 
-     *         ctx.export("id", exampleGetShare.applyValue(getShareResult -> getShareResult.id()));
+     *         ctx.export("id", exampleGetShare.id());
      *     }
      * }
      * }
@@ -1266,10 +1266,10 @@ public final class DatashareFunctions {
      * 
      *         final var exampleGetShare = DatashareFunctions.getShare(GetShareArgs.builder()
      *             .name("existing")
-     *             .accountId(example.applyValue(getAccountResult -> getAccountResult.id()))
+     *             .accountId(example.id())
      *             .build());
      * 
-     *         ctx.export("id", exampleGetShare.applyValue(getShareResult -> getShareResult.id()));
+     *         ctx.export("id", exampleGetShare.id());
      *     }
      * }
      * }
@@ -1316,10 +1316,10 @@ public final class DatashareFunctions {
      * 
      *         final var exampleGetShare = DatashareFunctions.getShare(GetShareArgs.builder()
      *             .name("existing")
-     *             .accountId(example.applyValue(getAccountResult -> getAccountResult.id()))
+     *             .accountId(example.id())
      *             .build());
      * 
-     *         ctx.export("id", exampleGetShare.applyValue(getShareResult -> getShareResult.id()));
+     *         ctx.export("id", exampleGetShare.id());
      *     }
      * }
      * }
@@ -1366,10 +1366,10 @@ public final class DatashareFunctions {
      * 
      *         final var exampleGetShare = DatashareFunctions.getShare(GetShareArgs.builder()
      *             .name("existing")
-     *             .accountId(example.applyValue(getAccountResult -> getAccountResult.id()))
+     *             .accountId(example.id())
      *             .build());
      * 
-     *         ctx.export("id", exampleGetShare.applyValue(getShareResult -> getShareResult.id()));
+     *         ctx.export("id", exampleGetShare.id());
      *     }
      * }
      * }

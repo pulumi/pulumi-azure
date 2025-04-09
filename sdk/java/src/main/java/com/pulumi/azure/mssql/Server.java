@@ -116,7 +116,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         final var current = CoreFunctions.getClientConfig();
+ *         final var current = CoreFunctions.getClientConfig(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
  * 
  *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example-resources")
@@ -141,8 +141,8 @@ import javax.annotation.Nullable;
  *             .skuName("standard")
  *             .accessPolicies(            
  *                 KeyVaultAccessPolicyArgs.builder()
- *                     .tenantId(current.applyValue(getClientConfigResult -> getClientConfigResult.tenantId()))
- *                     .objectId(current.applyValue(getClientConfigResult -> getClientConfigResult.objectId()))
+ *                     .tenantId(current.tenantId())
+ *                     .objectId(current.objectId())
  *                     .keyPermissions(                    
  *                         "Get",
  *                         "List",

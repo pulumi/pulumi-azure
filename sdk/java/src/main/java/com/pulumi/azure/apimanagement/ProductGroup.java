@@ -52,21 +52,21 @@ import javax.annotation.Nullable;
  * 
  *         final var exampleGetProduct = ApimanagementFunctions.getProduct(GetProductArgs.builder()
  *             .productId("my-product")
- *             .apiManagementName(example.applyValue(getServiceResult -> getServiceResult.name()))
- *             .resourceGroupName(example.applyValue(getServiceResult -> getServiceResult.resourceGroupName()))
+ *             .apiManagementName(example.name())
+ *             .resourceGroupName(example.resourceGroupName())
  *             .build());
  * 
  *         final var exampleGetGroup = ApimanagementFunctions.getGroup(GetGroupArgs.builder()
  *             .name("my-group")
- *             .apiManagementName(example.applyValue(getServiceResult -> getServiceResult.name()))
- *             .resourceGroupName(example.applyValue(getServiceResult -> getServiceResult.resourceGroupName()))
+ *             .apiManagementName(example.name())
+ *             .resourceGroupName(example.resourceGroupName())
  *             .build());
  * 
  *         var exampleProductGroup = new ProductGroup("exampleProductGroup", ProductGroupArgs.builder()
- *             .productId(exampleGetProduct.applyValue(getProductResult -> getProductResult.productId()))
- *             .groupName(exampleGetGroup.applyValue(getGroupResult -> getGroupResult.name()))
- *             .apiManagementName(example.applyValue(getServiceResult -> getServiceResult.name()))
- *             .resourceGroupName(example.applyValue(getServiceResult -> getServiceResult.resourceGroupName()))
+ *             .productId(exampleGetProduct.productId())
+ *             .groupName(exampleGetGroup.name())
+ *             .apiManagementName(example.name())
+ *             .resourceGroupName(example.resourceGroupName())
  *             .build());
  * 
  *     }

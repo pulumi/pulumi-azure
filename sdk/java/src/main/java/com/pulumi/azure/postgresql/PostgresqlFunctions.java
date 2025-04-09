@@ -51,7 +51,7 @@ public final class PostgresqlFunctions {
      *             .resourceGroupName("existing-postgresql-resgroup")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getFlexibleServerResult -> getFlexibleServerResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -95,7 +95,7 @@ public final class PostgresqlFunctions {
      *             .resourceGroupName("existing-postgresql-resgroup")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getFlexibleServerResult -> getFlexibleServerResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -139,7 +139,7 @@ public final class PostgresqlFunctions {
      *             .resourceGroupName("existing-postgresql-resgroup")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getFlexibleServerResult -> getFlexibleServerResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -183,7 +183,7 @@ public final class PostgresqlFunctions {
      *             .resourceGroupName("existing-postgresql-resgroup")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getFlexibleServerResult -> getFlexibleServerResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -227,7 +227,7 @@ public final class PostgresqlFunctions {
      *             .resourceGroupName("existing-postgresql-resgroup")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getFlexibleServerResult -> getFlexibleServerResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -271,7 +271,7 @@ public final class PostgresqlFunctions {
      *             .resourceGroupName("api-rg-pro")
      *             .build());
      * 
-     *         ctx.export("postgresqlServerId", example.applyValue(getServerResult -> getServerResult.id()));
+     *         ctx.export("postgresqlServerId", example.id());
      *     }
      * }
      * }
@@ -315,7 +315,7 @@ public final class PostgresqlFunctions {
      *             .resourceGroupName("api-rg-pro")
      *             .build());
      * 
-     *         ctx.export("postgresqlServerId", example.applyValue(getServerResult -> getServerResult.id()));
+     *         ctx.export("postgresqlServerId", example.id());
      *     }
      * }
      * }
@@ -359,7 +359,7 @@ public final class PostgresqlFunctions {
      *             .resourceGroupName("api-rg-pro")
      *             .build());
      * 
-     *         ctx.export("postgresqlServerId", example.applyValue(getServerResult -> getServerResult.id()));
+     *         ctx.export("postgresqlServerId", example.id());
      *     }
      * }
      * }
@@ -403,7 +403,7 @@ public final class PostgresqlFunctions {
      *             .resourceGroupName("api-rg-pro")
      *             .build());
      * 
-     *         ctx.export("postgresqlServerId", example.applyValue(getServerResult -> getServerResult.id()));
+     *         ctx.export("postgresqlServerId", example.id());
      *     }
      * }
      * }
@@ -447,7 +447,7 @@ public final class PostgresqlFunctions {
      *             .resourceGroupName("api-rg-pro")
      *             .build());
      * 
-     *         ctx.export("postgresqlServerId", example.applyValue(getServerResult -> getServerResult.id()));
+     *         ctx.export("postgresqlServerId", example.id());
      *     }
      * }
      * }

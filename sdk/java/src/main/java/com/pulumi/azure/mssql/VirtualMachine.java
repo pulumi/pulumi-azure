@@ -64,7 +64,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleVirtualMachine = new VirtualMachine("exampleVirtualMachine", VirtualMachineArgs.builder()
- *             .virtualMachineId(example.applyValue(getVirtualMachineResult -> getVirtualMachineResult.id()))
+ *             .virtualMachineId(example.id())
  *             .sqlLicenseType("PAYG")
  *             .rServicesEnabled(true)
  *             .sqlConnectivityPort(1433)

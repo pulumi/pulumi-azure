@@ -86,7 +86,8 @@ import javax.annotation.Nullable;
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .servicePlanId(exampleServicePlan.id())
- *             .siteConfig()
+ *             .siteConfig(WindowsWebAppSiteConfigArgs.builder()
+ *                 .build())
  *             .build());
  * 
  *         var exampleWebAppHybridConnection = new WebAppHybridConnection("exampleWebAppHybridConnection", WebAppHybridConnectionArgs.builder()

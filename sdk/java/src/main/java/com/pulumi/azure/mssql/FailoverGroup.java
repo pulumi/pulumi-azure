@@ -84,7 +84,7 @@ import javax.annotation.Nullable;
  *             .serverId(primary.id())
  *             .skuName("S1")
  *             .collation("SQL_Latin1_General_CP1_CI_AS")
- *             .maxSizeGb("200")
+ *             .maxSizeGb(200)
  *             .build());
  * 
  *         var exampleFailoverGroup = new FailoverGroup("exampleFailoverGroup", FailoverGroupArgs.builder()

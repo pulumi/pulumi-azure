@@ -34,6 +34,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.logicapps.IntegrationAccountArgs;
  * import com.pulumi.azure.logicapps.IntegrationAccountAssembly;
  * import com.pulumi.azure.logicapps.IntegrationAccountAssemblyArgs;
+ * import com.pulumi.std.StdFunctions;
+ * import com.pulumi.std.inputs.Filebase64Args;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;

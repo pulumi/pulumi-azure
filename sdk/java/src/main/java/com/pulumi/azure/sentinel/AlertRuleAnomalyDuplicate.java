@@ -83,7 +83,7 @@ import javax.annotation.Nullable;
  *         var exampleAlertRuleAnomalyDuplicate = new AlertRuleAnomalyDuplicate("exampleAlertRuleAnomalyDuplicate", AlertRuleAnomalyDuplicateArgs.builder()
  *             .displayName("example duplicated UEBA Anomalous Sign In")
  *             .logAnalyticsWorkspaceId(exampleAnalyticsWorkspace.id())
- *             .builtInRuleId(example.applyValue(getAlertRuleAnomalyResult -> getAlertRuleAnomalyResult).applyValue(example -> example.applyValue(getAlertRuleAnomalyResult -> getAlertRuleAnomalyResult.id())))
+ *             .builtInRuleId(example.applyValue(_example -> _example.id()))
  *             .enabled(true)
  *             .mode("Flighting")
  *             .thresholdObservations(AlertRuleAnomalyDuplicateThresholdObservationArgs.builder()

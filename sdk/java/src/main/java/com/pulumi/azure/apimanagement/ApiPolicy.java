@@ -52,9 +52,9 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleApiPolicy = new ApiPolicy("exampleApiPolicy", ApiPolicyArgs.builder()
- *             .apiName(example.applyValue(getApiResult -> getApiResult.name()))
- *             .apiManagementName(example.applyValue(getApiResult -> getApiResult.apiManagementName()))
- *             .resourceGroupName(example.applyValue(getApiResult -> getApiResult.resourceGroupName()))
+ *             .apiName(example.name())
+ *             .apiManagementName(example.apiManagementName())
+ *             .resourceGroupName(example.resourceGroupName())
  *             .xmlContent("""
  * <policies>
  *   <inbound>

@@ -130,18 +130,18 @@ import javax.annotation.Nullable;
  *             .location("West Europe")
  *             .build());
  * 
- *         final var current = CoreFunctions.getClientConfig();
+ *         final var current = CoreFunctions.getClientConfig(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
  * 
  *         var exampleKeyVault = new KeyVault("exampleKeyVault", KeyVaultArgs.builder()
  *             .name("examplekeyvault")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .tenantId(current.applyValue(getClientConfigResult -> getClientConfigResult.tenantId()))
+ *             .tenantId(current.tenantId())
  *             .skuName("standard")
  *             .softDeleteRetentionDays(7)
  *             .accessPolicies(KeyVaultAccessPolicyArgs.builder()
- *                 .tenantId(current.applyValue(getClientConfigResult -> getClientConfigResult.tenantId()))
- *                 .objectId(current.applyValue(getClientConfigResult -> getClientConfigResult.objectId()))
+ *                 .tenantId(current.tenantId())
+ *                 .objectId(current.objectId())
  *                 .certificatePermissions()
  *                 .keyPermissions()
  *                 .secretPermissions(                
@@ -186,8 +186,8 @@ import javax.annotation.Nullable;
  * 
  *         var readSecrets = new AccessPolicy("readSecrets", AccessPolicyArgs.builder()
  *             .keyVaultId(exampleKeyVault.id())
- *             .tenantId(exampleRegistryCredentialSet.identity().applyValue(identity -> identity.tenantId()))
- *             .objectId(exampleRegistryCredentialSet.identity().applyValue(identity -> identity.principalId()))
+ *             .tenantId(exampleRegistryCredentialSet.identity().applyValue(_identity -> _identity.tenantId()))
+ *             .objectId(exampleRegistryCredentialSet.identity().applyValue(_identity -> _identity.principalId()))
  *             .secretPermissions("Get")
  *             .build());
  * 

@@ -272,7 +272,7 @@ public final class MaintenanceFunctions {
      *             .recurEvery("Monday-Thursday")
      *             .build());
      * 
-     *         ctx.export("name", existing.applyValue(getPublicConfigurationsResult -> getPublicConfigurationsResult.configs()[0].name()));
+     *         ctx.export("name", existing.configs()[0].name());
      *     }
      * }
      * }
@@ -317,7 +317,7 @@ public final class MaintenanceFunctions {
      *             .recurEvery("Monday-Thursday")
      *             .build());
      * 
-     *         ctx.export("name", existing.applyValue(getPublicConfigurationsResult -> getPublicConfigurationsResult.configs()[0].name()));
+     *         ctx.export("name", existing.configs()[0].name());
      *     }
      * }
      * }
@@ -362,7 +362,7 @@ public final class MaintenanceFunctions {
      *             .recurEvery("Monday-Thursday")
      *             .build());
      * 
-     *         ctx.export("name", existing.applyValue(getPublicConfigurationsResult -> getPublicConfigurationsResult.configs()[0].name()));
+     *         ctx.export("name", existing.configs()[0].name());
      *     }
      * }
      * }
@@ -407,7 +407,7 @@ public final class MaintenanceFunctions {
      *             .recurEvery("Monday-Thursday")
      *             .build());
      * 
-     *         ctx.export("name", existing.applyValue(getPublicConfigurationsResult -> getPublicConfigurationsResult.configs()[0].name()));
+     *         ctx.export("name", existing.configs()[0].name());
      *     }
      * }
      * }
@@ -452,7 +452,7 @@ public final class MaintenanceFunctions {
      *             .recurEvery("Monday-Thursday")
      *             .build());
      * 
-     *         ctx.export("name", existing.applyValue(getPublicConfigurationsResult -> getPublicConfigurationsResult.configs()[0].name()));
+     *         ctx.export("name", existing.configs()[0].name());
      *     }
      * }
      * }
@@ -497,7 +497,7 @@ public final class MaintenanceFunctions {
      *             .recurEvery("Monday-Thursday")
      *             .build());
      * 
-     *         ctx.export("name", existing.applyValue(getPublicConfigurationsResult -> getPublicConfigurationsResult.configs()[0].name()));
+     *         ctx.export("name", existing.configs()[0].name());
      *     }
      * }
      * }
@@ -542,7 +542,7 @@ public final class MaintenanceFunctions {
      *             .recurEvery("Monday-Thursday")
      *             .build());
      * 
-     *         ctx.export("name", existing.applyValue(getPublicConfigurationsResult -> getPublicConfigurationsResult.configs()[0].name()));
+     *         ctx.export("name", existing.configs()[0].name());
      *     }
      * }
      * }

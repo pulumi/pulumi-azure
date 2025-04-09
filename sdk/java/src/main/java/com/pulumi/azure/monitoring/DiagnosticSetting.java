@@ -67,13 +67,13 @@ import javax.annotation.Nullable;
  *             .accountReplicationType("LRS")
  *             .build());
  * 
- *         final var current = CoreFunctions.getClientConfig();
+ *         final var current = CoreFunctions.getClientConfig(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
  * 
  *         var exampleKeyVault = new KeyVault("exampleKeyVault", KeyVaultArgs.builder()
  *             .name("examplekeyvault")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .tenantId(current.applyValue(getClientConfigResult -> getClientConfigResult.tenantId()))
+ *             .tenantId(current.tenantId())
  *             .softDeleteRetentionDays(7)
  *             .purgeProtectionEnabled(false)
  *             .skuName("standard")

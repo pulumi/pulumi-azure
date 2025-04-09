@@ -48,7 +48,7 @@ public final class MapsFunctions {
      *             .resourceGroupName("maps")
      *             .build());
      * 
-     *         ctx.export("mapsAccountId", example.applyValue(getAccountResult -> getAccountResult.id()));
+     *         ctx.export("mapsAccountId", example.id());
      *     }
      * }
      * }
@@ -92,7 +92,7 @@ public final class MapsFunctions {
      *             .resourceGroupName("maps")
      *             .build());
      * 
-     *         ctx.export("mapsAccountId", example.applyValue(getAccountResult -> getAccountResult.id()));
+     *         ctx.export("mapsAccountId", example.id());
      *     }
      * }
      * }
@@ -136,7 +136,7 @@ public final class MapsFunctions {
      *             .resourceGroupName("maps")
      *             .build());
      * 
-     *         ctx.export("mapsAccountId", example.applyValue(getAccountResult -> getAccountResult.id()));
+     *         ctx.export("mapsAccountId", example.id());
      *     }
      * }
      * }
@@ -180,7 +180,7 @@ public final class MapsFunctions {
      *             .resourceGroupName("maps")
      *             .build());
      * 
-     *         ctx.export("mapsAccountId", example.applyValue(getAccountResult -> getAccountResult.id()));
+     *         ctx.export("mapsAccountId", example.id());
      *     }
      * }
      * }
@@ -224,7 +224,7 @@ public final class MapsFunctions {
      *             .resourceGroupName("maps")
      *             .build());
      * 
-     *         ctx.export("mapsAccountId", example.applyValue(getAccountResult -> getAccountResult.id()));
+     *         ctx.export("mapsAccountId", example.id());
      *     }
      * }
      * }

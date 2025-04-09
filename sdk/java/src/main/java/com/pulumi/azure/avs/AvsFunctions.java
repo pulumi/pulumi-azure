@@ -50,7 +50,7 @@ public final class AvsFunctions {
      *             .resourceGroupName("existing-resgroup")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getPrivateCloudResult -> getPrivateCloudResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -96,7 +96,7 @@ public final class AvsFunctions {
      *             .resourceGroupName("existing-resgroup")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getPrivateCloudResult -> getPrivateCloudResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -142,7 +142,7 @@ public final class AvsFunctions {
      *             .resourceGroupName("existing-resgroup")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getPrivateCloudResult -> getPrivateCloudResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -188,7 +188,7 @@ public final class AvsFunctions {
      *             .resourceGroupName("existing-resgroup")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getPrivateCloudResult -> getPrivateCloudResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -234,7 +234,7 @@ public final class AvsFunctions {
      *             .resourceGroupName("existing-resgroup")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getPrivateCloudResult -> getPrivateCloudResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }

@@ -86,7 +86,7 @@ import javax.annotation.Nullable;
  *             .username("exampleuser99")
  *             .password("Pa$w0rd1234!")
  *             .labVirtualNetworkId(exampleVirtualNetwork.id())
- *             .labSubnetName(exampleVirtualNetwork.subnet().applyValue(subnet -> subnet.name()))
+ *             .labSubnetName(exampleVirtualNetwork.subnet().applyValue(_subnet -> _subnet.name()))
  *             .storageType("Premium")
  *             .notes("Some notes about this Virtual Machine.")
  *             .galleryImageReference(WindowsVirtualMachineGalleryImageReferenceArgs.builder()

@@ -54,7 +54,7 @@ public final class BillingFunctions {
      *             .enrollmentAccountName("existing")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getEnrollmentAccountScopeResult -> getEnrollmentAccountScopeResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -98,7 +98,7 @@ public final class BillingFunctions {
      *             .enrollmentAccountName("existing")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getEnrollmentAccountScopeResult -> getEnrollmentAccountScopeResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -142,7 +142,7 @@ public final class BillingFunctions {
      *             .enrollmentAccountName("existing")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getEnrollmentAccountScopeResult -> getEnrollmentAccountScopeResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -186,7 +186,7 @@ public final class BillingFunctions {
      *             .enrollmentAccountName("existing")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getEnrollmentAccountScopeResult -> getEnrollmentAccountScopeResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -230,7 +230,7 @@ public final class BillingFunctions {
      *             .enrollmentAccountName("existing")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getEnrollmentAccountScopeResult -> getEnrollmentAccountScopeResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -275,7 +275,7 @@ public final class BillingFunctions {
      *             .invoiceSectionName("MTT4-OBS7-PJA-TGB")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getMcaAccountScopeResult -> getMcaAccountScopeResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -320,7 +320,7 @@ public final class BillingFunctions {
      *             .invoiceSectionName("MTT4-OBS7-PJA-TGB")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getMcaAccountScopeResult -> getMcaAccountScopeResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -365,7 +365,7 @@ public final class BillingFunctions {
      *             .invoiceSectionName("MTT4-OBS7-PJA-TGB")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getMcaAccountScopeResult -> getMcaAccountScopeResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -410,7 +410,7 @@ public final class BillingFunctions {
      *             .invoiceSectionName("MTT4-OBS7-PJA-TGB")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getMcaAccountScopeResult -> getMcaAccountScopeResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -455,7 +455,7 @@ public final class BillingFunctions {
      *             .invoiceSectionName("MTT4-OBS7-PJA-TGB")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getMcaAccountScopeResult -> getMcaAccountScopeResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -499,7 +499,7 @@ public final class BillingFunctions {
      *             .customerName("2281f543-7321-4cf9-1e23-edb4Oc31a31c")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getMpaAccountScopeResult -> getMpaAccountScopeResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -543,7 +543,7 @@ public final class BillingFunctions {
      *             .customerName("2281f543-7321-4cf9-1e23-edb4Oc31a31c")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getMpaAccountScopeResult -> getMpaAccountScopeResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -587,7 +587,7 @@ public final class BillingFunctions {
      *             .customerName("2281f543-7321-4cf9-1e23-edb4Oc31a31c")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getMpaAccountScopeResult -> getMpaAccountScopeResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -631,7 +631,7 @@ public final class BillingFunctions {
      *             .customerName("2281f543-7321-4cf9-1e23-edb4Oc31a31c")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getMpaAccountScopeResult -> getMpaAccountScopeResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -675,7 +675,7 @@ public final class BillingFunctions {
      *             .customerName("2281f543-7321-4cf9-1e23-edb4Oc31a31c")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getMpaAccountScopeResult -> getMpaAccountScopeResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }

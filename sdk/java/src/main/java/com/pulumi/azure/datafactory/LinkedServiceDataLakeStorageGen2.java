@@ -61,12 +61,12 @@ import javax.annotation.Nullable;
  *             .resourceGroupName(example.name())
  *             .build());
  * 
- *         final var current = CoreFunctions.getClientConfig();
+ *         final var current = CoreFunctions.getClientConfig(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
  * 
  *         var exampleLinkedServiceDataLakeStorageGen2 = new LinkedServiceDataLakeStorageGen2("exampleLinkedServiceDataLakeStorageGen2", LinkedServiceDataLakeStorageGen2Args.builder()
  *             .name("example")
  *             .dataFactoryId(exampleFactory.id())
- *             .servicePrincipalId(current.applyValue(getClientConfigResult -> getClientConfigResult.clientId()))
+ *             .servicePrincipalId(current.clientId())
  *             .servicePrincipalKey("exampleKey")
  *             .tenant("11111111-1111-1111-1111-111111111111")
  *             .url("https://datalakestoragegen2")

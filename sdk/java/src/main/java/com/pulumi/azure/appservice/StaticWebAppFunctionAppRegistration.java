@@ -88,7 +88,8 @@ import javax.annotation.Nullable;
  *             .servicePlanId(exampleServicePlan.id())
  *             .storageAccountName(exampleAccount.name())
  *             .storageAccountAccessKey(exampleAccount.primaryAccessKey())
- *             .siteConfig()
+ *             .siteConfig(LinuxFunctionAppSiteConfigArgs.builder()
+ *                 .build())
  *             .build());
  * 
  *         var exampleStaticWebAppFunctionAppRegistration = new StaticWebAppFunctionAppRegistration("exampleStaticWebAppFunctionAppRegistration", StaticWebAppFunctionAppRegistrationArgs.builder()

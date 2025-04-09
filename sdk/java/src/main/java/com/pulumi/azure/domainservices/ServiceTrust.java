@@ -51,7 +51,7 @@ import javax.annotation.Nullable;
  * 
  *         var exampleServiceTrust = new ServiceTrust("exampleServiceTrust", ServiceTrustArgs.builder()
  *             .name("example-trust")
- *             .domainServiceId(example.applyValue(getServiceResult -> getServiceResult.id()))
+ *             .domainServiceId(example.id())
  *             .trustedDomainFqdn("example.com")
  *             .trustedDomainDnsIps(            
  *                 "10.1.0.3",

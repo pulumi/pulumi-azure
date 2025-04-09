@@ -61,7 +61,7 @@ import javax.annotation.Nullable;
  *         var exampleGroupPolicyAssignment = new GroupPolicyAssignment("exampleGroupPolicyAssignment", GroupPolicyAssignmentArgs.builder()
  *             .name("assignment1")
  *             .managementGroupId(exampleGroup.id())
- *             .policyDefinitionId(example.applyValue(getPolicySetDefinitionResult -> getPolicySetDefinitionResult.id()))
+ *             .policyDefinitionId(example.id())
  *             .location("westus")
  *             .identity(GroupPolicyAssignmentIdentityArgs.builder()
  *                 .type("SystemAssigned")

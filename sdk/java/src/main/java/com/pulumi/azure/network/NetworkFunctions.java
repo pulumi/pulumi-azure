@@ -150,7 +150,7 @@ public final class NetworkFunctions {
      *             .resourceGroupName("existing-resources")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getApplicationGatewayResult -> getApplicationGatewayResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -194,7 +194,7 @@ public final class NetworkFunctions {
      *             .resourceGroupName("existing-resources")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getApplicationGatewayResult -> getApplicationGatewayResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -238,7 +238,7 @@ public final class NetworkFunctions {
      *             .resourceGroupName("existing-resources")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getApplicationGatewayResult -> getApplicationGatewayResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -282,7 +282,7 @@ public final class NetworkFunctions {
      *             .resourceGroupName("existing-resources")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getApplicationGatewayResult -> getApplicationGatewayResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -326,7 +326,7 @@ public final class NetworkFunctions {
      *             .resourceGroupName("existing-resources")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getApplicationGatewayResult -> getApplicationGatewayResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -370,7 +370,7 @@ public final class NetworkFunctions {
      *             .resourceGroupName("my-resource-group")
      *             .build());
      * 
-     *         ctx.export("applicationSecurityGroupId", example.applyValue(getApplicationSecurityGroupResult -> getApplicationSecurityGroupResult.id()));
+     *         ctx.export("applicationSecurityGroupId", example.id());
      *     }
      * }
      * }
@@ -414,7 +414,7 @@ public final class NetworkFunctions {
      *             .resourceGroupName("my-resource-group")
      *             .build());
      * 
-     *         ctx.export("applicationSecurityGroupId", example.applyValue(getApplicationSecurityGroupResult -> getApplicationSecurityGroupResult.id()));
+     *         ctx.export("applicationSecurityGroupId", example.id());
      *     }
      * }
      * }
@@ -458,7 +458,7 @@ public final class NetworkFunctions {
      *             .resourceGroupName("my-resource-group")
      *             .build());
      * 
-     *         ctx.export("applicationSecurityGroupId", example.applyValue(getApplicationSecurityGroupResult -> getApplicationSecurityGroupResult.id()));
+     *         ctx.export("applicationSecurityGroupId", example.id());
      *     }
      * }
      * }
@@ -502,7 +502,7 @@ public final class NetworkFunctions {
      *             .resourceGroupName("my-resource-group")
      *             .build());
      * 
-     *         ctx.export("applicationSecurityGroupId", example.applyValue(getApplicationSecurityGroupResult -> getApplicationSecurityGroupResult.id()));
+     *         ctx.export("applicationSecurityGroupId", example.id());
      *     }
      * }
      * }
@@ -546,7 +546,7 @@ public final class NetworkFunctions {
      *             .resourceGroupName("my-resource-group")
      *             .build());
      * 
-     *         ctx.export("applicationSecurityGroupId", example.applyValue(getApplicationSecurityGroupResult -> getApplicationSecurityGroupResult.id()));
+     *         ctx.export("applicationSecurityGroupId", example.id());
      *     }
      * }
      * }
@@ -590,8 +590,8 @@ public final class NetworkFunctions {
      *             .name(exampleAzurermExpressRouteCircuit.name())
      *             .build());
      * 
-     *         ctx.export("expressRouteCircuitId", example.applyValue(getExpressRouteCircuitResult -> getExpressRouteCircuitResult.id()));
-     *         ctx.export("serviceKey", example.applyValue(getExpressRouteCircuitResult -> getExpressRouteCircuitResult.serviceKey()));
+     *         ctx.export("expressRouteCircuitId", example.id());
+     *         ctx.export("serviceKey", example.serviceKey());
      *     }
      * }
      * }
@@ -635,8 +635,8 @@ public final class NetworkFunctions {
      *             .name(exampleAzurermExpressRouteCircuit.name())
      *             .build());
      * 
-     *         ctx.export("expressRouteCircuitId", example.applyValue(getExpressRouteCircuitResult -> getExpressRouteCircuitResult.id()));
-     *         ctx.export("serviceKey", example.applyValue(getExpressRouteCircuitResult -> getExpressRouteCircuitResult.serviceKey()));
+     *         ctx.export("expressRouteCircuitId", example.id());
+     *         ctx.export("serviceKey", example.serviceKey());
      *     }
      * }
      * }
@@ -680,8 +680,8 @@ public final class NetworkFunctions {
      *             .name(exampleAzurermExpressRouteCircuit.name())
      *             .build());
      * 
-     *         ctx.export("expressRouteCircuitId", example.applyValue(getExpressRouteCircuitResult -> getExpressRouteCircuitResult.id()));
-     *         ctx.export("serviceKey", example.applyValue(getExpressRouteCircuitResult -> getExpressRouteCircuitResult.serviceKey()));
+     *         ctx.export("expressRouteCircuitId", example.id());
+     *         ctx.export("serviceKey", example.serviceKey());
      *     }
      * }
      * }
@@ -725,8 +725,8 @@ public final class NetworkFunctions {
      *             .name(exampleAzurermExpressRouteCircuit.name())
      *             .build());
      * 
-     *         ctx.export("expressRouteCircuitId", example.applyValue(getExpressRouteCircuitResult -> getExpressRouteCircuitResult.id()));
-     *         ctx.export("serviceKey", example.applyValue(getExpressRouteCircuitResult -> getExpressRouteCircuitResult.serviceKey()));
+     *         ctx.export("expressRouteCircuitId", example.id());
+     *         ctx.export("serviceKey", example.serviceKey());
      *     }
      * }
      * }
@@ -770,8 +770,8 @@ public final class NetworkFunctions {
      *             .name(exampleAzurermExpressRouteCircuit.name())
      *             .build());
      * 
-     *         ctx.export("expressRouteCircuitId", example.applyValue(getExpressRouteCircuitResult -> getExpressRouteCircuitResult.id()));
-     *         ctx.export("serviceKey", example.applyValue(getExpressRouteCircuitResult -> getExpressRouteCircuitResult.serviceKey()));
+     *         ctx.export("expressRouteCircuitId", example.id());
+     *         ctx.export("serviceKey", example.serviceKey());
      *     }
      * }
      * }
@@ -815,7 +815,7 @@ public final class NetworkFunctions {
      *             .resourceGroupName("firewall-RG")
      *             .build());
      * 
-     *         ctx.export("firewallPrivateIp", example.applyValue(getFirewallResult -> getFirewallResult.ipConfigurations()[0].privateIpAddress()));
+     *         ctx.export("firewallPrivateIp", example.ipConfigurations()[0].privateIpAddress());
      *     }
      * }
      * }
@@ -859,7 +859,7 @@ public final class NetworkFunctions {
      *             .resourceGroupName("firewall-RG")
      *             .build());
      * 
-     *         ctx.export("firewallPrivateIp", example.applyValue(getFirewallResult -> getFirewallResult.ipConfigurations()[0].privateIpAddress()));
+     *         ctx.export("firewallPrivateIp", example.ipConfigurations()[0].privateIpAddress());
      *     }
      * }
      * }
@@ -903,7 +903,7 @@ public final class NetworkFunctions {
      *             .resourceGroupName("firewall-RG")
      *             .build());
      * 
-     *         ctx.export("firewallPrivateIp", example.applyValue(getFirewallResult -> getFirewallResult.ipConfigurations()[0].privateIpAddress()));
+     *         ctx.export("firewallPrivateIp", example.ipConfigurations()[0].privateIpAddress());
      *     }
      * }
      * }
@@ -947,7 +947,7 @@ public final class NetworkFunctions {
      *             .resourceGroupName("firewall-RG")
      *             .build());
      * 
-     *         ctx.export("firewallPrivateIp", example.applyValue(getFirewallResult -> getFirewallResult.ipConfigurations()[0].privateIpAddress()));
+     *         ctx.export("firewallPrivateIp", example.ipConfigurations()[0].privateIpAddress());
      *     }
      * }
      * }
@@ -991,7 +991,7 @@ public final class NetworkFunctions {
      *             .resourceGroupName("firewall-RG")
      *             .build());
      * 
-     *         ctx.export("firewallPrivateIp", example.applyValue(getFirewallResult -> getFirewallResult.ipConfigurations()[0].privateIpAddress()));
+     *         ctx.export("firewallPrivateIp", example.ipConfigurations()[0].privateIpAddress());
      *     }
      * }
      * }
@@ -1035,7 +1035,7 @@ public final class NetworkFunctions {
      *             .resourceGroupName("existing")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getFirewallPolicyResult -> getFirewallPolicyResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -1079,7 +1079,7 @@ public final class NetworkFunctions {
      *             .resourceGroupName("existing")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getFirewallPolicyResult -> getFirewallPolicyResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -1123,7 +1123,7 @@ public final class NetworkFunctions {
      *             .resourceGroupName("existing")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getFirewallPolicyResult -> getFirewallPolicyResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -1167,7 +1167,7 @@ public final class NetworkFunctions {
      *             .resourceGroupName("existing")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getFirewallPolicyResult -> getFirewallPolicyResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -1211,7 +1211,7 @@ public final class NetworkFunctions {
      *             .resourceGroupName("existing")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getFirewallPolicyResult -> getFirewallPolicyResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -1255,7 +1255,7 @@ public final class NetworkFunctions {
      *             .resourceGroupName("networking")
      *             .build());
      * 
-     *         ctx.export("virtualNetworkGatewayConnectionId", example.applyValue(getGatewayConnectionResult -> getGatewayConnectionResult.id()));
+     *         ctx.export("virtualNetworkGatewayConnectionId", example.id());
      *     }
      * }
      * }
@@ -1299,7 +1299,7 @@ public final class NetworkFunctions {
      *             .resourceGroupName("networking")
      *             .build());
      * 
-     *         ctx.export("virtualNetworkGatewayConnectionId", example.applyValue(getGatewayConnectionResult -> getGatewayConnectionResult.id()));
+     *         ctx.export("virtualNetworkGatewayConnectionId", example.id());
      *     }
      * }
      * }
@@ -1343,7 +1343,7 @@ public final class NetworkFunctions {
      *             .resourceGroupName("networking")
      *             .build());
      * 
-     *         ctx.export("virtualNetworkGatewayConnectionId", example.applyValue(getGatewayConnectionResult -> getGatewayConnectionResult.id()));
+     *         ctx.export("virtualNetworkGatewayConnectionId", example.id());
      *     }
      * }
      * }
@@ -1387,7 +1387,7 @@ public final class NetworkFunctions {
      *             .resourceGroupName("networking")
      *             .build());
      * 
-     *         ctx.export("virtualNetworkGatewayConnectionId", example.applyValue(getGatewayConnectionResult -> getGatewayConnectionResult.id()));
+     *         ctx.export("virtualNetworkGatewayConnectionId", example.id());
      *     }
      * }
      * }
@@ -1431,7 +1431,7 @@ public final class NetworkFunctions {
      *             .resourceGroupName("networking")
      *             .build());
      * 
-     *         ctx.export("virtualNetworkGatewayConnectionId", example.applyValue(getGatewayConnectionResult -> getGatewayConnectionResult.id()));
+     *         ctx.export("virtualNetworkGatewayConnectionId", example.id());
      *     }
      * }
      * }
@@ -1475,7 +1475,7 @@ public final class NetworkFunctions {
      *             .resourceGroupName("example-rg")
      *             .build());
      * 
-     *         ctx.export("cidrs", example.applyValue(getIpGroupResult -> getIpGroupResult.cidrs()));
+     *         ctx.export("cidrs", example.cidrs());
      *     }
      * }
      * }
@@ -1519,7 +1519,7 @@ public final class NetworkFunctions {
      *             .resourceGroupName("example-rg")
      *             .build());
      * 
-     *         ctx.export("cidrs", example.applyValue(getIpGroupResult -> getIpGroupResult.cidrs()));
+     *         ctx.export("cidrs", example.cidrs());
      *     }
      * }
      * }
@@ -1563,7 +1563,7 @@ public final class NetworkFunctions {
      *             .resourceGroupName("example-rg")
      *             .build());
      * 
-     *         ctx.export("cidrs", example.applyValue(getIpGroupResult -> getIpGroupResult.cidrs()));
+     *         ctx.export("cidrs", example.cidrs());
      *     }
      * }
      * }
@@ -1607,7 +1607,7 @@ public final class NetworkFunctions {
      *             .resourceGroupName("example-rg")
      *             .build());
      * 
-     *         ctx.export("cidrs", example.applyValue(getIpGroupResult -> getIpGroupResult.cidrs()));
+     *         ctx.export("cidrs", example.cidrs());
      *     }
      * }
      * }
@@ -1651,7 +1651,7 @@ public final class NetworkFunctions {
      *             .resourceGroupName("example-rg")
      *             .build());
      * 
-     *         ctx.export("cidrs", example.applyValue(getIpGroupResult -> getIpGroupResult.cidrs()));
+     *         ctx.export("cidrs", example.cidrs());
      *     }
      * }
      * }
@@ -1695,7 +1695,7 @@ public final class NetworkFunctions {
      *             .resourceGroupName("existing")
      *             .build());
      * 
-     *         ctx.export("ids", example.applyValue(getIpGroupsResult -> getIpGroupsResult.ids()));
+     *         ctx.export("ids", example.ids());
      *     }
      * }
      * }
@@ -1739,7 +1739,7 @@ public final class NetworkFunctions {
      *             .resourceGroupName("existing")
      *             .build());
      * 
-     *         ctx.export("ids", example.applyValue(getIpGroupsResult -> getIpGroupsResult.ids()));
+     *         ctx.export("ids", example.ids());
      *     }
      * }
      * }
@@ -1783,7 +1783,7 @@ public final class NetworkFunctions {
      *             .resourceGroupName("existing")
      *             .build());
      * 
-     *         ctx.export("ids", example.applyValue(getIpGroupsResult -> getIpGroupsResult.ids()));
+     *         ctx.export("ids", example.ids());
      *     }
      * }
      * }
@@ -1827,7 +1827,7 @@ public final class NetworkFunctions {
      *             .resourceGroupName("existing")
      *             .build());
      * 
-     *         ctx.export("ids", example.applyValue(getIpGroupsResult -> getIpGroupsResult.ids()));
+     *         ctx.export("ids", example.ids());
      *     }
      * }
      * }
@@ -1871,7 +1871,7 @@ public final class NetworkFunctions {
      *             .resourceGroupName("existing")
      *             .build());
      * 
-     *         ctx.export("ids", example.applyValue(getIpGroupsResult -> getIpGroupsResult.ids()));
+     *         ctx.export("ids", example.ids());
      *     }
      * }
      * }
@@ -1915,7 +1915,7 @@ public final class NetworkFunctions {
      *             .resourceGroupName("existing-resources")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getLocalNetworkGatewayResult -> getLocalNetworkGatewayResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -1959,7 +1959,7 @@ public final class NetworkFunctions {
      *             .resourceGroupName("existing-resources")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getLocalNetworkGatewayResult -> getLocalNetworkGatewayResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -2003,7 +2003,7 @@ public final class NetworkFunctions {
      *             .resourceGroupName("existing-resources")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getLocalNetworkGatewayResult -> getLocalNetworkGatewayResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -2047,7 +2047,7 @@ public final class NetworkFunctions {
      *             .resourceGroupName("existing-resources")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getLocalNetworkGatewayResult -> getLocalNetworkGatewayResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -2091,7 +2091,7 @@ public final class NetworkFunctions {
      *             .resourceGroupName("existing-resources")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getLocalNetworkGatewayResult -> getLocalNetworkGatewayResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -2170,7 +2170,7 @@ public final class NetworkFunctions {
      *             .resourceGroupName(exampleAzurermNetworkDdosProtectionPlan.resourceGroupName())
      *             .build());
      * 
-     *         ctx.export("ddosProtectionPlanId", example.applyValue(getNetworkDdosProtectionPlanResult -> getNetworkDdosProtectionPlanResult.id()));
+     *         ctx.export("ddosProtectionPlanId", example.id());
      *     }
      * }
      * }
@@ -2214,7 +2214,7 @@ public final class NetworkFunctions {
      *             .resourceGroupName(exampleAzurermNetworkDdosProtectionPlan.resourceGroupName())
      *             .build());
      * 
-     *         ctx.export("ddosProtectionPlanId", example.applyValue(getNetworkDdosProtectionPlanResult -> getNetworkDdosProtectionPlanResult.id()));
+     *         ctx.export("ddosProtectionPlanId", example.id());
      *     }
      * }
      * }
@@ -2258,7 +2258,7 @@ public final class NetworkFunctions {
      *             .resourceGroupName(exampleAzurermNetworkDdosProtectionPlan.resourceGroupName())
      *             .build());
      * 
-     *         ctx.export("ddosProtectionPlanId", example.applyValue(getNetworkDdosProtectionPlanResult -> getNetworkDdosProtectionPlanResult.id()));
+     *         ctx.export("ddosProtectionPlanId", example.id());
      *     }
      * }
      * }
@@ -2302,7 +2302,7 @@ public final class NetworkFunctions {
      *             .resourceGroupName(exampleAzurermNetworkDdosProtectionPlan.resourceGroupName())
      *             .build());
      * 
-     *         ctx.export("ddosProtectionPlanId", example.applyValue(getNetworkDdosProtectionPlanResult -> getNetworkDdosProtectionPlanResult.id()));
+     *         ctx.export("ddosProtectionPlanId", example.id());
      *     }
      * }
      * }
@@ -2346,7 +2346,7 @@ public final class NetworkFunctions {
      *             .resourceGroupName(exampleAzurermNetworkDdosProtectionPlan.resourceGroupName())
      *             .build());
      * 
-     *         ctx.export("ddosProtectionPlanId", example.applyValue(getNetworkDdosProtectionPlanResult -> getNetworkDdosProtectionPlanResult.id()));
+     *         ctx.export("ddosProtectionPlanId", example.id());
      *     }
      * }
      * }
@@ -2390,7 +2390,7 @@ public final class NetworkFunctions {
      *             .resourceGroupName("networking")
      *             .build());
      * 
-     *         ctx.export("networkInterfaceId", example.applyValue(getNetworkInterfaceResult -> getNetworkInterfaceResult.id()));
+     *         ctx.export("networkInterfaceId", example.id());
      *     }
      * }
      * }
@@ -2434,7 +2434,7 @@ public final class NetworkFunctions {
      *             .resourceGroupName("networking")
      *             .build());
      * 
-     *         ctx.export("networkInterfaceId", example.applyValue(getNetworkInterfaceResult -> getNetworkInterfaceResult.id()));
+     *         ctx.export("networkInterfaceId", example.id());
      *     }
      * }
      * }
@@ -2478,7 +2478,7 @@ public final class NetworkFunctions {
      *             .resourceGroupName("networking")
      *             .build());
      * 
-     *         ctx.export("networkInterfaceId", example.applyValue(getNetworkInterfaceResult -> getNetworkInterfaceResult.id()));
+     *         ctx.export("networkInterfaceId", example.id());
      *     }
      * }
      * }
@@ -2522,7 +2522,7 @@ public final class NetworkFunctions {
      *             .resourceGroupName("networking")
      *             .build());
      * 
-     *         ctx.export("networkInterfaceId", example.applyValue(getNetworkInterfaceResult -> getNetworkInterfaceResult.id()));
+     *         ctx.export("networkInterfaceId", example.id());
      *     }
      * }
      * }
@@ -2566,7 +2566,7 @@ public final class NetworkFunctions {
      *             .resourceGroupName("networking")
      *             .build());
      * 
-     *         ctx.export("networkInterfaceId", example.applyValue(getNetworkInterfaceResult -> getNetworkInterfaceResult.id()));
+     *         ctx.export("networkInterfaceId", example.id());
      *     }
      * }
      * }
@@ -2617,14 +2617,15 @@ public final class NetworkFunctions {
      *             .location("West Europe")
      *             .build());
      * 
-     *         final var current = CoreFunctions.getSubscription();
+     *         final var current = CoreFunctions.getSubscription(GetSubscriptionArgs.builder()
+     *             .build());
      * 
      *         var exampleNetworkManager = new NetworkManager("exampleNetworkManager", NetworkManagerArgs.builder()
      *             .name("example-network-manager")
      *             .location(exampleResourceGroup.location())
      *             .resourceGroupName(exampleResourceGroup.name())
      *             .scope(NetworkManagerScopeArgs.builder()
-     *                 .subscriptionIds(current.applyValue(getSubscriptionResult -> getSubscriptionResult.id()))
+     *                 .subscriptionIds(current.id())
      *                 .build())
      *             .scopeAccesses(            
      *                 "Connectivity",
@@ -2687,14 +2688,15 @@ public final class NetworkFunctions {
      *             .location("West Europe")
      *             .build());
      * 
-     *         final var current = CoreFunctions.getSubscription();
+     *         final var current = CoreFunctions.getSubscription(GetSubscriptionArgs.builder()
+     *             .build());
      * 
      *         var exampleNetworkManager = new NetworkManager("exampleNetworkManager", NetworkManagerArgs.builder()
      *             .name("example-network-manager")
      *             .location(exampleResourceGroup.location())
      *             .resourceGroupName(exampleResourceGroup.name())
      *             .scope(NetworkManagerScopeArgs.builder()
-     *                 .subscriptionIds(current.applyValue(getSubscriptionResult -> getSubscriptionResult.id()))
+     *                 .subscriptionIds(current.id())
      *                 .build())
      *             .scopeAccesses(            
      *                 "Connectivity",
@@ -2757,14 +2759,15 @@ public final class NetworkFunctions {
      *             .location("West Europe")
      *             .build());
      * 
-     *         final var current = CoreFunctions.getSubscription();
+     *         final var current = CoreFunctions.getSubscription(GetSubscriptionArgs.builder()
+     *             .build());
      * 
      *         var exampleNetworkManager = new NetworkManager("exampleNetworkManager", NetworkManagerArgs.builder()
      *             .name("example-network-manager")
      *             .location(exampleResourceGroup.location())
      *             .resourceGroupName(exampleResourceGroup.name())
      *             .scope(NetworkManagerScopeArgs.builder()
-     *                 .subscriptionIds(current.applyValue(getSubscriptionResult -> getSubscriptionResult.id()))
+     *                 .subscriptionIds(current.id())
      *                 .build())
      *             .scopeAccesses(            
      *                 "Connectivity",
@@ -2827,14 +2830,15 @@ public final class NetworkFunctions {
      *             .location("West Europe")
      *             .build());
      * 
-     *         final var current = CoreFunctions.getSubscription();
+     *         final var current = CoreFunctions.getSubscription(GetSubscriptionArgs.builder()
+     *             .build());
      * 
      *         var exampleNetworkManager = new NetworkManager("exampleNetworkManager", NetworkManagerArgs.builder()
      *             .name("example-network-manager")
      *             .location(exampleResourceGroup.location())
      *             .resourceGroupName(exampleResourceGroup.name())
      *             .scope(NetworkManagerScopeArgs.builder()
-     *                 .subscriptionIds(current.applyValue(getSubscriptionResult -> getSubscriptionResult.id()))
+     *                 .subscriptionIds(current.id())
      *                 .build())
      *             .scopeAccesses(            
      *                 "Connectivity",
@@ -2897,14 +2901,15 @@ public final class NetworkFunctions {
      *             .location("West Europe")
      *             .build());
      * 
-     *         final var current = CoreFunctions.getSubscription();
+     *         final var current = CoreFunctions.getSubscription(GetSubscriptionArgs.builder()
+     *             .build());
      * 
      *         var exampleNetworkManager = new NetworkManager("exampleNetworkManager", NetworkManagerArgs.builder()
      *             .name("example-network-manager")
      *             .location(exampleResourceGroup.location())
      *             .resourceGroupName(exampleResourceGroup.name())
      *             .scope(NetworkManagerScopeArgs.builder()
-     *                 .subscriptionIds(current.applyValue(getSubscriptionResult -> getSubscriptionResult.id()))
+     *                 .subscriptionIds(current.id())
      *                 .build())
      *             .scopeAccesses(            
      *                 "Connectivity",
@@ -2960,7 +2965,7 @@ public final class NetworkFunctions {
      *             .networkManagerId("TODO")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getNetworkManagerConnectivityConfigurationResult -> getNetworkManagerConnectivityConfigurationResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -3004,7 +3009,7 @@ public final class NetworkFunctions {
      *             .networkManagerId("TODO")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getNetworkManagerConnectivityConfigurationResult -> getNetworkManagerConnectivityConfigurationResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -3048,7 +3053,7 @@ public final class NetworkFunctions {
      *             .networkManagerId("TODO")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getNetworkManagerConnectivityConfigurationResult -> getNetworkManagerConnectivityConfigurationResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -3092,7 +3097,7 @@ public final class NetworkFunctions {
      *             .networkManagerId("TODO")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getNetworkManagerConnectivityConfigurationResult -> getNetworkManagerConnectivityConfigurationResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -3136,7 +3141,7 @@ public final class NetworkFunctions {
      *             .networkManagerId("TODO")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getNetworkManagerConnectivityConfigurationResult -> getNetworkManagerConnectivityConfigurationResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -3189,14 +3194,15 @@ public final class NetworkFunctions {
      *             .location("West Europe")
      *             .build());
      * 
-     *         final var current = CoreFunctions.getSubscription();
+     *         final var current = CoreFunctions.getSubscription(GetSubscriptionArgs.builder()
+     *             .build());
      * 
      *         var exampleNetworkManager = new NetworkManager("exampleNetworkManager", NetworkManagerArgs.builder()
      *             .name("example-network-manager")
      *             .location(exampleResourceGroup.location())
      *             .resourceGroupName(exampleResourceGroup.name())
      *             .scope(NetworkManagerScopeArgs.builder()
-     *                 .subscriptionIds(current.applyValue(getSubscriptionResult -> getSubscriptionResult.id()))
+     *                 .subscriptionIds(current.id())
      *                 .build())
      *             .scopeAccesses(            
      *                 "Connectivity",
@@ -3266,14 +3272,15 @@ public final class NetworkFunctions {
      *             .location("West Europe")
      *             .build());
      * 
-     *         final var current = CoreFunctions.getSubscription();
+     *         final var current = CoreFunctions.getSubscription(GetSubscriptionArgs.builder()
+     *             .build());
      * 
      *         var exampleNetworkManager = new NetworkManager("exampleNetworkManager", NetworkManagerArgs.builder()
      *             .name("example-network-manager")
      *             .location(exampleResourceGroup.location())
      *             .resourceGroupName(exampleResourceGroup.name())
      *             .scope(NetworkManagerScopeArgs.builder()
-     *                 .subscriptionIds(current.applyValue(getSubscriptionResult -> getSubscriptionResult.id()))
+     *                 .subscriptionIds(current.id())
      *                 .build())
      *             .scopeAccesses(            
      *                 "Connectivity",
@@ -3343,14 +3350,15 @@ public final class NetworkFunctions {
      *             .location("West Europe")
      *             .build());
      * 
-     *         final var current = CoreFunctions.getSubscription();
+     *         final var current = CoreFunctions.getSubscription(GetSubscriptionArgs.builder()
+     *             .build());
      * 
      *         var exampleNetworkManager = new NetworkManager("exampleNetworkManager", NetworkManagerArgs.builder()
      *             .name("example-network-manager")
      *             .location(exampleResourceGroup.location())
      *             .resourceGroupName(exampleResourceGroup.name())
      *             .scope(NetworkManagerScopeArgs.builder()
-     *                 .subscriptionIds(current.applyValue(getSubscriptionResult -> getSubscriptionResult.id()))
+     *                 .subscriptionIds(current.id())
      *                 .build())
      *             .scopeAccesses(            
      *                 "Connectivity",
@@ -3420,14 +3428,15 @@ public final class NetworkFunctions {
      *             .location("West Europe")
      *             .build());
      * 
-     *         final var current = CoreFunctions.getSubscription();
+     *         final var current = CoreFunctions.getSubscription(GetSubscriptionArgs.builder()
+     *             .build());
      * 
      *         var exampleNetworkManager = new NetworkManager("exampleNetworkManager", NetworkManagerArgs.builder()
      *             .name("example-network-manager")
      *             .location(exampleResourceGroup.location())
      *             .resourceGroupName(exampleResourceGroup.name())
      *             .scope(NetworkManagerScopeArgs.builder()
-     *                 .subscriptionIds(current.applyValue(getSubscriptionResult -> getSubscriptionResult.id()))
+     *                 .subscriptionIds(current.id())
      *                 .build())
      *             .scopeAccesses(            
      *                 "Connectivity",
@@ -3497,14 +3506,15 @@ public final class NetworkFunctions {
      *             .location("West Europe")
      *             .build());
      * 
-     *         final var current = CoreFunctions.getSubscription();
+     *         final var current = CoreFunctions.getSubscription(GetSubscriptionArgs.builder()
+     *             .build());
      * 
      *         var exampleNetworkManager = new NetworkManager("exampleNetworkManager", NetworkManagerArgs.builder()
      *             .name("example-network-manager")
      *             .location(exampleResourceGroup.location())
      *             .resourceGroupName(exampleResourceGroup.name())
      *             .scope(NetworkManagerScopeArgs.builder()
-     *                 .subscriptionIds(current.applyValue(getSubscriptionResult -> getSubscriptionResult.id()))
+     *                 .subscriptionIds(current.id())
      *                 .build())
      *             .scopeAccesses(            
      *                 "Connectivity",
@@ -3565,7 +3575,7 @@ public final class NetworkFunctions {
      *             .resourceGroupName(exampleAzurermResourceGroup.name())
      *             .build());
      * 
-     *         ctx.export("location", example.applyValue(getNetworkSecurityGroupResult -> getNetworkSecurityGroupResult.location()));
+     *         ctx.export("location", example.location());
      *     }
      * }
      * }
@@ -3609,7 +3619,7 @@ public final class NetworkFunctions {
      *             .resourceGroupName(exampleAzurermResourceGroup.name())
      *             .build());
      * 
-     *         ctx.export("location", example.applyValue(getNetworkSecurityGroupResult -> getNetworkSecurityGroupResult.location()));
+     *         ctx.export("location", example.location());
      *     }
      * }
      * }
@@ -3653,7 +3663,7 @@ public final class NetworkFunctions {
      *             .resourceGroupName(exampleAzurermResourceGroup.name())
      *             .build());
      * 
-     *         ctx.export("location", example.applyValue(getNetworkSecurityGroupResult -> getNetworkSecurityGroupResult.location()));
+     *         ctx.export("location", example.location());
      *     }
      * }
      * }
@@ -3697,7 +3707,7 @@ public final class NetworkFunctions {
      *             .resourceGroupName(exampleAzurermResourceGroup.name())
      *             .build());
      * 
-     *         ctx.export("location", example.applyValue(getNetworkSecurityGroupResult -> getNetworkSecurityGroupResult.location()));
+     *         ctx.export("location", example.location());
      *     }
      * }
      * }
@@ -3741,7 +3751,7 @@ public final class NetworkFunctions {
      *             .resourceGroupName(exampleAzurermResourceGroup.name())
      *             .build());
      * 
-     *         ctx.export("location", example.applyValue(getNetworkSecurityGroupResult -> getNetworkSecurityGroupResult.location()));
+     *         ctx.export("location", example.location());
      *     }
      * }
      * }
@@ -3785,7 +3795,7 @@ public final class NetworkFunctions {
      *             .resourceGroupName(exampleAzurermResourceGroup.name())
      *             .build());
      * 
-     *         ctx.export("networkWatcherId", example.applyValue(getNetworkWatcherResult -> getNetworkWatcherResult.id()));
+     *         ctx.export("networkWatcherId", example.id());
      *     }
      * }
      * }
@@ -3829,7 +3839,7 @@ public final class NetworkFunctions {
      *             .resourceGroupName(exampleAzurermResourceGroup.name())
      *             .build());
      * 
-     *         ctx.export("networkWatcherId", example.applyValue(getNetworkWatcherResult -> getNetworkWatcherResult.id()));
+     *         ctx.export("networkWatcherId", example.id());
      *     }
      * }
      * }
@@ -3873,7 +3883,7 @@ public final class NetworkFunctions {
      *             .resourceGroupName(exampleAzurermResourceGroup.name())
      *             .build());
      * 
-     *         ctx.export("networkWatcherId", example.applyValue(getNetworkWatcherResult -> getNetworkWatcherResult.id()));
+     *         ctx.export("networkWatcherId", example.id());
      *     }
      * }
      * }
@@ -3917,7 +3927,7 @@ public final class NetworkFunctions {
      *             .resourceGroupName(exampleAzurermResourceGroup.name())
      *             .build());
      * 
-     *         ctx.export("networkWatcherId", example.applyValue(getNetworkWatcherResult -> getNetworkWatcherResult.id()));
+     *         ctx.export("networkWatcherId", example.id());
      *     }
      * }
      * }
@@ -3961,7 +3971,7 @@ public final class NetworkFunctions {
      *             .resourceGroupName(exampleAzurermResourceGroup.name())
      *             .build());
      * 
-     *         ctx.export("networkWatcherId", example.applyValue(getNetworkWatcherResult -> getNetworkWatcherResult.id()));
+     *         ctx.export("networkWatcherId", example.id());
      *     }
      * }
      * }
@@ -4007,8 +4017,8 @@ public final class NetworkFunctions {
      *             .resourceGroupName("name_of_resource_group")
      *             .build());
      * 
-     *         ctx.export("domainNameLabel", example.applyValue(getPublicIPResult -> getPublicIPResult.domainNameLabel()));
-     *         ctx.export("publicIpAddress", example.applyValue(getPublicIPResult -> getPublicIPResult.ipAddress()));
+     *         ctx.export("domainNameLabel", example.domainNameLabel());
+     *         ctx.export("publicIpAddress", example.ipAddress());
      *     }
      * }
      * }
@@ -4106,7 +4116,7 @@ public final class NetworkFunctions {
      *             .resourceGroupName(exampleVirtualMachine.resourceGroupName())
      *             .build());
      * 
-     *         ctx.export("publicIpAddress", example.applyValue(getPublicIPResult -> getPublicIPResult).applyValue(example -> example.applyValue(getPublicIPResult -> getPublicIPResult.ipAddress())));
+     *         ctx.export("publicIpAddress", example.applyValue(_example -> _example.ipAddress()));
      *     }
      * }
      * }
@@ -4152,8 +4162,8 @@ public final class NetworkFunctions {
      *             .resourceGroupName("name_of_resource_group")
      *             .build());
      * 
-     *         ctx.export("domainNameLabel", example.applyValue(getPublicIPResult -> getPublicIPResult.domainNameLabel()));
-     *         ctx.export("publicIpAddress", example.applyValue(getPublicIPResult -> getPublicIPResult.ipAddress()));
+     *         ctx.export("domainNameLabel", example.domainNameLabel());
+     *         ctx.export("publicIpAddress", example.ipAddress());
      *     }
      * }
      * }
@@ -4251,7 +4261,7 @@ public final class NetworkFunctions {
      *             .resourceGroupName(exampleVirtualMachine.resourceGroupName())
      *             .build());
      * 
-     *         ctx.export("publicIpAddress", example.applyValue(getPublicIPResult -> getPublicIPResult).applyValue(example -> example.applyValue(getPublicIPResult -> getPublicIPResult.ipAddress())));
+     *         ctx.export("publicIpAddress", example.applyValue(_example -> _example.ipAddress()));
      *     }
      * }
      * }
@@ -4297,8 +4307,8 @@ public final class NetworkFunctions {
      *             .resourceGroupName("name_of_resource_group")
      *             .build());
      * 
-     *         ctx.export("domainNameLabel", example.applyValue(getPublicIPResult -> getPublicIPResult.domainNameLabel()));
-     *         ctx.export("publicIpAddress", example.applyValue(getPublicIPResult -> getPublicIPResult.ipAddress()));
+     *         ctx.export("domainNameLabel", example.domainNameLabel());
+     *         ctx.export("publicIpAddress", example.ipAddress());
      *     }
      * }
      * }
@@ -4396,7 +4406,7 @@ public final class NetworkFunctions {
      *             .resourceGroupName(exampleVirtualMachine.resourceGroupName())
      *             .build());
      * 
-     *         ctx.export("publicIpAddress", example.applyValue(getPublicIPResult -> getPublicIPResult).applyValue(example -> example.applyValue(getPublicIPResult -> getPublicIPResult.ipAddress())));
+     *         ctx.export("publicIpAddress", example.applyValue(_example -> _example.ipAddress()));
      *     }
      * }
      * }
@@ -4442,8 +4452,8 @@ public final class NetworkFunctions {
      *             .resourceGroupName("name_of_resource_group")
      *             .build());
      * 
-     *         ctx.export("domainNameLabel", example.applyValue(getPublicIPResult -> getPublicIPResult.domainNameLabel()));
-     *         ctx.export("publicIpAddress", example.applyValue(getPublicIPResult -> getPublicIPResult.ipAddress()));
+     *         ctx.export("domainNameLabel", example.domainNameLabel());
+     *         ctx.export("publicIpAddress", example.ipAddress());
      *     }
      * }
      * }
@@ -4541,7 +4551,7 @@ public final class NetworkFunctions {
      *             .resourceGroupName(exampleVirtualMachine.resourceGroupName())
      *             .build());
      * 
-     *         ctx.export("publicIpAddress", example.applyValue(getPublicIPResult -> getPublicIPResult).applyValue(example -> example.applyValue(getPublicIPResult -> getPublicIPResult.ipAddress())));
+     *         ctx.export("publicIpAddress", example.applyValue(_example -> _example.ipAddress()));
      *     }
      * }
      * }
@@ -4587,8 +4597,8 @@ public final class NetworkFunctions {
      *             .resourceGroupName("name_of_resource_group")
      *             .build());
      * 
-     *         ctx.export("domainNameLabel", example.applyValue(getPublicIPResult -> getPublicIPResult.domainNameLabel()));
-     *         ctx.export("publicIpAddress", example.applyValue(getPublicIPResult -> getPublicIPResult.ipAddress()));
+     *         ctx.export("domainNameLabel", example.domainNameLabel());
+     *         ctx.export("publicIpAddress", example.ipAddress());
      *     }
      * }
      * }
@@ -4686,7 +4696,7 @@ public final class NetworkFunctions {
      *             .resourceGroupName(exampleVirtualMachine.resourceGroupName())
      *             .build());
      * 
-     *         ctx.export("publicIpAddress", example.applyValue(getPublicIPResult -> getPublicIPResult).applyValue(example -> example.applyValue(getPublicIPResult -> getPublicIPResult.ipAddress())));
+     *         ctx.export("publicIpAddress", example.applyValue(_example -> _example.ipAddress()));
      *     }
      * }
      * }
@@ -4947,7 +4957,7 @@ public final class NetworkFunctions {
      *             .resourceGroupName("name_of_resource_group")
      *             .build());
      * 
-     *         ctx.export("publicIpPrefix", example.applyValue(getPublicIpPrefixResult -> getPublicIpPrefixResult.ipPrefix()));
+     *         ctx.export("publicIpPrefix", example.ipPrefix());
      *     }
      * }
      * }
@@ -4993,7 +5003,7 @@ public final class NetworkFunctions {
      *             .resourceGroupName("name_of_resource_group")
      *             .build());
      * 
-     *         ctx.export("publicIpPrefix", example.applyValue(getPublicIpPrefixResult -> getPublicIpPrefixResult.ipPrefix()));
+     *         ctx.export("publicIpPrefix", example.ipPrefix());
      *     }
      * }
      * }
@@ -5039,7 +5049,7 @@ public final class NetworkFunctions {
      *             .resourceGroupName("name_of_resource_group")
      *             .build());
      * 
-     *         ctx.export("publicIpPrefix", example.applyValue(getPublicIpPrefixResult -> getPublicIpPrefixResult.ipPrefix()));
+     *         ctx.export("publicIpPrefix", example.ipPrefix());
      *     }
      * }
      * }
@@ -5085,7 +5095,7 @@ public final class NetworkFunctions {
      *             .resourceGroupName("name_of_resource_group")
      *             .build());
      * 
-     *         ctx.export("publicIpPrefix", example.applyValue(getPublicIpPrefixResult -> getPublicIpPrefixResult.ipPrefix()));
+     *         ctx.export("publicIpPrefix", example.ipPrefix());
      *     }
      * }
      * }
@@ -5131,7 +5141,7 @@ public final class NetworkFunctions {
      *             .resourceGroupName("name_of_resource_group")
      *             .build());
      * 
-     *         ctx.export("publicIpPrefix", example.applyValue(getPublicIpPrefixResult -> getPublicIpPrefixResult.ipPrefix()));
+     *         ctx.export("publicIpPrefix", example.ipPrefix());
      *     }
      * }
      * }
@@ -5175,7 +5185,7 @@ public final class NetworkFunctions {
      *             .resourceGroupName("existing")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getRouteFilterResult -> getRouteFilterResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -5219,7 +5229,7 @@ public final class NetworkFunctions {
      *             .resourceGroupName("existing")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getRouteFilterResult -> getRouteFilterResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -5263,7 +5273,7 @@ public final class NetworkFunctions {
      *             .resourceGroupName("existing")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getRouteFilterResult -> getRouteFilterResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -5307,7 +5317,7 @@ public final class NetworkFunctions {
      *             .resourceGroupName("existing")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getRouteFilterResult -> getRouteFilterResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -5351,7 +5361,7 @@ public final class NetworkFunctions {
      *             .resourceGroupName("existing")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getRouteFilterResult -> getRouteFilterResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -5611,8 +5621,8 @@ public final class NetworkFunctions {
      *             .locationFilter("northeurope")
      *             .build());
      * 
-     *         ctx.export("addressPrefixes", example.applyValue(getServiceTagsResult -> getServiceTagsResult.addressPrefixes()));
-     *         ctx.export("ipv4Cidrs", example.applyValue(getServiceTagsResult -> getServiceTagsResult.ipv4Cidrs()));
+     *         ctx.export("addressPrefixes", example.addressPrefixes());
+     *         ctx.export("ipv4Cidrs", example.ipv4Cidrs());
      *     }
      * }
      * }
@@ -5657,8 +5667,8 @@ public final class NetworkFunctions {
      *             .locationFilter("northeurope")
      *             .build());
      * 
-     *         ctx.export("addressPrefixes", example.applyValue(getServiceTagsResult -> getServiceTagsResult.addressPrefixes()));
-     *         ctx.export("ipv4Cidrs", example.applyValue(getServiceTagsResult -> getServiceTagsResult.ipv4Cidrs()));
+     *         ctx.export("addressPrefixes", example.addressPrefixes());
+     *         ctx.export("ipv4Cidrs", example.ipv4Cidrs());
      *     }
      * }
      * }
@@ -5703,8 +5713,8 @@ public final class NetworkFunctions {
      *             .locationFilter("northeurope")
      *             .build());
      * 
-     *         ctx.export("addressPrefixes", example.applyValue(getServiceTagsResult -> getServiceTagsResult.addressPrefixes()));
-     *         ctx.export("ipv4Cidrs", example.applyValue(getServiceTagsResult -> getServiceTagsResult.ipv4Cidrs()));
+     *         ctx.export("addressPrefixes", example.addressPrefixes());
+     *         ctx.export("ipv4Cidrs", example.ipv4Cidrs());
      *     }
      * }
      * }
@@ -5749,8 +5759,8 @@ public final class NetworkFunctions {
      *             .locationFilter("northeurope")
      *             .build());
      * 
-     *         ctx.export("addressPrefixes", example.applyValue(getServiceTagsResult -> getServiceTagsResult.addressPrefixes()));
-     *         ctx.export("ipv4Cidrs", example.applyValue(getServiceTagsResult -> getServiceTagsResult.ipv4Cidrs()));
+     *         ctx.export("addressPrefixes", example.addressPrefixes());
+     *         ctx.export("ipv4Cidrs", example.ipv4Cidrs());
      *     }
      * }
      * }
@@ -5795,8 +5805,8 @@ public final class NetworkFunctions {
      *             .locationFilter("northeurope")
      *             .build());
      * 
-     *         ctx.export("addressPrefixes", example.applyValue(getServiceTagsResult -> getServiceTagsResult.addressPrefixes()));
-     *         ctx.export("ipv4Cidrs", example.applyValue(getServiceTagsResult -> getServiceTagsResult.ipv4Cidrs()));
+     *         ctx.export("addressPrefixes", example.addressPrefixes());
+     *         ctx.export("ipv4Cidrs", example.ipv4Cidrs());
      *     }
      * }
      * }
@@ -5841,7 +5851,7 @@ public final class NetworkFunctions {
      *             .resourceGroupName("networking")
      *             .build());
      * 
-     *         ctx.export("subnetId", example.applyValue(getSubnetResult -> getSubnetResult.id()));
+     *         ctx.export("subnetId", example.id());
      *     }
      * }
      * }
@@ -5886,7 +5896,7 @@ public final class NetworkFunctions {
      *             .resourceGroupName("networking")
      *             .build());
      * 
-     *         ctx.export("subnetId", example.applyValue(getSubnetResult -> getSubnetResult.id()));
+     *         ctx.export("subnetId", example.id());
      *     }
      * }
      * }
@@ -5931,7 +5941,7 @@ public final class NetworkFunctions {
      *             .resourceGroupName("networking")
      *             .build());
      * 
-     *         ctx.export("subnetId", example.applyValue(getSubnetResult -> getSubnetResult.id()));
+     *         ctx.export("subnetId", example.id());
      *     }
      * }
      * }
@@ -5976,7 +5986,7 @@ public final class NetworkFunctions {
      *             .resourceGroupName("networking")
      *             .build());
      * 
-     *         ctx.export("subnetId", example.applyValue(getSubnetResult -> getSubnetResult.id()));
+     *         ctx.export("subnetId", example.id());
      *     }
      * }
      * }
@@ -6021,7 +6031,7 @@ public final class NetworkFunctions {
      *             .resourceGroupName("networking")
      *             .build());
      * 
-     *         ctx.export("subnetId", example.applyValue(getSubnetResult -> getSubnetResult.id()));
+     *         ctx.export("subnetId", example.id());
      *     }
      * }
      * }
@@ -6066,7 +6076,7 @@ public final class NetworkFunctions {
      *             .name("World")
      *             .build());
      * 
-     *         ctx.export("locationCode", example.applyValue(getTrafficManagerResult -> getTrafficManagerResult.id()));
+     *         ctx.export("locationCode", example.id());
      *     }
      * }
      * }
@@ -6111,7 +6121,7 @@ public final class NetworkFunctions {
      *             .name("World")
      *             .build());
      * 
-     *         ctx.export("locationCode", example.applyValue(getTrafficManagerResult -> getTrafficManagerResult.id()));
+     *         ctx.export("locationCode", example.id());
      *     }
      * }
      * }
@@ -6156,7 +6166,7 @@ public final class NetworkFunctions {
      *             .name("World")
      *             .build());
      * 
-     *         ctx.export("locationCode", example.applyValue(getTrafficManagerResult -> getTrafficManagerResult.id()));
+     *         ctx.export("locationCode", example.id());
      *     }
      * }
      * }
@@ -6201,7 +6211,7 @@ public final class NetworkFunctions {
      *             .name("World")
      *             .build());
      * 
-     *         ctx.export("locationCode", example.applyValue(getTrafficManagerResult -> getTrafficManagerResult.id()));
+     *         ctx.export("locationCode", example.id());
      *     }
      * }
      * }
@@ -6246,7 +6256,7 @@ public final class NetworkFunctions {
      *             .name("World")
      *             .build());
      * 
-     *         ctx.export("locationCode", example.applyValue(getTrafficManagerResult -> getTrafficManagerResult.id()));
+     *         ctx.export("locationCode", example.id());
      *     }
      * }
      * }
@@ -6290,7 +6300,7 @@ public final class NetworkFunctions {
      *             .resourceGroupName("test")
      *             .build());
      * 
-     *         ctx.export("trafficRoutingMethod", example.applyValue(getTrafficManagerProfileResult -> getTrafficManagerProfileResult.trafficRoutingMethod()));
+     *         ctx.export("trafficRoutingMethod", example.trafficRoutingMethod());
      *     }
      * }
      * }
@@ -6334,7 +6344,7 @@ public final class NetworkFunctions {
      *             .resourceGroupName("test")
      *             .build());
      * 
-     *         ctx.export("trafficRoutingMethod", example.applyValue(getTrafficManagerProfileResult -> getTrafficManagerProfileResult.trafficRoutingMethod()));
+     *         ctx.export("trafficRoutingMethod", example.trafficRoutingMethod());
      *     }
      * }
      * }
@@ -6378,7 +6388,7 @@ public final class NetworkFunctions {
      *             .resourceGroupName("test")
      *             .build());
      * 
-     *         ctx.export("trafficRoutingMethod", example.applyValue(getTrafficManagerProfileResult -> getTrafficManagerProfileResult.trafficRoutingMethod()));
+     *         ctx.export("trafficRoutingMethod", example.trafficRoutingMethod());
      *     }
      * }
      * }
@@ -6422,7 +6432,7 @@ public final class NetworkFunctions {
      *             .resourceGroupName("test")
      *             .build());
      * 
-     *         ctx.export("trafficRoutingMethod", example.applyValue(getTrafficManagerProfileResult -> getTrafficManagerProfileResult.trafficRoutingMethod()));
+     *         ctx.export("trafficRoutingMethod", example.trafficRoutingMethod());
      *     }
      * }
      * }
@@ -6466,7 +6476,7 @@ public final class NetworkFunctions {
      *             .resourceGroupName("test")
      *             .build());
      * 
-     *         ctx.export("trafficRoutingMethod", example.applyValue(getTrafficManagerProfileResult -> getTrafficManagerProfileResult.trafficRoutingMethod()));
+     *         ctx.export("trafficRoutingMethod", example.trafficRoutingMethod());
      *     }
      * }
      * }
@@ -6510,7 +6520,7 @@ public final class NetworkFunctions {
      *             .resourceGroupName("example-resources")
      *             .build());
      * 
-     *         ctx.export("virtualHubId", example.applyValue(getVirtualHubResult -> getVirtualHubResult.id()));
+     *         ctx.export("virtualHubId", example.id());
      *     }
      * }
      * }
@@ -6554,7 +6564,7 @@ public final class NetworkFunctions {
      *             .resourceGroupName("example-resources")
      *             .build());
      * 
-     *         ctx.export("virtualHubId", example.applyValue(getVirtualHubResult -> getVirtualHubResult.id()));
+     *         ctx.export("virtualHubId", example.id());
      *     }
      * }
      * }
@@ -6598,7 +6608,7 @@ public final class NetworkFunctions {
      *             .resourceGroupName("example-resources")
      *             .build());
      * 
-     *         ctx.export("virtualHubId", example.applyValue(getVirtualHubResult -> getVirtualHubResult.id()));
+     *         ctx.export("virtualHubId", example.id());
      *     }
      * }
      * }
@@ -6642,7 +6652,7 @@ public final class NetworkFunctions {
      *             .resourceGroupName("example-resources")
      *             .build());
      * 
-     *         ctx.export("virtualHubId", example.applyValue(getVirtualHubResult -> getVirtualHubResult.id()));
+     *         ctx.export("virtualHubId", example.id());
      *     }
      * }
      * }
@@ -6686,7 +6696,7 @@ public final class NetworkFunctions {
      *             .resourceGroupName("example-resources")
      *             .build());
      * 
-     *         ctx.export("virtualHubId", example.applyValue(getVirtualHubResult -> getVirtualHubResult.id()));
+     *         ctx.export("virtualHubId", example.id());
      *     }
      * }
      * }
@@ -6731,7 +6741,7 @@ public final class NetworkFunctions {
      *             .virtualHubName("example-hub-name")
      *             .build());
      * 
-     *         ctx.export("virtualHubConnectionId", example.applyValue(getVirtualHubConnectionResult -> getVirtualHubConnectionResult.id()));
+     *         ctx.export("virtualHubConnectionId", example.id());
      *     }
      * }
      * }
@@ -6776,7 +6786,7 @@ public final class NetworkFunctions {
      *             .virtualHubName("example-hub-name")
      *             .build());
      * 
-     *         ctx.export("virtualHubConnectionId", example.applyValue(getVirtualHubConnectionResult -> getVirtualHubConnectionResult.id()));
+     *         ctx.export("virtualHubConnectionId", example.id());
      *     }
      * }
      * }
@@ -6821,7 +6831,7 @@ public final class NetworkFunctions {
      *             .virtualHubName("example-hub-name")
      *             .build());
      * 
-     *         ctx.export("virtualHubConnectionId", example.applyValue(getVirtualHubConnectionResult -> getVirtualHubConnectionResult.id()));
+     *         ctx.export("virtualHubConnectionId", example.id());
      *     }
      * }
      * }
@@ -6866,7 +6876,7 @@ public final class NetworkFunctions {
      *             .virtualHubName("example-hub-name")
      *             .build());
      * 
-     *         ctx.export("virtualHubConnectionId", example.applyValue(getVirtualHubConnectionResult -> getVirtualHubConnectionResult.id()));
+     *         ctx.export("virtualHubConnectionId", example.id());
      *     }
      * }
      * }
@@ -6911,7 +6921,7 @@ public final class NetworkFunctions {
      *             .virtualHubName("example-hub-name")
      *             .build());
      * 
-     *         ctx.export("virtualHubConnectionId", example.applyValue(getVirtualHubConnectionResult -> getVirtualHubConnectionResult.id()));
+     *         ctx.export("virtualHubConnectionId", example.id());
      *     }
      * }
      * }
@@ -6956,7 +6966,7 @@ public final class NetworkFunctions {
      *             .virtualHubName("example-hub-name")
      *             .build());
      * 
-     *         ctx.export("virtualHubRouteTableId", example.applyValue(getVirtualHubRouteTableResult -> getVirtualHubRouteTableResult.id()));
+     *         ctx.export("virtualHubRouteTableId", example.id());
      *     }
      * }
      * }
@@ -7001,7 +7011,7 @@ public final class NetworkFunctions {
      *             .virtualHubName("example-hub-name")
      *             .build());
      * 
-     *         ctx.export("virtualHubRouteTableId", example.applyValue(getVirtualHubRouteTableResult -> getVirtualHubRouteTableResult.id()));
+     *         ctx.export("virtualHubRouteTableId", example.id());
      *     }
      * }
      * }
@@ -7046,7 +7056,7 @@ public final class NetworkFunctions {
      *             .virtualHubName("example-hub-name")
      *             .build());
      * 
-     *         ctx.export("virtualHubRouteTableId", example.applyValue(getVirtualHubRouteTableResult -> getVirtualHubRouteTableResult.id()));
+     *         ctx.export("virtualHubRouteTableId", example.id());
      *     }
      * }
      * }
@@ -7091,7 +7101,7 @@ public final class NetworkFunctions {
      *             .virtualHubName("example-hub-name")
      *             .build());
      * 
-     *         ctx.export("virtualHubRouteTableId", example.applyValue(getVirtualHubRouteTableResult -> getVirtualHubRouteTableResult.id()));
+     *         ctx.export("virtualHubRouteTableId", example.id());
      *     }
      * }
      * }
@@ -7136,7 +7146,7 @@ public final class NetworkFunctions {
      *             .virtualHubName("example-hub-name")
      *             .build());
      * 
-     *         ctx.export("virtualHubRouteTableId", example.applyValue(getVirtualHubRouteTableResult -> getVirtualHubRouteTableResult.id()));
+     *         ctx.export("virtualHubRouteTableId", example.id());
      *     }
      * }
      * }
@@ -7180,7 +7190,7 @@ public final class NetworkFunctions {
      *             .resourceGroupName("networking")
      *             .build());
      * 
-     *         ctx.export("virtualNetworkId", example.applyValue(getVirtualNetworkResult -> getVirtualNetworkResult.id()));
+     *         ctx.export("virtualNetworkId", example.id());
      *     }
      * }
      * }
@@ -7224,7 +7234,7 @@ public final class NetworkFunctions {
      *             .resourceGroupName("networking")
      *             .build());
      * 
-     *         ctx.export("virtualNetworkId", example.applyValue(getVirtualNetworkResult -> getVirtualNetworkResult.id()));
+     *         ctx.export("virtualNetworkId", example.id());
      *     }
      * }
      * }
@@ -7268,7 +7278,7 @@ public final class NetworkFunctions {
      *             .resourceGroupName("networking")
      *             .build());
      * 
-     *         ctx.export("virtualNetworkId", example.applyValue(getVirtualNetworkResult -> getVirtualNetworkResult.id()));
+     *         ctx.export("virtualNetworkId", example.id());
      *     }
      * }
      * }
@@ -7312,7 +7322,7 @@ public final class NetworkFunctions {
      *             .resourceGroupName("networking")
      *             .build());
      * 
-     *         ctx.export("virtualNetworkId", example.applyValue(getVirtualNetworkResult -> getVirtualNetworkResult.id()));
+     *         ctx.export("virtualNetworkId", example.id());
      *     }
      * }
      * }
@@ -7356,7 +7366,7 @@ public final class NetworkFunctions {
      *             .resourceGroupName("networking")
      *             .build());
      * 
-     *         ctx.export("virtualNetworkId", example.applyValue(getVirtualNetworkResult -> getVirtualNetworkResult.id()));
+     *         ctx.export("virtualNetworkId", example.id());
      *     }
      * }
      * }
@@ -7400,7 +7410,7 @@ public final class NetworkFunctions {
      *             .resourceGroupName("networking")
      *             .build());
      * 
-     *         ctx.export("virtualNetworkGatewayId", example.applyValue(getVirtualNetworkGatewayResult -> getVirtualNetworkGatewayResult.id()));
+     *         ctx.export("virtualNetworkGatewayId", example.id());
      *     }
      * }
      * }
@@ -7444,7 +7454,7 @@ public final class NetworkFunctions {
      *             .resourceGroupName("networking")
      *             .build());
      * 
-     *         ctx.export("virtualNetworkGatewayId", example.applyValue(getVirtualNetworkGatewayResult -> getVirtualNetworkGatewayResult.id()));
+     *         ctx.export("virtualNetworkGatewayId", example.id());
      *     }
      * }
      * }
@@ -7488,7 +7498,7 @@ public final class NetworkFunctions {
      *             .resourceGroupName("networking")
      *             .build());
      * 
-     *         ctx.export("virtualNetworkGatewayId", example.applyValue(getVirtualNetworkGatewayResult -> getVirtualNetworkGatewayResult.id()));
+     *         ctx.export("virtualNetworkGatewayId", example.id());
      *     }
      * }
      * }
@@ -7532,7 +7542,7 @@ public final class NetworkFunctions {
      *             .resourceGroupName("networking")
      *             .build());
      * 
-     *         ctx.export("virtualNetworkGatewayId", example.applyValue(getVirtualNetworkGatewayResult -> getVirtualNetworkGatewayResult.id()));
+     *         ctx.export("virtualNetworkGatewayId", example.id());
      *     }
      * }
      * }
@@ -7576,7 +7586,7 @@ public final class NetworkFunctions {
      *             .resourceGroupName("networking")
      *             .build());
      * 
-     *         ctx.export("virtualNetworkGatewayId", example.applyValue(getVirtualNetworkGatewayResult -> getVirtualNetworkGatewayResult.id()));
+     *         ctx.export("virtualNetworkGatewayId", example.id());
      *     }
      * }
      * }
@@ -7623,10 +7633,10 @@ public final class NetworkFunctions {
      * 
      *         final var exampleGetVirtualNetworkPeering = NetworkFunctions.getVirtualNetworkPeering(GetVirtualNetworkPeeringArgs.builder()
      *             .name("peer-vnet01-to-vnet02")
-     *             .virtualNetworkId(example.applyValue(getVirtualNetworkResult -> getVirtualNetworkResult.id()))
+     *             .virtualNetworkId(example.id())
      *             .build());
      * 
-     *         ctx.export("id", exampleGetVirtualNetworkPeering.applyValue(getVirtualNetworkPeeringResult -> getVirtualNetworkPeeringResult.id()));
+     *         ctx.export("id", exampleGetVirtualNetworkPeering.id());
      *     }
      * }
      * }
@@ -7673,10 +7683,10 @@ public final class NetworkFunctions {
      * 
      *         final var exampleGetVirtualNetworkPeering = NetworkFunctions.getVirtualNetworkPeering(GetVirtualNetworkPeeringArgs.builder()
      *             .name("peer-vnet01-to-vnet02")
-     *             .virtualNetworkId(example.applyValue(getVirtualNetworkResult -> getVirtualNetworkResult.id()))
+     *             .virtualNetworkId(example.id())
      *             .build());
      * 
-     *         ctx.export("id", exampleGetVirtualNetworkPeering.applyValue(getVirtualNetworkPeeringResult -> getVirtualNetworkPeeringResult.id()));
+     *         ctx.export("id", exampleGetVirtualNetworkPeering.id());
      *     }
      * }
      * }
@@ -7723,10 +7733,10 @@ public final class NetworkFunctions {
      * 
      *         final var exampleGetVirtualNetworkPeering = NetworkFunctions.getVirtualNetworkPeering(GetVirtualNetworkPeeringArgs.builder()
      *             .name("peer-vnet01-to-vnet02")
-     *             .virtualNetworkId(example.applyValue(getVirtualNetworkResult -> getVirtualNetworkResult.id()))
+     *             .virtualNetworkId(example.id())
      *             .build());
      * 
-     *         ctx.export("id", exampleGetVirtualNetworkPeering.applyValue(getVirtualNetworkPeeringResult -> getVirtualNetworkPeeringResult.id()));
+     *         ctx.export("id", exampleGetVirtualNetworkPeering.id());
      *     }
      * }
      * }
@@ -7773,10 +7783,10 @@ public final class NetworkFunctions {
      * 
      *         final var exampleGetVirtualNetworkPeering = NetworkFunctions.getVirtualNetworkPeering(GetVirtualNetworkPeeringArgs.builder()
      *             .name("peer-vnet01-to-vnet02")
-     *             .virtualNetworkId(example.applyValue(getVirtualNetworkResult -> getVirtualNetworkResult.id()))
+     *             .virtualNetworkId(example.id())
      *             .build());
      * 
-     *         ctx.export("id", exampleGetVirtualNetworkPeering.applyValue(getVirtualNetworkPeeringResult -> getVirtualNetworkPeeringResult.id()));
+     *         ctx.export("id", exampleGetVirtualNetworkPeering.id());
      *     }
      * }
      * }
@@ -7823,10 +7833,10 @@ public final class NetworkFunctions {
      * 
      *         final var exampleGetVirtualNetworkPeering = NetworkFunctions.getVirtualNetworkPeering(GetVirtualNetworkPeeringArgs.builder()
      *             .name("peer-vnet01-to-vnet02")
-     *             .virtualNetworkId(example.applyValue(getVirtualNetworkResult -> getVirtualNetworkResult.id()))
+     *             .virtualNetworkId(example.id())
      *             .build());
      * 
-     *         ctx.export("id", exampleGetVirtualNetworkPeering.applyValue(getVirtualNetworkPeeringResult -> getVirtualNetworkPeeringResult.id()));
+     *         ctx.export("id", exampleGetVirtualNetworkPeering.id());
      *     }
      * }
      * }
@@ -7905,7 +7915,7 @@ public final class NetworkFunctions {
      *             .resourceGroupName("existing-vpn_gateway")
      *             .build());
      * 
-     *         ctx.export("azurermVpnGatewayId", example.applyValue(getVpnGatewayResult -> getVpnGatewayResult.id()));
+     *         ctx.export("azurermVpnGatewayId", example.id());
      *     }
      * }
      * }
@@ -7949,7 +7959,7 @@ public final class NetworkFunctions {
      *             .resourceGroupName("existing-vpn_gateway")
      *             .build());
      * 
-     *         ctx.export("azurermVpnGatewayId", example.applyValue(getVpnGatewayResult -> getVpnGatewayResult.id()));
+     *         ctx.export("azurermVpnGatewayId", example.id());
      *     }
      * }
      * }
@@ -7993,7 +8003,7 @@ public final class NetworkFunctions {
      *             .resourceGroupName("existing-vpn_gateway")
      *             .build());
      * 
-     *         ctx.export("azurermVpnGatewayId", example.applyValue(getVpnGatewayResult -> getVpnGatewayResult.id()));
+     *         ctx.export("azurermVpnGatewayId", example.id());
      *     }
      * }
      * }
@@ -8037,7 +8047,7 @@ public final class NetworkFunctions {
      *             .resourceGroupName("existing-vpn_gateway")
      *             .build());
      * 
-     *         ctx.export("azurermVpnGatewayId", example.applyValue(getVpnGatewayResult -> getVpnGatewayResult.id()));
+     *         ctx.export("azurermVpnGatewayId", example.id());
      *     }
      * }
      * }
@@ -8081,7 +8091,7 @@ public final class NetworkFunctions {
      *             .resourceGroupName("existing-vpn_gateway")
      *             .build());
      * 
-     *         ctx.export("azurermVpnGatewayId", example.applyValue(getVpnGatewayResult -> getVpnGatewayResult.id()));
+     *         ctx.export("azurermVpnGatewayId", example.id());
      *     }
      * }
      * }
@@ -8125,7 +8135,7 @@ public final class NetworkFunctions {
      *             .resourceGroupName("existing-resource-group")
      *             .build());
      * 
-     *         ctx.export("azurermVpnServerConfiguration", example.applyValue(getVpnServerConfigurationResult -> getVpnServerConfigurationResult.id()));
+     *         ctx.export("azurermVpnServerConfiguration", example.id());
      *     }
      * }
      * }
@@ -8169,7 +8179,7 @@ public final class NetworkFunctions {
      *             .resourceGroupName("existing-resource-group")
      *             .build());
      * 
-     *         ctx.export("azurermVpnServerConfiguration", example.applyValue(getVpnServerConfigurationResult -> getVpnServerConfigurationResult.id()));
+     *         ctx.export("azurermVpnServerConfiguration", example.id());
      *     }
      * }
      * }
@@ -8213,7 +8223,7 @@ public final class NetworkFunctions {
      *             .resourceGroupName("existing-resource-group")
      *             .build());
      * 
-     *         ctx.export("azurermVpnServerConfiguration", example.applyValue(getVpnServerConfigurationResult -> getVpnServerConfigurationResult.id()));
+     *         ctx.export("azurermVpnServerConfiguration", example.id());
      *     }
      * }
      * }
@@ -8257,7 +8267,7 @@ public final class NetworkFunctions {
      *             .resourceGroupName("existing-resource-group")
      *             .build());
      * 
-     *         ctx.export("azurermVpnServerConfiguration", example.applyValue(getVpnServerConfigurationResult -> getVpnServerConfigurationResult.id()));
+     *         ctx.export("azurermVpnServerConfiguration", example.id());
      *     }
      * }
      * }
@@ -8301,7 +8311,7 @@ public final class NetworkFunctions {
      *             .resourceGroupName("existing-resource-group")
      *             .build());
      * 
-     *         ctx.export("azurermVpnServerConfiguration", example.applyValue(getVpnServerConfigurationResult -> getVpnServerConfigurationResult.id()));
+     *         ctx.export("azurermVpnServerConfiguration", example.id());
      *     }
      * }
      * }

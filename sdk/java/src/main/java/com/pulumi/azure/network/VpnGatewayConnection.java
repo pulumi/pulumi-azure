@@ -108,11 +108,11 @@ import javax.annotation.Nullable;
  *             .vpnLinks(            
  *                 VpnGatewayConnectionVpnLinkArgs.builder()
  *                     .name("link1")
- *                     .vpnSiteLinkId(exampleVpnSite.links().applyValue(links -> links[0].id()))
+ *                     .vpnSiteLinkId(exampleVpnSite.links().applyValue(_links -> _links[0].id()))
  *                     .build(),
  *                 VpnGatewayConnectionVpnLinkArgs.builder()
  *                     .name("link2")
- *                     .vpnSiteLinkId(exampleVpnSite.links().applyValue(links -> links[1].id()))
+ *                     .vpnSiteLinkId(exampleVpnSite.links().applyValue(_links -> _links[1].id()))
  *                     .build())
  *             .build());
  * 

@@ -35,6 +35,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.containerapp.EnvironmentArgs;
  * import com.pulumi.azure.containerapp.EnvironmentCustomDomain;
  * import com.pulumi.azure.containerapp.EnvironmentCustomDomainArgs;
+ * import com.pulumi.std.StdFunctions;
+ * import com.pulumi.std.inputs.Filebase64Args;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;

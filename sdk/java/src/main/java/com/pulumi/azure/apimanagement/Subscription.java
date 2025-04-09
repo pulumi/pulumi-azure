@@ -55,21 +55,21 @@ import javax.annotation.Nullable;
  * 
  *         final var exampleGetProduct = ApimanagementFunctions.getProduct(GetProductArgs.builder()
  *             .productId("00000000-0000-0000-0000-000000000000")
- *             .apiManagementName(example.applyValue(getServiceResult -> getServiceResult.name()))
- *             .resourceGroupName(example.applyValue(getServiceResult -> getServiceResult.resourceGroupName()))
+ *             .apiManagementName(example.name())
+ *             .resourceGroupName(example.resourceGroupName())
  *             .build());
  * 
  *         final var exampleGetUser = ApimanagementFunctions.getUser(GetUserArgs.builder()
  *             .userId("11111111-1111-1111-1111-111111111111")
- *             .apiManagementName(example.applyValue(getServiceResult -> getServiceResult.name()))
- *             .resourceGroupName(example.applyValue(getServiceResult -> getServiceResult.resourceGroupName()))
+ *             .apiManagementName(example.name())
+ *             .resourceGroupName(example.resourceGroupName())
  *             .build());
  * 
  *         var exampleSubscription = new Subscription("exampleSubscription", SubscriptionArgs.builder()
- *             .apiManagementName(example.applyValue(getServiceResult -> getServiceResult.name()))
- *             .resourceGroupName(example.applyValue(getServiceResult -> getServiceResult.resourceGroupName()))
- *             .userId(exampleGetUser.applyValue(getUserResult -> getUserResult.id()))
- *             .productId(exampleGetProduct.applyValue(getProductResult -> getProductResult.id()))
+ *             .apiManagementName(example.name())
+ *             .resourceGroupName(example.resourceGroupName())
+ *             .userId(exampleGetUser.id())
+ *             .productId(exampleGetProduct.id())
  *             .displayName("Parser API")
  *             .build());
  * 

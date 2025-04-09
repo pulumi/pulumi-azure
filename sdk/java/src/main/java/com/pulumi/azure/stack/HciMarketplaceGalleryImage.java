@@ -57,7 +57,7 @@ import javax.annotation.Nullable;
  *             .location("West Europe")
  *             .build());
  * 
- *         final var example = CoreFunctions.getClientConfig();
+ *         final var example = CoreFunctions.getClientConfig(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
  * 
  *         // service principal of 'Microsoft.AzureStackHCI Resource Provider'
  *         final var hciRp = AzureadFunctions.getServicePrincipal(GetServicePrincipalArgs.builder()
@@ -67,7 +67,7 @@ import javax.annotation.Nullable;
  *         var exampleAssignment = new Assignment("exampleAssignment", AssignmentArgs.builder()
  *             .scope(exampleResourceGroup.id())
  *             .roleDefinitionName("Azure Connected Machine Resource Manager")
- *             .principalId(hciRp.applyValue(getServicePrincipalResult -> getServicePrincipalResult.objectId()))
+ *             .principalId(hciRp.objectId())
  *             .build());
  * 
  *         var exampleHciMarketplaceGalleryImage = new HciMarketplaceGalleryImage("exampleHciMarketplaceGalleryImage", HciMarketplaceGalleryImageArgs.builder()

@@ -90,7 +90,7 @@ import javax.annotation.Nullable;
  *                 .requireApproval(true)
  *                 .approvalStage(RoleManagementPolicyActivationRulesApprovalStageArgs.builder()
  *                     .primaryApprovers(RoleManagementPolicyActivationRulesApprovalStagePrimaryApproverArgs.builder()
- *                         .objectId(approvers.applyValue(getGroupResult -> getGroupResult.objectId()))
+ *                         .objectId(approvers.objectId())
  *                         .type("Group")
  *                         .build())
  *                     .build())
@@ -165,7 +165,7 @@ import javax.annotation.Nullable;
  * 
  *         var exampleRoleManagementPolicy = new RoleManagementPolicy("exampleRoleManagementPolicy", RoleManagementPolicyArgs.builder()
  *             .scope(example.id())
- *             .roleDefinitionId(mgContributor.applyValue(getRoleDefinitionResult -> getRoleDefinitionResult).applyValue(mgContributor -> mgContributor.applyValue(getRoleDefinitionResult -> getRoleDefinitionResult.id())))
+ *             .roleDefinitionId(mgContributor.applyValue(_mgContributor -> _mgContributor.id()))
  *             .eligibleAssignmentRules(RoleManagementPolicyEligibleAssignmentRulesArgs.builder()
  *                 .expirationRequired(false)
  *                 .build())

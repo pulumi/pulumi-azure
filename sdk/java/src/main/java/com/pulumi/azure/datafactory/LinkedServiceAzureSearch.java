@@ -37,6 +37,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.search.ServiceArgs;
  * import com.pulumi.azure.datafactory.LinkedServiceAzureSearch;
  * import com.pulumi.azure.datafactory.LinkedServiceAzureSearchArgs;
+ * import com.pulumi.std.StdFunctions;
+ * import com.pulumi.std.inputs.JoinArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -71,7 +73,13 @@ import javax.annotation.Nullable;
  *         var test = new LinkedServiceAzureSearch("test", LinkedServiceAzureSearchArgs.builder()
  *             .name("example")
  *             .dataFactoryId(exampleFactory.id())
- *             .url(StdFunctions.join().applyValue(invoke -> invoke.result()))
+ *             .url(StdFunctions.join(JoinArgs.builder()
+ *                 .separator("")
+ *                 .input(                
+ *                     "https://",
+ *                     exampleService.name(),
+ *                     ".search.windows.net")
+ *                 .build()).applyValue(_invoke -> _invoke.result()))
  *             .searchServiceKey(exampleService.primaryKey())
  *             .build());
  * 

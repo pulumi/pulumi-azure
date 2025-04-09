@@ -58,7 +58,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         final var example = CoreFunctions.getClientConfig();
+ *         final var example = CoreFunctions.getClientConfig(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
  * 
  *         var exampleResourceGroup = new ResourceGroup("exampleResourceGroup", ResourceGroupArgs.builder()
  *             .name("example-resources")
@@ -107,11 +107,11 @@ import javax.annotation.Nullable;
  *             .name("example-keyvault")
  *             .location(exampleResourceGroup.location())
  *             .resourceGroupName(exampleResourceGroup.name())
- *             .tenantId(example.applyValue(getClientConfigResult -> getClientConfigResult.tenantId()))
+ *             .tenantId(example.tenantId())
  *             .skuName("standard")
  *             .accessPolicies(KeyVaultAccessPolicyArgs.builder()
- *                 .tenantId(example.applyValue(getClientConfigResult -> getClientConfigResult.tenantId()))
- *                 .objectId(example.applyValue(getClientConfigResult -> getClientConfigResult.objectId()))
+ *                 .tenantId(example.tenantId())
+ *                 .objectId(example.objectId())
  *                 .secretPermissions(                
  *                     "Get",
  *                     "Delete")
@@ -140,7 +140,7 @@ import javax.annotation.Nullable;
  *             .name("examplesasdefinition")
  *             .validityPeriod("P1D")
  *             .managedStorageAccountId(exampleManagedStorageAccount.id())
- *             .sasTemplateUri(exampleGetAccountSAS.applyValue(getAccountSASResult -> getAccountSASResult).applyValue(exampleGetAccountSAS -> exampleGetAccountSAS.applyValue(getAccountSASResult -> getAccountSASResult.sas())))
+ *             .sasTemplateUri(exampleGetAccountSAS.applyValue(_exampleGetAccountSAS -> _exampleGetAccountSAS.sas()))
  *             .sasType("account")
  *             .build());
  * 

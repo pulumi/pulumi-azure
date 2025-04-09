@@ -74,8 +74,8 @@ import javax.annotation.Nullable;
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .automationAccountName(exampleAccount.name())
- *             .logVerbose("true")
- *             .logProgress("true")
+ *             .logVerbose(true)
+ *             .logProgress(true)
  *             .description("This is a example runbook for terraform acceptance example")
  *             .runbookType("Python3")
  *             .content("""

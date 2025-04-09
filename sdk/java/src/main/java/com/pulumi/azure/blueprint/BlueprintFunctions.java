@@ -51,15 +51,15 @@ public final class BlueprintFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var current = CoreFunctions.getClientConfig();
+     *         final var current = CoreFunctions.getClientConfig(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *         final var root = ManagementFunctions.getGroup(GetGroupArgs.builder()
-     *             .name(current.applyValue(getClientConfigResult -> getClientConfigResult.tenantId()))
+     *             .name(current.tenantId())
      *             .build());
      * 
      *         final var example = BlueprintFunctions.getDefinition(GetDefinitionArgs.builder()
      *             .name("exampleManagementGroupBP")
-     *             .scopeId(root.applyValue(getGroupResult -> getGroupResult.id()))
+     *             .scopeId(root.id())
      *             .build());
      * 
      *     }
@@ -105,15 +105,15 @@ public final class BlueprintFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var current = CoreFunctions.getClientConfig();
+     *         final var current = CoreFunctions.getClientConfig(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *         final var root = ManagementFunctions.getGroup(GetGroupArgs.builder()
-     *             .name(current.applyValue(getClientConfigResult -> getClientConfigResult.tenantId()))
+     *             .name(current.tenantId())
      *             .build());
      * 
      *         final var example = BlueprintFunctions.getDefinition(GetDefinitionArgs.builder()
      *             .name("exampleManagementGroupBP")
-     *             .scopeId(root.applyValue(getGroupResult -> getGroupResult.id()))
+     *             .scopeId(root.id())
      *             .build());
      * 
      *     }
@@ -159,15 +159,15 @@ public final class BlueprintFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var current = CoreFunctions.getClientConfig();
+     *         final var current = CoreFunctions.getClientConfig(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *         final var root = ManagementFunctions.getGroup(GetGroupArgs.builder()
-     *             .name(current.applyValue(getClientConfigResult -> getClientConfigResult.tenantId()))
+     *             .name(current.tenantId())
      *             .build());
      * 
      *         final var example = BlueprintFunctions.getDefinition(GetDefinitionArgs.builder()
      *             .name("exampleManagementGroupBP")
-     *             .scopeId(root.applyValue(getGroupResult -> getGroupResult.id()))
+     *             .scopeId(root.id())
      *             .build());
      * 
      *     }
@@ -213,15 +213,15 @@ public final class BlueprintFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var current = CoreFunctions.getClientConfig();
+     *         final var current = CoreFunctions.getClientConfig(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *         final var root = ManagementFunctions.getGroup(GetGroupArgs.builder()
-     *             .name(current.applyValue(getClientConfigResult -> getClientConfigResult.tenantId()))
+     *             .name(current.tenantId())
      *             .build());
      * 
      *         final var example = BlueprintFunctions.getDefinition(GetDefinitionArgs.builder()
      *             .name("exampleManagementGroupBP")
-     *             .scopeId(root.applyValue(getGroupResult -> getGroupResult.id()))
+     *             .scopeId(root.id())
      *             .build());
      * 
      *     }
@@ -267,15 +267,15 @@ public final class BlueprintFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var current = CoreFunctions.getClientConfig();
+     *         final var current = CoreFunctions.getClientConfig(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *         final var root = ManagementFunctions.getGroup(GetGroupArgs.builder()
-     *             .name(current.applyValue(getClientConfigResult -> getClientConfigResult.tenantId()))
+     *             .name(current.tenantId())
      *             .build());
      * 
      *         final var example = BlueprintFunctions.getDefinition(GetDefinitionArgs.builder()
      *             .name("exampleManagementGroupBP")
-     *             .scopeId(root.applyValue(getGroupResult -> getGroupResult.id()))
+     *             .scopeId(root.id())
      *             .build());
      * 
      *     }
@@ -320,10 +320,11 @@ public final class BlueprintFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var current = CoreFunctions.getSubscription();
+     *         final var current = CoreFunctions.getSubscription(GetSubscriptionArgs.builder()
+     *             .build());
      * 
      *         final var test = BlueprintFunctions.getPublishedVersion(GetPublishedVersionArgs.builder()
-     *             .scopeId(current.applyValue(getSubscriptionResult -> getSubscriptionResult.id()))
+     *             .scopeId(current.id())
      *             .blueprintName("exampleBluePrint")
      *             .version("dev_v2.3")
      *             .build());
@@ -370,10 +371,11 @@ public final class BlueprintFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var current = CoreFunctions.getSubscription();
+     *         final var current = CoreFunctions.getSubscription(GetSubscriptionArgs.builder()
+     *             .build());
      * 
      *         final var test = BlueprintFunctions.getPublishedVersion(GetPublishedVersionArgs.builder()
-     *             .scopeId(current.applyValue(getSubscriptionResult -> getSubscriptionResult.id()))
+     *             .scopeId(current.id())
      *             .blueprintName("exampleBluePrint")
      *             .version("dev_v2.3")
      *             .build());
@@ -420,10 +422,11 @@ public final class BlueprintFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var current = CoreFunctions.getSubscription();
+     *         final var current = CoreFunctions.getSubscription(GetSubscriptionArgs.builder()
+     *             .build());
      * 
      *         final var test = BlueprintFunctions.getPublishedVersion(GetPublishedVersionArgs.builder()
-     *             .scopeId(current.applyValue(getSubscriptionResult -> getSubscriptionResult.id()))
+     *             .scopeId(current.id())
      *             .blueprintName("exampleBluePrint")
      *             .version("dev_v2.3")
      *             .build());
@@ -470,10 +473,11 @@ public final class BlueprintFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var current = CoreFunctions.getSubscription();
+     *         final var current = CoreFunctions.getSubscription(GetSubscriptionArgs.builder()
+     *             .build());
      * 
      *         final var test = BlueprintFunctions.getPublishedVersion(GetPublishedVersionArgs.builder()
-     *             .scopeId(current.applyValue(getSubscriptionResult -> getSubscriptionResult.id()))
+     *             .scopeId(current.id())
      *             .blueprintName("exampleBluePrint")
      *             .version("dev_v2.3")
      *             .build());
@@ -520,10 +524,11 @@ public final class BlueprintFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var current = CoreFunctions.getSubscription();
+     *         final var current = CoreFunctions.getSubscription(GetSubscriptionArgs.builder()
+     *             .build());
      * 
      *         final var test = BlueprintFunctions.getPublishedVersion(GetPublishedVersionArgs.builder()
-     *             .scopeId(current.applyValue(getSubscriptionResult -> getSubscriptionResult.id()))
+     *             .scopeId(current.id())
      *             .blueprintName("exampleBluePrint")
      *             .version("dev_v2.3")
      *             .build());

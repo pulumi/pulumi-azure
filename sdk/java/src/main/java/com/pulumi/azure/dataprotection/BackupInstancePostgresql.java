@@ -65,7 +65,7 @@ import javax.annotation.Nullable;
  *     }}{@code
  * 
  *     public static void stack(Context ctx) }{{@code
- *         final var current = CoreFunctions.getClientConfig();
+ *         final var current = CoreFunctions.getClientConfig(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
  * 
  *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example")
@@ -118,13 +118,13 @@ import javax.annotation.Nullable;
  *             .name("example")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .tenantId(current.applyValue(getClientConfigResult -> getClientConfigResult.tenantId()))
+ *             .tenantId(current.tenantId())
  *             .skuName("premium")
  *             .softDeleteRetentionDays(7)
  *             .accessPolicies(            
  *                 KeyVaultAccessPolicyArgs.builder()
- *                     .tenantId(current.applyValue(getClientConfigResult -> getClientConfigResult.tenantId()))
- *                     .objectId(current.applyValue(getClientConfigResult -> getClientConfigResult.objectId()))
+ *                     .tenantId(current.tenantId())
+ *                     .objectId(current.objectId())
  *                     .keyPermissions(                    
  *                         "Create",
  *                         "Get")
@@ -136,8 +136,8 @@ import javax.annotation.Nullable;
  *                         "Recover")
  *                     .build(),
  *                 KeyVaultAccessPolicyArgs.builder()
- *                     .tenantId(exampleBackupVault.identity().applyValue(identity -> identity.tenantId()))
- *                     .objectId(exampleBackupVault.identity().applyValue(identity -> identity.principalId()))
+ *                     .tenantId(exampleBackupVault.identity().applyValue(_identity -> _identity.tenantId()))
+ *                     .objectId(exampleBackupVault.identity().applyValue(_identity -> _identity.principalId()))
  *                     .keyPermissions(                    
  *                         "Create",
  *                         "Get")
@@ -172,7 +172,7 @@ import javax.annotation.Nullable;
  *         var exampleAssignment = new Assignment("exampleAssignment", AssignmentArgs.builder()
  *             .scope(exampleServer.id())
  *             .roleDefinitionName("Reader")
- *             .principalId(exampleBackupVault.identity().applyValue(identity -> identity.principalId()))
+ *             .principalId(exampleBackupVault.identity().applyValue(_identity -> _identity.principalId()))
  *             .build());
  * 
  *         var exampleBackupInstancePostgresql = new BackupInstancePostgresql("exampleBackupInstancePostgresql", BackupInstancePostgresqlArgs.builder()

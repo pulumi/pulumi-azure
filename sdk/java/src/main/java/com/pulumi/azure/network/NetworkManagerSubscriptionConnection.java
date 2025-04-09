@@ -54,21 +54,22 @@ import javax.annotation.Nullable;
  *             .location("West Europe")
  *             .build());
  * 
- *         final var current = CoreFunctions.getSubscription();
+ *         final var current = CoreFunctions.getSubscription(GetSubscriptionArgs.builder()
+ *             .build());
  * 
  *         var exampleNetworkManager = new NetworkManager("exampleNetworkManager", NetworkManagerArgs.builder()
  *             .name("example-networkmanager")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .scope(NetworkManagerScopeArgs.builder()
- *                 .subscriptionIds(current.applyValue(getSubscriptionResult -> getSubscriptionResult.id()))
+ *                 .subscriptionIds(current.id())
  *                 .build())
  *             .scopeAccesses("SecurityAdmin")
  *             .build());
  * 
  *         var exampleNetworkManagerSubscriptionConnection = new NetworkManagerSubscriptionConnection("exampleNetworkManagerSubscriptionConnection", NetworkManagerSubscriptionConnectionArgs.builder()
  *             .name("example-nsnmc")
- *             .subscriptionId(current.applyValue(getSubscriptionResult -> getSubscriptionResult.id()))
+ *             .subscriptionId(current.id())
  *             .networkManagerId(exampleNetworkManager.id())
  *             .description("example")
  *             .build());

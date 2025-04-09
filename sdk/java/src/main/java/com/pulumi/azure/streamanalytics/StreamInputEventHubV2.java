@@ -92,7 +92,7 @@ import javax.annotation.Nullable;
  * 
  *         var exampleStreamInputEventHubV2 = new StreamInputEventHubV2("exampleStreamInputEventHubV2", StreamInputEventHubV2Args.builder()
  *             .name("eventhub-stream-input")
- *             .streamAnalyticsJobId(example.applyValue(getJobResult -> getJobResult).applyValue(example -> example.applyValue(getJobResult -> getJobResult.id())))
+ *             .streamAnalyticsJobId(example.applyValue(_example -> _example.id()))
  *             .eventhubConsumerGroupName(exampleConsumerGroup.name())
  *             .eventhubName(exampleEventHub.name())
  *             .servicebusNamespace(exampleEventHubNamespace.name())

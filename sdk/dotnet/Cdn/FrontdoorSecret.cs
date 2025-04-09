@@ -12,6 +12,12 @@ namespace Pulumi.Azure.Cdn
     /// <summary>
     /// Manages a Front Door (standard/premium) Secret.
     /// 
+    /// ## Required Key Vault Permissions
+    /// 
+    /// !&gt;**IMPORTANT:** You must add an `Access Policy` to your `azure.keyvault.KeyVault` for the `Microsoft.AzurefrontDoor-Cdn` Enterprise Application Object ID.
+    /// 
+    /// This can be created by running Az Powershell command like this:
+    /// 
     /// ```New-AzADServicePrincipal -ApplicationId "00000000-0000-0000-0000-000000000000"```
     /// 
     /// | Object ID                                | Key Permissions | Secret Permissions   | Certificate Permissions                       |

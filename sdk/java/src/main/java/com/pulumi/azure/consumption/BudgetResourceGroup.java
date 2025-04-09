@@ -68,7 +68,7 @@ import javax.annotation.Nullable;
  *         var exampleBudgetResourceGroup = new BudgetResourceGroup("exampleBudgetResourceGroup", BudgetResourceGroupArgs.builder()
  *             .name("example")
  *             .resourceGroupId(example.id())
- *             .amount(1000)
+ *             .amount(1000.0)
  *             .timeGrain("Monthly")
  *             .timePeriod(BudgetResourceGroupTimePeriodArgs.builder()
  *                 .startDate("2022-06-01T00:00:00Z")

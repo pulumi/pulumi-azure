@@ -34,7 +34,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.core.inputs.GetSubscriptionArgs;
  * import com.pulumi.azure.authorization.AuthorizationFunctions;
  * import com.pulumi.azure.authorization.inputs.GetRoleDefinitionArgs;
- * import com.pulumi.time.Static;
+ * import com.pulumiverse.time.Static;
  * import com.pulumi.azure.pim.ActiveRoleAssignment;
  * import com.pulumi.azure.pim.ActiveRoleAssignmentArgs;
  * import com.pulumi.azure.pim.inputs.ActiveRoleAssignmentScheduleArgs;
@@ -53,9 +53,10 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         final var primary = CoreFunctions.getSubscription();
+ *         final var primary = CoreFunctions.getSubscription(GetSubscriptionArgs.builder()
+ *             .build());
  * 
- *         final var example = CoreFunctions.getClientConfig();
+ *         final var example = CoreFunctions.getClientConfig(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
  * 
  *         final var exampleGetRoleDefinition = AuthorizationFunctions.getRoleDefinition(GetRoleDefinitionArgs.builder()
  *             .name("Reader")
@@ -64,9 +65,9 @@ import javax.annotation.Nullable;
  *         var exampleStatic = new Static("exampleStatic");
  * 
  *         var exampleActiveRoleAssignment = new ActiveRoleAssignment("exampleActiveRoleAssignment", ActiveRoleAssignmentArgs.builder()
- *             .scope(primary.applyValue(getSubscriptionResult -> getSubscriptionResult.id()))
- *             .roleDefinitionId(String.format("%s%s", primary.applyValue(getSubscriptionResult -> getSubscriptionResult.id()),exampleGetRoleDefinition.applyValue(getRoleDefinitionResult -> getRoleDefinitionResult.id())))
- *             .principalId(example.applyValue(getClientConfigResult -> getClientConfigResult.objectId()))
+ *             .scope(primary.id())
+ *             .roleDefinitionId(String.format("%s%s", primary.id(),exampleGetRoleDefinition.id()))
+ *             .principalId(example.objectId())
  *             .schedule(ActiveRoleAssignmentScheduleArgs.builder()
  *                 .startDateTime(exampleStatic.rfc3339())
  *                 .expiration(ActiveRoleAssignmentScheduleExpirationArgs.builder()
@@ -101,7 +102,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.authorization.inputs.GetRoleDefinitionArgs;
  * import com.pulumi.azure.management.Group;
  * import com.pulumi.azure.management.GroupArgs;
- * import com.pulumi.time.Static;
+ * import com.pulumiverse.time.Static;
  * import com.pulumi.azure.pim.ActiveRoleAssignment;
  * import com.pulumi.azure.pim.ActiveRoleAssignmentArgs;
  * import com.pulumi.azure.pim.inputs.ActiveRoleAssignmentScheduleArgs;
@@ -120,7 +121,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         final var example = CoreFunctions.getClientConfig();
+ *         final var example = CoreFunctions.getClientConfig(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
  * 
  *         final var exampleGetRoleDefinition = AuthorizationFunctions.getRoleDefinition(GetRoleDefinitionArgs.builder()
  *             .name("Reader")
@@ -134,8 +135,8 @@ import javax.annotation.Nullable;
  * 
  *         var exampleActiveRoleAssignment = new ActiveRoleAssignment("exampleActiveRoleAssignment", ActiveRoleAssignmentArgs.builder()
  *             .scope(exampleGroup.id())
- *             .roleDefinitionId(exampleGetRoleDefinition.applyValue(getRoleDefinitionResult -> getRoleDefinitionResult.id()))
- *             .principalId(example.applyValue(getClientConfigResult -> getClientConfigResult.objectId()))
+ *             .roleDefinitionId(exampleGetRoleDefinition.id())
+ *             .principalId(example.objectId())
  *             .schedule(ActiveRoleAssignmentScheduleArgs.builder()
  *                 .startDateTime(exampleStatic.rfc3339())
  *                 .expiration(ActiveRoleAssignmentScheduleExpirationArgs.builder()

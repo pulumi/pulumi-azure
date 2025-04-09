@@ -30,13 +30,15 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.core.ResourceGroup;
  * import com.pulumi.azure.core.ResourceGroupArgs;
  * import com.pulumi.azurerm.webPubsubService;
- * import com.pulumi.azurerm.WebPubsubServiceArgs;
+ * import com.pulumi.azurerm.webPubsubServiceArgs;
  * import com.pulumi.azure.keyvault.KeyVault;
  * import com.pulumi.azure.keyvault.KeyVaultArgs;
  * import com.pulumi.azure.keyvault.inputs.KeyVaultAccessPolicyArgs;
  * import com.pulumi.azure.keyvault.Certificate;
  * import com.pulumi.azure.keyvault.CertificateArgs;
  * import com.pulumi.azure.keyvault.inputs.CertificateCertificateArgs;
+ * import com.pulumi.std.StdFunctions;
+ * import com.pulumi.std.inputs.Filebase64Args;
  * import com.pulumi.azure.webpubsub.CustomCertificate;
  * import com.pulumi.azure.webpubsub.CustomCertificateArgs;
  * import com.pulumi.resources.CustomResourceOptions;
@@ -53,7 +55,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         final var current = CoreFunctions.getClientConfig();
+ *         final var current = CoreFunctions.getClientConfig(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
  * 
  *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example-resources")
@@ -64,20 +66,23 @@ import javax.annotation.Nullable;
  *             .name("example-webpubsub")
  *             .location(testAzurermResourceGroup.location())
  *             .resourceGroupName(testAzurermResourceGroup.name())
- *             .sku(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
- *             .identity(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .sku(List.of(Map.ofEntries(
+ *                 Map.entry("name", "Premium_P1"),
+ *                 Map.entry("capacity", 1)
+ *             )))
+ *             .identity(List.of(Map.of("type", "SystemAssigned")))
  *             .build());
  * 
  *         var exampleKeyVault = new KeyVault("exampleKeyVault", KeyVaultArgs.builder()
  *             .name("examplekeyvault")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .tenantId(current.applyValue(getClientConfigResult -> getClientConfigResult.tenantId()))
+ *             .tenantId(current.tenantId())
  *             .skuName("premium")
  *             .accessPolicies(            
  *                 KeyVaultAccessPolicyArgs.builder()
- *                     .tenantId(current.applyValue(getClientConfigResult -> getClientConfigResult.tenantId()))
- *                     .objectId(current.applyValue(getClientConfigResult -> getClientConfigResult.objectId()))
+ *                     .tenantId(current.tenantId())
+ *                     .objectId(current.objectId())
  *                     .certificatePermissions(                    
  *                         "Create",
  *                         "Get",
@@ -87,7 +92,7 @@ import javax.annotation.Nullable;
  *                         "List")
  *                     .build(),
  *                 KeyVaultAccessPolicyArgs.builder()
- *                     .tenantId(current.applyValue(getClientConfigResult -> getClientConfigResult.tenantId()))
+ *                     .tenantId(current.tenantId())
  *                     .objectId(testAzurermWebPubsubService.identity()[0].principalId())
  *                     .certificatePermissions(                    
  *                         "Create",

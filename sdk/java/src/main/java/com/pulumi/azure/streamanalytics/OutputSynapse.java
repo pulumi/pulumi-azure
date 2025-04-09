@@ -70,7 +70,7 @@ import javax.annotation.Nullable;
  *             .accountTier("Standard")
  *             .accountReplicationType("LRS")
  *             .accountKind("StorageV2")
- *             .isHnsEnabled("true")
+ *             .isHnsEnabled(true)
  *             .build());
  * 
  *         var exampleDataLakeGen2Filesystem = new DataLakeGen2Filesystem("exampleDataLakeGen2Filesystem", DataLakeGen2FilesystemArgs.builder()
@@ -92,9 +92,9 @@ import javax.annotation.Nullable;
  * 
  *         var exampleOutputSynapse = new OutputSynapse("exampleOutputSynapse", OutputSynapseArgs.builder()
  *             .name("example-output-synapse")
- *             .streamAnalyticsJobName(example.applyValue(getJobResult -> getJobResult).applyValue(example -> example.applyValue(getJobResult -> getJobResult.name())))
- *             .resourceGroupName(example.applyValue(getJobResult -> getJobResult).applyValue(example -> example.applyValue(getJobResult -> getJobResult.resourceGroupName())))
- *             .server(exampleWorkspace.connectivityEndpoints().applyValue(connectivityEndpoints -> connectivityEndpoints.sqlOnDemand()))
+ *             .streamAnalyticsJobName(example.applyValue(_example -> _example.name()))
+ *             .resourceGroupName(example.applyValue(_example -> _example.resourceGroupName()))
+ *             .server(exampleWorkspace.connectivityEndpoints().applyValue(_connectivityEndpoints -> _connectivityEndpoints.sqlOnDemand()))
  *             .user(exampleWorkspace.sqlAdministratorLogin())
  *             .password(exampleWorkspace.sqlAdministratorLoginPassword())
  *             .database("master")

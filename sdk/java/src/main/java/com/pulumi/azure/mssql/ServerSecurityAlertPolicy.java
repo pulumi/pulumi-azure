@@ -35,7 +35,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.core.ResourceGroup;
  * import com.pulumi.azure.core.ResourceGroupArgs;
  * import com.pulumi.azurerm.sqlServer;
- * import com.pulumi.azurerm.SqlServerArgs;
+ * import com.pulumi.azurerm.sqlServerArgs;
  * import com.pulumi.azure.storage.Account;
  * import com.pulumi.azure.storage.AccountArgs;
  * import com.pulumi.azure.mssql.ServerSecurityAlertPolicy;

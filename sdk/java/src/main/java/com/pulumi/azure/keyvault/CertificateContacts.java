@@ -53,7 +53,7 @@ import javax.annotation.Nullable;
  *     }}{@code
  * 
  *     public static void stack(Context ctx) }{{@code
- *         final var current = CoreFunctions.getClientConfig();
+ *         final var current = CoreFunctions.getClientConfig(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
  * 
  *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example-resources")
@@ -64,14 +64,14 @@ import javax.annotation.Nullable;
  *             .name("examplekeyvault")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .tenantId(current.applyValue(getClientConfigResult -> getClientConfigResult.tenantId()))
+ *             .tenantId(current.tenantId())
  *             .skuName("premium")
  *             .build());
  * 
  *         var exampleAccessPolicy = new AccessPolicy("exampleAccessPolicy", AccessPolicyArgs.builder()
  *             .keyVaultId(exampleKeyVault.id())
- *             .tenantId(current.applyValue(getClientConfigResult -> getClientConfigResult.tenantId()))
- *             .objectId(current.applyValue(getClientConfigResult -> getClientConfigResult.objectId()))
+ *             .tenantId(current.tenantId())
+ *             .objectId(current.objectId())
  *             .certificatePermissions("ManageContacts")
  *             .keyPermissions("Create")
  *             .secretPermissions("Set")

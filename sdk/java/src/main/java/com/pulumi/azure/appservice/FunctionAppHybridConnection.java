@@ -99,7 +99,8 @@ import javax.annotation.Nullable;
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .servicePlanId(exampleServicePlan.id())
- *             .siteConfig()
+ *             .siteConfig(WindowsWebAppSiteConfigArgs.builder()
+ *                 .build())
  *             .build());
  * 
  *         var exampleWindowsFunctionApp = new WindowsFunctionApp("exampleWindowsFunctionApp", WindowsFunctionAppArgs.builder()
@@ -109,7 +110,8 @@ import javax.annotation.Nullable;
  *             .servicePlanId(exampleServicePlan.id())
  *             .storageAccountName(exampleAccount.name())
  *             .storageAccountAccessKey(exampleAccount.primaryAccessKey())
- *             .siteConfig()
+ *             .siteConfig(WindowsFunctionAppSiteConfigArgs.builder()
+ *                 .build())
  *             .build());
  * 
  *         var exampleFunctionAppHybridConnection = new FunctionAppHybridConnection("exampleFunctionAppHybridConnection", FunctionAppHybridConnectionArgs.builder()

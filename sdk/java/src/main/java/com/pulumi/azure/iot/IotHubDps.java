@@ -63,7 +63,7 @@ import javax.annotation.Nullable;
  *             .allocationPolicy("Hashed")
  *             .sku(IotHubDpsSkuArgs.builder()
  *                 .name("S1")
- *                 .capacity("1")
+ *                 .capacity(1)
  *                 .build())
  *             .build());
  * 

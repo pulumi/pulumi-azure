@@ -88,7 +88,8 @@ import javax.annotation.Nullable;
  *             .storageAccountName(exampleAccount.name())
  *             .storageAccountAccessKey(exampleAccount.primaryAccessKey())
  *             .servicePlanId(exampleServicePlan.id())
- *             .siteConfig()
+ *             .siteConfig(LinuxFunctionAppSiteConfigArgs.builder()
+ *                 .build())
  *             .build());
  * 
  *     }

@@ -66,7 +66,7 @@ import javax.annotation.Nullable;
  *             .location("West Europe")
  *             .build());
  * 
- *         final var current = CoreFunctions.getClientConfig();
+ *         final var current = CoreFunctions.getClientConfig(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
  * 
  *         var exampleVirtualNetwork = new VirtualNetwork("exampleVirtualNetwork", VirtualNetworkArgs.builder()
  *             .name("example")
@@ -104,7 +104,7 @@ import javax.annotation.Nullable;
  * 
  *         var exampleDirectoryRoleMember = new DirectoryRoleMember("exampleDirectoryRoleMember", DirectoryRoleMemberArgs.builder()
  *             .roleObjectId(reader.objectId())
- *             .memberObjectId(exampleManagedInstance.identity().applyValue(identity -> identity.principalId()))
+ *             .memberObjectId(exampleManagedInstance.identity().applyValue(_identity -> _identity.principalId()))
  *             .build());
  * 
  *         var admin = new User("admin", UserArgs.builder()
@@ -118,7 +118,7 @@ import javax.annotation.Nullable;
  *             .managedInstanceId(exampleManagedInstance.id())
  *             .loginUsername("msadmin")
  *             .objectId(admin.objectId())
- *             .tenantId(current.applyValue(getClientConfigResult -> getClientConfigResult.tenantId()))
+ *             .tenantId(current.tenantId())
  *             .build());
  * 
  *     }}{@code

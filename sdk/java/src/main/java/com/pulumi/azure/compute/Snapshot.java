@@ -61,7 +61,7 @@ import javax.annotation.Nullable;
  *             .resourceGroupName(example.name())
  *             .storageAccountType("Standard_LRS")
  *             .createOption("Empty")
- *             .diskSizeGb("10")
+ *             .diskSizeGb(10)
  *             .build());
  * 
  *         var exampleSnapshot = new Snapshot("exampleSnapshot", SnapshotArgs.builder()

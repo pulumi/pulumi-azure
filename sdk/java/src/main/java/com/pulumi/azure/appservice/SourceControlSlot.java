@@ -72,13 +72,15 @@ import javax.annotation.Nullable;
  *             .resourceGroupName(example.name())
  *             .location(exampleServicePlan.location())
  *             .servicePlanId(exampleServicePlan.id())
- *             .siteConfig()
+ *             .siteConfig(LinuxWebAppSiteConfigArgs.builder()
+ *                 .build())
  *             .build());
  * 
  *         var exampleLinuxWebAppSlot = new LinuxWebAppSlot("exampleLinuxWebAppSlot", LinuxWebAppSlotArgs.builder()
  *             .name("example-slot")
  *             .appServiceId(exampleLinuxWebApp.id())
- *             .siteConfig()
+ *             .siteConfig(LinuxWebAppSlotSiteConfigArgs.builder()
+ *                 .build())
  *             .build());
  * 
  *         var exampleSourceControlSlot = new SourceControlSlot("exampleSourceControlSlot", SourceControlSlotArgs.builder()

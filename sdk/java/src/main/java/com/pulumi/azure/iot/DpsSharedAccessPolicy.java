@@ -60,7 +60,7 @@ import javax.annotation.Nullable;
  *             .location(example.location())
  *             .sku(IotHubDpsSkuArgs.builder()
  *                 .name("S1")
- *                 .capacity("1")
+ *                 .capacity(1)
  *                 .build())
  *             .build());
  * 

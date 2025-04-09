@@ -44,11 +44,9 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.keyvault.KeyVault;
  * import com.pulumi.azure.keyvault.KeyVaultArgs;
  * import com.pulumi.azure.keyvault.inputs.KeyVaultAccessPolicyArgs;
- * import com.pulumi.azure.keyvault.Certificate;
- * import com.pulumi.azure.keyvault.CertificateArgs;
  * import com.pulumi.azure.keyvault.inputs.CertificateCertificateArgs;
- * import com.pulumi.azure.nginx.Certificate;
- * import com.pulumi.azure.nginx.CertificateArgs;
+ * import com.pulumi.std.StdFunctions;
+ * import com.pulumi.std.inputs.Filebase64Args;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -112,17 +110,17 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         final var current = CoreFunctions.getClientConfig();
+ *         final var current = CoreFunctions.getClientConfig(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
  * 
  *         var exampleKeyVault = new KeyVault("exampleKeyVault", KeyVaultArgs.builder()
  *             .name("examplekeyvault")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .tenantId(current.applyValue(getClientConfigResult -> getClientConfigResult.tenantId()))
+ *             .tenantId(current.tenantId())
  *             .skuName("premium")
  *             .accessPolicies(KeyVaultAccessPolicyArgs.builder()
- *                 .tenantId(current.applyValue(getClientConfigResult -> getClientConfigResult.tenantId()))
- *                 .objectId(current.applyValue(getClientConfigResult -> getClientConfigResult.objectId()))
+ *                 .tenantId(current.tenantId())
+ *                 .objectId(current.objectId())
  *                 .certificatePermissions(                
  *                     "Create",
  *                     "Delete",
@@ -139,7 +137,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var exampleCertificate = new Certificate("exampleCertificate", CertificateArgs.builder()
+ *         var exampleCertificate = new com.pulumi.azure.keyvault.Certificate("exampleCertificate", com.pulumi.azure.keyvault.CertificateArgs.builder()
  *             .name("imported-cert")
  *             .keyVaultId(exampleKeyVault.id())
  *             .certificate(CertificateCertificateArgs.builder()
@@ -150,7 +148,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var exampleCertificate2 = new Certificate("exampleCertificate2", CertificateArgs.builder()
+ *         var exampleCertificate2 = new com.pulumi.azure.nginx.Certificate("exampleCertificate2", com.pulumi.azure.nginx.CertificateArgs.builder()
  *             .name("examplecert")
  *             .nginxDeploymentId(exampleDeployment.id())
  *             .keyVirtualPath("/src/cert/soservermekey.key")

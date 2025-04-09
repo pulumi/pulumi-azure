@@ -70,7 +70,7 @@ import javax.annotation.Nullable;
  *         var exampleLinkedServiceAzureFileStorage = new LinkedServiceAzureFileStorage("exampleLinkedServiceAzureFileStorage", LinkedServiceAzureFileStorageArgs.builder()
  *             .name("example")
  *             .dataFactoryId(exampleFactory.id())
- *             .connectionString(example.applyValue(getAccountResult -> getAccountResult).applyValue(example -> example.applyValue(getAccountResult -> getAccountResult.primaryConnectionString())))
+ *             .connectionString(example.applyValue(_example -> _example.primaryConnectionString()))
  *             .build());
  * 
  *     }

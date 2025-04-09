@@ -101,8 +101,8 @@ import javax.annotation.Nullable;
  *             .resourceGroupName(example.name())
  *             .clusterName(exampleCluster.name())
  *             .databaseName(exampleDatabase.name())
- *             .tenantId(exampleFactory.identity().applyValue(identity -> identity.tenantId()))
- *             .principalId(exampleFactory.identity().applyValue(identity -> identity.principalId()))
+ *             .tenantId(exampleFactory.identity().applyValue(_identity -> _identity.tenantId()))
+ *             .principalId(exampleFactory.identity().applyValue(_identity -> _identity.principalId()))
  *             .principalType("App")
  *             .role("Viewer")
  *             .build());

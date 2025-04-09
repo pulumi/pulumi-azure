@@ -85,13 +85,13 @@ import javax.annotation.Nullable;
  *         var exampleAssignment = new Assignment("exampleAssignment", AssignmentArgs.builder()
  *             .scope(example.id())
  *             .roleDefinitionName("Reader")
- *             .principalId(exampleBackupVault.identity().applyValue(identity -> identity.principalId()))
+ *             .principalId(exampleBackupVault.identity().applyValue(_identity -> _identity.principalId()))
  *             .build());
  * 
  *         var example2 = new Assignment("example2", AssignmentArgs.builder()
  *             .scope(exampleFlexibleServer.id())
  *             .roleDefinitionName("MySQL Backup And Export Operator")
- *             .principalId(exampleBackupVault.identity().applyValue(identity -> identity.principalId()))
+ *             .principalId(exampleBackupVault.identity().applyValue(_identity -> _identity.principalId()))
  *             .build());
  * 
  *         var exampleBackupPolicyMysqlFlexibleServer = new BackupPolicyMysqlFlexibleServer("exampleBackupPolicyMysqlFlexibleServer", BackupPolicyMysqlFlexibleServerArgs.builder()

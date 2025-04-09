@@ -73,7 +73,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var db = new Account("db", AccountArgs.builder()
- *             .name(ri.result().applyValue(result -> String.format("tfex-cosmos-db-%s", result)))
+ *             .name(ri.result().applyValue(_result -> String.format("tfex-cosmos-db-%s", _result)))
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .offerType("Standard")
@@ -132,6 +132,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.cosmosdb.inputs.AccountConsistencyPolicyArgs;
  * import com.pulumi.azure.cosmosdb.inputs.AccountGeoLocationArgs;
  * import com.pulumi.azure.cosmosdb.inputs.AccountIdentityArgs;
+ * import com.pulumi.std.StdFunctions;
+ * import com.pulumi.std.inputs.JoinArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -155,7 +157,12 @@ import javax.annotation.Nullable;
  *             .name("example-resource")
  *             .location(exampleAzurermResourceGroup.location())
  *             .resourceGroupName(exampleAzurermResourceGroup.name())
- *             .defaultIdentityType(StdFunctions.join().applyValue(invoke -> invoke.result()))
+ *             .defaultIdentityType(StdFunctions.join(JoinArgs.builder()
+ *                 .separator("=")
+ *                 .input(                
+ *                     "UserAssignedIdentity",
+ *                     example.id())
+ *                 .build()).applyValue(_invoke -> _invoke.result()))
  *             .offerType("Standard")
  *             .kind("MongoDB")
  *             .capabilities(AccountCapabilityArgs.builder()

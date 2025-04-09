@@ -51,9 +51,9 @@ public final class StackFunctions {
      *             .resourceGroupName("existing")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getHciClusterResult -> getHciClusterResult.id()));
-     *         ctx.export("location", example.applyValue(getHciClusterResult -> getHciClusterResult.location()));
-     *         ctx.export("clientId", example.applyValue(getHciClusterResult -> getHciClusterResult.clientId()));
+     *         ctx.export("id", example.id());
+     *         ctx.export("location", example.location());
+     *         ctx.export("clientId", example.clientId());
      *     }
      * }
      * }
@@ -97,9 +97,9 @@ public final class StackFunctions {
      *             .resourceGroupName("existing")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getHciClusterResult -> getHciClusterResult.id()));
-     *         ctx.export("location", example.applyValue(getHciClusterResult -> getHciClusterResult.location()));
-     *         ctx.export("clientId", example.applyValue(getHciClusterResult -> getHciClusterResult.clientId()));
+     *         ctx.export("id", example.id());
+     *         ctx.export("location", example.location());
+     *         ctx.export("clientId", example.clientId());
      *     }
      * }
      * }
@@ -143,9 +143,9 @@ public final class StackFunctions {
      *             .resourceGroupName("existing")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getHciClusterResult -> getHciClusterResult.id()));
-     *         ctx.export("location", example.applyValue(getHciClusterResult -> getHciClusterResult.location()));
-     *         ctx.export("clientId", example.applyValue(getHciClusterResult -> getHciClusterResult.clientId()));
+     *         ctx.export("id", example.id());
+     *         ctx.export("location", example.location());
+     *         ctx.export("clientId", example.clientId());
      *     }
      * }
      * }
@@ -189,9 +189,9 @@ public final class StackFunctions {
      *             .resourceGroupName("existing")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getHciClusterResult -> getHciClusterResult.id()));
-     *         ctx.export("location", example.applyValue(getHciClusterResult -> getHciClusterResult.location()));
-     *         ctx.export("clientId", example.applyValue(getHciClusterResult -> getHciClusterResult.clientId()));
+     *         ctx.export("id", example.id());
+     *         ctx.export("location", example.location());
+     *         ctx.export("clientId", example.clientId());
      *     }
      * }
      * }
@@ -235,9 +235,9 @@ public final class StackFunctions {
      *             .resourceGroupName("existing")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getHciClusterResult -> getHciClusterResult.id()));
-     *         ctx.export("location", example.applyValue(getHciClusterResult -> getHciClusterResult.location()));
-     *         ctx.export("clientId", example.applyValue(getHciClusterResult -> getHciClusterResult.clientId()));
+     *         ctx.export("id", example.id());
+     *         ctx.export("location", example.location());
+     *         ctx.export("clientId", example.clientId());
      *     }
      * }
      * }
@@ -281,7 +281,7 @@ public final class StackFunctions {
      *             .resourceGroupName("example-rg")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getHciStoragePathResult -> getHciStoragePathResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -325,7 +325,7 @@ public final class StackFunctions {
      *             .resourceGroupName("example-rg")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getHciStoragePathResult -> getHciStoragePathResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -369,7 +369,7 @@ public final class StackFunctions {
      *             .resourceGroupName("example-rg")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getHciStoragePathResult -> getHciStoragePathResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -413,7 +413,7 @@ public final class StackFunctions {
      *             .resourceGroupName("example-rg")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getHciStoragePathResult -> getHciStoragePathResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -457,7 +457,7 @@ public final class StackFunctions {
      *             .resourceGroupName("example-rg")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getHciStoragePathResult -> getHciStoragePathResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }

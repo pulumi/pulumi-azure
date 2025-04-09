@@ -66,7 +66,7 @@ import javax.annotation.Nullable;
  *         var exampleAssignment = new Assignment("exampleAssignment", AssignmentArgs.builder()
  *             .scope(exampleResourceGroup.id())
  *             .roleDefinitionName("Desktop Virtualization Power On Off Contributor")
- *             .principalId(example.applyValue(getServicePrincipalResult -> getServicePrincipalResult.objectId()))
+ *             .principalId(example.objectId())
  *             .build());
  * 
  *         var exampleHostPool = new HostPool("exampleHostPool", HostPoolArgs.builder()

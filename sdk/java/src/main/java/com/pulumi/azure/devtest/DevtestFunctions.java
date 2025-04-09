@@ -51,7 +51,7 @@ public final class DevtestFunctions {
      *             .resourceGroupName("example-resources")
      *             .build());
      * 
-     *         ctx.export("uniqueIdentifier", example.applyValue(getLabResult -> getLabResult.uniqueIdentifier()));
+     *         ctx.export("uniqueIdentifier", example.uniqueIdentifier());
      *     }
      * }
      * }
@@ -95,7 +95,7 @@ public final class DevtestFunctions {
      *             .resourceGroupName("example-resources")
      *             .build());
      * 
-     *         ctx.export("uniqueIdentifier", example.applyValue(getLabResult -> getLabResult.uniqueIdentifier()));
+     *         ctx.export("uniqueIdentifier", example.uniqueIdentifier());
      *     }
      * }
      * }
@@ -139,7 +139,7 @@ public final class DevtestFunctions {
      *             .resourceGroupName("example-resources")
      *             .build());
      * 
-     *         ctx.export("uniqueIdentifier", example.applyValue(getLabResult -> getLabResult.uniqueIdentifier()));
+     *         ctx.export("uniqueIdentifier", example.uniqueIdentifier());
      *     }
      * }
      * }
@@ -183,7 +183,7 @@ public final class DevtestFunctions {
      *             .resourceGroupName("example-resources")
      *             .build());
      * 
-     *         ctx.export("uniqueIdentifier", example.applyValue(getLabResult -> getLabResult.uniqueIdentifier()));
+     *         ctx.export("uniqueIdentifier", example.uniqueIdentifier());
      *     }
      * }
      * }
@@ -227,7 +227,7 @@ public final class DevtestFunctions {
      *             .resourceGroupName("example-resources")
      *             .build());
      * 
-     *         ctx.export("uniqueIdentifier", example.applyValue(getLabResult -> getLabResult.uniqueIdentifier()));
+     *         ctx.export("uniqueIdentifier", example.uniqueIdentifier());
      *     }
      * }
      * }
@@ -272,7 +272,7 @@ public final class DevtestFunctions {
      *             .resourceGroupName("example-resource")
      *             .build());
      * 
-     *         ctx.export("labSubnetName", example.applyValue(getVirtualNetworkResult -> getVirtualNetworkResult.allowedSubnets()[0].labSubnetName()));
+     *         ctx.export("labSubnetName", example.allowedSubnets()[0].labSubnetName());
      *     }
      * }
      * }
@@ -317,7 +317,7 @@ public final class DevtestFunctions {
      *             .resourceGroupName("example-resource")
      *             .build());
      * 
-     *         ctx.export("labSubnetName", example.applyValue(getVirtualNetworkResult -> getVirtualNetworkResult.allowedSubnets()[0].labSubnetName()));
+     *         ctx.export("labSubnetName", example.allowedSubnets()[0].labSubnetName());
      *     }
      * }
      * }
@@ -362,7 +362,7 @@ public final class DevtestFunctions {
      *             .resourceGroupName("example-resource")
      *             .build());
      * 
-     *         ctx.export("labSubnetName", example.applyValue(getVirtualNetworkResult -> getVirtualNetworkResult.allowedSubnets()[0].labSubnetName()));
+     *         ctx.export("labSubnetName", example.allowedSubnets()[0].labSubnetName());
      *     }
      * }
      * }
@@ -407,7 +407,7 @@ public final class DevtestFunctions {
      *             .resourceGroupName("example-resource")
      *             .build());
      * 
-     *         ctx.export("labSubnetName", example.applyValue(getVirtualNetworkResult -> getVirtualNetworkResult.allowedSubnets()[0].labSubnetName()));
+     *         ctx.export("labSubnetName", example.allowedSubnets()[0].labSubnetName());
      *     }
      * }
      * }
@@ -452,7 +452,7 @@ public final class DevtestFunctions {
      *             .resourceGroupName("example-resource")
      *             .build());
      * 
-     *         ctx.export("labSubnetName", example.applyValue(getVirtualNetworkResult -> getVirtualNetworkResult.allowedSubnets()[0].labSubnetName()));
+     *         ctx.export("labSubnetName", example.allowedSubnets()[0].labSubnetName());
      *     }
      * }
      * }

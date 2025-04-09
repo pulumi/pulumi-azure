@@ -49,7 +49,7 @@ public final class TrafficmanagerFunctions {
      *             .name("World")
      *             .build());
      * 
-     *         ctx.export("locationCode", example.applyValue(getTrafficManagerResult -> getTrafficManagerResult.id()));
+     *         ctx.export("locationCode", example.id());
      *     }
      * }
      * }
@@ -98,7 +98,7 @@ public final class TrafficmanagerFunctions {
      *             .name("World")
      *             .build());
      * 
-     *         ctx.export("locationCode", example.applyValue(getTrafficManagerResult -> getTrafficManagerResult.id()));
+     *         ctx.export("locationCode", example.id());
      *     }
      * }
      * }
@@ -147,7 +147,7 @@ public final class TrafficmanagerFunctions {
      *             .name("World")
      *             .build());
      * 
-     *         ctx.export("locationCode", example.applyValue(getTrafficManagerResult -> getTrafficManagerResult.id()));
+     *         ctx.export("locationCode", example.id());
      *     }
      * }
      * }
@@ -196,7 +196,7 @@ public final class TrafficmanagerFunctions {
      *             .name("World")
      *             .build());
      * 
-     *         ctx.export("locationCode", example.applyValue(getTrafficManagerResult -> getTrafficManagerResult.id()));
+     *         ctx.export("locationCode", example.id());
      *     }
      * }
      * }
@@ -245,7 +245,7 @@ public final class TrafficmanagerFunctions {
      *             .name("World")
      *             .build());
      * 
-     *         ctx.export("locationCode", example.applyValue(getTrafficManagerResult -> getTrafficManagerResult.id()));
+     *         ctx.export("locationCode", example.id());
      *     }
      * }
      * }

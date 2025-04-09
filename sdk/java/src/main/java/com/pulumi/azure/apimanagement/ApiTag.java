@@ -62,12 +62,12 @@ import javax.annotation.Nullable;
  *         var exampleApi = new Api("exampleApi", ApiArgs.builder()
  *             .name("example-api")
  *             .resourceGroupName(exampleResourceGroup.name())
- *             .apiManagementName(example.applyValue(getServiceResult -> getServiceResult).applyValue(example -> example.applyValue(getServiceResult -> getServiceResult.name())))
+ *             .apiManagementName(example.applyValue(_example -> _example.name()))
  *             .revision("1")
  *             .build());
  * 
  *         var exampleTag = new Tag("exampleTag", TagArgs.builder()
- *             .apiManagementId(example.applyValue(getServiceResult -> getServiceResult).applyValue(example -> example.applyValue(getServiceResult -> getServiceResult.id())))
+ *             .apiManagementId(example.applyValue(_example -> _example.id()))
  *             .name("example-tag")
  *             .build());
  * 

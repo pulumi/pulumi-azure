@@ -121,7 +121,7 @@ import javax.annotation.Nullable;
  *             .timezone("Pacific Standard Time")
  *             .notificationSettings(GlobalVMShutdownScheduleNotificationSettingsArgs.builder()
  *                 .enabled(true)
- *                 .timeInMinutes("60")
+ *                 .timeInMinutes(60)
  *                 .webhookUrl("https://sample-webhook-url.example.com")
  *                 .build())
  *             .build());

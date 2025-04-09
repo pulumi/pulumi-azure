@@ -48,7 +48,7 @@ public final class CognitiveFunctions {
      *             .resourceGroupName("cognitive_account_rg")
      *             .build());
      * 
-     *         ctx.export("primaryAccessKey", test.applyValue(getAccountResult -> getAccountResult.primaryAccessKey()));
+     *         ctx.export("primaryAccessKey", test.primaryAccessKey());
      *     }
      * }
      * }
@@ -92,7 +92,7 @@ public final class CognitiveFunctions {
      *             .resourceGroupName("cognitive_account_rg")
      *             .build());
      * 
-     *         ctx.export("primaryAccessKey", test.applyValue(getAccountResult -> getAccountResult.primaryAccessKey()));
+     *         ctx.export("primaryAccessKey", test.primaryAccessKey());
      *     }
      * }
      * }
@@ -136,7 +136,7 @@ public final class CognitiveFunctions {
      *             .resourceGroupName("cognitive_account_rg")
      *             .build());
      * 
-     *         ctx.export("primaryAccessKey", test.applyValue(getAccountResult -> getAccountResult.primaryAccessKey()));
+     *         ctx.export("primaryAccessKey", test.primaryAccessKey());
      *     }
      * }
      * }
@@ -180,7 +180,7 @@ public final class CognitiveFunctions {
      *             .resourceGroupName("cognitive_account_rg")
      *             .build());
      * 
-     *         ctx.export("primaryAccessKey", test.applyValue(getAccountResult -> getAccountResult.primaryAccessKey()));
+     *         ctx.export("primaryAccessKey", test.primaryAccessKey());
      *     }
      * }
      * }
@@ -224,7 +224,7 @@ public final class CognitiveFunctions {
      *             .resourceGroupName("cognitive_account_rg")
      *             .build());
      * 
-     *         ctx.export("primaryAccessKey", test.applyValue(getAccountResult -> getAccountResult.primaryAccessKey()));
+     *         ctx.export("primaryAccessKey", test.primaryAccessKey());
      *     }
      * }
      * }

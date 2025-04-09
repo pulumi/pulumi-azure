@@ -50,7 +50,8 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         final var example = CoreFunctions.getSubscription();
+ *         final var example = CoreFunctions.getSubscription(GetSubscriptionArgs.builder()
+ *             .build());
  * 
  *         final var exampleGetPolicySetDefinition = PolicyFunctions.getPolicySetDefinition(GetPolicySetDefinitionArgs.builder()
  *             .displayName("Audit machines with insecure password security settings")
@@ -58,8 +59,8 @@ import javax.annotation.Nullable;
  * 
  *         var exampleSubscriptionPolicyAssignment = new SubscriptionPolicyAssignment("exampleSubscriptionPolicyAssignment", SubscriptionPolicyAssignmentArgs.builder()
  *             .name("exampleAssignment")
- *             .subscriptionId(example.applyValue(getSubscriptionResult -> getSubscriptionResult.id()))
- *             .policyDefinitionId(exampleGetPolicySetDefinition.applyValue(getPolicySetDefinitionResult -> getPolicySetDefinitionResult.id()))
+ *             .subscriptionId(example.id())
+ *             .policyDefinitionId(exampleGetPolicySetDefinition.id())
  *             .location("westus")
  *             .identity(SubscriptionPolicyAssignmentIdentityArgs.builder()
  *                 .type("SystemAssigned")
@@ -68,7 +69,7 @@ import javax.annotation.Nullable;
  * 
  *         var exampleSubscriptionPolicyExemption = new SubscriptionPolicyExemption("exampleSubscriptionPolicyExemption", SubscriptionPolicyExemptionArgs.builder()
  *             .name("exampleExemption")
- *             .subscriptionId(example.applyValue(getSubscriptionResult -> getSubscriptionResult.id()))
+ *             .subscriptionId(example.id())
  *             .policyAssignmentId(exampleSubscriptionPolicyAssignment.id())
  *             .exemptionCategory("Mitigated")
  *             .build());

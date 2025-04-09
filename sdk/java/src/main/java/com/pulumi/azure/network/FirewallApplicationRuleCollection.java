@@ -107,7 +107,7 @@ import javax.annotation.Nullable;
  *                 .sourceAddresses("10.0.0.0/16")
  *                 .targetFqdns("*.google.com")
  *                 .protocols(FirewallApplicationRuleCollectionRuleProtocolArgs.builder()
- *                     .port("443")
+ *                     .port(443)
  *                     .type("Https")
  *                     .build())
  *                 .build())

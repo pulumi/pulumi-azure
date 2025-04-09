@@ -78,7 +78,7 @@ public final class NetappFunctions {
      *             .name("acctestnetappaccount")
      *             .build());
      * 
-     *         ctx.export("netappAccountId", example.applyValue(getAccountResult -> getAccountResult.id()));
+     *         ctx.export("netappAccountId", example.id());
      *     }
      * }
      * }
@@ -122,7 +122,7 @@ public final class NetappFunctions {
      *             .name("acctestnetappaccount")
      *             .build());
      * 
-     *         ctx.export("netappAccountId", example.applyValue(getAccountResult -> getAccountResult.id()));
+     *         ctx.export("netappAccountId", example.id());
      *     }
      * }
      * }
@@ -166,7 +166,7 @@ public final class NetappFunctions {
      *             .name("acctestnetappaccount")
      *             .build());
      * 
-     *         ctx.export("netappAccountId", example.applyValue(getAccountResult -> getAccountResult.id()));
+     *         ctx.export("netappAccountId", example.id());
      *     }
      * }
      * }
@@ -210,7 +210,7 @@ public final class NetappFunctions {
      *             .name("acctestnetappaccount")
      *             .build());
      * 
-     *         ctx.export("netappAccountId", example.applyValue(getAccountResult -> getAccountResult.id()));
+     *         ctx.export("netappAccountId", example.id());
      *     }
      * }
      * }
@@ -254,7 +254,7 @@ public final class NetappFunctions {
      *             .name("acctestnetappaccount")
      *             .build());
      * 
-     *         ctx.export("netappAccountId", example.applyValue(getAccountResult -> getAccountResult.id()));
+     *         ctx.export("netappAccountId", example.id());
      *     }
      * }
      * }
@@ -297,7 +297,7 @@ public final class NetappFunctions {
      *             .netappAccountId("/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.NetApp/netAppAccounts/account1")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getAccountEncryptionResult -> getAccountEncryptionResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -340,7 +340,7 @@ public final class NetappFunctions {
      *             .netappAccountId("/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.NetApp/netAppAccounts/account1")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getAccountEncryptionResult -> getAccountEncryptionResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -383,7 +383,7 @@ public final class NetappFunctions {
      *             .netappAccountId("/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.NetApp/netAppAccounts/account1")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getAccountEncryptionResult -> getAccountEncryptionResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -426,7 +426,7 @@ public final class NetappFunctions {
      *             .netappAccountId("/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.NetApp/netAppAccounts/account1")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getAccountEncryptionResult -> getAccountEncryptionResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -469,7 +469,7 @@ public final class NetappFunctions {
      *             .netappAccountId("/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.NetApp/netAppAccounts/account1")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getAccountEncryptionResult -> getAccountEncryptionResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -514,7 +514,7 @@ public final class NetappFunctions {
      *             .name("example-backuppolicy")
      *             .build());
      * 
-     *         ctx.export("backupPolicyId", example.applyValue(getBackupPolicyResult -> getBackupPolicyResult.id()));
+     *         ctx.export("backupPolicyId", example.id());
      *     }
      * }
      * }
@@ -559,7 +559,7 @@ public final class NetappFunctions {
      *             .name("example-backuppolicy")
      *             .build());
      * 
-     *         ctx.export("backupPolicyId", example.applyValue(getBackupPolicyResult -> getBackupPolicyResult.id()));
+     *         ctx.export("backupPolicyId", example.id());
      *     }
      * }
      * }
@@ -604,7 +604,7 @@ public final class NetappFunctions {
      *             .name("example-backuppolicy")
      *             .build());
      * 
-     *         ctx.export("backupPolicyId", example.applyValue(getBackupPolicyResult -> getBackupPolicyResult.id()));
+     *         ctx.export("backupPolicyId", example.id());
      *     }
      * }
      * }
@@ -649,7 +649,7 @@ public final class NetappFunctions {
      *             .name("example-backuppolicy")
      *             .build());
      * 
-     *         ctx.export("backupPolicyId", example.applyValue(getBackupPolicyResult -> getBackupPolicyResult.id()));
+     *         ctx.export("backupPolicyId", example.id());
      *     }
      * }
      * }
@@ -694,7 +694,7 @@ public final class NetappFunctions {
      *             .name("example-backuppolicy")
      *             .build());
      * 
-     *         ctx.export("backupPolicyId", example.applyValue(getBackupPolicyResult -> getBackupPolicyResult.id()));
+     *         ctx.export("backupPolicyId", example.id());
      *     }
      * }
      * }
@@ -739,7 +739,7 @@ public final class NetappFunctions {
      *             .name("example-backupvault")
      *             .build());
      * 
-     *         ctx.export("backupVaultId", example.applyValue(getBackupVaultResult -> getBackupVaultResult.id()));
+     *         ctx.export("backupVaultId", example.id());
      *     }
      * }
      * }
@@ -784,7 +784,7 @@ public final class NetappFunctions {
      *             .name("example-backupvault")
      *             .build());
      * 
-     *         ctx.export("backupVaultId", example.applyValue(getBackupVaultResult -> getBackupVaultResult.id()));
+     *         ctx.export("backupVaultId", example.id());
      *     }
      * }
      * }
@@ -829,7 +829,7 @@ public final class NetappFunctions {
      *             .name("example-backupvault")
      *             .build());
      * 
-     *         ctx.export("backupVaultId", example.applyValue(getBackupVaultResult -> getBackupVaultResult.id()));
+     *         ctx.export("backupVaultId", example.id());
      *     }
      * }
      * }
@@ -874,7 +874,7 @@ public final class NetappFunctions {
      *             .name("example-backupvault")
      *             .build());
      * 
-     *         ctx.export("backupVaultId", example.applyValue(getBackupVaultResult -> getBackupVaultResult.id()));
+     *         ctx.export("backupVaultId", example.id());
      *     }
      * }
      * }
@@ -919,7 +919,7 @@ public final class NetappFunctions {
      *             .name("example-backupvault")
      *             .build());
      * 
-     *         ctx.export("backupVaultId", example.applyValue(getBackupVaultResult -> getBackupVaultResult.id()));
+     *         ctx.export("backupVaultId", example.id());
      *     }
      * }
      * }
@@ -964,7 +964,7 @@ public final class NetappFunctions {
      *             .name("acctestnetapppool")
      *             .build());
      * 
-     *         ctx.export("netappPoolId", example.applyValue(getPoolResult -> getPoolResult.id()));
+     *         ctx.export("netappPoolId", example.id());
      *     }
      * }
      * }
@@ -1009,7 +1009,7 @@ public final class NetappFunctions {
      *             .name("acctestnetapppool")
      *             .build());
      * 
-     *         ctx.export("netappPoolId", example.applyValue(getPoolResult -> getPoolResult.id()));
+     *         ctx.export("netappPoolId", example.id());
      *     }
      * }
      * }
@@ -1054,7 +1054,7 @@ public final class NetappFunctions {
      *             .name("acctestnetapppool")
      *             .build());
      * 
-     *         ctx.export("netappPoolId", example.applyValue(getPoolResult -> getPoolResult.id()));
+     *         ctx.export("netappPoolId", example.id());
      *     }
      * }
      * }
@@ -1099,7 +1099,7 @@ public final class NetappFunctions {
      *             .name("acctestnetapppool")
      *             .build());
      * 
-     *         ctx.export("netappPoolId", example.applyValue(getPoolResult -> getPoolResult.id()));
+     *         ctx.export("netappPoolId", example.id());
      *     }
      * }
      * }
@@ -1144,7 +1144,7 @@ public final class NetappFunctions {
      *             .name("acctestnetapppool")
      *             .build());
      * 
-     *         ctx.export("netappPoolId", example.applyValue(getPoolResult -> getPoolResult.id()));
+     *         ctx.export("netappPoolId", example.id());
      *     }
      * }
      * }
@@ -1424,13 +1424,13 @@ public final class NetappFunctions {
      *             .name("example-snapshot-policy")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getSnapshotPolicyResult -> getSnapshotPolicyResult.id()));
-     *         ctx.export("name", example.applyValue(getSnapshotPolicyResult -> getSnapshotPolicyResult.name()));
-     *         ctx.export("enabled", example.applyValue(getSnapshotPolicyResult -> getSnapshotPolicyResult.enabled()));
-     *         ctx.export("hourlySchedule", example.applyValue(getSnapshotPolicyResult -> getSnapshotPolicyResult.hourlySchedules()));
-     *         ctx.export("dailySchedule", example.applyValue(getSnapshotPolicyResult -> getSnapshotPolicyResult.dailySchedules()));
-     *         ctx.export("weeklySchedule", example.applyValue(getSnapshotPolicyResult -> getSnapshotPolicyResult.weeklySchedules()));
-     *         ctx.export("monthlySchedule", example.applyValue(getSnapshotPolicyResult -> getSnapshotPolicyResult.monthlySchedules()));
+     *         ctx.export("id", example.id());
+     *         ctx.export("name", example.name());
+     *         ctx.export("enabled", example.enabled());
+     *         ctx.export("hourlySchedule", example.hourlySchedules());
+     *         ctx.export("dailySchedule", example.dailySchedules());
+     *         ctx.export("weeklySchedule", example.weeklySchedules());
+     *         ctx.export("monthlySchedule", example.monthlySchedules());
      *     }
      * }
      * }
@@ -1475,13 +1475,13 @@ public final class NetappFunctions {
      *             .name("example-snapshot-policy")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getSnapshotPolicyResult -> getSnapshotPolicyResult.id()));
-     *         ctx.export("name", example.applyValue(getSnapshotPolicyResult -> getSnapshotPolicyResult.name()));
-     *         ctx.export("enabled", example.applyValue(getSnapshotPolicyResult -> getSnapshotPolicyResult.enabled()));
-     *         ctx.export("hourlySchedule", example.applyValue(getSnapshotPolicyResult -> getSnapshotPolicyResult.hourlySchedules()));
-     *         ctx.export("dailySchedule", example.applyValue(getSnapshotPolicyResult -> getSnapshotPolicyResult.dailySchedules()));
-     *         ctx.export("weeklySchedule", example.applyValue(getSnapshotPolicyResult -> getSnapshotPolicyResult.weeklySchedules()));
-     *         ctx.export("monthlySchedule", example.applyValue(getSnapshotPolicyResult -> getSnapshotPolicyResult.monthlySchedules()));
+     *         ctx.export("id", example.id());
+     *         ctx.export("name", example.name());
+     *         ctx.export("enabled", example.enabled());
+     *         ctx.export("hourlySchedule", example.hourlySchedules());
+     *         ctx.export("dailySchedule", example.dailySchedules());
+     *         ctx.export("weeklySchedule", example.weeklySchedules());
+     *         ctx.export("monthlySchedule", example.monthlySchedules());
      *     }
      * }
      * }
@@ -1526,13 +1526,13 @@ public final class NetappFunctions {
      *             .name("example-snapshot-policy")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getSnapshotPolicyResult -> getSnapshotPolicyResult.id()));
-     *         ctx.export("name", example.applyValue(getSnapshotPolicyResult -> getSnapshotPolicyResult.name()));
-     *         ctx.export("enabled", example.applyValue(getSnapshotPolicyResult -> getSnapshotPolicyResult.enabled()));
-     *         ctx.export("hourlySchedule", example.applyValue(getSnapshotPolicyResult -> getSnapshotPolicyResult.hourlySchedules()));
-     *         ctx.export("dailySchedule", example.applyValue(getSnapshotPolicyResult -> getSnapshotPolicyResult.dailySchedules()));
-     *         ctx.export("weeklySchedule", example.applyValue(getSnapshotPolicyResult -> getSnapshotPolicyResult.weeklySchedules()));
-     *         ctx.export("monthlySchedule", example.applyValue(getSnapshotPolicyResult -> getSnapshotPolicyResult.monthlySchedules()));
+     *         ctx.export("id", example.id());
+     *         ctx.export("name", example.name());
+     *         ctx.export("enabled", example.enabled());
+     *         ctx.export("hourlySchedule", example.hourlySchedules());
+     *         ctx.export("dailySchedule", example.dailySchedules());
+     *         ctx.export("weeklySchedule", example.weeklySchedules());
+     *         ctx.export("monthlySchedule", example.monthlySchedules());
      *     }
      * }
      * }
@@ -1577,13 +1577,13 @@ public final class NetappFunctions {
      *             .name("example-snapshot-policy")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getSnapshotPolicyResult -> getSnapshotPolicyResult.id()));
-     *         ctx.export("name", example.applyValue(getSnapshotPolicyResult -> getSnapshotPolicyResult.name()));
-     *         ctx.export("enabled", example.applyValue(getSnapshotPolicyResult -> getSnapshotPolicyResult.enabled()));
-     *         ctx.export("hourlySchedule", example.applyValue(getSnapshotPolicyResult -> getSnapshotPolicyResult.hourlySchedules()));
-     *         ctx.export("dailySchedule", example.applyValue(getSnapshotPolicyResult -> getSnapshotPolicyResult.dailySchedules()));
-     *         ctx.export("weeklySchedule", example.applyValue(getSnapshotPolicyResult -> getSnapshotPolicyResult.weeklySchedules()));
-     *         ctx.export("monthlySchedule", example.applyValue(getSnapshotPolicyResult -> getSnapshotPolicyResult.monthlySchedules()));
+     *         ctx.export("id", example.id());
+     *         ctx.export("name", example.name());
+     *         ctx.export("enabled", example.enabled());
+     *         ctx.export("hourlySchedule", example.hourlySchedules());
+     *         ctx.export("dailySchedule", example.dailySchedules());
+     *         ctx.export("weeklySchedule", example.weeklySchedules());
+     *         ctx.export("monthlySchedule", example.monthlySchedules());
      *     }
      * }
      * }
@@ -1628,13 +1628,13 @@ public final class NetappFunctions {
      *             .name("example-snapshot-policy")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getSnapshotPolicyResult -> getSnapshotPolicyResult.id()));
-     *         ctx.export("name", example.applyValue(getSnapshotPolicyResult -> getSnapshotPolicyResult.name()));
-     *         ctx.export("enabled", example.applyValue(getSnapshotPolicyResult -> getSnapshotPolicyResult.enabled()));
-     *         ctx.export("hourlySchedule", example.applyValue(getSnapshotPolicyResult -> getSnapshotPolicyResult.hourlySchedules()));
-     *         ctx.export("dailySchedule", example.applyValue(getSnapshotPolicyResult -> getSnapshotPolicyResult.dailySchedules()));
-     *         ctx.export("weeklySchedule", example.applyValue(getSnapshotPolicyResult -> getSnapshotPolicyResult.weeklySchedules()));
-     *         ctx.export("monthlySchedule", example.applyValue(getSnapshotPolicyResult -> getSnapshotPolicyResult.monthlySchedules()));
+     *         ctx.export("id", example.id());
+     *         ctx.export("name", example.name());
+     *         ctx.export("enabled", example.enabled());
+     *         ctx.export("hourlySchedule", example.hourlySchedules());
+     *         ctx.export("dailySchedule", example.dailySchedules());
+     *         ctx.export("weeklySchedule", example.weeklySchedules());
+     *         ctx.export("monthlySchedule", example.monthlySchedules());
      *     }
      * }
      * }
@@ -1680,7 +1680,7 @@ public final class NetappFunctions {
      *             .name("example-volume")
      *             .build());
      * 
-     *         ctx.export("netappVolumeId", example.applyValue(getVolumeResult -> getVolumeResult.id()));
+     *         ctx.export("netappVolumeId", example.id());
      *     }
      * }
      * }
@@ -1726,7 +1726,7 @@ public final class NetappFunctions {
      *             .name("example-volume")
      *             .build());
      * 
-     *         ctx.export("netappVolumeId", example.applyValue(getVolumeResult -> getVolumeResult.id()));
+     *         ctx.export("netappVolumeId", example.id());
      *     }
      * }
      * }
@@ -1772,7 +1772,7 @@ public final class NetappFunctions {
      *             .name("example-volume")
      *             .build());
      * 
-     *         ctx.export("netappVolumeId", example.applyValue(getVolumeResult -> getVolumeResult.id()));
+     *         ctx.export("netappVolumeId", example.id());
      *     }
      * }
      * }
@@ -1818,7 +1818,7 @@ public final class NetappFunctions {
      *             .name("example-volume")
      *             .build());
      * 
-     *         ctx.export("netappVolumeId", example.applyValue(getVolumeResult -> getVolumeResult.id()));
+     *         ctx.export("netappVolumeId", example.id());
      *     }
      * }
      * }
@@ -1864,7 +1864,7 @@ public final class NetappFunctions {
      *             .name("example-volume")
      *             .build());
      * 
-     *         ctx.export("netappVolumeId", example.applyValue(getVolumeResult -> getVolumeResult.id()));
+     *         ctx.export("netappVolumeId", example.id());
      *     }
      * }
      * }
@@ -1909,7 +1909,7 @@ public final class NetappFunctions {
      *             .accountName("existing account where the application volume group belong to")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getVolumeGroupOracleResult -> getVolumeGroupOracleResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -1954,7 +1954,7 @@ public final class NetappFunctions {
      *             .accountName("existing account where the application volume group belong to")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getVolumeGroupOracleResult -> getVolumeGroupOracleResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -1999,7 +1999,7 @@ public final class NetappFunctions {
      *             .accountName("existing account where the application volume group belong to")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getVolumeGroupOracleResult -> getVolumeGroupOracleResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -2044,7 +2044,7 @@ public final class NetappFunctions {
      *             .accountName("existing account where the application volume group belong to")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getVolumeGroupOracleResult -> getVolumeGroupOracleResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -2089,7 +2089,7 @@ public final class NetappFunctions {
      *             .accountName("existing account where the application volume group belong to")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getVolumeGroupOracleResult -> getVolumeGroupOracleResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -2134,7 +2134,7 @@ public final class NetappFunctions {
      *             .accountName("existing account where the application volume group belong to")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getVolumeGroupSapHanaResult -> getVolumeGroupSapHanaResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -2179,7 +2179,7 @@ public final class NetappFunctions {
      *             .accountName("existing account where the application volume group belong to")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getVolumeGroupSapHanaResult -> getVolumeGroupSapHanaResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -2224,7 +2224,7 @@ public final class NetappFunctions {
      *             .accountName("existing account where the application volume group belong to")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getVolumeGroupSapHanaResult -> getVolumeGroupSapHanaResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -2269,7 +2269,7 @@ public final class NetappFunctions {
      *             .accountName("existing account where the application volume group belong to")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getVolumeGroupSapHanaResult -> getVolumeGroupSapHanaResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -2314,7 +2314,7 @@ public final class NetappFunctions {
      *             .accountName("existing account where the application volume group belong to")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getVolumeGroupSapHanaResult -> getVolumeGroupSapHanaResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -2358,7 +2358,7 @@ public final class NetappFunctions {
      *             .volumeId("/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.NetApp/netAppAccounts/account1/capacityPools/pool1/volumes/vol1")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getVolumeQuotaRuleResult -> getVolumeQuotaRuleResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -2402,7 +2402,7 @@ public final class NetappFunctions {
      *             .volumeId("/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.NetApp/netAppAccounts/account1/capacityPools/pool1/volumes/vol1")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getVolumeQuotaRuleResult -> getVolumeQuotaRuleResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -2446,7 +2446,7 @@ public final class NetappFunctions {
      *             .volumeId("/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.NetApp/netAppAccounts/account1/capacityPools/pool1/volumes/vol1")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getVolumeQuotaRuleResult -> getVolumeQuotaRuleResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -2490,7 +2490,7 @@ public final class NetappFunctions {
      *             .volumeId("/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.NetApp/netAppAccounts/account1/capacityPools/pool1/volumes/vol1")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getVolumeQuotaRuleResult -> getVolumeQuotaRuleResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -2534,7 +2534,7 @@ public final class NetappFunctions {
      *             .volumeId("/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.NetApp/netAppAccounts/account1/capacityPools/pool1/volumes/vol1")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getVolumeQuotaRuleResult -> getVolumeQuotaRuleResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }

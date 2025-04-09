@@ -152,6 +152,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.appservice.FunctionAppFunction;
  * import com.pulumi.azure.appservice.FunctionAppFunctionArgs;
  * import com.pulumi.azure.appservice.inputs.FunctionAppFunctionFileArgs;
+ * import com.pulumi.std.StdFunctions;
+ * import com.pulumi.std.inputs.FileArgs;
  * import static com.pulumi.codegen.internal.Serialization.*;
  * import java.util.List;
  * import java.util.ArrayList;

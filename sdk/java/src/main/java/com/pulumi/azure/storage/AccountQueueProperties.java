@@ -78,7 +78,7 @@ import javax.annotation.Nullable;
  *                 .allowedMethods(                
  *                     "GET",
  *                     "PUT")
- *                 .maxAgeInSeconds("500")
+ *                 .maxAgeInSeconds(500)
  *                 .build())
  *             .logging(AccountQueuePropertiesLoggingArgs.builder()
  *                 .version("1.0")

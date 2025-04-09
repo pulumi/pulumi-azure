@@ -69,20 +69,20 @@ import javax.annotation.Nullable;
  * 
  *         final var vnet = NetworkFunctions.getVirtualNetwork(GetVirtualNetworkArgs.builder()
  *             .name("example-network")
- *             .resourceGroupName(example.applyValue(getResourceGroupResult -> getResourceGroupResult.name()))
+ *             .resourceGroupName(example.name())
  *             .build());
  * 
  *         final var subnet = NetworkFunctions.getSubnet(GetSubnetArgs.builder()
  *             .name("default")
- *             .virtualNetworkName(vnet.applyValue(getVirtualNetworkResult -> getVirtualNetworkResult.name()))
- *             .resourceGroupName(example.applyValue(getResourceGroupResult -> getResourceGroupResult.name()))
+ *             .virtualNetworkName(vnet.name())
+ *             .resourceGroupName(example.name())
  *             .build());
  * 
  *         var exampleEndpoint = new Endpoint("exampleEndpoint", EndpointArgs.builder()
  *             .name("example-endpoint")
- *             .location(example.applyValue(getResourceGroupResult -> getResourceGroupResult.location()))
- *             .resourceGroupName(example.applyValue(getResourceGroupResult -> getResourceGroupResult.name()))
- *             .subnetId(subnet.applyValue(getSubnetResult -> getSubnetResult.id()))
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
+ *             .subnetId(subnet.id())
  *             .privateServiceConnection(EndpointPrivateServiceConnectionArgs.builder()
  *                 .name("example-privateserviceconnection")
  *                 .privateConnectionResourceAlias("example-privatelinkservice.d20286c8-4ea5-11eb-9584-8f53157226c6.centralus.azure.privatelinkservice")

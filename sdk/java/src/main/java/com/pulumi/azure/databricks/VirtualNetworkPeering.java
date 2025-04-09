@@ -35,10 +35,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.network.VirtualNetworkArgs;
  * import com.pulumi.azure.databricks.Workspace;
  * import com.pulumi.azure.databricks.WorkspaceArgs;
- * import com.pulumi.azure.databricks.VirtualNetworkPeering;
- * import com.pulumi.azure.databricks.VirtualNetworkPeeringArgs;
- * import com.pulumi.azure.network.VirtualNetworkPeering;
- * import com.pulumi.azure.network.VirtualNetworkPeeringArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -71,7 +67,7 @@ import javax.annotation.Nullable;
  *             .sku("standard")
  *             .build());
  * 
- *         var exampleVirtualNetworkPeering = new VirtualNetworkPeering("exampleVirtualNetworkPeering", VirtualNetworkPeeringArgs.builder()
+ *         var exampleVirtualNetworkPeering = new com.pulumi.azure.databricks.VirtualNetworkPeering("exampleVirtualNetworkPeering", com.pulumi.azure.databricks.VirtualNetworkPeeringArgs.builder()
  *             .name("databricks-vnet-peer")
  *             .resourceGroupName(example.name())
  *             .workspaceId(exampleWorkspace.id())
@@ -80,7 +76,7 @@ import javax.annotation.Nullable;
  *             .allowVirtualNetworkAccess(true)
  *             .build());
  * 
- *         var remoteVirtualNetworkPeering = new VirtualNetworkPeering("remoteVirtualNetworkPeering", VirtualNetworkPeeringArgs.builder()
+ *         var remoteVirtualNetworkPeering = new com.pulumi.azure.network.VirtualNetworkPeering("remoteVirtualNetworkPeering", com.pulumi.azure.network.VirtualNetworkPeeringArgs.builder()
  *             .name("peer-to-databricks")
  *             .resourceGroupName(example.name())
  *             .virtualNetworkName(remote.name())

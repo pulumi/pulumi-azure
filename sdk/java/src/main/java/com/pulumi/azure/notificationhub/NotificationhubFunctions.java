@@ -52,7 +52,7 @@ public final class NotificationhubFunctions {
      *             .resourceGroupName("resource-group-name")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getHubResult -> getHubResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -97,7 +97,7 @@ public final class NotificationhubFunctions {
      *             .resourceGroupName("resource-group-name")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getHubResult -> getHubResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -142,7 +142,7 @@ public final class NotificationhubFunctions {
      *             .resourceGroupName("resource-group-name")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getHubResult -> getHubResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -187,7 +187,7 @@ public final class NotificationhubFunctions {
      *             .resourceGroupName("resource-group-name")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getHubResult -> getHubResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -232,7 +232,7 @@ public final class NotificationhubFunctions {
      *             .resourceGroupName("resource-group-name")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getHubResult -> getHubResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -276,7 +276,7 @@ public final class NotificationhubFunctions {
      *             .resourceGroupName("my-resource-group")
      *             .build());
      * 
-     *         ctx.export("servicebusEndpoint", example.applyValue(getNamespaceResult -> getNamespaceResult.servicebusEndpoint()));
+     *         ctx.export("servicebusEndpoint", example.servicebusEndpoint());
      *     }
      * }
      * }
@@ -320,7 +320,7 @@ public final class NotificationhubFunctions {
      *             .resourceGroupName("my-resource-group")
      *             .build());
      * 
-     *         ctx.export("servicebusEndpoint", example.applyValue(getNamespaceResult -> getNamespaceResult.servicebusEndpoint()));
+     *         ctx.export("servicebusEndpoint", example.servicebusEndpoint());
      *     }
      * }
      * }
@@ -364,7 +364,7 @@ public final class NotificationhubFunctions {
      *             .resourceGroupName("my-resource-group")
      *             .build());
      * 
-     *         ctx.export("servicebusEndpoint", example.applyValue(getNamespaceResult -> getNamespaceResult.servicebusEndpoint()));
+     *         ctx.export("servicebusEndpoint", example.servicebusEndpoint());
      *     }
      * }
      * }
@@ -408,7 +408,7 @@ public final class NotificationhubFunctions {
      *             .resourceGroupName("my-resource-group")
      *             .build());
      * 
-     *         ctx.export("servicebusEndpoint", example.applyValue(getNamespaceResult -> getNamespaceResult.servicebusEndpoint()));
+     *         ctx.export("servicebusEndpoint", example.servicebusEndpoint());
      *     }
      * }
      * }
@@ -452,7 +452,7 @@ public final class NotificationhubFunctions {
      *             .resourceGroupName("my-resource-group")
      *             .build());
      * 
-     *         ctx.export("servicebusEndpoint", example.applyValue(getNamespaceResult -> getNamespaceResult.servicebusEndpoint()));
+     *         ctx.export("servicebusEndpoint", example.servicebusEndpoint());
      *     }
      * }
      * }

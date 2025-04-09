@@ -47,6 +47,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.dns.CNameRecordArgs;
  * import com.pulumi.azure.appservice.CustomHostnameBinding;
  * import com.pulumi.azure.appservice.CustomHostnameBindingArgs;
+ * import com.pulumi.std.StdFunctions;
+ * import com.pulumi.std.inputs.JoinArgs;
  * import com.pulumi.azure.appservice.ManagedCertificate;
  * import com.pulumi.azure.appservice.ManagedCertificateArgs;
  * import com.pulumi.azure.appservice.CertificateBinding;
@@ -95,8 +97,8 @@ import javax.annotation.Nullable;
  * 
  *         var exampleTxtRecord = new TxtRecord("exampleTxtRecord", TxtRecordArgs.builder()
  *             .name("asuid.mycustomhost.contoso.com")
- *             .zoneName(example.applyValue(getZoneResult -> getZoneResult).applyValue(example -> example.applyValue(getZoneResult -> getZoneResult.name())))
- *             .resourceGroupName(example.applyValue(getZoneResult -> getZoneResult).applyValue(example -> example.applyValue(getZoneResult -> getZoneResult.resourceGroupName())))
+ *             .zoneName(example.applyValue(_example -> _example.name()))
+ *             .resourceGroupName(example.applyValue(_example -> _example.resourceGroupName()))
  *             .ttl(300)
  *             .records(TxtRecordRecordArgs.builder()
  *                 .value(exampleAppService.customDomainVerificationId())
@@ -105,14 +107,19 @@ import javax.annotation.Nullable;
  * 
  *         var exampleCNameRecord = new CNameRecord("exampleCNameRecord", CNameRecordArgs.builder()
  *             .name("example-adcr")
- *             .zoneName(example.applyValue(getZoneResult -> getZoneResult).applyValue(example -> example.applyValue(getZoneResult -> getZoneResult.name())))
- *             .resourceGroupName(example.applyValue(getZoneResult -> getZoneResult).applyValue(example -> example.applyValue(getZoneResult -> getZoneResult.resourceGroupName())))
+ *             .zoneName(example.applyValue(_example -> _example.name()))
+ *             .resourceGroupName(example.applyValue(_example -> _example.resourceGroupName()))
  *             .ttl(300)
  *             .record(exampleAppService.defaultSiteHostname())
  *             .build());
  * 
  *         var exampleCustomHostnameBinding = new CustomHostnameBinding("exampleCustomHostnameBinding", CustomHostnameBindingArgs.builder()
- *             .hostname(StdFunctions.join().applyValue(invoke -> invoke.result()))
+ *             .hostname(StdFunctions.join(JoinArgs.builder()
+ *                 .separator(".")
+ *                 .input(                
+ *                     exampleCNameRecord.name(),
+ *                     exampleCNameRecord.zoneName())
+ *                 .build()).applyValue(_invoke -> _invoke.result()))
  *             .appServiceName(exampleAppService.name())
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .build());

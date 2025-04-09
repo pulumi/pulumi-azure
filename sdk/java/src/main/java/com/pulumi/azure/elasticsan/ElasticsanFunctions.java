@@ -54,7 +54,7 @@ public final class ElasticsanFunctions {
      *             .resourceGroupName("existing")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getResult -> getResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -98,7 +98,7 @@ public final class ElasticsanFunctions {
      *             .resourceGroupName("existing")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getResult -> getResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -142,7 +142,7 @@ public final class ElasticsanFunctions {
      *             .resourceGroupName("existing")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getResult -> getResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -186,7 +186,7 @@ public final class ElasticsanFunctions {
      *             .resourceGroupName("existing")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getResult -> getResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -230,7 +230,7 @@ public final class ElasticsanFunctions {
      *             .resourceGroupName("existing")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getResult -> getResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -277,10 +277,10 @@ public final class ElasticsanFunctions {
      * 
      *         final var exampleGetVolumeGroup = ElasticsanFunctions.getVolumeGroup(GetVolumeGroupArgs.builder()
      *             .name("existing")
-     *             .elasticSanId(example.applyValue(getResult -> getResult.id()))
+     *             .elasticSanId(example.id())
      *             .build());
      * 
-     *         ctx.export("id", exampleGetVolumeGroup.applyValue(getVolumeGroupResult -> getVolumeGroupResult.id()));
+     *         ctx.export("id", exampleGetVolumeGroup.id());
      *     }
      * }
      * }
@@ -327,10 +327,10 @@ public final class ElasticsanFunctions {
      * 
      *         final var exampleGetVolumeGroup = ElasticsanFunctions.getVolumeGroup(GetVolumeGroupArgs.builder()
      *             .name("existing")
-     *             .elasticSanId(example.applyValue(getResult -> getResult.id()))
+     *             .elasticSanId(example.id())
      *             .build());
      * 
-     *         ctx.export("id", exampleGetVolumeGroup.applyValue(getVolumeGroupResult -> getVolumeGroupResult.id()));
+     *         ctx.export("id", exampleGetVolumeGroup.id());
      *     }
      * }
      * }
@@ -377,10 +377,10 @@ public final class ElasticsanFunctions {
      * 
      *         final var exampleGetVolumeGroup = ElasticsanFunctions.getVolumeGroup(GetVolumeGroupArgs.builder()
      *             .name("existing")
-     *             .elasticSanId(example.applyValue(getResult -> getResult.id()))
+     *             .elasticSanId(example.id())
      *             .build());
      * 
-     *         ctx.export("id", exampleGetVolumeGroup.applyValue(getVolumeGroupResult -> getVolumeGroupResult.id()));
+     *         ctx.export("id", exampleGetVolumeGroup.id());
      *     }
      * }
      * }
@@ -427,10 +427,10 @@ public final class ElasticsanFunctions {
      * 
      *         final var exampleGetVolumeGroup = ElasticsanFunctions.getVolumeGroup(GetVolumeGroupArgs.builder()
      *             .name("existing")
-     *             .elasticSanId(example.applyValue(getResult -> getResult.id()))
+     *             .elasticSanId(example.id())
      *             .build());
      * 
-     *         ctx.export("id", exampleGetVolumeGroup.applyValue(getVolumeGroupResult -> getVolumeGroupResult.id()));
+     *         ctx.export("id", exampleGetVolumeGroup.id());
      *     }
      * }
      * }
@@ -477,10 +477,10 @@ public final class ElasticsanFunctions {
      * 
      *         final var exampleGetVolumeGroup = ElasticsanFunctions.getVolumeGroup(GetVolumeGroupArgs.builder()
      *             .name("existing")
-     *             .elasticSanId(example.applyValue(getResult -> getResult.id()))
+     *             .elasticSanId(example.id())
      *             .build());
      * 
-     *         ctx.export("id", exampleGetVolumeGroup.applyValue(getVolumeGroupResult -> getVolumeGroupResult.id()));
+     *         ctx.export("id", exampleGetVolumeGroup.id());
      *     }
      * }
      * }
@@ -528,15 +528,15 @@ public final class ElasticsanFunctions {
      * 
      *         final var exampleGetVolumeGroup = ElasticsanFunctions.getVolumeGroup(GetVolumeGroupArgs.builder()
      *             .name("existing")
-     *             .elasticSanId(example.applyValue(getResult -> getResult.id()))
+     *             .elasticSanId(example.id())
      *             .build());
      * 
      *         final var exampleGetVolumeSnapshot = ElasticsanFunctions.getVolumeSnapshot(GetVolumeSnapshotArgs.builder()
      *             .name("existing")
-     *             .volumeGroupId(exampleGetVolumeGroup.applyValue(getVolumeGroupResult -> getVolumeGroupResult.id()))
+     *             .volumeGroupId(exampleGetVolumeGroup.id())
      *             .build());
      * 
-     *         ctx.export("id", exampleGetVolumeSnapshot.applyValue(getVolumeSnapshotResult -> getVolumeSnapshotResult.id()));
+     *         ctx.export("id", exampleGetVolumeSnapshot.id());
      *     }
      * }
      * }
@@ -584,15 +584,15 @@ public final class ElasticsanFunctions {
      * 
      *         final var exampleGetVolumeGroup = ElasticsanFunctions.getVolumeGroup(GetVolumeGroupArgs.builder()
      *             .name("existing")
-     *             .elasticSanId(example.applyValue(getResult -> getResult.id()))
+     *             .elasticSanId(example.id())
      *             .build());
      * 
      *         final var exampleGetVolumeSnapshot = ElasticsanFunctions.getVolumeSnapshot(GetVolumeSnapshotArgs.builder()
      *             .name("existing")
-     *             .volumeGroupId(exampleGetVolumeGroup.applyValue(getVolumeGroupResult -> getVolumeGroupResult.id()))
+     *             .volumeGroupId(exampleGetVolumeGroup.id())
      *             .build());
      * 
-     *         ctx.export("id", exampleGetVolumeSnapshot.applyValue(getVolumeSnapshotResult -> getVolumeSnapshotResult.id()));
+     *         ctx.export("id", exampleGetVolumeSnapshot.id());
      *     }
      * }
      * }
@@ -640,15 +640,15 @@ public final class ElasticsanFunctions {
      * 
      *         final var exampleGetVolumeGroup = ElasticsanFunctions.getVolumeGroup(GetVolumeGroupArgs.builder()
      *             .name("existing")
-     *             .elasticSanId(example.applyValue(getResult -> getResult.id()))
+     *             .elasticSanId(example.id())
      *             .build());
      * 
      *         final var exampleGetVolumeSnapshot = ElasticsanFunctions.getVolumeSnapshot(GetVolumeSnapshotArgs.builder()
      *             .name("existing")
-     *             .volumeGroupId(exampleGetVolumeGroup.applyValue(getVolumeGroupResult -> getVolumeGroupResult.id()))
+     *             .volumeGroupId(exampleGetVolumeGroup.id())
      *             .build());
      * 
-     *         ctx.export("id", exampleGetVolumeSnapshot.applyValue(getVolumeSnapshotResult -> getVolumeSnapshotResult.id()));
+     *         ctx.export("id", exampleGetVolumeSnapshot.id());
      *     }
      * }
      * }
@@ -696,15 +696,15 @@ public final class ElasticsanFunctions {
      * 
      *         final var exampleGetVolumeGroup = ElasticsanFunctions.getVolumeGroup(GetVolumeGroupArgs.builder()
      *             .name("existing")
-     *             .elasticSanId(example.applyValue(getResult -> getResult.id()))
+     *             .elasticSanId(example.id())
      *             .build());
      * 
      *         final var exampleGetVolumeSnapshot = ElasticsanFunctions.getVolumeSnapshot(GetVolumeSnapshotArgs.builder()
      *             .name("existing")
-     *             .volumeGroupId(exampleGetVolumeGroup.applyValue(getVolumeGroupResult -> getVolumeGroupResult.id()))
+     *             .volumeGroupId(exampleGetVolumeGroup.id())
      *             .build());
      * 
-     *         ctx.export("id", exampleGetVolumeSnapshot.applyValue(getVolumeSnapshotResult -> getVolumeSnapshotResult.id()));
+     *         ctx.export("id", exampleGetVolumeSnapshot.id());
      *     }
      * }
      * }
@@ -752,15 +752,15 @@ public final class ElasticsanFunctions {
      * 
      *         final var exampleGetVolumeGroup = ElasticsanFunctions.getVolumeGroup(GetVolumeGroupArgs.builder()
      *             .name("existing")
-     *             .elasticSanId(example.applyValue(getResult -> getResult.id()))
+     *             .elasticSanId(example.id())
      *             .build());
      * 
      *         final var exampleGetVolumeSnapshot = ElasticsanFunctions.getVolumeSnapshot(GetVolumeSnapshotArgs.builder()
      *             .name("existing")
-     *             .volumeGroupId(exampleGetVolumeGroup.applyValue(getVolumeGroupResult -> getVolumeGroupResult.id()))
+     *             .volumeGroupId(exampleGetVolumeGroup.id())
      *             .build());
      * 
-     *         ctx.export("id", exampleGetVolumeSnapshot.applyValue(getVolumeSnapshotResult -> getVolumeSnapshotResult.id()));
+     *         ctx.export("id", exampleGetVolumeSnapshot.id());
      *     }
      * }
      * }

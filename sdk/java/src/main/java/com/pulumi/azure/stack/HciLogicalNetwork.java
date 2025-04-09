@@ -23,58 +23,6 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.azure.core.ResourceGroup;
- * import com.pulumi.azure.core.ResourceGroupArgs;
- * import com.pulumi.azure.stack.HciLogicalNetwork;
- * import com.pulumi.azure.stack.HciLogicalNetworkArgs;
- * import com.pulumi.azure.stack.inputs.HciLogicalNetworkSubnetArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
- *             .name("example-rg")
- *             .location("West Europe")
- *             .build());
- * 
- *         var exampleHciLogicalNetwork = new HciLogicalNetwork("exampleHciLogicalNetwork", HciLogicalNetworkArgs.builder()
- *             .name("example-hci-ln")
- *             .resourceGroupName(example.name())
- *             .location(example.location())
- *             .customLocationId("/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.ExtendedLocation/customLocations/cl1")
- *             .virtualSwitchName("ConvergedSwitch(managementcompute)")
- *             .dnsServers(            
- *                 "10.0.0.7",
- *                 "10.0.0.8")
- *             .subnet(HciLogicalNetworkSubnetArgs.builder()
- *                 .ipAllocationMethod("Static")
- *                 .addressPrefix("10.0.0.0/24")
- *                 .vlanId(123)
- *                 .route(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
- *                 .build())
- *             .tags(Map.of("foo", "bar"))
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

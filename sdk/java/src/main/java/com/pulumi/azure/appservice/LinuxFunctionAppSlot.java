@@ -91,14 +91,16 @@ import javax.annotation.Nullable;
  *             .location(example.location())
  *             .servicePlanId(exampleServicePlan.id())
  *             .storageAccountName(exampleAccount.name())
- *             .siteConfig()
+ *             .siteConfig(LinuxFunctionAppSiteConfigArgs.builder()
+ *                 .build())
  *             .build());
  * 
  *         var exampleLinuxFunctionAppSlot = new LinuxFunctionAppSlot("exampleLinuxFunctionAppSlot", LinuxFunctionAppSlotArgs.builder()
  *             .name("example-linux-function-app-slot")
  *             .functionAppId(exampleLinuxFunctionApp.id())
  *             .storageAccountName(exampleAccount.name())
- *             .siteConfig()
+ *             .siteConfig(LinuxFunctionAppSlotSiteConfigArgs.builder()
+ *                 .build())
  *             .build());
  * 
  *     }

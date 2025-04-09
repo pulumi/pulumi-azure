@@ -58,10 +58,10 @@ public final class SentinelFunctions {
      * 
      *         final var exampleGetAlertRule = SentinelFunctions.getAlertRule(GetAlertRuleArgs.builder()
      *             .name("existing")
-     *             .logAnalyticsWorkspaceId(example.applyValue(getAnalyticsWorkspaceResult -> getAnalyticsWorkspaceResult.id()))
+     *             .logAnalyticsWorkspaceId(example.id())
      *             .build());
      * 
-     *         ctx.export("id", exampleGetAlertRule.applyValue(getAlertRuleResult -> getAlertRuleResult.id()));
+     *         ctx.export("id", exampleGetAlertRule.id());
      *     }
      * }
      * }
@@ -109,10 +109,10 @@ public final class SentinelFunctions {
      * 
      *         final var exampleGetAlertRule = SentinelFunctions.getAlertRule(GetAlertRuleArgs.builder()
      *             .name("existing")
-     *             .logAnalyticsWorkspaceId(example.applyValue(getAnalyticsWorkspaceResult -> getAnalyticsWorkspaceResult.id()))
+     *             .logAnalyticsWorkspaceId(example.id())
      *             .build());
      * 
-     *         ctx.export("id", exampleGetAlertRule.applyValue(getAlertRuleResult -> getAlertRuleResult.id()));
+     *         ctx.export("id", exampleGetAlertRule.id());
      *     }
      * }
      * }
@@ -160,10 +160,10 @@ public final class SentinelFunctions {
      * 
      *         final var exampleGetAlertRule = SentinelFunctions.getAlertRule(GetAlertRuleArgs.builder()
      *             .name("existing")
-     *             .logAnalyticsWorkspaceId(example.applyValue(getAnalyticsWorkspaceResult -> getAnalyticsWorkspaceResult.id()))
+     *             .logAnalyticsWorkspaceId(example.id())
      *             .build());
      * 
-     *         ctx.export("id", exampleGetAlertRule.applyValue(getAlertRuleResult -> getAlertRuleResult.id()));
+     *         ctx.export("id", exampleGetAlertRule.id());
      *     }
      * }
      * }
@@ -211,10 +211,10 @@ public final class SentinelFunctions {
      * 
      *         final var exampleGetAlertRule = SentinelFunctions.getAlertRule(GetAlertRuleArgs.builder()
      *             .name("existing")
-     *             .logAnalyticsWorkspaceId(example.applyValue(getAnalyticsWorkspaceResult -> getAnalyticsWorkspaceResult.id()))
+     *             .logAnalyticsWorkspaceId(example.id())
      *             .build());
      * 
-     *         ctx.export("id", exampleGetAlertRule.applyValue(getAlertRuleResult -> getAlertRuleResult.id()));
+     *         ctx.export("id", exampleGetAlertRule.id());
      *     }
      * }
      * }
@@ -262,10 +262,10 @@ public final class SentinelFunctions {
      * 
      *         final var exampleGetAlertRule = SentinelFunctions.getAlertRule(GetAlertRuleArgs.builder()
      *             .name("existing")
-     *             .logAnalyticsWorkspaceId(example.applyValue(getAnalyticsWorkspaceResult -> getAnalyticsWorkspaceResult.id()))
+     *             .logAnalyticsWorkspaceId(example.id())
      *             .build());
      * 
-     *         ctx.export("id", exampleGetAlertRule.applyValue(getAlertRuleResult -> getAlertRuleResult.id()));
+     *         ctx.export("id", exampleGetAlertRule.id());
      *     }
      * }
      * }
@@ -332,7 +332,7 @@ public final class SentinelFunctions {
      *             .displayName("Potential data staging")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getAlertRuleAnomalyResult -> getAlertRuleAnomalyResult).applyValue(example -> example.applyValue(getAlertRuleAnomalyResult -> getAlertRuleAnomalyResult.id())));
+     *         ctx.export("id", example.applyValue(_example -> _example.id()));
      *     }
      * }
      * }
@@ -399,7 +399,7 @@ public final class SentinelFunctions {
      *             .displayName("Potential data staging")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getAlertRuleAnomalyResult -> getAlertRuleAnomalyResult).applyValue(example -> example.applyValue(getAlertRuleAnomalyResult -> getAlertRuleAnomalyResult.id())));
+     *         ctx.export("id", example.applyValue(_example -> _example.id()));
      *     }
      * }
      * }
@@ -466,7 +466,7 @@ public final class SentinelFunctions {
      *             .displayName("Potential data staging")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getAlertRuleAnomalyResult -> getAlertRuleAnomalyResult).applyValue(example -> example.applyValue(getAlertRuleAnomalyResult -> getAlertRuleAnomalyResult.id())));
+     *         ctx.export("id", example.applyValue(_example -> _example.id()));
      *     }
      * }
      * }
@@ -533,7 +533,7 @@ public final class SentinelFunctions {
      *             .displayName("Potential data staging")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getAlertRuleAnomalyResult -> getAlertRuleAnomalyResult).applyValue(example -> example.applyValue(getAlertRuleAnomalyResult -> getAlertRuleAnomalyResult.id())));
+     *         ctx.export("id", example.applyValue(_example -> _example.id()));
      *     }
      * }
      * }
@@ -600,7 +600,7 @@ public final class SentinelFunctions {
      *             .displayName("Potential data staging")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getAlertRuleAnomalyResult -> getAlertRuleAnomalyResult).applyValue(example -> example.applyValue(getAlertRuleAnomalyResult -> getAlertRuleAnomalyResult.id())));
+     *         ctx.export("id", example.applyValue(_example -> _example.id()));
      *     }
      * }
      * }
@@ -644,7 +644,7 @@ public final class SentinelFunctions {
      *             .displayName("Create incidents based on Azure Security Center for IoT alerts")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getAlertRuleTemplateResult -> getAlertRuleTemplateResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -688,7 +688,7 @@ public final class SentinelFunctions {
      *             .displayName("Create incidents based on Azure Security Center for IoT alerts")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getAlertRuleTemplateResult -> getAlertRuleTemplateResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -732,7 +732,7 @@ public final class SentinelFunctions {
      *             .displayName("Create incidents based on Azure Security Center for IoT alerts")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getAlertRuleTemplateResult -> getAlertRuleTemplateResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -776,7 +776,7 @@ public final class SentinelFunctions {
      *             .displayName("Create incidents based on Azure Security Center for IoT alerts")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getAlertRuleTemplateResult -> getAlertRuleTemplateResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -820,7 +820,7 @@ public final class SentinelFunctions {
      *             .displayName("Create incidents based on Azure Security Center for IoT alerts")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getAlertRuleTemplateResult -> getAlertRuleTemplateResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }

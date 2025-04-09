@@ -63,7 +63,7 @@ import javax.annotation.Nullable;
  *         var exampleGroupPolicyAssignment = new GroupPolicyAssignment("exampleGroupPolicyAssignment", GroupPolicyAssignmentArgs.builder()
  *             .name("exampleAssignment")
  *             .managementGroupId(exampleGroup.id())
- *             .policyDefinitionId(example.applyValue(getPolicyDefintionResult -> getPolicyDefintionResult.id()))
+ *             .policyDefinitionId(example.id())
  *             .parameters(serializeJson(
  *                 jsonObject(
  *                     jsonProperty("listOfAllowedLocations", jsonObject(

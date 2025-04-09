@@ -115,7 +115,7 @@ import javax.annotation.Nullable;
  *             .name("example-dcet")
  *             .location(example.location())
  *             .devCenterId(exampleDevCenter.id())
- *             .imageReferenceId(exampleDevCenter.id().applyValue(id -> String.format("%s/galleries/default/images/microsoftvisualstudio_visualstudioplustools_vs-2022-ent-general-win10-m365-gen2", id)))
+ *             .imageReferenceId(exampleDevCenter.id().applyValue(_id -> String.format("%s/galleries/default/images/microsoftvisualstudio_visualstudioplustools_vs-2022-ent-general-win10-m365-gen2", _id)))
  *             .skuName("general_i_8c32gb256ssd_v2")
  *             .build());
  * 

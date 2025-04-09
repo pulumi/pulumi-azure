@@ -258,7 +258,7 @@ import javax.annotation.Nullable;
  *             .targetRecoveryFabricId(secondaryFabric.id())
  *             .targetRecoveryProtectionContainerId(secondaryProtectionContainer.id())
  *             .managedDisks(ReplicatedVMManagedDiskArgs.builder()
- *                 .diskId(vm.storageOsDisk().applyValue(storageOsDisk -> storageOsDisk.managedDiskId()))
+ *                 .diskId(vm.storageOsDisk().applyValue(_storageOsDisk -> _storageOsDisk.managedDiskId()))
  *                 .stagingStorageAccountId(primaryAccount.id())
  *                 .targetResourceGroupId(secondary.id())
  *                 .targetDiskType("Premium_LRS")

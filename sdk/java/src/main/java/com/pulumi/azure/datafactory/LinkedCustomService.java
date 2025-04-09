@@ -80,11 +80,11 @@ import javax.annotation.Nullable;
  *             .dataFactoryId(exampleFactory.id())
  *             .type("AzureBlobStorage")
  *             .description("test description")
- *             .typePropertiesJson(exampleAccount.primaryConnectionString().applyValue(primaryConnectionString -> """
+ *             .typePropertiesJson(exampleAccount.primaryConnectionString().applyValue(_primaryConnectionString -> """
  * {
  *   "connectionString":"%s"
  * }
- * ", primaryConnectionString)))
+ * ", _primaryConnectionString)))
  *             .parameters(Map.ofEntries(
  *                 Map.entry("foo", "bar"),
  *                 Map.entry("Env", "Test")

@@ -55,7 +55,8 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         final var example = CoreFunctions.getSubscription();
+ *         final var example = CoreFunctions.getSubscription(GetSubscriptionArgs.builder()
+ *             .build());
  * 
  *         var exampleResourceGroup = new ResourceGroup("exampleResourceGroup", ResourceGroupArgs.builder()
  *             .name("example-resources")
@@ -77,7 +78,7 @@ import javax.annotation.Nullable;
  * 
  *         var exampleSubscriptionCostManagementExport = new SubscriptionCostManagementExport("exampleSubscriptionCostManagementExport", SubscriptionCostManagementExportArgs.builder()
  *             .name("example")
- *             .subscriptionId(example.applyValue(getSubscriptionResult -> getSubscriptionResult.id()))
+ *             .subscriptionId(example.id())
  *             .recurrenceType("Monthly")
  *             .recurrencePeriodStartDate("2020-08-18T00:00:00Z")
  *             .recurrencePeriodEndDate("2020-09-18T00:00:00Z")
