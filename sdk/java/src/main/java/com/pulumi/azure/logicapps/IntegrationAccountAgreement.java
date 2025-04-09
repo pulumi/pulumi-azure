@@ -41,6 +41,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.logicapps.IntegrationAccountAgreementArgs;
  * import com.pulumi.azure.logicapps.inputs.IntegrationAccountAgreementHostIdentityArgs;
  * import com.pulumi.azure.logicapps.inputs.IntegrationAccountAgreementGuestIdentityArgs;
+ * import com.pulumi.std.StdFunctions;
+ * import com.pulumi.std.inputs.FileArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;

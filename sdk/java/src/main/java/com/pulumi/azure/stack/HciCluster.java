@@ -54,7 +54,7 @@ import javax.annotation.Nullable;
  *             .displayName("Allowed resource types")
  *             .build());
  * 
- *         final var current = CoreFunctions.getClientConfig();
+ *         final var current = CoreFunctions.getClientConfig(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
  * 
  *         var exampleResourceGroup = new ResourceGroup("exampleResourceGroup", ResourceGroupArgs.builder()
  *             .name("example-resources")
@@ -65,8 +65,8 @@ import javax.annotation.Nullable;
  *             .name("example-cluster")
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .location(exampleResourceGroup.location())
- *             .clientId(example.applyValue(getApplicationResult -> getApplicationResult.applicationId()))
- *             .tenantId(current.applyValue(getClientConfigResult -> getClientConfigResult.tenantId()))
+ *             .clientId(example.applicationId())
+ *             .tenantId(current.tenantId())
  *             .identity(HciClusterIdentityArgs.builder()
  *                 .type("SystemAssigned")
  *                 .build())

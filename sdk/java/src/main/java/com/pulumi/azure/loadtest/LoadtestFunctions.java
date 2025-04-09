@@ -48,7 +48,7 @@ public final class LoadtestFunctions {
      *             .name("example-load-test")
      *             .build());
      * 
-     *         ctx.export("loadTestId", example.applyValue(getResult -> getResult.id()));
+     *         ctx.export("loadTestId", example.id());
      *     }
      * }
      * }
@@ -92,7 +92,7 @@ public final class LoadtestFunctions {
      *             .name("example-load-test")
      *             .build());
      * 
-     *         ctx.export("loadTestId", example.applyValue(getResult -> getResult.id()));
+     *         ctx.export("loadTestId", example.id());
      *     }
      * }
      * }
@@ -136,7 +136,7 @@ public final class LoadtestFunctions {
      *             .name("example-load-test")
      *             .build());
      * 
-     *         ctx.export("loadTestId", example.applyValue(getResult -> getResult.id()));
+     *         ctx.export("loadTestId", example.id());
      *     }
      * }
      * }
@@ -180,7 +180,7 @@ public final class LoadtestFunctions {
      *             .name("example-load-test")
      *             .build());
      * 
-     *         ctx.export("loadTestId", example.applyValue(getResult -> getResult.id()));
+     *         ctx.export("loadTestId", example.id());
      *     }
      * }
      * }
@@ -224,7 +224,7 @@ public final class LoadtestFunctions {
      *             .name("example-load-test")
      *             .build());
      * 
-     *         ctx.export("loadTestId", example.applyValue(getResult -> getResult.id()));
+     *         ctx.export("loadTestId", example.id());
      *     }
      * }
      * }

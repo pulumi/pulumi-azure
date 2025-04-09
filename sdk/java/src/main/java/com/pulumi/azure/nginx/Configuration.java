@@ -47,6 +47,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.nginx.Configuration;
  * import com.pulumi.azure.nginx.ConfigurationArgs;
  * import com.pulumi.azure.nginx.inputs.ConfigurationConfigFileArgs;
+ * import com.pulumi.std.StdFunctions;
+ * import com.pulumi.std.inputs.Base64encodeArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;

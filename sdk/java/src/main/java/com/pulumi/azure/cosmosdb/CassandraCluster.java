@@ -86,7 +86,7 @@ import javax.annotation.Nullable;
  *         var exampleAssignment = new Assignment("exampleAssignment", AssignmentArgs.builder()
  *             .scope(exampleVirtualNetwork.id())
  *             .roleDefinitionName("Network Contributor")
- *             .principalId(example.applyValue(getServicePrincipalResult -> getServicePrincipalResult.objectId()))
+ *             .principalId(example.objectId())
  *             .build());
  * 
  *         var exampleCassandraCluster = new CassandraCluster("exampleCassandraCluster", CassandraClusterArgs.builder()

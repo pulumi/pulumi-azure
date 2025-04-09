@@ -63,7 +63,7 @@ import javax.annotation.Nullable;
  *             .resourceGroupName(example.name())
  *             .storageAccountType("Standard_LRS")
  *             .createOption("Empty")
- *             .diskSizeGb("1")
+ *             .diskSizeGb(1)
  *             .build());
  * 
  *         var exampleBackupVault = new BackupVault("exampleBackupVault", BackupVaultArgs.builder()
@@ -80,13 +80,13 @@ import javax.annotation.Nullable;
  *         var example1 = new Assignment("example1", AssignmentArgs.builder()
  *             .scope(example.id())
  *             .roleDefinitionName("Disk Snapshot Contributor")
- *             .principalId(exampleBackupVault.identity().applyValue(identity -> identity.principalId()))
+ *             .principalId(exampleBackupVault.identity().applyValue(_identity -> _identity.principalId()))
  *             .build());
  * 
  *         var example2 = new Assignment("example2", AssignmentArgs.builder()
  *             .scope(exampleManagedDisk.id())
  *             .roleDefinitionName("Disk Backup Reader")
- *             .principalId(exampleBackupVault.identity().applyValue(identity -> identity.principalId()))
+ *             .principalId(exampleBackupVault.identity().applyValue(_identity -> _identity.principalId()))
  *             .build());
  * 
  *         var exampleBackupPolicyDisk = new BackupPolicyDisk("exampleBackupPolicyDisk", BackupPolicyDiskArgs.builder()

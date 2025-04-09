@@ -53,8 +53,8 @@ import javax.annotation.Nullable;
  * 
  *         var exampleTable = new Table("exampleTable", TableArgs.builder()
  *             .name("tfex-cosmos-table")
- *             .resourceGroupName(example.applyValue(getAccountResult -> getAccountResult.resourceGroupName()))
- *             .accountName(example.applyValue(getAccountResult -> getAccountResult.name()))
+ *             .resourceGroupName(example.resourceGroupName())
+ *             .accountName(example.name())
  *             .throughput(400)
  *             .build());
  * 

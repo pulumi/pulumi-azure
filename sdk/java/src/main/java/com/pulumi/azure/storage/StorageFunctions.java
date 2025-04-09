@@ -90,7 +90,7 @@ public final class StorageFunctions {
      *             .resourceGroupName("packer-storage")
      *             .build());
      * 
-     *         ctx.export("storageAccountTier", example.applyValue(getAccountResult -> getAccountResult.accountTier()));
+     *         ctx.export("storageAccountTier", example.accountTier());
      *     }
      * }
      * }
@@ -134,7 +134,7 @@ public final class StorageFunctions {
      *             .resourceGroupName("packer-storage")
      *             .build());
      * 
-     *         ctx.export("storageAccountTier", example.applyValue(getAccountResult -> getAccountResult.accountTier()));
+     *         ctx.export("storageAccountTier", example.accountTier());
      *     }
      * }
      * }
@@ -178,7 +178,7 @@ public final class StorageFunctions {
      *             .resourceGroupName("packer-storage")
      *             .build());
      * 
-     *         ctx.export("storageAccountTier", example.applyValue(getAccountResult -> getAccountResult.accountTier()));
+     *         ctx.export("storageAccountTier", example.accountTier());
      *     }
      * }
      * }
@@ -222,7 +222,7 @@ public final class StorageFunctions {
      *             .resourceGroupName("packer-storage")
      *             .build());
      * 
-     *         ctx.export("storageAccountTier", example.applyValue(getAccountResult -> getAccountResult.accountTier()));
+     *         ctx.export("storageAccountTier", example.accountTier());
      *     }
      * }
      * }
@@ -266,7 +266,7 @@ public final class StorageFunctions {
      *             .resourceGroupName("packer-storage")
      *             .build());
      * 
-     *         ctx.export("storageAccountTier", example.applyValue(getAccountResult -> getAccountResult.accountTier()));
+     *         ctx.export("storageAccountTier", example.accountTier());
      *     }
      * }
      * }
@@ -355,7 +355,7 @@ public final class StorageFunctions {
      *             .contentType("application/json")
      *             .build());
      * 
-     *         ctx.export("sasUrlQueryString", example.applyValue(getAccountBlobContainerSASResult -> getAccountBlobContainerSASResult).applyValue(example -> example.applyValue(getAccountBlobContainerSASResult -> getAccountBlobContainerSASResult.sas())));
+     *         ctx.export("sasUrlQueryString", example.applyValue(_example -> _example.sas()));
      *     }
      * }
      * }
@@ -444,7 +444,7 @@ public final class StorageFunctions {
      *             .contentType("application/json")
      *             .build());
      * 
-     *         ctx.export("sasUrlQueryString", example.applyValue(getAccountBlobContainerSASResult -> getAccountBlobContainerSASResult).applyValue(example -> example.applyValue(getAccountBlobContainerSASResult -> getAccountBlobContainerSASResult.sas())));
+     *         ctx.export("sasUrlQueryString", example.applyValue(_example -> _example.sas()));
      *     }
      * }
      * }
@@ -533,7 +533,7 @@ public final class StorageFunctions {
      *             .contentType("application/json")
      *             .build());
      * 
-     *         ctx.export("sasUrlQueryString", example.applyValue(getAccountBlobContainerSASResult -> getAccountBlobContainerSASResult).applyValue(example -> example.applyValue(getAccountBlobContainerSASResult -> getAccountBlobContainerSASResult.sas())));
+     *         ctx.export("sasUrlQueryString", example.applyValue(_example -> _example.sas()));
      *     }
      * }
      * }
@@ -622,7 +622,7 @@ public final class StorageFunctions {
      *             .contentType("application/json")
      *             .build());
      * 
-     *         ctx.export("sasUrlQueryString", example.applyValue(getAccountBlobContainerSASResult -> getAccountBlobContainerSASResult).applyValue(example -> example.applyValue(getAccountBlobContainerSASResult -> getAccountBlobContainerSASResult.sas())));
+     *         ctx.export("sasUrlQueryString", example.applyValue(_example -> _example.sas()));
      *     }
      * }
      * }
@@ -711,7 +711,7 @@ public final class StorageFunctions {
      *             .contentType("application/json")
      *             .build());
      * 
-     *         ctx.export("sasUrlQueryString", example.applyValue(getAccountBlobContainerSASResult -> getAccountBlobContainerSASResult).applyValue(example -> example.applyValue(getAccountBlobContainerSASResult -> getAccountBlobContainerSASResult.sas())));
+     *         ctx.export("sasUrlQueryString", example.applyValue(_example -> _example.sas()));
      *     }
      * }
      * }
@@ -807,7 +807,7 @@ public final class StorageFunctions {
      *                 .build())
      *             .build());
      * 
-     *         ctx.export("sasUrlQueryString", example.applyValue(getAccountSASResult -> getAccountSASResult).applyValue(example -> example.applyValue(getAccountSASResult -> getAccountSASResult.sas())));
+     *         ctx.export("sasUrlQueryString", example.applyValue(_example -> _example.sas()));
      *     }
      * }
      * }
@@ -903,7 +903,7 @@ public final class StorageFunctions {
      *                 .build())
      *             .build());
      * 
-     *         ctx.export("sasUrlQueryString", example.applyValue(getAccountSASResult -> getAccountSASResult).applyValue(example -> example.applyValue(getAccountSASResult -> getAccountSASResult.sas())));
+     *         ctx.export("sasUrlQueryString", example.applyValue(_example -> _example.sas()));
      *     }
      * }
      * }
@@ -999,7 +999,7 @@ public final class StorageFunctions {
      *                 .build())
      *             .build());
      * 
-     *         ctx.export("sasUrlQueryString", example.applyValue(getAccountSASResult -> getAccountSASResult).applyValue(example -> example.applyValue(getAccountSASResult -> getAccountSASResult.sas())));
+     *         ctx.export("sasUrlQueryString", example.applyValue(_example -> _example.sas()));
      *     }
      * }
      * }
@@ -1095,7 +1095,7 @@ public final class StorageFunctions {
      *                 .build())
      *             .build());
      * 
-     *         ctx.export("sasUrlQueryString", example.applyValue(getAccountSASResult -> getAccountSASResult).applyValue(example -> example.applyValue(getAccountSASResult -> getAccountSASResult.sas())));
+     *         ctx.export("sasUrlQueryString", example.applyValue(_example -> _example.sas()));
      *     }
      * }
      * }
@@ -1191,7 +1191,7 @@ public final class StorageFunctions {
      *                 .build())
      *             .build());
      * 
-     *         ctx.export("sasUrlQueryString", example.applyValue(getAccountSASResult -> getAccountSASResult).applyValue(example -> example.applyValue(getAccountSASResult -> getAccountSASResult.sas())));
+     *         ctx.export("sasUrlQueryString", example.applyValue(_example -> _example.sas()));
      *     }
      * }
      * }
@@ -1454,7 +1454,7 @@ public final class StorageFunctions {
      *             .storageAccountId("/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.Storage/storageAccounts/sa1")
      *             .build());
      * 
-     *         ctx.export("containerId", example.applyValue(getContainersResult -> getContainersResult.containers()[0].resourceManagerId()));
+     *         ctx.export("containerId", example.containers()[0].resourceManagerId());
      *     }
      * }
      * }
@@ -1497,7 +1497,7 @@ public final class StorageFunctions {
      *             .storageAccountId("/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.Storage/storageAccounts/sa1")
      *             .build());
      * 
-     *         ctx.export("containerId", example.applyValue(getContainersResult -> getContainersResult.containers()[0].resourceManagerId()));
+     *         ctx.export("containerId", example.containers()[0].resourceManagerId());
      *     }
      * }
      * }
@@ -1540,7 +1540,7 @@ public final class StorageFunctions {
      *             .storageAccountId("/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.Storage/storageAccounts/sa1")
      *             .build());
      * 
-     *         ctx.export("containerId", example.applyValue(getContainersResult -> getContainersResult.containers()[0].resourceManagerId()));
+     *         ctx.export("containerId", example.containers()[0].resourceManagerId());
      *     }
      * }
      * }
@@ -1583,7 +1583,7 @@ public final class StorageFunctions {
      *             .storageAccountId("/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.Storage/storageAccounts/sa1")
      *             .build());
      * 
-     *         ctx.export("containerId", example.applyValue(getContainersResult -> getContainersResult.containers()[0].resourceManagerId()));
+     *         ctx.export("containerId", example.containers()[0].resourceManagerId());
      *     }
      * }
      * }
@@ -1626,7 +1626,7 @@ public final class StorageFunctions {
      *             .storageAccountId("/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.Storage/storageAccounts/sa1")
      *             .build());
      * 
-     *         ctx.export("containerId", example.applyValue(getContainersResult -> getContainersResult.containers()[0].resourceManagerId()));
+     *         ctx.export("containerId", example.containers()[0].resourceManagerId());
      *     }
      * }
      * }
@@ -1673,10 +1673,10 @@ public final class StorageFunctions {
      * 
      *         final var exampleGetEncryptionScope = StorageFunctions.getEncryptionScope(GetEncryptionScopeArgs.builder()
      *             .name("existingStorageES")
-     *             .storageAccountId(example.applyValue(getAccountResult -> getAccountResult.id()))
+     *             .storageAccountId(example.id())
      *             .build());
      * 
-     *         ctx.export("id", exampleGetEncryptionScope.applyValue(getEncryptionScopeResult -> getEncryptionScopeResult.id()));
+     *         ctx.export("id", exampleGetEncryptionScope.id());
      *     }
      * }
      * }
@@ -1723,10 +1723,10 @@ public final class StorageFunctions {
      * 
      *         final var exampleGetEncryptionScope = StorageFunctions.getEncryptionScope(GetEncryptionScopeArgs.builder()
      *             .name("existingStorageES")
-     *             .storageAccountId(example.applyValue(getAccountResult -> getAccountResult.id()))
+     *             .storageAccountId(example.id())
      *             .build());
      * 
-     *         ctx.export("id", exampleGetEncryptionScope.applyValue(getEncryptionScopeResult -> getEncryptionScopeResult.id()));
+     *         ctx.export("id", exampleGetEncryptionScope.id());
      *     }
      * }
      * }
@@ -1773,10 +1773,10 @@ public final class StorageFunctions {
      * 
      *         final var exampleGetEncryptionScope = StorageFunctions.getEncryptionScope(GetEncryptionScopeArgs.builder()
      *             .name("existingStorageES")
-     *             .storageAccountId(example.applyValue(getAccountResult -> getAccountResult.id()))
+     *             .storageAccountId(example.id())
      *             .build());
      * 
-     *         ctx.export("id", exampleGetEncryptionScope.applyValue(getEncryptionScopeResult -> getEncryptionScopeResult.id()));
+     *         ctx.export("id", exampleGetEncryptionScope.id());
      *     }
      * }
      * }
@@ -1823,10 +1823,10 @@ public final class StorageFunctions {
      * 
      *         final var exampleGetEncryptionScope = StorageFunctions.getEncryptionScope(GetEncryptionScopeArgs.builder()
      *             .name("existingStorageES")
-     *             .storageAccountId(example.applyValue(getAccountResult -> getAccountResult.id()))
+     *             .storageAccountId(example.id())
      *             .build());
      * 
-     *         ctx.export("id", exampleGetEncryptionScope.applyValue(getEncryptionScopeResult -> getEncryptionScopeResult.id()));
+     *         ctx.export("id", exampleGetEncryptionScope.id());
      *     }
      * }
      * }
@@ -1873,10 +1873,10 @@ public final class StorageFunctions {
      * 
      *         final var exampleGetEncryptionScope = StorageFunctions.getEncryptionScope(GetEncryptionScopeArgs.builder()
      *             .name("existingStorageES")
-     *             .storageAccountId(example.applyValue(getAccountResult -> getAccountResult.id()))
+     *             .storageAccountId(example.id())
      *             .build());
      * 
-     *         ctx.export("id", exampleGetEncryptionScope.applyValue(getEncryptionScopeResult -> getEncryptionScopeResult.id()));
+     *         ctx.export("id", exampleGetEncryptionScope.id());
      *     }
      * }
      * }
@@ -1922,7 +1922,7 @@ public final class StorageFunctions {
      *             .build());
      * 
      *         final var exampleGetPolicy = StorageFunctions.getPolicy(GetPolicyArgs.builder()
-     *             .storageAccountId(example.applyValue(getAccountResult -> getAccountResult.id()))
+     *             .storageAccountId(example.id())
      *             .build());
      * 
      *     }
@@ -1970,7 +1970,7 @@ public final class StorageFunctions {
      *             .build());
      * 
      *         final var exampleGetPolicy = StorageFunctions.getPolicy(GetPolicyArgs.builder()
-     *             .storageAccountId(example.applyValue(getAccountResult -> getAccountResult.id()))
+     *             .storageAccountId(example.id())
      *             .build());
      * 
      *     }
@@ -2018,7 +2018,7 @@ public final class StorageFunctions {
      *             .build());
      * 
      *         final var exampleGetPolicy = StorageFunctions.getPolicy(GetPolicyArgs.builder()
-     *             .storageAccountId(example.applyValue(getAccountResult -> getAccountResult.id()))
+     *             .storageAccountId(example.id())
      *             .build());
      * 
      *     }
@@ -2066,7 +2066,7 @@ public final class StorageFunctions {
      *             .build());
      * 
      *         final var exampleGetPolicy = StorageFunctions.getPolicy(GetPolicyArgs.builder()
-     *             .storageAccountId(example.applyValue(getAccountResult -> getAccountResult.id()))
+     *             .storageAccountId(example.id())
      *             .build());
      * 
      *     }
@@ -2114,7 +2114,7 @@ public final class StorageFunctions {
      *             .build());
      * 
      *         final var exampleGetPolicy = StorageFunctions.getPolicy(GetPolicyArgs.builder()
-     *             .storageAccountId(example.applyValue(getAccountResult -> getAccountResult.id()))
+     *             .storageAccountId(example.id())
      *             .build());
      * 
      *     }
@@ -2380,7 +2380,7 @@ public final class StorageFunctions {
      * 
      *         final var exampleGetShare = StorageFunctions.getShare(GetShareArgs.builder()
      *             .name("existing")
-     *             .storageAccountId(example.applyValue(getAccountResult -> getAccountResult.id()))
+     *             .storageAccountId(example.id())
      *             .build());
      * 
      *     }
@@ -2431,7 +2431,7 @@ public final class StorageFunctions {
      * 
      *         final var exampleGetShare = StorageFunctions.getShare(GetShareArgs.builder()
      *             .name("existing")
-     *             .storageAccountId(example.applyValue(getAccountResult -> getAccountResult.id()))
+     *             .storageAccountId(example.id())
      *             .build());
      * 
      *     }
@@ -2482,7 +2482,7 @@ public final class StorageFunctions {
      * 
      *         final var exampleGetShare = StorageFunctions.getShare(GetShareArgs.builder()
      *             .name("existing")
-     *             .storageAccountId(example.applyValue(getAccountResult -> getAccountResult.id()))
+     *             .storageAccountId(example.id())
      *             .build());
      * 
      *     }
@@ -2533,7 +2533,7 @@ public final class StorageFunctions {
      * 
      *         final var exampleGetShare = StorageFunctions.getShare(GetShareArgs.builder()
      *             .name("existing")
-     *             .storageAccountId(example.applyValue(getAccountResult -> getAccountResult.id()))
+     *             .storageAccountId(example.id())
      *             .build());
      * 
      *     }
@@ -2584,7 +2584,7 @@ public final class StorageFunctions {
      * 
      *         final var exampleGetShare = StorageFunctions.getShare(GetShareArgs.builder()
      *             .name("existing")
-     *             .storageAccountId(example.applyValue(getAccountResult -> getAccountResult.id()))
+     *             .storageAccountId(example.id())
      *             .build());
      * 
      *     }
@@ -2633,7 +2633,7 @@ public final class StorageFunctions {
      * 
      *         final var exampleGetStorageContainer = StorageFunctions.getStorageContainer(GetStorageContainerArgs.builder()
      *             .name("example-container-name")
-     *             .storageAccountId(example.applyValue(getAccountResult -> getAccountResult.id()))
+     *             .storageAccountId(example.id())
      *             .build());
      * 
      *     }
@@ -2682,7 +2682,7 @@ public final class StorageFunctions {
      * 
      *         final var exampleGetStorageContainer = StorageFunctions.getStorageContainer(GetStorageContainerArgs.builder()
      *             .name("example-container-name")
-     *             .storageAccountId(example.applyValue(getAccountResult -> getAccountResult.id()))
+     *             .storageAccountId(example.id())
      *             .build());
      * 
      *     }
@@ -2731,7 +2731,7 @@ public final class StorageFunctions {
      * 
      *         final var exampleGetStorageContainer = StorageFunctions.getStorageContainer(GetStorageContainerArgs.builder()
      *             .name("example-container-name")
-     *             .storageAccountId(example.applyValue(getAccountResult -> getAccountResult.id()))
+     *             .storageAccountId(example.id())
      *             .build());
      * 
      *     }
@@ -2780,7 +2780,7 @@ public final class StorageFunctions {
      * 
      *         final var exampleGetStorageContainer = StorageFunctions.getStorageContainer(GetStorageContainerArgs.builder()
      *             .name("example-container-name")
-     *             .storageAccountId(example.applyValue(getAccountResult -> getAccountResult.id()))
+     *             .storageAccountId(example.id())
      *             .build());
      * 
      *     }
@@ -2829,7 +2829,7 @@ public final class StorageFunctions {
      * 
      *         final var exampleGetStorageContainer = StorageFunctions.getStorageContainer(GetStorageContainerArgs.builder()
      *             .name("example-container-name")
-     *             .storageAccountId(example.applyValue(getAccountResult -> getAccountResult.id()))
+     *             .storageAccountId(example.id())
      *             .build());
      * 
      *     }
@@ -2875,7 +2875,7 @@ public final class StorageFunctions {
      *             .resourceGroupName("existingResGroup")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getSyncResult -> getSyncResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -2919,7 +2919,7 @@ public final class StorageFunctions {
      *             .resourceGroupName("existingResGroup")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getSyncResult -> getSyncResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -2963,7 +2963,7 @@ public final class StorageFunctions {
      *             .resourceGroupName("existingResGroup")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getSyncResult -> getSyncResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -3007,7 +3007,7 @@ public final class StorageFunctions {
      *             .resourceGroupName("existingResGroup")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getSyncResult -> getSyncResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -3051,7 +3051,7 @@ public final class StorageFunctions {
      *             .resourceGroupName("existingResGroup")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getSyncResult -> getSyncResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -3095,7 +3095,7 @@ public final class StorageFunctions {
      *             .storageSyncId("existing-ss-id")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getSyncGroupResult -> getSyncGroupResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -3139,7 +3139,7 @@ public final class StorageFunctions {
      *             .storageSyncId("existing-ss-id")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getSyncGroupResult -> getSyncGroupResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -3183,7 +3183,7 @@ public final class StorageFunctions {
      *             .storageSyncId("existing-ss-id")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getSyncGroupResult -> getSyncGroupResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -3227,7 +3227,7 @@ public final class StorageFunctions {
      *             .storageSyncId("existing-ss-id")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getSyncGroupResult -> getSyncGroupResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -3271,7 +3271,7 @@ public final class StorageFunctions {
      *             .storageSyncId("existing-ss-id")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getSyncGroupResult -> getSyncGroupResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }

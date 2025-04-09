@@ -45,14 +45,15 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         final var current = CoreFunctions.getClientConfig();
+ *         final var current = CoreFunctions.getClientConfig(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
  * 
- *         final var example = AdvisorFunctions.getRecommendations();
+ *         final var example = AdvisorFunctions.getRecommendations(GetRecommendationsArgs.builder()
+ *             .build());
  * 
  *         var exampleSuppression = new Suppression("exampleSuppression", SuppressionArgs.builder()
  *             .name("HardcodedSuppressionName")
  *             .recommendationId(test.recommendations()[0].recommendationName())
- *             .resourceId(String.format("/subscriptions/%s", current.applyValue(getClientConfigResult -> getClientConfigResult.subscriptionId())))
+ *             .resourceId(String.format("/subscriptions/%s", current.subscriptionId()))
  *             .ttl("01:00:00:00")
  *             .build());
  * 

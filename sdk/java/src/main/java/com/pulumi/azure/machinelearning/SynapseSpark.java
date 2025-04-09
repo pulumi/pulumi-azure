@@ -39,14 +39,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.keyvault.KeyVaultArgs;
  * import com.pulumi.azure.storage.Account;
  * import com.pulumi.azure.storage.AccountArgs;
- * import com.pulumi.azure.machinelearning.Workspace;
- * import com.pulumi.azure.machinelearning.WorkspaceArgs;
- * import com.pulumi.azure.machinelearning.inputs.WorkspaceIdentityArgs;
  * import com.pulumi.azure.storage.DataLakeGen2Filesystem;
  * import com.pulumi.azure.storage.DataLakeGen2FilesystemArgs;
- * import com.pulumi.azure.synapse.Workspace;
- * import com.pulumi.azure.synapse.WorkspaceArgs;
- * import com.pulumi.azure.synapse.inputs.WorkspaceIdentityArgs;
  * import com.pulumi.azure.synapse.SparkPool;
  * import com.pulumi.azure.synapse.SparkPoolArgs;
  * import com.pulumi.azure.machinelearning.SynapseSpark;
@@ -65,7 +59,7 @@ import javax.annotation.Nullable;
  *     }}{@code
  * 
  *     public static void stack(Context ctx) }{{@code
- *         final var current = CoreFunctions.getClientConfig();
+ *         final var current = CoreFunctions.getClientConfig(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
  * 
  *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example-rg")
@@ -84,7 +78,7 @@ import javax.annotation.Nullable;
  *             .name("example-kv")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .tenantId(current.applyValue(getClientConfigResult -> getClientConfigResult.tenantId()))
+ *             .tenantId(current.tenantId())
  *             .skuName("standard")
  *             .purgeProtectionEnabled(true)
  *             .build());
@@ -97,7 +91,7 @@ import javax.annotation.Nullable;
  *             .accountReplicationType("LRS")
  *             .build());
  * 
- *         var exampleWorkspace = new Workspace("exampleWorkspace", WorkspaceArgs.builder()
+ *         var exampleWorkspace = new com.pulumi.azure.machinelearning.Workspace("exampleWorkspace", com.pulumi.azure.machinelearning.WorkspaceArgs.builder()
  *             .name("example-mlw")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
@@ -114,7 +108,7 @@ import javax.annotation.Nullable;
  *             .storageAccountId(exampleAccount.id())
  *             .build());
  * 
- *         var exampleWorkspace2 = new Workspace("exampleWorkspace2", WorkspaceArgs.builder()
+ *         var exampleWorkspace2 = new com.pulumi.azure.synapse.Workspace("exampleWorkspace2", com.pulumi.azure.synapse.WorkspaceArgs.builder()
  *             .name("example")
  *             .resourceGroupName(example.name())
  *             .location(example.location())

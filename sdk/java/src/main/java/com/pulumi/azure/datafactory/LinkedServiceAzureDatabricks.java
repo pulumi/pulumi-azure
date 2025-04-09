@@ -84,7 +84,7 @@ import javax.annotation.Nullable;
  *             .name("ADBLinkedServiceViaMSI")
  *             .dataFactoryId(exampleFactory.id())
  *             .description("ADB Linked Service via MSI")
- *             .adbDomain(exampleWorkspace.workspaceUrl().applyValue(workspaceUrl -> String.format("https://%s", workspaceUrl)))
+ *             .adbDomain(exampleWorkspace.workspaceUrl().applyValue(_workspaceUrl -> String.format("https://%s", _workspaceUrl)))
  *             .msiWorkSpaceResourceId(exampleWorkspace.id())
  *             .newClusterConfig(LinkedServiceAzureDatabricksNewClusterConfigArgs.builder()
  *                 .nodeType("Standard_NC12")
@@ -174,7 +174,7 @@ import javax.annotation.Nullable;
  *             .description("ADB Linked Service via Access Token")
  *             .existingClusterId("0308-201146-sly615")
  *             .accessToken("SomeDatabricksAccessToken")
- *             .adbDomain(exampleWorkspace.workspaceUrl().applyValue(workspaceUrl -> String.format("https://%s", workspaceUrl)))
+ *             .adbDomain(exampleWorkspace.workspaceUrl().applyValue(_workspaceUrl -> String.format("https://%s", _workspaceUrl)))
  *             .build());
  * 
  *     }

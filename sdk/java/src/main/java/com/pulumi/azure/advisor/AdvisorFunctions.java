@@ -50,7 +50,7 @@ public final class AdvisorFunctions {
      *             .filterByResourceGroups("example-resgroups")
      *             .build());
      * 
-     *         ctx.export("recommendations", example.applyValue(getRecommendationsResult -> getRecommendationsResult.recommendations()));
+     *         ctx.export("recommendations", example.recommendations());
      *     }
      * }
      * }
@@ -96,7 +96,7 @@ public final class AdvisorFunctions {
      *             .filterByResourceGroups("example-resgroups")
      *             .build());
      * 
-     *         ctx.export("recommendations", example.applyValue(getRecommendationsResult -> getRecommendationsResult.recommendations()));
+     *         ctx.export("recommendations", example.recommendations());
      *     }
      * }
      * }
@@ -142,7 +142,7 @@ public final class AdvisorFunctions {
      *             .filterByResourceGroups("example-resgroups")
      *             .build());
      * 
-     *         ctx.export("recommendations", example.applyValue(getRecommendationsResult -> getRecommendationsResult.recommendations()));
+     *         ctx.export("recommendations", example.recommendations());
      *     }
      * }
      * }
@@ -188,7 +188,7 @@ public final class AdvisorFunctions {
      *             .filterByResourceGroups("example-resgroups")
      *             .build());
      * 
-     *         ctx.export("recommendations", example.applyValue(getRecommendationsResult -> getRecommendationsResult.recommendations()));
+     *         ctx.export("recommendations", example.recommendations());
      *     }
      * }
      * }
@@ -234,7 +234,7 @@ public final class AdvisorFunctions {
      *             .filterByResourceGroups("example-resgroups")
      *             .build());
      * 
-     *         ctx.export("recommendations", example.applyValue(getRecommendationsResult -> getRecommendationsResult.recommendations()));
+     *         ctx.export("recommendations", example.recommendations());
      *     }
      * }
      * }
@@ -280,7 +280,7 @@ public final class AdvisorFunctions {
      *             .filterByResourceGroups("example-resgroups")
      *             .build());
      * 
-     *         ctx.export("recommendations", example.applyValue(getRecommendationsResult -> getRecommendationsResult.recommendations()));
+     *         ctx.export("recommendations", example.recommendations());
      *     }
      * }
      * }
@@ -326,7 +326,7 @@ public final class AdvisorFunctions {
      *             .filterByResourceGroups("example-resgroups")
      *             .build());
      * 
-     *         ctx.export("recommendations", example.applyValue(getRecommendationsResult -> getRecommendationsResult.recommendations()));
+     *         ctx.export("recommendations", example.recommendations());
      *     }
      * }
      * }

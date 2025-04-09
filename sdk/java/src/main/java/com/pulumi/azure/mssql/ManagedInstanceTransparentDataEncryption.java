@@ -158,7 +158,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         final var current = CoreFunctions.getClientConfig();
+ *         final var current = CoreFunctions.getClientConfig(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
  * 
  *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example-resources")
@@ -211,14 +211,14 @@ import javax.annotation.Nullable;
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .enabledForDiskEncryption(true)
- *             .tenantId(current.applyValue(getClientConfigResult -> getClientConfigResult.tenantId()))
+ *             .tenantId(current.tenantId())
  *             .softDeleteRetentionDays(7)
  *             .purgeProtectionEnabled(false)
  *             .skuName("standard")
  *             .accessPolicies(            
  *                 KeyVaultAccessPolicyArgs.builder()
- *                     .tenantId(current.applyValue(getClientConfigResult -> getClientConfigResult.tenantId()))
- *                     .objectId(current.applyValue(getClientConfigResult -> getClientConfigResult.objectId()))
+ *                     .tenantId(current.tenantId())
+ *                     .objectId(current.objectId())
  *                     .keyPermissions(                    
  *                         "Get",
  *                         "List",
@@ -230,8 +230,8 @@ import javax.annotation.Nullable;
  *                         "GetRotationPolicy")
  *                     .build(),
  *                 KeyVaultAccessPolicyArgs.builder()
- *                     .tenantId(exampleManagedInstance.identity().applyValue(identity -> identity.tenantId()))
- *                     .objectId(exampleManagedInstance.identity().applyValue(identity -> identity.principalId()))
+ *                     .tenantId(exampleManagedInstance.identity().applyValue(_identity -> _identity.tenantId()))
+ *                     .objectId(exampleManagedInstance.identity().applyValue(_identity -> _identity.principalId()))
  *                     .keyPermissions(                    
  *                         "Get",
  *                         "WrapKey",

@@ -51,9 +51,9 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleProductPolicy = new ProductPolicy("exampleProductPolicy", ProductPolicyArgs.builder()
- *             .productId(example.applyValue(getProductResult -> getProductResult.productId()))
- *             .apiManagementName(example.applyValue(getProductResult -> getProductResult.apiManagementName()))
- *             .resourceGroupName(example.applyValue(getProductResult -> getProductResult.resourceGroupName()))
+ *             .productId(example.productId())
+ *             .apiManagementName(example.apiManagementName())
+ *             .resourceGroupName(example.resourceGroupName())
  *             .xmlContent("""
  * <policies>
  *   <inbound>

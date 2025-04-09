@@ -54,7 +54,7 @@ public final class LogicappsFunctions {
      *             .resourceGroupName("example-resource-group")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getIntegrationAccountResult -> getIntegrationAccountResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -98,7 +98,7 @@ public final class LogicappsFunctions {
      *             .resourceGroupName("example-resource-group")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getIntegrationAccountResult -> getIntegrationAccountResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -142,7 +142,7 @@ public final class LogicappsFunctions {
      *             .resourceGroupName("example-resource-group")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getIntegrationAccountResult -> getIntegrationAccountResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -186,7 +186,7 @@ public final class LogicappsFunctions {
      *             .resourceGroupName("example-resource-group")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getIntegrationAccountResult -> getIntegrationAccountResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -230,7 +230,7 @@ public final class LogicappsFunctions {
      *             .resourceGroupName("example-resource-group")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getIntegrationAccountResult -> getIntegrationAccountResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -274,7 +274,7 @@ public final class LogicappsFunctions {
      *             .resourceGroupName("example-rg")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getStandardResult -> getStandardResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -318,7 +318,7 @@ public final class LogicappsFunctions {
      *             .resourceGroupName("example-rg")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getStandardResult -> getStandardResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -362,7 +362,7 @@ public final class LogicappsFunctions {
      *             .resourceGroupName("example-rg")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getStandardResult -> getStandardResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -406,7 +406,7 @@ public final class LogicappsFunctions {
      *             .resourceGroupName("example-rg")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getStandardResult -> getStandardResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -450,7 +450,7 @@ public final class LogicappsFunctions {
      *             .resourceGroupName("example-rg")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getStandardResult -> getStandardResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -494,7 +494,7 @@ public final class LogicappsFunctions {
      *             .resourceGroupName("my-resource-group")
      *             .build());
      * 
-     *         ctx.export("accessEndpoint", example.applyValue(getWorkflowResult -> getWorkflowResult.accessEndpoint()));
+     *         ctx.export("accessEndpoint", example.accessEndpoint());
      *     }
      * }
      * }
@@ -538,7 +538,7 @@ public final class LogicappsFunctions {
      *             .resourceGroupName("my-resource-group")
      *             .build());
      * 
-     *         ctx.export("accessEndpoint", example.applyValue(getWorkflowResult -> getWorkflowResult.accessEndpoint()));
+     *         ctx.export("accessEndpoint", example.accessEndpoint());
      *     }
      * }
      * }
@@ -582,7 +582,7 @@ public final class LogicappsFunctions {
      *             .resourceGroupName("my-resource-group")
      *             .build());
      * 
-     *         ctx.export("accessEndpoint", example.applyValue(getWorkflowResult -> getWorkflowResult.accessEndpoint()));
+     *         ctx.export("accessEndpoint", example.accessEndpoint());
      *     }
      * }
      * }
@@ -626,7 +626,7 @@ public final class LogicappsFunctions {
      *             .resourceGroupName("my-resource-group")
      *             .build());
      * 
-     *         ctx.export("accessEndpoint", example.applyValue(getWorkflowResult -> getWorkflowResult.accessEndpoint()));
+     *         ctx.export("accessEndpoint", example.accessEndpoint());
      *     }
      * }
      * }
@@ -670,7 +670,7 @@ public final class LogicappsFunctions {
      *             .resourceGroupName("my-resource-group")
      *             .build());
      * 
-     *         ctx.export("accessEndpoint", example.applyValue(getWorkflowResult -> getWorkflowResult.accessEndpoint()));
+     *         ctx.export("accessEndpoint", example.accessEndpoint());
      *     }
      * }
      * }

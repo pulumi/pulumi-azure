@@ -52,7 +52,7 @@ import javax.annotation.Nullable;
  * 
  *         var exampleSubscription = new Subscription("exampleSubscription", SubscriptionArgs.builder()
  *             .subscriptionName("My Example EA Subscription")
- *             .billingScopeId(example.applyValue(getEnrollmentAccountScopeResult -> getEnrollmentAccountScopeResult.id()))
+ *             .billingScopeId(example.id())
  *             .build());
  * 
  *     }
@@ -96,7 +96,7 @@ import javax.annotation.Nullable;
  * 
  *         var exampleSubscription = new Subscription("exampleSubscription", SubscriptionArgs.builder()
  *             .subscriptionName("My Example MCA Subscription")
- *             .billingScopeId(example.applyValue(getMcaAccountScopeResult -> getMcaAccountScopeResult.id()))
+ *             .billingScopeId(example.id())
  *             .build());
  * 
  *     }
@@ -139,7 +139,7 @@ import javax.annotation.Nullable;
  * 
  *         var exampleSubscription = new Subscription("exampleSubscription", SubscriptionArgs.builder()
  *             .subscriptionName("My Example MPA Subscription")
- *             .billingScopeId(example.applyValue(getMpaAccountScopeResult -> getMpaAccountScopeResult.id()))
+ *             .billingScopeId(example.id())
  *             .build());
  * 
  *     }

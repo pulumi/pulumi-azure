@@ -83,7 +83,7 @@ public final class KeyvaultFunctions {
      *             .name("Key Management")
      *             .build());
      * 
-     *         ctx.export("accessPolicyKeyPermissions", contributor.applyValue(getAccessPolicyResult -> getAccessPolicyResult.keyPermissions()));
+     *         ctx.export("accessPolicyKeyPermissions", contributor.keyPermissions());
      *     }
      * }
      * }
@@ -126,7 +126,7 @@ public final class KeyvaultFunctions {
      *             .name("Key Management")
      *             .build());
      * 
-     *         ctx.export("accessPolicyKeyPermissions", contributor.applyValue(getAccessPolicyResult -> getAccessPolicyResult.keyPermissions()));
+     *         ctx.export("accessPolicyKeyPermissions", contributor.keyPermissions());
      *     }
      * }
      * }
@@ -169,7 +169,7 @@ public final class KeyvaultFunctions {
      *             .name("Key Management")
      *             .build());
      * 
-     *         ctx.export("accessPolicyKeyPermissions", contributor.applyValue(getAccessPolicyResult -> getAccessPolicyResult.keyPermissions()));
+     *         ctx.export("accessPolicyKeyPermissions", contributor.keyPermissions());
      *     }
      * }
      * }
@@ -212,7 +212,7 @@ public final class KeyvaultFunctions {
      *             .name("Key Management")
      *             .build());
      * 
-     *         ctx.export("accessPolicyKeyPermissions", contributor.applyValue(getAccessPolicyResult -> getAccessPolicyResult.keyPermissions()));
+     *         ctx.export("accessPolicyKeyPermissions", contributor.keyPermissions());
      *     }
      * }
      * }
@@ -255,7 +255,7 @@ public final class KeyvaultFunctions {
      *             .name("Key Management")
      *             .build());
      * 
-     *         ctx.export("accessPolicyKeyPermissions", contributor.applyValue(getAccessPolicyResult -> getAccessPolicyResult.keyPermissions()));
+     *         ctx.export("accessPolicyKeyPermissions", contributor.keyPermissions());
      *     }
      * }
      * }
@@ -302,10 +302,10 @@ public final class KeyvaultFunctions {
      * 
      *         final var exampleGetCertificate = KeyvaultFunctions.getCertificate(GetCertificateArgs.builder()
      *             .name("secret-sauce")
-     *             .keyVaultId(example.applyValue(getKeyVaultResult -> getKeyVaultResult.id()))
+     *             .keyVaultId(example.id())
      *             .build());
      * 
-     *         ctx.export("certificateThumbprint", exampleGetCertificate.applyValue(getCertificateResult -> getCertificateResult.thumbprint()));
+     *         ctx.export("certificateThumbprint", exampleGetCertificate.thumbprint());
      *     }
      * }
      * }
@@ -352,10 +352,10 @@ public final class KeyvaultFunctions {
      * 
      *         final var exampleGetCertificate = KeyvaultFunctions.getCertificate(GetCertificateArgs.builder()
      *             .name("secret-sauce")
-     *             .keyVaultId(example.applyValue(getKeyVaultResult -> getKeyVaultResult.id()))
+     *             .keyVaultId(example.id())
      *             .build());
      * 
-     *         ctx.export("certificateThumbprint", exampleGetCertificate.applyValue(getCertificateResult -> getCertificateResult.thumbprint()));
+     *         ctx.export("certificateThumbprint", exampleGetCertificate.thumbprint());
      *     }
      * }
      * }
@@ -402,10 +402,10 @@ public final class KeyvaultFunctions {
      * 
      *         final var exampleGetCertificate = KeyvaultFunctions.getCertificate(GetCertificateArgs.builder()
      *             .name("secret-sauce")
-     *             .keyVaultId(example.applyValue(getKeyVaultResult -> getKeyVaultResult.id()))
+     *             .keyVaultId(example.id())
      *             .build());
      * 
-     *         ctx.export("certificateThumbprint", exampleGetCertificate.applyValue(getCertificateResult -> getCertificateResult.thumbprint()));
+     *         ctx.export("certificateThumbprint", exampleGetCertificate.thumbprint());
      *     }
      * }
      * }
@@ -452,10 +452,10 @@ public final class KeyvaultFunctions {
      * 
      *         final var exampleGetCertificate = KeyvaultFunctions.getCertificate(GetCertificateArgs.builder()
      *             .name("secret-sauce")
-     *             .keyVaultId(example.applyValue(getKeyVaultResult -> getKeyVaultResult.id()))
+     *             .keyVaultId(example.id())
      *             .build());
      * 
-     *         ctx.export("certificateThumbprint", exampleGetCertificate.applyValue(getCertificateResult -> getCertificateResult.thumbprint()));
+     *         ctx.export("certificateThumbprint", exampleGetCertificate.thumbprint());
      *     }
      * }
      * }
@@ -502,10 +502,10 @@ public final class KeyvaultFunctions {
      * 
      *         final var exampleGetCertificate = KeyvaultFunctions.getCertificate(GetCertificateArgs.builder()
      *             .name("secret-sauce")
-     *             .keyVaultId(example.applyValue(getKeyVaultResult -> getKeyVaultResult.id()))
+     *             .keyVaultId(example.id())
      *             .build());
      * 
-     *         ctx.export("certificateThumbprint", exampleGetCertificate.applyValue(getCertificateResult -> getCertificateResult.thumbprint()));
+     *         ctx.export("certificateThumbprint", exampleGetCertificate.thumbprint());
      *     }
      * }
      * }
@@ -554,10 +554,10 @@ public final class KeyvaultFunctions {
      * 
      *         final var exampleGetCertificateData = KeyvaultFunctions.getCertificateData(GetCertificateDataArgs.builder()
      *             .name("secret-sauce")
-     *             .keyVaultId(example.applyValue(getKeyVaultResult -> getKeyVaultResult.id()))
+     *             .keyVaultId(example.id())
      *             .build());
      * 
-     *         ctx.export("examplePem", exampleGetCertificateData.applyValue(getCertificateDataResult -> getCertificateDataResult.pem()));
+     *         ctx.export("examplePem", exampleGetCertificateData.pem());
      *     }
      * }
      * }
@@ -606,10 +606,10 @@ public final class KeyvaultFunctions {
      * 
      *         final var exampleGetCertificateData = KeyvaultFunctions.getCertificateData(GetCertificateDataArgs.builder()
      *             .name("secret-sauce")
-     *             .keyVaultId(example.applyValue(getKeyVaultResult -> getKeyVaultResult.id()))
+     *             .keyVaultId(example.id())
      *             .build());
      * 
-     *         ctx.export("examplePem", exampleGetCertificateData.applyValue(getCertificateDataResult -> getCertificateDataResult.pem()));
+     *         ctx.export("examplePem", exampleGetCertificateData.pem());
      *     }
      * }
      * }
@@ -658,10 +658,10 @@ public final class KeyvaultFunctions {
      * 
      *         final var exampleGetCertificateData = KeyvaultFunctions.getCertificateData(GetCertificateDataArgs.builder()
      *             .name("secret-sauce")
-     *             .keyVaultId(example.applyValue(getKeyVaultResult -> getKeyVaultResult.id()))
+     *             .keyVaultId(example.id())
      *             .build());
      * 
-     *         ctx.export("examplePem", exampleGetCertificateData.applyValue(getCertificateDataResult -> getCertificateDataResult.pem()));
+     *         ctx.export("examplePem", exampleGetCertificateData.pem());
      *     }
      * }
      * }
@@ -710,10 +710,10 @@ public final class KeyvaultFunctions {
      * 
      *         final var exampleGetCertificateData = KeyvaultFunctions.getCertificateData(GetCertificateDataArgs.builder()
      *             .name("secret-sauce")
-     *             .keyVaultId(example.applyValue(getKeyVaultResult -> getKeyVaultResult.id()))
+     *             .keyVaultId(example.id())
      *             .build());
      * 
-     *         ctx.export("examplePem", exampleGetCertificateData.applyValue(getCertificateDataResult -> getCertificateDataResult.pem()));
+     *         ctx.export("examplePem", exampleGetCertificateData.pem());
      *     }
      * }
      * }
@@ -762,10 +762,10 @@ public final class KeyvaultFunctions {
      * 
      *         final var exampleGetCertificateData = KeyvaultFunctions.getCertificateData(GetCertificateDataArgs.builder()
      *             .name("secret-sauce")
-     *             .keyVaultId(example.applyValue(getKeyVaultResult -> getKeyVaultResult.id()))
+     *             .keyVaultId(example.id())
      *             .build());
      * 
-     *         ctx.export("examplePem", exampleGetCertificateData.applyValue(getCertificateDataResult -> getCertificateDataResult.pem()));
+     *         ctx.export("examplePem", exampleGetCertificateData.pem());
      *     }
      * }
      * }
@@ -812,10 +812,10 @@ public final class KeyvaultFunctions {
      * 
      *         final var exampleGetCertificateIssuer = KeyvaultFunctions.getCertificateIssuer(GetCertificateIssuerArgs.builder()
      *             .name("existing")
-     *             .keyVaultId(example.applyValue(getKeyVaultResult -> getKeyVaultResult.id()))
+     *             .keyVaultId(example.id())
      *             .build());
      * 
-     *         ctx.export("id", exampleGetCertificateIssuer.applyValue(getCertificateIssuerResult -> getCertificateIssuerResult.id()));
+     *         ctx.export("id", exampleGetCertificateIssuer.id());
      *     }
      * }
      * }
@@ -862,10 +862,10 @@ public final class KeyvaultFunctions {
      * 
      *         final var exampleGetCertificateIssuer = KeyvaultFunctions.getCertificateIssuer(GetCertificateIssuerArgs.builder()
      *             .name("existing")
-     *             .keyVaultId(example.applyValue(getKeyVaultResult -> getKeyVaultResult.id()))
+     *             .keyVaultId(example.id())
      *             .build());
      * 
-     *         ctx.export("id", exampleGetCertificateIssuer.applyValue(getCertificateIssuerResult -> getCertificateIssuerResult.id()));
+     *         ctx.export("id", exampleGetCertificateIssuer.id());
      *     }
      * }
      * }
@@ -912,10 +912,10 @@ public final class KeyvaultFunctions {
      * 
      *         final var exampleGetCertificateIssuer = KeyvaultFunctions.getCertificateIssuer(GetCertificateIssuerArgs.builder()
      *             .name("existing")
-     *             .keyVaultId(example.applyValue(getKeyVaultResult -> getKeyVaultResult.id()))
+     *             .keyVaultId(example.id())
      *             .build());
      * 
-     *         ctx.export("id", exampleGetCertificateIssuer.applyValue(getCertificateIssuerResult -> getCertificateIssuerResult.id()));
+     *         ctx.export("id", exampleGetCertificateIssuer.id());
      *     }
      * }
      * }
@@ -962,10 +962,10 @@ public final class KeyvaultFunctions {
      * 
      *         final var exampleGetCertificateIssuer = KeyvaultFunctions.getCertificateIssuer(GetCertificateIssuerArgs.builder()
      *             .name("existing")
-     *             .keyVaultId(example.applyValue(getKeyVaultResult -> getKeyVaultResult.id()))
+     *             .keyVaultId(example.id())
      *             .build());
      * 
-     *         ctx.export("id", exampleGetCertificateIssuer.applyValue(getCertificateIssuerResult -> getCertificateIssuerResult.id()));
+     *         ctx.export("id", exampleGetCertificateIssuer.id());
      *     }
      * }
      * }
@@ -1012,10 +1012,10 @@ public final class KeyvaultFunctions {
      * 
      *         final var exampleGetCertificateIssuer = KeyvaultFunctions.getCertificateIssuer(GetCertificateIssuerArgs.builder()
      *             .name("existing")
-     *             .keyVaultId(example.applyValue(getKeyVaultResult -> getKeyVaultResult.id()))
+     *             .keyVaultId(example.id())
      *             .build());
      * 
-     *         ctx.export("id", exampleGetCertificateIssuer.applyValue(getCertificateIssuerResult -> getCertificateIssuerResult.id()));
+     *         ctx.export("id", exampleGetCertificateIssuer.id());
      *     }
      * }
      * }
@@ -1129,7 +1129,7 @@ public final class KeyvaultFunctions {
      *             .keyVaultId(existing.id())
      *             .build());
      * 
-     *         ctx.export("keyType", example.applyValue(getKeyResult -> getKeyResult.keyType()));
+     *         ctx.export("keyType", example.keyType());
      *     }
      * }
      * }
@@ -1173,7 +1173,7 @@ public final class KeyvaultFunctions {
      *             .keyVaultId(existing.id())
      *             .build());
      * 
-     *         ctx.export("keyType", example.applyValue(getKeyResult -> getKeyResult.keyType()));
+     *         ctx.export("keyType", example.keyType());
      *     }
      * }
      * }
@@ -1217,7 +1217,7 @@ public final class KeyvaultFunctions {
      *             .keyVaultId(existing.id())
      *             .build());
      * 
-     *         ctx.export("keyType", example.applyValue(getKeyResult -> getKeyResult.keyType()));
+     *         ctx.export("keyType", example.keyType());
      *     }
      * }
      * }
@@ -1261,7 +1261,7 @@ public final class KeyvaultFunctions {
      *             .keyVaultId(existing.id())
      *             .build());
      * 
-     *         ctx.export("keyType", example.applyValue(getKeyResult -> getKeyResult.keyType()));
+     *         ctx.export("keyType", example.keyType());
      *     }
      * }
      * }
@@ -1305,7 +1305,7 @@ public final class KeyvaultFunctions {
      *             .keyVaultId(existing.id())
      *             .build());
      * 
-     *         ctx.export("keyType", example.applyValue(getKeyResult -> getKeyResult.keyType()));
+     *         ctx.export("keyType", example.keyType());
      *     }
      * }
      * }
@@ -1349,7 +1349,7 @@ public final class KeyvaultFunctions {
      *             .resourceGroupName("some-resource-group")
      *             .build());
      * 
-     *         ctx.export("vaultUri", example.applyValue(getKeyVaultResult -> getKeyVaultResult.vaultUri()));
+     *         ctx.export("vaultUri", example.vaultUri());
      *     }
      * }
      * }
@@ -1393,7 +1393,7 @@ public final class KeyvaultFunctions {
      *             .resourceGroupName("some-resource-group")
      *             .build());
      * 
-     *         ctx.export("vaultUri", example.applyValue(getKeyVaultResult -> getKeyVaultResult.vaultUri()));
+     *         ctx.export("vaultUri", example.vaultUri());
      *     }
      * }
      * }
@@ -1437,7 +1437,7 @@ public final class KeyvaultFunctions {
      *             .resourceGroupName("some-resource-group")
      *             .build());
      * 
-     *         ctx.export("vaultUri", example.applyValue(getKeyVaultResult -> getKeyVaultResult.vaultUri()));
+     *         ctx.export("vaultUri", example.vaultUri());
      *     }
      * }
      * }
@@ -1481,7 +1481,7 @@ public final class KeyvaultFunctions {
      *             .resourceGroupName("some-resource-group")
      *             .build());
      * 
-     *         ctx.export("vaultUri", example.applyValue(getKeyVaultResult -> getKeyVaultResult.vaultUri()));
+     *         ctx.export("vaultUri", example.vaultUri());
      *     }
      * }
      * }
@@ -1525,7 +1525,7 @@ public final class KeyvaultFunctions {
      *             .resourceGroupName("some-resource-group")
      *             .build());
      * 
-     *         ctx.export("vaultUri", example.applyValue(getKeyVaultResult -> getKeyVaultResult.vaultUri()));
+     *         ctx.export("vaultUri", example.vaultUri());
      *     }
      * }
      * }
@@ -1569,7 +1569,7 @@ public final class KeyvaultFunctions {
      *             .resourceGroupName("some-resource-group")
      *             .build());
      * 
-     *         ctx.export("hsmUri", example.applyValue(getManagedHardwareSecurityModuleResult -> getManagedHardwareSecurityModuleResult.hsmUri()));
+     *         ctx.export("hsmUri", example.hsmUri());
      *     }
      * }
      * }
@@ -1613,7 +1613,7 @@ public final class KeyvaultFunctions {
      *             .resourceGroupName("some-resource-group")
      *             .build());
      * 
-     *         ctx.export("hsmUri", example.applyValue(getManagedHardwareSecurityModuleResult -> getManagedHardwareSecurityModuleResult.hsmUri()));
+     *         ctx.export("hsmUri", example.hsmUri());
      *     }
      * }
      * }
@@ -1657,7 +1657,7 @@ public final class KeyvaultFunctions {
      *             .resourceGroupName("some-resource-group")
      *             .build());
      * 
-     *         ctx.export("hsmUri", example.applyValue(getManagedHardwareSecurityModuleResult -> getManagedHardwareSecurityModuleResult.hsmUri()));
+     *         ctx.export("hsmUri", example.hsmUri());
      *     }
      * }
      * }
@@ -1701,7 +1701,7 @@ public final class KeyvaultFunctions {
      *             .resourceGroupName("some-resource-group")
      *             .build());
      * 
-     *         ctx.export("hsmUri", example.applyValue(getManagedHardwareSecurityModuleResult -> getManagedHardwareSecurityModuleResult.hsmUri()));
+     *         ctx.export("hsmUri", example.hsmUri());
      *     }
      * }
      * }
@@ -1745,7 +1745,7 @@ public final class KeyvaultFunctions {
      *             .resourceGroupName("some-resource-group")
      *             .build());
      * 
-     *         ctx.export("hsmUri", example.applyValue(getManagedHardwareSecurityModuleResult -> getManagedHardwareSecurityModuleResult.hsmUri()));
+     *         ctx.export("hsmUri", example.hsmUri());
      *     }
      * }
      * }
@@ -1792,7 +1792,7 @@ public final class KeyvaultFunctions {
      *             .name(exampleAzurermKeyVaultManagedHardwareSecurityModuleKey.name())
      *             .build());
      * 
-     *         ctx.export("hsm-key-vesrion", example.applyValue(getManagedHardwareSecurityModuleKeyResult -> getManagedHardwareSecurityModuleKeyResult.version()));
+     *         ctx.export("hsm-key-vesrion", example.version());
      *     }
      * }
      * }
@@ -1839,7 +1839,7 @@ public final class KeyvaultFunctions {
      *             .name(exampleAzurermKeyVaultManagedHardwareSecurityModuleKey.name())
      *             .build());
      * 
-     *         ctx.export("hsm-key-vesrion", example.applyValue(getManagedHardwareSecurityModuleKeyResult -> getManagedHardwareSecurityModuleKeyResult.version()));
+     *         ctx.export("hsm-key-vesrion", example.version());
      *     }
      * }
      * }
@@ -1886,7 +1886,7 @@ public final class KeyvaultFunctions {
      *             .name(exampleAzurermKeyVaultManagedHardwareSecurityModuleKey.name())
      *             .build());
      * 
-     *         ctx.export("hsm-key-vesrion", example.applyValue(getManagedHardwareSecurityModuleKeyResult -> getManagedHardwareSecurityModuleKeyResult.version()));
+     *         ctx.export("hsm-key-vesrion", example.version());
      *     }
      * }
      * }
@@ -1933,7 +1933,7 @@ public final class KeyvaultFunctions {
      *             .name(exampleAzurermKeyVaultManagedHardwareSecurityModuleKey.name())
      *             .build());
      * 
-     *         ctx.export("hsm-key-vesrion", example.applyValue(getManagedHardwareSecurityModuleKeyResult -> getManagedHardwareSecurityModuleKeyResult.version()));
+     *         ctx.export("hsm-key-vesrion", example.version());
      *     }
      * }
      * }
@@ -1980,7 +1980,7 @@ public final class KeyvaultFunctions {
      *             .name(exampleAzurermKeyVaultManagedHardwareSecurityModuleKey.name())
      *             .build());
      * 
-     *         ctx.export("hsm-key-vesrion", example.applyValue(getManagedHardwareSecurityModuleKeyResult -> getManagedHardwareSecurityModuleKeyResult.version()));
+     *         ctx.export("hsm-key-vesrion", example.version());
      *     }
      * }
      * }
@@ -2024,7 +2024,7 @@ public final class KeyvaultFunctions {
      *             .name("21dbd100-6940-42c2-9190-5d6cb909625b")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getManagedHardwareSecurityModuleRoleDefinitionResult -> getManagedHardwareSecurityModuleRoleDefinitionResult.resourceManagerId()));
+     *         ctx.export("id", example.resourceManagerId());
      *     }
      * }
      * }
@@ -2068,7 +2068,7 @@ public final class KeyvaultFunctions {
      *             .name("21dbd100-6940-42c2-9190-5d6cb909625b")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getManagedHardwareSecurityModuleRoleDefinitionResult -> getManagedHardwareSecurityModuleRoleDefinitionResult.resourceManagerId()));
+     *         ctx.export("id", example.resourceManagerId());
      *     }
      * }
      * }
@@ -2112,7 +2112,7 @@ public final class KeyvaultFunctions {
      *             .name("21dbd100-6940-42c2-9190-5d6cb909625b")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getManagedHardwareSecurityModuleRoleDefinitionResult -> getManagedHardwareSecurityModuleRoleDefinitionResult.resourceManagerId()));
+     *         ctx.export("id", example.resourceManagerId());
      *     }
      * }
      * }
@@ -2156,7 +2156,7 @@ public final class KeyvaultFunctions {
      *             .name("21dbd100-6940-42c2-9190-5d6cb909625b")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getManagedHardwareSecurityModuleRoleDefinitionResult -> getManagedHardwareSecurityModuleRoleDefinitionResult.resourceManagerId()));
+     *         ctx.export("id", example.resourceManagerId());
      *     }
      * }
      * }
@@ -2200,7 +2200,7 @@ public final class KeyvaultFunctions {
      *             .name("21dbd100-6940-42c2-9190-5d6cb909625b")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getManagedHardwareSecurityModuleRoleDefinitionResult -> getManagedHardwareSecurityModuleRoleDefinitionResult.resourceManagerId()));
+     *         ctx.export("id", example.resourceManagerId());
      *     }
      * }
      * }
@@ -2244,7 +2244,7 @@ public final class KeyvaultFunctions {
      *             .keyVaultId(existing.id())
      *             .build());
      * 
-     *         ctx.export("secretValue", example.applyValue(getSecretResult -> getSecretResult.value()));
+     *         ctx.export("secretValue", example.value());
      *     }
      * }
      * }
@@ -2288,7 +2288,7 @@ public final class KeyvaultFunctions {
      *             .keyVaultId(existing.id())
      *             .build());
      * 
-     *         ctx.export("secretValue", example.applyValue(getSecretResult -> getSecretResult.value()));
+     *         ctx.export("secretValue", example.value());
      *     }
      * }
      * }
@@ -2332,7 +2332,7 @@ public final class KeyvaultFunctions {
      *             .keyVaultId(existing.id())
      *             .build());
      * 
-     *         ctx.export("secretValue", example.applyValue(getSecretResult -> getSecretResult.value()));
+     *         ctx.export("secretValue", example.value());
      *     }
      * }
      * }
@@ -2376,7 +2376,7 @@ public final class KeyvaultFunctions {
      *             .keyVaultId(existing.id())
      *             .build());
      * 
-     *         ctx.export("secretValue", example.applyValue(getSecretResult -> getSecretResult.value()));
+     *         ctx.export("secretValue", example.value());
      *     }
      * }
      * }
@@ -2420,7 +2420,7 @@ public final class KeyvaultFunctions {
      *             .keyVaultId(existing.id())
      *             .build());
      * 
-     *         ctx.export("secretValue", example.applyValue(getSecretResult -> getSecretResult.value()));
+     *         ctx.export("secretValue", example.value());
      *     }
      * }
      * }

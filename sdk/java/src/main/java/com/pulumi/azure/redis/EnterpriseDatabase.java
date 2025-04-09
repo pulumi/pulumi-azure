@@ -76,8 +76,8 @@ import javax.annotation.Nullable;
  *             .evictionPolicy("NoEviction")
  *             .port(10000)
  *             .linkedDatabaseIds(            
- *                 exampleEnterpriseCluster.id().applyValue(id -> String.format("%s/databases/default", id)),
- *                 example1.id().applyValue(id -> String.format("%s/databases/default", id)))
+ *                 exampleEnterpriseCluster.id().applyValue(_id -> String.format("%s/databases/default", _id)),
+ *                 example1.id().applyValue(_id -> String.format("%s/databases/default", _id)))
  *             .linkedDatabaseGroupNickname("tftestGeoGroup")
  *             .build());
  * 

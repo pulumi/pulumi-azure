@@ -34,6 +34,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.arckubernetes.Cluster;
  * import com.pulumi.azure.arckubernetes.ClusterArgs;
  * import com.pulumi.azure.arckubernetes.inputs.ClusterIdentityArgs;
+ * import com.pulumi.std.StdFunctions;
+ * import com.pulumi.std.inputs.Filebase64Args;
  * import com.pulumi.azure.arckubernetes.ClusterExtension;
  * import com.pulumi.azure.arckubernetes.ClusterExtensionArgs;
  * import java.util.List;

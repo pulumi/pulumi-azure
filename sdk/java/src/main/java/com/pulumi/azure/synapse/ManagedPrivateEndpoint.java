@@ -65,7 +65,7 @@ import javax.annotation.Nullable;
  *             .accountTier("Standard")
  *             .accountReplicationType("LRS")
  *             .accountKind("StorageV2")
- *             .isHnsEnabled("true")
+ *             .isHnsEnabled(true)
  *             .build());
  * 
  *         var exampleDataLakeGen2Filesystem = new DataLakeGen2Filesystem("exampleDataLakeGen2Filesystem", DataLakeGen2FilesystemArgs.builder()

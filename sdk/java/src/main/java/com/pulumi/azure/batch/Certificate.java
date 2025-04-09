@@ -30,12 +30,10 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.azure.core.ResourceGroup;
  * import com.pulumi.azure.core.ResourceGroupArgs;
- * import com.pulumi.azure.storage.Account;
- * import com.pulumi.azure.storage.AccountArgs;
- * import com.pulumi.azure.batch.Account;
- * import com.pulumi.azure.batch.AccountArgs;
  * import com.pulumi.azure.batch.Certificate;
  * import com.pulumi.azure.batch.CertificateArgs;
+ * import com.pulumi.std.StdFunctions;
+ * import com.pulumi.std.inputs.Filebase64Args;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -54,7 +52,7 @@ import javax.annotation.Nullable;
  *             .location("West Europe")
  *             .build());
  * 
- *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()
+ *         var exampleAccount = new com.pulumi.azure.storage.Account("exampleAccount", com.pulumi.azure.storage.AccountArgs.builder()
  *             .name("teststorage")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
@@ -62,7 +60,7 @@ import javax.annotation.Nullable;
  *             .accountReplicationType("LRS")
  *             .build());
  * 
- *         var exampleAccount2 = new Account("exampleAccount2", AccountArgs.builder()
+ *         var exampleAccount2 = new com.pulumi.azure.batch.Account("exampleAccount2", com.pulumi.azure.batch.AccountArgs.builder()
  *             .name("testbatchaccount")
  *             .resourceGroupName(example.name())
  *             .location(example.location())

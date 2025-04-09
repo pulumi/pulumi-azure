@@ -62,14 +62,14 @@ import javax.annotation.Nullable;
  * 
  *         var exampleGremlinDatabase = new GremlinDatabase("exampleGremlinDatabase", GremlinDatabaseArgs.builder()
  *             .name("tfex-cosmos-gremlin-db")
- *             .resourceGroupName(example.applyValue(getAccountResult -> getAccountResult.resourceGroupName()))
- *             .accountName(example.applyValue(getAccountResult -> getAccountResult.name()))
+ *             .resourceGroupName(example.resourceGroupName())
+ *             .accountName(example.name())
  *             .build());
  * 
  *         var exampleGremlinGraph = new GremlinGraph("exampleGremlinGraph", GremlinGraphArgs.builder()
  *             .name("tfex-cosmos-gremlin-graph")
- *             .resourceGroupName(example.applyValue(getAccountResult -> getAccountResult.resourceGroupName()))
- *             .accountName(example.applyValue(getAccountResult -> getAccountResult.name()))
+ *             .resourceGroupName(example.resourceGroupName())
+ *             .accountName(example.name())
  *             .databaseName(exampleGremlinDatabase.name())
  *             .partitionKeyPath("/Example")
  *             .throughput(400)

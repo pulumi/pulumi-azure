@@ -67,7 +67,7 @@ import javax.annotation.Nullable;
  *             .accountTier("Standard")
  *             .accountReplicationType("LRS")
  *             .accountKind("StorageV2")
- *             .isHnsEnabled("true")
+ *             .isHnsEnabled(true)
  *             .build());
  * 
  *         var exampleDataLakeGen2Filesystem = new DataLakeGen2Filesystem("exampleDataLakeGen2Filesystem", DataLakeGen2FilesystemArgs.builder()
@@ -94,12 +94,12 @@ import javax.annotation.Nullable;
  *             .endIpAddress("255.255.255.255")
  *             .build());
  * 
- *         final var current = CoreFunctions.getClientConfig();
+ *         final var current = CoreFunctions.getClientConfig(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
  * 
  *         var exampleRoleAssignment = new RoleAssignment("exampleRoleAssignment", RoleAssignmentArgs.builder()
  *             .synapseWorkspaceId(exampleWorkspace.id())
  *             .roleName("Synapse SQL Administrator")
- *             .principalId(current.applyValue(getClientConfigResult -> getClientConfigResult.objectId()))
+ *             .principalId(current.objectId())
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(exampleFirewallRule)
  *                 .build());

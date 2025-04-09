@@ -274,21 +274,21 @@ import javax.annotation.Nullable;
  *             .virtualMachineId(exampleLinuxVirtualMachine.id())
  *             .runAsPassword("P}{@literal @}{@code $$w0rd1234!")
  *             .runAsUser("adminuser")
- *             .errorBlobUri(Output.tuple(example3.id(), example.applyValue(getAccountSASResult -> getAccountSASResult)).applyValue(values -> }{{@code
+ *             .errorBlobUri(Output.tuple(example3.id(), example).applyValue(values -> }{{@code
  *                 var id = values.t1;
  *                 var example = values.t2;
- *                 return String.format("%s%s", id,example.applyValue(getAccountSASResult -> getAccountSASResult.sas()));
+ *                 return String.format("%s%s", id,example.sas());
  *             }}{@code ))
- *             .outputBlobUri(Output.tuple(example2.id(), example.applyValue(getAccountSASResult -> getAccountSASResult)).applyValue(values -> }{{@code
+ *             .outputBlobUri(Output.tuple(example2.id(), example).applyValue(values -> }{{@code
  *                 var id = values.t1;
  *                 var example = values.t2;
- *                 return String.format("%s%s", id,example.applyValue(getAccountSASResult -> getAccountSASResult.sas()));
+ *                 return String.format("%s%s", id,example.sas());
  *             }}{@code ))
  *             .source(RunCommandSourceArgs.builder()
- *                 .scriptUri(Output.tuple(example1.id(), example.applyValue(getAccountSASResult -> getAccountSASResult)).applyValue(values -> }{{@code
+ *                 .scriptUri(Output.tuple(example1.id(), example).applyValue(values -> }{{@code
  *                     var id = values.t1;
  *                     var example = values.t2;
- *                     return String.format("%s%s", id,example.applyValue(getAccountSASResult -> getAccountSASResult.sas()));
+ *                     return String.format("%s%s", id,example.sas());
  *                 }}{@code ))
  *                 .build())
  *             .parameters(RunCommandParameterArgs.builder()

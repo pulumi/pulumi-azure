@@ -71,7 +71,7 @@ public final class OracleFunctions {
      *             .location("West Europe")
      *             .build());
      * 
-     *         ctx.export("example", example.applyValue(getAdbsCharacterSetsResult -> getAdbsCharacterSetsResult));
+     *         ctx.export("example", example);
      *     }
      * }
      * }
@@ -114,7 +114,7 @@ public final class OracleFunctions {
      *             .location("West Europe")
      *             .build());
      * 
-     *         ctx.export("example", example.applyValue(getAdbsCharacterSetsResult -> getAdbsCharacterSetsResult));
+     *         ctx.export("example", example);
      *     }
      * }
      * }
@@ -157,7 +157,7 @@ public final class OracleFunctions {
      *             .location("West Europe")
      *             .build());
      * 
-     *         ctx.export("example", example.applyValue(getAdbsCharacterSetsResult -> getAdbsCharacterSetsResult));
+     *         ctx.export("example", example);
      *     }
      * }
      * }
@@ -200,7 +200,7 @@ public final class OracleFunctions {
      *             .location("West Europe")
      *             .build());
      * 
-     *         ctx.export("example", example.applyValue(getAdbsCharacterSetsResult -> getAdbsCharacterSetsResult));
+     *         ctx.export("example", example);
      *     }
      * }
      * }
@@ -243,7 +243,7 @@ public final class OracleFunctions {
      *             .location("West Europe")
      *             .build());
      * 
-     *         ctx.export("example", example.applyValue(getAdbsCharacterSetsResult -> getAdbsCharacterSetsResult));
+     *         ctx.export("example", example);
      *     }
      * }
      * }
@@ -502,7 +502,7 @@ public final class OracleFunctions {
      *             .resourceGroupName("existing")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getAutonomousDatabaseResult -> getAutonomousDatabaseResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -546,7 +546,7 @@ public final class OracleFunctions {
      *             .resourceGroupName("existing")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getAutonomousDatabaseResult -> getAutonomousDatabaseResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -590,7 +590,7 @@ public final class OracleFunctions {
      *             .resourceGroupName("existing")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getAutonomousDatabaseResult -> getAutonomousDatabaseResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -634,7 +634,7 @@ public final class OracleFunctions {
      *             .resourceGroupName("existing")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getAutonomousDatabaseResult -> getAutonomousDatabaseResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -678,7 +678,7 @@ public final class OracleFunctions {
      *             .resourceGroupName("existing")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getAutonomousDatabaseResult -> getAutonomousDatabaseResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -722,7 +722,7 @@ public final class OracleFunctions {
      *             .resourceGroupName("existing")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getCloudVmClusterResult -> getCloudVmClusterResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -766,7 +766,7 @@ public final class OracleFunctions {
      *             .resourceGroupName("existing")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getCloudVmClusterResult -> getCloudVmClusterResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -810,7 +810,7 @@ public final class OracleFunctions {
      *             .resourceGroupName("existing")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getCloudVmClusterResult -> getCloudVmClusterResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -854,7 +854,7 @@ public final class OracleFunctions {
      *             .resourceGroupName("existing")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getCloudVmClusterResult -> getCloudVmClusterResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -898,7 +898,7 @@ public final class OracleFunctions {
      *             .resourceGroupName("existing")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getCloudVmClusterResult -> getCloudVmClusterResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -941,7 +941,7 @@ public final class OracleFunctions {
      *             .cloudVmClusterId("existing")
      *             .build());
      * 
-     *         ctx.export("example", example.applyValue(getDbNodesResult -> getDbNodesResult));
+     *         ctx.export("example", example);
      *     }
      * }
      * }
@@ -984,7 +984,7 @@ public final class OracleFunctions {
      *             .cloudVmClusterId("existing")
      *             .build());
      * 
-     *         ctx.export("example", example.applyValue(getDbNodesResult -> getDbNodesResult));
+     *         ctx.export("example", example);
      *     }
      * }
      * }
@@ -1027,7 +1027,7 @@ public final class OracleFunctions {
      *             .cloudVmClusterId("existing")
      *             .build());
      * 
-     *         ctx.export("example", example.applyValue(getDbNodesResult -> getDbNodesResult));
+     *         ctx.export("example", example);
      *     }
      * }
      * }
@@ -1070,7 +1070,7 @@ public final class OracleFunctions {
      *             .cloudVmClusterId("existing")
      *             .build());
      * 
-     *         ctx.export("example", example.applyValue(getDbNodesResult -> getDbNodesResult));
+     *         ctx.export("example", example);
      *     }
      * }
      * }
@@ -1113,7 +1113,7 @@ public final class OracleFunctions {
      *             .cloudVmClusterId("existing")
      *             .build());
      * 
-     *         ctx.export("example", example.applyValue(getDbNodesResult -> getDbNodesResult));
+     *         ctx.export("example", example);
      *     }
      * }
      * }
@@ -1157,7 +1157,7 @@ public final class OracleFunctions {
      *             .cloudExadataInfrastructureName("existing")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getDbServersResult -> getDbServersResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -1201,7 +1201,7 @@ public final class OracleFunctions {
      *             .cloudExadataInfrastructureName("existing")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getDbServersResult -> getDbServersResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -1245,7 +1245,7 @@ public final class OracleFunctions {
      *             .cloudExadataInfrastructureName("existing")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getDbServersResult -> getDbServersResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -1289,7 +1289,7 @@ public final class OracleFunctions {
      *             .cloudExadataInfrastructureName("existing")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getDbServersResult -> getDbServersResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -1333,7 +1333,7 @@ public final class OracleFunctions {
      *             .cloudExadataInfrastructureName("existing")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getDbServersResult -> getDbServersResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -1378,7 +1378,7 @@ public final class OracleFunctions {
      *             .location("West Europe")
      *             .build());
      * 
-     *         ctx.export("example", example.applyValue(getDbSystemShapesResult -> getDbSystemShapesResult));
+     *         ctx.export("example", example);
      *     }
      * }
      * }
@@ -1423,7 +1423,7 @@ public final class OracleFunctions {
      *             .location("West Europe")
      *             .build());
      * 
-     *         ctx.export("example", example.applyValue(getDbSystemShapesResult -> getDbSystemShapesResult));
+     *         ctx.export("example", example);
      *     }
      * }
      * }
@@ -1468,7 +1468,7 @@ public final class OracleFunctions {
      *             .location("West Europe")
      *             .build());
      * 
-     *         ctx.export("example", example.applyValue(getDbSystemShapesResult -> getDbSystemShapesResult));
+     *         ctx.export("example", example);
      *     }
      * }
      * }
@@ -1513,7 +1513,7 @@ public final class OracleFunctions {
      *             .location("West Europe")
      *             .build());
      * 
-     *         ctx.export("example", example.applyValue(getDbSystemShapesResult -> getDbSystemShapesResult));
+     *         ctx.export("example", example);
      *     }
      * }
      * }
@@ -1558,7 +1558,7 @@ public final class OracleFunctions {
      *             .location("West Europe")
      *             .build());
      * 
-     *         ctx.export("example", example.applyValue(getDbSystemShapesResult -> getDbSystemShapesResult));
+     *         ctx.export("example", example);
      *     }
      * }
      * }
@@ -1602,7 +1602,7 @@ public final class OracleFunctions {
      *             .resourceGroupName("existing")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getExadataInfrastructureResult -> getExadataInfrastructureResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -1646,7 +1646,7 @@ public final class OracleFunctions {
      *             .resourceGroupName("existing")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getExadataInfrastructureResult -> getExadataInfrastructureResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -1690,7 +1690,7 @@ public final class OracleFunctions {
      *             .resourceGroupName("existing")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getExadataInfrastructureResult -> getExadataInfrastructureResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -1734,7 +1734,7 @@ public final class OracleFunctions {
      *             .resourceGroupName("existing")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getExadataInfrastructureResult -> getExadataInfrastructureResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -1778,7 +1778,7 @@ public final class OracleFunctions {
      *             .resourceGroupName("existing")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getExadataInfrastructureResult -> getExadataInfrastructureResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -1823,7 +1823,7 @@ public final class OracleFunctions {
      *             .location("West Europe")
      *             .build());
      * 
-     *         ctx.export("example", example.applyValue(getGiVersionsResult -> getGiVersionsResult));
+     *         ctx.export("example", example);
      *     }
      * }
      * }
@@ -1868,7 +1868,7 @@ public final class OracleFunctions {
      *             .location("West Europe")
      *             .build());
      * 
-     *         ctx.export("example", example.applyValue(getGiVersionsResult -> getGiVersionsResult));
+     *         ctx.export("example", example);
      *     }
      * }
      * }
@@ -1913,7 +1913,7 @@ public final class OracleFunctions {
      *             .location("West Europe")
      *             .build());
      * 
-     *         ctx.export("example", example.applyValue(getGiVersionsResult -> getGiVersionsResult));
+     *         ctx.export("example", example);
      *     }
      * }
      * }
@@ -1958,7 +1958,7 @@ public final class OracleFunctions {
      *             .location("West Europe")
      *             .build());
      * 
-     *         ctx.export("example", example.applyValue(getGiVersionsResult -> getGiVersionsResult));
+     *         ctx.export("example", example);
      *     }
      * }
      * }
@@ -2003,7 +2003,7 @@ public final class OracleFunctions {
      *             .location("West Europe")
      *             .build());
      * 
-     *         ctx.export("example", example.applyValue(getGiVersionsResult -> getGiVersionsResult));
+     *         ctx.export("example", example);
      *     }
      * }
      * }

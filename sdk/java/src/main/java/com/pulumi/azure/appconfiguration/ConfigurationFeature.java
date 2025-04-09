@@ -68,12 +68,12 @@ import javax.annotation.Nullable;
  *             .location(example.location())
  *             .build());
  * 
- *         final var current = CoreFunctions.getClientConfig();
+ *         final var current = CoreFunctions.getClientConfig(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
  * 
  *         var appconfDataowner = new Assignment("appconfDataowner", AssignmentArgs.builder()
  *             .scope(appconf.id())
  *             .roleDefinitionName("App Configuration Data Owner")
- *             .principalId(current.applyValue(getClientConfigResult -> getClientConfigResult.objectId()))
+ *             .principalId(current.objectId())
  *             .build());
  * 
  *         var test = new ConfigurationFeature("test", ConfigurationFeatureArgs.builder()

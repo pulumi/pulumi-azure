@@ -48,11 +48,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         final var current = CoreFunctions.getSubscription();
+ *         final var current = CoreFunctions.getSubscription(GetSubscriptionArgs.builder()
+ *             .build());
  * 
  *         var subscription_level = new Lock("subscription-level", LockArgs.builder()
  *             .name("subscription-level")
- *             .scope(current.applyValue(getSubscriptionResult -> getSubscriptionResult.id()))
+ *             .scope(current.id())
  *             .lockLevel("CanNotDelete")
  *             .notes("Items can't be deleted in this subscription!")
  *             .build());

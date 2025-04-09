@@ -56,8 +56,8 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleGroupSubscriptionAssociation = new GroupSubscriptionAssociation("exampleGroupSubscriptionAssociation", GroupSubscriptionAssociationArgs.builder()
- *             .managementGroupId(example.applyValue(getGroupResult -> getGroupResult.id()))
- *             .subscriptionId(exampleGetSubscription.applyValue(getSubscriptionResult -> getSubscriptionResult.id()))
+ *             .managementGroupId(example.id())
+ *             .subscriptionId(exampleGetSubscription.id())
  *             .build());
  * 
  *     }

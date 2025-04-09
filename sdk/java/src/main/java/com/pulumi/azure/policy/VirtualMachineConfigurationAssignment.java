@@ -120,7 +120,7 @@ import javax.annotation.Nullable;
  *             .publisher("Microsoft.GuestConfiguration")
  *             .type("ConfigurationforWindows")
  *             .typeHandlerVersion("1.29")
- *             .autoUpgradeMinorVersion("true")
+ *             .autoUpgradeMinorVersion(true)
  *             .build());
  * 
  *         var exampleVirtualMachineConfigurationAssignment = new VirtualMachineConfigurationAssignment("exampleVirtualMachineConfigurationAssignment", VirtualMachineConfigurationAssignmentArgs.builder()

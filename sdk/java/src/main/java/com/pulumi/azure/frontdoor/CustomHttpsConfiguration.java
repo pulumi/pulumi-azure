@@ -117,17 +117,17 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleCustomHttps0 = new CustomHttpsConfiguration("exampleCustomHttps0", CustomHttpsConfigurationArgs.builder()
- *             .frontendEndpointId(exampleFrontdoor.frontendEndpointsMap().applyValue(frontendEndpointsMap -> frontendEndpointsMap.exampleFrontendEndpoint1()))
+ *             .frontendEndpointId(exampleFrontdoor.frontendEndpointsMap().applyValue(_frontendEndpointsMap -> _frontendEndpointsMap.exampleFrontendEndpoint1()))
  *             .customHttpsProvisioningEnabled(false)
  *             .build());
  * 
  *         var exampleCustomHttps1 = new CustomHttpsConfiguration("exampleCustomHttps1", CustomHttpsConfigurationArgs.builder()
- *             .frontendEndpointId(exampleFrontdoor.frontendEndpointsMap().applyValue(frontendEndpointsMap -> frontendEndpointsMap.exampleFrontendEndpoint2()))
+ *             .frontendEndpointId(exampleFrontdoor.frontendEndpointsMap().applyValue(_frontendEndpointsMap -> _frontendEndpointsMap.exampleFrontendEndpoint2()))
  *             .customHttpsProvisioningEnabled(true)
  *             .customHttpsConfiguration(CustomHttpsConfigurationCustomHttpsConfigurationArgs.builder()
  *                 .certificateSource("AzureKeyVault")
  *                 .azureKeyVaultCertificateSecretName("examplefd1")
- *                 .azureKeyVaultCertificateVaultId(vault.applyValue(getKeyVaultResult -> getKeyVaultResult.id()))
+ *                 .azureKeyVaultCertificateVaultId(vault.id())
  *                 .build())
  *             .build());
  * 

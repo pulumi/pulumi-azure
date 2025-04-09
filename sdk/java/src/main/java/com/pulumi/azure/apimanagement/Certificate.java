@@ -36,6 +36,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.apimanagement.ServiceArgs;
  * import com.pulumi.azure.apimanagement.Certificate;
  * import com.pulumi.azure.apimanagement.CertificateArgs;
+ * import com.pulumi.std.StdFunctions;
+ * import com.pulumi.std.inputs.Filebase64Args;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -98,15 +100,13 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.keyvault.KeyVaultArgs;
  * import com.pulumi.azure.keyvault.AccessPolicy;
  * import com.pulumi.azure.keyvault.AccessPolicyArgs;
- * import com.pulumi.azure.keyvault.Certificate;
- * import com.pulumi.azure.keyvault.CertificateArgs;
  * import com.pulumi.azure.keyvault.inputs.CertificateCertificateArgs;
  * import com.pulumi.azure.keyvault.inputs.CertificateCertificatePolicyArgs;
  * import com.pulumi.azure.keyvault.inputs.CertificateCertificatePolicyIssuerParametersArgs;
  * import com.pulumi.azure.keyvault.inputs.CertificateCertificatePolicyKeyPropertiesArgs;
  * import com.pulumi.azure.keyvault.inputs.CertificateCertificatePolicySecretPropertiesArgs;
- * import com.pulumi.azure.apimanagement.Certificate;
- * import com.pulumi.azure.apimanagement.CertificateArgs;
+ * import com.pulumi.std.StdFunctions;
+ * import com.pulumi.std.inputs.Filebase64Args;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -120,7 +120,7 @@ import javax.annotation.Nullable;
  *     }}{@code
  * 
  *     public static void stack(Context ctx) }{{@code
- *         final var current = CoreFunctions.getClientConfig();
+ *         final var current = CoreFunctions.getClientConfig(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
  * 
  *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example-resources")
@@ -143,19 +143,19 @@ import javax.annotation.Nullable;
  *             .name("examplekeyvault")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .tenantId(current.applyValue(getClientConfigResult -> getClientConfigResult.tenantId()))
+ *             .tenantId(current.tenantId())
  *             .skuName("standard")
  *             .build());
  * 
  *         var exampleAccessPolicy = new AccessPolicy("exampleAccessPolicy", AccessPolicyArgs.builder()
  *             .keyVaultId(exampleKeyVault.id())
- *             .tenantId(exampleService.identity().applyValue(identity -> identity.tenantId()))
- *             .objectId(exampleService.identity().applyValue(identity -> identity.principalId()))
+ *             .tenantId(exampleService.identity().applyValue(_identity -> _identity.tenantId()))
+ *             .objectId(exampleService.identity().applyValue(_identity -> _identity.principalId()))
  *             .secretPermissions("Get")
  *             .certificatePermissions("Get")
  *             .build());
  * 
- *         var exampleCertificate = new Certificate("exampleCertificate", CertificateArgs.builder()
+ *         var exampleCertificate = new com.pulumi.azure.keyvault.Certificate("exampleCertificate", com.pulumi.azure.keyvault.CertificateArgs.builder()
  *             .name("example-cert")
  *             .keyVaultId(exampleKeyVault.id())
  *             .certificate(CertificateCertificateArgs.builder()
@@ -180,7 +180,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var exampleCertificate2 = new Certificate("exampleCertificate2", CertificateArgs.builder()
+ *         var exampleCertificate2 = new com.pulumi.azure.apimanagement.Certificate("exampleCertificate2", com.pulumi.azure.apimanagement.CertificateArgs.builder()
  *             .name("example-cert")
  *             .apiManagementName(exampleService.name())
  *             .resourceGroupName(example.name())

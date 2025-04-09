@@ -54,10 +54,10 @@ import javax.annotation.Nullable;
  *             .location("West Europe")
  *             .build());
  * 
- *         final var example = ArcmachineFunctions.get(GetArgs.builder()
+ *         final var example = exampleResourceGroup.name().applyValue(_name -> ArcmachineFunctions.get(GetArgs.builder()
  *             .name(arcMachineName)
- *             .resourceGroupName(exampleResourceGroup.name())
- *             .build());
+ *             .resourceGroupName(_name)
+ *             .build()));
  * 
  *         var exampleConfiguration = new Configuration("exampleConfiguration", ConfigurationArgs.builder()
  *             .name("example-configuration")
@@ -66,7 +66,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleAutomanageConfigurationAssignment = new AutomanageConfigurationAssignment("exampleAutomanageConfigurationAssignment", AutomanageConfigurationAssignmentArgs.builder()
- *             .arcMachineId(example.applyValue(getResult -> getResult).applyValue(example -> example.applyValue(getResult -> getResult.id())))
+ *             .arcMachineId(example.applyValue(_example -> _example.id()))
  *             .configurationId(exampleConfiguration.id())
  *             .build());
  * 

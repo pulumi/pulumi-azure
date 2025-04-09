@@ -73,7 +73,7 @@ import javax.annotation.Nullable;
  *         var exampleLinkedServiceAzureBlobStorage = new LinkedServiceAzureBlobStorage("exampleLinkedServiceAzureBlobStorage", LinkedServiceAzureBlobStorageArgs.builder()
  *             .name("example")
  *             .dataFactoryId(exampleFactory.id())
- *             .connectionString(example.applyValue(getAccountResult -> getAccountResult).applyValue(example -> example.applyValue(getAccountResult -> getAccountResult.primaryConnectionString())))
+ *             .connectionString(example.applyValue(_example -> _example.primaryConnectionString()))
  *             .build());
  * 
  *         var exampleDatasetAzureBlob = new DatasetAzureBlob("exampleDatasetAzureBlob", DatasetAzureBlobArgs.builder()

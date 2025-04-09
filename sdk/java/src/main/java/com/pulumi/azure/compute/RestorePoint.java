@@ -43,6 +43,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.compute.inputs.LinuxVirtualMachineAdminSshKeyArgs;
  * import com.pulumi.azure.compute.inputs.LinuxVirtualMachineOsDiskArgs;
  * import com.pulumi.azure.compute.inputs.LinuxVirtualMachineSourceImageReferenceArgs;
+ * import com.pulumi.std.StdFunctions;
+ * import com.pulumi.std.inputs.FileArgs;
  * import com.pulumi.azure.compute.RestorePointCollection;
  * import com.pulumi.azure.compute.RestorePointCollectionArgs;
  * import com.pulumi.azure.compute.RestorePoint;

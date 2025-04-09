@@ -66,7 +66,7 @@ import javax.annotation.Nullable;
  *             .containerRegistryId(acr.id())
  *             .targetRepo("target")
  *             .sourceRepo("docker.io/hello-world")
- *             .credentialSetId(acr.id().applyValue(id -> String.format("%s/credentialSets/example", id)))
+ *             .credentialSetId(acr.id().applyValue(_id -> String.format("%s/credentialSets/example", _id)))
  *             .build());
  * 
  *     }

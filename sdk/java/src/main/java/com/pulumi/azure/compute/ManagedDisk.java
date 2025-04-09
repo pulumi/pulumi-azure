@@ -61,7 +61,7 @@ import javax.annotation.Nullable;
  *             .resourceGroupName(example.name())
  *             .storageAccountType("Standard_LRS")
  *             .createOption("Empty")
- *             .diskSizeGb("1")
+ *             .diskSizeGb(1)
  *             .tags(Map.of("environment", "staging"))
  *             .build());
  * 
@@ -109,7 +109,7 @@ import javax.annotation.Nullable;
  *             .resourceGroupName(example.name())
  *             .storageAccountType("Standard_LRS")
  *             .createOption("Empty")
- *             .diskSizeGb("1")
+ *             .diskSizeGb(1)
  *             .tags(Map.of("environment", "staging"))
  *             .build());
  * 
@@ -120,7 +120,7 @@ import javax.annotation.Nullable;
  *             .storageAccountType("Standard_LRS")
  *             .createOption("Copy")
  *             .sourceResourceId(source.id())
- *             .diskSizeGb("1")
+ *             .diskSizeGb(1)
  *             .tags(Map.of("environment", "staging"))
  *             .build());
  * 

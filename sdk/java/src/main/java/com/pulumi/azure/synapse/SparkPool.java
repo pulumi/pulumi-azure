@@ -74,7 +74,7 @@ import javax.annotation.Nullable;
  *             .accountTier("Standard")
  *             .accountReplicationType("LRS")
  *             .accountKind("StorageV2")
- *             .isHnsEnabled("true")
+ *             .isHnsEnabled(true)
  *             .build());
  * 
  *         var exampleDataLakeGen2Filesystem = new DataLakeGen2Filesystem("exampleDataLakeGen2Filesystem", DataLakeGen2FilesystemArgs.builder()
@@ -120,7 +120,7 @@ import javax.annotation.Nullable;
  *                 """)
  *                 .filename("config.txt")
  *                 .build())
- *             .sparkVersion(3.2)
+ *             .sparkVersion("3.2")
  *             .tags(Map.of("ENV", "Production"))
  *             .build());
  * 

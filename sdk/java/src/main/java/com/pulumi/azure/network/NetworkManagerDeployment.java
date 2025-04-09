@@ -66,14 +66,15 @@ import javax.annotation.Nullable;
  *             .location("West Europe")
  *             .build());
  * 
- *         final var current = CoreFunctions.getSubscription();
+ *         final var current = CoreFunctions.getSubscription(GetSubscriptionArgs.builder()
+ *             .build());
  * 
  *         var exampleNetworkManager = new NetworkManager("exampleNetworkManager", NetworkManagerArgs.builder()
  *             .name("example-network-manager")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .scope(NetworkManagerScopeArgs.builder()
- *                 .subscriptionIds(current.applyValue(getSubscriptionResult -> getSubscriptionResult.id()))
+ *                 .subscriptionIds(current.id())
  *                 .build())
  *             .scopeAccesses(            
  *                 "Connectivity",
@@ -152,6 +153,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.network.inputs.NetworkManagerAdminRuleDestinationArgs;
  * import com.pulumi.azure.network.NetworkManagerDeployment;
  * import com.pulumi.azure.network.NetworkManagerDeploymentArgs;
+ * import com.pulumi.std.StdFunctions;
+ * import com.pulumi.std.inputs.JoinArgs;
  * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
@@ -171,14 +174,15 @@ import javax.annotation.Nullable;
  *             .location("West Europe")
  *             .build());
  * 
- *         final var current = CoreFunctions.getSubscription();
+ *         final var current = CoreFunctions.getSubscription(GetSubscriptionArgs.builder()
+ *             .build());
  * 
  *         var exampleNetworkManager = new NetworkManager("exampleNetworkManager", NetworkManagerArgs.builder()
  *             .name("example-network-manager")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .scope(NetworkManagerScopeArgs.builder()
- *                 .subscriptionIds(current.applyValue(getSubscriptionResult -> getSubscriptionResult.id()))
+ *                 .subscriptionIds(current.id())
  *                 .build())
  *             .scopeAccesses(            
  *                 "Connectivity",
@@ -235,7 +239,10 @@ import javax.annotation.Nullable;
  *             .location("eastus")
  *             .scopeAccess("SecurityAdmin")
  *             .configurationIds(exampleNetworkManagerSecurityAdminConfiguration.id())
- *             .triggers(Map.of("source_port_ranges", exampleNetworkManagerAdminRule.sourcePortRanges().applyValue(sourcePortRanges -> StdFunctions.join()).applyValue(invoke -> invoke.result())))
+ *             .triggers(Map.of("source_port_ranges", exampleNetworkManagerAdminRule.sourcePortRanges().applyValue(_sourcePortRanges -> StdFunctions.join(JoinArgs.builder()
+ *                 .separator(",")
+ *                 .input(_sourcePortRanges)
+ *                 .build())).applyValue(_invoke -> _invoke.result())))
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(exampleNetworkManagerAdminRule)
  *                 .build());

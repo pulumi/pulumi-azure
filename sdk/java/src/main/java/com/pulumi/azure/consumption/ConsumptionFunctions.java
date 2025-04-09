@@ -51,7 +51,7 @@ public final class ConsumptionFunctions {
      *             .resourceGroupId(exampleAzurermResourceGroup.id())
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getBudgetResourceGroupResult -> getBudgetResourceGroupResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -95,7 +95,7 @@ public final class ConsumptionFunctions {
      *             .resourceGroupId(exampleAzurermResourceGroup.id())
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getBudgetResourceGroupResult -> getBudgetResourceGroupResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -139,7 +139,7 @@ public final class ConsumptionFunctions {
      *             .resourceGroupId(exampleAzurermResourceGroup.id())
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getBudgetResourceGroupResult -> getBudgetResourceGroupResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -183,7 +183,7 @@ public final class ConsumptionFunctions {
      *             .resourceGroupId(exampleAzurermResourceGroup.id())
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getBudgetResourceGroupResult -> getBudgetResourceGroupResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -227,7 +227,7 @@ public final class ConsumptionFunctions {
      *             .resourceGroupId(exampleAzurermResourceGroup.id())
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getBudgetResourceGroupResult -> getBudgetResourceGroupResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }

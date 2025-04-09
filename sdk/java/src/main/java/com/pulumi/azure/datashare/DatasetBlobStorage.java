@@ -30,13 +30,9 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.azure.core.ResourceGroup;
  * import com.pulumi.azure.core.ResourceGroupArgs;
- * import com.pulumi.azure.datashare.Account;
- * import com.pulumi.azure.datashare.AccountArgs;
  * import com.pulumi.azure.datashare.inputs.AccountIdentityArgs;
  * import com.pulumi.azure.datashare.Share;
  * import com.pulumi.azure.datashare.ShareArgs;
- * import com.pulumi.azure.storage.Account;
- * import com.pulumi.azure.storage.AccountArgs;
  * import com.pulumi.azure.storage.Container;
  * import com.pulumi.azure.storage.ContainerArgs;
  * import com.pulumi.azuread.AzureadFunctions;
@@ -65,7 +61,7 @@ import javax.annotation.Nullable;
  *             .location("West Europe")
  *             .build());
  * 
- *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()
+ *         var exampleAccount = new com.pulumi.azure.datashare.Account("exampleAccount", com.pulumi.azure.datashare.AccountArgs.builder()
  *             .name("example-dsa")
  *             .location(exampleResourceGroup.location())
  *             .resourceGroupName(exampleResourceGroup.name())
@@ -80,7 +76,7 @@ import javax.annotation.Nullable;
  *             .kind("CopyBased")
  *             .build());
  * 
- *         var exampleAccount2 = new Account("exampleAccount2", AccountArgs.builder()
+ *         var exampleAccount2 = new com.pulumi.azure.storage.Account("exampleAccount2", com.pulumi.azure.storage.AccountArgs.builder()
  *             .name("examplestr")
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .location(exampleResourceGroup.location())
@@ -101,7 +97,7 @@ import javax.annotation.Nullable;
  *         var exampleAssignment = new Assignment("exampleAssignment", AssignmentArgs.builder()
  *             .scope(exampleAccount2.id())
  *             .roleDefinitionName("Storage Blob Data Reader")
- *             .principalId(example.applyValue(getServicePrincipalResult -> getServicePrincipalResult).applyValue(example -> example.applyValue(getServicePrincipalResult -> getServicePrincipalResult.objectId())))
+ *             .principalId(example.applyValue(_example -> _example.objectId()))
  *             .build());
  * 
  *         var exampleDatasetBlobStorage = new DatasetBlobStorage("exampleDatasetBlobStorage", DatasetBlobStorageArgs.builder()

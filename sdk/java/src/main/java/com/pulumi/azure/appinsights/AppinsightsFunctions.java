@@ -48,7 +48,7 @@ public final class AppinsightsFunctions {
      *             .resourceGroupName("networking")
      *             .build());
      * 
-     *         ctx.export("applicationInsightsInstrumentationKey", example.applyValue(getInsightsResult -> getInsightsResult.instrumentationKey()));
+     *         ctx.export("applicationInsightsInstrumentationKey", example.instrumentationKey());
      *     }
      * }
      * }
@@ -92,7 +92,7 @@ public final class AppinsightsFunctions {
      *             .resourceGroupName("networking")
      *             .build());
      * 
-     *         ctx.export("applicationInsightsInstrumentationKey", example.applyValue(getInsightsResult -> getInsightsResult.instrumentationKey()));
+     *         ctx.export("applicationInsightsInstrumentationKey", example.instrumentationKey());
      *     }
      * }
      * }
@@ -136,7 +136,7 @@ public final class AppinsightsFunctions {
      *             .resourceGroupName("networking")
      *             .build());
      * 
-     *         ctx.export("applicationInsightsInstrumentationKey", example.applyValue(getInsightsResult -> getInsightsResult.instrumentationKey()));
+     *         ctx.export("applicationInsightsInstrumentationKey", example.instrumentationKey());
      *     }
      * }
      * }
@@ -180,7 +180,7 @@ public final class AppinsightsFunctions {
      *             .resourceGroupName("networking")
      *             .build());
      * 
-     *         ctx.export("applicationInsightsInstrumentationKey", example.applyValue(getInsightsResult -> getInsightsResult.instrumentationKey()));
+     *         ctx.export("applicationInsightsInstrumentationKey", example.instrumentationKey());
      *     }
      * }
      * }
@@ -224,7 +224,7 @@ public final class AppinsightsFunctions {
      *             .resourceGroupName("networking")
      *             .build());
      * 
-     *         ctx.export("applicationInsightsInstrumentationKey", example.applyValue(getInsightsResult -> getInsightsResult.instrumentationKey()));
+     *         ctx.export("applicationInsightsInstrumentationKey", example.instrumentationKey());
      *     }
      * }
      * }

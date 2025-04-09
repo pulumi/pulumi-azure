@@ -63,7 +63,7 @@ public final class ScaleSetIdentity {
      *                 .build())
      *             .build());
      * 
-     *         ctx.export("principalId", example.identity().applyValue(identity -> identity.principalId()));
+     *         ctx.export("principalId", example.identity().applyValue(_identity -> _identity.principalId()));
      *     }
      * }
      * }
@@ -131,7 +131,7 @@ public final class ScaleSetIdentity {
      *                 .build())
      *             .build());
      * 
-     *         ctx.export("principalId", example.identity().applyValue(identity -> identity.principalId()));
+     *         ctx.export("principalId", example.identity().applyValue(_identity -> _identity.principalId()));
      *     }
      * }
      * }

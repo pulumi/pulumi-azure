@@ -57,7 +57,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         final var current = CoreFunctions.getClientConfig();
+ *         final var current = CoreFunctions.getClientConfig(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
  * 
  *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example-resources")
@@ -74,12 +74,12 @@ import javax.annotation.Nullable;
  *             .name("example")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .tenantId(current.applyValue(getClientConfigResult -> getClientConfigResult.tenantId()))
+ *             .tenantId(current.tenantId())
  *             .skuName("premium")
  *             .softDeleteRetentionDays(7)
  *             .accessPolicies(KeyVaultAccessPolicyArgs.builder()
- *                 .tenantId(current.applyValue(getClientConfigResult -> getClientConfigResult.tenantId()))
- *                 .objectId(current.applyValue(getClientConfigResult -> getClientConfigResult.objectId()))
+ *                 .tenantId(current.tenantId())
+ *                 .objectId(current.objectId())
  *                 .keyPermissions(                
  *                     "Create",
  *                     "Get")
@@ -108,8 +108,8 @@ import javax.annotation.Nullable;
  *             .name("example")
  *             .description("example description")
  *             .dataFactoryId(exampleFactory.id())
- *             .tenantId(current.applyValue(getClientConfigResult -> getClientConfigResult.tenantId()))
- *             .servicePrincipalId(current.applyValue(getClientConfigResult -> getClientConfigResult.clientId()))
+ *             .tenantId(current.tenantId())
+ *             .servicePrincipalId(current.clientId())
  *             .servicePrincipalKey(CredentialServicePrincipalServicePrincipalKeyArgs.builder()
  *                 .linkedServiceName(exampleLinkedServiceKeyVault.name())
  *                 .secretName(exampleSecret.name())

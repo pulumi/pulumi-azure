@@ -66,7 +66,7 @@ public final class MonitoringFunctions {
      *             .name("tfex-actiongroup")
      *             .build());
      * 
-     *         ctx.export("actionGroupId", example.applyValue(getActionGroupResult -> getActionGroupResult.id()));
+     *         ctx.export("actionGroupId", example.id());
      *     }
      * }
      * }
@@ -110,7 +110,7 @@ public final class MonitoringFunctions {
      *             .name("tfex-actiongroup")
      *             .build());
      * 
-     *         ctx.export("actionGroupId", example.applyValue(getActionGroupResult -> getActionGroupResult.id()));
+     *         ctx.export("actionGroupId", example.id());
      *     }
      * }
      * }
@@ -154,7 +154,7 @@ public final class MonitoringFunctions {
      *             .name("tfex-actiongroup")
      *             .build());
      * 
-     *         ctx.export("actionGroupId", example.applyValue(getActionGroupResult -> getActionGroupResult.id()));
+     *         ctx.export("actionGroupId", example.id());
      *     }
      * }
      * }
@@ -198,7 +198,7 @@ public final class MonitoringFunctions {
      *             .name("tfex-actiongroup")
      *             .build());
      * 
-     *         ctx.export("actionGroupId", example.applyValue(getActionGroupResult -> getActionGroupResult.id()));
+     *         ctx.export("actionGroupId", example.id());
      *     }
      * }
      * }
@@ -242,7 +242,7 @@ public final class MonitoringFunctions {
      *             .name("tfex-actiongroup")
      *             .build());
      * 
-     *         ctx.export("actionGroupId", example.applyValue(getActionGroupResult -> getActionGroupResult.id()));
+     *         ctx.export("actionGroupId", example.id());
      *     }
      * }
      * }
@@ -286,7 +286,7 @@ public final class MonitoringFunctions {
      *             .resourceGroupName(exampleAzurermResourceGroup.name())
      *             .build());
      * 
-     *         ctx.export("endpointId", example.applyValue(getDataCollectionEndpointResult -> getDataCollectionEndpointResult.id()));
+     *         ctx.export("endpointId", example.id());
      *     }
      * }
      * }
@@ -330,7 +330,7 @@ public final class MonitoringFunctions {
      *             .resourceGroupName(exampleAzurermResourceGroup.name())
      *             .build());
      * 
-     *         ctx.export("endpointId", example.applyValue(getDataCollectionEndpointResult -> getDataCollectionEndpointResult.id()));
+     *         ctx.export("endpointId", example.id());
      *     }
      * }
      * }
@@ -374,7 +374,7 @@ public final class MonitoringFunctions {
      *             .resourceGroupName(exampleAzurermResourceGroup.name())
      *             .build());
      * 
-     *         ctx.export("endpointId", example.applyValue(getDataCollectionEndpointResult -> getDataCollectionEndpointResult.id()));
+     *         ctx.export("endpointId", example.id());
      *     }
      * }
      * }
@@ -418,7 +418,7 @@ public final class MonitoringFunctions {
      *             .resourceGroupName(exampleAzurermResourceGroup.name())
      *             .build());
      * 
-     *         ctx.export("endpointId", example.applyValue(getDataCollectionEndpointResult -> getDataCollectionEndpointResult.id()));
+     *         ctx.export("endpointId", example.id());
      *     }
      * }
      * }
@@ -462,7 +462,7 @@ public final class MonitoringFunctions {
      *             .resourceGroupName(exampleAzurermResourceGroup.name())
      *             .build());
      * 
-     *         ctx.export("endpointId", example.applyValue(getDataCollectionEndpointResult -> getDataCollectionEndpointResult.id()));
+     *         ctx.export("endpointId", example.id());
      *     }
      * }
      * }
@@ -506,7 +506,7 @@ public final class MonitoringFunctions {
      *             .resourceGroupName(exampleAzurermResourceGroup.name())
      *             .build());
      * 
-     *         ctx.export("ruleId", example.applyValue(getDataCollectionRuleResult -> getDataCollectionRuleResult.id()));
+     *         ctx.export("ruleId", example.id());
      *     }
      * }
      * }
@@ -550,7 +550,7 @@ public final class MonitoringFunctions {
      *             .resourceGroupName(exampleAzurermResourceGroup.name())
      *             .build());
      * 
-     *         ctx.export("ruleId", example.applyValue(getDataCollectionRuleResult -> getDataCollectionRuleResult.id()));
+     *         ctx.export("ruleId", example.id());
      *     }
      * }
      * }
@@ -594,7 +594,7 @@ public final class MonitoringFunctions {
      *             .resourceGroupName(exampleAzurermResourceGroup.name())
      *             .build());
      * 
-     *         ctx.export("ruleId", example.applyValue(getDataCollectionRuleResult -> getDataCollectionRuleResult.id()));
+     *         ctx.export("ruleId", example.id());
      *     }
      * }
      * }
@@ -638,7 +638,7 @@ public final class MonitoringFunctions {
      *             .resourceGroupName(exampleAzurermResourceGroup.name())
      *             .build());
      * 
-     *         ctx.export("ruleId", example.applyValue(getDataCollectionRuleResult -> getDataCollectionRuleResult.id()));
+     *         ctx.export("ruleId", example.id());
      *     }
      * }
      * }
@@ -682,7 +682,7 @@ public final class MonitoringFunctions {
      *             .resourceGroupName(exampleAzurermResourceGroup.name())
      *             .build());
      * 
-     *         ctx.export("ruleId", example.applyValue(getDataCollectionRuleResult -> getDataCollectionRuleResult.id()));
+     *         ctx.export("ruleId", example.id());
      *     }
      * }
      * }
@@ -729,7 +729,7 @@ public final class MonitoringFunctions {
      *             .build());
      * 
      *         final var exampleGetDiagnosticCategories = MonitoringFunctions.getDiagnosticCategories(GetDiagnosticCategoriesArgs.builder()
-     *             .resourceId(example.applyValue(getKeyVaultResult -> getKeyVaultResult.id()))
+     *             .resourceId(example.id())
      *             .build());
      * 
      *     }
@@ -778,7 +778,7 @@ public final class MonitoringFunctions {
      *             .build());
      * 
      *         final var exampleGetDiagnosticCategories = MonitoringFunctions.getDiagnosticCategories(GetDiagnosticCategoriesArgs.builder()
-     *             .resourceId(example.applyValue(getKeyVaultResult -> getKeyVaultResult.id()))
+     *             .resourceId(example.id())
      *             .build());
      * 
      *     }
@@ -827,7 +827,7 @@ public final class MonitoringFunctions {
      *             .build());
      * 
      *         final var exampleGetDiagnosticCategories = MonitoringFunctions.getDiagnosticCategories(GetDiagnosticCategoriesArgs.builder()
-     *             .resourceId(example.applyValue(getKeyVaultResult -> getKeyVaultResult.id()))
+     *             .resourceId(example.id())
      *             .build());
      * 
      *     }
@@ -876,7 +876,7 @@ public final class MonitoringFunctions {
      *             .build());
      * 
      *         final var exampleGetDiagnosticCategories = MonitoringFunctions.getDiagnosticCategories(GetDiagnosticCategoriesArgs.builder()
-     *             .resourceId(example.applyValue(getKeyVaultResult -> getKeyVaultResult.id()))
+     *             .resourceId(example.id())
      *             .build());
      * 
      *     }
@@ -925,7 +925,7 @@ public final class MonitoringFunctions {
      *             .build());
      * 
      *         final var exampleGetDiagnosticCategories = MonitoringFunctions.getDiagnosticCategories(GetDiagnosticCategoriesArgs.builder()
-     *             .resourceId(example.applyValue(getKeyVaultResult -> getKeyVaultResult.id()))
+     *             .resourceId(example.id())
      *             .build());
      * 
      *     }
@@ -971,7 +971,7 @@ public final class MonitoringFunctions {
      *             .name("tfex-queryrule")
      *             .build());
      * 
-     *         ctx.export("queryRuleId", example.applyValue(getScheduledQueryRulesAlertResult -> getScheduledQueryRulesAlertResult.id()));
+     *         ctx.export("queryRuleId", example.id());
      *     }
      * }
      * }
@@ -1015,7 +1015,7 @@ public final class MonitoringFunctions {
      *             .name("tfex-queryrule")
      *             .build());
      * 
-     *         ctx.export("queryRuleId", example.applyValue(getScheduledQueryRulesAlertResult -> getScheduledQueryRulesAlertResult.id()));
+     *         ctx.export("queryRuleId", example.id());
      *     }
      * }
      * }
@@ -1059,7 +1059,7 @@ public final class MonitoringFunctions {
      *             .name("tfex-queryrule")
      *             .build());
      * 
-     *         ctx.export("queryRuleId", example.applyValue(getScheduledQueryRulesAlertResult -> getScheduledQueryRulesAlertResult.id()));
+     *         ctx.export("queryRuleId", example.id());
      *     }
      * }
      * }
@@ -1103,7 +1103,7 @@ public final class MonitoringFunctions {
      *             .name("tfex-queryrule")
      *             .build());
      * 
-     *         ctx.export("queryRuleId", example.applyValue(getScheduledQueryRulesAlertResult -> getScheduledQueryRulesAlertResult.id()));
+     *         ctx.export("queryRuleId", example.id());
      *     }
      * }
      * }
@@ -1147,7 +1147,7 @@ public final class MonitoringFunctions {
      *             .name("tfex-queryrule")
      *             .build());
      * 
-     *         ctx.export("queryRuleId", example.applyValue(getScheduledQueryRulesAlertResult -> getScheduledQueryRulesAlertResult.id()));
+     *         ctx.export("queryRuleId", example.id());
      *     }
      * }
      * }
@@ -1191,7 +1191,7 @@ public final class MonitoringFunctions {
      *             .name("tfex-queryrule")
      *             .build());
      * 
-     *         ctx.export("queryRuleId", example.applyValue(getScheduledQueryRulesLogResult -> getScheduledQueryRulesLogResult.id()));
+     *         ctx.export("queryRuleId", example.id());
      *     }
      * }
      * }
@@ -1235,7 +1235,7 @@ public final class MonitoringFunctions {
      *             .name("tfex-queryrule")
      *             .build());
      * 
-     *         ctx.export("queryRuleId", example.applyValue(getScheduledQueryRulesLogResult -> getScheduledQueryRulesLogResult.id()));
+     *         ctx.export("queryRuleId", example.id());
      *     }
      * }
      * }
@@ -1279,7 +1279,7 @@ public final class MonitoringFunctions {
      *             .name("tfex-queryrule")
      *             .build());
      * 
-     *         ctx.export("queryRuleId", example.applyValue(getScheduledQueryRulesLogResult -> getScheduledQueryRulesLogResult.id()));
+     *         ctx.export("queryRuleId", example.id());
      *     }
      * }
      * }
@@ -1323,7 +1323,7 @@ public final class MonitoringFunctions {
      *             .name("tfex-queryrule")
      *             .build());
      * 
-     *         ctx.export("queryRuleId", example.applyValue(getScheduledQueryRulesLogResult -> getScheduledQueryRulesLogResult.id()));
+     *         ctx.export("queryRuleId", example.id());
      *     }
      * }
      * }
@@ -1367,7 +1367,7 @@ public final class MonitoringFunctions {
      *             .name("tfex-queryrule")
      *             .build());
      * 
-     *         ctx.export("queryRuleId", example.applyValue(getScheduledQueryRulesLogResult -> getScheduledQueryRulesLogResult.id()));
+     *         ctx.export("queryRuleId", example.id());
      *     }
      * }
      * }
@@ -1411,7 +1411,7 @@ public final class MonitoringFunctions {
      *             .resourceGroupName(exampleAzurermResourceGroup.name())
      *             .build());
      * 
-     *         ctx.export("queryEndpoint", example.applyValue(getWorkspaceResult -> getWorkspaceResult.queryEndpoint()));
+     *         ctx.export("queryEndpoint", example.queryEndpoint());
      *     }
      * }
      * }
@@ -1455,7 +1455,7 @@ public final class MonitoringFunctions {
      *             .resourceGroupName(exampleAzurermResourceGroup.name())
      *             .build());
      * 
-     *         ctx.export("queryEndpoint", example.applyValue(getWorkspaceResult -> getWorkspaceResult.queryEndpoint()));
+     *         ctx.export("queryEndpoint", example.queryEndpoint());
      *     }
      * }
      * }
@@ -1499,7 +1499,7 @@ public final class MonitoringFunctions {
      *             .resourceGroupName(exampleAzurermResourceGroup.name())
      *             .build());
      * 
-     *         ctx.export("queryEndpoint", example.applyValue(getWorkspaceResult -> getWorkspaceResult.queryEndpoint()));
+     *         ctx.export("queryEndpoint", example.queryEndpoint());
      *     }
      * }
      * }
@@ -1543,7 +1543,7 @@ public final class MonitoringFunctions {
      *             .resourceGroupName(exampleAzurermResourceGroup.name())
      *             .build());
      * 
-     *         ctx.export("queryEndpoint", example.applyValue(getWorkspaceResult -> getWorkspaceResult.queryEndpoint()));
+     *         ctx.export("queryEndpoint", example.queryEndpoint());
      *     }
      * }
      * }
@@ -1587,7 +1587,7 @@ public final class MonitoringFunctions {
      *             .resourceGroupName(exampleAzurermResourceGroup.name())
      *             .build());
      * 
-     *         ctx.export("queryEndpoint", example.applyValue(getWorkspaceResult -> getWorkspaceResult.queryEndpoint()));
+     *         ctx.export("queryEndpoint", example.queryEndpoint());
      *     }
      * }
      * }

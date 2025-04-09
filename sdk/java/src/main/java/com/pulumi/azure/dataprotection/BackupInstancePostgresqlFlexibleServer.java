@@ -88,13 +88,13 @@ import javax.annotation.Nullable;
  *         var exampleAssignment = new Assignment("exampleAssignment", AssignmentArgs.builder()
  *             .scope(example.id())
  *             .roleDefinitionName("Reader")
- *             .principalId(exampleBackupVault.identity().applyValue(identity -> identity.principalId()))
+ *             .principalId(exampleBackupVault.identity().applyValue(_identity -> _identity.principalId()))
  *             .build());
  * 
  *         var example2 = new Assignment("example2", AssignmentArgs.builder()
  *             .scope(exampleFlexibleServer.id())
  *             .roleDefinitionName("PostgreSQL Flexible Server Long Term Retention Backup Role")
- *             .principalId(exampleBackupVault.identity().applyValue(identity -> identity.principalId()))
+ *             .principalId(exampleBackupVault.identity().applyValue(_identity -> _identity.principalId()))
  *             .build());
  * 
  *         var exampleBackupPolicyPostgresqlFlexibleServer = new BackupPolicyPostgresqlFlexibleServer("exampleBackupPolicyPostgresqlFlexibleServer", BackupPolicyPostgresqlFlexibleServerArgs.builder()

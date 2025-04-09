@@ -116,15 +116,16 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         final var primary = CoreFunctions.getSubscription();
+ *         final var primary = CoreFunctions.getSubscription(GetSubscriptionArgs.builder()
+ *             .build());
  * 
  *         final var monitoringReader = AuthorizationFunctions.getRoleDefinition(GetRoleDefinitionArgs.builder()
  *             .name("Monitoring Reader")
  *             .build());
  * 
  *         var example = new Assignment("example", AssignmentArgs.builder()
- *             .scope(primary.applyValue(getSubscriptionResult -> getSubscriptionResult.id()))
- *             .roleDefinitionId(monitoringReader.applyValue(getRoleDefinitionResult -> getRoleDefinitionResult.roleDefinitionId()))
+ *             .scope(primary.id())
+ *             .roleDefinitionId(monitoringReader.roleDefinitionId())
  *             .principalId(exampleAzurermDatadogMonitor.identity()[0].principalId())
  *             .build());
  * 

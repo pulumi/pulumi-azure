@@ -109,11 +109,11 @@ import javax.annotation.Nullable;
  *             .name("example")
  *             .synapseWorkspaceId(exampleWorkspace.id())
  *             .type("AzureBlobStorage")
- *             .typePropertiesJson(exampleAccount.primaryConnectionString().applyValue(primaryConnectionString -> """
+ *             .typePropertiesJson(exampleAccount.primaryConnectionString().applyValue(_primaryConnectionString -> """
  * }{{@code
  *   "connectionString": "%s"
  * }}{@code
- * ", primaryConnectionString)))
+ * ", _primaryConnectionString)))
  *             .integrationRuntime(LinkedServiceIntegrationRuntimeArgs.builder()
  *                 .name(exampleIntegrationRuntimeAzure.name())
  *                 .build())

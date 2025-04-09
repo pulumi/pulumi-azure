@@ -48,8 +48,8 @@ public final class ElasticcloudFunctions {
      *             .resourceGroupName("example-resources")
      *             .build());
      * 
-     *         ctx.export("elasticsearchEndpoint", example.applyValue(getElasticsearchResult -> getElasticsearchResult.elasticsearchServiceUrl()));
-     *         ctx.export("kibanaEndpoint", example.applyValue(getElasticsearchResult -> getElasticsearchResult.kibanaServiceUrl()));
+     *         ctx.export("elasticsearchEndpoint", example.elasticsearchServiceUrl());
+     *         ctx.export("kibanaEndpoint", example.kibanaServiceUrl());
      *     }
      * }
      * }
@@ -93,8 +93,8 @@ public final class ElasticcloudFunctions {
      *             .resourceGroupName("example-resources")
      *             .build());
      * 
-     *         ctx.export("elasticsearchEndpoint", example.applyValue(getElasticsearchResult -> getElasticsearchResult.elasticsearchServiceUrl()));
-     *         ctx.export("kibanaEndpoint", example.applyValue(getElasticsearchResult -> getElasticsearchResult.kibanaServiceUrl()));
+     *         ctx.export("elasticsearchEndpoint", example.elasticsearchServiceUrl());
+     *         ctx.export("kibanaEndpoint", example.kibanaServiceUrl());
      *     }
      * }
      * }
@@ -138,8 +138,8 @@ public final class ElasticcloudFunctions {
      *             .resourceGroupName("example-resources")
      *             .build());
      * 
-     *         ctx.export("elasticsearchEndpoint", example.applyValue(getElasticsearchResult -> getElasticsearchResult.elasticsearchServiceUrl()));
-     *         ctx.export("kibanaEndpoint", example.applyValue(getElasticsearchResult -> getElasticsearchResult.kibanaServiceUrl()));
+     *         ctx.export("elasticsearchEndpoint", example.elasticsearchServiceUrl());
+     *         ctx.export("kibanaEndpoint", example.kibanaServiceUrl());
      *     }
      * }
      * }
@@ -183,8 +183,8 @@ public final class ElasticcloudFunctions {
      *             .resourceGroupName("example-resources")
      *             .build());
      * 
-     *         ctx.export("elasticsearchEndpoint", example.applyValue(getElasticsearchResult -> getElasticsearchResult.elasticsearchServiceUrl()));
-     *         ctx.export("kibanaEndpoint", example.applyValue(getElasticsearchResult -> getElasticsearchResult.kibanaServiceUrl()));
+     *         ctx.export("elasticsearchEndpoint", example.elasticsearchServiceUrl());
+     *         ctx.export("kibanaEndpoint", example.kibanaServiceUrl());
      *     }
      * }
      * }
@@ -228,8 +228,8 @@ public final class ElasticcloudFunctions {
      *             .resourceGroupName("example-resources")
      *             .build());
      * 
-     *         ctx.export("elasticsearchEndpoint", example.applyValue(getElasticsearchResult -> getElasticsearchResult.elasticsearchServiceUrl()));
-     *         ctx.export("kibanaEndpoint", example.applyValue(getElasticsearchResult -> getElasticsearchResult.kibanaServiceUrl()));
+     *         ctx.export("elasticsearchEndpoint", example.elasticsearchServiceUrl());
+     *         ctx.export("kibanaEndpoint", example.kibanaServiceUrl());
      *     }
      * }
      * }

@@ -95,7 +95,7 @@ import javax.annotation.Nullable;
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .serviceLevel("Premium")
- *             .sizeInTb("4")
+ *             .sizeInTb(4)
  *             .build());
  * 
  *         var exampleVolume = new Volume("exampleVolume", VolumeArgs.builder()
@@ -107,7 +107,7 @@ import javax.annotation.Nullable;
  *             .volumePath("my-unique-file-path")
  *             .serviceLevel("Premium")
  *             .subnetId(exampleSubnet.id())
- *             .storageQuotaInGb("100")
+ *             .storageQuotaInGb(100)
  *             .build());
  * 
  *         var exampleSnapshot = new Snapshot("exampleSnapshot", SnapshotArgs.builder()

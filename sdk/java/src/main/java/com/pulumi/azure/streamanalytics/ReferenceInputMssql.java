@@ -77,8 +77,8 @@ import javax.annotation.Nullable;
  * 
  *         var exampleReferenceInputMssql = new ReferenceInputMssql("exampleReferenceInputMssql", ReferenceInputMssqlArgs.builder()
  *             .name("example-reference-input")
- *             .resourceGroupName(example.applyValue(getJobResult -> getJobResult).applyValue(example -> example.applyValue(getJobResult -> getJobResult.resourceGroupName())))
- *             .streamAnalyticsJobName(example.applyValue(getJobResult -> getJobResult).applyValue(example -> example.applyValue(getJobResult -> getJobResult.name())))
+ *             .resourceGroupName(example.applyValue(_example -> _example.resourceGroupName()))
+ *             .streamAnalyticsJobName(example.applyValue(_example -> _example.name()))
  *             .server(exampleServer.fullyQualifiedDomainName())
  *             .database(exampleDatabase.name())
  *             .username("exampleuser")

@@ -37,6 +37,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.managedapplication.Definition;
  * import com.pulumi.azure.managedapplication.DefinitionArgs;
  * import com.pulumi.azure.managedapplication.inputs.DefinitionAuthorizationArgs;
+ * import com.pulumi.std.StdFunctions;
+ * import com.pulumi.std.inputs.SplitArgs;
  * import com.pulumi.azure.managedapplication.Application;
  * import com.pulumi.azure.managedapplication.ApplicationArgs;
  * import static com.pulumi.codegen.internal.Serialization.*;
@@ -53,7 +55,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         final var current = CoreFunctions.getClientConfig();
+ *         final var current = CoreFunctions.getClientConfig(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
  * 
  *         final var builtin = AuthorizationFunctions.getRoleDefinition(GetRoleDefinitionArgs.builder()
  *             .name("Contributor")
@@ -73,13 +75,13 @@ import javax.annotation.Nullable;
  *             .displayName("TestManagedAppDefinition")
  *             .description("Test Managed App Definition")
  *             .authorizations(DefinitionAuthorizationArgs.builder()
- *                 .servicePrincipalId(current.applyValue(getClientConfigResult -> getClientConfigResult.objectId()))
+ *                 .servicePrincipalId(current.objectId())
  *                 .roleDefinitionId(StdFunctions.split(SplitArgs.builder()
  *                     .separator("/")
- *                     .text(builtin.applyValue(getRoleDefinitionResult -> getRoleDefinitionResult.id()))
+ *                     .text(builtin.id())
  *                     .build()).result()[StdFunctions.split(SplitArgs.builder()
  *                     .separator("/")
- *                     .text(builtin.applyValue(getRoleDefinitionResult -> getRoleDefinitionResult.id()))
+ *                     .text(builtin.id())
  *                     .build()).result().length() - 1])
  *                 .build())
  *             .build());
@@ -91,10 +93,10 @@ import javax.annotation.Nullable;
  *             .kind("ServiceCatalog")
  *             .managedResourceGroupName("infrastructureGroup")
  *             .applicationDefinitionId(exampleDefinition.id())
- *             .parameterValues(example.location().applyValue(location -> serializeJson(
+ *             .parameterValues(example.location().applyValue(_location -> serializeJson(
  *                 jsonObject(
  *                     jsonProperty("location", jsonObject(
- *                         jsonProperty("value", location)
+ *                         jsonProperty("value", _location)
  *                     )),
  *                     jsonProperty("storageAccountNamePrefix", jsonObject(
  *                         jsonProperty("value", "storeNamePrefix")

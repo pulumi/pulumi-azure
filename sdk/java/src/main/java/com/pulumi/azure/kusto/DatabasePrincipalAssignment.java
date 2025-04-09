@@ -49,7 +49,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         final var current = CoreFunctions.getClientConfig();
+ *         final var current = CoreFunctions.getClientConfig(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
  * 
  *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("KustoRG")
@@ -80,8 +80,8 @@ import javax.annotation.Nullable;
  *             .resourceGroupName(example.name())
  *             .clusterName(exampleCluster.name())
  *             .databaseName(exampleDatabase.name())
- *             .tenantId(current.applyValue(getClientConfigResult -> getClientConfigResult.tenantId()))
- *             .principalId(current.applyValue(getClientConfigResult -> getClientConfigResult.clientId()))
+ *             .tenantId(current.tenantId())
+ *             .principalId(current.clientId())
  *             .principalType("App")
  *             .role("Viewer")
  *             .build());

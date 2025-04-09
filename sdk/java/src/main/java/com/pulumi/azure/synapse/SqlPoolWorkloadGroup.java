@@ -99,8 +99,8 @@ import javax.annotation.Nullable;
  *             .importance("normal")
  *             .maxResourcePercent(100)
  *             .minResourcePercent(0)
- *             .maxResourcePercentPerRequest(3)
- *             .minResourcePercentPerRequest(3)
+ *             .maxResourcePercentPerRequest(3.0)
+ *             .minResourcePercentPerRequest(3.0)
  *             .queryExecutionTimeoutInSeconds(0)
  *             .build());
  * 

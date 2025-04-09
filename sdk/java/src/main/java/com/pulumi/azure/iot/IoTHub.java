@@ -132,7 +132,7 @@ import javax.annotation.Nullable;
  *             .localAuthenticationEnabled(false)
  *             .sku(IoTHubSkuArgs.builder()
  *                 .name("S1")
- *                 .capacity("1")
+ *                 .capacity(1)
  *                 .build())
  *             .endpoints(            
  *                 IoTHubEndpointArgs.builder()

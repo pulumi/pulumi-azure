@@ -77,7 +77,7 @@ import javax.annotation.Nullable;
  *             .location("West Europe")
  *             .build());
  * 
- *         final var current = CoreFunctions.getClientConfig();
+ *         final var current = CoreFunctions.getClientConfig(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
  * 
  *         var exampleAnalyticsWorkspace = new AnalyticsWorkspace("exampleAnalyticsWorkspace", AnalyticsWorkspaceArgs.builder()
  *             .name("workspace-01")
@@ -133,7 +133,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .itsmReceivers(ActionGroupItsmReceiverArgs.builder()
  *                 .name("createorupdateticket")
- *                 .workspaceId(exampleAnalyticsWorkspace.workspaceId().applyValue(workspaceId -> String.format("%s|%s", current.applyValue(getClientConfigResult -> getClientConfigResult.subscriptionId()),workspaceId)))
+ *                 .workspaceId(exampleAnalyticsWorkspace.workspaceId().applyValue(_workspaceId -> String.format("%s|%s", current.subscriptionId(),_workspaceId)))
  *                 .connectionId("53de6956-42b4-41ba-be3c-b154cdf17b13")
  *                 .ticketConfiguration("}{{@code \"PayloadRevision\":0,\"WorkItemType\":\"Incident\",\"UseTemplate\":false,\"WorkItemData\":\"}{}{@code \",\"CreateOneWIPerCI\":false}}{@code ")
  *                 .region("southcentralus")

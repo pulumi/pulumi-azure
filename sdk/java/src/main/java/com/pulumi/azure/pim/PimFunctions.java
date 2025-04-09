@@ -55,7 +55,7 @@ public final class PimFunctions {
      * 
      *         final var rgContributor = AuthorizationFunctions.getRoleDefinition(GetRoleDefinitionArgs.builder()
      *             .name("Contributor")
-     *             .scope(example.applyValue(getResourceGroupResult -> getResourceGroupResult.id()))
+     *             .scope(example.id())
      *             .build());
      * 
      *         final var exampleGetRoleManagementPolicy = PimFunctions.getRoleManagementPolicy(GetRoleManagementPolicyArgs.builder()
@@ -108,8 +108,8 @@ public final class PimFunctions {
      *             .build());
      * 
      *         final var exampleGetRoleManagementPolicy = PimFunctions.getRoleManagementPolicy(GetRoleManagementPolicyArgs.builder()
-     *             .scope(example.applyValue(getGroupResult -> getGroupResult.id()))
-     *             .roleDefinitionId(mgContributor.applyValue(getRoleDefinitionResult -> getRoleDefinitionResult.id()))
+     *             .scope(example.id())
+     *             .roleDefinitionId(mgContributor.id())
      *             .build());
      * 
      *     }
@@ -162,7 +162,7 @@ public final class PimFunctions {
      * 
      *         final var rgContributor = AuthorizationFunctions.getRoleDefinition(GetRoleDefinitionArgs.builder()
      *             .name("Contributor")
-     *             .scope(example.applyValue(getResourceGroupResult -> getResourceGroupResult.id()))
+     *             .scope(example.id())
      *             .build());
      * 
      *         final var exampleGetRoleManagementPolicy = PimFunctions.getRoleManagementPolicy(GetRoleManagementPolicyArgs.builder()
@@ -215,8 +215,8 @@ public final class PimFunctions {
      *             .build());
      * 
      *         final var exampleGetRoleManagementPolicy = PimFunctions.getRoleManagementPolicy(GetRoleManagementPolicyArgs.builder()
-     *             .scope(example.applyValue(getGroupResult -> getGroupResult.id()))
-     *             .roleDefinitionId(mgContributor.applyValue(getRoleDefinitionResult -> getRoleDefinitionResult.id()))
+     *             .scope(example.id())
+     *             .roleDefinitionId(mgContributor.id())
      *             .build());
      * 
      *     }
@@ -269,7 +269,7 @@ public final class PimFunctions {
      * 
      *         final var rgContributor = AuthorizationFunctions.getRoleDefinition(GetRoleDefinitionArgs.builder()
      *             .name("Contributor")
-     *             .scope(example.applyValue(getResourceGroupResult -> getResourceGroupResult.id()))
+     *             .scope(example.id())
      *             .build());
      * 
      *         final var exampleGetRoleManagementPolicy = PimFunctions.getRoleManagementPolicy(GetRoleManagementPolicyArgs.builder()
@@ -322,8 +322,8 @@ public final class PimFunctions {
      *             .build());
      * 
      *         final var exampleGetRoleManagementPolicy = PimFunctions.getRoleManagementPolicy(GetRoleManagementPolicyArgs.builder()
-     *             .scope(example.applyValue(getGroupResult -> getGroupResult.id()))
-     *             .roleDefinitionId(mgContributor.applyValue(getRoleDefinitionResult -> getRoleDefinitionResult.id()))
+     *             .scope(example.id())
+     *             .roleDefinitionId(mgContributor.id())
      *             .build());
      * 
      *     }
@@ -376,7 +376,7 @@ public final class PimFunctions {
      * 
      *         final var rgContributor = AuthorizationFunctions.getRoleDefinition(GetRoleDefinitionArgs.builder()
      *             .name("Contributor")
-     *             .scope(example.applyValue(getResourceGroupResult -> getResourceGroupResult.id()))
+     *             .scope(example.id())
      *             .build());
      * 
      *         final var exampleGetRoleManagementPolicy = PimFunctions.getRoleManagementPolicy(GetRoleManagementPolicyArgs.builder()
@@ -429,8 +429,8 @@ public final class PimFunctions {
      *             .build());
      * 
      *         final var exampleGetRoleManagementPolicy = PimFunctions.getRoleManagementPolicy(GetRoleManagementPolicyArgs.builder()
-     *             .scope(example.applyValue(getGroupResult -> getGroupResult.id()))
-     *             .roleDefinitionId(mgContributor.applyValue(getRoleDefinitionResult -> getRoleDefinitionResult.id()))
+     *             .scope(example.id())
+     *             .roleDefinitionId(mgContributor.id())
      *             .build());
      * 
      *     }
@@ -483,7 +483,7 @@ public final class PimFunctions {
      * 
      *         final var rgContributor = AuthorizationFunctions.getRoleDefinition(GetRoleDefinitionArgs.builder()
      *             .name("Contributor")
-     *             .scope(example.applyValue(getResourceGroupResult -> getResourceGroupResult.id()))
+     *             .scope(example.id())
      *             .build());
      * 
      *         final var exampleGetRoleManagementPolicy = PimFunctions.getRoleManagementPolicy(GetRoleManagementPolicyArgs.builder()
@@ -536,8 +536,8 @@ public final class PimFunctions {
      *             .build());
      * 
      *         final var exampleGetRoleManagementPolicy = PimFunctions.getRoleManagementPolicy(GetRoleManagementPolicyArgs.builder()
-     *             .scope(example.applyValue(getGroupResult -> getGroupResult.id()))
-     *             .roleDefinitionId(mgContributor.applyValue(getRoleDefinitionResult -> getRoleDefinitionResult.id()))
+     *             .scope(example.id())
+     *             .roleDefinitionId(mgContributor.id())
      *             .build());
      * 
      *     }

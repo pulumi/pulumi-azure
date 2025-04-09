@@ -60,7 +60,7 @@ public final class CosmosdbFunctions {
      *             .resourceGroupName("tfex-cosmosdb-account-rg")
      *             .build());
      * 
-     *         ctx.export("cosmosdbAccountEndpoint", example.applyValue(getAccountResult -> getAccountResult.endpoint()));
+     *         ctx.export("cosmosdbAccountEndpoint", example.endpoint());
      *     }
      * }
      * }
@@ -104,7 +104,7 @@ public final class CosmosdbFunctions {
      *             .resourceGroupName("tfex-cosmosdb-account-rg")
      *             .build());
      * 
-     *         ctx.export("cosmosdbAccountEndpoint", example.applyValue(getAccountResult -> getAccountResult.endpoint()));
+     *         ctx.export("cosmosdbAccountEndpoint", example.endpoint());
      *     }
      * }
      * }
@@ -148,7 +148,7 @@ public final class CosmosdbFunctions {
      *             .resourceGroupName("tfex-cosmosdb-account-rg")
      *             .build());
      * 
-     *         ctx.export("cosmosdbAccountEndpoint", example.applyValue(getAccountResult -> getAccountResult.endpoint()));
+     *         ctx.export("cosmosdbAccountEndpoint", example.endpoint());
      *     }
      * }
      * }
@@ -192,7 +192,7 @@ public final class CosmosdbFunctions {
      *             .resourceGroupName("tfex-cosmosdb-account-rg")
      *             .build());
      * 
-     *         ctx.export("cosmosdbAccountEndpoint", example.applyValue(getAccountResult -> getAccountResult.endpoint()));
+     *         ctx.export("cosmosdbAccountEndpoint", example.endpoint());
      *     }
      * }
      * }
@@ -236,7 +236,7 @@ public final class CosmosdbFunctions {
      *             .resourceGroupName("tfex-cosmosdb-account-rg")
      *             .build());
      * 
-     *         ctx.export("cosmosdbAccountEndpoint", example.applyValue(getAccountResult -> getAccountResult.endpoint()));
+     *         ctx.export("cosmosdbAccountEndpoint", example.endpoint());
      *     }
      * }
      * }
@@ -281,7 +281,7 @@ public final class CosmosdbFunctions {
      *             .accountName("test-cosmosdb-account")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getMongoDatabaseResult -> getMongoDatabaseResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -326,7 +326,7 @@ public final class CosmosdbFunctions {
      *             .accountName("test-cosmosdb-account")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getMongoDatabaseResult -> getMongoDatabaseResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -371,7 +371,7 @@ public final class CosmosdbFunctions {
      *             .accountName("test-cosmosdb-account")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getMongoDatabaseResult -> getMongoDatabaseResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -416,7 +416,7 @@ public final class CosmosdbFunctions {
      *             .accountName("test-cosmosdb-account")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getMongoDatabaseResult -> getMongoDatabaseResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -461,7 +461,7 @@ public final class CosmosdbFunctions {
      *             .accountName("test-cosmosdb-account")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getMongoDatabaseResult -> getMongoDatabaseResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -505,7 +505,7 @@ public final class CosmosdbFunctions {
      *             .location("West Europe")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getRestorableDatabaseAccountsResult -> getRestorableDatabaseAccountsResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -549,7 +549,7 @@ public final class CosmosdbFunctions {
      *             .location("West Europe")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getRestorableDatabaseAccountsResult -> getRestorableDatabaseAccountsResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -593,7 +593,7 @@ public final class CosmosdbFunctions {
      *             .location("West Europe")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getRestorableDatabaseAccountsResult -> getRestorableDatabaseAccountsResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -637,7 +637,7 @@ public final class CosmosdbFunctions {
      *             .location("West Europe")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getRestorableDatabaseAccountsResult -> getRestorableDatabaseAccountsResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -681,7 +681,7 @@ public final class CosmosdbFunctions {
      *             .location("West Europe")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getRestorableDatabaseAccountsResult -> getRestorableDatabaseAccountsResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }

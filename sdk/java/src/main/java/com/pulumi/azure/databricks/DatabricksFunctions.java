@@ -54,7 +54,7 @@ public final class DatabricksFunctions {
      *             .resourceGroupName("existing")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getAccessConnectorResult -> getAccessConnectorResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -98,7 +98,7 @@ public final class DatabricksFunctions {
      *             .resourceGroupName("existing")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getAccessConnectorResult -> getAccessConnectorResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -142,7 +142,7 @@ public final class DatabricksFunctions {
      *             .resourceGroupName("existing")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getAccessConnectorResult -> getAccessConnectorResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -186,7 +186,7 @@ public final class DatabricksFunctions {
      *             .resourceGroupName("existing")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getAccessConnectorResult -> getAccessConnectorResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -230,7 +230,7 @@ public final class DatabricksFunctions {
      *             .resourceGroupName("existing")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getAccessConnectorResult -> getAccessConnectorResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -274,7 +274,7 @@ public final class DatabricksFunctions {
      *             .resourceGroupName("example-rg")
      *             .build());
      * 
-     *         ctx.export("databricksWorkspaceId", example.applyValue(getWorkspaceResult -> getWorkspaceResult.workspaceId()));
+     *         ctx.export("databricksWorkspaceId", example.workspaceId());
      *     }
      * }
      * }
@@ -318,7 +318,7 @@ public final class DatabricksFunctions {
      *             .resourceGroupName("example-rg")
      *             .build());
      * 
-     *         ctx.export("databricksWorkspaceId", example.applyValue(getWorkspaceResult -> getWorkspaceResult.workspaceId()));
+     *         ctx.export("databricksWorkspaceId", example.workspaceId());
      *     }
      * }
      * }
@@ -362,7 +362,7 @@ public final class DatabricksFunctions {
      *             .resourceGroupName("example-rg")
      *             .build());
      * 
-     *         ctx.export("databricksWorkspaceId", example.applyValue(getWorkspaceResult -> getWorkspaceResult.workspaceId()));
+     *         ctx.export("databricksWorkspaceId", example.workspaceId());
      *     }
      * }
      * }
@@ -406,7 +406,7 @@ public final class DatabricksFunctions {
      *             .resourceGroupName("example-rg")
      *             .build());
      * 
-     *         ctx.export("databricksWorkspaceId", example.applyValue(getWorkspaceResult -> getWorkspaceResult.workspaceId()));
+     *         ctx.export("databricksWorkspaceId", example.workspaceId());
      *     }
      * }
      * }
@@ -450,7 +450,7 @@ public final class DatabricksFunctions {
      *             .resourceGroupName("example-rg")
      *             .build());
      * 
-     *         ctx.export("databricksWorkspaceId", example.applyValue(getWorkspaceResult -> getWorkspaceResult.workspaceId()));
+     *         ctx.export("databricksWorkspaceId", example.workspaceId());
      *     }
      * }
      * }
@@ -494,7 +494,7 @@ public final class DatabricksFunctions {
      *             .privateEndpointId(exampleAzurermPrivateEndpoint.id())
      *             .build());
      * 
-     *         ctx.export("databricksWorkspacePrivateEndpointConnectionStatus", example.applyValue(getWorkspacePrivateEndpointConnectionResult -> getWorkspacePrivateEndpointConnectionResult.connections()[0].status()));
+     *         ctx.export("databricksWorkspacePrivateEndpointConnectionStatus", example.connections()[0].status());
      *     }
      * }
      * }
@@ -538,7 +538,7 @@ public final class DatabricksFunctions {
      *             .privateEndpointId(exampleAzurermPrivateEndpoint.id())
      *             .build());
      * 
-     *         ctx.export("databricksWorkspacePrivateEndpointConnectionStatus", example.applyValue(getWorkspacePrivateEndpointConnectionResult -> getWorkspacePrivateEndpointConnectionResult.connections()[0].status()));
+     *         ctx.export("databricksWorkspacePrivateEndpointConnectionStatus", example.connections()[0].status());
      *     }
      * }
      * }
@@ -582,7 +582,7 @@ public final class DatabricksFunctions {
      *             .privateEndpointId(exampleAzurermPrivateEndpoint.id())
      *             .build());
      * 
-     *         ctx.export("databricksWorkspacePrivateEndpointConnectionStatus", example.applyValue(getWorkspacePrivateEndpointConnectionResult -> getWorkspacePrivateEndpointConnectionResult.connections()[0].status()));
+     *         ctx.export("databricksWorkspacePrivateEndpointConnectionStatus", example.connections()[0].status());
      *     }
      * }
      * }
@@ -626,7 +626,7 @@ public final class DatabricksFunctions {
      *             .privateEndpointId(exampleAzurermPrivateEndpoint.id())
      *             .build());
      * 
-     *         ctx.export("databricksWorkspacePrivateEndpointConnectionStatus", example.applyValue(getWorkspacePrivateEndpointConnectionResult -> getWorkspacePrivateEndpointConnectionResult.connections()[0].status()));
+     *         ctx.export("databricksWorkspacePrivateEndpointConnectionStatus", example.connections()[0].status());
      *     }
      * }
      * }
@@ -670,7 +670,7 @@ public final class DatabricksFunctions {
      *             .privateEndpointId(exampleAzurermPrivateEndpoint.id())
      *             .build());
      * 
-     *         ctx.export("databricksWorkspacePrivateEndpointConnectionStatus", example.applyValue(getWorkspacePrivateEndpointConnectionResult -> getWorkspacePrivateEndpointConnectionResult.connections()[0].status()));
+     *         ctx.export("databricksWorkspacePrivateEndpointConnectionStatus", example.connections()[0].status());
      *     }
      * }
      * }

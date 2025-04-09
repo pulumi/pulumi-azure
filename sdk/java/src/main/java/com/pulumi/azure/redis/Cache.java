@@ -71,7 +71,8 @@ import javax.annotation.Nullable;
  *             .skuName("Standard")
  *             .nonSslPortEnabled(false)
  *             .minimumTlsVersion("1.2")
- *             .redisConfiguration()
+ *             .redisConfiguration(CacheRedisConfigurationArgs.builder()
+ *                 .build())
  *             .build());
  * 
  *     }

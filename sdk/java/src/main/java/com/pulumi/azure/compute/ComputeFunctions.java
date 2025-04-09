@@ -105,7 +105,7 @@ public final class ComputeFunctions {
      *             .resourceGroupName("my-resource-group")
      *             .build());
      * 
-     *         ctx.export("availabilitySetId", example.applyValue(getAvailabilitySetResult -> getAvailabilitySetResult.id()));
+     *         ctx.export("availabilitySetId", example.id());
      *     }
      * }
      * }
@@ -149,7 +149,7 @@ public final class ComputeFunctions {
      *             .resourceGroupName("my-resource-group")
      *             .build());
      * 
-     *         ctx.export("availabilitySetId", example.applyValue(getAvailabilitySetResult -> getAvailabilitySetResult.id()));
+     *         ctx.export("availabilitySetId", example.id());
      *     }
      * }
      * }
@@ -193,7 +193,7 @@ public final class ComputeFunctions {
      *             .resourceGroupName("my-resource-group")
      *             .build());
      * 
-     *         ctx.export("availabilitySetId", example.applyValue(getAvailabilitySetResult -> getAvailabilitySetResult.id()));
+     *         ctx.export("availabilitySetId", example.id());
      *     }
      * }
      * }
@@ -237,7 +237,7 @@ public final class ComputeFunctions {
      *             .resourceGroupName("my-resource-group")
      *             .build());
      * 
-     *         ctx.export("availabilitySetId", example.applyValue(getAvailabilitySetResult -> getAvailabilitySetResult.id()));
+     *         ctx.export("availabilitySetId", example.id());
      *     }
      * }
      * }
@@ -281,7 +281,7 @@ public final class ComputeFunctions {
      *             .resourceGroupName("my-resource-group")
      *             .build());
      * 
-     *         ctx.export("availabilitySetId", example.applyValue(getAvailabilitySetResult -> getAvailabilitySetResult.id()));
+     *         ctx.export("availabilitySetId", example.id());
      *     }
      * }
      * }
@@ -325,7 +325,7 @@ public final class ComputeFunctions {
      *             .resourceGroupName("existing-resources")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getBastionHostResult -> getBastionHostResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -369,7 +369,7 @@ public final class ComputeFunctions {
      *             .resourceGroupName("existing-resources")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getBastionHostResult -> getBastionHostResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -413,7 +413,7 @@ public final class ComputeFunctions {
      *             .resourceGroupName("existing-resources")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getBastionHostResult -> getBastionHostResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -457,7 +457,7 @@ public final class ComputeFunctions {
      *             .resourceGroupName("existing-resources")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getBastionHostResult -> getBastionHostResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -501,7 +501,7 @@ public final class ComputeFunctions {
      *             .resourceGroupName("existing-resources")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getBastionHostResult -> getBastionHostResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -545,7 +545,7 @@ public final class ComputeFunctions {
      *             .resourceGroupName("example-resources")
      *             .build());
      * 
-     *         ctx.export("ledgerEndpoint", current.applyValue(getConfidentialLedgerResult -> getConfidentialLedgerResult.ledgerEndpoint()));
+     *         ctx.export("ledgerEndpoint", current.ledgerEndpoint());
      *     }
      * }
      * }
@@ -589,7 +589,7 @@ public final class ComputeFunctions {
      *             .resourceGroupName("example-resources")
      *             .build());
      * 
-     *         ctx.export("ledgerEndpoint", current.applyValue(getConfidentialLedgerResult -> getConfidentialLedgerResult.ledgerEndpoint()));
+     *         ctx.export("ledgerEndpoint", current.ledgerEndpoint());
      *     }
      * }
      * }
@@ -633,7 +633,7 @@ public final class ComputeFunctions {
      *             .resourceGroupName("example-resources")
      *             .build());
      * 
-     *         ctx.export("ledgerEndpoint", current.applyValue(getConfidentialLedgerResult -> getConfidentialLedgerResult.ledgerEndpoint()));
+     *         ctx.export("ledgerEndpoint", current.ledgerEndpoint());
      *     }
      * }
      * }
@@ -677,7 +677,7 @@ public final class ComputeFunctions {
      *             .resourceGroupName("example-resources")
      *             .build());
      * 
-     *         ctx.export("ledgerEndpoint", current.applyValue(getConfidentialLedgerResult -> getConfidentialLedgerResult.ledgerEndpoint()));
+     *         ctx.export("ledgerEndpoint", current.ledgerEndpoint());
      *     }
      * }
      * }
@@ -721,7 +721,7 @@ public final class ComputeFunctions {
      *             .resourceGroupName("example-resources")
      *             .build());
      * 
-     *         ctx.export("ledgerEndpoint", current.applyValue(getConfidentialLedgerResult -> getConfidentialLedgerResult.ledgerEndpoint()));
+     *         ctx.export("ledgerEndpoint", current.ledgerEndpoint());
      *     }
      * }
      * }
@@ -766,7 +766,7 @@ public final class ComputeFunctions {
      *             .resourceGroupName("example-resources")
      *             .build());
      * 
-     *         ctx.export("dedicatedHostId", example.applyValue(getDedicatedHostResult -> getDedicatedHostResult.id()));
+     *         ctx.export("dedicatedHostId", example.id());
      *     }
      * }
      * }
@@ -811,7 +811,7 @@ public final class ComputeFunctions {
      *             .resourceGroupName("example-resources")
      *             .build());
      * 
-     *         ctx.export("dedicatedHostId", example.applyValue(getDedicatedHostResult -> getDedicatedHostResult.id()));
+     *         ctx.export("dedicatedHostId", example.id());
      *     }
      * }
      * }
@@ -856,7 +856,7 @@ public final class ComputeFunctions {
      *             .resourceGroupName("example-resources")
      *             .build());
      * 
-     *         ctx.export("dedicatedHostId", example.applyValue(getDedicatedHostResult -> getDedicatedHostResult.id()));
+     *         ctx.export("dedicatedHostId", example.id());
      *     }
      * }
      * }
@@ -901,7 +901,7 @@ public final class ComputeFunctions {
      *             .resourceGroupName("example-resources")
      *             .build());
      * 
-     *         ctx.export("dedicatedHostId", example.applyValue(getDedicatedHostResult -> getDedicatedHostResult.id()));
+     *         ctx.export("dedicatedHostId", example.id());
      *     }
      * }
      * }
@@ -946,7 +946,7 @@ public final class ComputeFunctions {
      *             .resourceGroupName("example-resources")
      *             .build());
      * 
-     *         ctx.export("dedicatedHostId", example.applyValue(getDedicatedHostResult -> getDedicatedHostResult.id()));
+     *         ctx.export("dedicatedHostId", example.id());
      *     }
      * }
      * }
@@ -990,7 +990,7 @@ public final class ComputeFunctions {
      *             .resourceGroupName("example-rg")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getDedicatedHostGroupResult -> getDedicatedHostGroupResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -1034,7 +1034,7 @@ public final class ComputeFunctions {
      *             .resourceGroupName("example-rg")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getDedicatedHostGroupResult -> getDedicatedHostGroupResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -1078,7 +1078,7 @@ public final class ComputeFunctions {
      *             .resourceGroupName("example-rg")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getDedicatedHostGroupResult -> getDedicatedHostGroupResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -1122,7 +1122,7 @@ public final class ComputeFunctions {
      *             .resourceGroupName("example-rg")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getDedicatedHostGroupResult -> getDedicatedHostGroupResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -1166,7 +1166,7 @@ public final class ComputeFunctions {
      *             .resourceGroupName("example-rg")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getDedicatedHostGroupResult -> getDedicatedHostGroupResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -1210,7 +1210,7 @@ public final class ComputeFunctions {
      *             .resourceGroupName("existing")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getDiskAccessResult -> getDiskAccessResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -1254,7 +1254,7 @@ public final class ComputeFunctions {
      *             .resourceGroupName("existing")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getDiskAccessResult -> getDiskAccessResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -1298,7 +1298,7 @@ public final class ComputeFunctions {
      *             .resourceGroupName("existing")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getDiskAccessResult -> getDiskAccessResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -1342,7 +1342,7 @@ public final class ComputeFunctions {
      *             .resourceGroupName("existing")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getDiskAccessResult -> getDiskAccessResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -1386,7 +1386,7 @@ public final class ComputeFunctions {
      *             .resourceGroupName("existing")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getDiskAccessResult -> getDiskAccessResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -1430,7 +1430,7 @@ public final class ComputeFunctions {
      *             .resourceGroupName("example-resources")
      *             .build());
      * 
-     *         ctx.export("id", existing.applyValue(getDiskEncryptionSetResult -> getDiskEncryptionSetResult.id()));
+     *         ctx.export("id", existing.id());
      *     }
      * }
      * }
@@ -1474,7 +1474,7 @@ public final class ComputeFunctions {
      *             .resourceGroupName("example-resources")
      *             .build());
      * 
-     *         ctx.export("id", existing.applyValue(getDiskEncryptionSetResult -> getDiskEncryptionSetResult.id()));
+     *         ctx.export("id", existing.id());
      *     }
      * }
      * }
@@ -1518,7 +1518,7 @@ public final class ComputeFunctions {
      *             .resourceGroupName("example-resources")
      *             .build());
      * 
-     *         ctx.export("id", existing.applyValue(getDiskEncryptionSetResult -> getDiskEncryptionSetResult.id()));
+     *         ctx.export("id", existing.id());
      *     }
      * }
      * }
@@ -1562,7 +1562,7 @@ public final class ComputeFunctions {
      *             .resourceGroupName("example-resources")
      *             .build());
      * 
-     *         ctx.export("id", existing.applyValue(getDiskEncryptionSetResult -> getDiskEncryptionSetResult.id()));
+     *         ctx.export("id", existing.id());
      *     }
      * }
      * }
@@ -1606,7 +1606,7 @@ public final class ComputeFunctions {
      *             .resourceGroupName("example-resources")
      *             .build());
      * 
-     *         ctx.export("id", existing.applyValue(getDiskEncryptionSetResult -> getDiskEncryptionSetResult.id()));
+     *         ctx.export("id", existing.id());
      *     }
      * }
      * }
@@ -1650,7 +1650,7 @@ public final class ComputeFunctions {
      *             .resourceGroupName("packerimages")
      *             .build());
      * 
-     *         ctx.export("imageId", search.applyValue(getImageResult -> getImageResult.id()));
+     *         ctx.export("imageId", search.id());
      *     }
      * }
      * }
@@ -1694,7 +1694,7 @@ public final class ComputeFunctions {
      *             .resourceGroupName("packerimages")
      *             .build());
      * 
-     *         ctx.export("imageId", search.applyValue(getImageResult -> getImageResult.id()));
+     *         ctx.export("imageId", search.id());
      *     }
      * }
      * }
@@ -1738,7 +1738,7 @@ public final class ComputeFunctions {
      *             .resourceGroupName("packerimages")
      *             .build());
      * 
-     *         ctx.export("imageId", search.applyValue(getImageResult -> getImageResult.id()));
+     *         ctx.export("imageId", search.id());
      *     }
      * }
      * }
@@ -1782,7 +1782,7 @@ public final class ComputeFunctions {
      *             .resourceGroupName("packerimages")
      *             .build());
      * 
-     *         ctx.export("imageId", search.applyValue(getImageResult -> getImageResult.id()));
+     *         ctx.export("imageId", search.id());
      *     }
      * }
      * }
@@ -1826,7 +1826,7 @@ public final class ComputeFunctions {
      *             .resourceGroupName("packerimages")
      *             .build());
      * 
-     *         ctx.export("imageId", search.applyValue(getImageResult -> getImageResult.id()));
+     *         ctx.export("imageId", search.id());
      *     }
      * }
      * }
@@ -2080,7 +2080,7 @@ public final class ComputeFunctions {
      *             .resourceGroupName("example-resources")
      *             .build());
      * 
-     *         ctx.export("id", existing.applyValue(getManagedDiskResult -> getManagedDiskResult.id()));
+     *         ctx.export("id", existing.id());
      *     }
      * }
      * }
@@ -2124,7 +2124,7 @@ public final class ComputeFunctions {
      *             .resourceGroupName("example-resources")
      *             .build());
      * 
-     *         ctx.export("id", existing.applyValue(getManagedDiskResult -> getManagedDiskResult.id()));
+     *         ctx.export("id", existing.id());
      *     }
      * }
      * }
@@ -2168,7 +2168,7 @@ public final class ComputeFunctions {
      *             .resourceGroupName("example-resources")
      *             .build());
      * 
-     *         ctx.export("id", existing.applyValue(getManagedDiskResult -> getManagedDiskResult.id()));
+     *         ctx.export("id", existing.id());
      *     }
      * }
      * }
@@ -2212,7 +2212,7 @@ public final class ComputeFunctions {
      *             .resourceGroupName("example-resources")
      *             .build());
      * 
-     *         ctx.export("id", existing.applyValue(getManagedDiskResult -> getManagedDiskResult.id()));
+     *         ctx.export("id", existing.id());
      *     }
      * }
      * }
@@ -2256,7 +2256,7 @@ public final class ComputeFunctions {
      *             .resourceGroupName("example-resources")
      *             .build());
      * 
-     *         ctx.export("id", existing.applyValue(getManagedDiskResult -> getManagedDiskResult.id()));
+     *         ctx.export("id", existing.id());
      *     }
      * }
      * }
@@ -2300,7 +2300,7 @@ public final class ComputeFunctions {
      *             .resourceGroupName("existing")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getOrchestratedVirtualMachineScaleSetResult -> getOrchestratedVirtualMachineScaleSetResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -2344,7 +2344,7 @@ public final class ComputeFunctions {
      *             .resourceGroupName("existing")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getOrchestratedVirtualMachineScaleSetResult -> getOrchestratedVirtualMachineScaleSetResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -2388,7 +2388,7 @@ public final class ComputeFunctions {
      *             .resourceGroupName("existing")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getOrchestratedVirtualMachineScaleSetResult -> getOrchestratedVirtualMachineScaleSetResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -2432,7 +2432,7 @@ public final class ComputeFunctions {
      *             .resourceGroupName("existing")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getOrchestratedVirtualMachineScaleSetResult -> getOrchestratedVirtualMachineScaleSetResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -2476,7 +2476,7 @@ public final class ComputeFunctions {
      *             .resourceGroupName("existing")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getOrchestratedVirtualMachineScaleSetResult -> getOrchestratedVirtualMachineScaleSetResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -2522,7 +2522,7 @@ public final class ComputeFunctions {
      *             .sku("20_04-lts")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getPlatformImageResult -> getPlatformImageResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -2568,7 +2568,7 @@ public final class ComputeFunctions {
      *             .sku("20_04-lts")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getPlatformImageResult -> getPlatformImageResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -2614,7 +2614,7 @@ public final class ComputeFunctions {
      *             .sku("20_04-lts")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getPlatformImageResult -> getPlatformImageResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -2660,7 +2660,7 @@ public final class ComputeFunctions {
      *             .sku("20_04-lts")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getPlatformImageResult -> getPlatformImageResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -2706,7 +2706,7 @@ public final class ComputeFunctions {
      *             .sku("20_04-lts")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getPlatformImageResult -> getPlatformImageResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -3845,7 +3845,7 @@ public final class ComputeFunctions {
      *             .resourceGroupName("existing")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getSshPublicKeyResult -> getSshPublicKeyResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -3889,7 +3889,7 @@ public final class ComputeFunctions {
      *             .resourceGroupName("existing")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getSshPublicKeyResult -> getSshPublicKeyResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -3933,7 +3933,7 @@ public final class ComputeFunctions {
      *             .resourceGroupName("existing")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getSshPublicKeyResult -> getSshPublicKeyResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -3977,7 +3977,7 @@ public final class ComputeFunctions {
      *             .resourceGroupName("existing")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getSshPublicKeyResult -> getSshPublicKeyResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -4021,7 +4021,7 @@ public final class ComputeFunctions {
      *             .resourceGroupName("existing")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getSshPublicKeyResult -> getSshPublicKeyResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -4065,7 +4065,7 @@ public final class ComputeFunctions {
      *             .resourceGroupName("networking")
      *             .build());
      * 
-     *         ctx.export("virtualMachineId", example.applyValue(getVirtualMachineResult -> getVirtualMachineResult.id()));
+     *         ctx.export("virtualMachineId", example.id());
      *     }
      * }
      * }
@@ -4109,7 +4109,7 @@ public final class ComputeFunctions {
      *             .resourceGroupName("networking")
      *             .build());
      * 
-     *         ctx.export("virtualMachineId", example.applyValue(getVirtualMachineResult -> getVirtualMachineResult.id()));
+     *         ctx.export("virtualMachineId", example.id());
      *     }
      * }
      * }
@@ -4153,7 +4153,7 @@ public final class ComputeFunctions {
      *             .resourceGroupName("networking")
      *             .build());
      * 
-     *         ctx.export("virtualMachineId", example.applyValue(getVirtualMachineResult -> getVirtualMachineResult.id()));
+     *         ctx.export("virtualMachineId", example.id());
      *     }
      * }
      * }
@@ -4197,7 +4197,7 @@ public final class ComputeFunctions {
      *             .resourceGroupName("networking")
      *             .build());
      * 
-     *         ctx.export("virtualMachineId", example.applyValue(getVirtualMachineResult -> getVirtualMachineResult.id()));
+     *         ctx.export("virtualMachineId", example.id());
      *     }
      * }
      * }
@@ -4241,7 +4241,7 @@ public final class ComputeFunctions {
      *             .resourceGroupName("networking")
      *             .build());
      * 
-     *         ctx.export("virtualMachineId", example.applyValue(getVirtualMachineResult -> getVirtualMachineResult.id()));
+     *         ctx.export("virtualMachineId", example.id());
      *     }
      * }
      * }
@@ -4285,7 +4285,7 @@ public final class ComputeFunctions {
      *             .resourceGroupName("existing")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getVirtualMachineScaleSetResult -> getVirtualMachineScaleSetResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -4329,7 +4329,7 @@ public final class ComputeFunctions {
      *             .resourceGroupName("existing")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getVirtualMachineScaleSetResult -> getVirtualMachineScaleSetResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -4373,7 +4373,7 @@ public final class ComputeFunctions {
      *             .resourceGroupName("existing")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getVirtualMachineScaleSetResult -> getVirtualMachineScaleSetResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -4417,7 +4417,7 @@ public final class ComputeFunctions {
      *             .resourceGroupName("existing")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getVirtualMachineScaleSetResult -> getVirtualMachineScaleSetResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -4461,7 +4461,7 @@ public final class ComputeFunctions {
      *             .resourceGroupName("existing")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getVirtualMachineScaleSetResult -> getVirtualMachineScaleSetResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }

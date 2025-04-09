@@ -75,13 +75,13 @@ import javax.annotation.Nullable;
  *                 "search")
  *             .build());
  * 
- *         final var current = CoreFunctions.getClientConfig();
+ *         final var current = CoreFunctions.getClientConfig(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
  * 
  *         var exampleServiceAzureBot = new ServiceAzureBot("exampleServiceAzureBot", ServiceAzureBotArgs.builder()
  *             .name("exampleazurebot")
  *             .resourceGroupName(example.name())
  *             .location("global")
- *             .microsoftAppId(current.applyValue(getClientConfigResult -> getClientConfigResult.clientId()))
+ *             .microsoftAppId(current.clientId())
  *             .sku("F0")
  *             .endpoint("https://example.com")
  *             .developerAppInsightsApiKey(exampleApiKey.apiKey())

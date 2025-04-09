@@ -300,7 +300,7 @@ import javax.annotation.Nullable;
  * 
  *         var replicaVirtualNetworkDnsServers = new VirtualNetworkDnsServers("replicaVirtualNetworkDnsServers", VirtualNetworkDnsServersArgs.builder()
  *             .virtualNetworkId(replicaVirtualNetwork.id())
- *             .dnsServers(exampleService.initialReplicaSet().applyValue(initialReplicaSet -> initialReplicaSet.domainControllerIpAddresses()))
+ *             .dnsServers(exampleService.initialReplicaSet().applyValue(_initialReplicaSet -> _initialReplicaSet.domainControllerIpAddresses()))
  *             .build());
  * 
  *         var replicaReplicaSet = new ReplicaSet("replicaReplicaSet", ReplicaSetArgs.builder()

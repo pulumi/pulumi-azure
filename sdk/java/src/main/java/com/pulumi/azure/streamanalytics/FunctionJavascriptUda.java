@@ -56,12 +56,12 @@ import javax.annotation.Nullable;
  * 
  *         final var exampleGetJob = StreamanalyticsFunctions.getJob(GetJobArgs.builder()
  *             .name("example-job")
- *             .resourceGroupName(example.applyValue(getResourceGroupResult -> getResourceGroupResult.name()))
+ *             .resourceGroupName(example.name())
  *             .build());
  * 
  *         var exampleFunctionJavascriptUda = new FunctionJavascriptUda("exampleFunctionJavascriptUda", FunctionJavascriptUdaArgs.builder()
  *             .name("example-javascript-function")
- *             .streamAnalyticsJobId(exampleGetJob.applyValue(getJobResult -> getJobResult.id()))
+ *             .streamAnalyticsJobId(exampleGetJob.id())
  *             .script("""
  * function main() {
  *     this.init = function () {

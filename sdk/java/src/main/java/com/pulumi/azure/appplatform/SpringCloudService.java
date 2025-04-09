@@ -84,7 +84,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .trace(SpringCloudServiceTraceArgs.builder()
  *                 .connectionString(exampleInsights.connectionString())
- *                 .sampleRate(10)
+ *                 .sampleRate(10.0)
  *                 .build())
  *             .tags(Map.of("Env", "staging"))
  *             .build());

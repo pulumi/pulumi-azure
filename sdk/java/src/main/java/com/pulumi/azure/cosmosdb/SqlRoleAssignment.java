@@ -51,7 +51,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         final var current = CoreFunctions.getClientConfig();
+ *         final var current = CoreFunctions.getClientConfig(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
  * 
  *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example-resources")
@@ -89,7 +89,7 @@ import javax.annotation.Nullable;
  *             .resourceGroupName(example.name())
  *             .accountName(exampleAccount.name())
  *             .roleDefinitionId(exampleSqlRoleDefinition.id())
- *             .principalId(current.applyValue(getClientConfigResult -> getClientConfigResult.objectId()))
+ *             .principalId(current.objectId())
  *             .scope(exampleAccount.id())
  *             .build());
  * 

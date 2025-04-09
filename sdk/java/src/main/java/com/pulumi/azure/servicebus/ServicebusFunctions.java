@@ -69,7 +69,7 @@ public final class ServicebusFunctions {
      *             .resourceGroupName("example-resources")
      *             .build());
      * 
-     *         ctx.export("location", example.applyValue(getNamespaceResult -> getNamespaceResult.location()));
+     *         ctx.export("location", example.location());
      *     }
      * }
      * }
@@ -113,7 +113,7 @@ public final class ServicebusFunctions {
      *             .resourceGroupName("example-resources")
      *             .build());
      * 
-     *         ctx.export("location", example.applyValue(getNamespaceResult -> getNamespaceResult.location()));
+     *         ctx.export("location", example.location());
      *     }
      * }
      * }
@@ -157,7 +157,7 @@ public final class ServicebusFunctions {
      *             .resourceGroupName("example-resources")
      *             .build());
      * 
-     *         ctx.export("location", example.applyValue(getNamespaceResult -> getNamespaceResult.location()));
+     *         ctx.export("location", example.location());
      *     }
      * }
      * }
@@ -201,7 +201,7 @@ public final class ServicebusFunctions {
      *             .resourceGroupName("example-resources")
      *             .build());
      * 
-     *         ctx.export("location", example.applyValue(getNamespaceResult -> getNamespaceResult.location()));
+     *         ctx.export("location", example.location());
      *     }
      * }
      * }
@@ -245,7 +245,7 @@ public final class ServicebusFunctions {
      *             .resourceGroupName("example-resources")
      *             .build());
      * 
-     *         ctx.export("location", example.applyValue(getNamespaceResult -> getNamespaceResult.location()));
+     *         ctx.export("location", example.location());
      *     }
      * }
      * }
@@ -289,7 +289,7 @@ public final class ServicebusFunctions {
      *             .namespaceId("examplenamespace")
      *             .build());
      * 
-     *         ctx.export("ruleId", example.applyValue(getNamespaceAuthorizationRuleResult -> getNamespaceAuthorizationRuleResult.id()));
+     *         ctx.export("ruleId", example.id());
      *     }
      * }
      * }
@@ -333,7 +333,7 @@ public final class ServicebusFunctions {
      *             .namespaceId("examplenamespace")
      *             .build());
      * 
-     *         ctx.export("ruleId", example.applyValue(getNamespaceAuthorizationRuleResult -> getNamespaceAuthorizationRuleResult.id()));
+     *         ctx.export("ruleId", example.id());
      *     }
      * }
      * }
@@ -377,7 +377,7 @@ public final class ServicebusFunctions {
      *             .namespaceId("examplenamespace")
      *             .build());
      * 
-     *         ctx.export("ruleId", example.applyValue(getNamespaceAuthorizationRuleResult -> getNamespaceAuthorizationRuleResult.id()));
+     *         ctx.export("ruleId", example.id());
      *     }
      * }
      * }
@@ -421,7 +421,7 @@ public final class ServicebusFunctions {
      *             .namespaceId("examplenamespace")
      *             .build());
      * 
-     *         ctx.export("ruleId", example.applyValue(getNamespaceAuthorizationRuleResult -> getNamespaceAuthorizationRuleResult.id()));
+     *         ctx.export("ruleId", example.id());
      *     }
      * }
      * }
@@ -465,7 +465,7 @@ public final class ServicebusFunctions {
      *             .namespaceId("examplenamespace")
      *             .build());
      * 
-     *         ctx.export("ruleId", example.applyValue(getNamespaceAuthorizationRuleResult -> getNamespaceAuthorizationRuleResult.id()));
+     *         ctx.export("ruleId", example.id());
      *     }
      * }
      * }
@@ -509,7 +509,7 @@ public final class ServicebusFunctions {
      *             .namespaceId("example-namespace-id")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getNamespaceDisasterRecoveryConfigResult -> getNamespaceDisasterRecoveryConfigResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -553,7 +553,7 @@ public final class ServicebusFunctions {
      *             .namespaceId("example-namespace-id")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getNamespaceDisasterRecoveryConfigResult -> getNamespaceDisasterRecoveryConfigResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -597,7 +597,7 @@ public final class ServicebusFunctions {
      *             .namespaceId("example-namespace-id")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getNamespaceDisasterRecoveryConfigResult -> getNamespaceDisasterRecoveryConfigResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -641,7 +641,7 @@ public final class ServicebusFunctions {
      *             .namespaceId("example-namespace-id")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getNamespaceDisasterRecoveryConfigResult -> getNamespaceDisasterRecoveryConfigResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -685,7 +685,7 @@ public final class ServicebusFunctions {
      *             .namespaceId("example-namespace-id")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getNamespaceDisasterRecoveryConfigResult -> getNamespaceDisasterRecoveryConfigResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -729,7 +729,7 @@ public final class ServicebusFunctions {
      *             .namespaceId("existing")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getQueueResult -> getQueueResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -773,7 +773,7 @@ public final class ServicebusFunctions {
      *             .namespaceId("existing")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getQueueResult -> getQueueResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -817,7 +817,7 @@ public final class ServicebusFunctions {
      *             .namespaceId("existing")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getQueueResult -> getQueueResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -861,7 +861,7 @@ public final class ServicebusFunctions {
      *             .namespaceId("existing")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getQueueResult -> getQueueResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -905,7 +905,7 @@ public final class ServicebusFunctions {
      *             .namespaceId("existing")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getQueueResult -> getQueueResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -951,7 +951,7 @@ public final class ServicebusFunctions {
      *             .namespaceName("example-namespace")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getQueueAuthorizationRuleResult -> getQueueAuthorizationRuleResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -997,7 +997,7 @@ public final class ServicebusFunctions {
      *             .namespaceName("example-namespace")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getQueueAuthorizationRuleResult -> getQueueAuthorizationRuleResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -1043,7 +1043,7 @@ public final class ServicebusFunctions {
      *             .namespaceName("example-namespace")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getQueueAuthorizationRuleResult -> getQueueAuthorizationRuleResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -1089,7 +1089,7 @@ public final class ServicebusFunctions {
      *             .namespaceName("example-namespace")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getQueueAuthorizationRuleResult -> getQueueAuthorizationRuleResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -1135,7 +1135,7 @@ public final class ServicebusFunctions {
      *             .namespaceName("example-namespace")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getQueueAuthorizationRuleResult -> getQueueAuthorizationRuleResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -1399,7 +1399,7 @@ public final class ServicebusFunctions {
      *             .namespaceId("existing")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getTopicResult -> getTopicResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -1443,7 +1443,7 @@ public final class ServicebusFunctions {
      *             .namespaceId("existing")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getTopicResult -> getTopicResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -1487,7 +1487,7 @@ public final class ServicebusFunctions {
      *             .namespaceId("existing")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getTopicResult -> getTopicResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -1531,7 +1531,7 @@ public final class ServicebusFunctions {
      *             .namespaceId("existing")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getTopicResult -> getTopicResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }
@@ -1575,7 +1575,7 @@ public final class ServicebusFunctions {
      *             .namespaceId("existing")
      *             .build());
      * 
-     *         ctx.export("id", example.applyValue(getTopicResult -> getTopicResult.id()));
+     *         ctx.export("id", example.id());
      *     }
      * }
      * }

@@ -70,21 +70,21 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         final var current = CoreFunctions.getClientConfig();
+ *         final var current = CoreFunctions.getClientConfig(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
  * 
  *         var exampleKeyVault = new KeyVault("exampleKeyVault", KeyVaultArgs.builder()
  *             .name("example-key-vault")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .enabledForDiskEncryption(true)
- *             .tenantId(current.applyValue(getClientConfigResult -> getClientConfigResult.tenantId()))
+ *             .tenantId(current.tenantId())
  *             .softDeleteRetentionDays(7)
  *             .purgeProtectionEnabled(true)
  *             .skuName("standard")
  *             .accessPolicies(            
  *                 KeyVaultAccessPolicyArgs.builder()
- *                     .tenantId(current.applyValue(getClientConfigResult -> getClientConfigResult.tenantId()))
- *                     .objectId(current.applyValue(getClientConfigResult -> getClientConfigResult.objectId()))
+ *                     .tenantId(current.tenantId())
+ *                     .objectId(current.objectId())
  *                     .keyPermissions(                    
  *                         "Create",
  *                         "Decrypt",
@@ -100,8 +100,8 @@ import javax.annotation.Nullable;
  *                     .secretPermissions("Set")
  *                     .build(),
  *                 KeyVaultAccessPolicyArgs.builder()
- *                     .tenantId(exampleBackupVault.identity().applyValue(identity -> identity.tenantId()))
- *                     .objectId(exampleBackupVault.identity().applyValue(identity -> identity.principalId()))
+ *                     .tenantId(exampleBackupVault.identity().applyValue(_identity -> _identity.tenantId()))
+ *                     .objectId(exampleBackupVault.identity().applyValue(_identity -> _identity.principalId()))
  *                     .keyPermissions(                    
  *                         "Create",
  *                         "Decrypt",

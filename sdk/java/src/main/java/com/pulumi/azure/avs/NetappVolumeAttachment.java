@@ -195,7 +195,7 @@ import javax.annotation.Nullable;
  *             .resourceGroupName(testAzurermResourceGroup.name())
  *             .type("ExpressRoute")
  *             .virtualNetworkGatewayId(testVirtualNetworkGateway.id())
- *             .expressRouteCircuitId(testPrivateCloud.circuits().applyValue(circuits -> circuits[0].expressRouteId()))
+ *             .expressRouteCircuitId(testPrivateCloud.circuits().applyValue(_circuits -> _circuits[0].expressRouteId()))
  *             .authorizationKey(testExpressRouteAuthorization.expressRouteAuthorizationKey())
  *             .build());
  * 

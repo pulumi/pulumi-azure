@@ -53,18 +53,18 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         final var current = CoreFunctions.getClientConfig();
+ *         final var current = CoreFunctions.getClientConfig(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
  * 
  *         var example = new Service("example", ServiceArgs.builder()
  *             .name("uniquefhirname")
  *             .resourceGroupName("sample-resource-group")
  *             .location("westus2")
  *             .kind("fhir-R4")
- *             .cosmosdbThroughput("2000")
+ *             .cosmosdbThroughput(2000)
  *             .identity(ServiceIdentityArgs.builder()
  *                 .type("SystemAssigned")
  *                 .build())
- *             .accessPolicyObjectIds(current.applyValue(getClientConfigResult -> getClientConfigResult.objectId()))
+ *             .accessPolicyObjectIds(current.objectId())
  *             .configurationExportStorageAccountName("teststorage")
  *             .tags(Map.ofEntries(
  *                 Map.entry("environment", "testenv"),
@@ -73,7 +73,7 @@ import javax.annotation.Nullable;
  *             .authenticationConfiguration(ServiceAuthenticationConfigurationArgs.builder()
  *                 .authority("https://login.microsoftonline.com/$%7Bdata.azurerm_client_config.current.tenant_id%7D")
  *                 .audience("https://azurehealthcareapis.com/")
- *                 .smartProxyEnabled("true")
+ *                 .smartProxyEnabled(true)
  *                 .build())
  *             .corsConfiguration(ServiceCorsConfigurationArgs.builder()
  *                 .allowedOrigins(                
@@ -85,8 +85,8 @@ import javax.annotation.Nullable;
  *                 .allowedMethods(                
  *                     "GET",
  *                     "PUT")
- *                 .maxAgeInSeconds("500")
- *                 .allowCredentials("true")
+ *                 .maxAgeInSeconds(500)
+ *                 .allowCredentials(true)
  *                 .build())
  *             .build());
  * 

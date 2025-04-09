@@ -147,7 +147,7 @@ import javax.annotation.Nullable;
  *         var exampleImplicitDataDiskFromSource = new ImplicitDataDiskFromSource("exampleImplicitDataDiskFromSource", ImplicitDataDiskFromSourceArgs.builder()
  *             .name(String.format("%s-implicitdisk1", vmName))
  *             .virtualMachineId(testAzurermVirtualMachine.id())
- *             .lun("0")
+ *             .lun(0)
  *             .caching("None")
  *             .createOption("Copy")
  *             .diskSizeGb(20)

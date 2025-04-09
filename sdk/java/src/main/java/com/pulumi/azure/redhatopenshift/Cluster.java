@@ -77,9 +77,9 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         final var example = CoreFunctions.getClientConfig();
+ *         final var example = CoreFunctions.getClientConfig(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
  * 
- *         final var exampleGetClientConfig = AzureadFunctions.getClientConfig();
+ *         final var exampleGetClientConfig = AzureadFunctions.getClientConfig(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
  * 
  *         var exampleApplication = new Application("exampleApplication", ApplicationArgs.builder()
  *             .displayName("example-aro")
@@ -118,7 +118,7 @@ import javax.annotation.Nullable;
  *         var roleNetwork2 = new Assignment("roleNetwork2", AssignmentArgs.builder()
  *             .scope(exampleVirtualNetwork.id())
  *             .roleDefinitionName("Network Contributor")
- *             .principalId(redhatopenshift.applyValue(getServicePrincipalResult -> getServicePrincipalResult.objectId()))
+ *             .principalId(redhatopenshift.objectId())
  *             .build());
  * 
  *         var mainSubnet = new Subnet("mainSubnet", SubnetArgs.builder()

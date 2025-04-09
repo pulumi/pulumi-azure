@@ -47,7 +47,7 @@ public final class ManagementgroupsFunctions {
      *             .name("00000000-0000-0000-0000-000000000000")
      *             .build());
      * 
-     *         ctx.export("displayName", example.applyValue(getGroupResult -> getGroupResult.displayName()));
+     *         ctx.export("displayName", example.displayName());
      *     }
      * }
      * }
@@ -94,7 +94,7 @@ public final class ManagementgroupsFunctions {
      *             .name("00000000-0000-0000-0000-000000000000")
      *             .build());
      * 
-     *         ctx.export("displayName", example.applyValue(getGroupResult -> getGroupResult.displayName()));
+     *         ctx.export("displayName", example.displayName());
      *     }
      * }
      * }
@@ -141,7 +141,7 @@ public final class ManagementgroupsFunctions {
      *             .name("00000000-0000-0000-0000-000000000000")
      *             .build());
      * 
-     *         ctx.export("displayName", example.applyValue(getGroupResult -> getGroupResult.displayName()));
+     *         ctx.export("displayName", example.displayName());
      *     }
      * }
      * }
@@ -188,7 +188,7 @@ public final class ManagementgroupsFunctions {
      *             .name("00000000-0000-0000-0000-000000000000")
      *             .build());
      * 
-     *         ctx.export("displayName", example.applyValue(getGroupResult -> getGroupResult.displayName()));
+     *         ctx.export("displayName", example.displayName());
      *     }
      * }
      * }
@@ -235,7 +235,7 @@ public final class ManagementgroupsFunctions {
      *             .name("00000000-0000-0000-0000-000000000000")
      *             .build());
      * 
-     *         ctx.export("displayName", example.applyValue(getGroupResult -> getGroupResult.displayName()));
+     *         ctx.export("displayName", example.displayName());
      *     }
      * }
      * }
@@ -282,7 +282,7 @@ public final class ManagementgroupsFunctions {
      *             .name("00000000-0000-0000-0000-000000000000")
      *             .build());
      * 
-     *         ctx.export("displayName", example.applyValue(getGroupResult -> getGroupResult.displayName()));
+     *         ctx.export("displayName", example.displayName());
      *     }
      * }
      * }
@@ -329,7 +329,7 @@ public final class ManagementgroupsFunctions {
      *             .name("00000000-0000-0000-0000-000000000000")
      *             .build());
      * 
-     *         ctx.export("displayName", example.applyValue(getGroupResult -> getGroupResult.displayName()));
+     *         ctx.export("displayName", example.displayName());
      *     }
      * }
      * }

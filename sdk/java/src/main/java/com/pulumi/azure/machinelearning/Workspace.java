@@ -57,7 +57,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         final var current = CoreFunctions.getClientConfig();
+ *         final var current = CoreFunctions.getClientConfig(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
  * 
  *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example-resources")
@@ -75,7 +75,7 @@ import javax.annotation.Nullable;
  *             .name("workspaceexamplekeyvault")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .tenantId(current.applyValue(getClientConfigResult -> getClientConfigResult.tenantId()))
+ *             .tenantId(current.tenantId())
  *             .skuName("premium")
  *             .build());
  * 
@@ -148,7 +148,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         final var current = CoreFunctions.getClientConfig();
+ *         final var current = CoreFunctions.getClientConfig(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
  * 
  *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example-resources")
@@ -166,15 +166,15 @@ import javax.annotation.Nullable;
  *             .name("workspaceexamplekeyvault")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .tenantId(current.applyValue(getClientConfigResult -> getClientConfigResult.tenantId()))
+ *             .tenantId(current.tenantId())
  *             .skuName("premium")
  *             .purgeProtectionEnabled(true)
  *             .build());
  * 
  *         var exampleAccessPolicy = new AccessPolicy("exampleAccessPolicy", AccessPolicyArgs.builder()
  *             .keyVaultId(exampleKeyVault.id())
- *             .tenantId(current.applyValue(getClientConfigResult -> getClientConfigResult.tenantId()))
- *             .objectId(current.applyValue(getClientConfigResult -> getClientConfigResult.objectId()))
+ *             .tenantId(current.tenantId())
+ *             .objectId(current.objectId())
  *             .keyPermissions(            
  *                 "Create",
  *                 "Get",
@@ -280,7 +280,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         final var current = CoreFunctions.getClientConfig();
+ *         final var current = CoreFunctions.getClientConfig(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
  * 
  *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example-resources")
@@ -306,7 +306,7 @@ import javax.annotation.Nullable;
  *             .name("example-keyvalut")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .tenantId(current.applyValue(getClientConfigResult -> getClientConfigResult.tenantId()))
+ *             .tenantId(current.tenantId())
  *             .skuName("premium")
  *             .purgeProtectionEnabled(true)
  *             .build());
@@ -319,7 +319,7 @@ import javax.annotation.Nullable;
  * 
  *         var example_identity = new AccessPolicy("example-identity", AccessPolicyArgs.builder()
  *             .keyVaultId(exampleKeyVault.id())
- *             .tenantId(current.applyValue(getClientConfigResult -> getClientConfigResult.tenantId()))
+ *             .tenantId(current.tenantId())
  *             .objectId(exampleUserAssignedIdentity.principalId())
  *             .keyPermissions(            
  *                 "WrapKey",
@@ -338,8 +338,8 @@ import javax.annotation.Nullable;
  * 
  *         var example_sp = new AccessPolicy("example-sp", AccessPolicyArgs.builder()
  *             .keyVaultId(exampleKeyVault.id())
- *             .tenantId(current.applyValue(getClientConfigResult -> getClientConfigResult.tenantId()))
- *             .objectId(current.applyValue(getClientConfigResult -> getClientConfigResult.objectId()))
+ *             .tenantId(current.tenantId())
+ *             .objectId(current.objectId())
  *             .keyPermissions(            
  *                 "Get",
  *                 "Create",
@@ -355,8 +355,8 @@ import javax.annotation.Nullable;
  * 
  *         var example_cosmosdb = new AccessPolicy("example-cosmosdb", AccessPolicyArgs.builder()
  *             .keyVaultId(exampleKeyVault.id())
- *             .tenantId(current.applyValue(getClientConfigResult -> getClientConfigResult.tenantId()))
- *             .objectId(test.applyValue(getServicePrincipalResult -> getServicePrincipalResult.objectId()))
+ *             .tenantId(current.tenantId())
+ *             .objectId(test.objectId())
  *             .keyPermissions(            
  *                 "Get",
  *                 "Recover",
@@ -364,8 +364,8 @@ import javax.annotation.Nullable;
  *                 "WrapKey")
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(                
- *                     test.applyValue(getServicePrincipalResult -> getServicePrincipalResult),
- *                     current.applyValue(getClientConfigResult -> getClientConfigResult))
+ *                     test,
+ *                     current)
  *                 .build());
  * 
  *         var exampleKey = new Key("exampleKey", KeyArgs.builder()

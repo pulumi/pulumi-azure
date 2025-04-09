@@ -726,7 +726,7 @@ public final class SiterecoveryFunctions {
      * 
      *         final var example = SiterecoveryFunctions.getReplicationRecoveryPlan(GetReplicationRecoveryPlanArgs.builder()
      *             .name("example-recovery-plan")
-     *             .recoveryVaultId(vault.applyValue(getVaultResult -> getVaultResult.id()))
+     *             .recoveryVaultId(vault.id())
      *             .build());
      * 
      *     }
@@ -776,7 +776,7 @@ public final class SiterecoveryFunctions {
      * 
      *         final var example = SiterecoveryFunctions.getReplicationRecoveryPlan(GetReplicationRecoveryPlanArgs.builder()
      *             .name("example-recovery-plan")
-     *             .recoveryVaultId(vault.applyValue(getVaultResult -> getVaultResult.id()))
+     *             .recoveryVaultId(vault.id())
      *             .build());
      * 
      *     }
@@ -826,7 +826,7 @@ public final class SiterecoveryFunctions {
      * 
      *         final var example = SiterecoveryFunctions.getReplicationRecoveryPlan(GetReplicationRecoveryPlanArgs.builder()
      *             .name("example-recovery-plan")
-     *             .recoveryVaultId(vault.applyValue(getVaultResult -> getVaultResult.id()))
+     *             .recoveryVaultId(vault.id())
      *             .build());
      * 
      *     }
@@ -876,7 +876,7 @@ public final class SiterecoveryFunctions {
      * 
      *         final var example = SiterecoveryFunctions.getReplicationRecoveryPlan(GetReplicationRecoveryPlanArgs.builder()
      *             .name("example-recovery-plan")
-     *             .recoveryVaultId(vault.applyValue(getVaultResult -> getVaultResult.id()))
+     *             .recoveryVaultId(vault.id())
      *             .build());
      * 
      *     }
@@ -926,7 +926,7 @@ public final class SiterecoveryFunctions {
      * 
      *         final var example = SiterecoveryFunctions.getReplicationRecoveryPlan(GetReplicationRecoveryPlanArgs.builder()
      *             .name("example-recovery-plan")
-     *             .recoveryVaultId(vault.applyValue(getVaultResult -> getVaultResult.id()))
+     *             .recoveryVaultId(vault.id())
      *             .build());
      * 
      *     }

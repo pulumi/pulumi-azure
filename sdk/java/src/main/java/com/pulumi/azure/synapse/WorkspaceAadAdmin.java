@@ -70,7 +70,7 @@ import javax.annotation.Nullable;
  *             .accountTier("Standard")
  *             .accountReplicationType("LRS")
  *             .accountKind("StorageV2")
- *             .isHnsEnabled("true")
+ *             .isHnsEnabled(true)
  *             .build());
  * 
  *         var exampleDataLakeGen2Filesystem = new DataLakeGen2Filesystem("exampleDataLakeGen2Filesystem", DataLakeGen2FilesystemArgs.builder()
@@ -78,21 +78,21 @@ import javax.annotation.Nullable;
  *             .storageAccountId(exampleAccount.id())
  *             .build());
  * 
- *         final var current = CoreFunctions.getClientConfig();
+ *         final var current = CoreFunctions.getClientConfig(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
  * 
  *         var exampleKeyVault = new KeyVault("exampleKeyVault", KeyVaultArgs.builder()
  *             .name("example")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .tenantId(current.applyValue(getClientConfigResult -> getClientConfigResult.tenantId()))
+ *             .tenantId(current.tenantId())
  *             .skuName("standard")
  *             .purgeProtectionEnabled(true)
  *             .build());
  * 
  *         var deployer = new AccessPolicy("deployer", AccessPolicyArgs.builder()
  *             .keyVaultId(exampleKeyVault.id())
- *             .tenantId(current.applyValue(getClientConfigResult -> getClientConfigResult.tenantId()))
- *             .objectId(current.applyValue(getClientConfigResult -> getClientConfigResult.objectId()))
+ *             .tenantId(current.tenantId())
+ *             .objectId(current.objectId())
  *             .keyPermissions(            
  *                 "Create",
  *                 "Get",
@@ -129,8 +129,8 @@ import javax.annotation.Nullable;
  *         var exampleWorkspaceAadAdmin = new WorkspaceAadAdmin("exampleWorkspaceAadAdmin", WorkspaceAadAdminArgs.builder()
  *             .synapseWorkspaceId(exampleWorkspace.id())
  *             .login("AzureAD Admin")
- *             .objectId(current.applyValue(getClientConfigResult -> getClientConfigResult.objectId()))
- *             .tenantId(current.applyValue(getClientConfigResult -> getClientConfigResult.tenantId()))
+ *             .objectId(current.objectId())
+ *             .tenantId(current.tenantId())
  *             .build());
  * 
  *     }}{@code

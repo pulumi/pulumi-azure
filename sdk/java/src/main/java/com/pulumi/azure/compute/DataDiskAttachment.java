@@ -139,7 +139,7 @@ import javax.annotation.Nullable;
  *         var exampleDataDiskAttachment = new DataDiskAttachment("exampleDataDiskAttachment", DataDiskAttachmentArgs.builder()
  *             .managedDiskId(exampleManagedDisk.id())
  *             .virtualMachineId(exampleVirtualMachine.id())
- *             .lun("10")
+ *             .lun(10)
  *             .caching("ReadWrite")
  *             .build());
  * 

@@ -104,7 +104,7 @@ import javax.annotation.Nullable;
  *             .tags(Map.of("Environment", "Production"))
  *             .build());
  * 
- *         ctx.export("clientCertificate", exampleKubernetesCluster.kubeConfigs().applyValue(kubeConfigs -> kubeConfigs[0].clientCertificate()));
+ *         ctx.export("clientCertificate", exampleKubernetesCluster.kubeConfigs().applyValue(_kubeConfigs -> _kubeConfigs[0].clientCertificate()));
  *         ctx.export("kubeConfig", exampleKubernetesCluster.kubeConfigRaw());
  *     }
  * }
