@@ -194,6 +194,9 @@ class _AlertRuleFusionState:
 
 
 class AlertRuleFusion(pulumi.CustomResource):
+
+    pulumi_type = "azure:sentinel/alertRuleFusion:AlertRuleFusion"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

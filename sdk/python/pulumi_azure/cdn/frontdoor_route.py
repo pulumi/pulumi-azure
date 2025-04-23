@@ -503,6 +503,9 @@ class _FrontdoorRouteState:
 
 
 class FrontdoorRoute(pulumi.CustomResource):
+
+    pulumi_type = "azure:cdn/frontdoorRoute:FrontdoorRoute"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

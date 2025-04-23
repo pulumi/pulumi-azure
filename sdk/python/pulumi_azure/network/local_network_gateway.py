@@ -299,6 +299,9 @@ class _LocalNetworkGatewayState:
 
 
 class LocalNetworkGateway(pulumi.CustomResource):
+
+    pulumi_type = "azure:network/localNetworkGateway:LocalNetworkGateway"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

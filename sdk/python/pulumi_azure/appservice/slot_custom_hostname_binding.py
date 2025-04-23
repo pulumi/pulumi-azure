@@ -192,6 +192,9 @@ class _SlotCustomHostnameBindingState:
 
 
 class SlotCustomHostnameBinding(pulumi.CustomResource):
+
+    pulumi_type = "azure:appservice/slotCustomHostnameBinding:SlotCustomHostnameBinding"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

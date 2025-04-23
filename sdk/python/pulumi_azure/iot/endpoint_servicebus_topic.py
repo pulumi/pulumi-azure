@@ -296,6 +296,9 @@ class _EndpointServicebusTopicState:
 
 
 class EndpointServicebusTopic(pulumi.CustomResource):
+
+    pulumi_type = "azure:iot/endpointServicebusTopic:EndpointServicebusTopic"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -222,6 +222,9 @@ class _ConnectionCertificateState:
 
 
 class ConnectionCertificate(pulumi.CustomResource):
+
+    pulumi_type = "azure:automation/connectionCertificate:ConnectionCertificate"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

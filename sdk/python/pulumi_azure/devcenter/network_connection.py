@@ -351,6 +351,9 @@ class _NetworkConnectionState:
 
 
 class NetworkConnection(pulumi.CustomResource):
+
+    pulumi_type = "azure:devcenter/networkConnection:NetworkConnection"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

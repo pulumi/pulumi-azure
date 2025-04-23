@@ -113,6 +113,9 @@ class _ServerDnsAliasState:
 
 
 class ServerDnsAlias(pulumi.CustomResource):
+
+    pulumi_type = "azure:mssql/serverDnsAlias:ServerDnsAlias"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

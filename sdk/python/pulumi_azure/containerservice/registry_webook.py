@@ -355,6 +355,9 @@ warnings.warn("""azure.containerservice.RegistryWebook has been deprecated in fa
 class RegistryWebook(pulumi.CustomResource):
     warnings.warn("""azure.containerservice.RegistryWebook has been deprecated in favor of azure.containerservice.RegistryWebhook""", DeprecationWarning)
 
+
+    pulumi_type = "azure:containerservice/registryWebook:RegistryWebook"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

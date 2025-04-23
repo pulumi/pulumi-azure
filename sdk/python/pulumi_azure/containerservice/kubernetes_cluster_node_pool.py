@@ -1442,6 +1442,9 @@ class _KubernetesClusterNodePoolState:
 
 
 class KubernetesClusterNodePool(pulumi.CustomResource):
+
+    pulumi_type = "azure:containerservice/kubernetesClusterNodePool:KubernetesClusterNodePool"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

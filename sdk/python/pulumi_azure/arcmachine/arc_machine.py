@@ -226,6 +226,9 @@ class _ArcMachineState:
 
 
 class ArcMachine(pulumi.CustomResource):
+
+    pulumi_type = "azure:arcmachine/arcMachine:ArcMachine"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

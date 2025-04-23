@@ -426,6 +426,9 @@ class _SoftwareUpdateConfigurationState:
 
 
 class SoftwareUpdateConfiguration(pulumi.CustomResource):
+
+    pulumi_type = "azure:automation/softwareUpdateConfiguration:SoftwareUpdateConfiguration"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -353,6 +353,9 @@ class _AlertPrometheusRuleGroupState:
 
 
 class AlertPrometheusRuleGroup(pulumi.CustomResource):
+
+    pulumi_type = "azure:monitoring/alertPrometheusRuleGroup:AlertPrometheusRuleGroup"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

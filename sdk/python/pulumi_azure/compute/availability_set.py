@@ -305,6 +305,9 @@ class _AvailabilitySetState:
 
 
 class AvailabilitySet(pulumi.CustomResource):
+
+    pulumi_type = "azure:compute/availabilitySet:AvailabilitySet"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

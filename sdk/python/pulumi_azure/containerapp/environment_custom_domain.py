@@ -158,6 +158,9 @@ class _EnvironmentCustomDomainState:
 
 
 class EnvironmentCustomDomain(pulumi.CustomResource):
+
+    pulumi_type = "azure:containerapp/environmentCustomDomain:EnvironmentCustomDomain"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

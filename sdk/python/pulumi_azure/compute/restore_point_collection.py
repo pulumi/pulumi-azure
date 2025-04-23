@@ -192,6 +192,9 @@ class _RestorePointCollectionState:
 
 
 class RestorePointCollection(pulumi.CustomResource):
+
+    pulumi_type = "azure:compute/restorePointCollection:RestorePointCollection"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

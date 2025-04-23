@@ -416,6 +416,9 @@ class _GalleryApplicationVersionState:
 
 
 class GalleryApplicationVersion(pulumi.CustomResource):
+
+    pulumi_type = "azure:compute/galleryApplicationVersion:GalleryApplicationVersion"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

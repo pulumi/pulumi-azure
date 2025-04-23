@@ -160,6 +160,9 @@ class _EmailServiceState:
 
 
 class EmailService(pulumi.CustomResource):
+
+    pulumi_type = "azure:communication/emailService:EmailService"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -190,6 +190,9 @@ class _FirewallRuleState:
 
 
 class FirewallRule(pulumi.CustomResource):
+
+    pulumi_type = "azure:redis/firewallRule:FirewallRule"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

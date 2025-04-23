@@ -195,6 +195,9 @@ class _KubernetesFleetManagerState:
 
 
 class KubernetesFleetManager(pulumi.CustomResource):
+
+    pulumi_type = "azure:containerservice/kubernetesFleetManager:KubernetesFleetManager"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -163,6 +163,9 @@ class _SpringCloudBuildPackBindingState:
 
 
 class SpringCloudBuildPackBinding(pulumi.CustomResource):
+
+    pulumi_type = "azure:appplatform/springCloudBuildPackBinding:SpringCloudBuildPackBinding"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

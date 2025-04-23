@@ -127,6 +127,9 @@ class _NetworkInterfaceNatRuleAssociationState:
 
 
 class NetworkInterfaceNatRuleAssociation(pulumi.CustomResource):
+
+    pulumi_type = "azure:network/networkInterfaceNatRuleAssociation:NetworkInterfaceNatRuleAssociation"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

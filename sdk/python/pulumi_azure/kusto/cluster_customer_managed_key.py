@@ -191,6 +191,9 @@ class _ClusterCustomerManagedKeyState:
 
 
 class ClusterCustomerManagedKey(pulumi.CustomResource):
+
+    pulumi_type = "azure:kusto/clusterCustomerManagedKey:ClusterCustomerManagedKey"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -223,6 +223,9 @@ class _VirtualMachineManagerVirtualMachineTemplateState:
 
 
 class VirtualMachineManagerVirtualMachineTemplate(pulumi.CustomResource):
+
+    pulumi_type = "azure:systemcenter/virtualMachineManagerVirtualMachineTemplate:VirtualMachineManagerVirtualMachineTemplate"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

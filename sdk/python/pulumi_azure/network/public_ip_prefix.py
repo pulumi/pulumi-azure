@@ -361,6 +361,9 @@ class _PublicIpPrefixState:
 
 
 class PublicIpPrefix(pulumi.CustomResource):
+
+    pulumi_type = "azure:network/publicIpPrefix:PublicIpPrefix"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

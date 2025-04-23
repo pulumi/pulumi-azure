@@ -266,6 +266,9 @@ class _AccountNetworkRulesState:
 
 
 class AccountNetworkRules(pulumi.CustomResource):
+
+    pulumi_type = "azure:storage/accountNetworkRules:AccountNetworkRules"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

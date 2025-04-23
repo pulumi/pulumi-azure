@@ -112,6 +112,9 @@ class _CapabilityState:
 
 
 class Capability(pulumi.CustomResource):
+
+    pulumi_type = "azure:chaosstudio/capability:Capability"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

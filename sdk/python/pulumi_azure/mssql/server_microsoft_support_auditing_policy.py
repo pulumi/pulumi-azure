@@ -233,6 +233,9 @@ class _ServerMicrosoftSupportAuditingPolicyState:
 
 
 class ServerMicrosoftSupportAuditingPolicy(pulumi.CustomResource):
+
+    pulumi_type = "azure:mssql/serverMicrosoftSupportAuditingPolicy:ServerMicrosoftSupportAuditingPolicy"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

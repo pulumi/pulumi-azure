@@ -97,6 +97,9 @@ class _ApiTagState:
 
 
 class ApiTag(pulumi.CustomResource):
+
+    pulumi_type = "azure:apimanagement/apiTag:ApiTag"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

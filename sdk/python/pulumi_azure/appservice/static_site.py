@@ -323,6 +323,9 @@ class _StaticSiteState:
 
 
 class StaticSite(pulumi.CustomResource):
+
+    pulumi_type = "azure:appservice/staticSite:StaticSite"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

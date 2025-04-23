@@ -290,6 +290,9 @@ class _SynapseSparkState:
 
 
 class SynapseSpark(pulumi.CustomResource):
+
+    pulumi_type = "azure:machinelearning/synapseSpark:SynapseSpark"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

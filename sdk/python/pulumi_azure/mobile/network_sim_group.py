@@ -235,6 +235,9 @@ class _NetworkSimGroupState:
 
 
 class NetworkSimGroup(pulumi.CustomResource):
+
+    pulumi_type = "azure:mobile/networkSimGroup:NetworkSimGroup"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

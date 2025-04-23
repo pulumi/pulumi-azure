@@ -297,6 +297,9 @@ class _HciNetworkInterfaceState:
 
 
 class HciNetworkInterface(pulumi.CustomResource):
+
+    pulumi_type = "azure:stack/hciNetworkInterface:HciNetworkInterface"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

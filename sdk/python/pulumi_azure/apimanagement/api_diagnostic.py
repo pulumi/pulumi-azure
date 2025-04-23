@@ -511,6 +511,9 @@ class _ApiDiagnosticState:
 
 
 class ApiDiagnostic(pulumi.CustomResource):
+
+    pulumi_type = "azure:apimanagement/apiDiagnostic:ApiDiagnostic"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

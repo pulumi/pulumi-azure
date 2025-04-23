@@ -353,6 +353,9 @@ class _SnapshotPolicyState:
 
 
 class SnapshotPolicy(pulumi.CustomResource):
+
+    pulumi_type = "azure:netapp/snapshotPolicy:SnapshotPolicy"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

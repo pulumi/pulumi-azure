@@ -576,6 +576,9 @@ class _ManagedClusterState:
 
 
 class ManagedCluster(pulumi.CustomResource):
+
+    pulumi_type = "azure:servicefabric/managedCluster:ManagedCluster"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -750,6 +750,9 @@ class _ScheduledQueryRulesAlertV2State:
 
 
 class ScheduledQueryRulesAlertV2(pulumi.CustomResource):
+
+    pulumi_type = "azure:monitoring/scheduledQueryRulesAlertV2:ScheduledQueryRulesAlertV2"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

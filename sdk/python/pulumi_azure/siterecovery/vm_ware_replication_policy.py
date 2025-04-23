@@ -159,6 +159,9 @@ class _VMWareReplicationPolicyState:
 
 
 class VMWareReplicationPolicy(pulumi.CustomResource):
+
+    pulumi_type = "azure:siterecovery/vMWareReplicationPolicy:VMWareReplicationPolicy"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

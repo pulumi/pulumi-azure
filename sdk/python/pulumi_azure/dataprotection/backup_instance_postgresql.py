@@ -223,6 +223,9 @@ class _BackupInstancePostgresqlState:
 
 
 class BackupInstancePostgresql(pulumi.CustomResource):
+
+    pulumi_type = "azure:dataprotection/backupInstancePostgresql:BackupInstancePostgresql"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

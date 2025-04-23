@@ -96,6 +96,9 @@ class _GroupSubscriptionAssociationState:
 
 
 class GroupSubscriptionAssociation(pulumi.CustomResource):
+
+    pulumi_type = "azure:management/groupSubscriptionAssociation:GroupSubscriptionAssociation"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

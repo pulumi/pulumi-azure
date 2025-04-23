@@ -193,6 +193,9 @@ class _NetworkDataNetworkState:
 
 
 class NetworkDataNetwork(pulumi.CustomResource):
+
+    pulumi_type = "azure:mobile/networkDataNetwork:NetworkDataNetwork"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

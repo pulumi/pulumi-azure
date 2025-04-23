@@ -224,6 +224,9 @@ class _TriggerHttpRequestState:
 
 
 class TriggerHttpRequest(pulumi.CustomResource):
+
+    pulumi_type = "azure:logicapps/triggerHttpRequest:TriggerHttpRequest"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

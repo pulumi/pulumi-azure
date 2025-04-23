@@ -321,6 +321,9 @@ class _IntegrationRuntimeRuleState:
 
 
 class IntegrationRuntimeRule(pulumi.CustomResource):
+
+    pulumi_type = "azure:datafactory/integrationRuntimeRule:IntegrationRuntimeRule"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

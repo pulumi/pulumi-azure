@@ -285,6 +285,9 @@ class _OutputPowerbiState:
 
 
 class OutputPowerbi(pulumi.CustomResource):
+
+    pulumi_type = "azure:streamanalytics/outputPowerbi:OutputPowerbi"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

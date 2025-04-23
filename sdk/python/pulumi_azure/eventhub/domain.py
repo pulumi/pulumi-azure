@@ -504,6 +504,9 @@ warnings.warn("""azure.eventhub.Domain has been deprecated in favor of azure.eve
 class Domain(pulumi.CustomResource):
     warnings.warn("""azure.eventhub.Domain has been deprecated in favor of azure.eventgrid.Domain""", DeprecationWarning)
 
+
+    pulumi_type = "azure:eventhub/domain:Domain"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

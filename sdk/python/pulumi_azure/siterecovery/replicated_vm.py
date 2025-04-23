@@ -795,6 +795,9 @@ class _ReplicatedVMState:
 
 
 class ReplicatedVM(pulumi.CustomResource):
+
+    pulumi_type = "azure:siterecovery/replicatedVM:ReplicatedVM"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

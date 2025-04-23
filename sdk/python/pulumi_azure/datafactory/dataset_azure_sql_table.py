@@ -386,6 +386,9 @@ class _DatasetAzureSqlTableState:
 
 
 class DatasetAzureSqlTable(pulumi.CustomResource):
+
+    pulumi_type = "azure:datafactory/datasetAzureSqlTable:DatasetAzureSqlTable"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

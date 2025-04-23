@@ -798,6 +798,9 @@ class _ThreatIntelligenceIndicatorState:
 
 
 class ThreatIntelligenceIndicator(pulumi.CustomResource):
+
+    pulumi_type = "azure:sentinel/threatIntelligenceIndicator:ThreatIntelligenceIndicator"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

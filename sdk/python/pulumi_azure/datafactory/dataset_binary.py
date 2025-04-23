@@ -426,6 +426,9 @@ class _DatasetBinaryState:
 
 
 class DatasetBinary(pulumi.CustomResource):
+
+    pulumi_type = "azure:datafactory/datasetBinary:DatasetBinary"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

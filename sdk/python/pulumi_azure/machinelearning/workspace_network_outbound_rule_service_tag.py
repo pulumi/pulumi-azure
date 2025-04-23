@@ -190,6 +190,9 @@ class _WorkspaceNetworkOutboundRuleServiceTagState:
 
 
 class WorkspaceNetworkOutboundRuleServiceTag(pulumi.CustomResource):
+
+    pulumi_type = "azure:machinelearning/workspaceNetworkOutboundRuleServiceTag:WorkspaceNetworkOutboundRuleServiceTag"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

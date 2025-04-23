@@ -222,6 +222,9 @@ class _RouteState:
 
 
 class Route(pulumi.CustomResource):
+
+    pulumi_type = "azure:network/route:Route"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

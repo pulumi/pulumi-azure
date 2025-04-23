@@ -208,6 +208,9 @@ class _MonitorSsoConfigurationState:
 
 
 class MonitorSsoConfiguration(pulumi.CustomResource):
+
+    pulumi_type = "azure:datadog/monitorSsoConfiguration:MonitorSsoConfiguration"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

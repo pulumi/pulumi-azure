@@ -177,6 +177,9 @@ class _ServerTransparentDataEncryptionState:
 
 
 class ServerTransparentDataEncryption(pulumi.CustomResource):
+
+    pulumi_type = "azure:mssql/serverTransparentDataEncryption:ServerTransparentDataEncryption"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

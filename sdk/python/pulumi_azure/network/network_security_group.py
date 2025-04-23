@@ -203,6 +203,9 @@ class _NetworkSecurityGroupState:
 
 
 class NetworkSecurityGroup(pulumi.CustomResource):
+
+    pulumi_type = "azure:network/networkSecurityGroup:NetworkSecurityGroup"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

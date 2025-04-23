@@ -225,6 +225,9 @@ class _StorageDefenderState:
 
 
 class StorageDefender(pulumi.CustomResource):
+
+    pulumi_type = "azure:securitycenter/storageDefender:StorageDefender"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

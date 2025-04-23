@@ -232,6 +232,9 @@ class _JobScheduleState:
 
 
 class JobSchedule(pulumi.CustomResource):
+
+    pulumi_type = "azure:mssql/jobSchedule:JobSchedule"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

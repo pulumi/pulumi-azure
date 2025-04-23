@@ -832,6 +832,9 @@ class _FunctionAppState:
 
 
 class FunctionApp(pulumi.CustomResource):
+
+    pulumi_type = "azure:appservice/functionApp:FunctionApp"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

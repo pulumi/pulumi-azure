@@ -96,6 +96,9 @@ class _WorkspaceApplicationGroupAssociationState:
 
 
 class WorkspaceApplicationGroupAssociation(pulumi.CustomResource):
+
+    pulumi_type = "azure:desktopvirtualization/workspaceApplicationGroupAssociation:WorkspaceApplicationGroupAssociation"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

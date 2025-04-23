@@ -304,6 +304,9 @@ class _AssessmentPolicyState:
 
 
 class AssessmentPolicy(pulumi.CustomResource):
+
+    pulumi_type = "azure:securitycenter/assessmentPolicy:AssessmentPolicy"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

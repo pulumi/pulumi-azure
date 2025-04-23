@@ -177,6 +177,9 @@ class _DdosProtectionPlanState:
 
 
 class DdosProtectionPlan(pulumi.CustomResource):
+
+    pulumi_type = "azure:network/ddosProtectionPlan:DdosProtectionPlan"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

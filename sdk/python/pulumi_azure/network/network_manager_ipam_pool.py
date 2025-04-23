@@ -287,6 +287,9 @@ class _NetworkManagerIpamPoolState:
 
 
 class NetworkManagerIpamPool(pulumi.CustomResource):
+
+    pulumi_type = "azure:network/networkManagerIpamPool:NetworkManagerIpamPool"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

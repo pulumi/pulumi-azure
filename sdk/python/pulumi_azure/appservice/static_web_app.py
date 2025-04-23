@@ -547,6 +547,9 @@ class _StaticWebAppState:
 
 
 class StaticWebApp(pulumi.CustomResource):
+
+    pulumi_type = "azure:appservice/staticWebApp:StaticWebApp"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -299,6 +299,9 @@ class _DscConfigurationState:
 
 
 class DscConfiguration(pulumi.CustomResource):
+
+    pulumi_type = "azure:automation/dscConfiguration:DscConfiguration"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

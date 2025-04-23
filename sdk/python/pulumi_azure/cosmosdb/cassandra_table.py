@@ -250,6 +250,9 @@ class _CassandraTableState:
 
 
 class CassandraTable(pulumi.CustomResource):
+
+    pulumi_type = "azure:cosmosdb/cassandraTable:CassandraTable"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

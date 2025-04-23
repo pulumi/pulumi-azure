@@ -418,6 +418,9 @@ class _ComputeInstanceState:
 
 
 class ComputeInstance(pulumi.CustomResource):
+
+    pulumi_type = "azure:machinelearning/computeInstance:ComputeInstance"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

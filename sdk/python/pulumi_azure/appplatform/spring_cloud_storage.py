@@ -159,6 +159,9 @@ class _SpringCloudStorageState:
 
 
 class SpringCloudStorage(pulumi.CustomResource):
+
+    pulumi_type = "azure:appplatform/springCloudStorage:SpringCloudStorage"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

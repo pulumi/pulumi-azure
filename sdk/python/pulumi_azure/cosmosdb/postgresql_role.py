@@ -128,6 +128,9 @@ class _PostgresqlRoleState:
 
 
 class PostgresqlRole(pulumi.CustomResource):
+
+    pulumi_type = "azure:cosmosdb/postgresqlRole:PostgresqlRole"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

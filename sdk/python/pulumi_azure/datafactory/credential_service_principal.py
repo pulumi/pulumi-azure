@@ -257,6 +257,9 @@ class _CredentialServicePrincipalState:
 
 
 class CredentialServicePrincipal(pulumi.CustomResource):
+
+    pulumi_type = "azure:datafactory/credentialServicePrincipal:CredentialServicePrincipal"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

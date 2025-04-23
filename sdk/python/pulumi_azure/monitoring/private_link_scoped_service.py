@@ -159,6 +159,9 @@ class _PrivateLinkScopedServiceState:
 
 
 class PrivateLinkScopedService(pulumi.CustomResource):
+
+    pulumi_type = "azure:monitoring/privateLinkScopedService:PrivateLinkScopedService"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -476,6 +476,9 @@ class _OutputBlobState:
 
 
 class OutputBlob(pulumi.CustomResource):
+
+    pulumi_type = "azure:streamanalytics/outputBlob:OutputBlob"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -137,6 +137,9 @@ class _DataConnectorOfficePowerBiState:
 
 
 class DataConnectorOfficePowerBi(pulumi.CustomResource):
+
+    pulumi_type = "azure:sentinel/dataConnectorOfficePowerBi:DataConnectorOfficePowerBi"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

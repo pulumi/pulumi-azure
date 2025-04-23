@@ -774,6 +774,9 @@ class _SparkClusterState:
 
 
 class SparkCluster(pulumi.CustomResource):
+
+    pulumi_type = "azure:hdinsight/sparkCluster:SparkCluster"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

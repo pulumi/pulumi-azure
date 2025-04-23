@@ -240,6 +240,9 @@ class _SrvRecordState:
 
 
 class SrvRecord(pulumi.CustomResource):
+
+    pulumi_type = "azure:dns/srvRecord:SrvRecord"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

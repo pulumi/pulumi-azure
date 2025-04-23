@@ -416,6 +416,9 @@ class _AssignmentState:
 
 
 class Assignment(pulumi.CustomResource):
+
+    pulumi_type = "azure:authorization/assignment:Assignment"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -465,6 +465,9 @@ class _FhirServiceState:
 
 
 class FhirService(pulumi.CustomResource):
+
+    pulumi_type = "azure:healthcare/fhirService:FhirService"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

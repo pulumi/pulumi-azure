@@ -504,6 +504,9 @@ class _PrivateCloudState:
 
 
 class PrivateCloud(pulumi.CustomResource):
+
+    pulumi_type = "azure:avs/privateCloud:PrivateCloud"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

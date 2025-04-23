@@ -377,6 +377,9 @@ class _NextGenerationFirewallVirtualNetworkPanoramaState:
 
 
 class NextGenerationFirewallVirtualNetworkPanorama(pulumi.CustomResource):
+
+    pulumi_type = "azure:paloalto/nextGenerationFirewallVirtualNetworkPanorama:NextGenerationFirewallVirtualNetworkPanorama"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

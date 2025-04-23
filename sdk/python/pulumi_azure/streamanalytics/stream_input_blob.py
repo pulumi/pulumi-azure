@@ -379,6 +379,9 @@ class _StreamInputBlobState:
 
 
 class StreamInputBlob(pulumi.CustomResource):
+
+    pulumi_type = "azure:streamanalytics/streamInputBlob:StreamInputBlob"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

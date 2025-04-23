@@ -358,6 +358,9 @@ class _DataConnectorThreatIntelligenceTaxiiState:
 
 
 class DataConnectorThreatIntelligenceTaxii(pulumi.CustomResource):
+
+    pulumi_type = "azure:sentinel/dataConnectorThreatIntelligenceTaxii:DataConnectorThreatIntelligenceTaxii"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

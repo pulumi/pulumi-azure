@@ -238,6 +238,9 @@ class _SubscriptionRuleState:
 
 
 class SubscriptionRule(pulumi.CustomResource):
+
+    pulumi_type = "azure:servicebus/subscriptionRule:SubscriptionRule"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

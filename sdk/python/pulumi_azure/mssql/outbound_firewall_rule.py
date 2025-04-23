@@ -97,6 +97,9 @@ class _OutboundFirewallRuleState:
 
 
 class OutboundFirewallRule(pulumi.CustomResource):
+
+    pulumi_type = "azure:mssql/outboundFirewallRule:OutboundFirewallRule"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

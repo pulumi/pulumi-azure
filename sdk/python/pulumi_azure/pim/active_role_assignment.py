@@ -241,6 +241,9 @@ class _ActiveRoleAssignmentState:
 
 
 class ActiveRoleAssignment(pulumi.CustomResource):
+
+    pulumi_type = "azure:pim/activeRoleAssignment:ActiveRoleAssignment"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -161,6 +161,9 @@ class _ApplicationSecurityGroupState:
 
 
 class ApplicationSecurityGroup(pulumi.CustomResource):
+
+    pulumi_type = "azure:network/applicationSecurityGroup:ApplicationSecurityGroup"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

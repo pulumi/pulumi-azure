@@ -490,6 +490,9 @@ class _GroupPolicyAssignmentState:
 
 
 class GroupPolicyAssignment(pulumi.CustomResource):
+
+    pulumi_type = "azure:management/groupPolicyAssignment:GroupPolicyAssignment"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

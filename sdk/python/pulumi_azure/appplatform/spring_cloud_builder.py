@@ -161,6 +161,9 @@ class _SpringCloudBuilderState:
 
 
 class SpringCloudBuilder(pulumi.CustomResource):
+
+    pulumi_type = "azure:appplatform/springCloudBuilder:SpringCloudBuilder"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

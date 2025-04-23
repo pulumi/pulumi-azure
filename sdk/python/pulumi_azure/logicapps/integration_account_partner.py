@@ -193,6 +193,9 @@ class _IntegrationAccountPartnerState:
 
 
 class IntegrationAccountPartner(pulumi.CustomResource):
+
+    pulumi_type = "azure:logicapps/integrationAccountPartner:IntegrationAccountPartner"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

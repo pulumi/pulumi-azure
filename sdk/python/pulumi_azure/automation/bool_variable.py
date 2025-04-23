@@ -224,6 +224,9 @@ class _BoolVariableState:
 
 
 class BoolVariable(pulumi.CustomResource):
+
+    pulumi_type = "azure:automation/boolVariable:BoolVariable"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

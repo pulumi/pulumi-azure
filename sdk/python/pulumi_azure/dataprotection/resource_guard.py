@@ -193,6 +193,9 @@ class _ResourceGuardState:
 
 
 class ResourceGuard(pulumi.CustomResource):
+
+    pulumi_type = "azure:dataprotection/resourceGuard:ResourceGuard"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

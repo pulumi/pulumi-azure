@@ -402,6 +402,9 @@ class _IotHubDpsState:
 
 
 class IotHubDps(pulumi.CustomResource):
+
+    pulumi_type = "azure:iot/iotHubDps:IotHubDps"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

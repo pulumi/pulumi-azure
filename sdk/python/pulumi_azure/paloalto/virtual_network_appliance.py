@@ -81,6 +81,9 @@ class _VirtualNetworkApplianceState:
 
 
 class VirtualNetworkAppliance(pulumi.CustomResource):
+
+    pulumi_type = "azure:paloalto/virtualNetworkAppliance:VirtualNetworkAppliance"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

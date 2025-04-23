@@ -498,6 +498,9 @@ class _ResourcePolicyAssignmentState:
 
 
 class ResourcePolicyAssignment(pulumi.CustomResource):
+
+    pulumi_type = "azure:core/resourcePolicyAssignment:ResourcePolicyAssignment"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

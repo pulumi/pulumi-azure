@@ -318,6 +318,9 @@ class _WebhookState:
 
 
 class Webhook(pulumi.CustomResource):
+
+    pulumi_type = "azure:automation/webhook:Webhook"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

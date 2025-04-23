@@ -192,6 +192,9 @@ class _FunctionJavascriptUdaState:
 
 
 class FunctionJavascriptUda(pulumi.CustomResource):
+
+    pulumi_type = "azure:streamanalytics/functionJavascriptUda:FunctionJavascriptUda"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

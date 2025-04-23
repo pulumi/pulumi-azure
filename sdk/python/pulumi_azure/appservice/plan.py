@@ -458,6 +458,9 @@ class _PlanState:
 
 
 class Plan(pulumi.CustomResource):
+
+    pulumi_type = "azure:appservice/plan:Plan"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

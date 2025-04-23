@@ -97,6 +97,9 @@ class _VirtualNetworkDnsServersState:
 
 
 class VirtualNetworkDnsServers(pulumi.CustomResource):
+
+    pulumi_type = "azure:network/virtualNetworkDnsServers:VirtualNetworkDnsServers"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -231,6 +231,9 @@ class _BackupInstanceBlogStorageState:
 
 
 class BackupInstanceBlogStorage(pulumi.CustomResource):
+
+    pulumi_type = "azure:dataprotection/backupInstanceBlogStorage:BackupInstanceBlogStorage"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

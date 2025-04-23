@@ -444,6 +444,9 @@ class _IotHubDataConnectionState:
 
 
 class IotHubDataConnection(pulumi.CustomResource):
+
+    pulumi_type = "azure:kusto/iotHubDataConnection:IotHubDataConnection"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

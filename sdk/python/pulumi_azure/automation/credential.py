@@ -222,6 +222,9 @@ class _CredentialState:
 
 
 class Credential(pulumi.CustomResource):
+
+    pulumi_type = "azure:automation/credential:Credential"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

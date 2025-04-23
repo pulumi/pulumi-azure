@@ -381,6 +381,9 @@ class _OutputMssqlState:
 
 
 class OutputMssql(pulumi.CustomResource):
+
+    pulumi_type = "azure:streamanalytics/outputMssql:OutputMssql"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

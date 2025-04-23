@@ -627,6 +627,9 @@ class _AnalyticsWorkspaceState:
 
 
 class AnalyticsWorkspace(pulumi.CustomResource):
+
+    pulumi_type = "azure:operationalinsights/analyticsWorkspace:AnalyticsWorkspace"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -287,6 +287,9 @@ class _ARecordState:
 
 
 class ARecord(pulumi.CustomResource):
+
+    pulumi_type = "azure:dns/aRecord:ARecord"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

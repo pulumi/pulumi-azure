@@ -225,6 +225,9 @@ class _ResolverForwardingRuleState:
 
 
 class ResolverForwardingRule(pulumi.CustomResource):
+
+    pulumi_type = "azure:privatedns/resolverForwardingRule:ResolverForwardingRule"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

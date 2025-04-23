@@ -194,6 +194,9 @@ class _VpnServerConfigurationPolicyGroupState:
 
 
 class VpnServerConfigurationPolicyGroup(pulumi.CustomResource):
+
+    pulumi_type = "azure:network/vpnServerConfigurationPolicyGroup:VpnServerConfigurationPolicyGroup"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

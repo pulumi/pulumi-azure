@@ -317,6 +317,9 @@ class _PolicyState:
 
 
 class Policy(pulumi.CustomResource):
+
+    pulumi_type = "azure:devtest/policy:Policy"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

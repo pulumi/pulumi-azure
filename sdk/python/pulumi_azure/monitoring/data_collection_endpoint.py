@@ -305,6 +305,9 @@ class _DataCollectionEndpointState:
 
 
 class DataCollectionEndpoint(pulumi.CustomResource):
+
+    pulumi_type = "azure:monitoring/dataCollectionEndpoint:DataCollectionEndpoint"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

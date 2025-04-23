@@ -129,6 +129,9 @@ class _MoverProjectState:
 
 
 class MoverProject(pulumi.CustomResource):
+
+    pulumi_type = "azure:storage/moverProject:MoverProject"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

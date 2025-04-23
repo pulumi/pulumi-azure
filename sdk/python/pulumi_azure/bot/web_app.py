@@ -447,6 +447,9 @@ class _WebAppState:
 
 
 class WebApp(pulumi.CustomResource):
+
+    pulumi_type = "azure:bot/webApp:WebApp"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

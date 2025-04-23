@@ -160,6 +160,9 @@ class _ManagedHardwareSecurityModuleKeyRotationPolicyState:
 
 
 class ManagedHardwareSecurityModuleKeyRotationPolicy(pulumi.CustomResource):
+
+    pulumi_type = "azure:keyvault/managedHardwareSecurityModuleKeyRotationPolicy:ManagedHardwareSecurityModuleKeyRotationPolicy"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

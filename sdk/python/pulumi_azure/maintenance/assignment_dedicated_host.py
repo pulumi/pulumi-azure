@@ -128,6 +128,9 @@ class _AssignmentDedicatedHostState:
 
 
 class AssignmentDedicatedHost(pulumi.CustomResource):
+
+    pulumi_type = "azure:maintenance/assignmentDedicatedHost:AssignmentDedicatedHost"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

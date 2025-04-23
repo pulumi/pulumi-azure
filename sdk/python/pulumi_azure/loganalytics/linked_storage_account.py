@@ -158,6 +158,9 @@ class _LinkedStorageAccountState:
 
 
 class LinkedStorageAccount(pulumi.CustomResource):
+
+    pulumi_type = "azure:loganalytics/linkedStorageAccount:LinkedStorageAccount"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

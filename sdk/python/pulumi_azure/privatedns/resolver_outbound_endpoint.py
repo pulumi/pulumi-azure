@@ -192,6 +192,9 @@ class _ResolverOutboundEndpointState:
 
 
 class ResolverOutboundEndpoint(pulumi.CustomResource):
+
+    pulumi_type = "azure:privatedns/resolverOutboundEndpoint:ResolverOutboundEndpoint"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

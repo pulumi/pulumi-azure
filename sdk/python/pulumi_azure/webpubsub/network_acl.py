@@ -162,6 +162,9 @@ class _NetworkAclState:
 
 
 class NetworkAcl(pulumi.CustomResource):
+
+    pulumi_type = "azure:webpubsub/networkAcl:NetworkAcl"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

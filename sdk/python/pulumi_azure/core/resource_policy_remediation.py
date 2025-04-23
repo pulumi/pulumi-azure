@@ -320,6 +320,9 @@ class _ResourcePolicyRemediationState:
 
 
 class ResourcePolicyRemediation(pulumi.CustomResource):
+
+    pulumi_type = "azure:core/resourcePolicyRemediation:ResourcePolicyRemediation"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

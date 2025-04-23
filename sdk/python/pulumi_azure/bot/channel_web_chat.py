@@ -162,6 +162,9 @@ class _ChannelWebChatState:
 
 
 class ChannelWebChat(pulumi.CustomResource):
+
+    pulumi_type = "azure:bot/channelWebChat:ChannelWebChat"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -170,6 +170,9 @@ class _MongoRoleDefinitionState:
 
 
 class MongoRoleDefinition(pulumi.CustomResource):
+
+    pulumi_type = "azure:cosmosdb/mongoRoleDefinition:MongoRoleDefinition"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

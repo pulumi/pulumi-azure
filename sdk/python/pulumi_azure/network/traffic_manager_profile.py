@@ -368,6 +368,9 @@ class _TrafficManagerProfileState:
 
 
 class TrafficManagerProfile(pulumi.CustomResource):
+
+    pulumi_type = "azure:network/trafficManagerProfile:TrafficManagerProfile"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

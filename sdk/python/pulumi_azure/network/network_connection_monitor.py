@@ -320,6 +320,9 @@ class _NetworkConnectionMonitorState:
 
 
 class NetworkConnectionMonitor(pulumi.CustomResource):
+
+    pulumi_type = "azure:network/networkConnectionMonitor:NetworkConnectionMonitor"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

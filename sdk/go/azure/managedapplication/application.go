@@ -57,9 +57,9 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			invokeSplit1, err := std.Split(ctx, &std.SplitArgs{
-//				Separator: "/",
-//				Text:      builtin.Id,
+//			invokeSplit1, err := std.Split(ctx, map[string]interface{}{
+//				"separator": "/",
+//				"text":      builtin.Id,
 //			}, nil)
 //			if err != nil {
 //				return err
@@ -75,7 +75,9 @@ import (
 //				Authorizations: managedapplication.DefinitionAuthorizationArray{
 //					&managedapplication.DefinitionAuthorizationArgs{
 //						ServicePrincipalId: pulumi.String(current.ObjectId),
-//						RoleDefinitionId:   pulumi.String(invokeSplit.Result[float64(pulumi.Float64(len(invokeSplit1.Result))-1)]),
+//						RoleDefinitionId: len(invokeSplit.Result).ApplyT(func(length int) (string, error) {
+//							return invokeSplit1.Result[length-1], nil
+//						}).(pulumi.StringOutput),
 //					},
 //				},
 //			})

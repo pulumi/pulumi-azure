@@ -222,6 +222,9 @@ class _ApiOperationPolicyState:
 
 
 class ApiOperationPolicy(pulumi.CustomResource):
+
+    pulumi_type = "azure:apimanagement/apiOperationPolicy:ApiOperationPolicy"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

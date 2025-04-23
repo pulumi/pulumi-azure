@@ -168,6 +168,9 @@ class _LicationLoadBalancerSubnetAssociationState:
 
 
 class LicationLoadBalancerSubnetAssociation(pulumi.CustomResource):
+
+    pulumi_type = "azure:appconfiguration/licationLoadBalancerSubnetAssociation:LicationLoadBalancerSubnetAssociation"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

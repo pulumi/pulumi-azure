@@ -96,6 +96,9 @@ class _ClusterCustomerManagedKeyState:
 
 
 class ClusterCustomerManagedKey(pulumi.CustomResource):
+
+    pulumi_type = "azure:loganalytics/clusterCustomerManagedKey:ClusterCustomerManagedKey"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

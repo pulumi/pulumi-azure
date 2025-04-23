@@ -96,6 +96,9 @@ class _NetworkInterfaceApplicationSecurityGroupAssociationState:
 
 
 class NetworkInterfaceApplicationSecurityGroupAssociation(pulumi.CustomResource):
+
+    pulumi_type = "azure:network/networkInterfaceApplicationSecurityGroupAssociation:NetworkInterfaceApplicationSecurityGroupAssociation"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -288,6 +288,9 @@ class _ResourceBridgeApplianceState:
 
 
 class ResourceBridgeAppliance(pulumi.CustomResource):
+
+    pulumi_type = "azure:arc/resourceBridgeAppliance:ResourceBridgeAppliance"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

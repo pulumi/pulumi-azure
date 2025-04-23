@@ -359,6 +359,9 @@ class _FileUploadState:
 
 
 class FileUpload(pulumi.CustomResource):
+
+    pulumi_type = "azure:iot/fileUpload:FileUpload"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -472,6 +472,9 @@ class _LinkedServiceDataLakeStorageGen2State:
 
 
 class LinkedServiceDataLakeStorageGen2(pulumi.CustomResource):
+
+    pulumi_type = "azure:datafactory/linkedServiceDataLakeStorageGen2:LinkedServiceDataLakeStorageGen2"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

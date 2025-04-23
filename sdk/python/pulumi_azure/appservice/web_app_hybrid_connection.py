@@ -270,6 +270,9 @@ class _WebAppHybridConnectionState:
 
 
 class WebAppHybridConnection(pulumi.CustomResource):
+
+    pulumi_type = "azure:appservice/webAppHybridConnection:WebAppHybridConnection"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

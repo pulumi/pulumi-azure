@@ -96,6 +96,9 @@ class _AutomanageConfigurationAssignmentState:
 
 
 class AutomanageConfigurationAssignment(pulumi.CustomResource):
+
+    pulumi_type = "azure:compute/automanageConfigurationAssignment:AutomanageConfigurationAssignment"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

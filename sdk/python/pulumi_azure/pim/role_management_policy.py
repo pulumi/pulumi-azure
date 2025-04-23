@@ -258,6 +258,9 @@ class _RoleManagementPolicyState:
 
 
 class RoleManagementPolicy(pulumi.CustomResource):
+
+    pulumi_type = "azure:pim/roleManagementPolicy:RoleManagementPolicy"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -440,6 +440,9 @@ warnings.warn("""azure.eventhub.EventGridTopic has been deprecated in favor of a
 class EventGridTopic(pulumi.CustomResource):
     warnings.warn("""azure.eventhub.EventGridTopic has been deprecated in favor of azure.eventgrid.Topic""", DeprecationWarning)
 
+
+    pulumi_type = "azure:eventhub/eventGridTopic:EventGridTopic"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

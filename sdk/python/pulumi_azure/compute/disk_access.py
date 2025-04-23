@@ -161,6 +161,9 @@ class _DiskAccessState:
 
 
 class DiskAccess(pulumi.CustomResource):
+
+    pulumi_type = "azure:compute/diskAccess:DiskAccess"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

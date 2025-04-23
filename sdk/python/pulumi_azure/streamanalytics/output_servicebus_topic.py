@@ -391,6 +391,9 @@ class _OutputServicebusTopicState:
 
 
 class OutputServicebusTopic(pulumi.CustomResource):
+
+    pulumi_type = "azure:streamanalytics/outputServicebusTopic:OutputServicebusTopic"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

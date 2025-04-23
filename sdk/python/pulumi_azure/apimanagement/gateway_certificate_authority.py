@@ -159,6 +159,9 @@ class _GatewayCertificateAuthorityState:
 
 
 class GatewayCertificateAuthority(pulumi.CustomResource):
+
+    pulumi_type = "azure:apimanagement/gatewayCertificateAuthority:GatewayCertificateAuthority"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

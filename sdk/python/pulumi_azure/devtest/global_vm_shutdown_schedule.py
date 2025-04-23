@@ -256,6 +256,9 @@ class _GlobalVMShutdownScheduleState:
 
 
 class GlobalVMShutdownSchedule(pulumi.CustomResource):
+
+    pulumi_type = "azure:devtest/globalVMShutdownSchedule:GlobalVMShutdownSchedule"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

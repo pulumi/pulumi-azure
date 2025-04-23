@@ -289,6 +289,9 @@ class _ProjectEnvironmentTypeState:
 
 
 class ProjectEnvironmentType(pulumi.CustomResource):
+
+    pulumi_type = "azure:devcenter/projectEnvironmentType:ProjectEnvironmentType"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -191,6 +191,9 @@ class _EndpointServicebusState:
 
 
 class EndpointServicebus(pulumi.CustomResource):
+
+    pulumi_type = "azure:digitaltwins/endpointServicebus:EndpointServicebus"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

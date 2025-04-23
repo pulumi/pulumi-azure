@@ -368,6 +368,9 @@ class _DatastoreDatalakeGen2State:
 
 
 class DatastoreDatalakeGen2(pulumi.CustomResource):
+
+    pulumi_type = "azure:machinelearning/datastoreDatalakeGen2:DatastoreDatalakeGen2"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

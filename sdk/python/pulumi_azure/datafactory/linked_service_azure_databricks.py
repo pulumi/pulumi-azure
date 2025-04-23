@@ -482,6 +482,9 @@ class _LinkedServiceAzureDatabricksState:
 
 
 class LinkedServiceAzureDatabricks(pulumi.CustomResource):
+
+    pulumi_type = "azure:datafactory/linkedServiceAzureDatabricks:LinkedServiceAzureDatabricks"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -274,6 +274,9 @@ class _SubscriptionTemplateDeploymentState:
 
 
 class SubscriptionTemplateDeployment(pulumi.CustomResource):
+
+    pulumi_type = "azure:core/subscriptionTemplateDeployment:SubscriptionTemplateDeployment"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

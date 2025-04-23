@@ -283,6 +283,9 @@ class _OutputSynapseState:
 
 
 class OutputSynapse(pulumi.CustomResource):
+
+    pulumi_type = "azure:streamanalytics/outputSynapse:OutputSynapse"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

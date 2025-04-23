@@ -128,6 +128,9 @@ class _AssignmentVirtualMachineScaleSetState:
 
 
 class AssignmentVirtualMachineScaleSet(pulumi.CustomResource):
+
+    pulumi_type = "azure:maintenance/assignmentVirtualMachineScaleSet:AssignmentVirtualMachineScaleSet"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

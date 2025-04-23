@@ -391,6 +391,9 @@ class _NatPoolState:
 
 
 class NatPool(pulumi.CustomResource):
+
+    pulumi_type = "azure:lb/natPool:NatPool"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

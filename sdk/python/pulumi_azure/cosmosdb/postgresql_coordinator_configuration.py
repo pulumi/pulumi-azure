@@ -128,6 +128,9 @@ class _PostgresqlCoordinatorConfigurationState:
 
 
 class PostgresqlCoordinatorConfiguration(pulumi.CustomResource):
+
+    pulumi_type = "azure:cosmosdb/postgresqlCoordinatorConfiguration:PostgresqlCoordinatorConfiguration"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

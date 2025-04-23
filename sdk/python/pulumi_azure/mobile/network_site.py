@@ -177,6 +177,9 @@ class _NetworkSiteState:
 
 
 class NetworkSite(pulumi.CustomResource):
+
+    pulumi_type = "azure:mobile/networkSite:NetworkSite"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

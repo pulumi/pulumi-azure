@@ -586,6 +586,9 @@ class _MetricAlertState:
 
 
 class MetricAlert(pulumi.CustomResource):
+
+    pulumi_type = "azure:monitoring/metricAlert:MetricAlert"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

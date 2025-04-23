@@ -633,6 +633,9 @@ class _EndpointState:
 
 
 class Endpoint(pulumi.CustomResource):
+
+    pulumi_type = "azure:cdn/endpoint:Endpoint"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

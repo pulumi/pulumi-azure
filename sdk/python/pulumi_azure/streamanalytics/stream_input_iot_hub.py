@@ -316,6 +316,9 @@ class _StreamInputIotHubState:
 
 
 class StreamInputIotHub(pulumi.CustomResource):
+
+    pulumi_type = "azure:streamanalytics/streamInputIotHub:StreamInputIotHub"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -290,6 +290,9 @@ class _AlertProcessingRuleSuppressionState:
 
 
 class AlertProcessingRuleSuppression(pulumi.CustomResource):
+
+    pulumi_type = "azure:monitoring/alertProcessingRuleSuppression:AlertProcessingRuleSuppression"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

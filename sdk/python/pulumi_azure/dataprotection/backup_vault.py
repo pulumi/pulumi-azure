@@ -417,6 +417,9 @@ class _BackupVaultState:
 
 
 class BackupVault(pulumi.CustomResource):
+
+    pulumi_type = "azure:dataprotection/backupVault:BackupVault"
+
     @overload
     def __init__(__self__,
                  resource_name: str,
