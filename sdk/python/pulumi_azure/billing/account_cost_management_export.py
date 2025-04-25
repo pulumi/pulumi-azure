@@ -318,6 +318,9 @@ class _AccountCostManagementExportState:
 
 
 class AccountCostManagementExport(pulumi.CustomResource):
+
+    pulumi_type = "azure:billing/accountCostManagementExport:AccountCostManagementExport"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

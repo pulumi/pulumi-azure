@@ -696,6 +696,9 @@ class _PublicIpState:
 
 
 class PublicIp(pulumi.CustomResource):
+
+    pulumi_type = "azure:network/publicIp:PublicIp"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

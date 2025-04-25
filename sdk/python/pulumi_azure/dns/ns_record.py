@@ -238,6 +238,9 @@ class _NsRecordState:
 
 
 class NsRecord(pulumi.CustomResource):
+
+    pulumi_type = "azure:dns/nsRecord:NsRecord"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

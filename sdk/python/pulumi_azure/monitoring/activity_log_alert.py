@@ -321,6 +321,9 @@ class _ActivityLogAlertState:
 
 
 class ActivityLogAlert(pulumi.CustomResource):
+
+    pulumi_type = "azure:monitoring/activityLogAlert:ActivityLogAlert"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

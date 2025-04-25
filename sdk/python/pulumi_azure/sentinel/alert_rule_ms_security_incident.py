@@ -358,6 +358,9 @@ class _AlertRuleMsSecurityIncidentState:
 
 
 class AlertRuleMsSecurityIncident(pulumi.CustomResource):
+
+    pulumi_type = "azure:sentinel/alertRuleMsSecurityIncident:AlertRuleMsSecurityIncident"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

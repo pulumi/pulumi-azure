@@ -161,6 +161,9 @@ class _QueryPackState:
 
 
 class QueryPack(pulumi.CustomResource):
+
+    pulumi_type = "azure:loganalytics/queryPack:QueryPack"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -92,6 +92,9 @@ class _IPGroupCIDRState:
 
 
 class IPGroupCIDR(pulumi.CustomResource):
+
+    pulumi_type = "azure:network/iPGroupCIDR:IPGroupCIDR"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

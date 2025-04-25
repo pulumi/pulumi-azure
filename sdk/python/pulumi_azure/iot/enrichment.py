@@ -189,6 +189,9 @@ class _EnrichmentState:
 
 
 class Enrichment(pulumi.CustomResource):
+
+    pulumi_type = "azure:iot/enrichment:Enrichment"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

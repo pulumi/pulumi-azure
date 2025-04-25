@@ -597,6 +597,9 @@ class _HostPoolState:
 
 
 class HostPool(pulumi.CustomResource):
+
+    pulumi_type = "azure:desktopvirtualization/hostPool:HostPool"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

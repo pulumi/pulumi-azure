@@ -175,6 +175,9 @@ class _CertificateBindingState:
 
 
 class CertificateBinding(pulumi.CustomResource):
+
+    pulumi_type = "azure:appservice/certificateBinding:CertificateBinding"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

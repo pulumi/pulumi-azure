@@ -211,6 +211,9 @@ class _DevCenterState:
 
 
 class DevCenter(pulumi.CustomResource):
+
+    pulumi_type = "azure:devcenter/devCenter:DevCenter"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

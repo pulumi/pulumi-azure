@@ -200,6 +200,9 @@ class _PortalDashboardState:
 
 
 class PortalDashboard(pulumi.CustomResource):
+
+    pulumi_type = "azure:portal/portalDashboard:PortalDashboard"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

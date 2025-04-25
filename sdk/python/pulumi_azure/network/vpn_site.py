@@ -362,6 +362,9 @@ class _VpnSiteState:
 
 
 class VpnSite(pulumi.CustomResource):
+
+    pulumi_type = "azure:network/vpnSite:VpnSite"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

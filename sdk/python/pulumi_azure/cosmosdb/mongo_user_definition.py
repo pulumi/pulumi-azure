@@ -167,6 +167,9 @@ class _MongoUserDefinitionState:
 
 
 class MongoUserDefinition(pulumi.CustomResource):
+
+    pulumi_type = "azure:cosmosdb/mongoUserDefinition:MongoUserDefinition"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -287,6 +287,9 @@ class _Python3PackageState:
 
 
 class Python3Package(pulumi.CustomResource):
+
+    pulumi_type = "azure:automation/python3Package:Python3Package"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

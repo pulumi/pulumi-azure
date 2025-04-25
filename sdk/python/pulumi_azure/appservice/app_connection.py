@@ -241,6 +241,9 @@ class _AppConnectionState:
 
 
 class AppConnection(pulumi.CustomResource):
+
+    pulumi_type = "azure:appservice/appConnection:AppConnection"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

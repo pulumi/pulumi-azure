@@ -351,6 +351,9 @@ class _ContactProfileState:
 
 
 class ContactProfile(pulumi.CustomResource):
+
+    pulumi_type = "azure:orbital/contactProfile:ContactProfile"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

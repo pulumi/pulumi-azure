@@ -137,6 +137,9 @@ class _DataConnectorOfficeIrmState:
 
 
 class DataConnectorOfficeIrm(pulumi.CustomResource):
+
+    pulumi_type = "azure:sentinel/dataConnectorOfficeIrm:DataConnectorOfficeIrm"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

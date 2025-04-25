@@ -223,6 +223,9 @@ class _DevBoxDefinitionState:
 
 
 class DevBoxDefinition(pulumi.CustomResource):
+
+    pulumi_type = "azure:devcenter/devBoxDefinition:DevBoxDefinition"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

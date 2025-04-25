@@ -329,6 +329,9 @@ class _ModuleState:
 
 
 class Module(pulumi.CustomResource):
+
+    pulumi_type = "azure:hsm/module:Module"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

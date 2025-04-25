@@ -512,6 +512,9 @@ class _VirtualMachineScaleSetExtensionState:
 
 
 class VirtualMachineScaleSetExtension(pulumi.CustomResource):
+
+    pulumi_type = "azure:compute/virtualMachineScaleSetExtension:VirtualMachineScaleSetExtension"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

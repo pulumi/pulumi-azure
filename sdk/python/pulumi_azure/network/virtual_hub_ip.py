@@ -223,6 +223,9 @@ class _VirtualHubIpState:
 
 
 class VirtualHubIp(pulumi.CustomResource):
+
+    pulumi_type = "azure:network/virtualHubIp:VirtualHubIp"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

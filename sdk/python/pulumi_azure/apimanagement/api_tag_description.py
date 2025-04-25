@@ -161,6 +161,9 @@ class _ApiTagDescriptionState:
 
 
 class ApiTagDescription(pulumi.CustomResource):
+
+    pulumi_type = "azure:apimanagement/apiTagDescription:ApiTagDescription"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

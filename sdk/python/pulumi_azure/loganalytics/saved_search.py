@@ -286,6 +286,9 @@ class _SavedSearchState:
 
 
 class SavedSearch(pulumi.CustomResource):
+
+    pulumi_type = "azure:loganalytics/savedSearch:SavedSearch"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

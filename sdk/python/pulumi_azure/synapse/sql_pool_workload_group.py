@@ -287,6 +287,9 @@ class _SqlPoolWorkloadGroupState:
 
 
 class SqlPoolWorkloadGroup(pulumi.CustomResource):
+
+    pulumi_type = "azure:synapse/sqlPoolWorkloadGroup:SqlPoolWorkloadGroup"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

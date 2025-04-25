@@ -275,6 +275,9 @@ class _BackupPolicyBlobStorageState:
 
 
 class BackupPolicyBlobStorage(pulumi.CustomResource):
+
+    pulumi_type = "azure:dataprotection/backupPolicyBlobStorage:BackupPolicyBlobStorage"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

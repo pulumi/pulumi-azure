@@ -173,6 +173,9 @@ warnings.warn("""azure.managementresource.ManangementLock has been deprecated in
 class ManangementLock(pulumi.CustomResource):
     warnings.warn("""azure.managementresource.ManangementLock has been deprecated in favor of azure.management.Lock""", DeprecationWarning)
 
+
+    pulumi_type = "azure:managementresource/manangementLock:ManangementLock"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

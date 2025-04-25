@@ -271,6 +271,9 @@ class _EnvironmentCertificateState:
 
 
 class EnvironmentCertificate(pulumi.CustomResource):
+
+    pulumi_type = "azure:containerapp/environmentCertificate:EnvironmentCertificate"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

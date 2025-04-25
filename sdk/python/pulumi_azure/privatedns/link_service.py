@@ -377,6 +377,9 @@ class _LinkServiceState:
 
 
 class LinkService(pulumi.CustomResource):
+
+    pulumi_type = "azure:privatedns/linkService:LinkService"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

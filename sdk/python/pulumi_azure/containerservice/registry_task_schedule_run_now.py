@@ -65,6 +65,9 @@ class _RegistryTaskScheduleRunNowState:
 
 
 class RegistryTaskScheduleRunNow(pulumi.CustomResource):
+
+    pulumi_type = "azure:containerservice/registryTaskScheduleRunNow:RegistryTaskScheduleRunNow"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

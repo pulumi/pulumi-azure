@@ -313,6 +313,9 @@ class _VirtualMachineManagerVirtualMachineInstanceState:
 
 
 class VirtualMachineManagerVirtualMachineInstance(pulumi.CustomResource):
+
+    pulumi_type = "azure:systemcenter/virtualMachineManagerVirtualMachineInstance:VirtualMachineManagerVirtualMachineInstance"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

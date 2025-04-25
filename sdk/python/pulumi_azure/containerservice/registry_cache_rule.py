@@ -191,6 +191,9 @@ class _RegistryCacheRuleState:
 
 
 class RegistryCacheRule(pulumi.CustomResource):
+
+    pulumi_type = "azure:containerservice/registryCacheRule:RegistryCacheRule"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

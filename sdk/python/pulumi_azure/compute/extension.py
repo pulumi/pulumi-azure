@@ -504,6 +504,9 @@ class _ExtensionState:
 
 
 class Extension(pulumi.CustomResource):
+
+    pulumi_type = "azure:compute/extension:Extension"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -658,6 +658,9 @@ class _SocketioState:
 
 
 class Socketio(pulumi.CustomResource):
+
+    pulumi_type = "azure:webpubsub/socketio:Socketio"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -296,6 +296,9 @@ class _EndpointServicebusQueueState:
 
 
 class EndpointServicebusQueue(pulumi.CustomResource):
+
+    pulumi_type = "azure:iot/endpointServicebusQueue:EndpointServicebusQueue"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

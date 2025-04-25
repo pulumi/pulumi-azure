@@ -224,6 +224,9 @@ class _RoleAssignmentState:
 
 
 class RoleAssignment(pulumi.CustomResource):
+
+    pulumi_type = "azure:synapse/roleAssignment:RoleAssignment"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

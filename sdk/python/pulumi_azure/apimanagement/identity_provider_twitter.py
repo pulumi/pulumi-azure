@@ -158,6 +158,9 @@ class _IdentityProviderTwitterState:
 
 
 class IdentityProviderTwitter(pulumi.CustomResource):
+
+    pulumi_type = "azure:apimanagement/identityProviderTwitter:IdentityProviderTwitter"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

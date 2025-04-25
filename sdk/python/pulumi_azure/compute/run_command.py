@@ -462,6 +462,9 @@ class _RunCommandState:
 
 
 class RunCommand(pulumi.CustomResource):
+
+    pulumi_type = "azure:compute/runCommand:RunCommand"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

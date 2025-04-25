@@ -268,6 +268,9 @@ class _ProtectedVMState:
 
 
 class ProtectedVM(pulumi.CustomResource):
+
+    pulumi_type = "azure:backup/protectedVM:ProtectedVM"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

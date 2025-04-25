@@ -208,6 +208,9 @@ class _PolicyFragmentState:
 
 
 class PolicyFragment(pulumi.CustomResource):
+
+    pulumi_type = "azure:apimanagement/policyFragment:PolicyFragment"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

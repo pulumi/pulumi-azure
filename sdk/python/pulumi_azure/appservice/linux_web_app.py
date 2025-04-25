@@ -1073,6 +1073,9 @@ class _LinuxWebAppState:
 
 
 class LinuxWebApp(pulumi.CustomResource):
+
+    pulumi_type = "azure:appservice/linuxWebApp:LinuxWebApp"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

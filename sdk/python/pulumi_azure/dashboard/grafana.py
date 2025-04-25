@@ -530,6 +530,9 @@ class _GrafanaState:
 
 
 class Grafana(pulumi.CustomResource):
+
+    pulumi_type = "azure:dashboard/grafana:Grafana"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

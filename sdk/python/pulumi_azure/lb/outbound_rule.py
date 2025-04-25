@@ -289,6 +289,9 @@ class _OutboundRuleState:
 
 
 class OutboundRule(pulumi.CustomResource):
+
+    pulumi_type = "azure:lb/outboundRule:OutboundRule"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

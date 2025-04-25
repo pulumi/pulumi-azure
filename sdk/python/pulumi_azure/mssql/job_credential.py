@@ -192,6 +192,9 @@ class _JobCredentialState:
 
 
 class JobCredential(pulumi.CustomResource):
+
+    pulumi_type = "azure:mssql/jobCredential:JobCredential"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

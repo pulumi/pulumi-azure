@@ -255,6 +255,9 @@ class _ExpressRouteGatewayState:
 
 
 class ExpressRouteGateway(pulumi.CustomResource):
+
+    pulumi_type = "azure:network/expressRouteGateway:ExpressRouteGateway"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -585,6 +585,9 @@ class _KeyVaultState:
 
 
 class KeyVault(pulumi.CustomResource):
+
+    pulumi_type = "azure:keyvault/keyVault:KeyVault"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -318,6 +318,9 @@ class _MoverJobDefinitionState:
 
 
 class MoverJobDefinition(pulumi.CustomResource):
+
+    pulumi_type = "azure:storage/moverJobDefinition:MoverJobDefinition"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

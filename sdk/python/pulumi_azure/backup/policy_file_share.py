@@ -328,6 +328,9 @@ class _PolicyFileShareState:
 
 
 class PolicyFileShare(pulumi.CustomResource):
+
+    pulumi_type = "azure:backup/policyFileShare:PolicyFileShare"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -1226,6 +1226,9 @@ class _WindowsFunctionAppSlotState:
 
 
 class WindowsFunctionAppSlot(pulumi.CustomResource):
+
+    pulumi_type = "azure:appservice/windowsFunctionAppSlot:WindowsFunctionAppSlot"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

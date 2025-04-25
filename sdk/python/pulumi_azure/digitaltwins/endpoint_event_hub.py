@@ -191,6 +191,9 @@ class _EndpointEventHubState:
 
 
 class EndpointEventHub(pulumi.CustomResource):
+
+    pulumi_type = "azure:digitaltwins/endpointEventHub:EndpointEventHub"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

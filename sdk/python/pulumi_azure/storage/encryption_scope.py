@@ -192,6 +192,9 @@ class _EncryptionScopeState:
 
 
 class EncryptionScope(pulumi.CustomResource):
+
+    pulumi_type = "azure:storage/encryptionScope:EncryptionScope"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

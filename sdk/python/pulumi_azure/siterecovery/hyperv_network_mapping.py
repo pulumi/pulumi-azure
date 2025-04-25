@@ -190,6 +190,9 @@ class _HypervNetworkMappingState:
 
 
 class HypervNetworkMapping(pulumi.CustomResource):
+
+    pulumi_type = "azure:siterecovery/hypervNetworkMapping:HypervNetworkMapping"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

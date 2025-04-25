@@ -96,6 +96,9 @@ class _VirtualNetworkSwiftConnectionState:
 
 
 class VirtualNetworkSwiftConnection(pulumi.CustomResource):
+
+    pulumi_type = "azure:appservice/virtualNetworkSwiftConnection:VirtualNetworkSwiftConnection"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

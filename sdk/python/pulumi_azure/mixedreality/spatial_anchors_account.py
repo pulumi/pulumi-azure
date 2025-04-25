@@ -193,6 +193,9 @@ class _SpatialAnchorsAccountState:
 
 
 class SpatialAnchorsAccount(pulumi.CustomResource):
+
+    pulumi_type = "azure:mixedreality/spatialAnchorsAccount:SpatialAnchorsAccount"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

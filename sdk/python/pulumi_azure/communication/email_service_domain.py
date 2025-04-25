@@ -242,6 +242,9 @@ class _EmailServiceDomainState:
 
 
 class EmailServiceDomain(pulumi.CustomResource):
+
+    pulumi_type = "azure:communication/emailServiceDomain:EmailServiceDomain"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

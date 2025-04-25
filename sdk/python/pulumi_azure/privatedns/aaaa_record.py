@@ -238,6 +238,9 @@ class _AAAARecordState:
 
 
 class AAAARecord(pulumi.CustomResource):
+
+    pulumi_type = "azure:privatedns/aAAARecord:AAAARecord"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

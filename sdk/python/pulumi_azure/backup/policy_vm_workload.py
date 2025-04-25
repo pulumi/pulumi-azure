@@ -223,6 +223,9 @@ class _PolicyVMWorkloadState:
 
 
 class PolicyVMWorkload(pulumi.CustomResource):
+
+    pulumi_type = "azure:backup/policyVMWorkload:PolicyVMWorkload"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

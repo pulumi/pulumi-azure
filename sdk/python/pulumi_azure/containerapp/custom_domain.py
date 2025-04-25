@@ -193,6 +193,9 @@ class _CustomDomainState:
 
 
 class CustomDomain(pulumi.CustomResource):
+
+    pulumi_type = "azure:containerapp/customDomain:CustomDomain"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

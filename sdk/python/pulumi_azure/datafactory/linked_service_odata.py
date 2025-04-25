@@ -322,6 +322,9 @@ class _LinkedServiceOdataState:
 
 
 class LinkedServiceOdata(pulumi.CustomResource):
+
+    pulumi_type = "azure:datafactory/linkedServiceOdata:LinkedServiceOdata"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

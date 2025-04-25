@@ -65,6 +65,9 @@ class _LocalRulestackOutboundTrustCertificateAssociationState:
 
 
 class LocalRulestackOutboundTrustCertificateAssociation(pulumi.CustomResource):
+
+    pulumi_type = "azure:paloalto/localRulestackOutboundTrustCertificateAssociation:LocalRulestackOutboundTrustCertificateAssociation"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

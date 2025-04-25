@@ -159,6 +159,9 @@ class _PostgresqlFirewallRuleState:
 
 
 class PostgresqlFirewallRule(pulumi.CustomResource):
+
+    pulumi_type = "azure:cosmosdb/postgresqlFirewallRule:PostgresqlFirewallRule"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

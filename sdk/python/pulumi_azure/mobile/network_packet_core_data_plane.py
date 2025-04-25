@@ -289,6 +289,9 @@ class _NetworkPacketCoreDataPlaneState:
 
 
 class NetworkPacketCoreDataPlane(pulumi.CustomResource):
+
+    pulumi_type = "azure:mobile/networkPacketCoreDataPlane:NetworkPacketCoreDataPlane"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

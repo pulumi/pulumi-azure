@@ -387,6 +387,9 @@ class _LinkedServiceSqlServerState:
 
 
 class LinkedServiceSqlServer(pulumi.CustomResource):
+
+    pulumi_type = "azure:datafactory/linkedServiceSqlServer:LinkedServiceSqlServer"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

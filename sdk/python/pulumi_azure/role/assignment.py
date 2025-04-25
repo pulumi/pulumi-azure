@@ -421,6 +421,9 @@ warnings.warn("""azure.role.Assignment has been deprecated in favor of azure.aut
 class Assignment(pulumi.CustomResource):
     warnings.warn("""azure.role.Assignment has been deprecated in favor of azure.authorization.Assignment""", DeprecationWarning)
 
+
+    pulumi_type = "azure:role/assignment:Assignment"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

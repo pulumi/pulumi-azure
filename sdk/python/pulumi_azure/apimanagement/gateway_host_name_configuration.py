@@ -318,6 +318,9 @@ class _GatewayHostNameConfigurationState:
 
 
 class GatewayHostNameConfiguration(pulumi.CustomResource):
+
+    pulumi_type = "azure:apimanagement/gatewayHostNameConfiguration:GatewayHostNameConfiguration"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

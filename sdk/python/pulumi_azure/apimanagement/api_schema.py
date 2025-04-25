@@ -285,6 +285,9 @@ class _ApiSchemaState:
 
 
 class ApiSchema(pulumi.CustomResource):
+
+    pulumi_type = "azure:apimanagement/apiSchema:ApiSchema"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

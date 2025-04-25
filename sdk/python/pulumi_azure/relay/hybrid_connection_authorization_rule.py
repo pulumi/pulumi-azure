@@ -319,6 +319,9 @@ class _HybridConnectionAuthorizationRuleState:
 
 
 class HybridConnectionAuthorizationRule(pulumi.CustomResource):
+
+    pulumi_type = "azure:relay/hybridConnectionAuthorizationRule:HybridConnectionAuthorizationRule"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

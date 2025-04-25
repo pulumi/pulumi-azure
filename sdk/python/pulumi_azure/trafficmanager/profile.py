@@ -373,6 +373,9 @@ warnings.warn("""azure.trafficmanager.Profile has been deprecated in favor of az
 class Profile(pulumi.CustomResource):
     warnings.warn("""azure.trafficmanager.Profile has been deprecated in favor of azure.network.TrafficManagerProfile""", DeprecationWarning)
 
+
+    pulumi_type = "azure:trafficmanager/profile:Profile"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

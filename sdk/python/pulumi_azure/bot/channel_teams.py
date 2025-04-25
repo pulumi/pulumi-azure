@@ -224,6 +224,9 @@ class _ChannelTeamsState:
 
 
 class ChannelTeams(pulumi.CustomResource):
+
+    pulumi_type = "azure:bot/channelTeams:ChannelTeams"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

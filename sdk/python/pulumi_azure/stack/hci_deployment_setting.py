@@ -160,6 +160,9 @@ class _HciDeploymentSettingState:
 
 
 class HciDeploymentSetting(pulumi.CustomResource):
+
+    pulumi_type = "azure:stack/hciDeploymentSetting:HciDeploymentSetting"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -409,6 +409,9 @@ class _FrontdoorOriginState:
 
 
 class FrontdoorOrigin(pulumi.CustomResource):
+
+    pulumi_type = "azure:cdn/frontdoorOrigin:FrontdoorOrigin"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

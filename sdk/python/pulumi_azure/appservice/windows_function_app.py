@@ -1341,6 +1341,9 @@ class _WindowsFunctionAppState:
 
 
 class WindowsFunctionApp(pulumi.CustomResource):
+
+    pulumi_type = "azure:appservice/windowsFunctionApp:WindowsFunctionApp"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

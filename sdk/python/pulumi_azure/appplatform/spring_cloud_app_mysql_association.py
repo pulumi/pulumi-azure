@@ -221,6 +221,9 @@ class _SpringCloudAppMysqlAssociationState:
 
 
 class SpringCloudAppMysqlAssociation(pulumi.CustomResource):
+
+    pulumi_type = "azure:appplatform/springCloudAppMysqlAssociation:SpringCloudAppMysqlAssociation"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

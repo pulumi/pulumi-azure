@@ -484,6 +484,9 @@ class _LinkedServiceSftpState:
 
 
 class LinkedServiceSftp(pulumi.CustomResource):
+
+    pulumi_type = "azure:datafactory/linkedServiceSftp:LinkedServiceSftp"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

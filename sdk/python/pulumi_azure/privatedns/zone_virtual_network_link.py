@@ -223,6 +223,9 @@ class _ZoneVirtualNetworkLinkState:
 
 
 class ZoneVirtualNetworkLink(pulumi.CustomResource):
+
+    pulumi_type = "azure:privatedns/zoneVirtualNetworkLink:ZoneVirtualNetworkLink"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

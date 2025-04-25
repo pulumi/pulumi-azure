@@ -337,6 +337,9 @@ class _ShareFileState:
 
 
 class ShareFile(pulumi.CustomResource):
+
+    pulumi_type = "azure:storage/shareFile:ShareFile"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

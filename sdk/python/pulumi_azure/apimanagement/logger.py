@@ -290,6 +290,9 @@ class _LoggerState:
 
 
 class Logger(pulumi.CustomResource):
+
+    pulumi_type = "azure:apimanagement/logger:Logger"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

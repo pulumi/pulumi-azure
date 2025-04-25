@@ -568,6 +568,9 @@ class _SparkPoolState:
 
 
 class SparkPool(pulumi.CustomResource):
+
+    pulumi_type = "azure:synapse/sparkPool:SparkPool"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

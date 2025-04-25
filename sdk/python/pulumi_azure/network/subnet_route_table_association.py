@@ -96,6 +96,9 @@ class _SubnetRouteTableAssociationState:
 
 
 class SubnetRouteTableAssociation(pulumi.CustomResource):
+
+    pulumi_type = "azure:network/subnetRouteTableAssociation:SubnetRouteTableAssociation"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

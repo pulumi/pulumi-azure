@@ -259,6 +259,9 @@ class _VnpGatewayNatRuleState:
 
 
 class VnpGatewayNatRule(pulumi.CustomResource):
+
+    pulumi_type = "azure:network/vnpGatewayNatRule:VnpGatewayNatRule"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

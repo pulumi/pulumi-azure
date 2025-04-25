@@ -192,6 +192,9 @@ class _CredentialUserManagedIdentityState:
 
 
 class CredentialUserManagedIdentity(pulumi.CustomResource):
+
+    pulumi_type = "azure:datafactory/credentialUserManagedIdentity:CredentialUserManagedIdentity"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

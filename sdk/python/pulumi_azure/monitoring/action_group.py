@@ -578,6 +578,9 @@ class _ActionGroupState:
 
 
 class ActionGroup(pulumi.CustomResource):
+
+    pulumi_type = "azure:monitoring/actionGroup:ActionGroup"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -281,6 +281,9 @@ class _SystemTopicState:
 
 
 class SystemTopic(pulumi.CustomResource):
+
+    pulumi_type = "azure:eventgrid/systemTopic:SystemTopic"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

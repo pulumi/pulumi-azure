@@ -192,6 +192,9 @@ class _GalleryApplicationAssignmentState:
 
 
 class GalleryApplicationAssignment(pulumi.CustomResource):
+
+    pulumi_type = "azure:compute/galleryApplicationAssignment:GalleryApplicationAssignment"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

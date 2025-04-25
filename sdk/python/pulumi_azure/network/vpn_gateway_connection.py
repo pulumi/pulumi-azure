@@ -257,6 +257,9 @@ class _VpnGatewayConnectionState:
 
 
 class VpnGatewayConnection(pulumi.CustomResource):
+
+    pulumi_type = "azure:network/vpnGatewayConnection:VpnGatewayConnection"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

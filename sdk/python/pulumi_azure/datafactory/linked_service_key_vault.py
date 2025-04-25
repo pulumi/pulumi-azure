@@ -288,6 +288,9 @@ class _LinkedServiceKeyVaultState:
 
 
 class LinkedServiceKeyVault(pulumi.CustomResource):
+
+    pulumi_type = "azure:datafactory/linkedServiceKeyVault:LinkedServiceKeyVault"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

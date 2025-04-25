@@ -259,6 +259,9 @@ class _TagRuleState:
 
 
 class TagRule(pulumi.CustomResource):
+
+    pulumi_type = "azure:newrelic/tagRule:TagRule"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

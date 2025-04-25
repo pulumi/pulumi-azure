@@ -160,6 +160,9 @@ class _CustomCertificateState:
 
 
 class CustomCertificate(pulumi.CustomResource):
+
+    pulumi_type = "azure:webpubsub/customCertificate:CustomCertificate"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

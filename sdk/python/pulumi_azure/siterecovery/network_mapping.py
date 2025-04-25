@@ -252,6 +252,9 @@ class _NetworkMappingState:
 
 
 class NetworkMapping(pulumi.CustomResource):
+
+    pulumi_type = "azure:siterecovery/networkMapping:NetworkMapping"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

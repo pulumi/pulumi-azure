@@ -176,6 +176,9 @@ class _ServicesAccountState:
 
 
 class ServicesAccount(pulumi.CustomResource):
+
+    pulumi_type = "azure:graph/servicesAccount:ServicesAccount"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

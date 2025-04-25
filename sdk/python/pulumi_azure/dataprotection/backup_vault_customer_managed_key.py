@@ -96,6 +96,9 @@ class _BackupVaultCustomerManagedKeyState:
 
 
 class BackupVaultCustomerManagedKey(pulumi.CustomResource):
+
+    pulumi_type = "azure:dataprotection/backupVaultCustomerManagedKey:BackupVaultCustomerManagedKey"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

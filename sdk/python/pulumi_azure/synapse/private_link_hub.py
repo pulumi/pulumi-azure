@@ -161,6 +161,9 @@ class _PrivateLinkHubState:
 
 
 class PrivateLinkHub(pulumi.CustomResource):
+
+    pulumi_type = "azure:synapse/privateLinkHub:PrivateLinkHub"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -829,6 +829,9 @@ class _VmwareReplicatedVmState:
 
 
 class VmwareReplicatedVm(pulumi.CustomResource):
+
+    pulumi_type = "azure:siterecovery/vmwareReplicatedVm:VmwareReplicatedVm"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

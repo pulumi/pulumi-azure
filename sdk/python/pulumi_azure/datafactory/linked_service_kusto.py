@@ -471,6 +471,9 @@ class _LinkedServiceKustoState:
 
 
 class LinkedServiceKusto(pulumi.CustomResource):
+
+    pulumi_type = "azure:datafactory/linkedServiceKusto:LinkedServiceKusto"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

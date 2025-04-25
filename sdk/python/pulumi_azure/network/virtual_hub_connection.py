@@ -194,6 +194,9 @@ class _VirtualHubConnectionState:
 
 
 class VirtualHubConnection(pulumi.CustomResource):
+
+    pulumi_type = "azure:network/virtualHubConnection:VirtualHubConnection"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

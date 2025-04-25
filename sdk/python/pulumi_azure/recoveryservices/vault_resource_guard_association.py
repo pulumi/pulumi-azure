@@ -96,6 +96,9 @@ class _VaultResourceGuardAssociationState:
 
 
 class VaultResourceGuardAssociation(pulumi.CustomResource):
+
+    pulumi_type = "azure:recoveryservices/vaultResourceGuardAssociation:VaultResourceGuardAssociation"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

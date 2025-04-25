@@ -240,6 +240,9 @@ class _SpringCloudCertificateState:
 
 
 class SpringCloudCertificate(pulumi.CustomResource):
+
+    pulumi_type = "azure:appplatform/springCloudCertificate:SpringCloudCertificate"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

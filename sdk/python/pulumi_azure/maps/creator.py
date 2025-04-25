@@ -192,6 +192,9 @@ class _CreatorState:
 
 
 class Creator(pulumi.CustomResource):
+
+    pulumi_type = "azure:maps/creator:Creator"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

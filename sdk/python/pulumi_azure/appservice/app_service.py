@@ -786,6 +786,9 @@ class _AppServiceState:
 
 
 class AppService(pulumi.CustomResource):
+
+    pulumi_type = "azure:appservice/appService:AppService"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

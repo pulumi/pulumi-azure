@@ -128,6 +128,9 @@ class _GalleryState:
 
 
 class Gallery(pulumi.CustomResource):
+
+    pulumi_type = "azure:devcenter/gallery:Gallery"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

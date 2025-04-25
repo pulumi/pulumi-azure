@@ -161,6 +161,9 @@ class _ChannelDirectLineState:
 
 
 class ChannelDirectLine(pulumi.CustomResource):
+
+    pulumi_type = "azure:bot/channelDirectLine:ChannelDirectLine"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -239,6 +239,9 @@ class _DatasetDataLakeGen2State:
 
 
 class DatasetDataLakeGen2(pulumi.CustomResource):
+
+    pulumi_type = "azure:datashare/datasetDataLakeGen2:DatasetDataLakeGen2"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

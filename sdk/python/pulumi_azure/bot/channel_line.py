@@ -161,6 +161,9 @@ class _ChannelLineState:
 
 
 class ChannelLine(pulumi.CustomResource):
+
+    pulumi_type = "azure:bot/channelLine:ChannelLine"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

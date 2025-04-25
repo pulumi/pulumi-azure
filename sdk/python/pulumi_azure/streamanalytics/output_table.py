@@ -346,6 +346,9 @@ class _OutputTableState:
 
 
 class OutputTable(pulumi.CustomResource):
+
+    pulumi_type = "azure:streamanalytics/outputTable:OutputTable"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -337,6 +337,9 @@ class _ApplicationState:
 
 
 class Application(pulumi.CustomResource):
+
+    pulumi_type = "azure:managedapplication/application:Application"
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -377,9 +380,9 @@ class Application(pulumi.CustomResource):
             description="Test Managed App Definition",
             authorizations=[{
                 "service_principal_id": current.object_id,
-                "role_definition_id": std.split(separator="/",
-                    text=builtin.id).result[len(std.split(separator="/",
-                    text=builtin.id).result) - 1],
+                "role_definition_id": len(std.split(separator="/",
+                    text=builtin.id).result).apply(lambda length: std.split(separator="/",
+                    text=builtin.id).result[length - 1]),
             }])
         example_application = azure.managedapplication.Application("example",
             name="example-managedapplication",
@@ -453,9 +456,9 @@ class Application(pulumi.CustomResource):
             description="Test Managed App Definition",
             authorizations=[{
                 "service_principal_id": current.object_id,
-                "role_definition_id": std.split(separator="/",
-                    text=builtin.id).result[len(std.split(separator="/",
-                    text=builtin.id).result) - 1],
+                "role_definition_id": len(std.split(separator="/",
+                    text=builtin.id).result).apply(lambda length: std.split(separator="/",
+                    text=builtin.id).result[length - 1]),
             }])
         example_application = azure.managedapplication.Application("example",
             name="example-managedapplication",

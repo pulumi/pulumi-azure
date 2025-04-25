@@ -191,6 +191,9 @@ class _RegistryScopeMapState:
 
 
 class RegistryScopeMap(pulumi.CustomResource):
+
+    pulumi_type = "azure:containerservice/registryScopeMap:RegistryScopeMap"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

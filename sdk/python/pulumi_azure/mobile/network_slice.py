@@ -226,6 +226,9 @@ class _NetworkSliceState:
 
 
 class NetworkSlice(pulumi.CustomResource):
+
+    pulumi_type = "azure:mobile/networkSlice:NetworkSlice"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

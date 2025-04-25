@@ -135,6 +135,9 @@ class _ContainerStorageAccountState:
 
 
 class ContainerStorageAccount(pulumi.CustomResource):
+
+    pulumi_type = "azure:backup/containerStorageAccount:ContainerStorageAccount"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -257,6 +257,9 @@ class _IntegrationRuntimeAzureState:
 
 
 class IntegrationRuntimeAzure(pulumi.CustomResource):
+
+    pulumi_type = "azure:synapse/integrationRuntimeAzure:IntegrationRuntimeAzure"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

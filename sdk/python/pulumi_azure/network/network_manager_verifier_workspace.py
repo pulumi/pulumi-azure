@@ -193,6 +193,9 @@ class _NetworkManagerVerifierWorkspaceState:
 
 
 class NetworkManagerVerifierWorkspace(pulumi.CustomResource):
+
+    pulumi_type = "azure:network/networkManagerVerifierWorkspace:NetworkManagerVerifierWorkspace"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

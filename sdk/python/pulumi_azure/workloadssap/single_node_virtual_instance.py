@@ -414,6 +414,9 @@ class _SingleNodeVirtualInstanceState:
 
 
 class SingleNodeVirtualInstance(pulumi.CustomResource):
+
+    pulumi_type = "azure:workloadssap/singleNodeVirtualInstance:SingleNodeVirtualInstance"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -191,6 +191,9 @@ class _RegistryTokenState:
 
 
 class RegistryToken(pulumi.CustomResource):
+
+    pulumi_type = "azure:containerservice/registryToken:RegistryToken"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

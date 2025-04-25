@@ -354,6 +354,9 @@ class _TrafficManagerAzureEndpointState:
 
 
 class TrafficManagerAzureEndpoint(pulumi.CustomResource):
+
+    pulumi_type = "azure:network/trafficManagerAzureEndpoint:TrafficManagerAzureEndpoint"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -161,6 +161,9 @@ class _NetworkManagerSecurityAdminConfigurationState:
 
 
 class NetworkManagerSecurityAdminConfiguration(pulumi.CustomResource):
+
+    pulumi_type = "azure:network/networkManagerSecurityAdminConfiguration:NetworkManagerSecurityAdminConfiguration"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -195,6 +195,9 @@ class _SpringCloudConfigurationServiceState:
 
 
 class SpringCloudConfigurationService(pulumi.CustomResource):
+
+    pulumi_type = "azure:appplatform/springCloudConfigurationService:SpringCloudConfigurationService"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -480,6 +480,9 @@ class _ManagedHardwareSecurityModuleState:
 
 
 class ManagedHardwareSecurityModule(pulumi.CustomResource):
+
+    pulumi_type = "azure:keyvault/managedHardwareSecurityModule:ManagedHardwareSecurityModule"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

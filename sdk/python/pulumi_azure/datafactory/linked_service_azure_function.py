@@ -362,6 +362,9 @@ class _LinkedServiceAzureFunctionState:
 
 
 class LinkedServiceAzureFunction(pulumi.CustomResource):
+
+    pulumi_type = "azure:datafactory/linkedServiceAzureFunction:LinkedServiceAzureFunction"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

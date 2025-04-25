@@ -190,6 +190,9 @@ class _ServiceTrustState:
 
 
 class ServiceTrust(pulumi.CustomResource):
+
+    pulumi_type = "azure:domainservices/serviceTrust:ServiceTrust"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

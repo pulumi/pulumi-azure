@@ -128,6 +128,9 @@ class _AttachedNetworkState:
 
 
 class AttachedNetwork(pulumi.CustomResource):
+
+    pulumi_type = "azure:devcenter/attachedNetwork:AttachedNetwork"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -223,6 +223,9 @@ class _ChannelFacebookState:
 
 
 class ChannelFacebook(pulumi.CustomResource):
+
+    pulumi_type = "azure:bot/channelFacebook:ChannelFacebook"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

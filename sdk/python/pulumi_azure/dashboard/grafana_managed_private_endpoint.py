@@ -288,6 +288,9 @@ class _GrafanaManagedPrivateEndpointState:
 
 
 class GrafanaManagedPrivateEndpoint(pulumi.CustomResource):
+
+    pulumi_type = "azure:dashboard/grafanaManagedPrivateEndpoint:GrafanaManagedPrivateEndpoint"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

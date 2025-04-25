@@ -127,6 +127,9 @@ class _NotificationRecipientUserState:
 
 
 class NotificationRecipientUser(pulumi.CustomResource):
+
+    pulumi_type = "azure:apimanagement/notificationRecipientUser:NotificationRecipientUser"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

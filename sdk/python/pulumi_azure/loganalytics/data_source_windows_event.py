@@ -190,6 +190,9 @@ class _DataSourceWindowsEventState:
 
 
 class DataSourceWindowsEvent(pulumi.CustomResource):
+
+    pulumi_type = "azure:loganalytics/dataSourceWindowsEvent:DataSourceWindowsEvent"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

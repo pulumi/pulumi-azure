@@ -202,6 +202,9 @@ class _EndpointCustomDomainState:
 
 
 class EndpointCustomDomain(pulumi.CustomResource):
+
+    pulumi_type = "azure:cdn/endpointCustomDomain:EndpointCustomDomain"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

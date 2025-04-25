@@ -328,6 +328,9 @@ class _BackupPolicyState:
 
 
 class BackupPolicy(pulumi.CustomResource):
+
+    pulumi_type = "azure:netapp/backupPolicy:BackupPolicy"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

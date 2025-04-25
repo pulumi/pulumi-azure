@@ -563,6 +563,9 @@ class _MongoClusterState:
 
 
 class MongoCluster(pulumi.CustomResource):
+
+    pulumi_type = "azure:cosmosdb/mongoCluster:MongoCluster"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

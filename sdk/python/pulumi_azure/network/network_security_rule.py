@@ -604,6 +604,9 @@ class _NetworkSecurityRuleState:
 
 
 class NetworkSecurityRule(pulumi.CustomResource):
+
+    pulumi_type = "azure:network/networkSecurityRule:NetworkSecurityRule"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

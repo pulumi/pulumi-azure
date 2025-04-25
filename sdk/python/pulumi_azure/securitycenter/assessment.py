@@ -161,6 +161,9 @@ class _AssessmentState:
 
 
 class Assessment(pulumi.CustomResource):
+
+    pulumi_type = "azure:securitycenter/assessment:Assessment"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

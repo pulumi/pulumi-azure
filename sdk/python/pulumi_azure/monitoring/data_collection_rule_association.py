@@ -209,6 +209,9 @@ class _DataCollectionRuleAssociationState:
 
 
 class DataCollectionRuleAssociation(pulumi.CustomResource):
+
+    pulumi_type = "azure:monitoring/dataCollectionRuleAssociation:DataCollectionRuleAssociation"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

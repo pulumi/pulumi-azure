@@ -296,6 +296,9 @@ class _EndpointEventhubState:
 
 
 class EndpointEventhub(pulumi.CustomResource):
+
+    pulumi_type = "azure:iot/endpointEventhub:EndpointEventhub"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

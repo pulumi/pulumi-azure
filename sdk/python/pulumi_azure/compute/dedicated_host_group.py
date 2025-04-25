@@ -256,6 +256,9 @@ class _DedicatedHostGroupState:
 
 
 class DedicatedHostGroup(pulumi.CustomResource):
+
+    pulumi_type = "azure:compute/dedicatedHostGroup:DedicatedHostGroup"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

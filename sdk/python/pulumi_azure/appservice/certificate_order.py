@@ -507,6 +507,9 @@ class _CertificateOrderState:
 
 
 class CertificateOrder(pulumi.CustomResource):
+
+    pulumi_type = "azure:appservice/certificateOrder:CertificateOrder"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

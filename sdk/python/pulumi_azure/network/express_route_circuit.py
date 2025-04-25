@@ -506,6 +506,9 @@ class _ExpressRouteCircuitState:
 
 
 class ExpressRouteCircuit(pulumi.CustomResource):
+
+    pulumi_type = "azure:network/expressRouteCircuit:ExpressRouteCircuit"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

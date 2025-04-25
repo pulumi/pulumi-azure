@@ -127,6 +127,9 @@ class _ScalingPlanHostPoolAssociationState:
 
 
 class ScalingPlanHostPoolAssociation(pulumi.CustomResource):
+
+    pulumi_type = "azure:desktopvirtualization/scalingPlanHostPoolAssociation:ScalingPlanHostPoolAssociation"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

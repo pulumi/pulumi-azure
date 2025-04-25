@@ -128,6 +128,9 @@ class _PostgresqlNodeConfigurationState:
 
 
 class PostgresqlNodeConfiguration(pulumi.CustomResource):
+
+    pulumi_type = "azure:cosmosdb/postgresqlNodeConfiguration:PostgresqlNodeConfiguration"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

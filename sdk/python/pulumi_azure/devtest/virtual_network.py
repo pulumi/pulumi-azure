@@ -242,6 +242,9 @@ class _VirtualNetworkState:
 
 
 class VirtualNetwork(pulumi.CustomResource):
+
+    pulumi_type = "azure:devtest/virtualNetwork:VirtualNetwork"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

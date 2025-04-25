@@ -267,6 +267,9 @@ class _VolumeGroupState:
 
 
 class VolumeGroup(pulumi.CustomResource):
+
+    pulumi_type = "azure:elasticsan/volumeGroup:VolumeGroup"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

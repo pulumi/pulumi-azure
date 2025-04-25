@@ -322,6 +322,9 @@ class _LinkedServiceOdbcState:
 
 
 class LinkedServiceOdbc(pulumi.CustomResource):
+
+    pulumi_type = "azure:datafactory/linkedServiceOdbc:LinkedServiceOdbc"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -215,6 +215,9 @@ class _HubState:
 
 
 class Hub(pulumi.CustomResource):
+
+    pulumi_type = "azure:webpubsub/hub:Hub"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

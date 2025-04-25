@@ -300,6 +300,9 @@ class _ProbeState:
 
 
 class Probe(pulumi.CustomResource):
+
+    pulumi_type = "azure:lb/probe:Probe"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -192,6 +192,9 @@ class _LocalRulestackFqdnListState:
 
 
 class LocalRulestackFqdnList(pulumi.CustomResource):
+
+    pulumi_type = "azure:paloalto/localRulestackFqdnList:LocalRulestackFqdnList"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

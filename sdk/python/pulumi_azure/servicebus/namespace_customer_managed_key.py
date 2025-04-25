@@ -128,6 +128,9 @@ class _NamespaceCustomerManagedKeyState:
 
 
 class NamespaceCustomerManagedKey(pulumi.CustomResource):
+
+    pulumi_type = "azure:servicebus/namespaceCustomerManagedKey:NamespaceCustomerManagedKey"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

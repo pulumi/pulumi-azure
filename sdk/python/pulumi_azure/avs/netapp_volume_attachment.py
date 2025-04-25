@@ -136,6 +136,9 @@ class _NetappVolumeAttachmentState:
 
 
 class NetappVolumeAttachment(pulumi.CustomResource):
+
+    pulumi_type = "azure:avs/netappVolumeAttachment:NetappVolumeAttachment"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

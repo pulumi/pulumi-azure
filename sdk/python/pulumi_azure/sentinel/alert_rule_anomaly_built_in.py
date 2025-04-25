@@ -393,6 +393,9 @@ class _AlertRuleAnomalyBuiltInState:
 
 
 class AlertRuleAnomalyBuiltIn(pulumi.CustomResource):
+
+    pulumi_type = "azure:sentinel/alertRuleAnomalyBuiltIn:AlertRuleAnomalyBuiltIn"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

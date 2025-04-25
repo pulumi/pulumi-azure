@@ -129,6 +129,9 @@ class _AccountStaticWebsiteState:
 
 
 class AccountStaticWebsite(pulumi.CustomResource):
+
+    pulumi_type = "azure:storage/accountStaticWebsite:AccountStaticWebsite"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

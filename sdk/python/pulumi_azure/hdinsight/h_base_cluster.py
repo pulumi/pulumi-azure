@@ -710,6 +710,9 @@ class _HBaseClusterState:
 
 
 class HBaseCluster(pulumi.CustomResource):
+
+    pulumi_type = "azure:hdinsight/hBaseCluster:HBaseCluster"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -317,6 +317,9 @@ class _VirtualMachineManagerServerState:
 
 
 class VirtualMachineManagerServer(pulumi.CustomResource):
+
+    pulumi_type = "azure:systemcenter/virtualMachineManagerServer:VirtualMachineManagerServer"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

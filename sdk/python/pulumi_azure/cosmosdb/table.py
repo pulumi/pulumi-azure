@@ -210,6 +210,9 @@ class _TableState:
 
 
 class Table(pulumi.CustomResource):
+
+    pulumi_type = "azure:cosmosdb/table:Table"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

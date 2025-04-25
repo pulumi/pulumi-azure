@@ -483,6 +483,9 @@ class _TriggerScheduleState:
 
 
 class TriggerSchedule(pulumi.CustomResource):
+
+    pulumi_type = "azure:datafactory/triggerSchedule:TriggerSchedule"
+
     @overload
     def __init__(__self__,
                  resource_name: str,
