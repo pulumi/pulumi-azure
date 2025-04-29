@@ -329,6 +329,9 @@ class _NextGenerationFirewallVirtualNetworkLocalRulestackState:
 
 
 class NextGenerationFirewallVirtualNetworkLocalRulestack(pulumi.CustomResource):
+
+    pulumi_type = "azure:paloalto/nextGenerationFirewallVirtualNetworkLocalRulestack:NextGenerationFirewallVirtualNetworkLocalRulestack"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

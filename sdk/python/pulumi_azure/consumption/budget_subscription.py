@@ -296,6 +296,9 @@ class _BudgetSubscriptionState:
 
 
 class BudgetSubscription(pulumi.CustomResource):
+
+    pulumi_type = "azure:consumption/budgetSubscription:BudgetSubscription"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

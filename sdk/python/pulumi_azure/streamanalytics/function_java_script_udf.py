@@ -223,6 +223,9 @@ class _FunctionJavaScriptUDFState:
 
 
 class FunctionJavaScriptUDF(pulumi.CustomResource):
+
+    pulumi_type = "azure:streamanalytics/functionJavaScriptUDF:FunctionJavaScriptUDF"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

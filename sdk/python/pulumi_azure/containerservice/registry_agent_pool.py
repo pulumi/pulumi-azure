@@ -288,6 +288,9 @@ class _RegistryAgentPoolState:
 
 
 class RegistryAgentPool(pulumi.CustomResource):
+
+    pulumi_type = "azure:containerservice/registryAgentPool:RegistryAgentPool"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -190,6 +190,9 @@ class _ManagedInstanceActiveDirectoryAdministratorState:
 
 
 class ManagedInstanceActiveDirectoryAdministrator(pulumi.CustomResource):
+
+    pulumi_type = "azure:mssql/managedInstanceActiveDirectoryAdministrator:ManagedInstanceActiveDirectoryAdministrator"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

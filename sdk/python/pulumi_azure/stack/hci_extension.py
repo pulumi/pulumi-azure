@@ -327,6 +327,9 @@ class _HciExtensionState:
 
 
 class HciExtension(pulumi.CustomResource):
+
+    pulumi_type = "azure:stack/hciExtension:HciExtension"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

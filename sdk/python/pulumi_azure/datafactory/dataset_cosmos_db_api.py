@@ -362,6 +362,9 @@ class _DatasetCosmosDBApiState:
 
 
 class DatasetCosmosDBApi(pulumi.CustomResource):
+
+    pulumi_type = "azure:datafactory/datasetCosmosDBApi:DatasetCosmosDBApi"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -451,6 +451,9 @@ class _FactoryState:
 
 
 class Factory(pulumi.CustomResource):
+
+    pulumi_type = "azure:datafactory/factory:Factory"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

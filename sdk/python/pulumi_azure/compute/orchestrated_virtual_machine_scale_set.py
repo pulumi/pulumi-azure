@@ -1250,6 +1250,9 @@ class _OrchestratedVirtualMachineScaleSetState:
 
 
 class OrchestratedVirtualMachineScaleSet(pulumi.CustomResource):
+
+    pulumi_type = "azure:compute/orchestratedVirtualMachineScaleSet:OrchestratedVirtualMachineScaleSet"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -207,6 +207,9 @@ class _NetworkManagerScopeConnectionState:
 
 
 class NetworkManagerScopeConnection(pulumi.CustomResource):
+
+    pulumi_type = "azure:network/networkManagerScopeConnection:NetworkManagerScopeConnection"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

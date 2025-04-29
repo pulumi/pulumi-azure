@@ -647,6 +647,9 @@ class _AlertRuleNrtState:
 
 
 class AlertRuleNrt(pulumi.CustomResource):
+
+    pulumi_type = "azure:sentinel/alertRuleNrt:AlertRuleNrt"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

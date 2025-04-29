@@ -384,6 +384,9 @@ class _DiscoveryVirtualInstanceState:
 
 
 class DiscoveryVirtualInstance(pulumi.CustomResource):
+
+    pulumi_type = "azure:workloadssap/discoveryVirtualInstance:DiscoveryVirtualInstance"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

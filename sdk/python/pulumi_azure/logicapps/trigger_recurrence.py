@@ -265,6 +265,9 @@ class _TriggerRecurrenceState:
 
 
 class TriggerRecurrence(pulumi.CustomResource):
+
+    pulumi_type = "azure:logicapps/triggerRecurrence:TriggerRecurrence"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

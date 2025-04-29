@@ -336,6 +336,9 @@ class _SharedAccessPolicyState:
 
 
 class SharedAccessPolicy(pulumi.CustomResource):
+
+    pulumi_type = "azure:iot/sharedAccessPolicy:SharedAccessPolicy"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

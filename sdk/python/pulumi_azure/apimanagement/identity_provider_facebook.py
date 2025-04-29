@@ -158,6 +158,9 @@ class _IdentityProviderFacebookState:
 
 
 class IdentityProviderFacebook(pulumi.CustomResource):
+
+    pulumi_type = "azure:apimanagement/identityProviderFacebook:IdentityProviderFacebook"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

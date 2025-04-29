@@ -362,6 +362,9 @@ class _RouteServerState:
 
 
 class RouteServer(pulumi.CustomResource):
+
+    pulumi_type = "azure:network/routeServer:RouteServer"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

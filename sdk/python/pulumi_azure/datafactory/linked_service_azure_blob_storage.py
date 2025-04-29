@@ -571,6 +571,9 @@ class _LinkedServiceAzureBlobStorageState:
 
 
 class LinkedServiceAzureBlobStorage(pulumi.CustomResource):
+
+    pulumi_type = "azure:datafactory/linkedServiceAzureBlobStorage:LinkedServiceAzureBlobStorage"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

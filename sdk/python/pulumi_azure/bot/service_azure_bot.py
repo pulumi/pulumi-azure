@@ -711,6 +711,9 @@ class _ServiceAzureBotState:
 
 
 class ServiceAzureBot(pulumi.CustomResource):
+
+    pulumi_type = "azure:bot/serviceAzureBot:ServiceAzureBot"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

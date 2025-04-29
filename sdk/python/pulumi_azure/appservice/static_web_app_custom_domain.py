@@ -135,6 +135,9 @@ class _StaticWebAppCustomDomainState:
 
 
 class StaticWebAppCustomDomain(pulumi.CustomResource):
+
+    pulumi_type = "azure:appservice/staticWebAppCustomDomain:StaticWebAppCustomDomain"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

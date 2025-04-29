@@ -225,6 +225,9 @@ class _SqlPoolExtendedAuditingPolicyState:
 
 
 class SqlPoolExtendedAuditingPolicy(pulumi.CustomResource):
+
+    pulumi_type = "azure:synapse/sqlPoolExtendedAuditingPolicy:SqlPoolExtendedAuditingPolicy"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

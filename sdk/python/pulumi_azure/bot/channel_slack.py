@@ -285,6 +285,9 @@ class _ChannelSlackState:
 
 
 class ChannelSlack(pulumi.CustomResource):
+
+    pulumi_type = "azure:bot/channelSlack:ChannelSlack"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

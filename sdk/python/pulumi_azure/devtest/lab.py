@@ -257,6 +257,9 @@ class _LabState:
 
 
 class Lab(pulumi.CustomResource):
+
+    pulumi_type = "azure:devtest/lab:Lab"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -896,6 +896,9 @@ class _StandardState:
 
 
 class Standard(pulumi.CustomResource):
+
+    pulumi_type = "azure:logicapps/standard:Standard"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

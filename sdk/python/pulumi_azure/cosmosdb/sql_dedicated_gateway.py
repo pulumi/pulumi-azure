@@ -127,6 +127,9 @@ class _SqlDedicatedGatewayState:
 
 
 class SqlDedicatedGateway(pulumi.CustomResource):
+
+    pulumi_type = "azure:cosmosdb/sqlDedicatedGateway:SqlDedicatedGateway"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

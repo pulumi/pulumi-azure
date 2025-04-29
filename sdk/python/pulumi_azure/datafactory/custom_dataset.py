@@ -384,6 +384,9 @@ class _CustomDatasetState:
 
 
 class CustomDataset(pulumi.CustomResource):
+
+    pulumi_type = "azure:datafactory/customDataset:CustomDataset"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

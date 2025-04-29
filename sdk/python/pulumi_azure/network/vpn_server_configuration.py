@@ -354,6 +354,9 @@ class _VpnServerConfigurationState:
 
 
 class VpnServerConfiguration(pulumi.CustomResource):
+
+    pulumi_type = "azure:network/vpnServerConfiguration:VpnServerConfiguration"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

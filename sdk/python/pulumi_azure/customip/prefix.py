@@ -408,6 +408,9 @@ class _PrefixState:
 
 
 class Prefix(pulumi.CustomResource):
+
+    pulumi_type = "azure:customip/prefix:Prefix"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -381,6 +381,9 @@ class _ApiOperationState:
 
 
 class ApiOperation(pulumi.CustomResource):
+
+    pulumi_type = "azure:apimanagement/apiOperation:ApiOperation"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

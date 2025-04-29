@@ -225,6 +225,9 @@ class _WorkspaceExtendedAuditingPolicyState:
 
 
 class WorkspaceExtendedAuditingPolicy(pulumi.CustomResource):
+
+    pulumi_type = "azure:synapse/workspaceExtendedAuditingPolicy:WorkspaceExtendedAuditingPolicy"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

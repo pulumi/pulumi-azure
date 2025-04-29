@@ -104,6 +104,9 @@ class _FrontdoorCustomDomainAssociationState:
 
 
 class FrontdoorCustomDomainAssociation(pulumi.CustomResource):
+
+    pulumi_type = "azure:cdn/frontdoorCustomDomainAssociation:FrontdoorCustomDomainAssociation"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -285,6 +285,9 @@ class _ImplicitDataDiskFromSourceState:
 
 
 class ImplicitDataDiskFromSource(pulumi.CustomResource):
+
+    pulumi_type = "azure:compute/implicitDataDiskFromSource:ImplicitDataDiskFromSource"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

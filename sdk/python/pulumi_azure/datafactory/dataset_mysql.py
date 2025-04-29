@@ -362,6 +362,9 @@ class _DatasetMysqlState:
 
 
 class DatasetMysql(pulumi.CustomResource):
+
+    pulumi_type = "azure:datafactory/datasetMysql:DatasetMysql"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

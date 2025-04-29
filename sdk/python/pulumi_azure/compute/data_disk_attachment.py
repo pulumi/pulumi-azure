@@ -222,6 +222,9 @@ class _DataDiskAttachmentState:
 
 
 class DataDiskAttachment(pulumi.CustomResource):
+
+    pulumi_type = "azure:compute/dataDiskAttachment:DataDiskAttachment"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

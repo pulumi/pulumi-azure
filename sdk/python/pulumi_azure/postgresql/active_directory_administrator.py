@@ -189,6 +189,9 @@ class _ActiveDirectoryAdministratorState:
 
 
 class ActiveDirectoryAdministrator(pulumi.CustomResource):
+
+    pulumi_type = "azure:postgresql/activeDirectoryAdministrator:ActiveDirectoryAdministrator"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

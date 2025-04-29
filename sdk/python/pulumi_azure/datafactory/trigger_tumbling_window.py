@@ -511,6 +511,9 @@ class _TriggerTumblingWindowState:
 
 
 class TriggerTumblingWindow(pulumi.CustomResource):
+
+    pulumi_type = "azure:datafactory/triggerTumblingWindow:TriggerTumblingWindow"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

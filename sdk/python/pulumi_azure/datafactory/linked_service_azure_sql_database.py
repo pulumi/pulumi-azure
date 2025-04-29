@@ -515,6 +515,9 @@ class _LinkedServiceAzureSqlDatabaseState:
 
 
 class LinkedServiceAzureSqlDatabase(pulumi.CustomResource):
+
+    pulumi_type = "azure:datafactory/linkedServiceAzureSqlDatabase:LinkedServiceAzureSqlDatabase"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

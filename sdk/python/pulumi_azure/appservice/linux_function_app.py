@@ -1349,6 +1349,9 @@ class _LinuxFunctionAppState:
 
 
 class LinuxFunctionApp(pulumi.CustomResource):
+
+    pulumi_type = "azure:appservice/linuxFunctionApp:LinuxFunctionApp"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

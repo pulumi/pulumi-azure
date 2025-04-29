@@ -429,6 +429,9 @@ class _AssignmentState:
 
 
 class Assignment(pulumi.CustomResource):
+
+    pulumi_type = "azure:blueprint/assignment:Assignment"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

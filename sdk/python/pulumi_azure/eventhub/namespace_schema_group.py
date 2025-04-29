@@ -159,6 +159,9 @@ class _NamespaceSchemaGroupState:
 
 
 class NamespaceSchemaGroup(pulumi.CustomResource):
+
+    pulumi_type = "azure:eventhub/namespaceSchemaGroup:NamespaceSchemaGroup"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

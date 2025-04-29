@@ -129,6 +129,9 @@ class _NetworkManagerNetworkGroupState:
 
 
 class NetworkManagerNetworkGroup(pulumi.CustomResource):
+
+    pulumi_type = "azure:network/networkManagerNetworkGroup:NetworkManagerNetworkGroup"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

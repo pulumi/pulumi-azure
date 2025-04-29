@@ -191,6 +191,9 @@ class _MoverTargetEndpointState:
 
 
 class MoverTargetEndpoint(pulumi.CustomResource):
+
+    pulumi_type = "azure:storage/moverTargetEndpoint:MoverTargetEndpoint"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

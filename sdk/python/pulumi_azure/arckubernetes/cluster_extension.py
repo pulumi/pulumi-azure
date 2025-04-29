@@ -369,6 +369,9 @@ class _ClusterExtensionState:
 
 
 class ClusterExtension(pulumi.CustomResource):
+
+    pulumi_type = "azure:arckubernetes/clusterExtension:ClusterExtension"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

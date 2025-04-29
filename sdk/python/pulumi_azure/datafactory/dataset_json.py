@@ -434,6 +434,9 @@ class _DatasetJsonState:
 
 
 class DatasetJson(pulumi.CustomResource):
+
+    pulumi_type = "azure:datafactory/datasetJson:DatasetJson"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

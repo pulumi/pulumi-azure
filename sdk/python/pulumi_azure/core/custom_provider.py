@@ -259,6 +259,9 @@ class _CustomProviderState:
 
 
 class CustomProvider(pulumi.CustomResource):
+
+    pulumi_type = "azure:core/customProvider:CustomProvider"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

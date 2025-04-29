@@ -547,6 +547,9 @@ class _VirtualMachineState:
 
 
 class VirtualMachine(pulumi.CustomResource):
+
+    pulumi_type = "azure:mssql/virtualMachine:VirtualMachine"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

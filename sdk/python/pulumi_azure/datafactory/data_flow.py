@@ -353,6 +353,9 @@ class _DataFlowState:
 
 
 class DataFlow(pulumi.CustomResource):
+
+    pulumi_type = "azure:datafactory/dataFlow:DataFlow"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

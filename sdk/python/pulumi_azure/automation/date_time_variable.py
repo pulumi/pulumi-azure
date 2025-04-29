@@ -224,6 +224,9 @@ class _DateTimeVariableState:
 
 
 class DateTimeVariable(pulumi.CustomResource):
+
+    pulumi_type = "azure:automation/dateTimeVariable:DateTimeVariable"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

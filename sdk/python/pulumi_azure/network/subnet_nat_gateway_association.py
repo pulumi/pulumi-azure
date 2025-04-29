@@ -96,6 +96,9 @@ class _SubnetNatGatewayAssociationState:
 
 
 class SubnetNatGatewayAssociation(pulumi.CustomResource):
+
+    pulumi_type = "azure:network/subnetNatGatewayAssociation:SubnetNatGatewayAssociation"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

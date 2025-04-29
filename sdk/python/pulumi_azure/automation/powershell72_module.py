@@ -162,6 +162,9 @@ class _Powershell72ModuleState:
 
 
 class Powershell72Module(pulumi.CustomResource):
+
+    pulumi_type = "azure:automation/powershell72Module:Powershell72Module"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

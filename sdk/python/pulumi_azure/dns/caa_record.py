@@ -240,6 +240,9 @@ class _CaaRecordState:
 
 
 class CaaRecord(pulumi.CustomResource):
+
+    pulumi_type = "azure:dns/caaRecord:CaaRecord"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

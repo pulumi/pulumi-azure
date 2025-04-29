@@ -351,6 +351,9 @@ class _QueryPackQueryState:
 
 
 class QueryPackQuery(pulumi.CustomResource):
+
+    pulumi_type = "azure:operationalinsights/queryPackQuery:QueryPackQuery"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

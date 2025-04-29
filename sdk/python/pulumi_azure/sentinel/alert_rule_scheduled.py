@@ -792,6 +792,9 @@ class _AlertRuleScheduledState:
 
 
 class AlertRuleScheduled(pulumi.CustomResource):
+
+    pulumi_type = "azure:sentinel/alertRuleScheduled:AlertRuleScheduled"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

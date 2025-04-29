@@ -385,6 +385,9 @@ class _SqlPoolState:
 
 
 class SqlPool(pulumi.CustomResource):
+
+    pulumi_type = "azure:synapse/sqlPool:SqlPool"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -439,6 +439,9 @@ class _JobStepState:
 
 
 class JobStep(pulumi.CustomResource):
+
+    pulumi_type = "azure:mssql/jobStep:JobStep"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

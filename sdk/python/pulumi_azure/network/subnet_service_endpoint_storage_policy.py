@@ -195,6 +195,9 @@ class _SubnetServiceEndpointStoragePolicyState:
 
 
 class SubnetServiceEndpointStoragePolicy(pulumi.CustomResource):
+
+    pulumi_type = "azure:network/subnetServiceEndpointStoragePolicy:SubnetServiceEndpointStoragePolicy"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

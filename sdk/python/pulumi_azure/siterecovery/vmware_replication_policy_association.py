@@ -132,6 +132,9 @@ class _VmwareReplicationPolicyAssociationState:
 
 
 class VmwareReplicationPolicyAssociation(pulumi.CustomResource):
+
+    pulumi_type = "azure:siterecovery/vmwareReplicationPolicyAssociation:VmwareReplicationPolicyAssociation"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

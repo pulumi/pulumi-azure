@@ -560,6 +560,9 @@ class _SharedImageVersionState:
 
 
 class SharedImageVersion(pulumi.CustomResource):
+
+    pulumi_type = "azure:compute/sharedImageVersion:SharedImageVersion"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

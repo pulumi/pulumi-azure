@@ -343,6 +343,9 @@ class _DefinitionState:
 
 
 class Definition(pulumi.CustomResource):
+
+    pulumi_type = "azure:policy/definition:Definition"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

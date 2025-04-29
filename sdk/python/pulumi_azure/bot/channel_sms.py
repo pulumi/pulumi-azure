@@ -221,6 +221,9 @@ class _ChannelSmsState:
 
 
 class ChannelSms(pulumi.CustomResource):
+
+    pulumi_type = "azure:bot/channelSms:ChannelSms"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

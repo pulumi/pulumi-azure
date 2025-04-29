@@ -197,6 +197,9 @@ class _ProtectedFileShareState:
 
 
 class ProtectedFileShare(pulumi.CustomResource):
+
+    pulumi_type = "azure:backup/protectedFileShare:ProtectedFileShare"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

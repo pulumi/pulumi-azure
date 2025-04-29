@@ -437,6 +437,9 @@ class _EndpointCosmosdbAccountState:
 
 
 class EndpointCosmosdbAccount(pulumi.CustomResource):
+
+    pulumi_type = "azure:iot/endpointCosmosdbAccount:EndpointCosmosdbAccount"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

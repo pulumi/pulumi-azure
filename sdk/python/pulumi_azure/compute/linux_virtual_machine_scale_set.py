@@ -1855,6 +1855,9 @@ class _LinuxVirtualMachineScaleSetState:
 
 
 class LinuxVirtualMachineScaleSet(pulumi.CustomResource):
+
+    pulumi_type = "azure:compute/linuxVirtualMachineScaleSet:LinuxVirtualMachineScaleSet"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

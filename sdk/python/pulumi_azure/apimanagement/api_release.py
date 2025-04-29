@@ -129,6 +129,9 @@ class _ApiReleaseState:
 
 
 class ApiRelease(pulumi.CustomResource):
+
+    pulumi_type = "azure:apimanagement/apiRelease:ApiRelease"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -425,6 +425,9 @@ class _NetworkAttachedDataNetworkState:
 
 
 class NetworkAttachedDataNetwork(pulumi.CustomResource):
+
+    pulumi_type = "azure:mobile/networkAttachedDataNetwork:NetworkAttachedDataNetwork"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

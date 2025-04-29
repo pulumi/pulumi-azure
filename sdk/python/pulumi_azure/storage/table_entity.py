@@ -158,6 +158,9 @@ class _TableEntityState:
 
 
 class TableEntity(pulumi.CustomResource):
+
+    pulumi_type = "azure:storage/tableEntity:TableEntity"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

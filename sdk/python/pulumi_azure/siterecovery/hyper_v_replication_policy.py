@@ -190,6 +190,9 @@ class _HyperVReplicationPolicyState:
 
 
 class HyperVReplicationPolicy(pulumi.CustomResource):
+
+    pulumi_type = "azure:siterecovery/hyperVReplicationPolicy:HyperVReplicationPolicy"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -281,6 +281,9 @@ class _NatGatewayState:
 
 
 class NatGateway(pulumi.CustomResource):
+
+    pulumi_type = "azure:network/natGateway:NatGateway"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

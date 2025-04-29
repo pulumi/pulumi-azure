@@ -229,6 +229,9 @@ class _EmailTemplateState:
 
 
 class EmailTemplate(pulumi.CustomResource):
+
+    pulumi_type = "azure:apimanagement/emailTemplate:EmailTemplate"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

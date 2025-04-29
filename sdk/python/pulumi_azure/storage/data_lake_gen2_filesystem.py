@@ -267,6 +267,9 @@ class _DataLakeGen2FilesystemState:
 
 
 class DataLakeGen2Filesystem(pulumi.CustomResource):
+
+    pulumi_type = "azure:storage/dataLakeGen2Filesystem:DataLakeGen2Filesystem"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

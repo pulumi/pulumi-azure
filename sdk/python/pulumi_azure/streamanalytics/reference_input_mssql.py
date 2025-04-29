@@ -410,6 +410,9 @@ class _ReferenceInputMssqlState:
 
 
 class ReferenceInputMssql(pulumi.CustomResource):
+
+    pulumi_type = "azure:streamanalytics/referenceInputMssql:ReferenceInputMssql"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

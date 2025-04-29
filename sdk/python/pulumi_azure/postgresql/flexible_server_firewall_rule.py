@@ -159,6 +159,9 @@ class _FlexibleServerFirewallRuleState:
 
 
 class FlexibleServerFirewallRule(pulumi.CustomResource):
+
+    pulumi_type = "azure:postgresql/flexibleServerFirewallRule:FlexibleServerFirewallRule"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -190,6 +190,9 @@ class _SqlTriggerState:
 
 
 class SqlTrigger(pulumi.CustomResource):
+
+    pulumi_type = "azure:cosmosdb/sqlTrigger:SqlTrigger"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

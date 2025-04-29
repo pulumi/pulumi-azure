@@ -161,6 +161,9 @@ class _RestorePointState:
 
 
 class RestorePoint(pulumi.CustomResource):
+
+    pulumi_type = "azure:compute/restorePoint:RestorePoint"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -319,6 +319,9 @@ class _MonitorState:
 
 
 class Monitor(pulumi.CustomResource):
+
+    pulumi_type = "azure:dynatrace/monitor:Monitor"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

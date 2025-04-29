@@ -96,6 +96,9 @@ class _SpringCloudActiveDeploymentState:
 
 
 class SpringCloudActiveDeployment(pulumi.CustomResource):
+
+    pulumi_type = "azure:appplatform/springCloudActiveDeployment:SpringCloudActiveDeployment"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -604,6 +604,9 @@ class _EventGridDataConnectionState:
 
 
 class EventGridDataConnection(pulumi.CustomResource):
+
+    pulumi_type = "azure:kusto/eventGridDataConnection:EventGridDataConnection"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

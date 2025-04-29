@@ -193,6 +193,9 @@ class _AzureTrafficCollectorState:
 
 
 class AzureTrafficCollector(pulumi.CustomResource):
+
+    pulumi_type = "azure:networkfunction/azureTrafficCollector:AzureTrafficCollector"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

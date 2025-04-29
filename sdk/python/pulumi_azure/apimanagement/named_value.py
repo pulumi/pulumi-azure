@@ -297,6 +297,9 @@ class _NamedValueState:
 
 
 class NamedValue(pulumi.CustomResource):
+
+    pulumi_type = "azure:apimanagement/namedValue:NamedValue"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

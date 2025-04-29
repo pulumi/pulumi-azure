@@ -330,6 +330,9 @@ class _InferenceClusterState:
 
 
 class InferenceCluster(pulumi.CustomResource):
+
+    pulumi_type = "azure:machinelearning/inferenceCluster:InferenceCluster"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

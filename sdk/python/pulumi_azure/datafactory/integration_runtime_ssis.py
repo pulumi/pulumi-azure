@@ -650,6 +650,9 @@ class _IntegrationRuntimeSsisState:
 
 
 class IntegrationRuntimeSsis(pulumi.CustomResource):
+
+    pulumi_type = "azure:datafactory/integrationRuntimeSsis:IntegrationRuntimeSsis"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

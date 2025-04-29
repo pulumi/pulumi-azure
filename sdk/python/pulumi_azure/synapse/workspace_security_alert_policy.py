@@ -288,6 +288,9 @@ class _WorkspaceSecurityAlertPolicyState:
 
 
 class WorkspaceSecurityAlertPolicy(pulumi.CustomResource):
+
+    pulumi_type = "azure:synapse/workspaceSecurityAlertPolicy:WorkspaceSecurityAlertPolicy"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

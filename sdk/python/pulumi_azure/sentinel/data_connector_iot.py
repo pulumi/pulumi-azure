@@ -129,6 +129,9 @@ class _DataConnectorIotState:
 
 
 class DataConnectorIot(pulumi.CustomResource):
+
+    pulumi_type = "azure:sentinel/dataConnectorIot:DataConnectorIot"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

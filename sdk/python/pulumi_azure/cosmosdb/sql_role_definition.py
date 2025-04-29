@@ -264,6 +264,9 @@ class _SqlRoleDefinitionState:
 
 
 class SqlRoleDefinition(pulumi.CustomResource):
+
+    pulumi_type = "azure:cosmosdb/sqlRoleDefinition:SqlRoleDefinition"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

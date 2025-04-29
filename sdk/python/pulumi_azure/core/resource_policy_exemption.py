@@ -319,6 +319,9 @@ class _ResourcePolicyExemptionState:
 
 
 class ResourcePolicyExemption(pulumi.CustomResource):
+
+    pulumi_type = "azure:core/resourcePolicyExemption:ResourcePolicyExemption"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

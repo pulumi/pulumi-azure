@@ -368,6 +368,9 @@ warnings.warn("""azure.keyvault.Certifiate has been deprecated in favor of azure
 class Certifiate(pulumi.CustomResource):
     warnings.warn("""azure.keyvault.Certifiate has been deprecated in favor of azure.keyvault.Certificate""", DeprecationWarning)
 
+
+    pulumi_type = "azure:keyvault/certifiate:Certifiate"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

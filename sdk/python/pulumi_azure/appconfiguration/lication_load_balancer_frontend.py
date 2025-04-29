@@ -145,6 +145,9 @@ class _LicationLoadBalancerFrontendState:
 
 
 class LicationLoadBalancerFrontend(pulumi.CustomResource):
+
+    pulumi_type = "azure:appconfiguration/licationLoadBalancerFrontend:LicationLoadBalancerFrontend"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

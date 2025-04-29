@@ -97,6 +97,9 @@ class _SyncGroupState:
 
 
 class SyncGroup(pulumi.CustomResource):
+
+    pulumi_type = "azure:storage/syncGroup:SyncGroup"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -257,6 +257,9 @@ class _FailoverGroupState:
 
 
 class FailoverGroup(pulumi.CustomResource):
+
+    pulumi_type = "azure:mssql/failoverGroup:FailoverGroup"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

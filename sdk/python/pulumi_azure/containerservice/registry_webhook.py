@@ -350,6 +350,9 @@ class _RegistryWebhookState:
 
 
 class RegistryWebhook(pulumi.CustomResource):
+
+    pulumi_type = "azure:containerservice/registryWebhook:RegistryWebhook"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

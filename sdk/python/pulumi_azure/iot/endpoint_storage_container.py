@@ -423,6 +423,9 @@ class _EndpointStorageContainerState:
 
 
 class EndpointStorageContainer(pulumi.CustomResource):
+
+    pulumi_type = "azure:iot/endpointStorageContainer:EndpointStorageContainer"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

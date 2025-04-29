@@ -942,6 +942,9 @@ class _ScaleSetState:
 
 
 class ScaleSet(pulumi.CustomResource):
+
+    pulumi_type = "azure:compute/scaleSet:ScaleSet"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

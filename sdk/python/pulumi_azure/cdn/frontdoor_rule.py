@@ -249,6 +249,9 @@ class _FrontdoorRuleState:
 
 
 class FrontdoorRule(pulumi.CustomResource):
+
+    pulumi_type = "azure:cdn/frontdoorRule:FrontdoorRule"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

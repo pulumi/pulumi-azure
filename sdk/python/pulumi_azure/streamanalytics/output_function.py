@@ -285,6 +285,9 @@ class _OutputFunctionState:
 
 
 class OutputFunction(pulumi.CustomResource):
+
+    pulumi_type = "azure:streamanalytics/outputFunction:OutputFunction"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

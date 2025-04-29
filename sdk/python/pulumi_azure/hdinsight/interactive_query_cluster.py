@@ -742,6 +742,9 @@ class _InteractiveQueryClusterState:
 
 
 class InteractiveQueryCluster(pulumi.CustomResource):
+
+    pulumi_type = "azure:hdinsight/interactiveQueryCluster:InteractiveQueryCluster"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

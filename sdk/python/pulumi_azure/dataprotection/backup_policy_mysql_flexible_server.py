@@ -225,6 +225,9 @@ class _BackupPolicyMysqlFlexibleServerState:
 
 
 class BackupPolicyMysqlFlexibleServer(pulumi.CustomResource):
+
+    pulumi_type = "azure:dataprotection/backupPolicyMysqlFlexibleServer:BackupPolicyMysqlFlexibleServer"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

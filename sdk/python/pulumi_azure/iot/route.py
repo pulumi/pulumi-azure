@@ -253,6 +253,9 @@ class _RouteState:
 
 
 class Route(pulumi.CustomResource):
+
+    pulumi_type = "azure:iot/route:Route"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

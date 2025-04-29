@@ -219,6 +219,9 @@ class _BackendAddressPoolAddressState:
 
 
 class BackendAddressPoolAddress(pulumi.CustomResource):
+
+    pulumi_type = "azure:lb/backendAddressPoolAddress:BackendAddressPoolAddress"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

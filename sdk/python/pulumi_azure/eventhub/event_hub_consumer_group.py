@@ -196,6 +196,9 @@ warnings.warn("""azure.eventhub.EventHubConsumerGroup has been deprecated in fav
 class EventHubConsumerGroup(pulumi.CustomResource):
     warnings.warn("""azure.eventhub.EventHubConsumerGroup has been deprecated in favor of azure.eventhub.ConsumerGroup""", DeprecationWarning)
 
+
+    pulumi_type = "azure:eventhub/eventHubConsumerGroup:EventHubConsumerGroup"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

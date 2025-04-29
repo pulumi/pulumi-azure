@@ -277,6 +277,9 @@ class _DatabaseExtendedAuditingPolicyState:
 
 
 class DatabaseExtendedAuditingPolicy(pulumi.CustomResource):
+
+    pulumi_type = "azure:mssql/databaseExtendedAuditingPolicy:DatabaseExtendedAuditingPolicy"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

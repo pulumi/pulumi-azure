@@ -426,6 +426,9 @@ class _DatasetHttpState:
 
 
 class DatasetHttp(pulumi.CustomResource):
+
+    pulumi_type = "azure:datafactory/datasetHttp:DatasetHttp"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

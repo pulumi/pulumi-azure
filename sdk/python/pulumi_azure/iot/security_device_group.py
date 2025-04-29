@@ -163,6 +163,9 @@ class _SecurityDeviceGroupState:
 
 
 class SecurityDeviceGroup(pulumi.CustomResource):
+
+    pulumi_type = "azure:iot/securityDeviceGroup:SecurityDeviceGroup"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -411,6 +411,9 @@ class _ConfigurationFeatureState:
 
 
 class ConfigurationFeature(pulumi.CustomResource):
+
+    pulumi_type = "azure:appconfiguration/configurationFeature:ConfigurationFeature"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

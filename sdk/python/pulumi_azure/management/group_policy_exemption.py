@@ -319,6 +319,9 @@ class _GroupPolicyExemptionState:
 
 
 class GroupPolicyExemption(pulumi.CustomResource):
+
+    pulumi_type = "azure:management/groupPolicyExemption:GroupPolicyExemption"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

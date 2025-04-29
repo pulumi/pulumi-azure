@@ -239,6 +239,9 @@ class _CertificateState:
 
 
 class Certificate(pulumi.CustomResource):
+
+    pulumi_type = "azure:automation/certificate:Certificate"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

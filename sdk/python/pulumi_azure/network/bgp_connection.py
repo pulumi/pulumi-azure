@@ -191,6 +191,9 @@ class _BgpConnectionState:
 
 
 class BgpConnection(pulumi.CustomResource):
+
+    pulumi_type = "azure:network/bgpConnection:BgpConnection"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

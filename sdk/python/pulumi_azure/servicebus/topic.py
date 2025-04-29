@@ -481,6 +481,9 @@ class _TopicState:
 
 
 class Topic(pulumi.CustomResource):
+
+    pulumi_type = "azure:servicebus/topic:Topic"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

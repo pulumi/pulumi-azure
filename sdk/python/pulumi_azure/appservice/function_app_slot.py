@@ -751,6 +751,9 @@ class _FunctionAppSlotState:
 
 
 class FunctionAppSlot(pulumi.CustomResource):
+
+    pulumi_type = "azure:appservice/functionAppSlot:FunctionAppSlot"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

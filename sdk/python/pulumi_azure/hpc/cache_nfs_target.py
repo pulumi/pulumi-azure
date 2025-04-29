@@ -287,6 +287,9 @@ class _CacheNfsTargetState:
 
 
 class CacheNfsTarget(pulumi.CustomResource):
+
+    pulumi_type = "azure:hpc/cacheNfsTarget:CacheNfsTarget"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

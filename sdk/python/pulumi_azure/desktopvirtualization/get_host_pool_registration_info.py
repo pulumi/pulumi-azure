@@ -112,6 +112,9 @@ class _GetHostPoolRegistrationInfoState:
 
 
 class GetHostPoolRegistrationInfo(pulumi.CustomResource):
+
+    pulumi_type = "azure:desktopvirtualization/getHostPoolRegistrationInfo:getHostPoolRegistrationInfo"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

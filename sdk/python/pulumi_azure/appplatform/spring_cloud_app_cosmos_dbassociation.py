@@ -350,6 +350,9 @@ class _SpringCloudAppCosmosDBAssociationState:
 
 
 class SpringCloudAppCosmosDBAssociation(pulumi.CustomResource):
+
+    pulumi_type = "azure:appplatform/springCloudAppCosmosDBAssociation:SpringCloudAppCosmosDBAssociation"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

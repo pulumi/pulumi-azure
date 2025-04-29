@@ -514,6 +514,9 @@ class _FrontdoorState:
 
 
 class Frontdoor(pulumi.CustomResource):
+
+    pulumi_type = "azure:frontdoor/frontdoor:Frontdoor"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

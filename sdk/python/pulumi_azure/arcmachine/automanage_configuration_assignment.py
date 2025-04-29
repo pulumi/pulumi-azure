@@ -104,6 +104,9 @@ class _AutomanageConfigurationAssignmentState:
 
 
 class AutomanageConfigurationAssignment(pulumi.CustomResource):
+
+    pulumi_type = "azure:arcmachine/automanageConfigurationAssignment:AutomanageConfigurationAssignment"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

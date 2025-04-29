@@ -399,6 +399,9 @@ class _DicomServiceState:
 
 
 class DicomService(pulumi.CustomResource):
+
+    pulumi_type = "azure:healthcare/dicomService:DicomService"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

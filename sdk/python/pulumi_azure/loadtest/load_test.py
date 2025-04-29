@@ -275,6 +275,9 @@ class _LoadTestState:
 
 
 class LoadTest(pulumi.CustomResource):
+
+    pulumi_type = "azure:loadtest/loadTest:LoadTest"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

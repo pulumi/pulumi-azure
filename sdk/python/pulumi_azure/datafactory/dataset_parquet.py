@@ -498,6 +498,9 @@ class _DatasetParquetState:
 
 
 class DatasetParquet(pulumi.CustomResource):
+
+    pulumi_type = "azure:datafactory/datasetParquet:DatasetParquet"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

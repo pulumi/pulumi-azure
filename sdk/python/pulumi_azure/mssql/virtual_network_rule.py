@@ -168,6 +168,9 @@ class _VirtualNetworkRuleState:
 
 
 class VirtualNetworkRule(pulumi.CustomResource):
+
+    pulumi_type = "azure:mssql/virtualNetworkRule:VirtualNetworkRule"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

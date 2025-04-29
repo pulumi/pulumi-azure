@@ -251,6 +251,9 @@ class _RouteTableState:
 
 
 class RouteTable(pulumi.CustomResource):
+
+    pulumi_type = "azure:network/routeTable:RouteTable"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

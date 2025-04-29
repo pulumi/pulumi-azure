@@ -144,6 +144,9 @@ class _NetworkManagerStaticMemberState:
 
 
 class NetworkManagerStaticMember(pulumi.CustomResource):
+
+    pulumi_type = "azure:network/networkManagerStaticMember:NetworkManagerStaticMember"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

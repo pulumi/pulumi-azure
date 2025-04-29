@@ -129,6 +129,9 @@ class _ShareDirectoryState:
 
 
 class ShareDirectory(pulumi.CustomResource):
+
+    pulumi_type = "azure:storage/shareDirectory:ShareDirectory"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -409,6 +409,9 @@ class _IdentityProviderAadb2cState:
 
 
 class IdentityProviderAadb2c(pulumi.CustomResource):
+
+    pulumi_type = "azure:apimanagement/identityProviderAadb2c:IdentityProviderAadb2c"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

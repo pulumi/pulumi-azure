@@ -158,6 +158,9 @@ class _ProductApiState:
 
 
 class ProductApi(pulumi.CustomResource):
+
+    pulumi_type = "azure:apimanagement/productApi:ProductApi"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

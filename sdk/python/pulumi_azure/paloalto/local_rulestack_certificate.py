@@ -233,6 +233,9 @@ class _LocalRulestackCertificateState:
 
 
 class LocalRulestackCertificate(pulumi.CustomResource):
+
+    pulumi_type = "azure:paloalto/localRulestackCertificate:LocalRulestackCertificate"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

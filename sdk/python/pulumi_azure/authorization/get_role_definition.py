@@ -144,9 +144,9 @@ def get_role_definition(name: Optional[builtins.str] = None,
         role_definition_id="00000000-0000-0000-0000-000000000000",
         name="CustomRoleDef",
         scope=primary.id)
-    custom = custom_role_definition.role_definition_id.apply(lambda role_definition_id: azure.authorization.get_role_definition_output(role_definition_id=role_definition_id,
+    custom = custom_role_definition.role_definition_id.apply(lambda role_definition_id: azure.authorization.get_role_definition(role_definition_id=role_definition_id,
         scope=primary.id))
-    custom_byname = custom_role_definition.name.apply(lambda name: azure.authorization.get_role_definition_output(name=name,
+    custom_byname = custom_role_definition.name.apply(lambda name: azure.authorization.get_role_definition(name=name,
         scope=primary.id))
     builtin = azure.authorization.get_role_definition(name="Contributor")
     pulumi.export("customRoleDefinitionId", custom.id)
@@ -196,9 +196,9 @@ def get_role_definition_output(name: Optional[pulumi.Input[Optional[builtins.str
         role_definition_id="00000000-0000-0000-0000-000000000000",
         name="CustomRoleDef",
         scope=primary.id)
-    custom = custom_role_definition.role_definition_id.apply(lambda role_definition_id: azure.authorization.get_role_definition_output(role_definition_id=role_definition_id,
+    custom = custom_role_definition.role_definition_id.apply(lambda role_definition_id: azure.authorization.get_role_definition(role_definition_id=role_definition_id,
         scope=primary.id))
-    custom_byname = custom_role_definition.name.apply(lambda name: azure.authorization.get_role_definition_output(name=name,
+    custom_byname = custom_role_definition.name.apply(lambda name: azure.authorization.get_role_definition(name=name,
         scope=primary.id))
     builtin = azure.authorization.get_role_definition(name="Contributor")
     pulumi.export("customRoleDefinitionId", custom.id)

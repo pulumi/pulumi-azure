@@ -160,6 +160,9 @@ class _ExpressRouteCircuitAuthorizationState:
 
 
 class ExpressRouteCircuitAuthorization(pulumi.CustomResource):
+
+    pulumi_type = "azure:network/expressRouteCircuitAuthorization:ExpressRouteCircuitAuthorization"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -441,6 +441,9 @@ class _DataCollectionRuleState:
 
 
 class DataCollectionRule(pulumi.CustomResource):
+
+    pulumi_type = "azure:monitoring/dataCollectionRule:DataCollectionRule"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

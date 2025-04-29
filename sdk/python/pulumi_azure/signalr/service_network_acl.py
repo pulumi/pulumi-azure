@@ -161,6 +161,9 @@ class _ServiceNetworkAclState:
 
 
 class ServiceNetworkAcl(pulumi.CustomResource):
+
+    pulumi_type = "azure:signalr/serviceNetworkAcl:ServiceNetworkAcl"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

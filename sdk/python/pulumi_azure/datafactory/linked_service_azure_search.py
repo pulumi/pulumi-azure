@@ -343,6 +343,9 @@ class _LinkedServiceAzureSearchState:
 
 
 class LinkedServiceAzureSearch(pulumi.CustomResource):
+
+    pulumi_type = "azure:datafactory/linkedServiceAzureSearch:LinkedServiceAzureSearch"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

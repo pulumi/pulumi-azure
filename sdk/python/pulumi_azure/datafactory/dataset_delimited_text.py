@@ -722,6 +722,9 @@ class _DatasetDelimitedTextState:
 
 
 class DatasetDelimitedText(pulumi.CustomResource):
+
+    pulumi_type = "azure:datafactory/datasetDelimitedText:DatasetDelimitedText"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

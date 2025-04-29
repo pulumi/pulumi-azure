@@ -215,6 +215,9 @@ class _SharedPrivateLinkServiceState:
 
 
 class SharedPrivateLinkService(pulumi.CustomResource):
+
+    pulumi_type = "azure:search/sharedPrivateLinkService:SharedPrivateLinkService"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

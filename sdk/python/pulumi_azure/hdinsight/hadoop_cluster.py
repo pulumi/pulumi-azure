@@ -710,6 +710,9 @@ class _HadoopClusterState:
 
 
 class HadoopCluster(pulumi.CustomResource):
+
+    pulumi_type = "azure:hdinsight/hadoopCluster:HadoopCluster"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

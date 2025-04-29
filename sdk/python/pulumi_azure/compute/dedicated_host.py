@@ -287,6 +287,9 @@ class _DedicatedHostState:
 
 
 class DedicatedHost(pulumi.CustomResource):
+
+    pulumi_type = "azure:compute/dedicatedHost:DedicatedHost"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

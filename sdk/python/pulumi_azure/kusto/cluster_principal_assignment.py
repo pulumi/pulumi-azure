@@ -284,6 +284,9 @@ class _ClusterPrincipalAssignmentState:
 
 
 class ClusterPrincipalAssignment(pulumi.CustomResource):
+
+    pulumi_type = "azure:kusto/clusterPrincipalAssignment:ClusterPrincipalAssignment"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

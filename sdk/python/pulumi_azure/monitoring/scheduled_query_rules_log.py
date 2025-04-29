@@ -321,6 +321,9 @@ class _ScheduledQueryRulesLogState:
 
 
 class ScheduledQueryRulesLog(pulumi.CustomResource):
+
+    pulumi_type = "azure:monitoring/scheduledQueryRulesLog:ScheduledQueryRulesLog"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -1018,6 +1018,9 @@ class _WindowsWebAppSlotState:
 
 
 class WindowsWebAppSlot(pulumi.CustomResource):
+
+    pulumi_type = "azure:appservice/windowsWebAppSlot:WindowsWebAppSlot"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

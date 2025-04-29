@@ -209,6 +209,9 @@ class _UserAssignedIdentityState:
 
 
 class UserAssignedIdentity(pulumi.CustomResource):
+
+    pulumi_type = "azure:authorization/userAssignedIdentity:UserAssignedIdentity"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

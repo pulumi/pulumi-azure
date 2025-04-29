@@ -256,6 +256,9 @@ class _DataLakeGen2PathState:
 
 
 class DataLakeGen2Path(pulumi.CustomResource):
+
+    pulumi_type = "azure:storage/dataLakeGen2Path:DataLakeGen2Path"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

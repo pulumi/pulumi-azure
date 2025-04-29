@@ -593,6 +593,9 @@ class _ResourceDeploymentScriptAzureCliState:
 
 
 class ResourceDeploymentScriptAzureCli(pulumi.CustomResource):
+
+    pulumi_type = "azure:core/resourceDeploymentScriptAzureCli:ResourceDeploymentScriptAzureCli"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

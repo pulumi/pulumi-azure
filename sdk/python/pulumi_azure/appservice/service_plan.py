@@ -479,6 +479,9 @@ class _ServicePlanState:
 
 
 class ServicePlan(pulumi.CustomResource):
+
+    pulumi_type = "azure:appservice/servicePlan:ServicePlan"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

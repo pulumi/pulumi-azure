@@ -354,6 +354,9 @@ class _DatasetSqlServerTableState:
 
 
 class DatasetSqlServerTable(pulumi.CustomResource):
+
+    pulumi_type = "azure:datafactory/datasetSqlServerTable:DatasetSqlServerTable"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

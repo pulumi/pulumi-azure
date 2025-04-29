@@ -192,6 +192,9 @@ class _SshPublicKeyState:
 
 
 class SshPublicKey(pulumi.CustomResource):
+
+    pulumi_type = "azure:compute/sshPublicKey:SshPublicKey"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

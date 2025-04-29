@@ -302,6 +302,9 @@ warnings.warn("""azure.eventhub.TopicAuthorizationRule has been deprecated in fa
 class TopicAuthorizationRule(pulumi.CustomResource):
     warnings.warn("""azure.eventhub.TopicAuthorizationRule has been deprecated in favor of azure.servicebus.TopicAuthorizationRule""", DeprecationWarning)
 
+
+    pulumi_type = "azure:eventhub/topicAuthorizationRule:TopicAuthorizationRule"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

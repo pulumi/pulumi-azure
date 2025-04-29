@@ -227,6 +227,9 @@ class _AccountState:
 
 
 class Account(pulumi.CustomResource):
+
+    pulumi_type = "azure:netapp/account:Account"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

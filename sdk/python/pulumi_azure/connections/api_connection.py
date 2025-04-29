@@ -216,6 +216,9 @@ class _ApiConnectionState:
 
 
 class ApiConnection(pulumi.CustomResource):
+
+    pulumi_type = "azure:connections/apiConnection:ApiConnection"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

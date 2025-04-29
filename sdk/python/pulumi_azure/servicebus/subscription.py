@@ -522,6 +522,9 @@ class _SubscriptionState:
 
 
 class Subscription(pulumi.CustomResource):
+
+    pulumi_type = "azure:servicebus/subscription:Subscription"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -328,6 +328,9 @@ class _EventHubNamespaceAuthorizationRuleState:
 
 
 class EventHubNamespaceAuthorizationRule(pulumi.CustomResource):
+
+    pulumi_type = "azure:eventhub/eventHubNamespaceAuthorizationRule:EventHubNamespaceAuthorizationRule"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

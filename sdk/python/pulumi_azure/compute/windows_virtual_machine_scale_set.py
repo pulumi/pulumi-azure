@@ -1909,6 +1909,9 @@ class _WindowsVirtualMachineScaleSetState:
 
 
 class WindowsVirtualMachineScaleSet(pulumi.CustomResource):
+
+    pulumi_type = "azure:compute/windowsVirtualMachineScaleSet:WindowsVirtualMachineScaleSet"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

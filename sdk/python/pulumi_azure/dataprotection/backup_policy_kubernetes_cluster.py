@@ -256,6 +256,9 @@ class _BackupPolicyKubernetesClusterState:
 
 
 class BackupPolicyKubernetesCluster(pulumi.CustomResource):
+
+    pulumi_type = "azure:dataprotection/backupPolicyKubernetesCluster:BackupPolicyKubernetesCluster"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

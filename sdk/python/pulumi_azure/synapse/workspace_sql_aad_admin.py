@@ -158,6 +158,9 @@ class _WorkspaceSqlAadAdminState:
 
 
 class WorkspaceSqlAadAdmin(pulumi.CustomResource):
+
+    pulumi_type = "azure:synapse/workspaceSqlAadAdmin:WorkspaceSqlAadAdmin"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

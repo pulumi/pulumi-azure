@@ -73,6 +73,9 @@ class _PortalTenantConfigurationState:
 
 
 class PortalTenantConfiguration(pulumi.CustomResource):
+
+    pulumi_type = "azure:core/portalTenantConfiguration:PortalTenantConfiguration"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

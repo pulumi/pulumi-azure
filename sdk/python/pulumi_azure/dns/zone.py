@@ -211,6 +211,9 @@ class _ZoneState:
 
 
 class Zone(pulumi.CustomResource):
+
+    pulumi_type = "azure:dns/zone:Zone"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

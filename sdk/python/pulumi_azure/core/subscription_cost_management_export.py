@@ -318,6 +318,9 @@ class _SubscriptionCostManagementExportState:
 
 
 class SubscriptionCostManagementExport(pulumi.CustomResource):
+
+    pulumi_type = "azure:core/subscriptionCostManagementExport:SubscriptionCostManagementExport"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

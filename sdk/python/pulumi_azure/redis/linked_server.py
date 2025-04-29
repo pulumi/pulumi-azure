@@ -221,6 +221,9 @@ class _LinkedServerState:
 
 
 class LinkedServer(pulumi.CustomResource):
+
+    pulumi_type = "azure:redis/linkedServer:LinkedServer"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

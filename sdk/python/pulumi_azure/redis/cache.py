@@ -880,6 +880,9 @@ class _CacheState:
 
 
 class Cache(pulumi.CustomResource):
+
+    pulumi_type = "azure:redis/cache:Cache"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

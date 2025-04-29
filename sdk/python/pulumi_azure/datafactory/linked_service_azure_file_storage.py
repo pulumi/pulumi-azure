@@ -458,6 +458,9 @@ class _LinkedServiceAzureFileStorageState:
 
 
 class LinkedServiceAzureFileStorage(pulumi.CustomResource):
+
+    pulumi_type = "azure:datafactory/linkedServiceAzureFileStorage:LinkedServiceAzureFileStorage"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

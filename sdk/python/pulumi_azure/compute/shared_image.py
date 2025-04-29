@@ -944,6 +944,9 @@ class _SharedImageState:
 
 
 class SharedImage(pulumi.CustomResource):
+
+    pulumi_type = "azure:compute/sharedImage:SharedImage"
+
     @overload
     def __init__(__self__,
                  resource_name: str,
