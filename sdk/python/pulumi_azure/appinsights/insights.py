@@ -568,6 +568,9 @@ class _InsightsState:
 
 
 class Insights(pulumi.CustomResource):
+
+    pulumi_type = "azure:appinsights/insights:Insights"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

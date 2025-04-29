@@ -287,6 +287,9 @@ class _IntegrationAccountAssemblyState:
 
 
 class IntegrationAccountAssembly(pulumi.CustomResource):
+
+    pulumi_type = "azure:logicapps/integrationAccountAssembly:IntegrationAccountAssembly"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

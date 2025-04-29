@@ -728,6 +728,9 @@ warnings.warn("""azure.eventhub.EventSubscription has been deprecated in favor o
 class EventSubscription(pulumi.CustomResource):
     warnings.warn("""azure.eventhub.EventSubscription has been deprecated in favor of azure.eventgrid.EventSubscription""", DeprecationWarning)
 
+
+    pulumi_type = "azure:eventhub/eventSubscription:EventSubscription"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

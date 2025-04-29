@@ -159,6 +159,9 @@ class _EventhubNamespaceDisasterRecoveryConfigState:
 
 
 class EventhubNamespaceDisasterRecoveryConfig(pulumi.CustomResource):
+
+    pulumi_type = "azure:eventhub/eventhubNamespaceDisasterRecoveryConfig:EventhubNamespaceDisasterRecoveryConfig"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

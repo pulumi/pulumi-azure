@@ -137,6 +137,9 @@ class _DataConnectorAzureAdvancedThreadProtectionState:
 
 
 class DataConnectorAzureAdvancedThreadProtection(pulumi.CustomResource):
+
+    pulumi_type = "azure:sentinel/dataConnectorAzureAdvancedThreadProtection:DataConnectorAzureAdvancedThreadProtection"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

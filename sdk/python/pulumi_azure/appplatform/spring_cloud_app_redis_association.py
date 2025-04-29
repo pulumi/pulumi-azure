@@ -191,6 +191,9 @@ class _SpringCloudAppRedisAssociationState:
 
 
 class SpringCloudAppRedisAssociation(pulumi.CustomResource):
+
+    pulumi_type = "azure:appplatform/springCloudAppRedisAssociation:SpringCloudAppRedisAssociation"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

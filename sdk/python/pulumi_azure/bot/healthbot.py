@@ -208,6 +208,9 @@ class _HealthbotState:
 
 
 class Healthbot(pulumi.CustomResource):
+
+    pulumi_type = "azure:bot/healthbot:Healthbot"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

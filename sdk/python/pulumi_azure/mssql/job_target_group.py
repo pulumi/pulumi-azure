@@ -131,6 +131,9 @@ class _JobTargetGroupState:
 
 
 class JobTargetGroup(pulumi.CustomResource):
+
+    pulumi_type = "azure:mssql/jobTargetGroup:JobTargetGroup"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

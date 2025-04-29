@@ -266,6 +266,9 @@ class _VirtualMachineAvailabilityGroupListenerState:
 
 
 class VirtualMachineAvailabilityGroupListener(pulumi.CustomResource):
+
+    pulumi_type = "azure:mssql/virtualMachineAvailabilityGroupListener:VirtualMachineAvailabilityGroupListener"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

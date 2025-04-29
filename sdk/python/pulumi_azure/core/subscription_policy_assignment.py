@@ -490,6 +490,9 @@ class _SubscriptionPolicyAssignmentState:
 
 
 class SubscriptionPolicyAssignment(pulumi.CustomResource):
+
+    pulumi_type = "azure:core/subscriptionPolicyAssignment:SubscriptionPolicyAssignment"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

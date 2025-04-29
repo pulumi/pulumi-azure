@@ -704,6 +704,9 @@ class _MetadataState:
 
 
 class Metadata(pulumi.CustomResource):
+
+    pulumi_type = "azure:sentinel/metadata:Metadata"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

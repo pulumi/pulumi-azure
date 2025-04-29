@@ -190,6 +190,9 @@ class _FlexibleDatabaseState:
 
 
 class FlexibleDatabase(pulumi.CustomResource):
+
+    pulumi_type = "azure:mysql/flexibleDatabase:FlexibleDatabase"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

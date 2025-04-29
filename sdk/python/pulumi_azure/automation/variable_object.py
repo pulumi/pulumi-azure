@@ -224,6 +224,9 @@ class _VariableObjectState:
 
 
 class VariableObject(pulumi.CustomResource):
+
+    pulumi_type = "azure:automation/variableObject:VariableObject"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

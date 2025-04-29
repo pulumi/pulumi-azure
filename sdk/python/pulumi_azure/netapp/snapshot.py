@@ -222,6 +222,9 @@ class _SnapshotState:
 
 
 class Snapshot(pulumi.CustomResource):
+
+    pulumi_type = "azure:netapp/snapshot:Snapshot"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

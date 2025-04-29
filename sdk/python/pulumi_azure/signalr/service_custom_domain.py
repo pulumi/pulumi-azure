@@ -167,6 +167,9 @@ class _ServiceCustomDomainState:
 
 
 class ServiceCustomDomain(pulumi.CustomResource):
+
+    pulumi_type = "azure:signalr/serviceCustomDomain:ServiceCustomDomain"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

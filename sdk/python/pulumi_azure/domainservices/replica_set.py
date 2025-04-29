@@ -176,6 +176,9 @@ class _ReplicaSetState:
 
 
 class ReplicaSet(pulumi.CustomResource):
+
+    pulumi_type = "azure:domainservices/replicaSet:ReplicaSet"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

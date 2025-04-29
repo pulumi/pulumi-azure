@@ -319,6 +319,9 @@ class _ApplicationGroupState:
 
 
 class ApplicationGroup(pulumi.CustomResource):
+
+    pulumi_type = "azure:desktopvirtualization/applicationGroup:ApplicationGroup"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

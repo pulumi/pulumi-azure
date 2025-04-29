@@ -158,6 +158,9 @@ class _IdentityProviderMicrosoftState:
 
 
 class IdentityProviderMicrosoft(pulumi.CustomResource):
+
+    pulumi_type = "azure:apimanagement/identityProviderMicrosoft:IdentityProviderMicrosoft"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

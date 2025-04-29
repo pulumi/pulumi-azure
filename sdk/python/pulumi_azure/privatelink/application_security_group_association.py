@@ -96,6 +96,9 @@ class _ApplicationSecurityGroupAssociationState:
 
 
 class ApplicationSecurityGroupAssociation(pulumi.CustomResource):
+
+    pulumi_type = "azure:privatelink/applicationSecurityGroupAssociation:ApplicationSecurityGroupAssociation"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

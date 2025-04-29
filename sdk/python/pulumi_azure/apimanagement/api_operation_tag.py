@@ -128,6 +128,9 @@ class _ApiOperationTagState:
 
 
 class ApiOperationTag(pulumi.CustomResource):
+
+    pulumi_type = "azure:apimanagement/apiOperationTag:ApiOperationTag"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

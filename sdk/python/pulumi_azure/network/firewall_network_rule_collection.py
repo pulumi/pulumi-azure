@@ -223,6 +223,9 @@ class _FirewallNetworkRuleCollectionState:
 
 
 class FirewallNetworkRuleCollection(pulumi.CustomResource):
+
+    pulumi_type = "azure:network/firewallNetworkRuleCollection:FirewallNetworkRuleCollection"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

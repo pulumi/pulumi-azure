@@ -288,6 +288,9 @@ class _BudgetResourceGroupState:
 
 
 class BudgetResourceGroup(pulumi.CustomResource):
+
+    pulumi_type = "azure:consumption/budgetResourceGroup:BudgetResourceGroup"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

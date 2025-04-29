@@ -225,6 +225,9 @@ class _BackupPolicyPostgresqlFlexibleServerState:
 
 
 class BackupPolicyPostgresqlFlexibleServer(pulumi.CustomResource):
+
+    pulumi_type = "azure:dataprotection/backupPolicyPostgresqlFlexibleServer:BackupPolicyPostgresqlFlexibleServer"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

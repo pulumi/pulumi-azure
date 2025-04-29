@@ -226,6 +226,9 @@ class _IotHubDeviceUpdateInstanceState:
 
 
 class IotHubDeviceUpdateInstance(pulumi.CustomResource):
+
+    pulumi_type = "azure:iot/iotHubDeviceUpdateInstance:IotHubDeviceUpdateInstance"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

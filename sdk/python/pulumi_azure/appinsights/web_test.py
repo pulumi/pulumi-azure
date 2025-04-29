@@ -465,6 +465,9 @@ class _WebTestState:
 
 
 class WebTest(pulumi.CustomResource):
+
+    pulumi_type = "azure:appinsights/webTest:WebTest"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

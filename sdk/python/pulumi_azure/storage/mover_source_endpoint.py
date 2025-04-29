@@ -224,6 +224,9 @@ class _MoverSourceEndpointState:
 
 
 class MoverSourceEndpoint(pulumi.CustomResource):
+
+    pulumi_type = "azure:storage/moverSourceEndpoint:MoverSourceEndpoint"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

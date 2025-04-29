@@ -162,6 +162,9 @@ class _ResourceGroupState:
 
 
 class ResourceGroup(pulumi.CustomResource):
+
+    pulumi_type = "azure:core/resourceGroup:ResourceGroup"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

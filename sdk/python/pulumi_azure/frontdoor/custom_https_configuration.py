@@ -130,6 +130,9 @@ class _CustomHttpsConfigurationState:
 
 
 class CustomHttpsConfiguration(pulumi.CustomResource):
+
+    pulumi_type = "azure:frontdoor/customHttpsConfiguration:CustomHttpsConfiguration"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

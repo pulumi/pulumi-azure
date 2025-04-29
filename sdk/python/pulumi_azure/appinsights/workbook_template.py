@@ -321,6 +321,9 @@ class _WorkbookTemplateState:
 
 
 class WorkbookTemplate(pulumi.CustomResource):
+
+    pulumi_type = "azure:appinsights/workbookTemplate:WorkbookTemplate"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

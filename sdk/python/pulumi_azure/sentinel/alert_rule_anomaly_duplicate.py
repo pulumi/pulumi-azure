@@ -483,6 +483,9 @@ class _AlertRuleAnomalyDuplicateState:
 
 
 class AlertRuleAnomalyDuplicate(pulumi.CustomResource):
+
+    pulumi_type = "azure:sentinel/alertRuleAnomalyDuplicate:AlertRuleAnomalyDuplicate"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

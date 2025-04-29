@@ -192,6 +192,9 @@ class _ResolverState:
 
 
 class Resolver(pulumi.CustomResource):
+
+    pulumi_type = "azure:privatedns/resolver:Resolver"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

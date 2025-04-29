@@ -97,6 +97,9 @@ class _HyperVSiteState:
 
 
 class HyperVSite(pulumi.CustomResource):
+
+    pulumi_type = "azure:siterecovery/hyperVSite:HyperVSite"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

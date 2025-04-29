@@ -137,6 +137,9 @@ class _DataConnectorMicrosoftDefenderAdvancedThreatProtectionState:
 
 
 class DataConnectorMicrosoftDefenderAdvancedThreatProtection(pulumi.CustomResource):
+
+    pulumi_type = "azure:sentinel/dataConnectorMicrosoftDefenderAdvancedThreatProtection:DataConnectorMicrosoftDefenderAdvancedThreatProtection"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

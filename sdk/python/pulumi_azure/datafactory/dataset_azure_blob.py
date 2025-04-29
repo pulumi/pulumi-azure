@@ -458,6 +458,9 @@ class _DatasetAzureBlobState:
 
 
 class DatasetAzureBlob(pulumi.CustomResource):
+
+    pulumi_type = "azure:datafactory/datasetAzureBlob:DatasetAzureBlob"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

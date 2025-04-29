@@ -244,6 +244,9 @@ class _AadDiagnosticSettingState:
 
 
 class AadDiagnosticSetting(pulumi.CustomResource):
+
+    pulumi_type = "azure:monitoring/aadDiagnosticSetting:AadDiagnosticSetting"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

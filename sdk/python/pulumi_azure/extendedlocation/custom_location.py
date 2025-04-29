@@ -320,6 +320,9 @@ class _CustomLocationState:
 
 
 class CustomLocation(pulumi.CustomResource):
+
+    pulumi_type = "azure:extendedlocation/customLocation:CustomLocation"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

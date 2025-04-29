@@ -190,6 +190,9 @@ class _DataConnectorAwsS3State:
 
 
 class DataConnectorAwsS3(pulumi.CustomResource):
+
+    pulumi_type = "azure:sentinel/dataConnectorAwsS3:DataConnectorAwsS3"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

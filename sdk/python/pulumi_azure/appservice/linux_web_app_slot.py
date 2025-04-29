@@ -1026,6 +1026,9 @@ class _LinuxWebAppSlotState:
 
 
 class LinuxWebAppSlot(pulumi.CustomResource):
+
+    pulumi_type = "azure:appservice/linuxWebAppSlot:LinuxWebAppSlot"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

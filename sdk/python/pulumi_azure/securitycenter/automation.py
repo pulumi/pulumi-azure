@@ -328,6 +328,9 @@ class _AutomationState:
 
 
 class Automation(pulumi.CustomResource):
+
+    pulumi_type = "azure:securitycenter/automation:Automation"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -224,6 +224,9 @@ class _RedisCacheState:
 
 
 class RedisCache(pulumi.CustomResource):
+
+    pulumi_type = "azure:apimanagement/redisCache:RedisCache"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

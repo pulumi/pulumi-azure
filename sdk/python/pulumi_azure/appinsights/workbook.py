@@ -393,6 +393,9 @@ class _WorkbookState:
 
 
 class Workbook(pulumi.CustomResource):
+
+    pulumi_type = "azure:appinsights/workbook:Workbook"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

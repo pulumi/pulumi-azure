@@ -226,6 +226,9 @@ class _IntegrationAccountCertificateState:
 
 
 class IntegrationAccountCertificate(pulumi.CustomResource):
+
+    pulumi_type = "azure:logicapps/integrationAccountCertificate:IntegrationAccountCertificate"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

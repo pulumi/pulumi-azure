@@ -73,7 +73,7 @@ public final class AuthorizationFunctions {
      *             .name("Contributor")
      *             .build());
      * 
-     *         ctx.export("customRoleDefinitionId", custom.applyValue(_custom -> _custom.id()));
+     *         ctx.export("customRoleDefinitionId", custom.id());
      *         ctx.export("contributorRoleDefinitionId", builtin.id());
      *     }
      * }
@@ -140,7 +140,7 @@ public final class AuthorizationFunctions {
      *             .name("Contributor")
      *             .build());
      * 
-     *         ctx.export("customRoleDefinitionId", custom.applyValue(_custom -> _custom.id()));
+     *         ctx.export("customRoleDefinitionId", custom.id());
      *         ctx.export("contributorRoleDefinitionId", builtin.id());
      *     }
      * }
@@ -207,7 +207,7 @@ public final class AuthorizationFunctions {
      *             .name("Contributor")
      *             .build());
      * 
-     *         ctx.export("customRoleDefinitionId", custom.applyValue(_custom -> _custom.id()));
+     *         ctx.export("customRoleDefinitionId", custom.id());
      *         ctx.export("contributorRoleDefinitionId", builtin.id());
      *     }
      * }
@@ -274,7 +274,7 @@ public final class AuthorizationFunctions {
      *             .name("Contributor")
      *             .build());
      * 
-     *         ctx.export("customRoleDefinitionId", custom.applyValue(_custom -> _custom.id()));
+     *         ctx.export("customRoleDefinitionId", custom.id());
      *         ctx.export("contributorRoleDefinitionId", builtin.id());
      *     }
      * }
@@ -341,7 +341,7 @@ public final class AuthorizationFunctions {
      *             .name("Contributor")
      *             .build());
      * 
-     *         ctx.export("customRoleDefinitionId", custom.applyValue(_custom -> _custom.id()));
+     *         ctx.export("customRoleDefinitionId", custom.id());
      *         ctx.export("contributorRoleDefinitionId", builtin.id());
      *     }
      * }
@@ -408,7 +408,7 @@ public final class AuthorizationFunctions {
      *             .name("Contributor")
      *             .build());
      * 
-     *         ctx.export("customRoleDefinitionId", custom.applyValue(_custom -> _custom.id()));
+     *         ctx.export("customRoleDefinitionId", custom.id());
      *         ctx.export("contributorRoleDefinitionId", builtin.id());
      *     }
      * }
@@ -475,7 +475,7 @@ public final class AuthorizationFunctions {
      *             .name("Contributor")
      *             .build());
      * 
-     *         ctx.export("customRoleDefinitionId", custom.applyValue(_custom -> _custom.id()));
+     *         ctx.export("customRoleDefinitionId", custom.id());
      *         ctx.export("contributorRoleDefinitionId", builtin.id());
      *     }
      * }

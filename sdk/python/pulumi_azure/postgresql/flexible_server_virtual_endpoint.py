@@ -159,6 +159,9 @@ class _FlexibleServerVirtualEndpointState:
 
 
 class FlexibleServerVirtualEndpoint(pulumi.CustomResource):
+
+    pulumi_type = "azure:postgresql/flexibleServerVirtualEndpoint:FlexibleServerVirtualEndpoint"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

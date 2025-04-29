@@ -194,6 +194,9 @@ class _SqlDatabaseState:
 
 
 class SqlDatabase(pulumi.CustomResource):
+
+    pulumi_type = "azure:cosmosdb/sqlDatabase:SqlDatabase"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

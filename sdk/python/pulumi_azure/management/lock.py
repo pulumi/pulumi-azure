@@ -168,6 +168,9 @@ class _LockState:
 
 
 class Lock(pulumi.CustomResource):
+
+    pulumi_type = "azure:management/lock:Lock"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

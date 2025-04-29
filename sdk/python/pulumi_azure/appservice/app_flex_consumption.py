@@ -1128,6 +1128,9 @@ class _AppFlexConsumptionState:
 
 
 class AppFlexConsumption(pulumi.CustomResource):
+
+    pulumi_type = "azure:appservice/appFlexConsumption:AppFlexConsumption"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

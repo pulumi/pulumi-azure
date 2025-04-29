@@ -603,6 +603,9 @@ class _ConfigurationStoreState:
 
 
 class ConfigurationStore(pulumi.CustomResource):
+
+    pulumi_type = "azure:appconfiguration/configurationStore:ConfigurationStore"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

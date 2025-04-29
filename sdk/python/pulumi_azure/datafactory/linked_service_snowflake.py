@@ -322,6 +322,9 @@ class _LinkedServiceSnowflakeState:
 
 
 class LinkedServiceSnowflake(pulumi.CustomResource):
+
+    pulumi_type = "azure:datafactory/linkedServiceSnowflake:LinkedServiceSnowflake"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -289,6 +289,9 @@ class _SpringCloudApplicationInsightsApplicationPerformanceMonitoringState:
 
 
 class SpringCloudApplicationInsightsApplicationPerformanceMonitoring(pulumi.CustomResource):
+
+    pulumi_type = "azure:appplatform/springCloudApplicationInsightsApplicationPerformanceMonitoring:SpringCloudApplicationInsightsApplicationPerformanceMonitoring"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

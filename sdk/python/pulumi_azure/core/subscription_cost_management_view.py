@@ -349,6 +349,9 @@ class _SubscriptionCostManagementViewState:
 
 
 class SubscriptionCostManagementView(pulumi.CustomResource):
+
+    pulumi_type = "azure:core/subscriptionCostManagementView:SubscriptionCostManagementView"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

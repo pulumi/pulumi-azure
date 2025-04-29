@@ -128,6 +128,9 @@ class _AssignmentVirtualMachineState:
 
 
 class AssignmentVirtualMachine(pulumi.CustomResource):
+
+    pulumi_type = "azure:maintenance/assignmentVirtualMachine:AssignmentVirtualMachine"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

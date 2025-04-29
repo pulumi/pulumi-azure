@@ -586,6 +586,9 @@ class _EventHubNamespaceState:
 
 
 class EventHubNamespace(pulumi.CustomResource):
+
+    pulumi_type = "azure:eventhub/eventHubNamespace:EventHubNamespace"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -603,6 +603,9 @@ class _RegistryTaskState:
 
 
 class RegistryTask(pulumi.CustomResource):
+
+    pulumi_type = "azure:containerservice/registryTask:RegistryTask"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

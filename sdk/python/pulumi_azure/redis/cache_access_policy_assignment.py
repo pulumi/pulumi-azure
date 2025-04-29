@@ -190,6 +190,9 @@ class _CacheAccessPolicyAssignmentState:
 
 
 class CacheAccessPolicyAssignment(pulumi.CustomResource):
+
+    pulumi_type = "azure:redis/cacheAccessPolicyAssignment:CacheAccessPolicyAssignment"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

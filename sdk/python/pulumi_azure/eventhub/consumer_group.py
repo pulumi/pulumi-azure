@@ -191,6 +191,9 @@ class _ConsumerGroupState:
 
 
 class ConsumerGroup(pulumi.CustomResource):
+
+    pulumi_type = "azure:eventhub/consumerGroup:ConsumerGroup"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

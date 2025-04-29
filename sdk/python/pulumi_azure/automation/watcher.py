@@ -366,6 +366,9 @@ class _WatcherState:
 
 
 class Watcher(pulumi.CustomResource):
+
+    pulumi_type = "azure:automation/watcher:Watcher"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

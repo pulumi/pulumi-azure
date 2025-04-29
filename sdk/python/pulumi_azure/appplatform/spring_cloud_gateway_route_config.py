@@ -330,6 +330,9 @@ class _SpringCloudGatewayRouteConfigState:
 
 
 class SpringCloudGatewayRouteConfig(pulumi.CustomResource):
+
+    pulumi_type = "azure:appplatform/springCloudGatewayRouteConfig:SpringCloudGatewayRouteConfig"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

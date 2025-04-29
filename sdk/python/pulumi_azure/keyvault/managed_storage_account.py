@@ -263,6 +263,9 @@ class _ManagedStorageAccountState:
 
 
 class ManagedStorageAccount(pulumi.CustomResource):
+
+    pulumi_type = "azure:keyvault/managedStorageAccount:ManagedStorageAccount"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -321,6 +321,9 @@ class _LinkedCustomServiceState:
 
 
 class LinkedCustomService(pulumi.CustomResource):
+
+    pulumi_type = "azure:datafactory/linkedCustomService:LinkedCustomService"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

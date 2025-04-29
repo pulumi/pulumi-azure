@@ -255,6 +255,9 @@ class _AnomalyAlertState:
 
 
 class AnomalyAlert(pulumi.CustomResource):
+
+    pulumi_type = "azure:costmanagement/anomalyAlert:AnomalyAlert"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -455,6 +455,9 @@ class _HciVirtualHardDiskState:
 
 
 class HciVirtualHardDisk(pulumi.CustomResource):
+
+    pulumi_type = "azure:stack/hciVirtualHardDisk:HciVirtualHardDisk"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

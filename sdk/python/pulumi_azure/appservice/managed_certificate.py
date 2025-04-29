@@ -225,6 +225,9 @@ class _ManagedCertificateState:
 
 
 class ManagedCertificate(pulumi.CustomResource):
+
+    pulumi_type = "azure:appservice/managedCertificate:ManagedCertificate"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

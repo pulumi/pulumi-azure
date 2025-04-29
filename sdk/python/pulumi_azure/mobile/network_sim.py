@@ -367,6 +367,9 @@ class _NetworkSimState:
 
 
 class NetworkSim(pulumi.CustomResource):
+
+    pulumi_type = "azure:mobile/networkSim:NetworkSim"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

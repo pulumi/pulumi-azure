@@ -129,6 +129,9 @@ class _SpringCloudApiPortalCustomDomainState:
 
 
 class SpringCloudApiPortalCustomDomain(pulumi.CustomResource):
+
+    pulumi_type = "azure:appplatform/springCloudApiPortalCustomDomain:SpringCloudApiPortalCustomDomain"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

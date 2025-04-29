@@ -96,6 +96,9 @@ class _ServerKeyState:
 
 
 class ServerKey(pulumi.CustomResource):
+
+    pulumi_type = "azure:postgresql/serverKey:ServerKey"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

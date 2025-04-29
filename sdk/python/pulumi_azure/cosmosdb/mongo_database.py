@@ -210,6 +210,9 @@ class _MongoDatabaseState:
 
 
 class MongoDatabase(pulumi.CustomResource):
+
+    pulumi_type = "azure:cosmosdb/mongoDatabase:MongoDatabase"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

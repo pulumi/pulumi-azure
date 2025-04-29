@@ -1894,6 +1894,9 @@ class _WindowsVirtualMachineState:
 
 
 class WindowsVirtualMachine(pulumi.CustomResource):
+
+    pulumi_type = "azure:compute/windowsVirtualMachine:WindowsVirtualMachine"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

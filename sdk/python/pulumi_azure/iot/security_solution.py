@@ -513,6 +513,9 @@ class _SecuritySolutionState:
 
 
 class SecuritySolution(pulumi.CustomResource):
+
+    pulumi_type = "azure:iot/securitySolution:SecuritySolution"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

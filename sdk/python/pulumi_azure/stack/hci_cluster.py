@@ -347,6 +347,9 @@ class _HciClusterState:
 
 
 class HciCluster(pulumi.CustomResource):
+
+    pulumi_type = "azure:stack/hciCluster:HciCluster"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

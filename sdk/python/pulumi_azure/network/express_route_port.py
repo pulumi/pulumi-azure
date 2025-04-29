@@ -432,6 +432,9 @@ class _ExpressRoutePortState:
 
 
 class ExpressRoutePort(pulumi.CustomResource):
+
+    pulumi_type = "azure:network/expressRoutePort:ExpressRoutePort"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

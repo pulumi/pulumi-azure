@@ -286,6 +286,9 @@ class _ReplicationRecoveryPlanState:
 
 
 class ReplicationRecoveryPlan(pulumi.CustomResource):
+
+    pulumi_type = "azure:siterecovery/replicationRecoveryPlan:ReplicationRecoveryPlan"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

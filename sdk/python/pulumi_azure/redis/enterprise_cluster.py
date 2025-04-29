@@ -280,6 +280,9 @@ class _EnterpriseClusterState:
 
 
 class EnterpriseCluster(pulumi.CustomResource):
+
+    pulumi_type = "azure:redis/enterpriseCluster:EnterpriseCluster"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

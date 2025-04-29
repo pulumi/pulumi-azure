@@ -351,6 +351,9 @@ class _SourceControlState:
 
 
 class SourceControl(pulumi.CustomResource):
+
+    pulumi_type = "azure:automation/sourceControl:SourceControl"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -159,6 +159,9 @@ class _FlexibleServerConfigurationState:
 
 
 class FlexibleServerConfiguration(pulumi.CustomResource):
+
+    pulumi_type = "azure:mysql/flexibleServerConfiguration:FlexibleServerConfiguration"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

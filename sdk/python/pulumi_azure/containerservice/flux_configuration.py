@@ -321,6 +321,9 @@ class _FluxConfigurationState:
 
 
 class FluxConfiguration(pulumi.CustomResource):
+
+    pulumi_type = "azure:containerservice/fluxConfiguration:FluxConfiguration"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

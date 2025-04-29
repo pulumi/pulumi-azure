@@ -514,6 +514,9 @@ class _EnvironmentV3State:
 
 
 class EnvironmentV3(pulumi.CustomResource):
+
+    pulumi_type = "azure:appservice/environmentV3:EnvironmentV3"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

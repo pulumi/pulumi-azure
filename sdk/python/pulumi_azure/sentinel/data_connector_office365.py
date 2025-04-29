@@ -241,6 +241,9 @@ class _DataConnectorOffice365State:
 
 
 class DataConnectorOffice365(pulumi.CustomResource):
+
+    pulumi_type = "azure:sentinel/dataConnectorOffice365:DataConnectorOffice365"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

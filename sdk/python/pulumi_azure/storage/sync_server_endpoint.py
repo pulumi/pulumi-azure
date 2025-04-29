@@ -327,6 +327,9 @@ class _SyncServerEndpointState:
 
 
 class SyncServerEndpoint(pulumi.CustomResource):
+
+    pulumi_type = "azure:storage/syncServerEndpoint:SyncServerEndpoint"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

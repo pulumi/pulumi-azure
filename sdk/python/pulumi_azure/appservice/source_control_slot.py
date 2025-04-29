@@ -331,6 +331,9 @@ class _SourceControlSlotState:
 
 
 class SourceControlSlot(pulumi.CustomResource):
+
+    pulumi_type = "azure:appservice/sourceControlSlot:SourceControlSlot"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

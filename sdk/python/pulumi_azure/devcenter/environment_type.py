@@ -129,6 +129,9 @@ class _EnvironmentTypeState:
 
 
 class EnvironmentType(pulumi.CustomResource):
+
+    pulumi_type = "azure:devcenter/environmentType:EnvironmentType"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

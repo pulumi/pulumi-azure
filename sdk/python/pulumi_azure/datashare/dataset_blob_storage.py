@@ -241,6 +241,9 @@ class _DatasetBlobStorageState:
 
 
 class DatasetBlobStorage(pulumi.CustomResource):
+
+    pulumi_type = "azure:datashare/datasetBlobStorage:DatasetBlobStorage"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

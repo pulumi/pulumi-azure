@@ -384,6 +384,9 @@ class _TriggerCustomEventState:
 
 
 class TriggerCustomEvent(pulumi.CustomResource):
+
+    pulumi_type = "azure:datafactory/triggerCustomEvent:TriggerCustomEvent"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

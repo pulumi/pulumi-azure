@@ -289,6 +289,9 @@ class _VirtualWanState:
 
 
 class VirtualWan(pulumi.CustomResource):
+
+    pulumi_type = "azure:network/virtualWan:VirtualWan"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -191,6 +191,9 @@ class _ProductPolicyState:
 
 
 class ProductPolicy(pulumi.CustomResource):
+
+    pulumi_type = "azure:apimanagement/productPolicy:ProductPolicy"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -120,6 +120,9 @@ class _WorkspaceRootDbfsCustomerManagedKeyState:
 
 
 class WorkspaceRootDbfsCustomerManagedKey(pulumi.CustomResource):
+
+    pulumi_type = "azure:databricks/workspaceRootDbfsCustomerManagedKey:WorkspaceRootDbfsCustomerManagedKey"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

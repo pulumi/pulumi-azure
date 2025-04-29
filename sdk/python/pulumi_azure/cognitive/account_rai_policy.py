@@ -225,6 +225,9 @@ class _AccountRaiPolicyState:
 
 
 class AccountRaiPolicy(pulumi.CustomResource):
+
+    pulumi_type = "azure:cognitive/accountRaiPolicy:AccountRaiPolicy"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

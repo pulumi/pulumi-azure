@@ -402,6 +402,9 @@ class _ProvisionedClusterState:
 
 
 class ProvisionedCluster(pulumi.CustomResource):
+
+    pulumi_type = "azure:arckubernetes/provisionedCluster:ProvisionedCluster"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

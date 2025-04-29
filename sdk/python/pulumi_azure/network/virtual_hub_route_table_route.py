@@ -222,6 +222,9 @@ class _VirtualHubRouteTableRouteState:
 
 
 class VirtualHubRouteTableRoute(pulumi.CustomResource):
+
+    pulumi_type = "azure:network/virtualHubRouteTableRoute:VirtualHubRouteTableRoute"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -191,6 +191,9 @@ class _ContactState:
 
 
 class Contact(pulumi.CustomResource):
+
+    pulumi_type = "azure:securitycenter/contact:Contact"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

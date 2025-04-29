@@ -627,6 +627,9 @@ class _FirewallPolicyState:
 
 
 class FirewallPolicy(pulumi.CustomResource):
+
+    pulumi_type = "azure:network/firewallPolicy:FirewallPolicy"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

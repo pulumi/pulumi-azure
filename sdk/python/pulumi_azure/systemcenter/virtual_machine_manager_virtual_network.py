@@ -223,6 +223,9 @@ class _VirtualMachineManagerVirtualNetworkState:
 
 
 class VirtualMachineManagerVirtualNetwork(pulumi.CustomResource):
+
+    pulumi_type = "azure:systemcenter/virtualMachineManagerVirtualNetwork:VirtualMachineManagerVirtualNetwork"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

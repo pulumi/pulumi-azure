@@ -136,6 +136,9 @@ class _ActionCustomState:
 
 
 class ActionCustom(pulumi.CustomResource):
+
+    pulumi_type = "azure:logicapps/actionCustom:ActionCustom"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

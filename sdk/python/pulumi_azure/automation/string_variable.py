@@ -224,6 +224,9 @@ class _StringVariableState:
 
 
 class StringVariable(pulumi.CustomResource):
+
+    pulumi_type = "azure:automation/stringVariable:StringVariable"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -159,6 +159,9 @@ class _ChannelAlexaState:
 
 
 class ChannelAlexa(pulumi.CustomResource):
+
+    pulumi_type = "azure:bot/channelAlexa:ChannelAlexa"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

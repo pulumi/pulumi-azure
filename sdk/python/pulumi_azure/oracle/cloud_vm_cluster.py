@@ -985,6 +985,9 @@ class _CloudVmClusterState:
 
 
 class CloudVmCluster(pulumi.CustomResource):
+
+    pulumi_type = "azure:oracle/cloudVmCluster:CloudVmCluster"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

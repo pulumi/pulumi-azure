@@ -546,6 +546,9 @@ class _AIServicesState:
 
 
 class AIServices(pulumi.CustomResource):
+
+    pulumi_type = "azure:cognitive/aIServices:AIServices"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

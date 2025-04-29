@@ -201,6 +201,9 @@ class _SmartDetectionRuleState:
 
 
 class SmartDetectionRule(pulumi.CustomResource):
+
+    pulumi_type = "azure:appinsights/smartDetectionRule:SmartDetectionRule"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

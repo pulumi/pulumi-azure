@@ -159,6 +159,9 @@ class _IntegrationAccountSessionState:
 
 
 class IntegrationAccountSession(pulumi.CustomResource):
+
+    pulumi_type = "azure:logicapps/integrationAccountSession:IntegrationAccountSession"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

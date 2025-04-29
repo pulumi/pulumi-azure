@@ -158,6 +158,9 @@ class _GroupUserState:
 
 
 class GroupUser(pulumi.CustomResource):
+
+    pulumi_type = "azure:apimanagement/groupUser:GroupUser"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

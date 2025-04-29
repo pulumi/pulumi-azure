@@ -478,6 +478,9 @@ class _ServicesCommunicationsGatewayState:
 
 
 class ServicesCommunicationsGateway(pulumi.CustomResource):
+
+    pulumi_type = "azure:voice/servicesCommunicationsGateway:ServicesCommunicationsGateway"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -240,6 +240,9 @@ class _DatabaseState:
 
 
 class Database(pulumi.CustomResource):
+
+    pulumi_type = "azure:kusto/database:Database"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

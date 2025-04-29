@@ -486,6 +486,9 @@ warnings.warn("""azure.eventhub.Topic has been deprecated in favor of azure.serv
 class Topic(pulumi.CustomResource):
     warnings.warn("""azure.eventhub.Topic has been deprecated in favor of azure.servicebus.Topic""", DeprecationWarning)
 
+
+    pulumi_type = "azure:eventhub/topic:Topic"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

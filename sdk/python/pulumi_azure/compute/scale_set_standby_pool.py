@@ -256,6 +256,9 @@ class _ScaleSetStandbyPoolState:
 
 
 class ScaleSetStandbyPool(pulumi.CustomResource):
+
+    pulumi_type = "azure:compute/scaleSetStandbyPool:ScaleSetStandbyPool"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

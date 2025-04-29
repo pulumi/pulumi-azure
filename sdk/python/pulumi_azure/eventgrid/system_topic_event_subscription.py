@@ -754,6 +754,9 @@ class _SystemTopicEventSubscriptionState:
 
 
 class SystemTopicEventSubscription(pulumi.CustomResource):
+
+    pulumi_type = "azure:eventgrid/systemTopicEventSubscription:SystemTopicEventSubscription"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

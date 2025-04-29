@@ -240,6 +240,9 @@ class _TxtRecordState:
 
 
 class TxtRecord(pulumi.CustomResource):
+
+    pulumi_type = "azure:dns/txtRecord:TxtRecord"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

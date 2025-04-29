@@ -222,6 +222,9 @@ class _IntegrationAccountMapState:
 
 
 class IntegrationAccountMap(pulumi.CustomResource):
+
+    pulumi_type = "azure:logicapps/integrationAccountMap:IntegrationAccountMap"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

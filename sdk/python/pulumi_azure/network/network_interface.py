@@ -554,6 +554,9 @@ class _NetworkInterfaceState:
 
 
 class NetworkInterface(pulumi.CustomResource):
+
+    pulumi_type = "azure:network/networkInterface:NetworkInterface"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

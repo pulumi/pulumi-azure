@@ -362,6 +362,9 @@ class _AccountState:
 
 
 class Account(pulumi.CustomResource):
+
+    pulumi_type = "azure:purview/account:Account"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

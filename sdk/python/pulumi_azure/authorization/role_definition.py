@@ -251,6 +251,9 @@ class _RoleDefinitionState:
 
 
 class RoleDefinition(pulumi.CustomResource):
+
+    pulumi_type = "azure:authorization/roleDefinition:RoleDefinition"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -222,6 +222,9 @@ class _MedtechServiceFhirDestinationState:
 
 
 class MedtechServiceFhirDestination(pulumi.CustomResource):
+
+    pulumi_type = "azure:healthcare/medtechServiceFhirDestination:MedtechServiceFhirDestination"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

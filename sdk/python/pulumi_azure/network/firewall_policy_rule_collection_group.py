@@ -226,6 +226,9 @@ class _FirewallPolicyRuleCollectionGroupState:
 
 
 class FirewallPolicyRuleCollectionGroup(pulumi.CustomResource):
+
+    pulumi_type = "azure:network/firewallPolicyRuleCollectionGroup:FirewallPolicyRuleCollectionGroup"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

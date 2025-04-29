@@ -96,6 +96,9 @@ class _SubnetNetworkSecurityGroupAssociationState:
 
 
 class SubnetNetworkSecurityGroupAssociation(pulumi.CustomResource):
+
+    pulumi_type = "azure:network/subnetNetworkSecurityGroupAssociation:SubnetNetworkSecurityGroupAssociation"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

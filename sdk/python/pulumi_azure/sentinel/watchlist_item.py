@@ -128,6 +128,9 @@ class _WatchlistItemState:
 
 
 class WatchlistItem(pulumi.CustomResource):
+
+    pulumi_type = "azure:sentinel/watchlistItem:WatchlistItem"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

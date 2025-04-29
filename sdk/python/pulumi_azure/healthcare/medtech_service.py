@@ -319,6 +319,9 @@ class _MedtechServiceState:
 
 
 class MedtechService(pulumi.CustomResource):
+
+    pulumi_type = "azure:healthcare/medtechService:MedtechService"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

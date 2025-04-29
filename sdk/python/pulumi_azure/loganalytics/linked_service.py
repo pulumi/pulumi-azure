@@ -184,6 +184,9 @@ class _LinkedServiceState:
 
 
 class LinkedService(pulumi.CustomResource):
+
+    pulumi_type = "azure:loganalytics/linkedService:LinkedService"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

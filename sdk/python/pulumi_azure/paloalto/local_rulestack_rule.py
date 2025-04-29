@@ -654,6 +654,9 @@ class _LocalRulestackRuleState:
 
 
 class LocalRulestackRule(pulumi.CustomResource):
+
+    pulumi_type = "azure:paloalto/localRulestackRule:LocalRulestackRule"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

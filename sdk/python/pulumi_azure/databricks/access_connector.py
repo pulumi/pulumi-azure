@@ -195,6 +195,9 @@ class _AccessConnectorState:
 
 
 class AccessConnector(pulumi.CustomResource):
+
+    pulumi_type = "azure:databricks/accessConnector:AccessConnector"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

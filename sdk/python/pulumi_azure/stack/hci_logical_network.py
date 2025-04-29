@@ -288,6 +288,9 @@ class _HciLogicalNetworkState:
 
 
 class HciLogicalNetwork(pulumi.CustomResource):
+
+    pulumi_type = "azure:stack/hciLogicalNetwork:HciLogicalNetwork"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -241,6 +241,9 @@ class _FrontdoorCustomDomainState:
 
 
 class FrontdoorCustomDomain(pulumi.CustomResource):
+
+    pulumi_type = "azure:cdn/frontdoorCustomDomain:FrontdoorCustomDomain"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

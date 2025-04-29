@@ -97,6 +97,9 @@ class _SpringCloudApplicationLiveViewState:
 
 
 class SpringCloudApplicationLiveView(pulumi.CustomResource):
+
+    pulumi_type = "azure:appplatform/springCloudApplicationLiveView:SpringCloudApplicationLiveView"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

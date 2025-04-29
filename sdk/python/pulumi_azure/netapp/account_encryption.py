@@ -160,6 +160,9 @@ class _AccountEncryptionState:
 
 
 class AccountEncryption(pulumi.CustomResource):
+
+    pulumi_type = "azure:netapp/accountEncryption:AccountEncryption"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

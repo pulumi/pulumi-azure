@@ -321,6 +321,9 @@ class _AlertProcessingRuleActionGroupState:
 
 
 class AlertProcessingRuleActionGroup(pulumi.CustomResource):
+
+    pulumi_type = "azure:monitoring/alertProcessingRuleActionGroup:AlertProcessingRuleActionGroup"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

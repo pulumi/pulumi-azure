@@ -161,6 +161,9 @@ class _ObjectReplicationState:
 
 
 class ObjectReplication(pulumi.CustomResource):
+
+    pulumi_type = "azure:storage/objectReplication:ObjectReplication"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

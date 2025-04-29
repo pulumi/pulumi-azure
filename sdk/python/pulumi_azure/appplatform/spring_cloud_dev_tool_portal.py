@@ -227,6 +227,9 @@ class _SpringCloudDevToolPortalState:
 
 
 class SpringCloudDevToolPortal(pulumi.CustomResource):
+
+    pulumi_type = "azure:appplatform/springCloudDevToolPortal:SpringCloudDevToolPortal"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

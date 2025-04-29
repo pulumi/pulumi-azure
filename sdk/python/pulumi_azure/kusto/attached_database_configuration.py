@@ -337,6 +337,9 @@ class _AttachedDatabaseConfigurationState:
 
 
 class AttachedDatabaseConfiguration(pulumi.CustomResource):
+
+    pulumi_type = "azure:kusto/attachedDatabaseConfiguration:AttachedDatabaseConfiguration"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

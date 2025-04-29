@@ -361,6 +361,9 @@ class _LinkedServiceCosmosDbMongoApiState:
 
 
 class LinkedServiceCosmosDbMongoApi(pulumi.CustomResource):
+
+    pulumi_type = "azure:datafactory/linkedServiceCosmosDbMongoApi:LinkedServiceCosmosDbMongoApi"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

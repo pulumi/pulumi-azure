@@ -495,6 +495,9 @@ class _RunBookState:
 
 
 class RunBook(pulumi.CustomResource):
+
+    pulumi_type = "azure:automation/runBook:RunBook"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

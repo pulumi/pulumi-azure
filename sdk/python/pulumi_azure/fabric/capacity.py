@@ -234,6 +234,9 @@ class _CapacityState:
 
 
 class Capacity(pulumi.CustomResource):
+
+    pulumi_type = "azure:fabric/capacity:Capacity"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

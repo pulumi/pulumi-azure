@@ -130,6 +130,9 @@ class _FleetUpdateStrategyState:
 
 
 class FleetUpdateStrategy(pulumi.CustomResource):
+
+    pulumi_type = "azure:containerservice/fleetUpdateStrategy:FleetUpdateStrategy"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

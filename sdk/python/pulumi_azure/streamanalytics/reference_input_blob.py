@@ -380,6 +380,9 @@ class _ReferenceInputBlobState:
 
 
 class ReferenceInputBlob(pulumi.CustomResource):
+
+    pulumi_type = "azure:streamanalytics/referenceInputBlob:ReferenceInputBlob"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

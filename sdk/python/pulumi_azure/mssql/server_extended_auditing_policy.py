@@ -361,6 +361,9 @@ class _ServerExtendedAuditingPolicyState:
 
 
 class ServerExtendedAuditingPolicy(pulumi.CustomResource):
+
+    pulumi_type = "azure:mssql/serverExtendedAuditingPolicy:ServerExtendedAuditingPolicy"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -210,6 +210,9 @@ class _ManagedHardwareSecurityModuleRoleAssignmentState:
 
 
 class ManagedHardwareSecurityModuleRoleAssignment(pulumi.CustomResource):
+
+    pulumi_type = "azure:keyvault/managedHardwareSecurityModuleRoleAssignment:ManagedHardwareSecurityModuleRoleAssignment"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

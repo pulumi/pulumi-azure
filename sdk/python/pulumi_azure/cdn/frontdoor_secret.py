@@ -146,6 +146,9 @@ class _FrontdoorSecretState:
 
 
 class FrontdoorSecret(pulumi.CustomResource):
+
+    pulumi_type = "azure:cdn/frontdoorSecret:FrontdoorSecret"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

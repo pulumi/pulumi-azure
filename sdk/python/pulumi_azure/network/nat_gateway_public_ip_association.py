@@ -96,6 +96,9 @@ class _NatGatewayPublicIpAssociationState:
 
 
 class NatGatewayPublicIpAssociation(pulumi.CustomResource):
+
+    pulumi_type = "azure:network/natGatewayPublicIpAssociation:NatGatewayPublicIpAssociation"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

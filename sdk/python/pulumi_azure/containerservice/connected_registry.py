@@ -426,6 +426,9 @@ class _ConnectedRegistryState:
 
 
 class ConnectedRegistry(pulumi.CustomResource):
+
+    pulumi_type = "azure:containerservice/connectedRegistry:ConnectedRegistry"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

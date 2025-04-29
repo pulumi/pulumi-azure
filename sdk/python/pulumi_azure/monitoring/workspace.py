@@ -241,6 +241,9 @@ class _WorkspaceState:
 
 
 class Workspace(pulumi.CustomResource):
+
+    pulumi_type = "azure:monitoring/workspace:Workspace"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

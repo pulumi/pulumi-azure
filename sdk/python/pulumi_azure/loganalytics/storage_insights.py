@@ -254,6 +254,9 @@ class _StorageInsightsState:
 
 
 class StorageInsights(pulumi.CustomResource):
+
+    pulumi_type = "azure:loganalytics/storageInsights:StorageInsights"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

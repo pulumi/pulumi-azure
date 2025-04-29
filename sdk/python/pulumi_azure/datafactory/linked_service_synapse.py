@@ -330,6 +330,9 @@ class _LinkedServiceSynapseState:
 
 
 class LinkedServiceSynapse(pulumi.CustomResource):
+
+    pulumi_type = "azure:datafactory/linkedServiceSynapse:LinkedServiceSynapse"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

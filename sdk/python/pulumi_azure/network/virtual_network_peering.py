@@ -455,6 +455,9 @@ class _VirtualNetworkPeeringState:
 
 
 class VirtualNetworkPeering(pulumi.CustomResource):
+
+    pulumi_type = "azure:network/virtualNetworkPeering:VirtualNetworkPeering"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

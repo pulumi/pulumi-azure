@@ -386,6 +386,9 @@ class _KubernetesClusterExtensionState:
 
 
 class KubernetesClusterExtension(pulumi.CustomResource):
+
+    pulumi_type = "azure:containerservice/kubernetesClusterExtension:KubernetesClusterExtension"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

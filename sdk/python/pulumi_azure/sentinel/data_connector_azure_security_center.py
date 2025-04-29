@@ -129,6 +129,9 @@ class _DataConnectorAzureSecurityCenterState:
 
 
 class DataConnectorAzureSecurityCenter(pulumi.CustomResource):
+
+    pulumi_type = "azure:sentinel/dataConnectorAzureSecurityCenter:DataConnectorAzureSecurityCenter"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

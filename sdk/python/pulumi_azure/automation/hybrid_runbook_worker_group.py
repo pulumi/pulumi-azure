@@ -160,6 +160,9 @@ class _HybridRunbookWorkerGroupState:
 
 
 class HybridRunbookWorkerGroup(pulumi.CustomResource):
+
+    pulumi_type = "azure:automation/hybridRunbookWorkerGroup:HybridRunbookWorkerGroup"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -191,6 +191,9 @@ warnings.warn("""azure.managementgroups.ManagementGroup has been deprecated in f
 class ManagementGroup(pulumi.CustomResource):
     warnings.warn("""azure.managementgroups.ManagementGroup has been deprecated in favor of azure.management.Group""", DeprecationWarning)
 
+
+    pulumi_type = "azure:managementgroups/managementGroup:ManagementGroup"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

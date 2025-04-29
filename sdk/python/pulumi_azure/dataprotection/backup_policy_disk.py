@@ -225,6 +225,9 @@ class _BackupPolicyDiskState:
 
 
 class BackupPolicyDisk(pulumi.CustomResource):
+
+    pulumi_type = "azure:dataprotection/backupPolicyDisk:BackupPolicyDisk"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

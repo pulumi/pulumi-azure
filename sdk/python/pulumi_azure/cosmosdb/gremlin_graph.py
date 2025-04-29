@@ -448,6 +448,9 @@ class _GremlinGraphState:
 
 
 class GremlinGraph(pulumi.CustomResource):
+
+    pulumi_type = "azure:cosmosdb/gremlinGraph:GremlinGraph"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

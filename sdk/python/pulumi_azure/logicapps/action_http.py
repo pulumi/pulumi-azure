@@ -297,6 +297,9 @@ class _ActionHttpState:
 
 
 class ActionHttp(pulumi.CustomResource):
+
+    pulumi_type = "azure:logicapps/actionHttp:ActionHttp"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

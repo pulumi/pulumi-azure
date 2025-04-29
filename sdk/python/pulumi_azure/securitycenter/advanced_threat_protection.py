@@ -96,6 +96,9 @@ class _AdvancedThreatProtectionState:
 
 
 class AdvancedThreatProtection(pulumi.CustomResource):
+
+    pulumi_type = "azure:securitycenter/advancedThreatProtection:AdvancedThreatProtection"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

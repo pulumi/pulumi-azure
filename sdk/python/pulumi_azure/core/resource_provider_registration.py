@@ -92,6 +92,9 @@ class _ResourceProviderRegistrationState:
 
 
 class ResourceProviderRegistration(pulumi.CustomResource):
+
+    pulumi_type = "azure:core/resourceProviderRegistration:ResourceProviderRegistration"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

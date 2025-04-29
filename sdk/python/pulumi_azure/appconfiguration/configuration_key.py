@@ -376,6 +376,9 @@ class _ConfigurationKeyState:
 
 
 class ConfigurationKey(pulumi.CustomResource):
+
+    pulumi_type = "azure:appconfiguration/configurationKey:ConfigurationKey"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

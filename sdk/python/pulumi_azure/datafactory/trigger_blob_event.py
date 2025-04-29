@@ -424,6 +424,9 @@ class _TriggerBlobEventState:
 
 
 class TriggerBlobEvent(pulumi.CustomResource):
+
+    pulumi_type = "azure:datafactory/triggerBlobEvent:TriggerBlobEvent"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

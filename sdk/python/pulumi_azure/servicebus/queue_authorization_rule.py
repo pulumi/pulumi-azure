@@ -297,6 +297,9 @@ class _QueueAuthorizationRuleState:
 
 
 class QueueAuthorizationRule(pulumi.CustomResource):
+
+    pulumi_type = "azure:servicebus/queueAuthorizationRule:QueueAuthorizationRule"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -321,6 +321,9 @@ class _ScaleSetPacketCaptureState:
 
 
 class ScaleSetPacketCapture(pulumi.CustomResource):
+
+    pulumi_type = "azure:compute/scaleSetPacketCapture:ScaleSetPacketCapture"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

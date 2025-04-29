@@ -382,6 +382,9 @@ class _DiskEncryptionSetState:
 
 
 class DiskEncryptionSet(pulumi.CustomResource):
+
+    pulumi_type = "azure:compute/diskEncryptionSet:DiskEncryptionSet"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

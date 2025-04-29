@@ -609,6 +609,9 @@ class _SlotState:
 
 
 class Slot(pulumi.CustomResource):
+
+    pulumi_type = "azure:appservice/slot:Slot"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

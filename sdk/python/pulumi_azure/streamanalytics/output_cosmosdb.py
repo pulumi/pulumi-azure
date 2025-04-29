@@ -286,6 +286,9 @@ class _OutputCosmosdbState:
 
 
 class OutputCosmosdb(pulumi.CustomResource):
+
+    pulumi_type = "azure:streamanalytics/outputCosmosdb:OutputCosmosdb"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

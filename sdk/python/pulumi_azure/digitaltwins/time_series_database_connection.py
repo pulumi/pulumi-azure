@@ -347,6 +347,9 @@ class _TimeSeriesDatabaseConnectionState:
 
 
 class TimeSeriesDatabaseConnection(pulumi.CustomResource):
+
+    pulumi_type = "azure:digitaltwins/timeSeriesDatabaseConnection:TimeSeriesDatabaseConnection"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

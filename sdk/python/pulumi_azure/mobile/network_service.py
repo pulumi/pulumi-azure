@@ -257,6 +257,9 @@ class _NetworkServiceState:
 
 
 class NetworkService(pulumi.CustomResource):
+
+    pulumi_type = "azure:mobile/networkService:NetworkService"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

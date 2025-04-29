@@ -223,6 +223,9 @@ class _HciStoragePathState:
 
 
 class HciStoragePath(pulumi.CustomResource):
+
+    pulumi_type = "azure:stack/hciStoragePath:HciStoragePath"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -350,6 +350,9 @@ class _HciMarketplaceGalleryImageState:
 
 
 class HciMarketplaceGalleryImage(pulumi.CustomResource):
+
+    pulumi_type = "azure:stack/hciMarketplaceGalleryImage:HciMarketplaceGalleryImage"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

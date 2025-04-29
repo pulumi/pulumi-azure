@@ -537,6 +537,9 @@ class _FrontdoorFirewallPolicyState:
 
 
 class FrontdoorFirewallPolicy(pulumi.CustomResource):
+
+    pulumi_type = "azure:cdn/frontdoorFirewallPolicy:FrontdoorFirewallPolicy"
+
     @overload
     def __init__(__self__,
                  resource_name: str,
