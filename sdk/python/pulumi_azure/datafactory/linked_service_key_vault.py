@@ -287,10 +287,8 @@ class _LinkedServiceKeyVaultState:
         pulumi.set(self, "parameters", value)
 
 
+@pulumi.type_token("azure:datafactory/linkedServiceKeyVault:LinkedServiceKeyVault")
 class LinkedServiceKeyVault(pulumi.CustomResource):
-
-    pulumi_type = "azure:datafactory/linkedServiceKeyVault:LinkedServiceKeyVault"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

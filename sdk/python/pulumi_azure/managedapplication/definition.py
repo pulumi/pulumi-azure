@@ -424,10 +424,8 @@ class _DefinitionState:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure:managedapplication/definition:Definition")
 class Definition(pulumi.CustomResource):
-
-    pulumi_type = "azure:managedapplication/definition:Definition"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -304,10 +304,8 @@ class _GroupTemplateDeploymentState:
         pulumi.set(self, "template_spec_version_id", value)
 
 
+@pulumi.type_token("azure:management/groupTemplateDeployment:GroupTemplateDeployment")
 class GroupTemplateDeployment(pulumi.CustomResource):
-
-    pulumi_type = "azure:management/groupTemplateDeployment:GroupTemplateDeployment"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

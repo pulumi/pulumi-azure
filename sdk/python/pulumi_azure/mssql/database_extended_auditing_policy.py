@@ -276,10 +276,8 @@ class _DatabaseExtendedAuditingPolicyState:
         pulumi.set(self, "storage_endpoint", value)
 
 
+@pulumi.type_token("azure:mssql/databaseExtendedAuditingPolicy:DatabaseExtendedAuditingPolicy")
 class DatabaseExtendedAuditingPolicy(pulumi.CustomResource):
-
-    pulumi_type = "azure:mssql/databaseExtendedAuditingPolicy:DatabaseExtendedAuditingPolicy"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

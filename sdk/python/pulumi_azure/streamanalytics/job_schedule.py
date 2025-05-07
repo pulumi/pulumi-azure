@@ -151,10 +151,8 @@ class _JobScheduleState:
         pulumi.set(self, "stream_analytics_job_id", value)
 
 
+@pulumi.type_token("azure:streamanalytics/jobSchedule:JobSchedule")
 class JobSchedule(pulumi.CustomResource):
-
-    pulumi_type = "azure:streamanalytics/jobSchedule:JobSchedule"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

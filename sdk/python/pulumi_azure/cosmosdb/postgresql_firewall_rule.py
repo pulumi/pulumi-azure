@@ -158,10 +158,8 @@ class _PostgresqlFirewallRuleState:
         pulumi.set(self, "start_ip_address", value)
 
 
+@pulumi.type_token("azure:cosmosdb/postgresqlFirewallRule:PostgresqlFirewallRule")
 class PostgresqlFirewallRule(pulumi.CustomResource):
-
-    pulumi_type = "azure:cosmosdb/postgresqlFirewallRule:PostgresqlFirewallRule"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

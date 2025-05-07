@@ -190,10 +190,8 @@ class _EndpointServicebusState:
         pulumi.set(self, "servicebus_secondary_connection_string", value)
 
 
+@pulumi.type_token("azure:digitaltwins/endpointServicebus:EndpointServicebus")
 class EndpointServicebus(pulumi.CustomResource):
-
-    pulumi_type = "azure:digitaltwins/endpointServicebus:EndpointServicebus"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -193,10 +193,8 @@ class _CapacityReservationState:
         pulumi.set(self, "zone", value)
 
 
+@pulumi.type_token("azure:compute/capacityReservation:CapacityReservation")
 class CapacityReservation(pulumi.CustomResource):
-
-    pulumi_type = "azure:compute/capacityReservation:CapacityReservation"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

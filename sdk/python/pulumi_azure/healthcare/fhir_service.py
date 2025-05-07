@@ -464,10 +464,8 @@ class _FhirServiceState:
         pulumi.set(self, "workspace_id", value)
 
 
+@pulumi.type_token("azure:healthcare/fhirService:FhirService")
 class FhirService(pulumi.CustomResource):
-
-    pulumi_type = "azure:healthcare/fhirService:FhirService"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

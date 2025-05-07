@@ -158,10 +158,8 @@ class _PrivateLinkScopedServiceState:
         pulumi.set(self, "scope_name", value)
 
 
+@pulumi.type_token("azure:monitoring/privateLinkScopedService:PrivateLinkScopedService")
 class PrivateLinkScopedService(pulumi.CustomResource):
-
-    pulumi_type = "azure:monitoring/privateLinkScopedService:PrivateLinkScopedService"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

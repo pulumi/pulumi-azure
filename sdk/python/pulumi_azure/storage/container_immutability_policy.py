@@ -199,10 +199,8 @@ class _ContainerImmutabilityPolicyState:
         pulumi.set(self, "storage_container_resource_manager_id", value)
 
 
+@pulumi.type_token("azure:storage/containerImmutabilityPolicy:ContainerImmutabilityPolicy")
 class ContainerImmutabilityPolicy(pulumi.CustomResource):
-
-    pulumi_type = "azure:storage/containerImmutabilityPolicy:ContainerImmutabilityPolicy"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

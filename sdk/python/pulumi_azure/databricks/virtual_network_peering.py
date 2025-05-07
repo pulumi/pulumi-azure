@@ -369,10 +369,8 @@ class _VirtualNetworkPeeringState:
         pulumi.set(self, "workspace_id", value)
 
 
+@pulumi.type_token("azure:databricks/virtualNetworkPeering:VirtualNetworkPeering")
 class VirtualNetworkPeering(pulumi.CustomResource):
-
-    pulumi_type = "azure:databricks/virtualNetworkPeering:VirtualNetworkPeering"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -229,10 +229,8 @@ class _CacheBlobTargetState:
         pulumi.set(self, "storage_container_id", value)
 
 
+@pulumi.type_token("azure:hpc/cacheBlobTarget:CacheBlobTarget")
 class CacheBlobTarget(pulumi.CustomResource):
-
-    pulumi_type = "azure:hpc/cacheBlobTarget:CacheBlobTarget"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

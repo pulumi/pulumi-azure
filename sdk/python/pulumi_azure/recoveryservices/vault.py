@@ -505,10 +505,8 @@ class _VaultState:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure:recoveryservices/vault:Vault")
 class Vault(pulumi.CustomResource):
-
-    pulumi_type = "azure:recoveryservices/vault:Vault"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

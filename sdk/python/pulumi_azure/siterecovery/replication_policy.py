@@ -197,10 +197,8 @@ class _ReplicationPolicyState:
         pulumi.set(self, "resource_group_name", value)
 
 
+@pulumi.type_token("azure:siterecovery/replicationPolicy:ReplicationPolicy")
 class ReplicationPolicy(pulumi.CustomResource):
-
-    pulumi_type = "azure:siterecovery/replicationPolicy:ReplicationPolicy"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

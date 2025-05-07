@@ -423,10 +423,8 @@ class _TriggerBlobEventState:
         pulumi.set(self, "storage_account_id", value)
 
 
+@pulumi.type_token("azure:datafactory/triggerBlobEvent:TriggerBlobEvent")
 class TriggerBlobEvent(pulumi.CustomResource):
-
-    pulumi_type = "azure:datafactory/triggerBlobEvent:TriggerBlobEvent"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

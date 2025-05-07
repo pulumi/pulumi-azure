@@ -237,10 +237,8 @@ class _ManagedStorageAccountSasTokenDefinitionState:
         pulumi.set(self, "validity_period", value)
 
 
+@pulumi.type_token("azure:keyvault/managedStorageAccountSasTokenDefinition:ManagedStorageAccountSasTokenDefinition")
 class ManagedStorageAccountSasTokenDefinition(pulumi.CustomResource):
-
-    pulumi_type = "azure:keyvault/managedStorageAccountSasTokenDefinition:ManagedStorageAccountSasTokenDefinition"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

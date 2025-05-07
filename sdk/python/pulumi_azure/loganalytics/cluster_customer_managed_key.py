@@ -95,10 +95,8 @@ class _ClusterCustomerManagedKeyState:
         pulumi.set(self, "log_analytics_cluster_id", value)
 
 
+@pulumi.type_token("azure:loganalytics/clusterCustomerManagedKey:ClusterCustomerManagedKey")
 class ClusterCustomerManagedKey(pulumi.CustomResource):
-
-    pulumi_type = "azure:loganalytics/clusterCustomerManagedKey:ClusterCustomerManagedKey"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

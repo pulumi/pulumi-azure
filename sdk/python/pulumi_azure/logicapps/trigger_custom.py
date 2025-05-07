@@ -151,10 +151,8 @@ class _TriggerCustomState:
         pulumi.set(self, "name", value)
 
 
+@pulumi.type_token("azure:logicapps/triggerCustom:TriggerCustom")
 class TriggerCustom(pulumi.CustomResource):
-
-    pulumi_type = "azure:logicapps/triggerCustom:TriggerCustom"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

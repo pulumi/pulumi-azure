@@ -95,10 +95,8 @@ class _ApplicationSecurityGroupAssociationState:
         pulumi.set(self, "private_endpoint_id", value)
 
 
+@pulumi.type_token("azure:privatelink/applicationSecurityGroupAssociation:ApplicationSecurityGroupAssociation")
 class ApplicationSecurityGroupAssociation(pulumi.CustomResource):
-
-    pulumi_type = "azure:privatelink/applicationSecurityGroupAssociation:ApplicationSecurityGroupAssociation"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

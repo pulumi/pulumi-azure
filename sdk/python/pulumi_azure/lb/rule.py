@@ -464,10 +464,8 @@ class _RuleState:
         pulumi.set(self, "protocol", value)
 
 
+@pulumi.type_token("azure:lb/rule:Rule")
 class Rule(pulumi.CustomResource):
-
-    pulumi_type = "azure:lb/rule:Rule"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -207,10 +207,8 @@ class _MonitorSsoConfigurationState:
         pulumi.set(self, "single_sign_on_enabled", value)
 
 
+@pulumi.type_token("azure:datadog/monitorSsoConfiguration:MonitorSsoConfiguration")
 class MonitorSsoConfiguration(pulumi.CustomResource):
-
-    pulumi_type = "azure:datadog/monitorSsoConfiguration:MonitorSsoConfiguration"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -375,10 +375,8 @@ class _ConfigurationKeyState:
         pulumi.set(self, "vault_key_reference", value)
 
 
+@pulumi.type_token("azure:appconfiguration/configurationKey:ConfigurationKey")
 class ConfigurationKey(pulumi.CustomResource):
-
-    pulumi_type = "azure:appconfiguration/configurationKey:ConfigurationKey"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

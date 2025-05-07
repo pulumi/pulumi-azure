@@ -329,10 +329,8 @@ class _SpringCloudGatewayRouteConfigState:
         pulumi.set(self, "sso_validation_enabled", value)
 
 
+@pulumi.type_token("azure:appplatform/springCloudGatewayRouteConfig:SpringCloudGatewayRouteConfig")
 class SpringCloudGatewayRouteConfig(pulumi.CustomResource):
-
-    pulumi_type = "azure:appplatform/springCloudGatewayRouteConfig:SpringCloudGatewayRouteConfig"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -239,10 +239,8 @@ class _SpringCloudCertificateState:
         pulumi.set(self, "thumbprint", value)
 
 
+@pulumi.type_token("azure:appplatform/springCloudCertificate:SpringCloudCertificate")
 class SpringCloudCertificate(pulumi.CustomResource):
-
-    pulumi_type = "azure:appplatform/springCloudCertificate:SpringCloudCertificate"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

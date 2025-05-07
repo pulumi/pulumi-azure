@@ -191,10 +191,8 @@ class _GalleryApplicationAssignmentState:
         pulumi.set(self, "virtual_machine_id", value)
 
 
+@pulumi.type_token("azure:compute/galleryApplicationAssignment:GalleryApplicationAssignment")
 class GalleryApplicationAssignment(pulumi.CustomResource):
-
-    pulumi_type = "azure:compute/galleryApplicationAssignment:GalleryApplicationAssignment"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

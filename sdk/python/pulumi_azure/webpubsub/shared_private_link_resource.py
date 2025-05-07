@@ -222,10 +222,8 @@ class _SharedPrivateLinkResourceState:
         pulumi.set(self, "web_pubsub_id", value)
 
 
+@pulumi.type_token("azure:webpubsub/sharedPrivateLinkResource:SharedPrivateLinkResource")
 class SharedPrivateLinkResource(pulumi.CustomResource):
-
-    pulumi_type = "azure:webpubsub/sharedPrivateLinkResource:SharedPrivateLinkResource"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

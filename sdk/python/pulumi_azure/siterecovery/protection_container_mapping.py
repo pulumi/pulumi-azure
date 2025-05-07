@@ -285,10 +285,8 @@ class _ProtectionContainerMappingState:
         pulumi.set(self, "resource_group_name", value)
 
 
+@pulumi.type_token("azure:siterecovery/protectionContainerMapping:ProtectionContainerMapping")
 class ProtectionContainerMapping(pulumi.CustomResource):
-
-    pulumi_type = "azure:siterecovery/protectionContainerMapping:ProtectionContainerMapping"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

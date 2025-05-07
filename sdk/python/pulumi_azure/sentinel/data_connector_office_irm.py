@@ -136,10 +136,8 @@ class _DataConnectorOfficeIrmState:
         pulumi.set(self, "tenant_id", value)
 
 
+@pulumi.type_token("azure:sentinel/dataConnectorOfficeIrm:DataConnectorOfficeIrm")
 class DataConnectorOfficeIrm(pulumi.CustomResource):
-
-    pulumi_type = "azure:sentinel/dataConnectorOfficeIrm:DataConnectorOfficeIrm"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

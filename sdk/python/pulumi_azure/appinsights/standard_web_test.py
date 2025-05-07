@@ -471,10 +471,8 @@ class _StandardWebTestState:
         pulumi.set(self, "validation_rules", value)
 
 
+@pulumi.type_token("azure:appinsights/standardWebTest:StandardWebTest")
 class StandardWebTest(pulumi.CustomResource):
-
-    pulumi_type = "azure:appinsights/standardWebTest:StandardWebTest"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

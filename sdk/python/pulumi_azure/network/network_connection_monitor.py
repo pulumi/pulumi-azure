@@ -319,10 +319,8 @@ class _NetworkConnectionMonitorState:
         pulumi.set(self, "test_groups", value)
 
 
+@pulumi.type_token("azure:network/networkConnectionMonitor:NetworkConnectionMonitor")
 class NetworkConnectionMonitor(pulumi.CustomResource):
-
-    pulumi_type = "azure:network/networkConnectionMonitor:NetworkConnectionMonitor"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

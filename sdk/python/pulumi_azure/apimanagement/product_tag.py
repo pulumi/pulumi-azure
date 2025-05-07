@@ -158,10 +158,8 @@ class _ProductTagState:
         pulumi.set(self, "resource_group_name", value)
 
 
+@pulumi.type_token("azure:apimanagement/productTag:ProductTag")
 class ProductTag(pulumi.CustomResource):
-
-    pulumi_type = "azure:apimanagement/productTag:ProductTag"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

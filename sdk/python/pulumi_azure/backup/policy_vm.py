@@ -456,10 +456,8 @@ class _PolicyVMState:
         pulumi.set(self, "timezone", value)
 
 
+@pulumi.type_token("azure:backup/policyVM:PolicyVM")
 class PolicyVM(pulumi.CustomResource):
-
-    pulumi_type = "azure:backup/policyVM:PolicyVM"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

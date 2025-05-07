@@ -327,10 +327,8 @@ class _BackupPolicyState:
         pulumi.set(self, "weekly_backups_to_keep", value)
 
 
+@pulumi.type_token("azure:netapp/backupPolicy:BackupPolicy")
 class BackupPolicy(pulumi.CustomResource):
-
-    pulumi_type = "azure:netapp/backupPolicy:BackupPolicy"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

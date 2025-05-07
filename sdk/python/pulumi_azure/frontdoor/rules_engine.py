@@ -205,10 +205,8 @@ class _RulesEngineState:
         pulumi.set(self, "rules", value)
 
 
+@pulumi.type_token("azure:frontdoor/rulesEngine:RulesEngine")
 class RulesEngine(pulumi.CustomResource):
-
-    pulumi_type = "azure:frontdoor/rulesEngine:RulesEngine"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

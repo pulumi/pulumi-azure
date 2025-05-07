@@ -405,11 +405,9 @@ class _ZipBlobState:
 warnings.warn("""ZipBlob resource is deprecated in the 2.0 version of the provider. Use Blob resource instead.""", DeprecationWarning)
 
 
+@pulumi.type_token("azure:storage/zipBlob:ZipBlob")
 class ZipBlob(pulumi.CustomResource):
     warnings.warn("""ZipBlob resource is deprecated in the 2.0 version of the provider. Use Blob resource instead.""", DeprecationWarning)
-
-
-    pulumi_type = "azure:storage/zipBlob:ZipBlob"
 
     @overload
     def __init__(__self__,

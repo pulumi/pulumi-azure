@@ -191,10 +191,8 @@ class _HybridConnectionState:
         pulumi.set(self, "user_metadata", value)
 
 
+@pulumi.type_token("azure:relay/hybridConnection:HybridConnection")
 class HybridConnection(pulumi.CustomResource):
-
-    pulumi_type = "azure:relay/hybridConnection:HybridConnection"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -159,10 +159,8 @@ class _AlertRuleThreatIntelligenceState:
         pulumi.set(self, "name", value)
 
 
+@pulumi.type_token("azure:sentinel/alertRuleThreatIntelligence:AlertRuleThreatIntelligence")
 class AlertRuleThreatIntelligence(pulumi.CustomResource):
-
-    pulumi_type = "azure:sentinel/alertRuleThreatIntelligence:AlertRuleThreatIntelligence"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

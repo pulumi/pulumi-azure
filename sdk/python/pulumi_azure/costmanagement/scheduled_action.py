@@ -473,10 +473,8 @@ class _ScheduledActionState:
         pulumi.set(self, "weeks_of_months", value)
 
 
+@pulumi.type_token("azure:costmanagement/scheduledAction:ScheduledAction")
 class ScheduledAction(pulumi.CustomResource):
-
-    pulumi_type = "azure:costmanagement/scheduledAction:ScheduledAction"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

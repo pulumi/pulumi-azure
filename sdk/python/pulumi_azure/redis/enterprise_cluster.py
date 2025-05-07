@@ -279,10 +279,8 @@ class _EnterpriseClusterState:
         pulumi.set(self, "zones", value)
 
 
+@pulumi.type_token("azure:redis/enterpriseCluster:EnterpriseCluster")
 class EnterpriseCluster(pulumi.CustomResource):
-
-    pulumi_type = "azure:redis/enterpriseCluster:EnterpriseCluster"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

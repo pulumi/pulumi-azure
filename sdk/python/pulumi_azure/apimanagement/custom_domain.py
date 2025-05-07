@@ -226,10 +226,8 @@ class _CustomDomainState:
         pulumi.set(self, "scms", value)
 
 
+@pulumi.type_token("azure:apimanagement/customDomain:CustomDomain")
 class CustomDomain(pulumi.CustomResource):
-
-    pulumi_type = "azure:apimanagement/customDomain:CustomDomain"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

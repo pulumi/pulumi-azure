@@ -361,10 +361,8 @@ class _ApplicationState:
         pulumi.set(self, "template", value)
 
 
+@pulumi.type_token("azure:iotcentral/application:Application")
 class Application(pulumi.CustomResource):
-
-    pulumi_type = "azure:iotcentral/application:Application"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

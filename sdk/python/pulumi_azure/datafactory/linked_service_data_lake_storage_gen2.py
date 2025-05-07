@@ -471,10 +471,8 @@ class _LinkedServiceDataLakeStorageGen2State:
         pulumi.set(self, "use_managed_identity", value)
 
 
+@pulumi.type_token("azure:datafactory/linkedServiceDataLakeStorageGen2:LinkedServiceDataLakeStorageGen2")
 class LinkedServiceDataLakeStorageGen2(pulumi.CustomResource):
-
-    pulumi_type = "azure:datafactory/linkedServiceDataLakeStorageGen2:LinkedServiceDataLakeStorageGen2"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

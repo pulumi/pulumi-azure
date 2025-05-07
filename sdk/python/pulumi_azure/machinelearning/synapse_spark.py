@@ -289,10 +289,8 @@ class _SynapseSparkState:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure:machinelearning/synapseSpark:SynapseSpark")
 class SynapseSpark(pulumi.CustomResource):
-
-    pulumi_type = "azure:machinelearning/synapseSpark:SynapseSpark"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

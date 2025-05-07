@@ -312,10 +312,8 @@ class _VirtualMachineManagerVirtualMachineInstanceState:
         pulumi.set(self, "system_center_virtual_machine_manager_availability_set_ids", value)
 
 
+@pulumi.type_token("azure:systemcenter/virtualMachineManagerVirtualMachineInstance:VirtualMachineManagerVirtualMachineInstance")
 class VirtualMachineManagerVirtualMachineInstance(pulumi.CustomResource):
-
-    pulumi_type = "azure:systemcenter/virtualMachineManagerVirtualMachineInstance:VirtualMachineManagerVirtualMachineInstance"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -189,10 +189,8 @@ class _CertificateState:
         pulumi.set(self, "nginx_deployment_id", value)
 
 
+@pulumi.type_token("azure:nginx/certificate:Certificate")
 class Certificate(pulumi.CustomResource):
-
-    pulumi_type = "azure:nginx/certificate:Certificate"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

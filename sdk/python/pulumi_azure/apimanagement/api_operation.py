@@ -380,10 +380,8 @@ class _ApiOperationState:
         pulumi.set(self, "url_template", value)
 
 
+@pulumi.type_token("azure:apimanagement/apiOperation:ApiOperation")
 class ApiOperation(pulumi.CustomResource):
-
-    pulumi_type = "azure:apimanagement/apiOperation:ApiOperation"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -176,10 +176,8 @@ class _ManagedInstanceTransparentDataEncryptionState:
         pulumi.set(self, "managed_instance_id", value)
 
 
+@pulumi.type_token("azure:mssql/managedInstanceTransparentDataEncryption:ManagedInstanceTransparentDataEncryption")
 class ManagedInstanceTransparentDataEncryption(pulumi.CustomResource):
-
-    pulumi_type = "azure:mssql/managedInstanceTransparentDataEncryption:ManagedInstanceTransparentDataEncryption"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

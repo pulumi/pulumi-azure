@@ -224,10 +224,8 @@ class _AccountState:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure:videoindexer/account:Account")
 class Account(pulumi.CustomResource):
-
-    pulumi_type = "azure:videoindexer/account:Account"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

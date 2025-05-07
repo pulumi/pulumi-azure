@@ -214,10 +214,8 @@ class _SharedPrivateLinkServiceState:
         pulumi.set(self, "target_resource_id", value)
 
 
+@pulumi.type_token("azure:search/sharedPrivateLinkService:SharedPrivateLinkService")
 class SharedPrivateLinkService(pulumi.CustomResource):
-
-    pulumi_type = "azure:search/sharedPrivateLinkService:SharedPrivateLinkService"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

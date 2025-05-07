@@ -304,10 +304,8 @@ class _DataCollectionEndpointState:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure:monitoring/dataCollectionEndpoint:DataCollectionEndpoint")
 class DataCollectionEndpoint(pulumi.CustomResource):
-
-    pulumi_type = "azure:monitoring/dataCollectionEndpoint:DataCollectionEndpoint"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

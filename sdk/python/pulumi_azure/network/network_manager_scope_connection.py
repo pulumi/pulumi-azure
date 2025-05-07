@@ -206,10 +206,8 @@ class _NetworkManagerScopeConnectionState:
         pulumi.set(self, "tenant_id", value)
 
 
+@pulumi.type_token("azure:network/networkManagerScopeConnection:NetworkManagerScopeConnection")
 class NetworkManagerScopeConnection(pulumi.CustomResource):
-
-    pulumi_type = "azure:network/networkManagerScopeConnection:NetworkManagerScopeConnection"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

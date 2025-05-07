@@ -482,10 +482,8 @@ class _AlertRuleAnomalyDuplicateState:
         pulumi.set(self, "threshold_observations", value)
 
 
+@pulumi.type_token("azure:sentinel/alertRuleAnomalyDuplicate:AlertRuleAnomalyDuplicate")
 class AlertRuleAnomalyDuplicate(pulumi.CustomResource):
-
-    pulumi_type = "azure:sentinel/alertRuleAnomalyDuplicate:AlertRuleAnomalyDuplicate"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

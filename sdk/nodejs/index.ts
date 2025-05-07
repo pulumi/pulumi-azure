@@ -6,10 +6,8 @@ import * as utilities from "./utilities";
 
 // Export members:
 export * from "./location";
-export { ProviderArgs } from "./provider";
-export type Provider = import("./provider").Provider;
-export const Provider: typeof import("./provider").Provider = null as any;
-utilities.lazyLoad(exports, ["Provider"], () => require("./provider"));
+export * from "./provider";
+import { Provider } from "./provider";
 
 export * from "./util";
 

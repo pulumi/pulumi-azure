@@ -648,10 +648,8 @@ class _QueueState:
         pulumi.set(self, "status", value)
 
 
+@pulumi.type_token("azure:servicebus/queue:Queue")
 class Queue(pulumi.CustomResource):
-
-    pulumi_type = "azure:servicebus/queue:Queue"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

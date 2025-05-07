@@ -480,10 +480,8 @@ class _TopicState:
         pulumi.set(self, "support_ordering", value)
 
 
+@pulumi.type_token("azure:servicebus/topic:Topic")
 class Topic(pulumi.CustomResource):
-
-    pulumi_type = "azure:servicebus/topic:Topic"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -350,10 +350,8 @@ class _PointToPointVpnGatewayState:
         pulumi.set(self, "vpn_server_configuration_id", value)
 
 
+@pulumi.type_token("azure:network/pointToPointVpnGateway:PointToPointVpnGateway")
 class PointToPointVpnGateway(pulumi.CustomResource):
-
-    pulumi_type = "azure:network/pointToPointVpnGateway:PointToPointVpnGateway"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

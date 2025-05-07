@@ -222,10 +222,8 @@ class _VirtualHubIpState:
         pulumi.set(self, "virtual_hub_id", value)
 
 
+@pulumi.type_token("azure:network/virtualHubIp:VirtualHubIp")
 class VirtualHubIp(pulumi.CustomResource):
-
-    pulumi_type = "azure:network/virtualHubIp:VirtualHubIp"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

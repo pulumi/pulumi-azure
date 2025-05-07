@@ -603,10 +603,8 @@ class _NetworkSecurityRuleState:
         pulumi.set(self, "source_port_ranges", value)
 
 
+@pulumi.type_token("azure:network/networkSecurityRule:NetworkSecurityRule")
 class NetworkSecurityRule(pulumi.CustomResource):
-
-    pulumi_type = "azure:network/networkSecurityRule:NetworkSecurityRule"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

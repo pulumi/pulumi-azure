@@ -367,10 +367,8 @@ class _TrafficManagerProfileState:
         pulumi.set(self, "traffic_view_enabled", value)
 
 
+@pulumi.type_token("azure:network/trafficManagerProfile:TrafficManagerProfile")
 class TrafficManagerProfile(pulumi.CustomResource):
-
-    pulumi_type = "azure:network/trafficManagerProfile:TrafficManagerProfile"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

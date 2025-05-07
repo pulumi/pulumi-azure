@@ -386,10 +386,8 @@ class _LinkedServiceSqlServerState:
         pulumi.set(self, "user_name", value)
 
 
+@pulumi.type_token("azure:datafactory/linkedServiceSqlServer:LinkedServiceSqlServer")
 class LinkedServiceSqlServer(pulumi.CustomResource):
-
-    pulumi_type = "azure:datafactory/linkedServiceSqlServer:LinkedServiceSqlServer"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

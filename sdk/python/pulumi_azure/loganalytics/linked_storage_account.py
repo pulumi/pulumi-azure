@@ -157,10 +157,8 @@ class _LinkedStorageAccountState:
         pulumi.set(self, "workspace_resource_id", value)
 
 
+@pulumi.type_token("azure:loganalytics/linkedStorageAccount:LinkedStorageAccount")
 class LinkedStorageAccount(pulumi.CustomResource):
-
-    pulumi_type = "azure:loganalytics/linkedStorageAccount:LinkedStorageAccount"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -207,10 +207,8 @@ class _HealthbotState:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure:bot/healthbot:Healthbot")
 class Healthbot(pulumi.CustomResource):
-
-    pulumi_type = "azure:bot/healthbot:Healthbot"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

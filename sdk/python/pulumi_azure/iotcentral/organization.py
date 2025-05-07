@@ -158,10 +158,8 @@ class _OrganizationState:
         pulumi.set(self, "parent_organization_id", value)
 
 
+@pulumi.type_token("azure:iotcentral/organization:Organization")
 class Organization(pulumi.CustomResource):
-
-    pulumi_type = "azure:iotcentral/organization:Organization"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

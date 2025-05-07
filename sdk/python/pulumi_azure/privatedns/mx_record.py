@@ -239,10 +239,8 @@ class _MxRecordState:
         pulumi.set(self, "zone_name", value)
 
 
+@pulumi.type_token("azure:privatedns/mxRecord:MxRecord")
 class MxRecord(pulumi.CustomResource):
-
-    pulumi_type = "azure:privatedns/mxRecord:MxRecord"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

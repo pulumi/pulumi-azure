@@ -895,10 +895,8 @@ class _StandardState:
         pulumi.set(self, "vnet_content_share_enabled", value)
 
 
+@pulumi.type_token("azure:logicapps/standard:Standard")
 class Standard(pulumi.CustomResource):
-
-    pulumi_type = "azure:logicapps/standard:Standard"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -111,10 +111,8 @@ class _CapabilityState:
         pulumi.set(self, "chaos_studio_target_id", value)
 
 
+@pulumi.type_token("azure:chaosstudio/capability:Capability")
 class Capability(pulumi.CustomResource):
-
-    pulumi_type = "azure:chaosstudio/capability:Capability"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

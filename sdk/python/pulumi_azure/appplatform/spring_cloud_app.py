@@ -449,10 +449,8 @@ class _SpringCloudAppState:
         pulumi.set(self, "url", value)
 
 
+@pulumi.type_token("azure:appplatform/springCloudApp:SpringCloudApp")
 class SpringCloudApp(pulumi.CustomResource):
-
-    pulumi_type = "azure:appplatform/springCloudApp:SpringCloudApp"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -794,10 +794,8 @@ class _ReplicatedVMState:
         pulumi.set(self, "unmanaged_disks", value)
 
 
+@pulumi.type_token("azure:siterecovery/replicatedVM:ReplicatedVM")
 class ReplicatedVM(pulumi.CustomResource):
-
-    pulumi_type = "azure:siterecovery/replicatedVM:ReplicatedVM"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

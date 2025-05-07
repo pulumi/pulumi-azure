@@ -361,10 +361,8 @@ class _RouteServerState:
         pulumi.set(self, "virtual_router_ips", value)
 
 
+@pulumi.type_token("azure:network/routeServer:RouteServer")
 class RouteServer(pulumi.CustomResource):
-
-    pulumi_type = "azure:network/routeServer:RouteServer"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

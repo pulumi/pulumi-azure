@@ -199,10 +199,8 @@ class _PortalDashboardState:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure:portal/portalDashboard:PortalDashboard")
 class PortalDashboard(pulumi.CustomResource):
-
-    pulumi_type = "azure:portal/portalDashboard:PortalDashboard"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

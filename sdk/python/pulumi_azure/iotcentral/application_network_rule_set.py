@@ -162,10 +162,8 @@ class _ApplicationNetworkRuleSetState:
         pulumi.set(self, "ip_rules", value)
 
 
+@pulumi.type_token("azure:iotcentral/applicationNetworkRuleSet:ApplicationNetworkRuleSet")
 class ApplicationNetworkRuleSet(pulumi.CustomResource):
-
-    pulumi_type = "azure:iotcentral/applicationNetworkRuleSet:ApplicationNetworkRuleSet"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -354,10 +354,8 @@ class _FlowletDataFlowState:
         pulumi.set(self, "transformations", value)
 
 
+@pulumi.type_token("azure:datafactory/flowletDataFlow:FlowletDataFlow")
 class FlowletDataFlow(pulumi.CustomResource):
-
-    pulumi_type = "azure:datafactory/flowletDataFlow:FlowletDataFlow"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

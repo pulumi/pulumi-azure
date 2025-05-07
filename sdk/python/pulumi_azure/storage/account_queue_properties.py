@@ -202,10 +202,8 @@ class _AccountQueuePropertiesState:
         pulumi.set(self, "storage_account_id", value)
 
 
+@pulumi.type_token("azure:storage/accountQueueProperties:AccountQueueProperties")
 class AccountQueueProperties(pulumi.CustomResource):
-
-    pulumi_type = "azure:storage/accountQueueProperties:AccountQueueProperties"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

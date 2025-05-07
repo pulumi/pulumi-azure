@@ -158,10 +158,8 @@ class _ChannelAlexaState:
         pulumi.set(self, "skill_id", value)
 
 
+@pulumi.type_token("azure:bot/channelAlexa:ChannelAlexa")
 class ChannelAlexa(pulumi.CustomResource):
-
-    pulumi_type = "azure:bot/channelAlexa:ChannelAlexa"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

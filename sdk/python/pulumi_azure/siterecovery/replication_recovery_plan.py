@@ -285,10 +285,8 @@ class _ReplicationRecoveryPlanState:
         pulumi.set(self, "target_recovery_fabric_id", value)
 
 
+@pulumi.type_token("azure:siterecovery/replicationRecoveryPlan:ReplicationRecoveryPlan")
 class ReplicationRecoveryPlan(pulumi.CustomResource):
-
-    pulumi_type = "azure:siterecovery/replicationRecoveryPlan:ReplicationRecoveryPlan"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

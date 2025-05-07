@@ -562,10 +562,8 @@ class _SpringCloudGatewayState:
         pulumi.set(self, "url", value)
 
 
+@pulumi.type_token("azure:appplatform/springCloudGateway:SpringCloudGateway")
 class SpringCloudGateway(pulumi.CustomResource):
-
-    pulumi_type = "azure:appplatform/springCloudGateway:SpringCloudGateway"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

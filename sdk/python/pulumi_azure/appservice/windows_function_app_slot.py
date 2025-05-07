@@ -1225,10 +1225,8 @@ class _WindowsFunctionAppSlotState:
         pulumi.set(self, "webdeploy_publish_basic_authentication_enabled", value)
 
 
+@pulumi.type_token("azure:appservice/windowsFunctionAppSlot:WindowsFunctionAppSlot")
 class WindowsFunctionAppSlot(pulumi.CustomResource):
-
-    pulumi_type = "azure:appservice/windowsFunctionAppSlot:WindowsFunctionAppSlot"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

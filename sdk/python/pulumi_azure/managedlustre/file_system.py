@@ -437,10 +437,8 @@ class _FileSystemState:
         pulumi.set(self, "zones", value)
 
 
+@pulumi.type_token("azure:managedlustre/fileSystem:FileSystem")
 class FileSystem(pulumi.CustomResource):
-
-    pulumi_type = "azure:managedlustre/fileSystem:FileSystem"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

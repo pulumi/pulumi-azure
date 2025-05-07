@@ -346,10 +346,8 @@ class _TimeSeriesDatabaseConnectionState:
         pulumi.set(self, "name", value)
 
 
+@pulumi.type_token("azure:digitaltwins/timeSeriesDatabaseConnection:TimeSeriesDatabaseConnection")
 class TimeSeriesDatabaseConnection(pulumi.CustomResource):
-
-    pulumi_type = "azure:digitaltwins/timeSeriesDatabaseConnection:TimeSeriesDatabaseConnection"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

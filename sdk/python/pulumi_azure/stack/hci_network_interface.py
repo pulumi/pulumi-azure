@@ -296,10 +296,8 @@ class _HciNetworkInterfaceState:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure:stack/hciNetworkInterface:HciNetworkInterface")
 class HciNetworkInterface(pulumi.CustomResource):
-
-    pulumi_type = "azure:stack/hciNetworkInterface:HciNetworkInterface"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

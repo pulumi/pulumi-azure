@@ -646,10 +646,8 @@ class _AlertRuleNrtState:
         pulumi.set(self, "techniques", value)
 
 
+@pulumi.type_token("azure:sentinel/alertRuleNrt:AlertRuleNrt")
 class AlertRuleNrt(pulumi.CustomResource):
-
-    pulumi_type = "azure:sentinel/alertRuleNrt:AlertRuleNrt"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

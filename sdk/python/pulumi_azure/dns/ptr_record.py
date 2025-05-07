@@ -237,10 +237,8 @@ class _PtrRecordState:
         pulumi.set(self, "zone_name", value)
 
 
+@pulumi.type_token("azure:dns/ptrRecord:PtrRecord")
 class PtrRecord(pulumi.CustomResource):
-
-    pulumi_type = "azure:dns/ptrRecord:PtrRecord"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

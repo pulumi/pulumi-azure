@@ -126,10 +126,8 @@ class _NotificationRecipientEmailState:
         pulumi.set(self, "notification_type", value)
 
 
+@pulumi.type_token("azure:apimanagement/notificationRecipientEmail:NotificationRecipientEmail")
 class NotificationRecipientEmail(pulumi.CustomResource):
-
-    pulumi_type = "azure:apimanagement/notificationRecipientEmail:NotificationRecipientEmail"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -491,10 +491,8 @@ class _ExpressRouteCircuitPeeringState:
         pulumi.set(self, "vlan_id", value)
 
 
+@pulumi.type_token("azure:network/expressRouteCircuitPeering:ExpressRouteCircuitPeering")
 class ExpressRouteCircuitPeering(pulumi.CustomResource):
-
-    pulumi_type = "azure:network/expressRouteCircuitPeering:ExpressRouteCircuitPeering"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

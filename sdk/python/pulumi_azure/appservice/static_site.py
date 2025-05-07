@@ -322,10 +322,8 @@ class _StaticSiteState:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure:appservice/staticSite:StaticSite")
 class StaticSite(pulumi.CustomResource):
-
-    pulumi_type = "azure:appservice/staticSite:StaticSite"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -159,10 +159,8 @@ class _ResolverVirtualNetworkLinkState:
         pulumi.set(self, "virtual_network_id", value)
 
 
+@pulumi.type_token("azure:privatedns/resolverVirtualNetworkLink:ResolverVirtualNetworkLink")
 class ResolverVirtualNetworkLink(pulumi.CustomResource):
-
-    pulumi_type = "azure:privatedns/resolverVirtualNetworkLink:ResolverVirtualNetworkLink"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

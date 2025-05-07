@@ -1225,10 +1225,8 @@ class _LinuxFunctionAppSlotState:
         pulumi.set(self, "webdeploy_publish_basic_authentication_enabled", value)
 
 
+@pulumi.type_token("azure:appservice/linuxFunctionAppSlot:LinuxFunctionAppSlot")
 class LinuxFunctionAppSlot(pulumi.CustomResource):
-
-    pulumi_type = "azure:appservice/linuxFunctionAppSlot:LinuxFunctionAppSlot"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

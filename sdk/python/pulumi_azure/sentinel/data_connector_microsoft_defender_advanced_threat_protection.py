@@ -136,10 +136,8 @@ class _DataConnectorMicrosoftDefenderAdvancedThreatProtectionState:
         pulumi.set(self, "tenant_id", value)
 
 
+@pulumi.type_token("azure:sentinel/dataConnectorMicrosoftDefenderAdvancedThreatProtection:DataConnectorMicrosoftDefenderAdvancedThreatProtection")
 class DataConnectorMicrosoftDefenderAdvancedThreatProtection(pulumi.CustomResource):
-
-    pulumi_type = "azure:sentinel/dataConnectorMicrosoftDefenderAdvancedThreatProtection:DataConnectorMicrosoftDefenderAdvancedThreatProtection"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

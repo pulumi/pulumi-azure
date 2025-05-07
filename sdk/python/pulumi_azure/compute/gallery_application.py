@@ -351,10 +351,8 @@ class _GalleryApplicationState:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure:compute/galleryApplication:GalleryApplication")
 class GalleryApplication(pulumi.CustomResource):
-
-    pulumi_type = "azure:compute/galleryApplication:GalleryApplication"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

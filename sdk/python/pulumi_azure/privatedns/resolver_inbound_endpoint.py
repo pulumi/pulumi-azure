@@ -193,10 +193,8 @@ class _ResolverInboundEndpointState:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure:privatedns/resolverInboundEndpoint:ResolverInboundEndpoint")
 class ResolverInboundEndpoint(pulumi.CustomResource):
-
-    pulumi_type = "azure:privatedns/resolverInboundEndpoint:ResolverInboundEndpoint"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

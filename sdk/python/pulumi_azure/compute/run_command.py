@@ -461,10 +461,8 @@ class _RunCommandState:
         pulumi.set(self, "virtual_machine_id", value)
 
 
+@pulumi.type_token("azure:compute/runCommand:RunCommand")
 class RunCommand(pulumi.CustomResource):
-
-    pulumi_type = "azure:compute/runCommand:RunCommand"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

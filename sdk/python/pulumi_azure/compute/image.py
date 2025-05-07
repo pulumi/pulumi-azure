@@ -330,10 +330,8 @@ class _ImageState:
         pulumi.set(self, "zone_resilient", value)
 
 
+@pulumi.type_token("azure:compute/image:Image")
 class Image(pulumi.CustomResource):
-
-    pulumi_type = "azure:compute/image:Image"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

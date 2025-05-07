@@ -352,10 +352,8 @@ class _ScalingPlanState:
         pulumi.set(self, "time_zone", value)
 
 
+@pulumi.type_token("azure:desktopvirtualization/scalingPlan:ScalingPlan")
 class ScalingPlan(pulumi.CustomResource):
-
-    pulumi_type = "azure:desktopvirtualization/scalingPlan:ScalingPlan"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

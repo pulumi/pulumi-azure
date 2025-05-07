@@ -252,10 +252,8 @@ class _RouteState:
         pulumi.set(self, "source", value)
 
 
+@pulumi.type_token("azure:iot/route:Route")
 class Route(pulumi.CustomResource):
-
-    pulumi_type = "azure:iot/route:Route"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

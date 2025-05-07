@@ -219,10 +219,8 @@ class _FlexibleServerActiveDirectoryAdministratorState:
         pulumi.set(self, "tenant_id", value)
 
 
+@pulumi.type_token("azure:postgresql/flexibleServerActiveDirectoryAdministrator:FlexibleServerActiveDirectoryAdministrator")
 class FlexibleServerActiveDirectoryAdministrator(pulumi.CustomResource):
-
-    pulumi_type = "azure:postgresql/flexibleServerActiveDirectoryAdministrator:FlexibleServerActiveDirectoryAdministrator"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

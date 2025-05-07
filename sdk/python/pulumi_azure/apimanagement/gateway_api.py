@@ -95,10 +95,8 @@ class _GatewayApiState:
         pulumi.set(self, "gateway_id", value)
 
 
+@pulumi.type_token("azure:apimanagement/gatewayApi:GatewayApi")
 class GatewayApi(pulumi.CustomResource):
-
-    pulumi_type = "azure:apimanagement/gatewayApi:GatewayApi"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

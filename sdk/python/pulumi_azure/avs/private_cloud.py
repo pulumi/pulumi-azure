@@ -503,10 +503,8 @@ class _PrivateCloudState:
         pulumi.set(self, "vmotion_subnet_cidr", value)
 
 
+@pulumi.type_token("azure:avs/privateCloud:PrivateCloud")
 class PrivateCloud(pulumi.CustomResource):
-
-    pulumi_type = "azure:avs/privateCloud:PrivateCloud"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

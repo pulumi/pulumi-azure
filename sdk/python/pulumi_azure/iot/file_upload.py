@@ -358,10 +358,8 @@ class _FileUploadState:
         pulumi.set(self, "sas_ttl", value)
 
 
+@pulumi.type_token("azure:iot/fileUpload:FileUpload")
 class FileUpload(pulumi.CustomResource):
-
-    pulumi_type = "azure:iot/fileUpload:FileUpload"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

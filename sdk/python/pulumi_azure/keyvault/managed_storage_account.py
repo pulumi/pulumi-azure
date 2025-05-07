@@ -262,10 +262,8 @@ class _ManagedStorageAccountState:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure:keyvault/managedStorageAccount:ManagedStorageAccount")
 class ManagedStorageAccount(pulumi.CustomResource):
-
-    pulumi_type = "azure:keyvault/managedStorageAccount:ManagedStorageAccount"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

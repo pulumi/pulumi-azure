@@ -877,10 +877,8 @@ class _ManagedInstanceState:
         pulumi.set(self, "zone_redundant_enabled", value)
 
 
+@pulumi.type_token("azure:mssql/managedInstance:ManagedInstance")
 class ManagedInstance(pulumi.CustomResource):
-
-    pulumi_type = "azure:mssql/managedInstance:ManagedInstance"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

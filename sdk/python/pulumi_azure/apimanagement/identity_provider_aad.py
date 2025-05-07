@@ -252,10 +252,8 @@ class _IdentityProviderAadState:
         pulumi.set(self, "signin_tenant", value)
 
 
+@pulumi.type_token("azure:apimanagement/identityProviderAad:IdentityProviderAad")
 class IdentityProviderAad(pulumi.CustomResource):
-
-    pulumi_type = "azure:apimanagement/identityProviderAad:IdentityProviderAad"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -413,10 +413,8 @@ class _ThreeTierVirtualInstanceState:
         pulumi.set(self, "three_tier_configuration", value)
 
 
+@pulumi.type_token("azure:workloadssap/threeTierVirtualInstance:ThreeTierVirtualInstance")
 class ThreeTierVirtualInstance(pulumi.CustomResource):
-
-    pulumi_type = "azure:workloadssap/threeTierVirtualInstance:ThreeTierVirtualInstance"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

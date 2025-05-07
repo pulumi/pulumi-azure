@@ -252,10 +252,8 @@ class _ConnectionClassicCertificateState:
         pulumi.set(self, "subscription_name", value)
 
 
+@pulumi.type_token("azure:automation/connectionClassicCertificate:ConnectionClassicCertificate")
 class ConnectionClassicCertificate(pulumi.CustomResource):
-
-    pulumi_type = "azure:automation/connectionClassicCertificate:ConnectionClassicCertificate"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

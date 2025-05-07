@@ -127,10 +127,8 @@ class _SqlFunctionState:
         pulumi.set(self, "name", value)
 
 
+@pulumi.type_token("azure:cosmosdb/sqlFunction:SqlFunction")
 class SqlFunction(pulumi.CustomResource):
-
-    pulumi_type = "azure:cosmosdb/sqlFunction:SqlFunction"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

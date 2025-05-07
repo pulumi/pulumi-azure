@@ -112,10 +112,8 @@ class _LogAnalyticsWorkspaceOnboardingState:
         pulumi.set(self, "workspace_id", value)
 
 
+@pulumi.type_token("azure:sentinel/logAnalyticsWorkspaceOnboarding:LogAnalyticsWorkspaceOnboarding")
 class LogAnalyticsWorkspaceOnboarding(pulumi.CustomResource):
-
-    pulumi_type = "azure:sentinel/logAnalyticsWorkspaceOnboarding:LogAnalyticsWorkspaceOnboarding"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

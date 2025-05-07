@@ -348,10 +348,8 @@ class _ResourceGroupCostManagementViewState:
         pulumi.set(self, "timeframe", value)
 
 
+@pulumi.type_token("azure:core/resourceGroupCostManagementView:ResourceGroupCostManagementView")
 class ResourceGroupCostManagementView(pulumi.CustomResource):
-
-    pulumi_type = "azure:core/resourceGroupCostManagementView:ResourceGroupCostManagementView"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

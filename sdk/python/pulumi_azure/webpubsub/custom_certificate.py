@@ -159,10 +159,8 @@ class _CustomCertificateState:
         pulumi.set(self, "web_pubsub_id", value)
 
 
+@pulumi.type_token("azure:webpubsub/customCertificate:CustomCertificate")
 class CustomCertificate(pulumi.CustomResource):
-
-    pulumi_type = "azure:webpubsub/customCertificate:CustomCertificate"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -159,10 +159,8 @@ class _AccountEncryptionState:
         pulumi.set(self, "user_assigned_identity_id", value)
 
 
+@pulumi.type_token("azure:netapp/accountEncryption:AccountEncryption")
 class AccountEncryption(pulumi.CustomResource):
-
-    pulumi_type = "azure:netapp/accountEncryption:AccountEncryption"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -381,10 +381,8 @@ class _ExadataInfrastructureState:
         pulumi.set(self, "zones", value)
 
 
+@pulumi.type_token("azure:oracle/exadataInfrastructure:ExadataInfrastructure")
 class ExadataInfrastructure(pulumi.CustomResource):
-
-    pulumi_type = "azure:oracle/exadataInfrastructure:ExadataInfrastructure"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

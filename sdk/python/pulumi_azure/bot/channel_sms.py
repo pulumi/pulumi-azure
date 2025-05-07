@@ -220,10 +220,8 @@ class _ChannelSmsState:
         pulumi.set(self, "sms_channel_auth_token", value)
 
 
+@pulumi.type_token("azure:bot/channelSms:ChannelSms")
 class ChannelSms(pulumi.CustomResource):
-
-    pulumi_type = "azure:bot/channelSms:ChannelSms"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

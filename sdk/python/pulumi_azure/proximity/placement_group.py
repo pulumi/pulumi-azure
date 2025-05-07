@@ -240,10 +240,8 @@ class _PlacementGroupState:
         pulumi.set(self, "zone", value)
 
 
+@pulumi.type_token("azure:proximity/placementGroup:PlacementGroup")
 class PlacementGroup(pulumi.CustomResource):
-
-    pulumi_type = "azure:proximity/placementGroup:PlacementGroup"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

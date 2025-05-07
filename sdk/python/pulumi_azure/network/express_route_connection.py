@@ -321,10 +321,8 @@ class _ExpressRouteConnectionState:
         pulumi.set(self, "routing_weight", value)
 
 
+@pulumi.type_token("azure:network/expressRouteConnection:ExpressRouteConnection")
 class ExpressRouteConnection(pulumi.CustomResource):
-
-    pulumi_type = "azure:network/expressRouteConnection:ExpressRouteConnection"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

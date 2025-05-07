@@ -392,10 +392,8 @@ class _AutomationRuleState:
         pulumi.set(self, "triggers_when", value)
 
 
+@pulumi.type_token("azure:sentinel/automationRule:AutomationRule")
 class AutomationRule(pulumi.CustomResource):
-
-    pulumi_type = "azure:sentinel/automationRule:AutomationRule"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

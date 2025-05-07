@@ -237,10 +237,8 @@ class _PTRRecordState:
         pulumi.set(self, "zone_name", value)
 
 
+@pulumi.type_token("azure:privatedns/pTRRecord:PTRRecord")
 class PTRRecord(pulumi.CustomResource):
-
-    pulumi_type = "azure:privatedns/pTRRecord:PTRRecord"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

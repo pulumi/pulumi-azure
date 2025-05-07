@@ -385,10 +385,8 @@ class _DatasetAzureSqlTableState:
         pulumi.set(self, "table", value)
 
 
+@pulumi.type_token("azure:datafactory/datasetAzureSqlTable:DatasetAzureSqlTable")
 class DatasetAzureSqlTable(pulumi.CustomResource):
-
-    pulumi_type = "azure:datafactory/datasetAzureSqlTable:DatasetAzureSqlTable"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

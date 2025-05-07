@@ -626,10 +626,8 @@ class _SpringCloudServiceState:
         pulumi.set(self, "zone_redundant", value)
 
 
+@pulumi.type_token("azure:appplatform/springCloudService:SpringCloudService")
 class SpringCloudService(pulumi.CustomResource):
-
-    pulumi_type = "azure:appplatform/springCloudService:SpringCloudService"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

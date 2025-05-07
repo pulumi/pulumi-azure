@@ -415,10 +415,8 @@ class _BackendState:
         pulumi.set(self, "url", value)
 
 
+@pulumi.type_token("azure:apimanagement/backend:Backend")
 class Backend(pulumi.CustomResource):
-
-    pulumi_type = "azure:apimanagement/backend:Backend"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

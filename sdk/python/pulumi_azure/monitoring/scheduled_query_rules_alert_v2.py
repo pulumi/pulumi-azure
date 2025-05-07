@@ -749,10 +749,8 @@ class _ScheduledQueryRulesAlertV2State:
         pulumi.set(self, "workspace_alerts_storage_enabled", value)
 
 
+@pulumi.type_token("azure:monitoring/scheduledQueryRulesAlertV2:ScheduledQueryRulesAlertV2")
 class ScheduledQueryRulesAlertV2(pulumi.CustomResource):
-
-    pulumi_type = "azure:monitoring/scheduledQueryRulesAlertV2:ScheduledQueryRulesAlertV2"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

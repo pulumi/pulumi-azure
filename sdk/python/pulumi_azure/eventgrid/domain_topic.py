@@ -127,10 +127,8 @@ class _DomainTopicState:
         pulumi.set(self, "resource_group_name", value)
 
 
+@pulumi.type_token("azure:eventgrid/domainTopic:DomainTopic")
 class DomainTopic(pulumi.CustomResource):
-
-    pulumi_type = "azure:eventgrid/domainTopic:DomainTopic"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

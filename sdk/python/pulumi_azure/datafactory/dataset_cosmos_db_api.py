@@ -361,10 +361,8 @@ class _DatasetCosmosDBApiState:
         pulumi.set(self, "schema_columns", value)
 
 
+@pulumi.type_token("azure:datafactory/datasetCosmosDBApi:DatasetCosmosDBApi")
 class DatasetCosmosDBApi(pulumi.CustomResource):
-
-    pulumi_type = "azure:datafactory/datasetCosmosDBApi:DatasetCosmosDBApi"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -256,10 +256,8 @@ class _LabState:
         pulumi.set(self, "unique_identifier", value)
 
 
+@pulumi.type_token("azure:devtest/lab:Lab")
 class Lab(pulumi.CustomResource):
-
-    pulumi_type = "azure:devtest/lab:Lab"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

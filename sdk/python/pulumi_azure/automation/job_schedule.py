@@ -277,10 +277,8 @@ class _JobScheduleState:
         pulumi.set(self, "schedule_name", value)
 
 
+@pulumi.type_token("azure:automation/jobSchedule:JobSchedule")
 class JobSchedule(pulumi.CustomResource):
-
-    pulumi_type = "azure:automation/jobSchedule:JobSchedule"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

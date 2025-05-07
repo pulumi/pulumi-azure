@@ -593,10 +593,8 @@ class _DeploymentState:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure:nginx/deployment:Deployment")
 class Deployment(pulumi.CustomResource):
-
-    pulumi_type = "azure:nginx/deployment:Deployment"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

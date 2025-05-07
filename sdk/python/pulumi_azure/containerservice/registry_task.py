@@ -602,10 +602,8 @@ class _RegistryTaskState:
         pulumi.set(self, "timer_triggers", value)
 
 
+@pulumi.type_token("azure:containerservice/registryTask:RegistryTask")
 class RegistryTask(pulumi.CustomResource):
-
-    pulumi_type = "azure:containerservice/registryTask:RegistryTask"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

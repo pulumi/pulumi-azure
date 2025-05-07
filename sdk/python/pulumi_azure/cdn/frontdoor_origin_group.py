@@ -233,10 +233,8 @@ class _FrontdoorOriginGroupState:
         pulumi.set(self, "session_affinity_enabled", value)
 
 
+@pulumi.type_token("azure:cdn/frontdoorOriginGroup:FrontdoorOriginGroup")
 class FrontdoorOriginGroup(pulumi.CustomResource):
-
-    pulumi_type = "azure:cdn/frontdoorOriginGroup:FrontdoorOriginGroup"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

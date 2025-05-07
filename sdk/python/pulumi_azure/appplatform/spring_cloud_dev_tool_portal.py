@@ -226,10 +226,8 @@ class _SpringCloudDevToolPortalState:
         pulumi.set(self, "sso", value)
 
 
+@pulumi.type_token("azure:appplatform/springCloudDevToolPortal:SpringCloudDevToolPortal")
 class SpringCloudDevToolPortal(pulumi.CustomResource):
-
-    pulumi_type = "azure:appplatform/springCloudDevToolPortal:SpringCloudDevToolPortal"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

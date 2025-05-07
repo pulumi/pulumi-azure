@@ -136,10 +136,8 @@ class _DataConnectorDynamics365State:
         pulumi.set(self, "tenant_id", value)
 
 
+@pulumi.type_token("azure:sentinel/dataConnectorDynamics365:DataConnectorDynamics365")
 class DataConnectorDynamics365(pulumi.CustomResource):
-
-    pulumi_type = "azure:sentinel/dataConnectorDynamics365:DataConnectorDynamics365"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

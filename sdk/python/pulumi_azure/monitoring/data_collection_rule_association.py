@@ -208,10 +208,8 @@ class _DataCollectionRuleAssociationState:
         pulumi.set(self, "target_resource_id", value)
 
 
+@pulumi.type_token("azure:monitoring/dataCollectionRuleAssociation:DataCollectionRuleAssociation")
 class DataCollectionRuleAssociation(pulumi.CustomResource):
-
-    pulumi_type = "azure:monitoring/dataCollectionRuleAssociation:DataCollectionRuleAssociation"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

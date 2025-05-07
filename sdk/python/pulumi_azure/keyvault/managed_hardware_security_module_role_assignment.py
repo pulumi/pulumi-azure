@@ -209,10 +209,8 @@ class _ManagedHardwareSecurityModuleRoleAssignmentState:
         pulumi.set(self, "scope", value)
 
 
+@pulumi.type_token("azure:keyvault/managedHardwareSecurityModuleRoleAssignment:ManagedHardwareSecurityModuleRoleAssignment")
 class ManagedHardwareSecurityModuleRoleAssignment(pulumi.CustomResource):
-
-    pulumi_type = "azure:keyvault/managedHardwareSecurityModuleRoleAssignment:ManagedHardwareSecurityModuleRoleAssignment"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

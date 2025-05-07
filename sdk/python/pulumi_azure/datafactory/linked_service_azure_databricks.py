@@ -481,10 +481,8 @@ class _LinkedServiceAzureDatabricksState:
         pulumi.set(self, "parameters", value)
 
 
+@pulumi.type_token("azure:datafactory/linkedServiceAzureDatabricks:LinkedServiceAzureDatabricks")
 class LinkedServiceAzureDatabricks(pulumi.CustomResource):
-
-    pulumi_type = "azure:datafactory/linkedServiceAzureDatabricks:LinkedServiceAzureDatabricks"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

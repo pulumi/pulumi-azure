@@ -1296,10 +1296,8 @@ class _ManagedDiskState:
         pulumi.set(self, "zone", value)
 
 
+@pulumi.type_token("azure:compute/managedDisk:ManagedDisk")
 class ManagedDisk(pulumi.CustomResource):
-
-    pulumi_type = "azure:compute/managedDisk:ManagedDisk"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

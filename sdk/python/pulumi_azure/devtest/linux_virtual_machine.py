@@ -627,10 +627,8 @@ class _LinuxVirtualMachineState:
         pulumi.set(self, "username", value)
 
 
+@pulumi.type_token("azure:devtest/linuxVirtualMachine:LinuxVirtualMachine")
 class LinuxVirtualMachine(pulumi.CustomResource):
-
-    pulumi_type = "azure:devtest/linuxVirtualMachine:LinuxVirtualMachine"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

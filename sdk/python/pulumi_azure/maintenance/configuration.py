@@ -361,10 +361,8 @@ class _ConfigurationState:
         pulumi.set(self, "window", value)
 
 
+@pulumi.type_token("azure:maintenance/configuration:Configuration")
 class Configuration(pulumi.CustomResource):
-
-    pulumi_type = "azure:maintenance/configuration:Configuration"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

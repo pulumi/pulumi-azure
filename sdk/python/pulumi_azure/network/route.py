@@ -221,10 +221,8 @@ class _RouteState:
         pulumi.set(self, "route_table_name", value)
 
 
+@pulumi.type_token("azure:network/route:Route")
 class Route(pulumi.CustomResource):
-
-    pulumi_type = "azure:network/route:Route"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -129,10 +129,8 @@ class _CustomHttpsConfigurationState:
         pulumi.set(self, "frontend_endpoint_id", value)
 
 
+@pulumi.type_token("azure:frontdoor/customHttpsConfiguration:CustomHttpsConfiguration")
 class CustomHttpsConfiguration(pulumi.CustomResource):
-
-    pulumi_type = "azure:frontdoor/customHttpsConfiguration:CustomHttpsConfiguration"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

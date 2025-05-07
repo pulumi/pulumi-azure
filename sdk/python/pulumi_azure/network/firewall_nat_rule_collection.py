@@ -222,10 +222,8 @@ class _FirewallNatRuleCollectionState:
         pulumi.set(self, "rules", value)
 
 
+@pulumi.type_token("azure:network/firewallNatRuleCollection:FirewallNatRuleCollection")
 class FirewallNatRuleCollection(pulumi.CustomResource):
-
-    pulumi_type = "azure:network/firewallNatRuleCollection:FirewallNatRuleCollection"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

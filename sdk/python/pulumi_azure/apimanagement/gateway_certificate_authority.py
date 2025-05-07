@@ -158,10 +158,8 @@ class _GatewayCertificateAuthorityState:
         pulumi.set(self, "is_trusted", value)
 
 
+@pulumi.type_token("azure:apimanagement/gatewayCertificateAuthority:GatewayCertificateAuthority")
 class GatewayCertificateAuthority(pulumi.CustomResource):
-
-    pulumi_type = "azure:apimanagement/gatewayCertificateAuthority:GatewayCertificateAuthority"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

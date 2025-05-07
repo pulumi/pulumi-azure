@@ -265,10 +265,8 @@ class _AccountNetworkRulesState:
         pulumi.set(self, "virtual_network_subnet_ids", value)
 
 
+@pulumi.type_token("azure:storage/accountNetworkRules:AccountNetworkRules")
 class AccountNetworkRules(pulumi.CustomResource):
-
-    pulumi_type = "azure:storage/accountNetworkRules:AccountNetworkRules"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

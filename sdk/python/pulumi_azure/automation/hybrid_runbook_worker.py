@@ -268,10 +268,8 @@ class _HybridRunbookWorkerState:
         pulumi.set(self, "worker_type", value)
 
 
+@pulumi.type_token("azure:automation/hybridRunbookWorker:HybridRunbookWorker")
 class HybridRunbookWorker(pulumi.CustomResource):
-
-    pulumi_type = "azure:automation/hybridRunbookWorker:HybridRunbookWorker"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

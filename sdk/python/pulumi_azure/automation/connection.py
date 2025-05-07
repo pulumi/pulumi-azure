@@ -245,10 +245,8 @@ class _ConnectionState:
         pulumi.set(self, "values", value)
 
 
+@pulumi.type_token("azure:automation/connection:Connection")
 class Connection(pulumi.CustomResource):
-
-    pulumi_type = "azure:automation/connection:Connection"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

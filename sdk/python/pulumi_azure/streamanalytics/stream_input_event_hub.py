@@ -382,10 +382,8 @@ class _StreamInputEventHubState:
         pulumi.set(self, "stream_analytics_job_name", value)
 
 
+@pulumi.type_token("azure:streamanalytics/streamInputEventHub:StreamInputEventHub")
 class StreamInputEventHub(pulumi.CustomResource):
-
-    pulumi_type = "azure:streamanalytics/streamInputEventHub:StreamInputEventHub"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

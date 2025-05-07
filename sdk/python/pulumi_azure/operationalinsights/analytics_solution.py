@@ -254,10 +254,8 @@ class _AnalyticsSolutionState:
         pulumi.set(self, "workspace_resource_id", value)
 
 
+@pulumi.type_token("azure:operationalinsights/analyticsSolution:AnalyticsSolution")
 class AnalyticsSolution(pulumi.CustomResource):
-
-    pulumi_type = "azure:operationalinsights/analyticsSolution:AnalyticsSolution"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

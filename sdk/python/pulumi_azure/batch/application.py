@@ -223,10 +223,8 @@ class _ApplicationState:
         pulumi.set(self, "resource_group_name", value)
 
 
+@pulumi.type_token("azure:batch/application:Application")
 class Application(pulumi.CustomResource):
-
-    pulumi_type = "azure:batch/application:Application"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

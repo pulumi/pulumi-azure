@@ -127,10 +127,8 @@ class _PostgresqlNodeConfigurationState:
         pulumi.set(self, "value", value)
 
 
+@pulumi.type_token("azure:cosmosdb/postgresqlNodeConfiguration:PostgresqlNodeConfiguration")
 class PostgresqlNodeConfiguration(pulumi.CustomResource):
-
-    pulumi_type = "azure:cosmosdb/postgresqlNodeConfiguration:PostgresqlNodeConfiguration"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -129,10 +129,8 @@ class _RoutingIntentState:
         pulumi.set(self, "virtual_hub_id", value)
 
 
+@pulumi.type_token("azure:network/routingIntent:RoutingIntent")
 class RoutingIntent(pulumi.CustomResource):
-
-    pulumi_type = "azure:network/routingIntent:RoutingIntent"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

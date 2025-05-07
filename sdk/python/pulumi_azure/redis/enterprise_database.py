@@ -370,10 +370,8 @@ class _EnterpriseDatabaseState:
         pulumi.set(self, "secondary_access_key", value)
 
 
+@pulumi.type_token("azure:redis/enterpriseDatabase:EnterpriseDatabase")
 class EnterpriseDatabase(pulumi.CustomResource):
-
-    pulumi_type = "azure:redis/enterpriseDatabase:EnterpriseDatabase"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

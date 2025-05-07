@@ -258,10 +258,8 @@ class _TagRuleState:
         pulumi.set(self, "subscription_log_enabled", value)
 
 
+@pulumi.type_token("azure:newrelic/tagRule:TagRule")
 class TagRule(pulumi.CustomResource):
-
-    pulumi_type = "azure:newrelic/tagRule:TagRule"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

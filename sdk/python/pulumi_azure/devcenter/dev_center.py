@@ -210,10 +210,8 @@ class _DevCenterState:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure:devcenter/devCenter:DevCenter")
 class DevCenter(pulumi.CustomResource):
-
-    pulumi_type = "azure:devcenter/devCenter:DevCenter"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

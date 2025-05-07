@@ -189,10 +189,8 @@ class _FirewallRuleState:
         pulumi.set(self, "start_ip", value)
 
 
+@pulumi.type_token("azure:redis/firewallRule:FirewallRule")
 class FirewallRule(pulumi.CustomResource):
-
-    pulumi_type = "azure:redis/firewallRule:FirewallRule"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

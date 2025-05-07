@@ -415,10 +415,8 @@ class _AssignmentState:
         pulumi.set(self, "skip_service_principal_aad_check", value)
 
 
+@pulumi.type_token("azure:authorization/assignment:Assignment")
 class Assignment(pulumi.CustomResource):
-
-    pulumi_type = "azure:authorization/assignment:Assignment"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -335,10 +335,8 @@ class _MonitorState:
         pulumi.set(self, "user", value)
 
 
+@pulumi.type_token("azure:datadog/monitor:Monitor")
 class Monitor(pulumi.CustomResource):
-
-    pulumi_type = "azure:datadog/monitor:Monitor"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

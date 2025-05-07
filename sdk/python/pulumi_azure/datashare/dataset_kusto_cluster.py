@@ -159,10 +159,8 @@ class _DatasetKustoClusterState:
         pulumi.set(self, "share_id", value)
 
 
+@pulumi.type_token("azure:datashare/datasetKustoCluster:DatasetKustoCluster")
 class DatasetKustoCluster(pulumi.CustomResource):
-
-    pulumi_type = "azure:datashare/datasetKustoCluster:DatasetKustoCluster"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

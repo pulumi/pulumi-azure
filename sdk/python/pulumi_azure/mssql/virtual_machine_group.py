@@ -255,10 +255,8 @@ class _VirtualMachineGroupState:
         pulumi.set(self, "wsfc_domain_profile", value)
 
 
+@pulumi.type_token("azure:mssql/virtualMachineGroup:VirtualMachineGroup")
 class VirtualMachineGroup(pulumi.CustomResource):
-
-    pulumi_type = "azure:mssql/virtualMachineGroup:VirtualMachineGroup"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

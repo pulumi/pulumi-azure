@@ -320,10 +320,8 @@ class _ScaleSetPacketCaptureState:
         pulumi.set(self, "virtual_machine_scale_set_id", value)
 
 
+@pulumi.type_token("azure:compute/scaleSetPacketCapture:ScaleSetPacketCapture")
 class ScaleSetPacketCapture(pulumi.CustomResource):
-
-    pulumi_type = "azure:compute/scaleSetPacketCapture:ScaleSetPacketCapture"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

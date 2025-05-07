@@ -797,10 +797,8 @@ class _ClusterState:
         pulumi.set(self, "vmss_zonal_upgrade_mode", value)
 
 
+@pulumi.type_token("azure:servicefabric/cluster:Cluster")
 class Cluster(pulumi.CustomResource):
-
-    pulumi_type = "azure:servicefabric/cluster:Cluster"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

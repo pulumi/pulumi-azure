@@ -383,10 +383,8 @@ class _CustomDatasetState:
         pulumi.set(self, "type_properties_json", value)
 
 
+@pulumi.type_token("azure:datafactory/customDataset:CustomDataset")
 class CustomDataset(pulumi.CustomResource):
-
-    pulumi_type = "azure:datafactory/customDataset:CustomDataset"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

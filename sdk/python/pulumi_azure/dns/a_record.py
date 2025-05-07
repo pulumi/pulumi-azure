@@ -286,10 +286,8 @@ class _ARecordState:
         pulumi.set(self, "zone_name", value)
 
 
+@pulumi.type_token("azure:dns/aRecord:ARecord")
 class ARecord(pulumi.CustomResource):
-
-    pulumi_type = "azure:dns/aRecord:ARecord"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

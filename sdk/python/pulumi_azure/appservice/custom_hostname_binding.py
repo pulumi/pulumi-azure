@@ -222,10 +222,8 @@ class _CustomHostnameBindingState:
         pulumi.set(self, "virtual_ip", value)
 
 
+@pulumi.type_token("azure:appservice/customHostnameBinding:CustomHostnameBinding")
 class CustomHostnameBinding(pulumi.CustomResource):
-
-    pulumi_type = "azure:appservice/customHostnameBinding:CustomHostnameBinding"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

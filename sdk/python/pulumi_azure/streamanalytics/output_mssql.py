@@ -380,10 +380,8 @@ class _OutputMssqlState:
         pulumi.set(self, "user", value)
 
 
+@pulumi.type_token("azure:streamanalytics/outputMssql:OutputMssql")
 class OutputMssql(pulumi.CustomResource):
-
-    pulumi_type = "azure:streamanalytics/outputMssql:OutputMssql"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -175,10 +175,8 @@ class _NamespaceCustomerManagedKeyState:
         pulumi.set(self, "user_assigned_identity_id", value)
 
 
+@pulumi.type_token("azure:eventhub/namespaceCustomerManagedKey:NamespaceCustomerManagedKey")
 class NamespaceCustomerManagedKey(pulumi.CustomResource):
-
-    pulumi_type = "azure:eventhub/namespaceCustomerManagedKey:NamespaceCustomerManagedKey"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -329,10 +329,8 @@ class _LinkedServiceSynapseState:
         pulumi.set(self, "parameters", value)
 
 
+@pulumi.type_token("azure:datafactory/linkedServiceSynapse:LinkedServiceSynapse")
 class LinkedServiceSynapse(pulumi.CustomResource):
-
-    pulumi_type = "azure:datafactory/linkedServiceSynapse:LinkedServiceSynapse"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -285,10 +285,8 @@ class _ChannelDirectLineSpeechState:
         pulumi.set(self, "resource_group_name", value)
 
 
+@pulumi.type_token("azure:bot/channelDirectLineSpeech:ChannelDirectLineSpeech")
 class ChannelDirectLineSpeech(pulumi.CustomResource):
-
-    pulumi_type = "azure:bot/channelDirectLineSpeech:ChannelDirectLineSpeech"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

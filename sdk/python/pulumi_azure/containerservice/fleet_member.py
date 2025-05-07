@@ -159,10 +159,8 @@ class _FleetMemberState:
         pulumi.set(self, "name", value)
 
 
+@pulumi.type_token("azure:containerservice/fleetMember:FleetMember")
 class FleetMember(pulumi.CustomResource):
-
-    pulumi_type = "azure:containerservice/fleetMember:FleetMember"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

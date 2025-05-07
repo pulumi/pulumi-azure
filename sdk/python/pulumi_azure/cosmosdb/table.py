@@ -209,10 +209,8 @@ class _TableState:
         pulumi.set(self, "throughput", value)
 
 
+@pulumi.type_token("azure:cosmosdb/table:Table")
 class Table(pulumi.CustomResource):
-
-    pulumi_type = "azure:cosmosdb/table:Table"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

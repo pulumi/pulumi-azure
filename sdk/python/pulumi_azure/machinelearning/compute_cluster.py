@@ -479,10 +479,8 @@ class _ComputeClusterState:
         pulumi.set(self, "vm_size", value)
 
 
+@pulumi.type_token("azure:machinelearning/computeCluster:ComputeCluster")
 class ComputeCluster(pulumi.CustomResource):
-
-    pulumi_type = "azure:machinelearning/computeCluster:ComputeCluster"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

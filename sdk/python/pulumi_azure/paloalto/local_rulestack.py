@@ -352,10 +352,8 @@ class _LocalRulestackState:
         pulumi.set(self, "vulnerability_profile", value)
 
 
+@pulumi.type_token("azure:paloalto/localRulestack:LocalRulestack")
 class LocalRulestack(pulumi.CustomResource):
-
-    pulumi_type = "azure:paloalto/localRulestack:LocalRulestack"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

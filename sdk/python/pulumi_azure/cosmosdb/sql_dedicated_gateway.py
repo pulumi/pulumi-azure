@@ -126,10 +126,8 @@ class _SqlDedicatedGatewayState:
         pulumi.set(self, "instance_size", value)
 
 
+@pulumi.type_token("azure:cosmosdb/sqlDedicatedGateway:SqlDedicatedGateway")
 class SqlDedicatedGateway(pulumi.CustomResource):
-
-    pulumi_type = "azure:cosmosdb/sqlDedicatedGateway:SqlDedicatedGateway"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

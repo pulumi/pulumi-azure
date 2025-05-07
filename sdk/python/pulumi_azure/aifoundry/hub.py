@@ -583,10 +583,8 @@ class _HubState:
         pulumi.set(self, "workspace_id", value)
 
 
+@pulumi.type_token("azure:aifoundry/hub:Hub")
 class Hub(pulumi.CustomResource):
-
-    pulumi_type = "azure:aifoundry/hub:Hub"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

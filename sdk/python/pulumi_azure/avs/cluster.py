@@ -190,10 +190,8 @@ class _ClusterState:
         pulumi.set(self, "vmware_cloud_id", value)
 
 
+@pulumi.type_token("azure:avs/cluster:Cluster")
 class Cluster(pulumi.CustomResource):
-
-    pulumi_type = "azure:avs/cluster:Cluster"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -127,10 +127,8 @@ class _DataConnectorAwsCloudTrailState:
         pulumi.set(self, "name", value)
 
 
+@pulumi.type_token("azure:sentinel/dataConnectorAwsCloudTrail:DataConnectorAwsCloudTrail")
 class DataConnectorAwsCloudTrail(pulumi.CustomResource):
-
-    pulumi_type = "azure:sentinel/dataConnectorAwsCloudTrail:DataConnectorAwsCloudTrail"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

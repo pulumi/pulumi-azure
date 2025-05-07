@@ -338,10 +338,8 @@ class _SourceControlState:
         pulumi.set(self, "uses_github_action", value)
 
 
+@pulumi.type_token("azure:appservice/sourceControl:SourceControl")
 class SourceControl(pulumi.CustomResource):
-
-    pulumi_type = "azure:appservice/sourceControl:SourceControl"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

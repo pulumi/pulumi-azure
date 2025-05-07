@@ -354,10 +354,8 @@ class _ServerState:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure:fluidrelay/server:Server")
 class Server(pulumi.CustomResource):
-
-    pulumi_type = "azure:fluidrelay/server:Server"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

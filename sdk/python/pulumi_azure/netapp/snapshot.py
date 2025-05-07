@@ -221,10 +221,8 @@ class _SnapshotState:
         pulumi.set(self, "volume_name", value)
 
 
+@pulumi.type_token("azure:netapp/snapshot:Snapshot")
 class Snapshot(pulumi.CustomResource):
-
-    pulumi_type = "azure:netapp/snapshot:Snapshot"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

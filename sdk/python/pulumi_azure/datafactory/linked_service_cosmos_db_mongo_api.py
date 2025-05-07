@@ -360,10 +360,8 @@ class _LinkedServiceCosmosDbMongoApiState:
         pulumi.set(self, "server_version_is32_or_higher", value)
 
 
+@pulumi.type_token("azure:datafactory/linkedServiceCosmosDbMongoApi:LinkedServiceCosmosDbMongoApi")
 class LinkedServiceCosmosDbMongoApi(pulumi.CustomResource):
-
-    pulumi_type = "azure:datafactory/linkedServiceCosmosDbMongoApi:LinkedServiceCosmosDbMongoApi"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -577,10 +577,8 @@ class _ActionGroupState:
         pulumi.set(self, "webhook_receivers", value)
 
 
+@pulumi.type_token("azure:monitoring/actionGroup:ActionGroup")
 class ActionGroup(pulumi.CustomResource):
-
-    pulumi_type = "azure:monitoring/actionGroup:ActionGroup"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

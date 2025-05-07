@@ -943,10 +943,8 @@ class _SharedImageState:
         pulumi.set(self, "trusted_launch_supported", value)
 
 
+@pulumi.type_token("azure:compute/sharedImage:SharedImage")
 class SharedImage(pulumi.CustomResource):
-
-    pulumi_type = "azure:compute/sharedImage:SharedImage"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

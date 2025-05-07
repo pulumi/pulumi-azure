@@ -287,10 +287,8 @@ class _GroupPolicyRemediationState:
         pulumi.set(self, "resource_count", value)
 
 
+@pulumi.type_token("azure:management/groupPolicyRemediation:GroupPolicyRemediation")
 class GroupPolicyRemediation(pulumi.CustomResource):
-
-    pulumi_type = "azure:management/groupPolicyRemediation:GroupPolicyRemediation"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -248,10 +248,8 @@ class _NextGenerationFirewallVirtualHubLocalRulestackState:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure:paloalto/nextGenerationFirewallVirtualHubLocalRulestack:NextGenerationFirewallVirtualHubLocalRulestack")
 class NextGenerationFirewallVirtualHubLocalRulestack(pulumi.CustomResource):
-
-    pulumi_type = "azure:paloalto/nextGenerationFirewallVirtualHubLocalRulestack:NextGenerationFirewallVirtualHubLocalRulestack"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

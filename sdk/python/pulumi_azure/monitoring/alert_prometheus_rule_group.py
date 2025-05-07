@@ -352,10 +352,8 @@ class _AlertPrometheusRuleGroupState:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure:monitoring/alertPrometheusRuleGroup:AlertPrometheusRuleGroup")
 class AlertPrometheusRuleGroup(pulumi.CustomResource):
-
-    pulumi_type = "azure:monitoring/alertPrometheusRuleGroup:AlertPrometheusRuleGroup"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

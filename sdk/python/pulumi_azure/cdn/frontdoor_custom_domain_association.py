@@ -103,10 +103,8 @@ class _FrontdoorCustomDomainAssociationState:
         pulumi.set(self, "cdn_frontdoor_route_ids", value)
 
 
+@pulumi.type_token("azure:cdn/frontdoorCustomDomainAssociation:FrontdoorCustomDomainAssociation")
 class FrontdoorCustomDomainAssociation(pulumi.CustomResource):
-
-    pulumi_type = "azure:cdn/frontdoorCustomDomainAssociation:FrontdoorCustomDomainAssociation"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

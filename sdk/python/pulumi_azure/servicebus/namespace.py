@@ -549,10 +549,8 @@ class _NamespaceState:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure:servicebus/namespace:Namespace")
 class Namespace(pulumi.CustomResource):
-
-    pulumi_type = "azure:servicebus/namespace:Namespace"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

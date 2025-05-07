@@ -456,10 +456,8 @@ class _CertificateState:
         pulumi.set(self, "thumbprint", value)
 
 
+@pulumi.type_token("azure:appservice/certificate:Certificate")
 class Certificate(pulumi.CustomResource):
-
-    pulumi_type = "azure:appservice/certificate:Certificate"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

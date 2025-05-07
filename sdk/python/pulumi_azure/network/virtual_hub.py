@@ -402,10 +402,8 @@ class _VirtualHubState:
         pulumi.set(self, "virtual_wan_id", value)
 
 
+@pulumi.type_token("azure:network/virtualHub:VirtualHub")
 class VirtualHub(pulumi.CustomResource):
-
-    pulumi_type = "azure:network/virtualHub:VirtualHub"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

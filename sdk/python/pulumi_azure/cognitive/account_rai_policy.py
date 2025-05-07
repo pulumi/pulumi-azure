@@ -224,10 +224,8 @@ class _AccountRaiPolicyState:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure:cognitive/accountRaiPolicy:AccountRaiPolicy")
 class AccountRaiPolicy(pulumi.CustomResource):
-
-    pulumi_type = "azure:cognitive/accountRaiPolicy:AccountRaiPolicy"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

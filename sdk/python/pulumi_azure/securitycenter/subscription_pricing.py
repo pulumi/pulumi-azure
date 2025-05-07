@@ -162,10 +162,8 @@ class _SubscriptionPricingState:
         pulumi.set(self, "tier", value)
 
 
+@pulumi.type_token("azure:securitycenter/subscriptionPricing:SubscriptionPricing")
 class SubscriptionPricing(pulumi.CustomResource):
-
-    pulumi_type = "azure:securitycenter/subscriptionPricing:SubscriptionPricing"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

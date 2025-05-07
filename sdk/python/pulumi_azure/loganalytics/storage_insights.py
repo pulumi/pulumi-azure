@@ -253,10 +253,8 @@ class _StorageInsightsState:
         pulumi.set(self, "workspace_id", value)
 
 
+@pulumi.type_token("azure:loganalytics/storageInsights:StorageInsights")
 class StorageInsights(pulumi.CustomResource):
-
-    pulumi_type = "azure:loganalytics/storageInsights:StorageInsights"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

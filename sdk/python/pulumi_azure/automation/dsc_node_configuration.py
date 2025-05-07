@@ -170,10 +170,8 @@ class _DscNodeConfigurationState:
         pulumi.set(self, "resource_group_name", value)
 
 
+@pulumi.type_token("azure:automation/dscNodeConfiguration:DscNodeConfiguration")
 class DscNodeConfiguration(pulumi.CustomResource):
-
-    pulumi_type = "azure:automation/dscNodeConfiguration:DscNodeConfiguration"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

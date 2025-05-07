@@ -368,10 +368,8 @@ class _EndpointState:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure:privatelink/endpoint:Endpoint")
 class Endpoint(pulumi.CustomResource):
-
-    pulumi_type = "azure:privatelink/endpoint:Endpoint"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

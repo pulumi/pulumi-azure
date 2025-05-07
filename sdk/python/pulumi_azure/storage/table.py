@@ -146,10 +146,8 @@ class _TableState:
         pulumi.set(self, "storage_account_name", value)
 
 
+@pulumi.type_token("azure:storage/table:Table")
 class Table(pulumi.CustomResource):
-
-    pulumi_type = "azure:storage/table:Table"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -193,10 +193,8 @@ class _FleetUpdateRunState:
         pulumi.set(self, "stages", value)
 
 
+@pulumi.type_token("azure:containerservice/fleetUpdateRun:FleetUpdateRun")
 class FleetUpdateRun(pulumi.CustomResource):
-
-    pulumi_type = "azure:containerservice/fleetUpdateRun:FleetUpdateRun"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

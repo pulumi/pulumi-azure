@@ -283,10 +283,8 @@ class _OpenIdConnectProviderState:
         pulumi.set(self, "resource_group_name", value)
 
 
+@pulumi.type_token("azure:apimanagement/openIdConnectProvider:OpenIdConnectProvider")
 class OpenIdConnectProvider(pulumi.CustomResource):
-
-    pulumi_type = "azure:apimanagement/openIdConnectProvider:OpenIdConnectProvider"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

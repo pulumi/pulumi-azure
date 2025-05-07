@@ -127,10 +127,8 @@ class _AccountCustomerManagedKeyState:
         pulumi.set(self, "key_vault_key_id", value)
 
 
+@pulumi.type_token("azure:cognitive/accountCustomerManagedKey:AccountCustomerManagedKey")
 class AccountCustomerManagedKey(pulumi.CustomResource):
-
-    pulumi_type = "azure:cognitive/accountCustomerManagedKey:AccountCustomerManagedKey"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

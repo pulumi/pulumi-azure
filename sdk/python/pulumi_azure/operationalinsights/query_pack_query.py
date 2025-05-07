@@ -350,10 +350,8 @@ class _QueryPackQueryState:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure:operationalinsights/queryPackQuery:QueryPackQuery")
 class QueryPackQuery(pulumi.CustomResource):
-
-    pulumi_type = "azure:operationalinsights/queryPackQuery:QueryPackQuery"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

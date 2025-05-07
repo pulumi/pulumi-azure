@@ -287,10 +287,8 @@ class _ResourceBridgeApplianceState:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure:arc/resourceBridgeAppliance:ResourceBridgeAppliance")
 class ResourceBridgeAppliance(pulumi.CustomResource):
-
-    pulumi_type = "azure:arc/resourceBridgeAppliance:ResourceBridgeAppliance"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

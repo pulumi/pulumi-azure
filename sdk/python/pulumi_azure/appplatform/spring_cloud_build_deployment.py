@@ -289,10 +289,8 @@ class _SpringCloudBuildDeploymentState:
         pulumi.set(self, "spring_cloud_app_id", value)
 
 
+@pulumi.type_token("azure:appplatform/springCloudBuildDeployment:SpringCloudBuildDeployment")
 class SpringCloudBuildDeployment(pulumi.CustomResource):
-
-    pulumi_type = "azure:appplatform/springCloudBuildDeployment:SpringCloudBuildDeployment"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

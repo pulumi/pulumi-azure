@@ -185,10 +185,8 @@ class _GroupState:
         pulumi.set(self, "tenant_scoped_id", value)
 
 
+@pulumi.type_token("azure:management/group:Group")
 class Group(pulumi.CustomResource):
-
-    pulumi_type = "azure:management/group:Group"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

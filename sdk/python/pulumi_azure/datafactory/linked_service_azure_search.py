@@ -342,10 +342,8 @@ class _LinkedServiceAzureSearchState:
         pulumi.set(self, "url", value)
 
 
+@pulumi.type_token("azure:datafactory/linkedServiceAzureSearch:LinkedServiceAzureSearch")
 class LinkedServiceAzureSearch(pulumi.CustomResource):
-
-    pulumi_type = "azure:datafactory/linkedServiceAzureSearch:LinkedServiceAzureSearch"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

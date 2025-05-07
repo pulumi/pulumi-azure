@@ -256,10 +256,8 @@ class _CredentialServicePrincipalState:
         pulumi.set(self, "tenant_id", value)
 
 
+@pulumi.type_token("azure:datafactory/credentialServicePrincipal:CredentialServicePrincipal")
 class CredentialServicePrincipal(pulumi.CustomResource):
-
-    pulumi_type = "azure:datafactory/credentialServicePrincipal:CredentialServicePrincipal"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

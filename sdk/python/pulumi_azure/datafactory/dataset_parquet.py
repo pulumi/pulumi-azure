@@ -497,10 +497,8 @@ class _DatasetParquetState:
         pulumi.set(self, "schema_columns", value)
 
 
+@pulumi.type_token("azure:datafactory/datasetParquet:DatasetParquet")
 class DatasetParquet(pulumi.CustomResource):
-
-    pulumi_type = "azure:datafactory/datasetParquet:DatasetParquet"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

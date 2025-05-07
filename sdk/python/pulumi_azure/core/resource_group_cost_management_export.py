@@ -317,10 +317,8 @@ class _ResourceGroupCostManagementExportState:
         pulumi.set(self, "resource_group_id", value)
 
 
+@pulumi.type_token("azure:core/resourceGroupCostManagementExport:ResourceGroupCostManagementExport")
 class ResourceGroupCostManagementExport(pulumi.CustomResource):
-
-    pulumi_type = "azure:core/resourceGroupCostManagementExport:ResourceGroupCostManagementExport"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -558,10 +558,8 @@ class _ChannelsRegistrationState:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure:bot/channelsRegistration:ChannelsRegistration")
 class ChannelsRegistration(pulumi.CustomResource):
-
-    pulumi_type = "azure:bot/channelsRegistration:ChannelsRegistration"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

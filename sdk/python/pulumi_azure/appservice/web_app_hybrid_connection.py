@@ -269,10 +269,8 @@ class _WebAppHybridConnectionState:
         pulumi.set(self, "web_app_id", value)
 
 
+@pulumi.type_token("azure:appservice/webAppHybridConnection:WebAppHybridConnection")
 class WebAppHybridConnection(pulumi.CustomResource):
-
-    pulumi_type = "azure:appservice/webAppHybridConnection:WebAppHybridConnection"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

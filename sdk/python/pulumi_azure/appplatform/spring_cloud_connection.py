@@ -232,10 +232,8 @@ class _SpringCloudConnectionState:
         pulumi.set(self, "vnet_solution", value)
 
 
+@pulumi.type_token("azure:appplatform/springCloudConnection:SpringCloudConnection")
 class SpringCloudConnection(pulumi.CustomResource):
-
-    pulumi_type = "azure:appplatform/springCloudConnection:SpringCloudConnection"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

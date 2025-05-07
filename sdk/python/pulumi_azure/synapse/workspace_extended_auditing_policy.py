@@ -224,10 +224,8 @@ class _WorkspaceExtendedAuditingPolicyState:
         pulumi.set(self, "synapse_workspace_id", value)
 
 
+@pulumi.type_token("azure:synapse/workspaceExtendedAuditingPolicy:WorkspaceExtendedAuditingPolicy")
 class WorkspaceExtendedAuditingPolicy(pulumi.CustomResource):
-
-    pulumi_type = "azure:synapse/workspaceExtendedAuditingPolicy:WorkspaceExtendedAuditingPolicy"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

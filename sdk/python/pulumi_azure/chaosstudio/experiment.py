@@ -224,10 +224,8 @@ class _ExperimentState:
         pulumi.set(self, "steps", value)
 
 
+@pulumi.type_token("azure:chaosstudio/experiment:Experiment")
 class Experiment(pulumi.CustomResource):
-
-    pulumi_type = "azure:chaosstudio/experiment:Experiment"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

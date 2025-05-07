@@ -318,10 +318,8 @@ class _ApplicationGroupState:
         pulumi.set(self, "type", value)
 
 
+@pulumi.type_token("azure:desktopvirtualization/applicationGroup:ApplicationGroup")
 class ApplicationGroup(pulumi.CustomResource):
-
-    pulumi_type = "azure:desktopvirtualization/applicationGroup:ApplicationGroup"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

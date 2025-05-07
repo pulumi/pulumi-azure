@@ -831,10 +831,8 @@ class _FunctionAppState:
         pulumi.set(self, "version", value)
 
 
+@pulumi.type_token("azure:appservice/functionApp:FunctionApp")
 class FunctionApp(pulumi.CustomResource):
-
-    pulumi_type = "azure:appservice/functionApp:FunctionApp"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

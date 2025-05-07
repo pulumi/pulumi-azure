@@ -791,10 +791,8 @@ class _AlertRuleScheduledState:
         pulumi.set(self, "trigger_threshold", value)
 
 
+@pulumi.type_token("azure:sentinel/alertRuleScheduled:AlertRuleScheduled")
 class AlertRuleScheduled(pulumi.CustomResource):
-
-    pulumi_type = "azure:sentinel/alertRuleScheduled:AlertRuleScheduled"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -510,10 +510,8 @@ class _TriggerTumblingWindowState:
         pulumi.set(self, "trigger_dependencies", value)
 
 
+@pulumi.type_token("azure:datafactory/triggerTumblingWindow:TriggerTumblingWindow")
 class TriggerTumblingWindow(pulumi.CustomResource):
-
-    pulumi_type = "azure:datafactory/triggerTumblingWindow:TriggerTumblingWindow"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

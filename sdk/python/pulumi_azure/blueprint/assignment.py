@@ -428,10 +428,8 @@ class _AssignmentState:
         pulumi.set(self, "version_id", value)
 
 
+@pulumi.type_token("azure:blueprint/assignment:Assignment")
 class Assignment(pulumi.CustomResource):
-
-    pulumi_type = "azure:blueprint/assignment:Assignment"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

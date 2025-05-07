@@ -224,10 +224,8 @@ class _StorageDefenderState:
         pulumi.set(self, "storage_account_id", value)
 
 
+@pulumi.type_token("azure:securitycenter/storageDefender:StorageDefender")
 class StorageDefender(pulumi.CustomResource):
-
-    pulumi_type = "azure:securitycenter/storageDefender:StorageDefender"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -336,10 +336,8 @@ class _ApplicationState:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure:managedapplication/application:Application")
 class Application(pulumi.CustomResource):
-
-    pulumi_type = "azure:managedapplication/application:Application"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

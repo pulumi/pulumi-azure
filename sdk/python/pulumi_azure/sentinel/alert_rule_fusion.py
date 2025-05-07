@@ -193,10 +193,8 @@ class _AlertRuleFusionState:
         pulumi.set(self, "sources", value)
 
 
+@pulumi.type_token("azure:sentinel/alertRuleFusion:AlertRuleFusion")
 class AlertRuleFusion(pulumi.CustomResource):
-
-    pulumi_type = "azure:sentinel/alertRuleFusion:AlertRuleFusion"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

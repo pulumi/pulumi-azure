@@ -280,10 +280,8 @@ class _NatGatewayState:
         pulumi.set(self, "zones", value)
 
 
+@pulumi.type_token("azure:network/natGateway:NatGateway")
 class NatGateway(pulumi.CustomResource):
-
-    pulumi_type = "azure:network/natGateway:NatGateway"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

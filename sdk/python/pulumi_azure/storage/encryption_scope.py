@@ -191,10 +191,8 @@ class _EncryptionScopeState:
         pulumi.set(self, "storage_account_id", value)
 
 
+@pulumi.type_token("azure:storage/encryptionScope:EncryptionScope")
 class EncryptionScope(pulumi.CustomResource):
-
-    pulumi_type = "azure:storage/encryptionScope:EncryptionScope"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

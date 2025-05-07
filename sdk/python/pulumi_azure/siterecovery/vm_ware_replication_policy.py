@@ -158,10 +158,8 @@ class _VMWareReplicationPolicyState:
         pulumi.set(self, "recovery_vault_id", value)
 
 
+@pulumi.type_token("azure:siterecovery/vMWareReplicationPolicy:VMWareReplicationPolicy")
 class VMWareReplicationPolicy(pulumi.CustomResource):
-
-    pulumi_type = "azure:siterecovery/vMWareReplicationPolicy:VMWareReplicationPolicy"
-
     @overload
     def __init__(__self__,
                  resource_name: str,
