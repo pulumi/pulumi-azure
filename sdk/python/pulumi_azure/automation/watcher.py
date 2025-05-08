@@ -365,10 +365,8 @@ class _WatcherState:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure:automation/watcher:Watcher")
 class Watcher(pulumi.CustomResource):
-
-    pulumi_type = "azure:automation/watcher:Watcher"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

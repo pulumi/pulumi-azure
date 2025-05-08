@@ -201,10 +201,8 @@ class _CassandraKeyspaceState:
         pulumi.set(self, "throughput", value)
 
 
+@pulumi.type_token("azure:cosmosdb/cassandraKeyspace:CassandraKeyspace")
 class CassandraKeyspace(pulumi.CustomResource):
-
-    pulumi_type = "azure:cosmosdb/cassandraKeyspace:CassandraKeyspace"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

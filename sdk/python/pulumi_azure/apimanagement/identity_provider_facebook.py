@@ -157,10 +157,8 @@ class _IdentityProviderFacebookState:
         pulumi.set(self, "resource_group_name", value)
 
 
+@pulumi.type_token("azure:apimanagement/identityProviderFacebook:IdentityProviderFacebook")
 class IdentityProviderFacebook(pulumi.CustomResource):
-
-    pulumi_type = "azure:apimanagement/identityProviderFacebook:IdentityProviderFacebook"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

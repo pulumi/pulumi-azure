@@ -330,10 +330,8 @@ class _LoadBalancerState:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure:lb/loadBalancer:LoadBalancer")
 class LoadBalancer(pulumi.CustomResource):
-
-    pulumi_type = "azure:lb/loadBalancer:LoadBalancer"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

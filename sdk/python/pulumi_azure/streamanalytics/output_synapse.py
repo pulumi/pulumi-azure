@@ -282,10 +282,8 @@ class _OutputSynapseState:
         pulumi.set(self, "user", value)
 
 
+@pulumi.type_token("azure:streamanalytics/outputSynapse:OutputSynapse")
 class OutputSynapse(pulumi.CustomResource):
-
-    pulumi_type = "azure:streamanalytics/outputSynapse:OutputSynapse"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

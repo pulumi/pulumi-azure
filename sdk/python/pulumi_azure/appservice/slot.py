@@ -608,10 +608,8 @@ class _SlotState:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure:appservice/slot:Slot")
 class Slot(pulumi.CustomResource):
-
-    pulumi_type = "azure:appservice/slot:Slot"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -157,10 +157,8 @@ class _IdentityProviderTwitterState:
         pulumi.set(self, "resource_group_name", value)
 
 
+@pulumi.type_token("azure:apimanagement/identityProviderTwitter:IdentityProviderTwitter")
 class IdentityProviderTwitter(pulumi.CustomResource):
-
-    pulumi_type = "azure:apimanagement/identityProviderTwitter:IdentityProviderTwitter"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

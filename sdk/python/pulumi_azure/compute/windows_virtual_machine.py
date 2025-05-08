@@ -1893,10 +1893,8 @@ class _WindowsVirtualMachineState:
         pulumi.set(self, "zone", value)
 
 
+@pulumi.type_token("azure:compute/windowsVirtualMachine:WindowsVirtualMachine")
 class WindowsVirtualMachine(pulumi.CustomResource):
-
-    pulumi_type = "azure:compute/windowsVirtualMachine:WindowsVirtualMachine"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

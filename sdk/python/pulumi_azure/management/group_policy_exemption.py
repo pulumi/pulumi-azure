@@ -318,10 +318,8 @@ class _GroupPolicyExemptionState:
         pulumi.set(self, "policy_definition_reference_ids", value)
 
 
+@pulumi.type_token("azure:management/groupPolicyExemption:GroupPolicyExemption")
 class GroupPolicyExemption(pulumi.CustomResource):
-
-    pulumi_type = "azure:management/groupPolicyExemption:GroupPolicyExemption"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

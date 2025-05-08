@@ -175,10 +175,8 @@ class _NetworkManagerManagementGroupConnectionState:
         pulumi.set(self, "network_manager_id", value)
 
 
+@pulumi.type_token("azure:network/networkManagerManagementGroupConnection:NetworkManagerManagementGroupConnection")
 class NetworkManagerManagementGroupConnection(pulumi.CustomResource):
-
-    pulumi_type = "azure:network/networkManagerManagementGroupConnection:NetworkManagerManagementGroupConnection"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -1025,10 +1025,8 @@ class _LinuxWebAppSlotState:
         pulumi.set(self, "zip_deploy_file", value)
 
 
+@pulumi.type_token("azure:appservice/linuxWebAppSlot:LinuxWebAppSlot")
 class LinuxWebAppSlot(pulumi.CustomResource):
-
-    pulumi_type = "azure:appservice/linuxWebAppSlot:LinuxWebAppSlot"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

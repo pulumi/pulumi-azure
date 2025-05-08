@@ -306,10 +306,8 @@ class _SpringCloudApiPortalState:
         pulumi.set(self, "url", value)
 
 
+@pulumi.type_token("azure:appplatform/springCloudApiPortal:SpringCloudApiPortal")
 class SpringCloudApiPortal(pulumi.CustomResource):
-
-    pulumi_type = "azure:appplatform/springCloudApiPortal:SpringCloudApiPortal"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

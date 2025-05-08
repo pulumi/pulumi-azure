@@ -407,10 +407,8 @@ class _PrefixState:
         pulumi.set(self, "zones", value)
 
 
+@pulumi.type_token("azure:customip/prefix:Prefix")
 class Prefix(pulumi.CustomResource):
-
-    pulumi_type = "azure:customip/prefix:Prefix"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

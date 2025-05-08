@@ -301,10 +301,8 @@ class _DirectoryState:
         pulumi.set(self, "tenant_id", value)
 
 
+@pulumi.type_token("azure:aadb2c/directory:Directory")
 class Directory(pulumi.CustomResource):
-
-    pulumi_type = "azure:aadb2c/directory:Directory"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

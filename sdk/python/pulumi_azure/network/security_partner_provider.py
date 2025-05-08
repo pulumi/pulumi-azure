@@ -223,10 +223,8 @@ class _SecurityPartnerProviderState:
         pulumi.set(self, "virtual_hub_id", value)
 
 
+@pulumi.type_token("azure:network/securityPartnerProvider:SecurityPartnerProvider")
 class SecurityPartnerProvider(pulumi.CustomResource):
-
-    pulumi_type = "azure:network/securityPartnerProvider:SecurityPartnerProvider"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

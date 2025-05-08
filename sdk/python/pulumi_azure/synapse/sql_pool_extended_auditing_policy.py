@@ -224,10 +224,8 @@ class _SqlPoolExtendedAuditingPolicyState:
         pulumi.set(self, "storage_endpoint", value)
 
 
+@pulumi.type_token("azure:synapse/sqlPoolExtendedAuditingPolicy:SqlPoolExtendedAuditingPolicy")
 class SqlPoolExtendedAuditingPolicy(pulumi.CustomResource):
-
-    pulumi_type = "azure:synapse/sqlPoolExtendedAuditingPolicy:SqlPoolExtendedAuditingPolicy"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

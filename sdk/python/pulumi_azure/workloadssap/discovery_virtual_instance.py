@@ -383,10 +383,8 @@ class _DiscoveryVirtualInstanceState:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure:workloadssap/discoveryVirtualInstance:DiscoveryVirtualInstance")
 class DiscoveryVirtualInstance(pulumi.CustomResource):
-
-    pulumi_type = "azure:workloadssap/discoveryVirtualInstance:DiscoveryVirtualInstance"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

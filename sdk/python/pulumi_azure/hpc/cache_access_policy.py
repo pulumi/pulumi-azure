@@ -129,10 +129,8 @@ class _CacheAccessPolicyState:
         pulumi.set(self, "name", value)
 
 
+@pulumi.type_token("azure:hpc/cacheAccessPolicy:CacheAccessPolicy")
 class CacheAccessPolicy(pulumi.CustomResource):
-
-    pulumi_type = "azure:hpc/cacheAccessPolicy:CacheAccessPolicy"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

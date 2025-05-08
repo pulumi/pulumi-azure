@@ -398,10 +398,8 @@ class _DicomServiceState:
         pulumi.set(self, "workspace_id", value)
 
 
+@pulumi.type_token("azure:healthcare/dicomService:DicomService")
 class DicomService(pulumi.CustomResource):
-
-    pulumi_type = "azure:healthcare/dicomService:DicomService"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -190,10 +190,8 @@ class _RegistryTokenState:
         pulumi.set(self, "scope_map_id", value)
 
 
+@pulumi.type_token("azure:containerservice/registryToken:RegistryToken")
 class RegistryToken(pulumi.CustomResource):
-
-    pulumi_type = "azure:containerservice/registryToken:RegistryToken"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

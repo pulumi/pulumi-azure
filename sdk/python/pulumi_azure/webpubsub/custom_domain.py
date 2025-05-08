@@ -166,10 +166,8 @@ class _CustomDomainState:
         pulumi.set(self, "web_pubsub_id", value)
 
 
+@pulumi.type_token("azure:webpubsub/customDomain:CustomDomain")
 class CustomDomain(pulumi.CustomResource):
-
-    pulumi_type = "azure:webpubsub/customDomain:CustomDomain"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

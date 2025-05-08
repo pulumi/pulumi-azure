@@ -289,10 +289,8 @@ class _PolicyState:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure:waf/policy:Policy")
 class Policy(pulumi.CustomResource):
-
-    pulumi_type = "azure:waf/policy:Policy"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

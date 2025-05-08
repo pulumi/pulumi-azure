@@ -514,10 +514,8 @@ class _LinkedServiceAzureSqlDatabaseState:
         pulumi.set(self, "use_managed_identity", value)
 
 
+@pulumi.type_token("azure:datafactory/linkedServiceAzureSqlDatabase:LinkedServiceAzureSqlDatabase")
 class LinkedServiceAzureSqlDatabase(pulumi.CustomResource):
-
-    pulumi_type = "azure:datafactory/linkedServiceAzureSqlDatabase:LinkedServiceAzureSqlDatabase"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

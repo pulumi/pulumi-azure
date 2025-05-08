@@ -377,10 +377,8 @@ class _AccountState:
         pulumi.set(self, "x_ms_client_id", value)
 
 
+@pulumi.type_token("azure:maps/account:Account")
 class Account(pulumi.CustomResource):
-
-    pulumi_type = "azure:maps/account:Account"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

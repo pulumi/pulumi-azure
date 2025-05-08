@@ -312,10 +312,8 @@ class _EligibleRoleAssignmentState:
         pulumi.set(self, "ticket", value)
 
 
+@pulumi.type_token("azure:pim/eligibleRoleAssignment:EligibleRoleAssignment")
 class EligibleRoleAssignment(pulumi.CustomResource):
-
-    pulumi_type = "azure:pim/eligibleRoleAssignment:EligibleRoleAssignment"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

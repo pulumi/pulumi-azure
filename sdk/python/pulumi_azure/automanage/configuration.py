@@ -442,10 +442,8 @@ class _ConfigurationState:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure:automanage/configuration:Configuration")
 class Configuration(pulumi.CustomResource):
-
-    pulumi_type = "azure:automanage/configuration:Configuration"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

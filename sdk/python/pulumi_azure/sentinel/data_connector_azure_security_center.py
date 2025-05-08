@@ -128,10 +128,8 @@ class _DataConnectorAzureSecurityCenterState:
         pulumi.set(self, "subscription_id", value)
 
 
+@pulumi.type_token("azure:sentinel/dataConnectorAzureSecurityCenter:DataConnectorAzureSecurityCenter")
 class DataConnectorAzureSecurityCenter(pulumi.CustomResource):
-
-    pulumi_type = "azure:sentinel/dataConnectorAzureSecurityCenter:DataConnectorAzureSecurityCenter"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

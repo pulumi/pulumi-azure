@@ -260,10 +260,8 @@ class _RoleAssignmentState:
         pulumi.set(self, "skip_service_principal_aad_check", value)
 
 
+@pulumi.type_token("azure:marketplace/roleAssignment:RoleAssignment")
 class RoleAssignment(pulumi.CustomResource):
-
-    pulumi_type = "azure:marketplace/roleAssignment:RoleAssignment"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

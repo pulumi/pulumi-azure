@@ -126,10 +126,8 @@ class _NetworkInterfaceBackendAddressPoolAssociationState:
         pulumi.set(self, "network_interface_id", value)
 
 
+@pulumi.type_token("azure:network/networkInterfaceBackendAddressPoolAssociation:NetworkInterfaceBackendAddressPoolAssociation")
 class NetworkInterfaceBackendAddressPoolAssociation(pulumi.CustomResource):
-
-    pulumi_type = "azure:network/networkInterfaceBackendAddressPoolAssociation:NetworkInterfaceBackendAddressPoolAssociation"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

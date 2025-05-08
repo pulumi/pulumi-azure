@@ -413,10 +413,8 @@ class _SingleNodeVirtualInstanceState:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure:workloadssap/singleNodeVirtualInstance:SingleNodeVirtualInstance")
 class SingleNodeVirtualInstance(pulumi.CustomResource):
-
-    pulumi_type = "azure:workloadssap/singleNodeVirtualInstance:SingleNodeVirtualInstance"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

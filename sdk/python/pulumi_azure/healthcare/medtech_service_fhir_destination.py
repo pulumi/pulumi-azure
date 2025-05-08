@@ -221,10 +221,8 @@ class _MedtechServiceFhirDestinationState:
         pulumi.set(self, "name", value)
 
 
+@pulumi.type_token("azure:healthcare/medtechServiceFhirDestination:MedtechServiceFhirDestination")
 class MedtechServiceFhirDestination(pulumi.CustomResource):
-
-    pulumi_type = "azure:healthcare/medtechServiceFhirDestination:MedtechServiceFhirDestination"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

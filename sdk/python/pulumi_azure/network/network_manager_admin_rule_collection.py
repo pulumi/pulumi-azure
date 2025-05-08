@@ -159,10 +159,8 @@ class _NetworkManagerAdminRuleCollectionState:
         pulumi.set(self, "security_admin_configuration_id", value)
 
 
+@pulumi.type_token("azure:network/networkManagerAdminRuleCollection:NetworkManagerAdminRuleCollection")
 class NetworkManagerAdminRuleCollection(pulumi.CustomResource):
-
-    pulumi_type = "azure:network/networkManagerAdminRuleCollection:NetworkManagerAdminRuleCollection"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -189,10 +189,8 @@ class _FlexibleDatabaseState:
         pulumi.set(self, "server_name", value)
 
 
+@pulumi.type_token("azure:mysql/flexibleDatabase:FlexibleDatabase")
 class FlexibleDatabase(pulumi.CustomResource):
-
-    pulumi_type = "azure:mysql/flexibleDatabase:FlexibleDatabase"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

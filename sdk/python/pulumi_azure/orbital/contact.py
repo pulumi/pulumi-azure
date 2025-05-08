@@ -220,10 +220,8 @@ class _ContactState:
         pulumi.set(self, "spacecraft_id", value)
 
 
+@pulumi.type_token("azure:orbital/contact:Contact")
 class Contact(pulumi.CustomResource):
-
-    pulumi_type = "azure:orbital/contact:Contact"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

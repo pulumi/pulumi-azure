@@ -626,10 +626,8 @@ class _FirewallPolicyState:
         pulumi.set(self, "tls_certificate", value)
 
 
+@pulumi.type_token("azure:network/firewallPolicy:FirewallPolicy")
 class FirewallPolicy(pulumi.CustomResource):
-
-    pulumi_type = "azure:network/firewallPolicy:FirewallPolicy"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -274,10 +274,8 @@ class _BackupPolicyBlobStorageState:
         pulumi.set(self, "vault_id", value)
 
 
+@pulumi.type_token("azure:dataprotection/backupPolicyBlobStorage:BackupPolicyBlobStorage")
 class BackupPolicyBlobStorage(pulumi.CustomResource):
-
-    pulumi_type = "azure:dataprotection/backupPolicyBlobStorage:BackupPolicyBlobStorage"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

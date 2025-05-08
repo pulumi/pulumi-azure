@@ -489,10 +489,8 @@ class _ResourceGroupPolicyAssignmentState:
         pulumi.set(self, "resource_selectors", value)
 
 
+@pulumi.type_token("azure:core/resourceGroupPolicyAssignment:ResourceGroupPolicyAssignment")
 class ResourceGroupPolicyAssignment(pulumi.CustomResource):
-
-    pulumi_type = "azure:core/resourceGroupPolicyAssignment:ResourceGroupPolicyAssignment"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

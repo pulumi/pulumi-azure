@@ -191,10 +191,8 @@ class _FunctionJavascriptUdaState:
         pulumi.set(self, "stream_analytics_job_id", value)
 
 
+@pulumi.type_token("azure:streamanalytics/functionJavascriptUda:FunctionJavascriptUda")
 class FunctionJavascriptUda(pulumi.CustomResource):
-
-    pulumi_type = "azure:streamanalytics/functionJavascriptUda:FunctionJavascriptUda"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

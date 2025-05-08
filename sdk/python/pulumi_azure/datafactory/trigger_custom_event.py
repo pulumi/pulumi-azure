@@ -383,10 +383,8 @@ class _TriggerCustomEventState:
         pulumi.set(self, "subject_ends_with", value)
 
 
+@pulumi.type_token("azure:datafactory/triggerCustomEvent:TriggerCustomEvent")
 class TriggerCustomEvent(pulumi.CustomResource):
-
-    pulumi_type = "azure:datafactory/triggerCustomEvent:TriggerCustomEvent"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

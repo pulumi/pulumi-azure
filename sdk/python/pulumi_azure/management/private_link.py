@@ -128,10 +128,8 @@ class _PrivateLinkState:
         pulumi.set(self, "resource_group_name", value)
 
 
+@pulumi.type_token("azure:management/privateLink:PrivateLink")
 class PrivateLink(pulumi.CustomResource):
-
-    pulumi_type = "azure:management/privateLink:PrivateLink"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

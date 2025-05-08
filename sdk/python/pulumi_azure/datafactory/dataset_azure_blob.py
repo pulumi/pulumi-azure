@@ -457,10 +457,8 @@ class _DatasetAzureBlobState:
         pulumi.set(self, "schema_columns", value)
 
 
+@pulumi.type_token("azure:datafactory/datasetAzureBlob:DatasetAzureBlob")
 class DatasetAzureBlob(pulumi.CustomResource):
-
-    pulumi_type = "azure:datafactory/datasetAzureBlob:DatasetAzureBlob"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -513,10 +513,8 @@ class _FrontdoorState:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure:frontdoor/frontdoor:Frontdoor")
 class Frontdoor(pulumi.CustomResource):
-
-    pulumi_type = "azure:frontdoor/frontdoor:Frontdoor"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

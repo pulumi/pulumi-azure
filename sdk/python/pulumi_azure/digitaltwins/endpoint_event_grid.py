@@ -221,10 +221,8 @@ class _EndpointEventGridState:
         pulumi.set(self, "name", value)
 
 
+@pulumi.type_token("azure:digitaltwins/endpointEventGrid:EndpointEventGrid")
 class EndpointEventGrid(pulumi.CustomResource):
-
-    pulumi_type = "azure:digitaltwins/endpointEventGrid:EndpointEventGrid"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

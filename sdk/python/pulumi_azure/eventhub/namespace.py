@@ -552,11 +552,9 @@ class _NamespaceState:
 warnings.warn("""azure.eventhub.Namespace has been deprecated in favor of azure.servicebus.Namespace""", DeprecationWarning)
 
 
+@pulumi.type_token("azure:eventhub/namespace:Namespace")
 class Namespace(pulumi.CustomResource):
     warnings.warn("""azure.eventhub.Namespace has been deprecated in favor of azure.servicebus.Namespace""", DeprecationWarning)
-
-
-    pulumi_type = "azure:eventhub/namespace:Namespace"
 
     @overload
     def __init__(__self__,

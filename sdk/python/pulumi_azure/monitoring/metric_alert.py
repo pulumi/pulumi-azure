@@ -585,10 +585,8 @@ class _MetricAlertState:
         pulumi.set(self, "window_size", value)
 
 
+@pulumi.type_token("azure:monitoring/metricAlert:MetricAlert")
 class MetricAlert(pulumi.CustomResource):
-
-    pulumi_type = "azure:monitoring/metricAlert:MetricAlert"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -319,10 +319,8 @@ class _NetworkSimPolicyState:
         pulumi.set(self, "user_equipment_aggregate_maximum_bit_rate", value)
 
 
+@pulumi.type_token("azure:mobile/networkSimPolicy:NetworkSimPolicy")
 class NetworkSimPolicy(pulumi.CustomResource):
-
-    pulumi_type = "azure:mobile/networkSimPolicy:NetworkSimPolicy"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

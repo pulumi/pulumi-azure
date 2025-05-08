@@ -482,10 +482,8 @@ class _TriggerScheduleState:
         pulumi.set(self, "time_zone", value)
 
 
+@pulumi.type_token("azure:datafactory/triggerSchedule:TriggerSchedule")
 class TriggerSchedule(pulumi.CustomResource):
-
-    pulumi_type = "azure:datafactory/triggerSchedule:TriggerSchedule"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

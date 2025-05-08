@@ -1250,10 +1250,8 @@ class _DatabaseState:
         pulumi.set(self, "zone_redundant", value)
 
 
+@pulumi.type_token("azure:mssql/database:Database")
 class Database(pulumi.CustomResource):
-
-    pulumi_type = "azure:mssql/database:Database"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

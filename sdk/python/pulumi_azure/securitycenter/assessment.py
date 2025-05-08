@@ -160,10 +160,8 @@ class _AssessmentState:
         pulumi.set(self, "target_resource_id", value)
 
 
+@pulumi.type_token("azure:securitycenter/assessment:Assessment")
 class Assessment(pulumi.CustomResource):
-
-    pulumi_type = "azure:securitycenter/assessment:Assessment"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

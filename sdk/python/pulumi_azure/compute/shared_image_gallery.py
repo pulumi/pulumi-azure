@@ -242,10 +242,8 @@ class _SharedImageGalleryState:
         pulumi.set(self, "unique_name", value)
 
 
+@pulumi.type_token("azure:compute/sharedImageGallery:SharedImageGallery")
 class SharedImageGallery(pulumi.CustomResource):
-
-    pulumi_type = "azure:compute/sharedImageGallery:SharedImageGallery"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

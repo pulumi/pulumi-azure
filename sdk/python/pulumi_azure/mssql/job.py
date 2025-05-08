@@ -128,10 +128,8 @@ class _JobState:
         pulumi.set(self, "name", value)
 
 
+@pulumi.type_token("azure:mssql/job:Job")
 class Job(pulumi.CustomResource):
-
-    pulumi_type = "azure:mssql/job:Job"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

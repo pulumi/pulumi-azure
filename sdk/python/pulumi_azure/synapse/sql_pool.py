@@ -384,10 +384,8 @@ class _SqlPoolState:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure:synapse/sqlPool:SqlPool")
 class SqlPool(pulumi.CustomResource):
-
-    pulumi_type = "azure:synapse/sqlPool:SqlPool"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -284,10 +284,8 @@ class _ImplicitDataDiskFromSourceState:
         pulumi.set(self, "write_accelerator_enabled", value)
 
 
+@pulumi.type_token("azure:compute/implicitDataDiskFromSource:ImplicitDataDiskFromSource")
 class ImplicitDataDiskFromSource(pulumi.CustomResource):
-
-    pulumi_type = "azure:compute/implicitDataDiskFromSource:ImplicitDataDiskFromSource"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

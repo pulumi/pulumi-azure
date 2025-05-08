@@ -143,10 +143,8 @@ class _NetworkManagerStaticMemberState:
         pulumi.set(self, "target_virtual_network_id", value)
 
 
+@pulumi.type_token("azure:network/networkManagerStaticMember:NetworkManagerStaticMember")
 class NetworkManagerStaticMember(pulumi.CustomResource):
-
-    pulumi_type = "azure:network/networkManagerStaticMember:NetworkManagerStaticMember"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

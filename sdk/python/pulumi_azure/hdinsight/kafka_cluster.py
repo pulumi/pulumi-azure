@@ -789,10 +789,8 @@ class _KafkaClusterState:
         pulumi.set(self, "tls_min_version", value)
 
 
+@pulumi.type_token("azure:hdinsight/kafkaCluster:KafkaCluster")
 class KafkaCluster(pulumi.CustomResource):
-
-    pulumi_type = "azure:hdinsight/kafkaCluster:KafkaCluster"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

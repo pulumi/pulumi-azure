@@ -316,10 +316,8 @@ class _ConnectionState:
         pulumi.set(self, "service_provider_name", value)
 
 
+@pulumi.type_token("azure:bot/connection:Connection")
 class Connection(pulumi.CustomResource):
-
-    pulumi_type = "azure:bot/connection:Connection"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

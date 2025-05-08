@@ -318,10 +318,8 @@ class _SubscriptionPolicyExemptionState:
         pulumi.set(self, "subscription_id", value)
 
 
+@pulumi.type_token("azure:core/subscriptionPolicyExemption:SubscriptionPolicyExemption")
 class SubscriptionPolicyExemption(pulumi.CustomResource):
-
-    pulumi_type = "azure:core/subscriptionPolicyExemption:SubscriptionPolicyExemption"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

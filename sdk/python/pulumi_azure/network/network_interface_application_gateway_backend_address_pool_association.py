@@ -126,10 +126,8 @@ class _NetworkInterfaceApplicationGatewayBackendAddressPoolAssociationState:
         pulumi.set(self, "network_interface_id", value)
 
 
+@pulumi.type_token("azure:network/networkInterfaceApplicationGatewayBackendAddressPoolAssociation:NetworkInterfaceApplicationGatewayBackendAddressPoolAssociation")
 class NetworkInterfaceApplicationGatewayBackendAddressPoolAssociation(pulumi.CustomResource):
-
-    pulumi_type = "azure:network/networkInterfaceApplicationGatewayBackendAddressPoolAssociation:NetworkInterfaceApplicationGatewayBackendAddressPoolAssociation"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

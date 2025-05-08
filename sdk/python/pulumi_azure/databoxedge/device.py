@@ -209,10 +209,8 @@ class _DeviceState:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure:databoxedge/device:Device")
 class Device(pulumi.CustomResource):
-
-    pulumi_type = "azure:databoxedge/device:Device"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

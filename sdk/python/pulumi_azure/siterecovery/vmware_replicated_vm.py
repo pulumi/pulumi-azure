@@ -828,10 +828,8 @@ class _VmwareReplicatedVmState:
         pulumi.set(self, "test_network_id", value)
 
 
+@pulumi.type_token("azure:siterecovery/vmwareReplicatedVm:VmwareReplicatedVm")
 class VmwareReplicatedVm(pulumi.CustomResource):
-
-    pulumi_type = "azure:siterecovery/vmwareReplicatedVm:VmwareReplicatedVm"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

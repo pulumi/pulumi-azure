@@ -222,10 +222,8 @@ class _DevBoxDefinitionState:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure:devcenter/devBoxDefinition:DevBoxDefinition")
 class DevBoxDefinition(pulumi.CustomResource):
-
-    pulumi_type = "azure:devcenter/devBoxDefinition:DevBoxDefinition"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

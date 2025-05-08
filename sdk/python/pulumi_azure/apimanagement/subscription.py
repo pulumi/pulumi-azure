@@ -398,10 +398,8 @@ class _SubscriptionState:
         pulumi.set(self, "user_id", value)
 
 
+@pulumi.type_token("azure:apimanagement/subscription:Subscription")
 class Subscription(pulumi.CustomResource):
-
-    pulumi_type = "azure:apimanagement/subscription:Subscription"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

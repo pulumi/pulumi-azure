@@ -288,10 +288,8 @@ class _ProjectEnvironmentTypeState:
         pulumi.set(self, "user_role_assignments", value)
 
 
+@pulumi.type_token("azure:devcenter/projectEnvironmentType:ProjectEnvironmentType")
 class ProjectEnvironmentType(pulumi.CustomResource):
-
-    pulumi_type = "azure:devcenter/projectEnvironmentType:ProjectEnvironmentType"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

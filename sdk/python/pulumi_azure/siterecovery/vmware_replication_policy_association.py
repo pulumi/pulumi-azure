@@ -131,10 +131,8 @@ class _VmwareReplicationPolicyAssociationState:
         pulumi.set(self, "recovery_vault_id", value)
 
 
+@pulumi.type_token("azure:siterecovery/vmwareReplicationPolicyAssociation:VmwareReplicationPolicyAssociation")
 class VmwareReplicationPolicyAssociation(pulumi.CustomResource):
-
-    pulumi_type = "azure:siterecovery/vmwareReplicationPolicyAssociation:VmwareReplicationPolicyAssociation"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -160,10 +160,8 @@ class _ObjectReplicationState:
         pulumi.set(self, "source_storage_account_id", value)
 
 
+@pulumi.type_token("azure:storage/objectReplication:ObjectReplication")
 class ObjectReplication(pulumi.CustomResource):
-
-    pulumi_type = "azure:storage/objectReplication:ObjectReplication"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

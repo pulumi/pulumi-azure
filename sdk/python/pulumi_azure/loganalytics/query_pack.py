@@ -160,10 +160,8 @@ class _QueryPackState:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure:loganalytics/queryPack:QueryPack")
 class QueryPack(pulumi.CustomResource):
-
-    pulumi_type = "azure:loganalytics/queryPack:QueryPack"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -352,10 +352,8 @@ class _LinkedServiceState:
         pulumi.set(self, "type_properties_json", value)
 
 
+@pulumi.type_token("azure:synapse/linkedService:LinkedService")
 class LinkedService(pulumi.CustomResource):
-
-    pulumi_type = "azure:synapse/linkedService:LinkedService"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -840,10 +840,8 @@ class _GroupState:
         pulumi.set(self, "zones", value)
 
 
+@pulumi.type_token("azure:containerservice/group:Group")
 class Group(pulumi.CustomResource):
-
-    pulumi_type = "azure:containerservice/group:Group"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

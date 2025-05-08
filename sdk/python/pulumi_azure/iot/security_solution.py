@@ -512,10 +512,8 @@ class _SecuritySolutionState:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure:iot/securitySolution:SecuritySolution")
 class SecuritySolution(pulumi.CustomResource):
-
-    pulumi_type = "azure:iot/securitySolution:SecuritySolution"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

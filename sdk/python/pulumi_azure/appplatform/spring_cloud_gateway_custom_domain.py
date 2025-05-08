@@ -128,10 +128,8 @@ class _SpringCloudGatewayCustomDomainState:
         pulumi.set(self, "thumbprint", value)
 
 
+@pulumi.type_token("azure:appplatform/springCloudGatewayCustomDomain:SpringCloudGatewayCustomDomain")
 class SpringCloudGatewayCustomDomain(pulumi.CustomResource):
-
-    pulumi_type = "azure:appplatform/springCloudGatewayCustomDomain:SpringCloudGatewayCustomDomain"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

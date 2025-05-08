@@ -214,10 +214,8 @@ class _HubState:
         pulumi.set(self, "web_pubsub_id", value)
 
 
+@pulumi.type_token("azure:webpubsub/hub:Hub")
 class Hub(pulumi.CustomResource):
-
-    pulumi_type = "azure:webpubsub/hub:Hub"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

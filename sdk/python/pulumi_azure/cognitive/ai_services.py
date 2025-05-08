@@ -545,10 +545,8 @@ class _AIServicesState:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure:cognitive/aIServices:AIServices")
 class AIServices(pulumi.CustomResource):
-
-    pulumi_type = "azure:cognitive/aIServices:AIServices"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

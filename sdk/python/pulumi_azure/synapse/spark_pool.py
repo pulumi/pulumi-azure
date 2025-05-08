@@ -567,10 +567,8 @@ class _SparkPoolState:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure:synapse/sparkPool:SparkPool")
 class SparkPool(pulumi.CustomResource):
-
-    pulumi_type = "azure:synapse/sparkPool:SparkPool"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

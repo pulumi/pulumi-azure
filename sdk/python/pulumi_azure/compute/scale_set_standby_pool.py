@@ -255,10 +255,8 @@ class _ScaleSetStandbyPoolState:
         pulumi.set(self, "virtual_machine_state", value)
 
 
+@pulumi.type_token("azure:compute/scaleSetStandbyPool:ScaleSetStandbyPool")
 class ScaleSetStandbyPool(pulumi.CustomResource):
-
-    pulumi_type = "azure:compute/scaleSetStandbyPool:ScaleSetStandbyPool"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

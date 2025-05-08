@@ -239,10 +239,8 @@ class _CaaRecordState:
         pulumi.set(self, "zone_name", value)
 
 
+@pulumi.type_token("azure:dns/caaRecord:CaaRecord")
 class CaaRecord(pulumi.CustomResource):
-
-    pulumi_type = "azure:dns/caaRecord:CaaRecord"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

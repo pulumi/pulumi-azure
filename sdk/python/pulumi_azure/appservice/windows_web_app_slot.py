@@ -1017,10 +1017,8 @@ class _WindowsWebAppSlotState:
         pulumi.set(self, "zip_deploy_file", value)
 
 
+@pulumi.type_token("azure:appservice/windowsWebAppSlot:WindowsWebAppSlot")
 class WindowsWebAppSlot(pulumi.CustomResource):
-
-    pulumi_type = "azure:appservice/windowsWebAppSlot:WindowsWebAppSlot"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -425,10 +425,8 @@ class _DatasetBinaryState:
         pulumi.set(self, "sftp_server_location", value)
 
 
+@pulumi.type_token("azure:datafactory/datasetBinary:DatasetBinary")
 class DatasetBinary(pulumi.CustomResource):
-
-    pulumi_type = "azure:datafactory/datasetBinary:DatasetBinary"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -128,10 +128,8 @@ class _ShareDirectoryState:
         pulumi.set(self, "storage_share_id", value)
 
 
+@pulumi.type_token("azure:storage/shareDirectory:ShareDirectory")
 class ShareDirectory(pulumi.CustomResource):
-
-    pulumi_type = "azure:storage/shareDirectory:ShareDirectory"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

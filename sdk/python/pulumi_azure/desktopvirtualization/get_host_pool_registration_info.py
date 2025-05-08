@@ -111,10 +111,8 @@ class _GetHostPoolRegistrationInfoState:
         pulumi.set(self, "token", value)
 
 
+@pulumi.type_token("azure:desktopvirtualization/getHostPoolRegistrationInfo:getHostPoolRegistrationInfo")
 class GetHostPoolRegistrationInfo(pulumi.CustomResource):
-
-    pulumi_type = "azure:desktopvirtualization/getHostPoolRegistrationInfo:getHostPoolRegistrationInfo"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -264,10 +264,8 @@ class _TriggerRecurrenceState:
         pulumi.set(self, "time_zone", value)
 
 
+@pulumi.type_token("azure:logicapps/triggerRecurrence:TriggerRecurrence")
 class TriggerRecurrence(pulumi.CustomResource):
-
-    pulumi_type = "azure:logicapps/triggerRecurrence:TriggerRecurrence"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

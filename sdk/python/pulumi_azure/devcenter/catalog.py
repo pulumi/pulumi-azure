@@ -153,10 +153,8 @@ class _CatalogState:
         pulumi.set(self, "resource_group_name", value)
 
 
+@pulumi.type_token("azure:devcenter/catalog:Catalog")
 class Catalog(pulumi.CustomResource):
-
-    pulumi_type = "azure:devcenter/catalog:Catalog"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

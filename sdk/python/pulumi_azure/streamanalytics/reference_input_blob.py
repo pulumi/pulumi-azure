@@ -379,10 +379,8 @@ class _ReferenceInputBlobState:
         pulumi.set(self, "time_format", value)
 
 
+@pulumi.type_token("azure:streamanalytics/referenceInputBlob:ReferenceInputBlob")
 class ReferenceInputBlob(pulumi.CustomResource):
-
-    pulumi_type = "azure:streamanalytics/referenceInputBlob:ReferenceInputBlob"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

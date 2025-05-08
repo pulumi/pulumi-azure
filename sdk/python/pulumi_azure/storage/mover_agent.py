@@ -190,10 +190,8 @@ class _MoverAgentState:
         pulumi.set(self, "storage_mover_id", value)
 
 
+@pulumi.type_token("azure:storage/moverAgent:MoverAgent")
 class MoverAgent(pulumi.CustomResource):
-
-    pulumi_type = "azure:storage/moverAgent:MoverAgent"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

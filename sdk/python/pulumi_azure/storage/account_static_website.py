@@ -128,10 +128,8 @@ class _AccountStaticWebsiteState:
         pulumi.set(self, "storage_account_id", value)
 
 
+@pulumi.type_token("azure:storage/accountStaticWebsite:AccountStaticWebsite")
 class AccountStaticWebsite(pulumi.CustomResource):
-
-    pulumi_type = "azure:storage/accountStaticWebsite:AccountStaticWebsite"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

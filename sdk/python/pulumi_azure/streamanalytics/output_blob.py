@@ -475,10 +475,8 @@ class _OutputBlobState:
         pulumi.set(self, "time_format", value)
 
 
+@pulumi.type_token("azure:streamanalytics/outputBlob:OutputBlob")
 class OutputBlob(pulumi.CustomResource):
-
-    pulumi_type = "azure:streamanalytics/outputBlob:OutputBlob"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

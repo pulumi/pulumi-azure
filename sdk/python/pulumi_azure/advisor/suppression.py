@@ -175,10 +175,8 @@ class _SuppressionState:
         pulumi.set(self, "ttl", value)
 
 
+@pulumi.type_token("azure:advisor/suppression:Suppression")
 class Suppression(pulumi.CustomResource):
-
-    pulumi_type = "azure:advisor/suppression:Suppression"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

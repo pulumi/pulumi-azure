@@ -392,10 +392,8 @@ class _LinkedServiceCosmosDbState:
         pulumi.set(self, "parameters", value)
 
 
+@pulumi.type_token("azure:datafactory/linkedServiceCosmosDb:LinkedServiceCosmosDb")
 class LinkedServiceCosmosDb(pulumi.CustomResource):
-
-    pulumi_type = "azure:datafactory/linkedServiceCosmosDb:LinkedServiceCosmosDb"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -158,10 +158,8 @@ class _ProtectionContainerState:
         pulumi.set(self, "resource_group_name", value)
 
 
+@pulumi.type_token("azure:siterecovery/protectionContainer:ProtectionContainer")
 class ProtectionContainer(pulumi.CustomResource):
-
-    pulumi_type = "azure:siterecovery/protectionContainer:ProtectionContainer"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

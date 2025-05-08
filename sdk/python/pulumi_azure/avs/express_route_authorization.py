@@ -128,10 +128,8 @@ class _ExpressRouteAuthorizationState:
         pulumi.set(self, "private_cloud_id", value)
 
 
+@pulumi.type_token("azure:avs/expressRouteAuthorization:ExpressRouteAuthorization")
 class ExpressRouteAuthorization(pulumi.CustomResource):
-
-    pulumi_type = "azure:avs/expressRouteAuthorization:ExpressRouteAuthorization"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

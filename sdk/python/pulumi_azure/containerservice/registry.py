@@ -721,10 +721,8 @@ class _RegistryState:
         pulumi.set(self, "zone_redundancy_enabled", value)
 
 
+@pulumi.type_token("azure:containerservice/registry:Registry")
 class Registry(pulumi.CustomResource):
-
-    pulumi_type = "azure:containerservice/registry:Registry"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

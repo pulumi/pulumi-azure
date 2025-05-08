@@ -126,10 +126,8 @@ class _ScalingPlanHostPoolAssociationState:
         pulumi.set(self, "scaling_plan_id", value)
 
 
+@pulumi.type_token("azure:desktopvirtualization/scalingPlanHostPoolAssociation:ScalingPlanHostPoolAssociation")
 class ScalingPlanHostPoolAssociation(pulumi.CustomResource):
-
-    pulumi_type = "azure:desktopvirtualization/scalingPlanHostPoolAssociation:ScalingPlanHostPoolAssociation"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

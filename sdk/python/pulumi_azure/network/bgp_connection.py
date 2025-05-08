@@ -190,10 +190,8 @@ class _BgpConnectionState:
         pulumi.set(self, "virtual_network_connection_id", value)
 
 
+@pulumi.type_token("azure:network/bgpConnection:BgpConnection")
 class BgpConnection(pulumi.CustomResource):
-
-    pulumi_type = "azure:network/bgpConnection:BgpConnection"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

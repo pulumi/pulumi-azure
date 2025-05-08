@@ -98,10 +98,8 @@ class _CertificateContactsState:
         pulumi.set(self, "key_vault_id", value)
 
 
+@pulumi.type_token("azure:keyvault/certificateContacts:CertificateContacts")
 class CertificateContacts(pulumi.CustomResource):
-
-    pulumi_type = "azure:keyvault/certificateContacts:CertificateContacts"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

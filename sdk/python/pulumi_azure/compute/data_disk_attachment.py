@@ -221,10 +221,8 @@ class _DataDiskAttachmentState:
         pulumi.set(self, "write_accelerator_enabled", value)
 
 
+@pulumi.type_token("azure:compute/dataDiskAttachment:DataDiskAttachment")
 class DataDiskAttachment(pulumi.CustomResource):
-
-    pulumi_type = "azure:compute/dataDiskAttachment:DataDiskAttachment"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

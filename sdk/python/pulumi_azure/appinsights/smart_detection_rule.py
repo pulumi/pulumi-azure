@@ -200,10 +200,8 @@ class _SmartDetectionRuleState:
         pulumi.set(self, "send_emails_to_subscription_owners", value)
 
 
+@pulumi.type_token("azure:appinsights/smartDetectionRule:SmartDetectionRule")
 class SmartDetectionRule(pulumi.CustomResource):
-
-    pulumi_type = "azure:appinsights/smartDetectionRule:SmartDetectionRule"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

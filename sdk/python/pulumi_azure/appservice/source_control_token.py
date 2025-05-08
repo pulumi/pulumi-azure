@@ -135,10 +135,8 @@ class _SourceControlTokenState:
         pulumi.set(self, "type", value)
 
 
+@pulumi.type_token("azure:appservice/sourceControlToken:SourceControlToken")
 class SourceControlToken(pulumi.CustomResource):
-
-    pulumi_type = "azure:appservice/sourceControlToken:SourceControlToken"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

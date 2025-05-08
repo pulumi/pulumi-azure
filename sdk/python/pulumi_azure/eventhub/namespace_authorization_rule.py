@@ -299,11 +299,9 @@ class _NamespaceAuthorizationRuleState:
 warnings.warn("""azure.eventhub.NamespaceAuthorizationRule has been deprecated in favor of azure.servicebus.NamespaceAuthorizationRule""", DeprecationWarning)
 
 
+@pulumi.type_token("azure:eventhub/namespaceAuthorizationRule:NamespaceAuthorizationRule")
 class NamespaceAuthorizationRule(pulumi.CustomResource):
     warnings.warn("""azure.eventhub.NamespaceAuthorizationRule has been deprecated in favor of azure.servicebus.NamespaceAuthorizationRule""", DeprecationWarning)
-
-
-    pulumi_type = "azure:eventhub/namespaceAuthorizationRule:NamespaceAuthorizationRule"
 
     @overload
     def __init__(__self__,

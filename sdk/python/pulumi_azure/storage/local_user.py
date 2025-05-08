@@ -290,10 +290,8 @@ class _LocalUserState:
         pulumi.set(self, "storage_account_id", value)
 
 
+@pulumi.type_token("azure:storage/localUser:LocalUser")
 class LocalUser(pulumi.CustomResource):
-
-    pulumi_type = "azure:storage/localUser:LocalUser"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

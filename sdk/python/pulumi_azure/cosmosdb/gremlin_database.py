@@ -209,10 +209,8 @@ class _GremlinDatabaseState:
         pulumi.set(self, "throughput", value)
 
 
+@pulumi.type_token("azure:cosmosdb/gremlinDatabase:GremlinDatabase")
 class GremlinDatabase(pulumi.CustomResource):
-
-    pulumi_type = "azure:cosmosdb/gremlinDatabase:GremlinDatabase"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

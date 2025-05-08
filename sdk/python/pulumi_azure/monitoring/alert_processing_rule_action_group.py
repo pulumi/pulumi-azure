@@ -320,10 +320,8 @@ class _AlertProcessingRuleActionGroupState:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure:monitoring/alertProcessingRuleActionGroup:AlertProcessingRuleActionGroup")
 class AlertProcessingRuleActionGroup(pulumi.CustomResource):
-
-    pulumi_type = "azure:monitoring/alertProcessingRuleActionGroup:AlertProcessingRuleActionGroup"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

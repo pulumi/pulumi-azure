@@ -215,10 +215,8 @@ class _ApiConnectionState:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure:connections/apiConnection:ApiConnection")
 class ApiConnection(pulumi.CustomResource):
-
-    pulumi_type = "azure:connections/apiConnection:ApiConnection"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

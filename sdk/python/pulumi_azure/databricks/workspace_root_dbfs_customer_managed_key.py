@@ -119,10 +119,8 @@ class _WorkspaceRootDbfsCustomerManagedKeyState:
         pulumi.set(self, "workspace_id", value)
 
 
+@pulumi.type_token("azure:databricks/workspaceRootDbfsCustomerManagedKey:WorkspaceRootDbfsCustomerManagedKey")
 class WorkspaceRootDbfsCustomerManagedKey(pulumi.CustomResource):
-
-    pulumi_type = "azure:databricks/workspaceRootDbfsCustomerManagedKey:WorkspaceRootDbfsCustomerManagedKey"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

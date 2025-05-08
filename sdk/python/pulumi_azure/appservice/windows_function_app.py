@@ -1340,10 +1340,8 @@ class _WindowsFunctionAppState:
         pulumi.set(self, "zip_deploy_file", value)
 
 
+@pulumi.type_token("azure:appservice/windowsFunctionApp:WindowsFunctionApp")
 class WindowsFunctionApp(pulumi.CustomResource):
-
-    pulumi_type = "azure:appservice/windowsFunctionApp:WindowsFunctionApp"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

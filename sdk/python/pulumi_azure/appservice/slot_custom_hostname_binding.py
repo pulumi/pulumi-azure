@@ -191,10 +191,8 @@ class _SlotCustomHostnameBindingState:
         pulumi.set(self, "virtual_ip", value)
 
 
+@pulumi.type_token("azure:appservice/slotCustomHostnameBinding:SlotCustomHostnameBinding")
 class SlotCustomHostnameBinding(pulumi.CustomResource):
-
-    pulumi_type = "azure:appservice/slotCustomHostnameBinding:SlotCustomHostnameBinding"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

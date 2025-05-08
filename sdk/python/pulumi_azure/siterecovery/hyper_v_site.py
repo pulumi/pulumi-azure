@@ -96,10 +96,8 @@ class _HyperVSiteState:
         pulumi.set(self, "recovery_vault_id", value)
 
 
+@pulumi.type_token("azure:siterecovery/hyperVSite:HyperVSite")
 class HyperVSite(pulumi.CustomResource):
-
-    pulumi_type = "azure:siterecovery/hyperVSite:HyperVSite"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

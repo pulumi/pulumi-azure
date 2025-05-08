@@ -425,10 +425,8 @@ class _DatasetHttpState:
         pulumi.set(self, "schema_columns", value)
 
 
+@pulumi.type_token("azure:datafactory/datasetHttp:DatasetHttp")
 class DatasetHttp(pulumi.CustomResource):
-
-    pulumi_type = "azure:datafactory/datasetHttp:DatasetHttp"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

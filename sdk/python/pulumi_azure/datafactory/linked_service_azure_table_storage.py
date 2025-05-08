@@ -295,10 +295,8 @@ class _LinkedServiceAzureTableStorageState:
         pulumi.set(self, "parameters", value)
 
 
+@pulumi.type_token("azure:datafactory/linkedServiceAzureTableStorage:LinkedServiceAzureTableStorage")
 class LinkedServiceAzureTableStorage(pulumi.CustomResource):
-
-    pulumi_type = "azure:datafactory/linkedServiceAzureTableStorage:LinkedServiceAzureTableStorage"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

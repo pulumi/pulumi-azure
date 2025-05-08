@@ -127,10 +127,8 @@ class _TargetState:
         pulumi.set(self, "target_type", value)
 
 
+@pulumi.type_token("azure:chaosstudio/target:Target")
 class Target(pulumi.CustomResource):
-
-    pulumi_type = "azure:chaosstudio/target:Target"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

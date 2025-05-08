@@ -494,10 +494,8 @@ class _RunBookState:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure:automation/runBook:RunBook")
 class RunBook(pulumi.CustomResource):
-
-    pulumi_type = "azure:automation/runBook:RunBook"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

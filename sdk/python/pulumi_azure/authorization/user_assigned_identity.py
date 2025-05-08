@@ -208,10 +208,8 @@ class _UserAssignedIdentityState:
         pulumi.set(self, "tenant_id", value)
 
 
+@pulumi.type_token("azure:authorization/userAssignedIdentity:UserAssignedIdentity")
 class UserAssignedIdentity(pulumi.CustomResource):
-
-    pulumi_type = "azure:authorization/userAssignedIdentity:UserAssignedIdentity"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

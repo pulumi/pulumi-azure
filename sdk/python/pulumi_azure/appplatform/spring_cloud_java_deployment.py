@@ -258,10 +258,8 @@ class _SpringCloudJavaDeploymentState:
         pulumi.set(self, "spring_cloud_app_id", value)
 
 
+@pulumi.type_token("azure:appplatform/springCloudJavaDeployment:SpringCloudJavaDeployment")
 class SpringCloudJavaDeployment(pulumi.CustomResource):
-
-    pulumi_type = "azure:appplatform/springCloudJavaDeployment:SpringCloudJavaDeployment"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -513,10 +513,8 @@ class _SnapshotState:
         pulumi.set(self, "trusted_launch_enabled", value)
 
 
+@pulumi.type_token("azure:compute/snapshot:Snapshot")
 class Snapshot(pulumi.CustomResource):
-
-    pulumi_type = "azure:compute/snapshot:Snapshot"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

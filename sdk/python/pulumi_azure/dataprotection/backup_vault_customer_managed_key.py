@@ -95,10 +95,8 @@ class _BackupVaultCustomerManagedKeyState:
         pulumi.set(self, "key_vault_key_id", value)
 
 
+@pulumi.type_token("azure:dataprotection/backupVaultCustomerManagedKey:BackupVaultCustomerManagedKey")
 class BackupVaultCustomerManagedKey(pulumi.CustomResource):
-
-    pulumi_type = "azure:dataprotection/backupVaultCustomerManagedKey:BackupVaultCustomerManagedKey"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

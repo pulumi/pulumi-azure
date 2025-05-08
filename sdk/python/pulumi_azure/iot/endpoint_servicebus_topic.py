@@ -295,10 +295,8 @@ class _EndpointServicebusTopicState:
         pulumi.set(self, "resource_group_name", value)
 
 
+@pulumi.type_token("azure:iot/endpointServicebusTopic:EndpointServicebusTopic")
 class EndpointServicebusTopic(pulumi.CustomResource):
-
-    pulumi_type = "azure:iot/endpointServicebusTopic:EndpointServicebusTopic"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

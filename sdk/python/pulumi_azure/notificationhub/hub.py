@@ -305,10 +305,8 @@ class _HubState:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure:notificationhub/hub:Hub")
 class Hub(pulumi.CustomResource):
-
-    pulumi_type = "azure:notificationhub/hub:Hub"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -559,10 +559,8 @@ class _SharedImageVersionState:
         pulumi.set(self, "target_regions", value)
 
 
+@pulumi.type_token("azure:compute/sharedImageVersion:SharedImageVersion")
 class SharedImageVersion(pulumi.CustomResource):
-
-    pulumi_type = "azure:compute/sharedImageVersion:SharedImageVersion"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

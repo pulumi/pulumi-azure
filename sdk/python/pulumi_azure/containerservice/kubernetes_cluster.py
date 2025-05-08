@@ -2225,10 +2225,8 @@ class _KubernetesClusterState:
         pulumi.set(self, "workload_identity_enabled", value)
 
 
+@pulumi.type_token("azure:containerservice/kubernetesCluster:KubernetesCluster")
 class KubernetesCluster(pulumi.CustomResource):
-
-    pulumi_type = "azure:containerservice/kubernetesCluster:KubernetesCluster"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

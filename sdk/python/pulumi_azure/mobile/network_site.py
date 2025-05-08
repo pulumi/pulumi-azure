@@ -176,10 +176,8 @@ class _NetworkSiteState:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure:mobile/networkSite:NetworkSite")
 class NetworkSite(pulumi.CustomResource):
-
-    pulumi_type = "azure:mobile/networkSite:NetworkSite"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

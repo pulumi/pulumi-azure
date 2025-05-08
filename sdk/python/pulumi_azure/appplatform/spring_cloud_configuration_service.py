@@ -194,10 +194,8 @@ class _SpringCloudConfigurationServiceState:
         pulumi.set(self, "spring_cloud_service_id", value)
 
 
+@pulumi.type_token("azure:appplatform/springCloudConfigurationService:SpringCloudConfigurationService")
 class SpringCloudConfigurationService(pulumi.CustomResource):
-
-    pulumi_type = "azure:appplatform/springCloudConfigurationService:SpringCloudConfigurationService"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

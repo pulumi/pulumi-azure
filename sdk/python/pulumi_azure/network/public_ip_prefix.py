@@ -360,10 +360,8 @@ class _PublicIpPrefixState:
         pulumi.set(self, "zones", value)
 
 
+@pulumi.type_token("azure:network/publicIpPrefix:PublicIpPrefix")
 class PublicIpPrefix(pulumi.CustomResource):
-
-    pulumi_type = "azure:network/publicIpPrefix:PublicIpPrefix"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -166,10 +166,8 @@ class _FirewallRuleState:
         pulumi.set(self, "start_ip_address", value)
 
 
+@pulumi.type_token("azure:mssql/firewallRule:FirewallRule")
 class FirewallRule(pulumi.CustomResource):
-
-    pulumi_type = "azure:mssql/firewallRule:FirewallRule"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

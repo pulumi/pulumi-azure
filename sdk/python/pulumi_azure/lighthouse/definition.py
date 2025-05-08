@@ -288,10 +288,8 @@ class _DefinitionState:
         pulumi.set(self, "scope", value)
 
 
+@pulumi.type_token("azure:lighthouse/definition:Definition")
 class Definition(pulumi.CustomResource):
-
-    pulumi_type = "azure:lighthouse/definition:Definition"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

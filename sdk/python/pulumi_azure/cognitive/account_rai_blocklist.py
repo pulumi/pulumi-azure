@@ -128,10 +128,8 @@ class _AccountRaiBlocklistState:
         pulumi.set(self, "name", value)
 
 
+@pulumi.type_token("azure:cognitive/accountRaiBlocklist:AccountRaiBlocklist")
 class AccountRaiBlocklist(pulumi.CustomResource):
-
-    pulumi_type = "azure:cognitive/accountRaiBlocklist:AccountRaiBlocklist"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -287,10 +287,8 @@ class _SqlPoolWorkloadClassifierState:
         pulumi.set(self, "workload_group_id", value)
 
 
+@pulumi.type_token("azure:synapse/sqlPoolWorkloadClassifier:SqlPoolWorkloadClassifier")
 class SqlPoolWorkloadClassifier(pulumi.CustomResource):
-
-    pulumi_type = "azure:synapse/sqlPoolWorkloadClassifier:SqlPoolWorkloadClassifier"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

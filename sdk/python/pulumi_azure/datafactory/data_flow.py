@@ -352,10 +352,8 @@ class _DataFlowState:
         pulumi.set(self, "transformations", value)
 
 
+@pulumi.type_token("azure:datafactory/dataFlow:DataFlow")
 class DataFlow(pulumi.CustomResource):
-
-    pulumi_type = "azure:datafactory/dataFlow:DataFlow"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

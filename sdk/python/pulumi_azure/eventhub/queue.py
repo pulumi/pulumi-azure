@@ -651,11 +651,9 @@ class _QueueState:
 warnings.warn("""azure.eventhub.Queue has been deprecated in favor of azure.servicebus.Queue""", DeprecationWarning)
 
 
+@pulumi.type_token("azure:eventhub/queue:Queue")
 class Queue(pulumi.CustomResource):
     warnings.warn("""azure.eventhub.Queue has been deprecated in favor of azure.servicebus.Queue""", DeprecationWarning)
-
-
-    pulumi_type = "azure:eventhub/queue:Queue"
 
     @overload
     def __init__(__self__,

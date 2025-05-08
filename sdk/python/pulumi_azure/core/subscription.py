@@ -256,10 +256,8 @@ class _SubscriptionState:
         pulumi.set(self, "workload", value)
 
 
+@pulumi.type_token("azure:core/subscription:Subscription")
 class Subscription(pulumi.CustomResource):
-
-    pulumi_type = "azure:core/subscription:Subscription"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -190,10 +190,8 @@ class _CertificateState:
         pulumi.set(self, "resource_group_name", value)
 
 
+@pulumi.type_token("azure:iot/certificate:Certificate")
 class Certificate(pulumi.CustomResource):
-
-    pulumi_type = "azure:iot/certificate:Certificate"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

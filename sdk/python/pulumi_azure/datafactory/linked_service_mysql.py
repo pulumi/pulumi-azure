@@ -287,10 +287,8 @@ class _LinkedServiceMysqlState:
         pulumi.set(self, "parameters", value)
 
 
+@pulumi.type_token("azure:datafactory/linkedServiceMysql:LinkedServiceMysql")
 class LinkedServiceMysql(pulumi.CustomResource):
-
-    pulumi_type = "azure:datafactory/linkedServiceMysql:LinkedServiceMysql"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -395,10 +395,8 @@ class _ClusterState:
         pulumi.set(self, "worker_profile", value)
 
 
+@pulumi.type_token("azure:redhatopenshift/cluster:Cluster")
 class Cluster(pulumi.CustomResource):
-
-    pulumi_type = "azure:redhatopenshift/cluster:Cluster"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

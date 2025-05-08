@@ -495,10 +495,8 @@ class _SqlContainerState:
         pulumi.set(self, "unique_keys", value)
 
 
+@pulumi.type_token("azure:cosmosdb/sqlContainer:SqlContainer")
 class SqlContainer(pulumi.CustomResource):
-
-    pulumi_type = "azure:cosmosdb/sqlContainer:SqlContainer"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

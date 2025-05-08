@@ -154,10 +154,8 @@ class _ManagedDiskSasTokenState:
         pulumi.set(self, "sas_url", value)
 
 
+@pulumi.type_token("azure:compute/managedDiskSasToken:ManagedDiskSasToken")
 class ManagedDiskSasToken(pulumi.CustomResource):
-
-    pulumi_type = "azure:compute/managedDiskSasToken:ManagedDiskSasToken"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

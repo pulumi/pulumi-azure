@@ -350,10 +350,8 @@ class _ApplicationState:
         pulumi.set(self, "show_in_portal", value)
 
 
+@pulumi.type_token("azure:desktopvirtualization/application:Application")
 class Application(pulumi.CustomResource):
-
-    pulumi_type = "azure:desktopvirtualization/application:Application"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

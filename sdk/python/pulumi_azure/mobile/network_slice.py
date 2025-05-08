@@ -225,10 +225,8 @@ class _NetworkSliceState:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure:mobile/networkSlice:NetworkSlice")
 class NetworkSlice(pulumi.CustomResource):
-
-    pulumi_type = "azure:mobile/networkSlice:NetworkSlice"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -336,10 +336,8 @@ class _AttachedDatabaseConfigurationState:
         pulumi.set(self, "sharing", value)
 
 
+@pulumi.type_token("azure:kusto/attachedDatabaseConfiguration:AttachedDatabaseConfiguration")
 class AttachedDatabaseConfiguration(pulumi.CustomResource):
-
-    pulumi_type = "azure:kusto/attachedDatabaseConfiguration:AttachedDatabaseConfiguration"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

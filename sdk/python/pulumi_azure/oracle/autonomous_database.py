@@ -704,10 +704,8 @@ class _AutonomousDatabaseState:
         pulumi.set(self, "virtual_network_id", value)
 
 
+@pulumi.type_token("azure:oracle/autonomousDatabase:AutonomousDatabase")
 class AutonomousDatabase(pulumi.CustomResource):
-
-    pulumi_type = "azure:oracle/autonomousDatabase:AutonomousDatabase"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

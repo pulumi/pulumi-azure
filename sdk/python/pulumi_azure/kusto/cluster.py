@@ -761,10 +761,8 @@ class _ClusterState:
         pulumi.set(self, "zones", value)
 
 
+@pulumi.type_token("azure:kusto/cluster:Cluster")
 class Cluster(pulumi.CustomResource):
-
-    pulumi_type = "azure:kusto/cluster:Cluster"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

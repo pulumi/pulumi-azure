@@ -349,10 +349,8 @@ class _RegistryWebhookState:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure:containerservice/registryWebhook:RegistryWebhook")
 class RegistryWebhook(pulumi.CustomResource):
-
-    pulumi_type = "azure:containerservice/registryWebhook:RegistryWebhook"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -256,10 +256,8 @@ class _IntegrationRuntimeAzureState:
         pulumi.set(self, "time_to_live_min", value)
 
 
+@pulumi.type_token("azure:synapse/integrationRuntimeAzure:IntegrationRuntimeAzure")
 class IntegrationRuntimeAzure(pulumi.CustomResource):
-
-    pulumi_type = "azure:synapse/integrationRuntimeAzure:IntegrationRuntimeAzure"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

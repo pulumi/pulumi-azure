@@ -535,10 +535,8 @@ class _AppState:
         pulumi.set(self, "workload_profile_name", value)
 
 
+@pulumi.type_token("azure:containerapp/app:App")
 class App(pulumi.CustomResource):
-
-    pulumi_type = "azure:containerapp/app:App"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

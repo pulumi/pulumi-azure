@@ -283,10 +283,8 @@ class _ClusterPrincipalAssignmentState:
         pulumi.set(self, "tenant_name", value)
 
 
+@pulumi.type_token("azure:kusto/clusterPrincipalAssignment:ClusterPrincipalAssignment")
 class ClusterPrincipalAssignment(pulumi.CustomResource):
-
-    pulumi_type = "azure:kusto/clusterPrincipalAssignment:ClusterPrincipalAssignment"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

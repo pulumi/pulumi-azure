@@ -126,10 +126,8 @@ class _ActiveSlotState:
         pulumi.set(self, "resource_group_name", value)
 
 
+@pulumi.type_token("azure:appservice/activeSlot:ActiveSlot")
 class ActiveSlot(pulumi.CustomResource):
-
-    pulumi_type = "azure:appservice/activeSlot:ActiveSlot"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -221,10 +221,8 @@ class _SpringCloudElasticApplicationPerformanceMonitoringState:
         pulumi.set(self, "spring_cloud_service_id", value)
 
 
+@pulumi.type_token("azure:appplatform/springCloudElasticApplicationPerformanceMonitoring:SpringCloudElasticApplicationPerformanceMonitoring")
 class SpringCloudElasticApplicationPerformanceMonitoring(pulumi.CustomResource):
-
-    pulumi_type = "azure:appplatform/springCloudElasticApplicationPerformanceMonitoring:SpringCloudElasticApplicationPerformanceMonitoring"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

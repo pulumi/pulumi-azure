@@ -542,10 +542,8 @@ class _BlobState:
         pulumi.set(self, "url", value)
 
 
+@pulumi.type_token("azure:storage/blob:Blob")
 class Blob(pulumi.CustomResource):
-
-    pulumi_type = "azure:storage/blob:Blob"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

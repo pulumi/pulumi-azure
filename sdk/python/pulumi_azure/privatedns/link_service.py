@@ -376,10 +376,8 @@ class _LinkServiceState:
         pulumi.set(self, "visibility_subscription_ids", value)
 
 
+@pulumi.type_token("azure:privatedns/linkService:LinkService")
 class LinkService(pulumi.CustomResource):
-
-    pulumi_type = "azure:privatedns/linkService:LinkService"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

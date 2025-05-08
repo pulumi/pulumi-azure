@@ -265,10 +265,8 @@ class _VirtualMachineAvailabilityGroupListenerState:
         pulumi.set(self, "sql_virtual_machine_group_id", value)
 
 
+@pulumi.type_token("azure:mssql/virtualMachineAvailabilityGroupListener:VirtualMachineAvailabilityGroupListener")
 class VirtualMachineAvailabilityGroupListener(pulumi.CustomResource):
-
-    pulumi_type = "azure:mssql/virtualMachineAvailabilityGroupListener:VirtualMachineAvailabilityGroupListener"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

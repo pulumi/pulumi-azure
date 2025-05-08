@@ -285,10 +285,8 @@ class _ProjectPoolState:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure:devcenter/projectPool:ProjectPool")
 class ProjectPool(pulumi.CustomResource):
-
-    pulumi_type = "azure:devcenter/projectPool:ProjectPool"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

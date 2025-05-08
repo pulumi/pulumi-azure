@@ -225,10 +225,8 @@ class _FirewallPolicyRuleCollectionGroupState:
         pulumi.set(self, "priority", value)
 
 
+@pulumi.type_token("azure:network/firewallPolicyRuleCollectionGroup:FirewallPolicyRuleCollectionGroup")
 class FirewallPolicyRuleCollectionGroup(pulumi.CustomResource):
-
-    pulumi_type = "azure:network/firewallPolicyRuleCollectionGroup:FirewallPolicyRuleCollectionGroup"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

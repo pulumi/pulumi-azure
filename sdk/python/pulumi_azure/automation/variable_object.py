@@ -223,10 +223,8 @@ class _VariableObjectState:
         pulumi.set(self, "value", value)
 
 
+@pulumi.type_token("azure:automation/variableObject:VariableObject")
 class VariableObject(pulumi.CustomResource):
-
-    pulumi_type = "azure:automation/variableObject:VariableObject"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

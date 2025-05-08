@@ -136,10 +136,8 @@ class _DataConnectorOfficePowerBiState:
         pulumi.set(self, "tenant_id", value)
 
 
+@pulumi.type_token("azure:sentinel/dataConnectorOfficePowerBi:DataConnectorOfficePowerBi")
 class DataConnectorOfficePowerBi(pulumi.CustomResource):
-
-    pulumi_type = "azure:sentinel/dataConnectorOfficePowerBi:DataConnectorOfficePowerBi"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

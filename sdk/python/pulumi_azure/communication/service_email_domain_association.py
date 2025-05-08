@@ -95,10 +95,8 @@ class _ServiceEmailDomainAssociationState:
         pulumi.set(self, "email_service_domain_id", value)
 
 
+@pulumi.type_token("azure:communication/serviceEmailDomainAssociation:ServiceEmailDomainAssociation")
 class ServiceEmailDomainAssociation(pulumi.CustomResource):
-
-    pulumi_type = "azure:communication/serviceEmailDomainAssociation:ServiceEmailDomainAssociation"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

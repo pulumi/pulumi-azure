@@ -285,10 +285,8 @@ class _OutputCosmosdbState:
         pulumi.set(self, "stream_analytics_job_id", value)
 
 
+@pulumi.type_token("azure:streamanalytics/outputCosmosdb:OutputCosmosdb")
 class OutputCosmosdb(pulumi.CustomResource):
-
-    pulumi_type = "azure:streamanalytics/outputCosmosdb:OutputCosmosdb"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

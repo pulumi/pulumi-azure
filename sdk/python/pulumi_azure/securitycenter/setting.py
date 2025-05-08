@@ -95,10 +95,8 @@ class _SettingState:
         pulumi.set(self, "setting_name", value)
 
 
+@pulumi.type_token("azure:securitycenter/setting:Setting")
 class Setting(pulumi.CustomResource):
-
-    pulumi_type = "azure:securitycenter/setting:Setting"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

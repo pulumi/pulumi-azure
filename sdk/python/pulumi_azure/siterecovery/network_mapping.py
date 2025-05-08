@@ -251,10 +251,8 @@ class _NetworkMappingState:
         pulumi.set(self, "target_recovery_fabric_name", value)
 
 
+@pulumi.type_token("azure:siterecovery/networkMapping:NetworkMapping")
 class NetworkMapping(pulumi.CustomResource):
-
-    pulumi_type = "azure:siterecovery/networkMapping:NetworkMapping"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

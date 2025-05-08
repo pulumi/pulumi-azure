@@ -477,10 +477,8 @@ class _ServicesCommunicationsGatewayState:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure:voice/servicesCommunicationsGateway:ServicesCommunicationsGateway")
 class ServicesCommunicationsGateway(pulumi.CustomResource):
-
-    pulumi_type = "azure:voice/servicesCommunicationsGateway:ServicesCommunicationsGateway"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

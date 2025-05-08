@@ -320,10 +320,8 @@ class _LinkedCustomServiceState:
         pulumi.set(self, "type_properties_json", value)
 
 
+@pulumi.type_token("azure:datafactory/linkedCustomService:LinkedCustomService")
 class LinkedCustomService(pulumi.CustomResource):
-
-    pulumi_type = "azure:datafactory/linkedCustomService:LinkedCustomService"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

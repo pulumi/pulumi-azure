@@ -190,10 +190,8 @@ class _RegistryCacheRuleState:
         pulumi.set(self, "target_repo", value)
 
 
+@pulumi.type_token("azure:containerservice/registryCacheRule:RegistryCacheRule")
 class RegistryCacheRule(pulumi.CustomResource):
-
-    pulumi_type = "azure:containerservice/registryCacheRule:RegistryCacheRule"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

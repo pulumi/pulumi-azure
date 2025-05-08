@@ -417,10 +417,8 @@ class _ComputeInstanceState:
         pulumi.set(self, "virtual_machine_size", value)
 
 
+@pulumi.type_token("azure:machinelearning/computeInstance:ComputeInstance")
 class ComputeInstance(pulumi.CustomResource):
-
-    pulumi_type = "azure:machinelearning/computeInstance:ComputeInstance"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

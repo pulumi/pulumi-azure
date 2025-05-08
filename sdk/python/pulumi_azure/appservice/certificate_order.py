@@ -506,10 +506,8 @@ class _CertificateOrderState:
         pulumi.set(self, "validity_in_years", value)
 
 
+@pulumi.type_token("azure:appservice/certificateOrder:CertificateOrder")
 class CertificateOrder(pulumi.CustomResource):
-
-    pulumi_type = "azure:appservice/certificateOrder:CertificateOrder"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

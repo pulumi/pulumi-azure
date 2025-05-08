@@ -254,10 +254,8 @@ class _AnomalyAlertState:
         pulumi.set(self, "subscription_id", value)
 
 
+@pulumi.type_token("azure:costmanagement/anomalyAlert:AnomalyAlert")
 class AnomalyAlert(pulumi.CustomResource):
-
-    pulumi_type = "azure:costmanagement/anomalyAlert:AnomalyAlert"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

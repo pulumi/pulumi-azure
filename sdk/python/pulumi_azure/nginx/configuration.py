@@ -193,10 +193,8 @@ class _ConfigurationState:
         pulumi.set(self, "root_file", value)
 
 
+@pulumi.type_token("azure:nginx/configuration:Configuration")
 class Configuration(pulumi.CustomResource):
-
-    pulumi_type = "azure:nginx/configuration:Configuration"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

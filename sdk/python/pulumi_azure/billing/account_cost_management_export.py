@@ -317,10 +317,8 @@ class _AccountCostManagementExportState:
         pulumi.set(self, "recurrence_type", value)
 
 
+@pulumi.type_token("azure:billing/accountCostManagementExport:AccountCostManagementExport")
 class AccountCostManagementExport(pulumi.CustomResource):
-
-    pulumi_type = "azure:billing/accountCostManagementExport:AccountCostManagementExport"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

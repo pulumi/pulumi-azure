@@ -72,10 +72,8 @@ class _PortalTenantConfigurationState:
         pulumi.set(self, "private_markdown_storage_enforced", value)
 
 
+@pulumi.type_token("azure:core/portalTenantConfiguration:PortalTenantConfiguration")
 class PortalTenantConfiguration(pulumi.CustomResource):
-
-    pulumi_type = "azure:core/portalTenantConfiguration:PortalTenantConfiguration"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -721,10 +721,8 @@ class _DatasetDelimitedTextState:
         pulumi.set(self, "schema_columns", value)
 
 
+@pulumi.type_token("azure:datafactory/datasetDelimitedText:DatasetDelimitedText")
 class DatasetDelimitedText(pulumi.CustomResource):
-
-    pulumi_type = "azure:datafactory/datasetDelimitedText:DatasetDelimitedText"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

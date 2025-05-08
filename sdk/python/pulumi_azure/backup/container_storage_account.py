@@ -134,10 +134,8 @@ class _ContainerStorageAccountState:
         pulumi.set(self, "storage_account_id", value)
 
 
+@pulumi.type_token("azure:backup/containerStorageAccount:ContainerStorageAccount")
 class ContainerStorageAccount(pulumi.CustomResource):
-
-    pulumi_type = "azure:backup/containerStorageAccount:ContainerStorageAccount"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

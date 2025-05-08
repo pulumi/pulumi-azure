@@ -128,10 +128,8 @@ class _ApiReleaseState:
         pulumi.set(self, "notes", value)
 
 
+@pulumi.type_token("azure:apimanagement/apiRelease:ApiRelease")
 class ApiRelease(pulumi.CustomResource):
-
-    pulumi_type = "azure:apimanagement/apiRelease:ApiRelease"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

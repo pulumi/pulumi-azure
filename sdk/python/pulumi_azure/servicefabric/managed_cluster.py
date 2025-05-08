@@ -575,10 +575,8 @@ class _ManagedClusterState:
         pulumi.set(self, "username", value)
 
 
+@pulumi.type_token("azure:servicefabric/managedCluster:ManagedCluster")
 class ManagedCluster(pulumi.CustomResource):
-
-    pulumi_type = "azure:servicefabric/managedCluster:ManagedCluster"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

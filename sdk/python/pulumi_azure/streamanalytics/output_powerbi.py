@@ -284,10 +284,8 @@ class _OutputPowerbiState:
         pulumi.set(self, "token_user_principal_name", value)
 
 
+@pulumi.type_token("azure:streamanalytics/outputPowerbi:OutputPowerbi")
 class OutputPowerbi(pulumi.CustomResource):
-
-    pulumi_type = "azure:streamanalytics/outputPowerbi:OutputPowerbi"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

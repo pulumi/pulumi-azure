@@ -225,10 +225,8 @@ class _ShareState:
         pulumi.set(self, "terms", value)
 
 
+@pulumi.type_token("azure:datashare/share:Share")
 class Share(pulumi.CustomResource):
-
-    pulumi_type = "azure:datashare/share:Share"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

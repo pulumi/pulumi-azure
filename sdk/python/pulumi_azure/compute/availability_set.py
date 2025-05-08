@@ -304,10 +304,8 @@ class _AvailabilitySetState:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure:compute/availabilitySet:AvailabilitySet")
 class AvailabilitySet(pulumi.CustomResource):
-
-    pulumi_type = "azure:compute/availabilitySet:AvailabilitySet"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

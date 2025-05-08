@@ -95,10 +95,8 @@ class _NatGatewayPublicIpAssociationState:
         pulumi.set(self, "public_ip_address_id", value)
 
 
+@pulumi.type_token("azure:network/natGatewayPublicIpAssociation:NatGatewayPublicIpAssociation")
 class NatGatewayPublicIpAssociation(pulumi.CustomResource):
-
-    pulumi_type = "azure:network/natGatewayPublicIpAssociation:NatGatewayPublicIpAssociation"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

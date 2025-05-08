@@ -241,10 +241,8 @@ class _EmailServiceDomainState:
         pulumi.set(self, "verification_records", value)
 
 
+@pulumi.type_token("azure:communication/emailServiceDomain:EmailServiceDomain")
 class EmailServiceDomain(pulumi.CustomResource):
-
-    pulumi_type = "azure:communication/emailServiceDomain:EmailServiceDomain"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

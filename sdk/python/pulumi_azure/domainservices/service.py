@@ -483,10 +483,8 @@ class _ServiceState:
         pulumi.set(self, "version", value)
 
 
+@pulumi.type_token("azure:domainservices/service:Service")
 class Service(pulumi.CustomResource):
-
-    pulumi_type = "azure:domainservices/service:Service"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -238,10 +238,8 @@ class _DatasetDataLakeGen2State:
         pulumi.set(self, "storage_account_id", value)
 
 
+@pulumi.type_token("azure:datashare/datasetDataLakeGen2:DatasetDataLakeGen2")
 class DatasetDataLakeGen2(pulumi.CustomResource):
-
-    pulumi_type = "azure:datashare/datasetDataLakeGen2:DatasetDataLakeGen2"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

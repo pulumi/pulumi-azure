@@ -438,10 +438,8 @@ class _JobStepState:
         pulumi.set(self, "timeout_seconds", value)
 
 
+@pulumi.type_token("azure:mssql/jobStep:JobStep")
 class JobStep(pulumi.CustomResource):
-
-    pulumi_type = "azure:mssql/jobStep:JobStep"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

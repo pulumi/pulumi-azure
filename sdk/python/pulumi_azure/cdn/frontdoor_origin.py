@@ -408,10 +408,8 @@ class _FrontdoorOriginState:
         pulumi.set(self, "weight", value)
 
 
+@pulumi.type_token("azure:cdn/frontdoorOrigin:FrontdoorOrigin")
 class FrontdoorOrigin(pulumi.CustomResource):
-
-    pulumi_type = "azure:cdn/frontdoorOrigin:FrontdoorOrigin"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

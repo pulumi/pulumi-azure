@@ -127,10 +127,8 @@ class _WorkspaceNetworkOutboundRuleFqdnState:
         pulumi.set(self, "workspace_id", value)
 
 
+@pulumi.type_token("azure:machinelearning/workspaceNetworkOutboundRuleFqdn:WorkspaceNetworkOutboundRuleFqdn")
 class WorkspaceNetworkOutboundRuleFqdn(pulumi.CustomResource):
-
-    pulumi_type = "azure:machinelearning/workspaceNetworkOutboundRuleFqdn:WorkspaceNetworkOutboundRuleFqdn"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

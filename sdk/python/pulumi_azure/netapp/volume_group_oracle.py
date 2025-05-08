@@ -254,10 +254,8 @@ class _VolumeGroupOracleState:
         pulumi.set(self, "volumes", value)
 
 
+@pulumi.type_token("azure:netapp/volumeGroupOracle:VolumeGroupOracle")
 class VolumeGroupOracle(pulumi.CustomResource):
-
-    pulumi_type = "azure:netapp/volumeGroupOracle:VolumeGroupOracle"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

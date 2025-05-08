@@ -288,10 +288,8 @@ class _PacketCaptureState:
         pulumi.set(self, "virtual_machine_id", value)
 
 
+@pulumi.type_token("azure:compute/packetCapture:PacketCapture")
 class PacketCapture(pulumi.CustomResource):
-
-    pulumi_type = "azure:compute/packetCapture:PacketCapture"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

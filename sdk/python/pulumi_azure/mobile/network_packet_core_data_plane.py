@@ -288,10 +288,8 @@ class _NetworkPacketCoreDataPlaneState:
         pulumi.set(self, "user_plane_access_name", value)
 
 
+@pulumi.type_token("azure:mobile/networkPacketCoreDataPlane:NetworkPacketCoreDataPlane")
 class NetworkPacketCoreDataPlane(pulumi.CustomResource):
-
-    pulumi_type = "azure:mobile/networkPacketCoreDataPlane:NetworkPacketCoreDataPlane"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

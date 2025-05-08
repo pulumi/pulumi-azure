@@ -196,10 +196,8 @@ class _ProtectedFileShareState:
         pulumi.set(self, "source_storage_account_id", value)
 
 
+@pulumi.type_token("azure:backup/protectedFileShare:ProtectedFileShare")
 class ProtectedFileShare(pulumi.CustomResource):
-
-    pulumi_type = "azure:backup/protectedFileShare:ProtectedFileShare"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

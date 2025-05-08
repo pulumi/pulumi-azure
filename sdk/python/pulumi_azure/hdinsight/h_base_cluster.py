@@ -709,10 +709,8 @@ class _HBaseClusterState:
         pulumi.set(self, "tls_min_version", value)
 
 
+@pulumi.type_token("azure:hdinsight/hBaseCluster:HBaseCluster")
 class HBaseCluster(pulumi.CustomResource):
-
-    pulumi_type = "azure:hdinsight/hBaseCluster:HBaseCluster"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

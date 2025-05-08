@@ -191,10 +191,8 @@ class _CredentialUserManagedIdentityState:
         pulumi.set(self, "name", value)
 
 
+@pulumi.type_token("azure:datafactory/credentialUserManagedIdentity:CredentialUserManagedIdentity")
 class CredentialUserManagedIdentity(pulumi.CustomResource):
-
-    pulumi_type = "azure:datafactory/credentialUserManagedIdentity:CredentialUserManagedIdentity"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

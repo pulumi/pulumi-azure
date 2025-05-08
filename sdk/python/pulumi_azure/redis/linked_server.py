@@ -220,10 +220,8 @@ class _LinkedServerState:
         pulumi.set(self, "target_redis_cache_name", value)
 
 
+@pulumi.type_token("azure:redis/linkedServer:LinkedServer")
 class LinkedServer(pulumi.CustomResource):
-
-    pulumi_type = "azure:redis/linkedServer:LinkedServer"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

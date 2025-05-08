@@ -478,10 +478,8 @@ class _ServicePlanState:
         pulumi.set(self, "zone_balancing_enabled", value)
 
 
+@pulumi.type_token("azure:appservice/servicePlan:ServicePlan")
 class ServicePlan(pulumi.CustomResource):
-
-    pulumi_type = "azure:appservice/servicePlan:ServicePlan"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

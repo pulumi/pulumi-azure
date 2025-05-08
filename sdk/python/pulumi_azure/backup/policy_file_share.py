@@ -327,10 +327,8 @@ class _PolicyFileShareState:
         pulumi.set(self, "timezone", value)
 
 
+@pulumi.type_token("azure:backup/policyFileShare:PolicyFileShare")
 class PolicyFileShare(pulumi.CustomResource):
-
-    pulumi_type = "azure:backup/policyFileShare:PolicyFileShare"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

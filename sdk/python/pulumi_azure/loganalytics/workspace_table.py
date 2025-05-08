@@ -216,10 +216,8 @@ class _WorkspaceTableState:
         pulumi.set(self, "workspace_id", value)
 
 
+@pulumi.type_token("azure:loganalytics/workspaceTable:WorkspaceTable")
 class WorkspaceTable(pulumi.CustomResource):
-
-    pulumi_type = "azure:loganalytics/workspaceTable:WorkspaceTable"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

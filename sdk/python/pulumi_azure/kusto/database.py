@@ -239,10 +239,8 @@ class _DatabaseState:
         pulumi.set(self, "soft_delete_period", value)
 
 
+@pulumi.type_token("azure:kusto/database:Database")
 class Database(pulumi.CustomResource):
-
-    pulumi_type = "azure:kusto/database:Database"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

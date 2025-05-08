@@ -238,10 +238,8 @@ class _NetworkState:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure:mobile/network:Network")
 class Network(pulumi.CustomResource):
-
-    pulumi_type = "azure:mobile/network:Network"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

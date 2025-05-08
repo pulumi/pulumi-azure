@@ -189,10 +189,8 @@ class _DataConnectorAwsS3State:
         pulumi.set(self, "sqs_urls", value)
 
 
+@pulumi.type_token("azure:sentinel/dataConnectorAwsS3:DataConnectorAwsS3")
 class DataConnectorAwsS3(pulumi.CustomResource):
-
-    pulumi_type = "azure:sentinel/dataConnectorAwsS3:DataConnectorAwsS3"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

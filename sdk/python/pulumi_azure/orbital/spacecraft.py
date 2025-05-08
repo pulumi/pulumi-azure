@@ -286,10 +286,8 @@ class _SpacecraftState:
         pulumi.set(self, "two_line_elements", value)
 
 
+@pulumi.type_token("azure:orbital/spacecraft:Spacecraft")
 class Spacecraft(pulumi.CustomResource):
-
-    pulumi_type = "azure:orbital/spacecraft:Spacecraft"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

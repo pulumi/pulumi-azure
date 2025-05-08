@@ -392,10 +392,8 @@ class _WorkbookState:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure:appinsights/workbook:Workbook")
 class Workbook(pulumi.CustomResource):
-
-    pulumi_type = "azure:appinsights/workbook:Workbook"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

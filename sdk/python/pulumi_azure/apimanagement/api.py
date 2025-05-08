@@ -824,10 +824,8 @@ class _ApiState:
         pulumi.set(self, "version_set_id", value)
 
 
+@pulumi.type_token("azure:apimanagement/api:Api")
 class Api(pulumi.CustomResource):
-
-    pulumi_type = "azure:apimanagement/api:Api"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

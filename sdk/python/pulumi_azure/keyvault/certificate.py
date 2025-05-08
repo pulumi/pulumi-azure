@@ -362,10 +362,8 @@ class _CertificateState:
         pulumi.set(self, "versionless_secret_id", value)
 
 
+@pulumi.type_token("azure:keyvault/certificate:Certificate")
 class Certificate(pulumi.CustomResource):
-
-    pulumi_type = "azure:keyvault/certificate:Certificate"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

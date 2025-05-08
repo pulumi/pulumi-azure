@@ -400,10 +400,8 @@ class _ElasticsearchState:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure:elasticcloud/elasticsearch:Elasticsearch")
 class Elasticsearch(pulumi.CustomResource):
-
-    pulumi_type = "azure:elasticcloud/elasticsearch:Elasticsearch"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

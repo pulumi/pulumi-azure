@@ -226,10 +226,8 @@ class _WorkspaceNetworkOutboundRulePrivateEndpointState:
         pulumi.set(self, "workspace_id", value)
 
 
+@pulumi.type_token("azure:machinelearning/workspaceNetworkOutboundRulePrivateEndpoint:WorkspaceNetworkOutboundRulePrivateEndpoint")
 class WorkspaceNetworkOutboundRulePrivateEndpoint(pulumi.CustomResource):
-
-    pulumi_type = "azure:machinelearning/workspaceNetworkOutboundRulePrivateEndpoint:WorkspaceNetworkOutboundRulePrivateEndpoint"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -184,10 +184,8 @@ class _ApiKeyState:
         pulumi.set(self, "write_permissions", value)
 
 
+@pulumi.type_token("azure:appinsights/apiKey:ApiKey")
 class ApiKey(pulumi.CustomResource):
-
-    pulumi_type = "azure:appinsights/apiKey:ApiKey"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

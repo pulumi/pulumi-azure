@@ -175,10 +175,8 @@ class _ReplicaSetState:
         pulumi.set(self, "subnet_id", value)
 
 
+@pulumi.type_token("azure:domainservices/replicaSet:ReplicaSet")
 class ReplicaSet(pulumi.CustomResource):
-
-    pulumi_type = "azure:domainservices/replicaSet:ReplicaSet"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

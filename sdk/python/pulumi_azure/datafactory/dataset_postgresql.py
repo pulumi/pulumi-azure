@@ -353,10 +353,8 @@ class _DatasetPostgresqlState:
         pulumi.set(self, "table_name", value)
 
 
+@pulumi.type_token("azure:datafactory/datasetPostgresql:DatasetPostgresql")
 class DatasetPostgresql(pulumi.CustomResource):
-
-    pulumi_type = "azure:datafactory/datasetPostgresql:DatasetPostgresql"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -361,10 +361,8 @@ class _VpnSiteState:
         pulumi.set(self, "virtual_wan_id", value)
 
 
+@pulumi.type_token("azure:network/vpnSite:VpnSite")
 class VpnSite(pulumi.CustomResource):
-
-    pulumi_type = "azure:network/vpnSite:VpnSite"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

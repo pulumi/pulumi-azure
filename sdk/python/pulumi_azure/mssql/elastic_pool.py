@@ -479,10 +479,8 @@ class _ElasticPoolState:
         pulumi.set(self, "zone_redundant", value)
 
 
+@pulumi.type_token("azure:mssql/elasticPool:ElasticPool")
 class ElasticPool(pulumi.CustomResource):
-
-    pulumi_type = "azure:mssql/elasticPool:ElasticPool"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

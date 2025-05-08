@@ -162,10 +162,8 @@ class _TagRulesState:
         pulumi.set(self, "name", value)
 
 
+@pulumi.type_token("azure:dynatrace/tagRules:TagRules")
 class TagRules(pulumi.CustomResource):
-
-    pulumi_type = "azure:dynatrace/tagRules:TagRules"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -286,10 +286,8 @@ class _AccessPolicyState:
         pulumi.set(self, "tenant_id", value)
 
 
+@pulumi.type_token("azure:keyvault/accessPolicy:AccessPolicy")
 class AccessPolicy(pulumi.CustomResource):
-
-    pulumi_type = "azure:keyvault/accessPolicy:AccessPolicy"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -158,10 +158,8 @@ class _SpringCloudStorageState:
         pulumi.set(self, "storage_account_name", value)
 
 
+@pulumi.type_token("azure:appplatform/springCloudStorage:SpringCloudStorage")
 class SpringCloudStorage(pulumi.CustomResource):
-
-    pulumi_type = "azure:appplatform/springCloudStorage:SpringCloudStorage"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

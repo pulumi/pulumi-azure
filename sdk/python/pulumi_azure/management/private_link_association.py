@@ -222,10 +222,8 @@ class _PrivateLinkAssociationState:
         pulumi.set(self, "tenant_id", value)
 
 
+@pulumi.type_token("azure:management/privateLinkAssociation:PrivateLinkAssociation")
 class PrivateLinkAssociation(pulumi.CustomResource):
-
-    pulumi_type = "azure:management/privateLinkAssociation:PrivateLinkAssociation"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

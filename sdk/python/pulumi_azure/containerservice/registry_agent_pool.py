@@ -287,10 +287,8 @@ class _RegistryAgentPoolState:
         pulumi.set(self, "virtual_network_subnet_id", value)
 
 
+@pulumi.type_token("azure:containerservice/registryAgentPool:RegistryAgentPool")
 class RegistryAgentPool(pulumi.CustomResource):
-
-    pulumi_type = "azure:containerservice/registryAgentPool:RegistryAgentPool"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

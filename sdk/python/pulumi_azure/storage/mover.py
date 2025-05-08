@@ -192,10 +192,8 @@ class _MoverState:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure:storage/mover:Mover")
 class Mover(pulumi.CustomResource):
-
-    pulumi_type = "azure:storage/mover:Mover"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -191,10 +191,8 @@ class _ProfileState:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure:cdn/profile:Profile")
 class Profile(pulumi.CustomResource):
-
-    pulumi_type = "azure:cdn/profile:Profile"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -159,10 +159,8 @@ class _ServiceCustomCertificateState:
         pulumi.set(self, "signalr_service_id", value)
 
 
+@pulumi.type_token("azure:signalr/serviceCustomCertificate:ServiceCustomCertificate")
 class ServiceCustomCertificate(pulumi.CustomResource):
-
-    pulumi_type = "azure:signalr/serviceCustomCertificate:ServiceCustomCertificate"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

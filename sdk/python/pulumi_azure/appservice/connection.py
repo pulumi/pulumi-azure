@@ -240,10 +240,8 @@ class _ConnectionState:
         pulumi.set(self, "vnet_solution", value)
 
 
+@pulumi.type_token("azure:appservice/connection:Connection")
 class Connection(pulumi.CustomResource):
-
-    pulumi_type = "azure:appservice/connection:Connection"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

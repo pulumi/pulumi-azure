@@ -317,10 +317,8 @@ class _MoverJobDefinitionState:
         pulumi.set(self, "target_sub_path", value)
 
 
+@pulumi.type_token("azure:storage/moverJobDefinition:MoverJobDefinition")
 class MoverJobDefinition(pulumi.CustomResource):
-
-    pulumi_type = "azure:storage/moverJobDefinition:MoverJobDefinition"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

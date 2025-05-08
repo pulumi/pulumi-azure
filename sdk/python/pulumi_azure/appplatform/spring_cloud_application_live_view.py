@@ -96,10 +96,8 @@ class _SpringCloudApplicationLiveViewState:
         pulumi.set(self, "spring_cloud_service_id", value)
 
 
+@pulumi.type_token("azure:appplatform/springCloudApplicationLiveView:SpringCloudApplicationLiveView")
 class SpringCloudApplicationLiveView(pulumi.CustomResource):
-
-    pulumi_type = "azure:appplatform/springCloudApplicationLiveView:SpringCloudApplicationLiveView"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

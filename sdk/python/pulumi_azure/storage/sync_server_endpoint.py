@@ -326,10 +326,8 @@ class _SyncServerEndpointState:
         pulumi.set(self, "volume_free_space_percent", value)
 
 
+@pulumi.type_token("azure:storage/syncServerEndpoint:SyncServerEndpoint")
 class SyncServerEndpoint(pulumi.CustomResource):
-
-    pulumi_type = "azure:storage/syncServerEndpoint:SyncServerEndpoint"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -1207,10 +1207,8 @@ class _AccountState:
         pulumi.set(self, "write_endpoints", value)
 
 
+@pulumi.type_token("azure:cosmosdb/account:Account")
 class Account(pulumi.CustomResource):
-
-    pulumi_type = "azure:cosmosdb/account:Account"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

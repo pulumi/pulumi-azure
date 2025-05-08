@@ -192,10 +192,8 @@ class _PrivateLinkScopeState:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure:arc/privateLinkScope:PrivateLinkScope")
 class PrivateLinkScope(pulumi.CustomResource):
-
-    pulumi_type = "azure:arc/privateLinkScope:PrivateLinkScope"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

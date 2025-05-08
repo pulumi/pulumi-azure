@@ -199,10 +199,8 @@ class _ManagedPrivateEndpointState:
         pulumi.set(self, "target_resource_id", value)
 
 
+@pulumi.type_token("azure:datafactory/managedPrivateEndpoint:ManagedPrivateEndpoint")
 class ManagedPrivateEndpoint(pulumi.CustomResource):
-
-    pulumi_type = "azure:datafactory/managedPrivateEndpoint:ManagedPrivateEndpoint"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

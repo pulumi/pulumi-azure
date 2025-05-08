@@ -546,10 +546,8 @@ class _VirtualMachineState:
         pulumi.set(self, "wsfc_domain_credential", value)
 
 
+@pulumi.type_token("azure:mssql/virtualMachine:VirtualMachine")
 class VirtualMachine(pulumi.CustomResource):
-
-    pulumi_type = "azure:mssql/virtualMachine:VirtualMachine"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

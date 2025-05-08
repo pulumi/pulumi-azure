@@ -392,10 +392,8 @@ class _AlertRuleAnomalyBuiltInState:
         pulumi.set(self, "threshold_observations", value)
 
 
+@pulumi.type_token("azure:sentinel/alertRuleAnomalyBuiltIn:AlertRuleAnomalyBuiltIn")
 class AlertRuleAnomalyBuiltIn(pulumi.CustomResource):
-
-    pulumi_type = "azure:sentinel/alertRuleAnomalyBuiltIn:AlertRuleAnomalyBuiltIn"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

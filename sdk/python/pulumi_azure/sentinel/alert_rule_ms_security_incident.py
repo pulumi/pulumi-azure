@@ -357,10 +357,8 @@ class _AlertRuleMsSecurityIncidentState:
         pulumi.set(self, "severity_filters", value)
 
 
+@pulumi.type_token("azure:sentinel/alertRuleMsSecurityIncident:AlertRuleMsSecurityIncident")
 class AlertRuleMsSecurityIncident(pulumi.CustomResource):
-
-    pulumi_type = "azure:sentinel/alertRuleMsSecurityIncident:AlertRuleMsSecurityIncident"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

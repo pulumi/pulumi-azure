@@ -785,10 +785,8 @@ class _AppServiceState:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure:appservice/appService:AppService")
 class AppService(pulumi.CustomResource):
-
-    pulumi_type = "azure:appservice/appService:AppService"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

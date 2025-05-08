@@ -299,11 +299,9 @@ class _QueueAuthorizationRuleState:
 warnings.warn("""azure.eventhub.QueueAuthorizationRule has been deprecated in favor of azure.servicebus.QueueAuthorizationRule""", DeprecationWarning)
 
 
+@pulumi.type_token("azure:eventhub/queueAuthorizationRule:QueueAuthorizationRule")
 class QueueAuthorizationRule(pulumi.CustomResource):
     warnings.warn("""azure.eventhub.QueueAuthorizationRule has been deprecated in favor of azure.servicebus.QueueAuthorizationRule""", DeprecationWarning)
-
-
-    pulumi_type = "azure:eventhub/queueAuthorizationRule:QueueAuthorizationRule"
 
     @overload
     def __init__(__self__,

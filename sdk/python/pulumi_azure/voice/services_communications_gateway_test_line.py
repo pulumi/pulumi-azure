@@ -222,10 +222,8 @@ class _ServicesCommunicationsGatewayTestLineState:
         pulumi.set(self, "voice_services_communications_gateway_id", value)
 
 
+@pulumi.type_token("azure:voice/servicesCommunicationsGatewayTestLine:ServicesCommunicationsGatewayTestLine")
 class ServicesCommunicationsGatewayTestLine(pulumi.CustomResource):
-
-    pulumi_type = "azure:voice/servicesCommunicationsGatewayTestLine:ServicesCommunicationsGatewayTestLine"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

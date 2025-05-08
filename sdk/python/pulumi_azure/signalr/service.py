@@ -785,10 +785,8 @@ class _ServiceState:
         pulumi.set(self, "upstream_endpoints", value)
 
 
+@pulumi.type_token("azure:signalr/service:Service")
 class Service(pulumi.CustomResource):
-
-    pulumi_type = "azure:signalr/service:Service"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

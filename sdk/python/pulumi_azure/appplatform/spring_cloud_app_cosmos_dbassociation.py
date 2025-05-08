@@ -349,10 +349,8 @@ class _SpringCloudAppCosmosDBAssociationState:
         pulumi.set(self, "spring_cloud_app_id", value)
 
 
+@pulumi.type_token("azure:appplatform/springCloudAppCosmosDBAssociation:SpringCloudAppCosmosDBAssociation")
 class SpringCloudAppCosmosDBAssociation(pulumi.CustomResource):
-
-    pulumi_type = "azure:appplatform/springCloudAppCosmosDBAssociation:SpringCloudAppCosmosDBAssociation"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

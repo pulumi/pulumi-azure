@@ -220,10 +220,8 @@ class _EnvironmentStorageState:
         pulumi.set(self, "share_name", value)
 
 
+@pulumi.type_token("azure:containerapp/environmentStorage:EnvironmentStorage")
 class EnvironmentStorage(pulumi.CustomResource):
-
-    pulumi_type = "azure:containerapp/environmentStorage:EnvironmentStorage"
-
     @overload
     def __init__(__self__,
                  resource_name: str,
