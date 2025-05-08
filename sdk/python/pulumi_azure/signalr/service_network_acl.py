@@ -160,10 +160,8 @@ class _ServiceNetworkAclState:
         pulumi.set(self, "signalr_service_id", value)
 
 
+@pulumi.type_token("azure:signalr/serviceNetworkAcl:ServiceNetworkAcl")
 class ServiceNetworkAcl(pulumi.CustomResource):
-
-    pulumi_type = "azure:signalr/serviceNetworkAcl:ServiceNetworkAcl"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

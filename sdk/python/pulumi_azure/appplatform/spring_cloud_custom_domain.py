@@ -160,10 +160,8 @@ class _SpringCloudCustomDomainState:
         pulumi.set(self, "thumbprint", value)
 
 
+@pulumi.type_token("azure:appplatform/springCloudCustomDomain:SpringCloudCustomDomain")
 class SpringCloudCustomDomain(pulumi.CustomResource):
-
-    pulumi_type = "azure:appplatform/springCloudCustomDomain:SpringCloudCustomDomain"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

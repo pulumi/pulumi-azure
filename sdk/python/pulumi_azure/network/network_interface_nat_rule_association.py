@@ -126,10 +126,8 @@ class _NetworkInterfaceNatRuleAssociationState:
         pulumi.set(self, "network_interface_id", value)
 
 
+@pulumi.type_token("azure:network/networkInterfaceNatRuleAssociation:NetworkInterfaceNatRuleAssociation")
 class NetworkInterfaceNatRuleAssociation(pulumi.CustomResource):
-
-    pulumi_type = "azure:network/networkInterfaceNatRuleAssociation:NetworkInterfaceNatRuleAssociation"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

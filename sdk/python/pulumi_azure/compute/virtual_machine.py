@@ -839,10 +839,8 @@ class _VirtualMachineState:
         pulumi.set(self, "zones", value)
 
 
+@pulumi.type_token("azure:compute/virtualMachine:VirtualMachine")
 class VirtualMachine(pulumi.CustomResource):
-
-    pulumi_type = "azure:compute/virtualMachine:VirtualMachine"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

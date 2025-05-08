@@ -413,10 +413,8 @@ class _SpringCloudAppDynamicsApplicationPerformanceMonitoringState:
         pulumi.set(self, "spring_cloud_service_id", value)
 
 
+@pulumi.type_token("azure:appplatform/springCloudAppDynamicsApplicationPerformanceMonitoring:SpringCloudAppDynamicsApplicationPerformanceMonitoring")
 class SpringCloudAppDynamicsApplicationPerformanceMonitoring(pulumi.CustomResource):
-
-    pulumi_type = "azure:appplatform/springCloudAppDynamicsApplicationPerformanceMonitoring:SpringCloudAppDynamicsApplicationPerformanceMonitoring"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

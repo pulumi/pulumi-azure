@@ -166,10 +166,8 @@ class _WorkspaceKeyState:
         pulumi.set(self, "synapse_workspace_id", value)
 
 
+@pulumi.type_token("azure:synapse/workspaceKey:WorkspaceKey")
 class WorkspaceKey(pulumi.CustomResource):
-
-    pulumi_type = "azure:synapse/workspaceKey:WorkspaceKey"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

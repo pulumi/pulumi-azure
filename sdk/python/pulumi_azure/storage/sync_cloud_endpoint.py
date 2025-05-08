@@ -190,10 +190,8 @@ class _SyncCloudEndpointState:
         pulumi.set(self, "storage_sync_group_id", value)
 
 
+@pulumi.type_token("azure:storage/syncCloudEndpoint:SyncCloudEndpoint")
 class SyncCloudEndpoint(pulumi.CustomResource):
-
-    pulumi_type = "azure:storage/syncCloudEndpoint:SyncCloudEndpoint"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

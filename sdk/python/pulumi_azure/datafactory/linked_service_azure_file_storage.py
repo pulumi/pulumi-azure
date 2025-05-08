@@ -457,10 +457,8 @@ class _LinkedServiceAzureFileStorageState:
         pulumi.set(self, "user_id", value)
 
 
+@pulumi.type_token("azure:datafactory/linkedServiceAzureFileStorage:LinkedServiceAzureFileStorage")
 class LinkedServiceAzureFileStorage(pulumi.CustomResource):
-
-    pulumi_type = "azure:datafactory/linkedServiceAzureFileStorage:LinkedServiceAzureFileStorage"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

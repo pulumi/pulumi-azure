@@ -390,10 +390,8 @@ class _OutputServiceBusQueueState:
         pulumi.set(self, "system_property_columns", value)
 
 
+@pulumi.type_token("azure:streamanalytics/outputServiceBusQueue:OutputServiceBusQueue")
 class OutputServiceBusQueue(pulumi.CustomResource):
-
-    pulumi_type = "azure:streamanalytics/outputServiceBusQueue:OutputServiceBusQueue"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

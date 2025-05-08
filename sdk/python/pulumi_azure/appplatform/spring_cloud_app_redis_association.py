@@ -190,10 +190,8 @@ class _SpringCloudAppRedisAssociationState:
         pulumi.set(self, "ssl_enabled", value)
 
 
+@pulumi.type_token("azure:appplatform/springCloudAppRedisAssociation:SpringCloudAppRedisAssociation")
 class SpringCloudAppRedisAssociation(pulumi.CustomResource):
-
-    pulumi_type = "azure:appplatform/springCloudAppRedisAssociation:SpringCloudAppRedisAssociation"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

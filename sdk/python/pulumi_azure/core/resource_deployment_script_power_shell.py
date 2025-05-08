@@ -592,10 +592,8 @@ class _ResourceDeploymentScriptPowerShellState:
         pulumi.set(self, "version", value)
 
 
+@pulumi.type_token("azure:core/resourceDeploymentScriptPowerShell:ResourceDeploymentScriptPowerShell")
 class ResourceDeploymentScriptPowerShell(pulumi.CustomResource):
-
-    pulumi_type = "azure:core/resourceDeploymentScriptPowerShell:ResourceDeploymentScriptPowerShell"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

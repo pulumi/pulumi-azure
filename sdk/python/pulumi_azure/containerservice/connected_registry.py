@@ -425,10 +425,8 @@ class _ConnectedRegistryState:
         pulumi.set(self, "sync_window", value)
 
 
+@pulumi.type_token("azure:containerservice/connectedRegistry:ConnectedRegistry")
 class ConnectedRegistry(pulumi.CustomResource):
-
-    pulumi_type = "azure:containerservice/connectedRegistry:ConnectedRegistry"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

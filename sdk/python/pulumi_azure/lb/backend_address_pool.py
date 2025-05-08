@@ -266,10 +266,8 @@ class _BackendAddressPoolState:
         pulumi.set(self, "virtual_network_id", value)
 
 
+@pulumi.type_token("azure:lb/backendAddressPool:BackendAddressPool")
 class BackendAddressPool(pulumi.CustomResource):
-
-    pulumi_type = "azure:lb/backendAddressPool:BackendAddressPool"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

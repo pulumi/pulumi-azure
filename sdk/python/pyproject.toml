@@ -1,7 +1,7 @@
 [project]
   name = "pulumi_azure"
   description = "A Pulumi package for creating and managing Microsoft Azure cloud resources, based on the Terraform azurerm provider. We recommend using the [Azure Native provider](https://github.com/pulumi/pulumi-azure-native) to provision Azure infrastructure. Azure Native provides complete coverage of Azure resources and same-day access to new resources and resource updates."
-  dependencies = ["parver>=0.2.1", "pulumi>=3.142.0,<4.0.0", "semver>=2.8.1", "typing-extensions>=4.11; python_version < \"3.11\""]
+  dependencies = ["parver>=0.2.1", "pulumi>=3.165.0,<4.0.0", "semver>=2.8.1", "typing-extensions>=4.11,<5; python_version < \"3.11\""]
   keywords = ["pulumi", "azure"]
   readme = "README.md"
   requires-python = ">=3.9"

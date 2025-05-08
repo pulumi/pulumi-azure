@@ -434,10 +434,8 @@ class _DiagnosticSettingState:
         pulumi.set(self, "target_resource_id", value)
 
 
+@pulumi.type_token("azure:monitoring/diagnosticSetting:DiagnosticSetting")
 class DiagnosticSetting(pulumi.CustomResource):
-
-    pulumi_type = "azure:monitoring/diagnosticSetting:DiagnosticSetting"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

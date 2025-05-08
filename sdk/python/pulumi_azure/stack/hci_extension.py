@@ -326,10 +326,8 @@ class _HciExtensionState:
         pulumi.set(self, "type_handler_version", value)
 
 
+@pulumi.type_token("azure:stack/hciExtension:HciExtension")
 class HciExtension(pulumi.CustomResource):
-
-    pulumi_type = "azure:stack/hciExtension:HciExtension"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

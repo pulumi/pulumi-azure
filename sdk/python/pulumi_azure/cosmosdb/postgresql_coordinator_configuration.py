@@ -127,10 +127,8 @@ class _PostgresqlCoordinatorConfigurationState:
         pulumi.set(self, "value", value)
 
 
+@pulumi.type_token("azure:cosmosdb/postgresqlCoordinatorConfiguration:PostgresqlCoordinatorConfiguration")
 class PostgresqlCoordinatorConfiguration(pulumi.CustomResource):
-
-    pulumi_type = "azure:cosmosdb/postgresqlCoordinatorConfiguration:PostgresqlCoordinatorConfiguration"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

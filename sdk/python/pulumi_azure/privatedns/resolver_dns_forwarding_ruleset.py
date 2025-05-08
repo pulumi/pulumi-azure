@@ -191,10 +191,8 @@ class _ResolverDnsForwardingRulesetState:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure:privatedns/resolverDnsForwardingRuleset:ResolverDnsForwardingRuleset")
 class ResolverDnsForwardingRuleset(pulumi.CustomResource):
-
-    pulumi_type = "azure:privatedns/resolverDnsForwardingRuleset:ResolverDnsForwardingRuleset"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

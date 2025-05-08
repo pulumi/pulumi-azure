@@ -243,10 +243,8 @@ class _AadDiagnosticSettingState:
         pulumi.set(self, "storage_account_id", value)
 
 
+@pulumi.type_token("azure:monitoring/aadDiagnosticSetting:AadDiagnosticSetting")
 class AadDiagnosticSetting(pulumi.CustomResource):
-
-    pulumi_type = "azure:monitoring/aadDiagnosticSetting:AadDiagnosticSetting"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

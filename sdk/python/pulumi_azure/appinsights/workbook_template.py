@@ -320,10 +320,8 @@ class _WorkbookTemplateState:
         pulumi.set(self, "template_data", value)
 
 
+@pulumi.type_token("azure:appinsights/workbookTemplate:WorkbookTemplate")
 class WorkbookTemplate(pulumi.CustomResource):
-
-    pulumi_type = "azure:appinsights/workbookTemplate:WorkbookTemplate"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

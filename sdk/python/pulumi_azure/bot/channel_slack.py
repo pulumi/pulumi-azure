@@ -284,10 +284,8 @@ class _ChannelSlackState:
         pulumi.set(self, "verification_token", value)
 
 
+@pulumi.type_token("azure:bot/channelSlack:ChannelSlack")
 class ChannelSlack(pulumi.CustomResource):
-
-    pulumi_type = "azure:bot/channelSlack:ChannelSlack"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

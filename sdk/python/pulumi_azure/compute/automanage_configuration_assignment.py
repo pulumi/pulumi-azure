@@ -95,10 +95,8 @@ class _AutomanageConfigurationAssignmentState:
         pulumi.set(self, "virtual_machine_id", value)
 
 
+@pulumi.type_token("azure:compute/automanageConfigurationAssignment:AutomanageConfigurationAssignment")
 class AutomanageConfigurationAssignment(pulumi.CustomResource):
-
-    pulumi_type = "azure:compute/automanageConfigurationAssignment:AutomanageConfigurationAssignment"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

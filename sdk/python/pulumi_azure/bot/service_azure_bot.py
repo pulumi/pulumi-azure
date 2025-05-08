@@ -710,10 +710,8 @@ class _ServiceAzureBotState:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure:bot/serviceAzureBot:ServiceAzureBot")
 class ServiceAzureBot(pulumi.CustomResource):
-
-    pulumi_type = "azure:bot/serviceAzureBot:ServiceAzureBot"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

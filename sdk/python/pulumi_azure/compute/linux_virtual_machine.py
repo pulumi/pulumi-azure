@@ -1826,10 +1826,8 @@ class _LinuxVirtualMachineState:
         pulumi.set(self, "zone", value)
 
 
+@pulumi.type_token("azure:compute/linuxVirtualMachine:LinuxVirtualMachine")
 class LinuxVirtualMachine(pulumi.CustomResource):
-
-    pulumi_type = "azure:compute/linuxVirtualMachine:LinuxVirtualMachine"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

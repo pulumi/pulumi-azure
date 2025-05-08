@@ -160,10 +160,8 @@ class _ApplicationSecurityGroupState:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure:network/applicationSecurityGroup:ApplicationSecurityGroup")
 class ApplicationSecurityGroup(pulumi.CustomResource):
-
-    pulumi_type = "azure:network/applicationSecurityGroup:ApplicationSecurityGroup"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

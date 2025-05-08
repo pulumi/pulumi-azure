@@ -368,10 +368,8 @@ class _ProviderState:
         pulumi.set(self, "trust_model", value)
 
 
+@pulumi.type_token("azure:attestation/provider:Provider")
 class Provider(pulumi.CustomResource):
-
-    pulumi_type = "azure:attestation/provider:Provider"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

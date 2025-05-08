@@ -142,10 +142,8 @@ class _JobStorageAccountState:
         pulumi.set(self, "stream_analytics_job_id", value)
 
 
+@pulumi.type_token("azure:streamanalytics/jobStorageAccount:JobStorageAccount")
 class JobStorageAccount(pulumi.CustomResource):
-
-    pulumi_type = "azure:streamanalytics/jobStorageAccount:JobStorageAccount"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

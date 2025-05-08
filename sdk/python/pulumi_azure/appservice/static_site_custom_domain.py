@@ -143,10 +143,8 @@ class _StaticSiteCustomDomainState:
         pulumi.set(self, "validation_type", value)
 
 
+@pulumi.type_token("azure:appservice/staticSiteCustomDomain:StaticSiteCustomDomain")
 class StaticSiteCustomDomain(pulumi.CustomResource):
-
-    pulumi_type = "azure:appservice/staticSiteCustomDomain:StaticSiteCustomDomain"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

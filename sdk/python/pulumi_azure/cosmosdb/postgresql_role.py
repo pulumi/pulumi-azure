@@ -127,10 +127,8 @@ class _PostgresqlRoleState:
         pulumi.set(self, "password", value)
 
 
+@pulumi.type_token("azure:cosmosdb/postgresqlRole:PostgresqlRole")
 class PostgresqlRole(pulumi.CustomResource):
-
-    pulumi_type = "azure:cosmosdb/postgresqlRole:PostgresqlRole"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -350,10 +350,8 @@ class _ContactProfileState:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure:orbital/contactProfile:ContactProfile")
 class ContactProfile(pulumi.CustomResource):
-
-    pulumi_type = "azure:orbital/contactProfile:ContactProfile"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

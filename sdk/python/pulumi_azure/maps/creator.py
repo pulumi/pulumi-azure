@@ -191,10 +191,8 @@ class _CreatorState:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure:maps/creator:Creator")
 class Creator(pulumi.CustomResource):
-
-    pulumi_type = "azure:maps/creator:Creator"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

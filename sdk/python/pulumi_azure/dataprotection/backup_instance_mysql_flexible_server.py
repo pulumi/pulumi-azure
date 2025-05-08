@@ -190,10 +190,8 @@ class _BackupInstanceMysqlFlexibleServerState:
         pulumi.set(self, "vault_id", value)
 
 
+@pulumi.type_token("azure:dataprotection/backupInstanceMysqlFlexibleServer:BackupInstanceMysqlFlexibleServer")
 class BackupInstanceMysqlFlexibleServer(pulumi.CustomResource):
-
-    pulumi_type = "azure:dataprotection/backupInstanceMysqlFlexibleServer:BackupInstanceMysqlFlexibleServer"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

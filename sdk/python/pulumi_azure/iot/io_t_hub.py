@@ -693,10 +693,8 @@ class _IoTHubState:
         pulumi.set(self, "type", value)
 
 
+@pulumi.type_token("azure:iot/ioTHub:IoTHub")
 class IoTHub(pulumi.CustomResource):
-
-    pulumi_type = "azure:iot/ioTHub:IoTHub"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

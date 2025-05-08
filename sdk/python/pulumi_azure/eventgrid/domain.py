@@ -498,10 +498,8 @@ class _DomainState:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure:eventgrid/domain:Domain")
 class Domain(pulumi.CustomResource):
-
-    pulumi_type = "azure:eventgrid/domain:Domain"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

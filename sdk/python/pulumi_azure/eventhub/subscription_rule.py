@@ -240,11 +240,9 @@ class _SubscriptionRuleState:
 warnings.warn("""azure.eventhub.SubscriptionRule has been deprecated in favor of azure.servicebus.SubscriptionRule""", DeprecationWarning)
 
 
+@pulumi.type_token("azure:eventhub/subscriptionRule:SubscriptionRule")
 class SubscriptionRule(pulumi.CustomResource):
     warnings.warn("""azure.eventhub.SubscriptionRule has been deprecated in favor of azure.servicebus.SubscriptionRule""", DeprecationWarning)
-
-
-    pulumi_type = "azure:eventhub/subscriptionRule:SubscriptionRule"
 
     @overload
     def __init__(__self__,

@@ -401,10 +401,8 @@ class _ProvisionedClusterState:
         pulumi.set(self, "total_node_count", value)
 
 
+@pulumi.type_token("azure:arckubernetes/provisionedCluster:ProvisionedCluster")
 class ProvisionedCluster(pulumi.CustomResource):
-
-    pulumi_type = "azure:arckubernetes/provisionedCluster:ProvisionedCluster"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

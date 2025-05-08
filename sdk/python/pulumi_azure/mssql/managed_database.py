@@ -226,10 +226,8 @@ class _ManagedDatabaseState:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure:mssql/managedDatabase:ManagedDatabase")
 class ManagedDatabase(pulumi.CustomResource):
-
-    pulumi_type = "azure:mssql/managedDatabase:ManagedDatabase"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

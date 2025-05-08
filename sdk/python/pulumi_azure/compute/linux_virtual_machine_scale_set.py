@@ -1854,10 +1854,8 @@ class _LinuxVirtualMachineScaleSetState:
         pulumi.set(self, "zones", value)
 
 
+@pulumi.type_token("azure:compute/linuxVirtualMachineScaleSet:LinuxVirtualMachineScaleSet")
 class LinuxVirtualMachineScaleSet(pulumi.CustomResource):
-
-    pulumi_type = "azure:compute/linuxVirtualMachineScaleSet:LinuxVirtualMachineScaleSet"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -284,10 +284,8 @@ class _OutputFunctionState:
         pulumi.set(self, "stream_analytics_job_name", value)
 
 
+@pulumi.type_token("azure:streamanalytics/outputFunction:OutputFunction")
 class OutputFunction(pulumi.CustomResource):
-
-    pulumi_type = "azure:streamanalytics/outputFunction:OutputFunction"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

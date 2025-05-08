@@ -367,10 +367,8 @@ class _DatastoreDatalakeGen2State:
         pulumi.set(self, "workspace_id", value)
 
 
+@pulumi.type_token("azure:machinelearning/datastoreDatalakeGen2:DatastoreDatalakeGen2")
 class DatastoreDatalakeGen2(pulumi.CustomResource):
-
-    pulumi_type = "azure:machinelearning/datastoreDatalakeGen2:DatastoreDatalakeGen2"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

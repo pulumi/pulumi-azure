@@ -161,10 +161,8 @@ class _NetworkAclState:
         pulumi.set(self, "web_pubsub_id", value)
 
 
+@pulumi.type_token("azure:webpubsub/networkAcl:NetworkAcl")
 class NetworkAcl(pulumi.CustomResource):
-
-    pulumi_type = "azure:webpubsub/networkAcl:NetworkAcl"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

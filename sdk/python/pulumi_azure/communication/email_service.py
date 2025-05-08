@@ -159,10 +159,8 @@ class _EmailServiceState:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure:communication/emailService:EmailService")
 class EmailService(pulumi.CustomResource):
-
-    pulumi_type = "azure:communication/emailService:EmailService"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

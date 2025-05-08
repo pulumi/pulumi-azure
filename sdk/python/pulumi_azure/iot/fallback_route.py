@@ -221,10 +221,8 @@ class _FallbackRouteState:
         pulumi.set(self, "source", value)
 
 
+@pulumi.type_token("azure:iot/fallbackRoute:FallbackRoute")
 class FallbackRoute(pulumi.CustomResource):
-
-    pulumi_type = "azure:iot/fallbackRoute:FallbackRoute"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -157,10 +157,8 @@ class _ConfigurationState:
         pulumi.set(self, "value", value)
 
 
+@pulumi.type_token("azure:postgresql/configuration:Configuration")
 class Configuration(pulumi.CustomResource):
-
-    pulumi_type = "azure:postgresql/configuration:Configuration"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -410,10 +410,8 @@ class _ConfigurationFeatureState:
         pulumi.set(self, "timewindow_filters", value)
 
 
+@pulumi.type_token("azure:appconfiguration/configurationFeature:ConfigurationFeature")
 class ConfigurationFeature(pulumi.CustomResource):
-
-    pulumi_type = "azure:appconfiguration/configurationFeature:ConfigurationFeature"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

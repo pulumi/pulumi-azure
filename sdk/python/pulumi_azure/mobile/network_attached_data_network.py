@@ -424,10 +424,8 @@ class _NetworkAttachedDataNetworkState:
         pulumi.set(self, "user_plane_access_name", value)
 
 
+@pulumi.type_token("azure:mobile/networkAttachedDataNetwork:NetworkAttachedDataNetwork")
 class NetworkAttachedDataNetwork(pulumi.CustomResource):
-
-    pulumi_type = "azure:mobile/networkAttachedDataNetwork:NetworkAttachedDataNetwork"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

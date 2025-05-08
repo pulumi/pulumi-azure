@@ -162,10 +162,8 @@ class _MonitorTagRuleState:
         pulumi.set(self, "name", value)
 
 
+@pulumi.type_token("azure:datadog/monitorTagRule:MonitorTagRule")
 class MonitorTagRule(pulumi.CustomResource):
-
-    pulumi_type = "azure:datadog/monitorTagRule:MonitorTagRule"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

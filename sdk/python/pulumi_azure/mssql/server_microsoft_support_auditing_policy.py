@@ -232,10 +232,8 @@ class _ServerMicrosoftSupportAuditingPolicyState:
         pulumi.set(self, "storage_account_subscription_id", value)
 
 
+@pulumi.type_token("azure:mssql/serverMicrosoftSupportAuditingPolicy:ServerMicrosoftSupportAuditingPolicy")
 class ServerMicrosoftSupportAuditingPolicy(pulumi.CustomResource):
-
-    pulumi_type = "azure:mssql/serverMicrosoftSupportAuditingPolicy:ServerMicrosoftSupportAuditingPolicy"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

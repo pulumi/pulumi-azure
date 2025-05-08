@@ -191,10 +191,8 @@ class _RegistryCredentialSetState:
         pulumi.set(self, "name", value)
 
 
+@pulumi.type_token("azure:containerservice/registryCredentialSet:RegistryCredentialSet")
 class RegistryCredentialSet(pulumi.CustomResource):
-
-    pulumi_type = "azure:containerservice/registryCredentialSet:RegistryCredentialSet"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

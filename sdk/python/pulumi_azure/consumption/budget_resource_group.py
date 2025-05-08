@@ -287,10 +287,8 @@ class _BudgetResourceGroupState:
         pulumi.set(self, "time_period", value)
 
 
+@pulumi.type_token("azure:consumption/budgetResourceGroup:BudgetResourceGroup")
 class BudgetResourceGroup(pulumi.CustomResource):
-
-    pulumi_type = "azure:consumption/budgetResourceGroup:BudgetResourceGroup"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

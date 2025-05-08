@@ -296,10 +296,8 @@ class _NamespaceAuthorizationRuleState:
         pulumi.set(self, "send", value)
 
 
+@pulumi.type_token("azure:servicebus/namespaceAuthorizationRule:NamespaceAuthorizationRule")
 class NamespaceAuthorizationRule(pulumi.CustomResource):
-
-    pulumi_type = "azure:servicebus/namespaceAuthorizationRule:NamespaceAuthorizationRule"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

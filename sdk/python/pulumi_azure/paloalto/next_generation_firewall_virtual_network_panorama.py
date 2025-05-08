@@ -376,10 +376,8 @@ class _NextGenerationFirewallVirtualNetworkPanoramaState:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure:paloalto/nextGenerationFirewallVirtualNetworkPanorama:NextGenerationFirewallVirtualNetworkPanorama")
 class NextGenerationFirewallVirtualNetworkPanorama(pulumi.CustomResource):
-
-    pulumi_type = "azure:paloalto/nextGenerationFirewallVirtualNetworkPanorama:NextGenerationFirewallVirtualNetworkPanorama"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

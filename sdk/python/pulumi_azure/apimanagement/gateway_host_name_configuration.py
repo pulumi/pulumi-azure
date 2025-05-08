@@ -317,10 +317,8 @@ class _GatewayHostNameConfigurationState:
         pulumi.set(self, "tls11_enabled", value)
 
 
+@pulumi.type_token("azure:apimanagement/gatewayHostNameConfiguration:GatewayHostNameConfiguration")
 class GatewayHostNameConfiguration(pulumi.CustomResource):
-
-    pulumi_type = "azure:apimanagement/gatewayHostNameConfiguration:GatewayHostNameConfiguration"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

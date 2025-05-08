@@ -188,11 +188,9 @@ class _ManagementGroupState:
 warnings.warn("""azure.managementgroups.ManagementGroup has been deprecated in favor of azure.management.Group""", DeprecationWarning)
 
 
+@pulumi.type_token("azure:managementgroups/managementGroup:ManagementGroup")
 class ManagementGroup(pulumi.CustomResource):
     warnings.warn("""azure.managementgroups.ManagementGroup has been deprecated in favor of azure.management.Group""", DeprecationWarning)
-
-
-    pulumi_type = "azure:managementgroups/managementGroup:ManagementGroup"
 
     @overload
     def __init__(__self__,

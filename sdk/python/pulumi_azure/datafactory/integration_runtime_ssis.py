@@ -649,10 +649,8 @@ class _IntegrationRuntimeSsisState:
         pulumi.set(self, "vnet_integration", value)
 
 
+@pulumi.type_token("azure:datafactory/integrationRuntimeSsis:IntegrationRuntimeSsis")
 class IntegrationRuntimeSsis(pulumi.CustomResource):
-
-    pulumi_type = "azure:datafactory/integrationRuntimeSsis:IntegrationRuntimeSsis"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

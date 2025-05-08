@@ -777,10 +777,8 @@ class _WorkspaceState:
         pulumi.set(self, "workspace_url", value)
 
 
+@pulumi.type_token("azure:databricks/workspace:Workspace")
 class Workspace(pulumi.CustomResource):
-
-    pulumi_type = "azure:databricks/workspace:Workspace"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

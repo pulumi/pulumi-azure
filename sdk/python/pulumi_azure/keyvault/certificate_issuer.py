@@ -257,10 +257,8 @@ class _CertificateIssuerState:
         pulumi.set(self, "provider_name", value)
 
 
+@pulumi.type_token("azure:keyvault/certificateIssuer:CertificateIssuer")
 class CertificateIssuer(pulumi.CustomResource):
-
-    pulumi_type = "azure:keyvault/certificateIssuer:CertificateIssuer"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -220,10 +220,8 @@ class _SqlStoredProcedureState:
         pulumi.set(self, "resource_group_name", value)
 
 
+@pulumi.type_token("azure:cosmosdb/sqlStoredProcedure:SqlStoredProcedure")
 class SqlStoredProcedure(pulumi.CustomResource):
-
-    pulumi_type = "azure:cosmosdb/sqlStoredProcedure:SqlStoredProcedure"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

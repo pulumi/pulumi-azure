@@ -127,10 +127,8 @@ class _AssignmentVirtualMachineScaleSetState:
         pulumi.set(self, "virtual_machine_scale_set_id", value)
 
 
+@pulumi.type_token("azure:maintenance/assignmentVirtualMachineScaleSet:AssignmentVirtualMachineScaleSet")
 class AssignmentVirtualMachineScaleSet(pulumi.CustomResource):
-
-    pulumi_type = "azure:maintenance/assignmentVirtualMachineScaleSet:AssignmentVirtualMachineScaleSet"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

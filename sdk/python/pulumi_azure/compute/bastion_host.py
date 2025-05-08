@@ -626,10 +626,8 @@ class _BastionHostState:
         pulumi.set(self, "zones", value)
 
 
+@pulumi.type_token("azure:compute/bastionHost:BastionHost")
 class BastionHost(pulumi.CustomResource):
-
-    pulumi_type = "azure:compute/bastionHost:BastionHost"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

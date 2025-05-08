@@ -241,10 +241,8 @@ class _VirtualNetworkState:
         pulumi.set(self, "unique_identifier", value)
 
 
+@pulumi.type_token("azure:devtest/virtualNetwork:VirtualNetwork")
 class VirtualNetwork(pulumi.CustomResource):
-
-    pulumi_type = "azure:devtest/virtualNetwork:VirtualNetwork"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

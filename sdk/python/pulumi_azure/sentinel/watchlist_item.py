@@ -127,10 +127,8 @@ class _WatchlistItemState:
         pulumi.set(self, "watchlist_id", value)
 
 
+@pulumi.type_token("azure:sentinel/watchlistItem:WatchlistItem")
 class WatchlistItem(pulumi.CustomResource):
-
-    pulumi_type = "azure:sentinel/watchlistItem:WatchlistItem"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

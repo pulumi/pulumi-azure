@@ -128,10 +128,8 @@ class _MoverProjectState:
         pulumi.set(self, "storage_mover_id", value)
 
 
+@pulumi.type_token("azure:storage/moverProject:MoverProject")
 class MoverProject(pulumi.CustomResource):
-
-    pulumi_type = "azure:storage/moverProject:MoverProject"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -136,10 +136,8 @@ class _DataConnectorAzureAdvancedThreadProtectionState:
         pulumi.set(self, "tenant_id", value)
 
 
+@pulumi.type_token("azure:sentinel/dataConnectorAzureAdvancedThreadProtection:DataConnectorAzureAdvancedThreadProtection")
 class DataConnectorAzureAdvancedThreadProtection(pulumi.CustomResource):
-
-    pulumi_type = "azure:sentinel/dataConnectorAzureAdvancedThreadProtection:DataConnectorAzureAdvancedThreadProtection"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

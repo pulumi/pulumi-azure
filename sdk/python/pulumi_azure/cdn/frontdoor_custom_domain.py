@@ -240,10 +240,8 @@ class _FrontdoorCustomDomainState:
         pulumi.set(self, "validation_token", value)
 
 
+@pulumi.type_token("azure:cdn/frontdoorCustomDomain:FrontdoorCustomDomain")
 class FrontdoorCustomDomain(pulumi.CustomResource):
-
-    pulumi_type = "azure:cdn/frontdoorCustomDomain:FrontdoorCustomDomain"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

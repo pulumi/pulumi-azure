@@ -360,10 +360,8 @@ class _SecretState:
         pulumi.set(self, "versionless_id", value)
 
 
+@pulumi.type_token("azure:keyvault/secret:Secret")
 class Secret(pulumi.CustomResource):
-
-    pulumi_type = "azure:keyvault/secret:Secret"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

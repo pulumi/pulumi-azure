@@ -222,10 +222,8 @@ class _VirtualMachineManagerAvailabilitySetState:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure:systemcenter/virtualMachineManagerAvailabilitySet:VirtualMachineManagerAvailabilitySet")
 class VirtualMachineManagerAvailabilitySet(pulumi.CustomResource):
-
-    pulumi_type = "azure:systemcenter/virtualMachineManagerAvailabilitySet:VirtualMachineManagerAvailabilitySet"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

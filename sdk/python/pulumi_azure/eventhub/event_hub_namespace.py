@@ -585,10 +585,8 @@ class _EventHubNamespaceState:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure:eventhub/eventHubNamespace:EventHubNamespace")
 class EventHubNamespace(pulumi.CustomResource):
-
-    pulumi_type = "azure:eventhub/eventHubNamespace:EventHubNamespace"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

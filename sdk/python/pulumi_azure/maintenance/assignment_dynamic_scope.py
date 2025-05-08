@@ -137,10 +137,8 @@ class _AssignmentDynamicScopeState:
         pulumi.set(self, "name", value)
 
 
+@pulumi.type_token("azure:maintenance/assignmentDynamicScope:AssignmentDynamicScope")
 class AssignmentDynamicScope(pulumi.CustomResource):
-
-    pulumi_type = "azure:maintenance/assignmentDynamicScope:AssignmentDynamicScope"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

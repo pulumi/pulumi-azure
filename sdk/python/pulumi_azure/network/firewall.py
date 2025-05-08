@@ -520,10 +520,8 @@ class _FirewallState:
         pulumi.set(self, "zones", value)
 
 
+@pulumi.type_token("azure:network/firewall:Firewall")
 class Firewall(pulumi.CustomResource):
-
-    pulumi_type = "azure:network/firewall:Firewall"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

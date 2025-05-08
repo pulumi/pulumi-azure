@@ -158,10 +158,8 @@ class _ConsumerGroupState:
         pulumi.set(self, "resource_group_name", value)
 
 
+@pulumi.type_token("azure:iot/consumerGroup:ConsumerGroup")
 class ConsumerGroup(pulumi.CustomResource):
-
-    pulumi_type = "azure:iot/consumerGroup:ConsumerGroup"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

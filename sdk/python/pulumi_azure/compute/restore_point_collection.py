@@ -191,10 +191,8 @@ class _RestorePointCollectionState:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure:compute/restorePointCollection:RestorePointCollection")
 class RestorePointCollection(pulumi.CustomResource):
-
-    pulumi_type = "azure:compute/restorePointCollection:RestorePointCollection"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

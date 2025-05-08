@@ -64,10 +64,8 @@ class _AutoProvisioningState:
         pulumi.set(self, "auto_provision", value)
 
 
+@pulumi.type_token("azure:securitycenter/autoProvisioning:AutoProvisioning")
 class AutoProvisioning(pulumi.CustomResource):
-
-    pulumi_type = "azure:securitycenter/autoProvisioning:AutoProvisioning"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

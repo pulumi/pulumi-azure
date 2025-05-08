@@ -190,10 +190,8 @@ class _RegistryScopeMapState:
         pulumi.set(self, "resource_group_name", value)
 
 
+@pulumi.type_token("azure:containerservice/registryScopeMap:RegistryScopeMap")
 class RegistryScopeMap(pulumi.CustomResource):
-
-    pulumi_type = "azure:containerservice/registryScopeMap:RegistryScopeMap"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

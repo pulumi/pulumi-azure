@@ -250,10 +250,8 @@ class _RoleDefinitionState:
         pulumi.set(self, "scope", value)
 
 
+@pulumi.type_token("azure:authorization/roleDefinition:RoleDefinition")
 class RoleDefinition(pulumi.CustomResource):
-
-    pulumi_type = "azure:authorization/roleDefinition:RoleDefinition"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

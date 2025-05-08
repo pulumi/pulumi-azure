@@ -456,10 +456,8 @@ class _TrafficManagerNestedEndpointState:
         pulumi.set(self, "weight", value)
 
 
+@pulumi.type_token("azure:network/trafficManagerNestedEndpoint:TrafficManagerNestedEndpoint")
 class TrafficManagerNestedEndpoint(pulumi.CustomResource):
-
-    pulumi_type = "azure:network/trafficManagerNestedEndpoint:TrafficManagerNestedEndpoint"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -425,10 +425,8 @@ class _SoftwareUpdateConfigurationState:
         pulumi.set(self, "windows", value)
 
 
+@pulumi.type_token("azure:automation/softwareUpdateConfiguration:SoftwareUpdateConfiguration")
 class SoftwareUpdateConfiguration(pulumi.CustomResource):
-
-    pulumi_type = "azure:automation/softwareUpdateConfiguration:SoftwareUpdateConfiguration"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

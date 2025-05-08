@@ -194,10 +194,8 @@ class _RouteFilterState:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure:network/routeFilter:RouteFilter")
 class RouteFilter(pulumi.CustomResource):
-
-    pulumi_type = "azure:network/routeFilter:RouteFilter"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

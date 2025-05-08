@@ -162,10 +162,8 @@ class _SecurityDeviceGroupState:
         pulumi.set(self, "range_rules", value)
 
 
+@pulumi.type_token("azure:iot/securityDeviceGroup:SecurityDeviceGroup")
 class SecurityDeviceGroup(pulumi.CustomResource):
-
-    pulumi_type = "azure:iot/securityDeviceGroup:SecurityDeviceGroup"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

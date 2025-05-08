@@ -136,10 +136,8 @@ class _DataConnectorAzureActiveDirectoryState:
         pulumi.set(self, "tenant_id", value)
 
 
+@pulumi.type_token("azure:sentinel/dataConnectorAzureActiveDirectory:DataConnectorAzureActiveDirectory")
 class DataConnectorAzureActiveDirectory(pulumi.CustomResource):
-
-    pulumi_type = "azure:sentinel/dataConnectorAzureActiveDirectory:DataConnectorAzureActiveDirectory"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

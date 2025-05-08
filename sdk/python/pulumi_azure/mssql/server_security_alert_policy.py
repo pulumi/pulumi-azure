@@ -326,10 +326,8 @@ class _ServerSecurityAlertPolicyState:
         pulumi.set(self, "storage_endpoint", value)
 
 
+@pulumi.type_token("azure:mssql/serverSecurityAlertPolicy:ServerSecurityAlertPolicy")
 class ServerSecurityAlertPolicy(pulumi.CustomResource):
-
-    pulumi_type = "azure:mssql/serverSecurityAlertPolicy:ServerSecurityAlertPolicy"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

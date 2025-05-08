@@ -189,10 +189,8 @@ class _ManagedInstanceActiveDirectoryAdministratorState:
         pulumi.set(self, "tenant_id", value)
 
 
+@pulumi.type_token("azure:mssql/managedInstanceActiveDirectoryAdministrator:ManagedInstanceActiveDirectoryAdministrator")
 class ManagedInstanceActiveDirectoryAdministrator(pulumi.CustomResource):
-
-    pulumi_type = "azure:mssql/managedInstanceActiveDirectoryAdministrator:ManagedInstanceActiveDirectoryAdministrator"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

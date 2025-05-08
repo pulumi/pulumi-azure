@@ -287,10 +287,8 @@ class _HciLogicalNetworkState:
         pulumi.set(self, "virtual_switch_name", value)
 
 
+@pulumi.type_token("azure:stack/hciLogicalNetwork:HciLogicalNetwork")
 class HciLogicalNetwork(pulumi.CustomResource):
-
-    pulumi_type = "azure:stack/hciLogicalNetwork:HciLogicalNetwork"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

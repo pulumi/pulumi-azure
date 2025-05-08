@@ -253,11 +253,9 @@ class _DefinitionState:
 warnings.warn("""azure.role.Definition has been deprecated in favor of azure.authorization.RoleDefinition""", DeprecationWarning)
 
 
+@pulumi.type_token("azure:role/definition:Definition")
 class Definition(pulumi.CustomResource):
     warnings.warn("""azure.role.Definition has been deprecated in favor of azure.authorization.RoleDefinition""", DeprecationWarning)
-
-
-    pulumi_type = "azure:role/definition:Definition"
 
     @overload
     def __init__(__self__,

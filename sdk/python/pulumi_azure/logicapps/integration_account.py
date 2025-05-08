@@ -223,10 +223,8 @@ class _IntegrationAccountState:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure:logicapps/integrationAccount:IntegrationAccount")
 class IntegrationAccount(pulumi.CustomResource):
-
-    pulumi_type = "azure:logicapps/integrationAccount:IntegrationAccount"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

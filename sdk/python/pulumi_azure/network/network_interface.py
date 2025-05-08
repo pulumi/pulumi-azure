@@ -553,10 +553,8 @@ class _NetworkInterfaceState:
         pulumi.set(self, "virtual_machine_id", value)
 
 
+@pulumi.type_token("azure:network/networkInterface:NetworkInterface")
 class NetworkInterface(pulumi.CustomResource):
-
-    pulumi_type = "azure:network/networkInterface:NetworkInterface"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

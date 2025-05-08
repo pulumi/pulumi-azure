@@ -470,10 +470,8 @@ class _LinkedServiceKustoState:
         pulumi.set(self, "use_managed_identity", value)
 
 
+@pulumi.type_token("azure:datafactory/linkedServiceKusto:LinkedServiceKusto")
 class LinkedServiceKusto(pulumi.CustomResource):
-
-    pulumi_type = "azure:datafactory/linkedServiceKusto:LinkedServiceKusto"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

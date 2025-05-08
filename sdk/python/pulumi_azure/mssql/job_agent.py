@@ -226,10 +226,8 @@ class _JobAgentState:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure:mssql/jobAgent:JobAgent")
 class JobAgent(pulumi.CustomResource):
-
-    pulumi_type = "azure:mssql/jobAgent:JobAgent"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

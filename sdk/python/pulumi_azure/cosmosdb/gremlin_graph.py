@@ -447,10 +447,8 @@ class _GremlinGraphState:
         pulumi.set(self, "unique_keys", value)
 
 
+@pulumi.type_token("azure:cosmosdb/gremlinGraph:GremlinGraph")
 class GremlinGraph(pulumi.CustomResource):
-
-    pulumi_type = "azure:cosmosdb/gremlinGraph:GremlinGraph"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

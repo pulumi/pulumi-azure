@@ -385,10 +385,8 @@ class _TrafficManagerExternalEndpointState:
         pulumi.set(self, "weight", value)
 
 
+@pulumi.type_token("azure:network/trafficManagerExternalEndpoint:TrafficManagerExternalEndpoint")
 class TrafficManagerExternalEndpoint(pulumi.CustomResource):
-
-    pulumi_type = "azure:network/trafficManagerExternalEndpoint:TrafficManagerExternalEndpoint"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

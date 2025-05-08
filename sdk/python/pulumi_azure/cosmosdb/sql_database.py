@@ -193,10 +193,8 @@ class _SqlDatabaseState:
         pulumi.set(self, "throughput", value)
 
 
+@pulumi.type_token("azure:cosmosdb/sqlDatabase:SqlDatabase")
 class SqlDatabase(pulumi.CustomResource):
-
-    pulumi_type = "azure:cosmosdb/sqlDatabase:SqlDatabase"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

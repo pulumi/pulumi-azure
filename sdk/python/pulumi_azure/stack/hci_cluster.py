@@ -346,10 +346,8 @@ class _HciClusterState:
         pulumi.set(self, "tenant_id", value)
 
 
+@pulumi.type_token("azure:stack/hciCluster:HciCluster")
 class HciCluster(pulumi.CustomResource):
-
-    pulumi_type = "azure:stack/hciCluster:HciCluster"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

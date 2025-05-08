@@ -665,10 +665,8 @@ class _ServiceState:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure:search/service:Service")
 class Service(pulumi.CustomResource):
-
-    pulumi_type = "azure:search/service:Service"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -222,10 +222,8 @@ class _VirtualMachineManagerCloudState:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure:systemcenter/virtualMachineManagerCloud:VirtualMachineManagerCloud")
 class VirtualMachineManagerCloud(pulumi.CustomResource):
-
-    pulumi_type = "azure:systemcenter/virtualMachineManagerCloud:VirtualMachineManagerCloud"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

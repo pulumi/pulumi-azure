@@ -400,10 +400,8 @@ class _SubnetState:
         pulumi.set(self, "virtual_network_name", value)
 
 
+@pulumi.type_token("azure:network/subnet:Subnet")
 class Subnet(pulumi.CustomResource):
-
-    pulumi_type = "azure:network/subnet:Subnet"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

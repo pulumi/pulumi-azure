@@ -279,10 +279,8 @@ class _CustomerManagedKeyState:
         pulumi.set(self, "user_assigned_identity_id", value)
 
 
+@pulumi.type_token("azure:storage/customerManagedKey:CustomerManagedKey")
 class CustomerManagedKey(pulumi.CustomResource):
-
-    pulumi_type = "azure:storage/customerManagedKey:CustomerManagedKey"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

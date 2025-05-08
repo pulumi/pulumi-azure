@@ -860,10 +860,8 @@ class _VirtualNetworkGatewayConnectionState:
         pulumi.set(self, "virtual_network_gateway_id", value)
 
 
+@pulumi.type_token("azure:network/virtualNetworkGatewayConnection:VirtualNetworkGatewayConnection")
 class VirtualNetworkGatewayConnection(pulumi.CustomResource):
-
-    pulumi_type = "azure:network/virtualNetworkGatewayConnection:VirtualNetworkGatewayConnection"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

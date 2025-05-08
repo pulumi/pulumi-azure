@@ -97,10 +97,8 @@ class _BlobInventoryPolicyState:
         pulumi.set(self, "storage_account_id", value)
 
 
+@pulumi.type_token("azure:storage/blobInventoryPolicy:BlobInventoryPolicy")
 class BlobInventoryPolicy(pulumi.CustomResource):
-
-    pulumi_type = "azure:storage/blobInventoryPolicy:BlobInventoryPolicy"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

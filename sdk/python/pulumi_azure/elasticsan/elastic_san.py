@@ -392,10 +392,8 @@ class _ElasticSanState:
         pulumi.set(self, "zones", value)
 
 
+@pulumi.type_token("azure:elasticsan/elasticSan:ElasticSan")
 class ElasticSan(pulumi.CustomResource):
-
-    pulumi_type = "azure:elasticsan/elasticSan:ElasticSan"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

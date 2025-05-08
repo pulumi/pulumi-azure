@@ -450,10 +450,8 @@ class _FactoryState:
         pulumi.set(self, "vsts_configuration", value)
 
 
+@pulumi.type_token("azure:datafactory/factory:Factory")
 class Factory(pulumi.CustomResource):
-
-    pulumi_type = "azure:datafactory/factory:Factory"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -209,10 +209,8 @@ class _MongoDatabaseState:
         pulumi.set(self, "throughput", value)
 
 
+@pulumi.type_token("azure:cosmosdb/mongoDatabase:MongoDatabase")
 class MongoDatabase(pulumi.CustomResource):
-
-    pulumi_type = "azure:cosmosdb/mongoDatabase:MongoDatabase"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -256,10 +256,8 @@ class _DeploymentState:
         pulumi.set(self, "version_upgrade_option", value)
 
 
+@pulumi.type_token("azure:cognitive/deployment:Deployment")
 class Deployment(pulumi.CustomResource):
-
-    pulumi_type = "azure:cognitive/deployment:Deployment"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

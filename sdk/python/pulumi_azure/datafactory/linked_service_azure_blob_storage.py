@@ -570,10 +570,8 @@ class _LinkedServiceAzureBlobStorageState:
         pulumi.set(self, "use_managed_identity", value)
 
 
+@pulumi.type_token("azure:datafactory/linkedServiceAzureBlobStorage:LinkedServiceAzureBlobStorage")
 class LinkedServiceAzureBlobStorage(pulumi.CustomResource):
-
-    pulumi_type = "azure:datafactory/linkedServiceAzureBlobStorage:LinkedServiceAzureBlobStorage"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

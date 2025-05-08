@@ -190,10 +190,8 @@ class _ApiPolicyState:
         pulumi.set(self, "xml_link", value)
 
 
+@pulumi.type_token("azure:apimanagement/apiPolicy:ApiPolicy")
 class ApiPolicy(pulumi.CustomResource):
-
-    pulumi_type = "azure:apimanagement/apiPolicy:ApiPolicy"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -248,10 +248,8 @@ class _FrontdoorRuleState:
         pulumi.set(self, "order", value)
 
 
+@pulumi.type_token("azure:cdn/frontdoorRule:FrontdoorRule")
 class FrontdoorRule(pulumi.CustomResource):
-
-    pulumi_type = "azure:cdn/frontdoorRule:FrontdoorRule"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

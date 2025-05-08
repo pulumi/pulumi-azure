@@ -189,10 +189,8 @@ class _DatabaseState:
         pulumi.set(self, "server_name", value)
 
 
+@pulumi.type_token("azure:postgresql/database:Database")
 class Database(pulumi.CustomResource):
-
-    pulumi_type = "azure:postgresql/database:Database"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

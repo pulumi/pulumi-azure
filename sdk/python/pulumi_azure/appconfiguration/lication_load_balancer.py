@@ -176,10 +176,8 @@ class _LicationLoadBalancerState:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure:appconfiguration/licationLoadBalancer:LicationLoadBalancer")
 class LicationLoadBalancer(pulumi.CustomResource):
-
-    pulumi_type = "azure:appconfiguration/licationLoadBalancer:LicationLoadBalancer"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

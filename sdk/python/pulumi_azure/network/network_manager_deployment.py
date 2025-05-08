@@ -190,10 +190,8 @@ class _NetworkManagerDeploymentState:
         pulumi.set(self, "triggers", value)
 
 
+@pulumi.type_token("azure:network/networkManagerDeployment:NetworkManagerDeployment")
 class NetworkManagerDeployment(pulumi.CustomResource):
-
-    pulumi_type = "azure:network/networkManagerDeployment:NetworkManagerDeployment"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

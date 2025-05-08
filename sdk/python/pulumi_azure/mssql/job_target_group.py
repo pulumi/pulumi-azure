@@ -130,10 +130,8 @@ class _JobTargetGroupState:
         pulumi.set(self, "name", value)
 
 
+@pulumi.type_token("azure:mssql/jobTargetGroup:JobTargetGroup")
 class JobTargetGroup(pulumi.CustomResource):
-
-    pulumi_type = "azure:mssql/jobTargetGroup:JobTargetGroup"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

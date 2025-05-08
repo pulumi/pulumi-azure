@@ -352,10 +352,8 @@ class _PipelineState:
         pulumi.set(self, "variables", value)
 
 
+@pulumi.type_token("azure:datafactory/pipeline:Pipeline")
 class Pipeline(pulumi.CustomResource):
-
-    pulumi_type = "azure:datafactory/pipeline:Pipeline"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

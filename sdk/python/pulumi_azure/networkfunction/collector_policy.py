@@ -224,10 +224,8 @@ class _CollectorPolicyState:
         pulumi.set(self, "traffic_collector_id", value)
 
 
+@pulumi.type_token("azure:networkfunction/collectorPolicy:CollectorPolicy")
 class CollectorPolicy(pulumi.CustomResource):
-
-    pulumi_type = "azure:networkfunction/collectorPolicy:CollectorPolicy"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

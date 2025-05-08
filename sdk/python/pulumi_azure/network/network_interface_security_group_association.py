@@ -95,10 +95,8 @@ class _NetworkInterfaceSecurityGroupAssociationState:
         pulumi.set(self, "network_security_group_id", value)
 
 
+@pulumi.type_token("azure:network/networkInterfaceSecurityGroupAssociation:NetworkInterfaceSecurityGroupAssociation")
 class NetworkInterfaceSecurityGroupAssociation(pulumi.CustomResource):
-
-    pulumi_type = "azure:network/networkInterfaceSecurityGroupAssociation:NetworkInterfaceSecurityGroupAssociation"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

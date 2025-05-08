@@ -190,10 +190,8 @@ class _BackupInstancePostgresqlFlexibleServerState:
         pulumi.set(self, "vault_id", value)
 
 
+@pulumi.type_token("azure:dataprotection/backupInstancePostgresqlFlexibleServer:BackupInstancePostgresqlFlexibleServer")
 class BackupInstancePostgresqlFlexibleServer(pulumi.CustomResource):
-
-    pulumi_type = "azure:dataprotection/backupInstancePostgresqlFlexibleServer:BackupInstancePostgresqlFlexibleServer"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

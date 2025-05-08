@@ -285,10 +285,8 @@ class _CosmosdbDataConnectionState:
         pulumi.set(self, "table_name", value)
 
 
+@pulumi.type_token("azure:kusto/cosmosdbDataConnection:CosmosdbDataConnection")
 class CosmosdbDataConnection(pulumi.CustomResource):
-
-    pulumi_type = "azure:kusto/cosmosdbDataConnection:CosmosdbDataConnection"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

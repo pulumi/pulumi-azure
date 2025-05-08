@@ -335,10 +335,8 @@ class _DatastoreBlobstorageState:
         pulumi.set(self, "workspace_id", value)
 
 
+@pulumi.type_token("azure:machinelearning/datastoreBlobstorage:DatastoreBlobstorage")
 class DatastoreBlobstorage(pulumi.CustomResource):
-
-    pulumi_type = "azure:machinelearning/datastoreBlobstorage:DatastoreBlobstorage"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

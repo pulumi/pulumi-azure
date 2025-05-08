@@ -251,10 +251,8 @@ class _DataSourceWindowsPerformanceCounterState:
         pulumi.set(self, "workspace_name", value)
 
 
+@pulumi.type_token("azure:loganalytics/dataSourceWindowsPerformanceCounter:DataSourceWindowsPerformanceCounter")
 class DataSourceWindowsPerformanceCounter(pulumi.CustomResource):
-
-    pulumi_type = "azure:loganalytics/dataSourceWindowsPerformanceCounter:DataSourceWindowsPerformanceCounter"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

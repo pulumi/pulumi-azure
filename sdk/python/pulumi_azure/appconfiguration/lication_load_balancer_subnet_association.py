@@ -167,10 +167,8 @@ class _LicationLoadBalancerSubnetAssociationState:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure:appconfiguration/licationLoadBalancerSubnetAssociation:LicationLoadBalancerSubnetAssociation")
 class LicationLoadBalancerSubnetAssociation(pulumi.CustomResource):
-
-    pulumi_type = "azure:appconfiguration/licationLoadBalancerSubnetAssociation:LicationLoadBalancerSubnetAssociation"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

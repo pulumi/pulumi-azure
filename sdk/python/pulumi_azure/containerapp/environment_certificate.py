@@ -270,10 +270,8 @@ class _EnvironmentCertificateState:
         pulumi.set(self, "thumbprint", value)
 
 
+@pulumi.type_token("azure:containerapp/environmentCertificate:EnvironmentCertificate")
 class EnvironmentCertificate(pulumi.CustomResource):
-
-    pulumi_type = "azure:containerapp/environmentCertificate:EnvironmentCertificate"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

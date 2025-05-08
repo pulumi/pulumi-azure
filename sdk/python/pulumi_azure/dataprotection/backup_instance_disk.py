@@ -221,10 +221,8 @@ class _BackupInstanceDiskState:
         pulumi.set(self, "vault_id", value)
 
 
+@pulumi.type_token("azure:dataprotection/backupInstanceDisk:BackupInstanceDisk")
 class BackupInstanceDisk(pulumi.CustomResource):
-
-    pulumi_type = "azure:dataprotection/backupInstanceDisk:BackupInstanceDisk"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

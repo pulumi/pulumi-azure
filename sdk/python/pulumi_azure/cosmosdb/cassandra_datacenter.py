@@ -439,10 +439,8 @@ class _CassandraDatacenterState:
         pulumi.set(self, "sku_name", value)
 
 
+@pulumi.type_token("azure:cosmosdb/cassandraDatacenter:CassandraDatacenter")
 class CassandraDatacenter(pulumi.CustomResource):
-
-    pulumi_type = "azure:cosmosdb/cassandraDatacenter:CassandraDatacenter"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

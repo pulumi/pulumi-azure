@@ -127,10 +127,8 @@ class _HyperVReplicationPolicyAssociationState:
         pulumi.set(self, "policy_id", value)
 
 
+@pulumi.type_token("azure:siterecovery/hyperVReplicationPolicyAssociation:HyperVReplicationPolicyAssociation")
 class HyperVReplicationPolicyAssociation(pulumi.CustomResource):
-
-    pulumi_type = "azure:siterecovery/hyperVReplicationPolicyAssociation:HyperVReplicationPolicyAssociation"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

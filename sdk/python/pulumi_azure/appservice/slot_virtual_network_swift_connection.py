@@ -126,10 +126,8 @@ class _SlotVirtualNetworkSwiftConnectionState:
         pulumi.set(self, "subnet_id", value)
 
 
+@pulumi.type_token("azure:appservice/slotVirtualNetworkSwiftConnection:SlotVirtualNetworkSwiftConnection")
 class SlotVirtualNetworkSwiftConnection(pulumi.CustomResource):
-
-    pulumi_type = "azure:appservice/slotVirtualNetworkSwiftConnection:SlotVirtualNetworkSwiftConnection"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

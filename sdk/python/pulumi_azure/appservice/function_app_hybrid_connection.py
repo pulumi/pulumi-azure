@@ -269,10 +269,8 @@ class _FunctionAppHybridConnectionState:
         pulumi.set(self, "service_bus_suffix", value)
 
 
+@pulumi.type_token("azure:appservice/functionAppHybridConnection:FunctionAppHybridConnection")
 class FunctionAppHybridConnection(pulumi.CustomResource):
-
-    pulumi_type = "azure:appservice/functionAppHybridConnection:FunctionAppHybridConnection"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

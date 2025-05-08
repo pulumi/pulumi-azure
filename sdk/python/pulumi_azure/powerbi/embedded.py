@@ -254,10 +254,8 @@ class _EmbeddedState:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure:powerbi/embedded:Embedded")
 class Embedded(pulumi.CustomResource):
-
-    pulumi_type = "azure:powerbi/embedded:Embedded"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

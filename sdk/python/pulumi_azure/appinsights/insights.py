@@ -567,10 +567,8 @@ class _InsightsState:
         pulumi.set(self, "workspace_id", value)
 
 
+@pulumi.type_token("azure:appinsights/insights:Insights")
 class Insights(pulumi.CustomResource):
-
-    pulumi_type = "azure:appinsights/insights:Insights"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

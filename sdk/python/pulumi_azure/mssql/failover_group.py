@@ -256,10 +256,8 @@ class _FailoverGroupState:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure:mssql/failoverGroup:FailoverGroup")
 class FailoverGroup(pulumi.CustomResource):
-
-    pulumi_type = "azure:mssql/failoverGroup:FailoverGroup"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -129,10 +129,8 @@ class _TokenPasswordState:
         pulumi.set(self, "password2", value)
 
 
+@pulumi.type_token("azure:containerservice/tokenPassword:TokenPassword")
 class TokenPassword(pulumi.CustomResource):
-
-    pulumi_type = "azure:containerservice/tokenPassword:TokenPassword"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

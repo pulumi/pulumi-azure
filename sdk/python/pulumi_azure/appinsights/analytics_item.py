@@ -269,10 +269,8 @@ class _AnalyticsItemState:
         pulumi.set(self, "version", value)
 
 
+@pulumi.type_token("azure:appinsights/analyticsItem:AnalyticsItem")
 class AnalyticsItem(pulumi.CustomResource):
-
-    pulumi_type = "azure:appinsights/analyticsItem:AnalyticsItem"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

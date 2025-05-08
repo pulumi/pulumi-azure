@@ -369,10 +369,8 @@ class _ServerState:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure:analysisservices/server:Server")
 class Server(pulumi.CustomResource):
-
-    pulumi_type = "azure:analysisservices/server:Server"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

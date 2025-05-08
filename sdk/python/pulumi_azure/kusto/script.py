@@ -256,10 +256,8 @@ class _ScriptState:
         pulumi.set(self, "url", value)
 
 
+@pulumi.type_token("azure:kusto/script:Script")
 class Script(pulumi.CustomResource):
-
-    pulumi_type = "azure:kusto/script:Script"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

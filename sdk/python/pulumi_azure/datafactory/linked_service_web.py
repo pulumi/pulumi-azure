@@ -390,10 +390,8 @@ class _LinkedServiceWebState:
         pulumi.set(self, "username", value)
 
 
+@pulumi.type_token("azure:datafactory/linkedServiceWeb:LinkedServiceWeb")
 class LinkedServiceWeb(pulumi.CustomResource):
-
-    pulumi_type = "azure:datafactory/linkedServiceWeb:LinkedServiceWeb"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

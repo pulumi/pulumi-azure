@@ -287,10 +287,8 @@ class _GrafanaManagedPrivateEndpointState:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure:dashboard/grafanaManagedPrivateEndpoint:GrafanaManagedPrivateEndpoint")
 class GrafanaManagedPrivateEndpoint(pulumi.CustomResource):
-
-    pulumi_type = "azure:dashboard/grafanaManagedPrivateEndpoint:GrafanaManagedPrivateEndpoint"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

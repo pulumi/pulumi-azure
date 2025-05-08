@@ -406,10 +406,8 @@ class _ExtensionState:
         pulumi.set(self, "type_handler_version", value)
 
 
+@pulumi.type_token("azure:arcmachine/extension:Extension")
 class Extension(pulumi.CustomResource):
-
-    pulumi_type = "azure:arcmachine/extension:Extension"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

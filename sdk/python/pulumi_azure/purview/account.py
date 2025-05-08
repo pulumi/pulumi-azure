@@ -361,10 +361,8 @@ class _AccountState:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure:purview/account:Account")
 class Account(pulumi.CustomResource):
-
-    pulumi_type = "azure:purview/account:Account"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

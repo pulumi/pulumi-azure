@@ -220,10 +220,8 @@ class _SqlRoleAssignmentState:
         pulumi.set(self, "scope", value)
 
 
+@pulumi.type_token("azure:cosmosdb/sqlRoleAssignment:SqlRoleAssignment")
 class SqlRoleAssignment(pulumi.CustomResource):
-
-    pulumi_type = "azure:cosmosdb/sqlRoleAssignment:SqlRoleAssignment"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

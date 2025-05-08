@@ -502,10 +502,8 @@ class _FrontdoorRouteState:
         pulumi.set(self, "supported_protocols", value)
 
 
+@pulumi.type_token("azure:cdn/frontdoorRoute:FrontdoorRoute")
 class FrontdoorRoute(pulumi.CustomResource):
-
-    pulumi_type = "azure:cdn/frontdoorRoute:FrontdoorRoute"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

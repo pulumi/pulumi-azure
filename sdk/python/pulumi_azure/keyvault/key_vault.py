@@ -584,10 +584,8 @@ class _KeyVaultState:
         pulumi.set(self, "vault_uri", value)
 
 
+@pulumi.type_token("azure:keyvault/keyVault:KeyVault")
 class KeyVault(pulumi.CustomResource):
-
-    pulumi_type = "azure:keyvault/keyVault:KeyVault"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

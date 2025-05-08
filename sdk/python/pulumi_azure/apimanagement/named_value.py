@@ -296,10 +296,8 @@ class _NamedValueState:
         pulumi.set(self, "value_from_key_vault", value)
 
 
+@pulumi.type_token("azure:apimanagement/namedValue:NamedValue")
 class NamedValue(pulumi.CustomResource):
-
-    pulumi_type = "azure:apimanagement/namedValue:NamedValue"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

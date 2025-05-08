@@ -238,10 +238,8 @@ class _VolumeQuotaRuleState:
         pulumi.set(self, "volume_id", value)
 
 
+@pulumi.type_token("azure:netapp/volumeQuotaRule:VolumeQuotaRule")
 class VolumeQuotaRule(pulumi.CustomResource):
-
-    pulumi_type = "azure:netapp/volumeQuotaRule:VolumeQuotaRule"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

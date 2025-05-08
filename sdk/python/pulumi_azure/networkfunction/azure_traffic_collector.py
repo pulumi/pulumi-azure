@@ -192,10 +192,8 @@ class _AzureTrafficCollectorState:
         pulumi.set(self, "virtual_hub_ids", value)
 
 
+@pulumi.type_token("azure:networkfunction/azureTrafficCollector:AzureTrafficCollector")
 class AzureTrafficCollector(pulumi.CustomResource):
-
-    pulumi_type = "azure:networkfunction/azureTrafficCollector:AzureTrafficCollector"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

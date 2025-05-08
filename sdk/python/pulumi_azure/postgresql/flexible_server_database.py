@@ -160,10 +160,8 @@ class _FlexibleServerDatabaseState:
         pulumi.set(self, "server_id", value)
 
 
+@pulumi.type_token("azure:postgresql/flexibleServerDatabase:FlexibleServerDatabase")
 class FlexibleServerDatabase(pulumi.CustomResource):
-
-    pulumi_type = "azure:postgresql/flexibleServerDatabase:FlexibleServerDatabase"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -96,10 +96,8 @@ class _SpringCloudAcceleratorState:
         pulumi.set(self, "spring_cloud_service_id", value)
 
 
+@pulumi.type_token("azure:appplatform/springCloudAccelerator:SpringCloudAccelerator")
 class SpringCloudAccelerator(pulumi.CustomResource):
-
-    pulumi_type = "azure:appplatform/springCloudAccelerator:SpringCloudAccelerator"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

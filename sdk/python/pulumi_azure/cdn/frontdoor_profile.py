@@ -241,10 +241,8 @@ class _FrontdoorProfileState:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure:cdn/frontdoorProfile:FrontdoorProfile")
 class FrontdoorProfile(pulumi.CustomResource):
-
-    pulumi_type = "azure:cdn/frontdoorProfile:FrontdoorProfile"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

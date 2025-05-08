@@ -489,10 +489,8 @@ class _VirtualNetworkState:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure:network/virtualNetwork:VirtualNetwork")
 class VirtualNetwork(pulumi.CustomResource):
-
-    pulumi_type = "azure:network/virtualNetwork:VirtualNetwork"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

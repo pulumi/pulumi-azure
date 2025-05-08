@@ -223,10 +223,8 @@ class _RoleAssignmentState:
         pulumi.set(self, "synapse_workspace_id", value)
 
 
+@pulumi.type_token("azure:synapse/roleAssignment:RoleAssignment")
 class RoleAssignment(pulumi.CustomResource):
-
-    pulumi_type = "azure:synapse/roleAssignment:RoleAssignment"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

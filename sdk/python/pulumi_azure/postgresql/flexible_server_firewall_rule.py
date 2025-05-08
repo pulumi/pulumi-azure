@@ -158,10 +158,8 @@ class _FlexibleServerFirewallRuleState:
         pulumi.set(self, "start_ip_address", value)
 
 
+@pulumi.type_token("azure:postgresql/flexibleServerFirewallRule:FlexibleServerFirewallRule")
 class FlexibleServerFirewallRule(pulumi.CustomResource):
-
-    pulumi_type = "azure:postgresql/flexibleServerFirewallRule:FlexibleServerFirewallRule"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

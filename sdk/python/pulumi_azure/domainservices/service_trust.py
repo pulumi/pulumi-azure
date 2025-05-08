@@ -189,10 +189,8 @@ class _ServiceTrustState:
         pulumi.set(self, "trusted_domain_fqdn", value)
 
 
+@pulumi.type_token("azure:domainservices/serviceTrust:ServiceTrust")
 class ServiceTrust(pulumi.CustomResource):
-
-    pulumi_type = "azure:domainservices/serviceTrust:ServiceTrust"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

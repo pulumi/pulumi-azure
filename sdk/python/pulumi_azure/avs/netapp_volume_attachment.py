@@ -135,10 +135,8 @@ class _NetappVolumeAttachmentState:
         pulumi.set(self, "vmware_cluster_id", value)
 
 
+@pulumi.type_token("azure:avs/netappVolumeAttachment:NetappVolumeAttachment")
 class NetappVolumeAttachment(pulumi.CustomResource):
-
-    pulumi_type = "azure:avs/netappVolumeAttachment:NetappVolumeAttachment"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

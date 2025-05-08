@@ -255,10 +255,8 @@ class _GlobalVMShutdownScheduleState:
         pulumi.set(self, "virtual_machine_id", value)
 
 
+@pulumi.type_token("azure:devtest/globalVMShutdownSchedule:GlobalVMShutdownSchedule")
 class GlobalVMShutdownSchedule(pulumi.CustomResource):
-
-    pulumi_type = "azure:devtest/globalVMShutdownSchedule:GlobalVMShutdownSchedule"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

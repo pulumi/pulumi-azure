@@ -443,10 +443,8 @@ class _IotHubDataConnectionState:
         pulumi.set(self, "table_name", value)
 
 
+@pulumi.type_token("azure:kusto/iotHubDataConnection:IotHubDataConnection")
 class IotHubDataConnection(pulumi.CustomResource):
-
-    pulumi_type = "azure:kusto/iotHubDataConnection:IotHubDataConnection"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

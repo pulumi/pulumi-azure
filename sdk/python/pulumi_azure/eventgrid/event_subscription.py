@@ -722,10 +722,8 @@ class _EventSubscriptionState:
         pulumi.set(self, "webhook_endpoint", value)
 
 
+@pulumi.type_token("azure:eventgrid/eventSubscription:EventSubscription")
 class EventSubscription(pulumi.CustomResource):
-
-    pulumi_type = "azure:eventgrid/eventSubscription:EventSubscription"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

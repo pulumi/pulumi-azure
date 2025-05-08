@@ -1006,10 +1006,8 @@ class _PoolState:
         pulumi.set(self, "windows", value)
 
 
+@pulumi.type_token("azure:batch/pool:Pool")
 class Pool(pulumi.CustomResource):
-
-    pulumi_type = "azure:batch/pool:Pool"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

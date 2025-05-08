@@ -253,10 +253,8 @@ class _ClusterManagedPrivateEndpointState:
         pulumi.set(self, "resource_group_name", value)
 
 
+@pulumi.type_token("azure:kusto/clusterManagedPrivateEndpoint:ClusterManagedPrivateEndpoint")
 class ClusterManagedPrivateEndpoint(pulumi.CustomResource):
-
-    pulumi_type = "azure:kusto/clusterManagedPrivateEndpoint:ClusterManagedPrivateEndpoint"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

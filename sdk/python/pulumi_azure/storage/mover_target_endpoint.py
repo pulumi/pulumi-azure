@@ -190,10 +190,8 @@ class _MoverTargetEndpointState:
         pulumi.set(self, "storage_mover_id", value)
 
 
+@pulumi.type_token("azure:storage/moverTargetEndpoint:MoverTargetEndpoint")
 class MoverTargetEndpoint(pulumi.CustomResource):
-
-    pulumi_type = "azure:storage/moverTargetEndpoint:MoverTargetEndpoint"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

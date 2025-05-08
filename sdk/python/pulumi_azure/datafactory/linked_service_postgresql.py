@@ -287,10 +287,8 @@ class _LinkedServicePostgresqlState:
         pulumi.set(self, "parameters", value)
 
 
+@pulumi.type_token("azure:datafactory/linkedServicePostgresql:LinkedServicePostgresql")
 class LinkedServicePostgresql(pulumi.CustomResource):
-
-    pulumi_type = "azure:datafactory/linkedServicePostgresql:LinkedServicePostgresql"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

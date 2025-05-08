@@ -659,10 +659,8 @@ class _AuthorizationServerState:
         pulumi.set(self, "token_endpoint", value)
 
 
+@pulumi.type_token("azure:apimanagement/authorizationServer:AuthorizationServer")
 class AuthorizationServer(pulumi.CustomResource):
-
-    pulumi_type = "azure:apimanagement/authorizationServer:AuthorizationServer"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -112,10 +112,8 @@ class _FunctionAppActiveSlotState:
         pulumi.set(self, "slot_id", value)
 
 
+@pulumi.type_token("azure:appservice/functionAppActiveSlot:FunctionAppActiveSlot")
 class FunctionAppActiveSlot(pulumi.CustomResource):
-
-    pulumi_type = "azure:appservice/functionAppActiveSlot:FunctionAppActiveSlot"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

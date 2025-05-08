@@ -321,10 +321,8 @@ class _LinkedServiceOdataState:
         pulumi.set(self, "url", value)
 
 
+@pulumi.type_token("azure:datafactory/linkedServiceOdata:LinkedServiceOdata")
 class LinkedServiceOdata(pulumi.CustomResource):
-
-    pulumi_type = "azure:datafactory/linkedServiceOdata:LinkedServiceOdata"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -249,10 +249,8 @@ class _CassandraTableState:
         pulumi.set(self, "throughput", value)
 
 
+@pulumi.type_token("azure:cosmosdb/cassandraTable:CassandraTable")
 class CassandraTable(pulumi.CustomResource):
-
-    pulumi_type = "azure:cosmosdb/cassandraTable:CassandraTable"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

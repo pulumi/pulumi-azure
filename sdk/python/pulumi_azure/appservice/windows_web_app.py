@@ -1088,10 +1088,8 @@ class _WindowsWebAppState:
         pulumi.set(self, "zip_deploy_file", value)
 
 
+@pulumi.type_token("azure:appservice/windowsWebApp:WindowsWebApp")
 class WindowsWebApp(pulumi.CustomResource):
-
-    pulumi_type = "azure:appservice/windowsWebApp:WindowsWebApp"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

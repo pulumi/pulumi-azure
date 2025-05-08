@@ -188,10 +188,8 @@ class _FlexibleServerActiveDirectoryAdministratoryState:
         pulumi.set(self, "tenant_id", value)
 
 
+@pulumi.type_token("azure:mysql/flexibleServerActiveDirectoryAdministratory:FlexibleServerActiveDirectoryAdministratory")
 class FlexibleServerActiveDirectoryAdministratory(pulumi.CustomResource):
-
-    pulumi_type = "azure:mysql/flexibleServerActiveDirectoryAdministratory:FlexibleServerActiveDirectoryAdministratory"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

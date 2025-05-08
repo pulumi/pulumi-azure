@@ -204,10 +204,8 @@ class _PublicCertificateState:
         pulumi.set(self, "thumbprint", value)
 
 
+@pulumi.type_token("azure:appservice/publicCertificate:PublicCertificate")
 class PublicCertificate(pulumi.CustomResource):
-
-    pulumi_type = "azure:appservice/publicCertificate:PublicCertificate"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

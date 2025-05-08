@@ -1348,10 +1348,8 @@ class _LinuxFunctionAppState:
         pulumi.set(self, "zip_deploy_file", value)
 
 
+@pulumi.type_token("azure:appservice/linuxFunctionApp:LinuxFunctionApp")
 class LinuxFunctionApp(pulumi.CustomResource):
-
-    pulumi_type = "azure:appservice/linuxFunctionApp:LinuxFunctionApp"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

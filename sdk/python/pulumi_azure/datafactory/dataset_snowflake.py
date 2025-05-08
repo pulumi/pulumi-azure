@@ -385,10 +385,8 @@ class _DatasetSnowflakeState:
         pulumi.set(self, "table_name", value)
 
 
+@pulumi.type_token("azure:datafactory/datasetSnowflake:DatasetSnowflake")
 class DatasetSnowflake(pulumi.CustomResource):
-
-    pulumi_type = "azure:datafactory/datasetSnowflake:DatasetSnowflake"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

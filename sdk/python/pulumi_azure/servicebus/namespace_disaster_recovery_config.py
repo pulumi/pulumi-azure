@@ -223,10 +223,8 @@ class _NamespaceDisasterRecoveryConfigState:
         pulumi.set(self, "secondary_connection_string_alias", value)
 
 
+@pulumi.type_token("azure:servicebus/namespaceDisasterRecoveryConfig:NamespaceDisasterRecoveryConfig")
 class NamespaceDisasterRecoveryConfig(pulumi.CustomResource):
-
-    pulumi_type = "azure:servicebus/namespaceDisasterRecoveryConfig:NamespaceDisasterRecoveryConfig"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

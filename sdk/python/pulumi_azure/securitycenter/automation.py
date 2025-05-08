@@ -327,10 +327,8 @@ class _AutomationState:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure:securitycenter/automation:Automation")
 class Automation(pulumi.CustomResource):
-
-    pulumi_type = "azure:securitycenter/automation:Automation"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

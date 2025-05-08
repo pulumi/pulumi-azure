@@ -457,10 +457,8 @@ class _PlanState:
         pulumi.set(self, "zone_redundant", value)
 
 
+@pulumi.type_token("azure:appservice/plan:Plan")
 class Plan(pulumi.CustomResource):
-
-    pulumi_type = "azure:appservice/plan:Plan"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

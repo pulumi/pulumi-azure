@@ -239,10 +239,8 @@ class _SRVRecordState:
         pulumi.set(self, "zone_name", value)
 
 
+@pulumi.type_token("azure:privatedns/sRVRecord:SRVRecord")
 class SRVRecord(pulumi.CustomResource):
-
-    pulumi_type = "azure:privatedns/sRVRecord:SRVRecord"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

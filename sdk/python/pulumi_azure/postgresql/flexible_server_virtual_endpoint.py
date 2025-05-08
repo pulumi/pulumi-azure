@@ -158,10 +158,8 @@ class _FlexibleServerVirtualEndpointState:
         pulumi.set(self, "type", value)
 
 
+@pulumi.type_token("azure:postgresql/flexibleServerVirtualEndpoint:FlexibleServerVirtualEndpoint")
 class FlexibleServerVirtualEndpoint(pulumi.CustomResource):
-
-    pulumi_type = "azure:postgresql/flexibleServerVirtualEndpoint:FlexibleServerVirtualEndpoint"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

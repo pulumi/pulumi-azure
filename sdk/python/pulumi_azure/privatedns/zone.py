@@ -234,10 +234,8 @@ class _ZoneState:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure:privatedns/zone:Zone")
 class Zone(pulumi.CustomResource):
-
-    pulumi_type = "azure:privatedns/zone:Zone"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

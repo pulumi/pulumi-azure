@@ -129,10 +129,8 @@ class _FrontdoorSecurityPolicyState:
         pulumi.set(self, "security_policies", value)
 
 
+@pulumi.type_token("azure:cdn/frontdoorSecurityPolicy:FrontdoorSecurityPolicy")
 class FrontdoorSecurityPolicy(pulumi.CustomResource):
-
-    pulumi_type = "azure:cdn/frontdoorSecurityPolicy:FrontdoorSecurityPolicy"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

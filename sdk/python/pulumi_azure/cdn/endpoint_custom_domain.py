@@ -201,10 +201,8 @@ class _EndpointCustomDomainState:
         pulumi.set(self, "user_managed_https", value)
 
 
+@pulumi.type_token("azure:cdn/endpointCustomDomain:EndpointCustomDomain")
 class EndpointCustomDomain(pulumi.CustomResource):
-
-    pulumi_type = "azure:cdn/endpointCustomDomain:EndpointCustomDomain"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

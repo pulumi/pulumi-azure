@@ -158,10 +158,8 @@ class _RouteServerBgpConnectionState:
         pulumi.set(self, "route_server_id", value)
 
 
+@pulumi.type_token("azure:network/routeServerBgpConnection:RouteServerBgpConnection")
 class RouteServerBgpConnection(pulumi.CustomResource):
-
-    pulumi_type = "azure:network/routeServerBgpConnection:RouteServerBgpConnection"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

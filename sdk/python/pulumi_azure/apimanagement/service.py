@@ -1039,10 +1039,8 @@ class _ServiceState:
         pulumi.set(self, "zones", value)
 
 
+@pulumi.type_token("azure:apimanagement/service:Service")
 class Service(pulumi.CustomResource):
-
-    pulumi_type = "azure:apimanagement/service:Service"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

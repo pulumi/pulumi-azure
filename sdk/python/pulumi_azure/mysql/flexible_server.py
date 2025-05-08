@@ -874,10 +874,8 @@ class _FlexibleServerState:
         pulumi.set(self, "zone", value)
 
 
+@pulumi.type_token("azure:mysql/flexibleServer:FlexibleServer")
 class FlexibleServer(pulumi.CustomResource):
-
-    pulumi_type = "azure:mysql/flexibleServer:FlexibleServer"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

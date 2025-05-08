@@ -160,10 +160,8 @@ class _PrivateLinkHubState:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure:synapse/privateLinkHub:PrivateLinkHub")
 class PrivateLinkHub(pulumi.CustomResource):
-
-    pulumi_type = "azure:synapse/privateLinkHub:PrivateLinkHub"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

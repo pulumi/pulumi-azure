@@ -225,10 +225,8 @@ class _IotHubDeviceUpdateInstanceState:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure:iot/iotHubDeviceUpdateInstance:IotHubDeviceUpdateInstance")
 class IotHubDeviceUpdateInstance(pulumi.CustomResource):
-
-    pulumi_type = "azure:iot/iotHubDeviceUpdateInstance:IotHubDeviceUpdateInstance"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

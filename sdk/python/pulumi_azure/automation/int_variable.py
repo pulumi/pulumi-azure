@@ -223,10 +223,8 @@ class _IntVariableState:
         pulumi.set(self, "value", value)
 
 
+@pulumi.type_token("azure:automation/intVariable:IntVariable")
 class IntVariable(pulumi.CustomResource):
-
-    pulumi_type = "azure:automation/intVariable:IntVariable"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

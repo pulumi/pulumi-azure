@@ -468,10 +468,8 @@ class _NatRuleState:
         pulumi.set(self, "resource_group_name", value)
 
 
+@pulumi.type_token("azure:lb/natRule:NatRule")
 class NatRule(pulumi.CustomResource):
-
-    pulumi_type = "azure:lb/natRule:NatRule"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

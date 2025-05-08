@@ -809,10 +809,8 @@ class _PostgresqlClusterState:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure:cosmosdb/postgresqlCluster:PostgresqlCluster")
 class PostgresqlCluster(pulumi.CustomResource):
-
-    pulumi_type = "azure:cosmosdb/postgresqlCluster:PostgresqlCluster"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

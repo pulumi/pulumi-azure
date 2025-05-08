@@ -386,10 +386,8 @@ class _FirewallPolicyState:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure:frontdoor/firewallPolicy:FirewallPolicy")
 class FirewallPolicy(pulumi.CustomResource):
-
-    pulumi_type = "azure:frontdoor/firewallPolicy:FirewallPolicy"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

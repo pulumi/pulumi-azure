@@ -288,10 +288,8 @@ class _ManagedInstanceFailoverGroupState:
         pulumi.set(self, "secondary_type", value)
 
 
+@pulumi.type_token("azure:mssql/managedInstanceFailoverGroup:ManagedInstanceFailoverGroup")
 class ManagedInstanceFailoverGroup(pulumi.CustomResource):
-
-    pulumi_type = "azure:mssql/managedInstanceFailoverGroup:ManagedInstanceFailoverGroup"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

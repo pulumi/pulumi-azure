@@ -301,10 +301,8 @@ class _ApiVersionSetState:
         pulumi.set(self, "versioning_scheme", value)
 
 
+@pulumi.type_token("azure:apimanagement/apiVersionSet:ApiVersionSet")
 class ApiVersionSet(pulumi.CustomResource):
-
-    pulumi_type = "azure:apimanagement/apiVersionSet:ApiVersionSet"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

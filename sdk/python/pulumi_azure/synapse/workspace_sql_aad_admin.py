@@ -157,10 +157,8 @@ class _WorkspaceSqlAadAdminState:
         pulumi.set(self, "tenant_id", value)
 
 
+@pulumi.type_token("azure:synapse/workspaceSqlAadAdmin:WorkspaceSqlAadAdmin")
 class WorkspaceSqlAadAdmin(pulumi.CustomResource):
-
-    pulumi_type = "azure:synapse/workspaceSqlAadAdmin:WorkspaceSqlAadAdmin"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

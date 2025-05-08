@@ -273,10 +273,8 @@ class _NetworkManagerState:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure:network/networkManager:NetworkManager")
 class NetworkManager(pulumi.CustomResource):
-
-    pulumi_type = "azure:network/networkManager:NetworkManager"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -395,11 +395,9 @@ class _AuthomationRuleState:
 warnings.warn("""azure.sentinel.AuthomationRule has been deprecated in favor of azure.sentinel.AutomationRule""", DeprecationWarning)
 
 
+@pulumi.type_token("azure:sentinel/authomationRule:AuthomationRule")
 class AuthomationRule(pulumi.CustomResource):
     warnings.warn("""azure.sentinel.AuthomationRule has been deprecated in favor of azure.sentinel.AutomationRule""", DeprecationWarning)
-
-
-    pulumi_type = "azure:sentinel/authomationRule:AuthomationRule"
 
     @overload
     def __init__(__self__,

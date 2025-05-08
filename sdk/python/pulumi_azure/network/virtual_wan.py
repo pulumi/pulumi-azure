@@ -288,10 +288,8 @@ class _VirtualWanState:
         pulumi.set(self, "type", value)
 
 
+@pulumi.type_token("azure:network/virtualWan:VirtualWan")
 class VirtualWan(pulumi.CustomResource):
-
-    pulumi_type = "azure:network/virtualWan:VirtualWan"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

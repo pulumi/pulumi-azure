@@ -266,10 +266,8 @@ class _VolumeGroupState:
         pulumi.set(self, "protocol_type", value)
 
 
+@pulumi.type_token("azure:elasticsan/volumeGroup:VolumeGroup")
 class VolumeGroup(pulumi.CustomResource):
-
-    pulumi_type = "azure:elasticsan/volumeGroup:VolumeGroup"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

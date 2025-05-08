@@ -95,10 +95,8 @@ class _GroupSubscriptionAssociationState:
         pulumi.set(self, "subscription_id", value)
 
 
+@pulumi.type_token("azure:management/groupSubscriptionAssociation:GroupSubscriptionAssociation")
 class GroupSubscriptionAssociation(pulumi.CustomResource):
-
-    pulumi_type = "azure:management/groupSubscriptionAssociation:GroupSubscriptionAssociation"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

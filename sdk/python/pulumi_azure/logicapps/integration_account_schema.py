@@ -222,10 +222,8 @@ class _IntegrationAccountSchemaState:
         pulumi.set(self, "resource_group_name", value)
 
 
+@pulumi.type_token("azure:logicapps/integrationAccountSchema:IntegrationAccountSchema")
 class IntegrationAccountSchema(pulumi.CustomResource):
-
-    pulumi_type = "azure:logicapps/integrationAccountSchema:IntegrationAccountSchema"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

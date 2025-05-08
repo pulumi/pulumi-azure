@@ -358,10 +358,8 @@ class _AuthorizationRuleState:
         pulumi.set(self, "send", value)
 
 
+@pulumi.type_token("azure:eventhub/authorizationRule:AuthorizationRule")
 class AuthorizationRule(pulumi.CustomResource):
-
-    pulumi_type = "azure:eventhub/authorizationRule:AuthorizationRule"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

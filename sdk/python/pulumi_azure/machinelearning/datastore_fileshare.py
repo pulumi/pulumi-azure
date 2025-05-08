@@ -303,10 +303,8 @@ class _DatastoreFileshareState:
         pulumi.set(self, "workspace_id", value)
 
 
+@pulumi.type_token("azure:machinelearning/datastoreFileshare:DatastoreFileshare")
 class DatastoreFileshare(pulumi.CustomResource):
-
-    pulumi_type = "azure:machinelearning/datastoreFileshare:DatastoreFileshare"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

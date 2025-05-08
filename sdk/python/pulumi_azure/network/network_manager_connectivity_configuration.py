@@ -288,10 +288,8 @@ class _NetworkManagerConnectivityConfigurationState:
         pulumi.set(self, "network_manager_id", value)
 
 
+@pulumi.type_token("azure:network/networkManagerConnectivityConfiguration:NetworkManagerConnectivityConfiguration")
 class NetworkManagerConnectivityConfiguration(pulumi.CustomResource):
-
-    pulumi_type = "azure:network/networkManagerConnectivityConfiguration:NetworkManagerConnectivityConfiguration"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

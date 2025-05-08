@@ -434,10 +434,8 @@ class _TopicState:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure:eventgrid/topic:Topic")
 class Topic(pulumi.CustomResource):
-
-    pulumi_type = "azure:eventgrid/topic:Topic"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

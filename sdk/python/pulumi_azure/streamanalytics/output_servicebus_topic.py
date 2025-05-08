@@ -390,10 +390,8 @@ class _OutputServicebusTopicState:
         pulumi.set(self, "topic_name", value)
 
 
+@pulumi.type_token("azure:streamanalytics/outputServicebusTopic:OutputServicebusTopic")
 class OutputServicebusTopic(pulumi.CustomResource):
-
-    pulumi_type = "azure:streamanalytics/outputServicebusTopic:OutputServicebusTopic"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

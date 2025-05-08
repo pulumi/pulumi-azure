@@ -159,10 +159,8 @@ class _ManagedHardwareSecurityModuleKeyRotationPolicyState:
         pulumi.set(self, "time_before_expiry", value)
 
 
+@pulumi.type_token("azure:keyvault/managedHardwareSecurityModuleKeyRotationPolicy:ManagedHardwareSecurityModuleKeyRotationPolicy")
 class ManagedHardwareSecurityModuleKeyRotationPolicy(pulumi.CustomResource):
-
-    pulumi_type = "azure:keyvault/managedHardwareSecurityModuleKeyRotationPolicy:ManagedHardwareSecurityModuleKeyRotationPolicy"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

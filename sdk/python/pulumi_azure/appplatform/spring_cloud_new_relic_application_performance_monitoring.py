@@ -414,10 +414,8 @@ class _SpringCloudNewRelicApplicationPerformanceMonitoringState:
         pulumi.set(self, "spring_cloud_service_id", value)
 
 
+@pulumi.type_token("azure:appplatform/springCloudNewRelicApplicationPerformanceMonitoring:SpringCloudNewRelicApplicationPerformanceMonitoring")
 class SpringCloudNewRelicApplicationPerformanceMonitoring(pulumi.CustomResource):
-
-    pulumi_type = "azure:appplatform/springCloudNewRelicApplicationPerformanceMonitoring:SpringCloudNewRelicApplicationPerformanceMonitoring"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -296,10 +296,8 @@ class _TopicAuthorizationRuleState:
         pulumi.set(self, "topic_id", value)
 
 
+@pulumi.type_token("azure:servicebus/topicAuthorizationRule:TopicAuthorizationRule")
 class TopicAuthorizationRule(pulumi.CustomResource):
-
-    pulumi_type = "azure:servicebus/topicAuthorizationRule:TopicAuthorizationRule"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

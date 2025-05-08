@@ -416,10 +416,8 @@ class _ScheduleState:
         pulumi.set(self, "week_days", value)
 
 
+@pulumi.type_token("azure:automation/schedule:Schedule")
 class Schedule(pulumi.CustomResource):
-
-    pulumi_type = "azure:automation/schedule:Schedule"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

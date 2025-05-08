@@ -176,10 +176,8 @@ class _DdosProtectionPlanState:
         pulumi.set(self, "virtual_network_ids", value)
 
 
+@pulumi.type_token("azure:network/ddosProtectionPlan:DdosProtectionPlan")
 class DdosProtectionPlan(pulumi.CustomResource):
-
-    pulumi_type = "azure:network/ddosProtectionPlan:DdosProtectionPlan"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -136,10 +136,8 @@ class _DataConnectorMicrosoftThreatProtectionState:
         pulumi.set(self, "tenant_id", value)
 
 
+@pulumi.type_token("azure:sentinel/dataConnectorMicrosoftThreatProtection:DataConnectorMicrosoftThreatProtection")
 class DataConnectorMicrosoftThreatProtection(pulumi.CustomResource):
-
-    pulumi_type = "azure:sentinel/dataConnectorMicrosoftThreatProtection:DataConnectorMicrosoftThreatProtection"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

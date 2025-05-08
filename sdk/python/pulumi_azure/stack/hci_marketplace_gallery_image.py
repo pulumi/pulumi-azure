@@ -349,10 +349,8 @@ class _HciMarketplaceGalleryImageState:
         pulumi.set(self, "version", value)
 
 
+@pulumi.type_token("azure:stack/hciMarketplaceGalleryImage:HciMarketplaceGalleryImage")
 class HciMarketplaceGalleryImage(pulumi.CustomResource):
-
-    pulumi_type = "azure:stack/hciMarketplaceGalleryImage:HciMarketplaceGalleryImage"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

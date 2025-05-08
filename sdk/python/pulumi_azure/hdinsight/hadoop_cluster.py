@@ -709,10 +709,8 @@ class _HadoopClusterState:
         pulumi.set(self, "tls_min_version", value)
 
 
+@pulumi.type_token("azure:hdinsight/hadoopCluster:HadoopCluster")
 class HadoopCluster(pulumi.CustomResource):
-
-    pulumi_type = "azure:hdinsight/hadoopCluster:HadoopCluster"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

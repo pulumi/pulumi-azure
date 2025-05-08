@@ -160,10 +160,8 @@ class _RestorePointState:
         pulumi.set(self, "virtual_machine_restore_point_collection_id", value)
 
 
+@pulumi.type_token("azure:compute/restorePoint:RestorePoint")
 class RestorePoint(pulumi.CustomResource):
-
-    pulumi_type = "azure:compute/restorePoint:RestorePoint"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

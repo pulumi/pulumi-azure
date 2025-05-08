@@ -510,10 +510,8 @@ class _ApiDiagnosticState:
         pulumi.set(self, "verbosity", value)
 
 
+@pulumi.type_token("azure:apimanagement/apiDiagnostic:ApiDiagnostic")
 class ApiDiagnostic(pulumi.CustomResource):
-
-    pulumi_type = "azure:apimanagement/apiDiagnostic:ApiDiagnostic"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

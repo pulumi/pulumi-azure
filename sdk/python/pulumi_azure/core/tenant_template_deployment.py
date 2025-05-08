@@ -273,10 +273,8 @@ class _TenantTemplateDeploymentState:
         pulumi.set(self, "template_spec_version_id", value)
 
 
+@pulumi.type_token("azure:core/tenantTemplateDeployment:TenantTemplateDeployment")
 class TenantTemplateDeployment(pulumi.CustomResource):
-
-    pulumi_type = "azure:core/tenantTemplateDeployment:TenantTemplateDeployment"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

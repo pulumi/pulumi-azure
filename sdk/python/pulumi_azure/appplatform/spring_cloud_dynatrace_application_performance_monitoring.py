@@ -317,10 +317,8 @@ class _SpringCloudDynatraceApplicationPerformanceMonitoringState:
         pulumi.set(self, "tenant_token", value)
 
 
+@pulumi.type_token("azure:appplatform/springCloudDynatraceApplicationPerformanceMonitoring:SpringCloudDynatraceApplicationPerformanceMonitoring")
 class SpringCloudDynatraceApplicationPerformanceMonitoring(pulumi.CustomResource):
-
-    pulumi_type = "azure:appplatform/springCloudDynatraceApplicationPerformanceMonitoring:SpringCloudDynatraceApplicationPerformanceMonitoring"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

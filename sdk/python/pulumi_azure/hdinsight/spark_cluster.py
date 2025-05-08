@@ -773,10 +773,8 @@ class _SparkClusterState:
         pulumi.set(self, "zones", value)
 
 
+@pulumi.type_token("azure:hdinsight/sparkCluster:SparkCluster")
 class SparkCluster(pulumi.CustomResource):
-
-    pulumi_type = "azure:hdinsight/sparkCluster:SparkCluster"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

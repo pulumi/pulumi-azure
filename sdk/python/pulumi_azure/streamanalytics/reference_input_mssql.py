@@ -409,10 +409,8 @@ class _ReferenceInputMssqlState:
         pulumi.set(self, "username", value)
 
 
+@pulumi.type_token("azure:streamanalytics/referenceInputMssql:ReferenceInputMssql")
 class ReferenceInputMssql(pulumi.CustomResource):
-
-    pulumi_type = "azure:streamanalytics/referenceInputMssql:ReferenceInputMssql"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

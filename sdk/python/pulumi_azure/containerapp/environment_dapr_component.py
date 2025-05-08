@@ -328,10 +328,8 @@ class _EnvironmentDaprComponentState:
         pulumi.set(self, "version", value)
 
 
+@pulumi.type_token("azure:containerapp/environmentDaprComponent:EnvironmentDaprComponent")
 class EnvironmentDaprComponent(pulumi.CustomResource):
-
-    pulumi_type = "azure:containerapp/environmentDaprComponent:EnvironmentDaprComponent"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -258,10 +258,8 @@ class _CustomProviderState:
         pulumi.set(self, "validations", value)
 
 
+@pulumi.type_token("azure:core/customProvider:CustomProvider")
 class CustomProvider(pulumi.CustomResource):
-
-    pulumi_type = "azure:core/customProvider:CustomProvider"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -233,10 +233,8 @@ class _CapacityState:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure:fabric/capacity:Capacity")
 class Capacity(pulumi.CustomResource):
-
-    pulumi_type = "azure:fabric/capacity:Capacity"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

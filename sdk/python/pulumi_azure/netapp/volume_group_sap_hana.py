@@ -254,10 +254,8 @@ class _VolumeGroupSapHanaState:
         pulumi.set(self, "volumes", value)
 
 
+@pulumi.type_token("azure:netapp/volumeGroupSapHana:VolumeGroupSapHana")
 class VolumeGroupSapHana(pulumi.CustomResource):
-
-    pulumi_type = "azure:netapp/volumeGroupSapHana:VolumeGroupSapHana"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

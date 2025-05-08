@@ -183,10 +183,8 @@ class _LinkedServiceState:
         pulumi.set(self, "write_access_id", value)
 
 
+@pulumi.type_token("azure:loganalytics/linkedService:LinkedService")
 class LinkedService(pulumi.CustomResource):
-
-    pulumi_type = "azure:loganalytics/linkedService:LinkedService"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

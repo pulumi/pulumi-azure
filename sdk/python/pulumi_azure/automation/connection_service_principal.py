@@ -283,10 +283,8 @@ class _ConnectionServicePrincipalState:
         pulumi.set(self, "tenant_id", value)
 
 
+@pulumi.type_token("azure:automation/connectionServicePrincipal:ConnectionServicePrincipal")
 class ConnectionServicePrincipal(pulumi.CustomResource):
-
-    pulumi_type = "azure:automation/connectionServicePrincipal:ConnectionServicePrincipal"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

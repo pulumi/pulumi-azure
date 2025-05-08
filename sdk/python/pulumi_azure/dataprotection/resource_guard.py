@@ -192,10 +192,8 @@ class _ResourceGuardState:
         pulumi.set(self, "vault_critical_operation_exclusion_lists", value)
 
 
+@pulumi.type_token("azure:dataprotection/resourceGuard:ResourceGuard")
 class ResourceGuard(pulumi.CustomResource):
-
-    pulumi_type = "azure:dataprotection/resourceGuard:ResourceGuard"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -390,10 +390,8 @@ class _NatPoolState:
         pulumi.set(self, "tcp_reset_enabled", value)
 
 
+@pulumi.type_token("azure:lb/natPool:NatPool")
 class NatPool(pulumi.CustomResource):
-
-    pulumi_type = "azure:lb/natPool:NatPool"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

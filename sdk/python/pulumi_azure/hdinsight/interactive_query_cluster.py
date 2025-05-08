@@ -741,10 +741,8 @@ class _InteractiveQueryClusterState:
         pulumi.set(self, "tls_min_version", value)
 
 
+@pulumi.type_token("azure:hdinsight/interactiveQueryCluster:InteractiveQueryCluster")
 class InteractiveQueryCluster(pulumi.CustomResource):
-
-    pulumi_type = "azure:hdinsight/interactiveQueryCluster:InteractiveQueryCluster"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

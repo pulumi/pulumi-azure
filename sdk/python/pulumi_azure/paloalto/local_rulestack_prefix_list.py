@@ -191,10 +191,8 @@ class _LocalRulestackPrefixListState:
         pulumi.set(self, "rulestack_id", value)
 
 
+@pulumi.type_token("azure:paloalto/localRulestackPrefixList:LocalRulestackPrefixList")
 class LocalRulestackPrefixList(pulumi.CustomResource):
-
-    pulumi_type = "azure:paloalto/localRulestackPrefixList:LocalRulestackPrefixList"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

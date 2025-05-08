@@ -538,10 +538,8 @@ class _WorkflowState:
         pulumi.set(self, "workflow_version", value)
 
 
+@pulumi.type_token("azure:logicapps/workflow:Workflow")
 class Workflow(pulumi.CustomResource):
-
-    pulumi_type = "azure:logicapps/workflow:Workflow"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

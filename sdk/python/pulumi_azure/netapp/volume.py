@@ -984,10 +984,8 @@ class _VolumeState:
         pulumi.set(self, "zone", value)
 
 
+@pulumi.type_token("azure:netapp/volume:Volume")
 class Volume(pulumi.CustomResource):
-
-    pulumi_type = "azure:netapp/volume:Volume"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

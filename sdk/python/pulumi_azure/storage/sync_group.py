@@ -96,10 +96,8 @@ class _SyncGroupState:
         pulumi.set(self, "storage_sync_id", value)
 
 
+@pulumi.type_token("azure:storage/syncGroup:SyncGroup")
 class SyncGroup(pulumi.CustomResource):
-
-    pulumi_type = "azure:storage/syncGroup:SyncGroup"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

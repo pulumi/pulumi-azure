@@ -286,10 +286,8 @@ class _CacheNfsTargetState:
         pulumi.set(self, "write_back_timer_in_seconds", value)
 
 
+@pulumi.type_token("azure:hpc/cacheNfsTarget:CacheNfsTarget")
 class CacheNfsTarget(pulumi.CustomResource):
-
-    pulumi_type = "azure:hpc/cacheNfsTarget:CacheNfsTarget"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

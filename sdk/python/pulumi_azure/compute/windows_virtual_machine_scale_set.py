@@ -1908,10 +1908,8 @@ class _WindowsVirtualMachineScaleSetState:
         pulumi.set(self, "zones", value)
 
 
+@pulumi.type_token("azure:compute/windowsVirtualMachineScaleSet:WindowsVirtualMachineScaleSet")
 class WindowsVirtualMachineScaleSet(pulumi.CustomResource):
-
-    pulumi_type = "azure:compute/windowsVirtualMachineScaleSet:WindowsVirtualMachineScaleSet"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

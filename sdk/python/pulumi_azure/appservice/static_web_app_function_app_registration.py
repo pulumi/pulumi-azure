@@ -111,10 +111,8 @@ class _StaticWebAppFunctionAppRegistrationState:
         pulumi.set(self, "static_web_app_id", value)
 
 
+@pulumi.type_token("azure:appservice/staticWebAppFunctionAppRegistration:StaticWebAppFunctionAppRegistration")
 class StaticWebAppFunctionAppRegistration(pulumi.CustomResource):
-
-    pulumi_type = "azure:appservice/staticWebAppFunctionAppRegistration:StaticWebAppFunctionAppRegistration"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -657,10 +657,8 @@ class _SocketioState:
         pulumi.set(self, "tls_client_cert_enabled", value)
 
 
+@pulumi.type_token("azure:webpubsub/socketio:Socketio")
 class Socketio(pulumi.CustomResource):
-
-    pulumi_type = "azure:webpubsub/socketio:Socketio"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

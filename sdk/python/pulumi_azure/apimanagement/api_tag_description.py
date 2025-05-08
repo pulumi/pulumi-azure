@@ -160,10 +160,8 @@ class _ApiTagDescriptionState:
         pulumi.set(self, "external_documentation_url", value)
 
 
+@pulumi.type_token("azure:apimanagement/apiTagDescription:ApiTagDescription")
 class ApiTagDescription(pulumi.CustomResource):
-
-    pulumi_type = "azure:apimanagement/apiTagDescription:ApiTagDescription"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

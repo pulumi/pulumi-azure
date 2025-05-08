@@ -237,10 +237,8 @@ class _SubscriptionRuleState:
         pulumi.set(self, "subscription_id", value)
 
 
+@pulumi.type_token("azure:servicebus/subscriptionRule:SubscriptionRule")
 class SubscriptionRule(pulumi.CustomResource):
-
-    pulumi_type = "azure:servicebus/subscriptionRule:SubscriptionRule"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

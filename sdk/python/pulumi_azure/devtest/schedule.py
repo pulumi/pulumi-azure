@@ -414,10 +414,8 @@ class _ScheduleState:
         pulumi.set(self, "weekly_recurrence", value)
 
 
+@pulumi.type_token("azure:devtest/schedule:Schedule")
 class Schedule(pulumi.CustomResource):
-
-    pulumi_type = "azure:devtest/schedule:Schedule"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

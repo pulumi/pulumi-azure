@@ -255,10 +255,8 @@ class _BackupInstanceKubernetesClusterState:
         pulumi.set(self, "vault_id", value)
 
 
+@pulumi.type_token("azure:dataprotection/backupInstanceKubernetesCluster:BackupInstanceKubernetesCluster")
 class BackupInstanceKubernetesCluster(pulumi.CustomResource):
-
-    pulumi_type = "azure:dataprotection/backupInstanceKubernetesCluster:BackupInstanceKubernetesCluster"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -256,10 +256,8 @@ class _WorkspaceState:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure:desktopvirtualization/workspace:Workspace")
 class Workspace(pulumi.CustomResource):
-
-    pulumi_type = "azure:desktopvirtualization/workspace:Workspace"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

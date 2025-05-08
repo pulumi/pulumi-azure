@@ -414,10 +414,8 @@ class _NetworkWatcherFlowLogState:
         pulumi.set(self, "version", value)
 
 
+@pulumi.type_token("azure:network/networkWatcherFlowLog:NetworkWatcherFlowLog")
 class NetworkWatcherFlowLog(pulumi.CustomResource):
-
-    pulumi_type = "azure:network/networkWatcherFlowLog:NetworkWatcherFlowLog"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

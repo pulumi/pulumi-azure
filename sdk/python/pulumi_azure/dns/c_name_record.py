@@ -278,10 +278,8 @@ class _CNameRecordState:
         pulumi.set(self, "zone_name", value)
 
 
+@pulumi.type_token("azure:dns/cNameRecord:CNameRecord")
 class CNameRecord(pulumi.CustomResource):
-
-    pulumi_type = "azure:dns/cNameRecord:CNameRecord"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

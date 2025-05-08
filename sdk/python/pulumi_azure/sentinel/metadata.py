@@ -703,10 +703,8 @@ class _MetadataState:
         pulumi.set(self, "workspace_id", value)
 
 
+@pulumi.type_token("azure:sentinel/metadata:Metadata")
 class Metadata(pulumi.CustomResource):
-
-    pulumi_type = "azure:sentinel/metadata:Metadata"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

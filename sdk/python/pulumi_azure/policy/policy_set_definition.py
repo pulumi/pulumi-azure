@@ -320,10 +320,8 @@ class _PolicySetDefinitionState:
         pulumi.set(self, "policy_type", value)
 
 
+@pulumi.type_token("azure:policy/policySetDefinition:PolicySetDefinition")
 class PolicySetDefinition(pulumi.CustomResource):
-
-    pulumi_type = "azure:policy/policySetDefinition:PolicySetDefinition"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

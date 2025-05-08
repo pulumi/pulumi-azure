@@ -157,10 +157,8 @@ class _EnvironmentCustomDomainState:
         pulumi.set(self, "dns_suffix", value)
 
 
+@pulumi.type_token("azure:containerapp/environmentCustomDomain:EnvironmentCustomDomain")
 class EnvironmentCustomDomain(pulumi.CustomResource):
-
-    pulumi_type = "azure:containerapp/environmentCustomDomain:EnvironmentCustomDomain"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

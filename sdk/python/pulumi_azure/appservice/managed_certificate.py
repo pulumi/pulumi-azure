@@ -224,10 +224,8 @@ class _ManagedCertificateState:
         pulumi.set(self, "thumbprint", value)
 
 
+@pulumi.type_token("azure:appservice/managedCertificate:ManagedCertificate")
 class ManagedCertificate(pulumi.CustomResource):
-
-    pulumi_type = "azure:appservice/managedCertificate:ManagedCertificate"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

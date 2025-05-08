@@ -653,10 +653,8 @@ class _LocalRulestackRuleState:
         pulumi.set(self, "tags", value)
 
 
+@pulumi.type_token("azure:paloalto/localRulestackRule:LocalRulestackRule")
 class LocalRulestackRule(pulumi.CustomResource):
-
-    pulumi_type = "azure:paloalto/localRulestackRule:LocalRulestackRule"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

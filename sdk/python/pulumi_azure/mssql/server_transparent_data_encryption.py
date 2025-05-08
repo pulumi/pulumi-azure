@@ -176,10 +176,8 @@ class _ServerTransparentDataEncryptionState:
         pulumi.set(self, "server_id", value)
 
 
+@pulumi.type_token("azure:mssql/serverTransparentDataEncryption:ServerTransparentDataEncryption")
 class ServerTransparentDataEncryption(pulumi.CustomResource):
-
-    pulumi_type = "azure:mssql/serverTransparentDataEncryption:ServerTransparentDataEncryption"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -314,10 +314,8 @@ class _DatabasePrincipalAssignmentState:
         pulumi.set(self, "tenant_name", value)
 
 
+@pulumi.type_token("azure:kusto/databasePrincipalAssignment:DatabasePrincipalAssignment")
 class DatabasePrincipalAssignment(pulumi.CustomResource):
-
-    pulumi_type = "azure:kusto/databasePrincipalAssignment:DatabasePrincipalAssignment"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

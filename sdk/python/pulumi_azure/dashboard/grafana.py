@@ -529,10 +529,8 @@ class _GrafanaState:
         pulumi.set(self, "zone_redundancy_enabled", value)
 
 
+@pulumi.type_token("azure:dashboard/grafana:Grafana")
 class Grafana(pulumi.CustomResource):
-
-    pulumi_type = "azure:dashboard/grafana:Grafana"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

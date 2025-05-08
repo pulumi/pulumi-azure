@@ -342,10 +342,8 @@ class _ManagedHardwareSecurityModuleKeyState:
         pulumi.set(self, "versioned_id", value)
 
 
+@pulumi.type_token("azure:keyvault/managedHardwareSecurityModuleKey:ManagedHardwareSecurityModuleKey")
 class ManagedHardwareSecurityModuleKey(pulumi.CustomResource):
-
-    pulumi_type = "azure:keyvault/managedHardwareSecurityModuleKey:ManagedHardwareSecurityModuleKey"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

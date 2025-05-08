@@ -158,10 +158,8 @@ class _ClusterTrustedAccessRoleBindingState:
         pulumi.set(self, "source_resource_id", value)
 
 
+@pulumi.type_token("azure:containerservice/clusterTrustedAccessRoleBinding:ClusterTrustedAccessRoleBinding")
 class ClusterTrustedAccessRoleBinding(pulumi.CustomResource):
-
-    pulumi_type = "azure:containerservice/clusterTrustedAccessRoleBinding:ClusterTrustedAccessRoleBinding"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

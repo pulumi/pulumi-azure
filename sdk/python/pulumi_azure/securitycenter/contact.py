@@ -190,10 +190,8 @@ class _ContactState:
         pulumi.set(self, "phone", value)
 
 
+@pulumi.type_token("azure:securitycenter/contact:Contact")
 class Contact(pulumi.CustomResource):
-
-    pulumi_type = "azure:securitycenter/contact:Contact"
-
     @overload
     def __init__(__self__,
                  resource_name: str,
