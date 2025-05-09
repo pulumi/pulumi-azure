@@ -3417,6 +3417,7 @@ func Provider() tfbridge.ProviderInfo {
 		},
 		EnableZeroDefaultSchemaVersion: true,
 		EnableAccurateBridgePreview:    true,
+		EnableRawStateDelta:            true,
 	}
 
 	// New Authorization Mod - this combines the old MSI and Role Modules
