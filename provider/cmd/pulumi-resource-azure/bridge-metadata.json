@@ -5761,6 +5761,15 @@
                 "fields": {
                     "annotations": {
                         "maxItemsOne": false
+                    },
+                    "key_vault_password": {
+                        "maxItemsOne": false
+                    },
+                    "key_vault_private_key_content_base64": {
+                        "maxItemsOne": true
+                    },
+                    "key_vault_private_key_passphrase": {
+                        "maxItemsOne": true
                     }
                 }
             },
@@ -6482,7 +6491,19 @@
             },
             "azurerm_dev_center_project": {
                 "current": "azure:devcenter/project:Project",
-                "majorVersion": 6
+                "majorVersion": 6,
+                "fields": {
+                    "identity": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "identity_ids": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    }
+                }
             },
             "azurerm_dev_center_project_environment_type": {
                 "current": "azure:devcenter/projectEnvironmentType:ProjectEnvironmentType",
@@ -7350,6 +7371,15 @@
                                 }
                             }
                         }
+                    }
+                }
+            },
+            "azurerm_eventgrid_partner_configuration": {
+                "current": "azure:eventgrid/partnerConfiguration:PartnerConfiguration",
+                "majorVersion": 6,
+                "fields": {
+                    "partner_authorization": {
+                        "maxItemsOne": false
                     }
                 }
             },
@@ -16055,6 +16085,10 @@
                     }
                 }
             },
+            "azurerm_nginx_api_key": {
+                "current": "azure:nginx/apiKey:ApiKey",
+                "majorVersion": 6
+            },
             "azurerm_nginx_certificate": {
                 "current": "azure:nginx/certificate:Certificate",
                 "majorVersion": 6
@@ -16106,6 +16140,32 @@
                     },
                     "network_interface": {
                         "maxItemsOne": false
+                    },
+                    "web_application_firewall": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "status": {
+                                    "maxItemsOne": false,
+                                    "elem": {
+                                        "fields": {
+                                            "attack_signatures_package": {
+                                                "maxItemsOne": false
+                                            },
+                                            "bot_signatures_package": {
+                                                "maxItemsOne": false
+                                            },
+                                            "component_versions": {
+                                                "maxItemsOne": false
+                                            },
+                                            "threat_campaigns_package": {
+                                                "maxItemsOne": false
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
                     }
                 }
             },
@@ -16365,6 +16425,9 @@
                         "maxItemsOne": true
                     },
                     "priority_mix": {
+                        "maxItemsOne": true
+                    },
+                    "rolling_upgrade_policy": {
                         "maxItemsOne": true
                     },
                     "sku_profile": {
@@ -20861,6 +20924,10 @@
                         "maxItemsOne": false
                     }
                 }
+            },
+            "azurerm_system_center_virtual_machine_manager_virtual_machine_instance_guest_agent": {
+                "current": "azure:systemcenter/virtualMachineManagerVirtualMachineInstanceGuestAgent:VirtualMachineManagerVirtualMachineInstanceGuestAgent",
+                "majorVersion": 6
             },
             "azurerm_system_center_virtual_machine_manager_virtual_machine_template": {
                 "current": "azure:systemcenter/virtualMachineManagerVirtualMachineTemplate:VirtualMachineManagerVirtualMachineTemplate",
@@ -28940,6 +29007,10 @@
                 "current": "azure:network/getNetworkWatcher:getNetworkWatcher",
                 "majorVersion": 6
             },
+            "azurerm_nginx_api_key": {
+                "current": "azure:nginx/getApiKey:getApiKey",
+                "majorVersion": 6
+            },
             "azurerm_nginx_certificate": {
                 "current": "azure:nginx/getCertificate:getCertificate",
                 "majorVersion": 6
@@ -28991,6 +29062,32 @@
                     },
                     "network_interface": {
                         "maxItemsOne": false
+                    },
+                    "web_application_firewall": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "status": {
+                                    "maxItemsOne": false,
+                                    "elem": {
+                                        "fields": {
+                                            "attack_signatures_package": {
+                                                "maxItemsOne": false
+                                            },
+                                            "bot_signatures_package": {
+                                                "maxItemsOne": false
+                                            },
+                                            "component_versions": {
+                                                "maxItemsOne": false
+                                            },
+                                            "threat_campaigns_package": {
+                                                "maxItemsOne": false
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
                     }
                 }
             },
@@ -29570,6 +29667,15 @@
                 "majorVersion": 6,
                 "fields": {
                     "resources": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "azurerm_role_assignments": {
+                "current": "azure:pim/getRoleAssignments:getRoleAssignments",
+                "majorVersion": 6,
+                "fields": {
+                    "role_assignments": {
                         "maxItemsOne": false
                     }
                 }
