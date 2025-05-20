@@ -6,105 +6,105 @@ Subject: [PATCH] Update provider version in deprecation notices
 We want to include the deprecation notices, but need them to match our version number which is not the same at the upstream version number.
 
 diff --git a/website/docs/r/app_service.html.markdown b/website/docs/r/app_service.html.markdown
-index fc7d1801b1..b372d00d98 100644
+index 0843291912..38d2f1b77f 100644
 --- a/website/docs/r/app_service.html.markdown
 +++ b/website/docs/r/app_service.html.markdown
 @@ -11,7 +11,7 @@ description: |-
  
  Manages an App Service (within an App Service Plan).
  
--!> **NOTE:** This resource has been deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0. Please use [`azurerm_linux_web_app`](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/linux_web_app) and [`azurerm_windows_web_app`](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/windows_web_app) resources instead.
+-!> **Note:** This resource has been deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0. Please use [`azurerm_linux_web_app`](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/linux_web_app) and [`azurerm_windows_web_app`](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/windows_web_app) resources instead.
 +!> **NOTE:** This resource has been deprecated in version 5.0 of the provider and will be removed in version 6.0. Please use [`azurerm_linux_web_app`](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/linux_web_app) and [`azurerm_windows_web_app`](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/windows_web_app) resources instead.
  
  -> **Note:** When using Slots - the `app_settings`, `connection_string` and `site_config` blocks on the `azurerm_app_service` resource will be overwritten when promoting a Slot using the `azurerm_app_service_active_slot` resource.
  
 diff --git a/website/docs/r/app_service_active_slot.html.markdown b/website/docs/r/app_service_active_slot.html.markdown
-index 3f651c0092..df779e6192 100644
+index b75638bbf9..37168fe38a 100644
 --- a/website/docs/r/app_service_active_slot.html.markdown
 +++ b/website/docs/r/app_service_active_slot.html.markdown
 @@ -11,7 +11,7 @@ description: |-
  
  Promotes an App Service Slot to Production within an App Service.
  
--!> **NOTE:** This resource has been deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0. Please use [`azurerm_web_app_active_slot`](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/web_app_active_slot) resource instead.
+-!> **Note:** This resource has been deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0. Please use [`azurerm_web_app_active_slot`](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/web_app_active_slot) resource instead.
 +!> **NOTE:** This resource has been deprecated in version 5.0 of the provider and will be removed in version 6.0. Please use [`azurerm_web_app_active_slot`](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/web_app_active_slot) resource instead.
  
  -> **Note:** When using Slots - the `app_settings`, `connection_string` and `site_config` blocks on the `azurerm_app_service` resource will be overwritten when promoting a Slot using the `azurerm_app_service_active_slot` resource.
  
 diff --git a/website/docs/r/app_service_hybrid_connection.html.markdown b/website/docs/r/app_service_hybrid_connection.html.markdown
-index 975ad30218..a5a53e2f36 100644
+index 3d92facc8b..7c0592f682 100644
 --- a/website/docs/r/app_service_hybrid_connection.html.markdown
 +++ b/website/docs/r/app_service_hybrid_connection.html.markdown
 @@ -11,7 +11,7 @@ description: |-
  
  Manages an App Service Hybrid Connection for an existing App Service, Relay and Service Bus.
  
--!> **NOTE:** This resource has been deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0. Please use [`azurerm_function_app_hybrid_connection`](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/function_app_hybrid_connection) and [`azurerm_web_app_hybrid_connection`](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/web_app_hybrid_connection) resources instead.
+-!> **Note:** This resource has been deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0. Please use [`azurerm_function_app_hybrid_connection`](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/function_app_hybrid_connection) and [`azurerm_web_app_hybrid_connection`](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/web_app_hybrid_connection) resources instead.
 +!> **NOTE:** This resource has been deprecated in version 5.0 of the provider and will be removed in version 6.0. Please use [`azurerm_function_app_hybrid_connection`](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/function_app_hybrid_connection) and [`azurerm_web_app_hybrid_connection`](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/web_app_hybrid_connection) resources instead.
  
  ## Example Usage
  
 diff --git a/website/docs/r/app_service_plan.html.markdown b/website/docs/r/app_service_plan.html.markdown
-index 42c3fd2783..a0c2593b2e 100644
+index a77fd8d9f9..4dc7ae007c 100644
 --- a/website/docs/r/app_service_plan.html.markdown
 +++ b/website/docs/r/app_service_plan.html.markdown
 @@ -10,7 +10,7 @@ description: |-
  
  Manages an App Service Plan component.
  
--!> **NOTE:** This resource has been deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0. Please use [`azurerm_service_plan`](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/service_plan) resource instead.
+-!> **Note:** This resource has been deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0. Please use [`azurerm_service_plan`](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/service_plan) resource instead.
 +!> **NOTE:** This resource has been deprecated in version 5.0 of the provider and will be removed in version 6.0. Please use [`azurerm_service_plan`](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/service_plan) resource instead.
  
  ## Example Usage (Dedicated)
  
 diff --git a/website/docs/r/app_service_slot.html.markdown b/website/docs/r/app_service_slot.html.markdown
-index 4361004068..92f5dd4131 100644
+index 9d01090ed2..1fb0ae0373 100644
 --- a/website/docs/r/app_service_slot.html.markdown
 +++ b/website/docs/r/app_service_slot.html.markdown
 @@ -11,7 +11,7 @@ description: |-
  
  Manages an App Service Slot (within an App Service).
  
--!> **NOTE:** This resource has been deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0. Please use [`azurerm_linux_web_app_slot`](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/linux_web_app_slot) and [`azurerm_windows_web_app_slot`](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/windows_web_app_slot) resources instead.
+-!> **Note:** This resource has been deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0. Please use [`azurerm_linux_web_app_slot`](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/linux_web_app_slot) and [`azurerm_windows_web_app_slot`](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/windows_web_app_slot) resources instead.
 +!> **NOTE:** This resource has been deprecated in version 5.0 of the provider and will be removed in version 6.0. Please use [`azurerm_linux_web_app_slot`](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/linux_web_app_slot) and [`azurerm_windows_web_app_slot`](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/windows_web_app_slot) resources instead.
  
  -> **Note:** When using Slots - the `app_settings`, `connection_string` and `site_config` blocks on the `azurerm_app_service` resource will be overwritten when promoting a Slot using the `azurerm_app_service_active_slot` resource.
  
 diff --git a/website/docs/r/app_service_source_control_token.html.markdown b/website/docs/r/app_service_source_control_token.html.markdown
-index 957314cfe5..9a5f9adac7 100644
+index 8a0ca16359..7122152984 100644
 --- a/website/docs/r/app_service_source_control_token.html.markdown
 +++ b/website/docs/r/app_service_source_control_token.html.markdown
 @@ -11,7 +11,7 @@ description: |-
  
  Manages an App Service source control token.
  
--!> **NOTE:** This resource has been deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0. Please use [`azurerm_service_plan`](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/service_plan) resource instead.
+-!> **Note:** This resource has been deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0. Please use [`azurerm_service_plan`](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/service_plan) resource instead.
 +!> **NOTE:** This resource has been deprecated in version 5.0 of the provider and will be removed in version 6.0. Please use [`azurerm_service_plan`](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/service_plan) resource instead.
  
- ~> **NOTE:** Source Control Tokens are configured at the subscription level, not on each App Service - as such this can only be configured Subscription-wide
+ ~> **Note:** Source Control Tokens are configured at the subscription level, not on each App Service - as such this can only be configured Subscription-wide
  
 diff --git a/website/docs/r/function_app.html.markdown b/website/docs/r/function_app.html.markdown
-index f3d01cdd15..ee0131e664 100644
+index 03a6ea1551..b5addc9179 100644
 --- a/website/docs/r/function_app.html.markdown
 +++ b/website/docs/r/function_app.html.markdown
 @@ -11,7 +11,7 @@ description: |-
  
  Manages a Function App.
  
--!> **NOTE:** This resource has been deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0. Please use [`azurerm_linux_function_app`](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/linux_function_app) and [`azurerm_windows_function_app`](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/windows_function_app) resources instead.
+-!> **Note:** This resource has been deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0. Please use [`azurerm_linux_function_app`](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/linux_function_app) and [`azurerm_windows_function_app`](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/windows_function_app) resources instead.
 +!> **NOTE:** This resource has been deprecated in version 5.0 of the provider and will be removed in version 6.0. Please use [`azurerm_linux_function_app`](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/linux_function_app) and [`azurerm_windows_function_app`](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/windows_function_app) resources instead.
  
  ~> **Note:** To connect an Azure Function App and a subnet within the same region `azurerm_app_service_virtual_network_swift_connection` can be used.
  For an example, check the `azurerm_app_service_virtual_network_swift_connection` documentation.
 diff --git a/website/docs/r/function_app_slot.html.markdown b/website/docs/r/function_app_slot.html.markdown
-index 39b679a016..b88cc5d709 100644
+index e655be6ca0..57ae48f3fd 100644
 --- a/website/docs/r/function_app_slot.html.markdown
 +++ b/website/docs/r/function_app_slot.html.markdown
 @@ -11,7 +11,7 @@ description: |-
  
  Manages a Function App deployment Slot.
  
--!> **NOTE:** This resource has been deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0. Please use [`azurerm_linux_function_app_slot`](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/linux_function_app_slot) and [`azurerm_windows_function_app_slot`](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/windows_function_app_slot) resources instead.
+-!> **Note:** This resource has been deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0. Please use [`azurerm_linux_function_app_slot`](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/linux_function_app_slot) and [`azurerm_windows_function_app_slot`](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/windows_function_app_slot) resources instead.
 +!> **NOTE:** This resource has been deprecated in version 5.0 of the provider and will be removed in version 6.0. Please use [`azurerm_linux_function_app_slot`](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/linux_function_app_slot) and [`azurerm_windows_function_app_slot`](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/windows_function_app_slot) resources instead.
  
  ## Example Usage (with App Service Plan)

@@ -6,7 +6,7 @@ Subject: [PATCH] Remove defaults backup retention policies
 Fixes #1318
 
 diff --git a/internal/services/recoveryservices/backup_policy_vm_resource.go b/internal/services/recoveryservices/backup_policy_vm_resource.go
-index 46ee06d508..fb08b3192f 100644
+index a6b916331f..f049c58990 100644
 --- a/internal/services/recoveryservices/backup_policy_vm_resource.go
 +++ b/internal/services/recoveryservices/backup_policy_vm_resource.go
 @@ -1339,10 +1339,11 @@ func resourceBackupProtectionPolicyVMSchema() map[string]*pluginsdk.Schema {
