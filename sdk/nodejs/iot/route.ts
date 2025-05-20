@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 /**
  * Manages an IotHub Route
  *
- * > **NOTE:** Routes can be defined either directly on the `azure.iot.IoTHub` resource, or using the `azure.iot.Route` resource - but the two cannot be used together. If both are used against the same IoTHub, spurious changes will occur.
+ * > **Note:** Routes can be defined either directly on the `azure.iot.IoTHub` resource, or using the `azure.iot.Route` resource - but the two cannot be used together. If both are used against the same IoTHub, spurious changes will occur.
  *
  * ## Example Usage
  *

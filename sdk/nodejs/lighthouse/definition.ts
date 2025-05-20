@@ -20,7 +20,7 @@ import * as utilities from "../utilities";
  * });
  * const example = new azure.lighthouse.Definition("example", {
  *     name: "Sample definition",
- *     description: "This is a lighthouse definition created IaC",
+ *     description: "This is a lighthouse definition created via Terraform",
  *     managingTenantId: "00000000-0000-0000-0000-000000000000",
  *     scope: "/subscriptions/00000000-0000-0000-0000-000000000000",
  *     authorizations: [{
@@ -30,6 +30,13 @@ import * as utilities from "../utilities";
  *     }],
  * });
  * ```
+ *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This resource uses the following Azure API Providers:
+ *
+ * * `Microsoft.ManagedServices`: 2022-10-01
  *
  * ## Import
  *

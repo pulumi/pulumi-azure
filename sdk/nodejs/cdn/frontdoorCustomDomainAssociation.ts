@@ -146,7 +146,7 @@ export class FrontdoorCustomDomainAssociation extends pulumi.CustomResource {
     /**
      * One or more IDs of the Front Door Route to which the Front Door Custom Domain is associated with.
      *
-     * > **NOTE:** This should include all of the Front Door Route resources that the Front Door Custom Domain is associated with. If the list of Front Door Routes is not complete you will receive the service side error `This resource is still associated with a route. Please delete the association with the route first before deleting this resource` when you attempt to `destroy`/`delete` your Front Door Custom Domain.
+     * > **Note:** This should include all of the Front Door Route resources that the Front Door Custom Domain is associated with. If the list of Front Door Routes is not complete you will receive the service side error `This resource is still associated with a route. Please delete the association with the route first before deleting this resource` when you attempt to `destroy`/`delete` your Front Door Custom Domain.
      */
     public readonly cdnFrontdoorRouteIds!: pulumi.Output<string[]>;
 
@@ -192,7 +192,7 @@ export interface FrontdoorCustomDomainAssociationState {
     /**
      * One or more IDs of the Front Door Route to which the Front Door Custom Domain is associated with.
      *
-     * > **NOTE:** This should include all of the Front Door Route resources that the Front Door Custom Domain is associated with. If the list of Front Door Routes is not complete you will receive the service side error `This resource is still associated with a route. Please delete the association with the route first before deleting this resource` when you attempt to `destroy`/`delete` your Front Door Custom Domain.
+     * > **Note:** This should include all of the Front Door Route resources that the Front Door Custom Domain is associated with. If the list of Front Door Routes is not complete you will receive the service side error `This resource is still associated with a route. Please delete the association with the route first before deleting this resource` when you attempt to `destroy`/`delete` your Front Door Custom Domain.
      */
     cdnFrontdoorRouteIds?: pulumi.Input<pulumi.Input<string>[]>;
 }
@@ -208,7 +208,7 @@ export interface FrontdoorCustomDomainAssociationArgs {
     /**
      * One or more IDs of the Front Door Route to which the Front Door Custom Domain is associated with.
      *
-     * > **NOTE:** This should include all of the Front Door Route resources that the Front Door Custom Domain is associated with. If the list of Front Door Routes is not complete you will receive the service side error `This resource is still associated with a route. Please delete the association with the route first before deleting this resource` when you attempt to `destroy`/`delete` your Front Door Custom Domain.
+     * > **Note:** This should include all of the Front Door Route resources that the Front Door Custom Domain is associated with. If the list of Front Door Routes is not complete you will receive the service side error `This resource is still associated with a route. Please delete the association with the route first before deleting this resource` when you attempt to `destroy`/`delete` your Front Door Custom Domain.
      */
     cdnFrontdoorRouteIds: pulumi.Input<pulumi.Input<string>[]>;
 }

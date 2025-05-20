@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 /**
  * Manages a Microsoft Cloud App Security Data Connector.
  *
- *  !> **NOTE:** This resource requires that [Enterprise Mobility + Security E5](https://www.microsoft.com/en-us/microsoft-365/enterprise-mobility-security) is enabled on the tenant being connected to.
+ * !> **Note:** This resource requires that [Enterprise Mobility + Security E5](https://www.microsoft.com/en-us/microsoft-365/enterprise-mobility-security) is enabled on the tenant being connected to.
  *
  * ## Example Usage
  *
@@ -75,7 +75,7 @@ export class DataConnectorMicrosoftCloudAppSecurity extends pulumi.CustomResourc
     /**
      * Should the Discovery Logs be enabled? Defaults to `true`.
      *
-     * > **NOTE:** One of either `alertsEnabled` or `discoveryLogsEnabled` has to be specified.
+     * > **Note:** One of either `alertsEnabled` or `discoveryLogsEnabled` has to be specified.
      */
     public readonly discoveryLogsEnabled!: pulumi.Output<boolean | undefined>;
     /**
@@ -89,7 +89,7 @@ export class DataConnectorMicrosoftCloudAppSecurity extends pulumi.CustomResourc
     /**
      * The ID of the Tenant that this Microsoft Cloud App Security Data Connector connects to.
      *
-     * > **NOTE** Currently, only the same tenant as the running account is allowed. Cross-tenant scenario is not supported yet.
+     * > **Note:** Currently, only the same tenant as the running account is allowed. Cross-tenant scenario is not supported yet.
      */
     public readonly tenantId!: pulumi.Output<string>;
 
@@ -138,7 +138,7 @@ export interface DataConnectorMicrosoftCloudAppSecurityState {
     /**
      * Should the Discovery Logs be enabled? Defaults to `true`.
      *
-     * > **NOTE:** One of either `alertsEnabled` or `discoveryLogsEnabled` has to be specified.
+     * > **Note:** One of either `alertsEnabled` or `discoveryLogsEnabled` has to be specified.
      */
     discoveryLogsEnabled?: pulumi.Input<boolean>;
     /**
@@ -152,7 +152,7 @@ export interface DataConnectorMicrosoftCloudAppSecurityState {
     /**
      * The ID of the Tenant that this Microsoft Cloud App Security Data Connector connects to.
      *
-     * > **NOTE** Currently, only the same tenant as the running account is allowed. Cross-tenant scenario is not supported yet.
+     * > **Note:** Currently, only the same tenant as the running account is allowed. Cross-tenant scenario is not supported yet.
      */
     tenantId?: pulumi.Input<string>;
 }
@@ -168,7 +168,7 @@ export interface DataConnectorMicrosoftCloudAppSecurityArgs {
     /**
      * Should the Discovery Logs be enabled? Defaults to `true`.
      *
-     * > **NOTE:** One of either `alertsEnabled` or `discoveryLogsEnabled` has to be specified.
+     * > **Note:** One of either `alertsEnabled` or `discoveryLogsEnabled` has to be specified.
      */
     discoveryLogsEnabled?: pulumi.Input<boolean>;
     /**
@@ -182,7 +182,7 @@ export interface DataConnectorMicrosoftCloudAppSecurityArgs {
     /**
      * The ID of the Tenant that this Microsoft Cloud App Security Data Connector connects to.
      *
-     * > **NOTE** Currently, only the same tenant as the running account is allowed. Cross-tenant scenario is not supported yet.
+     * > **Note:** Currently, only the same tenant as the running account is allowed. Cross-tenant scenario is not supported yet.
      */
     tenantId?: pulumi.Input<string>;
 }

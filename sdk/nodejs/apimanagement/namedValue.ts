@@ -36,6 +36,13 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This resource uses the following Azure API Providers:
+ *
+ * * `Microsoft.ApiManagement`: 2022-08-01
+ *
  * ## Import
  *
  * API Management Properties can be imported using the `resource id`, e.g.
@@ -88,11 +95,6 @@ export class NamedValue extends pulumi.CustomResource {
      * The name of the Resource Group in which the API Management Named Value should exist. Changing this forces a new resource to be created.
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
-    /**
-     * Specifies whether the API Management Named Value is secret. Valid values are `true` or `false`. The default value is `false`.
-     *
-     * > **NOTE:** setting the field `secret` to `true` doesn't make this field sensitive in the provider, instead it marks the value as secret and encrypts the value in Azure.
-     */
     public readonly secret!: pulumi.Output<boolean | undefined>;
     /**
      * A list of tags to be applied to the API Management Named Value.
@@ -175,11 +177,6 @@ export interface NamedValueState {
      * The name of the Resource Group in which the API Management Named Value should exist. Changing this forces a new resource to be created.
      */
     resourceGroupName?: pulumi.Input<string>;
-    /**
-     * Specifies whether the API Management Named Value is secret. Valid values are `true` or `false`. The default value is `false`.
-     *
-     * > **NOTE:** setting the field `secret` to `true` doesn't make this field sensitive in the provider, instead it marks the value as secret and encrypts the value in Azure.
-     */
     secret?: pulumi.Input<boolean>;
     /**
      * A list of tags to be applied to the API Management Named Value.
@@ -215,11 +212,6 @@ export interface NamedValueArgs {
      * The name of the Resource Group in which the API Management Named Value should exist. Changing this forces a new resource to be created.
      */
     resourceGroupName: pulumi.Input<string>;
-    /**
-     * Specifies whether the API Management Named Value is secret. Valid values are `true` or `false`. The default value is `false`.
-     *
-     * > **NOTE:** setting the field `secret` to `true` doesn't make this field sensitive in the provider, instead it marks the value as secret and encrypts the value in Azure.
-     */
     secret?: pulumi.Input<boolean>;
     /**
      * A list of tags to be applied to the API Management Named Value.

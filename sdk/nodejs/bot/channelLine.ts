@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 /**
  * Manages a Line integration for a Bot Channel
  *
- * > **Note** A bot can only have a single Line Channel associated with it.
+ * > **Note:** A bot can only have a single Line Channel associated with it.
  *
  * ## Example Usage
  *

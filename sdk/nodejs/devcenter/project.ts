@@ -2,11 +2,11 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
- * <!-- Note: This documentation is generated. Any manual changes will be overwritten -->
- *
  * Manages a Dev Center Project.
  *
  * ## Example Usage
@@ -34,6 +34,13 @@ import * as utilities from "../utilities";
  *     resourceGroupName: exampleResourceGroup.name,
  * });
  * ```
+ *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This resource uses the following Azure API Providers:
+ *
+ * * `Microsoft.DevCenter`: 2025-02-01
  *
  * ## Import
  *
@@ -90,6 +97,10 @@ export class Project extends pulumi.CustomResource {
      */
     public /*out*/ readonly devCenterUri!: pulumi.Output<string>;
     /**
+     * An `identity` block as defined below.
+     */
+    public readonly identity!: pulumi.Output<outputs.devcenter.ProjectIdentity | undefined>;
+    /**
      * The Azure Region where the Dev Center Project should exist. Changing this forces a new Dev Center Project to be created.
      */
     public readonly location!: pulumi.Output<string>;
@@ -126,6 +137,7 @@ export class Project extends pulumi.CustomResource {
             resourceInputs["description"] = state ? state.description : undefined;
             resourceInputs["devCenterId"] = state ? state.devCenterId : undefined;
             resourceInputs["devCenterUri"] = state ? state.devCenterUri : undefined;
+            resourceInputs["identity"] = state ? state.identity : undefined;
             resourceInputs["location"] = state ? state.location : undefined;
             resourceInputs["maximumDevBoxesPerUser"] = state ? state.maximumDevBoxesPerUser : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
@@ -141,6 +153,7 @@ export class Project extends pulumi.CustomResource {
             }
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["devCenterId"] = args ? args.devCenterId : undefined;
+            resourceInputs["identity"] = args ? args.identity : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["maximumDevBoxesPerUser"] = args ? args.maximumDevBoxesPerUser : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
@@ -169,6 +182,10 @@ export interface ProjectState {
      * The URI of the Dev Center resource this project is associated with.
      */
     devCenterUri?: pulumi.Input<string>;
+    /**
+     * An `identity` block as defined below.
+     */
+    identity?: pulumi.Input<inputs.devcenter.ProjectIdentity>;
     /**
      * The Azure Region where the Dev Center Project should exist. Changing this forces a new Dev Center Project to be created.
      */
@@ -203,6 +220,10 @@ export interface ProjectArgs {
      * Resource Id of an associated DevCenter. Changing this forces a new Dev Center Project to be created.
      */
     devCenterId: pulumi.Input<string>;
+    /**
+     * An `identity` block as defined below.
+     */
+    identity?: pulumi.Input<inputs.devcenter.ProjectIdentity>;
     /**
      * The Azure Region where the Dev Center Project should exist. Changing this forces a new Dev Center Project to be created.
      */

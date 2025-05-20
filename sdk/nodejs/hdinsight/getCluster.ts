@@ -22,6 +22,13 @@ import * as utilities from "../utilities";
  * export const httpsEndpoint = example.then(example => example.httpsEndpoint);
  * export const clusterId = example.then(example => example.clusterId);
  * ```
+ *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This data source uses the following Azure API Providers:
+ *
+ * * `Microsoft.HDInsight`: 2021-06-01
  */
 export function getCluster(args: GetClusterArgs, opts?: pulumi.InvokeOptions): Promise<GetClusterResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -127,6 +134,13 @@ export interface GetClusterResult {
  * export const httpsEndpoint = example.then(example => example.httpsEndpoint);
  * export const clusterId = example.then(example => example.clusterId);
  * ```
+ *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This data source uses the following Azure API Providers:
+ *
+ * * `Microsoft.HDInsight`: 2021-06-01
  */
 export function getClusterOutput(args: GetClusterOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetClusterResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

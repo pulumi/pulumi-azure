@@ -48,6 +48,13 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This resource uses the following Azure API Providers:
+ *
+ * * `Microsoft.Network`: 2022-04-01
+ *
  * ## Import
  *
  * Traffic Manager Profiles can be imported using the `resource id`, e.g.
@@ -95,7 +102,7 @@ export class TrafficManagerProfile extends pulumi.CustomResource {
     /**
      * The amount of endpoints to return for DNS queries to this Profile. Possible values range from `1` to `8`.
      *
-     * > **NOTE:** `maxReturn` must be set when the `trafficRoutingMethod` is `MultiValue`.
+     * > **Note:** `maxReturn` must be set when the `trafficRoutingMethod` is `MultiValue`.
      */
     public readonly maxReturn!: pulumi.Output<number | undefined>;
     /**
@@ -203,7 +210,7 @@ export interface TrafficManagerProfileState {
     /**
      * The amount of endpoints to return for DNS queries to this Profile. Possible values range from `1` to `8`.
      *
-     * > **NOTE:** `maxReturn` must be set when the `trafficRoutingMethod` is `MultiValue`.
+     * > **Note:** `maxReturn` must be set when the `trafficRoutingMethod` is `MultiValue`.
      */
     maxReturn?: pulumi.Input<number>;
     /**
@@ -253,7 +260,7 @@ export interface TrafficManagerProfileArgs {
     /**
      * The amount of endpoints to return for DNS queries to this Profile. Possible values range from `1` to `8`.
      *
-     * > **NOTE:** `maxReturn` must be set when the `trafficRoutingMethod` is `MultiValue`.
+     * > **Note:** `maxReturn` must be set when the `trafficRoutingMethod` is `MultiValue`.
      */
     maxReturn?: pulumi.Input<number>;
     /**

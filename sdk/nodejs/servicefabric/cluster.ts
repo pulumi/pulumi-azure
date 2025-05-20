@@ -38,6 +38,13 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This resource uses the following Azure API Providers:
+ *
+ * * `Microsoft.ServiceFabric`: 2021-06-01
+ *
  * ## Import
  *
  * Service Fabric Clusters can be imported using the `resource id`, e.g.
@@ -93,7 +100,7 @@ export class Cluster extends pulumi.CustomResource {
     /**
      * A `clientCertificateCommonName` block as defined below.
      *
-     * > **NOTE:** If Client Certificates are enabled then at a Certificate must be configured on the cluster.
+     * > **Note:** If Client Certificates are enabled then at a Certificate must be configured on the cluster.
      */
     public readonly clientCertificateCommonNames!: pulumi.Output<outputs.servicefabric.ClusterClientCertificateCommonName[] | undefined>;
     /**
@@ -135,7 +142,7 @@ export class Cluster extends pulumi.CustomResource {
     /**
      * Specifies the Reliability Level of the Cluster. Possible values include `None`, `Bronze`, `Silver`, `Gold` and `Platinum`.
      *
-     * > **NOTE:** The Reliability Level of the Cluster depends on the number of nodes in the Cluster: `Platinum` requires at least 9 VM's, `Gold` requires at least 7 VM's, `Silver` requires at least 5 VM's, `Bronze` requires at least 3 VM's.
+     * > **Note:** The Reliability Level of the Cluster depends on the number of nodes in the Cluster: `Platinum` requires at least 9 VM's, `Gold` requires at least 7 VM's, `Silver` requires at least 5 VM's, `Bronze` requires at least 3 VM's.
      */
     public readonly reliabilityLevel!: pulumi.Output<string>;
     /**
@@ -285,7 +292,7 @@ export interface ClusterState {
     /**
      * A `clientCertificateCommonName` block as defined below.
      *
-     * > **NOTE:** If Client Certificates are enabled then at a Certificate must be configured on the cluster.
+     * > **Note:** If Client Certificates are enabled then at a Certificate must be configured on the cluster.
      */
     clientCertificateCommonNames?: pulumi.Input<pulumi.Input<inputs.servicefabric.ClusterClientCertificateCommonName>[]>;
     /**
@@ -327,7 +334,7 @@ export interface ClusterState {
     /**
      * Specifies the Reliability Level of the Cluster. Possible values include `None`, `Bronze`, `Silver`, `Gold` and `Platinum`.
      *
-     * > **NOTE:** The Reliability Level of the Cluster depends on the number of nodes in the Cluster: `Platinum` requires at least 9 VM's, `Gold` requires at least 7 VM's, `Silver` requires at least 5 VM's, `Bronze` requires at least 3 VM's.
+     * > **Note:** The Reliability Level of the Cluster depends on the number of nodes in the Cluster: `Platinum` requires at least 9 VM's, `Gold` requires at least 7 VM's, `Silver` requires at least 5 VM's, `Bronze` requires at least 3 VM's.
      */
     reliabilityLevel?: pulumi.Input<string>;
     /**
@@ -391,7 +398,7 @@ export interface ClusterArgs {
     /**
      * A `clientCertificateCommonName` block as defined below.
      *
-     * > **NOTE:** If Client Certificates are enabled then at a Certificate must be configured on the cluster.
+     * > **Note:** If Client Certificates are enabled then at a Certificate must be configured on the cluster.
      */
     clientCertificateCommonNames?: pulumi.Input<pulumi.Input<inputs.servicefabric.ClusterClientCertificateCommonName>[]>;
     /**
@@ -429,7 +436,7 @@ export interface ClusterArgs {
     /**
      * Specifies the Reliability Level of the Cluster. Possible values include `None`, `Bronze`, `Silver`, `Gold` and `Platinum`.
      *
-     * > **NOTE:** The Reliability Level of the Cluster depends on the number of nodes in the Cluster: `Platinum` requires at least 9 VM's, `Gold` requires at least 7 VM's, `Silver` requires at least 5 VM's, `Bronze` requires at least 3 VM's.
+     * > **Note:** The Reliability Level of the Cluster depends on the number of nodes in the Cluster: `Platinum` requires at least 9 VM's, `Gold` requires at least 7 VM's, `Silver` requires at least 5 VM's, `Bronze` requires at least 3 VM's.
      */
     reliabilityLevel: pulumi.Input<string>;
     /**

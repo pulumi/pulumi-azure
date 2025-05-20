@@ -36,6 +36,13 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This resource uses the following Azure API Providers:
+ *
+ * * `Microsoft.ApiManagement`: 2022-08-01
+ *
  * ## Import
  *
  * Api Management Policy Fragments can be imported using the `resource id`, e.g.
@@ -83,7 +90,7 @@ export class PolicyFragment extends pulumi.CustomResource {
     /**
      * The format of the Policy Fragment. Possible values are `xml` or `rawxml`. Default is `xml`.
      *
-     * > **NOTE:** The `value` property will be updated to reflect the corresponding format when `format` is updated.
+     * > **Note:** The `value` property will be updated to reflect the corresponding format when `format` is updated.
      */
     public readonly format!: pulumi.Output<string | undefined>;
     /**
@@ -93,7 +100,7 @@ export class PolicyFragment extends pulumi.CustomResource {
     /**
      * The value of the Policy Fragment.
      *
-     * > **NOTE:** Be aware of the two format possibilities. If the `value` is not applied and continues to cause a diff the format could be wrong.
+     * > **Note:** Be aware of the two format possibilities. If the `value` is not applied and continues to cause a diff the format could be wrong.
      */
     public readonly value!: pulumi.Output<string>;
 
@@ -149,7 +156,7 @@ export interface PolicyFragmentState {
     /**
      * The format of the Policy Fragment. Possible values are `xml` or `rawxml`. Default is `xml`.
      *
-     * > **NOTE:** The `value` property will be updated to reflect the corresponding format when `format` is updated.
+     * > **Note:** The `value` property will be updated to reflect the corresponding format when `format` is updated.
      */
     format?: pulumi.Input<string>;
     /**
@@ -159,7 +166,7 @@ export interface PolicyFragmentState {
     /**
      * The value of the Policy Fragment.
      *
-     * > **NOTE:** Be aware of the two format possibilities. If the `value` is not applied and continues to cause a diff the format could be wrong.
+     * > **Note:** Be aware of the two format possibilities. If the `value` is not applied and continues to cause a diff the format could be wrong.
      */
     value?: pulumi.Input<string>;
 }
@@ -179,7 +186,7 @@ export interface PolicyFragmentArgs {
     /**
      * The format of the Policy Fragment. Possible values are `xml` or `rawxml`. Default is `xml`.
      *
-     * > **NOTE:** The `value` property will be updated to reflect the corresponding format when `format` is updated.
+     * > **Note:** The `value` property will be updated to reflect the corresponding format when `format` is updated.
      */
     format?: pulumi.Input<string>;
     /**
@@ -189,7 +196,7 @@ export interface PolicyFragmentArgs {
     /**
      * The value of the Policy Fragment.
      *
-     * > **NOTE:** Be aware of the two format possibilities. If the `value` is not applied and continues to cause a diff the format could be wrong.
+     * > **Note:** Be aware of the two format possibilities. If the `value` is not applied and continues to cause a diff the format could be wrong.
      */
     value: pulumi.Input<string>;
 }

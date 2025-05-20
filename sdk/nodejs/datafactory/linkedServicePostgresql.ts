@@ -7,6 +7,8 @@ import * as utilities from "../utilities";
 /**
  * Manages a Linked Service (connection) between PostgreSQL and Azure Data Factory.
  *
+ * > **Note:** All arguments including the connectionString will be stored in the raw state as plain-text. [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
+ *
  * ## Example Usage
  *
  * ```typescript

@@ -35,6 +35,13 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This resource uses the following Azure API Providers:
+ *
+ * * `Microsoft.Solutions`: 2021-07-01
+ *
  * ## Import
  *
  * Managed Application Definition can be imported using the `resource id`, e.g.
@@ -118,7 +125,7 @@ export class Definition extends pulumi.CustomResource {
     /**
      * A mapping of tags to assign to the resource.
      *
-     * > **NOTE:** If either `createUiDefinition` or `mainTemplate` is set they both must be set.
+     * > **Note:** If either `createUiDefinition` or `mainTemplate` is set they both must be set.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
 
@@ -227,7 +234,7 @@ export interface DefinitionState {
     /**
      * A mapping of tags to assign to the resource.
      *
-     * > **NOTE:** If either `createUiDefinition` or `mainTemplate` is set they both must be set.
+     * > **Note:** If either `createUiDefinition` or `mainTemplate` is set they both must be set.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
@@ -283,7 +290,7 @@ export interface DefinitionArgs {
     /**
      * A mapping of tags to assign to the resource.
      *
-     * > **NOTE:** If either `createUiDefinition` or `mainTemplate` is set they both must be set.
+     * > **Note:** If either `createUiDefinition` or `mainTemplate` is set they both must be set.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

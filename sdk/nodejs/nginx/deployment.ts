@@ -66,6 +66,13 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This resource uses the following Azure API Providers:
+ *
+ * * `Nginx.NginxPlus`: 2024-11-01-preview
+ *
  * ## Import
  *
  * NGINX Deployments can be imported using the `resource id`, e.g.
@@ -113,7 +120,7 @@ export class Deployment extends pulumi.CustomResource {
     /**
      * Specify the number of NGINX capacity units for this NGINX deployment.
      *
-     * > **Note** For more information on NGINX capacity units, please refer to the [NGINX scaling guidance documentation](https://docs.nginx.com/nginxaas/azure/quickstart/scaling/)
+     * > **Note:** For more information on NGINX capacity units, please refer to the [NGINX scaling guidance documentation](https://docs.nginx.com/nginxaas/azure/quickstart/scaling/)
      */
     public readonly capacity!: pulumi.Output<number | undefined>;
     /**
@@ -129,11 +136,11 @@ export class Deployment extends pulumi.CustomResource {
      */
     public readonly email!: pulumi.Output<string | undefined>;
     /**
-     * One or more `frontendPrivate` blocks as defined below. Changing this forces a new NGINX Deployment to be created.
+     * One or more `frontendPrivate` blocks as defined below.
      */
     public readonly frontendPrivates!: pulumi.Output<outputs.nginx.DeploymentFrontendPrivate[] | undefined>;
     /**
-     * A `frontendPublic` block as defined below. Changing this forces a new NGINX Deployment to be created.
+     * A `frontendPublic` block as defined below.
      */
     public readonly frontendPublic!: pulumi.Output<outputs.nginx.DeploymentFrontendPublic | undefined>;
     /**
@@ -161,7 +168,7 @@ export class Deployment extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * One or more `networkInterface` blocks as defined below. Changing this forces a new NGINX Deployment to be created.
+     * One or more `networkInterface` blocks as defined below.
      */
     public readonly networkInterfaces!: pulumi.Output<outputs.nginx.DeploymentNetworkInterface[] | undefined>;
     /**
@@ -177,6 +184,10 @@ export class Deployment extends pulumi.CustomResource {
      * A mapping of tags which should be assigned to the NGINX Deployment.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * A `webApplicationFirewall` blocks as defined below.
+     */
+    public readonly webApplicationFirewall!: pulumi.Output<outputs.nginx.DeploymentWebApplicationFirewall | undefined>;
 
     /**
      * Create a Deployment resource with the given unique name, arguments, and options.
@@ -210,6 +221,7 @@ export class Deployment extends pulumi.CustomResource {
             resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             resourceInputs["sku"] = state ? state.sku : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["webApplicationFirewall"] = state ? state.webApplicationFirewall : undefined;
         } else {
             const args = argsOrState as DeploymentArgs | undefined;
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
@@ -234,6 +246,7 @@ export class Deployment extends pulumi.CustomResource {
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["sku"] = args ? args.sku : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["webApplicationFirewall"] = args ? args.webApplicationFirewall : undefined;
             resourceInputs["dataplaneApiEndpoint"] = undefined /*out*/;
             resourceInputs["ipAddress"] = undefined /*out*/;
             resourceInputs["nginxVersion"] = undefined /*out*/;
@@ -258,7 +271,7 @@ export interface DeploymentState {
     /**
      * Specify the number of NGINX capacity units for this NGINX deployment.
      *
-     * > **Note** For more information on NGINX capacity units, please refer to the [NGINX scaling guidance documentation](https://docs.nginx.com/nginxaas/azure/quickstart/scaling/)
+     * > **Note:** For more information on NGINX capacity units, please refer to the [NGINX scaling guidance documentation](https://docs.nginx.com/nginxaas/azure/quickstart/scaling/)
      */
     capacity?: pulumi.Input<number>;
     /**
@@ -274,11 +287,11 @@ export interface DeploymentState {
      */
     email?: pulumi.Input<string>;
     /**
-     * One or more `frontendPrivate` blocks as defined below. Changing this forces a new NGINX Deployment to be created.
+     * One or more `frontendPrivate` blocks as defined below.
      */
     frontendPrivates?: pulumi.Input<pulumi.Input<inputs.nginx.DeploymentFrontendPrivate>[]>;
     /**
-     * A `frontendPublic` block as defined below. Changing this forces a new NGINX Deployment to be created.
+     * A `frontendPublic` block as defined below.
      */
     frontendPublic?: pulumi.Input<inputs.nginx.DeploymentFrontendPublic>;
     /**
@@ -306,7 +319,7 @@ export interface DeploymentState {
      */
     name?: pulumi.Input<string>;
     /**
-     * One or more `networkInterface` blocks as defined below. Changing this forces a new NGINX Deployment to be created.
+     * One or more `networkInterface` blocks as defined below.
      */
     networkInterfaces?: pulumi.Input<pulumi.Input<inputs.nginx.DeploymentNetworkInterface>[]>;
     /**
@@ -322,6 +335,10 @@ export interface DeploymentState {
      * A mapping of tags which should be assigned to the NGINX Deployment.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A `webApplicationFirewall` blocks as defined below.
+     */
+    webApplicationFirewall?: pulumi.Input<inputs.nginx.DeploymentWebApplicationFirewall>;
 }
 
 /**
@@ -339,7 +356,7 @@ export interface DeploymentArgs {
     /**
      * Specify the number of NGINX capacity units for this NGINX deployment.
      *
-     * > **Note** For more information on NGINX capacity units, please refer to the [NGINX scaling guidance documentation](https://docs.nginx.com/nginxaas/azure/quickstart/scaling/)
+     * > **Note:** For more information on NGINX capacity units, please refer to the [NGINX scaling guidance documentation](https://docs.nginx.com/nginxaas/azure/quickstart/scaling/)
      */
     capacity?: pulumi.Input<number>;
     /**
@@ -351,11 +368,11 @@ export interface DeploymentArgs {
      */
     email?: pulumi.Input<string>;
     /**
-     * One or more `frontendPrivate` blocks as defined below. Changing this forces a new NGINX Deployment to be created.
+     * One or more `frontendPrivate` blocks as defined below.
      */
     frontendPrivates?: pulumi.Input<pulumi.Input<inputs.nginx.DeploymentFrontendPrivate>[]>;
     /**
-     * A `frontendPublic` block as defined below. Changing this forces a new NGINX Deployment to be created.
+     * A `frontendPublic` block as defined below.
      */
     frontendPublic?: pulumi.Input<inputs.nginx.DeploymentFrontendPublic>;
     /**
@@ -379,7 +396,7 @@ export interface DeploymentArgs {
      */
     name?: pulumi.Input<string>;
     /**
-     * One or more `networkInterface` blocks as defined below. Changing this forces a new NGINX Deployment to be created.
+     * One or more `networkInterface` blocks as defined below.
      */
     networkInterfaces?: pulumi.Input<pulumi.Input<inputs.nginx.DeploymentNetworkInterface>[]>;
     /**
@@ -391,4 +408,8 @@ export interface DeploymentArgs {
      * A mapping of tags which should be assigned to the NGINX Deployment.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A `webApplicationFirewall` blocks as defined below.
+     */
+    webApplicationFirewall?: pulumi.Input<inputs.nginx.DeploymentWebApplicationFirewall>;
 }

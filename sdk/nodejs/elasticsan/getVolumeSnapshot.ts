@@ -27,6 +27,13 @@ import * as utilities from "../utilities";
  * }));
  * export const id = exampleGetVolumeSnapshot.then(exampleGetVolumeSnapshot => exampleGetVolumeSnapshot.id);
  * ```
+ *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This data source uses the following Azure API Providers:
+ *
+ * * `Microsoft.ElasticSan`: 2023-01-01
  */
 export function getVolumeSnapshot(args: GetVolumeSnapshotArgs, opts?: pulumi.InvokeOptions): Promise<GetVolumeSnapshotResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -96,6 +103,13 @@ export interface GetVolumeSnapshotResult {
  * }));
  * export const id = exampleGetVolumeSnapshot.then(exampleGetVolumeSnapshot => exampleGetVolumeSnapshot.id);
  * ```
+ *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This data source uses the following Azure API Providers:
+ *
+ * * `Microsoft.ElasticSan`: 2023-01-01
  */
 export function getVolumeSnapshotOutput(args: GetVolumeSnapshotOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetVolumeSnapshotResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

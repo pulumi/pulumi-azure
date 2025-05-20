@@ -50,7 +50,7 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
- * > **NOTE:** The CosmosDB Account needs to have the `EnableGremlin` capability enabled to use this resource - which can be done by adding this to the `capabilities` list within the `azure.cosmosdb.Account` resource.
+ * > **Note:** The CosmosDB Account needs to have the `EnableGremlin` capability enabled to use this resource - which can be done by adding this to the `capabilities` list within the `azure.cosmosdb.Account` resource.
  *
  * ## Import
  *
@@ -131,9 +131,6 @@ export class GremlinGraph extends pulumi.CustomResource {
      * The name of the resource group in which the Cosmos DB Gremlin Graph is created. Changing this forces a new resource to be created.
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
-    /**
-     * The throughput of the Gremlin graph (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon database creation otherwise it cannot be updated without a manual destroy-apply.
-     */
     public readonly throughput!: pulumi.Output<number>;
     /**
      * One or more `uniqueKey` blocks as defined below. Changing this forces a new resource to be created.
@@ -246,9 +243,6 @@ export interface GremlinGraphState {
      * The name of the resource group in which the Cosmos DB Gremlin Graph is created. Changing this forces a new resource to be created.
      */
     resourceGroupName?: pulumi.Input<string>;
-    /**
-     * The throughput of the Gremlin graph (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon database creation otherwise it cannot be updated without a manual destroy-apply.
-     */
     throughput?: pulumi.Input<number>;
     /**
      * One or more `uniqueKey` blocks as defined below. Changing this forces a new resource to be created.
@@ -303,9 +297,6 @@ export interface GremlinGraphArgs {
      * The name of the resource group in which the Cosmos DB Gremlin Graph is created. Changing this forces a new resource to be created.
      */
     resourceGroupName: pulumi.Input<string>;
-    /**
-     * The throughput of the Gremlin graph (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon database creation otherwise it cannot be updated without a manual destroy-apply.
-     */
     throughput?: pulumi.Input<number>;
     /**
      * One or more `uniqueKey` blocks as defined below. Changing this forces a new resource to be created.

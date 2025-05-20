@@ -21,6 +21,13 @@ import * as utilities from "../utilities";
  * });
  * export const privateEndpointStatus = example.then(example => example.privateEndpointConnections?.[0]?.status);
  * ```
+ *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This data source uses the following Azure API Providers:
+ *
+ * * `Microsoft.Network`: 2024-05-01
  */
 export function getServiceEndpointConnections(args: GetServiceEndpointConnectionsArgs, opts?: pulumi.InvokeOptions): Promise<GetServiceEndpointConnectionsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -76,6 +83,13 @@ export interface GetServiceEndpointConnectionsResult {
  * });
  * export const privateEndpointStatus = example.then(example => example.privateEndpointConnections?.[0]?.status);
  * ```
+ *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This data source uses the following Azure API Providers:
+ *
+ * * `Microsoft.Network`: 2024-05-01
  */
 export function getServiceEndpointConnectionsOutput(args: GetServiceEndpointConnectionsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetServiceEndpointConnectionsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

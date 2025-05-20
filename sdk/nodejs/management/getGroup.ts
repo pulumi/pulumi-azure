@@ -18,6 +18,13 @@ import * as utilities from "../utilities";
  * });
  * export const displayName = example.then(example => example.displayName);
  * ```
+ *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This data source uses the following Azure API Providers:
+ *
+ * * `Microsoft.Management`: 2020-05-01
  */
 export function getGroup(args?: GetGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetGroupResult> {
     args = args || {};
@@ -32,11 +39,6 @@ export function getGroup(args?: GetGroupArgs, opts?: pulumi.InvokeOptions): Prom
  * A collection of arguments for invoking getGroup.
  */
 export interface GetGroupArgs {
-    /**
-     * Specifies the display name of this Management Group.
-     *
-     * > **NOTE** Whilst multiple management groups may share the same display name, when filtering, the provider expects a single management group to be found with this name.
-     */
     displayName?: string;
     /**
      * Specifies the name or UUID of this Management Group.
@@ -93,6 +95,13 @@ export interface GetGroupResult {
  * });
  * export const displayName = example.then(example => example.displayName);
  * ```
+ *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This data source uses the following Azure API Providers:
+ *
+ * * `Microsoft.Management`: 2020-05-01
  */
 export function getGroupOutput(args?: GetGroupOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetGroupResult> {
     args = args || {};
@@ -107,11 +116,6 @@ export function getGroupOutput(args?: GetGroupOutputArgs, opts?: pulumi.InvokeOu
  * A collection of arguments for invoking getGroup.
  */
 export interface GetGroupOutputArgs {
-    /**
-     * Specifies the display name of this Management Group.
-     *
-     * > **NOTE** Whilst multiple management groups may share the same display name, when filtering, the provider expects a single management group to be found with this name.
-     */
     displayName?: pulumi.Input<string>;
     /**
      * Specifies the name or UUID of this Management Group.

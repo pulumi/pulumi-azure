@@ -20,7 +20,7 @@ import * as utilities from "../utilities";
  *     location: "West Europe",
  * });
  * const exampleAnalyticsWorkspace = new azure.operationalinsights.AnalyticsWorkspace("example", {
- *     name: "acctest-01",
+ *     name: "example-workspace",
  *     location: example.location,
  *     resourceGroupName: example.name,
  *     sku: "PerGB2018",
@@ -34,6 +34,15 @@ import * as utilities from "../utilities";
  *     logAnalyticsWorkspaceId: exampleAnalyticsWorkspace.id,
  * });
  * ```
+ *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This resource uses the following Azure API Providers:
+ *
+ * * `Microsoft.App`: 2025-01-01
+ *
+ * * `Microsoft.OperationalInsights`: 2020-08-01
  *
  * ## Import
  *

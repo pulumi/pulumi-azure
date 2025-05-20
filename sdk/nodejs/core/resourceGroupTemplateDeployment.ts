@@ -63,11 +63,6 @@ export class ResourceGroupTemplateDeployment extends pulumi.CustomResource {
      * The JSON Content of the Outputs of the ARM Template Deployment.
      */
     public /*out*/ readonly outputContent!: pulumi.Output<string>;
-    /**
-     * The contents of the ARM Template parameters file - containing a JSON list of parameters.
-     *
-     * > An example of how to pass variables into an ARM Template can be seen in the example.
-     */
     public readonly parametersContent!: pulumi.Output<string>;
     /**
      * The name of the Resource Group where the Resource Group Template Deployment should exist. Changing this forces a new Resource Group Template Deployment to be created.
@@ -155,11 +150,6 @@ export interface ResourceGroupTemplateDeploymentState {
      * The JSON Content of the Outputs of the ARM Template Deployment.
      */
     outputContent?: pulumi.Input<string>;
-    /**
-     * The contents of the ARM Template parameters file - containing a JSON list of parameters.
-     *
-     * > An example of how to pass variables into an ARM Template can be seen in the example.
-     */
     parametersContent?: pulumi.Input<string>;
     /**
      * The name of the Resource Group where the Resource Group Template Deployment should exist. Changing this forces a new Resource Group Template Deployment to be created.
@@ -197,11 +187,6 @@ export interface ResourceGroupTemplateDeploymentArgs {
      * The name which should be used for this Resource Group Template Deployment. Changing this forces a new Resource Group Template Deployment to be created.
      */
     name?: pulumi.Input<string>;
-    /**
-     * The contents of the ARM Template parameters file - containing a JSON list of parameters.
-     *
-     * > An example of how to pass variables into an ARM Template can be seen in the example.
-     */
     parametersContent?: pulumi.Input<string>;
     /**
      * The name of the Resource Group where the Resource Group Template Deployment should exist. Changing this forces a new Resource Group Template Deployment to be created.

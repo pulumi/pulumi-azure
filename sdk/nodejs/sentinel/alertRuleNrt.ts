@@ -39,6 +39,13 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This resource uses the following Azure API Providers:
+ *
+ * * `Microsoft.OperationalInsights`: 2023-12-01-preview
+ *
  * ## Import
  *
  * Sentinel NRT Alert Rules can be imported using the `resource id`, e.g.
@@ -130,7 +137,7 @@ export class AlertRuleNrt extends pulumi.CustomResource {
     /**
      * A list of `sentinelEntityMapping` blocks as defined below.
      *
-     * > **NOTE:** `entityMapping` and `sentinelEntityMapping` together can't exceed 5.
+     * > **Note:** `entityMapping` and `sentinelEntityMapping` together can't exceed 5.
      */
     public readonly sentinelEntityMappings!: pulumi.Output<outputs.sentinel.AlertRuleNrtSentinelEntityMapping[] | undefined>;
     /**
@@ -287,7 +294,7 @@ export interface AlertRuleNrtState {
     /**
      * A list of `sentinelEntityMapping` blocks as defined below.
      *
-     * > **NOTE:** `entityMapping` and `sentinelEntityMapping` together can't exceed 5.
+     * > **Note:** `entityMapping` and `sentinelEntityMapping` together can't exceed 5.
      */
     sentinelEntityMappings?: pulumi.Input<pulumi.Input<inputs.sentinel.AlertRuleNrtSentinelEntityMapping>[]>;
     /**
@@ -371,7 +378,7 @@ export interface AlertRuleNrtArgs {
     /**
      * A list of `sentinelEntityMapping` blocks as defined below.
      *
-     * > **NOTE:** `entityMapping` and `sentinelEntityMapping` together can't exceed 5.
+     * > **Note:** `entityMapping` and `sentinelEntityMapping` together can't exceed 5.
      */
     sentinelEntityMappings?: pulumi.Input<pulumi.Input<inputs.sentinel.AlertRuleNrtSentinelEntityMapping>[]>;
     /**

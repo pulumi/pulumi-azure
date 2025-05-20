@@ -18,6 +18,13 @@ import * as utilities from "../utilities";
  * });
  * export const privateDnsCnameRecordId = exampleAzurermPrivateDnsCnameRecord.id;
  * ```
+ *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This data source uses the following Azure API Providers:
+ *
+ * * `Microsoft.Network`: 2024-06-01
  */
 export function getCnameRecord(args: GetCnameRecordArgs, opts?: pulumi.InvokeOptions): Promise<GetCnameRecordResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -89,6 +96,13 @@ export interface GetCnameRecordResult {
  * });
  * export const privateDnsCnameRecordId = exampleAzurermPrivateDnsCnameRecord.id;
  * ```
+ *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This data source uses the following Azure API Providers:
+ *
+ * * `Microsoft.Network`: 2024-06-01
  */
 export function getCnameRecordOutput(args: GetCnameRecordOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetCnameRecordResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

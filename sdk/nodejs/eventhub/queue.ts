@@ -14,7 +14,7 @@ import * as utilities from "../utilities";
  * import * as azure from "@pulumi/azure";
  *
  * const example = new azure.core.ResourceGroup("example", {
- *     name: "my-servicebus",
+ *     name: "terraform-servicebus",
  *     location: "West Europe",
  * });
  * const exampleNamespace = new azure.servicebus.Namespace("example", {
@@ -23,7 +23,7 @@ import * as utilities from "../utilities";
  *     resourceGroupName: example.name,
  *     sku: "Standard",
  *     tags: {
- *         source: "example",
+ *         source: "terraform",
  *     },
  * });
  * const exampleQueue = new azure.servicebus.Queue("example", {
@@ -95,7 +95,7 @@ export class Queue extends pulumi.CustomResource {
     /**
      * Boolean flag which controls whether Express Entities are enabled. An express queue holds a message in memory temporarily before writing it to persistent storage. Defaults to `false` for Basic and Standard. For Premium, it MUST be set to `false`.
      *
-     * > **NOTE:** Service Bus Premium namespaces do not support Express Entities, so `expressEnabled` MUST be set to `false`.
+     * > **Note:** Service Bus Premium namespaces do not support Express Entities, so `expressEnabled` MUST be set to `false`.
      */
     public readonly expressEnabled!: pulumi.Output<boolean | undefined>;
     /**
@@ -130,11 +130,10 @@ export class Queue extends pulumi.CustomResource {
      * The ID of the ServiceBus Namespace to create this queue in. Changing this forces a new resource to be created.
      */
     public readonly namespaceId!: pulumi.Output<string>;
-    public /*out*/ readonly namespaceName!: pulumi.Output<string>;
     /**
      * Boolean flag which controls whether to enable the queue to be partitioned across multiple message brokers. Changing this forces a new resource to be created. Defaults to `false` for Basic and Standard.
      *
-     * > **NOTE:** Partitioning is available at entity creation for all queues and topics in Basic or Standard SKUs. For premium namespace, partitioning is available at namespace creation, and all queues and topics in the partitioned namespace will be partitioned, for the premium namespace that has `premiumMessagingPartitions` sets to `1`, the namespace is not partitioned.
+     * > **Note:** Partitioning is available at entity creation for all queues and topics in Basic or Standard SKUs. For premium namespace, partitioning is available at namespace creation, and all queues and topics in the partitioned namespace will be partitioned, for the premium namespace that has `premiumMessagingPartitions` sets to `1`, the namespace is not partitioned.
      */
     public readonly partitioningEnabled!: pulumi.Output<boolean | undefined>;
     /**
@@ -145,7 +144,6 @@ export class Queue extends pulumi.CustomResource {
      * Boolean flag which controls whether the Queue requires sessions. This will allow ordered handling of unbounded sequences of related messages. With sessions enabled a queue can guarantee first-in-first-out delivery of messages. Changing this forces a new resource to be created. Defaults to `false`.
      */
     public readonly requiresSession!: pulumi.Output<boolean | undefined>;
-    public /*out*/ readonly resourceGroupName!: pulumi.Output<string>;
     /**
      * The status of the Queue. Possible values are `Active`, `Creating`, `Deleting`, `Disabled`, `ReceiveDisabled`, `Renaming`, `SendDisabled`, `Unknown`. Note that `Restoring` is not accepted. Defaults to `Active`.
      */
@@ -181,11 +179,9 @@ export class Queue extends pulumi.CustomResource {
             resourceInputs["maxSizeInMegabytes"] = state ? state.maxSizeInMegabytes : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["namespaceId"] = state ? state.namespaceId : undefined;
-            resourceInputs["namespaceName"] = state ? state.namespaceName : undefined;
             resourceInputs["partitioningEnabled"] = state ? state.partitioningEnabled : undefined;
             resourceInputs["requiresDuplicateDetection"] = state ? state.requiresDuplicateDetection : undefined;
             resourceInputs["requiresSession"] = state ? state.requiresSession : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             resourceInputs["status"] = state ? state.status : undefined;
         } else {
             const args = argsOrState as QueueArgs | undefined;
@@ -210,8 +206,6 @@ export class Queue extends pulumi.CustomResource {
             resourceInputs["requiresDuplicateDetection"] = args ? args.requiresDuplicateDetection : undefined;
             resourceInputs["requiresSession"] = args ? args.requiresSession : undefined;
             resourceInputs["status"] = args ? args.status : undefined;
-            resourceInputs["namespaceName"] = undefined /*out*/;
-            resourceInputs["resourceGroupName"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(Queue.__pulumiType, name, resourceInputs, opts);
@@ -245,7 +239,7 @@ export interface QueueState {
     /**
      * Boolean flag which controls whether Express Entities are enabled. An express queue holds a message in memory temporarily before writing it to persistent storage. Defaults to `false` for Basic and Standard. For Premium, it MUST be set to `false`.
      *
-     * > **NOTE:** Service Bus Premium namespaces do not support Express Entities, so `expressEnabled` MUST be set to `false`.
+     * > **Note:** Service Bus Premium namespaces do not support Express Entities, so `expressEnabled` MUST be set to `false`.
      */
     expressEnabled?: pulumi.Input<boolean>;
     /**
@@ -280,11 +274,10 @@ export interface QueueState {
      * The ID of the ServiceBus Namespace to create this queue in. Changing this forces a new resource to be created.
      */
     namespaceId?: pulumi.Input<string>;
-    namespaceName?: pulumi.Input<string>;
     /**
      * Boolean flag which controls whether to enable the queue to be partitioned across multiple message brokers. Changing this forces a new resource to be created. Defaults to `false` for Basic and Standard.
      *
-     * > **NOTE:** Partitioning is available at entity creation for all queues and topics in Basic or Standard SKUs. For premium namespace, partitioning is available at namespace creation, and all queues and topics in the partitioned namespace will be partitioned, for the premium namespace that has `premiumMessagingPartitions` sets to `1`, the namespace is not partitioned.
+     * > **Note:** Partitioning is available at entity creation for all queues and topics in Basic or Standard SKUs. For premium namespace, partitioning is available at namespace creation, and all queues and topics in the partitioned namespace will be partitioned, for the premium namespace that has `premiumMessagingPartitions` sets to `1`, the namespace is not partitioned.
      */
     partitioningEnabled?: pulumi.Input<boolean>;
     /**
@@ -295,7 +288,6 @@ export interface QueueState {
      * Boolean flag which controls whether the Queue requires sessions. This will allow ordered handling of unbounded sequences of related messages. With sessions enabled a queue can guarantee first-in-first-out delivery of messages. Changing this forces a new resource to be created. Defaults to `false`.
      */
     requiresSession?: pulumi.Input<boolean>;
-    resourceGroupName?: pulumi.Input<string>;
     /**
      * The status of the Queue. Possible values are `Active`, `Creating`, `Deleting`, `Disabled`, `ReceiveDisabled`, `Renaming`, `SendDisabled`, `Unknown`. Note that `Restoring` is not accepted. Defaults to `Active`.
      */
@@ -329,7 +321,7 @@ export interface QueueArgs {
     /**
      * Boolean flag which controls whether Express Entities are enabled. An express queue holds a message in memory temporarily before writing it to persistent storage. Defaults to `false` for Basic and Standard. For Premium, it MUST be set to `false`.
      *
-     * > **NOTE:** Service Bus Premium namespaces do not support Express Entities, so `expressEnabled` MUST be set to `false`.
+     * > **Note:** Service Bus Premium namespaces do not support Express Entities, so `expressEnabled` MUST be set to `false`.
      */
     expressEnabled?: pulumi.Input<boolean>;
     /**
@@ -367,7 +359,7 @@ export interface QueueArgs {
     /**
      * Boolean flag which controls whether to enable the queue to be partitioned across multiple message brokers. Changing this forces a new resource to be created. Defaults to `false` for Basic and Standard.
      *
-     * > **NOTE:** Partitioning is available at entity creation for all queues and topics in Basic or Standard SKUs. For premium namespace, partitioning is available at namespace creation, and all queues and topics in the partitioned namespace will be partitioned, for the premium namespace that has `premiumMessagingPartitions` sets to `1`, the namespace is not partitioned.
+     * > **Note:** Partitioning is available at entity creation for all queues and topics in Basic or Standard SKUs. For premium namespace, partitioning is available at namespace creation, and all queues and topics in the partitioned namespace will be partitioned, for the premium namespace that has `premiumMessagingPartitions` sets to `1`, the namespace is not partitioned.
      */
     partitioningEnabled?: pulumi.Input<boolean>;
     /**

@@ -20,6 +20,13 @@ import * as utilities from "../utilities";
  *     resourceGroupName: "existing",
  * });
  * ```
+ *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This data source uses the following Azure API Providers:
+ *
+ * * `Microsoft.Web`: 2023-01-01
  */
 export function getStaticWebApp(args: GetStaticWebAppArgs, opts?: pulumi.InvokeOptions): Promise<GetStaticWebAppResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -82,6 +89,13 @@ export interface GetStaticWebAppResult {
  *     resourceGroupName: "existing",
  * });
  * ```
+ *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This data source uses the following Azure API Providers:
+ *
+ * * `Microsoft.Web`: 2023-01-01
  */
 export function getStaticWebAppOutput(args: GetStaticWebAppOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetStaticWebAppResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

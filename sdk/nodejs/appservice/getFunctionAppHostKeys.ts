@@ -18,6 +18,8 @@ import * as utilities from "../utilities";
  *     resourceGroupName: exampleAzurermResourceGroup.name,
  * });
  * ```
+ *
+ * > **Note:** All arguments including the secret value will be stored in the raw state as plain-text, including `defaultFunctionKey` and `primaryKey`. [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
  */
 export function getFunctionAppHostKeys(args: GetFunctionAppHostKeysArgs, opts?: pulumi.InvokeOptions): Promise<GetFunctionAppHostKeysResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -95,6 +97,8 @@ export interface GetFunctionAppHostKeysResult {
  *     resourceGroupName: exampleAzurermResourceGroup.name,
  * });
  * ```
+ *
+ * > **Note:** All arguments including the secret value will be stored in the raw state as plain-text, including `defaultFunctionKey` and `primaryKey`. [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
  */
 export function getFunctionAppHostKeysOutput(args: GetFunctionAppHostKeysOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetFunctionAppHostKeysResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

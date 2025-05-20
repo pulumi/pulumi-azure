@@ -38,6 +38,13 @@ import * as utilities from "../utilities";
  * });
  * const exampleRegistryTaskScheduleRunNow = new azure.containerservice.RegistryTaskScheduleRunNow("example", {containerRegistryTaskId: exampleRegistryTask.id});
  * ```
+ *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This resource uses the following Azure API Providers:
+ *
+ * * `Microsoft.ContainerRegistry`: 2019-06-01-preview
  */
 export class RegistryTaskScheduleRunNow extends pulumi.CustomResource {
     /**

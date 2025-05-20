@@ -7,14 +7,6 @@ import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
- * Manages a Key Vault.
- *
- * ## Disclaimers
- *
- * > **Note:** It's possible to define Key Vault Access Policies both within the `azure.keyvault.KeyVault` resource via the `accessPolicy` block and by using the `azure.keyvault.AccessPolicy` resource. However it's not possible to use both methods to manage Access Policies within a KeyVault, since there'll be conflicts.
- *
- * > **Note:** It's possible to define Key Vault Certificate Contacts both within the `azure.keyvault.KeyVault` resource via the `contact` block and by using the `azure.keyvault.CertificateContacts` resource. However it's not possible to use both methods to manage Certificate Contacts within a KeyVault, since there'll be conflicts.
- *
  * ## Example Usage
  *
  * ```typescript
@@ -82,9 +74,9 @@ export class KeyVault extends pulumi.CustomResource {
     }
 
     /**
-     * A list of up to 1024 objects describing access policies, as described below.
+     * [A list](https://www.terraform.io/docs/configuration/attr-as-blocks.html) of `accessPolicy` objects (up to 1024) describing access policies, as described below.
      *
-     * > **NOTE** Since `accessPolicy` can be configured both inline and via the separate `azure.keyvault.AccessPolicy` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
+     * > **Note:** Since `accessPolicy` can be configured both inline and via the separate `azure.keyvault.AccessPolicy` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
      */
     public readonly accessPolicies!: pulumi.Output<outputs.keyvault.KeyVaultAccessPolicy[]>;
     /**
@@ -123,11 +115,6 @@ export class KeyVault extends pulumi.CustomResource {
      * Whether public network access is allowed for this Key Vault. Defaults to `true`.
      */
     public readonly publicNetworkAccessEnabled!: pulumi.Output<boolean | undefined>;
-    /**
-     * Is Purge Protection enabled for this Key Vault? 
-     *
-     * !> **Note:** Once Purge Protection has been Enabled it's not possible to Disable it. Support for [disabling purge protection is being tracked in this Azure API issue](https://github.com/Azure/azure-rest-api-specs/issues/8075). Deleting the Key Vault with Purge Protection Enabled will schedule the Key Vault to be deleted (which will happen by Azure in the configured number of days, currently 90 days).
-     */
     public readonly purgeProtectionEnabled!: pulumi.Output<boolean | undefined>;
     /**
      * The name of the resource group in which to create the Key Vault. Changing this forces a new resource to be created.
@@ -225,9 +212,9 @@ export class KeyVault extends pulumi.CustomResource {
  */
 export interface KeyVaultState {
     /**
-     * A list of up to 1024 objects describing access policies, as described below.
+     * [A list](https://www.terraform.io/docs/configuration/attr-as-blocks.html) of `accessPolicy` objects (up to 1024) describing access policies, as described below.
      *
-     * > **NOTE** Since `accessPolicy` can be configured both inline and via the separate `azure.keyvault.AccessPolicy` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
+     * > **Note:** Since `accessPolicy` can be configured both inline and via the separate `azure.keyvault.AccessPolicy` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
      */
     accessPolicies?: pulumi.Input<pulumi.Input<inputs.keyvault.KeyVaultAccessPolicy>[]>;
     /**
@@ -266,11 +253,6 @@ export interface KeyVaultState {
      * Whether public network access is allowed for this Key Vault. Defaults to `true`.
      */
     publicNetworkAccessEnabled?: pulumi.Input<boolean>;
-    /**
-     * Is Purge Protection enabled for this Key Vault? 
-     *
-     * !> **Note:** Once Purge Protection has been Enabled it's not possible to Disable it. Support for [disabling purge protection is being tracked in this Azure API issue](https://github.com/Azure/azure-rest-api-specs/issues/8075). Deleting the Key Vault with Purge Protection Enabled will schedule the Key Vault to be deleted (which will happen by Azure in the configured number of days, currently 90 days).
-     */
     purgeProtectionEnabled?: pulumi.Input<boolean>;
     /**
      * The name of the resource group in which to create the Key Vault. Changing this forces a new resource to be created.
@@ -305,9 +287,9 @@ export interface KeyVaultState {
  */
 export interface KeyVaultArgs {
     /**
-     * A list of up to 1024 objects describing access policies, as described below.
+     * [A list](https://www.terraform.io/docs/configuration/attr-as-blocks.html) of `accessPolicy` objects (up to 1024) describing access policies, as described below.
      *
-     * > **NOTE** Since `accessPolicy` can be configured both inline and via the separate `azure.keyvault.AccessPolicy` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
+     * > **Note:** Since `accessPolicy` can be configured both inline and via the separate `azure.keyvault.AccessPolicy` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
      */
     accessPolicies?: pulumi.Input<pulumi.Input<inputs.keyvault.KeyVaultAccessPolicy>[]>;
     /**
@@ -346,11 +328,6 @@ export interface KeyVaultArgs {
      * Whether public network access is allowed for this Key Vault. Defaults to `true`.
      */
     publicNetworkAccessEnabled?: pulumi.Input<boolean>;
-    /**
-     * Is Purge Protection enabled for this Key Vault? 
-     *
-     * !> **Note:** Once Purge Protection has been Enabled it's not possible to Disable it. Support for [disabling purge protection is being tracked in this Azure API issue](https://github.com/Azure/azure-rest-api-specs/issues/8075). Deleting the Key Vault with Purge Protection Enabled will schedule the Key Vault to be deleted (which will happen by Azure in the configured number of days, currently 90 days).
-     */
     purgeProtectionEnabled?: pulumi.Input<boolean>;
     /**
      * The name of the resource group in which to create the Key Vault. Changing this forces a new resource to be created.

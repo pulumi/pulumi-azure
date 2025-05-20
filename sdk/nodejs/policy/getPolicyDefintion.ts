@@ -36,7 +36,7 @@ export interface GetPolicyDefintionArgs {
     /**
      * Specifies the display name of the Policy Definition. Conflicts with `name`.
      *
-     * > **NOTE** Looking up policies by `displayName` is not recommended by the Azure Policy team as the property is not unique nor immutable. As such errors may occur when there are multiple policy definitions with same display name or the display name is changed. To avoid these types of errors you may wish to use the `name` property instead.
+     * > **Note:** Looking up policies by `displayName` is not recommended by the Azure Policy team as the property is not unique nor immutable. As such errors may occur when there are multiple policy definitions with same display name or the display name is changed. To avoid these types of errors you may wish to use the `name` property instead.
      */
     displayName?: string;
     /**
@@ -125,7 +125,7 @@ export interface GetPolicyDefintionOutputArgs {
     /**
      * Specifies the display name of the Policy Definition. Conflicts with `name`.
      *
-     * > **NOTE** Looking up policies by `displayName` is not recommended by the Azure Policy team as the property is not unique nor immutable. As such errors may occur when there are multiple policy definitions with same display name or the display name is changed. To avoid these types of errors you may wish to use the `name` property instead.
+     * > **Note:** Looking up policies by `displayName` is not recommended by the Azure Policy team as the property is not unique nor immutable. As such errors may occur when there are multiple policy definitions with same display name or the display name is changed. To avoid these types of errors you may wish to use the `name` property instead.
      */
     displayName?: pulumi.Input<string>;
     /**

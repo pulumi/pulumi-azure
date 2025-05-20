@@ -22,7 +22,7 @@ import * as utilities from "../utilities";
  *     location: example.location,
  *     resourceGroupName: example.name,
  *     publisherName: "My Company",
- *     publisherEmail: "company@exmaple.com",
+ *     publisherEmail: "company@terraform.io",
  *     skuName: "Developer_1",
  * });
  * const exampleProduct = new azure.apimanagement.Product("example", {
@@ -35,6 +35,13 @@ import * as utilities from "../utilities";
  *     published: true,
  * });
  * ```
+ *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This resource uses the following Azure API Providers:
+ *
+ * * `Microsoft.ApiManagement`: 2022-08-01
  *
  * ## Import
  *
@@ -79,7 +86,7 @@ export class Product extends pulumi.CustomResource {
     /**
      * Do subscribers need to be approved prior to being able to use the Product?
      *
-     * > **NOTE:** `approvalRequired` can only be set when `subscriptionRequired` is set to `true`.
+     * > **Note:** `approvalRequired` can only be set when `subscriptionRequired` is set to `true`.
      */
     public readonly approvalRequired!: pulumi.Output<boolean | undefined>;
     /**
@@ -109,7 +116,7 @@ export class Product extends pulumi.CustomResource {
     /**
      * The number of subscriptions a user can have to this Product at the same time.
      *
-     * > **NOTE:** `subscriptionsLimit` can only be set when `subscriptionRequired` is set to `true`.
+     * > **Note:** `subscriptionsLimit` can only be set when `subscriptionRequired` is set to `true`.
      */
     public readonly subscriptionsLimit!: pulumi.Output<number | undefined>;
     /**
@@ -184,7 +191,7 @@ export interface ProductState {
     /**
      * Do subscribers need to be approved prior to being able to use the Product?
      *
-     * > **NOTE:** `approvalRequired` can only be set when `subscriptionRequired` is set to `true`.
+     * > **Note:** `approvalRequired` can only be set when `subscriptionRequired` is set to `true`.
      */
     approvalRequired?: pulumi.Input<boolean>;
     /**
@@ -214,7 +221,7 @@ export interface ProductState {
     /**
      * The number of subscriptions a user can have to this Product at the same time.
      *
-     * > **NOTE:** `subscriptionsLimit` can only be set when `subscriptionRequired` is set to `true`.
+     * > **Note:** `subscriptionsLimit` can only be set when `subscriptionRequired` is set to `true`.
      */
     subscriptionsLimit?: pulumi.Input<number>;
     /**
@@ -234,7 +241,7 @@ export interface ProductArgs {
     /**
      * Do subscribers need to be approved prior to being able to use the Product?
      *
-     * > **NOTE:** `approvalRequired` can only be set when `subscriptionRequired` is set to `true`.
+     * > **Note:** `approvalRequired` can only be set when `subscriptionRequired` is set to `true`.
      */
     approvalRequired?: pulumi.Input<boolean>;
     /**
@@ -264,7 +271,7 @@ export interface ProductArgs {
     /**
      * The number of subscriptions a user can have to this Product at the same time.
      *
-     * > **NOTE:** `subscriptionsLimit` can only be set when `subscriptionRequired` is set to `true`.
+     * > **Note:** `subscriptionsLimit` can only be set when `subscriptionRequired` is set to `true`.
      */
     subscriptionsLimit?: pulumi.Input<number>;
     /**

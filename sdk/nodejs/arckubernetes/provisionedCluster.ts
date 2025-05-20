@@ -41,6 +41,13 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This resource uses the following Azure API Providers:
+ *
+ * * `Microsoft.Kubernetes`: 2024-01-01
+ *
  * ## Import
  *
  * Arc Kubernetes Provisioned Clusters can be imported using the `resource id`, e.g.

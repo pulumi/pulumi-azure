@@ -21,6 +21,13 @@ import * as utilities from "../utilities";
  * });
  * export const apiManagementId = example.then(example => example.id);
  * ```
+ *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This data source uses the following Azure API Providers:
+ *
+ * * `Microsoft.ApiManagement`: 2022-08-01
  */
 export function getService(args: GetServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetServiceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -78,7 +85,7 @@ export interface GetServiceResult {
      */
     readonly id: string;
     /**
-     * (Optional) An `identity` block as defined below.
+     * An `identity` block as defined below.
      */
     readonly identities: outputs.apimanagement.GetServiceIdentity[];
     /**
@@ -151,6 +158,13 @@ export interface GetServiceResult {
  * });
  * export const apiManagementId = example.then(example => example.id);
  * ```
+ *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This data source uses the following Azure API Providers:
+ *
+ * * `Microsoft.ApiManagement`: 2022-08-01
  */
 export function getServiceOutput(args: GetServiceOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetServiceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

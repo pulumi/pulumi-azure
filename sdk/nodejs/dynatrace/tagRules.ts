@@ -46,11 +46,11 @@ export class TagRules extends pulumi.CustomResource {
     }
 
     /**
-     * Set of rules for sending logs for the Monitor resource. Changing this forces a new resource to be created. A `logRule` block as defined below.
+     * Set of rules for sending logs for the Monitor resource. A `logRule` block as defined below.
      */
     public readonly logRule!: pulumi.Output<outputs.dynatrace.TagRulesLogRule | undefined>;
     /**
-     * Set of rules for sending metrics for the Monitor resource. Changing this forces a new resource to be created. A `metricRule` block as defined below.
+     * Set of rules for sending metrics for the Monitor resource. A `metricRule` block as defined below.
      */
     public readonly metricRule!: pulumi.Output<outputs.dynatrace.TagRulesMetricRule | undefined>;
     /**
@@ -99,11 +99,11 @@ export class TagRules extends pulumi.CustomResource {
  */
 export interface TagRulesState {
     /**
-     * Set of rules for sending logs for the Monitor resource. Changing this forces a new resource to be created. A `logRule` block as defined below.
+     * Set of rules for sending logs for the Monitor resource. A `logRule` block as defined below.
      */
     logRule?: pulumi.Input<inputs.dynatrace.TagRulesLogRule>;
     /**
-     * Set of rules for sending metrics for the Monitor resource. Changing this forces a new resource to be created. A `metricRule` block as defined below.
+     * Set of rules for sending metrics for the Monitor resource. A `metricRule` block as defined below.
      */
     metricRule?: pulumi.Input<inputs.dynatrace.TagRulesMetricRule>;
     /**
@@ -121,11 +121,11 @@ export interface TagRulesState {
  */
 export interface TagRulesArgs {
     /**
-     * Set of rules for sending logs for the Monitor resource. Changing this forces a new resource to be created. A `logRule` block as defined below.
+     * Set of rules for sending logs for the Monitor resource. A `logRule` block as defined below.
      */
     logRule?: pulumi.Input<inputs.dynatrace.TagRulesLogRule>;
     /**
-     * Set of rules for sending metrics for the Monitor resource. Changing this forces a new resource to be created. A `metricRule` block as defined below.
+     * Set of rules for sending metrics for the Monitor resource. A `metricRule` block as defined below.
      */
     metricRule?: pulumi.Input<inputs.dynatrace.TagRulesMetricRule>;
     /**

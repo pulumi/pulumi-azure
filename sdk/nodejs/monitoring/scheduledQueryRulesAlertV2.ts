@@ -94,6 +94,13 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This resource uses the following Azure API Providers:
+ *
+ * * `Microsoft.Insights`: 2023-03-15-preview
+ *
  * ## Import
  *
  * Monitor Scheduled Query Rule Alert can be imported using the `resource id`, e.g.
@@ -161,9 +168,9 @@ export class ScheduledQueryRulesAlertV2 extends pulumi.CustomResource {
     /**
      * How often the scheduled query rule is evaluated, represented in ISO 8601 duration format. Possible values are `PT1M`, `PT5M`, `PT10M`, `PT15M`, `PT30M`, `PT45M`, `PT1H`, `PT2H`, `PT3H`, `PT4H`, `PT5H`, `PT6H`, `P1D`.
      *
-     * > **Note** `evaluationFrequency` cannot be greater than the query look back which is `windowDuration`*`numberOfEvaluationPeriods`.
+     * > **Note:** `evaluationFrequency` cannot be greater than the query look back which is `windowDuration`*`numberOfEvaluationPeriods`.
      *
-     * > **Note** `evaluationFrequency` cannot be greater than the `muteActionsAfterAlertDuration`.
+     * > **Note:** `evaluationFrequency` cannot be greater than the `muteActionsAfterAlertDuration`.
      */
     public readonly evaluationFrequency!: pulumi.Output<string>;
     /**
@@ -185,7 +192,7 @@ export class ScheduledQueryRulesAlertV2 extends pulumi.CustomResource {
     /**
      * Mute actions for the chosen period of time in ISO 8601 duration format after the alert is fired. Possible values are `PT5M`, `PT10M`, `PT15M`, `PT30M`, `PT45M`, `PT1H`, `PT2H`, `PT3H`, `PT4H`, `PT5H`, `PT6H`, `P1D` and `P2D`.
      *
-     * > **Note** `autoMitigationEnabled` and `muteActionsAfterAlertDuration` are mutually exclusive and cannot both be set.
+     * > **Note:** `autoMitigationEnabled` and `muteActionsAfterAlertDuration` are mutually exclusive and cannot both be set.
      */
     public readonly muteActionsAfterAlertDuration!: pulumi.Output<string | undefined>;
     /**
@@ -195,7 +202,7 @@ export class ScheduledQueryRulesAlertV2 extends pulumi.CustomResource {
     /**
      * Set this if the alert evaluation period is different from the query time range. If not specified, the value is `windowDuration`*`numberOfEvaluationPeriods`. Possible values are `PT5M`, `PT10M`, `PT15M`, `PT20M`, `PT30M`, `PT45M`, `PT1H`, `PT2H`, `PT3H`, `PT4H`, `PT5H`, `PT6H`, `P1D` and `P2D`.
      *
-     * > **Note** `queryTimeRangeOverride` cannot be less than the query look back which is `windowDuration`*`numberOfEvaluationPeriods`.
+     * > **Note:** `queryTimeRangeOverride` cannot be less than the query look back which is `windowDuration`*`numberOfEvaluationPeriods`.
      */
     public readonly queryTimeRangeOverride!: pulumi.Output<string | undefined>;
     /**
@@ -351,9 +358,9 @@ export interface ScheduledQueryRulesAlertV2State {
     /**
      * How often the scheduled query rule is evaluated, represented in ISO 8601 duration format. Possible values are `PT1M`, `PT5M`, `PT10M`, `PT15M`, `PT30M`, `PT45M`, `PT1H`, `PT2H`, `PT3H`, `PT4H`, `PT5H`, `PT6H`, `P1D`.
      *
-     * > **Note** `evaluationFrequency` cannot be greater than the query look back which is `windowDuration`*`numberOfEvaluationPeriods`.
+     * > **Note:** `evaluationFrequency` cannot be greater than the query look back which is `windowDuration`*`numberOfEvaluationPeriods`.
      *
-     * > **Note** `evaluationFrequency` cannot be greater than the `muteActionsAfterAlertDuration`.
+     * > **Note:** `evaluationFrequency` cannot be greater than the `muteActionsAfterAlertDuration`.
      */
     evaluationFrequency?: pulumi.Input<string>;
     /**
@@ -375,7 +382,7 @@ export interface ScheduledQueryRulesAlertV2State {
     /**
      * Mute actions for the chosen period of time in ISO 8601 duration format after the alert is fired. Possible values are `PT5M`, `PT10M`, `PT15M`, `PT30M`, `PT45M`, `PT1H`, `PT2H`, `PT3H`, `PT4H`, `PT5H`, `PT6H`, `P1D` and `P2D`.
      *
-     * > **Note** `autoMitigationEnabled` and `muteActionsAfterAlertDuration` are mutually exclusive and cannot both be set.
+     * > **Note:** `autoMitigationEnabled` and `muteActionsAfterAlertDuration` are mutually exclusive and cannot both be set.
      */
     muteActionsAfterAlertDuration?: pulumi.Input<string>;
     /**
@@ -385,7 +392,7 @@ export interface ScheduledQueryRulesAlertV2State {
     /**
      * Set this if the alert evaluation period is different from the query time range. If not specified, the value is `windowDuration`*`numberOfEvaluationPeriods`. Possible values are `PT5M`, `PT10M`, `PT15M`, `PT20M`, `PT30M`, `PT45M`, `PT1H`, `PT2H`, `PT3H`, `PT4H`, `PT5H`, `PT6H`, `P1D` and `P2D`.
      *
-     * > **Note** `queryTimeRangeOverride` cannot be less than the query look back which is `windowDuration`*`numberOfEvaluationPeriods`.
+     * > **Note:** `queryTimeRangeOverride` cannot be less than the query look back which is `windowDuration`*`numberOfEvaluationPeriods`.
      */
     queryTimeRangeOverride?: pulumi.Input<string>;
     /**
@@ -453,9 +460,9 @@ export interface ScheduledQueryRulesAlertV2Args {
     /**
      * How often the scheduled query rule is evaluated, represented in ISO 8601 duration format. Possible values are `PT1M`, `PT5M`, `PT10M`, `PT15M`, `PT30M`, `PT45M`, `PT1H`, `PT2H`, `PT3H`, `PT4H`, `PT5H`, `PT6H`, `P1D`.
      *
-     * > **Note** `evaluationFrequency` cannot be greater than the query look back which is `windowDuration`*`numberOfEvaluationPeriods`.
+     * > **Note:** `evaluationFrequency` cannot be greater than the query look back which is `windowDuration`*`numberOfEvaluationPeriods`.
      *
-     * > **Note** `evaluationFrequency` cannot be greater than the `muteActionsAfterAlertDuration`.
+     * > **Note:** `evaluationFrequency` cannot be greater than the `muteActionsAfterAlertDuration`.
      */
     evaluationFrequency: pulumi.Input<string>;
     /**
@@ -469,7 +476,7 @@ export interface ScheduledQueryRulesAlertV2Args {
     /**
      * Mute actions for the chosen period of time in ISO 8601 duration format after the alert is fired. Possible values are `PT5M`, `PT10M`, `PT15M`, `PT30M`, `PT45M`, `PT1H`, `PT2H`, `PT3H`, `PT4H`, `PT5H`, `PT6H`, `P1D` and `P2D`.
      *
-     * > **Note** `autoMitigationEnabled` and `muteActionsAfterAlertDuration` are mutually exclusive and cannot both be set.
+     * > **Note:** `autoMitigationEnabled` and `muteActionsAfterAlertDuration` are mutually exclusive and cannot both be set.
      */
     muteActionsAfterAlertDuration?: pulumi.Input<string>;
     /**
@@ -479,7 +486,7 @@ export interface ScheduledQueryRulesAlertV2Args {
     /**
      * Set this if the alert evaluation period is different from the query time range. If not specified, the value is `windowDuration`*`numberOfEvaluationPeriods`. Possible values are `PT5M`, `PT10M`, `PT15M`, `PT20M`, `PT30M`, `PT45M`, `PT1H`, `PT2H`, `PT3H`, `PT4H`, `PT5H`, `PT6H`, `P1D` and `P2D`.
      *
-     * > **Note** `queryTimeRangeOverride` cannot be less than the query look back which is `windowDuration`*`numberOfEvaluationPeriods`.
+     * > **Note:** `queryTimeRangeOverride` cannot be less than the query look back which is `windowDuration`*`numberOfEvaluationPeriods`.
      */
     queryTimeRangeOverride?: pulumi.Input<string>;
     /**

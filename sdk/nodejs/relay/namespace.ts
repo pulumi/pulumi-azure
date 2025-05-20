@@ -23,10 +23,17 @@ import * as utilities from "../utilities";
  *     resourceGroupName: example.name,
  *     skuName: "Standard",
  *     tags: {
- *         source: "example",
+ *         source: "terraform",
  *     },
  * });
  * ```
+ *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This resource uses the following Azure API Providers:
+ *
+ * * `Microsoft.Relay`: 2021-11-01
  *
  * ## Import
  *

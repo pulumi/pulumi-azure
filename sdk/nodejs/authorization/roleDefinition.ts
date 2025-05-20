@@ -19,7 +19,7 @@ import * as utilities from "../utilities";
  * const example = new azure.authorization.RoleDefinition("example", {
  *     name: "my-custom-role",
  *     scope: primary.then(primary => primary.id),
- *     description: "This is a custom role created",
+ *     description: "This is a custom role created via Terraform",
  *     permissions: [{
  *         actions: ["*"],
  *         notActions: [],
@@ -49,6 +49,13 @@ import * as utilities from "../utilities";
  *     assignableScopes: [example.id],
  * });
  * ```
+ *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This resource uses the following Azure API Providers:
+ *
+ * * `Microsoft.Authorization`: 2022-05-01-preview
  *
  * ## Import
  *
@@ -89,7 +96,7 @@ export class RoleDefinition extends pulumi.CustomResource {
     /**
      * One or more assignable scopes for this Role Definition, such as `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333`, `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup`, `/providers/Microsoft.Management/managementGroups/0b1f6471-1bf0-4dda-aec3-111122223333` , or `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup/providers/Microsoft.Compute/virtualMachines/myVM`.
      *
-     * > **NOTE:** The value for `scope` is automatically included in this list if no other values supplied.
+     * > **Note:** The value for `scope` is automatically included in this list if no other values supplied.
      */
     public readonly assignableScopes!: pulumi.Output<string[]>;
     /**
@@ -164,7 +171,7 @@ export interface RoleDefinitionState {
     /**
      * One or more assignable scopes for this Role Definition, such as `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333`, `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup`, `/providers/Microsoft.Management/managementGroups/0b1f6471-1bf0-4dda-aec3-111122223333` , or `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup/providers/Microsoft.Compute/virtualMachines/myVM`.
      *
-     * > **NOTE:** The value for `scope` is automatically included in this list if no other values supplied.
+     * > **Note:** The value for `scope` is automatically included in this list if no other values supplied.
      */
     assignableScopes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -200,7 +207,7 @@ export interface RoleDefinitionArgs {
     /**
      * One or more assignable scopes for this Role Definition, such as `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333`, `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup`, `/providers/Microsoft.Management/managementGroups/0b1f6471-1bf0-4dda-aec3-111122223333` , or `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup/providers/Microsoft.Compute/virtualMachines/myVM`.
      *
-     * > **NOTE:** The value for `scope` is automatically included in this list if no other values supplied.
+     * > **Note:** The value for `scope` is automatically included in this list if no other values supplied.
      */
     assignableScopes?: pulumi.Input<pulumi.Input<string>[]>;
     /**

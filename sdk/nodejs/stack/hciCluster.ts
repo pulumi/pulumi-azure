@@ -36,6 +36,15 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This resource uses the following Azure API Providers:
+ *
+ * * `Microsoft.AutoManage`: 2022-05-04
+ *
+ * * `Microsoft.AzureStackHCI`: 2024-01-01, 2022-05-04
+ *
  * ## Import
  *
  * Azure Stack HCI Clusters can be imported using the `resource id`, e.g.
@@ -115,7 +124,7 @@ export class HciCluster extends pulumi.CustomResource {
     /**
      * The Tenant ID of the Azure Active Directory which is used by the Azure Stack HCI Cluster. Changing this forces a new resource to be created.
      *
-     * > **NOTE** If unspecified the Tenant ID of the Provider will be used.
+     * > **Note:** If unspecified the Tenant ID of the Provider will be used.
      */
     public readonly tenantId!: pulumi.Output<string>;
 
@@ -212,7 +221,7 @@ export interface HciClusterState {
     /**
      * The Tenant ID of the Azure Active Directory which is used by the Azure Stack HCI Cluster. Changing this forces a new resource to be created.
      *
-     * > **NOTE** If unspecified the Tenant ID of the Provider will be used.
+     * > **Note:** If unspecified the Tenant ID of the Provider will be used.
      */
     tenantId?: pulumi.Input<string>;
 }
@@ -252,7 +261,7 @@ export interface HciClusterArgs {
     /**
      * The Tenant ID of the Azure Active Directory which is used by the Azure Stack HCI Cluster. Changing this forces a new resource to be created.
      *
-     * > **NOTE** If unspecified the Tenant ID of the Provider will be used.
+     * > **Note:** If unspecified the Tenant ID of the Provider will be used.
      */
     tenantId?: pulumi.Input<string>;
 }

@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * > **NOTE :**  Normal `pulumi up` could ignore this note. Please disable correlation request id for continuous operations in one build (like acctest). The continuous operations like `update` or `delete` could not be triggered when it shares the same `correlation-id` with its previous operation.
+ * > **Note:** Normal `pulumi up` could ignore this note. Please disable correlation request id for continuous operations in one build (like acctest). The continuous operations like `update` or `delete` could not be triggered when it shares the same `correlation-id` with its previous operation.
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -35,6 +35,13 @@ import * as utilities from "../utilities";
  *     vcenterPassword: "WsxEdc23$Rfv",
  * });
  * ```
+ *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This resource uses the following Azure API Providers:
+ *
+ * * `Microsoft.AVS`: 2022-05-01
  *
  * ## Import
  *
@@ -82,7 +89,7 @@ export class PrivateCloud extends pulumi.CustomResource {
     public /*out*/ readonly hcxCloudManagerEndpoint!: pulumi.Output<string>;
     /**
      * Is the Azure VMware Solution Private Cloud connected to the internet? This field can not be updated with `management_cluster[0].size` together.
-     * > **NOTE :** `internetConnectionEnabled` and `management_cluster[0].size` cannot be updated at the same time.
+     * > **Note:** `internetConnectionEnabled` and `management_cluster[0].size` cannot be updated at the same time.
      */
     public readonly internetConnectionEnabled!: pulumi.Output<boolean | undefined>;
     /**
@@ -91,7 +98,7 @@ export class PrivateCloud extends pulumi.CustomResource {
     public readonly location!: pulumi.Output<string>;
     /**
      * A `managementCluster` block as defined below.
-     * > **NOTE :** `internetConnectionEnabled` and `management_cluster[0].size` cannot be updated at the same time.
+     * > **Note:** `internetConnectionEnabled` and `management_cluster[0].size` cannot be updated at the same time.
      */
     public readonly managementCluster!: pulumi.Output<outputs.avs.PrivateCloudManagementCluster>;
     /**
@@ -238,7 +245,7 @@ export interface PrivateCloudState {
     hcxCloudManagerEndpoint?: pulumi.Input<string>;
     /**
      * Is the Azure VMware Solution Private Cloud connected to the internet? This field can not be updated with `management_cluster[0].size` together.
-     * > **NOTE :** `internetConnectionEnabled` and `management_cluster[0].size` cannot be updated at the same time.
+     * > **Note:** `internetConnectionEnabled` and `management_cluster[0].size` cannot be updated at the same time.
      */
     internetConnectionEnabled?: pulumi.Input<boolean>;
     /**
@@ -247,7 +254,7 @@ export interface PrivateCloudState {
     location?: pulumi.Input<string>;
     /**
      * A `managementCluster` block as defined below.
-     * > **NOTE :** `internetConnectionEnabled` and `management_cluster[0].size` cannot be updated at the same time.
+     * > **Note:** `internetConnectionEnabled` and `management_cluster[0].size` cannot be updated at the same time.
      */
     managementCluster?: pulumi.Input<inputs.avs.PrivateCloudManagementCluster>;
     /**
@@ -314,7 +321,7 @@ export interface PrivateCloudState {
 export interface PrivateCloudArgs {
     /**
      * Is the Azure VMware Solution Private Cloud connected to the internet? This field can not be updated with `management_cluster[0].size` together.
-     * > **NOTE :** `internetConnectionEnabled` and `management_cluster[0].size` cannot be updated at the same time.
+     * > **Note:** `internetConnectionEnabled` and `management_cluster[0].size` cannot be updated at the same time.
      */
     internetConnectionEnabled?: pulumi.Input<boolean>;
     /**
@@ -323,7 +330,7 @@ export interface PrivateCloudArgs {
     location?: pulumi.Input<string>;
     /**
      * A `managementCluster` block as defined below.
-     * > **NOTE :** `internetConnectionEnabled` and `management_cluster[0].size` cannot be updated at the same time.
+     * > **Note:** `internetConnectionEnabled` and `management_cluster[0].size` cannot be updated at the same time.
      */
     managementCluster: pulumi.Input<inputs.avs.PrivateCloudManagementCluster>;
     /**

@@ -19,6 +19,13 @@ import * as utilities from "../utilities";
  * });
  * export const endpointId = example.then(example => example.id);
  * ```
+ *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This data source uses the following Azure API Providers:
+ *
+ * * `Microsoft.Insights`: 2023-03-11
  */
 export function getDataCollectionEndpoint(args: GetDataCollectionEndpointArgs, opts?: pulumi.InvokeOptions): Promise<GetDataCollectionEndpointResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -74,6 +81,10 @@ export interface GetDataCollectionEndpointResult {
      * The endpoint used for ingesting logs, e.g., `https://mydce-abcd.eastus-1.ingest.monitor.azure.com`.
      */
     readonly logsIngestionEndpoint: string;
+    /**
+     * The endpoint used for ingesting metrics, e.g., `https://mydce-abcd.eastus-1.metrics.ingest.monitor.azure.com`.
+     */
+    readonly metricsIngestionEndpoint: string;
     readonly name: string;
     /**
      * Whether network access from public internet to the Data Collection Endpoint are allowed. Possible values are `true` and `false`.
@@ -100,6 +111,13 @@ export interface GetDataCollectionEndpointResult {
  * });
  * export const endpointId = example.then(example => example.id);
  * ```
+ *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This data source uses the following Azure API Providers:
+ *
+ * * `Microsoft.Insights`: 2023-03-11
  */
 export function getDataCollectionEndpointOutput(args: GetDataCollectionEndpointOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDataCollectionEndpointResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

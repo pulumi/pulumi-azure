@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 /**
  * Manages a Email integration for a Bot Channel
  *
- * > **Note** A bot can only have a single Email Channel associated with it.
+ * > **Note:** A bot can only have a single Email Channel associated with it.
  *
  * ## Example Usage
  *
@@ -35,6 +35,13 @@ import * as utilities from "../utilities";
  *     emailPassword: "123456",
  * });
  * ```
+ *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This resource uses the following Azure API Providers:
+ *
+ * * `Microsoft.BotService`: 2022-09-15
  *
  * ## Import
  *

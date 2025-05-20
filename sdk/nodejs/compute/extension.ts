@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
  * Manages a Virtual Machine Extension to provide post deployment configuration
  * and run automated tasks.
  *
- * > **NOTE:** Custom Script Extensions for Linux & Windows require that the `commandToExecute` returns a `0` exit code to be classified as successfully deployed. You can achieve this by appending `exit 0` to the end of your `commandToExecute`.
+ * > **Note:** Custom Script Extensions for Linux & Windows require that the `commandToExecute` returns a `0` exit code to be classified as successfully deployed. You can achieve this by appending `exit 0` to the end of your `commandToExecute`.
  *
- * > **NOTE:** Custom Script Extensions require that the Azure Virtual Machine Guest Agent is running on the Virtual Machine.
+ * > **Note:** Custom Script Extensions require that the Azure Virtual Machine Guest Agent is running on the Virtual Machine.
  *
  * ## Example Usage
  *
@@ -134,7 +134,7 @@ export class Extension extends pulumi.CustomResource {
     /**
      * Should failures from the extension be suppressed? Possible values are `true` or `false`. Defaults to `false`.
      *
-     * > **NOTE:** Operational failures such as not connecting to the VM will not be suppressed regardless of the `failureSuppressionEnabled` value.
+     * > **Note:** Operational failures such as not connecting to the VM will not be suppressed regardless of the `failureSuppressionEnabled` value.
      */
     public readonly failureSuppressionEnabled!: pulumi.Output<boolean | undefined>;
     /**
@@ -144,7 +144,7 @@ export class Extension extends pulumi.CustomResource {
     /**
      * The protectedSettings passed to the extension, like settings, these are specified as a JSON object in a string.
      *
-     * > **Please Note:** Certain VM Extensions require that the keys in the `protectedSettings` block are case sensitive. If you're seeing unhelpful errors, please ensure the keys are consistent with how Azure is expecting them (for instance, for the `JsonADDomainExtension` extension, the keys are expected to be in `TitleCase`.)
+     * > **Note:** Certain VM Extensions require that the keys in the `protectedSettings` block are case sensitive. If you're seeing unhelpful errors, please ensure the keys are consistent with how Azure is expecting them (for instance, for the `JsonADDomainExtension` extension, the keys are expected to be in `TitleCase`.)
      */
     public readonly protectedSettings!: pulumi.Output<string | undefined>;
     /**
@@ -164,7 +164,7 @@ export class Extension extends pulumi.CustomResource {
     /**
      * The settings passed to the extension, these are specified as a JSON object in a string.
      *
-     * > **Please Note:** Certain VM Extensions require that the keys in the `settings` block are case sensitive. If you're seeing unhelpful errors, please ensure the keys are consistent with how Azure is expecting them (for instance, for the `JsonADDomainExtension` extension, the keys are expected to be in `TitleCase`.)
+     * > **Note:** Certain VM Extensions require that the keys in the `settings` block are case sensitive. If you're seeing unhelpful errors, please ensure the keys are consistent with how Azure is expecting them (for instance, for the `JsonADDomainExtension` extension, the keys are expected to be in `TitleCase`.)
      */
     public readonly settings!: pulumi.Output<string | undefined>;
     /**
@@ -266,7 +266,7 @@ export interface ExtensionState {
     /**
      * Should failures from the extension be suppressed? Possible values are `true` or `false`. Defaults to `false`.
      *
-     * > **NOTE:** Operational failures such as not connecting to the VM will not be suppressed regardless of the `failureSuppressionEnabled` value.
+     * > **Note:** Operational failures such as not connecting to the VM will not be suppressed regardless of the `failureSuppressionEnabled` value.
      */
     failureSuppressionEnabled?: pulumi.Input<boolean>;
     /**
@@ -276,7 +276,7 @@ export interface ExtensionState {
     /**
      * The protectedSettings passed to the extension, like settings, these are specified as a JSON object in a string.
      *
-     * > **Please Note:** Certain VM Extensions require that the keys in the `protectedSettings` block are case sensitive. If you're seeing unhelpful errors, please ensure the keys are consistent with how Azure is expecting them (for instance, for the `JsonADDomainExtension` extension, the keys are expected to be in `TitleCase`.)
+     * > **Note:** Certain VM Extensions require that the keys in the `protectedSettings` block are case sensitive. If you're seeing unhelpful errors, please ensure the keys are consistent with how Azure is expecting them (for instance, for the `JsonADDomainExtension` extension, the keys are expected to be in `TitleCase`.)
      */
     protectedSettings?: pulumi.Input<string>;
     /**
@@ -296,7 +296,7 @@ export interface ExtensionState {
     /**
      * The settings passed to the extension, these are specified as a JSON object in a string.
      *
-     * > **Please Note:** Certain VM Extensions require that the keys in the `settings` block are case sensitive. If you're seeing unhelpful errors, please ensure the keys are consistent with how Azure is expecting them (for instance, for the `JsonADDomainExtension` extension, the keys are expected to be in `TitleCase`.)
+     * > **Note:** Certain VM Extensions require that the keys in the `settings` block are case sensitive. If you're seeing unhelpful errors, please ensure the keys are consistent with how Azure is expecting them (for instance, for the `JsonADDomainExtension` extension, the keys are expected to be in `TitleCase`.)
      */
     settings?: pulumi.Input<string>;
     /**
@@ -338,7 +338,7 @@ export interface ExtensionArgs {
     /**
      * Should failures from the extension be suppressed? Possible values are `true` or `false`. Defaults to `false`.
      *
-     * > **NOTE:** Operational failures such as not connecting to the VM will not be suppressed regardless of the `failureSuppressionEnabled` value.
+     * > **Note:** Operational failures such as not connecting to the VM will not be suppressed regardless of the `failureSuppressionEnabled` value.
      */
     failureSuppressionEnabled?: pulumi.Input<boolean>;
     /**
@@ -348,7 +348,7 @@ export interface ExtensionArgs {
     /**
      * The protectedSettings passed to the extension, like settings, these are specified as a JSON object in a string.
      *
-     * > **Please Note:** Certain VM Extensions require that the keys in the `protectedSettings` block are case sensitive. If you're seeing unhelpful errors, please ensure the keys are consistent with how Azure is expecting them (for instance, for the `JsonADDomainExtension` extension, the keys are expected to be in `TitleCase`.)
+     * > **Note:** Certain VM Extensions require that the keys in the `protectedSettings` block are case sensitive. If you're seeing unhelpful errors, please ensure the keys are consistent with how Azure is expecting them (for instance, for the `JsonADDomainExtension` extension, the keys are expected to be in `TitleCase`.)
      */
     protectedSettings?: pulumi.Input<string>;
     /**
@@ -368,7 +368,7 @@ export interface ExtensionArgs {
     /**
      * The settings passed to the extension, these are specified as a JSON object in a string.
      *
-     * > **Please Note:** Certain VM Extensions require that the keys in the `settings` block are case sensitive. If you're seeing unhelpful errors, please ensure the keys are consistent with how Azure is expecting them (for instance, for the `JsonADDomainExtension` extension, the keys are expected to be in `TitleCase`.)
+     * > **Note:** Certain VM Extensions require that the keys in the `settings` block are case sensitive. If you're seeing unhelpful errors, please ensure the keys are consistent with how Azure is expecting them (for instance, for the `JsonADDomainExtension` extension, the keys are expected to be in `TitleCase`.)
      */
     settings?: pulumi.Input<string>;
     /**

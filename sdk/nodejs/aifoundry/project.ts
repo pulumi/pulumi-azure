@@ -28,7 +28,7 @@ import * as utilities from "../utilities";
  *     skuName: "standard",
  *     purgeProtectionEnabled: true,
  * });
- * const test = new azure.keyvault.AccessPolicy("test", {
+ * const exampleAccessPolicy = new azure.keyvault.AccessPolicy("example", {
  *     keyVaultId: exampleKeyVault.id,
  *     tenantId: current.then(current => current.tenantId),
  *     objectId: current.then(current => current.objectId),
@@ -69,6 +69,13 @@ import * as utilities from "../utilities";
  *     aiServicesHubId: exampleHub.id,
  * });
  * ```
+ *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This resource uses the following Azure API Providers:
+ *
+ * * `Microsoft.MachineLearningServices`: 2024-04-01
  *
  * ## Import
  *
@@ -135,6 +142,10 @@ export class Project extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
+     * The user assigned identity ID that represents the AI Foundry Hub identity. This must be set when enabling encryption with a user assigned identity.
+     */
+    public readonly primaryUserAssignedIdentity!: pulumi.Output<string | undefined>;
+    /**
      * The immutable project ID associated with this AI Foundry Project.
      */
     public /*out*/ readonly projectId!: pulumi.Output<string>;
@@ -163,6 +174,7 @@ export class Project extends pulumi.CustomResource {
             resourceInputs["identity"] = state ? state.identity : undefined;
             resourceInputs["location"] = state ? state.location : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["primaryUserAssignedIdentity"] = state ? state.primaryUserAssignedIdentity : undefined;
             resourceInputs["projectId"] = state ? state.projectId : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
         } else {
@@ -177,6 +189,7 @@ export class Project extends pulumi.CustomResource {
             resourceInputs["identity"] = args ? args.identity : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["primaryUserAssignedIdentity"] = args ? args.primaryUserAssignedIdentity : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["projectId"] = undefined /*out*/;
         }
@@ -217,6 +230,10 @@ export interface ProjectState {
      * The name which should be used for this AI Foundry Project. Changing this forces a new AI Foundry Project to be created.
      */
     name?: pulumi.Input<string>;
+    /**
+     * The user assigned identity ID that represents the AI Foundry Hub identity. This must be set when enabling encryption with a user assigned identity.
+     */
+    primaryUserAssignedIdentity?: pulumi.Input<string>;
     /**
      * The immutable project ID associated with this AI Foundry Project.
      */
@@ -259,6 +276,10 @@ export interface ProjectArgs {
      * The name which should be used for this AI Foundry Project. Changing this forces a new AI Foundry Project to be created.
      */
     name?: pulumi.Input<string>;
+    /**
+     * The user assigned identity ID that represents the AI Foundry Hub identity. This must be set when enabling encryption with a user assigned identity.
+     */
+    primaryUserAssignedIdentity?: pulumi.Input<string>;
     /**
      * A mapping of tags which should be assigned to the AI Foundry Project.
      */

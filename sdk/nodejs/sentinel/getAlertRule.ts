@@ -23,6 +23,13 @@ import * as utilities from "../utilities";
  * }));
  * export const id = exampleGetAlertRule.then(exampleGetAlertRule => exampleGetAlertRule.id);
  * ```
+ *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This data source uses the following Azure API Providers:
+ *
+ * * `Microsoft.OperationalInsights`: 2023-12-01-preview
  */
 export function getAlertRule(args: GetAlertRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetAlertRuleResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -76,6 +83,13 @@ export interface GetAlertRuleResult {
  * }));
  * export const id = exampleGetAlertRule.then(exampleGetAlertRule => exampleGetAlertRule.id);
  * ```
+ *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This data source uses the following Azure API Providers:
+ *
+ * * `Microsoft.OperationalInsights`: 2023-12-01-preview
  */
 export function getAlertRuleOutput(args: GetAlertRuleOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAlertRuleResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

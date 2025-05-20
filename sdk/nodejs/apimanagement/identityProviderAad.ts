@@ -22,7 +22,7 @@ import * as utilities from "../utilities";
  *     location: example.location,
  *     resourceGroupName: example.name,
  *     publisherName: "My Company",
- *     publisherEmail: "company@mycompany.io",
+ *     publisherEmail: "company@terraform.io",
  *     skuName: "Developer_1",
  * });
  * const exampleIdentityProviderAad = new azure.apimanagement.IdentityProviderAad("example", {
@@ -33,6 +33,13 @@ import * as utilities from "../utilities";
  *     allowedTenants: ["00000000-0000-0000-0000-000000000000"],
  * });
  * ```
+ *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This resource uses the following Azure API Providers:
+ *
+ * * `Microsoft.ApiManagement`: 2022-08-01
  *
  * ## Import
  *

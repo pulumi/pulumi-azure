@@ -16,8 +16,8 @@ import * as utilities from "../utilities";
  * import * as azure from "@pulumi/azure";
  *
  * const example = new azure.core.ResourceGroup("example", {
- *     name: "my-signalr",
- *     location: "West US",
+ *     name: "terraform-signalr",
+ *     location: "West Europe",
  * });
  * const exampleService = new azure.signalr.Service("example", {
  *     name: "tfex-signalr",
@@ -45,6 +45,13 @@ import * as utilities from "../utilities";
  *     }],
  * });
  * ```
+ *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This resource uses the following Azure API Providers:
+ *
+ * * `Microsoft.SignalRService`: 2024-03-01
  *
  * ## Import
  *

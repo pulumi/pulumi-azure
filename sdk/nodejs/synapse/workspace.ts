@@ -199,7 +199,7 @@ export class Workspace extends pulumi.CustomResource {
      */
     public readonly computeSubnetId!: pulumi.Output<string | undefined>;
     /**
-     * A list of Connectivity endpoints for this Synapse Workspace.
+     * A map of Connectivity endpoints for this Synapse Workspace. Possible key values are `dev`, `sql`, `sqlOnDemand`, and `web`.
      */
     public /*out*/ readonly connectivityEndpoints!: pulumi.Output<{[key: string]: string}>;
     /**
@@ -359,7 +359,7 @@ export interface WorkspaceState {
      */
     computeSubnetId?: pulumi.Input<string>;
     /**
-     * A list of Connectivity endpoints for this Synapse Workspace.
+     * A map of Connectivity endpoints for this Synapse Workspace. Possible key values are `dev`, `sql`, `sqlOnDemand`, and `web`.
      */
     connectivityEndpoints?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**

@@ -5,6 +5,11 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export { ApiKeyArgs, ApiKeyState } from "./apiKey";
+export type ApiKey = import("./apiKey").ApiKey;
+export const ApiKey: typeof import("./apiKey").ApiKey = null as any;
+utilities.lazyLoad(exports, ["ApiKey"], () => require("./apiKey"));
+
 export { CertificateArgs, CertificateState } from "./certificate";
 export type Certificate = import("./certificate").Certificate;
 export const Certificate: typeof import("./certificate").Certificate = null as any;
@@ -19,6 +24,11 @@ export { DeploymentArgs, DeploymentState } from "./deployment";
 export type Deployment = import("./deployment").Deployment;
 export const Deployment: typeof import("./deployment").Deployment = null as any;
 utilities.lazyLoad(exports, ["Deployment"], () => require("./deployment"));
+
+export { GetApiKeyArgs, GetApiKeyResult, GetApiKeyOutputArgs } from "./getApiKey";
+export const getApiKey: typeof import("./getApiKey").getApiKey = null as any;
+export const getApiKeyOutput: typeof import("./getApiKey").getApiKeyOutput = null as any;
+utilities.lazyLoad(exports, ["getApiKey","getApiKeyOutput"], () => require("./getApiKey"));
 
 export { GetCertificateArgs, GetCertificateResult, GetCertificateOutputArgs } from "./getCertificate";
 export const getCertificate: typeof import("./getCertificate").getCertificate = null as any;
@@ -40,6 +50,8 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "azure:nginx/apiKey:ApiKey":
+                return new ApiKey(name, <any>undefined, { urn })
             case "azure:nginx/certificate:Certificate":
                 return new Certificate(name, <any>undefined, { urn })
             case "azure:nginx/configuration:Configuration":
@@ -51,6 +63,7 @@ const _module = {
         }
     },
 };
+pulumi.runtime.registerResourceModule("azure", "nginx/apiKey", _module)
 pulumi.runtime.registerResourceModule("azure", "nginx/certificate", _module)
 pulumi.runtime.registerResourceModule("azure", "nginx/configuration", _module)
 pulumi.runtime.registerResourceModule("azure", "nginx/deployment", _module)

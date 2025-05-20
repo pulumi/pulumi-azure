@@ -67,6 +67,13 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This resource uses the following Azure API Providers:
+ *
+ * * `Microsoft.MachineLearningServices`: 2024-04-01
+ *
  * ## Import
  *
  * Machine Learning Workspace Network Outbound Rule Private Endpoint can be imported using the `resource id`, e.g.
@@ -110,7 +117,7 @@ export class WorkspaceNetworkOutboundRulePrivateEndpoint extends pulumi.CustomRe
     /**
      * Specifies the Service Resource ID to connect. Changing this forces a new resource to be created.
      *
-     * > **Note** Supported service resources: **Key Vault**, **Storage Account**, **Machine Learning Workspace**, **Redis**.
+     * > **Note:** Supported service resources: **Key Vault**, **Storage Account**, **Machine Learning Workspace**, **Redis**.
      */
     public readonly serviceResourceId!: pulumi.Output<string>;
     /**
@@ -184,7 +191,7 @@ export interface WorkspaceNetworkOutboundRulePrivateEndpointState {
     /**
      * Specifies the Service Resource ID to connect. Changing this forces a new resource to be created.
      *
-     * > **Note** Supported service resources: **Key Vault**, **Storage Account**, **Machine Learning Workspace**, **Redis**.
+     * > **Note:** Supported service resources: **Key Vault**, **Storage Account**, **Machine Learning Workspace**, **Redis**.
      */
     serviceResourceId?: pulumi.Input<string>;
     /**
@@ -219,7 +226,7 @@ export interface WorkspaceNetworkOutboundRulePrivateEndpointArgs {
     /**
      * Specifies the Service Resource ID to connect. Changing this forces a new resource to be created.
      *
-     * > **Note** Supported service resources: **Key Vault**, **Storage Account**, **Machine Learning Workspace**, **Redis**.
+     * > **Note:** Supported service resources: **Key Vault**, **Storage Account**, **Machine Learning Workspace**, **Redis**.
      */
     serviceResourceId: pulumi.Input<string>;
     /**

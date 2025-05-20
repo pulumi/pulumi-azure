@@ -27,7 +27,7 @@ import * as utilities from "../utilities";
  *     name: "tfex-example-var",
  *     resourceGroupName: example.name,
  *     automationAccountName: exampleAccount.name,
- *     value: "Hello, Basic Test.",
+ *     value: "Hello, Terraform Basic Test.",
  * });
  * ```
  *

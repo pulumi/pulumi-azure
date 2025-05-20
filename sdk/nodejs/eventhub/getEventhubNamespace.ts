@@ -19,6 +19,13 @@ import * as utilities from "../utilities";
  * });
  * export const eventhubNamespaceId = example.then(example => example.id);
  * ```
+ *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This data source uses the following Azure API Providers:
+ *
+ * * `Microsoft.EventHub`: 2024-01-01
  */
 /** @deprecated azure.eventhub.getEventhubNamespace has been deprecated in favor of azure.eventhub.getNamespace */
 export function getEventhubNamespace(args: GetEventhubNamespaceArgs, opts?: pulumi.InvokeOptions): Promise<GetEventhubNamespaceResult> {
@@ -127,6 +134,13 @@ export interface GetEventhubNamespaceResult {
  * });
  * export const eventhubNamespaceId = example.then(example => example.id);
  * ```
+ *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This data source uses the following Azure API Providers:
+ *
+ * * `Microsoft.EventHub`: 2024-01-01
  */
 /** @deprecated azure.eventhub.getEventhubNamespace has been deprecated in favor of azure.eventhub.getNamespace */
 export function getEventhubNamespaceOutput(args: GetEventhubNamespaceOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetEventhubNamespaceResult> {

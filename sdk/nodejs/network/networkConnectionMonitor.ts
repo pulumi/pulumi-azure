@@ -7,10 +7,6 @@ import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
- * Manages a Network Connection Monitor.
- *
- * > **NOTE:** Any Network Connection Monitor resource created with API versions 2019-06-01 or earlier (v1) are now incompatible with this provider, which now only supports v2.
- *
  * ## Example Usage
  *
  * ```typescript
@@ -107,7 +103,7 @@ import * as utilities from "../utilities";
  *         },
  *         {
  *             name: "destination",
- *             address: "mycompany.io",
+ *             address: "terraform.io",
  *         },
  *     ],
  *     testConfigurations: [{

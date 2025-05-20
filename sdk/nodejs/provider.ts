@@ -118,10 +118,13 @@ export class Provider extends pulumi.ProviderResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: ProviderArgs, opts?: pulumi.ResourceOptions) {
+    constructor(name: string, args: ProviderArgs, opts?: pulumi.ResourceOptions) {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         {
+            if ((!args || args.features === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'features'");
+            }
             resourceInputs["adoPipelineServiceConnectionId"] = args ? args.adoPipelineServiceConnectionId : undefined;
             resourceInputs["auxiliaryTenantIds"] = pulumi.output(args?.auxiliaryTenantIds ? pulumi.secret(args.auxiliaryTenantIds) : undefined).apply(JSON.stringify);
             resourceInputs["clientCertificate"] = args?.clientCertificate ? pulumi.secret(args.clientCertificate) : undefined;
@@ -219,7 +222,7 @@ export interface ProviderArgs {
      * used and should not be specified when `metadataHost` is specified.
      */
     environment?: pulumi.Input<string>;
-    features?: pulumi.Input<inputs.ProviderFeatures>;
+    features: pulumi.Input<inputs.ProviderFeatures>;
     /**
      * The Hostname which should be used for the Azure Metadata Service.
      */

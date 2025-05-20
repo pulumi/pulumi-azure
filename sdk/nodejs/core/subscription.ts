@@ -69,6 +69,13 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This resource uses the following Azure API Providers:
+ *
+ * * `Microsoft.Resources`: 2023-07-01
+ *
  * ## Import
  *
  * Subscriptions can be imported using the `resource id`, e.g.
@@ -77,7 +84,7 @@ import * as utilities from "../utilities";
  * $ pulumi import azure:core/subscription:Subscription example "/providers/Microsoft.Subscription/aliases/subscription1"
  * ```
  *
- * In this scenario, the `subscription_id` property can be completed and the provider will assume control of the existing subscription by creating an Alias. See the `adding an Alias to an existing Subscription` above. This provider requires an alias to correctly manage Subscription resources due to Azure Subscription API design.
+ * In this scenario, the `subscription_id` property can be completed and Terraform will assume control of the existing subscription by creating an Alias. See the `adding an Alias to an existing Subscription` above. Terrafom requires an alias to correctly manage Subscription resources due to Azure Subscription API design.
  */
 export class Subscription extends pulumi.CustomResource {
     /**
@@ -108,7 +115,7 @@ export class Subscription extends pulumi.CustomResource {
     }
 
     /**
-     * The Alias name for the subscription. This provider will generate a new GUID if this is not supplied. Changing this forces a new Subscription to be created.
+     * The Alias Name of the subscription. If omitted a new UUID will be generated for this property.
      */
     public readonly alias!: pulumi.Output<string>;
     /**
@@ -118,9 +125,9 @@ export class Subscription extends pulumi.CustomResource {
     /**
      * The ID of the Subscription. Changing this forces a new Subscription to be created.
      *
-     * > **NOTE:** This value can be specified only for adopting control of an existing Subscription, it cannot be used to provide a custom Subscription ID.
+     * > **Note:** This value can be specified only for adopting control of an existing Subscription, it cannot be used to provide a custom Subscription ID.
      *
-     * > **NOTE:** Either `billingScopeId` or `subscriptionId` has to be specified.
+     * > **Note:** Either `billingScopeId` or `subscriptionId` has to be specified.
      */
     public readonly subscriptionId!: pulumi.Output<string>;
     /**
@@ -183,7 +190,7 @@ export class Subscription extends pulumi.CustomResource {
  */
 export interface SubscriptionState {
     /**
-     * The Alias name for the subscription. This provider will generate a new GUID if this is not supplied. Changing this forces a new Subscription to be created.
+     * The Alias Name of the subscription. If omitted a new UUID will be generated for this property.
      */
     alias?: pulumi.Input<string>;
     /**
@@ -193,9 +200,9 @@ export interface SubscriptionState {
     /**
      * The ID of the Subscription. Changing this forces a new Subscription to be created.
      *
-     * > **NOTE:** This value can be specified only for adopting control of an existing Subscription, it cannot be used to provide a custom Subscription ID.
+     * > **Note:** This value can be specified only for adopting control of an existing Subscription, it cannot be used to provide a custom Subscription ID.
      *
-     * > **NOTE:** Either `billingScopeId` or `subscriptionId` has to be specified.
+     * > **Note:** Either `billingScopeId` or `subscriptionId` has to be specified.
      */
     subscriptionId?: pulumi.Input<string>;
     /**
@@ -221,7 +228,7 @@ export interface SubscriptionState {
  */
 export interface SubscriptionArgs {
     /**
-     * The Alias name for the subscription. This provider will generate a new GUID if this is not supplied. Changing this forces a new Subscription to be created.
+     * The Alias Name of the subscription. If omitted a new UUID will be generated for this property.
      */
     alias?: pulumi.Input<string>;
     /**
@@ -231,9 +238,9 @@ export interface SubscriptionArgs {
     /**
      * The ID of the Subscription. Changing this forces a new Subscription to be created.
      *
-     * > **NOTE:** This value can be specified only for adopting control of an existing Subscription, it cannot be used to provide a custom Subscription ID.
+     * > **Note:** This value can be specified only for adopting control of an existing Subscription, it cannot be used to provide a custom Subscription ID.
      *
-     * > **NOTE:** Either `billingScopeId` or `subscriptionId` has to be specified.
+     * > **Note:** Either `billingScopeId` or `subscriptionId` has to be specified.
      */
     subscriptionId?: pulumi.Input<string>;
     /**

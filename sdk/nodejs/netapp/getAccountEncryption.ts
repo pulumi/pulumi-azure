@@ -18,6 +18,13 @@ import * as utilities from "../utilities";
  * });
  * export const id = example.then(example => example.id);
  * ```
+ *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This data source uses the following Azure API Providers:
+ *
+ * * `Microsoft.NetApp`: 2025-01-01
  */
 export function getAccountEncryption(args: GetAccountEncryptionArgs, opts?: pulumi.InvokeOptions): Promise<GetAccountEncryptionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -63,6 +70,13 @@ export interface GetAccountEncryptionResult {
  * });
  * export const id = example.then(example => example.id);
  * ```
+ *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This data source uses the following Azure API Providers:
+ *
+ * * `Microsoft.NetApp`: 2025-01-01
  */
 export function getAccountEncryptionOutput(args: GetAccountEncryptionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAccountEncryptionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

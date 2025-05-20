@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 /**
  * Manages a Blob Target within a HPC Cache.
  *
- * > **NOTE:**: By request of the service team the provider no longer automatically registering the `Microsoft.StorageCache` Resource Provider for this resource. To register it you can run `az provider register --namespace 'Microsoft.StorageCache'`.
+ * > **Note:** By request of the service team the provider no longer automatically registering the `Microsoft.StorageCache` Resource Provider for this resource. To register it you can run `az provider register --namespace 'Microsoft.StorageCache'`.
  *
  * ## Example Usage
  *
@@ -72,6 +72,13 @@ import * as utilities from "../utilities";
  *     namespacePath: "/blob_storage",
  * });
  * ```
+ *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This resource uses the following Azure API Providers:
+ *
+ * * `Microsoft.StorageCache`: 2023-05-01
  *
  * ## Import
  *

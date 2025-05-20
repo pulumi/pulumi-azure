@@ -84,7 +84,7 @@ export class OutputServicebusTopic extends pulumi.CustomResource {
     /**
      * A key-value pair of system property columns that will be attached to the outgoing messages for the Service Bus Topic Output.
      *
-     * > **NOTE:** The acceptable keys are `ContentType`, `CorrelationId`, `Label`, `MessageId`, `PartitionKey`, `ReplyTo`, `ReplyToSessionId`, `ScheduledEnqueueTimeUtc`, `SessionId`, `TimeToLive` and `To`.
+     * > **Note:** The acceptable keys are `ContentType`, `CorrelationId`, `Label`, `MessageId`, `PartitionKey`, `ReplyTo`, `ReplyToSessionId`, `ScheduledEnqueueTimeUtc`, `SessionId`, `TimeToLive` and `To`.
      */
     public readonly systemPropertyColumns!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
@@ -195,7 +195,7 @@ export interface OutputServicebusTopicState {
     /**
      * A key-value pair of system property columns that will be attached to the outgoing messages for the Service Bus Topic Output.
      *
-     * > **NOTE:** The acceptable keys are `ContentType`, `CorrelationId`, `Label`, `MessageId`, `PartitionKey`, `ReplyTo`, `ReplyToSessionId`, `ScheduledEnqueueTimeUtc`, `SessionId`, `TimeToLive` and `To`.
+     * > **Note:** The acceptable keys are `ContentType`, `CorrelationId`, `Label`, `MessageId`, `PartitionKey`, `ReplyTo`, `ReplyToSessionId`, `ScheduledEnqueueTimeUtc`, `SessionId`, `TimeToLive` and `To`.
      */
     systemPropertyColumns?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -247,7 +247,7 @@ export interface OutputServicebusTopicArgs {
     /**
      * A key-value pair of system property columns that will be attached to the outgoing messages for the Service Bus Topic Output.
      *
-     * > **NOTE:** The acceptable keys are `ContentType`, `CorrelationId`, `Label`, `MessageId`, `PartitionKey`, `ReplyTo`, `ReplyToSessionId`, `ScheduledEnqueueTimeUtc`, `SessionId`, `TimeToLive` and `To`.
+     * > **Note:** The acceptable keys are `ContentType`, `CorrelationId`, `Label`, `MessageId`, `PartitionKey`, `ReplyTo`, `ReplyToSessionId`, `ScheduledEnqueueTimeUtc`, `SessionId`, `TimeToLive` and `To`.
      */
     systemPropertyColumns?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**

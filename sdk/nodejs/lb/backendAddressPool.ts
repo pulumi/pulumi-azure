@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 /**
  * Manages a Load Balancer Backend Address Pool.
  *
- * > **NOTE:** When using this resource, the Load Balancer needs to have a FrontEnd IP Configuration Attached
+ * > **Note:** When using this resource, the Load Balancer needs to have a FrontEnd IP Configuration Attached
  *
  * ## Example Usage
  *
@@ -41,6 +41,13 @@ import * as utilities from "../utilities";
  *     name: "BackEndAddressPool",
  * });
  * ```
+ *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This resource uses the following Azure API Providers:
+ *
+ * * `Microsoft.Network`: 2023-09-01
  *
  * ## Import
  *
@@ -105,7 +112,7 @@ export class BackendAddressPool extends pulumi.CustomResource {
     /**
      * The backend address synchronous mode for the Backend Address Pool. Possible values are `Automatic` and `Manual`. This is required with `virtualNetworkId`. Changing this forces a new resource to be created.
      *
-     * > **NOTE:** The `synchronousMode` can set only for Load Balancer with `Standard` SKU.
+     * > **Note:** The `synchronousMode` can set only for Load Balancer with `Standard` SKU.
      */
     public readonly synchronousMode!: pulumi.Output<string | undefined>;
     /**
@@ -190,7 +197,7 @@ export interface BackendAddressPoolState {
     /**
      * The backend address synchronous mode for the Backend Address Pool. Possible values are `Automatic` and `Manual`. This is required with `virtualNetworkId`. Changing this forces a new resource to be created.
      *
-     * > **NOTE:** The `synchronousMode` can set only for Load Balancer with `Standard` SKU.
+     * > **Note:** The `synchronousMode` can set only for Load Balancer with `Standard` SKU.
      */
     synchronousMode?: pulumi.Input<string>;
     /**
@@ -218,7 +225,7 @@ export interface BackendAddressPoolArgs {
     /**
      * The backend address synchronous mode for the Backend Address Pool. Possible values are `Automatic` and `Manual`. This is required with `virtualNetworkId`. Changing this forces a new resource to be created.
      *
-     * > **NOTE:** The `synchronousMode` can set only for Load Balancer with `Standard` SKU.
+     * > **Note:** The `synchronousMode` can set only for Load Balancer with `Standard` SKU.
      */
     synchronousMode?: pulumi.Input<string>;
     /**

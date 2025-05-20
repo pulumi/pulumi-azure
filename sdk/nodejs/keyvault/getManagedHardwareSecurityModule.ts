@@ -19,6 +19,13 @@ import * as utilities from "../utilities";
  * });
  * export const hsmUri = example.then(example => example.hsmUri);
  * ```
+ *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This data source uses the following Azure API Providers:
+ *
+ * * `Microsoft.KeyVault`: 2023-07-01
  */
 export function getManagedHardwareSecurityModule(args: GetManagedHardwareSecurityModuleArgs, opts?: pulumi.InvokeOptions): Promise<GetManagedHardwareSecurityModuleResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -100,6 +107,13 @@ export interface GetManagedHardwareSecurityModuleResult {
  * });
  * export const hsmUri = example.then(example => example.hsmUri);
  * ```
+ *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This data source uses the following Azure API Providers:
+ *
+ * * `Microsoft.KeyVault`: 2023-07-01
  */
 export function getManagedHardwareSecurityModuleOutput(args: GetManagedHardwareSecurityModuleOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetManagedHardwareSecurityModuleResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

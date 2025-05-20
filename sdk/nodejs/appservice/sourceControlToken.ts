@@ -17,6 +17,13 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This resource uses the following Azure API Providers:
+ *
+ * * `Microsoft.Web`: 2023-01-01
+ *
  * ## Import
  *
  * App Service Source GitHub Tokens can be imported using the `resource id`, e.g.
@@ -60,7 +67,7 @@ export class SourceControlToken extends pulumi.CustomResource {
     /**
      * The Access Token Secret.
      *
-     * > **NOTE:** The token used for deploying App Service needs the following permissions: `repo` and `workflow`.
+     * > **Note:** The token used for deploying App Service needs the following permissions: `repo` and `workflow`.
      */
     public readonly tokenSecret!: pulumi.Output<string | undefined>;
     /**
@@ -114,7 +121,7 @@ export interface SourceControlTokenState {
     /**
      * The Access Token Secret.
      *
-     * > **NOTE:** The token used for deploying App Service needs the following permissions: `repo` and `workflow`.
+     * > **Note:** The token used for deploying App Service needs the following permissions: `repo` and `workflow`.
      */
     tokenSecret?: pulumi.Input<string>;
     /**
@@ -134,7 +141,7 @@ export interface SourceControlTokenArgs {
     /**
      * The Access Token Secret.
      *
-     * > **NOTE:** The token used for deploying App Service needs the following permissions: `repo` and `workflow`.
+     * > **Note:** The token used for deploying App Service needs the following permissions: `repo` and `workflow`.
      */
     tokenSecret?: pulumi.Input<string>;
     /**

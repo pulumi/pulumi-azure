@@ -18,6 +18,13 @@ import * as utilities from "../utilities";
  * });
  * export const privateDnsAaaaRecordId = exampleAzurermPrivateDnsAaaaRecord.id;
  * ```
+ *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This data source uses the following Azure API Providers:
+ *
+ * * `Microsoft.Network`: 2024-06-01
  */
 export function getAAAARecord(args: GetAAAARecordArgs, opts?: pulumi.InvokeOptions): Promise<GetAAAARecordResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -88,6 +95,13 @@ export interface GetAAAARecordResult {
  * });
  * export const privateDnsAaaaRecordId = exampleAzurermPrivateDnsAaaaRecord.id;
  * ```
+ *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This data source uses the following Azure API Providers:
+ *
+ * * `Microsoft.Network`: 2024-06-01
  */
 export function getAAAARecordOutput(args: GetAAAARecordOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAAAARecordResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

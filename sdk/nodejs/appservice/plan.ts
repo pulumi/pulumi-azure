@@ -143,7 +143,7 @@ export class Plan extends pulumi.CustomResource {
     /**
      * The ID of the App Service Environment where the App Service Plan should be located. Changing forces a new resource to be created.
      *
-     * > **NOTE:** Attaching to an App Service Environment requires the App Service Plan use a `Premium` SKU (when using an ASEv1) and the `Isolated` SKU (for an ASEv2).
+     * > **Note:** Attaching to an App Service Environment requires the App Service Plan use a `Premium` SKU (when using an ASEv1) and the `Isolated` SKU (for an ASEv2).
      */
     public readonly appServiceEnvironmentId!: pulumi.Output<string | undefined>;
     /**
@@ -153,7 +153,7 @@ export class Plan extends pulumi.CustomResource {
     /**
      * The kind of the App Service Plan to create. Possible values are `Windows` (also available as `App`), `Linux`, `elastic` (for Premium Consumption), `xenon` and `FunctionApp` (for a Consumption Plan). Defaults to `Windows`. Changing this forces a new resource to be created.
      *
-     * > **NOTE:** When creating a `Linux` App Service Plan, the `reserved` field must be set to `true`, and when creating a `Windows`/`app` App Service Plan the `reserved` field must be set to `false`.
+     * > **Note:** When creating a `Linux` App Service Plan, the `reserved` field must be set to `true`, and when creating a `Windows`/`app` App Service Plan the `reserved` field must be set to `false`.
      */
     public readonly kind!: pulumi.Output<string | undefined>;
     /**
@@ -195,7 +195,7 @@ export class Plan extends pulumi.CustomResource {
     /**
      * Specifies if the App Service Plan should be Zone Redundant. Changing this forces a new resource to be created.
      *
-     * > **NOTE:** Requires either `PremiumV2` or `PremiumV3` SKU and that at least 3 instances. For more information, please see the [App Service Team Blog](https://azure.github.io/AppService/2021/08/25/App-service-support-for-availability-zones.html).
+     * > **Note:** Requires either `PremiumV2` or `PremiumV3` SKU and that at least 3 instances. For more information, please see the [App Service Team Blog](https://azure.github.io/AppService/2021/08/25/App-service-support-for-availability-zones.html).
      */
     public readonly zoneRedundant!: pulumi.Output<boolean | undefined>;
 
@@ -259,7 +259,7 @@ export interface PlanState {
     /**
      * The ID of the App Service Environment where the App Service Plan should be located. Changing forces a new resource to be created.
      *
-     * > **NOTE:** Attaching to an App Service Environment requires the App Service Plan use a `Premium` SKU (when using an ASEv1) and the `Isolated` SKU (for an ASEv2).
+     * > **Note:** Attaching to an App Service Environment requires the App Service Plan use a `Premium` SKU (when using an ASEv1) and the `Isolated` SKU (for an ASEv2).
      */
     appServiceEnvironmentId?: pulumi.Input<string>;
     /**
@@ -269,7 +269,7 @@ export interface PlanState {
     /**
      * The kind of the App Service Plan to create. Possible values are `Windows` (also available as `App`), `Linux`, `elastic` (for Premium Consumption), `xenon` and `FunctionApp` (for a Consumption Plan). Defaults to `Windows`. Changing this forces a new resource to be created.
      *
-     * > **NOTE:** When creating a `Linux` App Service Plan, the `reserved` field must be set to `true`, and when creating a `Windows`/`app` App Service Plan the `reserved` field must be set to `false`.
+     * > **Note:** When creating a `Linux` App Service Plan, the `reserved` field must be set to `true`, and when creating a `Windows`/`app` App Service Plan the `reserved` field must be set to `false`.
      */
     kind?: pulumi.Input<string | Kind>;
     /**
@@ -311,7 +311,7 @@ export interface PlanState {
     /**
      * Specifies if the App Service Plan should be Zone Redundant. Changing this forces a new resource to be created.
      *
-     * > **NOTE:** Requires either `PremiumV2` or `PremiumV3` SKU and that at least 3 instances. For more information, please see the [App Service Team Blog](https://azure.github.io/AppService/2021/08/25/App-service-support-for-availability-zones.html).
+     * > **Note:** Requires either `PremiumV2` or `PremiumV3` SKU and that at least 3 instances. For more information, please see the [App Service Team Blog](https://azure.github.io/AppService/2021/08/25/App-service-support-for-availability-zones.html).
      */
     zoneRedundant?: pulumi.Input<boolean>;
 }
@@ -323,7 +323,7 @@ export interface PlanArgs {
     /**
      * The ID of the App Service Environment where the App Service Plan should be located. Changing forces a new resource to be created.
      *
-     * > **NOTE:** Attaching to an App Service Environment requires the App Service Plan use a `Premium` SKU (when using an ASEv1) and the `Isolated` SKU (for an ASEv2).
+     * > **Note:** Attaching to an App Service Environment requires the App Service Plan use a `Premium` SKU (when using an ASEv1) and the `Isolated` SKU (for an ASEv2).
      */
     appServiceEnvironmentId?: pulumi.Input<string>;
     /**
@@ -333,7 +333,7 @@ export interface PlanArgs {
     /**
      * The kind of the App Service Plan to create. Possible values are `Windows` (also available as `App`), `Linux`, `elastic` (for Premium Consumption), `xenon` and `FunctionApp` (for a Consumption Plan). Defaults to `Windows`. Changing this forces a new resource to be created.
      *
-     * > **NOTE:** When creating a `Linux` App Service Plan, the `reserved` field must be set to `true`, and when creating a `Windows`/`app` App Service Plan the `reserved` field must be set to `false`.
+     * > **Note:** When creating a `Linux` App Service Plan, the `reserved` field must be set to `true`, and when creating a `Windows`/`app` App Service Plan the `reserved` field must be set to `false`.
      */
     kind?: pulumi.Input<string | Kind>;
     /**
@@ -371,7 +371,7 @@ export interface PlanArgs {
     /**
      * Specifies if the App Service Plan should be Zone Redundant. Changing this forces a new resource to be created.
      *
-     * > **NOTE:** Requires either `PremiumV2` or `PremiumV3` SKU and that at least 3 instances. For more information, please see the [App Service Team Blog](https://azure.github.io/AppService/2021/08/25/App-service-support-for-availability-zones.html).
+     * > **Note:** Requires either `PremiumV2` or `PremiumV3` SKU and that at least 3 instances. For more information, please see the [App Service Team Blog](https://azure.github.io/AppService/2021/08/25/App-service-support-for-availability-zones.html).
      */
     zoneRedundant?: pulumi.Input<boolean>;
 }

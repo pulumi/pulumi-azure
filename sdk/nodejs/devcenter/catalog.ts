@@ -6,6 +6,63 @@ import * as inputs from "../types/input";
 import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
+/**
+ * Manages a Dev Center Catalog.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "example-resources",
+ *     location: "West Europe",
+ * });
+ * const exampleDevCenter = new azure.devcenter.DevCenter("example", {
+ *     location: example.location,
+ *     name: "example",
+ *     resourceGroupName: example.name,
+ *     identity: {
+ *         type: "SystemAssigned",
+ *     },
+ * });
+ * const exampleCatalog = new azure.devcenter.Catalog("example", {
+ *     name: "example",
+ *     resourceGroupName: testAzurermResourceGroup.name,
+ *     devCenterId: test.id,
+ *     catalogGithub: {
+ *         branch: "foo",
+ *         path: "",
+ *         uri: "example URI",
+ *         keyVaultKeyUrl: "secret",
+ *     },
+ * });
+ * ```
+ *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This resource uses the following Azure API Providers:
+ *
+ * * `Microsoft.DevCenter`: 2025-02-01
+ *
+ * ## Import
+ *
+ * An existing Dev Center Catalog can be imported into Pulumi using the `resource id`, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure:devcenter/catalog:Catalog example /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DevCenter/devCenters/{devCenterName}/catalogs/{catalogName}
+ * ```
+ *
+ * * Where `{subscriptionId}` is the ID of the Azure Subscription where the Dev Center exists. For example `12345678-1234-9876-4563-123456789012`.
+ *
+ * * Where `{resourceGroupName}` is the name of Resource Group where this Dev Center exists. For example `example-resource-group`.
+ *
+ * * Where `{devCenterName}` is the name of the Dev Center. For example `devCenterValue`.
+ *
+ * * Where `{catalogName}` is the name of the Dev Center Catalog. For example `catalogValue`.
+ */
 export class Catalog extends pulumi.CustomResource {
     /**
      * Get an existing Catalog resource's state with the given name, ID, and optional extra
@@ -34,10 +91,25 @@ export class Catalog extends pulumi.CustomResource {
         return obj['__pulumiType'] === Catalog.__pulumiType;
     }
 
+    /**
+     * A `catalogAdogit` block as defined below.
+     */
     public readonly catalogAdogit!: pulumi.Output<outputs.devcenter.CatalogCatalogAdogit | undefined>;
+    /**
+     * A `catalogGithub` block as defined below.
+     */
     public readonly catalogGithub!: pulumi.Output<outputs.devcenter.CatalogCatalogGithub | undefined>;
+    /**
+     * Specifies the Dev Center Id within which this Dev Center Catalog should exist. Changing this forces a new Dev Center Catalog to be created.
+     */
     public readonly devCenterId!: pulumi.Output<string>;
+    /**
+     * Specifies the name of this Dev Center Catalog. Changing this forces a new Dev Center to be created.
+     */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * Specifies the name of the Resource Group within which this Dev Center Catalog should exist. Changing this forces a new Dev Center to be created.
+     */
     public readonly resourceGroupName!: pulumi.Output<string>;
 
     /**
@@ -81,10 +153,25 @@ export class Catalog extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Catalog resources.
  */
 export interface CatalogState {
+    /**
+     * A `catalogAdogit` block as defined below.
+     */
     catalogAdogit?: pulumi.Input<inputs.devcenter.CatalogCatalogAdogit>;
+    /**
+     * A `catalogGithub` block as defined below.
+     */
     catalogGithub?: pulumi.Input<inputs.devcenter.CatalogCatalogGithub>;
+    /**
+     * Specifies the Dev Center Id within which this Dev Center Catalog should exist. Changing this forces a new Dev Center Catalog to be created.
+     */
     devCenterId?: pulumi.Input<string>;
+    /**
+     * Specifies the name of this Dev Center Catalog. Changing this forces a new Dev Center to be created.
+     */
     name?: pulumi.Input<string>;
+    /**
+     * Specifies the name of the Resource Group within which this Dev Center Catalog should exist. Changing this forces a new Dev Center to be created.
+     */
     resourceGroupName?: pulumi.Input<string>;
 }
 
@@ -92,9 +179,24 @@ export interface CatalogState {
  * The set of arguments for constructing a Catalog resource.
  */
 export interface CatalogArgs {
+    /**
+     * A `catalogAdogit` block as defined below.
+     */
     catalogAdogit?: pulumi.Input<inputs.devcenter.CatalogCatalogAdogit>;
+    /**
+     * A `catalogGithub` block as defined below.
+     */
     catalogGithub?: pulumi.Input<inputs.devcenter.CatalogCatalogGithub>;
+    /**
+     * Specifies the Dev Center Id within which this Dev Center Catalog should exist. Changing this forces a new Dev Center Catalog to be created.
+     */
     devCenterId: pulumi.Input<string>;
+    /**
+     * Specifies the name of this Dev Center Catalog. Changing this forces a new Dev Center to be created.
+     */
     name?: pulumi.Input<string>;
+    /**
+     * Specifies the name of the Resource Group within which this Dev Center Catalog should exist. Changing this forces a new Dev Center to be created.
+     */
     resourceGroupName: pulumi.Input<string>;
 }

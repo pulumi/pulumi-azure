@@ -25,7 +25,7 @@ import * as utilities from "../utilities";
  *     resourceGroupName: example.name,
  *     sku: "Standard",
  *     tags: {
- *         source: "example",
+ *         source: "terraform",
  *     },
  * });
  * const exampleTopic = new azure.servicebus.Topic("example", {
@@ -94,7 +94,7 @@ export class Subscription extends pulumi.CustomResource {
     /**
      * whether the subscription is scoped to a client id. Defaults to `false`.
      *
-     * > **NOTE:** Client Scoped Subscription can only be used for JMS subscription (Java Message Service).
+     * > **Note:** Client Scoped Subscription can only be used for JMS subscription (Java Message Service).
      */
     public readonly clientScopedSubscriptionEnabled!: pulumi.Output<boolean | undefined>;
     /**
@@ -221,7 +221,7 @@ export interface SubscriptionState {
     /**
      * whether the subscription is scoped to a client id. Defaults to `false`.
      *
-     * > **NOTE:** Client Scoped Subscription can only be used for JMS subscription (Java Message Service).
+     * > **Note:** Client Scoped Subscription can only be used for JMS subscription (Java Message Service).
      */
     clientScopedSubscriptionEnabled?: pulumi.Input<boolean>;
     /**
@@ -289,7 +289,7 @@ export interface SubscriptionArgs {
     /**
      * whether the subscription is scoped to a client id. Defaults to `false`.
      *
-     * > **NOTE:** Client Scoped Subscription can only be used for JMS subscription (Java Message Service).
+     * > **Note:** Client Scoped Subscription can only be used for JMS subscription (Java Message Service).
      */
     clientScopedSubscriptionEnabled?: pulumi.Input<boolean>;
     /**

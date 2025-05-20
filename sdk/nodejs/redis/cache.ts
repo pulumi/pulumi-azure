@@ -13,7 +13,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * This example provisions a Standard Redis Cache.
+ * This example provisions a Standard Redis Cache. Other examples of the `azure.redis.Cache` resource can be found in the `./examples/redis-cache` directory within the GitHub Repository
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -41,6 +41,13 @@ import * as utilities from "../utilities";
  *
  * * [Azure Cache for Redis planning](https://docs.microsoft.com/azure/azure-cache-for-redis/cache-planning-faq)
  * * [Redis: Available Configuration Settings](https://redis.io/topics/config)
+ *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This resource uses the following Azure API Providers:
+ *
+ * * `Microsoft.Cache`: 2024-11-01
  *
  * ## Import
  *
@@ -105,7 +112,7 @@ export class Cache extends pulumi.CustomResource {
     /**
      * The minimum TLS version. Possible values are `1.0`, `1.1` and `1.2`. Defaults to `1.0`.
      *
-     * > **NOTE:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
+     * > **Note:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
      */
     public readonly minimumTlsVersion!: pulumi.Output<string | undefined>;
     /**
@@ -177,7 +184,7 @@ export class Cache extends pulumi.CustomResource {
     /**
      * The SKU of Redis to use. Possible values are `Basic`, `Standard` and `Premium`.
      *
-     * > **Note** Downgrading the SKU will force a new resource to be created.
+     * > **Note:** Downgrading the SKU will force a new resource to be created.
      */
     public readonly skuName!: pulumi.Output<string>;
     /**
@@ -199,7 +206,7 @@ export class Cache extends pulumi.CustomResource {
     /**
      * Specifies a list of Availability Zones in which this Redis Cache should be located. Changing this forces a new Redis Cache to be created.
      *
-     * > **Please Note:** Availability Zones are [in Preview and only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview) - as such you must be opted into the Preview to use this functionality. You can [opt into the Availability Zones Preview in the Azure Portal](https://aka.ms/azenroll).
+     * > **Note:** Availability Zones are [in Preview and only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview) - as such you must be opted into the Preview to use this functionality. You can [opt into the Availability Zones Preview in the Azure Portal](https://aka.ms/azenroll).
      */
     public readonly zones!: pulumi.Output<string[] | undefined>;
 
@@ -327,7 +334,7 @@ export interface CacheState {
     /**
      * The minimum TLS version. Possible values are `1.0`, `1.1` and `1.2`. Defaults to `1.0`.
      *
-     * > **NOTE:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
+     * > **Note:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
      */
     minimumTlsVersion?: pulumi.Input<string>;
     /**
@@ -399,7 +406,7 @@ export interface CacheState {
     /**
      * The SKU of Redis to use. Possible values are `Basic`, `Standard` and `Premium`.
      *
-     * > **Note** Downgrading the SKU will force a new resource to be created.
+     * > **Note:** Downgrading the SKU will force a new resource to be created.
      */
     skuName?: pulumi.Input<string>;
     /**
@@ -421,7 +428,7 @@ export interface CacheState {
     /**
      * Specifies a list of Availability Zones in which this Redis Cache should be located. Changing this forces a new Redis Cache to be created.
      *
-     * > **Please Note:** Availability Zones are [in Preview and only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview) - as such you must be opted into the Preview to use this functionality. You can [opt into the Availability Zones Preview in the Azure Portal](https://aka.ms/azenroll).
+     * > **Note:** Availability Zones are [in Preview and only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview) - as such you must be opted into the Preview to use this functionality. You can [opt into the Availability Zones Preview in the Azure Portal](https://aka.ms/azenroll).
      */
     zones?: pulumi.Input<pulumi.Input<string>[]>;
 }
@@ -453,7 +460,7 @@ export interface CacheArgs {
     /**
      * The minimum TLS version. Possible values are `1.0`, `1.1` and `1.2`. Defaults to `1.0`.
      *
-     * > **NOTE:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
+     * > **Note:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
      */
     minimumTlsVersion?: pulumi.Input<string>;
     /**
@@ -505,7 +512,7 @@ export interface CacheArgs {
     /**
      * The SKU of Redis to use. Possible values are `Basic`, `Standard` and `Premium`.
      *
-     * > **Note** Downgrading the SKU will force a new resource to be created.
+     * > **Note:** Downgrading the SKU will force a new resource to be created.
      */
     skuName: pulumi.Input<string>;
     /**
@@ -523,7 +530,7 @@ export interface CacheArgs {
     /**
      * Specifies a list of Availability Zones in which this Redis Cache should be located. Changing this forces a new Redis Cache to be created.
      *
-     * > **Please Note:** Availability Zones are [in Preview and only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview) - as such you must be opted into the Preview to use this functionality. You can [opt into the Availability Zones Preview in the Azure Portal](https://aka.ms/azenroll).
+     * > **Note:** Availability Zones are [in Preview and only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview) - as such you must be opted into the Preview to use this functionality. You can [opt into the Availability Zones Preview in the Azure Portal](https://aka.ms/azenroll).
      */
     zones?: pulumi.Input<pulumi.Input<string>[]>;
 }

@@ -30,6 +30,13 @@ import * as utilities from "../utilities";
  *     webPubsubId: testService.id,
  * });
  * ```
+ *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This data source uses the following Azure API Providers:
+ *
+ * * `Microsoft.SignalRService`: 2024-03-01
  */
 export function getPrivateLinkResource(args: GetPrivateLinkResourceArgs, opts?: pulumi.InvokeOptions): Promise<GetPrivateLinkResourceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -86,6 +93,13 @@ export interface GetPrivateLinkResourceResult {
  *     webPubsubId: testService.id,
  * });
  * ```
+ *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This data source uses the following Azure API Providers:
+ *
+ * * `Microsoft.SignalRService`: 2024-03-01
  */
 export function getPrivateLinkResourceOutput(args: GetPrivateLinkResourceOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetPrivateLinkResourceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

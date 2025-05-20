@@ -24,6 +24,13 @@ import * as utilities from "../utilities";
  *     };
  * }
  * ```
+ *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This data source uses the following Azure API Providers:
+ *
+ * * `Oracle.Database`: 2024-06-01
  */
 export function getGiVersions(args: GetGiVersionsArgs, opts?: pulumi.InvokeOptions): Promise<GetGiVersionsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -76,6 +83,13 @@ export interface GetGiVersionsResult {
  *     };
  * }
  * ```
+ *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This data source uses the following Azure API Providers:
+ *
+ * * `Oracle.Database`: 2024-06-01
  */
 export function getGiVersionsOutput(args: GetGiVersionsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetGiVersionsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

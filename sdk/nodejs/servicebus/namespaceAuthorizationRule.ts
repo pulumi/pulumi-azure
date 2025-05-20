@@ -14,8 +14,8 @@ import * as utilities from "../utilities";
  * import * as azure from "@pulumi/azure";
  *
  * const example = new azure.core.ResourceGroup("example", {
- *     name: "my-servicebus",
- *     location: "West US",
+ *     name: "terraform-servicebus",
+ *     location: "West Europe",
  * });
  * const exampleNamespace = new azure.servicebus.Namespace("example", {
  *     name: "tfex-servicebus-namespace",
@@ -23,7 +23,7 @@ import * as utilities from "../utilities";
  *     resourceGroupName: example.name,
  *     sku: "Standard",
  *     tags: {
- *         source: "example",
+ *         source: "terraform",
  *     },
  * });
  * const exampleNamespaceAuthorizationRule = new azure.servicebus.NamespaceAuthorizationRule("example", {
@@ -72,11 +72,11 @@ export class NamespaceAuthorizationRule extends pulumi.CustomResource {
     }
 
     /**
-     * Grants listen access to this this Authorization Rule. Defaults to `false`.
+     * Grants listen access to this Authorization Rule. Defaults to `false`.
      */
     public readonly listen!: pulumi.Output<boolean | undefined>;
     /**
-     * Grants manage access to this this Authorization Rule. When this property is `true` - both `listen` and `send` must be too. Defaults to `false`.
+     * Grants manage access to this Authorization Rule. When this property is `true` - both `listen` and `send` must be too. Defaults to `false`.
      */
     public readonly manage!: pulumi.Output<boolean | undefined>;
     /**
@@ -86,7 +86,7 @@ export class NamespaceAuthorizationRule extends pulumi.CustomResource {
     /**
      * Specifies the ID of the ServiceBus Namespace. Changing this forces a new resource to be created.
      *
-     * > **NOTE** At least one of the 3 permissions below needs to be set.
+     * > **Note:** At least one of the 3 permissions below needs to be set.
      */
     public readonly namespaceId!: pulumi.Output<string>;
     /**
@@ -114,7 +114,7 @@ export class NamespaceAuthorizationRule extends pulumi.CustomResource {
      */
     public /*out*/ readonly secondaryKey!: pulumi.Output<string>;
     /**
-     * Grants send access to this this Authorization Rule. Defaults to `false`.
+     * Grants send access to this Authorization Rule. Defaults to `false`.
      */
     public readonly send!: pulumi.Output<boolean | undefined>;
 
@@ -173,11 +173,11 @@ export class NamespaceAuthorizationRule extends pulumi.CustomResource {
  */
 export interface NamespaceAuthorizationRuleState {
     /**
-     * Grants listen access to this this Authorization Rule. Defaults to `false`.
+     * Grants listen access to this Authorization Rule. Defaults to `false`.
      */
     listen?: pulumi.Input<boolean>;
     /**
-     * Grants manage access to this this Authorization Rule. When this property is `true` - both `listen` and `send` must be too. Defaults to `false`.
+     * Grants manage access to this Authorization Rule. When this property is `true` - both `listen` and `send` must be too. Defaults to `false`.
      */
     manage?: pulumi.Input<boolean>;
     /**
@@ -187,7 +187,7 @@ export interface NamespaceAuthorizationRuleState {
     /**
      * Specifies the ID of the ServiceBus Namespace. Changing this forces a new resource to be created.
      *
-     * > **NOTE** At least one of the 3 permissions below needs to be set.
+     * > **Note:** At least one of the 3 permissions below needs to be set.
      */
     namespaceId?: pulumi.Input<string>;
     /**
@@ -215,7 +215,7 @@ export interface NamespaceAuthorizationRuleState {
      */
     secondaryKey?: pulumi.Input<string>;
     /**
-     * Grants send access to this this Authorization Rule. Defaults to `false`.
+     * Grants send access to this Authorization Rule. Defaults to `false`.
      */
     send?: pulumi.Input<boolean>;
 }
@@ -225,11 +225,11 @@ export interface NamespaceAuthorizationRuleState {
  */
 export interface NamespaceAuthorizationRuleArgs {
     /**
-     * Grants listen access to this this Authorization Rule. Defaults to `false`.
+     * Grants listen access to this Authorization Rule. Defaults to `false`.
      */
     listen?: pulumi.Input<boolean>;
     /**
-     * Grants manage access to this this Authorization Rule. When this property is `true` - both `listen` and `send` must be too. Defaults to `false`.
+     * Grants manage access to this Authorization Rule. When this property is `true` - both `listen` and `send` must be too. Defaults to `false`.
      */
     manage?: pulumi.Input<boolean>;
     /**
@@ -239,11 +239,11 @@ export interface NamespaceAuthorizationRuleArgs {
     /**
      * Specifies the ID of the ServiceBus Namespace. Changing this forces a new resource to be created.
      *
-     * > **NOTE** At least one of the 3 permissions below needs to be set.
+     * > **Note:** At least one of the 3 permissions below needs to be set.
      */
     namespaceId: pulumi.Input<string>;
     /**
-     * Grants send access to this this Authorization Rule. Defaults to `false`.
+     * Grants send access to this Authorization Rule. Defaults to `false`.
      */
     send?: pulumi.Input<boolean>;
 }

@@ -172,7 +172,7 @@ export class FrontdoorRoute extends pulumi.CustomResource {
     /**
      * A `cache` block as defined below.
      *
-     * > **NOTE:** To disable caching, do not provide the `cache` block in the configuration file.
+     * > **Note:** To disable caching, do not provide the `cache` block in the configuration file.
      */
     public readonly cache!: pulumi.Output<outputs.cdn.FrontdoorRouteCache | undefined>;
     /**
@@ -210,7 +210,7 @@ export class FrontdoorRoute extends pulumi.CustomResource {
     /**
      * Automatically redirect HTTP traffic to HTTPS traffic? Possible values are `true` or `false`. Defaults to `true`.
      *
-     * > **NOTE:** The `httpsRedirectEnabled` rule is the first rule that will be executed.
+     * > **Note:** The `httpsRedirectEnabled` rule is the first rule that will be executed.
      */
     public readonly httpsRedirectEnabled!: pulumi.Output<boolean | undefined>;
     /**
@@ -228,7 +228,7 @@ export class FrontdoorRoute extends pulumi.CustomResource {
     /**
      * One or more Protocols supported by this Front Door Route. Possible values are `Http` or `Https`.
      *
-     * > **NOTE:** If `httpsRedirectEnabled` is set to `true` the `supportedProtocols` field must contain both `Http` and `Https` values.
+     * > **Note:** If `httpsRedirectEnabled` is set to `true` the `supportedProtocols` field must contain both `Http` and `Https` values.
      */
     public readonly supportedProtocols!: pulumi.Output<string[]>;
 
@@ -303,7 +303,7 @@ export interface FrontdoorRouteState {
     /**
      * A `cache` block as defined below.
      *
-     * > **NOTE:** To disable caching, do not provide the `cache` block in the configuration file.
+     * > **Note:** To disable caching, do not provide the `cache` block in the configuration file.
      */
     cache?: pulumi.Input<inputs.cdn.FrontdoorRouteCache>;
     /**
@@ -341,7 +341,7 @@ export interface FrontdoorRouteState {
     /**
      * Automatically redirect HTTP traffic to HTTPS traffic? Possible values are `true` or `false`. Defaults to `true`.
      *
-     * > **NOTE:** The `httpsRedirectEnabled` rule is the first rule that will be executed.
+     * > **Note:** The `httpsRedirectEnabled` rule is the first rule that will be executed.
      */
     httpsRedirectEnabled?: pulumi.Input<boolean>;
     /**
@@ -359,7 +359,7 @@ export interface FrontdoorRouteState {
     /**
      * One or more Protocols supported by this Front Door Route. Possible values are `Http` or `Https`.
      *
-     * > **NOTE:** If `httpsRedirectEnabled` is set to `true` the `supportedProtocols` field must contain both `Http` and `Https` values.
+     * > **Note:** If `httpsRedirectEnabled` is set to `true` the `supportedProtocols` field must contain both `Http` and `Https` values.
      */
     supportedProtocols?: pulumi.Input<pulumi.Input<string>[]>;
 }
@@ -371,7 +371,7 @@ export interface FrontdoorRouteArgs {
     /**
      * A `cache` block as defined below.
      *
-     * > **NOTE:** To disable caching, do not provide the `cache` block in the configuration file.
+     * > **Note:** To disable caching, do not provide the `cache` block in the configuration file.
      */
     cache?: pulumi.Input<inputs.cdn.FrontdoorRouteCache>;
     /**
@@ -409,7 +409,7 @@ export interface FrontdoorRouteArgs {
     /**
      * Automatically redirect HTTP traffic to HTTPS traffic? Possible values are `true` or `false`. Defaults to `true`.
      *
-     * > **NOTE:** The `httpsRedirectEnabled` rule is the first rule that will be executed.
+     * > **Note:** The `httpsRedirectEnabled` rule is the first rule that will be executed.
      */
     httpsRedirectEnabled?: pulumi.Input<boolean>;
     /**
@@ -427,7 +427,7 @@ export interface FrontdoorRouteArgs {
     /**
      * One or more Protocols supported by this Front Door Route. Possible values are `Http` or `Https`.
      *
-     * > **NOTE:** If `httpsRedirectEnabled` is set to `true` the `supportedProtocols` field must contain both `Http` and `Https` values.
+     * > **Note:** If `httpsRedirectEnabled` is set to `true` the `supportedProtocols` field must contain both `Http` and `Https` values.
      */
     supportedProtocols: pulumi.Input<pulumi.Input<string>[]>;
 }

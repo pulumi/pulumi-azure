@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * This example provisions an App Service Certificate from a Local File.
+ * This example provisions an App Service Certificate from a Local File. Additional examples of how to use the `azure.appservice.Certificate` resource can be found in the `./examples/app-service-certificate` directory within the GitHub Repository.
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -27,7 +27,7 @@ import * as utilities from "../utilities";
  *     pfxBlob: std.filebase64({
  *         input: "certificate.pfx",
  *     }).then(invoke => invoke.result),
- *     password: "password123!",
+ *     password: "terraform",
  * });
  * ```
  *
@@ -99,7 +99,7 @@ export class Certificate extends pulumi.CustomResource {
     /**
      * The ID of the Key Vault secret. Changing this forces a new resource to be created.
      *
-     * > **NOTE:** Exactly one of `keyVaultSecretId` or `pfxBlob` must be specified.
+     * > **Note:** Exactly one of `keyVaultSecretId` or `pfxBlob` must be specified.
      */
     public readonly keyVaultSecretId!: pulumi.Output<string | undefined>;
     /**
@@ -117,13 +117,13 @@ export class Certificate extends pulumi.CustomResource {
     /**
      * The base64-encoded contents of the certificate. Changing this forces a new resource to be created.
      *
-     * > **NOTE:** Exactly one of `keyVaultSecretId` or `pfxBlob` must be specified.
+     * > **Note:** Exactly one of `keyVaultSecretId` or `pfxBlob` must be specified.
      */
     public readonly pfxBlob!: pulumi.Output<string | undefined>;
     /**
      * The name of the resource group in which to create the certificate. Changing this forces a new resource to be created.
      *
-     * > **NOTE:** The resource group must be the same as that which the app service plan is defined in - otherwise the certificate will not show as available for the app services.
+     * > **Note:** The resource group must be the same as that which the app service plan is defined in - otherwise the certificate will not show as available for the app services.
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
     /**
@@ -232,7 +232,7 @@ export interface CertificateState {
     /**
      * The ID of the Key Vault secret. Changing this forces a new resource to be created.
      *
-     * > **NOTE:** Exactly one of `keyVaultSecretId` or `pfxBlob` must be specified.
+     * > **Note:** Exactly one of `keyVaultSecretId` or `pfxBlob` must be specified.
      */
     keyVaultSecretId?: pulumi.Input<string>;
     /**
@@ -250,13 +250,13 @@ export interface CertificateState {
     /**
      * The base64-encoded contents of the certificate. Changing this forces a new resource to be created.
      *
-     * > **NOTE:** Exactly one of `keyVaultSecretId` or `pfxBlob` must be specified.
+     * > **Note:** Exactly one of `keyVaultSecretId` or `pfxBlob` must be specified.
      */
     pfxBlob?: pulumi.Input<string>;
     /**
      * The name of the resource group in which to create the certificate. Changing this forces a new resource to be created.
      *
-     * > **NOTE:** The resource group must be the same as that which the app service plan is defined in - otherwise the certificate will not show as available for the app services.
+     * > **Note:** The resource group must be the same as that which the app service plan is defined in - otherwise the certificate will not show as available for the app services.
      */
     resourceGroupName?: pulumi.Input<string>;
     /**
@@ -282,7 +282,7 @@ export interface CertificateArgs {
     /**
      * The ID of the Key Vault secret. Changing this forces a new resource to be created.
      *
-     * > **NOTE:** Exactly one of `keyVaultSecretId` or `pfxBlob` must be specified.
+     * > **Note:** Exactly one of `keyVaultSecretId` or `pfxBlob` must be specified.
      */
     keyVaultSecretId?: pulumi.Input<string>;
     /**
@@ -300,13 +300,13 @@ export interface CertificateArgs {
     /**
      * The base64-encoded contents of the certificate. Changing this forces a new resource to be created.
      *
-     * > **NOTE:** Exactly one of `keyVaultSecretId` or `pfxBlob` must be specified.
+     * > **Note:** Exactly one of `keyVaultSecretId` or `pfxBlob` must be specified.
      */
     pfxBlob?: pulumi.Input<string>;
     /**
      * The name of the resource group in which to create the certificate. Changing this forces a new resource to be created.
      *
-     * > **NOTE:** The resource group must be the same as that which the app service plan is defined in - otherwise the certificate will not show as available for the app services.
+     * > **Note:** The resource group must be the same as that which the app service plan is defined in - otherwise the certificate will not show as available for the app services.
      */
     resourceGroupName: pulumi.Input<string>;
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;

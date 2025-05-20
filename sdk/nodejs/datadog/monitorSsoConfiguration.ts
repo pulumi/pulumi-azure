@@ -42,6 +42,13 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This resource uses the following Azure API Providers:
+ *
+ * * `Microsoft.Datadog`: 2021-03-01
+ *
  * ## Import
  *
  * SingleSignOn on the Datadog Monitor can be imported using the `signle sign on resource id`, e.g.

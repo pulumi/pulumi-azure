@@ -16,6 +16,13 @@ import * as utilities from "../utilities";
  * });
  * export const id = exampleAzurermAppServiceGithubToken.id;
  * ```
+ *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This data source uses the following Azure API Providers:
+ *
+ * * `Microsoft.Web`: 2023-01-01
  */
 export function getSourceControlToken(args: GetSourceControlTokenArgs, opts?: pulumi.InvokeOptions): Promise<GetSourceControlTokenResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -61,6 +68,13 @@ export interface GetSourceControlTokenResult {
  * });
  * export const id = exampleAzurermAppServiceGithubToken.id;
  * ```
+ *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This data source uses the following Azure API Providers:
+ *
+ * * `Microsoft.Web`: 2023-01-01
  */
 export function getSourceControlTokenOutput(args: GetSourceControlTokenOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSourceControlTokenResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

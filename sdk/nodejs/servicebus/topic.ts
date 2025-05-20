@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 /**
  * Manages a ServiceBus Topic.
  *
- * **Note** Topics can only be created in Namespaces with an SKU of `standard` or higher.
+ * > **Note:** Topics can only be created in Namespaces with an SKU of `Standard` or higher.
  *
  * ## Example Usage
  *
@@ -25,7 +25,7 @@ import * as utilities from "../utilities";
  *     resourceGroupName: example.name,
  *     sku: "Standard",
  *     tags: {
- *         source: "example",
+ *         source: "terraform",
  *     },
  * });
  * const exampleTopic = new azure.servicebus.Topic("example", {
@@ -107,18 +107,16 @@ export class Topic extends pulumi.CustomResource {
      * The ID of the ServiceBus Namespace to create this topic in. Changing this forces a new resource to be created.
      */
     public readonly namespaceId!: pulumi.Output<string>;
-    public /*out*/ readonly namespaceName!: pulumi.Output<string>;
     /**
      * Boolean flag which controls whether to enable the topic to be partitioned across multiple message brokers. Changing this forces a new resource to be created.
      *
-     * > **NOTE:** Partitioning is available at entity creation for all queues and topics in Basic or Standard SKUs. It is not available for the Premium messaging SKU, but any previously existing partitioned entities in Premium namespaces continue to work as expected. For premium namespaces, partitioning is available at namespace creation and all queues and topics in the partitioned namespace will be partitioned. Premium namespaces that have `premiumMessagingPartitions` set to `1` are not partitioned. Please [see the documentation](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-partitioning) for more information.
+     * > **Note:** Partitioning is available at entity creation for all queues and topics in Basic or Standard SKUs. It is not available for the Premium messaging SKU, but any previously existing partitioned entities in Premium namespaces continue to work as expected. For premium namespaces, partitioning is available at namespace creation and all queues and topics in the partitioned namespace will be partitioned. Premium namespaces that have `premiumMessagingPartitions` set to `1` are not partitioned. Please [see the documentation](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-partitioning) for more information.
      */
     public readonly partitioningEnabled!: pulumi.Output<boolean | undefined>;
     /**
      * Boolean flag which controls whether the Topic requires duplicate detection. Defaults to `false`. Changing this forces a new resource to be created.
      */
     public readonly requiresDuplicateDetection!: pulumi.Output<boolean | undefined>;
-    public /*out*/ readonly resourceGroupName!: pulumi.Output<string>;
     /**
      * The Status of the Service Bus Topic. Acceptable values are `Active` or `Disabled`. Defaults to `Active`.
      */
@@ -150,10 +148,8 @@ export class Topic extends pulumi.CustomResource {
             resourceInputs["maxSizeInMegabytes"] = state ? state.maxSizeInMegabytes : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["namespaceId"] = state ? state.namespaceId : undefined;
-            resourceInputs["namespaceName"] = state ? state.namespaceName : undefined;
             resourceInputs["partitioningEnabled"] = state ? state.partitioningEnabled : undefined;
             resourceInputs["requiresDuplicateDetection"] = state ? state.requiresDuplicateDetection : undefined;
-            resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             resourceInputs["status"] = state ? state.status : undefined;
             resourceInputs["supportOrdering"] = state ? state.supportOrdering : undefined;
         } else {
@@ -174,8 +170,6 @@ export class Topic extends pulumi.CustomResource {
             resourceInputs["requiresDuplicateDetection"] = args ? args.requiresDuplicateDetection : undefined;
             resourceInputs["status"] = args ? args.status : undefined;
             resourceInputs["supportOrdering"] = args ? args.supportOrdering : undefined;
-            resourceInputs["namespaceName"] = undefined /*out*/;
-            resourceInputs["resourceGroupName"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure:eventhub/topic:Topic" }] };
@@ -224,18 +218,16 @@ export interface TopicState {
      * The ID of the ServiceBus Namespace to create this topic in. Changing this forces a new resource to be created.
      */
     namespaceId?: pulumi.Input<string>;
-    namespaceName?: pulumi.Input<string>;
     /**
      * Boolean flag which controls whether to enable the topic to be partitioned across multiple message brokers. Changing this forces a new resource to be created.
      *
-     * > **NOTE:** Partitioning is available at entity creation for all queues and topics in Basic or Standard SKUs. It is not available for the Premium messaging SKU, but any previously existing partitioned entities in Premium namespaces continue to work as expected. For premium namespaces, partitioning is available at namespace creation and all queues and topics in the partitioned namespace will be partitioned. Premium namespaces that have `premiumMessagingPartitions` set to `1` are not partitioned. Please [see the documentation](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-partitioning) for more information.
+     * > **Note:** Partitioning is available at entity creation for all queues and topics in Basic or Standard SKUs. It is not available for the Premium messaging SKU, but any previously existing partitioned entities in Premium namespaces continue to work as expected. For premium namespaces, partitioning is available at namespace creation and all queues and topics in the partitioned namespace will be partitioned. Premium namespaces that have `premiumMessagingPartitions` set to `1` are not partitioned. Please [see the documentation](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-partitioning) for more information.
      */
     partitioningEnabled?: pulumi.Input<boolean>;
     /**
      * Boolean flag which controls whether the Topic requires duplicate detection. Defaults to `false`. Changing this forces a new resource to be created.
      */
     requiresDuplicateDetection?: pulumi.Input<boolean>;
-    resourceGroupName?: pulumi.Input<string>;
     /**
      * The Status of the Service Bus Topic. Acceptable values are `Active` or `Disabled`. Defaults to `Active`.
      */
@@ -289,7 +281,7 @@ export interface TopicArgs {
     /**
      * Boolean flag which controls whether to enable the topic to be partitioned across multiple message brokers. Changing this forces a new resource to be created.
      *
-     * > **NOTE:** Partitioning is available at entity creation for all queues and topics in Basic or Standard SKUs. It is not available for the Premium messaging SKU, but any previously existing partitioned entities in Premium namespaces continue to work as expected. For premium namespaces, partitioning is available at namespace creation and all queues and topics in the partitioned namespace will be partitioned. Premium namespaces that have `premiumMessagingPartitions` set to `1` are not partitioned. Please [see the documentation](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-partitioning) for more information.
+     * > **Note:** Partitioning is available at entity creation for all queues and topics in Basic or Standard SKUs. It is not available for the Premium messaging SKU, but any previously existing partitioned entities in Premium namespaces continue to work as expected. For premium namespaces, partitioning is available at namespace creation and all queues and topics in the partitioned namespace will be partitioned. Premium namespaces that have `premiumMessagingPartitions` set to `1` are not partitioned. Please [see the documentation](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-partitioning) for more information.
      */
     partitioningEnabled?: pulumi.Input<boolean>;
     /**

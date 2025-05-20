@@ -24,6 +24,13 @@ import * as utilities from "../utilities";
  *     mobileNetworkId: example.id,
  * }));
  * ```
+ *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This data source uses the following Azure API Providers:
+ *
+ * * `Microsoft.MobileNetwork`: 2022-11-01
  */
 export function getNetworkSimGroup(args: GetNetworkSimGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetNetworkSimGroupResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -92,6 +99,13 @@ export interface GetNetworkSimGroupResult {
  *     mobileNetworkId: example.id,
  * }));
  * ```
+ *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This data source uses the following Azure API Providers:
+ *
+ * * `Microsoft.MobileNetwork`: 2022-11-01
  */
 export function getNetworkSimGroupOutput(args: GetNetworkSimGroupOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetNetworkSimGroupResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

@@ -22,6 +22,13 @@ import * as utilities from "../utilities";
  *     storageAccountId: example.id,
  * }));
  * ```
+ *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This data source uses the following Azure API Providers:
+ *
+ * * `Microsoft.Storage`: 2023-05-01
  */
 export function getStorageContainer(args: GetStorageContainerArgs, opts?: pulumi.InvokeOptions): Promise<GetStorageContainerResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -48,7 +55,7 @@ export interface GetStorageContainerArgs {
     /**
      * The id of the Storage Account where the Container exists. This property will become Required in version 5.0 of the Provider.
      *
-     * > **NOTE:** One of `storageAccountName` or `storageAccountId` must be specified. When specifying `storageAccountId` the resource will use the Resource Manager API, rather than the Data Plane API.
+     * > **Note:** One of `storageAccountName` or `storageAccountId` must be specified. When specifying `storageAccountId` the resource will use the Resource Manager API, rather than the Data Plane API.
      */
     storageAccountId?: string;
     /**
@@ -115,6 +122,13 @@ export interface GetStorageContainerResult {
  *     storageAccountId: example.id,
  * }));
  * ```
+ *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This data source uses the following Azure API Providers:
+ *
+ * * `Microsoft.Storage`: 2023-05-01
  */
 export function getStorageContainerOutput(args: GetStorageContainerOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetStorageContainerResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -141,7 +155,7 @@ export interface GetStorageContainerOutputArgs {
     /**
      * The id of the Storage Account where the Container exists. This property will become Required in version 5.0 of the Provider.
      *
-     * > **NOTE:** One of `storageAccountName` or `storageAccountId` must be specified. When specifying `storageAccountId` the resource will use the Resource Manager API, rather than the Data Plane API.
+     * > **Note:** One of `storageAccountName` or `storageAccountId` must be specified. When specifying `storageAccountId` the resource will use the Resource Manager API, rather than the Data Plane API.
      */
     storageAccountId?: pulumi.Input<string>;
     /**

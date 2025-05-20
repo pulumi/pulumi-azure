@@ -31,6 +31,13 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This resource uses the following Azure API Providers:
+ *
+ * * `Microsoft.ElasticSan`: 2023-01-01
+ *
  * ## Import
  *
  * An existing Elastic SAN can be imported into Pulumi using the `resource id`, e.g.
@@ -70,13 +77,13 @@ export class ElasticSan extends pulumi.CustomResource {
     /**
      * Specifies the base size of the Elastic SAN resource in TiB. Possible values are between `1` and `100`.
      *
-     * > **NOTE** When updating `baseSizeInTib`, the new value should be greater than the existing one.
+     * > **Note:** When updating `baseSizeInTib`, the new value should be greater than the existing one.
      */
     public readonly baseSizeInTib!: pulumi.Output<number>;
     /**
      * Specifies the extended size of the Elastic SAN resource in TiB. Possible values are between `1` and `100`.
      *
-     * > **NOTE** `extendedSizeInTib` cannot be removed and when updating, the new value should be greater than the existing one.
+     * > **Note:** `extendedSizeInTib` cannot be removed and when updating, the new value should be greater than the existing one.
      */
     public readonly extendedSizeInTib!: pulumi.Output<number | undefined>;
     /**
@@ -122,7 +129,7 @@ export class ElasticSan extends pulumi.CustomResource {
     /**
      * Logical zone for the Elastic SAN resource. Changing this forces a new resource to be created.
      *
-     * > **NOTE** `zones` cannot be specified if `sku.name` is set to `Premium_ZRS`.
+     * > **Note:** `zones` cannot be specified if `sku.name` is set to `Premium_ZRS`.
      */
     public readonly zones!: pulumi.Output<string[] | undefined>;
 
@@ -189,13 +196,13 @@ export interface ElasticSanState {
     /**
      * Specifies the base size of the Elastic SAN resource in TiB. Possible values are between `1` and `100`.
      *
-     * > **NOTE** When updating `baseSizeInTib`, the new value should be greater than the existing one.
+     * > **Note:** When updating `baseSizeInTib`, the new value should be greater than the existing one.
      */
     baseSizeInTib?: pulumi.Input<number>;
     /**
      * Specifies the extended size of the Elastic SAN resource in TiB. Possible values are between `1` and `100`.
      *
-     * > **NOTE** `extendedSizeInTib` cannot be removed and when updating, the new value should be greater than the existing one.
+     * > **Note:** `extendedSizeInTib` cannot be removed and when updating, the new value should be greater than the existing one.
      */
     extendedSizeInTib?: pulumi.Input<number>;
     /**
@@ -241,7 +248,7 @@ export interface ElasticSanState {
     /**
      * Logical zone for the Elastic SAN resource. Changing this forces a new resource to be created.
      *
-     * > **NOTE** `zones` cannot be specified if `sku.name` is set to `Premium_ZRS`.
+     * > **Note:** `zones` cannot be specified if `sku.name` is set to `Premium_ZRS`.
      */
     zones?: pulumi.Input<pulumi.Input<string>[]>;
 }
@@ -253,13 +260,13 @@ export interface ElasticSanArgs {
     /**
      * Specifies the base size of the Elastic SAN resource in TiB. Possible values are between `1` and `100`.
      *
-     * > **NOTE** When updating `baseSizeInTib`, the new value should be greater than the existing one.
+     * > **Note:** When updating `baseSizeInTib`, the new value should be greater than the existing one.
      */
     baseSizeInTib: pulumi.Input<number>;
     /**
      * Specifies the extended size of the Elastic SAN resource in TiB. Possible values are between `1` and `100`.
      *
-     * > **NOTE** `extendedSizeInTib` cannot be removed and when updating, the new value should be greater than the existing one.
+     * > **Note:** `extendedSizeInTib` cannot be removed and when updating, the new value should be greater than the existing one.
      */
     extendedSizeInTib?: pulumi.Input<number>;
     /**
@@ -285,7 +292,7 @@ export interface ElasticSanArgs {
     /**
      * Logical zone for the Elastic SAN resource. Changing this forces a new resource to be created.
      *
-     * > **NOTE** `zones` cannot be specified if `sku.name` is set to `Premium_ZRS`.
+     * > **Note:** `zones` cannot be specified if `sku.name` is set to `Premium_ZRS`.
      */
     zones?: pulumi.Input<pulumi.Input<string>[]>;
 }

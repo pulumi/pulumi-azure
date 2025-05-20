@@ -84,7 +84,7 @@ export class ServerExtendedAuditingPolicy extends pulumi.CustomResource {
     /**
      * Whether to enable the extended auditing policy. Possible values are `true` and `false`. Defaults to `true`.
      *
-     * ->**NOTE:**  If `enabled` is `true`, `storageEndpoint` or `logMonitoringEnabled` are required.
+     * > **Note:** If `enabled` is `true`, `storageEndpoint` or `logMonitoringEnabled` are required.
      */
     public readonly enabled!: pulumi.Output<boolean | undefined>;
     /**
@@ -177,7 +177,7 @@ export interface ServerExtendedAuditingPolicyState {
     /**
      * Whether to enable the extended auditing policy. Possible values are `true` and `false`. Defaults to `true`.
      *
-     * ->**NOTE:**  If `enabled` is `true`, `storageEndpoint` or `logMonitoringEnabled` are required.
+     * > **Note:** If `enabled` is `true`, `storageEndpoint` or `logMonitoringEnabled` are required.
      */
     enabled?: pulumi.Input<boolean>;
     /**
@@ -225,7 +225,7 @@ export interface ServerExtendedAuditingPolicyArgs {
     /**
      * Whether to enable the extended auditing policy. Possible values are `true` and `false`. Defaults to `true`.
      *
-     * ->**NOTE:**  If `enabled` is `true`, `storageEndpoint` or `logMonitoringEnabled` are required.
+     * > **Note:** If `enabled` is `true`, `storageEndpoint` or `logMonitoringEnabled` are required.
      */
     enabled?: pulumi.Input<boolean>;
     /**

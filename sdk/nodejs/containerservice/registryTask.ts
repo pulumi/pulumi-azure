@@ -40,6 +40,13 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This resource uses the following Azure API Providers:
+ *
+ * * `Microsoft.ContainerRegistry`: 2023-11-01-preview, 2019-06-01-preview
+ *
  * ## Import
  *
  * Container Registry Tasks can be imported using the `resource id`, e.g.
@@ -83,7 +90,7 @@ export class RegistryTask extends pulumi.CustomResource {
     /**
      * A `agentSetting` block as defined below.
      *
-     * > **NOTE:** Only one of `agentPoolName` and `agentSetting` can be specified.
+     * > **Note:** Only one of `agentPoolName` and `agentSetting` can be specified.
      */
     public readonly agentSetting!: pulumi.Output<outputs.containerservice.RegistryTaskAgentSetting | undefined>;
     /**
@@ -109,7 +116,7 @@ export class RegistryTask extends pulumi.CustomResource {
     /**
      * A `fileStep` block as defined below.
      *
-     * > **NOTE:** For non-system task (when `isSystemTask` is set to `false`), one and only one of the `dockerStep`, `encodedStep` and `fileStep` should be specified.
+     * > **Note:** For non-system task (when `isSystemTask` is set to `false`), one and only one of the `dockerStep`, `encodedStep` and `fileStep` should be specified.
      */
     public readonly fileStep!: pulumi.Output<outputs.containerservice.RegistryTaskFileStep | undefined>;
     /**
@@ -128,7 +135,7 @@ export class RegistryTask extends pulumi.CustomResource {
     /**
      * A `platform` block as defined below.
      *
-     * > **NOTE:** The `platform` is required for non-system task (when `isSystemTask` is set to `false`).
+     * > **Note:** The `platform` is required for non-system task (when `isSystemTask` is set to `false`).
      */
     public readonly platform!: pulumi.Output<outputs.containerservice.RegistryTaskPlatform | undefined>;
     public readonly registryCredential!: pulumi.Output<outputs.containerservice.RegistryTaskRegistryCredential | undefined>;
@@ -214,7 +221,7 @@ export interface RegistryTaskState {
     /**
      * A `agentSetting` block as defined below.
      *
-     * > **NOTE:** Only one of `agentPoolName` and `agentSetting` can be specified.
+     * > **Note:** Only one of `agentPoolName` and `agentSetting` can be specified.
      */
     agentSetting?: pulumi.Input<inputs.containerservice.RegistryTaskAgentSetting>;
     /**
@@ -240,7 +247,7 @@ export interface RegistryTaskState {
     /**
      * A `fileStep` block as defined below.
      *
-     * > **NOTE:** For non-system task (when `isSystemTask` is set to `false`), one and only one of the `dockerStep`, `encodedStep` and `fileStep` should be specified.
+     * > **Note:** For non-system task (when `isSystemTask` is set to `false`), one and only one of the `dockerStep`, `encodedStep` and `fileStep` should be specified.
      */
     fileStep?: pulumi.Input<inputs.containerservice.RegistryTaskFileStep>;
     /**
@@ -259,7 +266,7 @@ export interface RegistryTaskState {
     /**
      * A `platform` block as defined below.
      *
-     * > **NOTE:** The `platform` is required for non-system task (when `isSystemTask` is set to `false`).
+     * > **Note:** The `platform` is required for non-system task (when `isSystemTask` is set to `false`).
      */
     platform?: pulumi.Input<inputs.containerservice.RegistryTaskPlatform>;
     registryCredential?: pulumi.Input<inputs.containerservice.RegistryTaskRegistryCredential>;
@@ -286,7 +293,7 @@ export interface RegistryTaskArgs {
     /**
      * A `agentSetting` block as defined below.
      *
-     * > **NOTE:** Only one of `agentPoolName` and `agentSetting` can be specified.
+     * > **Note:** Only one of `agentPoolName` and `agentSetting` can be specified.
      */
     agentSetting?: pulumi.Input<inputs.containerservice.RegistryTaskAgentSetting>;
     /**
@@ -312,7 +319,7 @@ export interface RegistryTaskArgs {
     /**
      * A `fileStep` block as defined below.
      *
-     * > **NOTE:** For non-system task (when `isSystemTask` is set to `false`), one and only one of the `dockerStep`, `encodedStep` and `fileStep` should be specified.
+     * > **Note:** For non-system task (when `isSystemTask` is set to `false`), one and only one of the `dockerStep`, `encodedStep` and `fileStep` should be specified.
      */
     fileStep?: pulumi.Input<inputs.containerservice.RegistryTaskFileStep>;
     /**
@@ -331,7 +338,7 @@ export interface RegistryTaskArgs {
     /**
      * A `platform` block as defined below.
      *
-     * > **NOTE:** The `platform` is required for non-system task (when `isSystemTask` is set to `false`).
+     * > **Note:** The `platform` is required for non-system task (when `isSystemTask` is set to `false`).
      */
     platform?: pulumi.Input<inputs.containerservice.RegistryTaskPlatform>;
     registryCredential?: pulumi.Input<inputs.containerservice.RegistryTaskRegistryCredential>;

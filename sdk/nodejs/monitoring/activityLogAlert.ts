@@ -49,7 +49,7 @@ import * as utilities from "../utilities";
  *     actions: [{
  *         actionGroupId: main.id,
  *         webhookProperties: {
- *             from: "source",
+ *             from: "terraform",
  *         },
  *     }],
  * });

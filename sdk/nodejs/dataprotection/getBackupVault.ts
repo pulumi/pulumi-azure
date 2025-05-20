@@ -22,6 +22,13 @@ import * as utilities from "../utilities";
  * export const azurermDataProtectionBackupVaultId = exampleAzurermVpnGateway.id;
  * export const azurermDataProtectionBackupVaultPrincipalId = example.then(example => example.identities?.[0]?.principalId);
  * ```
+ *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This data source uses the following Azure API Providers:
+ *
+ * * `Microsoft.DataProtection`: 2024-04-01
  */
 export function getBackupVault(args: GetBackupVaultArgs, opts?: pulumi.InvokeOptions): Promise<GetBackupVaultResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -92,6 +99,13 @@ export interface GetBackupVaultResult {
  * export const azurermDataProtectionBackupVaultId = exampleAzurermVpnGateway.id;
  * export const azurermDataProtectionBackupVaultPrincipalId = example.then(example => example.identities?.[0]?.principalId);
  * ```
+ *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This data source uses the following Azure API Providers:
+ *
+ * * `Microsoft.DataProtection`: 2024-04-01
  */
 export function getBackupVaultOutput(args: GetBackupVaultOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetBackupVaultResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

@@ -97,6 +97,13 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This resource uses the following Azure API Providers:
+ *
+ * * `Microsoft.Compute`: 2024-03-01, 2023-04-02
+ *
  * ## Import
  *
  * The implicit Data Disk of the Virtual Machine can be imported using the `resource id`, e.g.
@@ -141,9 +148,6 @@ export class ImplicitDataDiskFromSource extends pulumi.CustomResource {
      * Specifies the Create Option of the Data Disk. The only possible value is `Copy`. Changing this forces a new resource to be created.
      */
     public readonly createOption!: pulumi.Output<string>;
-    /**
-     * Specifies the size of the Data Disk in gigabytes. Changing this forces a new resource to be created.
-     */
     public readonly diskSizeGb!: pulumi.Output<number>;
     /**
      * The Logical Unit Number of the Data Disk, which needs to be unique within the Virtual Machine. Changing this forces a new resource to be created.
@@ -230,9 +234,6 @@ export interface ImplicitDataDiskFromSourceState {
      * Specifies the Create Option of the Data Disk. The only possible value is `Copy`. Changing this forces a new resource to be created.
      */
     createOption?: pulumi.Input<string>;
-    /**
-     * Specifies the size of the Data Disk in gigabytes. Changing this forces a new resource to be created.
-     */
     diskSizeGb?: pulumi.Input<number>;
     /**
      * The Logical Unit Number of the Data Disk, which needs to be unique within the Virtual Machine. Changing this forces a new resource to be created.
@@ -268,9 +269,6 @@ export interface ImplicitDataDiskFromSourceArgs {
      * Specifies the Create Option of the Data Disk. The only possible value is `Copy`. Changing this forces a new resource to be created.
      */
     createOption: pulumi.Input<string>;
-    /**
-     * Specifies the size of the Data Disk in gigabytes. Changing this forces a new resource to be created.
-     */
     diskSizeGb: pulumi.Input<number>;
     /**
      * The Logical Unit Number of the Data Disk, which needs to be unique within the Virtual Machine. Changing this forces a new resource to be created.

@@ -7,12 +7,6 @@ import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
- * Manages a Blueprint Assignment resource
- *
- * > **NOTE:** Azure Blueprints are in Preview and potentially subject to breaking change without notice.
- *
- * > **NOTE:** Azure Blueprint Assignments can only be applied to Subscriptions.  Assignments to Management Groups is not currently supported by the service or by this provider.
- *
  * ## Example Usage
  *
  * ```typescript
@@ -82,6 +76,13 @@ import * as utilities from "../utilities";
  *     ],
  * });
  * ```
+ *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This resource uses the following Azure API Providers:
+ *
+ * * `Microsoft.Blueprint`: 2018-11-01-preview
  *
  * ## Import
  *
@@ -158,13 +159,13 @@ export class Assignment extends pulumi.CustomResource {
     /**
      * a JSON string to supply Blueprint Assignment parameter values.
      *
-     * > **NOTE:** Improperly formatted JSON, or missing values required by a Blueprint will cause the assignment to fail.
+     * > **Note:** Improperly formatted JSON, or missing values required by a Blueprint will cause the assignment to fail.
      */
     public readonly parameterValues!: pulumi.Output<string | undefined>;
     /**
      * a JSON string to supply the Blueprint Resource Group information.
      *
-     * > **NOTE:** Improperly formatted JSON, or missing values required by a Blueprint will cause the assignment to fail.
+     * > **Note:** Improperly formatted JSON, or missing values required by a Blueprint will cause the assignment to fail.
      */
     public readonly resourceGroups!: pulumi.Output<string | undefined>;
     /**
@@ -278,13 +279,13 @@ export interface AssignmentState {
     /**
      * a JSON string to supply Blueprint Assignment parameter values.
      *
-     * > **NOTE:** Improperly formatted JSON, or missing values required by a Blueprint will cause the assignment to fail.
+     * > **Note:** Improperly formatted JSON, or missing values required by a Blueprint will cause the assignment to fail.
      */
     parameterValues?: pulumi.Input<string>;
     /**
      * a JSON string to supply the Blueprint Resource Group information.
      *
-     * > **NOTE:** Improperly formatted JSON, or missing values required by a Blueprint will cause the assignment to fail.
+     * > **Note:** Improperly formatted JSON, or missing values required by a Blueprint will cause the assignment to fail.
      */
     resourceGroups?: pulumi.Input<string>;
     /**
@@ -329,13 +330,13 @@ export interface AssignmentArgs {
     /**
      * a JSON string to supply Blueprint Assignment parameter values.
      *
-     * > **NOTE:** Improperly formatted JSON, or missing values required by a Blueprint will cause the assignment to fail.
+     * > **Note:** Improperly formatted JSON, or missing values required by a Blueprint will cause the assignment to fail.
      */
     parameterValues?: pulumi.Input<string>;
     /**
      * a JSON string to supply the Blueprint Resource Group information.
      *
-     * > **NOTE:** Improperly formatted JSON, or missing values required by a Blueprint will cause the assignment to fail.
+     * > **Note:** Improperly formatted JSON, or missing values required by a Blueprint will cause the assignment to fail.
      */
     resourceGroups?: pulumi.Input<string>;
     /**

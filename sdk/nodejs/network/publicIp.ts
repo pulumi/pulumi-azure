@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 /**
  * Manages a Public IP Address.
  *
- * > **Note** If this resource is to be associated with a resource that requires disassociation before destruction (such as `azure.network.NetworkInterface`) it is recommended to set the `lifecycle` argument `createBeforeDestroy = true`. Otherwise, it can fail to disassociate on destruction.
+ * > **Note:** If this resource is to be associated with a resource that requires disassociation before destruction (such as `azure.network.NetworkInterface`) it is recommended to set the `lifecycle` argument `createBeforeDestroy = true`. Otherwise, it can fail to disassociate on destruction.
  *
  * ## Example Usage
  *
@@ -69,7 +69,7 @@ export class PublicIp extends pulumi.CustomResource {
     /**
      * Defines the allocation method for this IP address. Possible values are `Static` or `Dynamic`.
      *
-     * > **Note** `Dynamic` Public IP Addresses aren't allocated until they're assigned to a resource (such as a Virtual Machine or a Load Balancer) by design within Azure. See `ipAddress` argument.
+     * > **Note:** `Dynamic` Public IP Addresses aren't allocated until they're assigned to a resource (such as a Virtual Machine or a Load Balancer) by design within Azure. See `ipAddress` argument.
      */
     public readonly allocationMethod!: pulumi.Output<string>;
     /**
@@ -109,13 +109,13 @@ export class PublicIp extends pulumi.CustomResource {
     /**
      * A mapping of IP tags to assign to the public IP. Changing this forces a new resource to be created.
      *
-     * > **Note** IP Tag `RoutingPreference` requires multiple `zones` and `Standard` SKU to be set.
+     * > **Note:** IP Tag `RoutingPreference` requires multiple `zones` and `Standard` SKU to be set.
      */
     public readonly ipTags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The IP Version to use, IPv6 or IPv4. Changing this forces a new resource to be created. Defaults to `IPv4`.
      *
-     * > **Note** Only `static` IP address allocation is supported for IPv6.
+     * > **Note:** Only `static` IP address allocation is supported for IPv6.
      */
     public readonly ipVersion!: pulumi.Output<string | undefined>;
     /**
@@ -141,13 +141,13 @@ export class PublicIp extends pulumi.CustomResource {
     /**
      * The SKU of the Public IP. Accepted values are `Basic` and `Standard`. Defaults to `Standard`. Changing this forces a new resource to be created.
      *
-     * > **Note** Public IP Standard SKUs require `allocationMethod` to be set to `Static`.
+     * > **Note:** Public IP Standard SKUs require `allocationMethod` to be set to `Static`.
      */
     public readonly sku!: pulumi.Output<string | undefined>;
     /**
      * The SKU Tier that should be used for the Public IP. Possible values are `Regional` and `Global`. Defaults to `Regional`. Changing this forces a new resource to be created.
      *
-     * > **Note** When `skuTier` is set to `Global`, `sku` must be set to `Standard`.
+     * > **Note:** When `skuTier` is set to `Global`, `sku` must be set to `Standard`.
      */
     public readonly skuTier!: pulumi.Output<string | undefined>;
     /**
@@ -235,7 +235,7 @@ export interface PublicIpState {
     /**
      * Defines the allocation method for this IP address. Possible values are `Static` or `Dynamic`.
      *
-     * > **Note** `Dynamic` Public IP Addresses aren't allocated until they're assigned to a resource (such as a Virtual Machine or a Load Balancer) by design within Azure. See `ipAddress` argument.
+     * > **Note:** `Dynamic` Public IP Addresses aren't allocated until they're assigned to a resource (such as a Virtual Machine or a Load Balancer) by design within Azure. See `ipAddress` argument.
      */
     allocationMethod?: pulumi.Input<string>;
     /**
@@ -275,13 +275,13 @@ export interface PublicIpState {
     /**
      * A mapping of IP tags to assign to the public IP. Changing this forces a new resource to be created.
      *
-     * > **Note** IP Tag `RoutingPreference` requires multiple `zones` and `Standard` SKU to be set.
+     * > **Note:** IP Tag `RoutingPreference` requires multiple `zones` and `Standard` SKU to be set.
      */
     ipTags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The IP Version to use, IPv6 or IPv4. Changing this forces a new resource to be created. Defaults to `IPv4`.
      *
-     * > **Note** Only `static` IP address allocation is supported for IPv6.
+     * > **Note:** Only `static` IP address allocation is supported for IPv6.
      */
     ipVersion?: pulumi.Input<string>;
     /**
@@ -307,13 +307,13 @@ export interface PublicIpState {
     /**
      * The SKU of the Public IP. Accepted values are `Basic` and `Standard`. Defaults to `Standard`. Changing this forces a new resource to be created.
      *
-     * > **Note** Public IP Standard SKUs require `allocationMethod` to be set to `Static`.
+     * > **Note:** Public IP Standard SKUs require `allocationMethod` to be set to `Static`.
      */
     sku?: pulumi.Input<string>;
     /**
      * The SKU Tier that should be used for the Public IP. Possible values are `Regional` and `Global`. Defaults to `Regional`. Changing this forces a new resource to be created.
      *
-     * > **Note** When `skuTier` is set to `Global`, `sku` must be set to `Standard`.
+     * > **Note:** When `skuTier` is set to `Global`, `sku` must be set to `Standard`.
      */
     skuTier?: pulumi.Input<string>;
     /**
@@ -335,7 +335,7 @@ export interface PublicIpArgs {
     /**
      * Defines the allocation method for this IP address. Possible values are `Static` or `Dynamic`.
      *
-     * > **Note** `Dynamic` Public IP Addresses aren't allocated until they're assigned to a resource (such as a Virtual Machine or a Load Balancer) by design within Azure. See `ipAddress` argument.
+     * > **Note:** `Dynamic` Public IP Addresses aren't allocated until they're assigned to a resource (such as a Virtual Machine or a Load Balancer) by design within Azure. See `ipAddress` argument.
      */
     allocationMethod: pulumi.Input<string>;
     /**
@@ -367,13 +367,13 @@ export interface PublicIpArgs {
     /**
      * A mapping of IP tags to assign to the public IP. Changing this forces a new resource to be created.
      *
-     * > **Note** IP Tag `RoutingPreference` requires multiple `zones` and `Standard` SKU to be set.
+     * > **Note:** IP Tag `RoutingPreference` requires multiple `zones` and `Standard` SKU to be set.
      */
     ipTags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The IP Version to use, IPv6 or IPv4. Changing this forces a new resource to be created. Defaults to `IPv4`.
      *
-     * > **Note** Only `static` IP address allocation is supported for IPv6.
+     * > **Note:** Only `static` IP address allocation is supported for IPv6.
      */
     ipVersion?: pulumi.Input<string>;
     /**
@@ -399,13 +399,13 @@ export interface PublicIpArgs {
     /**
      * The SKU of the Public IP. Accepted values are `Basic` and `Standard`. Defaults to `Standard`. Changing this forces a new resource to be created.
      *
-     * > **Note** Public IP Standard SKUs require `allocationMethod` to be set to `Static`.
+     * > **Note:** Public IP Standard SKUs require `allocationMethod` to be set to `Static`.
      */
     sku?: pulumi.Input<string>;
     /**
      * The SKU Tier that should be used for the Public IP. Possible values are `Regional` and `Global`. Defaults to `Regional`. Changing this forces a new resource to be created.
      *
-     * > **Note** When `skuTier` is set to `Global`, `sku` must be set to `Standard`.
+     * > **Note:** When `skuTier` is set to `Global`, `sku` must be set to `Standard`.
      */
     skuTier?: pulumi.Input<string>;
     /**

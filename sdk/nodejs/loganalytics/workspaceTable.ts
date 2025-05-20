@@ -33,6 +33,13 @@ import * as utilities from "../utilities";
  *     totalRetentionInDays: 180,
  * });
  * ```
+ *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This resource uses the following Azure API Providers:
+ *
+ * * `Microsoft.OperationalInsights`: 2022-10-01
  */
 export class WorkspaceTable extends pulumi.CustomResource {
     /**

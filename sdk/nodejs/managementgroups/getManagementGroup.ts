@@ -18,6 +18,13 @@ import * as utilities from "../utilities";
  * });
  * export const displayName = example.then(example => example.displayName);
  * ```
+ *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This data source uses the following Azure API Providers:
+ *
+ * * `Microsoft.Management`: 2020-05-01
  */
 /** @deprecated azure.managementgroups.getManagementGroup has been deprecated in favor of azure.management.getGroup */
 export function getManagementGroup(args?: GetManagementGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetManagementGroupResult> {
@@ -34,11 +41,6 @@ export function getManagementGroup(args?: GetManagementGroupArgs, opts?: pulumi.
  * A collection of arguments for invoking getManagementGroup.
  */
 export interface GetManagementGroupArgs {
-    /**
-     * Specifies the display name of this Management Group.
-     *
-     * > **NOTE** Whilst multiple management groups may share the same display name, when filtering, the provider expects a single management group to be found with this name.
-     */
     displayName?: string;
     /**
      * Specifies the name or UUID of this Management Group.
@@ -95,6 +97,13 @@ export interface GetManagementGroupResult {
  * });
  * export const displayName = example.then(example => example.displayName);
  * ```
+ *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This data source uses the following Azure API Providers:
+ *
+ * * `Microsoft.Management`: 2020-05-01
  */
 /** @deprecated azure.managementgroups.getManagementGroup has been deprecated in favor of azure.management.getGroup */
 export function getManagementGroupOutput(args?: GetManagementGroupOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetManagementGroupResult> {
@@ -111,11 +120,6 @@ export function getManagementGroupOutput(args?: GetManagementGroupOutputArgs, op
  * A collection of arguments for invoking getManagementGroup.
  */
 export interface GetManagementGroupOutputArgs {
-    /**
-     * Specifies the display name of this Management Group.
-     *
-     * > **NOTE** Whilst multiple management groups may share the same display name, when filtering, the provider expects a single management group to be found with this name.
-     */
     displayName?: pulumi.Input<string>;
     /**
      * Specifies the name or UUID of this Management Group.

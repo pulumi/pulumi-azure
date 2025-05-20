@@ -107,6 +107,13 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This resource uses the following Azure API Providers:
+ *
+ * * `PaloAltoNetworks.Cloudngfw`: 2023-09-01, 2022-08-29
+ *
  * ## Import
  *
  * Palo Alto Next Generation Firewall Virtual Network Local Rulestacks can be imported using the `resource id`, e.g.
@@ -166,7 +173,7 @@ export class NextGenerationFirewallVirtualNetworkLocalRulestack extends pulumi.C
     /**
      * The billing plan ID as published by Liftr.PAN. Defaults to `panw-cloud-ngfw-payg`.
      *
-     * > **NOTE:** The former `planId` `panw-cloud-ngfw-payg` is defined as stop sell, but has been set as the default to not break any existing resources that were originally provisioned with it. Users need to explicitly set `planId` to `panw-cngfw-payg` when creating new resources.
+     * > **Note:** The former `planId` `panw-cloud-ngfw-payg` is defined as stop sell, but has been set as the default to not break any existing resources that were originally provisioned with it. Users need to explicitly set `planId` to `panw-cngfw-payg` when creating new resources.
      */
     public readonly planId!: pulumi.Output<string | undefined>;
     /**
@@ -257,7 +264,7 @@ export interface NextGenerationFirewallVirtualNetworkLocalRulestackState {
     /**
      * The billing plan ID as published by Liftr.PAN. Defaults to `panw-cloud-ngfw-payg`.
      *
-     * > **NOTE:** The former `planId` `panw-cloud-ngfw-payg` is defined as stop sell, but has been set as the default to not break any existing resources that were originally provisioned with it. Users need to explicitly set `planId` to `panw-cngfw-payg` when creating new resources.
+     * > **Note:** The former `planId` `panw-cloud-ngfw-payg` is defined as stop sell, but has been set as the default to not break any existing resources that were originally provisioned with it. Users need to explicitly set `planId` to `panw-cngfw-payg` when creating new resources.
      */
     planId?: pulumi.Input<string>;
     /**
@@ -301,7 +308,7 @@ export interface NextGenerationFirewallVirtualNetworkLocalRulestackArgs {
     /**
      * The billing plan ID as published by Liftr.PAN. Defaults to `panw-cloud-ngfw-payg`.
      *
-     * > **NOTE:** The former `planId` `panw-cloud-ngfw-payg` is defined as stop sell, but has been set as the default to not break any existing resources that were originally provisioned with it. Users need to explicitly set `planId` to `panw-cngfw-payg` when creating new resources.
+     * > **Note:** The former `planId` `panw-cloud-ngfw-payg` is defined as stop sell, but has been set as the default to not break any existing resources that were originally provisioned with it. Users need to explicitly set `planId` to `panw-cngfw-payg` when creating new resources.
      */
     planId?: pulumi.Input<string>;
     /**

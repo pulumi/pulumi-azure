@@ -9,6 +9,8 @@ import * as utilities from "../utilities";
 /**
  * Manages a Key Vault Certificate.
  *
+ * > **Note:** The Azure Provider includes a Feature Toggle which will purge a Key Vault Certificate resource on destroy, rather than the default soft-delete. See `purgeSoftDeletedCertificatesOnDestroy` for more information.
+ *
  * ## Example Usage
  *
  * ### Importing A PFX)
@@ -90,7 +92,7 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
- * ### Generating a new certificate
+ * ### Generating A New Certificate)
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -261,7 +263,7 @@ export class Certifiate extends pulumi.CustomResource {
     /**
      * A `certificatePolicy` block as defined below. Changing this (except the `lifetimeAction` field) will create a new version of the Key Vault Certificate.
      *
-     * > **NOTE:** When creating a Key Vault Certificate, at least one of `certificate` or `certificatePolicy` is required. Provide `certificate` to import an existing certificate, `certificatePolicy` to generate a new certificate.
+     * > **Note:** When creating a Key Vault Certificate, at least one of `certificate` or `certificatePolicy` is required. Provide `certificate` to import an existing certificate, `certificatePolicy` to generate a new certificate.
      */
     public readonly certificatePolicy!: pulumi.Output<outputs.keyvault.CertifiateCertificatePolicy>;
     /**
@@ -385,7 +387,7 @@ export interface CertifiateState {
     /**
      * A `certificatePolicy` block as defined below. Changing this (except the `lifetimeAction` field) will create a new version of the Key Vault Certificate.
      *
-     * > **NOTE:** When creating a Key Vault Certificate, at least one of `certificate` or `certificatePolicy` is required. Provide `certificate` to import an existing certificate, `certificatePolicy` to generate a new certificate.
+     * > **Note:** When creating a Key Vault Certificate, at least one of `certificate` or `certificatePolicy` is required. Provide `certificate` to import an existing certificate, `certificatePolicy` to generate a new certificate.
      */
     certificatePolicy?: pulumi.Input<inputs.keyvault.CertifiateCertificatePolicy>;
     /**
@@ -441,7 +443,7 @@ export interface CertifiateArgs {
     /**
      * A `certificatePolicy` block as defined below. Changing this (except the `lifetimeAction` field) will create a new version of the Key Vault Certificate.
      *
-     * > **NOTE:** When creating a Key Vault Certificate, at least one of `certificate` or `certificatePolicy` is required. Provide `certificate` to import an existing certificate, `certificatePolicy` to generate a new certificate.
+     * > **Note:** When creating a Key Vault Certificate, at least one of `certificate` or `certificatePolicy` is required. Provide `certificate` to import an existing certificate, `certificatePolicy` to generate a new certificate.
      */
     certificatePolicy?: pulumi.Input<inputs.keyvault.CertifiateCertificatePolicy>;
     /**

@@ -105,7 +105,7 @@ export class Workflow extends pulumi.CustomResource {
     /**
      * A map of Key-Value pairs.
      *
-     * > **NOTE:** Any parameters specified must exist in the Schema defined in `workflowParameters`.
+     * > **Note:** Any parameters specified must exist in the Schema defined in `workflowParameters`.
      */
     public readonly parameters!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
@@ -244,7 +244,7 @@ export interface WorkflowState {
     /**
      * A map of Key-Value pairs.
      *
-     * > **NOTE:** Any parameters specified must exist in the Schema defined in `workflowParameters`.
+     * > **Note:** Any parameters specified must exist in the Schema defined in `workflowParameters`.
      */
     parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -312,7 +312,7 @@ export interface WorkflowArgs {
     /**
      * A map of Key-Value pairs.
      *
-     * > **NOTE:** Any parameters specified must exist in the Schema defined in `workflowParameters`.
+     * > **Note:** Any parameters specified must exist in the Schema defined in `workflowParameters`.
      */
     parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**

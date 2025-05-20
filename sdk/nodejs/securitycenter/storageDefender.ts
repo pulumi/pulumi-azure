@@ -27,6 +27,13 @@ import * as utilities from "../utilities";
  * const exampleStorageDefender = new azure.securitycenter.StorageDefender("example", {storageAccountId: exampleAccount.id});
  * ```
  *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This resource uses the following Azure API Providers:
+ *
+ * * `Microsoft.Security`: 2022-12-01-preview
+ *
  * ## Import
  *
  * The setting can be imported using the `resource id`, e.g.

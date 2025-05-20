@@ -98,15 +98,6 @@ export class FunctionAppSlot extends pulumi.CustomResource {
      * The ID of the App Service Plan within which to create this Function App Slot. Changing this forces a new resource to be created.
      */
     public readonly appServicePlanId!: pulumi.Output<string>;
-    /**
-     * A key-value pair of App Settings.
-     *
-     * > **Note:** When integrating a `CI/CD pipeline` and expecting to run from a deployed package in `Azure` you must seed your `app settings` as part of the application code for function app to be successfully deployed. `Important Default key pairs`: (`"WEBSITE_RUN_FROM_PACKAGE" = ""`, `"FUNCTIONS_WORKER_RUNTIME" = "node"` (or python, etc), `"WEBSITE_NODE_DEFAULT_VERSION" = "10.14.1"`, `"APPINSIGHTS_INSTRUMENTATIONKEY" = ""`).
-     *
-     * > **NOTE:** The values for `AzureWebJobsStorage` and `FUNCTIONS_EXTENSION_VERSION` will be filled by other input arguments and shouldn't be configured separately. `AzureWebJobsStorage` is filled based on `storageAccountName` and `storageAccountAccessKey`. `FUNCTIONS_EXTENSION_VERSION` is filled based on `version`.
-     *
-     * > **Note:**  When using an App Service Plan in the `Free` or `Shared` Tiers `use32BitWorkerProcess` must be set to `true`.
-     */
     public readonly appSettings!: pulumi.Output<{[key: string]: string}>;
     /**
      * An `authSettings` block as defined below.
@@ -159,7 +150,7 @@ export class FunctionAppSlot extends pulumi.CustomResource {
     /**
      * A string indicating the Operating System type for this function app. The only possible value is `linux`. Changing this forces a new resource to be created.
      *
-     * > **NOTE:** This value will be `linux` for Linux Derivatives or an empty string for Windows (default).
+     * > **Note:** This value will be `linux` for Linux Derivatives or an empty string for Windows (default).
      */
     public readonly osType!: pulumi.Output<string | undefined>;
     /**
@@ -293,15 +284,6 @@ export interface FunctionAppSlotState {
      * The ID of the App Service Plan within which to create this Function App Slot. Changing this forces a new resource to be created.
      */
     appServicePlanId?: pulumi.Input<string>;
-    /**
-     * A key-value pair of App Settings.
-     *
-     * > **Note:** When integrating a `CI/CD pipeline` and expecting to run from a deployed package in `Azure` you must seed your `app settings` as part of the application code for function app to be successfully deployed. `Important Default key pairs`: (`"WEBSITE_RUN_FROM_PACKAGE" = ""`, `"FUNCTIONS_WORKER_RUNTIME" = "node"` (or python, etc), `"WEBSITE_NODE_DEFAULT_VERSION" = "10.14.1"`, `"APPINSIGHTS_INSTRUMENTATIONKEY" = ""`).
-     *
-     * > **NOTE:** The values for `AzureWebJobsStorage` and `FUNCTIONS_EXTENSION_VERSION` will be filled by other input arguments and shouldn't be configured separately. `AzureWebJobsStorage` is filled based on `storageAccountName` and `storageAccountAccessKey`. `FUNCTIONS_EXTENSION_VERSION` is filled based on `version`.
-     *
-     * > **Note:**  When using an App Service Plan in the `Free` or `Shared` Tiers `use32BitWorkerProcess` must be set to `true`.
-     */
     appSettings?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * An `authSettings` block as defined below.
@@ -354,7 +336,7 @@ export interface FunctionAppSlotState {
     /**
      * A string indicating the Operating System type for this function app. The only possible value is `linux`. Changing this forces a new resource to be created.
      *
-     * > **NOTE:** This value will be `linux` for Linux Derivatives or an empty string for Windows (default).
+     * > **Note:** This value will be `linux` for Linux Derivatives or an empty string for Windows (default).
      */
     osType?: pulumi.Input<string>;
     /**
@@ -403,15 +385,6 @@ export interface FunctionAppSlotArgs {
      * The ID of the App Service Plan within which to create this Function App Slot. Changing this forces a new resource to be created.
      */
     appServicePlanId: pulumi.Input<string>;
-    /**
-     * A key-value pair of App Settings.
-     *
-     * > **Note:** When integrating a `CI/CD pipeline` and expecting to run from a deployed package in `Azure` you must seed your `app settings` as part of the application code for function app to be successfully deployed. `Important Default key pairs`: (`"WEBSITE_RUN_FROM_PACKAGE" = ""`, `"FUNCTIONS_WORKER_RUNTIME" = "node"` (or python, etc), `"WEBSITE_NODE_DEFAULT_VERSION" = "10.14.1"`, `"APPINSIGHTS_INSTRUMENTATIONKEY" = ""`).
-     *
-     * > **NOTE:** The values for `AzureWebJobsStorage` and `FUNCTIONS_EXTENSION_VERSION` will be filled by other input arguments and shouldn't be configured separately. `AzureWebJobsStorage` is filled based on `storageAccountName` and `storageAccountAccessKey`. `FUNCTIONS_EXTENSION_VERSION` is filled based on `version`.
-     *
-     * > **Note:**  When using an App Service Plan in the `Free` or `Shared` Tiers `use32BitWorkerProcess` must be set to `true`.
-     */
     appSettings?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * An `authSettings` block as defined below.
@@ -456,7 +429,7 @@ export interface FunctionAppSlotArgs {
     /**
      * A string indicating the Operating System type for this function app. The only possible value is `linux`. Changing this forces a new resource to be created.
      *
-     * > **NOTE:** This value will be `linux` for Linux Derivatives or an empty string for Windows (default).
+     * > **Note:** This value will be `linux` for Linux Derivatives or an empty string for Windows (default).
      */
     osType?: pulumi.Input<string>;
     /**

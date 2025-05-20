@@ -40,6 +40,13 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This resource uses the following Azure API Providers:
+ *
+ * * `Microsoft.OperationalInsights`: 2022-11-01
+ *
  * ## Import
  *
  * Sentinel Watchlist Items can be imported using the `resource id`, e.g.

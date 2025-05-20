@@ -21,6 +21,13 @@ import * as utilities from "../utilities";
  * });
  * export const id = example.then(example => example.id);
  * ```
+ *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This data source uses the following Azure API Providers:
+ *
+ * * `Microsoft.Web`: 2023-12-01
  */
 export function getWindowsWebApp(args: GetWindowsWebAppArgs, opts?: pulumi.InvokeOptions): Promise<GetWindowsWebAppResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -202,6 +209,13 @@ export interface GetWindowsWebAppResult {
  * });
  * export const id = example.then(example => example.id);
  * ```
+ *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This data source uses the following Azure API Providers:
+ *
+ * * `Microsoft.Web`: 2023-12-01
  */
 export function getWindowsWebAppOutput(args: GetWindowsWebAppOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetWindowsWebAppResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

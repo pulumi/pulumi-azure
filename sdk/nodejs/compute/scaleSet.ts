@@ -9,6 +9,12 @@ import * as utilities from "../utilities";
 /**
  * Manages a virtual machine scale set.
  *
+ * ## Disclaimers
+ *
+ * !> **Note:** The `azure.compute.ScaleSet` resource has been deprecated in favour of the `azure.compute.LinuxVirtualMachineScaleSet` and `azure.compute.WindowsVirtualMachineScaleSet` resources. Whilst this will continue to be available throughout the 2.x and 3.x releases however is in a feature-frozen state to maintain compatibility - new functionality will instead be added to the `azure.compute.LinuxVirtualMachineScaleSet` and `azure.compute.WindowsVirtualMachineScaleSet` resources and the `azure.compute.ScaleSet` resource will be removed in the future.
+ *
+ * > **Note:** All arguments including the administrator login and password will be stored in the raw state as plain-text. [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
+ *
  * ## Example Usage
  *
  * ### With Managed Disks (Recommended)
@@ -124,7 +130,7 @@ import * as utilities from "../utilities";
  *         }],
  *     },
  *     networkProfiles: [{
- *         name: "mynetworkprofile",
+ *         name: "terraformnetworkprofile",
  *         primary: true,
  *         ipConfigurations: [{
  *             name: "TestIPConfiguration",
@@ -287,7 +293,7 @@ export class ScaleSet extends pulumi.CustomResource {
     /**
      * Specifies the eviction policy for Virtual Machines in this Scale Set. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
      *
-     * > **NOTE:** `evictionPolicy` can only be set when `priority` is set to `Low`.
+     * > **Note:** `evictionPolicy` can only be set when `priority` is set to `Low`.
      */
     public readonly evictionPolicy!: pulumi.Output<string | undefined>;
     /**
@@ -389,7 +395,7 @@ export class ScaleSet extends pulumi.CustomResource {
     /**
      * A collection of availability zones to spread the Virtual Machines over. Changing this forces a new resource to be created.
      *
-     * > **NOTE:** Availability Zones are [only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview).
+     * > **Note:** Availability Zones are [only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview).
      */
     public readonly zones!: pulumi.Output<string[] | undefined>;
 
@@ -503,7 +509,7 @@ export interface ScaleSetState {
     /**
      * Specifies the eviction policy for Virtual Machines in this Scale Set. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
      *
-     * > **NOTE:** `evictionPolicy` can only be set when `priority` is set to `Low`.
+     * > **Note:** `evictionPolicy` can only be set when `priority` is set to `Low`.
      */
     evictionPolicy?: pulumi.Input<string>;
     /**
@@ -605,7 +611,7 @@ export interface ScaleSetState {
     /**
      * A collection of availability zones to spread the Virtual Machines over. Changing this forces a new resource to be created.
      *
-     * > **NOTE:** Availability Zones are [only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview).
+     * > **Note:** Availability Zones are [only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview).
      */
     zones?: pulumi.Input<pulumi.Input<string>[]>;
 }
@@ -625,7 +631,7 @@ export interface ScaleSetArgs {
     /**
      * Specifies the eviction policy for Virtual Machines in this Scale Set. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
      *
-     * > **NOTE:** `evictionPolicy` can only be set when `priority` is set to `Low`.
+     * > **Note:** `evictionPolicy` can only be set when `priority` is set to `Low`.
      */
     evictionPolicy?: pulumi.Input<string>;
     /**
@@ -727,7 +733,7 @@ export interface ScaleSetArgs {
     /**
      * A collection of availability zones to spread the Virtual Machines over. Changing this forces a new resource to be created.
      *
-     * > **NOTE:** Availability Zones are [only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview).
+     * > **Note:** Availability Zones are [only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview).
      */
     zones?: pulumi.Input<pulumi.Input<string>[]>;
 }

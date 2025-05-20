@@ -83,9 +83,6 @@ export interface GetAccountBlobContainerSASArgs {
      * The `Cache-Control` response header that is sent when this SAS token is used.
      */
     cacheControl?: string;
-    /**
-     * The connection string for the storage account to which this SAS applies. Typically directly from the `primaryConnectionString` attribute of an `azure.storage.Account` resource.
-     */
     connectionString: string;
     /**
      * Name of the container.
@@ -110,7 +107,7 @@ export interface GetAccountBlobContainerSASArgs {
     /**
      * The expiration time and date of this SAS. Must be a valid ISO-8601 format time/date string.
      *
-     * > **NOTE:** The [ISO-8601 Time offset from UTC](https://en.wikipedia.org/wiki/ISO_8601#Time_offsets_from_UTC) is currently not supported by the service, which will result into 409 error.
+     * > **Note:** The [ISO-8601 Time offset from UTC](https://en.wikipedia.org/wiki/ISO_8601#Time_offsets_from_UTC) is currently not supported by the service, which will result into 409 error.
      */
     expiry: string;
     /**
@@ -233,9 +230,6 @@ export interface GetAccountBlobContainerSASOutputArgs {
      * The `Cache-Control` response header that is sent when this SAS token is used.
      */
     cacheControl?: pulumi.Input<string>;
-    /**
-     * The connection string for the storage account to which this SAS applies. Typically directly from the `primaryConnectionString` attribute of an `azure.storage.Account` resource.
-     */
     connectionString: pulumi.Input<string>;
     /**
      * Name of the container.
@@ -260,7 +254,7 @@ export interface GetAccountBlobContainerSASOutputArgs {
     /**
      * The expiration time and date of this SAS. Must be a valid ISO-8601 format time/date string.
      *
-     * > **NOTE:** The [ISO-8601 Time offset from UTC](https://en.wikipedia.org/wiki/ISO_8601#Time_offsets_from_UTC) is currently not supported by the service, which will result into 409 error.
+     * > **Note:** The [ISO-8601 Time offset from UTC](https://en.wikipedia.org/wiki/ISO_8601#Time_offsets_from_UTC) is currently not supported by the service, which will result into 409 error.
      */
     expiry: pulumi.Input<string>;
     /**

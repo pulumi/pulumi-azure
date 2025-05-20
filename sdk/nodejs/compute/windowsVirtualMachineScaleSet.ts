@@ -7,21 +7,9 @@ import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
- * Manages a Windows Virtual Machine Scale Set.
- *
- * ## Disclaimers
- *
- * > **Note:** This resource will only create Virtual Machine Scale Sets with the **Uniform** Orchestration Mode. For Virtual Machine Scale Sets with **Flexible** orchestration mode, use `azure.compute.OrchestratedVirtualMachineScaleSet`. Flexible orchestration mode is recommended for workloads on Azure.
- *
- * > **Note:** All arguments including the administrator login and password will be stored in the raw state as plain-text. [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
- *
- * > **Note:** This provider will automatically update & reimage the nodes in the Scale Set (if Required) during an Update - this behaviour can be configured using the `features` setting within the Provider block.
- *
- * > **Note:** This resource does not support Unmanaged Disks. If you need to use Unmanaged Disks you can continue to use the `azure.compute.ScaleSet` resource instead
- *
  * ## Example Usage
  *
- * This example provisions a basic Windows Virtual Machine Scale Set on an internal network.
+ * This example provisions a basic Windows Virtual Machine Scale Set on an internal network. Additional examples of how to use the `azure.compute.WindowsVirtualMachineScaleSet` resource can be found in the ./examples/vm-scale-set/windows` directory within the Github Repository.
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -214,11 +202,6 @@ export class WindowsVirtualMachineScaleSet extends pulumi.CustomResource {
      * An `identity` block as defined below.
      */
     public readonly identity!: pulumi.Output<outputs.compute.WindowsVirtualMachineScaleSetIdentity | undefined>;
-    /**
-     * The number of Virtual Machines in the Scale Set.
-     *
-     * > **NOTE:** If you're using AutoScaling, you may wish to use [`Ignore Changes` functionality](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) to ignore changes to this field.
-     */
     public readonly instances!: pulumi.Output<number>;
     /**
      * Specifies the type of on-premise license (also known as [Azure Hybrid Use Benefit](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-hybrid-use-benefit-licensing)) which should be used for this Virtual Machine Scale Set. Possible values are `None`, `Windows_Client` and `Windows_Server`.
@@ -624,11 +607,6 @@ export interface WindowsVirtualMachineScaleSetState {
      * An `identity` block as defined below.
      */
     identity?: pulumi.Input<inputs.compute.WindowsVirtualMachineScaleSetIdentity>;
-    /**
-     * The number of Virtual Machines in the Scale Set.
-     *
-     * > **NOTE:** If you're using AutoScaling, you may wish to use [`Ignore Changes` functionality](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) to ignore changes to this field.
-     */
     instances?: pulumi.Input<number>;
     /**
      * Specifies the type of on-premise license (also known as [Azure Hybrid Use Benefit](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-hybrid-use-benefit-licensing)) which should be used for this Virtual Machine Scale Set. Possible values are `None`, `Windows_Client` and `Windows_Server`.
@@ -879,11 +857,6 @@ export interface WindowsVirtualMachineScaleSetArgs {
      * An `identity` block as defined below.
      */
     identity?: pulumi.Input<inputs.compute.WindowsVirtualMachineScaleSetIdentity>;
-    /**
-     * The number of Virtual Machines in the Scale Set.
-     *
-     * > **NOTE:** If you're using AutoScaling, you may wish to use [`Ignore Changes` functionality](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) to ignore changes to this field.
-     */
     instances: pulumi.Input<number>;
     /**
      * Specifies the type of on-premise license (also known as [Azure Hybrid Use Benefit](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-hybrid-use-benefit-licensing)) which should be used for this Virtual Machine Scale Set. Possible values are `None`, `Windows_Client` and `Windows_Server`.

@@ -82,9 +82,6 @@ export class Blob extends pulumi.CustomResource {
      * Controls the [cache control header](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cache-Control) content of the response when blob is requested .
      */
     public readonly cacheControl!: pulumi.Output<string | undefined>;
-    /**
-     * The MD5 sum of the blob contents. Cannot be defined if `sourceUri` is defined, or if blob type is Append or Page. Changing this forces a new resource to be created.
-     */
     public readonly contentMd5!: pulumi.Output<string | undefined>;
     /**
      * The content type of the storage blob. Cannot be defined if `sourceUri` is defined. Defaults to `application/octet-stream`.
@@ -105,7 +102,7 @@ export class Blob extends pulumi.CustomResource {
     /**
      * The number of workers per CPU core to run for concurrent uploads. Defaults to `8`. Changing this forces a new resource to be created.
      *
-     * > **NOTE:** `parallelism` is only applicable for Page blobs - support for [Block Blobs is blocked on the upstream issue](https://github.com/jackofallops/giovanni/issues/15).
+     * > **Note:** `parallelism` is only applicable for Page blobs - support for [Block Blobs is blocked on the upstream issue](https://github.com/jackofallops/giovanni/issues/15).
      */
     public readonly parallelism!: pulumi.Output<number | undefined>;
     /**
@@ -217,9 +214,6 @@ export interface BlobState {
      * Controls the [cache control header](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cache-Control) content of the response when blob is requested .
      */
     cacheControl?: pulumi.Input<string>;
-    /**
-     * The MD5 sum of the blob contents. Cannot be defined if `sourceUri` is defined, or if blob type is Append or Page. Changing this forces a new resource to be created.
-     */
     contentMd5?: pulumi.Input<string>;
     /**
      * The content type of the storage blob. Cannot be defined if `sourceUri` is defined. Defaults to `application/octet-stream`.
@@ -240,7 +234,7 @@ export interface BlobState {
     /**
      * The number of workers per CPU core to run for concurrent uploads. Defaults to `8`. Changing this forces a new resource to be created.
      *
-     * > **NOTE:** `parallelism` is only applicable for Page blobs - support for [Block Blobs is blocked on the upstream issue](https://github.com/jackofallops/giovanni/issues/15).
+     * > **Note:** `parallelism` is only applicable for Page blobs - support for [Block Blobs is blocked on the upstream issue](https://github.com/jackofallops/giovanni/issues/15).
      */
     parallelism?: pulumi.Input<number>;
     /**
@@ -291,9 +285,6 @@ export interface BlobArgs {
      * Controls the [cache control header](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cache-Control) content of the response when blob is requested .
      */
     cacheControl?: pulumi.Input<string>;
-    /**
-     * The MD5 sum of the blob contents. Cannot be defined if `sourceUri` is defined, or if blob type is Append or Page. Changing this forces a new resource to be created.
-     */
     contentMd5?: pulumi.Input<string>;
     /**
      * The content type of the storage blob. Cannot be defined if `sourceUri` is defined. Defaults to `application/octet-stream`.
@@ -314,7 +305,7 @@ export interface BlobArgs {
     /**
      * The number of workers per CPU core to run for concurrent uploads. Defaults to `8`. Changing this forces a new resource to be created.
      *
-     * > **NOTE:** `parallelism` is only applicable for Page blobs - support for [Block Blobs is blocked on the upstream issue](https://github.com/jackofallops/giovanni/issues/15).
+     * > **Note:** `parallelism` is only applicable for Page blobs - support for [Block Blobs is blocked on the upstream issue](https://github.com/jackofallops/giovanni/issues/15).
      */
     parallelism?: pulumi.Input<number>;
     /**

@@ -37,6 +37,13 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This resource uses the following Azure API Providers:
+ *
+ * * `Microsoft.DBforPostgreSQL`: 2017-12-01
+ *
  * ## Import
  *
  * PostgreSQL Server's can be imported using the `resource id`, e.g.
@@ -116,7 +123,7 @@ export class Server extends pulumi.CustomResource {
     /**
      * Whether or not infrastructure is encrypted for this server. Changing this forces a new resource to be created.
      *
-     * > **NOTE:** This property is currently still in development and not supported by Microsoft. If the `infrastructureEncryptionEnabled` attribute is set to `true` the PostgreSQL instance will incur a substantial performance degradation due to a second encryption pass on top of the existing default encryption that is already provided by Azure Storage. It is strongly suggested to leave this value `false` as not doing so can lead to unclear error messages.
+     * > **Note:** This property is currently still in development and not supported by Microsoft. If the `infrastructureEncryptionEnabled` attribute is set to `true` the PostgreSQL instance will incur a substantial performance degradation due to a second encryption pass on top of the existing default encryption that is already provided by Azure Storage. It is strongly suggested to leave this value `false` as not doing so can lead to unclear error messages.
      */
     public readonly infrastructureEncryptionEnabled!: pulumi.Output<boolean | undefined>;
     /**
@@ -142,13 +149,13 @@ export class Server extends pulumi.CustomResource {
     /**
      * Specifies the SKU Name for this PostgreSQL Server. The name of the SKU, follows the `tier` + `family` + `cores` pattern (e.g. `B_Gen4_1`, `GP_Gen5_8`). For more information see the [product documentation](https://docs.microsoft.com/rest/api/postgresql/singleserver/servers/create#sku). Possible values are `B_Gen4_1`, `B_Gen4_2`, `B_Gen5_1`, `B_Gen5_2`, `GP_Gen4_2`, `GP_Gen4_4`, `GP_Gen4_8`, `GP_Gen4_16`, `GP_Gen4_32`, `GP_Gen5_2`, `GP_Gen5_4`, `GP_Gen5_8`, `GP_Gen5_16`, `GP_Gen5_32`, `GP_Gen5_64`, `MO_Gen5_2`, `MO_Gen5_4`, `MO_Gen5_8`, `MO_Gen5_16` and `MO_Gen5_32`.
      *
-     * > **NOTE:** When replication is set up and `skuName` is changed to a higher tier or more capacity for the primary, all replicas are scaled up to the same tier/capacity. This is an Azure requirement, for more information see the [replica scaling documentation](https://docs.microsoft.com/azure/postgresql/concepts-read-replicas#scaling)
+     * > **Note:** When replication is set up and `skuName` is changed to a higher tier or more capacity for the primary, all replicas are scaled up to the same tier/capacity. This is an Azure requirement, for more information see the [replica scaling documentation](https://docs.microsoft.com/azure/postgresql/concepts-read-replicas#scaling)
      */
     public readonly skuName!: pulumi.Output<string>;
     /**
      * Specifies if SSL should be enforced on connections. Possible values are `true` and `false`.
      *
-     * > **NOTE:** `sslMinimalTlsVersionEnforced` must be set to `TLSEnforcementDisabled` when `sslEnforcementEnabled` is set to `false`.
+     * > **Note:** `sslMinimalTlsVersionEnforced` must be set to `TLSEnforcementDisabled` when `sslEnforcementEnabled` is set to `false`.
      */
     public readonly sslEnforcementEnabled!: pulumi.Output<boolean>;
     /**
@@ -300,7 +307,7 @@ export interface ServerState {
     /**
      * Whether or not infrastructure is encrypted for this server. Changing this forces a new resource to be created.
      *
-     * > **NOTE:** This property is currently still in development and not supported by Microsoft. If the `infrastructureEncryptionEnabled` attribute is set to `true` the PostgreSQL instance will incur a substantial performance degradation due to a second encryption pass on top of the existing default encryption that is already provided by Azure Storage. It is strongly suggested to leave this value `false` as not doing so can lead to unclear error messages.
+     * > **Note:** This property is currently still in development and not supported by Microsoft. If the `infrastructureEncryptionEnabled` attribute is set to `true` the PostgreSQL instance will incur a substantial performance degradation due to a second encryption pass on top of the existing default encryption that is already provided by Azure Storage. It is strongly suggested to leave this value `false` as not doing so can lead to unclear error messages.
      */
     infrastructureEncryptionEnabled?: pulumi.Input<boolean>;
     /**
@@ -326,13 +333,13 @@ export interface ServerState {
     /**
      * Specifies the SKU Name for this PostgreSQL Server. The name of the SKU, follows the `tier` + `family` + `cores` pattern (e.g. `B_Gen4_1`, `GP_Gen5_8`). For more information see the [product documentation](https://docs.microsoft.com/rest/api/postgresql/singleserver/servers/create#sku). Possible values are `B_Gen4_1`, `B_Gen4_2`, `B_Gen5_1`, `B_Gen5_2`, `GP_Gen4_2`, `GP_Gen4_4`, `GP_Gen4_8`, `GP_Gen4_16`, `GP_Gen4_32`, `GP_Gen5_2`, `GP_Gen5_4`, `GP_Gen5_8`, `GP_Gen5_16`, `GP_Gen5_32`, `GP_Gen5_64`, `MO_Gen5_2`, `MO_Gen5_4`, `MO_Gen5_8`, `MO_Gen5_16` and `MO_Gen5_32`.
      *
-     * > **NOTE:** When replication is set up and `skuName` is changed to a higher tier or more capacity for the primary, all replicas are scaled up to the same tier/capacity. This is an Azure requirement, for more information see the [replica scaling documentation](https://docs.microsoft.com/azure/postgresql/concepts-read-replicas#scaling)
+     * > **Note:** When replication is set up and `skuName` is changed to a higher tier or more capacity for the primary, all replicas are scaled up to the same tier/capacity. This is an Azure requirement, for more information see the [replica scaling documentation](https://docs.microsoft.com/azure/postgresql/concepts-read-replicas#scaling)
      */
     skuName?: pulumi.Input<string>;
     /**
      * Specifies if SSL should be enforced on connections. Possible values are `true` and `false`.
      *
-     * > **NOTE:** `sslMinimalTlsVersionEnforced` must be set to `TLSEnforcementDisabled` when `sslEnforcementEnabled` is set to `false`.
+     * > **Note:** `sslMinimalTlsVersionEnforced` must be set to `TLSEnforcementDisabled` when `sslEnforcementEnabled` is set to `false`.
      */
     sslEnforcementEnabled?: pulumi.Input<boolean>;
     /**
@@ -400,7 +407,7 @@ export interface ServerArgs {
     /**
      * Whether or not infrastructure is encrypted for this server. Changing this forces a new resource to be created.
      *
-     * > **NOTE:** This property is currently still in development and not supported by Microsoft. If the `infrastructureEncryptionEnabled` attribute is set to `true` the PostgreSQL instance will incur a substantial performance degradation due to a second encryption pass on top of the existing default encryption that is already provided by Azure Storage. It is strongly suggested to leave this value `false` as not doing so can lead to unclear error messages.
+     * > **Note:** This property is currently still in development and not supported by Microsoft. If the `infrastructureEncryptionEnabled` attribute is set to `true` the PostgreSQL instance will incur a substantial performance degradation due to a second encryption pass on top of the existing default encryption that is already provided by Azure Storage. It is strongly suggested to leave this value `false` as not doing so can lead to unclear error messages.
      */
     infrastructureEncryptionEnabled?: pulumi.Input<boolean>;
     /**
@@ -426,13 +433,13 @@ export interface ServerArgs {
     /**
      * Specifies the SKU Name for this PostgreSQL Server. The name of the SKU, follows the `tier` + `family` + `cores` pattern (e.g. `B_Gen4_1`, `GP_Gen5_8`). For more information see the [product documentation](https://docs.microsoft.com/rest/api/postgresql/singleserver/servers/create#sku). Possible values are `B_Gen4_1`, `B_Gen4_2`, `B_Gen5_1`, `B_Gen5_2`, `GP_Gen4_2`, `GP_Gen4_4`, `GP_Gen4_8`, `GP_Gen4_16`, `GP_Gen4_32`, `GP_Gen5_2`, `GP_Gen5_4`, `GP_Gen5_8`, `GP_Gen5_16`, `GP_Gen5_32`, `GP_Gen5_64`, `MO_Gen5_2`, `MO_Gen5_4`, `MO_Gen5_8`, `MO_Gen5_16` and `MO_Gen5_32`.
      *
-     * > **NOTE:** When replication is set up and `skuName` is changed to a higher tier or more capacity for the primary, all replicas are scaled up to the same tier/capacity. This is an Azure requirement, for more information see the [replica scaling documentation](https://docs.microsoft.com/azure/postgresql/concepts-read-replicas#scaling)
+     * > **Note:** When replication is set up and `skuName` is changed to a higher tier or more capacity for the primary, all replicas are scaled up to the same tier/capacity. This is an Azure requirement, for more information see the [replica scaling documentation](https://docs.microsoft.com/azure/postgresql/concepts-read-replicas#scaling)
      */
     skuName: pulumi.Input<string>;
     /**
      * Specifies if SSL should be enforced on connections. Possible values are `true` and `false`.
      *
-     * > **NOTE:** `sslMinimalTlsVersionEnforced` must be set to `TLSEnforcementDisabled` when `sslEnforcementEnabled` is set to `false`.
+     * > **Note:** `sslMinimalTlsVersionEnforced` must be set to `TLSEnforcementDisabled` when `sslEnforcementEnabled` is set to `false`.
      */
     sslEnforcementEnabled: pulumi.Input<boolean>;
     /**

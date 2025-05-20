@@ -21,6 +21,13 @@ import * as utilities from "../utilities";
  * });
  * export const storageAccountTier = example.then(example => example.accountTier);
  * ```
+ *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This data source uses the following Azure API Providers:
+ *
+ * * `Microsoft.Storage`: 2023-05-01
  */
 export function getAccount(args: GetAccountArgs, opts?: pulumi.InvokeOptions): Promise<GetAccountResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -46,7 +53,7 @@ export interface GetAccountArgs {
     /**
      * Specifies the name of the resource group the Storage Account is located in.
      */
-    resourceGroupName?: string;
+    resourceGroupName: string;
 }
 
 /**
@@ -270,7 +277,7 @@ export interface GetAccountResult {
      * The encryption key type of the queue.
      */
     readonly queueEncryptionKeyType: string;
-    readonly resourceGroupName?: string;
+    readonly resourceGroupName: string;
     /**
      * The secondary access key for the Storage Account.
      */
@@ -439,6 +446,13 @@ export interface GetAccountResult {
  * });
  * export const storageAccountTier = example.then(example => example.accountTier);
  * ```
+ *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This data source uses the following Azure API Providers:
+ *
+ * * `Microsoft.Storage`: 2023-05-01
  */
 export function getAccountOutput(args: GetAccountOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAccountResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -464,5 +478,5 @@ export interface GetAccountOutputArgs {
     /**
      * Specifies the name of the resource group the Storage Account is located in.
      */
-    resourceGroupName?: pulumi.Input<string>;
+    resourceGroupName: pulumi.Input<string>;
 }

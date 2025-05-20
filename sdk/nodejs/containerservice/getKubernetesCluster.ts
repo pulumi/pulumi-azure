@@ -9,6 +9,9 @@ import * as utilities from "../utilities";
 /**
  * Use this data source to access information about an existing Managed Kubernetes Cluster (AKS).
  *
+ * > **Note:** All arguments including the client secret will be stored in the raw state as plain text.
+ * [Read more about sensitive data in the state](https://www.terraform.io/docs/state/sensitive-data.html).
+ *
  * ## Example Usage
  *
  * ```typescript
@@ -20,6 +23,13 @@ import * as utilities from "../utilities";
  *     resourceGroupName: "my-example-resource-group",
  * });
  * ```
+ *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This data source uses the following Azure API Providers:
+ *
+ * * `Microsoft.ContainerService`: 2024-09-01
  */
 export function getKubernetesCluster(args: GetKubernetesClusterArgs, opts?: pulumi.InvokeOptions): Promise<GetKubernetesClusterResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -213,6 +223,9 @@ export interface GetKubernetesClusterResult {
 /**
  * Use this data source to access information about an existing Managed Kubernetes Cluster (AKS).
  *
+ * > **Note:** All arguments including the client secret will be stored in the raw state as plain text.
+ * [Read more about sensitive data in the state](https://www.terraform.io/docs/state/sensitive-data.html).
+ *
  * ## Example Usage
  *
  * ```typescript
@@ -224,6 +237,13 @@ export interface GetKubernetesClusterResult {
  *     resourceGroupName: "my-example-resource-group",
  * });
  * ```
+ *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This data source uses the following Azure API Providers:
+ *
+ * * `Microsoft.ContainerService`: 2024-09-01
  */
 export function getKubernetesClusterOutput(args: GetKubernetesClusterOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetKubernetesClusterResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

@@ -45,6 +45,13 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This resource uses the following Azure API Providers:
+ *
+ * * `Microsoft.Web`: 2023-12-01
+ *
  * ## Import
  *
  * an App Service Source Control Slot can be imported using the `resource id`, e.g.
@@ -104,7 +111,7 @@ export class SourceControlSlot extends pulumi.CustomResource {
     /**
      * The ID of the Linux or Windows Web App Slot. Changing this forces a new resource to be created.
      *
-     * > **NOTE:** Function App Slots are not supported at this time.
+     * > **Note:** Function App Slots are not supported at this time.
      */
     public readonly slotId!: pulumi.Output<string>;
     /**
@@ -195,7 +202,7 @@ export interface SourceControlSlotState {
     /**
      * The ID of the Linux or Windows Web App Slot. Changing this forces a new resource to be created.
      *
-     * > **NOTE:** Function App Slots are not supported at this time.
+     * > **Note:** Function App Slots are not supported at this time.
      */
     slotId?: pulumi.Input<string>;
     /**
@@ -239,7 +246,7 @@ export interface SourceControlSlotArgs {
     /**
      * The ID of the Linux or Windows Web App Slot. Changing this forces a new resource to be created.
      *
-     * > **NOTE:** Function App Slots are not supported at this time.
+     * > **Note:** Function App Slots are not supported at this time.
      */
     slotId: pulumi.Input<string>;
     /**

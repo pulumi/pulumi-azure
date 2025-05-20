@@ -7,16 +7,9 @@ import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
- * Manages a Linux Virtual Machine Scale Set.
- *
- * ## Disclaimers
- *
- * > **Note:** As of the **v2.86.0** (November 19, 2021) release of the provider this resource will only create Virtual Machine Scale Sets with the **Uniform** Orchestration Mode. For Virtual Machine Scale Sets with **Flexible** orchestration mode, use `azure.compute.OrchestratedVirtualMachineScaleSet`. Flexible orchestration mode is recommended for workloads on Azure.
- * rraform will automatically update & reimage the nodes in the Scale Set (if Required) during an Update - this behaviour can be configured using the `features` setting within the Provider block.
- *
  * ## Example Usage
  *
- * This example provisions a basic Linux Virtual Machine Scale Set on an internal network.
+ * This example provisions a basic Linux Virtual Machine Scale Set on an internal network. Additional examples of how to use the `azure.compute.LinuxVirtualMachineScaleSet` resource can be found in the ./examples/vm-scale-set/linux` directory within the GitHub Repository.
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -169,7 +162,7 @@ export class LinuxVirtualMachineScaleSet extends pulumi.CustomResource {
     /**
      * Should Password Authentication be disabled on this Virtual Machine Scale Set? Defaults to `true`.
      *
-     * > In general we'd recommend using SSH Keys for authentication rather than Passwords - but there's tradeoff's to each - please [see this thread for more information](https://security.stackexchange.com/questions/69407/why-is-using-an-ssh-key-more-secure-than-using-passwords).
+     * > **Note:** In general we'd recommend using SSH Keys for authentication rather than Passwords - but there's tradeoff's to each - please [see this thread for more information](https://security.stackexchange.com/questions/69407/why-is-using-an-ssh-key-more-secure-than-using-passwords).
      *
      * > **Note:** When a `adminPassword` is specified `disablePasswordAuthentication` must be set to `false`.
      */
@@ -222,11 +215,6 @@ export class LinuxVirtualMachineScaleSet extends pulumi.CustomResource {
      * An `identity` block as defined below.
      */
     public readonly identity!: pulumi.Output<outputs.compute.LinuxVirtualMachineScaleSetIdentity | undefined>;
-    /**
-     * The number of Virtual Machines in the Scale Set. Defaults to `0`.
-     *
-     * > **NOTE:** If you're using AutoScaling, you may wish to use [`Ignore Changes` functionality](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) to ignore changes to this field.
-     */
     public readonly instances!: pulumi.Output<number | undefined>;
     /**
      * The Azure location where the Linux Virtual Machine Scale Set should exist. Changing this forces a new resource to be created.
@@ -565,7 +553,7 @@ export interface LinuxVirtualMachineScaleSetState {
     /**
      * Should Password Authentication be disabled on this Virtual Machine Scale Set? Defaults to `true`.
      *
-     * > In general we'd recommend using SSH Keys for authentication rather than Passwords - but there's tradeoff's to each - please [see this thread for more information](https://security.stackexchange.com/questions/69407/why-is-using-an-ssh-key-more-secure-than-using-passwords).
+     * > **Note:** In general we'd recommend using SSH Keys for authentication rather than Passwords - but there's tradeoff's to each - please [see this thread for more information](https://security.stackexchange.com/questions/69407/why-is-using-an-ssh-key-more-secure-than-using-passwords).
      *
      * > **Note:** When a `adminPassword` is specified `disablePasswordAuthentication` must be set to `false`.
      */
@@ -618,11 +606,6 @@ export interface LinuxVirtualMachineScaleSetState {
      * An `identity` block as defined below.
      */
     identity?: pulumi.Input<inputs.compute.LinuxVirtualMachineScaleSetIdentity>;
-    /**
-     * The number of Virtual Machines in the Scale Set. Defaults to `0`.
-     *
-     * > **NOTE:** If you're using AutoScaling, you may wish to use [`Ignore Changes` functionality](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) to ignore changes to this field.
-     */
     instances?: pulumi.Input<number>;
     /**
      * The Azure location where the Linux Virtual Machine Scale Set should exist. Changing this forces a new resource to be created.
@@ -818,7 +801,7 @@ export interface LinuxVirtualMachineScaleSetArgs {
     /**
      * Should Password Authentication be disabled on this Virtual Machine Scale Set? Defaults to `true`.
      *
-     * > In general we'd recommend using SSH Keys for authentication rather than Passwords - but there's tradeoff's to each - please [see this thread for more information](https://security.stackexchange.com/questions/69407/why-is-using-an-ssh-key-more-secure-than-using-passwords).
+     * > **Note:** In general we'd recommend using SSH Keys for authentication rather than Passwords - but there's tradeoff's to each - please [see this thread for more information](https://security.stackexchange.com/questions/69407/why-is-using-an-ssh-key-more-secure-than-using-passwords).
      *
      * > **Note:** When a `adminPassword` is specified `disablePasswordAuthentication` must be set to `false`.
      */
@@ -871,11 +854,6 @@ export interface LinuxVirtualMachineScaleSetArgs {
      * An `identity` block as defined below.
      */
     identity?: pulumi.Input<inputs.compute.LinuxVirtualMachineScaleSetIdentity>;
-    /**
-     * The number of Virtual Machines in the Scale Set. Defaults to `0`.
-     *
-     * > **NOTE:** If you're using AutoScaling, you may wish to use [`Ignore Changes` functionality](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) to ignore changes to this field.
-     */
     instances?: pulumi.Input<number>;
     /**
      * The Azure location where the Linux Virtual Machine Scale Set should exist. Changing this forces a new resource to be created.

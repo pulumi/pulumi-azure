@@ -4,6 +4,55 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
+/**
+ * Manages a Palo Alto Network Virtual Appliance.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "example-resources",
+ *     location: "West Europe",
+ * });
+ * const exampleVirtualWan = new azure.network.VirtualWan("example", {
+ *     name: "example-virtualwan",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
+ * });
+ * const exampleVirtualHub = new azure.network.VirtualHub("example", {
+ *     name: "example-virtualhub",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
+ *     virtualWanId: exampleVirtualWan.id,
+ *     addressPrefix: "10.0.0.0/23",
+ *     tags: {
+ *         hubSaaSPreview: "true",
+ *     },
+ * });
+ * const exampleVirtualNetworkAppliance = new azure.paloalto.VirtualNetworkAppliance("example", {
+ *     name: "example-appliance",
+ *     virtualHubId: exampleVirtualHub.id,
+ * });
+ * ```
+ *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This resource uses the following Azure API Providers:
+ *
+ * * `Microsoft.Network`: 2024-05-01
+ *
+ * ## Import
+ *
+ * Palo Alto Local Network Virtual Appliances can be imported using the `resource id`, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure:paloalto/virtualNetworkAppliance:VirtualNetworkAppliance example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Network/networkVirtualAppliances/myPANetworkVirtualAppliance
+ * ```
+ */
 export class VirtualNetworkAppliance extends pulumi.CustomResource {
     /**
      * Get an existing VirtualNetworkAppliance resource's state with the given name, ID, and optional extra
@@ -32,7 +81,15 @@ export class VirtualNetworkAppliance extends pulumi.CustomResource {
         return obj['__pulumiType'] === VirtualNetworkAppliance.__pulumiType;
     }
 
+    /**
+     * The name which should be used for this Palo Alto Local Network Virtual Appliance. Changing this forces a new Palo Alto Local Network Virtual Appliance to be created.
+     */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * The ID of the Virtual Hub to deploy this appliance onto. Changing this forces a new Palo Alto Local Network Virtual Appliance to be created.
+     *
+     * > **Note:** THe Virtual Hub must be created with the tag `"hubSaaSPreview" = "true"` to be compatible with this resource.
+     */
     public readonly virtualHubId!: pulumi.Output<string>;
 
     /**
@@ -67,7 +124,15 @@ export class VirtualNetworkAppliance extends pulumi.CustomResource {
  * Input properties used for looking up and filtering VirtualNetworkAppliance resources.
  */
 export interface VirtualNetworkApplianceState {
+    /**
+     * The name which should be used for this Palo Alto Local Network Virtual Appliance. Changing this forces a new Palo Alto Local Network Virtual Appliance to be created.
+     */
     name?: pulumi.Input<string>;
+    /**
+     * The ID of the Virtual Hub to deploy this appliance onto. Changing this forces a new Palo Alto Local Network Virtual Appliance to be created.
+     *
+     * > **Note:** THe Virtual Hub must be created with the tag `"hubSaaSPreview" = "true"` to be compatible with this resource.
+     */
     virtualHubId?: pulumi.Input<string>;
 }
 
@@ -75,6 +140,14 @@ export interface VirtualNetworkApplianceState {
  * The set of arguments for constructing a VirtualNetworkAppliance resource.
  */
 export interface VirtualNetworkApplianceArgs {
+    /**
+     * The name which should be used for this Palo Alto Local Network Virtual Appliance. Changing this forces a new Palo Alto Local Network Virtual Appliance to be created.
+     */
     name?: pulumi.Input<string>;
+    /**
+     * The ID of the Virtual Hub to deploy this appliance onto. Changing this forces a new Palo Alto Local Network Virtual Appliance to be created.
+     *
+     * > **Note:** THe Virtual Hub must be created with the tag `"hubSaaSPreview" = "true"` to be compatible with this resource.
+     */
     virtualHubId: pulumi.Input<string>;
 }

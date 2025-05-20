@@ -49,7 +49,7 @@ export interface GetWorkspaceArgs {
  */
 export interface GetWorkspaceResult {
     /**
-     * A list of Connectivity endpoints for this Synapse Workspace.
+     * A map of Connectivity endpoints for this Synapse Workspace.
      */
     readonly connectivityEndpoints: {[key: string]: string};
     /**

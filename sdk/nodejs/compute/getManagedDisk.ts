@@ -21,6 +21,13 @@ import * as utilities from "../utilities";
  * });
  * export const id = existing.then(existing => existing.id);
  * ```
+ *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This data source uses the following Azure API Providers:
+ *
+ * * `Microsoft.Compute`: 2023-04-02
  */
 export function getManagedDisk(args: GetManagedDiskArgs, opts?: pulumi.InvokeOptions): Promise<GetManagedDiskResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -131,6 +138,13 @@ export interface GetManagedDiskResult {
  * });
  * export const id = existing.then(existing => existing.id);
  * ```
+ *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This data source uses the following Azure API Providers:
+ *
+ * * `Microsoft.Compute`: 2023-04-02
  */
 export function getManagedDiskOutput(args: GetManagedDiskOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetManagedDiskResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

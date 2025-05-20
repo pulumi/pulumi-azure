@@ -40,6 +40,13 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This resource uses the following Azure API Providers:
+ *
+ * * `Microsoft.App`: 2025-01-01
+ *
  * ## Import
  *
  * A Dapr Component for a Container App Environment can be imported using the `resource id`, e.g.
@@ -103,7 +110,7 @@ export class EnvironmentDaprComponent extends pulumi.CustomResource {
     /**
      * A list of scopes to which this component applies.
      *
-     * > **NOTE:** See the official docs for more information at https://learn.microsoft.com/en-us/azure/container-apps/dapr-overview?tabs=bicep1%2Cyaml#component-scopes
+     * > **Note:** See the official docs for more information at https://learn.microsoft.com/en-us/azure/container-apps/dapr-overview?tabs=bicep1%2Cyaml#component-scopes
      */
     public readonly scopes!: pulumi.Output<string[] | undefined>;
     /**
@@ -196,7 +203,7 @@ export interface EnvironmentDaprComponentState {
     /**
      * A list of scopes to which this component applies.
      *
-     * > **NOTE:** See the official docs for more information at https://learn.microsoft.com/en-us/azure/container-apps/dapr-overview?tabs=bicep1%2Cyaml#component-scopes
+     * > **Note:** See the official docs for more information at https://learn.microsoft.com/en-us/azure/container-apps/dapr-overview?tabs=bicep1%2Cyaml#component-scopes
      */
     scopes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -240,7 +247,7 @@ export interface EnvironmentDaprComponentArgs {
     /**
      * A list of scopes to which this component applies.
      *
-     * > **NOTE:** See the official docs for more information at https://learn.microsoft.com/en-us/azure/container-apps/dapr-overview?tabs=bicep1%2Cyaml#component-scopes
+     * > **Note:** See the official docs for more information at https://learn.microsoft.com/en-us/azure/container-apps/dapr-overview?tabs=bicep1%2Cyaml#component-scopes
      */
     scopes?: pulumi.Input<pulumi.Input<string>[]>;
     /**

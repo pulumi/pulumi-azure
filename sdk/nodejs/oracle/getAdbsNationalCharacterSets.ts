@@ -24,6 +24,13 @@ import * as utilities from "../utilities";
  *     };
  * }
  * ```
+ *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This data source uses the following Azure API Providers:
+ *
+ * * `Oracle.Database`: 2024-06-01
  */
 export function getAdbsNationalCharacterSets(args: GetAdbsNationalCharacterSetsArgs, opts?: pulumi.InvokeOptions): Promise<GetAdbsNationalCharacterSetsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -74,6 +81,13 @@ export interface GetAdbsNationalCharacterSetsResult {
  *     };
  * }
  * ```
+ *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This data source uses the following Azure API Providers:
+ *
+ * * `Oracle.Database`: 2024-06-01
  */
 export function getAdbsNationalCharacterSetsOutput(args: GetAdbsNationalCharacterSetsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAdbsNationalCharacterSetsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

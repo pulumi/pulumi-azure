@@ -22,6 +22,13 @@ import * as utilities from "../utilities";
  * });
  * export const name = existing.then(existing => existing.configs?.[0]?.name);
  * ```
+ *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This data source uses the following Azure API Providers:
+ *
+ * * `Microsoft.Maintenance`: 2023-04-01
  */
 export function getPublicConfigurations(args?: GetPublicConfigurationsArgs, opts?: pulumi.InvokeOptions): Promise<GetPublicConfigurationsResult> {
     args = args || {};
@@ -89,6 +96,13 @@ export interface GetPublicConfigurationsResult {
  * });
  * export const name = existing.then(existing => existing.configs?.[0]?.name);
  * ```
+ *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This data source uses the following Azure API Providers:
+ *
+ * * `Microsoft.Maintenance`: 2023-04-01
  */
 export function getPublicConfigurationsOutput(args?: GetPublicConfigurationsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetPublicConfigurationsResult> {
     args = args || {};

@@ -86,7 +86,7 @@ export class ContainerStorageAccount extends pulumi.CustomResource {
     /**
      * The ID of the Storage Account to be registered Changing this forces a new resource to be created.
      *
-     * > **NOTE** Azure Backup places a Resource Lock on the storage account that will cause deletion to fail until the account is unregistered from Azure Backup
+     * > **Note:** Azure Backup places a Resource Lock on the storage account that will cause deletion to fail until the account is unregistered from Azure Backup
      */
     public readonly storageAccountId!: pulumi.Output<string>;
 
@@ -141,7 +141,7 @@ export interface ContainerStorageAccountState {
     /**
      * The ID of the Storage Account to be registered Changing this forces a new resource to be created.
      *
-     * > **NOTE** Azure Backup places a Resource Lock on the storage account that will cause deletion to fail until the account is unregistered from Azure Backup
+     * > **Note:** Azure Backup places a Resource Lock on the storage account that will cause deletion to fail until the account is unregistered from Azure Backup
      */
     storageAccountId?: pulumi.Input<string>;
 }
@@ -161,7 +161,7 @@ export interface ContainerStorageAccountArgs {
     /**
      * The ID of the Storage Account to be registered Changing this forces a new resource to be created.
      *
-     * > **NOTE** Azure Backup places a Resource Lock on the storage account that will cause deletion to fail until the account is unregistered from Azure Backup
+     * > **Note:** Azure Backup places a Resource Lock on the storage account that will cause deletion to fail until the account is unregistered from Azure Backup
      */
     storageAccountId: pulumi.Input<string>;
 }

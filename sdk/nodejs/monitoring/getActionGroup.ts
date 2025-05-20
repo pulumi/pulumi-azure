@@ -16,7 +16,7 @@ import * as utilities from "../utilities";
  * import * as azure from "@pulumi/azure";
  *
  * const example = azure.monitoring.getActionGroup({
- *     resourceGroupName: "example-rg",
+ *     resourceGroupName: "terraform-example-rg",
  *     name: "tfex-actiongroup",
  * });
  * export const actionGroupId = example.then(example => example.id);
@@ -120,7 +120,7 @@ export interface GetActionGroupResult {
  * import * as azure from "@pulumi/azure";
  *
  * const example = azure.monitoring.getActionGroup({
- *     resourceGroupName: "example-rg",
+ *     resourceGroupName: "terraform-example-rg",
  *     name: "tfex-actiongroup",
  * });
  * export const actionGroupId = example.then(example => example.id);

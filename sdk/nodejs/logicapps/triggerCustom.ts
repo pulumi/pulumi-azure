@@ -74,6 +74,8 @@ export class TriggerCustom extends pulumi.CustomResource {
 
     /**
      * Specifies the JSON Blob defining the Body of this Custom Trigger.
+     *
+     * > **Note:** To make the Trigger more readable, you may wish to consider using HEREDOC syntax (as shown above) or the `localFile` resource to load the schema from a file on disk.
      */
     public readonly body!: pulumi.Output<string>;
     /**
@@ -87,7 +89,7 @@ export class TriggerCustom extends pulumi.CustomResource {
     /**
      * Specifies the name of the HTTP Trigger to be created within the Logic App Workflow. Changing this forces a new resource to be created.
      *
-     * > **NOTE:** This name must be unique across all Triggers within the Logic App Workflow.
+     * > **Note:** This name must be unique across all Triggers within the Logic App Workflow.
      */
     public readonly name!: pulumi.Output<string>;
 
@@ -132,6 +134,8 @@ export class TriggerCustom extends pulumi.CustomResource {
 export interface TriggerCustomState {
     /**
      * Specifies the JSON Blob defining the Body of this Custom Trigger.
+     *
+     * > **Note:** To make the Trigger more readable, you may wish to consider using HEREDOC syntax (as shown above) or the `localFile` resource to load the schema from a file on disk.
      */
     body?: pulumi.Input<string>;
     /**
@@ -145,7 +149,7 @@ export interface TriggerCustomState {
     /**
      * Specifies the name of the HTTP Trigger to be created within the Logic App Workflow. Changing this forces a new resource to be created.
      *
-     * > **NOTE:** This name must be unique across all Triggers within the Logic App Workflow.
+     * > **Note:** This name must be unique across all Triggers within the Logic App Workflow.
      */
     name?: pulumi.Input<string>;
 }
@@ -156,6 +160,8 @@ export interface TriggerCustomState {
 export interface TriggerCustomArgs {
     /**
      * Specifies the JSON Blob defining the Body of this Custom Trigger.
+     *
+     * > **Note:** To make the Trigger more readable, you may wish to consider using HEREDOC syntax (as shown above) or the `localFile` resource to load the schema from a file on disk.
      */
     body: pulumi.Input<string>;
     /**
@@ -165,7 +171,7 @@ export interface TriggerCustomArgs {
     /**
      * Specifies the name of the HTTP Trigger to be created within the Logic App Workflow. Changing this forces a new resource to be created.
      *
-     * > **NOTE:** This name must be unique across all Triggers within the Logic App Workflow.
+     * > **Note:** This name must be unique across all Triggers within the Logic App Workflow.
      */
     name?: pulumi.Input<string>;
 }

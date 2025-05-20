@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  *
  * ## Disclaimers
  *
- * > **Note:** The `azure.compute.VirtualMachine` resource has been superseded by the `azure.compute.LinuxVirtualMachine` and `azure.compute.WindowsVirtualMachine` resources. The existing `azure.compute.VirtualMachine` resource will continue to be available throughout the 2.x releases however is in a feature-frozen state to maintain compatibility - new functionality will instead be added to the `azure.compute.LinuxVirtualMachine` and `azure.compute.WindowsVirtualMachine` resources.
+ * > **Note:** The `azure.compute.VirtualMachine` resource has been superseded by the `azure.compute.LinuxVirtualMachine` and `azure.compute.WindowsVirtualMachine` resources. The existing `azure.compute.VirtualMachine` resource will continue to be available throughout the 3.x releases however is in a feature-frozen state to maintain compatibility - new functionality will instead be added to the `azure.compute.LinuxVirtualMachine` and `azure.compute.WindowsVirtualMachine` resources.
  *
  * > **Note:** Data Disks can be attached either directly on the `azure.compute.VirtualMachine` resource, or using the `azure.compute.DataDiskAttachment` resource - but the two cannot be used together. If both are used against the same Virtual Machine, spurious changes will occur.
  *
@@ -19,7 +19,7 @@ import * as utilities from "../utilities";
  *
  * ### From An Azure Platform Image)
  *
- * This example provisions a Virtual Machine with Managed Disks.
+ * This example provisions a Virtual Machine with Managed Disks. Other examples of the `azure.compute.VirtualMachine` resource can be found in the `./examples/virtual-machines` directory within the GitHub Repository
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -133,17 +133,7 @@ export class VirtualMachine extends pulumi.CustomResource {
      * A `bootDiagnostics` block as defined below.
      */
     public readonly bootDiagnostics!: pulumi.Output<outputs.compute.VirtualMachineBootDiagnostics | undefined>;
-    /**
-     * Should the Data Disks (either the Managed Disks / VHD Blobs) be deleted when the Virtual Machine is destroyed? Defaults to `false`.
-     *
-     * > **Note:** This setting works when instance is deleted via the provider only and don't forget to delete disks manually if you deleted VM manually. It can increase spending.
-     */
     public readonly deleteDataDisksOnTermination!: pulumi.Output<boolean | undefined>;
-    /**
-     * Should the OS Disk (either the Managed Disk / VHD Blob) be deleted when the Virtual Machine is destroyed? Defaults to `false`.
-     *
-     * > **Note:** This setting works when instance is deleted via the provider only and don't forget to delete disks manually if you deleted VM manually. It can increase spending.
-     */
     public readonly deleteOsDiskOnTermination!: pulumi.Output<boolean | undefined>;
     /**
      * An `identity` block as defined below.
@@ -200,7 +190,7 @@ export class VirtualMachine extends pulumi.CustomResource {
     /**
      * One or more `storageDataDisk` blocks as defined below.
      *
-     * > **Please Note:** Data Disks can also be attached either using this block or the `azure.compute.DataDiskAttachment` resource - but not both.
+     * > **Note:** Data Disks can also be attached either using this block or the `azure.compute.DataDiskAttachment` resource - but not both.
      */
     public readonly storageDataDisks!: pulumi.Output<outputs.compute.VirtualMachineStorageDataDisk[]>;
     /**
@@ -222,7 +212,7 @@ export class VirtualMachine extends pulumi.CustomResource {
     /**
      * A list of a single item of the Availability Zone which the Virtual Machine should be allocated in. Changing this forces a new resource to be created.
      *
-     * > **Please Note:** Availability Zones are [only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview).
+     * > **Note:** Availability Zones are [only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview).
      *
      * For more information on the different example configurations, please check out the [Azure documentation](https://docs.microsoft.com/en-gb/rest/api/compute/virtualmachines/createorupdate#examples)
      */
@@ -325,17 +315,7 @@ export interface VirtualMachineState {
      * A `bootDiagnostics` block as defined below.
      */
     bootDiagnostics?: pulumi.Input<inputs.compute.VirtualMachineBootDiagnostics>;
-    /**
-     * Should the Data Disks (either the Managed Disks / VHD Blobs) be deleted when the Virtual Machine is destroyed? Defaults to `false`.
-     *
-     * > **Note:** This setting works when instance is deleted via the provider only and don't forget to delete disks manually if you deleted VM manually. It can increase spending.
-     */
     deleteDataDisksOnTermination?: pulumi.Input<boolean>;
-    /**
-     * Should the OS Disk (either the Managed Disk / VHD Blob) be deleted when the Virtual Machine is destroyed? Defaults to `false`.
-     *
-     * > **Note:** This setting works when instance is deleted via the provider only and don't forget to delete disks manually if you deleted VM manually. It can increase spending.
-     */
     deleteOsDiskOnTermination?: pulumi.Input<boolean>;
     /**
      * An `identity` block as defined below.
@@ -392,7 +372,7 @@ export interface VirtualMachineState {
     /**
      * One or more `storageDataDisk` blocks as defined below.
      *
-     * > **Please Note:** Data Disks can also be attached either using this block or the `azure.compute.DataDiskAttachment` resource - but not both.
+     * > **Note:** Data Disks can also be attached either using this block or the `azure.compute.DataDiskAttachment` resource - but not both.
      */
     storageDataDisks?: pulumi.Input<pulumi.Input<inputs.compute.VirtualMachineStorageDataDisk>[]>;
     /**
@@ -414,7 +394,7 @@ export interface VirtualMachineState {
     /**
      * A list of a single item of the Availability Zone which the Virtual Machine should be allocated in. Changing this forces a new resource to be created.
      *
-     * > **Please Note:** Availability Zones are [only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview).
+     * > **Note:** Availability Zones are [only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview).
      *
      * For more information on the different example configurations, please check out the [Azure documentation](https://docs.microsoft.com/en-gb/rest/api/compute/virtualmachines/createorupdate#examples)
      */
@@ -437,17 +417,7 @@ export interface VirtualMachineArgs {
      * A `bootDiagnostics` block as defined below.
      */
     bootDiagnostics?: pulumi.Input<inputs.compute.VirtualMachineBootDiagnostics>;
-    /**
-     * Should the Data Disks (either the Managed Disks / VHD Blobs) be deleted when the Virtual Machine is destroyed? Defaults to `false`.
-     *
-     * > **Note:** This setting works when instance is deleted via the provider only and don't forget to delete disks manually if you deleted VM manually. It can increase spending.
-     */
     deleteDataDisksOnTermination?: pulumi.Input<boolean>;
-    /**
-     * Should the OS Disk (either the Managed Disk / VHD Blob) be deleted when the Virtual Machine is destroyed? Defaults to `false`.
-     *
-     * > **Note:** This setting works when instance is deleted via the provider only and don't forget to delete disks manually if you deleted VM manually. It can increase spending.
-     */
     deleteOsDiskOnTermination?: pulumi.Input<boolean>;
     /**
      * An `identity` block as defined below.
@@ -504,7 +474,7 @@ export interface VirtualMachineArgs {
     /**
      * One or more `storageDataDisk` blocks as defined below.
      *
-     * > **Please Note:** Data Disks can also be attached either using this block or the `azure.compute.DataDiskAttachment` resource - but not both.
+     * > **Note:** Data Disks can also be attached either using this block or the `azure.compute.DataDiskAttachment` resource - but not both.
      */
     storageDataDisks?: pulumi.Input<pulumi.Input<inputs.compute.VirtualMachineStorageDataDisk>[]>;
     /**
@@ -526,7 +496,7 @@ export interface VirtualMachineArgs {
     /**
      * A list of a single item of the Availability Zone which the Virtual Machine should be allocated in. Changing this forces a new resource to be created.
      *
-     * > **Please Note:** Availability Zones are [only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview).
+     * > **Note:** Availability Zones are [only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview).
      *
      * For more information on the different example configurations, please check out the [Azure documentation](https://docs.microsoft.com/en-gb/rest/api/compute/virtualmachines/createorupdate#examples)
      */

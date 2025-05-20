@@ -22,7 +22,7 @@ import * as utilities from "../utilities";
  *     location: example.location,
  *     resourceGroupName: example.name,
  *     publisherName: "My Company",
- *     publisherEmail: "company@exmaple.com",
+ *     publisherEmail: "company@terraform.io",
  *     skuName: "Developer_1",
  * });
  * const exampleOpenIdConnectProvider = new azure.apimanagement.OpenIdConnectProvider("example", {
@@ -35,6 +35,13 @@ import * as utilities from "../utilities";
  *     metadataEndpoint: "https://example.com/example",
  * });
  * ```
+ *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This resource uses the following Azure API Providers:
+ *
+ * * `Microsoft.ApiManagement`: 2022-08-01
  *
  * ## Import
  *

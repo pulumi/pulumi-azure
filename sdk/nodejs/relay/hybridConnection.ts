@@ -23,7 +23,7 @@ import * as utilities from "../utilities";
  *     resourceGroupName: example.name,
  *     skuName: "Standard",
  *     tags: {
- *         source: "managed",
+ *         source: "terraform",
  *     },
  * });
  * const exampleHybridConnection = new azure.relay.HybridConnection("example", {
@@ -34,6 +34,13 @@ import * as utilities from "../utilities";
  *     userMetadata: "testmetadata",
  * });
  * ```
+ *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This resource uses the following Azure API Providers:
+ *
+ * * `Microsoft.Relay`: 2021-11-01
  *
  * ## Import
  *

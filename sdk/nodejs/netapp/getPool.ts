@@ -20,6 +20,13 @@ import * as utilities from "../utilities";
  * });
  * export const netappPoolId = example.then(example => example.id);
  * ```
+ *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This data source uses the following Azure API Providers:
+ *
+ * * `Microsoft.NetApp`: 2025-01-01
  */
 export function getPool(args: GetPoolArgs, opts?: pulumi.InvokeOptions): Promise<GetPoolResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -53,6 +60,10 @@ export interface GetPoolArgs {
  */
 export interface GetPoolResult {
     readonly accountName: string;
+    /**
+     * Whether the NetApp Pool can hold cool access enabled volumes.
+     */
+    readonly coolAccessEnabled: boolean;
     /**
      * The encryption type of the pool.
      */
@@ -92,6 +103,13 @@ export interface GetPoolResult {
  * });
  * export const netappPoolId = example.then(example => example.id);
  * ```
+ *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This data source uses the following Azure API Providers:
+ *
+ * * `Microsoft.NetApp`: 2025-01-01
  */
 export function getPoolOutput(args: GetPoolOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetPoolResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

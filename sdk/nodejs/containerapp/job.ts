@@ -75,6 +75,13 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This resource uses the following Azure API Providers:
+ *
+ * * `Microsoft.App`: 2025-01-01
+ *
  * ## Import
  *
  * A Container App Job can be imported using the resource id, e.g.
@@ -162,7 +169,7 @@ export class Job extends pulumi.CustomResource {
     /**
      * A `scheduleTriggerConfig` block as defined below.
      *
-     * > ** NOTE **: Only one of `manualTriggerConfig`, `eventTriggerConfig` or `scheduleTriggerConfig` can be specified.
+     * > **Note:** Only one of `manualTriggerConfig`, `eventTriggerConfig` or `scheduleTriggerConfig` can be specified.
      */
     public readonly scheduleTriggerConfig!: pulumi.Output<outputs.containerapp.JobScheduleTriggerConfig | undefined>;
     /**
@@ -306,7 +313,7 @@ export interface JobState {
     /**
      * A `scheduleTriggerConfig` block as defined below.
      *
-     * > ** NOTE **: Only one of `manualTriggerConfig`, `eventTriggerConfig` or `scheduleTriggerConfig` can be specified.
+     * > **Note:** Only one of `manualTriggerConfig`, `eventTriggerConfig` or `scheduleTriggerConfig` can be specified.
      */
     scheduleTriggerConfig?: pulumi.Input<inputs.containerapp.JobScheduleTriggerConfig>;
     /**
@@ -374,7 +381,7 @@ export interface JobArgs {
     /**
      * A `scheduleTriggerConfig` block as defined below.
      *
-     * > ** NOTE **: Only one of `manualTriggerConfig`, `eventTriggerConfig` or `scheduleTriggerConfig` can be specified.
+     * > **Note:** Only one of `manualTriggerConfig`, `eventTriggerConfig` or `scheduleTriggerConfig` can be specified.
      */
     scheduleTriggerConfig?: pulumi.Input<inputs.containerapp.JobScheduleTriggerConfig>;
     /**

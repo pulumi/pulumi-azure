@@ -30,6 +30,13 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This resource uses the following Azure API Providers:
+ *
+ * * `Microsoft.Insights`: 2015-05-01
+ *
  * ## Import
  *
  * Application Insights Smart Detection Rules can be imported using the `resource id`, e.g.

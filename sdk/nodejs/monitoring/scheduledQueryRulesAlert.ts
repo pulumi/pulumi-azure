@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 /**
  * Manages an AlertingAction Scheduled Query Rules resource within Azure Monitor.
  *
- * > **Warning** This resource is using an older AzureRM API version which is known to cause problems e.g. with custom webhook properties not included in triggered alerts. This resource is superseded by the azure.monitoring.ScheduledQueryRulesAlertV2 resource using newer API versions.
+ * > **Note:** This resource is using an older AzureRM API version which is known to cause problems e.g. with custom webhook properties not included in triggered alerts. This resource is superseded by the azure.monitoring.ScheduledQueryRulesAlertV2 resource using newer API versions.
  *
  * ## Import
  *
@@ -57,7 +57,7 @@ export class ScheduledQueryRulesAlert extends pulumi.CustomResource {
     public readonly authorizedResourceIds!: pulumi.Output<string[] | undefined>;
     /**
      * Should the alerts in this Metric Alert be auto resolved? Defaults to `false`.
-     * > **NOTE** `autoMitigationEnabled` and `throttling` are mutually exclusive and cannot both be set.
+     * > **Note:** `autoMitigationEnabled` and `throttling` are mutually exclusive and cannot both be set.
      */
     public readonly autoMitigationEnabled!: pulumi.Output<boolean | undefined>;
     /**
@@ -207,7 +207,7 @@ export interface ScheduledQueryRulesAlertState {
     authorizedResourceIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Should the alerts in this Metric Alert be auto resolved? Defaults to `false`.
-     * > **NOTE** `autoMitigationEnabled` and `throttling` are mutually exclusive and cannot both be set.
+     * > **Note:** `autoMitigationEnabled` and `throttling` are mutually exclusive and cannot both be set.
      */
     autoMitigationEnabled?: pulumi.Input<boolean>;
     /**
@@ -282,7 +282,7 @@ export interface ScheduledQueryRulesAlertArgs {
     authorizedResourceIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Should the alerts in this Metric Alert be auto resolved? Defaults to `false`.
-     * > **NOTE** `autoMitigationEnabled` and `throttling` are mutually exclusive and cannot both be set.
+     * > **Note:** `autoMitigationEnabled` and `throttling` are mutually exclusive and cannot both be set.
      */
     autoMitigationEnabled?: pulumi.Input<boolean>;
     /**

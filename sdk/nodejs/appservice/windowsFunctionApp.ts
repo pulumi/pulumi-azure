@@ -44,6 +44,13 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This resource uses the following Azure API Providers:
+ *
+ * * `Microsoft.Web`: 2023-12-01, 2023-01-01
+ *
  * ## Import
  *
  * Windows Function Apps can be imported using the `resource id`, e.g.
@@ -228,15 +235,15 @@ export class WindowsFunctionApp extends pulumi.CustomResource {
     /**
      * The Key Vault Secret ID, optionally including version, that contains the Connection String to connect to the storage account for this Function App.
      *
-     * > **NOTE:** `storageKeyVaultSecretId` cannot be used with `storageAccountName`.
+     * > **Note:** `storageKeyVaultSecretId` cannot be used with `storageAccountName`.
      *
-     * > **NOTE:** `storageKeyVaultSecretId` used without a version will use the latest version of the secret, however, the service can take up to 24h to pick up a rotation of the latest version. See the [official docs](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#rotation) for more information.
+     * > **Note:** `storageKeyVaultSecretId` used without a version will use the latest version of the secret, however, the service can take up to 24h to pick up a rotation of the latest version. See the [official docs](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#rotation) for more information.
      */
     public readonly storageKeyVaultSecretId!: pulumi.Output<string | undefined>;
     /**
      * Should the Function App use Managed Identity to access the storage account. Conflicts with `storageAccountAccessKey`.
      *
-     * > **NOTE:** One of `storageAccountAccessKey` or `storageUsesManagedIdentity` must be specified when using `storageAccountName`.
+     * > **Note:** One of `storageAccountAccessKey` or `storageUsesManagedIdentity` must be specified when using `storageAccountName`.
      */
     public readonly storageUsesManagedIdentity!: pulumi.Output<boolean | undefined>;
     /**
@@ -257,7 +264,7 @@ export class WindowsFunctionApp extends pulumi.CustomResource {
     /**
      * Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to `true`.
      *
-     * > **NOTE:** Setting this value to true will disable the ability to use `zipDeployFile` which currently relies on the default publishing profile.
+     * > **Note:** Setting this value to true will disable the ability to use `zipDeployFile` which currently relies on the default publishing profile.
      */
     public readonly webdeployPublishBasicAuthenticationEnabled!: pulumi.Output<boolean | undefined>;
     /**
@@ -335,7 +342,7 @@ export class WindowsFunctionApp extends pulumi.CustomResource {
             if ((!args || args.siteConfig === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'siteConfig'");
             }
-            resourceInputs["appSettings"] = args ? args.appSettings : undefined;
+            resourceInputs["appSettings"] = args?.appSettings ? pulumi.secret(args.appSettings) : undefined;
             resourceInputs["authSettings"] = args ? args.authSettings : undefined;
             resourceInputs["authSettingsV2"] = args ? args.authSettingsV2 : undefined;
             resourceInputs["backup"] = args ? args.backup : undefined;
@@ -381,7 +388,7 @@ export class WindowsFunctionApp extends pulumi.CustomResource {
             resourceInputs["siteCredentials"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["customDomainVerificationId", "siteCredentials", "storageAccountAccessKey"] };
+        const secretOpts = { additionalSecretOutputs: ["appSettings", "customDomainVerificationId", "siteCredentials", "storageAccountAccessKey"] };
         opts = pulumi.mergeOptions(opts, secretOpts);
         super(WindowsFunctionApp.__pulumiType, name, resourceInputs, opts);
     }
@@ -539,15 +546,15 @@ export interface WindowsFunctionAppState {
     /**
      * The Key Vault Secret ID, optionally including version, that contains the Connection String to connect to the storage account for this Function App.
      *
-     * > **NOTE:** `storageKeyVaultSecretId` cannot be used with `storageAccountName`.
+     * > **Note:** `storageKeyVaultSecretId` cannot be used with `storageAccountName`.
      *
-     * > **NOTE:** `storageKeyVaultSecretId` used without a version will use the latest version of the secret, however, the service can take up to 24h to pick up a rotation of the latest version. See the [official docs](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#rotation) for more information.
+     * > **Note:** `storageKeyVaultSecretId` used without a version will use the latest version of the secret, however, the service can take up to 24h to pick up a rotation of the latest version. See the [official docs](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#rotation) for more information.
      */
     storageKeyVaultSecretId?: pulumi.Input<string>;
     /**
      * Should the Function App use Managed Identity to access the storage account. Conflicts with `storageAccountAccessKey`.
      *
-     * > **NOTE:** One of `storageAccountAccessKey` or `storageUsesManagedIdentity` must be specified when using `storageAccountName`.
+     * > **Note:** One of `storageAccountAccessKey` or `storageUsesManagedIdentity` must be specified when using `storageAccountName`.
      */
     storageUsesManagedIdentity?: pulumi.Input<boolean>;
     /**
@@ -568,7 +575,7 @@ export interface WindowsFunctionAppState {
     /**
      * Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to `true`.
      *
-     * > **NOTE:** Setting this value to true will disable the ability to use `zipDeployFile` which currently relies on the default publishing profile.
+     * > **Note:** Setting this value to true will disable the ability to use `zipDeployFile` which currently relies on the default publishing profile.
      */
     webdeployPublishBasicAuthenticationEnabled?: pulumi.Input<boolean>;
     /**
@@ -695,15 +702,15 @@ export interface WindowsFunctionAppArgs {
     /**
      * The Key Vault Secret ID, optionally including version, that contains the Connection String to connect to the storage account for this Function App.
      *
-     * > **NOTE:** `storageKeyVaultSecretId` cannot be used with `storageAccountName`.
+     * > **Note:** `storageKeyVaultSecretId` cannot be used with `storageAccountName`.
      *
-     * > **NOTE:** `storageKeyVaultSecretId` used without a version will use the latest version of the secret, however, the service can take up to 24h to pick up a rotation of the latest version. See the [official docs](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#rotation) for more information.
+     * > **Note:** `storageKeyVaultSecretId` used without a version will use the latest version of the secret, however, the service can take up to 24h to pick up a rotation of the latest version. See the [official docs](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#rotation) for more information.
      */
     storageKeyVaultSecretId?: pulumi.Input<string>;
     /**
      * Should the Function App use Managed Identity to access the storage account. Conflicts with `storageAccountAccessKey`.
      *
-     * > **NOTE:** One of `storageAccountAccessKey` or `storageUsesManagedIdentity` must be specified when using `storageAccountName`.
+     * > **Note:** One of `storageAccountAccessKey` or `storageUsesManagedIdentity` must be specified when using `storageAccountName`.
      */
     storageUsesManagedIdentity?: pulumi.Input<boolean>;
     /**
@@ -724,7 +731,7 @@ export interface WindowsFunctionAppArgs {
     /**
      * Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to `true`.
      *
-     * > **NOTE:** Setting this value to true will disable the ability to use `zipDeployFile` which currently relies on the default publishing profile.
+     * > **Note:** Setting this value to true will disable the ability to use `zipDeployFile` which currently relies on the default publishing profile.
      */
     webdeployPublishBasicAuthenticationEnabled?: pulumi.Input<boolean>;
     /**

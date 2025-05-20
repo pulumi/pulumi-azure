@@ -42,6 +42,13 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This resource uses the following Azure API Providers:
+ *
+ * * `Microsoft.Web`: 2023-12-01, 2023-01-01
+ *
  * ## Import
  *
  * Linux Function Apps can be imported using the `resource id`, e.g.
@@ -228,15 +235,15 @@ export class LinuxFunctionApp extends pulumi.CustomResource {
     /**
      * The Key Vault Secret ID, optionally including version, that contains the Connection String to connect to the storage account for this Function App.
      *
-     * > **NOTE:** `storageKeyVaultSecretId` cannot be used with `storageAccountName`.
+     * > **Note:** `storageKeyVaultSecretId` cannot be used with `storageAccountName`.
      *
-     * > **NOTE:** `storageKeyVaultSecretId` used without a version will use the latest version of the secret, however, the service can take up to 24h to pick up a rotation of the latest version. See the [official docs](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#rotation) for more information.
+     * > **Note:** `storageKeyVaultSecretId` used without a version will use the latest version of the secret, however, the service can take up to 24h to pick up a rotation of the latest version. See the [official docs](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#rotation) for more information.
      */
     public readonly storageKeyVaultSecretId!: pulumi.Output<string | undefined>;
     /**
      * Should the Function App use Managed Identity to access the storage account. Conflicts with `storageAccountAccessKey`.
      *
-     * > **NOTE:** One of `storageAccountAccessKey` or `storageUsesManagedIdentity` must be specified when using `storageAccountName`.
+     * > **Note:** One of `storageAccountAccessKey` or `storageUsesManagedIdentity` must be specified when using `storageAccountName`.
      */
     public readonly storageUsesManagedIdentity!: pulumi.Output<boolean | undefined>;
     /**
@@ -257,7 +264,7 @@ export class LinuxFunctionApp extends pulumi.CustomResource {
     /**
      * Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to `true`.
      *
-     * > **NOTE:** Setting this value to true will disable the ability to use `zipDeployFile` which currently relies on the default publishing profile.
+     * > **Note:** Setting this value to true will disable the ability to use `zipDeployFile` which currently relies on the default publishing profile.
      */
     public readonly webdeployPublishBasicAuthenticationEnabled!: pulumi.Output<boolean | undefined>;
     /**
@@ -541,15 +548,15 @@ export interface LinuxFunctionAppState {
     /**
      * The Key Vault Secret ID, optionally including version, that contains the Connection String to connect to the storage account for this Function App.
      *
-     * > **NOTE:** `storageKeyVaultSecretId` cannot be used with `storageAccountName`.
+     * > **Note:** `storageKeyVaultSecretId` cannot be used with `storageAccountName`.
      *
-     * > **NOTE:** `storageKeyVaultSecretId` used without a version will use the latest version of the secret, however, the service can take up to 24h to pick up a rotation of the latest version. See the [official docs](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#rotation) for more information.
+     * > **Note:** `storageKeyVaultSecretId` used without a version will use the latest version of the secret, however, the service can take up to 24h to pick up a rotation of the latest version. See the [official docs](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#rotation) for more information.
      */
     storageKeyVaultSecretId?: pulumi.Input<string>;
     /**
      * Should the Function App use Managed Identity to access the storage account. Conflicts with `storageAccountAccessKey`.
      *
-     * > **NOTE:** One of `storageAccountAccessKey` or `storageUsesManagedIdentity` must be specified when using `storageAccountName`.
+     * > **Note:** One of `storageAccountAccessKey` or `storageUsesManagedIdentity` must be specified when using `storageAccountName`.
      */
     storageUsesManagedIdentity?: pulumi.Input<boolean>;
     /**
@@ -570,7 +577,7 @@ export interface LinuxFunctionAppState {
     /**
      * Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to `true`.
      *
-     * > **NOTE:** Setting this value to true will disable the ability to use `zipDeployFile` which currently relies on the default publishing profile.
+     * > **Note:** Setting this value to true will disable the ability to use `zipDeployFile` which currently relies on the default publishing profile.
      */
     webdeployPublishBasicAuthenticationEnabled?: pulumi.Input<boolean>;
     /**
@@ -699,15 +706,15 @@ export interface LinuxFunctionAppArgs {
     /**
      * The Key Vault Secret ID, optionally including version, that contains the Connection String to connect to the storage account for this Function App.
      *
-     * > **NOTE:** `storageKeyVaultSecretId` cannot be used with `storageAccountName`.
+     * > **Note:** `storageKeyVaultSecretId` cannot be used with `storageAccountName`.
      *
-     * > **NOTE:** `storageKeyVaultSecretId` used without a version will use the latest version of the secret, however, the service can take up to 24h to pick up a rotation of the latest version. See the [official docs](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#rotation) for more information.
+     * > **Note:** `storageKeyVaultSecretId` used without a version will use the latest version of the secret, however, the service can take up to 24h to pick up a rotation of the latest version. See the [official docs](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#rotation) for more information.
      */
     storageKeyVaultSecretId?: pulumi.Input<string>;
     /**
      * Should the Function App use Managed Identity to access the storage account. Conflicts with `storageAccountAccessKey`.
      *
-     * > **NOTE:** One of `storageAccountAccessKey` or `storageUsesManagedIdentity` must be specified when using `storageAccountName`.
+     * > **Note:** One of `storageAccountAccessKey` or `storageUsesManagedIdentity` must be specified when using `storageAccountName`.
      */
     storageUsesManagedIdentity?: pulumi.Input<boolean>;
     /**
@@ -728,7 +735,7 @@ export interface LinuxFunctionAppArgs {
     /**
      * Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to `true`.
      *
-     * > **NOTE:** Setting this value to true will disable the ability to use `zipDeployFile` which currently relies on the default publishing profile.
+     * > **Note:** Setting this value to true will disable the ability to use `zipDeployFile` which currently relies on the default publishing profile.
      */
     webdeployPublishBasicAuthenticationEnabled?: pulumi.Input<boolean>;
     /**

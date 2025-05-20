@@ -154,7 +154,7 @@ export class AlertRuleAnomalyDuplicate extends pulumi.CustomResource {
     /**
      * A list of `thresholdObservation` blocks as defined below.
      *
-     * > **NOTE:** un-specified `multiSelectObservation`, `singleSelectObservation`, `prioritizedExcludeObservation` and `thresholdObservation` will be inherited from the built-in Anomaly Alert Rule.
+     * > **Note:** un-specified `multiSelectObservation`, `singleSelectObservation`, `prioritizedExcludeObservation` and `thresholdObservation` will be inherited from the built-in Anomaly Alert Rule.
      */
     public readonly thresholdObservations!: pulumi.Output<outputs.sentinel.AlertRuleAnomalyDuplicateThresholdObservation[]>;
 
@@ -308,7 +308,7 @@ export interface AlertRuleAnomalyDuplicateState {
     /**
      * A list of `thresholdObservation` blocks as defined below.
      *
-     * > **NOTE:** un-specified `multiSelectObservation`, `singleSelectObservation`, `prioritizedExcludeObservation` and `thresholdObservation` will be inherited from the built-in Anomaly Alert Rule.
+     * > **Note:** un-specified `multiSelectObservation`, `singleSelectObservation`, `prioritizedExcludeObservation` and `thresholdObservation` will be inherited from the built-in Anomaly Alert Rule.
      */
     thresholdObservations?: pulumi.Input<pulumi.Input<inputs.sentinel.AlertRuleAnomalyDuplicateThresholdObservation>[]>;
 }
@@ -352,7 +352,7 @@ export interface AlertRuleAnomalyDuplicateArgs {
     /**
      * A list of `thresholdObservation` blocks as defined below.
      *
-     * > **NOTE:** un-specified `multiSelectObservation`, `singleSelectObservation`, `prioritizedExcludeObservation` and `thresholdObservation` will be inherited from the built-in Anomaly Alert Rule.
+     * > **Note:** un-specified `multiSelectObservation`, `singleSelectObservation`, `prioritizedExcludeObservation` and `thresholdObservation` will be inherited from the built-in Anomaly Alert Rule.
      */
     thresholdObservations?: pulumi.Input<pulumi.Input<inputs.sentinel.AlertRuleAnomalyDuplicateThresholdObservation>[]>;
 }

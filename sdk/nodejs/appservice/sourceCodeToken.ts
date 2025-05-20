@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
  *
  * !> **NOTE:** This resource has been deprecated in version 5.0 of the provider and will be removed in version 6.0. Please use `azure.appservice.ServicePlan` resource instead.
  *
- * > **NOTE:** Source Control Tokens are configured at the subscription level, not on each App Service - as such this can only be configured Subscription-wide
+ * > **Note:** Source Control Tokens are configured at the subscription level, not on each App Service - as such this can only be configured Subscription-wide
  *
  * ## Example Usage
  *

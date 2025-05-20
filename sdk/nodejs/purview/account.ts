@@ -29,6 +29,13 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This resource uses the following Azure API Providers:
+ *
+ * * `Microsoft.Purview`: 2021-07-01
+ *
  * ## Import
  *
  * Purview Accounts can be imported using the `resource id`, e.g.
@@ -92,7 +99,7 @@ export class Account extends pulumi.CustomResource {
     /**
      * The name which should be used for the new Resource Group where Purview Account creates the managed resources. Changing this forces a new Purview Account to be created.
      *
-     * > **Note:** `managedResourceGroupName` must be a new Resource Group
+     * > **Note:** `managedResourceGroupName` must be a new Resource Group.
      */
     public readonly managedResourceGroupName!: pulumi.Output<string>;
     /**
@@ -206,7 +213,7 @@ export interface AccountState {
     /**
      * The name which should be used for the new Resource Group where Purview Account creates the managed resources. Changing this forces a new Purview Account to be created.
      *
-     * > **Note:** `managedResourceGroupName` must be a new Resource Group
+     * > **Note:** `managedResourceGroupName` must be a new Resource Group.
      */
     managedResourceGroupName?: pulumi.Input<string>;
     /**
@@ -250,7 +257,7 @@ export interface AccountArgs {
     /**
      * The name which should be used for the new Resource Group where Purview Account creates the managed resources. Changing this forces a new Purview Account to be created.
      *
-     * > **Note:** `managedResourceGroupName` must be a new Resource Group
+     * > **Note:** `managedResourceGroupName` must be a new Resource Group.
      */
     managedResourceGroupName?: pulumi.Input<string>;
     /**

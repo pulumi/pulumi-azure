@@ -30,7 +30,7 @@ import * as utilities from "../utilities";
  *     },
  * });
  * const exampleConsumerGroup = new azure.iot.ConsumerGroup("example", {
- *     name: "group",
+ *     name: "terraform",
  *     iothubName: exampleIoTHub.name,
  *     eventhubEndpointName: "events",
  *     resourceGroupName: example.name,

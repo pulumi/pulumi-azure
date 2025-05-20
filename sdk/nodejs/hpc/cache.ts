@@ -43,6 +43,13 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This resource uses the following Azure API Providers:
+ *
+ * * `Microsoft.StorageCache`: 2023-05-01
+ *
  * ## Import
  *
  * HPC Caches can be imported using the `resource id`, e.g.
@@ -86,7 +93,7 @@ export class Cache extends pulumi.CustomResource {
     /**
      * The size of the HPC Cache, in GB. Possible values are `3072`, `6144`, `12288`, `21623`, `24576`, `43246`, `49152` and `86491`. Changing this forces a new resource to be created.
      *
-     * > **NOTE:** The `21623`, `43246` and `86491` sizes are restricted to read only resources.
+     * > **Note:** The `21623`, `43246` and `86491` sizes are restricted to read only resources.
      */
     public readonly cacheSizeInGb!: pulumi.Output<number>;
     /**
@@ -146,7 +153,7 @@ export class Cache extends pulumi.CustomResource {
     /**
      * The SKU of HPC Cache to use. Possible values are (ReadWrite) - `Standard_2G`, `Standard_4G` `Standard_8G` or (ReadOnly) - `Standard_L4_5G`, `Standard_L9G`, and `Standard_L16G`. Changing this forces a new resource to be created.
      *
-     * > **NOTE:** The read-only SKUs have restricted cache sizes. `Standard_L4_5G` must be set to `21623`. `Standard_L9G` to `43246` and `Standard_L16G` to `86491`.
+     * > **Note:** The read-only SKUs have restricted cache sizes. `Standard_L4_5G` must be set to `21623`. `Standard_L9G` to `43246` and `Standard_L16G` to `86491`.
      */
     public readonly skuName!: pulumi.Output<string>;
     /**
@@ -238,7 +245,7 @@ export interface CacheState {
     /**
      * The size of the HPC Cache, in GB. Possible values are `3072`, `6144`, `12288`, `21623`, `24576`, `43246`, `49152` and `86491`. Changing this forces a new resource to be created.
      *
-     * > **NOTE:** The `21623`, `43246` and `86491` sizes are restricted to read only resources.
+     * > **Note:** The `21623`, `43246` and `86491` sizes are restricted to read only resources.
      */
     cacheSizeInGb?: pulumi.Input<number>;
     /**
@@ -298,7 +305,7 @@ export interface CacheState {
     /**
      * The SKU of HPC Cache to use. Possible values are (ReadWrite) - `Standard_2G`, `Standard_4G` `Standard_8G` or (ReadOnly) - `Standard_L4_5G`, `Standard_L9G`, and `Standard_L16G`. Changing this forces a new resource to be created.
      *
-     * > **NOTE:** The read-only SKUs have restricted cache sizes. `Standard_L4_5G` must be set to `21623`. `Standard_L9G` to `43246` and `Standard_L16G` to `86491`.
+     * > **Note:** The read-only SKUs have restricted cache sizes. `Standard_L4_5G` must be set to `21623`. `Standard_L9G` to `43246` and `Standard_L16G` to `86491`.
      */
     skuName?: pulumi.Input<string>;
     /**
@@ -322,7 +329,7 @@ export interface CacheArgs {
     /**
      * The size of the HPC Cache, in GB. Possible values are `3072`, `6144`, `12288`, `21623`, `24576`, `43246`, `49152` and `86491`. Changing this forces a new resource to be created.
      *
-     * > **NOTE:** The `21623`, `43246` and `86491` sizes are restricted to read only resources.
+     * > **Note:** The `21623`, `43246` and `86491` sizes are restricted to read only resources.
      */
     cacheSizeInGb: pulumi.Input<number>;
     /**
@@ -378,7 +385,7 @@ export interface CacheArgs {
     /**
      * The SKU of HPC Cache to use. Possible values are (ReadWrite) - `Standard_2G`, `Standard_4G` `Standard_8G` or (ReadOnly) - `Standard_L4_5G`, `Standard_L9G`, and `Standard_L16G`. Changing this forces a new resource to be created.
      *
-     * > **NOTE:** The read-only SKUs have restricted cache sizes. `Standard_L4_5G` must be set to `21623`. `Standard_L9G` to `43246` and `Standard_L16G` to `86491`.
+     * > **Note:** The read-only SKUs have restricted cache sizes. `Standard_L4_5G` must be set to `21623`. `Standard_L9G` to `43246` and `Standard_L16G` to `86491`.
      */
     skuName: pulumi.Input<string>;
     /**

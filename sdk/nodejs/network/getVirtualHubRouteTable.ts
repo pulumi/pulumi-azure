@@ -22,6 +22,13 @@ import * as utilities from "../utilities";
  * });
  * export const virtualHubRouteTableId = example.then(example => example.id);
  * ```
+ *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This data source uses the following Azure API Providers:
+ *
+ * * `Microsoft.Network`: 2024-05-01
  */
 export function getVirtualHubRouteTable(args: GetVirtualHubRouteTableArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualHubRouteTableResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -93,6 +100,13 @@ export interface GetVirtualHubRouteTableResult {
  * });
  * export const virtualHubRouteTableId = example.then(example => example.id);
  * ```
+ *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This data source uses the following Azure API Providers:
+ *
+ * * `Microsoft.Network`: 2024-05-01
  */
 export function getVirtualHubRouteTableOutput(args: GetVirtualHubRouteTableOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetVirtualHubRouteTableResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

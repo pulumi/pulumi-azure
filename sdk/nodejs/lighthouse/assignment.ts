@@ -20,6 +20,13 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This resource uses the following Azure API Providers:
+ *
+ * * `Microsoft.ManagedServices`: 2022-10-01
+ *
  * ## Import
  *
  * Lighthouse Assignments can be imported using the `resource id`, e.g.

@@ -89,7 +89,7 @@ export class Snapshot extends pulumi.CustomResource {
     /**
      * A `encryptionSettings` block as defined below.
      *
-     * > **NOTE:** Removing `encryptionSettings` forces a new resource to be created.
+     * > **Note:** Removing `encryptionSettings` forces a new resource to be created.
      */
     public readonly encryptionSettings!: pulumi.Output<outputs.compute.SnapshotEncryptionSettings | undefined>;
     /**
@@ -215,7 +215,7 @@ export interface SnapshotState {
     /**
      * A `encryptionSettings` block as defined below.
      *
-     * > **NOTE:** Removing `encryptionSettings` forces a new resource to be created.
+     * > **Note:** Removing `encryptionSettings` forces a new resource to be created.
      */
     encryptionSettings?: pulumi.Input<inputs.compute.SnapshotEncryptionSettings>;
     /**
@@ -285,7 +285,7 @@ export interface SnapshotArgs {
     /**
      * A `encryptionSettings` block as defined below.
      *
-     * > **NOTE:** Removing `encryptionSettings` forces a new resource to be created.
+     * > **Note:** Removing `encryptionSettings` forces a new resource to be created.
      */
     encryptionSettings?: pulumi.Input<inputs.compute.SnapshotEncryptionSettings>;
     /**

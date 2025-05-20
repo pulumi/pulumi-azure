@@ -16,7 +16,7 @@ import * as utilities from "../utilities";
  * import * as azure from "@pulumi/azure";
  *
  * const example = azure.monitoring.getScheduledQueryRulesAlert({
- *     resourceGroupName: "example-rg",
+ *     resourceGroupName: "terraform-example-rg",
  *     name: "tfex-queryrule",
  * });
  * export const queryRuleId = example.then(example => example.id);
@@ -118,7 +118,7 @@ export interface GetScheduledQueryRulesAlertResult {
  * import * as azure from "@pulumi/azure";
  *
  * const example = azure.monitoring.getScheduledQueryRulesAlert({
- *     resourceGroupName: "example-rg",
+ *     resourceGroupName: "terraform-example-rg",
  *     name: "tfex-queryrule",
  * });
  * export const queryRuleId = example.then(example => example.id);

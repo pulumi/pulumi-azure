@@ -19,6 +19,13 @@ import * as utilities from "../utilities";
  * });
  * export const id = example.then(example => example.id);
  * ```
+ *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This data source uses the following Azure API Providers:
+ *
+ * * `Microsoft.StorageSync`: 2020-03-01
  */
 export function getSync(args: GetSyncArgs, opts?: pulumi.InvokeOptions): Promise<GetSyncResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -80,6 +87,13 @@ export interface GetSyncResult {
  * });
  * export const id = example.then(example => example.id);
  * ```
+ *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This data source uses the following Azure API Providers:
+ *
+ * * `Microsoft.StorageSync`: 2020-03-01
  */
 export function getSyncOutput(args: GetSyncOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSyncResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

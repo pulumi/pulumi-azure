@@ -74,6 +74,13 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This resource uses the following Azure API Providers:
+ *
+ * * `Microsoft.ScVmm`: 2023-10-07
+ *
  * ## Import
  *
  * System Center Virtual Machine Manager Virtual Machine Instances can be imported into Pulumi using the `resource id`, e.g.
@@ -117,7 +124,7 @@ export class VirtualMachineManagerVirtualMachineInstance extends pulumi.CustomRe
     /**
      * A `hardware` block as defined below. Changing this forces a new resource to be created.
      *
-     * > **NOTE:** This resource will be restarted while updating `hardware`.
+     * > **Note:** This resource will be restarted while updating `hardware`.
      */
     public readonly hardware!: pulumi.Output<outputs.systemcenter.VirtualMachineManagerVirtualMachineInstanceHardware | undefined>;
     /**
@@ -127,7 +134,7 @@ export class VirtualMachineManagerVirtualMachineInstance extends pulumi.CustomRe
     /**
      * A `networkInterface` block as defined below.
      *
-     * > **NOTE:** This resource will be restarted while updating `networkInterface`.
+     * > **Note:** This resource will be restarted while updating `networkInterface`.
      */
     public readonly networkInterfaces!: pulumi.Output<outputs.systemcenter.VirtualMachineManagerVirtualMachineInstanceNetworkInterface[] | undefined>;
     /**
@@ -141,7 +148,7 @@ export class VirtualMachineManagerVirtualMachineInstance extends pulumi.CustomRe
     /**
      * A `storageDisk` block as defined below.
      *
-     * > **NOTE:** This resource will be restarted while updating `storageDisk`.
+     * > **Note:** This resource will be restarted while updating `storageDisk`.
      */
     public readonly storageDisks!: pulumi.Output<outputs.systemcenter.VirtualMachineManagerVirtualMachineInstanceStorageDisk[] | undefined>;
     /**
@@ -206,7 +213,7 @@ export interface VirtualMachineManagerVirtualMachineInstanceState {
     /**
      * A `hardware` block as defined below. Changing this forces a new resource to be created.
      *
-     * > **NOTE:** This resource will be restarted while updating `hardware`.
+     * > **Note:** This resource will be restarted while updating `hardware`.
      */
     hardware?: pulumi.Input<inputs.systemcenter.VirtualMachineManagerVirtualMachineInstanceHardware>;
     /**
@@ -216,7 +223,7 @@ export interface VirtualMachineManagerVirtualMachineInstanceState {
     /**
      * A `networkInterface` block as defined below.
      *
-     * > **NOTE:** This resource will be restarted while updating `networkInterface`.
+     * > **Note:** This resource will be restarted while updating `networkInterface`.
      */
     networkInterfaces?: pulumi.Input<pulumi.Input<inputs.systemcenter.VirtualMachineManagerVirtualMachineInstanceNetworkInterface>[]>;
     /**
@@ -230,7 +237,7 @@ export interface VirtualMachineManagerVirtualMachineInstanceState {
     /**
      * A `storageDisk` block as defined below.
      *
-     * > **NOTE:** This resource will be restarted while updating `storageDisk`.
+     * > **Note:** This resource will be restarted while updating `storageDisk`.
      */
     storageDisks?: pulumi.Input<pulumi.Input<inputs.systemcenter.VirtualMachineManagerVirtualMachineInstanceStorageDisk>[]>;
     /**
@@ -250,7 +257,7 @@ export interface VirtualMachineManagerVirtualMachineInstanceArgs {
     /**
      * A `hardware` block as defined below. Changing this forces a new resource to be created.
      *
-     * > **NOTE:** This resource will be restarted while updating `hardware`.
+     * > **Note:** This resource will be restarted while updating `hardware`.
      */
     hardware?: pulumi.Input<inputs.systemcenter.VirtualMachineManagerVirtualMachineInstanceHardware>;
     /**
@@ -260,7 +267,7 @@ export interface VirtualMachineManagerVirtualMachineInstanceArgs {
     /**
      * A `networkInterface` block as defined below.
      *
-     * > **NOTE:** This resource will be restarted while updating `networkInterface`.
+     * > **Note:** This resource will be restarted while updating `networkInterface`.
      */
     networkInterfaces?: pulumi.Input<pulumi.Input<inputs.systemcenter.VirtualMachineManagerVirtualMachineInstanceNetworkInterface>[]>;
     /**
@@ -274,7 +281,7 @@ export interface VirtualMachineManagerVirtualMachineInstanceArgs {
     /**
      * A `storageDisk` block as defined below.
      *
-     * > **NOTE:** This resource will be restarted while updating `storageDisk`.
+     * > **Note:** This resource will be restarted while updating `storageDisk`.
      */
     storageDisks?: pulumi.Input<pulumi.Input<inputs.systemcenter.VirtualMachineManagerVirtualMachineInstanceStorageDisk>[]>;
     /**

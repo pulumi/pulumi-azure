@@ -96,7 +96,7 @@ export class NatGateway extends pulumi.CustomResource {
     /**
      * A list of Availability Zones in which this NAT Gateway should be located. Changing this forces a new NAT Gateway to be created.
      *
-     * > **NOTE:** Only one Availability Zone can be defined. For more information, please check out the [Azure documentation](https://learn.microsoft.com/en-us/azure/nat-gateway/nat-overview#availability-zones)
+     * > **Note:** Only one Availability Zone can be defined. For more information, please check out the [Azure documentation](https://learn.microsoft.com/en-us/azure/nat-gateway/nat-overview#availability-zones)
      */
     public readonly zones!: pulumi.Output<string[] | undefined>;
 
@@ -175,7 +175,7 @@ export interface NatGatewayState {
     /**
      * A list of Availability Zones in which this NAT Gateway should be located. Changing this forces a new NAT Gateway to be created.
      *
-     * > **NOTE:** Only one Availability Zone can be defined. For more information, please check out the [Azure documentation](https://learn.microsoft.com/en-us/azure/nat-gateway/nat-overview#availability-zones)
+     * > **Note:** Only one Availability Zone can be defined. For more information, please check out the [Azure documentation](https://learn.microsoft.com/en-us/azure/nat-gateway/nat-overview#availability-zones)
      */
     zones?: pulumi.Input<pulumi.Input<string>[]>;
 }
@@ -211,7 +211,7 @@ export interface NatGatewayArgs {
     /**
      * A list of Availability Zones in which this NAT Gateway should be located. Changing this forces a new NAT Gateway to be created.
      *
-     * > **NOTE:** Only one Availability Zone can be defined. For more information, please check out the [Azure documentation](https://learn.microsoft.com/en-us/azure/nat-gateway/nat-overview#availability-zones)
+     * > **Note:** Only one Availability Zone can be defined. For more information, please check out the [Azure documentation](https://learn.microsoft.com/en-us/azure/nat-gateway/nat-overview#availability-zones)
      */
     zones?: pulumi.Input<pulumi.Input<string>[]>;
 }

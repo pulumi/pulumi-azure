@@ -24,7 +24,7 @@ import * as utilities from "../utilities";
  *     location: example.location,
  *     resourceGroupName: example.name,
  *     publisherName: "My Company",
- *     publisherEmail: "company@exmaple.com",
+ *     publisherEmail: "company@terraform.io",
  *     skuName: "Developer_1",
  * });
  * const exampleApi = new azure.apimanagement.Api("example", {
@@ -41,6 +41,13 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This resource uses the following Azure API Providers:
+ *
+ * * `Microsoft.ApiManagement`: 2022-08-01
  *
  * ## Import
  *
@@ -101,7 +108,7 @@ export class Api extends pulumi.CustomResource {
     /**
      * A `import` block as documented below.
      *
-     * > **NOTE:** The `displayName`, `description`, `contact`, and `license` fields can be imported by the `import` block, which might cause a drift if these fields are set along with the `import` block.
+     * > **Note:** The `displayName`, `description`, `contact`, and `license` fields can be imported by the `import` block, which might cause a drift if these fields are set along with the `import` block.
      */
     public readonly import!: pulumi.Output<outputs.apimanagement.ApiImport | undefined>;
     /**
@@ -135,7 +142,7 @@ export class Api extends pulumi.CustomResource {
     /**
      * A list of protocols the operations in this API can be invoked. Possible values are `http`, `https`, `ws`, and `wss`.
      *
-     * > **NOTE:** `displayName`, `path` and `protocols` are required when `sourceApiId` is not set.
+     * > **Note:** `displayName`, `path` and `protocols` are required when `sourceApiId` is not set.
      */
     public readonly protocols!: pulumi.Output<string[]>;
     /**
@@ -181,7 +188,7 @@ export class Api extends pulumi.CustomResource {
     /**
      * The ID of the Version Set which this API is associated with.
      *
-     * > **NOTE:** When `version` is set, `versionSetId` must also be specified
+     * > **Note:** When `version` is set, `versionSetId` must also be specified
      */
     public readonly versionSetId!: pulumi.Output<string>;
 
@@ -292,7 +299,7 @@ export interface ApiState {
     /**
      * A `import` block as documented below.
      *
-     * > **NOTE:** The `displayName`, `description`, `contact`, and `license` fields can be imported by the `import` block, which might cause a drift if these fields are set along with the `import` block.
+     * > **Note:** The `displayName`, `description`, `contact`, and `license` fields can be imported by the `import` block, which might cause a drift if these fields are set along with the `import` block.
      */
     import?: pulumi.Input<inputs.apimanagement.ApiImport>;
     /**
@@ -326,7 +333,7 @@ export interface ApiState {
     /**
      * A list of protocols the operations in this API can be invoked. Possible values are `http`, `https`, `ws`, and `wss`.
      *
-     * > **NOTE:** `displayName`, `path` and `protocols` are required when `sourceApiId` is not set.
+     * > **Note:** `displayName`, `path` and `protocols` are required when `sourceApiId` is not set.
      */
     protocols?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -372,7 +379,7 @@ export interface ApiState {
     /**
      * The ID of the Version Set which this API is associated with.
      *
-     * > **NOTE:** When `version` is set, `versionSetId` must also be specified
+     * > **Note:** When `version` is set, `versionSetId` must also be specified
      */
     versionSetId?: pulumi.Input<string>;
 }
@@ -404,7 +411,7 @@ export interface ApiArgs {
     /**
      * A `import` block as documented below.
      *
-     * > **NOTE:** The `displayName`, `description`, `contact`, and `license` fields can be imported by the `import` block, which might cause a drift if these fields are set along with the `import` block.
+     * > **Note:** The `displayName`, `description`, `contact`, and `license` fields can be imported by the `import` block, which might cause a drift if these fields are set along with the `import` block.
      */
     import?: pulumi.Input<inputs.apimanagement.ApiImport>;
     /**
@@ -430,7 +437,7 @@ export interface ApiArgs {
     /**
      * A list of protocols the operations in this API can be invoked. Possible values are `http`, `https`, `ws`, and `wss`.
      *
-     * > **NOTE:** `displayName`, `path` and `protocols` are required when `sourceApiId` is not set.
+     * > **Note:** `displayName`, `path` and `protocols` are required when `sourceApiId` is not set.
      */
     protocols?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -476,7 +483,7 @@ export interface ApiArgs {
     /**
      * The ID of the Version Set which this API is associated with.
      *
-     * > **NOTE:** When `version` is set, `versionSetId` must also be specified
+     * > **Note:** When `version` is set, `versionSetId` must also be specified
      */
     versionSetId?: pulumi.Input<string>;
 }

@@ -45,7 +45,7 @@ import * as utilities from "../utilities";
  *         {
  *             flags: 0,
  *             tag: "iodef",
- *             value: "mailto:user@nonexisting.tld",
+ *             value: "mailto:terraform@nonexisting.tld",
  *         },
  *     ],
  *     tags: {
@@ -53,6 +53,13 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This resource uses the following Azure API Providers:
+ *
+ * * `Microsoft.Network`: 2018-05-01
  *
  * ## Import
  *

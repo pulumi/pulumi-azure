@@ -30,6 +30,13 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This resource uses the following Azure API Providers:
+ *
+ * * `Microsoft.Insights`: 2023-03-11
+ *
  * ## Import
  *
  * Data Collection Endpoints can be imported using the `resource id`, e.g.
@@ -91,6 +98,10 @@ export class DataCollectionEndpoint extends pulumi.CustomResource {
      */
     public /*out*/ readonly logsIngestionEndpoint!: pulumi.Output<string>;
     /**
+     * The endpoint used for ingesting metrics, e.g., `https://mydce-abcd.eastus-1.metrics.ingest.monitor.azure.com`.
+     */
+    public /*out*/ readonly metricsIngestionEndpoint!: pulumi.Output<string>;
+    /**
      * The name which should be used for this Data Collection Endpoint. Changing this forces a new Data Collection Endpoint to be created.
      */
     public readonly name!: pulumi.Output<string>;
@@ -126,6 +137,7 @@ export class DataCollectionEndpoint extends pulumi.CustomResource {
             resourceInputs["kind"] = state ? state.kind : undefined;
             resourceInputs["location"] = state ? state.location : undefined;
             resourceInputs["logsIngestionEndpoint"] = state ? state.logsIngestionEndpoint : undefined;
+            resourceInputs["metricsIngestionEndpoint"] = state ? state.metricsIngestionEndpoint : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["publicNetworkAccessEnabled"] = state ? state.publicNetworkAccessEnabled : undefined;
             resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
@@ -145,6 +157,7 @@ export class DataCollectionEndpoint extends pulumi.CustomResource {
             resourceInputs["configurationAccessEndpoint"] = undefined /*out*/;
             resourceInputs["immutableId"] = undefined /*out*/;
             resourceInputs["logsIngestionEndpoint"] = undefined /*out*/;
+            resourceInputs["metricsIngestionEndpoint"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(DataCollectionEndpoint.__pulumiType, name, resourceInputs, opts);
@@ -179,6 +192,10 @@ export interface DataCollectionEndpointState {
      * The endpoint used for ingesting logs, e.g., `https://mydce-abcd.eastus-1.ingest.monitor.azure.com`.
      */
     logsIngestionEndpoint?: pulumi.Input<string>;
+    /**
+     * The endpoint used for ingesting metrics, e.g., `https://mydce-abcd.eastus-1.metrics.ingest.monitor.azure.com`.
+     */
+    metricsIngestionEndpoint?: pulumi.Input<string>;
     /**
      * The name which should be used for this Data Collection Endpoint. Changing this forces a new Data Collection Endpoint to be created.
      */

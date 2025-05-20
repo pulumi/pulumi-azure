@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 /**
  * Use this data source to access information about an existing File Share.
  *
- * > **Note on Authentication** Shared Key authentication will always be used for this data source, as AzureAD authentication is not supported by the Storage API for files.
+ * > **Note:** Shared Key authentication will always be used for this data source, as AzureAD authentication is not supported by the Storage API for files.
  *
  * ## Example Usage
  *
@@ -26,6 +26,13 @@ import * as utilities from "../utilities";
  *     storageAccountId: example.id,
  * }));
  * ```
+ *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This data source uses the following Azure API Providers:
+ *
+ * * `Microsoft.Storage`: 2023-05-01
  */
 export function getShare(args: GetShareArgs, opts?: pulumi.InvokeOptions): Promise<GetShareResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -57,7 +64,7 @@ export interface GetShareArgs {
     /**
      * The ID of the storage account in which the share exists.
      *
-     * > **NOTE:** One of `storageAccountName` or `storageAccountId` must be specified. When specifying `storageAccountId` the resource will use the Resource Manager API, rather than the Data Plane API.
+     * > **Note:** One of `storageAccountName` or `storageAccountId` must be specified. When specifying `storageAccountId` the resource will use the Resource Manager API, rather than the Data Plane API.
      */
     storageAccountId?: string;
     /**
@@ -97,7 +104,7 @@ export interface GetShareResult {
 /**
  * Use this data source to access information about an existing File Share.
  *
- * > **Note on Authentication** Shared Key authentication will always be used for this data source, as AzureAD authentication is not supported by the Storage API for files.
+ * > **Note:** Shared Key authentication will always be used for this data source, as AzureAD authentication is not supported by the Storage API for files.
  *
  * ## Example Usage
  *
@@ -114,6 +121,13 @@ export interface GetShareResult {
  *     storageAccountId: example.id,
  * }));
  * ```
+ *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This data source uses the following Azure API Providers:
+ *
+ * * `Microsoft.Storage`: 2023-05-01
  */
 export function getShareOutput(args: GetShareOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetShareResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -145,7 +159,7 @@ export interface GetShareOutputArgs {
     /**
      * The ID of the storage account in which the share exists.
      *
-     * > **NOTE:** One of `storageAccountName` or `storageAccountId` must be specified. When specifying `storageAccountId` the resource will use the Resource Manager API, rather than the Data Plane API.
+     * > **Note:** One of `storageAccountName` or `storageAccountId` must be specified. When specifying `storageAccountId` the resource will use the Resource Manager API, rather than the Data Plane API.
      */
     storageAccountId?: pulumi.Input<string>;
     /**

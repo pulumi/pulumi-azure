@@ -25,6 +25,13 @@ import * as utilities from "../utilities";
  * }));
  * export const id = exampleGetVolumeGroup.then(exampleGetVolumeGroup => exampleGetVolumeGroup.id);
  * ```
+ *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This data source uses the following Azure API Providers:
+ *
+ * * `Microsoft.ElasticSan`: 2023-01-01
  */
 export function getVolumeGroup(args: GetVolumeGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetVolumeGroupResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -98,6 +105,13 @@ export interface GetVolumeGroupResult {
  * }));
  * export const id = exampleGetVolumeGroup.then(exampleGetVolumeGroup => exampleGetVolumeGroup.id);
  * ```
+ *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This data source uses the following Azure API Providers:
+ *
+ * * `Microsoft.ElasticSan`: 2023-01-01
  */
 export function getVolumeGroupOutput(args: GetVolumeGroupOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetVolumeGroupResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

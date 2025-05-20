@@ -19,6 +19,13 @@ import * as utilities from "../utilities";
  * });
  * export const id = exampleAzurermDashboard.id;
  * ```
+ *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This data source uses the following Azure API Providers:
+ *
+ * * `Microsoft.Portal`: 2019-01-01-preview
  */
 /** @deprecated azure.dashboard/azurerm_portal_dashboard.azurerm_portal_dashboard has been deprecated in favor of azure.portal/azurerm_portal_dashboard.azurerm_portal_dashboard */
 export function azurerm_portal_dashboard(args: Azurerm_portal_dashboardArgs, opts?: pulumi.InvokeOptions): Promise<Azurerm_portal_dashboardResult> {
@@ -93,6 +100,13 @@ export interface Azurerm_portal_dashboardResult {
  * });
  * export const id = exampleAzurermDashboard.id;
  * ```
+ *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This data source uses the following Azure API Providers:
+ *
+ * * `Microsoft.Portal`: 2019-01-01-preview
  */
 /** @deprecated azure.dashboard/azurerm_portal_dashboard.azurerm_portal_dashboard has been deprecated in favor of azure.portal/azurerm_portal_dashboard.azurerm_portal_dashboard */
 export function azurerm_portal_dashboardOutput(args: Azurerm_portal_dashboardOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<Azurerm_portal_dashboardResult> {

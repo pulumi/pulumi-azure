@@ -40,6 +40,13 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This resource uses the following Azure API Providers:
+ *
+ * * `Microsoft.Web`: 2023-12-01
+ *
  * ## Import
  *
  * App Service Source Controls can be imported using the `resource id`, e.g.
@@ -79,7 +86,7 @@ export class SourceControl extends pulumi.CustomResource {
     /**
      * The ID of the Windows or Linux Web App. Changing this forces a new resource to be created.
      *
-     * > **NOTE:** Function apps are not supported at this time.
+     * > **Note:** Function apps are not supported at this time.
      */
     public readonly appId!: pulumi.Output<string>;
     /**
@@ -97,7 +104,7 @@ export class SourceControl extends pulumi.CustomResource {
     /**
      * Should the Deployment Rollback be enabled? Defaults to `false`. Changing this forces a new resource to be created.
      *
-     * > **NOTE:** Azure can typically set this value automatically based on the `repoUrl` value.
+     * > **Note:** Azure can typically set this value automatically based on the `repoUrl` value.
      */
     public readonly rollbackEnabled!: pulumi.Output<boolean | undefined>;
     /**
@@ -172,7 +179,7 @@ export interface SourceControlState {
     /**
      * The ID of the Windows or Linux Web App. Changing this forces a new resource to be created.
      *
-     * > **NOTE:** Function apps are not supported at this time.
+     * > **Note:** Function apps are not supported at this time.
      */
     appId?: pulumi.Input<string>;
     /**
@@ -190,7 +197,7 @@ export interface SourceControlState {
     /**
      * Should the Deployment Rollback be enabled? Defaults to `false`. Changing this forces a new resource to be created.
      *
-     * > **NOTE:** Azure can typically set this value automatically based on the `repoUrl` value.
+     * > **Note:** Azure can typically set this value automatically based on the `repoUrl` value.
      */
     rollbackEnabled?: pulumi.Input<boolean>;
     /**
@@ -222,7 +229,7 @@ export interface SourceControlArgs {
     /**
      * The ID of the Windows or Linux Web App. Changing this forces a new resource to be created.
      *
-     * > **NOTE:** Function apps are not supported at this time.
+     * > **Note:** Function apps are not supported at this time.
      */
     appId: pulumi.Input<string>;
     /**
@@ -240,7 +247,7 @@ export interface SourceControlArgs {
     /**
      * Should the Deployment Rollback be enabled? Defaults to `false`. Changing this forces a new resource to be created.
      *
-     * > **NOTE:** Azure can typically set this value automatically based on the `repoUrl` value.
+     * > **Note:** Azure can typically set this value automatically based on the `repoUrl` value.
      */
     rollbackEnabled?: pulumi.Input<boolean>;
     /**

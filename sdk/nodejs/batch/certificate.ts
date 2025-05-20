@@ -43,11 +43,18 @@ import * as utilities from "../utilities";
  *         input: "certificate.pfx",
  *     }).then(invoke => invoke.result),
  *     format: "Pfx",
- *     password: "password",
+ *     password: "terraform",
  *     thumbprint: "42C107874FD0E4A9583292A2F1098E8FE4B2EDDA",
  *     thumbprintAlgorithm: "SHA1",
  * });
  * ```
+ *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This resource uses the following Azure API Providers:
+ *
+ * * `Microsoft.Batch`: 2024-07-01
  *
  * ## Import
  *

@@ -35,6 +35,13 @@ import * as utilities from "../utilities";
  * export const customRoleDefinitionId = custom.apply(custom => custom.id);
  * export const contributorRoleDefinitionId = builtin.then(builtin => builtin.id);
  * ```
+ *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This data source uses the following Azure API Providers:
+ *
+ * * `Microsoft.Authorization`: 2022-05-01-preview
  */
 export function getRoleDefinition(args?: GetRoleDefinitionArgs, opts?: pulumi.InvokeOptions): Promise<GetRoleDefinitionResult> {
     args = args || {};
@@ -53,7 +60,7 @@ export interface GetRoleDefinitionArgs {
     /**
      * Specifies the Name of either a built-in or custom Role Definition.
      *
-     * > You can also use this for built-in roles such as `Contributor`, `Owner`, `Reader` and `Virtual Machine Contributor`
+     * > **Note:** You can also use this for built-in roles such as `Contributor`, `Owner`, `Reader` and `Virtual Machine Contributor`
      */
     name?: string;
     /**
@@ -125,6 +132,13 @@ export interface GetRoleDefinitionResult {
  * export const customRoleDefinitionId = custom.apply(custom => custom.id);
  * export const contributorRoleDefinitionId = builtin.then(builtin => builtin.id);
  * ```
+ *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This data source uses the following Azure API Providers:
+ *
+ * * `Microsoft.Authorization`: 2022-05-01-preview
  */
 export function getRoleDefinitionOutput(args?: GetRoleDefinitionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetRoleDefinitionResult> {
     args = args || {};
@@ -143,7 +157,7 @@ export interface GetRoleDefinitionOutputArgs {
     /**
      * Specifies the Name of either a built-in or custom Role Definition.
      *
-     * > You can also use this for built-in roles such as `Contributor`, `Owner`, `Reader` and `Virtual Machine Contributor`
+     * > **Note:** You can also use this for built-in roles such as `Contributor`, `Owner`, `Reader` and `Virtual Machine Contributor`
      */
     name?: pulumi.Input<string>;
     /**

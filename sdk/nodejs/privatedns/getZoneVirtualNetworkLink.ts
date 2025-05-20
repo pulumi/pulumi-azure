@@ -20,6 +20,13 @@ import * as utilities from "../utilities";
  * });
  * export const privateDnsARecordId = example.then(example => example.id);
  * ```
+ *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This data source uses the following Azure API Providers:
+ *
+ * * `Microsoft.Network`: 2024-06-01
  */
 export function getZoneVirtualNetworkLink(args: GetZoneVirtualNetworkLinkArgs, opts?: pulumi.InvokeOptions): Promise<GetZoneVirtualNetworkLinkResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -88,6 +95,13 @@ export interface GetZoneVirtualNetworkLinkResult {
  * });
  * export const privateDnsARecordId = example.then(example => example.id);
  * ```
+ *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This data source uses the following Azure API Providers:
+ *
+ * * `Microsoft.Network`: 2024-06-01
  */
 export function getZoneVirtualNetworkLinkOutput(args: GetZoneVirtualNetworkLinkOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetZoneVirtualNetworkLinkResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

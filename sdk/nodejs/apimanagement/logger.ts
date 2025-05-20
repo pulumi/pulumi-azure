@@ -30,7 +30,7 @@ import * as utilities from "../utilities";
  *     location: example.location,
  *     resourceGroupName: example.name,
  *     publisherName: "My Company",
- *     publisherEmail: "company@exmaple.com",
+ *     publisherEmail: "company@terraform.io",
  *     skuName: "Developer_1",
  * });
  * const exampleLogger = new azure.apimanagement.Logger("example", {
@@ -43,6 +43,13 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This resource uses the following Azure API Providers:
+ *
+ * * `Microsoft.ApiManagement`: 2022-08-01
  *
  * ## Import
  *
