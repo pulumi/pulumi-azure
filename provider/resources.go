@@ -3273,6 +3273,7 @@ func Provider() tfbridge.ProviderInfo {
 
 			"azurerm_portal_dashboard": {Tok: azureDataSource(azurePortal, "azurerm_portal_dashboard")},
 
+			"azurerm_role_assignments":       {Tok: azureDataSource(azurePim, "getRoleAssignments")},
 			"azurerm_role_management_policy": {Tok: azureDataSource(azurePim, "getRoleManagementPolicy")},
 
 			// Site Recovery
