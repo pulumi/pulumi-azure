@@ -14,6 +14,9 @@ import (
 
 // Manages a Microsoft SQL Azure Database Server.
 //
+// > **Note:** All arguments including the administrator login and password will be stored in the raw state as plain-text.
+// [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
+//
 // ## Example Usage
 //
 // ```go
@@ -61,7 +64,7 @@ import (
 //
 // ```
 //
-// ### Transparent Data Encryption(TDE) With A Customer Managed Key(CMK) During Create
+// ### Transparent Data Encryption (TDE) With A Customer Managed Key (CMK) During Create
 //
 // ```go
 // package main
@@ -181,6 +184,13 @@ import (
 //
 // ```
 //
+// ## API Providers
+//
+// <!-- This section is generated, changes will be overwritten -->
+// This resource uses the following Azure API Providers:
+//
+// * `Microsoft.Sql`: 2023-08-01-preview
+//
 // ## Import
 //
 // SQL Servers can be imported using the `resource id`, e.g.
@@ -201,6 +211,10 @@ type Server struct {
 	AzureadAdministrator ServerAzureadAdministratorPtrOutput `pulumi:"azureadAdministrator"`
 	// The connection policy the server will use. Possible values are `Default`, `Proxy`, and `Redirect`. Defaults to `Default`.
 	ConnectionPolicy pulumi.StringPtrOutput `pulumi:"connectionPolicy"`
+	// Whether to enable the Express Vulnerability Assessment Configuration. Defaults to `false`.
+	//
+	// > **Note:** If you have enabled the Classic SQL Vulnerability Assessment configuration using the `mssql.ServerVulnerabilityAssessment` resource, you must first delete it before enabling `expressVulnerabilityAssessmentEnabled`. If you wish to revert back to using the Classic SQL Vulnerability Assessment configuration you must first disable this setting.
+	ExpressVulnerabilityAssessmentEnabled pulumi.BoolPtrOutput `pulumi:"expressVulnerabilityAssessmentEnabled"`
 	// The fully qualified domain name of the Azure SQL Server (e.g. myServerName.database.windows.net)
 	FullyQualifiedDomainName pulumi.StringOutput `pulumi:"fullyQualifiedDomainName"`
 	// An `identity` block as defined below.
@@ -209,9 +223,9 @@ type Server struct {
 	Location pulumi.StringOutput `pulumi:"location"`
 	// The Minimum TLS Version for all SQL Database and SQL Data Warehouse databases associated with the server. Valid values are: `1.0`, `1.1` , `1.2` and `Disabled`. Defaults to `1.2`.
 	//
-	// > **NOTE:** The `minimumTlsVersion` is set to `Disabled` means all TLS versions are allowed. After you enforce a version of `minimumTlsVersion`, it's not possible to revert to `Disabled`.
+	// > **Note:** The `minimumTlsVersion` is set to `Disabled` means all TLS versions are allowed. After you enforce a version of `minimumTlsVersion`, it's not possible to revert to `Disabled`.
 	//
-	// > **NOTE:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
+	// > **Note:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
 	MinimumTlsVersion pulumi.StringPtrOutput `pulumi:"minimumTlsVersion"`
 	// The name of the Microsoft SQL Server. This needs to be globally unique within Azure. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -229,11 +243,11 @@ type Server struct {
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// The fully versioned `Key Vault` `Key` URL (e.g. `'https://<YourVaultName>.vault.azure.net/keys/<YourKeyName>/<YourKeyVersion>`) to be used as the `Customer Managed Key`(CMK/BYOK) for the `Transparent Data Encryption`(TDE) layer.
 	//
-	// > **NOTE:** To successfully deploy a `Microsoft SQL Server` in CMK/BYOK TDE the `Key Vault` must have `Soft-delete` and `purge protection` enabled to protect from data loss due to accidental key and/or key vault deletion. The `Key Vault` and the `Microsoft SQL Server` `User Managed Identity Instance` must belong to the same `Azure Active Directory` `tenant`.
+	// > **Note:** To successfully deploy a `Microsoft SQL Server` in CMK/BYOK TDE the `Key Vault` must have `Soft-delete` and `purge protection` enabled to protect from data loss due to accidental key and/or key vault deletion. The `Key Vault` and the `Microsoft SQL Server` `User Managed Identity Instance` must belong to the same `Azure Active Directory` `tenant`.
 	//
-	// > **NOTE:**  Cross-tenant `Key Vault` and `Microsoft SQL Server` interactions are not supported. Please see the [product documentation](https://learn.microsoft.com/azure/azure-sql/database/transparent-data-encryption-byok-overview?view=azuresql#requirements-for-configuring-customer-managed-tde) for more information.
+	// > **Note:** Cross-tenant `Key Vault` and `Microsoft SQL Server` interactions are not supported. Please see the [product documentation](https://learn.microsoft.com/azure/azure-sql/database/transparent-data-encryption-byok-overview?view=azuresql#requirements-for-configuring-customer-managed-tde) for more information.
 	//
-	// > **NOTE:** When using a firewall with a `Key Vault`, you must enable the option `Allow trusted Microsoft services to bypass the firewall`.
+	// > **Note:** When using a firewall with a `Key Vault`, you must enable the option `Allow trusted Microsoft services to bypass the firewall`.
 	TransparentDataEncryptionKeyVaultKeyId pulumi.StringPtrOutput `pulumi:"transparentDataEncryptionKeyVaultKeyId"`
 	// The version for the new server. Valid values are: 2.0 (for v11 server) and 12.0 (for v12 server). Changing this forces a new resource to be created.
 	Version pulumi.StringOutput `pulumi:"version"`
@@ -298,6 +312,10 @@ type serverState struct {
 	AzureadAdministrator *ServerAzureadAdministrator `pulumi:"azureadAdministrator"`
 	// The connection policy the server will use. Possible values are `Default`, `Proxy`, and `Redirect`. Defaults to `Default`.
 	ConnectionPolicy *string `pulumi:"connectionPolicy"`
+	// Whether to enable the Express Vulnerability Assessment Configuration. Defaults to `false`.
+	//
+	// > **Note:** If you have enabled the Classic SQL Vulnerability Assessment configuration using the `mssql.ServerVulnerabilityAssessment` resource, you must first delete it before enabling `expressVulnerabilityAssessmentEnabled`. If you wish to revert back to using the Classic SQL Vulnerability Assessment configuration you must first disable this setting.
+	ExpressVulnerabilityAssessmentEnabled *bool `pulumi:"expressVulnerabilityAssessmentEnabled"`
 	// The fully qualified domain name of the Azure SQL Server (e.g. myServerName.database.windows.net)
 	FullyQualifiedDomainName *string `pulumi:"fullyQualifiedDomainName"`
 	// An `identity` block as defined below.
@@ -306,9 +324,9 @@ type serverState struct {
 	Location *string `pulumi:"location"`
 	// The Minimum TLS Version for all SQL Database and SQL Data Warehouse databases associated with the server. Valid values are: `1.0`, `1.1` , `1.2` and `Disabled`. Defaults to `1.2`.
 	//
-	// > **NOTE:** The `minimumTlsVersion` is set to `Disabled` means all TLS versions are allowed. After you enforce a version of `minimumTlsVersion`, it's not possible to revert to `Disabled`.
+	// > **Note:** The `minimumTlsVersion` is set to `Disabled` means all TLS versions are allowed. After you enforce a version of `minimumTlsVersion`, it's not possible to revert to `Disabled`.
 	//
-	// > **NOTE:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
+	// > **Note:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
 	MinimumTlsVersion *string `pulumi:"minimumTlsVersion"`
 	// The name of the Microsoft SQL Server. This needs to be globally unique within Azure. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
@@ -326,11 +344,11 @@ type serverState struct {
 	Tags map[string]string `pulumi:"tags"`
 	// The fully versioned `Key Vault` `Key` URL (e.g. `'https://<YourVaultName>.vault.azure.net/keys/<YourKeyName>/<YourKeyVersion>`) to be used as the `Customer Managed Key`(CMK/BYOK) for the `Transparent Data Encryption`(TDE) layer.
 	//
-	// > **NOTE:** To successfully deploy a `Microsoft SQL Server` in CMK/BYOK TDE the `Key Vault` must have `Soft-delete` and `purge protection` enabled to protect from data loss due to accidental key and/or key vault deletion. The `Key Vault` and the `Microsoft SQL Server` `User Managed Identity Instance` must belong to the same `Azure Active Directory` `tenant`.
+	// > **Note:** To successfully deploy a `Microsoft SQL Server` in CMK/BYOK TDE the `Key Vault` must have `Soft-delete` and `purge protection` enabled to protect from data loss due to accidental key and/or key vault deletion. The `Key Vault` and the `Microsoft SQL Server` `User Managed Identity Instance` must belong to the same `Azure Active Directory` `tenant`.
 	//
-	// > **NOTE:**  Cross-tenant `Key Vault` and `Microsoft SQL Server` interactions are not supported. Please see the [product documentation](https://learn.microsoft.com/azure/azure-sql/database/transparent-data-encryption-byok-overview?view=azuresql#requirements-for-configuring-customer-managed-tde) for more information.
+	// > **Note:** Cross-tenant `Key Vault` and `Microsoft SQL Server` interactions are not supported. Please see the [product documentation](https://learn.microsoft.com/azure/azure-sql/database/transparent-data-encryption-byok-overview?view=azuresql#requirements-for-configuring-customer-managed-tde) for more information.
 	//
-	// > **NOTE:** When using a firewall with a `Key Vault`, you must enable the option `Allow trusted Microsoft services to bypass the firewall`.
+	// > **Note:** When using a firewall with a `Key Vault`, you must enable the option `Allow trusted Microsoft services to bypass the firewall`.
 	TransparentDataEncryptionKeyVaultKeyId *string `pulumi:"transparentDataEncryptionKeyVaultKeyId"`
 	// The version for the new server. Valid values are: 2.0 (for v11 server) and 12.0 (for v12 server). Changing this forces a new resource to be created.
 	Version *string `pulumi:"version"`
@@ -347,6 +365,10 @@ type ServerState struct {
 	AzureadAdministrator ServerAzureadAdministratorPtrInput
 	// The connection policy the server will use. Possible values are `Default`, `Proxy`, and `Redirect`. Defaults to `Default`.
 	ConnectionPolicy pulumi.StringPtrInput
+	// Whether to enable the Express Vulnerability Assessment Configuration. Defaults to `false`.
+	//
+	// > **Note:** If you have enabled the Classic SQL Vulnerability Assessment configuration using the `mssql.ServerVulnerabilityAssessment` resource, you must first delete it before enabling `expressVulnerabilityAssessmentEnabled`. If you wish to revert back to using the Classic SQL Vulnerability Assessment configuration you must first disable this setting.
+	ExpressVulnerabilityAssessmentEnabled pulumi.BoolPtrInput
 	// The fully qualified domain name of the Azure SQL Server (e.g. myServerName.database.windows.net)
 	FullyQualifiedDomainName pulumi.StringPtrInput
 	// An `identity` block as defined below.
@@ -355,9 +377,9 @@ type ServerState struct {
 	Location pulumi.StringPtrInput
 	// The Minimum TLS Version for all SQL Database and SQL Data Warehouse databases associated with the server. Valid values are: `1.0`, `1.1` , `1.2` and `Disabled`. Defaults to `1.2`.
 	//
-	// > **NOTE:** The `minimumTlsVersion` is set to `Disabled` means all TLS versions are allowed. After you enforce a version of `minimumTlsVersion`, it's not possible to revert to `Disabled`.
+	// > **Note:** The `minimumTlsVersion` is set to `Disabled` means all TLS versions are allowed. After you enforce a version of `minimumTlsVersion`, it's not possible to revert to `Disabled`.
 	//
-	// > **NOTE:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
+	// > **Note:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
 	MinimumTlsVersion pulumi.StringPtrInput
 	// The name of the Microsoft SQL Server. This needs to be globally unique within Azure. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
@@ -375,11 +397,11 @@ type ServerState struct {
 	Tags pulumi.StringMapInput
 	// The fully versioned `Key Vault` `Key` URL (e.g. `'https://<YourVaultName>.vault.azure.net/keys/<YourKeyName>/<YourKeyVersion>`) to be used as the `Customer Managed Key`(CMK/BYOK) for the `Transparent Data Encryption`(TDE) layer.
 	//
-	// > **NOTE:** To successfully deploy a `Microsoft SQL Server` in CMK/BYOK TDE the `Key Vault` must have `Soft-delete` and `purge protection` enabled to protect from data loss due to accidental key and/or key vault deletion. The `Key Vault` and the `Microsoft SQL Server` `User Managed Identity Instance` must belong to the same `Azure Active Directory` `tenant`.
+	// > **Note:** To successfully deploy a `Microsoft SQL Server` in CMK/BYOK TDE the `Key Vault` must have `Soft-delete` and `purge protection` enabled to protect from data loss due to accidental key and/or key vault deletion. The `Key Vault` and the `Microsoft SQL Server` `User Managed Identity Instance` must belong to the same `Azure Active Directory` `tenant`.
 	//
-	// > **NOTE:**  Cross-tenant `Key Vault` and `Microsoft SQL Server` interactions are not supported. Please see the [product documentation](https://learn.microsoft.com/azure/azure-sql/database/transparent-data-encryption-byok-overview?view=azuresql#requirements-for-configuring-customer-managed-tde) for more information.
+	// > **Note:** Cross-tenant `Key Vault` and `Microsoft SQL Server` interactions are not supported. Please see the [product documentation](https://learn.microsoft.com/azure/azure-sql/database/transparent-data-encryption-byok-overview?view=azuresql#requirements-for-configuring-customer-managed-tde) for more information.
 	//
-	// > **NOTE:** When using a firewall with a `Key Vault`, you must enable the option `Allow trusted Microsoft services to bypass the firewall`.
+	// > **Note:** When using a firewall with a `Key Vault`, you must enable the option `Allow trusted Microsoft services to bypass the firewall`.
 	TransparentDataEncryptionKeyVaultKeyId pulumi.StringPtrInput
 	// The version for the new server. Valid values are: 2.0 (for v11 server) and 12.0 (for v12 server). Changing this forces a new resource to be created.
 	Version pulumi.StringPtrInput
@@ -400,15 +422,19 @@ type serverArgs struct {
 	AzureadAdministrator *ServerAzureadAdministrator `pulumi:"azureadAdministrator"`
 	// The connection policy the server will use. Possible values are `Default`, `Proxy`, and `Redirect`. Defaults to `Default`.
 	ConnectionPolicy *string `pulumi:"connectionPolicy"`
+	// Whether to enable the Express Vulnerability Assessment Configuration. Defaults to `false`.
+	//
+	// > **Note:** If you have enabled the Classic SQL Vulnerability Assessment configuration using the `mssql.ServerVulnerabilityAssessment` resource, you must first delete it before enabling `expressVulnerabilityAssessmentEnabled`. If you wish to revert back to using the Classic SQL Vulnerability Assessment configuration you must first disable this setting.
+	ExpressVulnerabilityAssessmentEnabled *bool `pulumi:"expressVulnerabilityAssessmentEnabled"`
 	// An `identity` block as defined below.
 	Identity *ServerIdentity `pulumi:"identity"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
 	// The Minimum TLS Version for all SQL Database and SQL Data Warehouse databases associated with the server. Valid values are: `1.0`, `1.1` , `1.2` and `Disabled`. Defaults to `1.2`.
 	//
-	// > **NOTE:** The `minimumTlsVersion` is set to `Disabled` means all TLS versions are allowed. After you enforce a version of `minimumTlsVersion`, it's not possible to revert to `Disabled`.
+	// > **Note:** The `minimumTlsVersion` is set to `Disabled` means all TLS versions are allowed. After you enforce a version of `minimumTlsVersion`, it's not possible to revert to `Disabled`.
 	//
-	// > **NOTE:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
+	// > **Note:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
 	MinimumTlsVersion *string `pulumi:"minimumTlsVersion"`
 	// The name of the Microsoft SQL Server. This needs to be globally unique within Azure. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
@@ -424,11 +450,11 @@ type serverArgs struct {
 	Tags map[string]string `pulumi:"tags"`
 	// The fully versioned `Key Vault` `Key` URL (e.g. `'https://<YourVaultName>.vault.azure.net/keys/<YourKeyName>/<YourKeyVersion>`) to be used as the `Customer Managed Key`(CMK/BYOK) for the `Transparent Data Encryption`(TDE) layer.
 	//
-	// > **NOTE:** To successfully deploy a `Microsoft SQL Server` in CMK/BYOK TDE the `Key Vault` must have `Soft-delete` and `purge protection` enabled to protect from data loss due to accidental key and/or key vault deletion. The `Key Vault` and the `Microsoft SQL Server` `User Managed Identity Instance` must belong to the same `Azure Active Directory` `tenant`.
+	// > **Note:** To successfully deploy a `Microsoft SQL Server` in CMK/BYOK TDE the `Key Vault` must have `Soft-delete` and `purge protection` enabled to protect from data loss due to accidental key and/or key vault deletion. The `Key Vault` and the `Microsoft SQL Server` `User Managed Identity Instance` must belong to the same `Azure Active Directory` `tenant`.
 	//
-	// > **NOTE:**  Cross-tenant `Key Vault` and `Microsoft SQL Server` interactions are not supported. Please see the [product documentation](https://learn.microsoft.com/azure/azure-sql/database/transparent-data-encryption-byok-overview?view=azuresql#requirements-for-configuring-customer-managed-tde) for more information.
+	// > **Note:** Cross-tenant `Key Vault` and `Microsoft SQL Server` interactions are not supported. Please see the [product documentation](https://learn.microsoft.com/azure/azure-sql/database/transparent-data-encryption-byok-overview?view=azuresql#requirements-for-configuring-customer-managed-tde) for more information.
 	//
-	// > **NOTE:** When using a firewall with a `Key Vault`, you must enable the option `Allow trusted Microsoft services to bypass the firewall`.
+	// > **Note:** When using a firewall with a `Key Vault`, you must enable the option `Allow trusted Microsoft services to bypass the firewall`.
 	TransparentDataEncryptionKeyVaultKeyId *string `pulumi:"transparentDataEncryptionKeyVaultKeyId"`
 	// The version for the new server. Valid values are: 2.0 (for v11 server) and 12.0 (for v12 server). Changing this forces a new resource to be created.
 	Version string `pulumi:"version"`
@@ -446,15 +472,19 @@ type ServerArgs struct {
 	AzureadAdministrator ServerAzureadAdministratorPtrInput
 	// The connection policy the server will use. Possible values are `Default`, `Proxy`, and `Redirect`. Defaults to `Default`.
 	ConnectionPolicy pulumi.StringPtrInput
+	// Whether to enable the Express Vulnerability Assessment Configuration. Defaults to `false`.
+	//
+	// > **Note:** If you have enabled the Classic SQL Vulnerability Assessment configuration using the `mssql.ServerVulnerabilityAssessment` resource, you must first delete it before enabling `expressVulnerabilityAssessmentEnabled`. If you wish to revert back to using the Classic SQL Vulnerability Assessment configuration you must first disable this setting.
+	ExpressVulnerabilityAssessmentEnabled pulumi.BoolPtrInput
 	// An `identity` block as defined below.
 	Identity ServerIdentityPtrInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
 	// The Minimum TLS Version for all SQL Database and SQL Data Warehouse databases associated with the server. Valid values are: `1.0`, `1.1` , `1.2` and `Disabled`. Defaults to `1.2`.
 	//
-	// > **NOTE:** The `minimumTlsVersion` is set to `Disabled` means all TLS versions are allowed. After you enforce a version of `minimumTlsVersion`, it's not possible to revert to `Disabled`.
+	// > **Note:** The `minimumTlsVersion` is set to `Disabled` means all TLS versions are allowed. After you enforce a version of `minimumTlsVersion`, it's not possible to revert to `Disabled`.
 	//
-	// > **NOTE:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
+	// > **Note:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
 	MinimumTlsVersion pulumi.StringPtrInput
 	// The name of the Microsoft SQL Server. This needs to be globally unique within Azure. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
@@ -470,11 +500,11 @@ type ServerArgs struct {
 	Tags pulumi.StringMapInput
 	// The fully versioned `Key Vault` `Key` URL (e.g. `'https://<YourVaultName>.vault.azure.net/keys/<YourKeyName>/<YourKeyVersion>`) to be used as the `Customer Managed Key`(CMK/BYOK) for the `Transparent Data Encryption`(TDE) layer.
 	//
-	// > **NOTE:** To successfully deploy a `Microsoft SQL Server` in CMK/BYOK TDE the `Key Vault` must have `Soft-delete` and `purge protection` enabled to protect from data loss due to accidental key and/or key vault deletion. The `Key Vault` and the `Microsoft SQL Server` `User Managed Identity Instance` must belong to the same `Azure Active Directory` `tenant`.
+	// > **Note:** To successfully deploy a `Microsoft SQL Server` in CMK/BYOK TDE the `Key Vault` must have `Soft-delete` and `purge protection` enabled to protect from data loss due to accidental key and/or key vault deletion. The `Key Vault` and the `Microsoft SQL Server` `User Managed Identity Instance` must belong to the same `Azure Active Directory` `tenant`.
 	//
-	// > **NOTE:**  Cross-tenant `Key Vault` and `Microsoft SQL Server` interactions are not supported. Please see the [product documentation](https://learn.microsoft.com/azure/azure-sql/database/transparent-data-encryption-byok-overview?view=azuresql#requirements-for-configuring-customer-managed-tde) for more information.
+	// > **Note:** Cross-tenant `Key Vault` and `Microsoft SQL Server` interactions are not supported. Please see the [product documentation](https://learn.microsoft.com/azure/azure-sql/database/transparent-data-encryption-byok-overview?view=azuresql#requirements-for-configuring-customer-managed-tde) for more information.
 	//
-	// > **NOTE:** When using a firewall with a `Key Vault`, you must enable the option `Allow trusted Microsoft services to bypass the firewall`.
+	// > **Note:** When using a firewall with a `Key Vault`, you must enable the option `Allow trusted Microsoft services to bypass the firewall`.
 	TransparentDataEncryptionKeyVaultKeyId pulumi.StringPtrInput
 	// The version for the new server. Valid values are: 2.0 (for v11 server) and 12.0 (for v12 server). Changing this forces a new resource to be created.
 	Version pulumi.StringInput
@@ -592,6 +622,13 @@ func (o ServerOutput) ConnectionPolicy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Server) pulumi.StringPtrOutput { return v.ConnectionPolicy }).(pulumi.StringPtrOutput)
 }
 
+// Whether to enable the Express Vulnerability Assessment Configuration. Defaults to `false`.
+//
+// > **Note:** If you have enabled the Classic SQL Vulnerability Assessment configuration using the `mssql.ServerVulnerabilityAssessment` resource, you must first delete it before enabling `expressVulnerabilityAssessmentEnabled`. If you wish to revert back to using the Classic SQL Vulnerability Assessment configuration you must first disable this setting.
+func (o ServerOutput) ExpressVulnerabilityAssessmentEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Server) pulumi.BoolPtrOutput { return v.ExpressVulnerabilityAssessmentEnabled }).(pulumi.BoolPtrOutput)
+}
+
 // The fully qualified domain name of the Azure SQL Server (e.g. myServerName.database.windows.net)
 func (o ServerOutput) FullyQualifiedDomainName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Server) pulumi.StringOutput { return v.FullyQualifiedDomainName }).(pulumi.StringOutput)
@@ -609,9 +646,9 @@ func (o ServerOutput) Location() pulumi.StringOutput {
 
 // The Minimum TLS Version for all SQL Database and SQL Data Warehouse databases associated with the server. Valid values are: `1.0`, `1.1` , `1.2` and `Disabled`. Defaults to `1.2`.
 //
-// > **NOTE:** The `minimumTlsVersion` is set to `Disabled` means all TLS versions are allowed. After you enforce a version of `minimumTlsVersion`, it's not possible to revert to `Disabled`.
+// > **Note:** The `minimumTlsVersion` is set to `Disabled` means all TLS versions are allowed. After you enforce a version of `minimumTlsVersion`, it's not possible to revert to `Disabled`.
 //
-// > **NOTE:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
+// > **Note:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
 func (o ServerOutput) MinimumTlsVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Server) pulumi.StringPtrOutput { return v.MinimumTlsVersion }).(pulumi.StringPtrOutput)
 }
@@ -653,11 +690,11 @@ func (o ServerOutput) Tags() pulumi.StringMapOutput {
 
 // The fully versioned `Key Vault` `Key` URL (e.g. `'https://<YourVaultName>.vault.azure.net/keys/<YourKeyName>/<YourKeyVersion>`) to be used as the `Customer Managed Key`(CMK/BYOK) for the `Transparent Data Encryption`(TDE) layer.
 //
-// > **NOTE:** To successfully deploy a `Microsoft SQL Server` in CMK/BYOK TDE the `Key Vault` must have `Soft-delete` and `purge protection` enabled to protect from data loss due to accidental key and/or key vault deletion. The `Key Vault` and the `Microsoft SQL Server` `User Managed Identity Instance` must belong to the same `Azure Active Directory` `tenant`.
+// > **Note:** To successfully deploy a `Microsoft SQL Server` in CMK/BYOK TDE the `Key Vault` must have `Soft-delete` and `purge protection` enabled to protect from data loss due to accidental key and/or key vault deletion. The `Key Vault` and the `Microsoft SQL Server` `User Managed Identity Instance` must belong to the same `Azure Active Directory` `tenant`.
 //
-// > **NOTE:**  Cross-tenant `Key Vault` and `Microsoft SQL Server` interactions are not supported. Please see the [product documentation](https://learn.microsoft.com/azure/azure-sql/database/transparent-data-encryption-byok-overview?view=azuresql#requirements-for-configuring-customer-managed-tde) for more information.
+// > **Note:** Cross-tenant `Key Vault` and `Microsoft SQL Server` interactions are not supported. Please see the [product documentation](https://learn.microsoft.com/azure/azure-sql/database/transparent-data-encryption-byok-overview?view=azuresql#requirements-for-configuring-customer-managed-tde) for more information.
 //
-// > **NOTE:** When using a firewall with a `Key Vault`, you must enable the option `Allow trusted Microsoft services to bypass the firewall`.
+// > **Note:** When using a firewall with a `Key Vault`, you must enable the option `Allow trusted Microsoft services to bypass the firewall`.
 func (o ServerOutput) TransparentDataEncryptionKeyVaultKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Server) pulumi.StringPtrOutput { return v.TransparentDataEncryptionKeyVaultKeyId }).(pulumi.StringPtrOutput)
 }

@@ -41,6 +41,13 @@ import (
 //
 // ```
 //
+// ## API Providers
+//
+// <!-- This section is generated, changes will be overwritten -->
+// This data source uses the following Azure API Providers:
+//
+// * `Microsoft.Portal`: 2019-01-01-preview
+//
 // Deprecated: azure.dashboard/azurerm_portal_dashboard.azurerm_portal_dashboard has been deprecated in favor of azure.portal/azurerm_portal_dashboard.azurerm_portal_dashboard
 func Azurerm_portal_dashboard(ctx *pulumi.Context, args *Azurerm_portal_dashboardArgs, opts ...pulumi.InvokeOption) (*Azurerm_portal_dashboardResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)

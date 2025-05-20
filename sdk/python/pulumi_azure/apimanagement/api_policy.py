@@ -30,7 +30,6 @@ class ApiPolicyArgs:
         :param pulumi.Input[builtins.str] api_management_name: The name of the API Management Service. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] api_name: The ID of the API Management API within the API Management Service. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] resource_group_name: The name of the Resource Group in which the API Management Service exists. Changing this forces a new resource to be created.
-        :param pulumi.Input[builtins.str] xml_content: The XML Content for this Policy as a string.
         :param pulumi.Input[builtins.str] xml_link: A link to a Policy XML Document, which must be publicly available.
         """
         pulumi.set(__self__, "api_management_name", api_management_name)
@@ -80,9 +79,6 @@ class ApiPolicyArgs:
     @property
     @pulumi.getter(name="xmlContent")
     def xml_content(self) -> Optional[pulumi.Input[builtins.str]]:
-        """
-        The XML Content for this Policy as a string.
-        """
         return pulumi.get(self, "xml_content")
 
     @xml_content.setter
@@ -115,7 +111,6 @@ class _ApiPolicyState:
         :param pulumi.Input[builtins.str] api_management_name: The name of the API Management Service. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] api_name: The ID of the API Management API within the API Management Service. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] resource_group_name: The name of the Resource Group in which the API Management Service exists. Changing this forces a new resource to be created.
-        :param pulumi.Input[builtins.str] xml_content: The XML Content for this Policy as a string.
         :param pulumi.Input[builtins.str] xml_link: A link to a Policy XML Document, which must be publicly available.
         """
         if api_management_name is not None:
@@ -168,9 +163,6 @@ class _ApiPolicyState:
     @property
     @pulumi.getter(name="xmlContent")
     def xml_content(self) -> Optional[pulumi.Input[builtins.str]]:
-        """
-        The XML Content for this Policy as a string.
-        """
         return pulumi.get(self, "xml_content")
 
     @xml_content.setter
@@ -227,6 +219,13 @@ class ApiPolicy(pulumi.CustomResource):
         \"\"\")
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.ApiManagement`: 2022-08-01
+
         ## Import
 
         API Management API Policy can be imported using the `resource id`, e.g.
@@ -240,7 +239,6 @@ class ApiPolicy(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] api_management_name: The name of the API Management Service. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] api_name: The ID of the API Management API within the API Management Service. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] resource_group_name: The name of the Resource Group in which the API Management Service exists. Changing this forces a new resource to be created.
-        :param pulumi.Input[builtins.str] xml_content: The XML Content for this Policy as a string.
         :param pulumi.Input[builtins.str] xml_link: A link to a Policy XML Document, which must be publicly available.
         """
         ...
@@ -273,6 +271,13 @@ class ApiPolicy(pulumi.CustomResource):
         </policies>
         \"\"\")
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.ApiManagement`: 2022-08-01
 
         ## Import
 
@@ -347,7 +352,6 @@ class ApiPolicy(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] api_management_name: The name of the API Management Service. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] api_name: The ID of the API Management API within the API Management Service. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] resource_group_name: The name of the Resource Group in which the API Management Service exists. Changing this forces a new resource to be created.
-        :param pulumi.Input[builtins.str] xml_content: The XML Content for this Policy as a string.
         :param pulumi.Input[builtins.str] xml_link: A link to a Policy XML Document, which must be publicly available.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -388,9 +392,6 @@ class ApiPolicy(pulumi.CustomResource):
     @property
     @pulumi.getter(name="xmlContent")
     def xml_content(self) -> pulumi.Output[builtins.str]:
-        """
-        The XML Content for this Policy as a string.
-        """
         return pulumi.get(self, "xml_content")
 
     @property

@@ -50,6 +50,13 @@ namespace Pulumi.Azure.ApiManagement
     /// });
     /// ```
     /// 
+    /// ## API Providers
+    /// 
+    /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+    /// This resource uses the following Azure API Providers:
+    /// 
+    /// * `Microsoft.ApiManagement`: 2022-08-01
+    /// 
     /// ## Import
     /// 
     /// API Management Properties can be imported using the `resource id`, e.g.
@@ -85,11 +92,6 @@ namespace Pulumi.Azure.ApiManagement
         [Output("resourceGroupName")]
         public Output<string> ResourceGroupName { get; private set; } = null!;
 
-        /// <summary>
-        /// Specifies whether the API Management Named Value is secret. Valid values are `true` or `false`. The default value is `false`.
-        /// 
-        /// &gt; **NOTE:** setting the field `secret` to `true` doesn't make this field sensitive in the provider, instead it marks the value as secret and encrypts the value in Azure.
-        /// </summary>
         [Output("secret")]
         public Output<bool?> Secret { get; private set; } = null!;
 
@@ -185,11 +187,6 @@ namespace Pulumi.Azure.ApiManagement
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
 
-        /// <summary>
-        /// Specifies whether the API Management Named Value is secret. Valid values are `true` or `false`. The default value is `false`.
-        /// 
-        /// &gt; **NOTE:** setting the field `secret` to `true` doesn't make this field sensitive in the provider, instead it marks the value as secret and encrypts the value in Azure.
-        /// </summary>
         [Input("secret")]
         public Input<bool>? Secret { get; set; }
 
@@ -259,11 +256,6 @@ namespace Pulumi.Azure.ApiManagement
         [Input("resourceGroupName")]
         public Input<string>? ResourceGroupName { get; set; }
 
-        /// <summary>
-        /// Specifies whether the API Management Named Value is secret. Valid values are `true` or `false`. The default value is `false`.
-        /// 
-        /// &gt; **NOTE:** setting the field `secret` to `true` doesn't make this field sensitive in the provider, instead it marks the value as secret and encrypts the value in Azure.
-        /// </summary>
         [Input("secret")]
         public Input<bool>? Secret { get; set; }
 

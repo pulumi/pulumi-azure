@@ -74,6 +74,13 @@ import (
 //
 // ```
 //
+// ## API Providers
+//
+// <!-- This section is generated, changes will be overwritten -->
+// This resource uses the following Azure API Providers:
+//
+// * `Microsoft.Management`: 2020-05-01
+//
 // ## Import
 //
 // An existing Private Link Association can be imported into Pulumi using the `resource id`, e.g.

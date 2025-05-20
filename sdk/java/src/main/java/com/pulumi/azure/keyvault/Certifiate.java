@@ -22,6 +22,8 @@ import javax.annotation.Nullable;
 /**
  * Manages a Key Vault Certificate.
  * 
+ * &gt; **Note:** The Azure Provider includes a Feature Toggle which will purge a Key Vault Certificate resource on destroy, rather than the default soft-delete. See `purge_soft_deleted_certificates_on_destroy` for more information.
+ * 
  * ## Example Usage
  * 
  * ### Importing A PFX)
@@ -135,7 +137,7 @@ import javax.annotation.Nullable;
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
- * ### Generating a new certificate
+ * ### Generating A New Certificate)
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
  * <pre>
@@ -356,7 +358,7 @@ public class Certifiate extends com.pulumi.resources.CustomResource {
     /**
      * A `certificate_policy` block as defined below. Changing this (except the `lifetime_action` field) will create a new version of the Key Vault Certificate.
      * 
-     * &gt; **NOTE:** When creating a Key Vault Certificate, at least one of `certificate` or `certificate_policy` is required. Provide `certificate` to import an existing certificate, `certificate_policy` to generate a new certificate.
+     * &gt; **Note:** When creating a Key Vault Certificate, at least one of `certificate` or `certificate_policy` is required. Provide `certificate` to import an existing certificate, `certificate_policy` to generate a new certificate.
      * 
      */
     @Export(name="certificatePolicy", refs={CertifiateCertificatePolicy.class}, tree="[0]")
@@ -365,7 +367,7 @@ public class Certifiate extends com.pulumi.resources.CustomResource {
     /**
      * @return A `certificate_policy` block as defined below. Changing this (except the `lifetime_action` field) will create a new version of the Key Vault Certificate.
      * 
-     * &gt; **NOTE:** When creating a Key Vault Certificate, at least one of `certificate` or `certificate_policy` is required. Provide `certificate` to import an existing certificate, `certificate_policy` to generate a new certificate.
+     * &gt; **Note:** When creating a Key Vault Certificate, at least one of `certificate` or `certificate_policy` is required. Provide `certificate` to import an existing certificate, `certificate_policy` to generate a new certificate.
      * 
      */
     public Output<CertifiateCertificatePolicy> certificatePolicy() {

@@ -34,7 +34,7 @@ public final class ConnectedRegistryNotificationArgs extends com.pulumi.resource
     /**
      * The digest of the artifact that wants to be subscribed for the Connected Registry.
      * 
-     * &gt; **NOTE:** One of either `tag` or `digest` can be specified.
+     * &gt; **Note:** One of either `tag` or `digest` can be specified.
      * 
      */
     @Import(name="digest")
@@ -43,7 +43,7 @@ public final class ConnectedRegistryNotificationArgs extends com.pulumi.resource
     /**
      * @return The digest of the artifact that wants to be subscribed for the Connected Registry.
      * 
-     * &gt; **NOTE:** One of either `tag` or `digest` can be specified.
+     * &gt; **Note:** One of either `tag` or `digest` can be specified.
      * 
      */
     public Optional<Output<String>> digest() {
@@ -131,7 +131,7 @@ public final class ConnectedRegistryNotificationArgs extends com.pulumi.resource
         /**
          * @param digest The digest of the artifact that wants to be subscribed for the Connected Registry.
          * 
-         * &gt; **NOTE:** One of either `tag` or `digest` can be specified.
+         * &gt; **Note:** One of either `tag` or `digest` can be specified.
          * 
          * @return builder
          * 
@@ -144,7 +144,7 @@ public final class ConnectedRegistryNotificationArgs extends com.pulumi.resource
         /**
          * @param digest The digest of the artifact that wants to be subscribed for the Connected Registry.
          * 
-         * &gt; **NOTE:** One of either `tag` or `digest` can be specified.
+         * &gt; **Note:** One of either `tag` or `digest` can be specified.
          * 
          * @return builder
          * 

@@ -18,7 +18,7 @@ namespace Pulumi.Azure.Cdn.Inputs
         /// <summary>
         /// A list of one or more string or integer values(e.g. "1") representing the value of the request file name to match. If multiple values are specified, they're evaluated using `OR` logic.
         /// 
-        /// &gt; **NOTE:** The `match_values` field is only optional if the `operator` is set to `Any`.
+        /// &gt; **Note:** The `match_values` field is only optional if the `operator` is set to `Any`.
         /// </summary>
         public InputList<string> MatchValues
         {

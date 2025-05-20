@@ -221,7 +221,7 @@ class BackupInstanceMysqlFlexibleServer(pulumi.CustomResource):
             administrator_login="adminTerraform",
             administrator_password="QAZwsx123",
             version="8.0.21",
-            sku_name="B_Standard_B1s",
+            sku_name="B_Standard_B1ms",
             zone="1")
         example_backup_vault = azure.dataprotection.BackupVault("example",
             name="example-backupvault",
@@ -262,6 +262,13 @@ class BackupInstanceMysqlFlexibleServer(pulumi.CustomResource):
             server_id=example_flexible_server.id,
             backup_policy_id=example_backup_policy_mysql_flexible_server.id)
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.DataProtection`: 2024-04-01
 
         ## Import
 
@@ -304,7 +311,7 @@ class BackupInstanceMysqlFlexibleServer(pulumi.CustomResource):
             administrator_login="adminTerraform",
             administrator_password="QAZwsx123",
             version="8.0.21",
-            sku_name="B_Standard_B1s",
+            sku_name="B_Standard_B1ms",
             zone="1")
         example_backup_vault = azure.dataprotection.BackupVault("example",
             name="example-backupvault",
@@ -345,6 +352,13 @@ class BackupInstanceMysqlFlexibleServer(pulumi.CustomResource):
             server_id=example_flexible_server.id,
             backup_policy_id=example_backup_policy_mysql_flexible_server.id)
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.DataProtection`: 2024-04-01
 
         ## Import
 

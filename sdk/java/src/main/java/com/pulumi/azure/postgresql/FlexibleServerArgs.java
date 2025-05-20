@@ -123,22 +123,14 @@ public final class FlexibleServerArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * The creation mode which can be used to restore or replicate existing servers. Possible values are `Default`, `GeoRestore`, `PointInTimeRestore`, `Replica` and `Update`. Changing this forces a new PostgreSQL Flexible Server to be created.
-     * 
-     * &gt; **Note:** `create_mode` cannot be changed once it&#39;s set since it&#39;s a parameter at creation.
-     * 
-     * &gt; **Note:** While creating the resource, `create_mode` cannot be set to `Update`.
+     * The creation mode which can be used to restore or replicate existing servers. Possible values are `Default`, `GeoRestore`, `PointInTimeRestore`, `Replica` and `Update`.
      * 
      */
     @Import(name="createMode")
     private @Nullable Output<String> createMode;
 
     /**
-     * @return The creation mode which can be used to restore or replicate existing servers. Possible values are `Default`, `GeoRestore`, `PointInTimeRestore`, `Replica` and `Update`. Changing this forces a new PostgreSQL Flexible Server to be created.
-     * 
-     * &gt; **Note:** `create_mode` cannot be changed once it&#39;s set since it&#39;s a parameter at creation.
-     * 
-     * &gt; **Note:** While creating the resource, `create_mode` cannot be set to `Update`.
+     * @return The creation mode which can be used to restore or replicate existing servers. Possible values are `Default`, `GeoRestore`, `PointInTimeRestore`, `Replica` and `Update`.
      * 
      */
     public Optional<Output<String>> createMode() {
@@ -253,7 +245,7 @@ public final class FlexibleServerArgs extends com.pulumi.resources.ResourceArgs 
     /**
      * The name which should be used for this PostgreSQL Flexible Server. Changing this forces a new PostgreSQL Flexible Server to be created.
      * 
-     * &gt; **Note** This must be unique across the entire Azure service, not just within the resource group.
+     * &gt; **Note:** This must be unique across the entire Azure service, not just within the resource group.
      * 
      */
     @Import(name="name")
@@ -262,7 +254,7 @@ public final class FlexibleServerArgs extends com.pulumi.resources.ResourceArgs 
     /**
      * @return The name which should be used for this PostgreSQL Flexible Server. Changing this forces a new PostgreSQL Flexible Server to be created.
      * 
-     * &gt; **Note** This must be unique across the entire Azure service, not just within the resource group.
+     * &gt; **Note:** This must be unique across the entire Azure service, not just within the resource group.
      * 
      */
     public Optional<Output<String>> name() {
@@ -391,7 +383,7 @@ public final class FlexibleServerArgs extends com.pulumi.resources.ResourceArgs 
      * 
      * &gt; **Note:** If the `storage_mb` field is undefined on the initial deployment of the PostgreSQL Flexible Server resource it will default to `32768`. If the `storage_mb` field has been defined and then removed, the `storage_mb` field will retain the previously defined value.
      * 
-     * &gt; **Note:** The `storage_mb` can only be scaled up, for example, you can scale the `storage_mb` from `32768` to `65536`, but not from `65536` to `32768`.
+     * &gt; **Note:** The `storage_mb` can only be scaled up, for example, you can scale the `storage_mb` from `32768` to `65536`, but not from `65536` to `32768`. Scaling down `storage_mb` forces a new PostgreSQL Flexible Server to be created.
      * 
      */
     @Import(name="storageMb")
@@ -402,7 +394,7 @@ public final class FlexibleServerArgs extends com.pulumi.resources.ResourceArgs 
      * 
      * &gt; **Note:** If the `storage_mb` field is undefined on the initial deployment of the PostgreSQL Flexible Server resource it will default to `32768`. If the `storage_mb` field has been defined and then removed, the `storage_mb` field will retain the previously defined value.
      * 
-     * &gt; **Note:** The `storage_mb` can only be scaled up, for example, you can scale the `storage_mb` from `32768` to `65536`, but not from `65536` to `32768`.
+     * &gt; **Note:** The `storage_mb` can only be scaled up, for example, you can scale the `storage_mb` from `32768` to `65536`, but not from `65536` to `32768`. Scaling down `storage_mb` forces a new PostgreSQL Flexible Server to be created.
      * 
      */
     public Optional<Output<Integer>> storageMb() {
@@ -446,7 +438,9 @@ public final class FlexibleServerArgs extends com.pulumi.resources.ResourceArgs 
     /**
      * The version of PostgreSQL Flexible Server to use. Possible values are `11`,`12`, `13`, `14`, `15` and `16`. Required when `create_mode` is `Default`.
      * 
-     * &gt; **Note:** When `create_mode` is `Update`, upgrading version wouldn&#39;t force a new resource to be created.
+     * &gt; **Note:** Downgrading `version` isn&#39;t supported and will force a new PostgreSQL Flexible Server to be created.
+     * 
+     * &gt; **Note:** In-place version updates are irreversible and may cause downtime for the PostgreSQL Flexible Server, determined by the size of the instance.
      * 
      */
     @Import(name="version")
@@ -455,7 +449,9 @@ public final class FlexibleServerArgs extends com.pulumi.resources.ResourceArgs 
     /**
      * @return The version of PostgreSQL Flexible Server to use. Possible values are `11`,`12`, `13`, `14`, `15` and `16`. Required when `create_mode` is `Default`.
      * 
-     * &gt; **Note:** When `create_mode` is `Update`, upgrading version wouldn&#39;t force a new resource to be created.
+     * &gt; **Note:** Downgrading `version` isn&#39;t supported and will force a new PostgreSQL Flexible Server to be created.
+     * 
+     * &gt; **Note:** In-place version updates are irreversible and may cause downtime for the PostgreSQL Flexible Server, determined by the size of the instance.
      * 
      */
     public Optional<Output<String>> version() {
@@ -654,11 +650,7 @@ public final class FlexibleServerArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param createMode The creation mode which can be used to restore or replicate existing servers. Possible values are `Default`, `GeoRestore`, `PointInTimeRestore`, `Replica` and `Update`. Changing this forces a new PostgreSQL Flexible Server to be created.
-         * 
-         * &gt; **Note:** `create_mode` cannot be changed once it&#39;s set since it&#39;s a parameter at creation.
-         * 
-         * &gt; **Note:** While creating the resource, `create_mode` cannot be set to `Update`.
+         * @param createMode The creation mode which can be used to restore or replicate existing servers. Possible values are `Default`, `GeoRestore`, `PointInTimeRestore`, `Replica` and `Update`.
          * 
          * @return builder
          * 
@@ -669,11 +661,7 @@ public final class FlexibleServerArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param createMode The creation mode which can be used to restore or replicate existing servers. Possible values are `Default`, `GeoRestore`, `PointInTimeRestore`, `Replica` and `Update`. Changing this forces a new PostgreSQL Flexible Server to be created.
-         * 
-         * &gt; **Note:** `create_mode` cannot be changed once it&#39;s set since it&#39;s a parameter at creation.
-         * 
-         * &gt; **Note:** While creating the resource, `create_mode` cannot be set to `Update`.
+         * @param createMode The creation mode which can be used to restore or replicate existing servers. Possible values are `Default`, `GeoRestore`, `PointInTimeRestore`, `Replica` and `Update`.
          * 
          * @return builder
          * 
@@ -832,7 +820,7 @@ public final class FlexibleServerArgs extends com.pulumi.resources.ResourceArgs 
         /**
          * @param name The name which should be used for this PostgreSQL Flexible Server. Changing this forces a new PostgreSQL Flexible Server to be created.
          * 
-         * &gt; **Note** This must be unique across the entire Azure service, not just within the resource group.
+         * &gt; **Note:** This must be unique across the entire Azure service, not just within the resource group.
          * 
          * @return builder
          * 
@@ -845,7 +833,7 @@ public final class FlexibleServerArgs extends com.pulumi.resources.ResourceArgs 
         /**
          * @param name The name which should be used for this PostgreSQL Flexible Server. Changing this forces a new PostgreSQL Flexible Server to be created.
          * 
-         * &gt; **Note** This must be unique across the entire Azure service, not just within the resource group.
+         * &gt; **Note:** This must be unique across the entire Azure service, not just within the resource group.
          * 
          * @return builder
          * 
@@ -1018,7 +1006,7 @@ public final class FlexibleServerArgs extends com.pulumi.resources.ResourceArgs 
          * 
          * &gt; **Note:** If the `storage_mb` field is undefined on the initial deployment of the PostgreSQL Flexible Server resource it will default to `32768`. If the `storage_mb` field has been defined and then removed, the `storage_mb` field will retain the previously defined value.
          * 
-         * &gt; **Note:** The `storage_mb` can only be scaled up, for example, you can scale the `storage_mb` from `32768` to `65536`, but not from `65536` to `32768`.
+         * &gt; **Note:** The `storage_mb` can only be scaled up, for example, you can scale the `storage_mb` from `32768` to `65536`, but not from `65536` to `32768`. Scaling down `storage_mb` forces a new PostgreSQL Flexible Server to be created.
          * 
          * @return builder
          * 
@@ -1033,7 +1021,7 @@ public final class FlexibleServerArgs extends com.pulumi.resources.ResourceArgs 
          * 
          * &gt; **Note:** If the `storage_mb` field is undefined on the initial deployment of the PostgreSQL Flexible Server resource it will default to `32768`. If the `storage_mb` field has been defined and then removed, the `storage_mb` field will retain the previously defined value.
          * 
-         * &gt; **Note:** The `storage_mb` can only be scaled up, for example, you can scale the `storage_mb` from `32768` to `65536`, but not from `65536` to `32768`.
+         * &gt; **Note:** The `storage_mb` can only be scaled up, for example, you can scale the `storage_mb` from `32768` to `65536`, but not from `65536` to `32768`. Scaling down `storage_mb` forces a new PostgreSQL Flexible Server to be created.
          * 
          * @return builder
          * 
@@ -1091,7 +1079,9 @@ public final class FlexibleServerArgs extends com.pulumi.resources.ResourceArgs 
         /**
          * @param version The version of PostgreSQL Flexible Server to use. Possible values are `11`,`12`, `13`, `14`, `15` and `16`. Required when `create_mode` is `Default`.
          * 
-         * &gt; **Note:** When `create_mode` is `Update`, upgrading version wouldn&#39;t force a new resource to be created.
+         * &gt; **Note:** Downgrading `version` isn&#39;t supported and will force a new PostgreSQL Flexible Server to be created.
+         * 
+         * &gt; **Note:** In-place version updates are irreversible and may cause downtime for the PostgreSQL Flexible Server, determined by the size of the instance.
          * 
          * @return builder
          * 
@@ -1104,7 +1094,9 @@ public final class FlexibleServerArgs extends com.pulumi.resources.ResourceArgs 
         /**
          * @param version The version of PostgreSQL Flexible Server to use. Possible values are `11`,`12`, `13`, `14`, `15` and `16`. Required when `create_mode` is `Default`.
          * 
-         * &gt; **Note:** When `create_mode` is `Update`, upgrading version wouldn&#39;t force a new resource to be created.
+         * &gt; **Note:** Downgrading `version` isn&#39;t supported and will force a new PostgreSQL Flexible Server to be created.
+         * 
+         * &gt; **Note:** In-place version updates are irreversible and may cause downtime for the PostgreSQL Flexible Server, determined by the size of the instance.
          * 
          * @return builder
          * 

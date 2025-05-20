@@ -21,7 +21,7 @@ namespace Pulumi.Azure.Compute.Inputs
         /// <summary>
         /// The Storage Account's Blob Endpoint which should hold the virtual machine's diagnostic files.
         /// 
-        /// &gt; **NOTE:** This needs to be the root of a Storage Account and not a Storage Container.
+        /// &gt; **Note:** This needs to be the root of a Storage Account and not a Storage Container.
         /// </summary>
         [Input("storageUri", required: true)]
         public Input<string> StorageUri { get; set; } = null!;

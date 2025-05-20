@@ -232,6 +232,13 @@ class Cluster(pulumi.CustomResource):
             sku_name="av36")
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.AVS`: 2022-05-01
+
         ## Import
 
         Azure VMware Solution Clusters can be imported using the `resource id`, e.g.
@@ -283,6 +290,13 @@ class Cluster(pulumi.CustomResource):
             cluster_node_count=3,
             sku_name="av36")
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.AVS`: 2022-05-01
 
         ## Import
 

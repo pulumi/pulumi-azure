@@ -36,6 +36,13 @@ namespace Pulumi.Azure.Network
         ///     };
         /// });
         /// ```
+        /// 
+        /// ## API Providers
+        /// 
+        /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+        /// This data source uses the following Azure API Providers:
+        /// 
+        /// * `Microsoft.Network`: 2022-04-01
         /// </summary>
         public static Task<GetTrafficManagerProfileResult> InvokeAsync(GetTrafficManagerProfileArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetTrafficManagerProfileResult>("azure:network/getTrafficManagerProfile:getTrafficManagerProfile", args ?? new GetTrafficManagerProfileArgs(), options.WithDefaults());
@@ -65,6 +72,13 @@ namespace Pulumi.Azure.Network
         ///     };
         /// });
         /// ```
+        /// 
+        /// ## API Providers
+        /// 
+        /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+        /// This data source uses the following Azure API Providers:
+        /// 
+        /// * `Microsoft.Network`: 2022-04-01
         /// </summary>
         public static Output<GetTrafficManagerProfileResult> Invoke(GetTrafficManagerProfileInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetTrafficManagerProfileResult>("azure:network/getTrafficManagerProfile:getTrafficManagerProfile", args ?? new GetTrafficManagerProfileInvokeArgs(), options.WithDefaults());
@@ -94,6 +108,13 @@ namespace Pulumi.Azure.Network
         ///     };
         /// });
         /// ```
+        /// 
+        /// ## API Providers
+        /// 
+        /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+        /// This data source uses the following Azure API Providers:
+        /// 
+        /// * `Microsoft.Network`: 2022-04-01
         /// </summary>
         public static Output<GetTrafficManagerProfileResult> Invoke(GetTrafficManagerProfileInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetTrafficManagerProfileResult>("azure:network/getTrafficManagerProfile:getTrafficManagerProfile", args ?? new GetTrafficManagerProfileInvokeArgs(), options.WithDefaults());

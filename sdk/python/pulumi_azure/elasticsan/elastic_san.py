@@ -34,18 +34,18 @@ class ElasticSanArgs:
         The set of arguments for constructing a ElasticSan resource.
         :param pulumi.Input[builtins.int] base_size_in_tib: Specifies the base size of the Elastic SAN resource in TiB. Possible values are between `1` and `100`.
                
-               > **NOTE** When updating `base_size_in_tib`, the new value should be greater than the existing one.
+               > **Note:** When updating `base_size_in_tib`, the new value should be greater than the existing one.
         :param pulumi.Input[builtins.str] resource_group_name: Specifies the name of the Resource Group within which this Elastic SAN resource should exist. Changing this forces a new resource to be created.
         :param pulumi.Input['ElasticSanSkuArgs'] sku: A `sku` block as defined below.
         :param pulumi.Input[builtins.int] extended_size_in_tib: Specifies the extended size of the Elastic SAN resource in TiB. Possible values are between `1` and `100`.
                
-               > **NOTE** `extended_size_in_tib` cannot be removed and when updating, the new value should be greater than the existing one.
+               > **Note:** `extended_size_in_tib` cannot be removed and when updating, the new value should be greater than the existing one.
         :param pulumi.Input[builtins.str] location: The Azure Region where the Elastic SAN resource should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] name: Specifies the name of this Elastic SAN resource. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A mapping of tags which should be assigned to the Elastic SAN resource.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] zones: Logical zone for the Elastic SAN resource. Changing this forces a new resource to be created.
                
-               > **NOTE** `zones` cannot be specified if `sku.name` is set to `Premium_ZRS`.
+               > **Note:** `zones` cannot be specified if `sku.name` is set to `Premium_ZRS`.
         """
         pulumi.set(__self__, "base_size_in_tib", base_size_in_tib)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
@@ -67,7 +67,7 @@ class ElasticSanArgs:
         """
         Specifies the base size of the Elastic SAN resource in TiB. Possible values are between `1` and `100`.
 
-        > **NOTE** When updating `base_size_in_tib`, the new value should be greater than the existing one.
+        > **Note:** When updating `base_size_in_tib`, the new value should be greater than the existing one.
         """
         return pulumi.get(self, "base_size_in_tib")
 
@@ -105,7 +105,7 @@ class ElasticSanArgs:
         """
         Specifies the extended size of the Elastic SAN resource in TiB. Possible values are between `1` and `100`.
 
-        > **NOTE** `extended_size_in_tib` cannot be removed and when updating, the new value should be greater than the existing one.
+        > **Note:** `extended_size_in_tib` cannot be removed and when updating, the new value should be greater than the existing one.
         """
         return pulumi.get(self, "extended_size_in_tib")
 
@@ -155,7 +155,7 @@ class ElasticSanArgs:
         """
         Logical zone for the Elastic SAN resource. Changing this forces a new resource to be created.
 
-        > **NOTE** `zones` cannot be specified if `sku.name` is set to `Premium_ZRS`.
+        > **Note:** `zones` cannot be specified if `sku.name` is set to `Premium_ZRS`.
         """
         return pulumi.get(self, "zones")
 
@@ -184,10 +184,10 @@ class _ElasticSanState:
         Input properties used for looking up and filtering ElasticSan resources.
         :param pulumi.Input[builtins.int] base_size_in_tib: Specifies the base size of the Elastic SAN resource in TiB. Possible values are between `1` and `100`.
                
-               > **NOTE** When updating `base_size_in_tib`, the new value should be greater than the existing one.
+               > **Note:** When updating `base_size_in_tib`, the new value should be greater than the existing one.
         :param pulumi.Input[builtins.int] extended_size_in_tib: Specifies the extended size of the Elastic SAN resource in TiB. Possible values are between `1` and `100`.
                
-               > **NOTE** `extended_size_in_tib` cannot be removed and when updating, the new value should be greater than the existing one.
+               > **Note:** `extended_size_in_tib` cannot be removed and when updating, the new value should be greater than the existing one.
         :param pulumi.Input[builtins.str] location: The Azure Region where the Elastic SAN resource should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] name: Specifies the name of this Elastic SAN resource. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] resource_group_name: Specifies the name of the Resource Group within which this Elastic SAN resource should exist. Changing this forces a new resource to be created.
@@ -200,7 +200,7 @@ class _ElasticSanState:
         :param pulumi.Input[builtins.int] volume_group_count: Total number of volume groups in this Elastic SAN resource.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] zones: Logical zone for the Elastic SAN resource. Changing this forces a new resource to be created.
                
-               > **NOTE** `zones` cannot be specified if `sku.name` is set to `Premium_ZRS`.
+               > **Note:** `zones` cannot be specified if `sku.name` is set to `Premium_ZRS`.
         """
         if base_size_in_tib is not None:
             pulumi.set(__self__, "base_size_in_tib", base_size_in_tib)
@@ -235,7 +235,7 @@ class _ElasticSanState:
         """
         Specifies the base size of the Elastic SAN resource in TiB. Possible values are between `1` and `100`.
 
-        > **NOTE** When updating `base_size_in_tib`, the new value should be greater than the existing one.
+        > **Note:** When updating `base_size_in_tib`, the new value should be greater than the existing one.
         """
         return pulumi.get(self, "base_size_in_tib")
 
@@ -249,7 +249,7 @@ class _ElasticSanState:
         """
         Specifies the extended size of the Elastic SAN resource in TiB. Possible values are between `1` and `100`.
 
-        > **NOTE** `extended_size_in_tib` cannot be removed and when updating, the new value should be greater than the existing one.
+        > **Note:** `extended_size_in_tib` cannot be removed and when updating, the new value should be greater than the existing one.
         """
         return pulumi.get(self, "extended_size_in_tib")
 
@@ -383,7 +383,7 @@ class _ElasticSanState:
         """
         Logical zone for the Elastic SAN resource. Changing this forces a new resource to be created.
 
-        > **NOTE** `zones` cannot be specified if `sku.name` is set to `Premium_ZRS`.
+        > **Note:** `zones` cannot be specified if `sku.name` is set to `Premium_ZRS`.
         """
         return pulumi.get(self, "zones")
 
@@ -430,6 +430,13 @@ class ElasticSan(pulumi.CustomResource):
             })
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.ElasticSan`: 2023-01-01
+
         ## Import
 
         An existing Elastic SAN can be imported into Pulumi using the `resource id`, e.g.
@@ -442,10 +449,10 @@ class ElasticSan(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.int] base_size_in_tib: Specifies the base size of the Elastic SAN resource in TiB. Possible values are between `1` and `100`.
                
-               > **NOTE** When updating `base_size_in_tib`, the new value should be greater than the existing one.
+               > **Note:** When updating `base_size_in_tib`, the new value should be greater than the existing one.
         :param pulumi.Input[builtins.int] extended_size_in_tib: Specifies the extended size of the Elastic SAN resource in TiB. Possible values are between `1` and `100`.
                
-               > **NOTE** `extended_size_in_tib` cannot be removed and when updating, the new value should be greater than the existing one.
+               > **Note:** `extended_size_in_tib` cannot be removed and when updating, the new value should be greater than the existing one.
         :param pulumi.Input[builtins.str] location: The Azure Region where the Elastic SAN resource should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] name: Specifies the name of this Elastic SAN resource. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] resource_group_name: Specifies the name of the Resource Group within which this Elastic SAN resource should exist. Changing this forces a new resource to be created.
@@ -453,7 +460,7 @@ class ElasticSan(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A mapping of tags which should be assigned to the Elastic SAN resource.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] zones: Logical zone for the Elastic SAN resource. Changing this forces a new resource to be created.
                
-               > **NOTE** `zones` cannot be specified if `sku.name` is set to `Premium_ZRS`.
+               > **Note:** `zones` cannot be specified if `sku.name` is set to `Premium_ZRS`.
         """
         ...
     @overload
@@ -483,6 +490,13 @@ class ElasticSan(pulumi.CustomResource):
                 "name": "example-value",
             })
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.ElasticSan`: 2023-01-01
 
         ## Import
 
@@ -575,10 +589,10 @@ class ElasticSan(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.int] base_size_in_tib: Specifies the base size of the Elastic SAN resource in TiB. Possible values are between `1` and `100`.
                
-               > **NOTE** When updating `base_size_in_tib`, the new value should be greater than the existing one.
+               > **Note:** When updating `base_size_in_tib`, the new value should be greater than the existing one.
         :param pulumi.Input[builtins.int] extended_size_in_tib: Specifies the extended size of the Elastic SAN resource in TiB. Possible values are between `1` and `100`.
                
-               > **NOTE** `extended_size_in_tib` cannot be removed and when updating, the new value should be greater than the existing one.
+               > **Note:** `extended_size_in_tib` cannot be removed and when updating, the new value should be greater than the existing one.
         :param pulumi.Input[builtins.str] location: The Azure Region where the Elastic SAN resource should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] name: Specifies the name of this Elastic SAN resource. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] resource_group_name: Specifies the name of the Resource Group within which this Elastic SAN resource should exist. Changing this forces a new resource to be created.
@@ -591,7 +605,7 @@ class ElasticSan(pulumi.CustomResource):
         :param pulumi.Input[builtins.int] volume_group_count: Total number of volume groups in this Elastic SAN resource.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] zones: Logical zone for the Elastic SAN resource. Changing this forces a new resource to be created.
                
-               > **NOTE** `zones` cannot be specified if `sku.name` is set to `Premium_ZRS`.
+               > **Note:** `zones` cannot be specified if `sku.name` is set to `Premium_ZRS`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -618,7 +632,7 @@ class ElasticSan(pulumi.CustomResource):
         """
         Specifies the base size of the Elastic SAN resource in TiB. Possible values are between `1` and `100`.
 
-        > **NOTE** When updating `base_size_in_tib`, the new value should be greater than the existing one.
+        > **Note:** When updating `base_size_in_tib`, the new value should be greater than the existing one.
         """
         return pulumi.get(self, "base_size_in_tib")
 
@@ -628,7 +642,7 @@ class ElasticSan(pulumi.CustomResource):
         """
         Specifies the extended size of the Elastic SAN resource in TiB. Possible values are between `1` and `100`.
 
-        > **NOTE** `extended_size_in_tib` cannot be removed and when updating, the new value should be greater than the existing one.
+        > **Note:** `extended_size_in_tib` cannot be removed and when updating, the new value should be greater than the existing one.
         """
         return pulumi.get(self, "extended_size_in_tib")
 
@@ -718,7 +732,7 @@ class ElasticSan(pulumi.CustomResource):
         """
         Logical zone for the Elastic SAN resource. Changing this forces a new resource to be created.
 
-        > **NOTE** `zones` cannot be specified if `sku.name` is set to `Premium_ZRS`.
+        > **Note:** `zones` cannot be specified if `sku.name` is set to `Premium_ZRS`.
         """
         return pulumi.get(self, "zones")
 

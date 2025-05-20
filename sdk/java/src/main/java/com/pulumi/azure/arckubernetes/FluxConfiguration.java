@@ -106,6 +106,13 @@ import javax.annotation.Nullable;
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
+ * ## API Providers
+ * 
+ * &lt;!-- This section is generated, changes will be overwritten --&gt;
+ * This resource uses the following Azure API Providers:
+ * 
+ * * `Microsoft.KubernetesConfiguration`: 2023-05-01
+ * 
  * ## Import
  * 
  * Arc Kubernetes Flux Configuration can be imported using the `resource id` for different `cluster_resource_name`, e.g.

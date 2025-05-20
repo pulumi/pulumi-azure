@@ -51,7 +51,7 @@ public final class WindowsFunctionAppSlotSiteConfigScmIpRestriction {
     /**
      * @return The Virtual Network Subnet ID used for this IP Restriction.
      * 
-     * &gt; **NOTE:** Exactly one of `ip_address`, `service_tag` or `virtual_network_subnet_id` must be specified.
+     * &gt; **Note:** Exactly one of `ip_address`, `service_tag` or `virtual_network_subnet_id` must be specified.
      * 
      */
     private @Nullable String virtualNetworkSubnetId;
@@ -109,7 +109,7 @@ public final class WindowsFunctionAppSlotSiteConfigScmIpRestriction {
     /**
      * @return The Virtual Network Subnet ID used for this IP Restriction.
      * 
-     * &gt; **NOTE:** Exactly one of `ip_address`, `service_tag` or `virtual_network_subnet_id` must be specified.
+     * &gt; **Note:** Exactly one of `ip_address`, `service_tag` or `virtual_network_subnet_id` must be specified.
      * 
      */
     public Optional<String> virtualNetworkSubnetId() {

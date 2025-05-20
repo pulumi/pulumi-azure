@@ -20,7 +20,7 @@ namespace Pulumi.Azure.Batch.Outputs
         /// <summary>
         /// A `node_management_access` block as defined below.
         /// 
-        /// &gt; **NOTE:** At least one of `account_access` or `node_management_access` must be specified.
+        /// &gt; **Note:** At least one of `account_access` or `node_management_access` must be specified.
         /// </summary>
         public readonly Outputs.AccountNetworkProfileNodeManagementAccess? NodeManagementAccess;
 

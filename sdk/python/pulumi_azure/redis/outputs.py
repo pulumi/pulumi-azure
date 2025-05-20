@@ -56,7 +56,7 @@ class CacheIdentity(dict):
         :param builtins.str type: Specifies the type of Managed Service Identity that should be configured on this Redis Cluster. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
         :param Sequence[builtins.str] identity_ids: A list of User Assigned Managed Identity IDs to be assigned to this Redis Cluster.
                
-               > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+               > **Note:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
         """
         pulumi.set(__self__, "type", type)
         if identity_ids is not None:
@@ -80,7 +80,7 @@ class CacheIdentity(dict):
         """
         A list of User Assigned Managed Identity IDs to be assigned to this Redis Cluster.
 
-        > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+        > **Note:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
         """
         return pulumi.get(self, "identity_ids")
 
@@ -233,14 +233,14 @@ class CacheRedisConfiguration(dict):
         :param builtins.bool active_directory_authentication_enabled: Enable Microsoft Entra (AAD) authentication. Defaults to `false`.
         :param builtins.bool aof_backup_enabled: Enable or disable AOF persistence for this Redis Cache. Defaults to `false`.
                
-               > **NOTE:** `aof_backup_enabled` can only be set when SKU is `Premium`.
+               > **Note:** `aof_backup_enabled` can only be set when SKU is `Premium`.
         :param builtins.str aof_storage_connection_string0: First Storage Account connection string for AOF persistence.
         :param builtins.str aof_storage_connection_string1: Second Storage Account connection string for AOF persistence.
                
                Example usage:
         :param builtins.bool authentication_enabled: If set to `false`, the Redis instance will be accessible without authentication. Defaults to `true`.
                
-               > **NOTE:** `authentication_enabled` can only be set to `false` if a `subnet_id` is specified; and only works if there aren't existing instances within the subnet with `authentication_enabled` set to `true`.
+               > **Note:** `authentication_enabled` can only be set to `false` if a `subnet_id` is specified; and only works if there aren't existing instances within the subnet with `authentication_enabled` set to `true`.
         :param builtins.str data_persistence_authentication_method: Preferred auth method to communicate to storage account used for data persistence. Possible values are `SAS` and `ManagedIdentity`.
         :param builtins.int maxclients: Returns the max number of connected clients at the same time.
         :param builtins.int maxfragmentationmemory_reserved: Value in megabytes reserved to accommodate for memory fragmentation. Defaults are shown below.
@@ -250,12 +250,12 @@ class CacheRedisConfiguration(dict):
         :param builtins.str notify_keyspace_events: Keyspace notifications allows clients to subscribe to Pub/Sub channels in order to receive events affecting the Redis data set in some way. [Reference](https://redis.io/topics/notifications#configuration)
         :param builtins.bool rdb_backup_enabled: Is Backup Enabled? Only supported on Premium SKUs. Defaults to `false`.
                
-               > **NOTE:** If `rdb_backup_enabled` set to `true`, `rdb_storage_connection_string` must also be set.
+               > **Note:** If `rdb_backup_enabled` set to `true`, `rdb_storage_connection_string` must also be set.
         :param builtins.int rdb_backup_frequency: The Backup Frequency in Minutes. Only supported on Premium SKUs. Possible values are: `15`, `30`, `60`, `360`, `720` and `1440`.
         :param builtins.int rdb_backup_max_snapshot_count: The maximum number of snapshots to create as a backup. Only supported for Premium SKUs.
         :param builtins.str rdb_storage_connection_string: The Connection String to the Storage Account. Only supported for Premium SKUs. In the format: `DefaultEndpointsProtocol=https;BlobEndpoint=${azurerm_storage_account.example.primary_blob_endpoint};AccountName=${azurerm_storage_account.example.name};AccountKey=${azurerm_storage_account.example.primary_access_key}`.
                
-               > **NOTE:** There's a bug in the Redis API where the original storage connection string isn't being returned, which [is being tracked in this issue](https://github.com/Azure/azure-rest-api-specs/issues/3037). In the interim you can use [the `ignoreChanges` attribute to ignore changes to this field](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) e.g.:
+               > **Note:** There's a bug in the Redis API where the original storage connection string isn't being returned, which [is being tracked in this issue](https://github.com/Azure/azure-rest-api-specs/issues/3037). In the interim you can use the `ignore_changes` attribute to ignore changes to this field e.g.:
         :param builtins.str storage_account_subscription_id: The ID of the Subscription containing the Storage Account.
         """
         if active_directory_authentication_enabled is not None:
@@ -307,7 +307,7 @@ class CacheRedisConfiguration(dict):
         """
         Enable or disable AOF persistence for this Redis Cache. Defaults to `false`.
 
-        > **NOTE:** `aof_backup_enabled` can only be set when SKU is `Premium`.
+        > **Note:** `aof_backup_enabled` can only be set when SKU is `Premium`.
         """
         return pulumi.get(self, "aof_backup_enabled")
 
@@ -335,7 +335,7 @@ class CacheRedisConfiguration(dict):
         """
         If set to `false`, the Redis instance will be accessible without authentication. Defaults to `true`.
 
-        > **NOTE:** `authentication_enabled` can only be set to `false` if a `subnet_id` is specified; and only works if there aren't existing instances within the subnet with `authentication_enabled` set to `true`.
+        > **Note:** `authentication_enabled` can only be set to `false` if a `subnet_id` is specified; and only works if there aren't existing instances within the subnet with `authentication_enabled` set to `true`.
         """
         return pulumi.get(self, "authentication_enabled")
 
@@ -401,7 +401,7 @@ class CacheRedisConfiguration(dict):
         """
         Is Backup Enabled? Only supported on Premium SKUs. Defaults to `false`.
 
-        > **NOTE:** If `rdb_backup_enabled` set to `true`, `rdb_storage_connection_string` must also be set.
+        > **Note:** If `rdb_backup_enabled` set to `true`, `rdb_storage_connection_string` must also be set.
         """
         return pulumi.get(self, "rdb_backup_enabled")
 
@@ -427,7 +427,7 @@ class CacheRedisConfiguration(dict):
         """
         The Connection String to the Storage Account. Only supported for Premium SKUs. In the format: `DefaultEndpointsProtocol=https;BlobEndpoint=${azurerm_storage_account.example.primary_blob_endpoint};AccountName=${azurerm_storage_account.example.name};AccountKey=${azurerm_storage_account.example.primary_access_key}`.
 
-        > **NOTE:** There's a bug in the Redis API where the original storage connection string isn't being returned, which [is being tracked in this issue](https://github.com/Azure/azure-rest-api-specs/issues/3037). In the interim you can use [the `ignoreChanges` attribute to ignore changes to this field](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) e.g.:
+        > **Note:** There's a bug in the Redis API where the original storage connection string isn't being returned, which [is being tracked in this issue](https://github.com/Azure/azure-rest-api-specs/issues/3037). In the interim you can use the `ignore_changes` attribute to ignore changes to this field e.g.:
         """
         return pulumi.get(self, "rdb_storage_connection_string")
 

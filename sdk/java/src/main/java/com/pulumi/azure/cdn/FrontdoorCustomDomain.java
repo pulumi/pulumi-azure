@@ -136,7 +136,7 @@ import javax.annotation.Nullable;
  * 
  * ## Example CNAME Record Usage
  * 
- * !&gt;**IMPORTANT:** You **must** include the `depends_on` meta-argument which references both the `azure.cdn.FrontdoorRoute` and the `azure.cdn.FrontdoorSecurityPolicy` that are associated with your Custom Domain. The reason for these `depends_on` meta-arguments is because all of the resources for the Custom Domain need to be associated within Front Door before the CNAME record can be written to the domains DNS, else the CNAME validation will fail and Front Door will not enable traffic to the Domain.
+ * !&gt; **Note:** You **must** include the `depends_on` meta-argument which references both the `azure.cdn.FrontdoorRoute` and the `azure.cdn.FrontdoorSecurityPolicy` that are associated with your Custom Domain. The reason for these `depends_on` meta-arguments is because all of the resources for the Custom Domain need to be associated within Front Door before the CNAME record can be written to the domains DNS, else the CNAME validation will fail and Front Door will not enable traffic to the Domain.
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
  * <pre>
@@ -210,7 +210,7 @@ public class FrontdoorCustomDomain extends com.pulumi.resources.CustomResource {
      * 
      * &lt;!-- * `pre_validated_cdn_frontdoor_custom_domain_id` - (Optional) The resource ID of the pre-validated Front Door Custom Domain. This domain type is used when you wish to onboard a validated Azure service domain, and then configure the Azure service behind an Azure Front Door.
      * 
-     * -&gt;**Note:** Currently `pre_validated_cdn_frontdoor_custom_domain_id` only supports domains validated by Static Web App. --&gt;
+     * &gt; **Note:** Currently `pre_validated_cdn_frontdoor_custom_domain_id` only supports domains validated by Static Web App. --&gt;
      * 
      */
     @Export(name="dnsZoneId", refs={String.class}, tree="[0]")
@@ -221,7 +221,7 @@ public class FrontdoorCustomDomain extends com.pulumi.resources.CustomResource {
      * 
      * &lt;!-- * `pre_validated_cdn_frontdoor_custom_domain_id` - (Optional) The resource ID of the pre-validated Front Door Custom Domain. This domain type is used when you wish to onboard a validated Azure service domain, and then configure the Azure service behind an Azure Front Door.
      * 
-     * -&gt;**Note:** Currently `pre_validated_cdn_frontdoor_custom_domain_id` only supports domains validated by Static Web App. --&gt;
+     * &gt; **Note:** Currently `pre_validated_cdn_frontdoor_custom_domain_id` only supports domains validated by Static Web App. --&gt;
      * 
      */
     public Output<Optional<String>> dnsZoneId() {

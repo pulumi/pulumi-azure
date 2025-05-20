@@ -51,7 +51,7 @@ namespace Pulumi.Azure.Consumption.Inputs
         /// <summary>
         /// Should the notification be enabled? Defaults to `true`.
         /// 
-        /// &gt; **NOTE:** A `notification` block cannot have all of `contact_emails`, `contact_roles`, and `contact_groups` empty. This means that at least one of the three must be specified.
+        /// &gt; **Note:** A `notification` block cannot have all of `contact_emails`, `contact_roles`, and `contact_groups` empty. This means that at least one of the three must be specified.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }

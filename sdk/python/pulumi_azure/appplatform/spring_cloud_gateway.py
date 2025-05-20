@@ -586,9 +586,11 @@ class SpringCloudGateway(pulumi.CustomResource):
                  sso: Optional[pulumi.Input[Union['SpringCloudGatewaySsoArgs', 'SpringCloudGatewaySsoArgsDict']]] = None,
                  __props__=None):
         """
-        > **NOTE:** This resource is applicable only for Spring Cloud Service with enterprise tier.
+        > **Note:** This resource is applicable only for Spring Cloud Service with enterprise tier.
 
         Manages a Spring Cloud Gateway.
+
+        !> **Note:** Azure Spring Apps is now deprecated and will be retired on 2028-05-31 - as such the `appplatform.SpringCloudGateway` resource is deprecated and will be removed in a future major version of the AzureRM Provider. See https://aka.ms/asaretirement for more information.
 
         ## Example Usage
 
@@ -640,6 +642,13 @@ class SpringCloudGateway(pulumi.CustomResource):
                 "time_to_live": "30s",
             })
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.AppPlatform`: 2024-01-01-preview
 
         ## Import
 
@@ -675,9 +684,11 @@ class SpringCloudGateway(pulumi.CustomResource):
                  args: SpringCloudGatewayArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        > **NOTE:** This resource is applicable only for Spring Cloud Service with enterprise tier.
+        > **Note:** This resource is applicable only for Spring Cloud Service with enterprise tier.
 
         Manages a Spring Cloud Gateway.
+
+        !> **Note:** Azure Spring Apps is now deprecated and will be retired on 2028-05-31 - as such the `appplatform.SpringCloudGateway` resource is deprecated and will be removed in a future major version of the AzureRM Provider. See https://aka.ms/asaretirement for more information.
 
         ## Example Usage
 
@@ -729,6 +740,13 @@ class SpringCloudGateway(pulumi.CustomResource):
                 "time_to_live": "30s",
             })
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.AppPlatform`: 2024-01-01-preview
 
         ## Import
 

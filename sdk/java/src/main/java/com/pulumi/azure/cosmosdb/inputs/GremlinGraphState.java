@@ -182,17 +182,9 @@ public final class GremlinGraphState extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.resourceGroupName);
     }
 
-    /**
-     * The throughput of the Gremlin graph (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon database creation otherwise it cannot be updated without a manual destroy-apply.
-     * 
-     */
     @Import(name="throughput")
     private @Nullable Output<Integer> throughput;
 
-    /**
-     * @return The throughput of the Gremlin graph (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon database creation otherwise it cannot be updated without a manual destroy-apply.
-     * 
-     */
     public Optional<Output<Integer>> throughput() {
         return Optional.ofNullable(this.throughput);
     }
@@ -471,23 +463,11 @@ public final class GremlinGraphState extends com.pulumi.resources.ResourceArgs {
             return resourceGroupName(Output.of(resourceGroupName));
         }
 
-        /**
-         * @param throughput The throughput of the Gremlin graph (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon database creation otherwise it cannot be updated without a manual destroy-apply.
-         * 
-         * @return builder
-         * 
-         */
         public Builder throughput(@Nullable Output<Integer> throughput) {
             $.throughput = throughput;
             return this;
         }
 
-        /**
-         * @param throughput The throughput of the Gremlin graph (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon database creation otherwise it cannot be updated without a manual destroy-apply.
-         * 
-         * @return builder
-         * 
-         */
         public Builder throughput(Integer throughput) {
             return throughput(Output.of(throughput));
         }

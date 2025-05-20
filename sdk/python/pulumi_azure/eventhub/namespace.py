@@ -47,7 +47,7 @@ class NamespaceArgs:
         :param pulumi.Input[builtins.str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] minimum_tls_version: The minimum supported TLS version for this Service Bus Namespace. Valid values are: `1.0`, `1.1` and `1.2`. Defaults to `1.2`.
                
-               > **NOTE:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
+               > **Note:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
         :param pulumi.Input[builtins.str] name: Specifies the name of the Service Bus Namespace resource . Changing this forces a new resource to be created.
         :param pulumi.Input['NamespaceNetworkRuleSetArgs'] network_rule_set: An `network_rule_set` block as defined below.
         :param pulumi.Input[builtins.int] premium_messaging_partitions: Specifies the number messaging partitions. Only valid when `sku` is `Premium` and the minimum number is `1`. Possible values include `0`, `1`, `2`, and `4`. Defaults to `0` for Standard, Basic namespace. Changing this forces a new resource to be created.
@@ -172,7 +172,7 @@ class NamespaceArgs:
         """
         The minimum supported TLS version for this Service Bus Namespace. Valid values are: `1.0`, `1.1` and `1.2`. Defaults to `1.2`.
 
-        > **NOTE:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
+        > **Note:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
         """
         return pulumi.get(self, "minimum_tls_version")
 
@@ -278,7 +278,7 @@ class _NamespaceState:
         :param pulumi.Input[builtins.str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] minimum_tls_version: The minimum supported TLS version for this Service Bus Namespace. Valid values are: `1.0`, `1.1` and `1.2`. Defaults to `1.2`.
                
-               > **NOTE:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
+               > **Note:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
         :param pulumi.Input[builtins.str] name: Specifies the name of the Service Bus Namespace resource . Changing this forces a new resource to be created.
         :param pulumi.Input['NamespaceNetworkRuleSetArgs'] network_rule_set: An `network_rule_set` block as defined below.
         :param pulumi.Input[builtins.int] premium_messaging_partitions: Specifies the number messaging partitions. Only valid when `sku` is `Premium` and the minimum number is `1`. Possible values include `0`, `1`, `2`, and `4`. Defaults to `0` for Standard, Basic namespace. Changing this forces a new resource to be created.
@@ -453,7 +453,7 @@ class _NamespaceState:
         """
         The minimum supported TLS version for this Service Bus Namespace. Valid values are: `1.0`, `1.1` and `1.2`. Defaults to `1.2`.
 
-        > **NOTE:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
+        > **Note:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
         """
         return pulumi.get(self, "minimum_tls_version")
 
@@ -584,7 +584,7 @@ class Namespace(pulumi.CustomResource):
         import pulumi_azure as azure
 
         example = azure.core.ResourceGroup("example",
-            name="my-servicebus",
+            name="terraform-servicebus",
             location="West Europe")
         example_namespace = azure.servicebus.Namespace("example",
             name="tfex-servicebus-namespace",
@@ -592,7 +592,7 @@ class Namespace(pulumi.CustomResource):
             resource_group_name=example.name,
             sku="Standard",
             tags={
-                "source": "example",
+                "source": "terraform",
             })
         ```
 
@@ -613,7 +613,7 @@ class Namespace(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] minimum_tls_version: The minimum supported TLS version for this Service Bus Namespace. Valid values are: `1.0`, `1.1` and `1.2`. Defaults to `1.2`.
                
-               > **NOTE:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
+               > **Note:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
         :param pulumi.Input[builtins.str] name: Specifies the name of the Service Bus Namespace resource . Changing this forces a new resource to be created.
         :param pulumi.Input[Union['NamespaceNetworkRuleSetArgs', 'NamespaceNetworkRuleSetArgsDict']] network_rule_set: An `network_rule_set` block as defined below.
         :param pulumi.Input[builtins.int] premium_messaging_partitions: Specifies the number messaging partitions. Only valid when `sku` is `Premium` and the minimum number is `1`. Possible values include `0`, `1`, `2`, and `4`. Defaults to `0` for Standard, Basic namespace. Changing this forces a new resource to be created.
@@ -641,7 +641,7 @@ class Namespace(pulumi.CustomResource):
         import pulumi_azure as azure
 
         example = azure.core.ResourceGroup("example",
-            name="my-servicebus",
+            name="terraform-servicebus",
             location="West Europe")
         example_namespace = azure.servicebus.Namespace("example",
             name="tfex-servicebus-namespace",
@@ -649,7 +649,7 @@ class Namespace(pulumi.CustomResource):
             resource_group_name=example.name,
             sku="Standard",
             tags={
-                "source": "example",
+                "source": "terraform",
             })
         ```
 
@@ -770,7 +770,7 @@ class Namespace(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] minimum_tls_version: The minimum supported TLS version for this Service Bus Namespace. Valid values are: `1.0`, `1.1` and `1.2`. Defaults to `1.2`.
                
-               > **NOTE:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
+               > **Note:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
         :param pulumi.Input[builtins.str] name: Specifies the name of the Service Bus Namespace resource . Changing this forces a new resource to be created.
         :param pulumi.Input[Union['NamespaceNetworkRuleSetArgs', 'NamespaceNetworkRuleSetArgsDict']] network_rule_set: An `network_rule_set` block as defined below.
         :param pulumi.Input[builtins.int] premium_messaging_partitions: Specifies the number messaging partitions. Only valid when `sku` is `Premium` and the minimum number is `1`. Possible values include `0`, `1`, `2`, and `4`. Defaults to `0` for Standard, Basic namespace. Changing this forces a new resource to be created.
@@ -892,7 +892,7 @@ class Namespace(pulumi.CustomResource):
         """
         The minimum supported TLS version for this Service Bus Namespace. Valid values are: `1.0`, `1.1` and `1.2`. Defaults to `1.2`.
 
-        > **NOTE:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
+        > **Note:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
         """
         return pulumi.get(self, "minimum_tls_version")
 

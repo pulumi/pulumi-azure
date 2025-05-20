@@ -553,6 +553,13 @@ class EventhubDataConnection(pulumi.CustomResource):
             data_format="JSON")
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Kusto`: 2024-04-13
+
         ## Import
 
         Kusto EventHub Data Connections can be imported using the `resource id`, e.g.
@@ -639,6 +646,13 @@ class EventhubDataConnection(pulumi.CustomResource):
             mapping_rule_name="my-table-mapping",
             data_format="JSON")
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Kusto`: 2024-04-13
 
         ## Import
 

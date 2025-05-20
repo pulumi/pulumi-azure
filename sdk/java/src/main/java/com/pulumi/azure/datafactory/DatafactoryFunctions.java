@@ -61,6 +61,13 @@ public final class DatafactoryFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.DataFactory`: 2018-06-01
+     * 
      */
     public static Output<GetFactoryResult> getFactory(GetFactoryArgs args) {
         return getFactory(args, InvokeOptions.Empty);
@@ -104,6 +111,13 @@ public final class DatafactoryFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.DataFactory`: 2018-06-01
      * 
      */
     public static CompletableFuture<GetFactoryResult> getFactoryPlain(GetFactoryPlainArgs args) {
@@ -149,6 +163,13 @@ public final class DatafactoryFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.DataFactory`: 2018-06-01
+     * 
      */
     public static Output<GetFactoryResult> getFactory(GetFactoryArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:datafactory/getFactory:getFactory", TypeShape.of(GetFactoryResult.class), args, Utilities.withVersion(options));
@@ -193,6 +214,13 @@ public final class DatafactoryFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.DataFactory`: 2018-06-01
+     * 
      */
     public static Output<GetFactoryResult> getFactory(GetFactoryArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("azure:datafactory/getFactory:getFactory", TypeShape.of(GetFactoryResult.class), args, Utilities.withVersion(options));
@@ -236,6 +264,13 @@ public final class DatafactoryFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.DataFactory`: 2018-06-01
      * 
      */
     public static CompletableFuture<GetFactoryResult> getFactoryPlain(GetFactoryPlainArgs args, InvokeOptions options) {

@@ -103,6 +103,15 @@ import javax.annotation.Nullable;
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
+ * ## API Providers
+ * 
+ * &lt;!-- This section is generated, changes will be overwritten --&gt;
+ * This resource uses the following Azure API Providers:
+ * 
+ * * `Microsoft.Relay`: 2021-11-01
+ * 
+ * * `Microsoft.Web`: 2023-12-01
+ * 
  * ## Import
  * 
  * a Web App Hybrid Connection can be imported using the `resource id`, e.g.

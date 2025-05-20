@@ -18,7 +18,7 @@ type CertifiateCertificate struct {
 	Contents string `pulumi:"contents"`
 	// The password associated with the certificate.
 	//
-	// > **NOTE:** A PEM certificate is already base64 encoded. To successfully import, the `contents` property should include a PEM encoded X509 certificate and a privateKey in pkcs8 format. There should only be linux style `\n` line endings and the whole block should have the PEM begin/end blocks around the certificate data and the private key data.
+	// > **Note:** A PEM certificate is already base64 encoded. To successfully import, the `contents` property should include a PEM encoded X509 certificate and a privateKey in pkcs8 format. There should only be linux style `\n` line endings and the whole block should have the PEM begin/end blocks around the certificate data and the private key data.
 	//
 	// To convert a private key to pkcs8 format with openssl use:
 	//
@@ -42,7 +42,7 @@ type CertifiateCertificateArgs struct {
 	Contents pulumi.StringInput `pulumi:"contents"`
 	// The password associated with the certificate.
 	//
-	// > **NOTE:** A PEM certificate is already base64 encoded. To successfully import, the `contents` property should include a PEM encoded X509 certificate and a privateKey in pkcs8 format. There should only be linux style `\n` line endings and the whole block should have the PEM begin/end blocks around the certificate data and the private key data.
+	// > **Note:** A PEM certificate is already base64 encoded. To successfully import, the `contents` property should include a PEM encoded X509 certificate and a privateKey in pkcs8 format. There should only be linux style `\n` line endings and the whole block should have the PEM begin/end blocks around the certificate data and the private key data.
 	//
 	// To convert a private key to pkcs8 format with openssl use:
 	//
@@ -134,7 +134,7 @@ func (o CertifiateCertificateOutput) Contents() pulumi.StringOutput {
 
 // The password associated with the certificate.
 //
-// > **NOTE:** A PEM certificate is already base64 encoded. To successfully import, the `contents` property should include a PEM encoded X509 certificate and a privateKey in pkcs8 format. There should only be linux style `\n` line endings and the whole block should have the PEM begin/end blocks around the certificate data and the private key data.
+// > **Note:** A PEM certificate is already base64 encoded. To successfully import, the `contents` property should include a PEM encoded X509 certificate and a privateKey in pkcs8 format. There should only be linux style `\n` line endings and the whole block should have the PEM begin/end blocks around the certificate data and the private key data.
 //
 // To convert a private key to pkcs8 format with openssl use:
 //
@@ -179,7 +179,7 @@ func (o CertifiateCertificatePtrOutput) Contents() pulumi.StringPtrOutput {
 
 // The password associated with the certificate.
 //
-// > **NOTE:** A PEM certificate is already base64 encoded. To successfully import, the `contents` property should include a PEM encoded X509 certificate and a privateKey in pkcs8 format. There should only be linux style `\n` line endings and the whole block should have the PEM begin/end blocks around the certificate data and the private key data.
+// > **Note:** A PEM certificate is already base64 encoded. To successfully import, the `contents` property should include a PEM encoded X509 certificate and a privateKey in pkcs8 format. There should only be linux style `\n` line endings and the whole block should have the PEM begin/end blocks around the certificate data and the private key data.
 //
 // To convert a private key to pkcs8 format with openssl use:
 //
@@ -1667,7 +1667,7 @@ type CertificateCertificate struct {
 	Contents string `pulumi:"contents"`
 	// The password associated with the certificate.
 	//
-	// > **NOTE:** A PEM certificate is already base64 encoded. To successfully import, the `contents` property should include a PEM encoded X509 certificate and a privateKey in pkcs8 format. There should only be linux style `\n` line endings and the whole block should have the PEM begin/end blocks around the certificate data and the private key data.
+	// > **Note:** A PEM certificate is already base64 encoded. To successfully import, the `contents` property should include a PEM encoded X509 certificate and a privateKey in pkcs8 format. There should only be linux style `\n` line endings and the whole block should have the PEM begin/end blocks around the certificate data and the private key data.
 	//
 	// To convert a private key to pkcs8 format with openssl use:
 	//
@@ -1691,7 +1691,7 @@ type CertificateCertificateArgs struct {
 	Contents pulumi.StringInput `pulumi:"contents"`
 	// The password associated with the certificate.
 	//
-	// > **NOTE:** A PEM certificate is already base64 encoded. To successfully import, the `contents` property should include a PEM encoded X509 certificate and a privateKey in pkcs8 format. There should only be linux style `\n` line endings and the whole block should have the PEM begin/end blocks around the certificate data and the private key data.
+	// > **Note:** A PEM certificate is already base64 encoded. To successfully import, the `contents` property should include a PEM encoded X509 certificate and a privateKey in pkcs8 format. There should only be linux style `\n` line endings and the whole block should have the PEM begin/end blocks around the certificate data and the private key data.
 	//
 	// To convert a private key to pkcs8 format with openssl use:
 	//
@@ -1783,7 +1783,7 @@ func (o CertificateCertificateOutput) Contents() pulumi.StringOutput {
 
 // The password associated with the certificate.
 //
-// > **NOTE:** A PEM certificate is already base64 encoded. To successfully import, the `contents` property should include a PEM encoded X509 certificate and a privateKey in pkcs8 format. There should only be linux style `\n` line endings and the whole block should have the PEM begin/end blocks around the certificate data and the private key data.
+// > **Note:** A PEM certificate is already base64 encoded. To successfully import, the `contents` property should include a PEM encoded X509 certificate and a privateKey in pkcs8 format. There should only be linux style `\n` line endings and the whole block should have the PEM begin/end blocks around the certificate data and the private key data.
 //
 // To convert a private key to pkcs8 format with openssl use:
 //
@@ -1828,7 +1828,7 @@ func (o CertificateCertificatePtrOutput) Contents() pulumi.StringPtrOutput {
 
 // The password associated with the certificate.
 //
-// > **NOTE:** A PEM certificate is already base64 encoded. To successfully import, the `contents` property should include a PEM encoded X509 certificate and a privateKey in pkcs8 format. There should only be linux style `\n` line endings and the whole block should have the PEM begin/end blocks around the certificate data and the private key data.
+// > **Note:** A PEM certificate is already base64 encoded. To successfully import, the `contents` property should include a PEM encoded X509 certificate and a privateKey in pkcs8 format. There should only be linux style `\n` line endings and the whole block should have the PEM begin/end blocks around the certificate data and the private key data.
 //
 // To convert a private key to pkcs8 format with openssl use:
 //

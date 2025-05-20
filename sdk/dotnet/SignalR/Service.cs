@@ -24,8 +24,8 @@ namespace Pulumi.Azure.SignalR
     /// {
     ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
-    ///         Name = "my-signalr",
-    ///         Location = "West US",
+    ///         Name = "terraform-signalr",
+    ///         Location = "West Europe",
     ///     });
     /// 
     ///     var exampleService = new Azure.SignalR.Service("example", new()
@@ -76,6 +76,13 @@ namespace Pulumi.Azure.SignalR
     /// 
     /// });
     /// ```
+    /// 
+    /// ## API Providers
+    /// 
+    /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+    /// This resource uses the following Azure API Providers:
+    /// 
+    /// * `Microsoft.SignalRService`: 2024-03-01
     /// 
     /// ## Import
     /// 

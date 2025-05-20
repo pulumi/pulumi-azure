@@ -15,10 +15,6 @@ public final class GetHubApnsCredential {
      * 
      */
     private String applicationMode;
-    /**
-     * @return The Bundle ID of the iOS/macOS application to send push notifications for, such as `com.org.example`.
-     * 
-     */
     private String bundleId;
     /**
      * @return The Apple Push Notifications Service (APNS) Key.
@@ -44,10 +40,6 @@ public final class GetHubApnsCredential {
     public String applicationMode() {
         return this.applicationMode;
     }
-    /**
-     * @return The Bundle ID of the iOS/macOS application to send push notifications for, such as `com.org.example`.
-     * 
-     */
     public String bundleId() {
         return this.bundleId;
     }

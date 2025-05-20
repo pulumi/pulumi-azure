@@ -19,7 +19,7 @@ import javax.annotation.Nullable;
  * 
  * ## Required Key Vault Permissions
  * 
- * !&gt;**IMPORTANT:** You must add an `Access Policy` to your `azure.keyvault.KeyVault` for the `Microsoft.AzurefrontDoor-Cdn` Enterprise Application Object ID.
+ * !&gt; **Note:** You must add an `Access Policy` to your `azure.keyvault.KeyVault` for the `Microsoft.AzurefrontDoor-Cdn` Enterprise Application Object ID.
  * 
  * This can be created by running Az Powershell command like this:
  * 
@@ -31,7 +31,7 @@ import javax.annotation.Nullable;
  * | Your Personal AAD Object ID              | -               | **Get** and **List** | **Get**, **List**, **Purge** and **Recover**  |
  * | Terraform Service Principal              | -               | **Get**              | **Get**, **Import**, **Delete** and **Purge** |
  * 
- * -&gt;**NOTE:** You only need to add the `Access Policy` for your personal AAD Object ID if you are planning to view the `secrets` via the Azure Portal.
+ * -&gt; **Note:** You only need to add the `Access Policy` for your personal AAD Object ID if you are planning to view the `secrets` via the Azure Portal.
  * 
  * ## Example Usage
  * 

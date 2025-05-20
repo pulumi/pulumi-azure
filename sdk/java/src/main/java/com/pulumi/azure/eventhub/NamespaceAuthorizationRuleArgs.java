@@ -18,14 +18,14 @@ public final class NamespaceAuthorizationRuleArgs extends com.pulumi.resources.R
     public static final NamespaceAuthorizationRuleArgs Empty = new NamespaceAuthorizationRuleArgs();
 
     /**
-     * Grants listen access to this this Authorization Rule. Defaults to `false`.
+     * Grants listen access to this Authorization Rule. Defaults to `false`.
      * 
      */
     @Import(name="listen")
     private @Nullable Output<Boolean> listen;
 
     /**
-     * @return Grants listen access to this this Authorization Rule. Defaults to `false`.
+     * @return Grants listen access to this Authorization Rule. Defaults to `false`.
      * 
      */
     public Optional<Output<Boolean>> listen() {
@@ -33,14 +33,14 @@ public final class NamespaceAuthorizationRuleArgs extends com.pulumi.resources.R
     }
 
     /**
-     * Grants manage access to this this Authorization Rule. When this property is `true` - both `listen` and `send` must be too. Defaults to `false`.
+     * Grants manage access to this Authorization Rule. When this property is `true` - both `listen` and `send` must be too. Defaults to `false`.
      * 
      */
     @Import(name="manage")
     private @Nullable Output<Boolean> manage;
 
     /**
-     * @return Grants manage access to this this Authorization Rule. When this property is `true` - both `listen` and `send` must be too. Defaults to `false`.
+     * @return Grants manage access to this Authorization Rule. When this property is `true` - both `listen` and `send` must be too. Defaults to `false`.
      * 
      */
     public Optional<Output<Boolean>> manage() {
@@ -65,7 +65,7 @@ public final class NamespaceAuthorizationRuleArgs extends com.pulumi.resources.R
     /**
      * Specifies the ID of the ServiceBus Namespace. Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE** At least one of the 3 permissions below needs to be set.
+     * &gt; **Note:** At least one of the 3 permissions below needs to be set.
      * 
      */
     @Import(name="namespaceId", required=true)
@@ -74,7 +74,7 @@ public final class NamespaceAuthorizationRuleArgs extends com.pulumi.resources.R
     /**
      * @return Specifies the ID of the ServiceBus Namespace. Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE** At least one of the 3 permissions below needs to be set.
+     * &gt; **Note:** At least one of the 3 permissions below needs to be set.
      * 
      */
     public Output<String> namespaceId() {
@@ -82,14 +82,14 @@ public final class NamespaceAuthorizationRuleArgs extends com.pulumi.resources.R
     }
 
     /**
-     * Grants send access to this this Authorization Rule. Defaults to `false`.
+     * Grants send access to this Authorization Rule. Defaults to `false`.
      * 
      */
     @Import(name="send")
     private @Nullable Output<Boolean> send;
 
     /**
-     * @return Grants send access to this this Authorization Rule. Defaults to `false`.
+     * @return Grants send access to this Authorization Rule. Defaults to `false`.
      * 
      */
     public Optional<Output<Boolean>> send() {
@@ -125,7 +125,7 @@ public final class NamespaceAuthorizationRuleArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param listen Grants listen access to this this Authorization Rule. Defaults to `false`.
+         * @param listen Grants listen access to this Authorization Rule. Defaults to `false`.
          * 
          * @return builder
          * 
@@ -136,7 +136,7 @@ public final class NamespaceAuthorizationRuleArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param listen Grants listen access to this this Authorization Rule. Defaults to `false`.
+         * @param listen Grants listen access to this Authorization Rule. Defaults to `false`.
          * 
          * @return builder
          * 
@@ -146,7 +146,7 @@ public final class NamespaceAuthorizationRuleArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param manage Grants manage access to this this Authorization Rule. When this property is `true` - both `listen` and `send` must be too. Defaults to `false`.
+         * @param manage Grants manage access to this Authorization Rule. When this property is `true` - both `listen` and `send` must be too. Defaults to `false`.
          * 
          * @return builder
          * 
@@ -157,7 +157,7 @@ public final class NamespaceAuthorizationRuleArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param manage Grants manage access to this this Authorization Rule. When this property is `true` - both `listen` and `send` must be too. Defaults to `false`.
+         * @param manage Grants manage access to this Authorization Rule. When this property is `true` - both `listen` and `send` must be too. Defaults to `false`.
          * 
          * @return builder
          * 
@@ -190,7 +190,7 @@ public final class NamespaceAuthorizationRuleArgs extends com.pulumi.resources.R
         /**
          * @param namespaceId Specifies the ID of the ServiceBus Namespace. Changing this forces a new resource to be created.
          * 
-         * &gt; **NOTE** At least one of the 3 permissions below needs to be set.
+         * &gt; **Note:** At least one of the 3 permissions below needs to be set.
          * 
          * @return builder
          * 
@@ -203,7 +203,7 @@ public final class NamespaceAuthorizationRuleArgs extends com.pulumi.resources.R
         /**
          * @param namespaceId Specifies the ID of the ServiceBus Namespace. Changing this forces a new resource to be created.
          * 
-         * &gt; **NOTE** At least one of the 3 permissions below needs to be set.
+         * &gt; **Note:** At least one of the 3 permissions below needs to be set.
          * 
          * @return builder
          * 
@@ -213,7 +213,7 @@ public final class NamespaceAuthorizationRuleArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param send Grants send access to this this Authorization Rule. Defaults to `false`.
+         * @param send Grants send access to this Authorization Rule. Defaults to `false`.
          * 
          * @return builder
          * 
@@ -224,7 +224,7 @@ public final class NamespaceAuthorizationRuleArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param send Grants send access to this this Authorization Rule. Defaults to `false`.
+         * @param send Grants send access to this Authorization Rule. Defaults to `false`.
          * 
          * @return builder
          * 

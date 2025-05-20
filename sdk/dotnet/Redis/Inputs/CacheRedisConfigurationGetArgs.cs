@@ -21,7 +21,7 @@ namespace Pulumi.Azure.Redis.Inputs
         /// <summary>
         /// Enable or disable AOF persistence for this Redis Cache. Defaults to `false`.
         /// 
-        /// &gt; **NOTE:** `aof_backup_enabled` can only be set when SKU is `Premium`.
+        /// &gt; **Note:** `aof_backup_enabled` can only be set when SKU is `Premium`.
         /// </summary>
         [Input("aofBackupEnabled")]
         public Input<bool>? AofBackupEnabled { get; set; }
@@ -63,7 +63,7 @@ namespace Pulumi.Azure.Redis.Inputs
         /// <summary>
         /// If set to `false`, the Redis instance will be accessible without authentication. Defaults to `true`.
         /// 
-        /// &gt; **NOTE:** `authentication_enabled` can only be set to `false` if a `subnet_id` is specified; and only works if there aren't existing instances within the subnet with `authentication_enabled` set to `true`.
+        /// &gt; **Note:** `authentication_enabled` can only be set to `false` if a `subnet_id` is specified; and only works if there aren't existing instances within the subnet with `authentication_enabled` set to `true`.
         /// </summary>
         [Input("authenticationEnabled")]
         public Input<bool>? AuthenticationEnabled { get; set; }
@@ -113,7 +113,7 @@ namespace Pulumi.Azure.Redis.Inputs
         /// <summary>
         /// Is Backup Enabled? Only supported on Premium SKUs. Defaults to `false`.
         /// 
-        /// &gt; **NOTE:** If `rdb_backup_enabled` set to `true`, `rdb_storage_connection_string` must also be set.
+        /// &gt; **Note:** If `rdb_backup_enabled` set to `true`, `rdb_storage_connection_string` must also be set.
         /// </summary>
         [Input("rdbBackupEnabled")]
         public Input<bool>? RdbBackupEnabled { get; set; }
@@ -136,7 +136,7 @@ namespace Pulumi.Azure.Redis.Inputs
         /// <summary>
         /// The Connection String to the Storage Account. Only supported for Premium SKUs. In the format: `DefaultEndpointsProtocol=https;BlobEndpoint=${azurerm_storage_account.example.primary_blob_endpoint};AccountName=${azurerm_storage_account.example.name};AccountKey=${azurerm_storage_account.example.primary_access_key}`.
         /// 
-        /// &gt; **NOTE:** There's a bug in the Redis API where the original storage connection string isn't being returned, which [is being tracked in this issue](https://github.com/Azure/azure-rest-api-specs/issues/3037). In the interim you can use [the `ignoreChanges` attribute to ignore changes to this field](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) e.g.:
+        /// &gt; **Note:** There's a bug in the Redis API where the original storage connection string isn't being returned, which [is being tracked in this issue](https://github.com/Azure/azure-rest-api-specs/issues/3037). In the interim you can use the `ignore_changes` attribute to ignore changes to this field e.g.:
         /// </summary>
         public Input<string>? RdbStorageConnectionString
         {

@@ -51,7 +51,7 @@ public final class DataLakeGen2FilesystemState extends com.pulumi.resources.Reso
     /**
      * Specifies the Object ID of the Azure Active Directory Group to make the owning group of the root path (i.e. `/`). Possible values also include `$superuser`.
      * 
-     * &gt; **NOTE:** The Storage Account requires `account_kind` to be either `StorageV2` or `BlobStorage`. In addition, `is_hns_enabled` has to be set to `true`.
+     * &gt; **Note:** The Storage Account requires `account_kind` to be either `StorageV2` or `BlobStorage`. In addition, `is_hns_enabled` has to be set to `true`.
      * 
      */
     @Import(name="group")
@@ -60,7 +60,7 @@ public final class DataLakeGen2FilesystemState extends com.pulumi.resources.Reso
     /**
      * @return Specifies the Object ID of the Azure Active Directory Group to make the owning group of the root path (i.e. `/`). Possible values also include `$superuser`.
      * 
-     * &gt; **NOTE:** The Storage Account requires `account_kind` to be either `StorageV2` or `BlobStorage`. In addition, `is_hns_enabled` has to be set to `true`.
+     * &gt; **Note:** The Storage Account requires `account_kind` to be either `StorageV2` or `BlobStorage`. In addition, `is_hns_enabled` has to be set to `true`.
      * 
      */
     public Optional<Output<String>> group() {
@@ -212,7 +212,7 @@ public final class DataLakeGen2FilesystemState extends com.pulumi.resources.Reso
         /**
          * @param group Specifies the Object ID of the Azure Active Directory Group to make the owning group of the root path (i.e. `/`). Possible values also include `$superuser`.
          * 
-         * &gt; **NOTE:** The Storage Account requires `account_kind` to be either `StorageV2` or `BlobStorage`. In addition, `is_hns_enabled` has to be set to `true`.
+         * &gt; **Note:** The Storage Account requires `account_kind` to be either `StorageV2` or `BlobStorage`. In addition, `is_hns_enabled` has to be set to `true`.
          * 
          * @return builder
          * 
@@ -225,7 +225,7 @@ public final class DataLakeGen2FilesystemState extends com.pulumi.resources.Reso
         /**
          * @param group Specifies the Object ID of the Azure Active Directory Group to make the owning group of the root path (i.e. `/`). Possible values also include `$superuser`.
          * 
-         * &gt; **NOTE:** The Storage Account requires `account_kind` to be either `StorageV2` or `BlobStorage`. In addition, `is_hns_enabled` has to be set to `true`.
+         * &gt; **Note:** The Storage Account requires `account_kind` to be either `StorageV2` or `BlobStorage`. In addition, `is_hns_enabled` has to be set to `true`.
          * 
          * @return builder
          * 

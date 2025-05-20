@@ -961,7 +961,7 @@ class FrontdoorBackendPoolHealthProbe(dict):
         :param builtins.str path: The path to use for the Health Probe. Default is `/`.
         :param builtins.str probe_method: Specifies HTTP method the health probe uses when querying the backend pool instances. Possible values include: `GET` and `HEAD`. Defaults to `GET`.
                
-               > **NOTE:** Use the `HEAD` method if you do not need to check the response body of your health probe.
+               > **Note:** Use the `HEAD` method if you do not need to check the response body of your health probe.
         :param builtins.str protocol: Protocol scheme to use for the Health Probe. Possible values are `Http` and `Https`. Defaults to `Http`.
         """
         pulumi.set(__self__, "name", name)
@@ -1024,7 +1024,7 @@ class FrontdoorBackendPoolHealthProbe(dict):
         """
         Specifies HTTP method the health probe uses when querying the backend pool instances. Possible values include: `GET` and `HEAD`. Defaults to `GET`.
 
-        > **NOTE:** Use the `HEAD` method if you do not need to check the response body of your health probe.
+        > **Note:** Use the `HEAD` method if you do not need to check the response body of your health probe.
         """
         return pulumi.get(self, "probe_method")
 
@@ -1151,7 +1151,7 @@ class FrontdoorBackendPoolSetting(dict):
         """
         :param builtins.bool enforce_backend_pools_certificate_name_check: Enforce certificate name check on `HTTPS` requests to all backend pools, this setting will have no effect on `HTTP` requests. Permitted values are `true` or `false`.
                
-               > **NOTE:** `backend_pools_send_receive_timeout_seconds` and `enforce_backend_pools_certificate_name_check` apply to all backend pools.
+               > **Note:** `backend_pools_send_receive_timeout_seconds` and `enforce_backend_pools_certificate_name_check` apply to all backend pools.
         :param builtins.int backend_pools_send_receive_timeout_seconds: Specifies the send and receive timeout on forwarding request to the backend. When the timeout is reached, the request fails and returns. Possible values are between `0` - `240`. Defaults to `60`.
         """
         pulumi.set(__self__, "enforce_backend_pools_certificate_name_check", enforce_backend_pools_certificate_name_check)
@@ -1164,7 +1164,7 @@ class FrontdoorBackendPoolSetting(dict):
         """
         Enforce certificate name check on `HTTPS` requests to all backend pools, this setting will have no effect on `HTTP` requests. Permitted values are `true` or `false`.
 
-        > **NOTE:** `backend_pools_send_receive_timeout_seconds` and `enforce_backend_pools_certificate_name_check` apply to all backend pools.
+        > **Note:** `backend_pools_send_receive_timeout_seconds` and `enforce_backend_pools_certificate_name_check` apply to all backend pools.
         """
         return pulumi.get(self, "enforce_backend_pools_certificate_name_check")
 

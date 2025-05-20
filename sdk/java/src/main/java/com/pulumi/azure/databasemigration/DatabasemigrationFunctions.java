@@ -59,6 +59,13 @@ public final class DatabasemigrationFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.DataMigration`: 2021-06-30
+     * 
      */
     public static Output<GetProjectResult> getProject(GetProjectArgs args) {
         return getProject(args, InvokeOptions.Empty);
@@ -103,6 +110,13 @@ public final class DatabasemigrationFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.DataMigration`: 2021-06-30
      * 
      */
     public static CompletableFuture<GetProjectResult> getProjectPlain(GetProjectPlainArgs args) {
@@ -149,6 +163,13 @@ public final class DatabasemigrationFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.DataMigration`: 2021-06-30
+     * 
      */
     public static Output<GetProjectResult> getProject(GetProjectArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:databasemigration/getProject:getProject", TypeShape.of(GetProjectResult.class), args, Utilities.withVersion(options));
@@ -193,6 +214,13 @@ public final class DatabasemigrationFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.DataMigration`: 2021-06-30
      * 
      */
     public static Output<GetProjectResult> getProject(GetProjectArgs args, InvokeOutputOptions options) {
@@ -239,6 +267,13 @@ public final class DatabasemigrationFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.DataMigration`: 2021-06-30
+     * 
      */
     public static CompletableFuture<GetProjectResult> getProjectPlain(GetProjectPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("azure:databasemigration/getProject:getProject", TypeShape.of(GetProjectResult.class), args, Utilities.withVersion(options));
@@ -282,6 +317,13 @@ public final class DatabasemigrationFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.DataMigration`: 2021-06-30
      * 
      */
     public static Output<GetServiceResult> getService(GetServiceArgs args) {
@@ -327,6 +369,13 @@ public final class DatabasemigrationFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.DataMigration`: 2021-06-30
+     * 
      */
     public static CompletableFuture<GetServiceResult> getServicePlain(GetServicePlainArgs args) {
         return getServicePlain(args, InvokeOptions.Empty);
@@ -370,6 +419,13 @@ public final class DatabasemigrationFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.DataMigration`: 2021-06-30
      * 
      */
     public static Output<GetServiceResult> getService(GetServiceArgs args, InvokeOptions options) {
@@ -415,6 +471,13 @@ public final class DatabasemigrationFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.DataMigration`: 2021-06-30
+     * 
      */
     public static Output<GetServiceResult> getService(GetServiceArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("azure:databasemigration/getService:getService", TypeShape.of(GetServiceResult.class), args, Utilities.withVersion(options));
@@ -458,6 +521,13 @@ public final class DatabasemigrationFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.DataMigration`: 2021-06-30
      * 
      */
     public static CompletableFuture<GetServiceResult> getServicePlain(GetServicePlainArgs args, InvokeOptions options) {

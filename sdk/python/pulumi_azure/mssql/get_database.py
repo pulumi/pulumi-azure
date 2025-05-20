@@ -276,6 +276,13 @@ def get_database(name: Optional[builtins.str] = None,
     pulumi.export("databaseId", example.id)
     ```
 
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.Sql`: 2023-08-01-preview
+
 
     :param builtins.str name: The name of the MS SQL Database.
     :param builtins.str server_id: The id of the MS SQL Server on which to read the database.
@@ -331,6 +338,13 @@ def get_database_output(name: Optional[pulumi.Input[builtins.str]] = None,
         server_id=example_server.id)
     pulumi.export("databaseId", example.id)
     ```
+
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.Sql`: 2023-08-01-preview
 
 
     :param builtins.str name: The name of the MS SQL Database.

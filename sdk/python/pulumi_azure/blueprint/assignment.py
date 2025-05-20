@@ -44,10 +44,10 @@ class AssignmentArgs:
         :param pulumi.Input[builtins.str] name: The name of the Blueprint Assignment. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] parameter_values: a JSON string to supply Blueprint Assignment parameter values.
                
-               > **NOTE:** Improperly formatted JSON, or missing values required by a Blueprint will cause the assignment to fail.
+               > **Note:** Improperly formatted JSON, or missing values required by a Blueprint will cause the assignment to fail.
         :param pulumi.Input[builtins.str] resource_groups: a JSON string to supply the Blueprint Resource Group information.
                
-               > **NOTE:** Improperly formatted JSON, or missing values required by a Blueprint will cause the assignment to fail.
+               > **Note:** Improperly formatted JSON, or missing values required by a Blueprint will cause the assignment to fail.
         """
         pulumi.set(__self__, "identity", identity)
         pulumi.set(__self__, "target_subscription_id", target_subscription_id)
@@ -169,7 +169,7 @@ class AssignmentArgs:
         """
         a JSON string to supply Blueprint Assignment parameter values.
 
-        > **NOTE:** Improperly formatted JSON, or missing values required by a Blueprint will cause the assignment to fail.
+        > **Note:** Improperly formatted JSON, or missing values required by a Blueprint will cause the assignment to fail.
         """
         return pulumi.get(self, "parameter_values")
 
@@ -183,7 +183,7 @@ class AssignmentArgs:
         """
         a JSON string to supply the Blueprint Resource Group information.
 
-        > **NOTE:** Improperly formatted JSON, or missing values required by a Blueprint will cause the assignment to fail.
+        > **Note:** Improperly formatted JSON, or missing values required by a Blueprint will cause the assignment to fail.
         """
         return pulumi.get(self, "resource_groups")
 
@@ -222,10 +222,10 @@ class _AssignmentState:
         :param pulumi.Input[builtins.str] name: The name of the Blueprint Assignment. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] parameter_values: a JSON string to supply Blueprint Assignment parameter values.
                
-               > **NOTE:** Improperly formatted JSON, or missing values required by a Blueprint will cause the assignment to fail.
+               > **Note:** Improperly formatted JSON, or missing values required by a Blueprint will cause the assignment to fail.
         :param pulumi.Input[builtins.str] resource_groups: a JSON string to supply the Blueprint Resource Group information.
                
-               > **NOTE:** Improperly formatted JSON, or missing values required by a Blueprint will cause the assignment to fail.
+               > **Note:** Improperly formatted JSON, or missing values required by a Blueprint will cause the assignment to fail.
         :param pulumi.Input[builtins.str] target_subscription_id: The Subscription ID the Blueprint Published Version is to be applied to. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] version_id: The ID of the Published Version of the blueprint to be assigned.
         """
@@ -372,7 +372,7 @@ class _AssignmentState:
         """
         a JSON string to supply Blueprint Assignment parameter values.
 
-        > **NOTE:** Improperly formatted JSON, or missing values required by a Blueprint will cause the assignment to fail.
+        > **Note:** Improperly formatted JSON, or missing values required by a Blueprint will cause the assignment to fail.
         """
         return pulumi.get(self, "parameter_values")
 
@@ -386,7 +386,7 @@ class _AssignmentState:
         """
         a JSON string to supply the Blueprint Resource Group information.
 
-        > **NOTE:** Improperly formatted JSON, or missing values required by a Blueprint will cause the assignment to fail.
+        > **Note:** Improperly formatted JSON, or missing values required by a Blueprint will cause the assignment to fail.
         """
         return pulumi.get(self, "resource_groups")
 
@@ -446,12 +446,6 @@ class Assignment(pulumi.CustomResource):
                  version_id: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         """
-        Manages a Blueprint Assignment resource
-
-        > **NOTE:** Azure Blueprints are in Preview and potentially subject to breaking change without notice.
-
-        > **NOTE:** Azure Blueprint Assignments can only be applied to Subscriptions.  Assignments to Management Groups is not currently supported by the service or by this provider.
-
         ## Example Usage
 
         ```python
@@ -511,6 +505,13 @@ class Assignment(pulumi.CustomResource):
                     owner,
                 ]))
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Blueprint`: 2018-11-01-preview
 
         ## Import
 
@@ -530,10 +531,10 @@ class Assignment(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] name: The name of the Blueprint Assignment. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] parameter_values: a JSON string to supply Blueprint Assignment parameter values.
                
-               > **NOTE:** Improperly formatted JSON, or missing values required by a Blueprint will cause the assignment to fail.
+               > **Note:** Improperly formatted JSON, or missing values required by a Blueprint will cause the assignment to fail.
         :param pulumi.Input[builtins.str] resource_groups: a JSON string to supply the Blueprint Resource Group information.
                
-               > **NOTE:** Improperly formatted JSON, or missing values required by a Blueprint will cause the assignment to fail.
+               > **Note:** Improperly formatted JSON, or missing values required by a Blueprint will cause the assignment to fail.
         :param pulumi.Input[builtins.str] target_subscription_id: The Subscription ID the Blueprint Published Version is to be applied to. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] version_id: The ID of the Published Version of the blueprint to be assigned.
         """
@@ -544,12 +545,6 @@ class Assignment(pulumi.CustomResource):
                  args: AssignmentArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Manages a Blueprint Assignment resource
-
-        > **NOTE:** Azure Blueprints are in Preview and potentially subject to breaking change without notice.
-
-        > **NOTE:** Azure Blueprint Assignments can only be applied to Subscriptions.  Assignments to Management Groups is not currently supported by the service or by this provider.
-
         ## Example Usage
 
         ```python
@@ -609,6 +604,13 @@ class Assignment(pulumi.CustomResource):
                     owner,
                 ]))
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Blueprint`: 2018-11-01-preview
 
         ## Import
 
@@ -714,10 +716,10 @@ class Assignment(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] name: The name of the Blueprint Assignment. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] parameter_values: a JSON string to supply Blueprint Assignment parameter values.
                
-               > **NOTE:** Improperly formatted JSON, or missing values required by a Blueprint will cause the assignment to fail.
+               > **Note:** Improperly formatted JSON, or missing values required by a Blueprint will cause the assignment to fail.
         :param pulumi.Input[builtins.str] resource_groups: a JSON string to supply the Blueprint Resource Group information.
                
-               > **NOTE:** Improperly formatted JSON, or missing values required by a Blueprint will cause the assignment to fail.
+               > **Note:** Improperly formatted JSON, or missing values required by a Blueprint will cause the assignment to fail.
         :param pulumi.Input[builtins.str] target_subscription_id: The Subscription ID the Blueprint Published Version is to be applied to. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] version_id: The ID of the Published Version of the blueprint to be assigned.
         """
@@ -819,7 +821,7 @@ class Assignment(pulumi.CustomResource):
         """
         a JSON string to supply Blueprint Assignment parameter values.
 
-        > **NOTE:** Improperly formatted JSON, or missing values required by a Blueprint will cause the assignment to fail.
+        > **Note:** Improperly formatted JSON, or missing values required by a Blueprint will cause the assignment to fail.
         """
         return pulumi.get(self, "parameter_values")
 
@@ -829,7 +831,7 @@ class Assignment(pulumi.CustomResource):
         """
         a JSON string to supply the Blueprint Resource Group information.
 
-        > **NOTE:** Improperly formatted JSON, or missing values required by a Blueprint will cause the assignment to fail.
+        > **Note:** Improperly formatted JSON, or missing values required by a Blueprint will cause the assignment to fail.
         """
         return pulumi.get(self, "resource_groups")
 

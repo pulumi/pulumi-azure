@@ -50,7 +50,7 @@ public class VirtualMachineAvailabilityGroupListener extends com.pulumi.resource
     /**
      * A `load_balancer_configuration` block as defined below. Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE:** Either one of `load_balancer_configuration` or `multi_subnet_ip_configuration` must be specified.
+     * &gt; **Note:** Either one of `load_balancer_configuration` or `multi_subnet_ip_configuration` must be specified.
      * 
      */
     @Export(name="loadBalancerConfiguration", refs={VirtualMachineAvailabilityGroupListenerLoadBalancerConfiguration.class}, tree="[0]")
@@ -59,7 +59,7 @@ public class VirtualMachineAvailabilityGroupListener extends com.pulumi.resource
     /**
      * @return A `load_balancer_configuration` block as defined below. Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE:** Either one of `load_balancer_configuration` or `multi_subnet_ip_configuration` must be specified.
+     * &gt; **Note:** Either one of `load_balancer_configuration` or `multi_subnet_ip_configuration` must be specified.
      * 
      */
     public Output<Optional<VirtualMachineAvailabilityGroupListenerLoadBalancerConfiguration>> loadBalancerConfiguration() {

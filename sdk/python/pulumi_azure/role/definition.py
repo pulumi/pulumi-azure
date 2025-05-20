@@ -33,7 +33,7 @@ class DefinitionArgs:
         :param pulumi.Input[builtins.str] scope: The scope at which the Role Definition applies to, such as `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333`, `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup`, `/providers/Microsoft.Management/managementGroups/0b1f6471-1bf0-4dda-aec3-111122223333`, or `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup/providers/Microsoft.Compute/virtualMachines/myVM`. It is recommended to use the first entry of the `assignable_scopes`. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] assignable_scopes: One or more assignable scopes for this Role Definition, such as `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333`, `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup`, `/providers/Microsoft.Management/managementGroups/0b1f6471-1bf0-4dda-aec3-111122223333` , or `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup/providers/Microsoft.Compute/virtualMachines/myVM`.
                
-               > **NOTE:** The value for `scope` is automatically included in this list if no other values supplied.
+               > **Note:** The value for `scope` is automatically included in this list if no other values supplied.
         :param pulumi.Input[builtins.str] description: A description of the Role Definition.
         :param pulumi.Input[builtins.str] name: The name of the Role Definition.
         :param pulumi.Input[Sequence[pulumi.Input['DefinitionPermissionArgs']]] permissions: A `permissions` block as defined below.
@@ -69,7 +69,7 @@ class DefinitionArgs:
         """
         One or more assignable scopes for this Role Definition, such as `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333`, `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup`, `/providers/Microsoft.Management/managementGroups/0b1f6471-1bf0-4dda-aec3-111122223333` , or `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup/providers/Microsoft.Compute/virtualMachines/myVM`.
 
-        > **NOTE:** The value for `scope` is automatically included in this list if no other values supplied.
+        > **Note:** The value for `scope` is automatically included in this list if no other values supplied.
         """
         return pulumi.get(self, "assignable_scopes")
 
@@ -140,7 +140,7 @@ class _DefinitionState:
         Input properties used for looking up and filtering Definition resources.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] assignable_scopes: One or more assignable scopes for this Role Definition, such as `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333`, `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup`, `/providers/Microsoft.Management/managementGroups/0b1f6471-1bf0-4dda-aec3-111122223333` , or `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup/providers/Microsoft.Compute/virtualMachines/myVM`.
                
-               > **NOTE:** The value for `scope` is automatically included in this list if no other values supplied.
+               > **Note:** The value for `scope` is automatically included in this list if no other values supplied.
         :param pulumi.Input[builtins.str] description: A description of the Role Definition.
         :param pulumi.Input[builtins.str] name: The name of the Role Definition.
         :param pulumi.Input[Sequence[pulumi.Input['DefinitionPermissionArgs']]] permissions: A `permissions` block as defined below.
@@ -169,7 +169,7 @@ class _DefinitionState:
         """
         One or more assignable scopes for this Role Definition, such as `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333`, `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup`, `/providers/Microsoft.Management/managementGroups/0b1f6471-1bf0-4dda-aec3-111122223333` , or `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup/providers/Microsoft.Compute/virtualMachines/myVM`.
 
-        > **NOTE:** The value for `scope` is automatically included in this list if no other values supplied.
+        > **Note:** The value for `scope` is automatically included in this list if no other values supplied.
         """
         return pulumi.get(self, "assignable_scopes")
 
@@ -281,7 +281,7 @@ class Definition(pulumi.CustomResource):
         example = azure.authorization.RoleDefinition("example",
             name="my-custom-role",
             scope=primary.id,
-            description="This is a custom role created",
+            description="This is a custom role created via Terraform",
             permissions=[{
                 "actions": ["*"],
                 "not_actions": [],
@@ -309,6 +309,13 @@ class Definition(pulumi.CustomResource):
             assignable_scopes=[example.id])
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Authorization`: 2022-05-01-preview
+
         ## Import
 
         Role Definitions can be imported using the `resource id`, e.g.
@@ -321,7 +328,7 @@ class Definition(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] assignable_scopes: One or more assignable scopes for this Role Definition, such as `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333`, `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup`, `/providers/Microsoft.Management/managementGroups/0b1f6471-1bf0-4dda-aec3-111122223333` , or `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup/providers/Microsoft.Compute/virtualMachines/myVM`.
                
-               > **NOTE:** The value for `scope` is automatically included in this list if no other values supplied.
+               > **Note:** The value for `scope` is automatically included in this list if no other values supplied.
         :param pulumi.Input[builtins.str] description: A description of the Role Definition.
         :param pulumi.Input[builtins.str] name: The name of the Role Definition.
         :param pulumi.Input[Sequence[pulumi.Input[Union['DefinitionPermissionArgs', 'DefinitionPermissionArgsDict']]]] permissions: A `permissions` block as defined below.
@@ -347,7 +354,7 @@ class Definition(pulumi.CustomResource):
         example = azure.authorization.RoleDefinition("example",
             name="my-custom-role",
             scope=primary.id,
-            description="This is a custom role created",
+            description="This is a custom role created via Terraform",
             permissions=[{
                 "actions": ["*"],
                 "not_actions": [],
@@ -374,6 +381,13 @@ class Definition(pulumi.CustomResource):
             }],
             assignable_scopes=[example.id])
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Authorization`: 2022-05-01-preview
 
         ## Import
 
@@ -449,7 +463,7 @@ class Definition(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] assignable_scopes: One or more assignable scopes for this Role Definition, such as `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333`, `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup`, `/providers/Microsoft.Management/managementGroups/0b1f6471-1bf0-4dda-aec3-111122223333` , or `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup/providers/Microsoft.Compute/virtualMachines/myVM`.
                
-               > **NOTE:** The value for `scope` is automatically included in this list if no other values supplied.
+               > **Note:** The value for `scope` is automatically included in this list if no other values supplied.
         :param pulumi.Input[builtins.str] description: A description of the Role Definition.
         :param pulumi.Input[builtins.str] name: The name of the Role Definition.
         :param pulumi.Input[Sequence[pulumi.Input[Union['DefinitionPermissionArgs', 'DefinitionPermissionArgsDict']]]] permissions: A `permissions` block as defined below.
@@ -476,7 +490,7 @@ class Definition(pulumi.CustomResource):
         """
         One or more assignable scopes for this Role Definition, such as `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333`, `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup`, `/providers/Microsoft.Management/managementGroups/0b1f6471-1bf0-4dda-aec3-111122223333` , or `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup/providers/Microsoft.Compute/virtualMachines/myVM`.
 
-        > **NOTE:** The value for `scope` is automatically included in this list if no other values supplied.
+        > **Note:** The value for `scope` is automatically included in this list if no other values supplied.
         """
         return pulumi.get(self, "assignable_scopes")
 

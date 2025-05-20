@@ -12,11 +12,11 @@ namespace Pulumi.Azure.Automation
     /// <summary>
     /// Links an Automation Runbook and Schedule.
     /// 
-    /// &gt; **NOTE** AzureRM provides this stand-alone azure.automation.JobSchedule and an inlined `job_schedule` property in azurerm_runbook to manage the job schedules. You can only make use of one of these methods to manage a job schedule.
+    /// &gt; **Note:** AzureRM provides this stand-alone azure.automation.JobSchedule and an inlined `job_schedule` property in azurerm_runbook to manage the job schedules. You can only make use of one of these methods to manage a job schedule.
     /// 
     /// ## Example Usage
     /// 
-    /// This is an example of just the Job Schedule.
+    /// This is an example of just the Job Schedule. A full example of the `azure.automation.JobSchedule` resource can be found in the `./examples/automation-account` directory within the GitHub Repository
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
@@ -41,6 +41,13 @@ namespace Pulumi.Azure.Automation
     /// 
     /// });
     /// ```
+    /// 
+    /// ## API Providers
+    /// 
+    /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+    /// This resource uses the following Azure API Providers:
+    /// 
+    /// * `Microsoft.Automation`: 2023-11-01
     /// 
     /// ## Import
     /// 
@@ -68,7 +75,7 @@ namespace Pulumi.Azure.Automation
         /// <summary>
         /// A map of key/value pairs corresponding to the arguments that can be passed to the Runbook. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **NOTE:** The parameter keys/names must strictly be in lowercase, even if this is not the case in the runbook. This is due to a limitation in Azure Automation where the parameter names are normalized. The values specified don't have this limitation.
+        /// &gt; **Note:** The parameter keys/names must strictly be in lowercase, even if this is not the case in the runbook. This is due to a limitation in Azure Automation where the parameter names are normalized. The values specified don't have this limitation.
         /// </summary>
         [Output("parameters")]
         public Output<ImmutableDictionary<string, string>?> Parameters { get; private set; } = null!;
@@ -167,7 +174,7 @@ namespace Pulumi.Azure.Automation
         /// <summary>
         /// A map of key/value pairs corresponding to the arguments that can be passed to the Runbook. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **NOTE:** The parameter keys/names must strictly be in lowercase, even if this is not the case in the runbook. This is due to a limitation in Azure Automation where the parameter names are normalized. The values specified don't have this limitation.
+        /// &gt; **Note:** The parameter keys/names must strictly be in lowercase, even if this is not the case in the runbook. This is due to a limitation in Azure Automation where the parameter names are normalized. The values specified don't have this limitation.
         /// </summary>
         public InputMap<string> Parameters
         {
@@ -225,7 +232,7 @@ namespace Pulumi.Azure.Automation
         /// <summary>
         /// A map of key/value pairs corresponding to the arguments that can be passed to the Runbook. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **NOTE:** The parameter keys/names must strictly be in lowercase, even if this is not the case in the runbook. This is due to a limitation in Azure Automation where the parameter names are normalized. The values specified don't have this limitation.
+        /// &gt; **Note:** The parameter keys/names must strictly be in lowercase, even if this is not the case in the runbook. This is due to a limitation in Azure Automation where the parameter names are normalized. The values specified don't have this limitation.
         /// </summary>
         public InputMap<string> Parameters
         {

@@ -36,7 +36,7 @@ class ServerExtendedAuditingPolicyArgs:
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] audit_actions_and_groups: A list of Actions-Groups and Actions to audit.
         :param pulumi.Input[builtins.bool] enabled: Whether to enable the extended auditing policy. Possible values are `true` and `false`. Defaults to `true`.
                
-               ->**NOTE:**  If `enabled` is `true`, `storage_endpoint` or `log_monitoring_enabled` are required.
+               > **Note:** If `enabled` is `true`, `storage_endpoint` or `log_monitoring_enabled` are required.
         :param pulumi.Input[builtins.bool] log_monitoring_enabled: Enable audit events to Azure Monitor? To enable server audit events to Azure Monitor, please enable its main database audit events to Azure Monitor. Defaults to `true`.
         :param pulumi.Input[builtins.str] predicate_expression: Specifies condition of where clause when creating an audit.
         :param pulumi.Input[builtins.int] retention_in_days: The number of days to retain logs for in the storage account. Defaults to `0`.
@@ -95,7 +95,7 @@ class ServerExtendedAuditingPolicyArgs:
         """
         Whether to enable the extended auditing policy. Possible values are `true` and `false`. Defaults to `true`.
 
-        ->**NOTE:**  If `enabled` is `true`, `storage_endpoint` or `log_monitoring_enabled` are required.
+        > **Note:** If `enabled` is `true`, `storage_endpoint` or `log_monitoring_enabled` are required.
         """
         return pulumi.get(self, "enabled")
 
@@ -206,7 +206,7 @@ class _ServerExtendedAuditingPolicyState:
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] audit_actions_and_groups: A list of Actions-Groups and Actions to audit.
         :param pulumi.Input[builtins.bool] enabled: Whether to enable the extended auditing policy. Possible values are `true` and `false`. Defaults to `true`.
                
-               ->**NOTE:**  If `enabled` is `true`, `storage_endpoint` or `log_monitoring_enabled` are required.
+               > **Note:** If `enabled` is `true`, `storage_endpoint` or `log_monitoring_enabled` are required.
         :param pulumi.Input[builtins.bool] log_monitoring_enabled: Enable audit events to Azure Monitor? To enable server audit events to Azure Monitor, please enable its main database audit events to Azure Monitor. Defaults to `true`.
         :param pulumi.Input[builtins.str] predicate_expression: Specifies condition of where clause when creating an audit.
         :param pulumi.Input[builtins.int] retention_in_days: The number of days to retain logs for in the storage account. Defaults to `0`.
@@ -255,7 +255,7 @@ class _ServerExtendedAuditingPolicyState:
         """
         Whether to enable the extended auditing policy. Possible values are `true` and `false`. Defaults to `true`.
 
-        ->**NOTE:**  If `enabled` is `true`, `storage_endpoint` or `log_monitoring_enabled` are required.
+        > **Note:** If `enabled` is `true`, `storage_endpoint` or `log_monitoring_enabled` are required.
         """
         return pulumi.get(self, "enabled")
 
@@ -423,7 +423,7 @@ class ServerExtendedAuditingPolicy(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] audit_actions_and_groups: A list of Actions-Groups and Actions to audit.
         :param pulumi.Input[builtins.bool] enabled: Whether to enable the extended auditing policy. Possible values are `true` and `false`. Defaults to `true`.
                
-               ->**NOTE:**  If `enabled` is `true`, `storage_endpoint` or `log_monitoring_enabled` are required.
+               > **Note:** If `enabled` is `true`, `storage_endpoint` or `log_monitoring_enabled` are required.
         :param pulumi.Input[builtins.bool] log_monitoring_enabled: Enable audit events to Azure Monitor? To enable server audit events to Azure Monitor, please enable its main database audit events to Azure Monitor. Defaults to `true`.
         :param pulumi.Input[builtins.str] predicate_expression: Specifies condition of where clause when creating an audit.
         :param pulumi.Input[builtins.int] retention_in_days: The number of days to retain logs for in the storage account. Defaults to `0`.
@@ -558,7 +558,7 @@ class ServerExtendedAuditingPolicy(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] audit_actions_and_groups: A list of Actions-Groups and Actions to audit.
         :param pulumi.Input[builtins.bool] enabled: Whether to enable the extended auditing policy. Possible values are `true` and `false`. Defaults to `true`.
                
-               ->**NOTE:**  If `enabled` is `true`, `storage_endpoint` or `log_monitoring_enabled` are required.
+               > **Note:** If `enabled` is `true`, `storage_endpoint` or `log_monitoring_enabled` are required.
         :param pulumi.Input[builtins.bool] log_monitoring_enabled: Enable audit events to Azure Monitor? To enable server audit events to Azure Monitor, please enable its main database audit events to Azure Monitor. Defaults to `true`.
         :param pulumi.Input[builtins.str] predicate_expression: Specifies condition of where clause when creating an audit.
         :param pulumi.Input[builtins.int] retention_in_days: The number of days to retain logs for in the storage account. Defaults to `0`.
@@ -598,7 +598,7 @@ class ServerExtendedAuditingPolicy(pulumi.CustomResource):
         """
         Whether to enable the extended auditing policy. Possible values are `true` and `false`. Defaults to `true`.
 
-        ->**NOTE:**  If `enabled` is `true`, `storage_endpoint` or `log_monitoring_enabled` are required.
+        > **Note:** If `enabled` is `true`, `storage_endpoint` or `log_monitoring_enabled` are required.
         """
         return pulumi.get(self, "enabled")
 

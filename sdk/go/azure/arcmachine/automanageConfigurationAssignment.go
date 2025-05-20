@@ -70,6 +70,13 @@ import (
 //
 // ```
 //
+// ## API Providers
+//
+// <!-- This section is generated, changes will be overwritten -->
+// This resource uses the following Azure API Providers:
+//
+// * `Microsoft.HybridCompute`: 2022-05-04
+//
 // ## Import
 //
 // Virtual Machine Automanage Configuration Profile Assignment can be imported using the `resource id`, e.g.
@@ -84,7 +91,7 @@ type AutomanageConfigurationAssignment struct {
 	ArcMachineId pulumi.StringOutput `pulumi:"arcMachineId"`
 	// The ARM resource ID of the Automanage Configuration to assign to the Virtual Machine. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** For a successful creation of this resource, locate "Automanage API Access" app within your Entra ID tenant. Make sure it's granted access to the scope that includes the arc server.
+	// > **Note:** For a successful creation of this resource, locate "Automanage API Access" app within your Entra ID tenant. Make sure it's granted access to the scope that includes the arc server.
 	ConfigurationId pulumi.StringOutput `pulumi:"configurationId"`
 }
 
@@ -128,7 +135,7 @@ type automanageConfigurationAssignmentState struct {
 	ArcMachineId *string `pulumi:"arcMachineId"`
 	// The ARM resource ID of the Automanage Configuration to assign to the Virtual Machine. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** For a successful creation of this resource, locate "Automanage API Access" app within your Entra ID tenant. Make sure it's granted access to the scope that includes the arc server.
+	// > **Note:** For a successful creation of this resource, locate "Automanage API Access" app within your Entra ID tenant. Make sure it's granted access to the scope that includes the arc server.
 	ConfigurationId *string `pulumi:"configurationId"`
 }
 
@@ -137,7 +144,7 @@ type AutomanageConfigurationAssignmentState struct {
 	ArcMachineId pulumi.StringPtrInput
 	// The ARM resource ID of the Automanage Configuration to assign to the Virtual Machine. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** For a successful creation of this resource, locate "Automanage API Access" app within your Entra ID tenant. Make sure it's granted access to the scope that includes the arc server.
+	// > **Note:** For a successful creation of this resource, locate "Automanage API Access" app within your Entra ID tenant. Make sure it's granted access to the scope that includes the arc server.
 	ConfigurationId pulumi.StringPtrInput
 }
 
@@ -150,7 +157,7 @@ type automanageConfigurationAssignmentArgs struct {
 	ArcMachineId string `pulumi:"arcMachineId"`
 	// The ARM resource ID of the Automanage Configuration to assign to the Virtual Machine. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** For a successful creation of this resource, locate "Automanage API Access" app within your Entra ID tenant. Make sure it's granted access to the scope that includes the arc server.
+	// > **Note:** For a successful creation of this resource, locate "Automanage API Access" app within your Entra ID tenant. Make sure it's granted access to the scope that includes the arc server.
 	ConfigurationId string `pulumi:"configurationId"`
 }
 
@@ -160,7 +167,7 @@ type AutomanageConfigurationAssignmentArgs struct {
 	ArcMachineId pulumi.StringInput
 	// The ARM resource ID of the Automanage Configuration to assign to the Virtual Machine. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** For a successful creation of this resource, locate "Automanage API Access" app within your Entra ID tenant. Make sure it's granted access to the scope that includes the arc server.
+	// > **Note:** For a successful creation of this resource, locate "Automanage API Access" app within your Entra ID tenant. Make sure it's granted access to the scope that includes the arc server.
 	ConfigurationId pulumi.StringInput
 }
 
@@ -258,7 +265,7 @@ func (o AutomanageConfigurationAssignmentOutput) ArcMachineId() pulumi.StringOut
 
 // The ARM resource ID of the Automanage Configuration to assign to the Virtual Machine. Changing this forces a new resource to be created.
 //
-// > **NOTE:** For a successful creation of this resource, locate "Automanage API Access" app within your Entra ID tenant. Make sure it's granted access to the scope that includes the arc server.
+// > **Note:** For a successful creation of this resource, locate "Automanage API Access" app within your Entra ID tenant. Make sure it's granted access to the scope that includes the arc server.
 func (o AutomanageConfigurationAssignmentOutput) ConfigurationId() pulumi.StringOutput {
 	return o.ApplyT(func(v *AutomanageConfigurationAssignment) pulumi.StringOutput { return v.ConfigurationId }).(pulumi.StringOutput)
 }

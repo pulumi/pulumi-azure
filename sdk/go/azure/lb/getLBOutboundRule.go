@@ -40,6 +40,13 @@ import (
 //	}
 //
 // ```
+//
+// ## API Providers
+//
+// <!-- This section is generated, changes will be overwritten -->
+// This data source uses the following Azure API Providers:
+//
+// * `Microsoft.Network`: 2023-09-01
 func GetLBOutboundRule(ctx *pulumi.Context, args *GetLBOutboundRuleArgs, opts ...pulumi.InvokeOption) (*GetLBOutboundRuleResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetLBOutboundRuleResult

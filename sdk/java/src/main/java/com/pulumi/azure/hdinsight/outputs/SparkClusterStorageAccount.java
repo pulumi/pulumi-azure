@@ -16,7 +16,7 @@ public final class SparkClusterStorageAccount {
     /**
      * @return Is this the Default Storage Account for the HDInsight Hadoop Cluster? Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE:** One of the `storage_account` or `storage_account_gen2` blocks must be marked as the default.
+     * &gt; **Note:** One of the `storage_account` or `storage_account_gen2` blocks must be marked as the default.
      * 
      */
     private Boolean isDefault;
@@ -28,7 +28,7 @@ public final class SparkClusterStorageAccount {
     /**
      * @return The ID of the Storage Container. Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE:** This can be obtained from the `id` of the `azure.storage.Container` resource.
+     * &gt; **Note:** This can be obtained from the `id` of the `azure.storage.Container` resource.
      * 
      */
     private String storageContainerId;
@@ -42,7 +42,7 @@ public final class SparkClusterStorageAccount {
     /**
      * @return Is this the Default Storage Account for the HDInsight Hadoop Cluster? Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE:** One of the `storage_account` or `storage_account_gen2` blocks must be marked as the default.
+     * &gt; **Note:** One of the `storage_account` or `storage_account_gen2` blocks must be marked as the default.
      * 
      */
     public Boolean isDefault() {
@@ -58,7 +58,7 @@ public final class SparkClusterStorageAccount {
     /**
      * @return The ID of the Storage Container. Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE:** This can be obtained from the `id` of the `azure.storage.Container` resource.
+     * &gt; **Note:** This can be obtained from the `id` of the `azure.storage.Container` resource.
      * 
      */
     public String storageContainerId() {

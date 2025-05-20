@@ -113,6 +113,13 @@ namespace Pulumi.Azure.ContainerApp
     /// });
     /// ```
     /// 
+    /// ## API Providers
+    /// 
+    /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+    /// This resource uses the following Azure API Providers:
+    /// 
+    /// * `Microsoft.App`: 2025-01-01
+    /// 
     /// ## Import
     /// 
     /// A Container App Job can be imported using the resource id, e.g.
@@ -199,7 +206,7 @@ namespace Pulumi.Azure.ContainerApp
         /// <summary>
         /// A `schedule_trigger_config` block as defined below.
         /// 
-        /// &gt; ** NOTE **: Only one of `manual_trigger_config`, `event_trigger_config` or `schedule_trigger_config` can be specified.
+        /// &gt; **Note:** Only one of `manual_trigger_config`, `event_trigger_config` or `schedule_trigger_config` can be specified.
         /// </summary>
         [Output("scheduleTriggerConfig")]
         public Output<Outputs.JobScheduleTriggerConfig?> ScheduleTriggerConfig { get; private set; } = null!;
@@ -347,7 +354,7 @@ namespace Pulumi.Azure.ContainerApp
         /// <summary>
         /// A `schedule_trigger_config` block as defined below.
         /// 
-        /// &gt; ** NOTE **: Only one of `manual_trigger_config`, `event_trigger_config` or `schedule_trigger_config` can be specified.
+        /// &gt; **Note:** Only one of `manual_trigger_config`, `event_trigger_config` or `schedule_trigger_config` can be specified.
         /// </summary>
         [Input("scheduleTriggerConfig")]
         public Input<Inputs.JobScheduleTriggerConfigArgs>? ScheduleTriggerConfig { get; set; }
@@ -487,7 +494,7 @@ namespace Pulumi.Azure.ContainerApp
         /// <summary>
         /// A `schedule_trigger_config` block as defined below.
         /// 
-        /// &gt; ** NOTE **: Only one of `manual_trigger_config`, `event_trigger_config` or `schedule_trigger_config` can be specified.
+        /// &gt; **Note:** Only one of `manual_trigger_config`, `event_trigger_config` or `schedule_trigger_config` can be specified.
         /// </summary>
         [Input("scheduleTriggerConfig")]
         public Input<Inputs.JobScheduleTriggerConfigGetArgs>? ScheduleTriggerConfig { get; set; }

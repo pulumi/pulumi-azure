@@ -14,6 +14,8 @@ import (
 
 // Associates a Spring Cloud Application with a CosmosDB Account.
 //
+// !> **Note:** Azure Spring Apps is now deprecated and will be retired on 2028-05-31 - as such the `appplatform.SpringCloudAppCosmosDBAssociation` resource is deprecated and will be removed in a future major version of the AzureRM Provider. See https://aka.ms/asaretirement for more information.
+//
 // ## Example Usage
 //
 // ```go

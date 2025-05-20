@@ -36,6 +36,13 @@ namespace Pulumi.Azure.Compute
         ///     };
         /// });
         /// ```
+        /// 
+        /// ## API Providers
+        /// 
+        /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+        /// This data source uses the following Azure API Providers:
+        /// 
+        /// * `Microsoft.Compute`: 2023-04-02
         /// </summary>
         public static Task<GetManagedDiskResult> InvokeAsync(GetManagedDiskArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetManagedDiskResult>("azure:compute/getManagedDisk:getManagedDisk", args ?? new GetManagedDiskArgs(), options.WithDefaults());
@@ -65,6 +72,13 @@ namespace Pulumi.Azure.Compute
         ///     };
         /// });
         /// ```
+        /// 
+        /// ## API Providers
+        /// 
+        /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+        /// This data source uses the following Azure API Providers:
+        /// 
+        /// * `Microsoft.Compute`: 2023-04-02
         /// </summary>
         public static Output<GetManagedDiskResult> Invoke(GetManagedDiskInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetManagedDiskResult>("azure:compute/getManagedDisk:getManagedDisk", args ?? new GetManagedDiskInvokeArgs(), options.WithDefaults());
@@ -94,6 +108,13 @@ namespace Pulumi.Azure.Compute
         ///     };
         /// });
         /// ```
+        /// 
+        /// ## API Providers
+        /// 
+        /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+        /// This data source uses the following Azure API Providers:
+        /// 
+        /// * `Microsoft.Compute`: 2023-04-02
         /// </summary>
         public static Output<GetManagedDiskResult> Invoke(GetManagedDiskInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetManagedDiskResult>("azure:compute/getManagedDisk:getManagedDisk", args ?? new GetManagedDiskInvokeArgs(), options.WithDefaults());

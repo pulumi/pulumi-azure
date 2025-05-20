@@ -42,7 +42,7 @@ namespace Pulumi.Azure.ApiManagement
     ///         Location = example.Location,
     ///         ResourceGroupName = example.Name,
     ///         PublisherName = "My Company",
-    ///         PublisherEmail = "company@exmaple.com",
+    ///         PublisherEmail = "company@terraform.io",
     ///         SkuName = "Developer_1",
     ///     });
     /// 
@@ -60,6 +60,13 @@ namespace Pulumi.Azure.ApiManagement
     /// 
     /// });
     /// ```
+    /// 
+    /// ## API Providers
+    /// 
+    /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+    /// This resource uses the following Azure API Providers:
+    /// 
+    /// * `Microsoft.ApiManagement`: 2022-08-01
     /// 
     /// ## Import
     /// 

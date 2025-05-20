@@ -83,7 +83,7 @@ public final class FrontdoorOriginGroupArgs extends com.pulumi.resources.Resourc
     /**
      * Specifies the amount of time which should elapse before shifting traffic to another endpoint when a healthy endpoint becomes unhealthy or a new endpoint is added. Possible values are between `0` and `50` minutes (inclusive). Default is `10` minutes.
      * 
-     * &gt; **NOTE:** This property is currently not used, but will be in the near future.
+     * &gt; **Note:** This property is currently not used, but will be in the near future.
      * 
      */
     @Import(name="restoreTrafficTimeToHealedOrNewEndpointInMinutes")
@@ -92,7 +92,7 @@ public final class FrontdoorOriginGroupArgs extends com.pulumi.resources.Resourc
     /**
      * @return Specifies the amount of time which should elapse before shifting traffic to another endpoint when a healthy endpoint becomes unhealthy or a new endpoint is added. Possible values are between `0` and `50` minutes (inclusive). Default is `10` minutes.
      * 
-     * &gt; **NOTE:** This property is currently not used, but will be in the near future.
+     * &gt; **Note:** This property is currently not used, but will be in the near future.
      * 
      */
     public Optional<Output<Integer>> restoreTrafficTimeToHealedOrNewEndpointInMinutes() {
@@ -230,7 +230,7 @@ public final class FrontdoorOriginGroupArgs extends com.pulumi.resources.Resourc
         /**
          * @param restoreTrafficTimeToHealedOrNewEndpointInMinutes Specifies the amount of time which should elapse before shifting traffic to another endpoint when a healthy endpoint becomes unhealthy or a new endpoint is added. Possible values are between `0` and `50` minutes (inclusive). Default is `10` minutes.
          * 
-         * &gt; **NOTE:** This property is currently not used, but will be in the near future.
+         * &gt; **Note:** This property is currently not used, but will be in the near future.
          * 
          * @return builder
          * 
@@ -243,7 +243,7 @@ public final class FrontdoorOriginGroupArgs extends com.pulumi.resources.Resourc
         /**
          * @param restoreTrafficTimeToHealedOrNewEndpointInMinutes Specifies the amount of time which should elapse before shifting traffic to another endpoint when a healthy endpoint becomes unhealthy or a new endpoint is added. Possible values are between `0` and `50` minutes (inclusive). Default is `10` minutes.
          * 
-         * &gt; **NOTE:** This property is currently not used, but will be in the near future.
+         * &gt; **Note:** This property is currently not used, but will be in the near future.
          * 
          * @return builder
          * 

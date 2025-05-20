@@ -92,6 +92,13 @@ import (
 //
 // ```
 //
+// ## API Providers
+//
+// <!-- This section is generated, changes will be overwritten -->
+// This resource uses the following Azure API Providers:
+//
+// * `Microsoft.SignalRService`: 2024-03-01
+//
 // ## Import
 //
 // Web Pubsub Shared Private Link Resource can be imported using the `resource id`, e.g.
@@ -110,11 +117,11 @@ type SharedPrivateLinkResource struct {
 	Status pulumi.StringOutput `pulumi:"status"`
 	// Specify the sub resource name which the Web Pubsub Private Endpoint is able to connect to. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** The available sub resource can be retrieved by using `webpubsub.getPrivateLinkResource` data source.
+	// > **Note:** The available sub resource can be retrieved by using `webpubsub.getPrivateLinkResource` data source.
 	SubresourceName pulumi.StringOutput `pulumi:"subresourceName"`
 	// Specify the ID of the Shared Private Link Enabled Remote Resource which this Web Pubsub Private Endpoint should be connected to. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** The sub resource name should match with the type of the target resource id that's being specified.
+	// > **Note:** The sub resource name should match with the type of the target resource id that's being specified.
 	TargetResourceId pulumi.StringOutput `pulumi:"targetResourceId"`
 	// Specify the id of the Web Pubsub. Changing this forces a new resource to be created.
 	WebPubsubId pulumi.StringOutput `pulumi:"webPubsubId"`
@@ -167,11 +174,11 @@ type sharedPrivateLinkResourceState struct {
 	Status *string `pulumi:"status"`
 	// Specify the sub resource name which the Web Pubsub Private Endpoint is able to connect to. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** The available sub resource can be retrieved by using `webpubsub.getPrivateLinkResource` data source.
+	// > **Note:** The available sub resource can be retrieved by using `webpubsub.getPrivateLinkResource` data source.
 	SubresourceName *string `pulumi:"subresourceName"`
 	// Specify the ID of the Shared Private Link Enabled Remote Resource which this Web Pubsub Private Endpoint should be connected to. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** The sub resource name should match with the type of the target resource id that's being specified.
+	// > **Note:** The sub resource name should match with the type of the target resource id that's being specified.
 	TargetResourceId *string `pulumi:"targetResourceId"`
 	// Specify the id of the Web Pubsub. Changing this forces a new resource to be created.
 	WebPubsubId *string `pulumi:"webPubsubId"`
@@ -186,11 +193,11 @@ type SharedPrivateLinkResourceState struct {
 	Status pulumi.StringPtrInput
 	// Specify the sub resource name which the Web Pubsub Private Endpoint is able to connect to. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** The available sub resource can be retrieved by using `webpubsub.getPrivateLinkResource` data source.
+	// > **Note:** The available sub resource can be retrieved by using `webpubsub.getPrivateLinkResource` data source.
 	SubresourceName pulumi.StringPtrInput
 	// Specify the ID of the Shared Private Link Enabled Remote Resource which this Web Pubsub Private Endpoint should be connected to. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** The sub resource name should match with the type of the target resource id that's being specified.
+	// > **Note:** The sub resource name should match with the type of the target resource id that's being specified.
 	TargetResourceId pulumi.StringPtrInput
 	// Specify the id of the Web Pubsub. Changing this forces a new resource to be created.
 	WebPubsubId pulumi.StringPtrInput
@@ -207,11 +214,11 @@ type sharedPrivateLinkResourceArgs struct {
 	RequestMessage *string `pulumi:"requestMessage"`
 	// Specify the sub resource name which the Web Pubsub Private Endpoint is able to connect to. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** The available sub resource can be retrieved by using `webpubsub.getPrivateLinkResource` data source.
+	// > **Note:** The available sub resource can be retrieved by using `webpubsub.getPrivateLinkResource` data source.
 	SubresourceName string `pulumi:"subresourceName"`
 	// Specify the ID of the Shared Private Link Enabled Remote Resource which this Web Pubsub Private Endpoint should be connected to. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** The sub resource name should match with the type of the target resource id that's being specified.
+	// > **Note:** The sub resource name should match with the type of the target resource id that's being specified.
 	TargetResourceId string `pulumi:"targetResourceId"`
 	// Specify the id of the Web Pubsub. Changing this forces a new resource to be created.
 	WebPubsubId string `pulumi:"webPubsubId"`
@@ -225,11 +232,11 @@ type SharedPrivateLinkResourceArgs struct {
 	RequestMessage pulumi.StringPtrInput
 	// Specify the sub resource name which the Web Pubsub Private Endpoint is able to connect to. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** The available sub resource can be retrieved by using `webpubsub.getPrivateLinkResource` data source.
+	// > **Note:** The available sub resource can be retrieved by using `webpubsub.getPrivateLinkResource` data source.
 	SubresourceName pulumi.StringInput
 	// Specify the ID of the Shared Private Link Enabled Remote Resource which this Web Pubsub Private Endpoint should be connected to. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** The sub resource name should match with the type of the target resource id that's being specified.
+	// > **Note:** The sub resource name should match with the type of the target resource id that's being specified.
 	TargetResourceId pulumi.StringInput
 	// Specify the id of the Web Pubsub. Changing this forces a new resource to be created.
 	WebPubsubId pulumi.StringInput
@@ -339,14 +346,14 @@ func (o SharedPrivateLinkResourceOutput) Status() pulumi.StringOutput {
 
 // Specify the sub resource name which the Web Pubsub Private Endpoint is able to connect to. Changing this forces a new resource to be created.
 //
-// > **NOTE:** The available sub resource can be retrieved by using `webpubsub.getPrivateLinkResource` data source.
+// > **Note:** The available sub resource can be retrieved by using `webpubsub.getPrivateLinkResource` data source.
 func (o SharedPrivateLinkResourceOutput) SubresourceName() pulumi.StringOutput {
 	return o.ApplyT(func(v *SharedPrivateLinkResource) pulumi.StringOutput { return v.SubresourceName }).(pulumi.StringOutput)
 }
 
 // Specify the ID of the Shared Private Link Enabled Remote Resource which this Web Pubsub Private Endpoint should be connected to. Changing this forces a new resource to be created.
 //
-// > **NOTE:** The sub resource name should match with the type of the target resource id that's being specified.
+// > **Note:** The sub resource name should match with the type of the target resource id that's being specified.
 func (o SharedPrivateLinkResourceOutput) TargetResourceId() pulumi.StringOutput {
 	return o.ApplyT(func(v *SharedPrivateLinkResource) pulumi.StringOutput { return v.TargetResourceId }).(pulumi.StringOutput)
 }

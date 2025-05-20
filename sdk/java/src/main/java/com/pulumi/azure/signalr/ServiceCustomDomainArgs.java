@@ -19,7 +19,7 @@ public final class ServiceCustomDomainArgs extends com.pulumi.resources.Resource
     /**
      * Specifies the custom domain name of the SignalR Custom Domain. Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE:** Please ensure the custom domain name is included in the Subject Alternative Names of the selected SignalR Custom Certificate.
+     * &gt; **Note:** Please ensure the custom domain name is included in the Subject Alternative Names of the selected SignalR Custom Certificate.
      * 
      */
     @Import(name="domainName", required=true)
@@ -28,7 +28,7 @@ public final class ServiceCustomDomainArgs extends com.pulumi.resources.Resource
     /**
      * @return Specifies the custom domain name of the SignalR Custom Domain. Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE:** Please ensure the custom domain name is included in the Subject Alternative Names of the selected SignalR Custom Certificate.
+     * &gt; **Note:** Please ensure the custom domain name is included in the Subject Alternative Names of the selected SignalR Custom Certificate.
      * 
      */
     public Output<String> domainName() {
@@ -110,7 +110,7 @@ public final class ServiceCustomDomainArgs extends com.pulumi.resources.Resource
         /**
          * @param domainName Specifies the custom domain name of the SignalR Custom Domain. Changing this forces a new resource to be created.
          * 
-         * &gt; **NOTE:** Please ensure the custom domain name is included in the Subject Alternative Names of the selected SignalR Custom Certificate.
+         * &gt; **Note:** Please ensure the custom domain name is included in the Subject Alternative Names of the selected SignalR Custom Certificate.
          * 
          * @return builder
          * 
@@ -123,7 +123,7 @@ public final class ServiceCustomDomainArgs extends com.pulumi.resources.Resource
         /**
          * @param domainName Specifies the custom domain name of the SignalR Custom Domain. Changing this forces a new resource to be created.
          * 
-         * &gt; **NOTE:** Please ensure the custom domain name is included in the Subject Alternative Names of the selected SignalR Custom Certificate.
+         * &gt; **Note:** Please ensure the custom domain name is included in the Subject Alternative Names of the selected SignalR Custom Certificate.
          * 
          * @return builder
          * 

@@ -193,6 +193,13 @@ def get_snapshot_policy(account_name: Optional[builtins.str] = None,
     pulumi.export("monthlySchedule", example.monthly_schedules)
     ```
 
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.NetApp`: 2025-01-01
+
 
     :param builtins.str account_name: The name of the NetApp account where the NetApp Snapshot Policy exists.
     :param builtins.str name: The name of the NetApp Snapshot Policy.
@@ -241,6 +248,13 @@ def get_snapshot_policy_output(account_name: Optional[pulumi.Input[builtins.str]
     pulumi.export("weeklySchedule", example.weekly_schedules)
     pulumi.export("monthlySchedule", example.monthly_schedules)
     ```
+
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.NetApp`: 2025-01-01
 
 
     :param builtins.str account_name: The name of the NetApp account where the NetApp Snapshot Policy exists.

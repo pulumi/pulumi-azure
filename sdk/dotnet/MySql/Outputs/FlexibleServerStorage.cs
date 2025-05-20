@@ -26,6 +26,10 @@ namespace Pulumi.Azure.MySql.Outputs
         /// </summary>
         public readonly int? Iops;
         /// <summary>
+        /// Should Storage Log On Disk be enabled? Defaults to `false`.
+        /// </summary>
+        public readonly bool? LogOnDiskEnabled;
+        /// <summary>
         /// The max storage allowed for the MySQL Flexible Server. Possible values are between `20` and `16384`.
         /// 
         /// &gt; **Note:** Decreasing `size_gb` forces a new resource to be created.
@@ -40,11 +44,14 @@ namespace Pulumi.Azure.MySql.Outputs
 
             int? iops,
 
+            bool? logOnDiskEnabled,
+
             int? sizeGb)
         {
             AutoGrowEnabled = autoGrowEnabled;
             IoScalingEnabled = ioScalingEnabled;
             Iops = iops;
+            LogOnDiskEnabled = logOnDiskEnabled;
             SizeGb = sizeGb;
         }
     }

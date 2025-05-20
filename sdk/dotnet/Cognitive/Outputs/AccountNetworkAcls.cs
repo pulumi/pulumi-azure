@@ -16,7 +16,7 @@ namespace Pulumi.Azure.Cognitive.Outputs
         /// <summary>
         /// Whether to allow trusted Azure Services to access the service. Possible values are `None` and `AzureServices`.
         /// 
-        /// &gt; **NOTE:** `bypass` can only be set when `kind` is set to `OpenAI`
+        /// &gt; **Note:** `bypass` can only be set when `kind` is set to `OpenAI`
         /// </summary>
         public readonly string? Bypass;
         /// <summary>

@@ -329,6 +329,13 @@ import javax.annotation.Nullable;
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
+ * ## API Providers
+ * 
+ * &lt;!-- This section is generated, changes will be overwritten --&gt;
+ * This resource uses the following Azure API Providers:
+ * 
+ * * `Microsoft.Authorization`: 2022-05-01-preview, 2022-04-01
+ * 
  * ## Import
  * 
  * Role Assignments can be imported using the `resource id`, e.g.
@@ -369,12 +376,16 @@ public class Assignment extends com.pulumi.resources.CustomResource {
     /**
      * The version of the condition. Possible values are `1.0` or `2.0`. Changing this forces a new resource to be created.
      * 
+     * &gt; **Note:** `condition` is required when `condition_version` is set.
+     * 
      */
     @Export(name="conditionVersion", refs={String.class}, tree="[0]")
     private Output<String> conditionVersion;
 
     /**
      * @return The version of the condition. Possible values are `1.0` or `2.0`. Changing this forces a new resource to be created.
+     * 
+     * &gt; **Note:** `condition` is required when `condition_version` is set.
      * 
      */
     public Output<String> conditionVersion() {
@@ -383,7 +394,7 @@ public class Assignment extends com.pulumi.resources.CustomResource {
     /**
      * The delegated Azure Resource Id which contains a Managed Identity. Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE:** this field is only used in cross tenant scenario.
+     * &gt; **Note:** This field is only used in cross tenant scenarios.
      * 
      */
     @Export(name="delegatedManagedIdentityResourceId", refs={String.class}, tree="[0]")
@@ -392,7 +403,7 @@ public class Assignment extends com.pulumi.resources.CustomResource {
     /**
      * @return The delegated Azure Resource Id which contains a Managed Identity. Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE:** this field is only used in cross tenant scenario.
+     * &gt; **Note:** This field is only used in cross tenant scenarios.
      * 
      */
     public Output<Optional<String>> delegatedManagedIdentityResourceId() {
@@ -429,7 +440,7 @@ public class Assignment extends com.pulumi.resources.CustomResource {
     /**
      * The ID of the Principal (User, Group or Service Principal) to assign the Role Definition to. Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE:** The Principal ID is also known as the Object ID (ie not the &#34;Application ID&#34; for applications).
+     * &gt; **Note:** The Principal ID is also known as the Object ID (i.e. not the &#34;Application ID&#34; for applications).
      * 
      */
     @Export(name="principalId", refs={String.class}, tree="[0]")
@@ -438,7 +449,7 @@ public class Assignment extends com.pulumi.resources.CustomResource {
     /**
      * @return The ID of the Principal (User, Group or Service Principal) to assign the Role Definition to. Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE:** The Principal ID is also known as the Object ID (ie not the &#34;Application ID&#34; for applications).
+     * &gt; **Note:** The Principal ID is also known as the Object ID (i.e. not the &#34;Application ID&#34; for applications).
      * 
      */
     public Output<String> principalId() {
@@ -447,8 +458,6 @@ public class Assignment extends com.pulumi.resources.CustomResource {
     /**
      * The type of the `principal_id`. Possible values are `User`, `Group` and `ServicePrincipal`. Changing this forces a new resource to be created. It is necessary to explicitly set this attribute when creating role assignments if the principal creating the assignment is constrained by ABAC rules that filters on the PrincipalType attribute.
      * 
-     * &gt; **NOTE:** If one of `condition` or `condition_version` is set both fields must be present.
-     * 
      */
     @Export(name="principalType", refs={String.class}, tree="[0]")
     private Output<String> principalType;
@@ -456,35 +465,37 @@ public class Assignment extends com.pulumi.resources.CustomResource {
     /**
      * @return The type of the `principal_id`. Possible values are `User`, `Group` and `ServicePrincipal`. Changing this forces a new resource to be created. It is necessary to explicitly set this attribute when creating role assignments if the principal creating the assignment is constrained by ABAC rules that filters on the PrincipalType attribute.
      * 
-     * &gt; **NOTE:** If one of `condition` or `condition_version` is set both fields must be present.
-     * 
      */
     public Output<String> principalType() {
         return this.principalType;
     }
     /**
-     * The Scoped-ID of the Role Definition. Changing this forces a new resource to be created. Conflicts with `role_definition_name`.
+     * The Scoped-ID of the Role Definition. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="roleDefinitionId", refs={String.class}, tree="[0]")
     private Output<String> roleDefinitionId;
 
     /**
-     * @return The Scoped-ID of the Role Definition. Changing this forces a new resource to be created. Conflicts with `role_definition_name`.
+     * @return The Scoped-ID of the Role Definition. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> roleDefinitionId() {
         return this.roleDefinitionId;
     }
     /**
-     * The name of a built-in Role. Changing this forces a new resource to be created. Conflicts with `role_definition_id`.
+     * The name of a built-in Role. Changing this forces a new resource to be created.
+     * 
+     * &gt; **Note:** Either `role_definition_id` or `role_definition_name` must be set.
      * 
      */
     @Export(name="roleDefinitionName", refs={String.class}, tree="[0]")
     private Output<String> roleDefinitionName;
 
     /**
-     * @return The name of a built-in Role. Changing this forces a new resource to be created. Conflicts with `role_definition_id`.
+     * @return The name of a built-in Role. Changing this forces a new resource to be created.
+     * 
+     * &gt; **Note:** Either `role_definition_id` or `role_definition_name` must be set.
      * 
      */
     public Output<String> roleDefinitionName() {
@@ -507,7 +518,7 @@ public class Assignment extends com.pulumi.resources.CustomResource {
     /**
      * If the `principal_id` is a newly provisioned `Service Principal` set this value to `true` to skip the `Azure Active Directory` check which may fail due to replication lag. This argument is only valid if the `principal_id` is a `Service Principal` identity. Defaults to `false`.
      * 
-     * &gt; **NOTE:** If it is not a `Service Principal` identity it will cause the role assignment to fail.
+     * &gt; **Note:** If it is not a `Service Principal` identity it will cause the role assignment to fail.
      * 
      */
     @Export(name="skipServicePrincipalAadCheck", refs={Boolean.class}, tree="[0]")
@@ -516,7 +527,7 @@ public class Assignment extends com.pulumi.resources.CustomResource {
     /**
      * @return If the `principal_id` is a newly provisioned `Service Principal` set this value to `true` to skip the `Azure Active Directory` check which may fail due to replication lag. This argument is only valid if the `principal_id` is a `Service Principal` identity. Defaults to `false`.
      * 
-     * &gt; **NOTE:** If it is not a `Service Principal` identity it will cause the role assignment to fail.
+     * &gt; **Note:** If it is not a `Service Principal` identity it will cause the role assignment to fail.
      * 
      */
     public Output<Boolean> skipServicePrincipalAadCheck() {

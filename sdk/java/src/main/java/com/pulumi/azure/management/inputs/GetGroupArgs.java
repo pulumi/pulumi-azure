@@ -15,21 +15,9 @@ public final class GetGroupArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetGroupArgs Empty = new GetGroupArgs();
 
-    /**
-     * Specifies the display name of this Management Group.
-     * 
-     * &gt; **NOTE** Whilst multiple management groups may share the same display name, when filtering, the provider expects a single management group to be found with this name.
-     * 
-     */
     @Import(name="displayName")
     private @Nullable Output<String> displayName;
 
-    /**
-     * @return Specifies the display name of this Management Group.
-     * 
-     * &gt; **NOTE** Whilst multiple management groups may share the same display name, when filtering, the provider expects a single management group to be found with this name.
-     * 
-     */
     public Optional<Output<String>> displayName() {
         return Optional.ofNullable(this.displayName);
     }
@@ -74,27 +62,11 @@ public final class GetGroupArgs extends com.pulumi.resources.InvokeArgs {
             $ = new GetGroupArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param displayName Specifies the display name of this Management Group.
-         * 
-         * &gt; **NOTE** Whilst multiple management groups may share the same display name, when filtering, the provider expects a single management group to be found with this name.
-         * 
-         * @return builder
-         * 
-         */
         public Builder displayName(@Nullable Output<String> displayName) {
             $.displayName = displayName;
             return this;
         }
 
-        /**
-         * @param displayName Specifies the display name of this Management Group.
-         * 
-         * &gt; **NOTE** Whilst multiple management groups may share the same display name, when filtering, the provider expects a single management group to be found with this name.
-         * 
-         * @return builder
-         * 
-         */
         public Builder displayName(String displayName) {
             return displayName(Output.of(displayName));
         }

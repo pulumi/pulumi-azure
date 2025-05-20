@@ -697,7 +697,7 @@ class RunBookJobSchedule(dict):
         :param builtins.str job_schedule_id: The UUID of automation runbook job schedule ID.
         :param Mapping[str, builtins.str] parameters: A map of key/value pairs corresponding to the arguments that can be passed to the Runbook.
                
-               > **NOTE:** The parameter keys/names must strictly be in lowercase, even if this is not the case in the runbook. This is due to a limitation in Azure Automation where the parameter names are normalized. The values specified don't have this limitation.
+               > **Note:** The parameter keys/names must strictly be in lowercase, even if this is not the case in the runbook. This is due to a limitation in Azure Automation where the parameter names are normalized. The values specified don't have this limitation.
         :param builtins.str run_on: Name of a Hybrid Worker Group the Runbook will be executed on.
         """
         pulumi.set(__self__, "schedule_name", schedule_name)
@@ -730,7 +730,7 @@ class RunBookJobSchedule(dict):
         """
         A map of key/value pairs corresponding to the arguments that can be passed to the Runbook.
 
-        > **NOTE:** The parameter keys/names must strictly be in lowercase, even if this is not the case in the runbook. This is due to a limitation in Azure Automation where the parameter names are normalized. The values specified don't have this limitation.
+        > **Note:** The parameter keys/names must strictly be in lowercase, even if this is not the case in the runbook. This is due to a limitation in Azure Automation where the parameter names are normalized. The values specified don't have this limitation.
         """
         return pulumi.get(self, "parameters")
 

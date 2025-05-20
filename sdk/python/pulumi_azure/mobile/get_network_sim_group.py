@@ -135,6 +135,13 @@ def get_network_sim_group(mobile_network_id: Optional[builtins.str] = None,
         mobile_network_id=example.id)
     ```
 
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.MobileNetwork`: 2022-11-01
+
 
     :param builtins.str mobile_network_id: The ID of Mobile Network which the Mobile Network Sim Group belongs to.
     :param builtins.str name: Specifies the name which should be used for this Mobile Network Sim Groups.
@@ -170,6 +177,13 @@ def get_network_sim_group_output(mobile_network_id: Optional[pulumi.Input[builti
     example_get_network_sim_group = azure.mobile.get_network_sim_group(name="example-mnsg",
         mobile_network_id=example.id)
     ```
+
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.MobileNetwork`: 2022-11-01
 
 
     :param builtins.str mobile_network_id: The ID of Mobile Network which the Mobile Network Sim Group belongs to.

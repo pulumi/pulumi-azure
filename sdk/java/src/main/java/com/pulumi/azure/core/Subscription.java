@@ -185,6 +185,13 @@ import javax.annotation.Nullable;
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
+ * ## API Providers
+ * 
+ * &lt;!-- This section is generated, changes will be overwritten --&gt;
+ * This resource uses the following Azure API Providers:
+ * 
+ * * `Microsoft.Resources`: 2023-07-01
+ * 
  * ## Import
  * 
  * Subscriptions can be imported using the `resource id`, e.g.
@@ -193,20 +200,20 @@ import javax.annotation.Nullable;
  * $ pulumi import azure:core/subscription:Subscription example &#34;/providers/Microsoft.Subscription/aliases/subscription1&#34;
  * ```
  * 
- * In this scenario, the `subscription_id` property can be completed and the provider will assume control of the existing subscription by creating an Alias. See the `adding an Alias to an existing Subscription` above. This provider requires an alias to correctly manage Subscription resources due to Azure Subscription API design.
+ * In this scenario, the `subscription_id` property can be completed and Terraform will assume control of the existing subscription by creating an Alias. See the `adding an Alias to an existing Subscription` above. Terrafom requires an alias to correctly manage Subscription resources due to Azure Subscription API design.
  * 
  */
 @ResourceType(type="azure:core/subscription:Subscription")
 public class Subscription extends com.pulumi.resources.CustomResource {
     /**
-     * The Alias name for the subscription. This provider will generate a new GUID if this is not supplied. Changing this forces a new Subscription to be created.
+     * The Alias Name of the subscription. If omitted a new UUID will be generated for this property.
      * 
      */
     @Export(name="alias", refs={String.class}, tree="[0]")
     private Output<String> alias;
 
     /**
-     * @return The Alias name for the subscription. This provider will generate a new GUID if this is not supplied. Changing this forces a new Subscription to be created.
+     * @return The Alias Name of the subscription. If omitted a new UUID will be generated for this property.
      * 
      */
     public Output<String> alias() {
@@ -229,9 +236,9 @@ public class Subscription extends com.pulumi.resources.CustomResource {
     /**
      * The ID of the Subscription. Changing this forces a new Subscription to be created.
      * 
-     * &gt; **NOTE:** This value can be specified only for adopting control of an existing Subscription, it cannot be used to provide a custom Subscription ID.
+     * &gt; **Note:** This value can be specified only for adopting control of an existing Subscription, it cannot be used to provide a custom Subscription ID.
      * 
-     * &gt; **NOTE:** Either `billing_scope_id` or `subscription_id` has to be specified.
+     * &gt; **Note:** Either `billing_scope_id` or `subscription_id` has to be specified.
      * 
      */
     @Export(name="subscriptionId", refs={String.class}, tree="[0]")
@@ -240,9 +247,9 @@ public class Subscription extends com.pulumi.resources.CustomResource {
     /**
      * @return The ID of the Subscription. Changing this forces a new Subscription to be created.
      * 
-     * &gt; **NOTE:** This value can be specified only for adopting control of an existing Subscription, it cannot be used to provide a custom Subscription ID.
+     * &gt; **Note:** This value can be specified only for adopting control of an existing Subscription, it cannot be used to provide a custom Subscription ID.
      * 
-     * &gt; **NOTE:** Either `billing_scope_id` or `subscription_id` has to be specified.
+     * &gt; **Note:** Either `billing_scope_id` or `subscription_id` has to be specified.
      * 
      */
     public Output<String> subscriptionId() {

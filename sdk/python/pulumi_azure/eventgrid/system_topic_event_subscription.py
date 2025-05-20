@@ -71,7 +71,7 @@ class SystemTopicEventSubscriptionArgs:
         :param pulumi.Input['SystemTopicEventSubscriptionSubjectFilterArgs'] subject_filter: A `subject_filter` block as defined below.
         :param pulumi.Input['SystemTopicEventSubscriptionWebhookEndpointArgs'] webhook_endpoint: A `webhook_endpoint` block as defined below.
                
-               > **NOTE:** One of `azure_function_endpoint`, `eventhub_endpoint_id`, `hybrid_connection_endpoint`, `hybrid_connection_endpoint_id`, `service_bus_queue_endpoint_id`, `service_bus_topic_endpoint_id`, `storage_queue_endpoint` or `webhook_endpoint` must be specified.
+               > **Note:** One of `azure_function_endpoint`, `eventhub_endpoint_id`, `hybrid_connection_endpoint`, `hybrid_connection_endpoint_id`, `service_bus_queue_endpoint_id`, `service_bus_topic_endpoint_id`, `storage_queue_endpoint` or `webhook_endpoint` must be specified.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "system_topic", system_topic)
@@ -376,7 +376,7 @@ class SystemTopicEventSubscriptionArgs:
         """
         A `webhook_endpoint` block as defined below.
 
-        > **NOTE:** One of `azure_function_endpoint`, `eventhub_endpoint_id`, `hybrid_connection_endpoint`, `hybrid_connection_endpoint_id`, `service_bus_queue_endpoint_id`, `service_bus_topic_endpoint_id`, `storage_queue_endpoint` or `webhook_endpoint` must be specified.
+        > **Note:** One of `azure_function_endpoint`, `eventhub_endpoint_id`, `hybrid_connection_endpoint`, `hybrid_connection_endpoint_id`, `service_bus_queue_endpoint_id`, `service_bus_topic_endpoint_id`, `storage_queue_endpoint` or `webhook_endpoint` must be specified.
         """
         return pulumi.get(self, "webhook_endpoint")
 
@@ -437,7 +437,7 @@ class _SystemTopicEventSubscriptionState:
         :param pulumi.Input[builtins.str] system_topic: The System Topic where the Event Subscription should be created in. Changing this forces a new Event Subscription to be created.
         :param pulumi.Input['SystemTopicEventSubscriptionWebhookEndpointArgs'] webhook_endpoint: A `webhook_endpoint` block as defined below.
                
-               > **NOTE:** One of `azure_function_endpoint`, `eventhub_endpoint_id`, `hybrid_connection_endpoint`, `hybrid_connection_endpoint_id`, `service_bus_queue_endpoint_id`, `service_bus_topic_endpoint_id`, `storage_queue_endpoint` or `webhook_endpoint` must be specified.
+               > **Note:** One of `azure_function_endpoint`, `eventhub_endpoint_id`, `hybrid_connection_endpoint`, `hybrid_connection_endpoint_id`, `service_bus_queue_endpoint_id`, `service_bus_topic_endpoint_id`, `storage_queue_endpoint` or `webhook_endpoint` must be specified.
         """
         if advanced_filter is not None:
             pulumi.set(__self__, "advanced_filter", advanced_filter)
@@ -744,7 +744,7 @@ class _SystemTopicEventSubscriptionState:
         """
         A `webhook_endpoint` block as defined below.
 
-        > **NOTE:** One of `azure_function_endpoint`, `eventhub_endpoint_id`, `hybrid_connection_endpoint`, `hybrid_connection_endpoint_id`, `service_bus_queue_endpoint_id`, `service_bus_topic_endpoint_id`, `storage_queue_endpoint` or `webhook_endpoint` must be specified.
+        > **Note:** One of `azure_function_endpoint`, `eventhub_endpoint_id`, `hybrid_connection_endpoint`, `hybrid_connection_endpoint_id`, `service_bus_queue_endpoint_id`, `service_bus_topic_endpoint_id`, `storage_queue_endpoint` or `webhook_endpoint` must be specified.
         """
         return pulumi.get(self, "webhook_endpoint")
 
@@ -822,6 +822,13 @@ class SystemTopicEventSubscription(pulumi.CustomResource):
             })
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.EventGrid`: 2022-06-15
+
         ## Import
 
         EventGrid System Topic Event Subscriptions can be imported using the `resource id`, e.g.
@@ -857,7 +864,7 @@ class SystemTopicEventSubscription(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] system_topic: The System Topic where the Event Subscription should be created in. Changing this forces a new Event Subscription to be created.
         :param pulumi.Input[Union['SystemTopicEventSubscriptionWebhookEndpointArgs', 'SystemTopicEventSubscriptionWebhookEndpointArgsDict']] webhook_endpoint: A `webhook_endpoint` block as defined below.
                
-               > **NOTE:** One of `azure_function_endpoint`, `eventhub_endpoint_id`, `hybrid_connection_endpoint`, `hybrid_connection_endpoint_id`, `service_bus_queue_endpoint_id`, `service_bus_topic_endpoint_id`, `storage_queue_endpoint` or `webhook_endpoint` must be specified.
+               > **Note:** One of `azure_function_endpoint`, `eventhub_endpoint_id`, `hybrid_connection_endpoint`, `hybrid_connection_endpoint_id`, `service_bus_queue_endpoint_id`, `service_bus_topic_endpoint_id`, `storage_queue_endpoint` or `webhook_endpoint` must be specified.
         """
         ...
     @overload
@@ -904,6 +911,13 @@ class SystemTopicEventSubscription(pulumi.CustomResource):
                 "queue_name": example_queue.name,
             })
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.EventGrid`: 2022-06-15
 
         ## Import
 
@@ -1049,7 +1063,7 @@ class SystemTopicEventSubscription(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] system_topic: The System Topic where the Event Subscription should be created in. Changing this forces a new Event Subscription to be created.
         :param pulumi.Input[Union['SystemTopicEventSubscriptionWebhookEndpointArgs', 'SystemTopicEventSubscriptionWebhookEndpointArgsDict']] webhook_endpoint: A `webhook_endpoint` block as defined below.
                
-               > **NOTE:** One of `azure_function_endpoint`, `eventhub_endpoint_id`, `hybrid_connection_endpoint`, `hybrid_connection_endpoint_id`, `service_bus_queue_endpoint_id`, `service_bus_topic_endpoint_id`, `storage_queue_endpoint` or `webhook_endpoint` must be specified.
+               > **Note:** One of `azure_function_endpoint`, `eventhub_endpoint_id`, `hybrid_connection_endpoint`, `hybrid_connection_endpoint_id`, `service_bus_queue_endpoint_id`, `service_bus_topic_endpoint_id`, `storage_queue_endpoint` or `webhook_endpoint` must be specified.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -1255,7 +1269,7 @@ class SystemTopicEventSubscription(pulumi.CustomResource):
         """
         A `webhook_endpoint` block as defined below.
 
-        > **NOTE:** One of `azure_function_endpoint`, `eventhub_endpoint_id`, `hybrid_connection_endpoint`, `hybrid_connection_endpoint_id`, `service_bus_queue_endpoint_id`, `service_bus_topic_endpoint_id`, `storage_queue_endpoint` or `webhook_endpoint` must be specified.
+        > **Note:** One of `azure_function_endpoint`, `eventhub_endpoint_id`, `hybrid_connection_endpoint`, `hybrid_connection_endpoint_id`, `service_bus_queue_endpoint_id`, `service_bus_topic_endpoint_id`, `storage_queue_endpoint` or `webhook_endpoint` must be specified.
         """
         return pulumi.get(self, "webhook_endpoint")
 

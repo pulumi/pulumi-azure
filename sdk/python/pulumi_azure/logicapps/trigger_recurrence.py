@@ -36,7 +36,7 @@ class TriggerRecurrenceArgs:
         :param pulumi.Input[builtins.str] logic_app_id: Specifies the ID of the Logic App Workflow. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] name: Specifies the name of the Recurrence Triggers to be created within the Logic App Workflow. Changing this forces a new resource to be created.
                
-               > **NOTE:** This name must be unique across all Triggers within the Logic App Workflow.
+               > **Note:** This name must be unique across all Triggers within the Logic App Workflow.
         :param pulumi.Input['TriggerRecurrenceScheduleArgs'] schedule: A `schedule` block as specified below.
         :param pulumi.Input[builtins.str] start_time: Specifies the start date and time for this trigger in RFC3339 format: `2000-01-02T03:04:05Z`.
         :param pulumi.Input[builtins.str] time_zone: Specifies the time zone for this trigger. Supported time zone options are listed [here](https://support.microsoft.com/en-us/help/973627/microsoft-time-zone-index-values)
@@ -95,7 +95,7 @@ class TriggerRecurrenceArgs:
         """
         Specifies the name of the Recurrence Triggers to be created within the Logic App Workflow. Changing this forces a new resource to be created.
 
-        > **NOTE:** This name must be unique across all Triggers within the Logic App Workflow.
+        > **Note:** This name must be unique across all Triggers within the Logic App Workflow.
         """
         return pulumi.get(self, "name")
 
@@ -157,7 +157,7 @@ class _TriggerRecurrenceState:
         :param pulumi.Input[builtins.str] logic_app_id: Specifies the ID of the Logic App Workflow. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] name: Specifies the name of the Recurrence Triggers to be created within the Logic App Workflow. Changing this forces a new resource to be created.
                
-               > **NOTE:** This name must be unique across all Triggers within the Logic App Workflow.
+               > **Note:** This name must be unique across all Triggers within the Logic App Workflow.
         :param pulumi.Input['TriggerRecurrenceScheduleArgs'] schedule: A `schedule` block as specified below.
         :param pulumi.Input[builtins.str] start_time: Specifies the start date and time for this trigger in RFC3339 format: `2000-01-02T03:04:05Z`.
         :param pulumi.Input[builtins.str] time_zone: Specifies the time zone for this trigger. Supported time zone options are listed [here](https://support.microsoft.com/en-us/help/973627/microsoft-time-zone-index-values)
@@ -219,7 +219,7 @@ class _TriggerRecurrenceState:
         """
         Specifies the name of the Recurrence Triggers to be created within the Logic App Workflow. Changing this forces a new resource to be created.
 
-        > **NOTE:** This name must be unique across all Triggers within the Logic App Workflow.
+        > **Note:** This name must be unique across all Triggers within the Logic App Workflow.
         """
         return pulumi.get(self, "name")
 
@@ -316,7 +316,7 @@ class TriggerRecurrence(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] logic_app_id: Specifies the ID of the Logic App Workflow. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] name: Specifies the name of the Recurrence Triggers to be created within the Logic App Workflow. Changing this forces a new resource to be created.
                
-               > **NOTE:** This name must be unique across all Triggers within the Logic App Workflow.
+               > **Note:** This name must be unique across all Triggers within the Logic App Workflow.
         :param pulumi.Input[Union['TriggerRecurrenceScheduleArgs', 'TriggerRecurrenceScheduleArgsDict']] schedule: A `schedule` block as specified below.
         :param pulumi.Input[builtins.str] start_time: Specifies the start date and time for this trigger in RFC3339 format: `2000-01-02T03:04:05Z`.
         :param pulumi.Input[builtins.str] time_zone: Specifies the time zone for this trigger. Supported time zone options are listed [here](https://support.microsoft.com/en-us/help/973627/microsoft-time-zone-index-values)
@@ -431,7 +431,7 @@ class TriggerRecurrence(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] logic_app_id: Specifies the ID of the Logic App Workflow. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] name: Specifies the name of the Recurrence Triggers to be created within the Logic App Workflow. Changing this forces a new resource to be created.
                
-               > **NOTE:** This name must be unique across all Triggers within the Logic App Workflow.
+               > **Note:** This name must be unique across all Triggers within the Logic App Workflow.
         :param pulumi.Input[Union['TriggerRecurrenceScheduleArgs', 'TriggerRecurrenceScheduleArgsDict']] schedule: A `schedule` block as specified below.
         :param pulumi.Input[builtins.str] start_time: Specifies the start date and time for this trigger in RFC3339 format: `2000-01-02T03:04:05Z`.
         :param pulumi.Input[builtins.str] time_zone: Specifies the time zone for this trigger. Supported time zone options are listed [here](https://support.microsoft.com/en-us/help/973627/microsoft-time-zone-index-values)
@@ -479,7 +479,7 @@ class TriggerRecurrence(pulumi.CustomResource):
         """
         Specifies the name of the Recurrence Triggers to be created within the Logic App Workflow. Changing this forces a new resource to be created.
 
-        > **NOTE:** This name must be unique across all Triggers within the Logic App Workflow.
+        > **Note:** This name must be unique across all Triggers within the Logic App Workflow.
         """
         return pulumi.get(self, "name")
 

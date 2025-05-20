@@ -18,9 +18,9 @@ public final class ScheduledQueryRulesAlertV2CriteriaFailingPeriods {
     /**
      * @return Specifies the number of aggregated look-back points. The look-back time window is calculated based on the aggregation granularity `window_duration` and the selected number of aggregated points. Possible value is integer between 1 and 6.
      * 
-     * &gt; **Note** The query look back which is `window_duration`*`number_of_evaluation_periods` cannot exceed 48 hours.
+     * &gt; **Note:** The query look back which is `window_duration`*`number_of_evaluation_periods` cannot exceed 48 hours.
      * 
-     * &gt; **Note** `number_of_evaluation_periods` must be `1` for queries that do not project timestamp column
+     * &gt; **Note:** `number_of_evaluation_periods` must be `1` for queries that do not project timestamp column
      * 
      */
     private Integer numberOfEvaluationPeriods;
@@ -36,9 +36,9 @@ public final class ScheduledQueryRulesAlertV2CriteriaFailingPeriods {
     /**
      * @return Specifies the number of aggregated look-back points. The look-back time window is calculated based on the aggregation granularity `window_duration` and the selected number of aggregated points. Possible value is integer between 1 and 6.
      * 
-     * &gt; **Note** The query look back which is `window_duration`*`number_of_evaluation_periods` cannot exceed 48 hours.
+     * &gt; **Note:** The query look back which is `window_duration`*`number_of_evaluation_periods` cannot exceed 48 hours.
      * 
-     * &gt; **Note** `number_of_evaluation_periods` must be `1` for queries that do not project timestamp column
+     * &gt; **Note:** `number_of_evaluation_periods` must be `1` for queries that do not project timestamp column
      * 
      */
     public Integer numberOfEvaluationPeriods() {

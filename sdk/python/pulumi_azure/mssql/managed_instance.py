@@ -69,7 +69,7 @@ class ManagedInstanceArgs:
         :param pulumi.Input[builtins.str] maintenance_configuration_name: The name of the Public Maintenance Configuration window to apply to the SQL Managed Instance. Valid values include `SQL_Default` or an Azure Location in the format `SQL_{Location}_MI_{Size}`(for example `SQL_EastUS_MI_1`). Defaults to `SQL_Default`.
         :param pulumi.Input[builtins.str] minimum_tls_version: The Minimum TLS Version. Default value is `1.2` Valid values include `1.0`, `1.1`, `1.2`.
                
-               > **NOTE:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
+               > **Note:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
         :param pulumi.Input[builtins.str] name: The name of the SQL Managed Instance. This needs to be globally unique within Azure. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] proxy_override: Specifies how the SQL Managed Instance will be accessed. Default value is `Default`. Valid values include `Default`, `Proxy`, and `Redirect`.
         :param pulumi.Input[builtins.bool] public_data_endpoint_enabled: Is the public data endpoint enabled? Default value is `false`.
@@ -324,7 +324,7 @@ class ManagedInstanceArgs:
         """
         The Minimum TLS Version. Default value is `1.2` Valid values include `1.0`, `1.1`, `1.2`.
 
-        > **NOTE:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
+        > **Note:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
         """
         return pulumi.get(self, "minimum_tls_version")
 
@@ -478,7 +478,7 @@ class _ManagedInstanceState:
         :param pulumi.Input[builtins.str] maintenance_configuration_name: The name of the Public Maintenance Configuration window to apply to the SQL Managed Instance. Valid values include `SQL_Default` or an Azure Location in the format `SQL_{Location}_MI_{Size}`(for example `SQL_EastUS_MI_1`). Defaults to `SQL_Default`.
         :param pulumi.Input[builtins.str] minimum_tls_version: The Minimum TLS Version. Default value is `1.2` Valid values include `1.0`, `1.1`, `1.2`.
                
-               > **NOTE:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
+               > **Note:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
         :param pulumi.Input[builtins.str] name: The name of the SQL Managed Instance. This needs to be globally unique within Azure. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] proxy_override: Specifies how the SQL Managed Instance will be accessed. Default value is `Default`. Valid values include `Default`, `Proxy`, and `Redirect`.
         :param pulumi.Input[builtins.bool] public_data_endpoint_enabled: Is the public data endpoint enabled? Default value is `false`.
@@ -712,7 +712,7 @@ class _ManagedInstanceState:
         """
         The Minimum TLS Version. Default value is `1.2` Valid values include `1.0`, `1.1`, `1.2`.
 
-        > **NOTE:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
+        > **Note:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
         """
         return pulumi.get(self, "minimum_tls_version")
 
@@ -1085,6 +1085,13 @@ class ManagedInstance(pulumi.CustomResource):
                 ]))
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Sql`: 2023-08-01-preview
+
         ## Import
 
         Microsoft SQL Managed Instances can be imported using the `resource id`, e.g.
@@ -1110,7 +1117,7 @@ class ManagedInstance(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] maintenance_configuration_name: The name of the Public Maintenance Configuration window to apply to the SQL Managed Instance. Valid values include `SQL_Default` or an Azure Location in the format `SQL_{Location}_MI_{Size}`(for example `SQL_EastUS_MI_1`). Defaults to `SQL_Default`.
         :param pulumi.Input[builtins.str] minimum_tls_version: The Minimum TLS Version. Default value is `1.2` Valid values include `1.0`, `1.1`, `1.2`.
                
-               > **NOTE:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
+               > **Note:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
         :param pulumi.Input[builtins.str] name: The name of the SQL Managed Instance. This needs to be globally unique within Azure. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] proxy_override: Specifies how the SQL Managed Instance will be accessed. Default value is `Default`. Valid values include `Default`, `Proxy`, and `Redirect`.
         :param pulumi.Input[builtins.bool] public_data_endpoint_enabled: Is the public data endpoint enabled? Default value is `false`.
@@ -1307,6 +1314,13 @@ class ManagedInstance(pulumi.CustomResource):
                 ]))
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Sql`: 2023-08-01-preview
+
         ## Import
 
         Microsoft SQL Managed Instances can be imported using the `resource id`, e.g.
@@ -1468,7 +1482,7 @@ class ManagedInstance(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] maintenance_configuration_name: The name of the Public Maintenance Configuration window to apply to the SQL Managed Instance. Valid values include `SQL_Default` or an Azure Location in the format `SQL_{Location}_MI_{Size}`(for example `SQL_EastUS_MI_1`). Defaults to `SQL_Default`.
         :param pulumi.Input[builtins.str] minimum_tls_version: The Minimum TLS Version. Default value is `1.2` Valid values include `1.0`, `1.1`, `1.2`.
                
-               > **NOTE:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
+               > **Note:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
         :param pulumi.Input[builtins.str] name: The name of the SQL Managed Instance. This needs to be globally unique within Azure. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] proxy_override: Specifies how the SQL Managed Instance will be accessed. Default value is `Default`. Valid values include `Default`, `Proxy`, and `Redirect`.
         :param pulumi.Input[builtins.bool] public_data_endpoint_enabled: Is the public data endpoint enabled? Default value is `false`.
@@ -1628,7 +1642,7 @@ class ManagedInstance(pulumi.CustomResource):
         """
         The Minimum TLS Version. Default value is `1.2` Valid values include `1.0`, `1.1`, `1.2`.
 
-        > **NOTE:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
+        > **Note:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
         """
         return pulumi.get(self, "minimum_tls_version")
 

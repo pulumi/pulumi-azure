@@ -172,6 +172,13 @@ def get_nat_gateway(name: Optional[builtins.str] = None,
     """
     Use this data source to access information about an existing NAT Gateway.
 
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.Network`: 2024-05-01
+
 
     :param builtins.str name: Specifies the Name of the NAT Gateway.
     :param Sequence[builtins.str] public_ip_address_ids: A list of existing Public IP Address resource IDs which the NAT Gateway is using.
@@ -205,6 +212,13 @@ def get_nat_gateway_output(name: Optional[pulumi.Input[builtins.str]] = None,
                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetNatGatewayResult]:
     """
     Use this data source to access information about an existing NAT Gateway.
+
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.Network`: 2024-05-01
 
 
     :param builtins.str name: Specifies the Name of the NAT Gateway.

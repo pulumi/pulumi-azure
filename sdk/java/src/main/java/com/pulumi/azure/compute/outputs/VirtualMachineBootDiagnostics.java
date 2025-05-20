@@ -19,7 +19,7 @@ public final class VirtualMachineBootDiagnostics {
     /**
      * @return The Storage Account&#39;s Blob Endpoint which should hold the virtual machine&#39;s diagnostic files.
      * 
-     * &gt; **NOTE:** This needs to be the root of a Storage Account and not a Storage Container.
+     * &gt; **Note:** This needs to be the root of a Storage Account and not a Storage Container.
      * 
      */
     private String storageUri;
@@ -35,7 +35,7 @@ public final class VirtualMachineBootDiagnostics {
     /**
      * @return The Storage Account&#39;s Blob Endpoint which should hold the virtual machine&#39;s diagnostic files.
      * 
-     * &gt; **NOTE:** This needs to be the root of a Storage Account and not a Storage Container.
+     * &gt; **Note:** This needs to be the root of a Storage Account and not a Storage Container.
      * 
      */
     public String storageUri() {

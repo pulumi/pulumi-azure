@@ -67,6 +67,13 @@ import javax.annotation.Nullable;
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
+ * ## API Providers
+ * 
+ * &lt;!-- This section is generated, changes will be overwritten --&gt;
+ * This resource uses the following Azure API Providers:
+ * 
+ * * `Microsoft.Attestation`: 2020-10-01
+ * 
  * ## Import
  * 
  * Attestation Providers can be imported using the `resource id`, e.g.
@@ -137,7 +144,7 @@ public class Provider extends com.pulumi.resources.CustomResource {
     /**
      * A valid X.509 certificate (Section 4 of [RFC4648](https://tools.ietf.org/html/rfc4648)). Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE:** If the `policy_signing_certificate_data` argument contains more than one valid X.509 certificate only the first certificate will be used.
+     * &gt; **Note:** If the `policy_signing_certificate_data` argument contains more than one valid X.509 certificate only the first certificate will be used.
      * 
      */
     @Export(name="policySigningCertificateData", refs={String.class}, tree="[0]")
@@ -146,7 +153,7 @@ public class Provider extends com.pulumi.resources.CustomResource {
     /**
      * @return A valid X.509 certificate (Section 4 of [RFC4648](https://tools.ietf.org/html/rfc4648)). Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE:** If the `policy_signing_certificate_data` argument contains more than one valid X.509 certificate only the first certificate will be used.
+     * &gt; **Note:** If the `policy_signing_certificate_data` argument contains more than one valid X.509 certificate only the first certificate will be used.
      * 
      */
     public Output<Optional<String>> policySigningCertificateData() {
@@ -169,7 +176,7 @@ public class Provider extends com.pulumi.resources.CustomResource {
     /**
      * Specifies the base64 URI Encoded RFC 7519 JWT that should be used for the Attestation Policy.
      * 
-     * &gt; [More information on the JWT Policies can be found in this article on `learn.microsoft.com`](https://learn.microsoft.com/azure/attestation/author-sign-policy).
+     * &gt; **Note:** [More information on the JWT Policies can be found in this article on `learn.microsoft.com`](https://learn.microsoft.com/azure/attestation/author-sign-policy).
      * 
      */
     @Export(name="sevSnpPolicyBase64", refs={String.class}, tree="[0]")
@@ -178,7 +185,7 @@ public class Provider extends com.pulumi.resources.CustomResource {
     /**
      * @return Specifies the base64 URI Encoded RFC 7519 JWT that should be used for the Attestation Policy.
      * 
-     * &gt; [More information on the JWT Policies can be found in this article on `learn.microsoft.com`](https://learn.microsoft.com/azure/attestation/author-sign-policy).
+     * &gt; **Note:** [More information on the JWT Policies can be found in this article on `learn.microsoft.com`](https://learn.microsoft.com/azure/attestation/author-sign-policy).
      * 
      */
     public Output<Optional<String>> sevSnpPolicyBase64() {

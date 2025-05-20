@@ -62,7 +62,7 @@ namespace Pulumi.Azure.Dns
     ///             {
     ///                 Flags = 0,
     ///                 Tag = "iodef",
-    ///                 Value = "mailto:user@nonexisting.tld",
+    ///                 Value = "mailto:terraform@nonexisting.tld",
     ///             },
     ///         },
     ///         Tags = 
@@ -73,6 +73,13 @@ namespace Pulumi.Azure.Dns
     /// 
     /// });
     /// ```
+    /// 
+    /// ## API Providers
+    /// 
+    /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+    /// This resource uses the following Azure API Providers:
+    /// 
+    /// * `Microsoft.Network`: 2018-05-01
     /// 
     /// ## Import
     /// 

@@ -111,7 +111,7 @@ public class DiagnosticSetting extends com.pulumi.resources.CustomResource {
     /**
      * One or more `enabled_log` blocks as defined below.
      * 
-     * &gt; **NOTE:** At least one `enabled_log` or `metric` block must be specified. At least one type of Log or Metric must be enabled.
+     * &gt; **Note:** At least one `enabled_log` or `metric` block must be specified. At least one type of Log or Metric must be enabled.
      * 
      */
     @Export(name="enabledLogs", refs={List.class,DiagnosticSettingEnabledLog.class}, tree="[0,1]")
@@ -120,7 +120,7 @@ public class DiagnosticSetting extends com.pulumi.resources.CustomResource {
     /**
      * @return One or more `enabled_log` blocks as defined below.
      * 
-     * &gt; **NOTE:** At least one `enabled_log` or `metric` block must be specified. At least one type of Log or Metric must be enabled.
+     * &gt; **Note:** At least one `enabled_log` or `metric` block must be specified. At least one type of Log or Metric must be enabled.
      * 
      */
     public Output<Optional<List<DiagnosticSettingEnabledLog>>> enabledLogs() {
@@ -129,9 +129,9 @@ public class DiagnosticSetting extends com.pulumi.resources.CustomResource {
     /**
      * Specifies the ID of an Event Hub Namespace Authorization Rule used to send Diagnostics Data.
      * 
-     * &gt; **NOTE:** This can be sourced from the `azure.eventhub.EventHubNamespaceAuthorizationRule` resource and is different from a `azure.eventhub.AuthorizationRule` resource.
+     * &gt; **Note:** This can be sourced from the `azure.eventhub.EventHubNamespaceAuthorizationRule` resource and is different from a `azure.eventhub.AuthorizationRule` resource.
      * 
-     * &gt; **NOTE:** At least one of `eventhub_authorization_rule_id`, `log_analytics_workspace_id`, `partner_solution_id` and `storage_account_id` must be specified.
+     * &gt; **Note:** At least one of `eventhub_authorization_rule_id`, `log_analytics_workspace_id`, `partner_solution_id` and `storage_account_id` must be specified.
      * 
      */
     @Export(name="eventhubAuthorizationRuleId", refs={String.class}, tree="[0]")
@@ -140,9 +140,9 @@ public class DiagnosticSetting extends com.pulumi.resources.CustomResource {
     /**
      * @return Specifies the ID of an Event Hub Namespace Authorization Rule used to send Diagnostics Data.
      * 
-     * &gt; **NOTE:** This can be sourced from the `azure.eventhub.EventHubNamespaceAuthorizationRule` resource and is different from a `azure.eventhub.AuthorizationRule` resource.
+     * &gt; **Note:** This can be sourced from the `azure.eventhub.EventHubNamespaceAuthorizationRule` resource and is different from a `azure.eventhub.AuthorizationRule` resource.
      * 
-     * &gt; **NOTE:** At least one of `eventhub_authorization_rule_id`, `log_analytics_workspace_id`, `partner_solution_id` and `storage_account_id` must be specified.
+     * &gt; **Note:** At least one of `eventhub_authorization_rule_id`, `log_analytics_workspace_id`, `partner_solution_id` and `storage_account_id` must be specified.
      * 
      */
     public Output<Optional<String>> eventhubAuthorizationRuleId() {
@@ -151,7 +151,7 @@ public class DiagnosticSetting extends com.pulumi.resources.CustomResource {
     /**
      * Specifies the name of the Event Hub where Diagnostics Data should be sent.
      * 
-     * &gt; **NOTE:** If this isn&#39;t specified then the default Event Hub will be used.
+     * &gt; **Note:** If this isn&#39;t specified then the default Event Hub will be used.
      * 
      */
     @Export(name="eventhubName", refs={String.class}, tree="[0]")
@@ -160,7 +160,7 @@ public class DiagnosticSetting extends com.pulumi.resources.CustomResource {
     /**
      * @return Specifies the name of the Event Hub where Diagnostics Data should be sent.
      * 
-     * &gt; **NOTE:** If this isn&#39;t specified then the default Event Hub will be used.
+     * &gt; **Note:** If this isn&#39;t specified then the default Event Hub will be used.
      * 
      */
     public Output<Optional<String>> eventhubName() {
@@ -169,7 +169,7 @@ public class DiagnosticSetting extends com.pulumi.resources.CustomResource {
     /**
      * Possible values are `AzureDiagnostics` and `Dedicated`. When set to `Dedicated`, logs sent to a Log Analytics workspace will go into resource specific tables, instead of the legacy `AzureDiagnostics` table.
      * 
-     * &gt; **NOTE:** This setting will only have an effect if a `log_analytics_workspace_id` is provided. For some target resource type (e.g., Key Vault), this field is unconfigurable. Please see [resource types](https://learn.microsoft.com/en-us/azure/azure-monitor/reference/tables/azurediagnostics#resource-types) for services that use each method. Please [see the documentation](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-logs-stream-log-store#azure-diagnostics-vs-resource-specific) for details on the differences between destination types.
+     * &gt; **Note:** This setting will only have an effect if a `log_analytics_workspace_id` is provided. For some target resource type (e.g., Key Vault), this field is unconfigurable. Please see [resource types](https://learn.microsoft.com/en-us/azure/azure-monitor/reference/tables/azurediagnostics#resource-types) for services that use each method. Please [see the documentation](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-logs-stream-log-store#azure-diagnostics-vs-resource-specific) for details on the differences between destination types.
      * 
      */
     @Export(name="logAnalyticsDestinationType", refs={String.class}, tree="[0]")
@@ -178,7 +178,7 @@ public class DiagnosticSetting extends com.pulumi.resources.CustomResource {
     /**
      * @return Possible values are `AzureDiagnostics` and `Dedicated`. When set to `Dedicated`, logs sent to a Log Analytics workspace will go into resource specific tables, instead of the legacy `AzureDiagnostics` table.
      * 
-     * &gt; **NOTE:** This setting will only have an effect if a `log_analytics_workspace_id` is provided. For some target resource type (e.g., Key Vault), this field is unconfigurable. Please see [resource types](https://learn.microsoft.com/en-us/azure/azure-monitor/reference/tables/azurediagnostics#resource-types) for services that use each method. Please [see the documentation](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-logs-stream-log-store#azure-diagnostics-vs-resource-specific) for details on the differences between destination types.
+     * &gt; **Note:** This setting will only have an effect if a `log_analytics_workspace_id` is provided. For some target resource type (e.g., Key Vault), this field is unconfigurable. Please see [resource types](https://learn.microsoft.com/en-us/azure/azure-monitor/reference/tables/azurediagnostics#resource-types) for services that use each method. Please [see the documentation](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-logs-stream-log-store#azure-diagnostics-vs-resource-specific) for details on the differences between destination types.
      * 
      */
     public Output<String> logAnalyticsDestinationType() {
@@ -187,7 +187,7 @@ public class DiagnosticSetting extends com.pulumi.resources.CustomResource {
     /**
      * Specifies the ID of a Log Analytics Workspace where Diagnostics Data should be sent.
      * 
-     * &gt; **NOTE:** At least one of `eventhub_authorization_rule_id`, `log_analytics_workspace_id`, `partner_solution_id` and `storage_account_id` must be specified.
+     * &gt; **Note:** At least one of `eventhub_authorization_rule_id`, `log_analytics_workspace_id`, `partner_solution_id` and `storage_account_id` must be specified.
      * 
      */
     @Export(name="logAnalyticsWorkspaceId", refs={String.class}, tree="[0]")
@@ -196,7 +196,7 @@ public class DiagnosticSetting extends com.pulumi.resources.CustomResource {
     /**
      * @return Specifies the ID of a Log Analytics Workspace where Diagnostics Data should be sent.
      * 
-     * &gt; **NOTE:** At least one of `eventhub_authorization_rule_id`, `log_analytics_workspace_id`, `partner_solution_id` and `storage_account_id` must be specified.
+     * &gt; **Note:** At least one of `eventhub_authorization_rule_id`, `log_analytics_workspace_id`, `partner_solution_id` and `storage_account_id` must be specified.
      * 
      */
     public Output<Optional<String>> logAnalyticsWorkspaceId() {
@@ -205,7 +205,7 @@ public class DiagnosticSetting extends com.pulumi.resources.CustomResource {
     /**
      * One or more `metric` blocks as defined below.
      * 
-     * &gt; **NOTE:** At least one `enabled_log` or `metric` block must be specified.
+     * &gt; **Note:** At least one `enabled_log` or `metric` block must be specified.
      * 
      */
     @Export(name="metrics", refs={List.class,DiagnosticSettingMetric.class}, tree="[0,1]")
@@ -214,7 +214,7 @@ public class DiagnosticSetting extends com.pulumi.resources.CustomResource {
     /**
      * @return One or more `metric` blocks as defined below.
      * 
-     * &gt; **NOTE:** At least one `enabled_log` or `metric` block must be specified.
+     * &gt; **Note:** At least one `enabled_log` or `metric` block must be specified.
      * 
      */
     public Output<Optional<List<DiagnosticSettingMetric>>> metrics() {
@@ -223,7 +223,7 @@ public class DiagnosticSetting extends com.pulumi.resources.CustomResource {
     /**
      * Specifies the name of the Diagnostic Setting. Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE:** If the name is set to &#39;service&#39; it will not be possible to fully delete the diagnostic setting. This is due to legacy API support.
+     * &gt; **Note:** If the name is set to &#39;service&#39; it will not be possible to fully delete the diagnostic setting. This is due to legacy API support.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
@@ -232,7 +232,7 @@ public class DiagnosticSetting extends com.pulumi.resources.CustomResource {
     /**
      * @return Specifies the name of the Diagnostic Setting. Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE:** If the name is set to &#39;service&#39; it will not be possible to fully delete the diagnostic setting. This is due to legacy API support.
+     * &gt; **Note:** If the name is set to &#39;service&#39; it will not be possible to fully delete the diagnostic setting. This is due to legacy API support.
      * 
      */
     public Output<String> name() {
@@ -241,7 +241,7 @@ public class DiagnosticSetting extends com.pulumi.resources.CustomResource {
     /**
      * The ID of the market partner solution where Diagnostics Data should be sent. For potential partner integrations, [click to learn more about partner integration](https://learn.microsoft.com/en-us/azure/partner-solutions/overview).
      * 
-     * &gt; **NOTE:** At least one of `eventhub_authorization_rule_id`, `log_analytics_workspace_id`, `partner_solution_id` and `storage_account_id` must be specified.
+     * &gt; **Note:** At least one of `eventhub_authorization_rule_id`, `log_analytics_workspace_id`, `partner_solution_id` and `storage_account_id` must be specified.
      * 
      */
     @Export(name="partnerSolutionId", refs={String.class}, tree="[0]")
@@ -250,7 +250,7 @@ public class DiagnosticSetting extends com.pulumi.resources.CustomResource {
     /**
      * @return The ID of the market partner solution where Diagnostics Data should be sent. For potential partner integrations, [click to learn more about partner integration](https://learn.microsoft.com/en-us/azure/partner-solutions/overview).
      * 
-     * &gt; **NOTE:** At least one of `eventhub_authorization_rule_id`, `log_analytics_workspace_id`, `partner_solution_id` and `storage_account_id` must be specified.
+     * &gt; **Note:** At least one of `eventhub_authorization_rule_id`, `log_analytics_workspace_id`, `partner_solution_id` and `storage_account_id` must be specified.
      * 
      */
     public Output<Optional<String>> partnerSolutionId() {
@@ -259,7 +259,7 @@ public class DiagnosticSetting extends com.pulumi.resources.CustomResource {
     /**
      * The ID of the Storage Account where logs should be sent.
      * 
-     * &gt; **NOTE:** At least one of `eventhub_authorization_rule_id`, `log_analytics_workspace_id`, `partner_solution_id` and `storage_account_id` must be specified.
+     * &gt; **Note:** At least one of `eventhub_authorization_rule_id`, `log_analytics_workspace_id`, `partner_solution_id` and `storage_account_id` must be specified.
      * 
      */
     @Export(name="storageAccountId", refs={String.class}, tree="[0]")
@@ -268,7 +268,7 @@ public class DiagnosticSetting extends com.pulumi.resources.CustomResource {
     /**
      * @return The ID of the Storage Account where logs should be sent.
      * 
-     * &gt; **NOTE:** At least one of `eventhub_authorization_rule_id`, `log_analytics_workspace_id`, `partner_solution_id` and `storage_account_id` must be specified.
+     * &gt; **Note:** At least one of `eventhub_authorization_rule_id`, `log_analytics_workspace_id`, `partner_solution_id` and `storage_account_id` must be specified.
      * 
      */
     public Output<Optional<String>> storageAccountId() {

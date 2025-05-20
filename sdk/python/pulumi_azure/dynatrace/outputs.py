@@ -273,10 +273,10 @@ class TagRulesLogRule(dict):
                  send_azure_active_directory_logs_enabled: Optional[builtins.bool] = None,
                  send_subscription_logs_enabled: Optional[builtins.bool] = None):
         """
-        :param Sequence['TagRulesLogRuleFilteringTagArgs'] filtering_tags: Filtering tag for the log rule. A `filtering_tag` block as defined below. Changing this forces a new resource to be created.
-        :param builtins.bool send_activity_logs_enabled: Send Activity logs. The default value is `false`. Changing this forces a new resource to be created.
-        :param builtins.bool send_azure_active_directory_logs_enabled: Send Azure Active Directory logs. The default value is `false`. Changing this forces a new resource to be created.
-        :param builtins.bool send_subscription_logs_enabled: Send Subscription logs. The default value is `false`. Changing this forces a new resource to be created.
+        :param Sequence['TagRulesLogRuleFilteringTagArgs'] filtering_tags: Filtering tag for the log rule. A `filtering_tag` block as defined below.
+        :param builtins.bool send_activity_logs_enabled: Send Activity logs. The default value is `false`.
+        :param builtins.bool send_azure_active_directory_logs_enabled: Send Azure Active Directory logs. The default value is `false`.
+        :param builtins.bool send_subscription_logs_enabled: Send Subscription logs. The default value is `false`.
         """
         pulumi.set(__self__, "filtering_tags", filtering_tags)
         if send_activity_logs_enabled is not None:
@@ -290,7 +290,7 @@ class TagRulesLogRule(dict):
     @pulumi.getter(name="filteringTags")
     def filtering_tags(self) -> Sequence['outputs.TagRulesLogRuleFilteringTag']:
         """
-        Filtering tag for the log rule. A `filtering_tag` block as defined below. Changing this forces a new resource to be created.
+        Filtering tag for the log rule. A `filtering_tag` block as defined below.
         """
         return pulumi.get(self, "filtering_tags")
 
@@ -298,7 +298,7 @@ class TagRulesLogRule(dict):
     @pulumi.getter(name="sendActivityLogsEnabled")
     def send_activity_logs_enabled(self) -> Optional[builtins.bool]:
         """
-        Send Activity logs. The default value is `false`. Changing this forces a new resource to be created.
+        Send Activity logs. The default value is `false`.
         """
         return pulumi.get(self, "send_activity_logs_enabled")
 
@@ -306,7 +306,7 @@ class TagRulesLogRule(dict):
     @pulumi.getter(name="sendAzureActiveDirectoryLogsEnabled")
     def send_azure_active_directory_logs_enabled(self) -> Optional[builtins.bool]:
         """
-        Send Azure Active Directory logs. The default value is `false`. Changing this forces a new resource to be created.
+        Send Azure Active Directory logs. The default value is `false`.
         """
         return pulumi.get(self, "send_azure_active_directory_logs_enabled")
 
@@ -314,7 +314,7 @@ class TagRulesLogRule(dict):
     @pulumi.getter(name="sendSubscriptionLogsEnabled")
     def send_subscription_logs_enabled(self) -> Optional[builtins.bool]:
         """
-        Send Subscription logs. The default value is `false`. Changing this forces a new resource to be created.
+        Send Subscription logs. The default value is `false`.
         """
         return pulumi.get(self, "send_subscription_logs_enabled")
 
@@ -326,9 +326,9 @@ class TagRulesLogRuleFilteringTag(dict):
                  name: builtins.str,
                  value: builtins.str):
         """
-        :param builtins.str action: Action of the filtering tag. Possible values are `Include` and `Exclude`. Changing this forces a new resource to be created.
-        :param builtins.str name: Name of the filtering tag. Changing this forces a new resource to be created.
-        :param builtins.str value: Value of the filtering tag. Changing this forces a new resource to be created.
+        :param builtins.str action: Action of the filtering tag. Possible values are `Include` and `Exclude`.
+        :param builtins.str name: Name of the filtering tag.
+        :param builtins.str value: Value of the filtering tag.
         """
         pulumi.set(__self__, "action", action)
         pulumi.set(__self__, "name", name)
@@ -338,7 +338,7 @@ class TagRulesLogRuleFilteringTag(dict):
     @pulumi.getter
     def action(self) -> builtins.str:
         """
-        Action of the filtering tag. Possible values are `Include` and `Exclude`. Changing this forces a new resource to be created.
+        Action of the filtering tag. Possible values are `Include` and `Exclude`.
         """
         return pulumi.get(self, "action")
 
@@ -346,7 +346,7 @@ class TagRulesLogRuleFilteringTag(dict):
     @pulumi.getter
     def name(self) -> builtins.str:
         """
-        Name of the filtering tag. Changing this forces a new resource to be created.
+        Name of the filtering tag.
         """
         return pulumi.get(self, "name")
 
@@ -354,7 +354,7 @@ class TagRulesLogRuleFilteringTag(dict):
     @pulumi.getter
     def value(self) -> builtins.str:
         """
-        Value of the filtering tag. Changing this forces a new resource to be created.
+        Value of the filtering tag.
         """
         return pulumi.get(self, "value")
 
@@ -401,9 +401,9 @@ class TagRulesMetricRuleFilteringTag(dict):
                  name: builtins.str,
                  value: builtins.str):
         """
-        :param builtins.str action: Action of the filtering tag. Possible values are `Include` and `Exclude`. Changing this forces a new resource to be created.
-        :param builtins.str name: Name of the filtering tag. Changing this forces a new resource to be created.
-        :param builtins.str value: Value of the filtering tag. Changing this forces a new resource to be created.
+        :param builtins.str action: Action of the filtering tag. Possible values are `Include` and `Exclude`.
+        :param builtins.str name: Name of the filtering tag.
+        :param builtins.str value: Value of the filtering tag.
         """
         pulumi.set(__self__, "action", action)
         pulumi.set(__self__, "name", name)
@@ -413,7 +413,7 @@ class TagRulesMetricRuleFilteringTag(dict):
     @pulumi.getter
     def action(self) -> builtins.str:
         """
-        Action of the filtering tag. Possible values are `Include` and `Exclude`. Changing this forces a new resource to be created.
+        Action of the filtering tag. Possible values are `Include` and `Exclude`.
         """
         return pulumi.get(self, "action")
 
@@ -421,7 +421,7 @@ class TagRulesMetricRuleFilteringTag(dict):
     @pulumi.getter
     def name(self) -> builtins.str:
         """
-        Name of the filtering tag. Changing this forces a new resource to be created.
+        Name of the filtering tag.
         """
         return pulumi.get(self, "name")
 
@@ -429,7 +429,7 @@ class TagRulesMetricRuleFilteringTag(dict):
     @pulumi.getter
     def value(self) -> builtins.str:
         """
-        Value of the filtering tag. Changing this forces a new resource to be created.
+        Value of the filtering tag.
         """
         return pulumi.get(self, "value")
 

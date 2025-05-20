@@ -55,7 +55,7 @@ class ClusterArgs:
         :param pulumi.Input['ClusterIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['ClusterLanguageExtensionArgs']]] language_extensions: An list of `language_extensions` to enable. Valid values are: `PYTHON`, `PYTHON_3.10.8` and `R`. `PYTHON` is used to specify Python 3.6.5 image and `PYTHON_3.10.8` is used to specify Python 3.10.8 image. Note that `PYTHON_3.10.8` is only available in skus which support nested virtualization.
                
-               > **NOTE:** In `v4.0.0` and later version of the AzureRM Provider, `language_extensions` will be changed to a list of `language_extension` block. In each block, `name` and `image` are required. `name` is the name of the language extension, possible values are `PYTHON`, `R`. `image` is the image of the language extension, possible values are `Python3_6_5`, `Python3_10_8` and `R`.
+               > **Note:** In `v4.0.0` and later version of the AzureRM Provider, `language_extensions` will be changed to a list of `language_extension` block. In each block, `name` and `image` are required. `name` is the name of the language extension, possible values are `PYTHON`, `R`. `image` is the image of the language extension, possible values are `Python3_6_5`, `Python3_10_8` and `R`.
         :param pulumi.Input[builtins.str] location: The location where the Kusto Cluster should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] name: The name of the Kusto Cluster to create. Only lowercase Alphanumeric characters allowed, starting with a letter. Changing this forces a new resource to be created.
         :param pulumi.Input['ClusterOptimizedAutoScaleArgs'] optimized_auto_scale: An `optimized_auto_scale` block as defined below.
@@ -67,10 +67,10 @@ class ClusterArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] trusted_external_tenants: Specifies a list of tenant IDs that are trusted by the cluster. Default setting trusts all other tenants. Use `trusted_external_tenants = ["*"]` to explicitly allow all other tenants, `trusted_external_tenants = ["MyTenantOnly"]` for only your tenant or `trusted_external_tenants = ["<tenantId1>", "<tenantIdx>"]` to allow specific other tenants.
                
-               > **NOTE:** In v3.0 of `azurerm` a new or updated Kusto Cluster will only allow your own tenant by default. Explicit configuration of this setting will change from `trusted_external_tenants = ["MyTenantOnly"]` to `trusted_external_tenants = []`.
+               > **Note:** In v3.0 of `azurerm` a new or updated Kusto Cluster will only allow your own tenant by default. Explicit configuration of this setting will change from `trusted_external_tenants = ["MyTenantOnly"]` to `trusted_external_tenants = []`.
         :param pulumi.Input['ClusterVirtualNetworkConfigurationArgs'] virtual_network_configuration: A `virtual_network_configuration` block as defined below.
                
-               > **NOTE:** Currently removing `virtual_network_configuration` sets the `virtual_network_configuration` to `Disabled` state. But any changes to `virtual_network_configuration` in `Disabled` state forces a new resource to be created.
+               > **Note:** Currently removing `virtual_network_configuration` sets the `virtual_network_configuration` to `Disabled` state. But any changes to `virtual_network_configuration` in `Disabled` state forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] zones: Specifies a list of Availability Zones in which this Kusto Cluster should be located. Changing this forces a new Kusto Cluster to be created.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
@@ -216,7 +216,7 @@ class ClusterArgs:
         """
         An list of `language_extensions` to enable. Valid values are: `PYTHON`, `PYTHON_3.10.8` and `R`. `PYTHON` is used to specify Python 3.6.5 image and `PYTHON_3.10.8` is used to specify Python 3.10.8 image. Note that `PYTHON_3.10.8` is only available in skus which support nested virtualization.
 
-        > **NOTE:** In `v4.0.0` and later version of the AzureRM Provider, `language_extensions` will be changed to a list of `language_extension` block. In each block, `name` and `image` are required. `name` is the name of the language extension, possible values are `PYTHON`, `R`. `image` is the image of the language extension, possible values are `Python3_6_5`, `Python3_10_8` and `R`.
+        > **Note:** In `v4.0.0` and later version of the AzureRM Provider, `language_extensions` will be changed to a list of `language_extension` block. In each block, `name` and `image` are required. `name` is the name of the language extension, possible values are `PYTHON`, `R`. `image` is the image of the language extension, possible values are `Python3_6_5`, `Python3_10_8` and `R`.
         """
         return pulumi.get(self, "language_extensions")
 
@@ -338,7 +338,7 @@ class ClusterArgs:
         """
         Specifies a list of tenant IDs that are trusted by the cluster. Default setting trusts all other tenants. Use `trusted_external_tenants = ["*"]` to explicitly allow all other tenants, `trusted_external_tenants = ["MyTenantOnly"]` for only your tenant or `trusted_external_tenants = ["<tenantId1>", "<tenantIdx>"]` to allow specific other tenants.
 
-        > **NOTE:** In v3.0 of `azurerm` a new or updated Kusto Cluster will only allow your own tenant by default. Explicit configuration of this setting will change from `trusted_external_tenants = ["MyTenantOnly"]` to `trusted_external_tenants = []`.
+        > **Note:** In v3.0 of `azurerm` a new or updated Kusto Cluster will only allow your own tenant by default. Explicit configuration of this setting will change from `trusted_external_tenants = ["MyTenantOnly"]` to `trusted_external_tenants = []`.
         """
         return pulumi.get(self, "trusted_external_tenants")
 
@@ -352,7 +352,7 @@ class ClusterArgs:
         """
         A `virtual_network_configuration` block as defined below.
 
-        > **NOTE:** Currently removing `virtual_network_configuration` sets the `virtual_network_configuration` to `Disabled` state. But any changes to `virtual_network_configuration` in `Disabled` state forces a new resource to be created.
+        > **Note:** Currently removing `virtual_network_configuration` sets the `virtual_network_configuration` to `Disabled` state. But any changes to `virtual_network_configuration` in `Disabled` state forces a new resource to be created.
         """
         return pulumi.get(self, "virtual_network_configuration")
 
@@ -410,7 +410,7 @@ class _ClusterState:
         :param pulumi.Input['ClusterIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['ClusterLanguageExtensionArgs']]] language_extensions: An list of `language_extensions` to enable. Valid values are: `PYTHON`, `PYTHON_3.10.8` and `R`. `PYTHON` is used to specify Python 3.6.5 image and `PYTHON_3.10.8` is used to specify Python 3.10.8 image. Note that `PYTHON_3.10.8` is only available in skus which support nested virtualization.
                
-               > **NOTE:** In `v4.0.0` and later version of the AzureRM Provider, `language_extensions` will be changed to a list of `language_extension` block. In each block, `name` and `image` are required. `name` is the name of the language extension, possible values are `PYTHON`, `R`. `image` is the image of the language extension, possible values are `Python3_6_5`, `Python3_10_8` and `R`.
+               > **Note:** In `v4.0.0` and later version of the AzureRM Provider, `language_extensions` will be changed to a list of `language_extension` block. In each block, `name` and `image` are required. `name` is the name of the language extension, possible values are `PYTHON`, `R`. `image` is the image of the language extension, possible values are `Python3_6_5`, `Python3_10_8` and `R`.
         :param pulumi.Input[builtins.str] location: The location where the Kusto Cluster should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] name: The name of the Kusto Cluster to create. Only lowercase Alphanumeric characters allowed, starting with a letter. Changing this forces a new resource to be created.
         :param pulumi.Input['ClusterOptimizedAutoScaleArgs'] optimized_auto_scale: An `optimized_auto_scale` block as defined below.
@@ -424,11 +424,11 @@ class _ClusterState:
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] trusted_external_tenants: Specifies a list of tenant IDs that are trusted by the cluster. Default setting trusts all other tenants. Use `trusted_external_tenants = ["*"]` to explicitly allow all other tenants, `trusted_external_tenants = ["MyTenantOnly"]` for only your tenant or `trusted_external_tenants = ["<tenantId1>", "<tenantIdx>"]` to allow specific other tenants.
                
-               > **NOTE:** In v3.0 of `azurerm` a new or updated Kusto Cluster will only allow your own tenant by default. Explicit configuration of this setting will change from `trusted_external_tenants = ["MyTenantOnly"]` to `trusted_external_tenants = []`.
+               > **Note:** In v3.0 of `azurerm` a new or updated Kusto Cluster will only allow your own tenant by default. Explicit configuration of this setting will change from `trusted_external_tenants = ["MyTenantOnly"]` to `trusted_external_tenants = []`.
         :param pulumi.Input[builtins.str] uri: The FQDN of the Azure Kusto Cluster.
         :param pulumi.Input['ClusterVirtualNetworkConfigurationArgs'] virtual_network_configuration: A `virtual_network_configuration` block as defined below.
                
-               > **NOTE:** Currently removing `virtual_network_configuration` sets the `virtual_network_configuration` to `Disabled` state. But any changes to `virtual_network_configuration` in `Disabled` state forces a new resource to be created.
+               > **Note:** Currently removing `virtual_network_configuration` sets the `virtual_network_configuration` to `Disabled` state. But any changes to `virtual_network_configuration` in `Disabled` state forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] zones: Specifies a list of Availability Zones in which this Kusto Cluster should be located. Changing this forces a new Kusto Cluster to be created.
         """
         if allowed_fqdns is not None:
@@ -568,7 +568,7 @@ class _ClusterState:
         """
         An list of `language_extensions` to enable. Valid values are: `PYTHON`, `PYTHON_3.10.8` and `R`. `PYTHON` is used to specify Python 3.6.5 image and `PYTHON_3.10.8` is used to specify Python 3.10.8 image. Note that `PYTHON_3.10.8` is only available in skus which support nested virtualization.
 
-        > **NOTE:** In `v4.0.0` and later version of the AzureRM Provider, `language_extensions` will be changed to a list of `language_extension` block. In each block, `name` and `image` are required. `name` is the name of the language extension, possible values are `PYTHON`, `R`. `image` is the image of the language extension, possible values are `Python3_6_5`, `Python3_10_8` and `R`.
+        > **Note:** In `v4.0.0` and later version of the AzureRM Provider, `language_extensions` will be changed to a list of `language_extension` block. In each block, `name` and `image` are required. `name` is the name of the language extension, possible values are `PYTHON`, `R`. `image` is the image of the language extension, possible values are `Python3_6_5`, `Python3_10_8` and `R`.
         """
         return pulumi.get(self, "language_extensions")
 
@@ -714,7 +714,7 @@ class _ClusterState:
         """
         Specifies a list of tenant IDs that are trusted by the cluster. Default setting trusts all other tenants. Use `trusted_external_tenants = ["*"]` to explicitly allow all other tenants, `trusted_external_tenants = ["MyTenantOnly"]` for only your tenant or `trusted_external_tenants = ["<tenantId1>", "<tenantIdx>"]` to allow specific other tenants.
 
-        > **NOTE:** In v3.0 of `azurerm` a new or updated Kusto Cluster will only allow your own tenant by default. Explicit configuration of this setting will change from `trusted_external_tenants = ["MyTenantOnly"]` to `trusted_external_tenants = []`.
+        > **Note:** In v3.0 of `azurerm` a new or updated Kusto Cluster will only allow your own tenant by default. Explicit configuration of this setting will change from `trusted_external_tenants = ["MyTenantOnly"]` to `trusted_external_tenants = []`.
         """
         return pulumi.get(self, "trusted_external_tenants")
 
@@ -740,7 +740,7 @@ class _ClusterState:
         """
         A `virtual_network_configuration` block as defined below.
 
-        > **NOTE:** Currently removing `virtual_network_configuration` sets the `virtual_network_configuration` to `Disabled` state. But any changes to `virtual_network_configuration` in `Disabled` state forces a new resource to be created.
+        > **Note:** Currently removing `virtual_network_configuration` sets the `virtual_network_configuration` to `Disabled` state. But any changes to `virtual_network_configuration` in `Disabled` state forces a new resource to be created.
         """
         return pulumi.get(self, "virtual_network_configuration")
 
@@ -814,6 +814,13 @@ class Cluster(pulumi.CustomResource):
             })
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Kusto`: 2024-04-13
+
         ## Import
 
         Kusto Clusters can be imported using the `resource id`, e.g.
@@ -832,7 +839,7 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[Union['ClusterIdentityArgs', 'ClusterIdentityArgsDict']] identity: An `identity` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ClusterLanguageExtensionArgs', 'ClusterLanguageExtensionArgsDict']]]] language_extensions: An list of `language_extensions` to enable. Valid values are: `PYTHON`, `PYTHON_3.10.8` and `R`. `PYTHON` is used to specify Python 3.6.5 image and `PYTHON_3.10.8` is used to specify Python 3.10.8 image. Note that `PYTHON_3.10.8` is only available in skus which support nested virtualization.
                
-               > **NOTE:** In `v4.0.0` and later version of the AzureRM Provider, `language_extensions` will be changed to a list of `language_extension` block. In each block, `name` and `image` are required. `name` is the name of the language extension, possible values are `PYTHON`, `R`. `image` is the image of the language extension, possible values are `Python3_6_5`, `Python3_10_8` and `R`.
+               > **Note:** In `v4.0.0` and later version of the AzureRM Provider, `language_extensions` will be changed to a list of `language_extension` block. In each block, `name` and `image` are required. `name` is the name of the language extension, possible values are `PYTHON`, `R`. `image` is the image of the language extension, possible values are `Python3_6_5`, `Python3_10_8` and `R`.
         :param pulumi.Input[builtins.str] location: The location where the Kusto Cluster should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] name: The name of the Kusto Cluster to create. Only lowercase Alphanumeric characters allowed, starting with a letter. Changing this forces a new resource to be created.
         :param pulumi.Input[Union['ClusterOptimizedAutoScaleArgs', 'ClusterOptimizedAutoScaleArgsDict']] optimized_auto_scale: An `optimized_auto_scale` block as defined below.
@@ -846,10 +853,10 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] trusted_external_tenants: Specifies a list of tenant IDs that are trusted by the cluster. Default setting trusts all other tenants. Use `trusted_external_tenants = ["*"]` to explicitly allow all other tenants, `trusted_external_tenants = ["MyTenantOnly"]` for only your tenant or `trusted_external_tenants = ["<tenantId1>", "<tenantIdx>"]` to allow specific other tenants.
                
-               > **NOTE:** In v3.0 of `azurerm` a new or updated Kusto Cluster will only allow your own tenant by default. Explicit configuration of this setting will change from `trusted_external_tenants = ["MyTenantOnly"]` to `trusted_external_tenants = []`.
+               > **Note:** In v3.0 of `azurerm` a new or updated Kusto Cluster will only allow your own tenant by default. Explicit configuration of this setting will change from `trusted_external_tenants = ["MyTenantOnly"]` to `trusted_external_tenants = []`.
         :param pulumi.Input[Union['ClusterVirtualNetworkConfigurationArgs', 'ClusterVirtualNetworkConfigurationArgsDict']] virtual_network_configuration: A `virtual_network_configuration` block as defined below.
                
-               > **NOTE:** Currently removing `virtual_network_configuration` sets the `virtual_network_configuration` to `Disabled` state. But any changes to `virtual_network_configuration` in `Disabled` state forces a new resource to be created.
+               > **Note:** Currently removing `virtual_network_configuration` sets the `virtual_network_configuration` to `Disabled` state. But any changes to `virtual_network_configuration` in `Disabled` state forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] zones: Specifies a list of Availability Zones in which this Kusto Cluster should be located. Changing this forces a new Kusto Cluster to be created.
         """
         ...
@@ -882,6 +889,13 @@ class Cluster(pulumi.CustomResource):
                 "Environment": "Production",
             })
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Kusto`: 2024-04-13
 
         ## Import
 
@@ -1012,7 +1026,7 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[Union['ClusterIdentityArgs', 'ClusterIdentityArgsDict']] identity: An `identity` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ClusterLanguageExtensionArgs', 'ClusterLanguageExtensionArgsDict']]]] language_extensions: An list of `language_extensions` to enable. Valid values are: `PYTHON`, `PYTHON_3.10.8` and `R`. `PYTHON` is used to specify Python 3.6.5 image and `PYTHON_3.10.8` is used to specify Python 3.10.8 image. Note that `PYTHON_3.10.8` is only available in skus which support nested virtualization.
                
-               > **NOTE:** In `v4.0.0` and later version of the AzureRM Provider, `language_extensions` will be changed to a list of `language_extension` block. In each block, `name` and `image` are required. `name` is the name of the language extension, possible values are `PYTHON`, `R`. `image` is the image of the language extension, possible values are `Python3_6_5`, `Python3_10_8` and `R`.
+               > **Note:** In `v4.0.0` and later version of the AzureRM Provider, `language_extensions` will be changed to a list of `language_extension` block. In each block, `name` and `image` are required. `name` is the name of the language extension, possible values are `PYTHON`, `R`. `image` is the image of the language extension, possible values are `Python3_6_5`, `Python3_10_8` and `R`.
         :param pulumi.Input[builtins.str] location: The location where the Kusto Cluster should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] name: The name of the Kusto Cluster to create. Only lowercase Alphanumeric characters allowed, starting with a letter. Changing this forces a new resource to be created.
         :param pulumi.Input[Union['ClusterOptimizedAutoScaleArgs', 'ClusterOptimizedAutoScaleArgsDict']] optimized_auto_scale: An `optimized_auto_scale` block as defined below.
@@ -1026,11 +1040,11 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] trusted_external_tenants: Specifies a list of tenant IDs that are trusted by the cluster. Default setting trusts all other tenants. Use `trusted_external_tenants = ["*"]` to explicitly allow all other tenants, `trusted_external_tenants = ["MyTenantOnly"]` for only your tenant or `trusted_external_tenants = ["<tenantId1>", "<tenantIdx>"]` to allow specific other tenants.
                
-               > **NOTE:** In v3.0 of `azurerm` a new or updated Kusto Cluster will only allow your own tenant by default. Explicit configuration of this setting will change from `trusted_external_tenants = ["MyTenantOnly"]` to `trusted_external_tenants = []`.
+               > **Note:** In v3.0 of `azurerm` a new or updated Kusto Cluster will only allow your own tenant by default. Explicit configuration of this setting will change from `trusted_external_tenants = ["MyTenantOnly"]` to `trusted_external_tenants = []`.
         :param pulumi.Input[builtins.str] uri: The FQDN of the Azure Kusto Cluster.
         :param pulumi.Input[Union['ClusterVirtualNetworkConfigurationArgs', 'ClusterVirtualNetworkConfigurationArgsDict']] virtual_network_configuration: A `virtual_network_configuration` block as defined below.
                
-               > **NOTE:** Currently removing `virtual_network_configuration` sets the `virtual_network_configuration` to `Disabled` state. But any changes to `virtual_network_configuration` in `Disabled` state forces a new resource to be created.
+               > **Note:** Currently removing `virtual_network_configuration` sets the `virtual_network_configuration` to `Disabled` state. But any changes to `virtual_network_configuration` in `Disabled` state forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] zones: Specifies a list of Availability Zones in which this Kusto Cluster should be located. Changing this forces a new Kusto Cluster to be created.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -1124,7 +1138,7 @@ class Cluster(pulumi.CustomResource):
         """
         An list of `language_extensions` to enable. Valid values are: `PYTHON`, `PYTHON_3.10.8` and `R`. `PYTHON` is used to specify Python 3.6.5 image and `PYTHON_3.10.8` is used to specify Python 3.10.8 image. Note that `PYTHON_3.10.8` is only available in skus which support nested virtualization.
 
-        > **NOTE:** In `v4.0.0` and later version of the AzureRM Provider, `language_extensions` will be changed to a list of `language_extension` block. In each block, `name` and `image` are required. `name` is the name of the language extension, possible values are `PYTHON`, `R`. `image` is the image of the language extension, possible values are `Python3_6_5`, `Python3_10_8` and `R`.
+        > **Note:** In `v4.0.0` and later version of the AzureRM Provider, `language_extensions` will be changed to a list of `language_extension` block. In each block, `name` and `image` are required. `name` is the name of the language extension, possible values are `PYTHON`, `R`. `image` is the image of the language extension, possible values are `Python3_6_5`, `Python3_10_8` and `R`.
         """
         return pulumi.get(self, "language_extensions")
 
@@ -1222,7 +1236,7 @@ class Cluster(pulumi.CustomResource):
         """
         Specifies a list of tenant IDs that are trusted by the cluster. Default setting trusts all other tenants. Use `trusted_external_tenants = ["*"]` to explicitly allow all other tenants, `trusted_external_tenants = ["MyTenantOnly"]` for only your tenant or `trusted_external_tenants = ["<tenantId1>", "<tenantIdx>"]` to allow specific other tenants.
 
-        > **NOTE:** In v3.0 of `azurerm` a new or updated Kusto Cluster will only allow your own tenant by default. Explicit configuration of this setting will change from `trusted_external_tenants = ["MyTenantOnly"]` to `trusted_external_tenants = []`.
+        > **Note:** In v3.0 of `azurerm` a new or updated Kusto Cluster will only allow your own tenant by default. Explicit configuration of this setting will change from `trusted_external_tenants = ["MyTenantOnly"]` to `trusted_external_tenants = []`.
         """
         return pulumi.get(self, "trusted_external_tenants")
 
@@ -1240,7 +1254,7 @@ class Cluster(pulumi.CustomResource):
         """
         A `virtual_network_configuration` block as defined below.
 
-        > **NOTE:** Currently removing `virtual_network_configuration` sets the `virtual_network_configuration` to `Disabled` state. But any changes to `virtual_network_configuration` in `Disabled` state forces a new resource to be created.
+        > **Note:** Currently removing `virtual_network_configuration` sets the `virtual_network_configuration` to `Disabled` state. But any changes to `virtual_network_configuration` in `Disabled` state forces a new resource to be created.
         """
         return pulumi.get(self, "virtual_network_configuration")
 

@@ -16,13 +16,13 @@ var _ = internal.GetEnvOrDefault
 type PolicyFileShareBackup struct {
 	// Sets the backup frequency. Possible values are `Daily` and `Hourly`.
 	//
-	// > **NOTE:** This argument is made available for consistency with VM backup policies and to allow for potential future support of weekly backups
+	// > **Note:** This argument is made available for consistency with VM backup policies and to allow for potential future support of weekly backups
 	Frequency string `pulumi:"frequency"`
 	// A `hourly` block defined as below. This is required when `frequency` is set to `Hourly`.
 	Hourly *PolicyFileShareBackupHourly `pulumi:"hourly"`
 	// The time of day to perform the backup in 24-hour format. Times must be either on the hour or half hour (e.g. 12:00, 12:30, 13:00, etc.)
 	//
-	// > **NOTE:** `time` is required when `frequency` is set to `Daily`.
+	// > **Note:** `time` is required when `frequency` is set to `Daily`.
 	Time *string `pulumi:"time"`
 }
 
@@ -40,13 +40,13 @@ type PolicyFileShareBackupInput interface {
 type PolicyFileShareBackupArgs struct {
 	// Sets the backup frequency. Possible values are `Daily` and `Hourly`.
 	//
-	// > **NOTE:** This argument is made available for consistency with VM backup policies and to allow for potential future support of weekly backups
+	// > **Note:** This argument is made available for consistency with VM backup policies and to allow for potential future support of weekly backups
 	Frequency pulumi.StringInput `pulumi:"frequency"`
 	// A `hourly` block defined as below. This is required when `frequency` is set to `Hourly`.
 	Hourly PolicyFileShareBackupHourlyPtrInput `pulumi:"hourly"`
 	// The time of day to perform the backup in 24-hour format. Times must be either on the hour or half hour (e.g. 12:00, 12:30, 13:00, etc.)
 	//
-	// > **NOTE:** `time` is required when `frequency` is set to `Daily`.
+	// > **Note:** `time` is required when `frequency` is set to `Daily`.
 	Time pulumi.StringPtrInput `pulumi:"time"`
 }
 
@@ -129,7 +129,7 @@ func (o PolicyFileShareBackupOutput) ToPolicyFileShareBackupPtrOutputWithContext
 
 // Sets the backup frequency. Possible values are `Daily` and `Hourly`.
 //
-// > **NOTE:** This argument is made available for consistency with VM backup policies and to allow for potential future support of weekly backups
+// > **Note:** This argument is made available for consistency with VM backup policies and to allow for potential future support of weekly backups
 func (o PolicyFileShareBackupOutput) Frequency() pulumi.StringOutput {
 	return o.ApplyT(func(v PolicyFileShareBackup) string { return v.Frequency }).(pulumi.StringOutput)
 }
@@ -141,7 +141,7 @@ func (o PolicyFileShareBackupOutput) Hourly() PolicyFileShareBackupHourlyPtrOutp
 
 // The time of day to perform the backup in 24-hour format. Times must be either on the hour or half hour (e.g. 12:00, 12:30, 13:00, etc.)
 //
-// > **NOTE:** `time` is required when `frequency` is set to `Daily`.
+// > **Note:** `time` is required when `frequency` is set to `Daily`.
 func (o PolicyFileShareBackupOutput) Time() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PolicyFileShareBackup) *string { return v.Time }).(pulumi.StringPtrOutput)
 }
@@ -172,7 +172,7 @@ func (o PolicyFileShareBackupPtrOutput) Elem() PolicyFileShareBackupOutput {
 
 // Sets the backup frequency. Possible values are `Daily` and `Hourly`.
 //
-// > **NOTE:** This argument is made available for consistency with VM backup policies and to allow for potential future support of weekly backups
+// > **Note:** This argument is made available for consistency with VM backup policies and to allow for potential future support of weekly backups
 func (o PolicyFileShareBackupPtrOutput) Frequency() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PolicyFileShareBackup) *string {
 		if v == nil {
@@ -194,7 +194,7 @@ func (o PolicyFileShareBackupPtrOutput) Hourly() PolicyFileShareBackupHourlyPtrO
 
 // The time of day to perform the backup in 24-hour format. Times must be either on the hour or half hour (e.g. 12:00, 12:30, 13:00, etc.)
 //
-// > **NOTE:** `time` is required when `frequency` is set to `Daily`.
+// > **Note:** `time` is required when `frequency` is set to `Daily`.
 func (o PolicyFileShareBackupPtrOutput) Time() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PolicyFileShareBackup) *string {
 		if v == nil {
@@ -523,7 +523,7 @@ type PolicyFileShareRetentionMonthly struct {
 	Days []int `pulumi:"days"`
 	// Including the last day of the month, default to `false`.
 	//
-	// > **NOTE:**: Either `weekdays` and `weeks` or `days` and `includeLastDays` must be specified.
+	// > **Note:** Either `weekdays` and `weeks` or `days` and `includeLastDays` must be specified.
 	IncludeLastDays *bool `pulumi:"includeLastDays"`
 	// The weekday backups to retain . Must be one of `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` or `Saturday`.
 	Weekdays []string `pulumi:"weekdays"`
@@ -549,7 +549,7 @@ type PolicyFileShareRetentionMonthlyArgs struct {
 	Days pulumi.IntArrayInput `pulumi:"days"`
 	// Including the last day of the month, default to `false`.
 	//
-	// > **NOTE:**: Either `weekdays` and `weeks` or `days` and `includeLastDays` must be specified.
+	// > **Note:** Either `weekdays` and `weeks` or `days` and `includeLastDays` must be specified.
 	IncludeLastDays pulumi.BoolPtrInput `pulumi:"includeLastDays"`
 	// The weekday backups to retain . Must be one of `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` or `Saturday`.
 	Weekdays pulumi.StringArrayInput `pulumi:"weekdays"`
@@ -646,7 +646,7 @@ func (o PolicyFileShareRetentionMonthlyOutput) Days() pulumi.IntArrayOutput {
 
 // Including the last day of the month, default to `false`.
 //
-// > **NOTE:**: Either `weekdays` and `weeks` or `days` and `includeLastDays` must be specified.
+// > **Note:** Either `weekdays` and `weeks` or `days` and `includeLastDays` must be specified.
 func (o PolicyFileShareRetentionMonthlyOutput) IncludeLastDays() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v PolicyFileShareRetentionMonthly) *bool { return v.IncludeLastDays }).(pulumi.BoolPtrOutput)
 }
@@ -707,7 +707,7 @@ func (o PolicyFileShareRetentionMonthlyPtrOutput) Days() pulumi.IntArrayOutput {
 
 // Including the last day of the month, default to `false`.
 //
-// > **NOTE:**: Either `weekdays` and `weeks` or `days` and `includeLastDays` must be specified.
+// > **Note:** Either `weekdays` and `weeks` or `days` and `includeLastDays` must be specified.
 func (o PolicyFileShareRetentionMonthlyPtrOutput) IncludeLastDays() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *PolicyFileShareRetentionMonthly) *bool {
 		if v == nil {
@@ -900,7 +900,7 @@ type PolicyFileShareRetentionYearly struct {
 	Days []int `pulumi:"days"`
 	// Including the last day of the month, default to `false`.
 	//
-	// > **NOTE:**: Either `weekdays` and `weeks` or `days` and `includeLastDays` must be specified.
+	// > **Note:** Either `weekdays` and `weeks` or `days` and `includeLastDays` must be specified.
 	IncludeLastDays *bool `pulumi:"includeLastDays"`
 	// The months of the year to retain backups of. Must be one of `January`, `February`, `March`, `April`, `May`, `June`, `July`, `Augest`, `September`, `October`, `November` and `December`.
 	Months []string `pulumi:"months"`
@@ -928,7 +928,7 @@ type PolicyFileShareRetentionYearlyArgs struct {
 	Days pulumi.IntArrayInput `pulumi:"days"`
 	// Including the last day of the month, default to `false`.
 	//
-	// > **NOTE:**: Either `weekdays` and `weeks` or `days` and `includeLastDays` must be specified.
+	// > **Note:** Either `weekdays` and `weeks` or `days` and `includeLastDays` must be specified.
 	IncludeLastDays pulumi.BoolPtrInput `pulumi:"includeLastDays"`
 	// The months of the year to retain backups of. Must be one of `January`, `February`, `March`, `April`, `May`, `June`, `July`, `Augest`, `September`, `October`, `November` and `December`.
 	Months pulumi.StringArrayInput `pulumi:"months"`
@@ -1027,7 +1027,7 @@ func (o PolicyFileShareRetentionYearlyOutput) Days() pulumi.IntArrayOutput {
 
 // Including the last day of the month, default to `false`.
 //
-// > **NOTE:**: Either `weekdays` and `weeks` or `days` and `includeLastDays` must be specified.
+// > **Note:** Either `weekdays` and `weeks` or `days` and `includeLastDays` must be specified.
 func (o PolicyFileShareRetentionYearlyOutput) IncludeLastDays() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v PolicyFileShareRetentionYearly) *bool { return v.IncludeLastDays }).(pulumi.BoolPtrOutput)
 }
@@ -1093,7 +1093,7 @@ func (o PolicyFileShareRetentionYearlyPtrOutput) Days() pulumi.IntArrayOutput {
 
 // Including the last day of the month, default to `false`.
 //
-// > **NOTE:**: Either `weekdays` and `weeks` or `days` and `includeLastDays` must be specified.
+// > **Note:** Either `weekdays` and `weeks` or `days` and `includeLastDays` must be specified.
 func (o PolicyFileShareRetentionYearlyPtrOutput) IncludeLastDays() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *PolicyFileShareRetentionYearly) *bool {
 		if v == nil {
@@ -1138,7 +1138,7 @@ type PolicyVMBackup struct {
 	Frequency string `pulumi:"frequency"`
 	// Duration of the backup window in hours. Possible values are between `4` and `24` This is used when `frequency` is `Hourly`.
 	//
-	// > **NOTE:** `hourDuration` must be multiplier of `hourInterval`
+	// > **Note:** `hourDuration` must be multiplier of `hourInterval`
 	HourDuration *int `pulumi:"hourDuration"`
 	// Interval in hour at which backup is triggered. Possible values are `4`, `6`, `8` and `12`. This is used when `frequency` is `Hourly`.
 	HourInterval *int `pulumi:"hourInterval"`
@@ -1164,7 +1164,7 @@ type PolicyVMBackupArgs struct {
 	Frequency pulumi.StringInput `pulumi:"frequency"`
 	// Duration of the backup window in hours. Possible values are between `4` and `24` This is used when `frequency` is `Hourly`.
 	//
-	// > **NOTE:** `hourDuration` must be multiplier of `hourInterval`
+	// > **Note:** `hourDuration` must be multiplier of `hourInterval`
 	HourDuration pulumi.IntPtrInput `pulumi:"hourDuration"`
 	// Interval in hour at which backup is triggered. Possible values are `4`, `6`, `8` and `12`. This is used when `frequency` is `Hourly`.
 	HourInterval pulumi.IntPtrInput `pulumi:"hourInterval"`
@@ -1258,7 +1258,7 @@ func (o PolicyVMBackupOutput) Frequency() pulumi.StringOutput {
 
 // Duration of the backup window in hours. Possible values are between `4` and `24` This is used when `frequency` is `Hourly`.
 //
-// > **NOTE:** `hourDuration` must be multiplier of `hourInterval`
+// > **Note:** `hourDuration` must be multiplier of `hourInterval`
 func (o PolicyVMBackupOutput) HourDuration() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v PolicyVMBackup) *int { return v.HourDuration }).(pulumi.IntPtrOutput)
 }
@@ -1314,7 +1314,7 @@ func (o PolicyVMBackupPtrOutput) Frequency() pulumi.StringPtrOutput {
 
 // Duration of the backup window in hours. Possible values are between `4` and `24` This is used when `frequency` is `Hourly`.
 //
-// > **NOTE:** `hourDuration` must be multiplier of `hourInterval`
+// > **Note:** `hourDuration` must be multiplier of `hourInterval`
 func (o PolicyVMBackupPtrOutput) HourDuration() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *PolicyVMBackup) *int {
 		if v == nil {
@@ -1662,7 +1662,7 @@ type PolicyVMRetentionMonthly struct {
 	Days []int `pulumi:"days"`
 	// Including the last day of the month, default to `false`.
 	//
-	// > **NOTE:**: Either `weekdays` and `weeks` or `days` and `includeLastDays` must be specified.
+	// > **Note:** Either `weekdays` and `weeks` or `days` and `includeLastDays` must be specified.
 	IncludeLastDays *bool `pulumi:"includeLastDays"`
 	// The weekday backups to retain . Must be one of `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` or `Saturday`.
 	Weekdays []string `pulumi:"weekdays"`
@@ -1688,7 +1688,7 @@ type PolicyVMRetentionMonthlyArgs struct {
 	Days pulumi.IntArrayInput `pulumi:"days"`
 	// Including the last day of the month, default to `false`.
 	//
-	// > **NOTE:**: Either `weekdays` and `weeks` or `days` and `includeLastDays` must be specified.
+	// > **Note:** Either `weekdays` and `weeks` or `days` and `includeLastDays` must be specified.
 	IncludeLastDays pulumi.BoolPtrInput `pulumi:"includeLastDays"`
 	// The weekday backups to retain . Must be one of `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` or `Saturday`.
 	Weekdays pulumi.StringArrayInput `pulumi:"weekdays"`
@@ -1785,7 +1785,7 @@ func (o PolicyVMRetentionMonthlyOutput) Days() pulumi.IntArrayOutput {
 
 // Including the last day of the month, default to `false`.
 //
-// > **NOTE:**: Either `weekdays` and `weeks` or `days` and `includeLastDays` must be specified.
+// > **Note:** Either `weekdays` and `weeks` or `days` and `includeLastDays` must be specified.
 func (o PolicyVMRetentionMonthlyOutput) IncludeLastDays() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v PolicyVMRetentionMonthly) *bool { return v.IncludeLastDays }).(pulumi.BoolPtrOutput)
 }
@@ -1846,7 +1846,7 @@ func (o PolicyVMRetentionMonthlyPtrOutput) Days() pulumi.IntArrayOutput {
 
 // Including the last day of the month, default to `false`.
 //
-// > **NOTE:**: Either `weekdays` and `weeks` or `days` and `includeLastDays` must be specified.
+// > **Note:** Either `weekdays` and `weeks` or `days` and `includeLastDays` must be specified.
 func (o PolicyVMRetentionMonthlyPtrOutput) IncludeLastDays() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *PolicyVMRetentionMonthly) *bool {
 		if v == nil {
@@ -2039,7 +2039,7 @@ type PolicyVMRetentionYearly struct {
 	Days []int `pulumi:"days"`
 	// Including the last day of the month, default to `false`.
 	//
-	// > **NOTE:**: Either `weekdays` and `weeks` or `days` and `includeLastDays` must be specified.
+	// > **Note:** Either `weekdays` and `weeks` or `days` and `includeLastDays` must be specified.
 	IncludeLastDays *bool `pulumi:"includeLastDays"`
 	// The months of the year to retain backups of. Must be one of `January`, `February`, `March`, `April`, `May`, `June`, `July`, `August`, `September`, `October`, `November` and `December`.
 	Months []string `pulumi:"months"`
@@ -2067,7 +2067,7 @@ type PolicyVMRetentionYearlyArgs struct {
 	Days pulumi.IntArrayInput `pulumi:"days"`
 	// Including the last day of the month, default to `false`.
 	//
-	// > **NOTE:**: Either `weekdays` and `weeks` or `days` and `includeLastDays` must be specified.
+	// > **Note:** Either `weekdays` and `weeks` or `days` and `includeLastDays` must be specified.
 	IncludeLastDays pulumi.BoolPtrInput `pulumi:"includeLastDays"`
 	// The months of the year to retain backups of. Must be one of `January`, `February`, `March`, `April`, `May`, `June`, `July`, `August`, `September`, `October`, `November` and `December`.
 	Months pulumi.StringArrayInput `pulumi:"months"`
@@ -2166,7 +2166,7 @@ func (o PolicyVMRetentionYearlyOutput) Days() pulumi.IntArrayOutput {
 
 // Including the last day of the month, default to `false`.
 //
-// > **NOTE:**: Either `weekdays` and `weeks` or `days` and `includeLastDays` must be specified.
+// > **Note:** Either `weekdays` and `weeks` or `days` and `includeLastDays` must be specified.
 func (o PolicyVMRetentionYearlyOutput) IncludeLastDays() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v PolicyVMRetentionYearly) *bool { return v.IncludeLastDays }).(pulumi.BoolPtrOutput)
 }
@@ -2232,7 +2232,7 @@ func (o PolicyVMRetentionYearlyPtrOutput) Days() pulumi.IntArrayOutput {
 
 // Including the last day of the month, default to `false`.
 //
-// > **NOTE:**: Either `weekdays` and `weeks` or `days` and `includeLastDays` must be specified.
+// > **Note:** Either `weekdays` and `weeks` or `days` and `includeLastDays` must be specified.
 func (o PolicyVMRetentionYearlyPtrOutput) IncludeLastDays() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *PolicyVMRetentionYearly) *bool {
 		if v == nil {

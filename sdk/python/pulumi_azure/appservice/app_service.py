@@ -821,7 +821,7 @@ class AppService(pulumi.CustomResource):
 
         ## Example Usage
 
-        This example provisions a Windows App Service.
+        This example provisions a Windows App Service. Other examples of the `appservice.AppService` resource can be found in the `./examples/app-service` directory within the GitHub Repository
 
         ```python
         import pulumi
@@ -903,7 +903,7 @@ class AppService(pulumi.CustomResource):
 
         ## Example Usage
 
-        This example provisions a Windows App Service.
+        This example provisions a Windows App Service. Other examples of the `appservice.AppService` resource can be found in the `./examples/app-service` directory within the GitHub Repository
 
         ```python
         import pulumi

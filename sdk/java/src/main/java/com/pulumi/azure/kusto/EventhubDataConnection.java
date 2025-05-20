@@ -121,6 +121,13 @@ import javax.annotation.Nullable;
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
+ * ## API Providers
+ * 
+ * &lt;!-- This section is generated, changes will be overwritten --&gt;
+ * This resource uses the following Azure API Providers:
+ * 
+ * * `Microsoft.Kusto`: 2024-04-13
+ * 
  * ## Import
  * 
  * Kusto EventHub Data Connections can be imported using the `resource id`, e.g.

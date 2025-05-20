@@ -47,7 +47,7 @@ public final class RegistryTaskState extends com.pulumi.resources.ResourceArgs {
     /**
      * A `agent_setting` block as defined below.
      * 
-     * &gt; **NOTE:** Only one of `agent_pool_name` and `agent_setting` can be specified.
+     * &gt; **Note:** Only one of `agent_pool_name` and `agent_setting` can be specified.
      * 
      */
     @Import(name="agentSetting")
@@ -56,7 +56,7 @@ public final class RegistryTaskState extends com.pulumi.resources.ResourceArgs {
     /**
      * @return A `agent_setting` block as defined below.
      * 
-     * &gt; **NOTE:** Only one of `agent_pool_name` and `agent_setting` can be specified.
+     * &gt; **Note:** Only one of `agent_pool_name` and `agent_setting` can be specified.
      * 
      */
     public Optional<Output<RegistryTaskAgentSettingArgs>> agentSetting() {
@@ -141,7 +141,7 @@ public final class RegistryTaskState extends com.pulumi.resources.ResourceArgs {
     /**
      * A `file_step` block as defined below.
      * 
-     * &gt; **NOTE:** For non-system task (when `is_system_task` is set to `false`), one and only one of the `docker_step`, `encoded_step` and `file_step` should be specified.
+     * &gt; **Note:** For non-system task (when `is_system_task` is set to `false`), one and only one of the `docker_step`, `encoded_step` and `file_step` should be specified.
      * 
      */
     @Import(name="fileStep")
@@ -150,7 +150,7 @@ public final class RegistryTaskState extends com.pulumi.resources.ResourceArgs {
     /**
      * @return A `file_step` block as defined below.
      * 
-     * &gt; **NOTE:** For non-system task (when `is_system_task` is set to `false`), one and only one of the `docker_step`, `encoded_step` and `file_step` should be specified.
+     * &gt; **Note:** For non-system task (when `is_system_task` is set to `false`), one and only one of the `docker_step`, `encoded_step` and `file_step` should be specified.
      * 
      */
     public Optional<Output<RegistryTaskFileStepArgs>> fileStep() {
@@ -212,7 +212,7 @@ public final class RegistryTaskState extends com.pulumi.resources.ResourceArgs {
     /**
      * A `platform` block as defined below.
      * 
-     * &gt; **NOTE:** The `platform` is required for non-system task (when `is_system_task` is set to `false`).
+     * &gt; **Note:** The `platform` is required for non-system task (when `is_system_task` is set to `false`).
      * 
      */
     @Import(name="platform")
@@ -221,7 +221,7 @@ public final class RegistryTaskState extends com.pulumi.resources.ResourceArgs {
     /**
      * @return A `platform` block as defined below.
      * 
-     * &gt; **NOTE:** The `platform` is required for non-system task (when `is_system_task` is set to `false`).
+     * &gt; **Note:** The `platform` is required for non-system task (when `is_system_task` is set to `false`).
      * 
      */
     public Optional<Output<RegistryTaskPlatformArgs>> platform() {
@@ -344,7 +344,7 @@ public final class RegistryTaskState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param agentSetting A `agent_setting` block as defined below.
          * 
-         * &gt; **NOTE:** Only one of `agent_pool_name` and `agent_setting` can be specified.
+         * &gt; **Note:** Only one of `agent_pool_name` and `agent_setting` can be specified.
          * 
          * @return builder
          * 
@@ -357,7 +357,7 @@ public final class RegistryTaskState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param agentSetting A `agent_setting` block as defined below.
          * 
-         * &gt; **NOTE:** Only one of `agent_pool_name` and `agent_setting` can be specified.
+         * &gt; **Note:** Only one of `agent_pool_name` and `agent_setting` can be specified.
          * 
          * @return builder
          * 
@@ -474,7 +474,7 @@ public final class RegistryTaskState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param fileStep A `file_step` block as defined below.
          * 
-         * &gt; **NOTE:** For non-system task (when `is_system_task` is set to `false`), one and only one of the `docker_step`, `encoded_step` and `file_step` should be specified.
+         * &gt; **Note:** For non-system task (when `is_system_task` is set to `false`), one and only one of the `docker_step`, `encoded_step` and `file_step` should be specified.
          * 
          * @return builder
          * 
@@ -487,7 +487,7 @@ public final class RegistryTaskState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param fileStep A `file_step` block as defined below.
          * 
-         * &gt; **NOTE:** For non-system task (when `is_system_task` is set to `false`), one and only one of the `docker_step`, `encoded_step` and `file_step` should be specified.
+         * &gt; **Note:** For non-system task (when `is_system_task` is set to `false`), one and only one of the `docker_step`, `encoded_step` and `file_step` should be specified.
          * 
          * @return builder
          * 
@@ -571,7 +571,7 @@ public final class RegistryTaskState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param platform A `platform` block as defined below.
          * 
-         * &gt; **NOTE:** The `platform` is required for non-system task (when `is_system_task` is set to `false`).
+         * &gt; **Note:** The `platform` is required for non-system task (when `is_system_task` is set to `false`).
          * 
          * @return builder
          * 
@@ -584,7 +584,7 @@ public final class RegistryTaskState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param platform A `platform` block as defined below.
          * 
-         * &gt; **NOTE:** The `platform` is required for non-system task (when `is_system_task` is set to `false`).
+         * &gt; **Note:** The `platform` is required for non-system task (when `is_system_task` is set to `false`).
          * 
          * @return builder
          * 

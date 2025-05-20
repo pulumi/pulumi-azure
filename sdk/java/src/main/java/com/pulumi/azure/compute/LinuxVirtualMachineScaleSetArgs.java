@@ -235,7 +235,7 @@ public final class LinuxVirtualMachineScaleSetArgs extends com.pulumi.resources.
     /**
      * Should Password Authentication be disabled on this Virtual Machine Scale Set? Defaults to `true`.
      * 
-     * &gt; In general we&#39;d recommend using SSH Keys for authentication rather than Passwords - but there&#39;s tradeoff&#39;s to each - please [see this thread for more information](https://security.stackexchange.com/questions/69407/why-is-using-an-ssh-key-more-secure-than-using-passwords).
+     * &gt; **Note:** In general we&#39;d recommend using SSH Keys for authentication rather than Passwords - but there&#39;s tradeoff&#39;s to each - please [see this thread for more information](https://security.stackexchange.com/questions/69407/why-is-using-an-ssh-key-more-secure-than-using-passwords).
      * 
      * &gt; **Note:** When a `admin_password` is specified `disable_password_authentication` must be set to `false`.
      * 
@@ -246,7 +246,7 @@ public final class LinuxVirtualMachineScaleSetArgs extends com.pulumi.resources.
     /**
      * @return Should Password Authentication be disabled on this Virtual Machine Scale Set? Defaults to `true`.
      * 
-     * &gt; In general we&#39;d recommend using SSH Keys for authentication rather than Passwords - but there&#39;s tradeoff&#39;s to each - please [see this thread for more information](https://security.stackexchange.com/questions/69407/why-is-using-an-ssh-key-more-secure-than-using-passwords).
+     * &gt; **Note:** In general we&#39;d recommend using SSH Keys for authentication rather than Passwords - but there&#39;s tradeoff&#39;s to each - please [see this thread for more information](https://security.stackexchange.com/questions/69407/why-is-using-an-ssh-key-more-secure-than-using-passwords).
      * 
      * &gt; **Note:** When a `admin_password` is specified `disable_password_authentication` must be set to `false`.
      * 
@@ -428,21 +428,9 @@ public final class LinuxVirtualMachineScaleSetArgs extends com.pulumi.resources.
         return Optional.ofNullable(this.identity);
     }
 
-    /**
-     * The number of Virtual Machines in the Scale Set. Defaults to `0`.
-     * 
-     * &gt; **NOTE:** If you&#39;re using AutoScaling, you may wish to use [`Ignore Changes` functionality](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) to ignore changes to this field.
-     * 
-     */
     @Import(name="instances")
     private @Nullable Output<Integer> instances;
 
-    /**
-     * @return The number of Virtual Machines in the Scale Set. Defaults to `0`.
-     * 
-     * &gt; **NOTE:** If you&#39;re using AutoScaling, you may wish to use [`Ignore Changes` functionality](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) to ignore changes to this field.
-     * 
-     */
     public Optional<Output<Integer>> instances() {
         return Optional.ofNullable(this.instances);
     }
@@ -1246,7 +1234,7 @@ public final class LinuxVirtualMachineScaleSetArgs extends com.pulumi.resources.
         /**
          * @param disablePasswordAuthentication Should Password Authentication be disabled on this Virtual Machine Scale Set? Defaults to `true`.
          * 
-         * &gt; In general we&#39;d recommend using SSH Keys for authentication rather than Passwords - but there&#39;s tradeoff&#39;s to each - please [see this thread for more information](https://security.stackexchange.com/questions/69407/why-is-using-an-ssh-key-more-secure-than-using-passwords).
+         * &gt; **Note:** In general we&#39;d recommend using SSH Keys for authentication rather than Passwords - but there&#39;s tradeoff&#39;s to each - please [see this thread for more information](https://security.stackexchange.com/questions/69407/why-is-using-an-ssh-key-more-secure-than-using-passwords).
          * 
          * &gt; **Note:** When a `admin_password` is specified `disable_password_authentication` must be set to `false`.
          * 
@@ -1261,7 +1249,7 @@ public final class LinuxVirtualMachineScaleSetArgs extends com.pulumi.resources.
         /**
          * @param disablePasswordAuthentication Should Password Authentication be disabled on this Virtual Machine Scale Set? Defaults to `true`.
          * 
-         * &gt; In general we&#39;d recommend using SSH Keys for authentication rather than Passwords - but there&#39;s tradeoff&#39;s to each - please [see this thread for more information](https://security.stackexchange.com/questions/69407/why-is-using-an-ssh-key-more-secure-than-using-passwords).
+         * &gt; **Note:** In general we&#39;d recommend using SSH Keys for authentication rather than Passwords - but there&#39;s tradeoff&#39;s to each - please [see this thread for more information](https://security.stackexchange.com/questions/69407/why-is-using-an-ssh-key-more-secure-than-using-passwords).
          * 
          * &gt; **Note:** When a `admin_password` is specified `disable_password_authentication` must be set to `false`.
          * 
@@ -1531,27 +1519,11 @@ public final class LinuxVirtualMachineScaleSetArgs extends com.pulumi.resources.
             return identity(Output.of(identity));
         }
 
-        /**
-         * @param instances The number of Virtual Machines in the Scale Set. Defaults to `0`.
-         * 
-         * &gt; **NOTE:** If you&#39;re using AutoScaling, you may wish to use [`Ignore Changes` functionality](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) to ignore changes to this field.
-         * 
-         * @return builder
-         * 
-         */
         public Builder instances(@Nullable Output<Integer> instances) {
             $.instances = instances;
             return this;
         }
 
-        /**
-         * @param instances The number of Virtual Machines in the Scale Set. Defaults to `0`.
-         * 
-         * &gt; **NOTE:** If you&#39;re using AutoScaling, you may wish to use [`Ignore Changes` functionality](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) to ignore changes to this field.
-         * 
-         * @return builder
-         * 
-         */
         public Builder instances(Integer instances) {
             return instances(Output.of(instances));
         }

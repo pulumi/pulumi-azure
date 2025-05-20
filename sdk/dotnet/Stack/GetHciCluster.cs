@@ -38,6 +38,13 @@ namespace Pulumi.Azure.Stack
         ///     };
         /// });
         /// ```
+        /// 
+        /// ## API Providers
+        /// 
+        /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+        /// This data source uses the following Azure API Providers:
+        /// 
+        /// * `Microsoft.AzureStackHCI`: 2024-01-01, 2022-05-04
         /// </summary>
         public static Task<GetHciClusterResult> InvokeAsync(GetHciClusterArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetHciClusterResult>("azure:stack/getHciCluster:getHciCluster", args ?? new GetHciClusterArgs(), options.WithDefaults());
@@ -69,6 +76,13 @@ namespace Pulumi.Azure.Stack
         ///     };
         /// });
         /// ```
+        /// 
+        /// ## API Providers
+        /// 
+        /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+        /// This data source uses the following Azure API Providers:
+        /// 
+        /// * `Microsoft.AzureStackHCI`: 2024-01-01, 2022-05-04
         /// </summary>
         public static Output<GetHciClusterResult> Invoke(GetHciClusterInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetHciClusterResult>("azure:stack/getHciCluster:getHciCluster", args ?? new GetHciClusterInvokeArgs(), options.WithDefaults());
@@ -100,6 +114,13 @@ namespace Pulumi.Azure.Stack
         ///     };
         /// });
         /// ```
+        /// 
+        /// ## API Providers
+        /// 
+        /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+        /// This data source uses the following Azure API Providers:
+        /// 
+        /// * `Microsoft.AzureStackHCI`: 2024-01-01, 2022-05-04
         /// </summary>
         public static Output<GetHciClusterResult> Invoke(GetHciClusterInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetHciClusterResult>("azure:stack/getHciCluster:getHciCluster", args ?? new GetHciClusterInvokeArgs(), options.WithDefaults());

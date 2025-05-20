@@ -49,6 +49,13 @@ namespace Pulumi.Azure.PaloAlto
     /// 
     /// });
     /// ```
+    /// 
+    /// ## API Providers
+    /// 
+    /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+    /// This resource uses the following Azure API Providers:
+    /// 
+    /// * `PaloAltoNetworks.Cloudngfw`: 2022-08-29
     /// </summary>
     [AzureResourceType("azure:paloalto/localRulestackOutboundUntrustCertificateAssociation:LocalRulestackOutboundUntrustCertificateAssociation")]
     public partial class LocalRulestackOutboundUntrustCertificateAssociation : global::Pulumi.CustomResource

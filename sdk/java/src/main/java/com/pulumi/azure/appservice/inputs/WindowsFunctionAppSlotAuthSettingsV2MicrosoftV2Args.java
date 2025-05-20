@@ -50,7 +50,7 @@ public final class WindowsFunctionAppSlotAuthSettingsV2MicrosoftV2Args extends c
     /**
      * The app setting name containing the OAuth 2.0 client secret that was created for the app used for authentication.
      * 
-     * !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+     * !&gt; **Note:** A setting with this name must exist in `app_settings` to function correctly.
      * 
      */
     @Import(name="clientSecretSettingName", required=true)
@@ -59,7 +59,7 @@ public final class WindowsFunctionAppSlotAuthSettingsV2MicrosoftV2Args extends c
     /**
      * @return The app setting name containing the OAuth 2.0 client secret that was created for the app used for authentication.
      * 
-     * !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+     * !&gt; **Note:** A setting with this name must exist in `app_settings` to function correctly.
      * 
      */
     public Output<String> clientSecretSettingName() {
@@ -163,7 +163,7 @@ public final class WindowsFunctionAppSlotAuthSettingsV2MicrosoftV2Args extends c
         /**
          * @param clientSecretSettingName The app setting name containing the OAuth 2.0 client secret that was created for the app used for authentication.
          * 
-         * !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+         * !&gt; **Note:** A setting with this name must exist in `app_settings` to function correctly.
          * 
          * @return builder
          * 
@@ -176,7 +176,7 @@ public final class WindowsFunctionAppSlotAuthSettingsV2MicrosoftV2Args extends c
         /**
          * @param clientSecretSettingName The app setting name containing the OAuth 2.0 client secret that was created for the app used for authentication.
          * 
-         * !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+         * !&gt; **Note:** A setting with this name must exist in `app_settings` to function correctly.
          * 
          * @return builder
          * 

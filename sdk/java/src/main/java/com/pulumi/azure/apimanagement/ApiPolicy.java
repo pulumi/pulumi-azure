@@ -70,6 +70,13 @@ import javax.annotation.Nullable;
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
+ * ## API Providers
+ * 
+ * &lt;!-- This section is generated, changes will be overwritten --&gt;
+ * This resource uses the following Azure API Providers:
+ * 
+ * * `Microsoft.ApiManagement`: 2022-08-01
+ * 
  * ## Import
  * 
  * API Management API Policy can be imported using the `resource id`, e.g.
@@ -123,17 +130,9 @@ public class ApiPolicy extends com.pulumi.resources.CustomResource {
     public Output<String> resourceGroupName() {
         return this.resourceGroupName;
     }
-    /**
-     * The XML Content for this Policy as a string.
-     * 
-     */
     @Export(name="xmlContent", refs={String.class}, tree="[0]")
     private Output<String> xmlContent;
 
-    /**
-     * @return The XML Content for this Policy as a string.
-     * 
-     */
     public Output<String> xmlContent() {
         return this.xmlContent;
     }

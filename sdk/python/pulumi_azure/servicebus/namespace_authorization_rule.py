@@ -29,11 +29,11 @@ class NamespaceAuthorizationRuleArgs:
         The set of arguments for constructing a NamespaceAuthorizationRule resource.
         :param pulumi.Input[builtins.str] namespace_id: Specifies the ID of the ServiceBus Namespace. Changing this forces a new resource to be created.
                
-               > **NOTE** At least one of the 3 permissions below needs to be set.
-        :param pulumi.Input[builtins.bool] listen: Grants listen access to this this Authorization Rule. Defaults to `false`.
-        :param pulumi.Input[builtins.bool] manage: Grants manage access to this this Authorization Rule. When this property is `true` - both `listen` and `send` must be too. Defaults to `false`.
+               > **Note:** At least one of the 3 permissions below needs to be set.
+        :param pulumi.Input[builtins.bool] listen: Grants listen access to this Authorization Rule. Defaults to `false`.
+        :param pulumi.Input[builtins.bool] manage: Grants manage access to this Authorization Rule. When this property is `true` - both `listen` and `send` must be too. Defaults to `false`.
         :param pulumi.Input[builtins.str] name: Specifies the name of the ServiceBus Namespace Authorization Rule resource. Changing this forces a new resource to be created.
-        :param pulumi.Input[builtins.bool] send: Grants send access to this this Authorization Rule. Defaults to `false`.
+        :param pulumi.Input[builtins.bool] send: Grants send access to this Authorization Rule. Defaults to `false`.
         """
         pulumi.set(__self__, "namespace_id", namespace_id)
         if listen is not None:
@@ -51,7 +51,7 @@ class NamespaceAuthorizationRuleArgs:
         """
         Specifies the ID of the ServiceBus Namespace. Changing this forces a new resource to be created.
 
-        > **NOTE** At least one of the 3 permissions below needs to be set.
+        > **Note:** At least one of the 3 permissions below needs to be set.
         """
         return pulumi.get(self, "namespace_id")
 
@@ -63,7 +63,7 @@ class NamespaceAuthorizationRuleArgs:
     @pulumi.getter
     def listen(self) -> Optional[pulumi.Input[builtins.bool]]:
         """
-        Grants listen access to this this Authorization Rule. Defaults to `false`.
+        Grants listen access to this Authorization Rule. Defaults to `false`.
         """
         return pulumi.get(self, "listen")
 
@@ -75,7 +75,7 @@ class NamespaceAuthorizationRuleArgs:
     @pulumi.getter
     def manage(self) -> Optional[pulumi.Input[builtins.bool]]:
         """
-        Grants manage access to this this Authorization Rule. When this property is `true` - both `listen` and `send` must be too. Defaults to `false`.
+        Grants manage access to this Authorization Rule. When this property is `true` - both `listen` and `send` must be too. Defaults to `false`.
         """
         return pulumi.get(self, "manage")
 
@@ -99,7 +99,7 @@ class NamespaceAuthorizationRuleArgs:
     @pulumi.getter
     def send(self) -> Optional[pulumi.Input[builtins.bool]]:
         """
-        Grants send access to this this Authorization Rule. Defaults to `false`.
+        Grants send access to this Authorization Rule. Defaults to `false`.
         """
         return pulumi.get(self, "send")
 
@@ -124,19 +124,19 @@ class _NamespaceAuthorizationRuleState:
                  send: Optional[pulumi.Input[builtins.bool]] = None):
         """
         Input properties used for looking up and filtering NamespaceAuthorizationRule resources.
-        :param pulumi.Input[builtins.bool] listen: Grants listen access to this this Authorization Rule. Defaults to `false`.
-        :param pulumi.Input[builtins.bool] manage: Grants manage access to this this Authorization Rule. When this property is `true` - both `listen` and `send` must be too. Defaults to `false`.
+        :param pulumi.Input[builtins.bool] listen: Grants listen access to this Authorization Rule. Defaults to `false`.
+        :param pulumi.Input[builtins.bool] manage: Grants manage access to this Authorization Rule. When this property is `true` - both `listen` and `send` must be too. Defaults to `false`.
         :param pulumi.Input[builtins.str] name: Specifies the name of the ServiceBus Namespace Authorization Rule resource. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] namespace_id: Specifies the ID of the ServiceBus Namespace. Changing this forces a new resource to be created.
                
-               > **NOTE** At least one of the 3 permissions below needs to be set.
+               > **Note:** At least one of the 3 permissions below needs to be set.
         :param pulumi.Input[builtins.str] primary_connection_string: The Primary Connection String for the ServiceBus Namespace authorization Rule.
         :param pulumi.Input[builtins.str] primary_connection_string_alias: The alias Primary Connection String for the ServiceBus Namespace, if the namespace is Geo DR paired.
         :param pulumi.Input[builtins.str] primary_key: The Primary Key for the ServiceBus Namespace authorization Rule.
         :param pulumi.Input[builtins.str] secondary_connection_string: The Secondary Connection String for the ServiceBus Namespace authorization Rule.
         :param pulumi.Input[builtins.str] secondary_connection_string_alias: The alias Secondary Connection String for the ServiceBus Namespace
         :param pulumi.Input[builtins.str] secondary_key: The Secondary Key for the ServiceBus Namespace authorization Rule.
-        :param pulumi.Input[builtins.bool] send: Grants send access to this this Authorization Rule. Defaults to `false`.
+        :param pulumi.Input[builtins.bool] send: Grants send access to this Authorization Rule. Defaults to `false`.
         """
         if listen is not None:
             pulumi.set(__self__, "listen", listen)
@@ -165,7 +165,7 @@ class _NamespaceAuthorizationRuleState:
     @pulumi.getter
     def listen(self) -> Optional[pulumi.Input[builtins.bool]]:
         """
-        Grants listen access to this this Authorization Rule. Defaults to `false`.
+        Grants listen access to this Authorization Rule. Defaults to `false`.
         """
         return pulumi.get(self, "listen")
 
@@ -177,7 +177,7 @@ class _NamespaceAuthorizationRuleState:
     @pulumi.getter
     def manage(self) -> Optional[pulumi.Input[builtins.bool]]:
         """
-        Grants manage access to this this Authorization Rule. When this property is `true` - both `listen` and `send` must be too. Defaults to `false`.
+        Grants manage access to this Authorization Rule. When this property is `true` - both `listen` and `send` must be too. Defaults to `false`.
         """
         return pulumi.get(self, "manage")
 
@@ -203,7 +203,7 @@ class _NamespaceAuthorizationRuleState:
         """
         Specifies the ID of the ServiceBus Namespace. Changing this forces a new resource to be created.
 
-        > **NOTE** At least one of the 3 permissions below needs to be set.
+        > **Note:** At least one of the 3 permissions below needs to be set.
         """
         return pulumi.get(self, "namespace_id")
 
@@ -287,7 +287,7 @@ class _NamespaceAuthorizationRuleState:
     @pulumi.getter
     def send(self) -> Optional[pulumi.Input[builtins.bool]]:
         """
-        Grants send access to this this Authorization Rule. Defaults to `false`.
+        Grants send access to this Authorization Rule. Defaults to `false`.
         """
         return pulumi.get(self, "send")
 
@@ -318,15 +318,15 @@ class NamespaceAuthorizationRule(pulumi.CustomResource):
         import pulumi_azure as azure
 
         example = azure.core.ResourceGroup("example",
-            name="my-servicebus",
-            location="West US")
+            name="terraform-servicebus",
+            location="West Europe")
         example_namespace = azure.servicebus.Namespace("example",
             name="tfex-servicebus-namespace",
             location=example.location,
             resource_group_name=example.name,
             sku="Standard",
             tags={
-                "source": "example",
+                "source": "terraform",
             })
         example_namespace_authorization_rule = azure.servicebus.NamespaceAuthorizationRule("example",
             name="examplerule",
@@ -346,13 +346,13 @@ class NamespaceAuthorizationRule(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[builtins.bool] listen: Grants listen access to this this Authorization Rule. Defaults to `false`.
-        :param pulumi.Input[builtins.bool] manage: Grants manage access to this this Authorization Rule. When this property is `true` - both `listen` and `send` must be too. Defaults to `false`.
+        :param pulumi.Input[builtins.bool] listen: Grants listen access to this Authorization Rule. Defaults to `false`.
+        :param pulumi.Input[builtins.bool] manage: Grants manage access to this Authorization Rule. When this property is `true` - both `listen` and `send` must be too. Defaults to `false`.
         :param pulumi.Input[builtins.str] name: Specifies the name of the ServiceBus Namespace Authorization Rule resource. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] namespace_id: Specifies the ID of the ServiceBus Namespace. Changing this forces a new resource to be created.
                
-               > **NOTE** At least one of the 3 permissions below needs to be set.
-        :param pulumi.Input[builtins.bool] send: Grants send access to this this Authorization Rule. Defaults to `false`.
+               > **Note:** At least one of the 3 permissions below needs to be set.
+        :param pulumi.Input[builtins.bool] send: Grants send access to this Authorization Rule. Defaults to `false`.
         """
         ...
     @overload
@@ -370,15 +370,15 @@ class NamespaceAuthorizationRule(pulumi.CustomResource):
         import pulumi_azure as azure
 
         example = azure.core.ResourceGroup("example",
-            name="my-servicebus",
-            location="West US")
+            name="terraform-servicebus",
+            location="West Europe")
         example_namespace = azure.servicebus.Namespace("example",
             name="tfex-servicebus-namespace",
             location=example.location,
             resource_group_name=example.name,
             sku="Standard",
             tags={
-                "source": "example",
+                "source": "terraform",
             })
         example_namespace_authorization_rule = azure.servicebus.NamespaceAuthorizationRule("example",
             name="examplerule",
@@ -470,19 +470,19 @@ class NamespaceAuthorizationRule(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[builtins.bool] listen: Grants listen access to this this Authorization Rule. Defaults to `false`.
-        :param pulumi.Input[builtins.bool] manage: Grants manage access to this this Authorization Rule. When this property is `true` - both `listen` and `send` must be too. Defaults to `false`.
+        :param pulumi.Input[builtins.bool] listen: Grants listen access to this Authorization Rule. Defaults to `false`.
+        :param pulumi.Input[builtins.bool] manage: Grants manage access to this Authorization Rule. When this property is `true` - both `listen` and `send` must be too. Defaults to `false`.
         :param pulumi.Input[builtins.str] name: Specifies the name of the ServiceBus Namespace Authorization Rule resource. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] namespace_id: Specifies the ID of the ServiceBus Namespace. Changing this forces a new resource to be created.
                
-               > **NOTE** At least one of the 3 permissions below needs to be set.
+               > **Note:** At least one of the 3 permissions below needs to be set.
         :param pulumi.Input[builtins.str] primary_connection_string: The Primary Connection String for the ServiceBus Namespace authorization Rule.
         :param pulumi.Input[builtins.str] primary_connection_string_alias: The alias Primary Connection String for the ServiceBus Namespace, if the namespace is Geo DR paired.
         :param pulumi.Input[builtins.str] primary_key: The Primary Key for the ServiceBus Namespace authorization Rule.
         :param pulumi.Input[builtins.str] secondary_connection_string: The Secondary Connection String for the ServiceBus Namespace authorization Rule.
         :param pulumi.Input[builtins.str] secondary_connection_string_alias: The alias Secondary Connection String for the ServiceBus Namespace
         :param pulumi.Input[builtins.str] secondary_key: The Secondary Key for the ServiceBus Namespace authorization Rule.
-        :param pulumi.Input[builtins.bool] send: Grants send access to this this Authorization Rule. Defaults to `false`.
+        :param pulumi.Input[builtins.bool] send: Grants send access to this Authorization Rule. Defaults to `false`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -505,7 +505,7 @@ class NamespaceAuthorizationRule(pulumi.CustomResource):
     @pulumi.getter
     def listen(self) -> pulumi.Output[Optional[builtins.bool]]:
         """
-        Grants listen access to this this Authorization Rule. Defaults to `false`.
+        Grants listen access to this Authorization Rule. Defaults to `false`.
         """
         return pulumi.get(self, "listen")
 
@@ -513,7 +513,7 @@ class NamespaceAuthorizationRule(pulumi.CustomResource):
     @pulumi.getter
     def manage(self) -> pulumi.Output[Optional[builtins.bool]]:
         """
-        Grants manage access to this this Authorization Rule. When this property is `true` - both `listen` and `send` must be too. Defaults to `false`.
+        Grants manage access to this Authorization Rule. When this property is `true` - both `listen` and `send` must be too. Defaults to `false`.
         """
         return pulumi.get(self, "manage")
 
@@ -531,7 +531,7 @@ class NamespaceAuthorizationRule(pulumi.CustomResource):
         """
         Specifies the ID of the ServiceBus Namespace. Changing this forces a new resource to be created.
 
-        > **NOTE** At least one of the 3 permissions below needs to be set.
+        > **Note:** At least one of the 3 permissions below needs to be set.
         """
         return pulumi.get(self, "namespace_id")
 
@@ -587,7 +587,7 @@ class NamespaceAuthorizationRule(pulumi.CustomResource):
     @pulumi.getter
     def send(self) -> pulumi.Output[Optional[builtins.bool]]:
         """
-        Grants send access to this this Authorization Rule. Defaults to `false`.
+        Grants send access to this Authorization Rule. Defaults to `false`.
         """
         return pulumi.get(self, "send")
 

@@ -49,8 +49,8 @@ public final class LinuxVirtualMachineState extends com.pulumi.resources.Resourc
     /**
      * The Password which should be used for the local-administrator on this Virtual Machine. Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE:** When an `admin_password` is specified `disable_password_authentication` must be set to `false`.
-     * **NOTE:** One of either `admin_password` or `admin_ssh_key` must be specified.
+     * &gt; **Note:** When an `admin_password` is specified `disable_password_authentication` must be set to `false`.
+     * **Note:** One of either `admin_password` or `admin_ssh_key` must be specified.
      * 
      */
     @Import(name="adminPassword")
@@ -59,8 +59,8 @@ public final class LinuxVirtualMachineState extends com.pulumi.resources.Resourc
     /**
      * @return The Password which should be used for the local-administrator on this Virtual Machine. Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE:** When an `admin_password` is specified `disable_password_authentication` must be set to `false`.
-     * **NOTE:** One of either `admin_password` or `admin_ssh_key` must be specified.
+     * &gt; **Note:** When an `admin_password` is specified `disable_password_authentication` must be set to `false`.
+     * **Note:** One of either `admin_password` or `admin_ssh_key` must be specified.
      * 
      */
     public Optional<Output<String>> adminPassword() {
@@ -70,7 +70,7 @@ public final class LinuxVirtualMachineState extends com.pulumi.resources.Resourc
     /**
      * One or more `admin_ssh_key` blocks as defined below. Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE:** One of either `admin_password` or `admin_ssh_key` must be specified.
+     * &gt; **Note:** One of either `admin_password` or `admin_ssh_key` must be specified.
      * 
      */
     @Import(name="adminSshKeys")
@@ -79,7 +79,7 @@ public final class LinuxVirtualMachineState extends com.pulumi.resources.Resourc
     /**
      * @return One or more `admin_ssh_key` blocks as defined below. Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE:** One of either `admin_password` or `admin_ssh_key` must be specified.
+     * &gt; **Note:** One of either `admin_password` or `admin_ssh_key` must be specified.
      * 
      */
     public Optional<Output<List<LinuxVirtualMachineAdminSshKeyArgs>>> adminSshKeys() {
@@ -149,7 +149,7 @@ public final class LinuxVirtualMachineState extends com.pulumi.resources.Resourc
     /**
      * Specifies whether to skip platform scheduled patching when a user schedule is associated with the VM. Defaults to `false`.
      * 
-     * &gt; **NOTE:** `bypass_platform_safety_checks_on_user_schedule_enabled` can only be set to `true` when `patch_mode` is set to `AutomaticByPlatform`.
+     * &gt; **Note:** `bypass_platform_safety_checks_on_user_schedule_enabled` can only be set to `true` when `patch_mode` is set to `AutomaticByPlatform`.
      * 
      */
     @Import(name="bypassPlatformSafetyChecksOnUserScheduleEnabled")
@@ -158,7 +158,7 @@ public final class LinuxVirtualMachineState extends com.pulumi.resources.Resourc
     /**
      * @return Specifies whether to skip platform scheduled patching when a user schedule is associated with the VM. Defaults to `false`.
      * 
-     * &gt; **NOTE:** `bypass_platform_safety_checks_on_user_schedule_enabled` can only be set to `true` when `patch_mode` is set to `AutomaticByPlatform`.
+     * &gt; **Note:** `bypass_platform_safety_checks_on_user_schedule_enabled` can only be set to `true` when `patch_mode` is set to `AutomaticByPlatform`.
      * 
      */
     public Optional<Output<Boolean>> bypassPlatformSafetyChecksOnUserScheduleEnabled() {
@@ -168,7 +168,7 @@ public final class LinuxVirtualMachineState extends com.pulumi.resources.Resourc
     /**
      * Specifies the ID of the Capacity Reservation Group which the Virtual Machine should be allocated to.
      * 
-     * &gt; **NOTE:** `capacity_reservation_group_id` cannot be used with `availability_set_id` or `proximity_placement_group_id`
+     * &gt; **Note:** `capacity_reservation_group_id` cannot be used with `availability_set_id` or `proximity_placement_group_id`
      * 
      */
     @Import(name="capacityReservationGroupId")
@@ -177,7 +177,7 @@ public final class LinuxVirtualMachineState extends com.pulumi.resources.Resourc
     /**
      * @return Specifies the ID of the Capacity Reservation Group which the Virtual Machine should be allocated to.
      * 
-     * &gt; **NOTE:** `capacity_reservation_group_id` cannot be used with `availability_set_id` or `proximity_placement_group_id`
+     * &gt; **Note:** `capacity_reservation_group_id` cannot be used with `availability_set_id` or `proximity_placement_group_id`
      * 
      */
     public Optional<Output<String>> capacityReservationGroupId() {
@@ -247,9 +247,9 @@ public final class LinuxVirtualMachineState extends com.pulumi.resources.Resourc
     /**
      * Should Password Authentication be disabled on this Virtual Machine? Defaults to `true`. Changing this forces a new resource to be created.
      * 
-     * &gt; In general we&#39;d recommend using SSH Keys for authentication rather than Passwords - but there&#39;s tradeoff&#39;s to each - please [see this thread for more information](https://security.stackexchange.com/questions/69407/why-is-using-an-ssh-key-more-secure-than-using-passwords).
+     * &gt; **Note:** In general we&#39;d recommend using SSH Keys for authentication rather than Passwords - but there&#39;s tradeoff&#39;s to each - please [see this thread for more information](https://security.stackexchange.com/questions/69407/why-is-using-an-ssh-key-more-secure-than-using-passwords).
      * 
-     * &gt; **NOTE:** When an `admin_password` is specified `disable_password_authentication` must be set to `false`.
+     * &gt; **Note:** When an `admin_password` is specified `disable_password_authentication` must be set to `false`.
      * 
      */
     @Import(name="disablePasswordAuthentication")
@@ -258,9 +258,9 @@ public final class LinuxVirtualMachineState extends com.pulumi.resources.Resourc
     /**
      * @return Should Password Authentication be disabled on this Virtual Machine? Defaults to `true`. Changing this forces a new resource to be created.
      * 
-     * &gt; In general we&#39;d recommend using SSH Keys for authentication rather than Passwords - but there&#39;s tradeoff&#39;s to each - please [see this thread for more information](https://security.stackexchange.com/questions/69407/why-is-using-an-ssh-key-more-secure-than-using-passwords).
+     * &gt; **Note:** In general we&#39;d recommend using SSH Keys for authentication rather than Passwords - but there&#39;s tradeoff&#39;s to each - please [see this thread for more information](https://security.stackexchange.com/questions/69407/why-is-using-an-ssh-key-more-secure-than-using-passwords).
      * 
-     * &gt; **NOTE:** When an `admin_password` is specified `disable_password_authentication` must be set to `false`.
+     * &gt; **Note:** When an `admin_password` is specified `disable_password_authentication` must be set to `false`.
      * 
      */
     public Optional<Output<Boolean>> disablePasswordAuthentication() {
@@ -315,7 +315,7 @@ public final class LinuxVirtualMachineState extends com.pulumi.resources.Resourc
     /**
      * Specifies what should happen when the Virtual Machine is evicted for price reasons when using a Spot instance. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE:** This can only be configured when `priority` is set to `Spot`.
+     * &gt; **Note:** This can only be configured when `priority` is set to `Spot`.
      * 
      */
     @Import(name="evictionPolicy")
@@ -324,7 +324,7 @@ public final class LinuxVirtualMachineState extends com.pulumi.resources.Resourc
     /**
      * @return Specifies what should happen when the Virtual Machine is evicted for price reasons when using a Spot instance. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE:** This can only be configured when `priority` is set to `Spot`.
+     * &gt; **Note:** This can only be configured when `priority` is set to `Spot`.
      * 
      */
     public Optional<Output<String>> evictionPolicy() {
@@ -349,7 +349,7 @@ public final class LinuxVirtualMachineState extends com.pulumi.resources.Resourc
     /**
      * One or more `gallery_application` blocks as defined below.
      * 
-     * &gt; **Note** Gallery Application Assignments can be defined either directly on `azure.compute.LinuxVirtualMachine` resource, or using the `azure.compute.GalleryApplicationAssignment` resource - but the two approaches cannot be used together. If both are used with the same Virtual Machine, spurious changes will occur. If `azure.compute.GalleryApplicationAssignment` is used, it&#39;s recommended to use `ignore_changes` for the `gallery_application` block on the corresponding `azure.compute.LinuxVirtualMachine` resource, to avoid a persistent diff when using this resource.
+     * &gt; **Note:** Gallery Application Assignments can be defined either directly on `azure.compute.LinuxVirtualMachine` resource, or using the `azure.compute.GalleryApplicationAssignment` resource - but the two approaches cannot be used together. If both are used with the same Virtual Machine, spurious changes will occur. If `azure.compute.GalleryApplicationAssignment` is used, it&#39;s recommended to use `ignore_changes` for the `gallery_application` block on the corresponding `azure.compute.LinuxVirtualMachine` resource, to avoid a persistent diff when using this resource.
      * 
      */
     @Import(name="galleryApplications")
@@ -358,7 +358,7 @@ public final class LinuxVirtualMachineState extends com.pulumi.resources.Resourc
     /**
      * @return One or more `gallery_application` blocks as defined below.
      * 
-     * &gt; **Note** Gallery Application Assignments can be defined either directly on `azure.compute.LinuxVirtualMachine` resource, or using the `azure.compute.GalleryApplicationAssignment` resource - but the two approaches cannot be used together. If both are used with the same Virtual Machine, spurious changes will occur. If `azure.compute.GalleryApplicationAssignment` is used, it&#39;s recommended to use `ignore_changes` for the `gallery_application` block on the corresponding `azure.compute.LinuxVirtualMachine` resource, to avoid a persistent diff when using this resource.
+     * &gt; **Note:** Gallery Application Assignments can be defined either directly on `azure.compute.LinuxVirtualMachine` resource, or using the `azure.compute.GalleryApplicationAssignment` resource - but the two approaches cannot be used together. If both are used with the same Virtual Machine, spurious changes will occur. If `azure.compute.GalleryApplicationAssignment` is used, it&#39;s recommended to use `ignore_changes` for the `gallery_application` block on the corresponding `azure.compute.LinuxVirtualMachine` resource, to avoid a persistent diff when using this resource.
      * 
      */
     public Optional<Output<List<LinuxVirtualMachineGalleryApplicationArgs>>> galleryApplications() {
@@ -413,7 +413,7 @@ public final class LinuxVirtualMachineState extends com.pulumi.resources.Resourc
     /**
      * The maximum price you&#39;re willing to pay for this Virtual Machine, in US Dollars; which must be greater than the current spot price. If this bid price falls below the current spot price the Virtual Machine will be evicted using the `eviction_policy`. Defaults to `-1`, which means that the Virtual Machine should not be evicted for price reasons.
      * 
-     * &gt; **NOTE:** This can only be configured when `priority` is set to `Spot`.
+     * &gt; **Note:** This can only be configured when `priority` is set to `Spot`.
      * 
      */
     @Import(name="maxBidPrice")
@@ -422,7 +422,7 @@ public final class LinuxVirtualMachineState extends com.pulumi.resources.Resourc
     /**
      * @return The maximum price you&#39;re willing to pay for this Virtual Machine, in US Dollars; which must be greater than the current spot price. If this bid price falls below the current spot price the Virtual Machine will be evicted using the `eviction_policy`. Defaults to `-1`, which means that the Virtual Machine should not be evicted for price reasons.
      * 
-     * &gt; **NOTE:** This can only be configured when `priority` is set to `Spot`.
+     * &gt; **Note:** This can only be configured when `priority` is set to `Spot`.
      * 
      */
     public Optional<Output<Double>> maxBidPrice() {
@@ -492,7 +492,7 @@ public final class LinuxVirtualMachineState extends com.pulumi.resources.Resourc
     /**
      * Specifies the mode of VM Guest Patching for the Virtual Machine. Possible values are `AutomaticByPlatform` or `ImageDefault`. Defaults to `ImageDefault`.
      * 
-     * &gt; **NOTE:** If the `patch_assessment_mode` is set to `AutomaticByPlatform` then the `provision_vm_agent` field must be set to `true`.
+     * &gt; **Note:** If the `patch_assessment_mode` is set to `AutomaticByPlatform` then the `provision_vm_agent` field must be set to `true`.
      * 
      */
     @Import(name="patchAssessmentMode")
@@ -501,7 +501,7 @@ public final class LinuxVirtualMachineState extends com.pulumi.resources.Resourc
     /**
      * @return Specifies the mode of VM Guest Patching for the Virtual Machine. Possible values are `AutomaticByPlatform` or `ImageDefault`. Defaults to `ImageDefault`.
      * 
-     * &gt; **NOTE:** If the `patch_assessment_mode` is set to `AutomaticByPlatform` then the `provision_vm_agent` field must be set to `true`.
+     * &gt; **Note:** If the `patch_assessment_mode` is set to `AutomaticByPlatform` then the `provision_vm_agent` field must be set to `true`.
      * 
      */
     public Optional<Output<String>> patchAssessmentMode() {
@@ -511,7 +511,7 @@ public final class LinuxVirtualMachineState extends com.pulumi.resources.Resourc
     /**
      * Specifies the mode of in-guest patching to this Linux Virtual Machine. Possible values are `AutomaticByPlatform` and `ImageDefault`. Defaults to `ImageDefault`. For more information on patch modes please see the [product documentation](https://docs.microsoft.com/azure/virtual-machines/automatic-vm-guest-patching#patch-orchestration-modes).
      * 
-     * &gt; **NOTE:** If `patch_mode` is set to `AutomaticByPlatform` then `provision_vm_agent` must also be set to `true`.
+     * &gt; **Note:** If `patch_mode` is set to `AutomaticByPlatform` then `provision_vm_agent` must also be set to `true`.
      * 
      */
     @Import(name="patchMode")
@@ -520,7 +520,7 @@ public final class LinuxVirtualMachineState extends com.pulumi.resources.Resourc
     /**
      * @return Specifies the mode of in-guest patching to this Linux Virtual Machine. Possible values are `AutomaticByPlatform` and `ImageDefault`. Defaults to `ImageDefault`. For more information on patch modes please see the [product documentation](https://docs.microsoft.com/azure/virtual-machines/automatic-vm-guest-patching#patch-orchestration-modes).
      * 
-     * &gt; **NOTE:** If `patch_mode` is set to `AutomaticByPlatform` then `provision_vm_agent` must also be set to `true`.
+     * &gt; **Note:** If `patch_mode` is set to `AutomaticByPlatform` then `provision_vm_agent` must also be set to `true`.
      * 
      */
     public Optional<Output<String>> patchMode() {
@@ -605,7 +605,7 @@ public final class LinuxVirtualMachineState extends com.pulumi.resources.Resourc
     /**
      * Should the Azure VM Agent be provisioned on this Virtual Machine? Defaults to `true`. Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE:** If `provision_vm_agent` is set to `false` then `allow_extension_operations` must also be set to `false`.
+     * &gt; **Note:** If `provision_vm_agent` is set to `false` then `allow_extension_operations` must also be set to `false`.
      * 
      */
     @Import(name="provisionVmAgent")
@@ -614,7 +614,7 @@ public final class LinuxVirtualMachineState extends com.pulumi.resources.Resourc
     /**
      * @return Should the Azure VM Agent be provisioned on this Virtual Machine? Defaults to `true`. Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE:** If `provision_vm_agent` is set to `false` then `allow_extension_operations` must also be set to `false`.
+     * &gt; **Note:** If `provision_vm_agent` is set to `false` then `allow_extension_operations` must also be set to `false`.
      * 
      */
     public Optional<Output<Boolean>> provisionVmAgent() {
@@ -669,7 +669,7 @@ public final class LinuxVirtualMachineState extends com.pulumi.resources.Resourc
     /**
      * Specifies the reboot setting for platform scheduled patching. Possible values are `Always`, `IfRequired` and `Never`.
      * 
-     * &gt; **NOTE:** `reboot_setting` can only be set when `patch_mode` is set to `AutomaticByPlatform`.
+     * &gt; **Note:** `reboot_setting` can only be set when `patch_mode` is set to `AutomaticByPlatform`.
      * 
      */
     @Import(name="rebootSetting")
@@ -678,7 +678,7 @@ public final class LinuxVirtualMachineState extends com.pulumi.resources.Resourc
     /**
      * @return Specifies the reboot setting for platform scheduled patching. Possible values are `Always`, `IfRequired` and `Never`.
      * 
-     * &gt; **NOTE:** `reboot_setting` can only be set when `patch_mode` is set to `AutomaticByPlatform`.
+     * &gt; **Note:** `reboot_setting` can only be set when `patch_mode` is set to `AutomaticByPlatform`.
      * 
      */
     public Optional<Output<String>> rebootSetting() {
@@ -748,7 +748,7 @@ public final class LinuxVirtualMachineState extends com.pulumi.resources.Resourc
     /**
      * The ID of the Image which this Virtual Machine should be created from. Changing this forces a new resource to be created. Possible Image ID types include `Image ID`s, `Shared Image ID`s, `Shared Image Version ID`s, `Community Gallery Image ID`s, `Community Gallery Image Version ID`s, `Shared Gallery Image ID`s and `Shared Gallery Image Version ID`s.
      * 
-     * &gt; **NOTE:** One of either `source_image_id` or `source_image_reference` must be set.
+     * &gt; **Note:** One of either `source_image_id` or `source_image_reference` must be set.
      * 
      */
     @Import(name="sourceImageId")
@@ -757,7 +757,7 @@ public final class LinuxVirtualMachineState extends com.pulumi.resources.Resourc
     /**
      * @return The ID of the Image which this Virtual Machine should be created from. Changing this forces a new resource to be created. Possible Image ID types include `Image ID`s, `Shared Image ID`s, `Shared Image Version ID`s, `Community Gallery Image ID`s, `Community Gallery Image Version ID`s, `Shared Gallery Image ID`s and `Shared Gallery Image Version ID`s.
      * 
-     * &gt; **NOTE:** One of either `source_image_id` or `source_image_reference` must be set.
+     * &gt; **Note:** One of either `source_image_id` or `source_image_reference` must be set.
      * 
      */
     public Optional<Output<String>> sourceImageId() {
@@ -767,7 +767,7 @@ public final class LinuxVirtualMachineState extends com.pulumi.resources.Resourc
     /**
      * A `source_image_reference` block as defined below. Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE:** One of either `source_image_id` or `source_image_reference` must be set.
+     * &gt; **Note:** One of either `source_image_id` or `source_image_reference` must be set.
      * 
      */
     @Import(name="sourceImageReference")
@@ -776,7 +776,7 @@ public final class LinuxVirtualMachineState extends com.pulumi.resources.Resourc
     /**
      * @return A `source_image_reference` block as defined below. Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE:** One of either `source_image_id` or `source_image_reference` must be set.
+     * &gt; **Note:** One of either `source_image_id` or `source_image_reference` must be set.
      * 
      */
     public Optional<Output<LinuxVirtualMachineSourceImageReferenceArgs>> sourceImageReference() {
@@ -846,11 +846,11 @@ public final class LinuxVirtualMachineState extends com.pulumi.resources.Resourc
     /**
      * Specifies the Orchestrated Virtual Machine Scale Set that this Virtual Machine should be created within.
      * 
-     * &gt; **NOTE:** To update `virtual_machine_scale_set_id` the Preview Feature `Microsoft.Compute/SingleFDAttachDetachVMToVmss` needs to be enabled, see [the documentation](https://review.learn.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-attach-detach-vm#enroll-in-the-preview) for more information.
+     * &gt; **Note:** To update `virtual_machine_scale_set_id` the Preview Feature `Microsoft.Compute/SingleFDAttachDetachVMToVmss` needs to be enabled, see [the documentation](https://review.learn.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-attach-detach-vm#enroll-in-the-preview) for more information.
      * 
-     * &gt; **NOTE:** Orchestrated Virtual Machine Scale Sets can be provisioned using [the `azure.compute.OrchestratedVirtualMachineScaleSet` resource](https://www.terraform.io/docs/providers/azurerm/r/orchestrated_virtual_machine_scale_set.html).
+     * &gt; **Note:** Orchestrated Virtual Machine Scale Sets can be provisioned using [the `azure.compute.OrchestratedVirtualMachineScaleSet` resource](https://www.terraform.io/docs/providers/azurerm/r/orchestrated_virtual_machine_scale_set.html).
      * 
-     * &gt; **NOTE:** To attach an existing VM to a Virtual Machine Scale Set, the scale set must have `single_placement_group` set to `false`, see [the documentation](https://learn.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-attach-detach-vm?tabs=portal-1%2Cportal-2%2Cportal-3#limitations-for-attaching-an-existing-vm-to-a-scale-set) for more information.
+     * &gt; **Note:** To attach an existing VM to a Virtual Machine Scale Set, the scale set must have `single_placement_group` set to `false`, see [the documentation](https://learn.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-attach-detach-vm?tabs=portal-1%2Cportal-2%2Cportal-3#limitations-for-attaching-an-existing-vm-to-a-scale-set) for more information.
      * 
      */
     @Import(name="virtualMachineScaleSetId")
@@ -859,11 +859,11 @@ public final class LinuxVirtualMachineState extends com.pulumi.resources.Resourc
     /**
      * @return Specifies the Orchestrated Virtual Machine Scale Set that this Virtual Machine should be created within.
      * 
-     * &gt; **NOTE:** To update `virtual_machine_scale_set_id` the Preview Feature `Microsoft.Compute/SingleFDAttachDetachVMToVmss` needs to be enabled, see [the documentation](https://review.learn.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-attach-detach-vm#enroll-in-the-preview) for more information.
+     * &gt; **Note:** To update `virtual_machine_scale_set_id` the Preview Feature `Microsoft.Compute/SingleFDAttachDetachVMToVmss` needs to be enabled, see [the documentation](https://review.learn.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-attach-detach-vm#enroll-in-the-preview) for more information.
      * 
-     * &gt; **NOTE:** Orchestrated Virtual Machine Scale Sets can be provisioned using [the `azure.compute.OrchestratedVirtualMachineScaleSet` resource](https://www.terraform.io/docs/providers/azurerm/r/orchestrated_virtual_machine_scale_set.html).
+     * &gt; **Note:** Orchestrated Virtual Machine Scale Sets can be provisioned using [the `azure.compute.OrchestratedVirtualMachineScaleSet` resource](https://www.terraform.io/docs/providers/azurerm/r/orchestrated_virtual_machine_scale_set.html).
      * 
-     * &gt; **NOTE:** To attach an existing VM to a Virtual Machine Scale Set, the scale set must have `single_placement_group` set to `false`, see [the documentation](https://learn.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-attach-detach-vm?tabs=portal-1%2Cportal-2%2Cportal-3#limitations-for-attaching-an-existing-vm-to-a-scale-set) for more information.
+     * &gt; **Note:** To attach an existing VM to a Virtual Machine Scale Set, the scale set must have `single_placement_group` set to `false`, see [the documentation](https://learn.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-attach-detach-vm?tabs=portal-1%2Cportal-2%2Cportal-3#limitations-for-attaching-an-existing-vm-to-a-scale-set) for more information.
      * 
      */
     public Optional<Output<String>> virtualMachineScaleSetId() {
@@ -871,16 +871,24 @@ public final class LinuxVirtualMachineState extends com.pulumi.resources.Resourc
     }
 
     /**
-     * Specifies whether VMAgent Platform Updates is enabled. Defaults to `false`.
+     * Are Virtual Machine Agent Platform Updates `enabled` on this Virtual Machine?
+     * 
+     * @deprecated
+     * this property has been deprecated due to a breaking change introduced by the Service team, which redefined it as a read-only field within the API
      * 
      */
+    @Deprecated /* this property has been deprecated due to a breaking change introduced by the Service team, which redefined it as a read-only field within the API */
     @Import(name="vmAgentPlatformUpdatesEnabled")
     private @Nullable Output<Boolean> vmAgentPlatformUpdatesEnabled;
 
     /**
-     * @return Specifies whether VMAgent Platform Updates is enabled. Defaults to `false`.
+     * @return Are Virtual Machine Agent Platform Updates `enabled` on this Virtual Machine?
+     * 
+     * @deprecated
+     * this property has been deprecated due to a breaking change introduced by the Service team, which redefined it as a read-only field within the API
      * 
      */
+    @Deprecated /* this property has been deprecated due to a breaking change introduced by the Service team, which redefined it as a read-only field within the API */
     public Optional<Output<Boolean>> vmAgentPlatformUpdatesEnabled() {
         return Optional.ofNullable(this.vmAgentPlatformUpdatesEnabled);
     }
@@ -1016,8 +1024,8 @@ public final class LinuxVirtualMachineState extends com.pulumi.resources.Resourc
         /**
          * @param adminPassword The Password which should be used for the local-administrator on this Virtual Machine. Changing this forces a new resource to be created.
          * 
-         * &gt; **NOTE:** When an `admin_password` is specified `disable_password_authentication` must be set to `false`.
-         * **NOTE:** One of either `admin_password` or `admin_ssh_key` must be specified.
+         * &gt; **Note:** When an `admin_password` is specified `disable_password_authentication` must be set to `false`.
+         * **Note:** One of either `admin_password` or `admin_ssh_key` must be specified.
          * 
          * @return builder
          * 
@@ -1030,8 +1038,8 @@ public final class LinuxVirtualMachineState extends com.pulumi.resources.Resourc
         /**
          * @param adminPassword The Password which should be used for the local-administrator on this Virtual Machine. Changing this forces a new resource to be created.
          * 
-         * &gt; **NOTE:** When an `admin_password` is specified `disable_password_authentication` must be set to `false`.
-         * **NOTE:** One of either `admin_password` or `admin_ssh_key` must be specified.
+         * &gt; **Note:** When an `admin_password` is specified `disable_password_authentication` must be set to `false`.
+         * **Note:** One of either `admin_password` or `admin_ssh_key` must be specified.
          * 
          * @return builder
          * 
@@ -1043,7 +1051,7 @@ public final class LinuxVirtualMachineState extends com.pulumi.resources.Resourc
         /**
          * @param adminSshKeys One or more `admin_ssh_key` blocks as defined below. Changing this forces a new resource to be created.
          * 
-         * &gt; **NOTE:** One of either `admin_password` or `admin_ssh_key` must be specified.
+         * &gt; **Note:** One of either `admin_password` or `admin_ssh_key` must be specified.
          * 
          * @return builder
          * 
@@ -1056,7 +1064,7 @@ public final class LinuxVirtualMachineState extends com.pulumi.resources.Resourc
         /**
          * @param adminSshKeys One or more `admin_ssh_key` blocks as defined below. Changing this forces a new resource to be created.
          * 
-         * &gt; **NOTE:** One of either `admin_password` or `admin_ssh_key` must be specified.
+         * &gt; **Note:** One of either `admin_password` or `admin_ssh_key` must be specified.
          * 
          * @return builder
          * 
@@ -1068,7 +1076,7 @@ public final class LinuxVirtualMachineState extends com.pulumi.resources.Resourc
         /**
          * @param adminSshKeys One or more `admin_ssh_key` blocks as defined below. Changing this forces a new resource to be created.
          * 
-         * &gt; **NOTE:** One of either `admin_password` or `admin_ssh_key` must be specified.
+         * &gt; **Note:** One of either `admin_password` or `admin_ssh_key` must be specified.
          * 
          * @return builder
          * 
@@ -1164,7 +1172,7 @@ public final class LinuxVirtualMachineState extends com.pulumi.resources.Resourc
         /**
          * @param bypassPlatformSafetyChecksOnUserScheduleEnabled Specifies whether to skip platform scheduled patching when a user schedule is associated with the VM. Defaults to `false`.
          * 
-         * &gt; **NOTE:** `bypass_platform_safety_checks_on_user_schedule_enabled` can only be set to `true` when `patch_mode` is set to `AutomaticByPlatform`.
+         * &gt; **Note:** `bypass_platform_safety_checks_on_user_schedule_enabled` can only be set to `true` when `patch_mode` is set to `AutomaticByPlatform`.
          * 
          * @return builder
          * 
@@ -1177,7 +1185,7 @@ public final class LinuxVirtualMachineState extends com.pulumi.resources.Resourc
         /**
          * @param bypassPlatformSafetyChecksOnUserScheduleEnabled Specifies whether to skip platform scheduled patching when a user schedule is associated with the VM. Defaults to `false`.
          * 
-         * &gt; **NOTE:** `bypass_platform_safety_checks_on_user_schedule_enabled` can only be set to `true` when `patch_mode` is set to `AutomaticByPlatform`.
+         * &gt; **Note:** `bypass_platform_safety_checks_on_user_schedule_enabled` can only be set to `true` when `patch_mode` is set to `AutomaticByPlatform`.
          * 
          * @return builder
          * 
@@ -1189,7 +1197,7 @@ public final class LinuxVirtualMachineState extends com.pulumi.resources.Resourc
         /**
          * @param capacityReservationGroupId Specifies the ID of the Capacity Reservation Group which the Virtual Machine should be allocated to.
          * 
-         * &gt; **NOTE:** `capacity_reservation_group_id` cannot be used with `availability_set_id` or `proximity_placement_group_id`
+         * &gt; **Note:** `capacity_reservation_group_id` cannot be used with `availability_set_id` or `proximity_placement_group_id`
          * 
          * @return builder
          * 
@@ -1202,7 +1210,7 @@ public final class LinuxVirtualMachineState extends com.pulumi.resources.Resourc
         /**
          * @param capacityReservationGroupId Specifies the ID of the Capacity Reservation Group which the Virtual Machine should be allocated to.
          * 
-         * &gt; **NOTE:** `capacity_reservation_group_id` cannot be used with `availability_set_id` or `proximity_placement_group_id`
+         * &gt; **Note:** `capacity_reservation_group_id` cannot be used with `availability_set_id` or `proximity_placement_group_id`
          * 
          * @return builder
          * 
@@ -1298,9 +1306,9 @@ public final class LinuxVirtualMachineState extends com.pulumi.resources.Resourc
         /**
          * @param disablePasswordAuthentication Should Password Authentication be disabled on this Virtual Machine? Defaults to `true`. Changing this forces a new resource to be created.
          * 
-         * &gt; In general we&#39;d recommend using SSH Keys for authentication rather than Passwords - but there&#39;s tradeoff&#39;s to each - please [see this thread for more information](https://security.stackexchange.com/questions/69407/why-is-using-an-ssh-key-more-secure-than-using-passwords).
+         * &gt; **Note:** In general we&#39;d recommend using SSH Keys for authentication rather than Passwords - but there&#39;s tradeoff&#39;s to each - please [see this thread for more information](https://security.stackexchange.com/questions/69407/why-is-using-an-ssh-key-more-secure-than-using-passwords).
          * 
-         * &gt; **NOTE:** When an `admin_password` is specified `disable_password_authentication` must be set to `false`.
+         * &gt; **Note:** When an `admin_password` is specified `disable_password_authentication` must be set to `false`.
          * 
          * @return builder
          * 
@@ -1313,9 +1321,9 @@ public final class LinuxVirtualMachineState extends com.pulumi.resources.Resourc
         /**
          * @param disablePasswordAuthentication Should Password Authentication be disabled on this Virtual Machine? Defaults to `true`. Changing this forces a new resource to be created.
          * 
-         * &gt; In general we&#39;d recommend using SSH Keys for authentication rather than Passwords - but there&#39;s tradeoff&#39;s to each - please [see this thread for more information](https://security.stackexchange.com/questions/69407/why-is-using-an-ssh-key-more-secure-than-using-passwords).
+         * &gt; **Note:** In general we&#39;d recommend using SSH Keys for authentication rather than Passwords - but there&#39;s tradeoff&#39;s to each - please [see this thread for more information](https://security.stackexchange.com/questions/69407/why-is-using-an-ssh-key-more-secure-than-using-passwords).
          * 
-         * &gt; **NOTE:** When an `admin_password` is specified `disable_password_authentication` must be set to `false`.
+         * &gt; **Note:** When an `admin_password` is specified `disable_password_authentication` must be set to `false`.
          * 
          * @return builder
          * 
@@ -1390,7 +1398,7 @@ public final class LinuxVirtualMachineState extends com.pulumi.resources.Resourc
         /**
          * @param evictionPolicy Specifies what should happen when the Virtual Machine is evicted for price reasons when using a Spot instance. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
          * 
-         * &gt; **NOTE:** This can only be configured when `priority` is set to `Spot`.
+         * &gt; **Note:** This can only be configured when `priority` is set to `Spot`.
          * 
          * @return builder
          * 
@@ -1403,7 +1411,7 @@ public final class LinuxVirtualMachineState extends com.pulumi.resources.Resourc
         /**
          * @param evictionPolicy Specifies what should happen when the Virtual Machine is evicted for price reasons when using a Spot instance. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
          * 
-         * &gt; **NOTE:** This can only be configured when `priority` is set to `Spot`.
+         * &gt; **Note:** This can only be configured when `priority` is set to `Spot`.
          * 
          * @return builder
          * 
@@ -1436,7 +1444,7 @@ public final class LinuxVirtualMachineState extends com.pulumi.resources.Resourc
         /**
          * @param galleryApplications One or more `gallery_application` blocks as defined below.
          * 
-         * &gt; **Note** Gallery Application Assignments can be defined either directly on `azure.compute.LinuxVirtualMachine` resource, or using the `azure.compute.GalleryApplicationAssignment` resource - but the two approaches cannot be used together. If both are used with the same Virtual Machine, spurious changes will occur. If `azure.compute.GalleryApplicationAssignment` is used, it&#39;s recommended to use `ignore_changes` for the `gallery_application` block on the corresponding `azure.compute.LinuxVirtualMachine` resource, to avoid a persistent diff when using this resource.
+         * &gt; **Note:** Gallery Application Assignments can be defined either directly on `azure.compute.LinuxVirtualMachine` resource, or using the `azure.compute.GalleryApplicationAssignment` resource - but the two approaches cannot be used together. If both are used with the same Virtual Machine, spurious changes will occur. If `azure.compute.GalleryApplicationAssignment` is used, it&#39;s recommended to use `ignore_changes` for the `gallery_application` block on the corresponding `azure.compute.LinuxVirtualMachine` resource, to avoid a persistent diff when using this resource.
          * 
          * @return builder
          * 
@@ -1449,7 +1457,7 @@ public final class LinuxVirtualMachineState extends com.pulumi.resources.Resourc
         /**
          * @param galleryApplications One or more `gallery_application` blocks as defined below.
          * 
-         * &gt; **Note** Gallery Application Assignments can be defined either directly on `azure.compute.LinuxVirtualMachine` resource, or using the `azure.compute.GalleryApplicationAssignment` resource - but the two approaches cannot be used together. If both are used with the same Virtual Machine, spurious changes will occur. If `azure.compute.GalleryApplicationAssignment` is used, it&#39;s recommended to use `ignore_changes` for the `gallery_application` block on the corresponding `azure.compute.LinuxVirtualMachine` resource, to avoid a persistent diff when using this resource.
+         * &gt; **Note:** Gallery Application Assignments can be defined either directly on `azure.compute.LinuxVirtualMachine` resource, or using the `azure.compute.GalleryApplicationAssignment` resource - but the two approaches cannot be used together. If both are used with the same Virtual Machine, spurious changes will occur. If `azure.compute.GalleryApplicationAssignment` is used, it&#39;s recommended to use `ignore_changes` for the `gallery_application` block on the corresponding `azure.compute.LinuxVirtualMachine` resource, to avoid a persistent diff when using this resource.
          * 
          * @return builder
          * 
@@ -1461,7 +1469,7 @@ public final class LinuxVirtualMachineState extends com.pulumi.resources.Resourc
         /**
          * @param galleryApplications One or more `gallery_application` blocks as defined below.
          * 
-         * &gt; **Note** Gallery Application Assignments can be defined either directly on `azure.compute.LinuxVirtualMachine` resource, or using the `azure.compute.GalleryApplicationAssignment` resource - but the two approaches cannot be used together. If both are used with the same Virtual Machine, spurious changes will occur. If `azure.compute.GalleryApplicationAssignment` is used, it&#39;s recommended to use `ignore_changes` for the `gallery_application` block on the corresponding `azure.compute.LinuxVirtualMachine` resource, to avoid a persistent diff when using this resource.
+         * &gt; **Note:** Gallery Application Assignments can be defined either directly on `azure.compute.LinuxVirtualMachine` resource, or using the `azure.compute.GalleryApplicationAssignment` resource - but the two approaches cannot be used together. If both are used with the same Virtual Machine, spurious changes will occur. If `azure.compute.GalleryApplicationAssignment` is used, it&#39;s recommended to use `ignore_changes` for the `gallery_application` block on the corresponding `azure.compute.LinuxVirtualMachine` resource, to avoid a persistent diff when using this resource.
          * 
          * @return builder
          * 
@@ -1536,7 +1544,7 @@ public final class LinuxVirtualMachineState extends com.pulumi.resources.Resourc
         /**
          * @param maxBidPrice The maximum price you&#39;re willing to pay for this Virtual Machine, in US Dollars; which must be greater than the current spot price. If this bid price falls below the current spot price the Virtual Machine will be evicted using the `eviction_policy`. Defaults to `-1`, which means that the Virtual Machine should not be evicted for price reasons.
          * 
-         * &gt; **NOTE:** This can only be configured when `priority` is set to `Spot`.
+         * &gt; **Note:** This can only be configured when `priority` is set to `Spot`.
          * 
          * @return builder
          * 
@@ -1549,7 +1557,7 @@ public final class LinuxVirtualMachineState extends com.pulumi.resources.Resourc
         /**
          * @param maxBidPrice The maximum price you&#39;re willing to pay for this Virtual Machine, in US Dollars; which must be greater than the current spot price. If this bid price falls below the current spot price the Virtual Machine will be evicted using the `eviction_policy`. Defaults to `-1`, which means that the Virtual Machine should not be evicted for price reasons.
          * 
-         * &gt; **NOTE:** This can only be configured when `priority` is set to `Spot`.
+         * &gt; **Note:** This can only be configured when `priority` is set to `Spot`.
          * 
          * @return builder
          * 
@@ -1655,7 +1663,7 @@ public final class LinuxVirtualMachineState extends com.pulumi.resources.Resourc
         /**
          * @param patchAssessmentMode Specifies the mode of VM Guest Patching for the Virtual Machine. Possible values are `AutomaticByPlatform` or `ImageDefault`. Defaults to `ImageDefault`.
          * 
-         * &gt; **NOTE:** If the `patch_assessment_mode` is set to `AutomaticByPlatform` then the `provision_vm_agent` field must be set to `true`.
+         * &gt; **Note:** If the `patch_assessment_mode` is set to `AutomaticByPlatform` then the `provision_vm_agent` field must be set to `true`.
          * 
          * @return builder
          * 
@@ -1668,7 +1676,7 @@ public final class LinuxVirtualMachineState extends com.pulumi.resources.Resourc
         /**
          * @param patchAssessmentMode Specifies the mode of VM Guest Patching for the Virtual Machine. Possible values are `AutomaticByPlatform` or `ImageDefault`. Defaults to `ImageDefault`.
          * 
-         * &gt; **NOTE:** If the `patch_assessment_mode` is set to `AutomaticByPlatform` then the `provision_vm_agent` field must be set to `true`.
+         * &gt; **Note:** If the `patch_assessment_mode` is set to `AutomaticByPlatform` then the `provision_vm_agent` field must be set to `true`.
          * 
          * @return builder
          * 
@@ -1680,7 +1688,7 @@ public final class LinuxVirtualMachineState extends com.pulumi.resources.Resourc
         /**
          * @param patchMode Specifies the mode of in-guest patching to this Linux Virtual Machine. Possible values are `AutomaticByPlatform` and `ImageDefault`. Defaults to `ImageDefault`. For more information on patch modes please see the [product documentation](https://docs.microsoft.com/azure/virtual-machines/automatic-vm-guest-patching#patch-orchestration-modes).
          * 
-         * &gt; **NOTE:** If `patch_mode` is set to `AutomaticByPlatform` then `provision_vm_agent` must also be set to `true`.
+         * &gt; **Note:** If `patch_mode` is set to `AutomaticByPlatform` then `provision_vm_agent` must also be set to `true`.
          * 
          * @return builder
          * 
@@ -1693,7 +1701,7 @@ public final class LinuxVirtualMachineState extends com.pulumi.resources.Resourc
         /**
          * @param patchMode Specifies the mode of in-guest patching to this Linux Virtual Machine. Possible values are `AutomaticByPlatform` and `ImageDefault`. Defaults to `ImageDefault`. For more information on patch modes please see the [product documentation](https://docs.microsoft.com/azure/virtual-machines/automatic-vm-guest-patching#patch-orchestration-modes).
          * 
-         * &gt; **NOTE:** If `patch_mode` is set to `AutomaticByPlatform` then `provision_vm_agent` must also be set to `true`.
+         * &gt; **Note:** If `patch_mode` is set to `AutomaticByPlatform` then `provision_vm_agent` must also be set to `true`.
          * 
          * @return builder
          * 
@@ -1820,7 +1828,7 @@ public final class LinuxVirtualMachineState extends com.pulumi.resources.Resourc
         /**
          * @param provisionVmAgent Should the Azure VM Agent be provisioned on this Virtual Machine? Defaults to `true`. Changing this forces a new resource to be created.
          * 
-         * &gt; **NOTE:** If `provision_vm_agent` is set to `false` then `allow_extension_operations` must also be set to `false`.
+         * &gt; **Note:** If `provision_vm_agent` is set to `false` then `allow_extension_operations` must also be set to `false`.
          * 
          * @return builder
          * 
@@ -1833,7 +1841,7 @@ public final class LinuxVirtualMachineState extends com.pulumi.resources.Resourc
         /**
          * @param provisionVmAgent Should the Azure VM Agent be provisioned on this Virtual Machine? Defaults to `true`. Changing this forces a new resource to be created.
          * 
-         * &gt; **NOTE:** If `provision_vm_agent` is set to `false` then `allow_extension_operations` must also be set to `false`.
+         * &gt; **Note:** If `provision_vm_agent` is set to `false` then `allow_extension_operations` must also be set to `false`.
          * 
          * @return builder
          * 
@@ -1918,7 +1926,7 @@ public final class LinuxVirtualMachineState extends com.pulumi.resources.Resourc
         /**
          * @param rebootSetting Specifies the reboot setting for platform scheduled patching. Possible values are `Always`, `IfRequired` and `Never`.
          * 
-         * &gt; **NOTE:** `reboot_setting` can only be set when `patch_mode` is set to `AutomaticByPlatform`.
+         * &gt; **Note:** `reboot_setting` can only be set when `patch_mode` is set to `AutomaticByPlatform`.
          * 
          * @return builder
          * 
@@ -1931,7 +1939,7 @@ public final class LinuxVirtualMachineState extends com.pulumi.resources.Resourc
         /**
          * @param rebootSetting Specifies the reboot setting for platform scheduled patching. Possible values are `Always`, `IfRequired` and `Never`.
          * 
-         * &gt; **NOTE:** `reboot_setting` can only be set when `patch_mode` is set to `AutomaticByPlatform`.
+         * &gt; **Note:** `reboot_setting` can only be set when `patch_mode` is set to `AutomaticByPlatform`.
          * 
          * @return builder
          * 
@@ -2037,7 +2045,7 @@ public final class LinuxVirtualMachineState extends com.pulumi.resources.Resourc
         /**
          * @param sourceImageId The ID of the Image which this Virtual Machine should be created from. Changing this forces a new resource to be created. Possible Image ID types include `Image ID`s, `Shared Image ID`s, `Shared Image Version ID`s, `Community Gallery Image ID`s, `Community Gallery Image Version ID`s, `Shared Gallery Image ID`s and `Shared Gallery Image Version ID`s.
          * 
-         * &gt; **NOTE:** One of either `source_image_id` or `source_image_reference` must be set.
+         * &gt; **Note:** One of either `source_image_id` or `source_image_reference` must be set.
          * 
          * @return builder
          * 
@@ -2050,7 +2058,7 @@ public final class LinuxVirtualMachineState extends com.pulumi.resources.Resourc
         /**
          * @param sourceImageId The ID of the Image which this Virtual Machine should be created from. Changing this forces a new resource to be created. Possible Image ID types include `Image ID`s, `Shared Image ID`s, `Shared Image Version ID`s, `Community Gallery Image ID`s, `Community Gallery Image Version ID`s, `Shared Gallery Image ID`s and `Shared Gallery Image Version ID`s.
          * 
-         * &gt; **NOTE:** One of either `source_image_id` or `source_image_reference` must be set.
+         * &gt; **Note:** One of either `source_image_id` or `source_image_reference` must be set.
          * 
          * @return builder
          * 
@@ -2062,7 +2070,7 @@ public final class LinuxVirtualMachineState extends com.pulumi.resources.Resourc
         /**
          * @param sourceImageReference A `source_image_reference` block as defined below. Changing this forces a new resource to be created.
          * 
-         * &gt; **NOTE:** One of either `source_image_id` or `source_image_reference` must be set.
+         * &gt; **Note:** One of either `source_image_id` or `source_image_reference` must be set.
          * 
          * @return builder
          * 
@@ -2075,7 +2083,7 @@ public final class LinuxVirtualMachineState extends com.pulumi.resources.Resourc
         /**
          * @param sourceImageReference A `source_image_reference` block as defined below. Changing this forces a new resource to be created.
          * 
-         * &gt; **NOTE:** One of either `source_image_id` or `source_image_reference` must be set.
+         * &gt; **Note:** One of either `source_image_id` or `source_image_reference` must be set.
          * 
          * @return builder
          * 
@@ -2171,11 +2179,11 @@ public final class LinuxVirtualMachineState extends com.pulumi.resources.Resourc
         /**
          * @param virtualMachineScaleSetId Specifies the Orchestrated Virtual Machine Scale Set that this Virtual Machine should be created within.
          * 
-         * &gt; **NOTE:** To update `virtual_machine_scale_set_id` the Preview Feature `Microsoft.Compute/SingleFDAttachDetachVMToVmss` needs to be enabled, see [the documentation](https://review.learn.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-attach-detach-vm#enroll-in-the-preview) for more information.
+         * &gt; **Note:** To update `virtual_machine_scale_set_id` the Preview Feature `Microsoft.Compute/SingleFDAttachDetachVMToVmss` needs to be enabled, see [the documentation](https://review.learn.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-attach-detach-vm#enroll-in-the-preview) for more information.
          * 
-         * &gt; **NOTE:** Orchestrated Virtual Machine Scale Sets can be provisioned using [the `azure.compute.OrchestratedVirtualMachineScaleSet` resource](https://www.terraform.io/docs/providers/azurerm/r/orchestrated_virtual_machine_scale_set.html).
+         * &gt; **Note:** Orchestrated Virtual Machine Scale Sets can be provisioned using [the `azure.compute.OrchestratedVirtualMachineScaleSet` resource](https://www.terraform.io/docs/providers/azurerm/r/orchestrated_virtual_machine_scale_set.html).
          * 
-         * &gt; **NOTE:** To attach an existing VM to a Virtual Machine Scale Set, the scale set must have `single_placement_group` set to `false`, see [the documentation](https://learn.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-attach-detach-vm?tabs=portal-1%2Cportal-2%2Cportal-3#limitations-for-attaching-an-existing-vm-to-a-scale-set) for more information.
+         * &gt; **Note:** To attach an existing VM to a Virtual Machine Scale Set, the scale set must have `single_placement_group` set to `false`, see [the documentation](https://learn.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-attach-detach-vm?tabs=portal-1%2Cportal-2%2Cportal-3#limitations-for-attaching-an-existing-vm-to-a-scale-set) for more information.
          * 
          * @return builder
          * 
@@ -2188,11 +2196,11 @@ public final class LinuxVirtualMachineState extends com.pulumi.resources.Resourc
         /**
          * @param virtualMachineScaleSetId Specifies the Orchestrated Virtual Machine Scale Set that this Virtual Machine should be created within.
          * 
-         * &gt; **NOTE:** To update `virtual_machine_scale_set_id` the Preview Feature `Microsoft.Compute/SingleFDAttachDetachVMToVmss` needs to be enabled, see [the documentation](https://review.learn.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-attach-detach-vm#enroll-in-the-preview) for more information.
+         * &gt; **Note:** To update `virtual_machine_scale_set_id` the Preview Feature `Microsoft.Compute/SingleFDAttachDetachVMToVmss` needs to be enabled, see [the documentation](https://review.learn.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-attach-detach-vm#enroll-in-the-preview) for more information.
          * 
-         * &gt; **NOTE:** Orchestrated Virtual Machine Scale Sets can be provisioned using [the `azure.compute.OrchestratedVirtualMachineScaleSet` resource](https://www.terraform.io/docs/providers/azurerm/r/orchestrated_virtual_machine_scale_set.html).
+         * &gt; **Note:** Orchestrated Virtual Machine Scale Sets can be provisioned using [the `azure.compute.OrchestratedVirtualMachineScaleSet` resource](https://www.terraform.io/docs/providers/azurerm/r/orchestrated_virtual_machine_scale_set.html).
          * 
-         * &gt; **NOTE:** To attach an existing VM to a Virtual Machine Scale Set, the scale set must have `single_placement_group` set to `false`, see [the documentation](https://learn.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-attach-detach-vm?tabs=portal-1%2Cportal-2%2Cportal-3#limitations-for-attaching-an-existing-vm-to-a-scale-set) for more information.
+         * &gt; **Note:** To attach an existing VM to a Virtual Machine Scale Set, the scale set must have `single_placement_group` set to `false`, see [the documentation](https://learn.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-attach-detach-vm?tabs=portal-1%2Cportal-2%2Cportal-3#limitations-for-attaching-an-existing-vm-to-a-scale-set) for more information.
          * 
          * @return builder
          * 
@@ -2202,22 +2210,30 @@ public final class LinuxVirtualMachineState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param vmAgentPlatformUpdatesEnabled Specifies whether VMAgent Platform Updates is enabled. Defaults to `false`.
+         * @param vmAgentPlatformUpdatesEnabled Are Virtual Machine Agent Platform Updates `enabled` on this Virtual Machine?
          * 
          * @return builder
          * 
+         * @deprecated
+         * this property has been deprecated due to a breaking change introduced by the Service team, which redefined it as a read-only field within the API
+         * 
          */
+        @Deprecated /* this property has been deprecated due to a breaking change introduced by the Service team, which redefined it as a read-only field within the API */
         public Builder vmAgentPlatformUpdatesEnabled(@Nullable Output<Boolean> vmAgentPlatformUpdatesEnabled) {
             $.vmAgentPlatformUpdatesEnabled = vmAgentPlatformUpdatesEnabled;
             return this;
         }
 
         /**
-         * @param vmAgentPlatformUpdatesEnabled Specifies whether VMAgent Platform Updates is enabled. Defaults to `false`.
+         * @param vmAgentPlatformUpdatesEnabled Are Virtual Machine Agent Platform Updates `enabled` on this Virtual Machine?
          * 
          * @return builder
          * 
+         * @deprecated
+         * this property has been deprecated due to a breaking change introduced by the Service team, which redefined it as a read-only field within the API
+         * 
          */
+        @Deprecated /* this property has been deprecated due to a breaking change introduced by the Service team, which redefined it as a read-only field within the API */
         public Builder vmAgentPlatformUpdatesEnabled(Boolean vmAgentPlatformUpdatesEnabled) {
             return vmAgentPlatformUpdatesEnabled(Output.of(vmAgentPlatformUpdatesEnabled));
         }

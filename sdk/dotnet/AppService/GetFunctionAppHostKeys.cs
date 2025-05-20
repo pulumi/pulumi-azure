@@ -32,6 +32,8 @@ namespace Pulumi.Azure.AppService
         /// 
         /// });
         /// ```
+        /// 
+        /// &gt; **Note:** All arguments including the secret value will be stored in the raw state as plain-text, including `default_function_key` and `primary_key`. [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
         /// </summary>
         public static Task<GetFunctionAppHostKeysResult> InvokeAsync(GetFunctionAppHostKeysArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetFunctionAppHostKeysResult>("azure:appservice/getFunctionAppHostKeys:getFunctionAppHostKeys", args ?? new GetFunctionAppHostKeysArgs(), options.WithDefaults());
@@ -57,6 +59,8 @@ namespace Pulumi.Azure.AppService
         /// 
         /// });
         /// ```
+        /// 
+        /// &gt; **Note:** All arguments including the secret value will be stored in the raw state as plain-text, including `default_function_key` and `primary_key`. [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
         /// </summary>
         public static Output<GetFunctionAppHostKeysResult> Invoke(GetFunctionAppHostKeysInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetFunctionAppHostKeysResult>("azure:appservice/getFunctionAppHostKeys:getFunctionAppHostKeys", args ?? new GetFunctionAppHostKeysInvokeArgs(), options.WithDefaults());
@@ -82,6 +86,8 @@ namespace Pulumi.Azure.AppService
         /// 
         /// });
         /// ```
+        /// 
+        /// &gt; **Note:** All arguments including the secret value will be stored in the raw state as plain-text, including `default_function_key` and `primary_key`. [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
         /// </summary>
         public static Output<GetFunctionAppHostKeysResult> Invoke(GetFunctionAppHostKeysInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetFunctionAppHostKeysResult>("azure:appservice/getFunctionAppHostKeys:getFunctionAppHostKeys", args ?? new GetFunctionAppHostKeysInvokeArgs(), options.WithDefaults());

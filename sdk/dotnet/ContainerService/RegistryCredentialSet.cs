@@ -16,7 +16,7 @@ namespace Pulumi.Azure.ContainerService
     /// 
     /// ### Minimal)
     /// 
-    /// &gt; NOTE: Be aware that you will need to permit the Identity that is created for the Container Registry to have `get` on secrets to the Key Vault, e.g. using the `azure.keyvault.AccessPolicy` resource.
+    /// &gt; **Note:** Be aware that you will need to permit the Identity that is created for the Container Registry to have `get` on secrets to the Key Vault, e.g. using the `azure.keyvault.AccessPolicy` resource.
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
@@ -157,6 +157,13 @@ namespace Pulumi.Azure.ContainerService
     /// 
     /// });
     /// ```
+    /// 
+    /// ## API Providers
+    /// 
+    /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+    /// This resource uses the following Azure API Providers:
+    /// 
+    /// * `Microsoft.ContainerRegistry`: 2023-07-01
     /// 
     /// ## Import
     /// 

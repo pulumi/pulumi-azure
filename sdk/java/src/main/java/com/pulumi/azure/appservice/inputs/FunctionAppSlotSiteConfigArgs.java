@@ -249,7 +249,7 @@ public final class FunctionAppSlotSiteConfigArgs extends com.pulumi.resources.Re
     /**
      * A list of `scm_ip_restriction` objects representing IP restrictions as defined below.
      * 
-     * &gt; **NOTE** User has to explicitly set `scm_ip_restriction` to empty slice (`[]`) to remove it.
+     * &gt; **Note:** User has to explicitly set `scm_ip_restriction` to empty slice (`[]`) to remove it.
      * 
      */
     @Import(name="scmIpRestrictions")
@@ -258,7 +258,7 @@ public final class FunctionAppSlotSiteConfigArgs extends com.pulumi.resources.Re
     /**
      * @return A list of `scm_ip_restriction` objects representing IP restrictions as defined below.
      * 
-     * &gt; **NOTE** User has to explicitly set `scm_ip_restriction` to empty slice (`[]`) to remove it.
+     * &gt; **Note:** User has to explicitly set `scm_ip_restriction` to empty slice (`[]`) to remove it.
      * 
      */
     public Optional<Output<List<FunctionAppSlotSiteConfigScmIpRestrictionArgs>>> scmIpRestrictions() {
@@ -268,7 +268,7 @@ public final class FunctionAppSlotSiteConfigArgs extends com.pulumi.resources.Re
     /**
      * The type of Source Control used by this function App. Valid values include: `BitBucketGit`, `BitBucketHg`, `CodePlexGit`, `CodePlexHg`, `Dropbox`, `ExternalGit`, `ExternalHg`, `GitHub`, `LocalGit`, `None` (default), `OneDrive`, `Tfs`, `VSO`, and `VSTSRM`.
      * 
-     * &gt; **NOTE:** This setting is incompatible with the `source_control` block which updates this value based on the setting provided.
+     * &gt; **Note:** This setting is incompatible with the `source_control` block which updates this value based on the setting provided.
      * 
      */
     @Import(name="scmType")
@@ -277,7 +277,7 @@ public final class FunctionAppSlotSiteConfigArgs extends com.pulumi.resources.Re
     /**
      * @return The type of Source Control used by this function App. Valid values include: `BitBucketGit`, `BitBucketHg`, `CodePlexGit`, `CodePlexHg`, `Dropbox`, `ExternalGit`, `ExternalHg`, `GitHub`, `LocalGit`, `None` (default), `OneDrive`, `Tfs`, `VSO`, and `VSTSRM`.
      * 
-     * &gt; **NOTE:** This setting is incompatible with the `source_control` block which updates this value based on the setting provided.
+     * &gt; **Note:** This setting is incompatible with the `source_control` block which updates this value based on the setting provided.
      * 
      */
     public Optional<Output<String>> scmType() {
@@ -287,7 +287,7 @@ public final class FunctionAppSlotSiteConfigArgs extends com.pulumi.resources.Re
     /**
      * IP security restrictions for scm to use main. Defaults to `false`.
      * 
-     * &gt; **NOTE** Any `scm_ip_restriction` blocks configured are ignored by the service when `scm_use_main_ip_restriction` is set to `true`. Any scm restrictions will become active if this is subsequently set to `false` or removed.
+     * &gt; **Note:** Any `scm_ip_restriction` blocks configured are ignored by the service when `scm_use_main_ip_restriction` is set to `true`. Any scm restrictions will become active if this is subsequently set to `false` or removed.
      * 
      */
     @Import(name="scmUseMainIpRestriction")
@@ -296,7 +296,7 @@ public final class FunctionAppSlotSiteConfigArgs extends com.pulumi.resources.Re
     /**
      * @return IP security restrictions for scm to use main. Defaults to `false`.
      * 
-     * &gt; **NOTE** Any `scm_ip_restriction` blocks configured are ignored by the service when `scm_use_main_ip_restriction` is set to `true`. Any scm restrictions will become active if this is subsequently set to `false` or removed.
+     * &gt; **Note:** Any `scm_ip_restriction` blocks configured are ignored by the service when `scm_use_main_ip_restriction` is set to `true`. Any scm restrictions will become active if this is subsequently set to `false` or removed.
      * 
      */
     public Optional<Output<Boolean>> scmUseMainIpRestriction() {
@@ -716,7 +716,7 @@ public final class FunctionAppSlotSiteConfigArgs extends com.pulumi.resources.Re
         /**
          * @param scmIpRestrictions A list of `scm_ip_restriction` objects representing IP restrictions as defined below.
          * 
-         * &gt; **NOTE** User has to explicitly set `scm_ip_restriction` to empty slice (`[]`) to remove it.
+         * &gt; **Note:** User has to explicitly set `scm_ip_restriction` to empty slice (`[]`) to remove it.
          * 
          * @return builder
          * 
@@ -729,7 +729,7 @@ public final class FunctionAppSlotSiteConfigArgs extends com.pulumi.resources.Re
         /**
          * @param scmIpRestrictions A list of `scm_ip_restriction` objects representing IP restrictions as defined below.
          * 
-         * &gt; **NOTE** User has to explicitly set `scm_ip_restriction` to empty slice (`[]`) to remove it.
+         * &gt; **Note:** User has to explicitly set `scm_ip_restriction` to empty slice (`[]`) to remove it.
          * 
          * @return builder
          * 
@@ -741,7 +741,7 @@ public final class FunctionAppSlotSiteConfigArgs extends com.pulumi.resources.Re
         /**
          * @param scmIpRestrictions A list of `scm_ip_restriction` objects representing IP restrictions as defined below.
          * 
-         * &gt; **NOTE** User has to explicitly set `scm_ip_restriction` to empty slice (`[]`) to remove it.
+         * &gt; **Note:** User has to explicitly set `scm_ip_restriction` to empty slice (`[]`) to remove it.
          * 
          * @return builder
          * 
@@ -753,7 +753,7 @@ public final class FunctionAppSlotSiteConfigArgs extends com.pulumi.resources.Re
         /**
          * @param scmType The type of Source Control used by this function App. Valid values include: `BitBucketGit`, `BitBucketHg`, `CodePlexGit`, `CodePlexHg`, `Dropbox`, `ExternalGit`, `ExternalHg`, `GitHub`, `LocalGit`, `None` (default), `OneDrive`, `Tfs`, `VSO`, and `VSTSRM`.
          * 
-         * &gt; **NOTE:** This setting is incompatible with the `source_control` block which updates this value based on the setting provided.
+         * &gt; **Note:** This setting is incompatible with the `source_control` block which updates this value based on the setting provided.
          * 
          * @return builder
          * 
@@ -766,7 +766,7 @@ public final class FunctionAppSlotSiteConfigArgs extends com.pulumi.resources.Re
         /**
          * @param scmType The type of Source Control used by this function App. Valid values include: `BitBucketGit`, `BitBucketHg`, `CodePlexGit`, `CodePlexHg`, `Dropbox`, `ExternalGit`, `ExternalHg`, `GitHub`, `LocalGit`, `None` (default), `OneDrive`, `Tfs`, `VSO`, and `VSTSRM`.
          * 
-         * &gt; **NOTE:** This setting is incompatible with the `source_control` block which updates this value based on the setting provided.
+         * &gt; **Note:** This setting is incompatible with the `source_control` block which updates this value based on the setting provided.
          * 
          * @return builder
          * 
@@ -778,7 +778,7 @@ public final class FunctionAppSlotSiteConfigArgs extends com.pulumi.resources.Re
         /**
          * @param scmUseMainIpRestriction IP security restrictions for scm to use main. Defaults to `false`.
          * 
-         * &gt; **NOTE** Any `scm_ip_restriction` blocks configured are ignored by the service when `scm_use_main_ip_restriction` is set to `true`. Any scm restrictions will become active if this is subsequently set to `false` or removed.
+         * &gt; **Note:** Any `scm_ip_restriction` blocks configured are ignored by the service when `scm_use_main_ip_restriction` is set to `true`. Any scm restrictions will become active if this is subsequently set to `false` or removed.
          * 
          * @return builder
          * 
@@ -791,7 +791,7 @@ public final class FunctionAppSlotSiteConfigArgs extends com.pulumi.resources.Re
         /**
          * @param scmUseMainIpRestriction IP security restrictions for scm to use main. Defaults to `false`.
          * 
-         * &gt; **NOTE** Any `scm_ip_restriction` blocks configured are ignored by the service when `scm_use_main_ip_restriction` is set to `true`. Any scm restrictions will become active if this is subsequently set to `false` or removed.
+         * &gt; **Note:** Any `scm_ip_restriction` blocks configured are ignored by the service when `scm_use_main_ip_restriction` is set to `true`. Any scm restrictions will become active if this is subsequently set to `false` or removed.
          * 
          * @return builder
          * 

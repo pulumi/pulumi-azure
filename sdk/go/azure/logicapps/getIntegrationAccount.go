@@ -40,6 +40,13 @@ import (
 //	}
 //
 // ```
+//
+// ## API Providers
+//
+// <!-- This section is generated, changes will be overwritten -->
+// This data source uses the following Azure API Providers:
+//
+// * `Microsoft.Logic`: 2019-05-01
 func LookupIntegrationAccount(ctx *pulumi.Context, args *LookupIntegrationAccountArgs, opts ...pulumi.InvokeOption) (*LookupIntegrationAccountResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupIntegrationAccountResult

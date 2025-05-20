@@ -16,15 +16,15 @@ namespace Pulumi.Azure.Monitoring.Outputs
         /// <summary>
         /// The name of a Diagnostic Log Category for this Resource.
         /// 
-        /// &gt; **NOTE:** The Log Categories available vary depending on the Resource being used. You may wish to use the `azure.monitoring.getDiagnosticCategories` Data Source or [list of service specific schemas](https://docs.microsoft.com/azure/azure-monitor/platform/resource-logs-schema#service-specific-schemas) to identify which categories are available for a given Resource.
+        /// &gt; **Note:** The Log Categories available vary depending on the Resource being used. You may wish to use the `azure.monitoring.getDiagnosticCategories` Data Source or [list of service specific schemas](https://docs.microsoft.com/azure/azure-monitor/platform/resource-logs-schema#service-specific-schemas) to identify which categories are available for a given Resource.
         /// </summary>
         public readonly string? Category;
         /// <summary>
         /// The name of a Diagnostic Log Category Group for this Resource.
         /// 
-        /// &gt; **NOTE:** Not all resources have category groups available.
+        /// &gt; **Note:** Not all resources have category groups available.
         /// 
-        /// &gt; **NOTE:** Exactly one of `category` or `category_group` must be specified.
+        /// &gt; **Note:** Exactly one of `category` or `category_group` must be specified.
         /// </summary>
         public readonly string? CategoryGroup;
         public readonly Outputs.DiagnosticSettingEnabledLogRetentionPolicy? RetentionPolicy;

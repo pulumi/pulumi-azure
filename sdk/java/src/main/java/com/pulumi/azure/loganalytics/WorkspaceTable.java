@@ -75,6 +75,13 @@ import javax.annotation.Nullable;
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
+ * ## API Providers
+ * 
+ * &lt;!-- This section is generated, changes will be overwritten --&gt;
+ * This resource uses the following Azure API Providers:
+ * 
+ * * `Microsoft.OperationalInsights`: 2022-10-01
+ * 
  */
 @ResourceType(type="azure:loganalytics/workspaceTable:WorkspaceTable")
 public class WorkspaceTable extends com.pulumi.resources.CustomResource {

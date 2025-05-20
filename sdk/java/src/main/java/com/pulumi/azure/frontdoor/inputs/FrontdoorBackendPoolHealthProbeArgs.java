@@ -96,7 +96,7 @@ public final class FrontdoorBackendPoolHealthProbeArgs extends com.pulumi.resour
     /**
      * Specifies HTTP method the health probe uses when querying the backend pool instances. Possible values include: `GET` and `HEAD`. Defaults to `GET`.
      * 
-     * &gt; **NOTE:** Use the `HEAD` method if you do not need to check the response body of your health probe.
+     * &gt; **Note:** Use the `HEAD` method if you do not need to check the response body of your health probe.
      * 
      */
     @Import(name="probeMethod")
@@ -105,7 +105,7 @@ public final class FrontdoorBackendPoolHealthProbeArgs extends com.pulumi.resour
     /**
      * @return Specifies HTTP method the health probe uses when querying the backend pool instances. Possible values include: `GET` and `HEAD`. Defaults to `GET`.
      * 
-     * &gt; **NOTE:** Use the `HEAD` method if you do not need to check the response body of your health probe.
+     * &gt; **Note:** Use the `HEAD` method if you do not need to check the response body of your health probe.
      * 
      */
     public Optional<Output<String>> probeMethod() {
@@ -265,7 +265,7 @@ public final class FrontdoorBackendPoolHealthProbeArgs extends com.pulumi.resour
         /**
          * @param probeMethod Specifies HTTP method the health probe uses when querying the backend pool instances. Possible values include: `GET` and `HEAD`. Defaults to `GET`.
          * 
-         * &gt; **NOTE:** Use the `HEAD` method if you do not need to check the response body of your health probe.
+         * &gt; **Note:** Use the `HEAD` method if you do not need to check the response body of your health probe.
          * 
          * @return builder
          * 
@@ -278,7 +278,7 @@ public final class FrontdoorBackendPoolHealthProbeArgs extends com.pulumi.resour
         /**
          * @param probeMethod Specifies HTTP method the health probe uses when querying the backend pool instances. Possible values include: `GET` and `HEAD`. Defaults to `GET`.
          * 
-         * &gt; **NOTE:** Use the `HEAD` method if you do not need to check the response body of your health probe.
+         * &gt; **Note:** Use the `HEAD` method if you do not need to check the response body of your health probe.
          * 
          * @return builder
          * 

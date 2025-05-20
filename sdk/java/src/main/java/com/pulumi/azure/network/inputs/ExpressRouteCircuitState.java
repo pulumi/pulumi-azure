@@ -53,7 +53,7 @@ public final class ExpressRouteCircuitState extends com.pulumi.resources.Resourc
     /**
      * The bandwidth in Gbps of the circuit being created on the Express Route Port.
      * 
-     * &gt; **NOTE:** The `express_route_port_id` and the `bandwidth_in_gbps` should be set together and they conflict with `service_provider_name`, `peering_location` and `bandwidth_in_mbps`.
+     * &gt; **Note:** The `express_route_port_id` and the `bandwidth_in_gbps` should be set together and they conflict with `service_provider_name`, `peering_location` and `bandwidth_in_mbps`.
      * 
      */
     @Import(name="bandwidthInGbps")
@@ -62,7 +62,7 @@ public final class ExpressRouteCircuitState extends com.pulumi.resources.Resourc
     /**
      * @return The bandwidth in Gbps of the circuit being created on the Express Route Port.
      * 
-     * &gt; **NOTE:** The `express_route_port_id` and the `bandwidth_in_gbps` should be set together and they conflict with `service_provider_name`, `peering_location` and `bandwidth_in_mbps`.
+     * &gt; **Note:** The `express_route_port_id` and the `bandwidth_in_gbps` should be set together and they conflict with `service_provider_name`, `peering_location` and `bandwidth_in_mbps`.
      * 
      */
     public Optional<Output<Double>> bandwidthInGbps() {
@@ -72,9 +72,9 @@ public final class ExpressRouteCircuitState extends com.pulumi.resources.Resourc
     /**
      * The bandwidth in Mbps of the circuit being created on the Service Provider.
      * 
-     * &gt; **NOTE:** Once you increase your bandwidth, you will not be able to decrease it to its previous value.
+     * &gt; **Note:** Once you increase your bandwidth, you will not be able to decrease it to its previous value.
      * 
-     * &gt; **NOTE:** The `service_provider_name`, the `peering_location` and the `bandwidth_in_mbps` should be set together and they conflict with `express_route_port_id` and `bandwidth_in_gbps`.
+     * &gt; **Note:** The `service_provider_name`, the `peering_location` and the `bandwidth_in_mbps` should be set together and they conflict with `express_route_port_id` and `bandwidth_in_gbps`.
      * 
      */
     @Import(name="bandwidthInMbps")
@@ -83,9 +83,9 @@ public final class ExpressRouteCircuitState extends com.pulumi.resources.Resourc
     /**
      * @return The bandwidth in Mbps of the circuit being created on the Service Provider.
      * 
-     * &gt; **NOTE:** Once you increase your bandwidth, you will not be able to decrease it to its previous value.
+     * &gt; **Note:** Once you increase your bandwidth, you will not be able to decrease it to its previous value.
      * 
-     * &gt; **NOTE:** The `service_provider_name`, the `peering_location` and the `bandwidth_in_mbps` should be set together and they conflict with `express_route_port_id` and `bandwidth_in_gbps`.
+     * &gt; **Note:** The `service_provider_name`, the `peering_location` and the `bandwidth_in_mbps` should be set together and they conflict with `express_route_port_id` and `bandwidth_in_gbps`.
      * 
      */
     public Optional<Output<Integer>> bandwidthInMbps() {
@@ -340,7 +340,7 @@ public final class ExpressRouteCircuitState extends com.pulumi.resources.Resourc
         /**
          * @param bandwidthInGbps The bandwidth in Gbps of the circuit being created on the Express Route Port.
          * 
-         * &gt; **NOTE:** The `express_route_port_id` and the `bandwidth_in_gbps` should be set together and they conflict with `service_provider_name`, `peering_location` and `bandwidth_in_mbps`.
+         * &gt; **Note:** The `express_route_port_id` and the `bandwidth_in_gbps` should be set together and they conflict with `service_provider_name`, `peering_location` and `bandwidth_in_mbps`.
          * 
          * @return builder
          * 
@@ -353,7 +353,7 @@ public final class ExpressRouteCircuitState extends com.pulumi.resources.Resourc
         /**
          * @param bandwidthInGbps The bandwidth in Gbps of the circuit being created on the Express Route Port.
          * 
-         * &gt; **NOTE:** The `express_route_port_id` and the `bandwidth_in_gbps` should be set together and they conflict with `service_provider_name`, `peering_location` and `bandwidth_in_mbps`.
+         * &gt; **Note:** The `express_route_port_id` and the `bandwidth_in_gbps` should be set together and they conflict with `service_provider_name`, `peering_location` and `bandwidth_in_mbps`.
          * 
          * @return builder
          * 
@@ -365,9 +365,9 @@ public final class ExpressRouteCircuitState extends com.pulumi.resources.Resourc
         /**
          * @param bandwidthInMbps The bandwidth in Mbps of the circuit being created on the Service Provider.
          * 
-         * &gt; **NOTE:** Once you increase your bandwidth, you will not be able to decrease it to its previous value.
+         * &gt; **Note:** Once you increase your bandwidth, you will not be able to decrease it to its previous value.
          * 
-         * &gt; **NOTE:** The `service_provider_name`, the `peering_location` and the `bandwidth_in_mbps` should be set together and they conflict with `express_route_port_id` and `bandwidth_in_gbps`.
+         * &gt; **Note:** The `service_provider_name`, the `peering_location` and the `bandwidth_in_mbps` should be set together and they conflict with `express_route_port_id` and `bandwidth_in_gbps`.
          * 
          * @return builder
          * 
@@ -380,9 +380,9 @@ public final class ExpressRouteCircuitState extends com.pulumi.resources.Resourc
         /**
          * @param bandwidthInMbps The bandwidth in Mbps of the circuit being created on the Service Provider.
          * 
-         * &gt; **NOTE:** Once you increase your bandwidth, you will not be able to decrease it to its previous value.
+         * &gt; **Note:** Once you increase your bandwidth, you will not be able to decrease it to its previous value.
          * 
-         * &gt; **NOTE:** The `service_provider_name`, the `peering_location` and the `bandwidth_in_mbps` should be set together and they conflict with `express_route_port_id` and `bandwidth_in_gbps`.
+         * &gt; **Note:** The `service_provider_name`, the `peering_location` and the `bandwidth_in_mbps` should be set together and they conflict with `express_route_port_id` and `bandwidth_in_gbps`.
          * 
          * @return builder
          * 

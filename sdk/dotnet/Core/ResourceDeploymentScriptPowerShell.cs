@@ -69,6 +69,13 @@ namespace Pulumi.Azure.Core
     /// });
     /// ```
     /// 
+    /// ## API Providers
+    /// 
+    /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+    /// This resource uses the following Azure API Providers:
+    /// 
+    /// * `Microsoft.Resources`: 2020-10-01
+    /// 
     /// ## Import
     /// 
     /// Resource Deployment Script can be imported using the `resource id`, e.g.

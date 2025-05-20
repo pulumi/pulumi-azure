@@ -18,11 +18,11 @@ import javax.annotation.Nullable;
 /**
  * Links an Automation Runbook and Schedule.
  * 
- * &gt; **NOTE** AzureRM provides this stand-alone azure.automation.JobSchedule and an inlined `job_schedule` property in azurerm_runbook to manage the job schedules. You can only make use of one of these methods to manage a job schedule.
+ * &gt; **Note:** AzureRM provides this stand-alone azure.automation.JobSchedule and an inlined `job_schedule` property in azurerm_runbook to manage the job schedules. You can only make use of one of these methods to manage a job schedule.
  * 
  * ## Example Usage
  * 
- * This is an example of just the Job Schedule.
+ * This is an example of just the Job Schedule. A full example of the `azure.automation.JobSchedule` resource can be found in the `./examples/automation-account` directory within the GitHub Repository
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
  * <pre>
@@ -63,6 +63,13 @@ import javax.annotation.Nullable;
  * }
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
+ * 
+ * ## API Providers
+ * 
+ * &lt;!-- This section is generated, changes will be overwritten --&gt;
+ * This resource uses the following Azure API Providers:
+ * 
+ * * `Microsoft.Automation`: 2023-11-01
  * 
  * ## Import
  * 
@@ -106,7 +113,7 @@ public class JobSchedule extends com.pulumi.resources.CustomResource {
     /**
      * A map of key/value pairs corresponding to the arguments that can be passed to the Runbook. Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE:** The parameter keys/names must strictly be in lowercase, even if this is not the case in the runbook. This is due to a limitation in Azure Automation where the parameter names are normalized. The values specified don&#39;t have this limitation.
+     * &gt; **Note:** The parameter keys/names must strictly be in lowercase, even if this is not the case in the runbook. This is due to a limitation in Azure Automation where the parameter names are normalized. The values specified don&#39;t have this limitation.
      * 
      */
     @Export(name="parameters", refs={Map.class,String.class}, tree="[0,1,1]")
@@ -115,7 +122,7 @@ public class JobSchedule extends com.pulumi.resources.CustomResource {
     /**
      * @return A map of key/value pairs corresponding to the arguments that can be passed to the Runbook. Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE:** The parameter keys/names must strictly be in lowercase, even if this is not the case in the runbook. This is due to a limitation in Azure Automation where the parameter names are normalized. The values specified don&#39;t have this limitation.
+     * &gt; **Note:** The parameter keys/names must strictly be in lowercase, even if this is not the case in the runbook. This is due to a limitation in Azure Automation where the parameter names are normalized. The values specified don&#39;t have this limitation.
      * 
      */
     public Output<Optional<Map<String,String>>> parameters() {

@@ -574,7 +574,7 @@ class VirtualMachine(pulumi.CustomResource):
 
         ## Example Usage
 
-        This example provisions a brief Managed Microsoft SQL Virtual Machine.
+        This example provisions a brief Managed Microsoft SQL Virtual Machine. The detailed example of the `mssql.VirtualMachine` resource can be found in the `./examples/mssql/mssqlvm` directory within the GitHub Repository
 
         ```python
         import pulumi
@@ -596,6 +596,15 @@ class VirtualMachine(pulumi.CustomResource):
                 "maintenance_window_starting_hour": 2,
             })
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Compute`: 2024-03-01
+
+        * `Microsoft.SqlVirtualMachine`: 2023-10-01
 
         ## Import
 
@@ -635,7 +644,7 @@ class VirtualMachine(pulumi.CustomResource):
 
         ## Example Usage
 
-        This example provisions a brief Managed Microsoft SQL Virtual Machine.
+        This example provisions a brief Managed Microsoft SQL Virtual Machine. The detailed example of the `mssql.VirtualMachine` resource can be found in the `./examples/mssql/mssqlvm` directory within the GitHub Repository
 
         ```python
         import pulumi
@@ -657,6 +666,15 @@ class VirtualMachine(pulumi.CustomResource):
                 "maintenance_window_starting_hour": 2,
             })
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Compute`: 2024-03-01
+
+        * `Microsoft.SqlVirtualMachine`: 2023-10-01
 
         ## Import
 

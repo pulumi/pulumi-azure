@@ -51,7 +51,7 @@ public final class ClusterWorkerProfileArgs extends com.pulumi.resources.Resourc
     /**
      * Whether worker virtual machines are encrypted at host. Defaults to `false`. Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE:** `encryption_at_host_enabled` is only available for certain VM sizes and the `EncryptionAtHost` feature must be enabled for your subscription. Please see the [Azure documentation](https://learn.microsoft.com/azure/virtual-machines/disks-enable-host-based-encryption-portal?tabs=azure-powershell) for more information.
+     * &gt; **Note:** `encryption_at_host_enabled` is only available for certain VM sizes and the `EncryptionAtHost` feature must be enabled for your subscription. Please see the [Azure documentation](https://learn.microsoft.com/azure/virtual-machines/disks-enable-host-based-encryption-portal?tabs=azure-powershell) for more information.
      * 
      */
     @Import(name="encryptionAtHostEnabled")
@@ -60,7 +60,7 @@ public final class ClusterWorkerProfileArgs extends com.pulumi.resources.Resourc
     /**
      * @return Whether worker virtual machines are encrypted at host. Defaults to `false`. Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE:** `encryption_at_host_enabled` is only available for certain VM sizes and the `EncryptionAtHost` feature must be enabled for your subscription. Please see the [Azure documentation](https://learn.microsoft.com/azure/virtual-machines/disks-enable-host-based-encryption-portal?tabs=azure-powershell) for more information.
+     * &gt; **Note:** `encryption_at_host_enabled` is only available for certain VM sizes and the `EncryptionAtHost` feature must be enabled for your subscription. Please see the [Azure documentation](https://learn.microsoft.com/azure/virtual-machines/disks-enable-host-based-encryption-portal?tabs=azure-powershell) for more information.
      * 
      */
     public Optional<Output<Boolean>> encryptionAtHostEnabled() {
@@ -186,7 +186,7 @@ public final class ClusterWorkerProfileArgs extends com.pulumi.resources.Resourc
         /**
          * @param encryptionAtHostEnabled Whether worker virtual machines are encrypted at host. Defaults to `false`. Changing this forces a new resource to be created.
          * 
-         * &gt; **NOTE:** `encryption_at_host_enabled` is only available for certain VM sizes and the `EncryptionAtHost` feature must be enabled for your subscription. Please see the [Azure documentation](https://learn.microsoft.com/azure/virtual-machines/disks-enable-host-based-encryption-portal?tabs=azure-powershell) for more information.
+         * &gt; **Note:** `encryption_at_host_enabled` is only available for certain VM sizes and the `EncryptionAtHost` feature must be enabled for your subscription. Please see the [Azure documentation](https://learn.microsoft.com/azure/virtual-machines/disks-enable-host-based-encryption-portal?tabs=azure-powershell) for more information.
          * 
          * @return builder
          * 
@@ -199,7 +199,7 @@ public final class ClusterWorkerProfileArgs extends com.pulumi.resources.Resourc
         /**
          * @param encryptionAtHostEnabled Whether worker virtual machines are encrypted at host. Defaults to `false`. Changing this forces a new resource to be created.
          * 
-         * &gt; **NOTE:** `encryption_at_host_enabled` is only available for certain VM sizes and the `EncryptionAtHost` feature must be enabled for your subscription. Please see the [Azure documentation](https://learn.microsoft.com/azure/virtual-machines/disks-enable-host-based-encryption-portal?tabs=azure-powershell) for more information.
+         * &gt; **Note:** `encryption_at_host_enabled` is only available for certain VM sizes and the `EncryptionAtHost` feature must be enabled for your subscription. Please see the [Azure documentation](https://learn.microsoft.com/azure/virtual-machines/disks-enable-host-based-encryption-portal?tabs=azure-powershell) for more information.
          * 
          * @return builder
          * 

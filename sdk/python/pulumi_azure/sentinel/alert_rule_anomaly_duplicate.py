@@ -43,7 +43,7 @@ class AlertRuleAnomalyDuplicateArgs:
         :param pulumi.Input[Sequence[pulumi.Input['AlertRuleAnomalyDuplicateSingleSelectObservationArgs']]] single_select_observations: A list of `single_select_observation` blocks as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['AlertRuleAnomalyDuplicateThresholdObservationArgs']]] threshold_observations: A list of `threshold_observation` blocks as defined below.
                
-               > **NOTE:** un-specified `multi_select_observation`, `single_select_observation`, `prioritized_exclude_observation` and `threshold_observation` will be inherited from the built-in Anomaly Alert Rule.
+               > **Note:** un-specified `multi_select_observation`, `single_select_observation`, `prioritized_exclude_observation` and `threshold_observation` will be inherited from the built-in Anomaly Alert Rule.
         """
         pulumi.set(__self__, "built_in_rule_id", built_in_rule_id)
         pulumi.set(__self__, "display_name", display_name)
@@ -161,7 +161,7 @@ class AlertRuleAnomalyDuplicateArgs:
         """
         A list of `threshold_observation` blocks as defined below.
 
-        > **NOTE:** un-specified `multi_select_observation`, `single_select_observation`, `prioritized_exclude_observation` and `threshold_observation` will be inherited from the built-in Anomaly Alert Rule.
+        > **Note:** un-specified `multi_select_observation`, `single_select_observation`, `prioritized_exclude_observation` and `threshold_observation` will be inherited from the built-in Anomaly Alert Rule.
         """
         return pulumi.get(self, "threshold_observations")
 
@@ -213,7 +213,7 @@ class _AlertRuleAnomalyDuplicateState:
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] techniques: A list of techniques of attacks by which to classify the rule.
         :param pulumi.Input[Sequence[pulumi.Input['AlertRuleAnomalyDuplicateThresholdObservationArgs']]] threshold_observations: A list of `threshold_observation` blocks as defined below.
                
-               > **NOTE:** un-specified `multi_select_observation`, `single_select_observation`, `prioritized_exclude_observation` and `threshold_observation` will be inherited from the built-in Anomaly Alert Rule.
+               > **Note:** un-specified `multi_select_observation`, `single_select_observation`, `prioritized_exclude_observation` and `threshold_observation` will be inherited from the built-in Anomaly Alert Rule.
         """
         if anomaly_settings_version is not None:
             pulumi.set(__self__, "anomaly_settings_version", anomaly_settings_version)
@@ -473,7 +473,7 @@ class _AlertRuleAnomalyDuplicateState:
         """
         A list of `threshold_observation` blocks as defined below.
 
-        > **NOTE:** un-specified `multi_select_observation`, `single_select_observation`, `prioritized_exclude_observation` and `threshold_observation` will be inherited from the built-in Anomaly Alert Rule.
+        > **Note:** un-specified `multi_select_observation`, `single_select_observation`, `prioritized_exclude_observation` and `threshold_observation` will be inherited from the built-in Anomaly Alert Rule.
         """
         return pulumi.get(self, "threshold_observations")
 
@@ -552,7 +552,7 @@ class AlertRuleAnomalyDuplicate(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[Union['AlertRuleAnomalyDuplicateSingleSelectObservationArgs', 'AlertRuleAnomalyDuplicateSingleSelectObservationArgsDict']]]] single_select_observations: A list of `single_select_observation` blocks as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[Union['AlertRuleAnomalyDuplicateThresholdObservationArgs', 'AlertRuleAnomalyDuplicateThresholdObservationArgsDict']]]] threshold_observations: A list of `threshold_observation` blocks as defined below.
                
-               > **NOTE:** un-specified `multi_select_observation`, `single_select_observation`, `prioritized_exclude_observation` and `threshold_observation` will be inherited from the built-in Anomaly Alert Rule.
+               > **Note:** un-specified `multi_select_observation`, `single_select_observation`, `prioritized_exclude_observation` and `threshold_observation` will be inherited from the built-in Anomaly Alert Rule.
         """
         ...
     @overload
@@ -719,7 +719,7 @@ class AlertRuleAnomalyDuplicate(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] techniques: A list of techniques of attacks by which to classify the rule.
         :param pulumi.Input[Sequence[pulumi.Input[Union['AlertRuleAnomalyDuplicateThresholdObservationArgs', 'AlertRuleAnomalyDuplicateThresholdObservationArgsDict']]]] threshold_observations: A list of `threshold_observation` blocks as defined below.
                
-               > **NOTE:** un-specified `multi_select_observation`, `single_select_observation`, `prioritized_exclude_observation` and `threshold_observation` will be inherited from the built-in Anomaly Alert Rule.
+               > **Note:** un-specified `multi_select_observation`, `single_select_observation`, `prioritized_exclude_observation` and `threshold_observation` will be inherited from the built-in Anomaly Alert Rule.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -893,7 +893,7 @@ class AlertRuleAnomalyDuplicate(pulumi.CustomResource):
         """
         A list of `threshold_observation` blocks as defined below.
 
-        > **NOTE:** un-specified `multi_select_observation`, `single_select_observation`, `prioritized_exclude_observation` and `threshold_observation` will be inherited from the built-in Anomaly Alert Rule.
+        > **Note:** un-specified `multi_select_observation`, `single_select_observation`, `prioritized_exclude_observation` and `threshold_observation` will be inherited from the built-in Anomaly Alert Rule.
         """
         return pulumi.get(self, "threshold_observations")
 

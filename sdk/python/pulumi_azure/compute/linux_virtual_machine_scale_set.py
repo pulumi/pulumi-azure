@@ -107,7 +107,7 @@ class LinuxVirtualMachineScaleSetArgs:
         :param pulumi.Input[Sequence[pulumi.Input['LinuxVirtualMachineScaleSetDataDiskArgs']]] data_disks: One or more `data_disk` blocks as defined below.
         :param pulumi.Input[builtins.bool] disable_password_authentication: Should Password Authentication be disabled on this Virtual Machine Scale Set? Defaults to `true`.
                
-               > In general we'd recommend using SSH Keys for authentication rather than Passwords - but there's tradeoff's to each - please [see this thread for more information](https://security.stackexchange.com/questions/69407/why-is-using-an-ssh-key-more-secure-than-using-passwords).
+               > **Note:** In general we'd recommend using SSH Keys for authentication rather than Passwords - but there's tradeoff's to each - please [see this thread for more information](https://security.stackexchange.com/questions/69407/why-is-using-an-ssh-key-more-secure-than-using-passwords).
                
                > **Note:** When a `admin_password` is specified `disable_password_authentication` must be set to `false`.
         :param pulumi.Input[builtins.bool] do_not_run_extensions_on_overprovisioned_machines: Should Virtual Machine Extensions be run on Overprovisioned Virtual Machines in the Scale Set? Defaults to `false`.
@@ -125,9 +125,6 @@ class LinuxVirtualMachineScaleSetArgs:
         :param pulumi.Input[builtins.str] health_probe_id: The ID of a Load Balancer Probe which should be used to determine the health of an instance. This is Required and can only be specified when `upgrade_mode` is set to `Automatic` or `Rolling`.
         :param pulumi.Input[builtins.str] host_group_id: Specifies the ID of the dedicated host group that the virtual machine scale set resides in. Changing this forces a new resource to be created.
         :param pulumi.Input['LinuxVirtualMachineScaleSetIdentityArgs'] identity: An `identity` block as defined below.
-        :param pulumi.Input[builtins.int] instances: The number of Virtual Machines in the Scale Set. Defaults to `0`.
-               
-               > **NOTE:** If you're using AutoScaling, you may wish to use [`Ignore Changes` functionality](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) to ignore changes to this field.
         :param pulumi.Input[builtins.str] location: The Azure location where the Linux Virtual Machine Scale Set should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.float] max_bid_price: The maximum price you're willing to pay for each Virtual Machine in this Scale Set, in US Dollars; which must be greater than the current spot price. If this bid price falls below the current spot price the Virtual Machines in the Scale Set will be evicted using the `eviction_policy`. Defaults to `-1`, which means that each Virtual Machine in this Scale Set should not be evicted for price reasons.
                
@@ -466,7 +463,7 @@ class LinuxVirtualMachineScaleSetArgs:
         """
         Should Password Authentication be disabled on this Virtual Machine Scale Set? Defaults to `true`.
 
-        > In general we'd recommend using SSH Keys for authentication rather than Passwords - but there's tradeoff's to each - please [see this thread for more information](https://security.stackexchange.com/questions/69407/why-is-using-an-ssh-key-more-secure-than-using-passwords).
+        > **Note:** In general we'd recommend using SSH Keys for authentication rather than Passwords - but there's tradeoff's to each - please [see this thread for more information](https://security.stackexchange.com/questions/69407/why-is-using-an-ssh-key-more-secure-than-using-passwords).
 
         > **Note:** When a `admin_password` is specified `disable_password_authentication` must be set to `false`.
         """
@@ -615,11 +612,6 @@ class LinuxVirtualMachineScaleSetArgs:
     @property
     @pulumi.getter
     def instances(self) -> Optional[pulumi.Input[builtins.int]]:
-        """
-        The number of Virtual Machines in the Scale Set. Defaults to `0`.
-
-        > **NOTE:** If you're using AutoScaling, you may wish to use [`Ignore Changes` functionality](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) to ignore changes to this field.
-        """
         return pulumi.get(self, "instances")
 
     @instances.setter
@@ -1011,7 +1003,7 @@ class _LinuxVirtualMachineScaleSetState:
         :param pulumi.Input[Sequence[pulumi.Input['LinuxVirtualMachineScaleSetDataDiskArgs']]] data_disks: One or more `data_disk` blocks as defined below.
         :param pulumi.Input[builtins.bool] disable_password_authentication: Should Password Authentication be disabled on this Virtual Machine Scale Set? Defaults to `true`.
                
-               > In general we'd recommend using SSH Keys for authentication rather than Passwords - but there's tradeoff's to each - please [see this thread for more information](https://security.stackexchange.com/questions/69407/why-is-using-an-ssh-key-more-secure-than-using-passwords).
+               > **Note:** In general we'd recommend using SSH Keys for authentication rather than Passwords - but there's tradeoff's to each - please [see this thread for more information](https://security.stackexchange.com/questions/69407/why-is-using-an-ssh-key-more-secure-than-using-passwords).
                
                > **Note:** When a `admin_password` is specified `disable_password_authentication` must be set to `false`.
         :param pulumi.Input[builtins.bool] do_not_run_extensions_on_overprovisioned_machines: Should Virtual Machine Extensions be run on Overprovisioned Virtual Machines in the Scale Set? Defaults to `false`.
@@ -1029,9 +1021,6 @@ class _LinuxVirtualMachineScaleSetState:
         :param pulumi.Input[builtins.str] health_probe_id: The ID of a Load Balancer Probe which should be used to determine the health of an instance. This is Required and can only be specified when `upgrade_mode` is set to `Automatic` or `Rolling`.
         :param pulumi.Input[builtins.str] host_group_id: Specifies the ID of the dedicated host group that the virtual machine scale set resides in. Changing this forces a new resource to be created.
         :param pulumi.Input['LinuxVirtualMachineScaleSetIdentityArgs'] identity: An `identity` block as defined below.
-        :param pulumi.Input[builtins.int] instances: The number of Virtual Machines in the Scale Set. Defaults to `0`.
-               
-               > **NOTE:** If you're using AutoScaling, you may wish to use [`Ignore Changes` functionality](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) to ignore changes to this field.
         :param pulumi.Input[builtins.str] location: The Azure location where the Linux Virtual Machine Scale Set should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.float] max_bid_price: The maximum price you're willing to pay for each Virtual Machine in this Scale Set, in US Dollars; which must be greater than the current spot price. If this bid price falls below the current spot price the Virtual Machines in the Scale Set will be evicted using the `eviction_policy`. Defaults to `-1`, which means that each Virtual Machine in this Scale Set should not be evicted for price reasons.
                
@@ -1334,7 +1323,7 @@ class _LinuxVirtualMachineScaleSetState:
         """
         Should Password Authentication be disabled on this Virtual Machine Scale Set? Defaults to `true`.
 
-        > In general we'd recommend using SSH Keys for authentication rather than Passwords - but there's tradeoff's to each - please [see this thread for more information](https://security.stackexchange.com/questions/69407/why-is-using-an-ssh-key-more-secure-than-using-passwords).
+        > **Note:** In general we'd recommend using SSH Keys for authentication rather than Passwords - but there's tradeoff's to each - please [see this thread for more information](https://security.stackexchange.com/questions/69407/why-is-using-an-ssh-key-more-secure-than-using-passwords).
 
         > **Note:** When a `admin_password` is specified `disable_password_authentication` must be set to `false`.
         """
@@ -1483,11 +1472,6 @@ class _LinuxVirtualMachineScaleSetState:
     @property
     @pulumi.getter
     def instances(self) -> Optional[pulumi.Input[builtins.int]]:
-        """
-        The number of Virtual Machines in the Scale Set. Defaults to `0`.
-
-        > **NOTE:** If you're using AutoScaling, you may wish to use [`Ignore Changes` functionality](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) to ignore changes to this field.
-        """
         return pulumi.get(self, "instances")
 
     @instances.setter
@@ -1914,16 +1898,9 @@ class LinuxVirtualMachineScaleSet(pulumi.CustomResource):
                  zones: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  __props__=None):
         """
-        Manages a Linux Virtual Machine Scale Set.
-
-        ## Disclaimers
-
-        > **Note:** As of the **v2.86.0** (November 19, 2021) release of the provider this resource will only create Virtual Machine Scale Sets with the **Uniform** Orchestration Mode. For Virtual Machine Scale Sets with **Flexible** orchestration mode, use `compute.OrchestratedVirtualMachineScaleSet`. Flexible orchestration mode is recommended for workloads on Azure.
-        rraform will automatically update & reimage the nodes in the Scale Set (if Required) during an Update - this behaviour can be configured using the `features` setting within the Provider block.
-
         ## Example Usage
 
-        This example provisions a basic Linux Virtual Machine Scale Set on an internal network.
+        This example provisions a basic Linux Virtual Machine Scale Set on an internal network. Additional examples of how to use the `compute.LinuxVirtualMachineScaleSet` resource can be found in the ./examples/vm-scale-set/linux` directory within the GitHub Repository.
 
         ```python
         import pulumi
@@ -2012,7 +1989,7 @@ class LinuxVirtualMachineScaleSet(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[Union['LinuxVirtualMachineScaleSetDataDiskArgs', 'LinuxVirtualMachineScaleSetDataDiskArgsDict']]]] data_disks: One or more `data_disk` blocks as defined below.
         :param pulumi.Input[builtins.bool] disable_password_authentication: Should Password Authentication be disabled on this Virtual Machine Scale Set? Defaults to `true`.
                
-               > In general we'd recommend using SSH Keys for authentication rather than Passwords - but there's tradeoff's to each - please [see this thread for more information](https://security.stackexchange.com/questions/69407/why-is-using-an-ssh-key-more-secure-than-using-passwords).
+               > **Note:** In general we'd recommend using SSH Keys for authentication rather than Passwords - but there's tradeoff's to each - please [see this thread for more information](https://security.stackexchange.com/questions/69407/why-is-using-an-ssh-key-more-secure-than-using-passwords).
                
                > **Note:** When a `admin_password` is specified `disable_password_authentication` must be set to `false`.
         :param pulumi.Input[builtins.bool] do_not_run_extensions_on_overprovisioned_machines: Should Virtual Machine Extensions be run on Overprovisioned Virtual Machines in the Scale Set? Defaults to `false`.
@@ -2030,9 +2007,6 @@ class LinuxVirtualMachineScaleSet(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] health_probe_id: The ID of a Load Balancer Probe which should be used to determine the health of an instance. This is Required and can only be specified when `upgrade_mode` is set to `Automatic` or `Rolling`.
         :param pulumi.Input[builtins.str] host_group_id: Specifies the ID of the dedicated host group that the virtual machine scale set resides in. Changing this forces a new resource to be created.
         :param pulumi.Input[Union['LinuxVirtualMachineScaleSetIdentityArgs', 'LinuxVirtualMachineScaleSetIdentityArgsDict']] identity: An `identity` block as defined below.
-        :param pulumi.Input[builtins.int] instances: The number of Virtual Machines in the Scale Set. Defaults to `0`.
-               
-               > **NOTE:** If you're using AutoScaling, you may wish to use [`Ignore Changes` functionality](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) to ignore changes to this field.
         :param pulumi.Input[builtins.str] location: The Azure location where the Linux Virtual Machine Scale Set should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.float] max_bid_price: The maximum price you're willing to pay for each Virtual Machine in this Scale Set, in US Dollars; which must be greater than the current spot price. If this bid price falls below the current spot price the Virtual Machines in the Scale Set will be evicted using the `eviction_policy`. Defaults to `-1`, which means that each Virtual Machine in this Scale Set should not be evicted for price reasons.
                
@@ -2082,16 +2056,9 @@ class LinuxVirtualMachineScaleSet(pulumi.CustomResource):
                  args: LinuxVirtualMachineScaleSetArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Manages a Linux Virtual Machine Scale Set.
-
-        ## Disclaimers
-
-        > **Note:** As of the **v2.86.0** (November 19, 2021) release of the provider this resource will only create Virtual Machine Scale Sets with the **Uniform** Orchestration Mode. For Virtual Machine Scale Sets with **Flexible** orchestration mode, use `compute.OrchestratedVirtualMachineScaleSet`. Flexible orchestration mode is recommended for workloads on Azure.
-        rraform will automatically update & reimage the nodes in the Scale Set (if Required) during an Update - this behaviour can be configured using the `features` setting within the Provider block.
-
         ## Example Usage
 
-        This example provisions a basic Linux Virtual Machine Scale Set on an internal network.
+        This example provisions a basic Linux Virtual Machine Scale Set on an internal network. Additional examples of how to use the `compute.LinuxVirtualMachineScaleSet` resource can be found in the ./examples/vm-scale-set/linux` directory within the GitHub Repository.
 
         ```python
         import pulumi
@@ -2389,7 +2356,7 @@ class LinuxVirtualMachineScaleSet(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[Union['LinuxVirtualMachineScaleSetDataDiskArgs', 'LinuxVirtualMachineScaleSetDataDiskArgsDict']]]] data_disks: One or more `data_disk` blocks as defined below.
         :param pulumi.Input[builtins.bool] disable_password_authentication: Should Password Authentication be disabled on this Virtual Machine Scale Set? Defaults to `true`.
                
-               > In general we'd recommend using SSH Keys for authentication rather than Passwords - but there's tradeoff's to each - please [see this thread for more information](https://security.stackexchange.com/questions/69407/why-is-using-an-ssh-key-more-secure-than-using-passwords).
+               > **Note:** In general we'd recommend using SSH Keys for authentication rather than Passwords - but there's tradeoff's to each - please [see this thread for more information](https://security.stackexchange.com/questions/69407/why-is-using-an-ssh-key-more-secure-than-using-passwords).
                
                > **Note:** When a `admin_password` is specified `disable_password_authentication` must be set to `false`.
         :param pulumi.Input[builtins.bool] do_not_run_extensions_on_overprovisioned_machines: Should Virtual Machine Extensions be run on Overprovisioned Virtual Machines in the Scale Set? Defaults to `false`.
@@ -2407,9 +2374,6 @@ class LinuxVirtualMachineScaleSet(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] health_probe_id: The ID of a Load Balancer Probe which should be used to determine the health of an instance. This is Required and can only be specified when `upgrade_mode` is set to `Automatic` or `Rolling`.
         :param pulumi.Input[builtins.str] host_group_id: Specifies the ID of the dedicated host group that the virtual machine scale set resides in. Changing this forces a new resource to be created.
         :param pulumi.Input[Union['LinuxVirtualMachineScaleSetIdentityArgs', 'LinuxVirtualMachineScaleSetIdentityArgsDict']] identity: An `identity` block as defined below.
-        :param pulumi.Input[builtins.int] instances: The number of Virtual Machines in the Scale Set. Defaults to `0`.
-               
-               > **NOTE:** If you're using AutoScaling, you may wish to use [`Ignore Changes` functionality](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) to ignore changes to this field.
         :param pulumi.Input[builtins.str] location: The Azure location where the Linux Virtual Machine Scale Set should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.float] max_bid_price: The maximum price you're willing to pay for each Virtual Machine in this Scale Set, in US Dollars; which must be greater than the current spot price. If this bid price falls below the current spot price the Virtual Machines in the Scale Set will be evicted using the `eviction_policy`. Defaults to `-1`, which means that each Virtual Machine in this Scale Set should not be evicted for price reasons.
                
@@ -2620,7 +2584,7 @@ class LinuxVirtualMachineScaleSet(pulumi.CustomResource):
         """
         Should Password Authentication be disabled on this Virtual Machine Scale Set? Defaults to `true`.
 
-        > In general we'd recommend using SSH Keys for authentication rather than Passwords - but there's tradeoff's to each - please [see this thread for more information](https://security.stackexchange.com/questions/69407/why-is-using-an-ssh-key-more-secure-than-using-passwords).
+        > **Note:** In general we'd recommend using SSH Keys for authentication rather than Passwords - but there's tradeoff's to each - please [see this thread for more information](https://security.stackexchange.com/questions/69407/why-is-using-an-ssh-key-more-secure-than-using-passwords).
 
         > **Note:** When a `admin_password` is specified `disable_password_authentication` must be set to `false`.
         """
@@ -2721,11 +2685,6 @@ class LinuxVirtualMachineScaleSet(pulumi.CustomResource):
     @property
     @pulumi.getter
     def instances(self) -> pulumi.Output[Optional[builtins.int]]:
-        """
-        The number of Virtual Machines in the Scale Set. Defaults to `0`.
-
-        > **NOTE:** If you're using AutoScaling, you may wish to use [`Ignore Changes` functionality](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) to ignore changes to this field.
-        """
         return pulumi.get(self, "instances")
 
     @property

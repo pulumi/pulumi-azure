@@ -13,15 +13,10 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ServiceAuthenticationConfiguration {
     /**
-     * @return The intended audience to receive authentication tokens for the service. The default value is https://azurehealthcareapis.com
+     * @return The intended audience to receive authentication tokens for the service. The default value is &lt;https://azurehealthcareapis.com&gt;
      * 
      */
     private @Nullable String audience;
-    /**
-     * @return The Azure Active Directory (tenant) that serves as the authentication authority to access the service. The default authority is the Directory defined in the authentication scheme in use when running this provider.
-     * Authority must be registered to Azure AD and in the following format: https://{Azure-AD-endpoint}/{tenant-id}.
-     * 
-     */
     private @Nullable String authority;
     /**
      * @return (Boolean) Enables the &#39;SMART on FHIR&#39; option for mobile and web implementations.
@@ -31,17 +26,12 @@ public final class ServiceAuthenticationConfiguration {
 
     private ServiceAuthenticationConfiguration() {}
     /**
-     * @return The intended audience to receive authentication tokens for the service. The default value is https://azurehealthcareapis.com
+     * @return The intended audience to receive authentication tokens for the service. The default value is &lt;https://azurehealthcareapis.com&gt;
      * 
      */
     public Optional<String> audience() {
         return Optional.ofNullable(this.audience);
     }
-    /**
-     * @return The Azure Active Directory (tenant) that serves as the authentication authority to access the service. The default authority is the Directory defined in the authentication scheme in use when running this provider.
-     * Authority must be registered to Azure AD and in the following format: https://{Azure-AD-endpoint}/{tenant-id}.
-     * 
-     */
     public Optional<String> authority() {
         return Optional.ofNullable(this.authority);
     }

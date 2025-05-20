@@ -18,12 +18,6 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * Manages a network security group that contains a list of network security rules.  Network security groups enable inbound or outbound traffic to be enabled or denied.
- * 
- * &gt; **NOTE on Network Security Groups and Network Security Rules:** This provider currently
- * provides both a standalone Network Security Rule resource, and allows for Network Security Rules to be defined in-line within the Network Security Group resource.
- * At this time you cannot use a Network Security Group with in-line Network Security Rules in conjunction with any Network Security Rule resources. Doing so will cause a conflict of rule settings and will overwrite rules.
- * 
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
@@ -135,18 +129,18 @@ public class NetworkSecurityGroup extends com.pulumi.resources.CustomResource {
         return this.resourceGroupName;
     }
     /**
-     * A list of objects representing security rules, as defined below.
+     * List of `security_rule` objects representing security rules, as defined below.
      * 
-     * &gt; **NOTE** Since `security_rule` can be configured both inline and via the separate `azure.network.NetworkSecurityRule` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
+     * &gt; **Note:** Since `security_rule` can be configured both inline and via the separate `azure.network.NetworkSecurityRule` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
      * 
      */
     @Export(name="securityRules", refs={List.class,NetworkSecurityGroupSecurityRule.class}, tree="[0,1]")
     private Output<List<NetworkSecurityGroupSecurityRule>> securityRules;
 
     /**
-     * @return A list of objects representing security rules, as defined below.
+     * @return List of `security_rule` objects representing security rules, as defined below.
      * 
-     * &gt; **NOTE** Since `security_rule` can be configured both inline and via the separate `azure.network.NetworkSecurityRule` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
+     * &gt; **Note:** Since `security_rule` can be configured both inline and via the separate `azure.network.NetworkSecurityRule` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
      * 
      */
     public Output<List<NetworkSecurityGroupSecurityRule>> securityRules() {

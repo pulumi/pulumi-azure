@@ -119,6 +119,13 @@ def get_endpoint_connection(name: Optional[builtins.str] = None,
     pulumi.export("privateEndpointStatus", example.private_service_connections[0].status)
     ```
 
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.Network`: 2024-05-01
+
 
     :param builtins.str name: Specifies the Name of the private endpoint.
     :param builtins.str resource_group_name: Specifies the Name of the Resource Group within which the private endpoint exists.
@@ -152,6 +159,13 @@ def get_endpoint_connection_output(name: Optional[pulumi.Input[builtins.str]] = 
         resource_group_name="example-rg")
     pulumi.export("privateEndpointStatus", example.private_service_connections[0].status)
     ```
+
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.Network`: 2024-05-01
 
 
     :param builtins.str name: Specifies the Name of the private endpoint.

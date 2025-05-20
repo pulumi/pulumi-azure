@@ -429,6 +429,13 @@ class DiscoveryVirtualInstance(pulumi.CustomResource):
             })
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Workloads`: 2024-09-01
+
         ## Import
 
         SAP Discovery Virtual Instances can be imported using the `resource id`, e.g.
@@ -484,6 +491,13 @@ class DiscoveryVirtualInstance(pulumi.CustomResource):
                 "identity_ids": ["/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/exampleRG/providers/Microsoft.ManagedIdentity/userAssignedIdentities/uai1"],
             })
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Workloads`: 2024-09-01
 
         ## Import
 

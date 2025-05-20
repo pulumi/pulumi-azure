@@ -178,6 +178,13 @@ def get_analytics_workspace(name: Optional[builtins.str] = None,
     pulumi.export("logAnalyticsWorkspaceId", example.workspace_id)
     ```
 
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.OperationalInsights`: 2020-08-01
+
 
     :param builtins.str name: Specifies the name of the Log Analytics Workspace.
     :param builtins.str resource_group_name: The name of the resource group in which the Log Analytics workspace is located in.
@@ -216,6 +223,13 @@ def get_analytics_workspace_output(name: Optional[pulumi.Input[builtins.str]] = 
         resource_group_name="acctest")
     pulumi.export("logAnalyticsWorkspaceId", example.workspace_id)
     ```
+
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.OperationalInsights`: 2020-08-01
 
 
     :param builtins.str name: Specifies the name of the Log Analytics Workspace.

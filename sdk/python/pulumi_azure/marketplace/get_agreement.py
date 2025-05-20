@@ -114,6 +114,13 @@ def get_agreement(offer: Optional[builtins.str] = None,
     pulumi.export("azurermMarketplaceAgreementId", id)
     ```
 
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.MarketplaceOrdering`: 2015-06-01
+
 
     :param builtins.str offer: The Offer of the Marketplace Image.
     :param builtins.str plan: The Plan of the Marketplace Image.
@@ -151,6 +158,13 @@ def get_agreement_output(offer: Optional[pulumi.Input[builtins.str]] = None,
         plan="hourly")
     pulumi.export("azurermMarketplaceAgreementId", id)
     ```
+
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.MarketplaceOrdering`: 2015-06-01
 
 
     :param builtins.str offer: The Offer of the Marketplace Image.

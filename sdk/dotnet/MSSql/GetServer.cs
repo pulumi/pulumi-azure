@@ -36,6 +36,13 @@ namespace Pulumi.Azure.MSSql
         ///     };
         /// });
         /// ```
+        /// 
+        /// ## API Providers
+        /// 
+        /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+        /// This data source uses the following Azure API Providers:
+        /// 
+        /// * `Microsoft.Sql`: 2023-08-01-preview
         /// </summary>
         public static Task<GetServerResult> InvokeAsync(GetServerArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetServerResult>("azure:mssql/getServer:getServer", args ?? new GetServerArgs(), options.WithDefaults());
@@ -65,6 +72,13 @@ namespace Pulumi.Azure.MSSql
         ///     };
         /// });
         /// ```
+        /// 
+        /// ## API Providers
+        /// 
+        /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+        /// This data source uses the following Azure API Providers:
+        /// 
+        /// * `Microsoft.Sql`: 2023-08-01-preview
         /// </summary>
         public static Output<GetServerResult> Invoke(GetServerInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetServerResult>("azure:mssql/getServer:getServer", args ?? new GetServerInvokeArgs(), options.WithDefaults());
@@ -94,6 +108,13 @@ namespace Pulumi.Azure.MSSql
         ///     };
         /// });
         /// ```
+        /// 
+        /// ## API Providers
+        /// 
+        /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+        /// This data source uses the following Azure API Providers:
+        /// 
+        /// * `Microsoft.Sql`: 2023-08-01-preview
         /// </summary>
         public static Output<GetServerResult> Invoke(GetServerInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetServerResult>("azure:mssql/getServer:getServer", args ?? new GetServerInvokeArgs(), options.WithDefaults());
@@ -145,11 +166,15 @@ namespace Pulumi.Azure.MSSql
     public sealed class GetServerResult
     {
         /// <summary>
-        /// The server's administrator login name.
+        /// The administrator login name of the Microsoft SQL Server.
         /// </summary>
         public readonly string AdministratorLogin;
         /// <summary>
-        /// The fully qualified domain name of the Azure SQL Server.
+        /// Whether the Express Vulnerability Assessment Configuration is enabled.
+        /// </summary>
+        public readonly bool ExpressVulnerabilityAssessmentEnabled;
+        /// <summary>
+        /// The fully qualified domain name of the Microsoft SQL Server.
         /// </summary>
         public readonly string FullyQualifiedDomainName;
         /// <summary>
@@ -157,7 +182,7 @@ namespace Pulumi.Azure.MSSql
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// A `identity` block as defined below.
+        /// An `identity` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetServerIdentityResult> Identities;
         /// <summary>
@@ -167,7 +192,7 @@ namespace Pulumi.Azure.MSSql
         public readonly string Name;
         public readonly string ResourceGroupName;
         /// <summary>
-        /// A list of dropped restorable database IDs on the server.
+        /// A list of dropped restorable database IDs on the Microsoft SQL Server.
         /// </summary>
         public readonly ImmutableArray<string> RestorableDroppedDatabaseIds;
         /// <summary>
@@ -175,17 +200,19 @@ namespace Pulumi.Azure.MSSql
         /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
         /// <summary>
-        /// The Key Vault key URI to be used as the `Customer Managed Key`(CMK/BYOK) for the `Transparent Data Encryption`(TDE) layer.
+        /// The Key Vault Key URI to be used as the `Customer Managed Key` (CMK/BYOK) for the `Transparent Data Encryption` (TDE) layer.
         /// </summary>
         public readonly string TransparentDataEncryptionKeyVaultKeyId;
         /// <summary>
-        /// This servers MS SQL version.
+        /// The version of the Microsoft SQL Server.
         /// </summary>
         public readonly string Version;
 
         [OutputConstructor]
         private GetServerResult(
             string administratorLogin,
+
+            bool expressVulnerabilityAssessmentEnabled,
 
             string fullyQualifiedDomainName,
 
@@ -208,6 +235,7 @@ namespace Pulumi.Azure.MSSql
             string version)
         {
             AdministratorLogin = administratorLogin;
+            ExpressVulnerabilityAssessmentEnabled = expressVulnerabilityAssessmentEnabled;
             FullyQualifiedDomainName = fullyQualifiedDomainName;
             Id = id;
             Identities = identities;

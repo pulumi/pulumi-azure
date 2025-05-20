@@ -23,10 +23,10 @@ namespace Pulumi.Azure.CosmosDB
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var rg = new Azure.Core.ResourceGroup("rg", new()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
-    ///         Name = "sample-rg",
-    ///         Location = "westus",
+    ///         Name = "example-resource-group",
+    ///         Location = "West Europe",
     ///     });
     /// 
     ///     var ri = new Random.RandomInteger("ri", new()
@@ -255,7 +255,7 @@ namespace Pulumi.Azure.CosmosDB
         /// <summary>
         /// Specifies the minimal TLS version for the CosmosDB account. Possible values are: `Tls`, `Tls11`, and `Tls12`. Defaults to `Tls12`.
         /// 
-        /// &gt; **Note** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more details.
+        /// &gt; **Note:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more details.
         /// </summary>
         [Output("minimalTlsVersion")]
         public Output<string?> MinimalTlsVersion { get; private set; } = null!;
@@ -554,7 +554,7 @@ namespace Pulumi.Azure.CosmosDB
         /// <summary>
         /// Specifies the minimal TLS version for the CosmosDB account. Possible values are: `Tls`, `Tls11`, and `Tls12`. Defaults to `Tls12`.
         /// 
-        /// &gt; **Note** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more details.
+        /// &gt; **Note:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more details.
         /// </summary>
         [Input("minimalTlsVersion")]
         public Input<string>? MinimalTlsVersion { get; set; }
@@ -738,7 +738,7 @@ namespace Pulumi.Azure.CosmosDB
         /// <summary>
         /// Specifies the minimal TLS version for the CosmosDB account. Possible values are: `Tls`, `Tls11`, and `Tls12`. Defaults to `Tls12`.
         /// 
-        /// &gt; **Note** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more details.
+        /// &gt; **Note:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more details.
         /// </summary>
         [Input("minimalTlsVersion")]
         public Input<string>? MinimalTlsVersion { get; set; }

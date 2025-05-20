@@ -83,7 +83,7 @@ type Snapshot struct {
 	DiskSizeGb pulumi.IntOutput `pulumi:"diskSizeGb"`
 	// A `encryptionSettings` block as defined below.
 	//
-	// > **NOTE:** Removing `encryptionSettings` forces a new resource to be created.
+	// > **Note:** Removing `encryptionSettings` forces a new resource to be created.
 	EncryptionSettings SnapshotEncryptionSettingsPtrOutput `pulumi:"encryptionSettings"`
 	// Specifies if the Snapshot is incremental. Changing this forces a new resource to be created.
 	IncrementalEnabled pulumi.BoolPtrOutput `pulumi:"incrementalEnabled"`
@@ -155,7 +155,7 @@ type snapshotState struct {
 	DiskSizeGb *int `pulumi:"diskSizeGb"`
 	// A `encryptionSettings` block as defined below.
 	//
-	// > **NOTE:** Removing `encryptionSettings` forces a new resource to be created.
+	// > **Note:** Removing `encryptionSettings` forces a new resource to be created.
 	EncryptionSettings *SnapshotEncryptionSettings `pulumi:"encryptionSettings"`
 	// Specifies if the Snapshot is incremental. Changing this forces a new resource to be created.
 	IncrementalEnabled *bool `pulumi:"incrementalEnabled"`
@@ -192,7 +192,7 @@ type SnapshotState struct {
 	DiskSizeGb pulumi.IntPtrInput
 	// A `encryptionSettings` block as defined below.
 	//
-	// > **NOTE:** Removing `encryptionSettings` forces a new resource to be created.
+	// > **Note:** Removing `encryptionSettings` forces a new resource to be created.
 	EncryptionSettings SnapshotEncryptionSettingsPtrInput
 	// Specifies if the Snapshot is incremental. Changing this forces a new resource to be created.
 	IncrementalEnabled pulumi.BoolPtrInput
@@ -233,7 +233,7 @@ type snapshotArgs struct {
 	DiskSizeGb *int `pulumi:"diskSizeGb"`
 	// A `encryptionSettings` block as defined below.
 	//
-	// > **NOTE:** Removing `encryptionSettings` forces a new resource to be created.
+	// > **Note:** Removing `encryptionSettings` forces a new resource to be created.
 	EncryptionSettings *SnapshotEncryptionSettings `pulumi:"encryptionSettings"`
 	// Specifies if the Snapshot is incremental. Changing this forces a new resource to be created.
 	IncrementalEnabled *bool `pulumi:"incrementalEnabled"`
@@ -269,7 +269,7 @@ type SnapshotArgs struct {
 	DiskSizeGb pulumi.IntPtrInput
 	// A `encryptionSettings` block as defined below.
 	//
-	// > **NOTE:** Removing `encryptionSettings` forces a new resource to be created.
+	// > **Note:** Removing `encryptionSettings` forces a new resource to be created.
 	EncryptionSettings SnapshotEncryptionSettingsPtrInput
 	// Specifies if the Snapshot is incremental. Changing this forces a new resource to be created.
 	IncrementalEnabled pulumi.BoolPtrInput
@@ -399,7 +399,7 @@ func (o SnapshotOutput) DiskSizeGb() pulumi.IntOutput {
 
 // A `encryptionSettings` block as defined below.
 //
-// > **NOTE:** Removing `encryptionSettings` forces a new resource to be created.
+// > **Note:** Removing `encryptionSettings` forces a new resource to be created.
 func (o SnapshotOutput) EncryptionSettings() SnapshotEncryptionSettingsPtrOutput {
 	return o.ApplyT(func(v *Snapshot) SnapshotEncryptionSettingsPtrOutput { return v.EncryptionSettings }).(SnapshotEncryptionSettingsPtrOutput)
 }

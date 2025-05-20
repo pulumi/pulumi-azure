@@ -34,7 +34,7 @@ public final class HciClusterIdentityArgs extends com.pulumi.resources.ResourceA
     /**
      * The Tenant ID of the Azure Active Directory which is used by the Azure Stack HCI Cluster. Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE** If unspecified the Tenant ID of the Provider will be used.
+     * &gt; **Note:** If unspecified the Tenant ID of the Provider will be used.
      * 
      */
     @Import(name="tenantId")
@@ -43,7 +43,7 @@ public final class HciClusterIdentityArgs extends com.pulumi.resources.ResourceA
     /**
      * @return The Tenant ID of the Azure Active Directory which is used by the Azure Stack HCI Cluster. Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE** If unspecified the Tenant ID of the Provider will be used.
+     * &gt; **Note:** If unspecified the Tenant ID of the Provider will be used.
      * 
      */
     public Optional<Output<String>> tenantId() {
@@ -115,7 +115,7 @@ public final class HciClusterIdentityArgs extends com.pulumi.resources.ResourceA
         /**
          * @param tenantId The Tenant ID of the Azure Active Directory which is used by the Azure Stack HCI Cluster. Changing this forces a new resource to be created.
          * 
-         * &gt; **NOTE** If unspecified the Tenant ID of the Provider will be used.
+         * &gt; **Note:** If unspecified the Tenant ID of the Provider will be used.
          * 
          * @return builder
          * 
@@ -128,7 +128,7 @@ public final class HciClusterIdentityArgs extends com.pulumi.resources.ResourceA
         /**
          * @param tenantId The Tenant ID of the Azure Active Directory which is used by the Azure Stack HCI Cluster. Changing this forces a new resource to be created.
          * 
-         * &gt; **NOTE** If unspecified the Tenant ID of the Provider will be used.
+         * &gt; **Note:** If unspecified the Tenant ID of the Provider will be used.
          * 
          * @return builder
          * 

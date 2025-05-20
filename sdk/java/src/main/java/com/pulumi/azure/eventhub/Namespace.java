@@ -52,7 +52,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
- *             .name("my-servicebus")
+ *             .name("terraform-servicebus")
  *             .location("West Europe")
  *             .build());
  * 
@@ -61,7 +61,7 @@ import javax.annotation.Nullable;
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .sku("Standard")
- *             .tags(Map.of("source", "example"))
+ *             .tags(Map.of("source", "terraform"))
  *             .build());
  * 
  *     }
@@ -228,7 +228,7 @@ public class Namespace extends com.pulumi.resources.CustomResource {
     /**
      * The minimum supported TLS version for this Service Bus Namespace. Valid values are: `1.0`, `1.1` and `1.2`. Defaults to `1.2`.
      * 
-     * &gt; **NOTE:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
+     * &gt; **Note:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
      * 
      */
     @Export(name="minimumTlsVersion", refs={String.class}, tree="[0]")
@@ -237,7 +237,7 @@ public class Namespace extends com.pulumi.resources.CustomResource {
     /**
      * @return The minimum supported TLS version for this Service Bus Namespace. Valid values are: `1.0`, `1.1` and `1.2`. Defaults to `1.2`.
      * 
-     * &gt; **NOTE:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
+     * &gt; **Note:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
      * 
      */
     public Output<Optional<String>> minimumTlsVersion() {

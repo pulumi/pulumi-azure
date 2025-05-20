@@ -744,7 +744,7 @@ class GetAccountResult:
 
     @property
     @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> Optional[builtins.str]:
+    def resource_group_name(self) -> builtins.str:
         return pulumi.get(self, "resource_group_name")
 
     @property
@@ -1171,6 +1171,13 @@ def get_account(min_tls_version: Optional[builtins.str] = None,
     pulumi.export("storageAccountTier", example.account_tier)
     ```
 
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.Storage`: 2023-05-01
+
 
     :param builtins.str min_tls_version: The minimum supported TLS version for this storage account.
     :param builtins.str name: Specifies the name of the Storage Account
@@ -1279,7 +1286,7 @@ def get_account(min_tls_version: Optional[builtins.str] = None,
         tags=pulumi.get(__ret__, 'tags'))
 def get_account_output(min_tls_version: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                        name: Optional[pulumi.Input[builtins.str]] = None,
-                       resource_group_name: Optional[pulumi.Input[Optional[builtins.str]]] = None,
+                       resource_group_name: Optional[pulumi.Input[builtins.str]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAccountResult]:
     """
     Use this data source to access information about an existing Storage Account.
@@ -1294,6 +1301,13 @@ def get_account_output(min_tls_version: Optional[pulumi.Input[Optional[builtins.
         resource_group_name="packer-storage")
     pulumi.export("storageAccountTier", example.account_tier)
     ```
+
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.Storage`: 2023-05-01
 
 
     :param builtins.str min_tls_version: The minimum supported TLS version for this storage account.

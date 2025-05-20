@@ -10,18 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.FrontDoor
 {
     /// <summary>
-    /// !&gt; **IMPORTANT** This deploys an Azure Front Door (classic) resource which has been deprecated and will receive security updates only. Please migrate your existing Azure Front Door (classic) deployments to the new Azure Front Door (standard/premium) resources. For your convenience, the service team has exposed a `Front Door Classic` to `Front Door Standard/Premium` [migration tool](https://learn.microsoft.com/azure/frontdoor/tier-migration) to allow you to migrate your existing `Front Door Classic` instances to the new `Front Door Standard/Premium` product tiers.
-    /// 
-    /// Manages an Azure Front Door (classic) instance.
-    /// 
-    /// Azure Front Door Service is Microsoft's highly available and scalable web application acceleration platform and global HTTP(S) load balancer. It provides built-in DDoS protection and application layer security and caching. Front Door enables you to build applications that maximize and automate high-availability and performance for your end-users. Use Front Door with Azure services including Web/Mobile Apps, Cloud Services and Virtual Machines – or combine it with on-premises services for hybrid deployments and smooth cloud migration.
-    /// 
-    /// Below are some of the key scenarios that Azure Front Door Service addresses:
-    /// 
-    /// * Use Front Door to improve application scale and availability with instant multi-region failover
-    /// * Use Front Door to improve application performance with SSL offload and routing requests to the fastest available application backend.
-    /// * Use Front Door for application layer security and DDoS protection for your application.
-    /// 
     /// ## Example Usage
     /// 
     /// ```csharp
@@ -157,7 +145,7 @@ namespace Pulumi.Azure.FrontDoor
         /// <summary>
         /// A `backend_pool` block as defined below.
         /// 
-        /// &gt; Azure by default allows specifying up to 50 Backend Pools - but this quota can be increased via Microsoft Support.
+        /// &gt; **Note:** Azure by default allows specifying up to 50 Backend Pools - but this quota can be increased via Microsoft Support.
         /// </summary>
         [Output("backendPools")]
         public Output<ImmutableArray<Outputs.FrontdoorBackendPool>> BackendPools { get; private set; } = null!;
@@ -325,7 +313,7 @@ namespace Pulumi.Azure.FrontDoor
         /// <summary>
         /// A `backend_pool` block as defined below.
         /// 
-        /// &gt; Azure by default allows specifying up to 50 Backend Pools - but this quota can be increased via Microsoft Support.
+        /// &gt; **Note:** Azure by default allows specifying up to 50 Backend Pools - but this quota can be increased via Microsoft Support.
         /// </summary>
         public InputList<Inputs.FrontdoorBackendPoolArgs> BackendPools
         {
@@ -467,7 +455,7 @@ namespace Pulumi.Azure.FrontDoor
         /// <summary>
         /// A `backend_pool` block as defined below.
         /// 
-        /// &gt; Azure by default allows specifying up to 50 Backend Pools - but this quota can be increased via Microsoft Support.
+        /// &gt; **Note:** Azure by default allows specifying up to 50 Backend Pools - but this quota can be increased via Microsoft Support.
         /// </summary>
         public InputList<Inputs.FrontdoorBackendPoolGetArgs> BackendPools
         {

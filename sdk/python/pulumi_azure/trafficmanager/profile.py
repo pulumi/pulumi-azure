@@ -45,7 +45,7 @@ class ProfileArgs:
                * `Weighted` - Traffic is spread across Endpoints proportional to their `weight` value.
         :param pulumi.Input[builtins.int] max_return: The amount of endpoints to return for DNS queries to this Profile. Possible values range from `1` to `8`.
                
-               > **NOTE:** `max_return` must be set when the `traffic_routing_method` is `MultiValue`.
+               > **Note:** `max_return` must be set when the `traffic_routing_method` is `MultiValue`.
         :param pulumi.Input[builtins.str] name: The name of the Traffic Manager profile. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] profile_status: The status of the profile, can be set to either `Enabled` or `Disabled`. Defaults to `Enabled`.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A mapping of tags to assign to the resource.
@@ -126,7 +126,7 @@ class ProfileArgs:
         """
         The amount of endpoints to return for DNS queries to this Profile. Possible values range from `1` to `8`.
 
-        > **NOTE:** `max_return` must be set when the `traffic_routing_method` is `MultiValue`.
+        > **Note:** `max_return` must be set when the `traffic_routing_method` is `MultiValue`.
         """
         return pulumi.get(self, "max_return")
 
@@ -202,7 +202,7 @@ class _ProfileState:
         :param pulumi.Input[builtins.str] fqdn: The FQDN of the created Profile.
         :param pulumi.Input[builtins.int] max_return: The amount of endpoints to return for DNS queries to this Profile. Possible values range from `1` to `8`.
                
-               > **NOTE:** `max_return` must be set when the `traffic_routing_method` is `MultiValue`.
+               > **Note:** `max_return` must be set when the `traffic_routing_method` is `MultiValue`.
         :param pulumi.Input['ProfileMonitorConfigArgs'] monitor_config: This block specifies the Endpoint monitoring configuration for the Profile. One `monitor_config` block as defined below.
         :param pulumi.Input[builtins.str] name: The name of the Traffic Manager profile. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] profile_status: The status of the profile, can be set to either `Enabled` or `Disabled`. Defaults to `Enabled`.
@@ -268,7 +268,7 @@ class _ProfileState:
         """
         The amount of endpoints to return for DNS queries to this Profile. Possible values range from `1` to `8`.
 
-        > **NOTE:** `max_return` must be set when the `traffic_routing_method` is `MultiValue`.
+        > **Note:** `max_return` must be set when the `traffic_routing_method` is `MultiValue`.
         """
         return pulumi.get(self, "max_return")
 
@@ -427,6 +427,13 @@ class Profile(pulumi.CustomResource):
             })
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Network`: 2022-04-01
+
         ## Import
 
         Traffic Manager Profiles can be imported using the `resource id`, e.g.
@@ -440,7 +447,7 @@ class Profile(pulumi.CustomResource):
         :param pulumi.Input[Union['ProfileDnsConfigArgs', 'ProfileDnsConfigArgsDict']] dns_config: This block specifies the DNS configuration of the Profile. One `dns_config` block as defined below.
         :param pulumi.Input[builtins.int] max_return: The amount of endpoints to return for DNS queries to this Profile. Possible values range from `1` to `8`.
                
-               > **NOTE:** `max_return` must be set when the `traffic_routing_method` is `MultiValue`.
+               > **Note:** `max_return` must be set when the `traffic_routing_method` is `MultiValue`.
         :param pulumi.Input[Union['ProfileMonitorConfigArgs', 'ProfileMonitorConfigArgsDict']] monitor_config: This block specifies the Endpoint monitoring configuration for the Profile. One `monitor_config` block as defined below.
         :param pulumi.Input[builtins.str] name: The name of the Traffic Manager profile. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] profile_status: The status of the profile, can be set to either `Enabled` or `Disabled`. Defaults to `Enabled`.
@@ -499,6 +506,13 @@ class Profile(pulumi.CustomResource):
                 "environment": "Production",
             })
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Network`: 2022-04-01
 
         ## Import
 
@@ -591,7 +605,7 @@ class Profile(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] fqdn: The FQDN of the created Profile.
         :param pulumi.Input[builtins.int] max_return: The amount of endpoints to return for DNS queries to this Profile. Possible values range from `1` to `8`.
                
-               > **NOTE:** `max_return` must be set when the `traffic_routing_method` is `MultiValue`.
+               > **Note:** `max_return` must be set when the `traffic_routing_method` is `MultiValue`.
         :param pulumi.Input[Union['ProfileMonitorConfigArgs', 'ProfileMonitorConfigArgsDict']] monitor_config: This block specifies the Endpoint monitoring configuration for the Profile. One `monitor_config` block as defined below.
         :param pulumi.Input[builtins.str] name: The name of the Traffic Manager profile. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] profile_status: The status of the profile, can be set to either `Enabled` or `Disabled`. Defaults to `Enabled`.
@@ -644,7 +658,7 @@ class Profile(pulumi.CustomResource):
         """
         The amount of endpoints to return for DNS queries to this Profile. Possible values range from `1` to `8`.
 
-        > **NOTE:** `max_return` must be set when the `traffic_routing_method` is `MultiValue`.
+        > **Note:** `max_return` must be set when the `traffic_routing_method` is `MultiValue`.
         """
         return pulumi.get(self, "max_return")
 

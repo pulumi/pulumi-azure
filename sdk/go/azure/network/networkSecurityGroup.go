@@ -12,12 +12,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Manages a network security group that contains a list of network security rules.  Network security groups enable inbound or outbound traffic to be enabled or denied.
-//
-// > **NOTE on Network Security Groups and Network Security Rules:** This provider currently
-// provides both a standalone Network Security Rule resource, and allows for Network Security Rules to be defined in-line within the Network Security Group resource.
-// At this time you cannot use a Network Security Group with in-line Network Security Rules in conjunction with any Network Security Rule resources. Doing so will cause a conflict of rule settings and will overwrite rules.
-//
 // ## Example Usage
 //
 // ```go
@@ -86,9 +80,9 @@ type NetworkSecurityGroup struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The name of the resource group in which to create the network security group. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
-	// A list of objects representing security rules, as defined below.
+	// List of `securityRule` objects representing security rules, as defined below.
 	//
-	// > **NOTE** Since `securityRule` can be configured both inline and via the separate `network.NetworkSecurityRule` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
+	// > **Note:** Since `securityRule` can be configured both inline and via the separate `network.NetworkSecurityRule` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
 	SecurityRules NetworkSecurityGroupSecurityRuleArrayOutput `pulumi:"securityRules"`
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
@@ -133,9 +127,9 @@ type networkSecurityGroupState struct {
 	Name *string `pulumi:"name"`
 	// The name of the resource group in which to create the network security group. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
-	// A list of objects representing security rules, as defined below.
+	// List of `securityRule` objects representing security rules, as defined below.
 	//
-	// > **NOTE** Since `securityRule` can be configured both inline and via the separate `network.NetworkSecurityRule` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
+	// > **Note:** Since `securityRule` can be configured both inline and via the separate `network.NetworkSecurityRule` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
 	SecurityRules []NetworkSecurityGroupSecurityRule `pulumi:"securityRules"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
@@ -148,9 +142,9 @@ type NetworkSecurityGroupState struct {
 	Name pulumi.StringPtrInput
 	// The name of the resource group in which to create the network security group. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
-	// A list of objects representing security rules, as defined below.
+	// List of `securityRule` objects representing security rules, as defined below.
 	//
-	// > **NOTE** Since `securityRule` can be configured both inline and via the separate `network.NetworkSecurityRule` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
+	// > **Note:** Since `securityRule` can be configured both inline and via the separate `network.NetworkSecurityRule` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
 	SecurityRules NetworkSecurityGroupSecurityRuleArrayInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
@@ -167,9 +161,9 @@ type networkSecurityGroupArgs struct {
 	Name *string `pulumi:"name"`
 	// The name of the resource group in which to create the network security group. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// A list of objects representing security rules, as defined below.
+	// List of `securityRule` objects representing security rules, as defined below.
 	//
-	// > **NOTE** Since `securityRule` can be configured both inline and via the separate `network.NetworkSecurityRule` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
+	// > **Note:** Since `securityRule` can be configured both inline and via the separate `network.NetworkSecurityRule` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
 	SecurityRules []NetworkSecurityGroupSecurityRule `pulumi:"securityRules"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
@@ -183,9 +177,9 @@ type NetworkSecurityGroupArgs struct {
 	Name pulumi.StringPtrInput
 	// The name of the resource group in which to create the network security group. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
-	// A list of objects representing security rules, as defined below.
+	// List of `securityRule` objects representing security rules, as defined below.
 	//
-	// > **NOTE** Since `securityRule` can be configured both inline and via the separate `network.NetworkSecurityRule` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
+	// > **Note:** Since `securityRule` can be configured both inline and via the separate `network.NetworkSecurityRule` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
 	SecurityRules NetworkSecurityGroupSecurityRuleArrayInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
@@ -293,9 +287,9 @@ func (o NetworkSecurityGroupOutput) ResourceGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v *NetworkSecurityGroup) pulumi.StringOutput { return v.ResourceGroupName }).(pulumi.StringOutput)
 }
 
-// A list of objects representing security rules, as defined below.
+// List of `securityRule` objects representing security rules, as defined below.
 //
-// > **NOTE** Since `securityRule` can be configured both inline and via the separate `network.NetworkSecurityRule` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
+// > **Note:** Since `securityRule` can be configured both inline and via the separate `network.NetworkSecurityRule` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
 func (o NetworkSecurityGroupOutput) SecurityRules() NetworkSecurityGroupSecurityRuleArrayOutput {
 	return o.ApplyT(func(v *NetworkSecurityGroup) NetworkSecurityGroupSecurityRuleArrayOutput { return v.SecurityRules }).(NetworkSecurityGroupSecurityRuleArrayOutput)
 }

@@ -81,7 +81,7 @@ public final class AccountActiveDirectoryArgs extends com.pulumi.resources.Resou
     /**
      * kdc server IP addresses for the active directory machine.
      * 
-     * &gt; **IMPORTANT:** If you plan on using **Kerberos** volumes, both `ad_name` and `kdc_ip` are required in order to create the volume.
+     * &gt; **Note:** If you plan on using **Kerberos** volumes, both `ad_name` and `kdc_ip` are required in order to create the volume.
      * 
      */
     @Import(name="kerberosKdcIp")
@@ -90,7 +90,7 @@ public final class AccountActiveDirectoryArgs extends com.pulumi.resources.Resou
     /**
      * @return kdc server IP addresses for the active directory machine.
      * 
-     * &gt; **IMPORTANT:** If you plan on using **Kerberos** volumes, both `ad_name` and `kdc_ip` are required in order to create the volume.
+     * &gt; **Note:** If you plan on using **Kerberos** volumes, both `ad_name` and `kdc_ip` are required in order to create the volume.
      * 
      */
     public Optional<Output<String>> kerberosKdcIp() {
@@ -366,7 +366,7 @@ public final class AccountActiveDirectoryArgs extends com.pulumi.resources.Resou
         /**
          * @param kerberosKdcIp kdc server IP addresses for the active directory machine.
          * 
-         * &gt; **IMPORTANT:** If you plan on using **Kerberos** volumes, both `ad_name` and `kdc_ip` are required in order to create the volume.
+         * &gt; **Note:** If you plan on using **Kerberos** volumes, both `ad_name` and `kdc_ip` are required in order to create the volume.
          * 
          * @return builder
          * 
@@ -379,7 +379,7 @@ public final class AccountActiveDirectoryArgs extends com.pulumi.resources.Resou
         /**
          * @param kerberosKdcIp kdc server IP addresses for the active directory machine.
          * 
-         * &gt; **IMPORTANT:** If you plan on using **Kerberos** volumes, both `ad_name` and `kdc_ip` are required in order to create the volume.
+         * &gt; **Note:** If you plan on using **Kerberos** volumes, both `ad_name` and `kdc_ip` are required in order to create the volume.
          * 
          * @return builder
          * 

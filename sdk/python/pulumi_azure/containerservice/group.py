@@ -73,7 +73,7 @@ class GroupArgs:
         :param pulumi.Input[builtins.str] name: Specifies the name of the Container Group. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] priority: The priority of the Container Group. Possible values are `Regular` and `Spot`. Changing this forces a new resource to be created.
                
-               > **NOTE:** When `priority` is set to `Spot`, the `ip_address_type` has to be `None`.
+               > **Note:** When `priority` is set to `Spot`, the `ip_address_type` has to be `None`.
         :param pulumi.Input[builtins.str] restart_policy: Restart policy for the container group. Allowed values are `Always`, `Never`, `OnFailure`. Defaults to `Always`. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] sku: Specifies the sku of the Container Group. Possible values are `Confidential`, `Dedicated` and `Standard`. Defaults to `Standard`. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] subnet_ids: The subnet resource IDs for a container group. Changing this forces a new resource to be created.
@@ -343,7 +343,7 @@ class GroupArgs:
         """
         The priority of the Container Group. Possible values are `Regular` and `Spot`. Changing this forces a new resource to be created.
 
-        > **NOTE:** When `priority` is set to `Spot`, the `ip_address_type` has to be `None`.
+        > **Note:** When `priority` is set to `Spot`, the `ip_address_type` has to be `None`.
         """
         return pulumi.get(self, "priority")
 
@@ -469,7 +469,7 @@ class _GroupState:
                > **Note:** if `os_type` is set to `Windows` currently only a single `container` block is supported. Windows containers are not supported in virtual networks.
         :param pulumi.Input[builtins.str] priority: The priority of the Container Group. Possible values are `Regular` and `Spot`. Changing this forces a new resource to be created.
                
-               > **NOTE:** When `priority` is set to `Spot`, the `ip_address_type` has to be `None`.
+               > **Note:** When `priority` is set to `Spot`, the `ip_address_type` has to be `None`.
         :param pulumi.Input[builtins.str] resource_group_name: The name of the resource group in which to create the Container Group. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] restart_policy: Restart policy for the container group. Allowed values are `Always`, `Never`, `OnFailure`. Defaults to `Always`. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] sku: Specifies the sku of the Container Group. Possible values are `Confidential`, `Dedicated` and `Standard`. Defaults to `Standard`. Changing this forces a new resource to be created.
@@ -759,7 +759,7 @@ class _GroupState:
         """
         The priority of the Container Group. Possible values are `Regular` and `Spot`. Changing this forces a new resource to be created.
 
-        > **NOTE:** When `priority` is set to `Spot`, the `ip_address_type` has to be `None`.
+        > **Note:** When `priority` is set to `Spot`, the `ip_address_type` has to be `None`.
         """
         return pulumi.get(self, "priority")
 
@@ -875,7 +875,7 @@ class Group(pulumi.CustomResource):
 
         ## Example Usage
 
-        This example provisions a Basic Container.
+        This example provisions a Basic Container. Other examples of the `containerservice.Group` resource can be found in the `./examples/container-instance` directory within the GitHub Repository.
 
         ```python
         import pulumi
@@ -913,6 +913,13 @@ class Group(pulumi.CustomResource):
                 "environment": "testing",
             })
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.ContainerInstance`: 2023-05-01
 
         ## Import
 
@@ -949,7 +956,7 @@ class Group(pulumi.CustomResource):
                > **Note:** if `os_type` is set to `Windows` currently only a single `container` block is supported. Windows containers are not supported in virtual networks.
         :param pulumi.Input[builtins.str] priority: The priority of the Container Group. Possible values are `Regular` and `Spot`. Changing this forces a new resource to be created.
                
-               > **NOTE:** When `priority` is set to `Spot`, the `ip_address_type` has to be `None`.
+               > **Note:** When `priority` is set to `Spot`, the `ip_address_type` has to be `None`.
         :param pulumi.Input[builtins.str] resource_group_name: The name of the resource group in which to create the Container Group. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] restart_policy: Restart policy for the container group. Allowed values are `Always`, `Never`, `OnFailure`. Defaults to `Always`. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] sku: Specifies the sku of the Container Group. Possible values are `Confidential`, `Dedicated` and `Standard`. Defaults to `Standard`. Changing this forces a new resource to be created.
@@ -968,7 +975,7 @@ class Group(pulumi.CustomResource):
 
         ## Example Usage
 
-        This example provisions a Basic Container.
+        This example provisions a Basic Container. Other examples of the `containerservice.Group` resource can be found in the `./examples/container-instance` directory within the GitHub Repository.
 
         ```python
         import pulumi
@@ -1006,6 +1013,13 @@ class Group(pulumi.CustomResource):
                 "environment": "testing",
             })
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.ContainerInstance`: 2023-05-01
 
         ## Import
 
@@ -1162,7 +1176,7 @@ class Group(pulumi.CustomResource):
                > **Note:** if `os_type` is set to `Windows` currently only a single `container` block is supported. Windows containers are not supported in virtual networks.
         :param pulumi.Input[builtins.str] priority: The priority of the Container Group. Possible values are `Regular` and `Spot`. Changing this forces a new resource to be created.
                
-               > **NOTE:** When `priority` is set to `Spot`, the `ip_address_type` has to be `None`.
+               > **Note:** When `priority` is set to `Spot`, the `ip_address_type` has to be `None`.
         :param pulumi.Input[builtins.str] resource_group_name: The name of the resource group in which to create the Container Group. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] restart_policy: Restart policy for the container group. Allowed values are `Always`, `Never`, `OnFailure`. Defaults to `Always`. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] sku: Specifies the sku of the Container Group. Possible values are `Confidential`, `Dedicated` and `Standard`. Defaults to `Standard`. Changing this forces a new resource to be created.
@@ -1357,7 +1371,7 @@ class Group(pulumi.CustomResource):
         """
         The priority of the Container Group. Possible values are `Regular` and `Spot`. Changing this forces a new resource to be created.
 
-        > **NOTE:** When `priority` is set to `Spot`, the `ip_address_type` has to be `None`.
+        > **Note:** When `priority` is set to `Spot`, the `ip_address_type` has to be `None`.
         """
         return pulumi.get(self, "priority")
 

@@ -190,9 +190,9 @@ class DdosProtectionPlan(pulumi.CustomResource):
         """
         Manages an AzureNetwork DDoS Protection Plan.
 
-        > **NOTE** Azure only allows `one` DDoS Protection Plan per region.
+        > **Note:** Azure only allows `one` DDoS Protection Plan per region.
 
-        > **NOTE** The DDoS Protection Plan is a [high-cost service](https://azure.microsoft.com/en-us/pricing/details/ddos-protection/#pricing). Please keep this in mind while testing and learning.
+        > **Note:** The DDoS Protection Plan is a [high-cost service](https://azure.microsoft.com/en-us/pricing/details/ddos-protection/#pricing). Please keep this in mind while testing and learning.
 
         ## Example Usage
 
@@ -233,9 +233,9 @@ class DdosProtectionPlan(pulumi.CustomResource):
         """
         Manages an AzureNetwork DDoS Protection Plan.
 
-        > **NOTE** Azure only allows `one` DDoS Protection Plan per region.
+        > **Note:** Azure only allows `one` DDoS Protection Plan per region.
 
-        > **NOTE** The DDoS Protection Plan is a [high-cost service](https://azure.microsoft.com/en-us/pricing/details/ddos-protection/#pricing). Please keep this in mind while testing and learning.
+        > **Note:** The DDoS Protection Plan is a [high-cost service](https://azure.microsoft.com/en-us/pricing/details/ddos-protection/#pricing). Please keep this in mind while testing and learning.
 
         ## Example Usage
 

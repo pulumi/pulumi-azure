@@ -56,6 +56,13 @@ public final class TrafficmanagerFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Network`: 2022-04-01
+     * 
      * @deprecated
      * azure.trafficmanager.getGeographicalLocation has been deprecated in favor of azure.network.getTrafficManager
      * 
@@ -104,6 +111,13 @@ public final class TrafficmanagerFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Network`: 2022-04-01
      * 
      * @deprecated
      * azure.trafficmanager.getGeographicalLocation has been deprecated in favor of azure.network.getTrafficManager
@@ -154,6 +168,13 @@ public final class TrafficmanagerFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Network`: 2022-04-01
+     * 
      * @deprecated
      * azure.trafficmanager.getGeographicalLocation has been deprecated in favor of azure.network.getTrafficManager
      * 
@@ -203,6 +224,13 @@ public final class TrafficmanagerFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Network`: 2022-04-01
+     * 
      * @deprecated
      * azure.trafficmanager.getGeographicalLocation has been deprecated in favor of azure.network.getTrafficManager
      * 
@@ -251,6 +279,13 @@ public final class TrafficmanagerFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Network`: 2022-04-01
      * 
      * @deprecated
      * azure.trafficmanager.getGeographicalLocation has been deprecated in favor of azure.network.getTrafficManager

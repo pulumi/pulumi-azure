@@ -20,7 +20,7 @@ import javax.annotation.Nullable;
 /**
  * Manages a Public IP Address.
  * 
- * &gt; **Note** If this resource is to be associated with a resource that requires disassociation before destruction (such as `azure.network.NetworkInterface`) it is recommended to set the `lifecycle` argument `create_before_destroy = true`. Otherwise, it can fail to disassociate on destruction.
+ * &gt; **Note:** If this resource is to be associated with a resource that requires disassociation before destruction (such as `azure.network.NetworkInterface`) it is recommended to set the `lifecycle` argument `create_before_destroy = true`. Otherwise, it can fail to disassociate on destruction.
  * 
  * ## Example Usage
  * 
@@ -82,7 +82,7 @@ public class PublicIp extends com.pulumi.resources.CustomResource {
     /**
      * Defines the allocation method for this IP address. Possible values are `Static` or `Dynamic`.
      * 
-     * &gt; **Note** `Dynamic` Public IP Addresses aren&#39;t allocated until they&#39;re assigned to a resource (such as a Virtual Machine or a Load Balancer) by design within Azure. See `ip_address` argument.
+     * &gt; **Note:** `Dynamic` Public IP Addresses aren&#39;t allocated until they&#39;re assigned to a resource (such as a Virtual Machine or a Load Balancer) by design within Azure. See `ip_address` argument.
      * 
      */
     @Export(name="allocationMethod", refs={String.class}, tree="[0]")
@@ -91,7 +91,7 @@ public class PublicIp extends com.pulumi.resources.CustomResource {
     /**
      * @return Defines the allocation method for this IP address. Possible values are `Static` or `Dynamic`.
      * 
-     * &gt; **Note** `Dynamic` Public IP Addresses aren&#39;t allocated until they&#39;re assigned to a resource (such as a Virtual Machine or a Load Balancer) by design within Azure. See `ip_address` argument.
+     * &gt; **Note:** `Dynamic` Public IP Addresses aren&#39;t allocated until they&#39;re assigned to a resource (such as a Virtual Machine or a Load Balancer) by design within Azure. See `ip_address` argument.
      * 
      */
     public Output<String> allocationMethod() {
@@ -216,7 +216,7 @@ public class PublicIp extends com.pulumi.resources.CustomResource {
     /**
      * A mapping of IP tags to assign to the public IP. Changing this forces a new resource to be created.
      * 
-     * &gt; **Note** IP Tag `RoutingPreference` requires multiple `zones` and `Standard` SKU to be set.
+     * &gt; **Note:** IP Tag `RoutingPreference` requires multiple `zones` and `Standard` SKU to be set.
      * 
      */
     @Export(name="ipTags", refs={Map.class,String.class}, tree="[0,1,1]")
@@ -225,7 +225,7 @@ public class PublicIp extends com.pulumi.resources.CustomResource {
     /**
      * @return A mapping of IP tags to assign to the public IP. Changing this forces a new resource to be created.
      * 
-     * &gt; **Note** IP Tag `RoutingPreference` requires multiple `zones` and `Standard` SKU to be set.
+     * &gt; **Note:** IP Tag `RoutingPreference` requires multiple `zones` and `Standard` SKU to be set.
      * 
      */
     public Output<Optional<Map<String,String>>> ipTags() {
@@ -234,7 +234,7 @@ public class PublicIp extends com.pulumi.resources.CustomResource {
     /**
      * The IP Version to use, IPv6 or IPv4. Changing this forces a new resource to be created. Defaults to `IPv4`.
      * 
-     * &gt; **Note** Only `static` IP address allocation is supported for IPv6.
+     * &gt; **Note:** Only `static` IP address allocation is supported for IPv6.
      * 
      */
     @Export(name="ipVersion", refs={String.class}, tree="[0]")
@@ -243,7 +243,7 @@ public class PublicIp extends com.pulumi.resources.CustomResource {
     /**
      * @return The IP Version to use, IPv6 or IPv4. Changing this forces a new resource to be created. Defaults to `IPv4`.
      * 
-     * &gt; **Note** Only `static` IP address allocation is supported for IPv6.
+     * &gt; **Note:** Only `static` IP address allocation is supported for IPv6.
      * 
      */
     public Output<Optional<String>> ipVersion() {
@@ -322,7 +322,7 @@ public class PublicIp extends com.pulumi.resources.CustomResource {
     /**
      * The SKU of the Public IP. Accepted values are `Basic` and `Standard`. Defaults to `Standard`. Changing this forces a new resource to be created.
      * 
-     * &gt; **Note** Public IP Standard SKUs require `allocation_method` to be set to `Static`.
+     * &gt; **Note:** Public IP Standard SKUs require `allocation_method` to be set to `Static`.
      * 
      */
     @Export(name="sku", refs={String.class}, tree="[0]")
@@ -331,7 +331,7 @@ public class PublicIp extends com.pulumi.resources.CustomResource {
     /**
      * @return The SKU of the Public IP. Accepted values are `Basic` and `Standard`. Defaults to `Standard`. Changing this forces a new resource to be created.
      * 
-     * &gt; **Note** Public IP Standard SKUs require `allocation_method` to be set to `Static`.
+     * &gt; **Note:** Public IP Standard SKUs require `allocation_method` to be set to `Static`.
      * 
      */
     public Output<Optional<String>> sku() {
@@ -340,7 +340,7 @@ public class PublicIp extends com.pulumi.resources.CustomResource {
     /**
      * The SKU Tier that should be used for the Public IP. Possible values are `Regional` and `Global`. Defaults to `Regional`. Changing this forces a new resource to be created.
      * 
-     * &gt; **Note** When `sku_tier` is set to `Global`, `sku` must be set to `Standard`.
+     * &gt; **Note:** When `sku_tier` is set to `Global`, `sku` must be set to `Standard`.
      * 
      */
     @Export(name="skuTier", refs={String.class}, tree="[0]")
@@ -349,7 +349,7 @@ public class PublicIp extends com.pulumi.resources.CustomResource {
     /**
      * @return The SKU Tier that should be used for the Public IP. Possible values are `Regional` and `Global`. Defaults to `Regional`. Changing this forces a new resource to be created.
      * 
-     * &gt; **Note** When `sku_tier` is set to `Global`, `sku` must be set to `Standard`.
+     * &gt; **Note:** When `sku_tier` is set to `Global`, `sku` must be set to `Standard`.
      * 
      */
     public Output<Optional<String>> skuTier() {

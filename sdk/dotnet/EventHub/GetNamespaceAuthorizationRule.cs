@@ -37,6 +37,13 @@ namespace Pulumi.Azure.EventHub
         ///     };
         /// });
         /// ```
+        /// 
+        /// ## API Providers
+        /// 
+        /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+        /// This data source uses the following Azure API Providers:
+        /// 
+        /// * `Microsoft.EventHub`: 2024-01-01
         /// </summary>
         public static Task<GetNamespaceAuthorizationRuleResult> InvokeAsync(GetNamespaceAuthorizationRuleArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetNamespaceAuthorizationRuleResult>("azure:eventhub/getNamespaceAuthorizationRule:getNamespaceAuthorizationRule", args ?? new GetNamespaceAuthorizationRuleArgs(), options.WithDefaults());
@@ -67,6 +74,13 @@ namespace Pulumi.Azure.EventHub
         ///     };
         /// });
         /// ```
+        /// 
+        /// ## API Providers
+        /// 
+        /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+        /// This data source uses the following Azure API Providers:
+        /// 
+        /// * `Microsoft.EventHub`: 2024-01-01
         /// </summary>
         public static Output<GetNamespaceAuthorizationRuleResult> Invoke(GetNamespaceAuthorizationRuleInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetNamespaceAuthorizationRuleResult>("azure:eventhub/getNamespaceAuthorizationRule:getNamespaceAuthorizationRule", args ?? new GetNamespaceAuthorizationRuleInvokeArgs(), options.WithDefaults());
@@ -97,6 +111,13 @@ namespace Pulumi.Azure.EventHub
         ///     };
         /// });
         /// ```
+        /// 
+        /// ## API Providers
+        /// 
+        /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+        /// This data source uses the following Azure API Providers:
+        /// 
+        /// * `Microsoft.EventHub`: 2024-01-01
         /// </summary>
         public static Output<GetNamespaceAuthorizationRuleResult> Invoke(GetNamespaceAuthorizationRuleInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetNamespaceAuthorizationRuleResult>("azure:eventhub/getNamespaceAuthorizationRule:getNamespaceAuthorizationRule", args ?? new GetNamespaceAuthorizationRuleInvokeArgs(), options.WithDefaults());

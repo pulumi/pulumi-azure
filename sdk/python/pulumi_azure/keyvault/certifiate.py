@@ -33,7 +33,7 @@ class CertifiateArgs:
         :param pulumi.Input['CertifiateCertificateArgs'] certificate: A `certificate` block as defined below, used to Import an existing certificate. Changing this will create a new version of the Key Vault Certificate.
         :param pulumi.Input['CertifiateCertificatePolicyArgs'] certificate_policy: A `certificate_policy` block as defined below. Changing this (except the `lifetime_action` field) will create a new version of the Key Vault Certificate.
                
-               > **NOTE:** When creating a Key Vault Certificate, at least one of `certificate` or `certificate_policy` is required. Provide `certificate` to import an existing certificate, `certificate_policy` to generate a new certificate.
+               > **Note:** When creating a Key Vault Certificate, at least one of `certificate` or `certificate_policy` is required. Provide `certificate` to import an existing certificate, `certificate_policy` to generate a new certificate.
         :param pulumi.Input[builtins.str] name: Specifies the name of the Key Vault Certificate. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A mapping of tags to assign to the resource.
         """
@@ -77,7 +77,7 @@ class CertifiateArgs:
         """
         A `certificate_policy` block as defined below. Changing this (except the `lifetime_action` field) will create a new version of the Key Vault Certificate.
 
-        > **NOTE:** When creating a Key Vault Certificate, at least one of `certificate` or `certificate_policy` is required. Provide `certificate` to import an existing certificate, `certificate_policy` to generate a new certificate.
+        > **Note:** When creating a Key Vault Certificate, at least one of `certificate` or `certificate_policy` is required. Provide `certificate` to import an existing certificate, `certificate_policy` to generate a new certificate.
         """
         return pulumi.get(self, "certificate_policy")
 
@@ -136,7 +136,7 @@ class _CertifiateState:
         :param pulumi.Input[builtins.str] certificate_data_base64: The Base64 encoded Key Vault Certificate data.
         :param pulumi.Input['CertifiateCertificatePolicyArgs'] certificate_policy: A `certificate_policy` block as defined below. Changing this (except the `lifetime_action` field) will create a new version of the Key Vault Certificate.
                
-               > **NOTE:** When creating a Key Vault Certificate, at least one of `certificate` or `certificate_policy` is required. Provide `certificate` to import an existing certificate, `certificate_policy` to generate a new certificate.
+               > **Note:** When creating a Key Vault Certificate, at least one of `certificate` or `certificate_policy` is required. Provide `certificate` to import an existing certificate, `certificate_policy` to generate a new certificate.
         :param pulumi.Input[builtins.str] key_vault_id: The ID of the Key Vault where the Certificate should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] name: Specifies the name of the Key Vault Certificate. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] resource_manager_id: The (Versioned) ID for this Key Vault Certificate. This property points to a specific version of a Key Vault Certificate, as such using this won't auto-rotate values if used in other Azure Services.
@@ -233,7 +233,7 @@ class _CertifiateState:
         """
         A `certificate_policy` block as defined below. Changing this (except the `lifetime_action` field) will create a new version of the Key Vault Certificate.
 
-        > **NOTE:** When creating a Key Vault Certificate, at least one of `certificate` or `certificate_policy` is required. Provide `certificate` to import an existing certificate, `certificate_policy` to generate a new certificate.
+        > **Note:** When creating a Key Vault Certificate, at least one of `certificate` or `certificate_policy` is required. Provide `certificate` to import an existing certificate, `certificate_policy` to generate a new certificate.
         """
         return pulumi.get(self, "certificate_policy")
 
@@ -382,6 +382,8 @@ class Certifiate(pulumi.CustomResource):
         """
         Manages a Key Vault Certificate.
 
+        > **Note:** The Azure Provider includes a Feature Toggle which will purge a Key Vault Certificate resource on destroy, rather than the default soft-delete. See `purge_soft_deleted_certificates_on_destroy` for more information.
+
         ## Example Usage
 
         ### Importing A PFX)
@@ -458,7 +460,7 @@ class Certifiate(pulumi.CustomResource):
             })
         ```
 
-        ### Generating a new certificate
+        ### Generating A New Certificate)
 
         ```python
         import pulumi
@@ -581,7 +583,7 @@ class Certifiate(pulumi.CustomResource):
         :param pulumi.Input[Union['CertifiateCertificateArgs', 'CertifiateCertificateArgsDict']] certificate: A `certificate` block as defined below, used to Import an existing certificate. Changing this will create a new version of the Key Vault Certificate.
         :param pulumi.Input[Union['CertifiateCertificatePolicyArgs', 'CertifiateCertificatePolicyArgsDict']] certificate_policy: A `certificate_policy` block as defined below. Changing this (except the `lifetime_action` field) will create a new version of the Key Vault Certificate.
                
-               > **NOTE:** When creating a Key Vault Certificate, at least one of `certificate` or `certificate_policy` is required. Provide `certificate` to import an existing certificate, `certificate_policy` to generate a new certificate.
+               > **Note:** When creating a Key Vault Certificate, at least one of `certificate` or `certificate_policy` is required. Provide `certificate` to import an existing certificate, `certificate_policy` to generate a new certificate.
         :param pulumi.Input[builtins.str] key_vault_id: The ID of the Key Vault where the Certificate should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] name: Specifies the name of the Key Vault Certificate. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A mapping of tags to assign to the resource.
@@ -594,6 +596,8 @@ class Certifiate(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Key Vault Certificate.
+
+        > **Note:** The Azure Provider includes a Feature Toggle which will purge a Key Vault Certificate resource on destroy, rather than the default soft-delete. See `purge_soft_deleted_certificates_on_destroy` for more information.
 
         ## Example Usage
 
@@ -671,7 +675,7 @@ class Certifiate(pulumi.CustomResource):
             })
         ```
 
-        ### Generating a new certificate
+        ### Generating A New Certificate)
 
         ```python
         import pulumi
@@ -874,7 +878,7 @@ class Certifiate(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] certificate_data_base64: The Base64 encoded Key Vault Certificate data.
         :param pulumi.Input[Union['CertifiateCertificatePolicyArgs', 'CertifiateCertificatePolicyArgsDict']] certificate_policy: A `certificate_policy` block as defined below. Changing this (except the `lifetime_action` field) will create a new version of the Key Vault Certificate.
                
-               > **NOTE:** When creating a Key Vault Certificate, at least one of `certificate` or `certificate_policy` is required. Provide `certificate` to import an existing certificate, `certificate_policy` to generate a new certificate.
+               > **Note:** When creating a Key Vault Certificate, at least one of `certificate` or `certificate_policy` is required. Provide `certificate` to import an existing certificate, `certificate_policy` to generate a new certificate.
         :param pulumi.Input[builtins.str] key_vault_id: The ID of the Key Vault where the Certificate should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] name: Specifies the name of the Key Vault Certificate. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] resource_manager_id: The (Versioned) ID for this Key Vault Certificate. This property points to a specific version of a Key Vault Certificate, as such using this won't auto-rotate values if used in other Azure Services.
@@ -945,7 +949,7 @@ class Certifiate(pulumi.CustomResource):
         """
         A `certificate_policy` block as defined below. Changing this (except the `lifetime_action` field) will create a new version of the Key Vault Certificate.
 
-        > **NOTE:** When creating a Key Vault Certificate, at least one of `certificate` or `certificate_policy` is required. Provide `certificate` to import an existing certificate, `certificate_policy` to generate a new certificate.
+        > **Note:** When creating a Key Vault Certificate, at least one of `certificate` or `certificate_policy` is required. Provide `certificate` to import an existing certificate, `certificate_policy` to generate a new certificate.
         """
         return pulumi.get(self, "certificate_policy")
 

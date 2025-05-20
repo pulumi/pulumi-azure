@@ -54,7 +54,7 @@ namespace Pulumi.Azure.ContainerApp.Outputs
         /// <summary>
         /// The transport method for the Ingress. Possible values are `auto`, `http`, `http2` and `tcp`. Defaults to `auto`.
         /// 
-        /// &gt; **Note:**  if `transport` is set to `tcp`, `exposed_port` and `target_port` should be set at the same time.
+        /// &gt; **Note:** if `transport` is set to `tcp`, `exposed_port` and `target_port` should be set at the same time.
         /// </summary>
         public readonly string? Transport;
 

@@ -12,6 +12,8 @@ namespace Pulumi.Azure.AppPlatform
     /// <summary>
     /// Associates a Spring Cloud Application with a MySQL Database.
     /// 
+    /// !&gt; **Note:** Azure Spring Apps is now deprecated and will be retired on 2028-05-31 - as such the `azure.appplatform.SpringCloudAppMysqlAssociation` resource is deprecated and will be removed in a future major version of the AzureRM Provider. See https://aka.ms/asaretirement for more information.
+    /// 
     /// ## Example Usage
     /// 
     /// ```csharp
@@ -49,7 +51,7 @@ namespace Pulumi.Azure.AppPlatform
     ///         Location = example.Location,
     ///         AdministratorLogin = "adminTerraform",
     ///         AdministratorPassword = "QAZwsx123",
-    ///         SkuName = "B_Standard_B1s",
+    ///         SkuName = "B_Standard_B1ms",
     ///         Zone = "2",
     ///     });
     /// 

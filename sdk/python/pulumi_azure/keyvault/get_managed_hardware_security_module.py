@@ -181,6 +181,13 @@ def get_managed_hardware_security_module(name: Optional[builtins.str] = None,
     pulumi.export("hsmUri", example.hsm_uri)
     ```
 
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.KeyVault`: 2023-07-01
+
 
     :param builtins.str name: The name of the Key Vault Managed Hardware Security Module.
     :param builtins.str resource_group_name: The name of the Resource Group in which the Key Vault Managed Hardware Security Module exists.
@@ -219,6 +226,13 @@ def get_managed_hardware_security_module_output(name: Optional[pulumi.Input[buil
         resource_group_name="some-resource-group")
     pulumi.export("hsmUri", example.hsm_uri)
     ```
+
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.KeyVault`: 2023-07-01
 
 
     :param builtins.str name: The name of the Key Vault Managed Hardware Security Module.

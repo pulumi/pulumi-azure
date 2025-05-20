@@ -324,7 +324,7 @@ if not MYPY:
         """
         The transport method for the Ingress. Possible values are `auto`, `http`, `http2` and `tcp`. Defaults to `auto`.
 
-        > **Note:**  if `transport` is set to `tcp`, `exposed_port` and `target_port` should be set at the same time.
+        > **Note:** if `transport` is set to `tcp`, `exposed_port` and `target_port` should be set at the same time.
         """
 elif False:
     AppIngressArgsDict: TypeAlias = Mapping[str, Any]
@@ -356,7 +356,7 @@ class AppIngressArgs:
         :param pulumi.Input[Sequence[pulumi.Input['AppIngressIpSecurityRestrictionArgs']]] ip_security_restrictions: One or more `ip_security_restriction` blocks for IP-filtering rules as defined below.
         :param pulumi.Input[builtins.str] transport: The transport method for the Ingress. Possible values are `auto`, `http`, `http2` and `tcp`. Defaults to `auto`.
                
-               > **Note:**  if `transport` is set to `tcp`, `exposed_port` and `target_port` should be set at the same time.
+               > **Note:** if `transport` is set to `tcp`, `exposed_port` and `target_port` should be set at the same time.
         """
         pulumi.set(__self__, "target_port", target_port)
         pulumi.set(__self__, "traffic_weights", traffic_weights)
@@ -493,7 +493,7 @@ class AppIngressArgs:
         """
         The transport method for the Ingress. Possible values are `auto`, `http`, `http2` and `tcp`. Defaults to `auto`.
 
-        > **Note:**  if `transport` is set to `tcp`, `exposed_port` and `target_port` should be set at the same time.
+        > **Note:** if `transport` is set to `tcp`, `exposed_port` and `target_port` should be set at the same time.
         """
         return pulumi.get(self, "transport")
 
@@ -580,7 +580,7 @@ if not MYPY:
         """
         The IP-filter action. `Allow` or `Deny`.
 
-        > **NOTE:** The `action` types in an all `ip_security_restriction` blocks must be the same for the `ingress`, mixing `Allow` and `Deny` rules is not currently supported by the service.
+        > **Note:** The `action` types in an all `ip_security_restriction` blocks must be the same for the `ingress`, mixing `Allow` and `Deny` rules is not currently supported by the service.
         """
         ip_address_range: pulumi.Input[builtins.str]
         """
@@ -607,7 +607,7 @@ class AppIngressIpSecurityRestrictionArgs:
         """
         :param pulumi.Input[builtins.str] action: The IP-filter action. `Allow` or `Deny`.
                
-               > **NOTE:** The `action` types in an all `ip_security_restriction` blocks must be the same for the `ingress`, mixing `Allow` and `Deny` rules is not currently supported by the service.
+               > **Note:** The `action` types in an all `ip_security_restriction` blocks must be the same for the `ingress`, mixing `Allow` and `Deny` rules is not currently supported by the service.
         :param pulumi.Input[builtins.str] ip_address_range: The incoming IP address or range of IP addresses (in CIDR notation).
         :param pulumi.Input[builtins.str] name: Name for the IP restriction rule.
         :param pulumi.Input[builtins.str] description: Describe the IP restriction rule that is being sent to the container-app.
@@ -624,7 +624,7 @@ class AppIngressIpSecurityRestrictionArgs:
         """
         The IP-filter action. `Allow` or `Deny`.
 
-        > **NOTE:** The `action` types in an all `ip_security_restriction` blocks must be the same for the `ingress`, mixing `Allow` and `Deny` rules is not currently supported by the service.
+        > **Note:** The `action` types in an all `ip_security_restriction` blocks must be the same for the `ingress`, mixing `Allow` and `Deny` rules is not currently supported by the service.
         """
         return pulumi.get(self, "action")
 
@@ -1359,7 +1359,7 @@ if not MYPY:
         """
         The amount of vCPU to allocate to the container. Possible values include `0.25`, `0.5`, `0.75`, `1.0`, `1.25`, `1.5`, `1.75`, and `2.0`. When there's a workload profile specified, there's no such constraint.
 
-        > **NOTE:** `cpu` and `memory` must be specified in `0.25'/'0.5Gi` combination increments. e.g. `1.0` / `2.0` or `0.5` / `1.0`
+        > **Note:** `cpu` and `memory` must be specified in `0.25'/'0.5Gi` combination increments. e.g. `1.0` / `2.0` or `0.5` / `1.0`
         """
         image: pulumi.Input[builtins.str]
         """
@@ -1369,7 +1369,7 @@ if not MYPY:
         """
         The amount of memory to allocate to the container. Possible values are `0.5Gi`, `1Gi`, `1.5Gi`, `2Gi`, `2.5Gi`, `3Gi`, `3.5Gi` and `4Gi`. When there's a workload profile specified, there's no such constraint.
 
-        > **NOTE:** `cpu` and `memory` must be specified in `0.25'/'0.5Gi` combination increments. e.g. `1.25` / `2.5Gi` or `0.75` / `1.5Gi`
+        > **Note:** `cpu` and `memory` must be specified in `0.25'/'0.5Gi` combination increments. e.g. `1.25` / `2.5Gi` or `0.75` / `1.5Gi`
         """
         name: pulumi.Input[builtins.str]
         """
@@ -1391,7 +1391,7 @@ if not MYPY:
         """
         The amount of ephemeral storage available to the Container App.
 
-        > **NOTE:** `ephemeral_storage` is currently in preview and not configurable at this time.
+        > **Note:** `ephemeral_storage` is currently in preview and not configurable at this time.
         """
         liveness_probes: NotRequired[pulumi.Input[Sequence[pulumi.Input['AppTemplateContainerLivenessProbeArgsDict']]]]
         """
@@ -1430,18 +1430,18 @@ class AppTemplateContainerArgs:
         """
         :param pulumi.Input[builtins.float] cpu: The amount of vCPU to allocate to the container. Possible values include `0.25`, `0.5`, `0.75`, `1.0`, `1.25`, `1.5`, `1.75`, and `2.0`. When there's a workload profile specified, there's no such constraint.
                
-               > **NOTE:** `cpu` and `memory` must be specified in `0.25'/'0.5Gi` combination increments. e.g. `1.0` / `2.0` or `0.5` / `1.0`
+               > **Note:** `cpu` and `memory` must be specified in `0.25'/'0.5Gi` combination increments. e.g. `1.0` / `2.0` or `0.5` / `1.0`
         :param pulumi.Input[builtins.str] image: The image to use to create the container.
         :param pulumi.Input[builtins.str] memory: The amount of memory to allocate to the container. Possible values are `0.5Gi`, `1Gi`, `1.5Gi`, `2Gi`, `2.5Gi`, `3Gi`, `3.5Gi` and `4Gi`. When there's a workload profile specified, there's no such constraint.
                
-               > **NOTE:** `cpu` and `memory` must be specified in `0.25'/'0.5Gi` combination increments. e.g. `1.25` / `2.5Gi` or `0.75` / `1.5Gi`
+               > **Note:** `cpu` and `memory` must be specified in `0.25'/'0.5Gi` combination increments. e.g. `1.25` / `2.5Gi` or `0.75` / `1.5Gi`
         :param pulumi.Input[builtins.str] name: The name of the container
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] args: A list of extra arguments to pass to the container.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] commands: A command to pass to the container to override the default. This is provided as a list of command line elements without spaces.
         :param pulumi.Input[Sequence[pulumi.Input['AppTemplateContainerEnvArgs']]] envs: One or more `env` blocks as detailed below.
         :param pulumi.Input[builtins.str] ephemeral_storage: The amount of ephemeral storage available to the Container App.
                
-               > **NOTE:** `ephemeral_storage` is currently in preview and not configurable at this time.
+               > **Note:** `ephemeral_storage` is currently in preview and not configurable at this time.
         :param pulumi.Input[Sequence[pulumi.Input['AppTemplateContainerLivenessProbeArgs']]] liveness_probes: A `liveness_probe` block as detailed below.
         :param pulumi.Input[Sequence[pulumi.Input['AppTemplateContainerReadinessProbeArgs']]] readiness_probes: A `readiness_probe` block as detailed below.
         :param pulumi.Input[Sequence[pulumi.Input['AppTemplateContainerStartupProbeArgs']]] startup_probes: A `startup_probe` block as detailed below.
@@ -1474,7 +1474,7 @@ class AppTemplateContainerArgs:
         """
         The amount of vCPU to allocate to the container. Possible values include `0.25`, `0.5`, `0.75`, `1.0`, `1.25`, `1.5`, `1.75`, and `2.0`. When there's a workload profile specified, there's no such constraint.
 
-        > **NOTE:** `cpu` and `memory` must be specified in `0.25'/'0.5Gi` combination increments. e.g. `1.0` / `2.0` or `0.5` / `1.0`
+        > **Note:** `cpu` and `memory` must be specified in `0.25'/'0.5Gi` combination increments. e.g. `1.0` / `2.0` or `0.5` / `1.0`
         """
         return pulumi.get(self, "cpu")
 
@@ -1500,7 +1500,7 @@ class AppTemplateContainerArgs:
         """
         The amount of memory to allocate to the container. Possible values are `0.5Gi`, `1Gi`, `1.5Gi`, `2Gi`, `2.5Gi`, `3Gi`, `3.5Gi` and `4Gi`. When there's a workload profile specified, there's no such constraint.
 
-        > **NOTE:** `cpu` and `memory` must be specified in `0.25'/'0.5Gi` combination increments. e.g. `1.25` / `2.5Gi` or `0.75` / `1.5Gi`
+        > **Note:** `cpu` and `memory` must be specified in `0.25'/'0.5Gi` combination increments. e.g. `1.25` / `2.5Gi` or `0.75` / `1.5Gi`
         """
         return pulumi.get(self, "memory")
 
@@ -1562,7 +1562,7 @@ class AppTemplateContainerArgs:
         """
         The amount of ephemeral storage available to the Container App.
 
-        > **NOTE:** `ephemeral_storage` is currently in preview and not configurable at this time.
+        > **Note:** `ephemeral_storage` is currently in preview and not configurable at this time.
         """
         return pulumi.get(self, "ephemeral_storage")
 
@@ -1633,7 +1633,7 @@ if not MYPY:
         """
         The value for this environment variable.
 
-        > **NOTE:** This value is ignored if `secret_name` is used
+        > **Note:** This value is ignored if `secret_name` is used
         """
 elif False:
     AppTemplateContainerEnvArgsDict: TypeAlias = Mapping[str, Any]
@@ -1649,7 +1649,7 @@ class AppTemplateContainerEnvArgs:
         :param pulumi.Input[builtins.str] secret_name: The name of the secret that contains the value for this environment variable.
         :param pulumi.Input[builtins.str] value: The value for this environment variable.
                
-               > **NOTE:** This value is ignored if `secret_name` is used
+               > **Note:** This value is ignored if `secret_name` is used
         """
         pulumi.set(__self__, "name", name)
         if secret_name is not None:
@@ -1687,7 +1687,7 @@ class AppTemplateContainerEnvArgs:
         """
         The value for this environment variable.
 
-        > **NOTE:** This value is ignored if `secret_name` is used
+        > **Note:** This value is ignored if `secret_name` is used
         """
         return pulumi.get(self, "value")
 
@@ -2828,7 +2828,7 @@ if not MYPY:
         """
         The amount of vCPU to allocate to the container. Possible values include `0.25`, `0.5`, `0.75`, `1.0`, `1.25`, `1.5`, `1.75`, and `2.0`. When there's a workload profile specified, there's no such constraint.
 
-        > **NOTE:** `cpu` and `memory` must be specified in `0.25'/'0.5Gi` combination increments. e.g. `1.0` / `2.0` or `0.5` / `1.0`
+        > **Note:** `cpu` and `memory` must be specified in `0.25'/'0.5Gi` combination increments. e.g. `1.0` / `2.0` or `0.5` / `1.0`
         """
         envs: NotRequired[pulumi.Input[Sequence[pulumi.Input['AppTemplateInitContainerEnvArgsDict']]]]
         """
@@ -2838,13 +2838,13 @@ if not MYPY:
         """
         The amount of ephemeral storage available to the Container App.
 
-        > **NOTE:** `ephemeral_storage` is currently in preview and not configurable at this time.
+        > **Note:** `ephemeral_storage` is currently in preview and not configurable at this time.
         """
         memory: NotRequired[pulumi.Input[builtins.str]]
         """
         The amount of memory to allocate to the container. Possible values are `0.5Gi`, `1Gi`, `1.5Gi`, `2Gi`, `2.5Gi`, `3Gi`, `3.5Gi` and `4Gi`. When there's a workload profile specified, there's no such constraint.
 
-        > **NOTE:** `cpu` and `memory` must be specified in `0.25'/'0.5Gi` combination increments. e.g. `1.25` / `2.5Gi` or `0.75` / `1.5Gi`
+        > **Note:** `cpu` and `memory` must be specified in `0.25'/'0.5Gi` combination increments. e.g. `1.25` / `2.5Gi` or `0.75` / `1.5Gi`
         """
         volume_mounts: NotRequired[pulumi.Input[Sequence[pulumi.Input['AppTemplateInitContainerVolumeMountArgsDict']]]]
         """
@@ -2872,14 +2872,14 @@ class AppTemplateInitContainerArgs:
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] commands: A command to pass to the container to override the default. This is provided as a list of command line elements without spaces.
         :param pulumi.Input[builtins.float] cpu: The amount of vCPU to allocate to the container. Possible values include `0.25`, `0.5`, `0.75`, `1.0`, `1.25`, `1.5`, `1.75`, and `2.0`. When there's a workload profile specified, there's no such constraint.
                
-               > **NOTE:** `cpu` and `memory` must be specified in `0.25'/'0.5Gi` combination increments. e.g. `1.0` / `2.0` or `0.5` / `1.0`
+               > **Note:** `cpu` and `memory` must be specified in `0.25'/'0.5Gi` combination increments. e.g. `1.0` / `2.0` or `0.5` / `1.0`
         :param pulumi.Input[Sequence[pulumi.Input['AppTemplateInitContainerEnvArgs']]] envs: One or more `env` blocks as detailed below.
         :param pulumi.Input[builtins.str] ephemeral_storage: The amount of ephemeral storage available to the Container App.
                
-               > **NOTE:** `ephemeral_storage` is currently in preview and not configurable at this time.
+               > **Note:** `ephemeral_storage` is currently in preview and not configurable at this time.
         :param pulumi.Input[builtins.str] memory: The amount of memory to allocate to the container. Possible values are `0.5Gi`, `1Gi`, `1.5Gi`, `2Gi`, `2.5Gi`, `3Gi`, `3.5Gi` and `4Gi`. When there's a workload profile specified, there's no such constraint.
                
-               > **NOTE:** `cpu` and `memory` must be specified in `0.25'/'0.5Gi` combination increments. e.g. `1.25` / `2.5Gi` or `0.75` / `1.5Gi`
+               > **Note:** `cpu` and `memory` must be specified in `0.25'/'0.5Gi` combination increments. e.g. `1.25` / `2.5Gi` or `0.75` / `1.5Gi`
         :param pulumi.Input[Sequence[pulumi.Input['AppTemplateInitContainerVolumeMountArgs']]] volume_mounts: A `volume_mounts` block as detailed below.
         """
         pulumi.set(__self__, "image", image)
@@ -2953,7 +2953,7 @@ class AppTemplateInitContainerArgs:
         """
         The amount of vCPU to allocate to the container. Possible values include `0.25`, `0.5`, `0.75`, `1.0`, `1.25`, `1.5`, `1.75`, and `2.0`. When there's a workload profile specified, there's no such constraint.
 
-        > **NOTE:** `cpu` and `memory` must be specified in `0.25'/'0.5Gi` combination increments. e.g. `1.0` / `2.0` or `0.5` / `1.0`
+        > **Note:** `cpu` and `memory` must be specified in `0.25'/'0.5Gi` combination increments. e.g. `1.0` / `2.0` or `0.5` / `1.0`
         """
         return pulumi.get(self, "cpu")
 
@@ -2979,7 +2979,7 @@ class AppTemplateInitContainerArgs:
         """
         The amount of ephemeral storage available to the Container App.
 
-        > **NOTE:** `ephemeral_storage` is currently in preview and not configurable at this time.
+        > **Note:** `ephemeral_storage` is currently in preview and not configurable at this time.
         """
         return pulumi.get(self, "ephemeral_storage")
 
@@ -2993,7 +2993,7 @@ class AppTemplateInitContainerArgs:
         """
         The amount of memory to allocate to the container. Possible values are `0.5Gi`, `1Gi`, `1.5Gi`, `2Gi`, `2.5Gi`, `3Gi`, `3.5Gi` and `4Gi`. When there's a workload profile specified, there's no such constraint.
 
-        > **NOTE:** `cpu` and `memory` must be specified in `0.25'/'0.5Gi` combination increments. e.g. `1.25` / `2.5Gi` or `0.75` / `1.5Gi`
+        > **Note:** `cpu` and `memory` must be specified in `0.25'/'0.5Gi` combination increments. e.g. `1.25` / `2.5Gi` or `0.75` / `1.5Gi`
         """
         return pulumi.get(self, "memory")
 
@@ -3028,7 +3028,7 @@ if not MYPY:
         """
         The value for this environment variable.
 
-        > **NOTE:** This value is ignored if `secret_name` is used
+        > **Note:** This value is ignored if `secret_name` is used
         """
 elif False:
     AppTemplateInitContainerEnvArgsDict: TypeAlias = Mapping[str, Any]
@@ -3044,7 +3044,7 @@ class AppTemplateInitContainerEnvArgs:
         :param pulumi.Input[builtins.str] secret_name: The name of the secret that contains the value for this environment variable.
         :param pulumi.Input[builtins.str] value: The value for this environment variable.
                
-               > **NOTE:** This value is ignored if `secret_name` is used
+               > **Note:** This value is ignored if `secret_name` is used
         """
         pulumi.set(__self__, "name", name)
         if secret_name is not None:
@@ -3082,7 +3082,7 @@ class AppTemplateInitContainerEnvArgs:
         """
         The value for this environment variable.
 
-        > **NOTE:** This value is ignored if `secret_name` is used
+        > **Note:** This value is ignored if `secret_name` is used
         """
         return pulumi.get(self, "value")
 
@@ -3951,7 +3951,13 @@ if not MYPY:
         A list of Managed Identity IDs to assign to the Container App Job.
         """
         principal_id: NotRequired[pulumi.Input[builtins.str]]
+        """
+        The Principal ID associated with this Managed Service Identity.
+        """
         tenant_id: NotRequired[pulumi.Input[builtins.str]]
+        """
+        The Tenant ID associated with this Managed Service Identity.
+        """
 elif False:
     JobIdentityArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -3965,6 +3971,8 @@ class JobIdentityArgs:
         """
         :param pulumi.Input[builtins.str] type: The type of identity used for the Container App Job. Possible values are `SystemAssigned`, `UserAssigned` and `None`. Defaults to `None`.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] identity_ids: A list of Managed Identity IDs to assign to the Container App Job.
+        :param pulumi.Input[builtins.str] principal_id: The Principal ID associated with this Managed Service Identity.
+        :param pulumi.Input[builtins.str] tenant_id: The Tenant ID associated with this Managed Service Identity.
         """
         pulumi.set(__self__, "type", type)
         if identity_ids is not None:
@@ -4001,6 +4009,9 @@ class JobIdentityArgs:
     @property
     @pulumi.getter(name="principalId")
     def principal_id(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The Principal ID associated with this Managed Service Identity.
+        """
         return pulumi.get(self, "principal_id")
 
     @principal_id.setter
@@ -4010,6 +4021,9 @@ class JobIdentityArgs:
     @property
     @pulumi.getter(name="tenantId")
     def tenant_id(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The Tenant ID associated with this Managed Service Identity.
+        """
         return pulumi.get(self, "tenant_id")
 
     @tenant_id.setter
@@ -4417,7 +4431,7 @@ if not MYPY:
         """
         The amount of vCPU to allocate to the container. Possible values include `0.25`, `0.5`, `0.75`, `1.0`, `1.25`, `1.5`, `1.75`, and `2.0`.
 
-        > **NOTE:** `cpu` and `memory` must be specified in `0.25'/'0.5Gi` combination increments. e.g. `1.0` / `2.0` or `0.5` / `1.0`
+        > **Note:** `cpu` and `memory` must be specified in `0.25'/'0.5Gi` combination increments. e.g. `1.0` / `2.0` or `0.5` / `1.0`
         """
         image: pulumi.Input[builtins.str]
         """
@@ -4427,7 +4441,7 @@ if not MYPY:
         """
         The amount of memory to allocate to the container. Possible values are `0.5Gi`, `1Gi`, `1.5Gi`, `2Gi`, `2.5Gi`, `3Gi`, `3.5Gi` and `4Gi`.
 
-        > **NOTE:** `cpu` and `memory` must be specified in `0.25'/'0.5Gi` combination increments. e.g. `1.25` / `2.5Gi` or `0.75` / `1.5Gi`
+        > **Note:** `cpu` and `memory` must be specified in `0.25'/'0.5Gi` combination increments. e.g. `1.25` / `2.5Gi` or `0.75` / `1.5Gi`
         """
         name: pulumi.Input[builtins.str]
         """
@@ -4449,7 +4463,7 @@ if not MYPY:
         """
         The amount of ephemeral storage available to the Container App.
 
-        > **NOTE:** `ephemeral_storage` is currently in preview and not configurable at this time.
+        > **Note:** `ephemeral_storage` is currently in preview and not configurable at this time.
         """
         liveness_probes: NotRequired[pulumi.Input[Sequence[pulumi.Input['JobTemplateContainerLivenessProbeArgsDict']]]]
         """
@@ -4488,18 +4502,18 @@ class JobTemplateContainerArgs:
         """
         :param pulumi.Input[builtins.float] cpu: The amount of vCPU to allocate to the container. Possible values include `0.25`, `0.5`, `0.75`, `1.0`, `1.25`, `1.5`, `1.75`, and `2.0`.
                
-               > **NOTE:** `cpu` and `memory` must be specified in `0.25'/'0.5Gi` combination increments. e.g. `1.0` / `2.0` or `0.5` / `1.0`
+               > **Note:** `cpu` and `memory` must be specified in `0.25'/'0.5Gi` combination increments. e.g. `1.0` / `2.0` or `0.5` / `1.0`
         :param pulumi.Input[builtins.str] image: The image to use to create the container.
         :param pulumi.Input[builtins.str] memory: The amount of memory to allocate to the container. Possible values are `0.5Gi`, `1Gi`, `1.5Gi`, `2Gi`, `2.5Gi`, `3Gi`, `3.5Gi` and `4Gi`.
                
-               > **NOTE:** `cpu` and `memory` must be specified in `0.25'/'0.5Gi` combination increments. e.g. `1.25` / `2.5Gi` or `0.75` / `1.5Gi`
+               > **Note:** `cpu` and `memory` must be specified in `0.25'/'0.5Gi` combination increments. e.g. `1.25` / `2.5Gi` or `0.75` / `1.5Gi`
         :param pulumi.Input[builtins.str] name: The name of the container.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] args: A list of extra arguments to pass to the container.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] commands: A command to pass to the container to override the default. This is provided as a list of command line elements without spaces.
         :param pulumi.Input[Sequence[pulumi.Input['JobTemplateContainerEnvArgs']]] envs: One or more `env` blocks as detailed below.
         :param pulumi.Input[builtins.str] ephemeral_storage: The amount of ephemeral storage available to the Container App.
                
-               > **NOTE:** `ephemeral_storage` is currently in preview and not configurable at this time.
+               > **Note:** `ephemeral_storage` is currently in preview and not configurable at this time.
         :param pulumi.Input[Sequence[pulumi.Input['JobTemplateContainerLivenessProbeArgs']]] liveness_probes: A `liveness_probe` block as detailed below.
         :param pulumi.Input[Sequence[pulumi.Input['JobTemplateContainerReadinessProbeArgs']]] readiness_probes: A `readiness_probe` block as detailed below.
         :param pulumi.Input[Sequence[pulumi.Input['JobTemplateContainerStartupProbeArgs']]] startup_probes: A `startup_probe` block as detailed below.
@@ -4532,7 +4546,7 @@ class JobTemplateContainerArgs:
         """
         The amount of vCPU to allocate to the container. Possible values include `0.25`, `0.5`, `0.75`, `1.0`, `1.25`, `1.5`, `1.75`, and `2.0`.
 
-        > **NOTE:** `cpu` and `memory` must be specified in `0.25'/'0.5Gi` combination increments. e.g. `1.0` / `2.0` or `0.5` / `1.0`
+        > **Note:** `cpu` and `memory` must be specified in `0.25'/'0.5Gi` combination increments. e.g. `1.0` / `2.0` or `0.5` / `1.0`
         """
         return pulumi.get(self, "cpu")
 
@@ -4558,7 +4572,7 @@ class JobTemplateContainerArgs:
         """
         The amount of memory to allocate to the container. Possible values are `0.5Gi`, `1Gi`, `1.5Gi`, `2Gi`, `2.5Gi`, `3Gi`, `3.5Gi` and `4Gi`.
 
-        > **NOTE:** `cpu` and `memory` must be specified in `0.25'/'0.5Gi` combination increments. e.g. `1.25` / `2.5Gi` or `0.75` / `1.5Gi`
+        > **Note:** `cpu` and `memory` must be specified in `0.25'/'0.5Gi` combination increments. e.g. `1.25` / `2.5Gi` or `0.75` / `1.5Gi`
         """
         return pulumi.get(self, "memory")
 
@@ -4620,7 +4634,7 @@ class JobTemplateContainerArgs:
         """
         The amount of ephemeral storage available to the Container App.
 
-        > **NOTE:** `ephemeral_storage` is currently in preview and not configurable at this time.
+        > **Note:** `ephemeral_storage` is currently in preview and not configurable at this time.
         """
         return pulumi.get(self, "ephemeral_storage")
 
@@ -5620,7 +5634,7 @@ if not MYPY:
         """
         The amount of vCPU to allocate to the container. Possible values include `0.25`, `0.5`, `0.75`, `1.0`, `1.25`, `1.5`, `1.75`, and `2.0`.
 
-        > **NOTE:** `cpu` and `memory` must be specified in `0.25'/'0.5Gi` combination increments. e.g. `1.0` / `2.0` or `0.5` / `1.0`
+        > **Note:** `cpu` and `memory` must be specified in `0.25'/'0.5Gi` combination increments. e.g. `1.0` / `2.0` or `0.5` / `1.0`
         """
         envs: NotRequired[pulumi.Input[Sequence[pulumi.Input['JobTemplateInitContainerEnvArgsDict']]]]
         """
@@ -5630,13 +5644,13 @@ if not MYPY:
         """
         The amount of ephemeral storage available to the Container App.
 
-        > **NOTE:** `ephemeral_storage` is currently in preview and not configurable at this time.
+        > **Note:** `ephemeral_storage` is currently in preview and not configurable at this time.
         """
         memory: NotRequired[pulumi.Input[builtins.str]]
         """
         The amount of memory to allocate to the container. Possible values are `0.5Gi`, `1Gi`, `1.5Gi`, `2Gi`, `2.5Gi`, `3Gi`, `3.5Gi` and `4Gi`.
 
-        > **NOTE:** `cpu` and `memory` must be specified in `0.25'/'0.5Gi` combination increments. e.g. `1.25` / `2.5Gi` or `0.75` / `1.5Gi`
+        > **Note:** `cpu` and `memory` must be specified in `0.25'/'0.5Gi` combination increments. e.g. `1.25` / `2.5Gi` or `0.75` / `1.5Gi`
         """
         volume_mounts: NotRequired[pulumi.Input[Sequence[pulumi.Input['JobTemplateInitContainerVolumeMountArgsDict']]]]
         """
@@ -5664,14 +5678,14 @@ class JobTemplateInitContainerArgs:
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] commands: A command to pass to the container to override the default. This is provided as a list of command line elements without spaces.
         :param pulumi.Input[builtins.float] cpu: The amount of vCPU to allocate to the container. Possible values include `0.25`, `0.5`, `0.75`, `1.0`, `1.25`, `1.5`, `1.75`, and `2.0`.
                
-               > **NOTE:** `cpu` and `memory` must be specified in `0.25'/'0.5Gi` combination increments. e.g. `1.0` / `2.0` or `0.5` / `1.0`
+               > **Note:** `cpu` and `memory` must be specified in `0.25'/'0.5Gi` combination increments. e.g. `1.0` / `2.0` or `0.5` / `1.0`
         :param pulumi.Input[Sequence[pulumi.Input['JobTemplateInitContainerEnvArgs']]] envs: One or more `env` blocks as detailed below.
         :param pulumi.Input[builtins.str] ephemeral_storage: The amount of ephemeral storage available to the Container App.
                
-               > **NOTE:** `ephemeral_storage` is currently in preview and not configurable at this time.
+               > **Note:** `ephemeral_storage` is currently in preview and not configurable at this time.
         :param pulumi.Input[builtins.str] memory: The amount of memory to allocate to the container. Possible values are `0.5Gi`, `1Gi`, `1.5Gi`, `2Gi`, `2.5Gi`, `3Gi`, `3.5Gi` and `4Gi`.
                
-               > **NOTE:** `cpu` and `memory` must be specified in `0.25'/'0.5Gi` combination increments. e.g. `1.25` / `2.5Gi` or `0.75` / `1.5Gi`
+               > **Note:** `cpu` and `memory` must be specified in `0.25'/'0.5Gi` combination increments. e.g. `1.25` / `2.5Gi` or `0.75` / `1.5Gi`
         :param pulumi.Input[Sequence[pulumi.Input['JobTemplateInitContainerVolumeMountArgs']]] volume_mounts: A `volume_mounts` block as detailed below.
         """
         pulumi.set(__self__, "image", image)
@@ -5745,7 +5759,7 @@ class JobTemplateInitContainerArgs:
         """
         The amount of vCPU to allocate to the container. Possible values include `0.25`, `0.5`, `0.75`, `1.0`, `1.25`, `1.5`, `1.75`, and `2.0`.
 
-        > **NOTE:** `cpu` and `memory` must be specified in `0.25'/'0.5Gi` combination increments. e.g. `1.0` / `2.0` or `0.5` / `1.0`
+        > **Note:** `cpu` and `memory` must be specified in `0.25'/'0.5Gi` combination increments. e.g. `1.0` / `2.0` or `0.5` / `1.0`
         """
         return pulumi.get(self, "cpu")
 
@@ -5771,7 +5785,7 @@ class JobTemplateInitContainerArgs:
         """
         The amount of ephemeral storage available to the Container App.
 
-        > **NOTE:** `ephemeral_storage` is currently in preview and not configurable at this time.
+        > **Note:** `ephemeral_storage` is currently in preview and not configurable at this time.
         """
         return pulumi.get(self, "ephemeral_storage")
 
@@ -5785,7 +5799,7 @@ class JobTemplateInitContainerArgs:
         """
         The amount of memory to allocate to the container. Possible values are `0.5Gi`, `1Gi`, `1.5Gi`, `2Gi`, `2.5Gi`, `3Gi`, `3.5Gi` and `4Gi`.
 
-        > **NOTE:** `cpu` and `memory` must be specified in `0.25'/'0.5Gi` combination increments. e.g. `1.25` / `2.5Gi` or `0.75` / `1.5Gi`
+        > **Note:** `cpu` and `memory` must be specified in `0.25'/'0.5Gi` combination increments. e.g. `1.25` / `2.5Gi` or `0.75` / `1.5Gi`
         """
         return pulumi.get(self, "memory")
 

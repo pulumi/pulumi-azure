@@ -28,7 +28,7 @@ namespace Pulumi.Azure.ContainerService.Outputs
         /// <summary>
         /// Whether zone redundancy is enabled for this replication location? Defaults to `false`.
         /// 
-        /// &gt; **NOTE:** Changing the `zone_redundancy_enabled` forces the a underlying replication to be created.
+        /// &gt; **Note:** Changing the `zone_redundancy_enabled` forces the a underlying replication to be created.
         /// </summary>
         public readonly bool? ZoneRedundancyEnabled;
 

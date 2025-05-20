@@ -260,6 +260,13 @@ class PrivateLinkAssociation(pulumi.CustomResource):
             public_network_access_enabled=True)
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Management`: 2020-05-01
+
         ## Import
 
         An existing Private Link Association can be imported into Pulumi using the `resource id`, e.g.
@@ -319,6 +326,13 @@ class PrivateLinkAssociation(pulumi.CustomResource):
             resource_management_private_link_id=example_private_link.id,
             public_network_access_enabled=True)
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Management`: 2020-05-01
 
         ## Import
 

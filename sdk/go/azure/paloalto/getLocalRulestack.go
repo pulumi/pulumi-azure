@@ -11,6 +11,42 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Use this data source to access information about an existing Palo Alto Networks Rulestack.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/paloalto"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			example, err := paloalto.LookupLocalRulestack(ctx, &paloalto.LookupLocalRulestackArgs{
+//				Name:              "existing",
+//				ResourceGroupName: "existing",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			ctx.Export("id", example.Id)
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ## API Providers
+//
+// <!-- This section is generated, changes will be overwritten -->
+// This data source uses the following Azure API Providers:
+//
+// * `PaloAltoNetworks.Cloudngfw`: 2022-08-29
 func LookupLocalRulestack(ctx *pulumi.Context, args *LookupLocalRulestackArgs, opts ...pulumi.InvokeOption) (*LookupLocalRulestackResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupLocalRulestackResult
@@ -23,26 +59,38 @@ func LookupLocalRulestack(ctx *pulumi.Context, args *LookupLocalRulestackArgs, o
 
 // A collection of arguments for invoking getLocalRulestack.
 type LookupLocalRulestackArgs struct {
-	Name              string `pulumi:"name"`
+	// The name of this Palo Alto Networks Rulestack.
+	Name string `pulumi:"name"`
+	// The name of the Resource Group where the Palo Alto Networks Rulestack exists.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
 // A collection of values returned by getLocalRulestack.
 type LookupLocalRulestackResult struct {
-	AntiSpywareProfile  string `pulumi:"antiSpywareProfile"`
-	AntiVirusProfile    string `pulumi:"antiVirusProfile"`
-	Description         string `pulumi:"description"`
-	DnsSubscription     string `pulumi:"dnsSubscription"`
+	// The Anti-Spyware setting used by the Palo Alto Networks Rulestack.
+	AntiSpywareProfile string `pulumi:"antiSpywareProfile"`
+	// The Anti-Virus setting used by the Palo Alto Networks Rulestack.
+	AntiVirusProfile string `pulumi:"antiVirusProfile"`
+	// The description of the Palo Alto Networks Rulestack.
+	Description string `pulumi:"description"`
+	// The DNS Subscription setting used by the Palo Alto Networks Rulestack.
+	DnsSubscription string `pulumi:"dnsSubscription"`
+	// The File Blocking Profile used by the Palo Alto Networks Rulestack.
 	FileBlockingProfile string `pulumi:"fileBlockingProfile"`
 	// The provider-assigned unique ID for this managed resource.
-	Id                         string `pulumi:"id"`
-	Location                   string `pulumi:"location"`
-	Name                       string `pulumi:"name"`
-	OutboundTrustCertificate   string `pulumi:"outboundTrustCertificate"`
+	Id string `pulumi:"id"`
+	// The Azure Region where the Palo Alto Networks Rulestack exists.
+	Location string `pulumi:"location"`
+	Name     string `pulumi:"name"`
+	// The trusted egress decryption profile data for the Palo Alto Networks Rulestack.
+	OutboundTrustCertificate string `pulumi:"outboundTrustCertificate"`
+	// The untrusted egress decryption profile data for the Palo Alto Networks Rulestack.
 	OutboundUntrustCertificate string `pulumi:"outboundUntrustCertificate"`
 	ResourceGroupName          string `pulumi:"resourceGroupName"`
-	UrlFilteringProfile        string `pulumi:"urlFilteringProfile"`
-	VulnerabilityProfile       string `pulumi:"vulnerabilityProfile"`
+	// The URL Filtering Profile used by the Palo Alto Networks Rulestack.
+	UrlFilteringProfile string `pulumi:"urlFilteringProfile"`
+	// The Vulnerability Profile used by the Palo Alto Networks Rulestack.
+	VulnerabilityProfile string `pulumi:"vulnerabilityProfile"`
 }
 
 func LookupLocalRulestackOutput(ctx *pulumi.Context, args LookupLocalRulestackOutputArgs, opts ...pulumi.InvokeOption) LookupLocalRulestackResultOutput {
@@ -56,7 +104,9 @@ func LookupLocalRulestackOutput(ctx *pulumi.Context, args LookupLocalRulestackOu
 
 // A collection of arguments for invoking getLocalRulestack.
 type LookupLocalRulestackOutputArgs struct {
-	Name              pulumi.StringInput `pulumi:"name"`
+	// The name of this Palo Alto Networks Rulestack.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The name of the Resource Group where the Palo Alto Networks Rulestack exists.
 	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 }
 
@@ -79,22 +129,27 @@ func (o LookupLocalRulestackResultOutput) ToLookupLocalRulestackResultOutputWith
 	return o
 }
 
+// The Anti-Spyware setting used by the Palo Alto Networks Rulestack.
 func (o LookupLocalRulestackResultOutput) AntiSpywareProfile() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupLocalRulestackResult) string { return v.AntiSpywareProfile }).(pulumi.StringOutput)
 }
 
+// The Anti-Virus setting used by the Palo Alto Networks Rulestack.
 func (o LookupLocalRulestackResultOutput) AntiVirusProfile() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupLocalRulestackResult) string { return v.AntiVirusProfile }).(pulumi.StringOutput)
 }
 
+// The description of the Palo Alto Networks Rulestack.
 func (o LookupLocalRulestackResultOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupLocalRulestackResult) string { return v.Description }).(pulumi.StringOutput)
 }
 
+// The DNS Subscription setting used by the Palo Alto Networks Rulestack.
 func (o LookupLocalRulestackResultOutput) DnsSubscription() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupLocalRulestackResult) string { return v.DnsSubscription }).(pulumi.StringOutput)
 }
 
+// The File Blocking Profile used by the Palo Alto Networks Rulestack.
 func (o LookupLocalRulestackResultOutput) FileBlockingProfile() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupLocalRulestackResult) string { return v.FileBlockingProfile }).(pulumi.StringOutput)
 }
@@ -104,6 +159,7 @@ func (o LookupLocalRulestackResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupLocalRulestackResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
+// The Azure Region where the Palo Alto Networks Rulestack exists.
 func (o LookupLocalRulestackResultOutput) Location() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupLocalRulestackResult) string { return v.Location }).(pulumi.StringOutput)
 }
@@ -112,10 +168,12 @@ func (o LookupLocalRulestackResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupLocalRulestackResult) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// The trusted egress decryption profile data for the Palo Alto Networks Rulestack.
 func (o LookupLocalRulestackResultOutput) OutboundTrustCertificate() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupLocalRulestackResult) string { return v.OutboundTrustCertificate }).(pulumi.StringOutput)
 }
 
+// The untrusted egress decryption profile data for the Palo Alto Networks Rulestack.
 func (o LookupLocalRulestackResultOutput) OutboundUntrustCertificate() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupLocalRulestackResult) string { return v.OutboundUntrustCertificate }).(pulumi.StringOutput)
 }
@@ -124,10 +182,12 @@ func (o LookupLocalRulestackResultOutput) ResourceGroupName() pulumi.StringOutpu
 	return o.ApplyT(func(v LookupLocalRulestackResult) string { return v.ResourceGroupName }).(pulumi.StringOutput)
 }
 
+// The URL Filtering Profile used by the Palo Alto Networks Rulestack.
 func (o LookupLocalRulestackResultOutput) UrlFilteringProfile() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupLocalRulestackResult) string { return v.UrlFilteringProfile }).(pulumi.StringOutput)
 }
 
+// The Vulnerability Profile used by the Palo Alto Networks Rulestack.
 func (o LookupLocalRulestackResultOutput) VulnerabilityProfile() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupLocalRulestackResult) string { return v.VulnerabilityProfile }).(pulumi.StringOutput)
 }

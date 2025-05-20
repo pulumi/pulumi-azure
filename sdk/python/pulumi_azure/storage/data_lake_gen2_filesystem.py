@@ -36,7 +36,7 @@ class DataLakeGen2FilesystemArgs:
         :param pulumi.Input[builtins.str] default_encryption_scope: The default encryption scope to use for this filesystem. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] group: Specifies the Object ID of the Azure Active Directory Group to make the owning group of the root path (i.e. `/`). Possible values also include `$superuser`.
                
-               > **NOTE:** The Storage Account requires `account_kind` to be either `StorageV2` or `BlobStorage`. In addition, `is_hns_enabled` has to be set to `true`.
+               > **Note:** The Storage Account requires `account_kind` to be either `StorageV2` or `BlobStorage`. In addition, `is_hns_enabled` has to be set to `true`.
         :param pulumi.Input[builtins.str] name: The name of the Data Lake Gen2 File System which should be created within the Storage Account. Must be unique within the storage account the queue is located. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] owner: Specifies the Object ID of the Azure Active Directory User to make the owning user of the root path (i.e. `/`). Possible values also include `$superuser`.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] properties: A mapping of Key to Base64-Encoded Values which should be assigned to this Data Lake Gen2 File System.
@@ -97,7 +97,7 @@ class DataLakeGen2FilesystemArgs:
         """
         Specifies the Object ID of the Azure Active Directory Group to make the owning group of the root path (i.e. `/`). Possible values also include `$superuser`.
 
-        > **NOTE:** The Storage Account requires `account_kind` to be either `StorageV2` or `BlobStorage`. In addition, `is_hns_enabled` has to be set to `true`.
+        > **Note:** The Storage Account requires `account_kind` to be either `StorageV2` or `BlobStorage`. In addition, `is_hns_enabled` has to be set to `true`.
         """
         return pulumi.get(self, "group")
 
@@ -158,7 +158,7 @@ class _DataLakeGen2FilesystemState:
         :param pulumi.Input[builtins.str] default_encryption_scope: The default encryption scope to use for this filesystem. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] group: Specifies the Object ID of the Azure Active Directory Group to make the owning group of the root path (i.e. `/`). Possible values also include `$superuser`.
                
-               > **NOTE:** The Storage Account requires `account_kind` to be either `StorageV2` or `BlobStorage`. In addition, `is_hns_enabled` has to be set to `true`.
+               > **Note:** The Storage Account requires `account_kind` to be either `StorageV2` or `BlobStorage`. In addition, `is_hns_enabled` has to be set to `true`.
         :param pulumi.Input[builtins.str] name: The name of the Data Lake Gen2 File System which should be created within the Storage Account. Must be unique within the storage account the queue is located. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] owner: Specifies the Object ID of the Azure Active Directory User to make the owning user of the root path (i.e. `/`). Possible values also include `$superuser`.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] properties: A mapping of Key to Base64-Encoded Values which should be assigned to this Data Lake Gen2 File System.
@@ -209,7 +209,7 @@ class _DataLakeGen2FilesystemState:
         """
         Specifies the Object ID of the Azure Active Directory Group to make the owning group of the root path (i.e. `/`). Possible values also include `$superuser`.
 
-        > **NOTE:** The Storage Account requires `account_kind` to be either `StorageV2` or `BlobStorage`. In addition, `is_hns_enabled` has to be set to `true`.
+        > **Note:** The Storage Account requires `account_kind` to be either `StorageV2` or `BlobStorage`. In addition, `is_hns_enabled` has to be set to `true`.
         """
         return pulumi.get(self, "group")
 
@@ -283,7 +283,7 @@ class DataLakeGen2Filesystem(pulumi.CustomResource):
         """
         Manages a Data Lake Gen2 File System within an Azure Storage Account.
 
-        > **NOTE:** This resource requires some `Storage` specific roles which are not granted by default. Some of the built-ins roles that can be attributed are [`Storage Account Contributor`](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-account-contributor), [`Storage Blob Data Owner`](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-owner), [`Storage Blob Data Contributor`](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-contributor), [`Storage Blob Data Reader`](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-reader).
+        > **Note:** This resource requires some `Storage` specific roles which are not granted by default. Some of the built-ins roles that can be attributed are [`Storage Account Contributor`](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-account-contributor), [`Storage Blob Data Owner`](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-owner), [`Storage Blob Data Contributor`](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-contributor), [`Storage Blob Data Reader`](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-reader).
 
         ## Example Usage
 
@@ -324,7 +324,7 @@ class DataLakeGen2Filesystem(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] default_encryption_scope: The default encryption scope to use for this filesystem. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] group: Specifies the Object ID of the Azure Active Directory Group to make the owning group of the root path (i.e. `/`). Possible values also include `$superuser`.
                
-               > **NOTE:** The Storage Account requires `account_kind` to be either `StorageV2` or `BlobStorage`. In addition, `is_hns_enabled` has to be set to `true`.
+               > **Note:** The Storage Account requires `account_kind` to be either `StorageV2` or `BlobStorage`. In addition, `is_hns_enabled` has to be set to `true`.
         :param pulumi.Input[builtins.str] name: The name of the Data Lake Gen2 File System which should be created within the Storage Account. Must be unique within the storage account the queue is located. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] owner: Specifies the Object ID of the Azure Active Directory User to make the owning user of the root path (i.e. `/`). Possible values also include `$superuser`.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] properties: A mapping of Key to Base64-Encoded Values which should be assigned to this Data Lake Gen2 File System.
@@ -339,7 +339,7 @@ class DataLakeGen2Filesystem(pulumi.CustomResource):
         """
         Manages a Data Lake Gen2 File System within an Azure Storage Account.
 
-        > **NOTE:** This resource requires some `Storage` specific roles which are not granted by default. Some of the built-ins roles that can be attributed are [`Storage Account Contributor`](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-account-contributor), [`Storage Blob Data Owner`](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-owner), [`Storage Blob Data Contributor`](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-contributor), [`Storage Blob Data Reader`](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-reader).
+        > **Note:** This resource requires some `Storage` specific roles which are not granted by default. Some of the built-ins roles that can be attributed are [`Storage Account Contributor`](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-account-contributor), [`Storage Blob Data Owner`](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-owner), [`Storage Blob Data Contributor`](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-contributor), [`Storage Blob Data Reader`](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-reader).
 
         ## Example Usage
 
@@ -442,7 +442,7 @@ class DataLakeGen2Filesystem(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] default_encryption_scope: The default encryption scope to use for this filesystem. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] group: Specifies the Object ID of the Azure Active Directory Group to make the owning group of the root path (i.e. `/`). Possible values also include `$superuser`.
                
-               > **NOTE:** The Storage Account requires `account_kind` to be either `StorageV2` or `BlobStorage`. In addition, `is_hns_enabled` has to be set to `true`.
+               > **Note:** The Storage Account requires `account_kind` to be either `StorageV2` or `BlobStorage`. In addition, `is_hns_enabled` has to be set to `true`.
         :param pulumi.Input[builtins.str] name: The name of the Data Lake Gen2 File System which should be created within the Storage Account. Must be unique within the storage account the queue is located. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] owner: Specifies the Object ID of the Azure Active Directory User to make the owning user of the root path (i.e. `/`). Possible values also include `$superuser`.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] properties: A mapping of Key to Base64-Encoded Values which should be assigned to this Data Lake Gen2 File System.
@@ -483,7 +483,7 @@ class DataLakeGen2Filesystem(pulumi.CustomResource):
         """
         Specifies the Object ID of the Azure Active Directory Group to make the owning group of the root path (i.e. `/`). Possible values also include `$superuser`.
 
-        > **NOTE:** The Storage Account requires `account_kind` to be either `StorageV2` or `BlobStorage`. In addition, `is_hns_enabled` has to be set to `true`.
+        > **Note:** The Storage Account requires `account_kind` to be either `StorageV2` or `BlobStorage`. In addition, `is_hns_enabled` has to be set to `true`.
         """
         return pulumi.get(self, "group")
 

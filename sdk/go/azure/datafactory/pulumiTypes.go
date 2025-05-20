@@ -7096,7 +7096,7 @@ func (o FactoryGlobalParameterArrayOutput) Index(i pulumi.IntInput) FactoryGloba
 type FactoryIdentity struct {
 	// Specifies a list of User Assigned Managed Identity IDs to be assigned to this Data Factory.
 	//
-	// > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+	// > **Note:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
 	IdentityIds []string `pulumi:"identityIds"`
 	// The Principal ID associated with this Managed Service Identity.
 	PrincipalId *string `pulumi:"principalId"`
@@ -7120,7 +7120,7 @@ type FactoryIdentityInput interface {
 type FactoryIdentityArgs struct {
 	// Specifies a list of User Assigned Managed Identity IDs to be assigned to this Data Factory.
 	//
-	// > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+	// > **Note:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
 	IdentityIds pulumi.StringArrayInput `pulumi:"identityIds"`
 	// The Principal ID associated with this Managed Service Identity.
 	PrincipalId pulumi.StringPtrInput `pulumi:"principalId"`
@@ -7209,7 +7209,7 @@ func (o FactoryIdentityOutput) ToFactoryIdentityPtrOutputWithContext(ctx context
 
 // Specifies a list of User Assigned Managed Identity IDs to be assigned to this Data Factory.
 //
-// > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+// > **Note:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
 func (o FactoryIdentityOutput) IdentityIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v FactoryIdentity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
 }
@@ -7255,7 +7255,7 @@ func (o FactoryIdentityPtrOutput) Elem() FactoryIdentityOutput {
 
 // Specifies a list of User Assigned Managed Identity IDs to be assigned to this Data Factory.
 //
-// > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+// > **Note:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
 func (o FactoryIdentityPtrOutput) IdentityIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *FactoryIdentity) []string {
 		if v == nil {
@@ -10073,7 +10073,7 @@ func (o FlowletDataFlowTransformationLinkedServicePtrOutput) Parameters() pulumi
 type IntegrationRuntimeSelfHostedRbacAuthorization struct {
 	// The resource identifier of the integration runtime to be shared.
 	//
-	// > **Please Note**: RBAC Authorization creates a [linked Self-hosted Integration Runtime targeting the Shared Self-hosted Integration Runtime in resourceId](https://docs.microsoft.com/azure/data-factory/create-shared-self-hosted-integration-runtime-powershell#share-the-self-hosted-integration-runtime-with-another-data-factory). The linked Self-hosted Integration Runtime needs Contributor access granted to the Shared Self-hosted Data Factory.
+	// > **Note:** RBAC Authorization creates a [linked Self-hosted Integration Runtime targeting the Shared Self-hosted Integration Runtime in resourceId](https://docs.microsoft.com/azure/data-factory/create-shared-self-hosted-integration-runtime-powershell#share-the-self-hosted-integration-runtime-with-another-data-factory). The linked Self-hosted Integration Runtime needs Contributor access granted to the Shared Self-hosted Data Factory. See example Shared Self-hosted.
 	//
 	// For more information on the configuration, please check out the [Azure documentation](https://docs.microsoft.com/rest/api/datafactory/integrationruntimes/createorupdate#linkedintegrationruntimerbacauthorization)
 	ResourceId string `pulumi:"resourceId"`
@@ -10093,7 +10093,7 @@ type IntegrationRuntimeSelfHostedRbacAuthorizationInput interface {
 type IntegrationRuntimeSelfHostedRbacAuthorizationArgs struct {
 	// The resource identifier of the integration runtime to be shared.
 	//
-	// > **Please Note**: RBAC Authorization creates a [linked Self-hosted Integration Runtime targeting the Shared Self-hosted Integration Runtime in resourceId](https://docs.microsoft.com/azure/data-factory/create-shared-self-hosted-integration-runtime-powershell#share-the-self-hosted-integration-runtime-with-another-data-factory). The linked Self-hosted Integration Runtime needs Contributor access granted to the Shared Self-hosted Data Factory.
+	// > **Note:** RBAC Authorization creates a [linked Self-hosted Integration Runtime targeting the Shared Self-hosted Integration Runtime in resourceId](https://docs.microsoft.com/azure/data-factory/create-shared-self-hosted-integration-runtime-powershell#share-the-self-hosted-integration-runtime-with-another-data-factory). The linked Self-hosted Integration Runtime needs Contributor access granted to the Shared Self-hosted Data Factory. See example Shared Self-hosted.
 	//
 	// For more information on the configuration, please check out the [Azure documentation](https://docs.microsoft.com/rest/api/datafactory/integrationruntimes/createorupdate#linkedintegrationruntimerbacauthorization)
 	ResourceId pulumi.StringInput `pulumi:"resourceId"`
@@ -10152,7 +10152,7 @@ func (o IntegrationRuntimeSelfHostedRbacAuthorizationOutput) ToIntegrationRuntim
 
 // The resource identifier of the integration runtime to be shared.
 //
-// > **Please Note**: RBAC Authorization creates a [linked Self-hosted Integration Runtime targeting the Shared Self-hosted Integration Runtime in resourceId](https://docs.microsoft.com/azure/data-factory/create-shared-self-hosted-integration-runtime-powershell#share-the-self-hosted-integration-runtime-with-another-data-factory). The linked Self-hosted Integration Runtime needs Contributor access granted to the Shared Self-hosted Data Factory.
+// > **Note:** RBAC Authorization creates a [linked Self-hosted Integration Runtime targeting the Shared Self-hosted Integration Runtime in resourceId](https://docs.microsoft.com/azure/data-factory/create-shared-self-hosted-integration-runtime-powershell#share-the-self-hosted-integration-runtime-with-another-data-factory). The linked Self-hosted Integration Runtime needs Contributor access granted to the Shared Self-hosted Data Factory. See example Shared Self-hosted.
 //
 // For more information on the configuration, please check out the [Azure documentation](https://docs.microsoft.com/rest/api/datafactory/integrationruntimes/createorupdate#linkedintegrationruntimerbacauthorization)
 func (o IntegrationRuntimeSelfHostedRbacAuthorizationOutput) ResourceId() pulumi.StringOutput {
@@ -10732,7 +10732,7 @@ type IntegrationRuntimeSsisExpressCustomSetup struct {
 	Environment map[string]string `pulumi:"environment"`
 	// The version of Azure Powershell installed for the Azure-SSIS Integration Runtime.
 	//
-	// > **NOTE** At least one of `env`, `powershellVersion`, `component` and `commandKey` should be specified.
+	// > **Note:** At least one of `env`, `powershellVersion`, `component` and `commandKey` should be specified.
 	PowershellVersion *string `pulumi:"powershellVersion"`
 }
 
@@ -10756,7 +10756,7 @@ type IntegrationRuntimeSsisExpressCustomSetupArgs struct {
 	Environment pulumi.StringMapInput `pulumi:"environment"`
 	// The version of Azure Powershell installed for the Azure-SSIS Integration Runtime.
 	//
-	// > **NOTE** At least one of `env`, `powershellVersion`, `component` and `commandKey` should be specified.
+	// > **Note:** At least one of `env`, `powershellVersion`, `component` and `commandKey` should be specified.
 	PowershellVersion pulumi.StringPtrInput `pulumi:"powershellVersion"`
 }
 
@@ -10858,7 +10858,7 @@ func (o IntegrationRuntimeSsisExpressCustomSetupOutput) Environment() pulumi.Str
 
 // The version of Azure Powershell installed for the Azure-SSIS Integration Runtime.
 //
-// > **NOTE** At least one of `env`, `powershellVersion`, `component` and `commandKey` should be specified.
+// > **Note:** At least one of `env`, `powershellVersion`, `component` and `commandKey` should be specified.
 func (o IntegrationRuntimeSsisExpressCustomSetupOutput) PowershellVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IntegrationRuntimeSsisExpressCustomSetup) *string { return v.PowershellVersion }).(pulumi.StringPtrOutput)
 }
@@ -10919,7 +10919,7 @@ func (o IntegrationRuntimeSsisExpressCustomSetupPtrOutput) Environment() pulumi.
 
 // The version of Azure Powershell installed for the Azure-SSIS Integration Runtime.
 //
-// > **NOTE** At least one of `env`, `powershellVersion`, `component` and `commandKey` should be specified.
+// > **Note:** At least one of `env`, `powershellVersion`, `component` and `commandKey` should be specified.
 func (o IntegrationRuntimeSsisExpressCustomSetupPtrOutput) PowershellVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IntegrationRuntimeSsisExpressCustomSetup) *string {
 		if v == nil {
@@ -12162,7 +12162,7 @@ type IntegrationRuntimeSsisVnetIntegration struct {
 	PublicIps []string `pulumi:"publicIps"`
 	// id of the subnet to which the nodes of the Azure-SSIS Integration Runtime will be added.
 	//
-	// > **NOTE** Only one of `subnetId` and `subnetName` can be specified. If `subnetName` is specified, `vnetId` must be provided.
+	// > **Note:** Only one of `subnetId` and `subnetName` can be specified. If `subnetName` is specified, `vnetId` must be provided.
 	SubnetId *string `pulumi:"subnetId"`
 	// Name of the subnet to which the nodes of the Azure-SSIS Integration Runtime will be added.
 	SubnetName *string `pulumi:"subnetName"`
@@ -12186,7 +12186,7 @@ type IntegrationRuntimeSsisVnetIntegrationArgs struct {
 	PublicIps pulumi.StringArrayInput `pulumi:"publicIps"`
 	// id of the subnet to which the nodes of the Azure-SSIS Integration Runtime will be added.
 	//
-	// > **NOTE** Only one of `subnetId` and `subnetName` can be specified. If `subnetName` is specified, `vnetId` must be provided.
+	// > **Note:** Only one of `subnetId` and `subnetName` can be specified. If `subnetName` is specified, `vnetId` must be provided.
 	SubnetId pulumi.StringPtrInput `pulumi:"subnetId"`
 	// Name of the subnet to which the nodes of the Azure-SSIS Integration Runtime will be added.
 	SubnetName pulumi.StringPtrInput `pulumi:"subnetName"`
@@ -12278,7 +12278,7 @@ func (o IntegrationRuntimeSsisVnetIntegrationOutput) PublicIps() pulumi.StringAr
 
 // id of the subnet to which the nodes of the Azure-SSIS Integration Runtime will be added.
 //
-// > **NOTE** Only one of `subnetId` and `subnetName` can be specified. If `subnetName` is specified, `vnetId` must be provided.
+// > **Note:** Only one of `subnetId` and `subnetName` can be specified. If `subnetName` is specified, `vnetId` must be provided.
 func (o IntegrationRuntimeSsisVnetIntegrationOutput) SubnetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IntegrationRuntimeSsisVnetIntegration) *string { return v.SubnetId }).(pulumi.StringPtrOutput)
 }
@@ -12329,7 +12329,7 @@ func (o IntegrationRuntimeSsisVnetIntegrationPtrOutput) PublicIps() pulumi.Strin
 
 // id of the subnet to which the nodes of the Azure-SSIS Integration Runtime will be added.
 //
-// > **NOTE** Only one of `subnetId` and `subnetName` can be specified. If `subnetName` is specified, `vnetId` must be provided.
+// > **Note:** Only one of `subnetId` and `subnetName` can be specified. If `subnetName` is specified, `vnetId` must be provided.
 func (o IntegrationRuntimeSsisVnetIntegrationPtrOutput) SubnetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IntegrationRuntimeSsisVnetIntegration) *string {
 		if v == nil {
@@ -14422,6 +14422,424 @@ func (o LinkedServiceOdbcBasicAuthenticationPtrOutput) Username() pulumi.StringP
 			return nil
 		}
 		return &v.Username
+	}).(pulumi.StringPtrOutput)
+}
+
+type LinkedServiceSftpKeyVaultPassword struct {
+	// Specifies the name of an existing Key Vault Data Factory Linked Service.
+	LinkedServiceName string `pulumi:"linkedServiceName"`
+	// Specifies the name of the secret containing the password.
+	SecretName string `pulumi:"secretName"`
+}
+
+// LinkedServiceSftpKeyVaultPasswordInput is an input type that accepts LinkedServiceSftpKeyVaultPasswordArgs and LinkedServiceSftpKeyVaultPasswordOutput values.
+// You can construct a concrete instance of `LinkedServiceSftpKeyVaultPasswordInput` via:
+//
+//	LinkedServiceSftpKeyVaultPasswordArgs{...}
+type LinkedServiceSftpKeyVaultPasswordInput interface {
+	pulumi.Input
+
+	ToLinkedServiceSftpKeyVaultPasswordOutput() LinkedServiceSftpKeyVaultPasswordOutput
+	ToLinkedServiceSftpKeyVaultPasswordOutputWithContext(context.Context) LinkedServiceSftpKeyVaultPasswordOutput
+}
+
+type LinkedServiceSftpKeyVaultPasswordArgs struct {
+	// Specifies the name of an existing Key Vault Data Factory Linked Service.
+	LinkedServiceName pulumi.StringInput `pulumi:"linkedServiceName"`
+	// Specifies the name of the secret containing the password.
+	SecretName pulumi.StringInput `pulumi:"secretName"`
+}
+
+func (LinkedServiceSftpKeyVaultPasswordArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LinkedServiceSftpKeyVaultPassword)(nil)).Elem()
+}
+
+func (i LinkedServiceSftpKeyVaultPasswordArgs) ToLinkedServiceSftpKeyVaultPasswordOutput() LinkedServiceSftpKeyVaultPasswordOutput {
+	return i.ToLinkedServiceSftpKeyVaultPasswordOutputWithContext(context.Background())
+}
+
+func (i LinkedServiceSftpKeyVaultPasswordArgs) ToLinkedServiceSftpKeyVaultPasswordOutputWithContext(ctx context.Context) LinkedServiceSftpKeyVaultPasswordOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LinkedServiceSftpKeyVaultPasswordOutput)
+}
+
+// LinkedServiceSftpKeyVaultPasswordArrayInput is an input type that accepts LinkedServiceSftpKeyVaultPasswordArray and LinkedServiceSftpKeyVaultPasswordArrayOutput values.
+// You can construct a concrete instance of `LinkedServiceSftpKeyVaultPasswordArrayInput` via:
+//
+//	LinkedServiceSftpKeyVaultPasswordArray{ LinkedServiceSftpKeyVaultPasswordArgs{...} }
+type LinkedServiceSftpKeyVaultPasswordArrayInput interface {
+	pulumi.Input
+
+	ToLinkedServiceSftpKeyVaultPasswordArrayOutput() LinkedServiceSftpKeyVaultPasswordArrayOutput
+	ToLinkedServiceSftpKeyVaultPasswordArrayOutputWithContext(context.Context) LinkedServiceSftpKeyVaultPasswordArrayOutput
+}
+
+type LinkedServiceSftpKeyVaultPasswordArray []LinkedServiceSftpKeyVaultPasswordInput
+
+func (LinkedServiceSftpKeyVaultPasswordArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LinkedServiceSftpKeyVaultPassword)(nil)).Elem()
+}
+
+func (i LinkedServiceSftpKeyVaultPasswordArray) ToLinkedServiceSftpKeyVaultPasswordArrayOutput() LinkedServiceSftpKeyVaultPasswordArrayOutput {
+	return i.ToLinkedServiceSftpKeyVaultPasswordArrayOutputWithContext(context.Background())
+}
+
+func (i LinkedServiceSftpKeyVaultPasswordArray) ToLinkedServiceSftpKeyVaultPasswordArrayOutputWithContext(ctx context.Context) LinkedServiceSftpKeyVaultPasswordArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LinkedServiceSftpKeyVaultPasswordArrayOutput)
+}
+
+type LinkedServiceSftpKeyVaultPasswordOutput struct{ *pulumi.OutputState }
+
+func (LinkedServiceSftpKeyVaultPasswordOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LinkedServiceSftpKeyVaultPassword)(nil)).Elem()
+}
+
+func (o LinkedServiceSftpKeyVaultPasswordOutput) ToLinkedServiceSftpKeyVaultPasswordOutput() LinkedServiceSftpKeyVaultPasswordOutput {
+	return o
+}
+
+func (o LinkedServiceSftpKeyVaultPasswordOutput) ToLinkedServiceSftpKeyVaultPasswordOutputWithContext(ctx context.Context) LinkedServiceSftpKeyVaultPasswordOutput {
+	return o
+}
+
+// Specifies the name of an existing Key Vault Data Factory Linked Service.
+func (o LinkedServiceSftpKeyVaultPasswordOutput) LinkedServiceName() pulumi.StringOutput {
+	return o.ApplyT(func(v LinkedServiceSftpKeyVaultPassword) string { return v.LinkedServiceName }).(pulumi.StringOutput)
+}
+
+// Specifies the name of the secret containing the password.
+func (o LinkedServiceSftpKeyVaultPasswordOutput) SecretName() pulumi.StringOutput {
+	return o.ApplyT(func(v LinkedServiceSftpKeyVaultPassword) string { return v.SecretName }).(pulumi.StringOutput)
+}
+
+type LinkedServiceSftpKeyVaultPasswordArrayOutput struct{ *pulumi.OutputState }
+
+func (LinkedServiceSftpKeyVaultPasswordArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LinkedServiceSftpKeyVaultPassword)(nil)).Elem()
+}
+
+func (o LinkedServiceSftpKeyVaultPasswordArrayOutput) ToLinkedServiceSftpKeyVaultPasswordArrayOutput() LinkedServiceSftpKeyVaultPasswordArrayOutput {
+	return o
+}
+
+func (o LinkedServiceSftpKeyVaultPasswordArrayOutput) ToLinkedServiceSftpKeyVaultPasswordArrayOutputWithContext(ctx context.Context) LinkedServiceSftpKeyVaultPasswordArrayOutput {
+	return o
+}
+
+func (o LinkedServiceSftpKeyVaultPasswordArrayOutput) Index(i pulumi.IntInput) LinkedServiceSftpKeyVaultPasswordOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LinkedServiceSftpKeyVaultPassword {
+		return vs[0].([]LinkedServiceSftpKeyVaultPassword)[vs[1].(int)]
+	}).(LinkedServiceSftpKeyVaultPasswordOutput)
+}
+
+type LinkedServiceSftpKeyVaultPrivateKeyContentBase64 struct {
+	// Specifies the name of an existing Key Vault Data Factory Linked Service.
+	LinkedServiceName string `pulumi:"linkedServiceName"`
+	// Specifies the name of the secret containing the Base64 encoded SSH private key.
+	SecretName string `pulumi:"secretName"`
+}
+
+// LinkedServiceSftpKeyVaultPrivateKeyContentBase64Input is an input type that accepts LinkedServiceSftpKeyVaultPrivateKeyContentBase64Args and LinkedServiceSftpKeyVaultPrivateKeyContentBase64Output values.
+// You can construct a concrete instance of `LinkedServiceSftpKeyVaultPrivateKeyContentBase64Input` via:
+//
+//	LinkedServiceSftpKeyVaultPrivateKeyContentBase64Args{...}
+type LinkedServiceSftpKeyVaultPrivateKeyContentBase64Input interface {
+	pulumi.Input
+
+	ToLinkedServiceSftpKeyVaultPrivateKeyContentBase64Output() LinkedServiceSftpKeyVaultPrivateKeyContentBase64Output
+	ToLinkedServiceSftpKeyVaultPrivateKeyContentBase64OutputWithContext(context.Context) LinkedServiceSftpKeyVaultPrivateKeyContentBase64Output
+}
+
+type LinkedServiceSftpKeyVaultPrivateKeyContentBase64Args struct {
+	// Specifies the name of an existing Key Vault Data Factory Linked Service.
+	LinkedServiceName pulumi.StringInput `pulumi:"linkedServiceName"`
+	// Specifies the name of the secret containing the Base64 encoded SSH private key.
+	SecretName pulumi.StringInput `pulumi:"secretName"`
+}
+
+func (LinkedServiceSftpKeyVaultPrivateKeyContentBase64Args) ElementType() reflect.Type {
+	return reflect.TypeOf((*LinkedServiceSftpKeyVaultPrivateKeyContentBase64)(nil)).Elem()
+}
+
+func (i LinkedServiceSftpKeyVaultPrivateKeyContentBase64Args) ToLinkedServiceSftpKeyVaultPrivateKeyContentBase64Output() LinkedServiceSftpKeyVaultPrivateKeyContentBase64Output {
+	return i.ToLinkedServiceSftpKeyVaultPrivateKeyContentBase64OutputWithContext(context.Background())
+}
+
+func (i LinkedServiceSftpKeyVaultPrivateKeyContentBase64Args) ToLinkedServiceSftpKeyVaultPrivateKeyContentBase64OutputWithContext(ctx context.Context) LinkedServiceSftpKeyVaultPrivateKeyContentBase64Output {
+	return pulumi.ToOutputWithContext(ctx, i).(LinkedServiceSftpKeyVaultPrivateKeyContentBase64Output)
+}
+
+func (i LinkedServiceSftpKeyVaultPrivateKeyContentBase64Args) ToLinkedServiceSftpKeyVaultPrivateKeyContentBase64PtrOutput() LinkedServiceSftpKeyVaultPrivateKeyContentBase64PtrOutput {
+	return i.ToLinkedServiceSftpKeyVaultPrivateKeyContentBase64PtrOutputWithContext(context.Background())
+}
+
+func (i LinkedServiceSftpKeyVaultPrivateKeyContentBase64Args) ToLinkedServiceSftpKeyVaultPrivateKeyContentBase64PtrOutputWithContext(ctx context.Context) LinkedServiceSftpKeyVaultPrivateKeyContentBase64PtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LinkedServiceSftpKeyVaultPrivateKeyContentBase64Output).ToLinkedServiceSftpKeyVaultPrivateKeyContentBase64PtrOutputWithContext(ctx)
+}
+
+// LinkedServiceSftpKeyVaultPrivateKeyContentBase64PtrInput is an input type that accepts LinkedServiceSftpKeyVaultPrivateKeyContentBase64Args, LinkedServiceSftpKeyVaultPrivateKeyContentBase64Ptr and LinkedServiceSftpKeyVaultPrivateKeyContentBase64PtrOutput values.
+// You can construct a concrete instance of `LinkedServiceSftpKeyVaultPrivateKeyContentBase64PtrInput` via:
+//
+//	        LinkedServiceSftpKeyVaultPrivateKeyContentBase64Args{...}
+//
+//	or:
+//
+//	        nil
+type LinkedServiceSftpKeyVaultPrivateKeyContentBase64PtrInput interface {
+	pulumi.Input
+
+	ToLinkedServiceSftpKeyVaultPrivateKeyContentBase64PtrOutput() LinkedServiceSftpKeyVaultPrivateKeyContentBase64PtrOutput
+	ToLinkedServiceSftpKeyVaultPrivateKeyContentBase64PtrOutputWithContext(context.Context) LinkedServiceSftpKeyVaultPrivateKeyContentBase64PtrOutput
+}
+
+type linkedServiceSftpKeyVaultPrivateKeyContentBase64PtrType LinkedServiceSftpKeyVaultPrivateKeyContentBase64Args
+
+func LinkedServiceSftpKeyVaultPrivateKeyContentBase64Ptr(v *LinkedServiceSftpKeyVaultPrivateKeyContentBase64Args) LinkedServiceSftpKeyVaultPrivateKeyContentBase64PtrInput {
+	return (*linkedServiceSftpKeyVaultPrivateKeyContentBase64PtrType)(v)
+}
+
+func (*linkedServiceSftpKeyVaultPrivateKeyContentBase64PtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LinkedServiceSftpKeyVaultPrivateKeyContentBase64)(nil)).Elem()
+}
+
+func (i *linkedServiceSftpKeyVaultPrivateKeyContentBase64PtrType) ToLinkedServiceSftpKeyVaultPrivateKeyContentBase64PtrOutput() LinkedServiceSftpKeyVaultPrivateKeyContentBase64PtrOutput {
+	return i.ToLinkedServiceSftpKeyVaultPrivateKeyContentBase64PtrOutputWithContext(context.Background())
+}
+
+func (i *linkedServiceSftpKeyVaultPrivateKeyContentBase64PtrType) ToLinkedServiceSftpKeyVaultPrivateKeyContentBase64PtrOutputWithContext(ctx context.Context) LinkedServiceSftpKeyVaultPrivateKeyContentBase64PtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LinkedServiceSftpKeyVaultPrivateKeyContentBase64PtrOutput)
+}
+
+type LinkedServiceSftpKeyVaultPrivateKeyContentBase64Output struct{ *pulumi.OutputState }
+
+func (LinkedServiceSftpKeyVaultPrivateKeyContentBase64Output) ElementType() reflect.Type {
+	return reflect.TypeOf((*LinkedServiceSftpKeyVaultPrivateKeyContentBase64)(nil)).Elem()
+}
+
+func (o LinkedServiceSftpKeyVaultPrivateKeyContentBase64Output) ToLinkedServiceSftpKeyVaultPrivateKeyContentBase64Output() LinkedServiceSftpKeyVaultPrivateKeyContentBase64Output {
+	return o
+}
+
+func (o LinkedServiceSftpKeyVaultPrivateKeyContentBase64Output) ToLinkedServiceSftpKeyVaultPrivateKeyContentBase64OutputWithContext(ctx context.Context) LinkedServiceSftpKeyVaultPrivateKeyContentBase64Output {
+	return o
+}
+
+func (o LinkedServiceSftpKeyVaultPrivateKeyContentBase64Output) ToLinkedServiceSftpKeyVaultPrivateKeyContentBase64PtrOutput() LinkedServiceSftpKeyVaultPrivateKeyContentBase64PtrOutput {
+	return o.ToLinkedServiceSftpKeyVaultPrivateKeyContentBase64PtrOutputWithContext(context.Background())
+}
+
+func (o LinkedServiceSftpKeyVaultPrivateKeyContentBase64Output) ToLinkedServiceSftpKeyVaultPrivateKeyContentBase64PtrOutputWithContext(ctx context.Context) LinkedServiceSftpKeyVaultPrivateKeyContentBase64PtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LinkedServiceSftpKeyVaultPrivateKeyContentBase64) *LinkedServiceSftpKeyVaultPrivateKeyContentBase64 {
+		return &v
+	}).(LinkedServiceSftpKeyVaultPrivateKeyContentBase64PtrOutput)
+}
+
+// Specifies the name of an existing Key Vault Data Factory Linked Service.
+func (o LinkedServiceSftpKeyVaultPrivateKeyContentBase64Output) LinkedServiceName() pulumi.StringOutput {
+	return o.ApplyT(func(v LinkedServiceSftpKeyVaultPrivateKeyContentBase64) string { return v.LinkedServiceName }).(pulumi.StringOutput)
+}
+
+// Specifies the name of the secret containing the Base64 encoded SSH private key.
+func (o LinkedServiceSftpKeyVaultPrivateKeyContentBase64Output) SecretName() pulumi.StringOutput {
+	return o.ApplyT(func(v LinkedServiceSftpKeyVaultPrivateKeyContentBase64) string { return v.SecretName }).(pulumi.StringOutput)
+}
+
+type LinkedServiceSftpKeyVaultPrivateKeyContentBase64PtrOutput struct{ *pulumi.OutputState }
+
+func (LinkedServiceSftpKeyVaultPrivateKeyContentBase64PtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LinkedServiceSftpKeyVaultPrivateKeyContentBase64)(nil)).Elem()
+}
+
+func (o LinkedServiceSftpKeyVaultPrivateKeyContentBase64PtrOutput) ToLinkedServiceSftpKeyVaultPrivateKeyContentBase64PtrOutput() LinkedServiceSftpKeyVaultPrivateKeyContentBase64PtrOutput {
+	return o
+}
+
+func (o LinkedServiceSftpKeyVaultPrivateKeyContentBase64PtrOutput) ToLinkedServiceSftpKeyVaultPrivateKeyContentBase64PtrOutputWithContext(ctx context.Context) LinkedServiceSftpKeyVaultPrivateKeyContentBase64PtrOutput {
+	return o
+}
+
+func (o LinkedServiceSftpKeyVaultPrivateKeyContentBase64PtrOutput) Elem() LinkedServiceSftpKeyVaultPrivateKeyContentBase64Output {
+	return o.ApplyT(func(v *LinkedServiceSftpKeyVaultPrivateKeyContentBase64) LinkedServiceSftpKeyVaultPrivateKeyContentBase64 {
+		if v != nil {
+			return *v
+		}
+		var ret LinkedServiceSftpKeyVaultPrivateKeyContentBase64
+		return ret
+	}).(LinkedServiceSftpKeyVaultPrivateKeyContentBase64Output)
+}
+
+// Specifies the name of an existing Key Vault Data Factory Linked Service.
+func (o LinkedServiceSftpKeyVaultPrivateKeyContentBase64PtrOutput) LinkedServiceName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LinkedServiceSftpKeyVaultPrivateKeyContentBase64) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.LinkedServiceName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies the name of the secret containing the Base64 encoded SSH private key.
+func (o LinkedServiceSftpKeyVaultPrivateKeyContentBase64PtrOutput) SecretName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LinkedServiceSftpKeyVaultPrivateKeyContentBase64) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.SecretName
+	}).(pulumi.StringPtrOutput)
+}
+
+type LinkedServiceSftpKeyVaultPrivateKeyPassphrase struct {
+	// Specifies the name of an existing Key Vault Data Factory Linked Service.
+	LinkedServiceName string `pulumi:"linkedServiceName"`
+	// Specifies the name of the secret containing the SSH private key passphrase.
+	SecretName string `pulumi:"secretName"`
+}
+
+// LinkedServiceSftpKeyVaultPrivateKeyPassphraseInput is an input type that accepts LinkedServiceSftpKeyVaultPrivateKeyPassphraseArgs and LinkedServiceSftpKeyVaultPrivateKeyPassphraseOutput values.
+// You can construct a concrete instance of `LinkedServiceSftpKeyVaultPrivateKeyPassphraseInput` via:
+//
+//	LinkedServiceSftpKeyVaultPrivateKeyPassphraseArgs{...}
+type LinkedServiceSftpKeyVaultPrivateKeyPassphraseInput interface {
+	pulumi.Input
+
+	ToLinkedServiceSftpKeyVaultPrivateKeyPassphraseOutput() LinkedServiceSftpKeyVaultPrivateKeyPassphraseOutput
+	ToLinkedServiceSftpKeyVaultPrivateKeyPassphraseOutputWithContext(context.Context) LinkedServiceSftpKeyVaultPrivateKeyPassphraseOutput
+}
+
+type LinkedServiceSftpKeyVaultPrivateKeyPassphraseArgs struct {
+	// Specifies the name of an existing Key Vault Data Factory Linked Service.
+	LinkedServiceName pulumi.StringInput `pulumi:"linkedServiceName"`
+	// Specifies the name of the secret containing the SSH private key passphrase.
+	SecretName pulumi.StringInput `pulumi:"secretName"`
+}
+
+func (LinkedServiceSftpKeyVaultPrivateKeyPassphraseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LinkedServiceSftpKeyVaultPrivateKeyPassphrase)(nil)).Elem()
+}
+
+func (i LinkedServiceSftpKeyVaultPrivateKeyPassphraseArgs) ToLinkedServiceSftpKeyVaultPrivateKeyPassphraseOutput() LinkedServiceSftpKeyVaultPrivateKeyPassphraseOutput {
+	return i.ToLinkedServiceSftpKeyVaultPrivateKeyPassphraseOutputWithContext(context.Background())
+}
+
+func (i LinkedServiceSftpKeyVaultPrivateKeyPassphraseArgs) ToLinkedServiceSftpKeyVaultPrivateKeyPassphraseOutputWithContext(ctx context.Context) LinkedServiceSftpKeyVaultPrivateKeyPassphraseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LinkedServiceSftpKeyVaultPrivateKeyPassphraseOutput)
+}
+
+func (i LinkedServiceSftpKeyVaultPrivateKeyPassphraseArgs) ToLinkedServiceSftpKeyVaultPrivateKeyPassphrasePtrOutput() LinkedServiceSftpKeyVaultPrivateKeyPassphrasePtrOutput {
+	return i.ToLinkedServiceSftpKeyVaultPrivateKeyPassphrasePtrOutputWithContext(context.Background())
+}
+
+func (i LinkedServiceSftpKeyVaultPrivateKeyPassphraseArgs) ToLinkedServiceSftpKeyVaultPrivateKeyPassphrasePtrOutputWithContext(ctx context.Context) LinkedServiceSftpKeyVaultPrivateKeyPassphrasePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LinkedServiceSftpKeyVaultPrivateKeyPassphraseOutput).ToLinkedServiceSftpKeyVaultPrivateKeyPassphrasePtrOutputWithContext(ctx)
+}
+
+// LinkedServiceSftpKeyVaultPrivateKeyPassphrasePtrInput is an input type that accepts LinkedServiceSftpKeyVaultPrivateKeyPassphraseArgs, LinkedServiceSftpKeyVaultPrivateKeyPassphrasePtr and LinkedServiceSftpKeyVaultPrivateKeyPassphrasePtrOutput values.
+// You can construct a concrete instance of `LinkedServiceSftpKeyVaultPrivateKeyPassphrasePtrInput` via:
+//
+//	        LinkedServiceSftpKeyVaultPrivateKeyPassphraseArgs{...}
+//
+//	or:
+//
+//	        nil
+type LinkedServiceSftpKeyVaultPrivateKeyPassphrasePtrInput interface {
+	pulumi.Input
+
+	ToLinkedServiceSftpKeyVaultPrivateKeyPassphrasePtrOutput() LinkedServiceSftpKeyVaultPrivateKeyPassphrasePtrOutput
+	ToLinkedServiceSftpKeyVaultPrivateKeyPassphrasePtrOutputWithContext(context.Context) LinkedServiceSftpKeyVaultPrivateKeyPassphrasePtrOutput
+}
+
+type linkedServiceSftpKeyVaultPrivateKeyPassphrasePtrType LinkedServiceSftpKeyVaultPrivateKeyPassphraseArgs
+
+func LinkedServiceSftpKeyVaultPrivateKeyPassphrasePtr(v *LinkedServiceSftpKeyVaultPrivateKeyPassphraseArgs) LinkedServiceSftpKeyVaultPrivateKeyPassphrasePtrInput {
+	return (*linkedServiceSftpKeyVaultPrivateKeyPassphrasePtrType)(v)
+}
+
+func (*linkedServiceSftpKeyVaultPrivateKeyPassphrasePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LinkedServiceSftpKeyVaultPrivateKeyPassphrase)(nil)).Elem()
+}
+
+func (i *linkedServiceSftpKeyVaultPrivateKeyPassphrasePtrType) ToLinkedServiceSftpKeyVaultPrivateKeyPassphrasePtrOutput() LinkedServiceSftpKeyVaultPrivateKeyPassphrasePtrOutput {
+	return i.ToLinkedServiceSftpKeyVaultPrivateKeyPassphrasePtrOutputWithContext(context.Background())
+}
+
+func (i *linkedServiceSftpKeyVaultPrivateKeyPassphrasePtrType) ToLinkedServiceSftpKeyVaultPrivateKeyPassphrasePtrOutputWithContext(ctx context.Context) LinkedServiceSftpKeyVaultPrivateKeyPassphrasePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LinkedServiceSftpKeyVaultPrivateKeyPassphrasePtrOutput)
+}
+
+type LinkedServiceSftpKeyVaultPrivateKeyPassphraseOutput struct{ *pulumi.OutputState }
+
+func (LinkedServiceSftpKeyVaultPrivateKeyPassphraseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LinkedServiceSftpKeyVaultPrivateKeyPassphrase)(nil)).Elem()
+}
+
+func (o LinkedServiceSftpKeyVaultPrivateKeyPassphraseOutput) ToLinkedServiceSftpKeyVaultPrivateKeyPassphraseOutput() LinkedServiceSftpKeyVaultPrivateKeyPassphraseOutput {
+	return o
+}
+
+func (o LinkedServiceSftpKeyVaultPrivateKeyPassphraseOutput) ToLinkedServiceSftpKeyVaultPrivateKeyPassphraseOutputWithContext(ctx context.Context) LinkedServiceSftpKeyVaultPrivateKeyPassphraseOutput {
+	return o
+}
+
+func (o LinkedServiceSftpKeyVaultPrivateKeyPassphraseOutput) ToLinkedServiceSftpKeyVaultPrivateKeyPassphrasePtrOutput() LinkedServiceSftpKeyVaultPrivateKeyPassphrasePtrOutput {
+	return o.ToLinkedServiceSftpKeyVaultPrivateKeyPassphrasePtrOutputWithContext(context.Background())
+}
+
+func (o LinkedServiceSftpKeyVaultPrivateKeyPassphraseOutput) ToLinkedServiceSftpKeyVaultPrivateKeyPassphrasePtrOutputWithContext(ctx context.Context) LinkedServiceSftpKeyVaultPrivateKeyPassphrasePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LinkedServiceSftpKeyVaultPrivateKeyPassphrase) *LinkedServiceSftpKeyVaultPrivateKeyPassphrase {
+		return &v
+	}).(LinkedServiceSftpKeyVaultPrivateKeyPassphrasePtrOutput)
+}
+
+// Specifies the name of an existing Key Vault Data Factory Linked Service.
+func (o LinkedServiceSftpKeyVaultPrivateKeyPassphraseOutput) LinkedServiceName() pulumi.StringOutput {
+	return o.ApplyT(func(v LinkedServiceSftpKeyVaultPrivateKeyPassphrase) string { return v.LinkedServiceName }).(pulumi.StringOutput)
+}
+
+// Specifies the name of the secret containing the SSH private key passphrase.
+func (o LinkedServiceSftpKeyVaultPrivateKeyPassphraseOutput) SecretName() pulumi.StringOutput {
+	return o.ApplyT(func(v LinkedServiceSftpKeyVaultPrivateKeyPassphrase) string { return v.SecretName }).(pulumi.StringOutput)
+}
+
+type LinkedServiceSftpKeyVaultPrivateKeyPassphrasePtrOutput struct{ *pulumi.OutputState }
+
+func (LinkedServiceSftpKeyVaultPrivateKeyPassphrasePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LinkedServiceSftpKeyVaultPrivateKeyPassphrase)(nil)).Elem()
+}
+
+func (o LinkedServiceSftpKeyVaultPrivateKeyPassphrasePtrOutput) ToLinkedServiceSftpKeyVaultPrivateKeyPassphrasePtrOutput() LinkedServiceSftpKeyVaultPrivateKeyPassphrasePtrOutput {
+	return o
+}
+
+func (o LinkedServiceSftpKeyVaultPrivateKeyPassphrasePtrOutput) ToLinkedServiceSftpKeyVaultPrivateKeyPassphrasePtrOutputWithContext(ctx context.Context) LinkedServiceSftpKeyVaultPrivateKeyPassphrasePtrOutput {
+	return o
+}
+
+func (o LinkedServiceSftpKeyVaultPrivateKeyPassphrasePtrOutput) Elem() LinkedServiceSftpKeyVaultPrivateKeyPassphraseOutput {
+	return o.ApplyT(func(v *LinkedServiceSftpKeyVaultPrivateKeyPassphrase) LinkedServiceSftpKeyVaultPrivateKeyPassphrase {
+		if v != nil {
+			return *v
+		}
+		var ret LinkedServiceSftpKeyVaultPrivateKeyPassphrase
+		return ret
+	}).(LinkedServiceSftpKeyVaultPrivateKeyPassphraseOutput)
+}
+
+// Specifies the name of an existing Key Vault Data Factory Linked Service.
+func (o LinkedServiceSftpKeyVaultPrivateKeyPassphrasePtrOutput) LinkedServiceName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LinkedServiceSftpKeyVaultPrivateKeyPassphrase) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.LinkedServiceName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies the name of the secret containing the SSH private key passphrase.
+func (o LinkedServiceSftpKeyVaultPrivateKeyPassphrasePtrOutput) SecretName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LinkedServiceSftpKeyVaultPrivateKeyPassphrase) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.SecretName
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -16926,6 +17344,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*LinkedServiceOdataBasicAuthenticationPtrInput)(nil)).Elem(), LinkedServiceOdataBasicAuthenticationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LinkedServiceOdbcBasicAuthenticationInput)(nil)).Elem(), LinkedServiceOdbcBasicAuthenticationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LinkedServiceOdbcBasicAuthenticationPtrInput)(nil)).Elem(), LinkedServiceOdbcBasicAuthenticationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LinkedServiceSftpKeyVaultPasswordInput)(nil)).Elem(), LinkedServiceSftpKeyVaultPasswordArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LinkedServiceSftpKeyVaultPasswordArrayInput)(nil)).Elem(), LinkedServiceSftpKeyVaultPasswordArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LinkedServiceSftpKeyVaultPrivateKeyContentBase64Input)(nil)).Elem(), LinkedServiceSftpKeyVaultPrivateKeyContentBase64Args{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LinkedServiceSftpKeyVaultPrivateKeyContentBase64PtrInput)(nil)).Elem(), LinkedServiceSftpKeyVaultPrivateKeyContentBase64Args{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LinkedServiceSftpKeyVaultPrivateKeyPassphraseInput)(nil)).Elem(), LinkedServiceSftpKeyVaultPrivateKeyPassphraseArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LinkedServiceSftpKeyVaultPrivateKeyPassphrasePtrInput)(nil)).Elem(), LinkedServiceSftpKeyVaultPrivateKeyPassphraseArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LinkedServiceSnowflakeKeyVaultPasswordInput)(nil)).Elem(), LinkedServiceSnowflakeKeyVaultPasswordArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LinkedServiceSnowflakeKeyVaultPasswordPtrInput)(nil)).Elem(), LinkedServiceSnowflakeKeyVaultPasswordArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LinkedServiceSqlServerKeyVaultConnectionStringInput)(nil)).Elem(), LinkedServiceSqlServerKeyVaultConnectionStringArgs{})
@@ -17134,6 +17558,12 @@ func init() {
 	pulumi.RegisterOutputType(LinkedServiceOdataBasicAuthenticationPtrOutput{})
 	pulumi.RegisterOutputType(LinkedServiceOdbcBasicAuthenticationOutput{})
 	pulumi.RegisterOutputType(LinkedServiceOdbcBasicAuthenticationPtrOutput{})
+	pulumi.RegisterOutputType(LinkedServiceSftpKeyVaultPasswordOutput{})
+	pulumi.RegisterOutputType(LinkedServiceSftpKeyVaultPasswordArrayOutput{})
+	pulumi.RegisterOutputType(LinkedServiceSftpKeyVaultPrivateKeyContentBase64Output{})
+	pulumi.RegisterOutputType(LinkedServiceSftpKeyVaultPrivateKeyContentBase64PtrOutput{})
+	pulumi.RegisterOutputType(LinkedServiceSftpKeyVaultPrivateKeyPassphraseOutput{})
+	pulumi.RegisterOutputType(LinkedServiceSftpKeyVaultPrivateKeyPassphrasePtrOutput{})
 	pulumi.RegisterOutputType(LinkedServiceSnowflakeKeyVaultPasswordOutput{})
 	pulumi.RegisterOutputType(LinkedServiceSnowflakeKeyVaultPasswordPtrOutput{})
 	pulumi.RegisterOutputType(LinkedServiceSqlServerKeyVaultConnectionStringOutput{})

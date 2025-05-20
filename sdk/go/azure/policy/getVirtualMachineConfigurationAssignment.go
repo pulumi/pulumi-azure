@@ -41,6 +41,13 @@ import (
 //	}
 //
 // ```
+//
+// ## API Providers
+//
+// <!-- This section is generated, changes will be overwritten -->
+// This data source uses the following Azure API Providers:
+//
+// * `Microsoft.Compute`: 2020-06-25
 func LookupVirtualMachineConfigurationAssignment(ctx *pulumi.Context, args *LookupVirtualMachineConfigurationAssignmentArgs, opts ...pulumi.InvokeOption) (*LookupVirtualMachineConfigurationAssignmentResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupVirtualMachineConfigurationAssignmentResult

@@ -111,7 +111,7 @@ namespace Pulumi.Azure.Storage
         /// <summary>
         /// A `hour_metrics` block as defined below.
         /// 
-        /// &gt; **NOTE:** At least one of `cors_rule`, `logging`, `minute_metrics`, or `hour_metrics` must be specified.
+        /// &gt; **Note:** At least one of `cors_rule`, `logging`, `minute_metrics`, or `hour_metrics` must be specified.
         /// </summary>
         [Output("hourMetrics")]
         public Output<Outputs.AccountQueuePropertiesHourMetrics> HourMetrics { get; private set; } = null!;
@@ -195,7 +195,7 @@ namespace Pulumi.Azure.Storage
         /// <summary>
         /// A `hour_metrics` block as defined below.
         /// 
-        /// &gt; **NOTE:** At least one of `cors_rule`, `logging`, `minute_metrics`, or `hour_metrics` must be specified.
+        /// &gt; **Note:** At least one of `cors_rule`, `logging`, `minute_metrics`, or `hour_metrics` must be specified.
         /// </summary>
         [Input("hourMetrics")]
         public Input<Inputs.AccountQueuePropertiesHourMetricsArgs>? HourMetrics { get; set; }
@@ -241,7 +241,7 @@ namespace Pulumi.Azure.Storage
         /// <summary>
         /// A `hour_metrics` block as defined below.
         /// 
-        /// &gt; **NOTE:** At least one of `cors_rule`, `logging`, `minute_metrics`, or `hour_metrics` must be specified.
+        /// &gt; **Note:** At least one of `cors_rule`, `logging`, `minute_metrics`, or `hour_metrics` must be specified.
         /// </summary>
         [Input("hourMetrics")]
         public Input<Inputs.AccountQueuePropertiesHourMetricsGetArgs>? HourMetrics { get; set; }

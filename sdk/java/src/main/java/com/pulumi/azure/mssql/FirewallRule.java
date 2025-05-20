@@ -74,6 +74,13 @@ import javax.annotation.Nullable;
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
+ * ## API Providers
+ * 
+ * &lt;!-- This section is generated, changes will be overwritten --&gt;
+ * This resource uses the following Azure API Providers:
+ * 
+ * * `Microsoft.Sql`: 2023-08-01-preview
+ * 
  * ## Import
  * 
  * SQL Firewall Rules can be imported using the `resource id`, e.g.
@@ -88,7 +95,7 @@ public class FirewallRule extends com.pulumi.resources.CustomResource {
     /**
      * The ending IP address to allow through the firewall for this rule.
      * 
-     * &gt; **NOTE:** The Azure feature `Allow access to Azure services` can be enabled by setting `start_ip_address` and `end_ip_address` to `0.0.0.0` which ([is documented in the Azure API Docs](https://docs.microsoft.com/rest/api/sql/firewallrules/createorupdate)).
+     * &gt; **Note:** The Azure feature `Allow access to Azure services` can be enabled by setting `start_ip_address` and `end_ip_address` to `0.0.0.0` which ([is documented in the Azure API Docs](https://docs.microsoft.com/rest/api/sql/firewallrules/createorupdate)).
      * 
      */
     @Export(name="endIpAddress", refs={String.class}, tree="[0]")
@@ -97,7 +104,7 @@ public class FirewallRule extends com.pulumi.resources.CustomResource {
     /**
      * @return The ending IP address to allow through the firewall for this rule.
      * 
-     * &gt; **NOTE:** The Azure feature `Allow access to Azure services` can be enabled by setting `start_ip_address` and `end_ip_address` to `0.0.0.0` which ([is documented in the Azure API Docs](https://docs.microsoft.com/rest/api/sql/firewallrules/createorupdate)).
+     * &gt; **Note:** The Azure feature `Allow access to Azure services` can be enabled by setting `start_ip_address` and `end_ip_address` to `0.0.0.0` which ([is documented in the Azure API Docs](https://docs.microsoft.com/rest/api/sql/firewallrules/createorupdate)).
      * 
      */
     public Output<String> endIpAddress() {

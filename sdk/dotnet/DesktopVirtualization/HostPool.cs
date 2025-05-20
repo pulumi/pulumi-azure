@@ -58,6 +58,13 @@ namespace Pulumi.Azure.DesktopVirtualization
     /// });
     /// ```
     /// 
+    /// ## API Providers
+    /// 
+    /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+    /// This resource uses the following Azure API Providers:
+    /// 
+    /// * `Microsoft.DesktopVirtualization`: 2024-04-03
+    /// 
     /// ## Import
     /// 
     /// Virtual Desktop Host Pools can be imported using the `resource id`, e.g.
@@ -119,7 +126,7 @@ namespace Pulumi.Azure.DesktopVirtualization
         /// <summary>
         /// `Automatic` assignment – The service will select an available host and assign it to an user. Possible values are `Automatic` and `Direct`. `Direct` Assignment – Admin selects a specific host to assign to an user. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **NOTE:** `personal_desktop_assignment_type` is required if the `type` of your Virtual Desktop Host Pool is `Personal`
+        /// &gt; **Note:** `personal_desktop_assignment_type` is required if the `type` of your Virtual Desktop Host Pool is `Personal`
         /// </summary>
         [Output("personalDesktopAssignmentType")]
         public Output<string?> PersonalDesktopAssignmentType { get; private set; } = null!;
@@ -272,7 +279,7 @@ namespace Pulumi.Azure.DesktopVirtualization
         /// <summary>
         /// `Automatic` assignment – The service will select an available host and assign it to an user. Possible values are `Automatic` and `Direct`. `Direct` Assignment – Admin selects a specific host to assign to an user. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **NOTE:** `personal_desktop_assignment_type` is required if the `type` of your Virtual Desktop Host Pool is `Personal`
+        /// &gt; **Note:** `personal_desktop_assignment_type` is required if the `type` of your Virtual Desktop Host Pool is `Personal`
         /// </summary>
         [Input("personalDesktopAssignmentType")]
         public Input<string>? PersonalDesktopAssignmentType { get; set; }
@@ -393,7 +400,7 @@ namespace Pulumi.Azure.DesktopVirtualization
         /// <summary>
         /// `Automatic` assignment – The service will select an available host and assign it to an user. Possible values are `Automatic` and `Direct`. `Direct` Assignment – Admin selects a specific host to assign to an user. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **NOTE:** `personal_desktop_assignment_type` is required if the `type` of your Virtual Desktop Host Pool is `Personal`
+        /// &gt; **Note:** `personal_desktop_assignment_type` is required if the `type` of your Virtual Desktop Host Pool is `Personal`
         /// </summary>
         [Input("personalDesktopAssignmentType")]
         public Input<string>? PersonalDesktopAssignmentType { get; set; }

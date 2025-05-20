@@ -18,7 +18,7 @@ public final class CustomDomainState extends com.pulumi.resources.ResourceArgs {
     /**
      * Specifies the custom domain name of the Web PubSub Custom Domain. Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE:** Please ensure the custom domain name is included in the Subject Alternative Names of the selected Web PubSub Custom Certificate.
+     * &gt; **Note:** Please ensure the custom domain name is included in the Subject Alternative Names of the selected Web PubSub Custom Certificate.
      * 
      */
     @Import(name="domainName")
@@ -27,7 +27,7 @@ public final class CustomDomainState extends com.pulumi.resources.ResourceArgs {
     /**
      * @return Specifies the custom domain name of the Web PubSub Custom Domain. Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE:** Please ensure the custom domain name is included in the Subject Alternative Names of the selected Web PubSub Custom Certificate.
+     * &gt; **Note:** Please ensure the custom domain name is included in the Subject Alternative Names of the selected Web PubSub Custom Certificate.
      * 
      */
     public Optional<Output<String>> domainName() {
@@ -109,7 +109,7 @@ public final class CustomDomainState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param domainName Specifies the custom domain name of the Web PubSub Custom Domain. Changing this forces a new resource to be created.
          * 
-         * &gt; **NOTE:** Please ensure the custom domain name is included in the Subject Alternative Names of the selected Web PubSub Custom Certificate.
+         * &gt; **Note:** Please ensure the custom domain name is included in the Subject Alternative Names of the selected Web PubSub Custom Certificate.
          * 
          * @return builder
          * 
@@ -122,7 +122,7 @@ public final class CustomDomainState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param domainName Specifies the custom domain name of the Web PubSub Custom Domain. Changing this forces a new resource to be created.
          * 
-         * &gt; **NOTE:** Please ensure the custom domain name is included in the Subject Alternative Names of the selected Web PubSub Custom Certificate.
+         * &gt; **Note:** Please ensure the custom domain name is included in the Subject Alternative Names of the selected Web PubSub Custom Certificate.
          * 
          * @return builder
          * 

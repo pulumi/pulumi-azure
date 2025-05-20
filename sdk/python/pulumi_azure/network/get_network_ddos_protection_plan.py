@@ -121,6 +121,13 @@ def get_network_ddos_protection_plan(name: Optional[builtins.str] = None,
     pulumi.export("ddosProtectionPlanId", example.id)
     ```
 
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.Network`: 2024-05-01
+
 
     :param builtins.str name: The name of the Network DDoS Protection Plan.
     :param builtins.str resource_group_name: The name of the resource group where the Network DDoS Protection Plan exists.
@@ -154,6 +161,13 @@ def get_network_ddos_protection_plan_output(name: Optional[pulumi.Input[builtins
         resource_group_name=example_azurerm_network_ddos_protection_plan["resourceGroupName"])
     pulumi.export("ddosProtectionPlanId", example.id)
     ```
+
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.Network`: 2024-05-01
 
 
     :param builtins.str name: The name of the Network DDoS Protection Plan.

@@ -36,7 +36,7 @@ public final class ServerExtendedAuditingPolicyState extends com.pulumi.resource
     /**
      * Whether to enable the extended auditing policy. Possible values are `true` and `false`. Defaults to `true`.
      * 
-     * -&gt;**NOTE:**  If `enabled` is `true`, `storage_endpoint` or `log_monitoring_enabled` are required.
+     * &gt; **Note:** If `enabled` is `true`, `storage_endpoint` or `log_monitoring_enabled` are required.
      * 
      */
     @Import(name="enabled")
@@ -45,7 +45,7 @@ public final class ServerExtendedAuditingPolicyState extends com.pulumi.resource
     /**
      * @return Whether to enable the extended auditing policy. Possible values are `true` and `false`. Defaults to `true`.
      * 
-     * -&gt;**NOTE:**  If `enabled` is `true`, `storage_endpoint` or `log_monitoring_enabled` are required.
+     * &gt; **Note:** If `enabled` is `true`, `storage_endpoint` or `log_monitoring_enabled` are required.
      * 
      */
     public Optional<Output<Boolean>> enabled() {
@@ -239,7 +239,7 @@ public final class ServerExtendedAuditingPolicyState extends com.pulumi.resource
         /**
          * @param enabled Whether to enable the extended auditing policy. Possible values are `true` and `false`. Defaults to `true`.
          * 
-         * -&gt;**NOTE:**  If `enabled` is `true`, `storage_endpoint` or `log_monitoring_enabled` are required.
+         * &gt; **Note:** If `enabled` is `true`, `storage_endpoint` or `log_monitoring_enabled` are required.
          * 
          * @return builder
          * 
@@ -252,7 +252,7 @@ public final class ServerExtendedAuditingPolicyState extends com.pulumi.resource
         /**
          * @param enabled Whether to enable the extended auditing policy. Possible values are `true` and `false`. Defaults to `true`.
          * 
-         * -&gt;**NOTE:**  If `enabled` is `true`, `storage_endpoint` or `log_monitoring_enabled` are required.
+         * &gt; **Note:** If `enabled` is `true`, `storage_endpoint` or `log_monitoring_enabled` are required.
          * 
          * @return builder
          * 

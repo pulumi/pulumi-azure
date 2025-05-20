@@ -44,18 +44,24 @@ class IoTHubArgs:
         The set of arguments for constructing a IoTHub resource.
         :param pulumi.Input[builtins.str] resource_group_name: The name of the resource group under which the IotHub resource has to be created. Changing this forces a new resource to be created.
         :param pulumi.Input['IoTHubSkuArgs'] sku: A `sku` block as defined below.
+        :param pulumi.Input['IoTHubCloudToDeviceArgs'] cloud_to_device: A `cloud_to_device` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['IoTHubEndpointArgs']]] endpoints: An `endpoint` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['IoTHubEnrichmentArgs']]] enrichments: A `enrichment` block as defined below.
         :param pulumi.Input[builtins.int] event_hub_partition_count: The number of device-to-cloud partitions used by backing event hubs. Must be between `2` and `128`. Defaults to `4`.
         :param pulumi.Input[builtins.int] event_hub_retention_in_days: The event hub retention to use in days. Must be between `1` and `7`. Defaults to `1`.
         :param pulumi.Input['IoTHubFallbackRouteArgs'] fallback_route: A `fallback_route` block as defined below. If the fallback route is enabled, messages that don't match any of the supplied routes are automatically sent to this route. Defaults to messages/events.
                
-               > **NOTE:** If `fallback_route` isn't explicitly specified, the fallback route wouldn't be enabled by default.
+               > **Note:** If `fallback_route` isn't explicitly specified, the fallback route wouldn't be enabled by default.
         :param pulumi.Input['IoTHubFileUploadArgs'] file_upload: A `file_upload` block as defined below.
         :param pulumi.Input['IoTHubIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[builtins.bool] local_authentication_enabled: If false, SAS tokens with Iot hub scoped SAS keys cannot be used for authentication. Defaults to `true`.
         :param pulumi.Input[builtins.str] location: Specifies the supported Azure location where the resource has to be created. Changing this forces a new resource to be created.
+        :param pulumi.Input[builtins.str] min_tls_version: Specifies the minimum TLS version to support for this hub. The only valid value is `1.2`. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] name: Specifies the name of the IotHub resource. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input['IoTHubNetworkRuleSetArgs']]] network_rule_sets: A `network_rule_set` block as defined below.
+        :param pulumi.Input[builtins.bool] public_network_access_enabled: Is the IotHub resource accessible from a public network?
+        :param pulumi.Input[Sequence[pulumi.Input['IoTHubRouteArgs']]] routes: A `route` block as defined below.
+        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A mapping of tags to assign to the resource.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "sku", sku)
@@ -119,6 +125,9 @@ class IoTHubArgs:
     @property
     @pulumi.getter(name="cloudToDevice")
     def cloud_to_device(self) -> Optional[pulumi.Input['IoTHubCloudToDeviceArgs']]:
+        """
+        A `cloud_to_device` block as defined below.
+        """
         return pulumi.get(self, "cloud_to_device")
 
     @cloud_to_device.setter
@@ -140,6 +149,9 @@ class IoTHubArgs:
     @property
     @pulumi.getter
     def enrichments(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['IoTHubEnrichmentArgs']]]]:
+        """
+        A `enrichment` block as defined below.
+        """
         return pulumi.get(self, "enrichments")
 
     @enrichments.setter
@@ -176,7 +188,7 @@ class IoTHubArgs:
         """
         A `fallback_route` block as defined below. If the fallback route is enabled, messages that don't match any of the supplied routes are automatically sent to this route. Defaults to messages/events.
 
-        > **NOTE:** If `fallback_route` isn't explicitly specified, the fallback route wouldn't be enabled by default.
+        > **Note:** If `fallback_route` isn't explicitly specified, the fallback route wouldn't be enabled by default.
         """
         return pulumi.get(self, "fallback_route")
 
@@ -235,6 +247,9 @@ class IoTHubArgs:
     @property
     @pulumi.getter(name="minTlsVersion")
     def min_tls_version(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Specifies the minimum TLS version to support for this hub. The only valid value is `1.2`. Changing this forces a new resource to be created.
+        """
         return pulumi.get(self, "min_tls_version")
 
     @min_tls_version.setter
@@ -268,6 +283,9 @@ class IoTHubArgs:
     @property
     @pulumi.getter(name="publicNetworkAccessEnabled")
     def public_network_access_enabled(self) -> Optional[pulumi.Input[builtins.bool]]:
+        """
+        Is the IotHub resource accessible from a public network?
+        """
         return pulumi.get(self, "public_network_access_enabled")
 
     @public_network_access_enabled.setter
@@ -277,6 +295,9 @@ class IoTHubArgs:
     @property
     @pulumi.getter
     def routes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['IoTHubRouteArgs']]]]:
+        """
+        A `route` block as defined below.
+        """
         return pulumi.get(self, "routes")
 
     @routes.setter
@@ -286,6 +307,9 @@ class IoTHubArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
+        """
+        A mapping of tags to assign to the resource.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -324,7 +348,9 @@ class _IoTHubState:
                  type: Optional[pulumi.Input[builtins.str]] = None):
         """
         Input properties used for looking up and filtering IoTHub resources.
+        :param pulumi.Input['IoTHubCloudToDeviceArgs'] cloud_to_device: A `cloud_to_device` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['IoTHubEndpointArgs']]] endpoints: An `endpoint` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['IoTHubEnrichmentArgs']]] enrichments: A `enrichment` block as defined below.
         :param pulumi.Input[builtins.str] event_hub_events_endpoint: The EventHub compatible endpoint for events data
         :param pulumi.Input[builtins.str] event_hub_events_namespace: The EventHub namespace for events data
         :param pulumi.Input[builtins.str] event_hub_events_path: The EventHub compatible path for events data
@@ -334,17 +360,21 @@ class _IoTHubState:
         :param pulumi.Input[builtins.int] event_hub_retention_in_days: The event hub retention to use in days. Must be between `1` and `7`. Defaults to `1`.
         :param pulumi.Input['IoTHubFallbackRouteArgs'] fallback_route: A `fallback_route` block as defined below. If the fallback route is enabled, messages that don't match any of the supplied routes are automatically sent to this route. Defaults to messages/events.
                
-               > **NOTE:** If `fallback_route` isn't explicitly specified, the fallback route wouldn't be enabled by default.
+               > **Note:** If `fallback_route` isn't explicitly specified, the fallback route wouldn't be enabled by default.
         :param pulumi.Input['IoTHubFileUploadArgs'] file_upload: A `file_upload` block as defined below.
         :param pulumi.Input[builtins.str] hostname: The hostname of the IotHub Resource.
         :param pulumi.Input['IoTHubIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[builtins.bool] local_authentication_enabled: If false, SAS tokens with Iot hub scoped SAS keys cannot be used for authentication. Defaults to `true`.
         :param pulumi.Input[builtins.str] location: Specifies the supported Azure location where the resource has to be created. Changing this forces a new resource to be created.
+        :param pulumi.Input[builtins.str] min_tls_version: Specifies the minimum TLS version to support for this hub. The only valid value is `1.2`. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] name: Specifies the name of the IotHub resource. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input['IoTHubNetworkRuleSetArgs']]] network_rule_sets: A `network_rule_set` block as defined below.
+        :param pulumi.Input[builtins.bool] public_network_access_enabled: Is the IotHub resource accessible from a public network?
         :param pulumi.Input[builtins.str] resource_group_name: The name of the resource group under which the IotHub resource has to be created. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input['IoTHubRouteArgs']]] routes: A `route` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['IoTHubSharedAccessPolicyArgs']]] shared_access_policies: One or more `shared_access_policy` blocks as defined below.
         :param pulumi.Input['IoTHubSkuArgs'] sku: A `sku` block as defined below.
+        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A mapping of tags to assign to the resource.
         """
         if cloud_to_device is not None:
             pulumi.set(__self__, "cloud_to_device", cloud_to_device)
@@ -402,6 +432,9 @@ class _IoTHubState:
     @property
     @pulumi.getter(name="cloudToDevice")
     def cloud_to_device(self) -> Optional[pulumi.Input['IoTHubCloudToDeviceArgs']]:
+        """
+        A `cloud_to_device` block as defined below.
+        """
         return pulumi.get(self, "cloud_to_device")
 
     @cloud_to_device.setter
@@ -423,6 +456,9 @@ class _IoTHubState:
     @property
     @pulumi.getter
     def enrichments(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['IoTHubEnrichmentArgs']]]]:
+        """
+        A `enrichment` block as defined below.
+        """
         return pulumi.get(self, "enrichments")
 
     @enrichments.setter
@@ -519,7 +555,7 @@ class _IoTHubState:
         """
         A `fallback_route` block as defined below. If the fallback route is enabled, messages that don't match any of the supplied routes are automatically sent to this route. Defaults to messages/events.
 
-        > **NOTE:** If `fallback_route` isn't explicitly specified, the fallback route wouldn't be enabled by default.
+        > **Note:** If `fallback_route` isn't explicitly specified, the fallback route wouldn't be enabled by default.
         """
         return pulumi.get(self, "fallback_route")
 
@@ -590,6 +626,9 @@ class _IoTHubState:
     @property
     @pulumi.getter(name="minTlsVersion")
     def min_tls_version(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Specifies the minimum TLS version to support for this hub. The only valid value is `1.2`. Changing this forces a new resource to be created.
+        """
         return pulumi.get(self, "min_tls_version")
 
     @min_tls_version.setter
@@ -623,6 +662,9 @@ class _IoTHubState:
     @property
     @pulumi.getter(name="publicNetworkAccessEnabled")
     def public_network_access_enabled(self) -> Optional[pulumi.Input[builtins.bool]]:
+        """
+        Is the IotHub resource accessible from a public network?
+        """
         return pulumi.get(self, "public_network_access_enabled")
 
     @public_network_access_enabled.setter
@@ -644,6 +686,9 @@ class _IoTHubState:
     @property
     @pulumi.getter
     def routes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['IoTHubRouteArgs']]]]:
+        """
+        A `route` block as defined below.
+        """
         return pulumi.get(self, "routes")
 
     @routes.setter
@@ -677,6 +722,9 @@ class _IoTHubState:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
+        """
+        A mapping of tags to assign to the resource.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -721,15 +769,15 @@ class IoTHub(pulumi.CustomResource):
         """
         Manages an IotHub
 
-        > **NOTE:** Endpoints can be defined either directly on the `iot.IoTHub` resource, or using the `azurerm_iothub_endpoint_*` resources - but the two ways of defining the endpoints cannot be used together. If both are used against the same IoTHub, spurious changes will occur. Also, defining a `azurerm_iothub_endpoint_*` resource and another endpoint of a different type directly on the `iot.IoTHub` resource is not supported.
+        > **Note:** Endpoints can be defined either directly on the `iot.IoTHub` resource, or using the `azurerm_iothub_endpoint_*` resources - but the two ways of defining the endpoints cannot be used together. If both are used against the same IoTHub, spurious changes will occur. Also, defining a `azurerm_iothub_endpoint_*` resource and another endpoint of a different type directly on the `iot.IoTHub` resource is not supported.
 
-        > **NOTE:** Routes can be defined either directly on the `iot.IoTHub` resource, or using the `iot.Route` resource - but the two cannot be used together. If both are used against the same IoTHub, spurious changes will occur.
+        > **Note:** Routes can be defined either directly on the `iot.IoTHub` resource, or using the `iot.Route` resource - but the two cannot be used together. If both are used against the same IoTHub, spurious changes will occur.
 
-        > **NOTE:** Enrichments can be defined either directly on the `iot.IoTHub` resource, or using the `iot.Enrichment` resource - but the two cannot be used together. If both are used against the same IoTHub, spurious changes will occur.
+        > **Note:** Enrichments can be defined either directly on the `iot.IoTHub` resource, or using the `iot.Enrichment` resource - but the two cannot be used together. If both are used against the same IoTHub, spurious changes will occur.
 
-        > **NOTE:** Fallback route can be defined either directly on the `iot.IoTHub` resource, or using the `iot.FallbackRoute` resource - but the two cannot be used together. If both are used against the same IoTHub, spurious changes will occur.
+        > **Note:** Fallback route can be defined either directly on the `iot.IoTHub` resource, or using the `iot.FallbackRoute` resource - but the two cannot be used together. If both are used against the same IoTHub, spurious changes will occur.
 
-        > **NOTE:** File upload can be defined either directly on the `iot.IoTHub` resource, or using the `iot.FileUpload` resource - but the two cannot be used together. If both are used against the same IoTHub, spurious changes will occur.
+        > **Note:** File upload can be defined either directly on the `iot.IoTHub` resource, or using the `iot.FileUpload` resource - but the two cannot be used together. If both are used against the same IoTHub, spurious changes will occur.
 
         ## Example Usage
 
@@ -841,20 +889,26 @@ class IoTHub(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Union['IoTHubCloudToDeviceArgs', 'IoTHubCloudToDeviceArgsDict']] cloud_to_device: A `cloud_to_device` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[Union['IoTHubEndpointArgs', 'IoTHubEndpointArgsDict']]]] endpoints: An `endpoint` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['IoTHubEnrichmentArgs', 'IoTHubEnrichmentArgsDict']]]] enrichments: A `enrichment` block as defined below.
         :param pulumi.Input[builtins.int] event_hub_partition_count: The number of device-to-cloud partitions used by backing event hubs. Must be between `2` and `128`. Defaults to `4`.
         :param pulumi.Input[builtins.int] event_hub_retention_in_days: The event hub retention to use in days. Must be between `1` and `7`. Defaults to `1`.
         :param pulumi.Input[Union['IoTHubFallbackRouteArgs', 'IoTHubFallbackRouteArgsDict']] fallback_route: A `fallback_route` block as defined below. If the fallback route is enabled, messages that don't match any of the supplied routes are automatically sent to this route. Defaults to messages/events.
                
-               > **NOTE:** If `fallback_route` isn't explicitly specified, the fallback route wouldn't be enabled by default.
+               > **Note:** If `fallback_route` isn't explicitly specified, the fallback route wouldn't be enabled by default.
         :param pulumi.Input[Union['IoTHubFileUploadArgs', 'IoTHubFileUploadArgsDict']] file_upload: A `file_upload` block as defined below.
         :param pulumi.Input[Union['IoTHubIdentityArgs', 'IoTHubIdentityArgsDict']] identity: An `identity` block as defined below.
         :param pulumi.Input[builtins.bool] local_authentication_enabled: If false, SAS tokens with Iot hub scoped SAS keys cannot be used for authentication. Defaults to `true`.
         :param pulumi.Input[builtins.str] location: Specifies the supported Azure location where the resource has to be created. Changing this forces a new resource to be created.
+        :param pulumi.Input[builtins.str] min_tls_version: Specifies the minimum TLS version to support for this hub. The only valid value is `1.2`. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] name: Specifies the name of the IotHub resource. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[Union['IoTHubNetworkRuleSetArgs', 'IoTHubNetworkRuleSetArgsDict']]]] network_rule_sets: A `network_rule_set` block as defined below.
+        :param pulumi.Input[builtins.bool] public_network_access_enabled: Is the IotHub resource accessible from a public network?
         :param pulumi.Input[builtins.str] resource_group_name: The name of the resource group under which the IotHub resource has to be created. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['IoTHubRouteArgs', 'IoTHubRouteArgsDict']]]] routes: A `route` block as defined below.
         :param pulumi.Input[Union['IoTHubSkuArgs', 'IoTHubSkuArgsDict']] sku: A `sku` block as defined below.
+        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A mapping of tags to assign to the resource.
         """
         ...
     @overload
@@ -865,15 +919,15 @@ class IoTHub(pulumi.CustomResource):
         """
         Manages an IotHub
 
-        > **NOTE:** Endpoints can be defined either directly on the `iot.IoTHub` resource, or using the `azurerm_iothub_endpoint_*` resources - but the two ways of defining the endpoints cannot be used together. If both are used against the same IoTHub, spurious changes will occur. Also, defining a `azurerm_iothub_endpoint_*` resource and another endpoint of a different type directly on the `iot.IoTHub` resource is not supported.
+        > **Note:** Endpoints can be defined either directly on the `iot.IoTHub` resource, or using the `azurerm_iothub_endpoint_*` resources - but the two ways of defining the endpoints cannot be used together. If both are used against the same IoTHub, spurious changes will occur. Also, defining a `azurerm_iothub_endpoint_*` resource and another endpoint of a different type directly on the `iot.IoTHub` resource is not supported.
 
-        > **NOTE:** Routes can be defined either directly on the `iot.IoTHub` resource, or using the `iot.Route` resource - but the two cannot be used together. If both are used against the same IoTHub, spurious changes will occur.
+        > **Note:** Routes can be defined either directly on the `iot.IoTHub` resource, or using the `iot.Route` resource - but the two cannot be used together. If both are used against the same IoTHub, spurious changes will occur.
 
-        > **NOTE:** Enrichments can be defined either directly on the `iot.IoTHub` resource, or using the `iot.Enrichment` resource - but the two cannot be used together. If both are used against the same IoTHub, spurious changes will occur.
+        > **Note:** Enrichments can be defined either directly on the `iot.IoTHub` resource, or using the `iot.Enrichment` resource - but the two cannot be used together. If both are used against the same IoTHub, spurious changes will occur.
 
-        > **NOTE:** Fallback route can be defined either directly on the `iot.IoTHub` resource, or using the `iot.FallbackRoute` resource - but the two cannot be used together. If both are used against the same IoTHub, spurious changes will occur.
+        > **Note:** Fallback route can be defined either directly on the `iot.IoTHub` resource, or using the `iot.FallbackRoute` resource - but the two cannot be used together. If both are used against the same IoTHub, spurious changes will occur.
 
-        > **NOTE:** File upload can be defined either directly on the `iot.IoTHub` resource, or using the `iot.FileUpload` resource - but the two cannot be used together. If both are used against the same IoTHub, spurious changes will occur.
+        > **Note:** File upload can be defined either directly on the `iot.IoTHub` resource, or using the `iot.FileUpload` resource - but the two cannot be used together. If both are used against the same IoTHub, spurious changes will occur.
 
         ## Example Usage
 
@@ -1098,7 +1152,9 @@ class IoTHub(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Union['IoTHubCloudToDeviceArgs', 'IoTHubCloudToDeviceArgsDict']] cloud_to_device: A `cloud_to_device` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[Union['IoTHubEndpointArgs', 'IoTHubEndpointArgsDict']]]] endpoints: An `endpoint` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['IoTHubEnrichmentArgs', 'IoTHubEnrichmentArgsDict']]]] enrichments: A `enrichment` block as defined below.
         :param pulumi.Input[builtins.str] event_hub_events_endpoint: The EventHub compatible endpoint for events data
         :param pulumi.Input[builtins.str] event_hub_events_namespace: The EventHub namespace for events data
         :param pulumi.Input[builtins.str] event_hub_events_path: The EventHub compatible path for events data
@@ -1108,17 +1164,21 @@ class IoTHub(pulumi.CustomResource):
         :param pulumi.Input[builtins.int] event_hub_retention_in_days: The event hub retention to use in days. Must be between `1` and `7`. Defaults to `1`.
         :param pulumi.Input[Union['IoTHubFallbackRouteArgs', 'IoTHubFallbackRouteArgsDict']] fallback_route: A `fallback_route` block as defined below. If the fallback route is enabled, messages that don't match any of the supplied routes are automatically sent to this route. Defaults to messages/events.
                
-               > **NOTE:** If `fallback_route` isn't explicitly specified, the fallback route wouldn't be enabled by default.
+               > **Note:** If `fallback_route` isn't explicitly specified, the fallback route wouldn't be enabled by default.
         :param pulumi.Input[Union['IoTHubFileUploadArgs', 'IoTHubFileUploadArgsDict']] file_upload: A `file_upload` block as defined below.
         :param pulumi.Input[builtins.str] hostname: The hostname of the IotHub Resource.
         :param pulumi.Input[Union['IoTHubIdentityArgs', 'IoTHubIdentityArgsDict']] identity: An `identity` block as defined below.
         :param pulumi.Input[builtins.bool] local_authentication_enabled: If false, SAS tokens with Iot hub scoped SAS keys cannot be used for authentication. Defaults to `true`.
         :param pulumi.Input[builtins.str] location: Specifies the supported Azure location where the resource has to be created. Changing this forces a new resource to be created.
+        :param pulumi.Input[builtins.str] min_tls_version: Specifies the minimum TLS version to support for this hub. The only valid value is `1.2`. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] name: Specifies the name of the IotHub resource. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[Union['IoTHubNetworkRuleSetArgs', 'IoTHubNetworkRuleSetArgsDict']]]] network_rule_sets: A `network_rule_set` block as defined below.
+        :param pulumi.Input[builtins.bool] public_network_access_enabled: Is the IotHub resource accessible from a public network?
         :param pulumi.Input[builtins.str] resource_group_name: The name of the resource group under which the IotHub resource has to be created. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['IoTHubRouteArgs', 'IoTHubRouteArgsDict']]]] routes: A `route` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[Union['IoTHubSharedAccessPolicyArgs', 'IoTHubSharedAccessPolicyArgsDict']]]] shared_access_policies: One or more `shared_access_policy` blocks as defined below.
         :param pulumi.Input[Union['IoTHubSkuArgs', 'IoTHubSkuArgsDict']] sku: A `sku` block as defined below.
+        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A mapping of tags to assign to the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -1155,6 +1215,9 @@ class IoTHub(pulumi.CustomResource):
     @property
     @pulumi.getter(name="cloudToDevice")
     def cloud_to_device(self) -> pulumi.Output['outputs.IoTHubCloudToDevice']:
+        """
+        A `cloud_to_device` block as defined below.
+        """
         return pulumi.get(self, "cloud_to_device")
 
     @property
@@ -1168,6 +1231,9 @@ class IoTHub(pulumi.CustomResource):
     @property
     @pulumi.getter
     def enrichments(self) -> pulumi.Output[Sequence['outputs.IoTHubEnrichment']]:
+        """
+        A `enrichment` block as defined below.
+        """
         return pulumi.get(self, "enrichments")
 
     @property
@@ -1232,7 +1298,7 @@ class IoTHub(pulumi.CustomResource):
         """
         A `fallback_route` block as defined below. If the fallback route is enabled, messages that don't match any of the supplied routes are automatically sent to this route. Defaults to messages/events.
 
-        > **NOTE:** If `fallback_route` isn't explicitly specified, the fallback route wouldn't be enabled by default.
+        > **Note:** If `fallback_route` isn't explicitly specified, the fallback route wouldn't be enabled by default.
         """
         return pulumi.get(self, "fallback_route")
 
@@ -1279,6 +1345,9 @@ class IoTHub(pulumi.CustomResource):
     @property
     @pulumi.getter(name="minTlsVersion")
     def min_tls_version(self) -> pulumi.Output[Optional[builtins.str]]:
+        """
+        Specifies the minimum TLS version to support for this hub. The only valid value is `1.2`. Changing this forces a new resource to be created.
+        """
         return pulumi.get(self, "min_tls_version")
 
     @property
@@ -1300,6 +1369,9 @@ class IoTHub(pulumi.CustomResource):
     @property
     @pulumi.getter(name="publicNetworkAccessEnabled")
     def public_network_access_enabled(self) -> pulumi.Output[Optional[builtins.bool]]:
+        """
+        Is the IotHub resource accessible from a public network?
+        """
         return pulumi.get(self, "public_network_access_enabled")
 
     @property
@@ -1313,6 +1385,9 @@ class IoTHub(pulumi.CustomResource):
     @property
     @pulumi.getter
     def routes(self) -> pulumi.Output[Sequence['outputs.IoTHubRoute']]:
+        """
+        A `route` block as defined below.
+        """
         return pulumi.get(self, "routes")
 
     @property
@@ -1334,6 +1409,9 @@ class IoTHub(pulumi.CustomResource):
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, builtins.str]]]:
+        """
+        A mapping of tags to assign to the resource.
+        """
         return pulumi.get(self, "tags")
 
     @property

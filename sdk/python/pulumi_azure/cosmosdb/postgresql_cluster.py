@@ -55,7 +55,7 @@ class PostgresqlClusterArgs:
         :param pulumi.Input[builtins.str] coordinator_server_edition: The edition of the coordinator server. Possible values are `BurstableGeneralPurpose`, `BurstableMemoryOptimized`, `GeneralPurpose` and `MemoryOptimized`. Defaults to `GeneralPurpose`.
         :param pulumi.Input[builtins.int] coordinator_storage_quota_in_mb: The coordinator storage allowed for the Azure Cosmos DB for PostgreSQL Cluster. Possible values are `32768`, `65536`, `131072`, `262144`, `524288`, `1048576`, `2097152`, `4194304`, `8388608`, `16777216`, and `33554432`.
                
-               > **NOTE:** More information on [the types of compute resources available for CosmosDB can be found in the product documentation](https://learn.microsoft.com/azure/cosmos-db/postgresql/resources-compute)
+               > **Note:** More information on [the types of compute resources available for CosmosDB can be found in the product documentation](https://learn.microsoft.com/azure/cosmos-db/postgresql/resources-compute)
         :param pulumi.Input[builtins.int] coordinator_vcore_count: The coordinator vCore count for the Azure Cosmos DB for PostgreSQL Cluster. Possible values are `1`, `2`, `4`, `8`, `16`, `32`, `64` and `96`.
         :param pulumi.Input[builtins.bool] ha_enabled: Is high availability enabled for the Azure Cosmos DB for PostgreSQL cluster? Defaults to `false`.
         :param pulumi.Input[builtins.str] location: The Azure Region where the Azure Cosmos DB for PostgreSQL Cluster should exist. Changing this forces a new resource to be created.
@@ -196,7 +196,7 @@ class PostgresqlClusterArgs:
         """
         The coordinator storage allowed for the Azure Cosmos DB for PostgreSQL Cluster. Possible values are `32768`, `65536`, `131072`, `262144`, `524288`, `1048576`, `2097152`, `4194304`, `8388608`, `16777216`, and `33554432`.
 
-        > **NOTE:** More information on [the types of compute resources available for CosmosDB can be found in the product documentation](https://learn.microsoft.com/azure/cosmos-db/postgresql/resources-compute)
+        > **Note:** More information on [the types of compute resources available for CosmosDB can be found in the product documentation](https://learn.microsoft.com/azure/cosmos-db/postgresql/resources-compute)
         """
         return pulumi.get(self, "coordinator_storage_quota_in_mb")
 
@@ -433,7 +433,7 @@ class _PostgresqlClusterState:
         :param pulumi.Input[builtins.str] coordinator_server_edition: The edition of the coordinator server. Possible values are `BurstableGeneralPurpose`, `BurstableMemoryOptimized`, `GeneralPurpose` and `MemoryOptimized`. Defaults to `GeneralPurpose`.
         :param pulumi.Input[builtins.int] coordinator_storage_quota_in_mb: The coordinator storage allowed for the Azure Cosmos DB for PostgreSQL Cluster. Possible values are `32768`, `65536`, `131072`, `262144`, `524288`, `1048576`, `2097152`, `4194304`, `8388608`, `16777216`, and `33554432`.
                
-               > **NOTE:** More information on [the types of compute resources available for CosmosDB can be found in the product documentation](https://learn.microsoft.com/azure/cosmos-db/postgresql/resources-compute)
+               > **Note:** More information on [the types of compute resources available for CosmosDB can be found in the product documentation](https://learn.microsoft.com/azure/cosmos-db/postgresql/resources-compute)
         :param pulumi.Input[builtins.int] coordinator_vcore_count: The coordinator vCore count for the Azure Cosmos DB for PostgreSQL Cluster. Possible values are `1`, `2`, `4`, `8`, `16`, `32`, `64` and `96`.
         :param pulumi.Input[builtins.str] earliest_restore_time: The earliest restore point time (ISO8601 format) for the Azure Cosmos DB for PostgreSQL Cluster.
         :param pulumi.Input[builtins.bool] ha_enabled: Is high availability enabled for the Azure Cosmos DB for PostgreSQL cluster? Defaults to `false`.
@@ -560,7 +560,7 @@ class _PostgresqlClusterState:
         """
         The coordinator storage allowed for the Azure Cosmos DB for PostgreSQL Cluster. Possible values are `32768`, `65536`, `131072`, `262144`, `524288`, `1048576`, `2097152`, `4194304`, `8388608`, `16777216`, and `33554432`.
 
-        > **NOTE:** More information on [the types of compute resources available for CosmosDB can be found in the product documentation](https://learn.microsoft.com/azure/cosmos-db/postgresql/resources-compute)
+        > **Note:** More information on [the types of compute resources available for CosmosDB can be found in the product documentation](https://learn.microsoft.com/azure/cosmos-db/postgresql/resources-compute)
         """
         return pulumi.get(self, "coordinator_storage_quota_in_mb")
 
@@ -861,6 +861,13 @@ class PostgresqlCluster(pulumi.CustomResource):
             node_count=0)
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.DBforPostgreSQL`: 2022-11-08
+
         ## Import
 
         Azure Cosmos DB for PostgreSQL Clusters can be imported using the `resource id`, e.g.
@@ -877,7 +884,7 @@ class PostgresqlCluster(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] coordinator_server_edition: The edition of the coordinator server. Possible values are `BurstableGeneralPurpose`, `BurstableMemoryOptimized`, `GeneralPurpose` and `MemoryOptimized`. Defaults to `GeneralPurpose`.
         :param pulumi.Input[builtins.int] coordinator_storage_quota_in_mb: The coordinator storage allowed for the Azure Cosmos DB for PostgreSQL Cluster. Possible values are `32768`, `65536`, `131072`, `262144`, `524288`, `1048576`, `2097152`, `4194304`, `8388608`, `16777216`, and `33554432`.
                
-               > **NOTE:** More information on [the types of compute resources available for CosmosDB can be found in the product documentation](https://learn.microsoft.com/azure/cosmos-db/postgresql/resources-compute)
+               > **Note:** More information on [the types of compute resources available for CosmosDB can be found in the product documentation](https://learn.microsoft.com/azure/cosmos-db/postgresql/resources-compute)
         :param pulumi.Input[builtins.int] coordinator_vcore_count: The coordinator vCore count for the Azure Cosmos DB for PostgreSQL Cluster. Possible values are `1`, `2`, `4`, `8`, `16`, `32`, `64` and `96`.
         :param pulumi.Input[builtins.bool] ha_enabled: Is high availability enabled for the Azure Cosmos DB for PostgreSQL cluster? Defaults to `false`.
         :param pulumi.Input[builtins.str] location: The Azure Region where the Azure Cosmos DB for PostgreSQL Cluster should exist. Changing this forces a new resource to be created.
@@ -924,6 +931,13 @@ class PostgresqlCluster(pulumi.CustomResource):
             coordinator_vcore_count=2,
             node_count=0)
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.DBforPostgreSQL`: 2022-11-08
 
         ## Import
 
@@ -1059,7 +1073,7 @@ class PostgresqlCluster(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] coordinator_server_edition: The edition of the coordinator server. Possible values are `BurstableGeneralPurpose`, `BurstableMemoryOptimized`, `GeneralPurpose` and `MemoryOptimized`. Defaults to `GeneralPurpose`.
         :param pulumi.Input[builtins.int] coordinator_storage_quota_in_mb: The coordinator storage allowed for the Azure Cosmos DB for PostgreSQL Cluster. Possible values are `32768`, `65536`, `131072`, `262144`, `524288`, `1048576`, `2097152`, `4194304`, `8388608`, `16777216`, and `33554432`.
                
-               > **NOTE:** More information on [the types of compute resources available for CosmosDB can be found in the product documentation](https://learn.microsoft.com/azure/cosmos-db/postgresql/resources-compute)
+               > **Note:** More information on [the types of compute resources available for CosmosDB can be found in the product documentation](https://learn.microsoft.com/azure/cosmos-db/postgresql/resources-compute)
         :param pulumi.Input[builtins.int] coordinator_vcore_count: The coordinator vCore count for the Azure Cosmos DB for PostgreSQL Cluster. Possible values are `1`, `2`, `4`, `8`, `16`, `32`, `64` and `96`.
         :param pulumi.Input[builtins.str] earliest_restore_time: The earliest restore point time (ISO8601 format) for the Azure Cosmos DB for PostgreSQL Cluster.
         :param pulumi.Input[builtins.bool] ha_enabled: Is high availability enabled for the Azure Cosmos DB for PostgreSQL cluster? Defaults to `false`.
@@ -1150,7 +1164,7 @@ class PostgresqlCluster(pulumi.CustomResource):
         """
         The coordinator storage allowed for the Azure Cosmos DB for PostgreSQL Cluster. Possible values are `32768`, `65536`, `131072`, `262144`, `524288`, `1048576`, `2097152`, `4194304`, `8388608`, `16777216`, and `33554432`.
 
-        > **NOTE:** More information on [the types of compute resources available for CosmosDB can be found in the product documentation](https://learn.microsoft.com/azure/cosmos-db/postgresql/resources-compute)
+        > **Note:** More information on [the types of compute resources available for CosmosDB can be found in the product documentation](https://learn.microsoft.com/azure/cosmos-db/postgresql/resources-compute)
         """
         return pulumi.get(self, "coordinator_storage_quota_in_mb")
 

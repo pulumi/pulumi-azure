@@ -209,6 +209,13 @@ class ServicesAccount(pulumi.CustomResource):
             })
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.GraphServices`: 2023-04-13
+
         ## Import
 
         An existing Account can be imported into Pulumi using the `resource id`, e.g.
@@ -252,6 +259,13 @@ class ServicesAccount(pulumi.CustomResource):
                 "environment": "Production",
             })
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.GraphServices`: 2023-04-13
 
         ## Import
 

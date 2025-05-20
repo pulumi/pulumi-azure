@@ -49,15 +49,15 @@ public final class GetAccountPlainArgs extends com.pulumi.resources.InvokeArgs {
      * Specifies the name of the resource group the Storage Account is located in.
      * 
      */
-    @Import(name="resourceGroupName")
-    private @Nullable String resourceGroupName;
+    @Import(name="resourceGroupName", required=true)
+    private String resourceGroupName;
 
     /**
      * @return Specifies the name of the resource group the Storage Account is located in.
      * 
      */
-    public Optional<String> resourceGroupName() {
-        return Optional.ofNullable(this.resourceGroupName);
+    public String resourceGroupName() {
+        return this.resourceGroupName;
     }
 
     private GetAccountPlainArgs() {}
@@ -114,7 +114,7 @@ public final class GetAccountPlainArgs extends com.pulumi.resources.InvokeArgs {
          * @return builder
          * 
          */
-        public Builder resourceGroupName(@Nullable String resourceGroupName) {
+        public Builder resourceGroupName(String resourceGroupName) {
             $.resourceGroupName = resourceGroupName;
             return this;
         }
@@ -122,6 +122,9 @@ public final class GetAccountPlainArgs extends com.pulumi.resources.InvokeArgs {
         public GetAccountPlainArgs build() {
             if ($.name == null) {
                 throw new MissingRequiredPropertyException("GetAccountPlainArgs", "name");
+            }
+            if ($.resourceGroupName == null) {
+                throw new MissingRequiredPropertyException("GetAccountPlainArgs", "resourceGroupName");
             }
             return $;
         }

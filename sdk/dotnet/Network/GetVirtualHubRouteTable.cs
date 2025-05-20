@@ -37,6 +37,13 @@ namespace Pulumi.Azure.Network
         ///     };
         /// });
         /// ```
+        /// 
+        /// ## API Providers
+        /// 
+        /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+        /// This data source uses the following Azure API Providers:
+        /// 
+        /// * `Microsoft.Network`: 2024-05-01
         /// </summary>
         public static Task<GetVirtualHubRouteTableResult> InvokeAsync(GetVirtualHubRouteTableArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetVirtualHubRouteTableResult>("azure:network/getVirtualHubRouteTable:getVirtualHubRouteTable", args ?? new GetVirtualHubRouteTableArgs(), options.WithDefaults());
@@ -67,6 +74,13 @@ namespace Pulumi.Azure.Network
         ///     };
         /// });
         /// ```
+        /// 
+        /// ## API Providers
+        /// 
+        /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+        /// This data source uses the following Azure API Providers:
+        /// 
+        /// * `Microsoft.Network`: 2024-05-01
         /// </summary>
         public static Output<GetVirtualHubRouteTableResult> Invoke(GetVirtualHubRouteTableInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVirtualHubRouteTableResult>("azure:network/getVirtualHubRouteTable:getVirtualHubRouteTable", args ?? new GetVirtualHubRouteTableInvokeArgs(), options.WithDefaults());
@@ -97,6 +111,13 @@ namespace Pulumi.Azure.Network
         ///     };
         /// });
         /// ```
+        /// 
+        /// ## API Providers
+        /// 
+        /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+        /// This data source uses the following Azure API Providers:
+        /// 
+        /// * `Microsoft.Network`: 2024-05-01
         /// </summary>
         public static Output<GetVirtualHubRouteTableResult> Invoke(GetVirtualHubRouteTableInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetVirtualHubRouteTableResult>("azure:network/getVirtualHubRouteTable:getVirtualHubRouteTable", args ?? new GetVirtualHubRouteTableInvokeArgs(), options.WithDefaults());

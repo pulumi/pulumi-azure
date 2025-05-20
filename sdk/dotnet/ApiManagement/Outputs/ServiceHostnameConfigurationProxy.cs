@@ -20,7 +20,7 @@ namespace Pulumi.Azure.ApiManagement.Outputs
         /// <summary>
         /// The password associated with the certificate provided above.
         /// 
-        /// &gt; **NOTE:** Either `key_vault_id` or `certificate` and `certificate_password` must be specified.
+        /// &gt; **Note:** Either `key_vault_certificate_id` or `certificate` and `certificate_password` must be specified.
         /// </summary>
         public readonly string? CertificatePassword;
         /// <summary>
@@ -44,10 +44,11 @@ namespace Pulumi.Azure.ApiManagement.Outputs
         /// </summary>
         public readonly string HostName;
         /// <summary>
-        /// The ID of the Key Vault Secret containing the SSL Certificate, which must be should be of the type `application/x-pkcs12`.
+        /// The ID of the Key Vault Secret containing the SSL Certificate, which must be of the type `application/x-pkcs12`.
         /// 
-        /// &gt; **NOTE:** Setting this field requires the `identity` block to be specified, since this identity is used for to retrieve the Key Vault Certificate. Auto-updating the Certificate from the Key Vault requires the Secret version isn't specified.
+        /// &gt; **Note:** Setting this field requires the `identity` block to be specified, since this identity is used for to retrieve the Key Vault Certificate. Auto-updating the Certificate from the Key Vault requires the Secret version isn't specified.
         /// </summary>
+        public readonly string? KeyVaultCertificateId;
         public readonly string? KeyVaultId;
         /// <summary>
         /// Should Client Certificate Negotiation be enabled for this Hostname? Defaults to `false`.
@@ -82,6 +83,8 @@ namespace Pulumi.Azure.ApiManagement.Outputs
 
             string hostName,
 
+            string? keyVaultCertificateId,
+
             string? keyVaultId,
 
             bool? negotiateClientCertificate,
@@ -99,6 +102,7 @@ namespace Pulumi.Azure.ApiManagement.Outputs
             DefaultSslBinding = defaultSslBinding;
             Expiry = expiry;
             HostName = hostName;
+            KeyVaultCertificateId = keyVaultCertificateId;
             KeyVaultId = keyVaultId;
             NegotiateClientCertificate = negotiateClientCertificate;
             SslKeyvaultIdentityClientId = sslKeyvaultIdentityClientId;

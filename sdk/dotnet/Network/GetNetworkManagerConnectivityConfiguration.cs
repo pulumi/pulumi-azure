@@ -36,6 +36,13 @@ namespace Pulumi.Azure.Network
         ///     };
         /// });
         /// ```
+        /// 
+        /// ## API Providers
+        /// 
+        /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+        /// This data source uses the following Azure API Providers:
+        /// 
+        /// * `Microsoft.Network`: 2024-05-01
         /// </summary>
         public static Task<GetNetworkManagerConnectivityConfigurationResult> InvokeAsync(GetNetworkManagerConnectivityConfigurationArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetNetworkManagerConnectivityConfigurationResult>("azure:network/getNetworkManagerConnectivityConfiguration:getNetworkManagerConnectivityConfiguration", args ?? new GetNetworkManagerConnectivityConfigurationArgs(), options.WithDefaults());
@@ -65,6 +72,13 @@ namespace Pulumi.Azure.Network
         ///     };
         /// });
         /// ```
+        /// 
+        /// ## API Providers
+        /// 
+        /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+        /// This data source uses the following Azure API Providers:
+        /// 
+        /// * `Microsoft.Network`: 2024-05-01
         /// </summary>
         public static Output<GetNetworkManagerConnectivityConfigurationResult> Invoke(GetNetworkManagerConnectivityConfigurationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetNetworkManagerConnectivityConfigurationResult>("azure:network/getNetworkManagerConnectivityConfiguration:getNetworkManagerConnectivityConfiguration", args ?? new GetNetworkManagerConnectivityConfigurationInvokeArgs(), options.WithDefaults());
@@ -94,6 +108,13 @@ namespace Pulumi.Azure.Network
         ///     };
         /// });
         /// ```
+        /// 
+        /// ## API Providers
+        /// 
+        /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+        /// This data source uses the following Azure API Providers:
+        /// 
+        /// * `Microsoft.Network`: 2024-05-01
         /// </summary>
         public static Output<GetNetworkManagerConnectivityConfigurationResult> Invoke(GetNetworkManagerConnectivityConfigurationInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetNetworkManagerConnectivityConfigurationResult>("azure:network/getNetworkManagerConnectivityConfiguration:getNetworkManagerConnectivityConfiguration", args ?? new GetNetworkManagerConnectivityConfigurationInvokeArgs(), options.WithDefaults());

@@ -15,7 +15,7 @@ public final class EndpointIpConfiguration {
     /**
      * @return Specifies the member name this IP address applies to. If it is not specified, it will use the value of `subresource_name`. Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE:** `member_name` will be required and will not take the value of `subresource_name` in the next major version.
+     * &gt; **Note:** `member_name` will be required and will not take the value of `subresource_name` in the next major version.
      * 
      */
     private @Nullable String memberName;
@@ -39,7 +39,7 @@ public final class EndpointIpConfiguration {
     /**
      * @return Specifies the member name this IP address applies to. If it is not specified, it will use the value of `subresource_name`. Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE:** `member_name` will be required and will not take the value of `subresource_name` in the next major version.
+     * &gt; **Note:** `member_name` will be required and will not take the value of `subresource_name` in the next major version.
      * 
      */
     public Optional<String> memberName() {

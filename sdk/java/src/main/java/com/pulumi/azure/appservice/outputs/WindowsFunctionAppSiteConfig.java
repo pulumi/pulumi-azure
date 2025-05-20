@@ -22,7 +22,7 @@ public final class WindowsFunctionAppSiteConfig {
     /**
      * @return If this Windows Function App is Always On enabled. Defaults to `false`.
      * 
-     * &gt; **NOTE:** when running in a Consumption or Premium Plan, `always_on` feature should be turned off. Please turn it off before upgrading the service plan from standard to premium.
+     * &gt; **Note:** when running in a Consumption or Premium Plan, `always_on` feature should be turned off. Please turn it off before upgrading the service plan from standard to premium.
      * 
      */
     private @Nullable Boolean alwaysOn;
@@ -151,7 +151,7 @@ public final class WindowsFunctionAppSiteConfig {
     /**
      * @return Should Scale Monitoring of the Functions Runtime be enabled?
      * 
-     * &gt; **NOTE:** Functions runtime scale monitoring can only be enabled for Elastic Premium Function Apps or Workflow Standard Logic Apps and requires a minimum prewarmed instance count of 1.
+     * &gt; **Note:** Functions runtime scale monitoring can only be enabled for Elastic Premium Function Apps or Workflow Standard Logic Apps and requires a minimum prewarmed instance count of 1.
      * 
      */
     private @Nullable Boolean runtimeScaleMonitoringEnabled;
@@ -210,7 +210,7 @@ public final class WindowsFunctionAppSiteConfig {
     /**
      * @return If this Windows Function App is Always On enabled. Defaults to `false`.
      * 
-     * &gt; **NOTE:** when running in a Consumption or Premium Plan, `always_on` feature should be turned off. Please turn it off before upgrading the service plan from standard to premium.
+     * &gt; **Note:** when running in a Consumption or Premium Plan, `always_on` feature should be turned off. Please turn it off before upgrading the service plan from standard to premium.
      * 
      */
     public Optional<Boolean> alwaysOn() {
@@ -389,7 +389,7 @@ public final class WindowsFunctionAppSiteConfig {
     /**
      * @return Should Scale Monitoring of the Functions Runtime be enabled?
      * 
-     * &gt; **NOTE:** Functions runtime scale monitoring can only be enabled for Elastic Premium Function Apps or Workflow Standard Logic Apps and requires a minimum prewarmed instance count of 1.
+     * &gt; **Note:** Functions runtime scale monitoring can only be enabled for Elastic Premium Function Apps or Workflow Standard Logic Apps and requires a minimum prewarmed instance count of 1.
      * 
      */
     public Optional<Boolean> runtimeScaleMonitoringEnabled() {

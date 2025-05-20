@@ -14,6 +14,9 @@ namespace Pulumi.Azure.KeyVault
         /// <summary>
         /// Use this data source to access data stored in an existing Key Vault Certificate.
         /// 
+        /// &gt; **Note:** All arguments including the secret value will be stored in the raw state as plain-text.
+        /// [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
+        /// 
         /// &gt; **Note:** This data source uses the `GetSecret` function of the Azure API, to get the key of the certificate. Therefore you need secret/get permission
         /// 
         /// ## Example Usage
@@ -51,6 +54,9 @@ namespace Pulumi.Azure.KeyVault
         /// <summary>
         /// Use this data source to access data stored in an existing Key Vault Certificate.
         /// 
+        /// &gt; **Note:** All arguments including the secret value will be stored in the raw state as plain-text.
+        /// [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
+        /// 
         /// &gt; **Note:** This data source uses the `GetSecret` function of the Azure API, to get the key of the certificate. Therefore you need secret/get permission
         /// 
         /// ## Example Usage
@@ -87,6 +93,9 @@ namespace Pulumi.Azure.KeyVault
 
         /// <summary>
         /// Use this data source to access data stored in an existing Key Vault Certificate.
+        /// 
+        /// &gt; **Note:** All arguments including the secret value will be stored in the raw state as plain-text.
+        /// [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
         /// 
         /// &gt; **Note:** This data source uses the `GetSecret` function of the Azure API, to get the key of the certificate. Therefore you need secret/get permission
         /// 
@@ -141,7 +150,7 @@ namespace Pulumi.Azure.KeyVault
         /// <summary>
         /// Specifies the version of the certificate to look up.  (Defaults to latest)
         /// 
-        /// &gt; **NOTE:** The vault must be in the same subscription as the provider. If the vault is in another subscription, you must create an aliased provider for that subscription.
+        /// &gt; **Note:** The vault must be in the same subscription as the provider. If the vault is in another subscription, you must create an aliased provider for that subscription.
         /// </summary>
         [Input("version")]
         public string? Version { get; set; }
@@ -169,7 +178,7 @@ namespace Pulumi.Azure.KeyVault
         /// <summary>
         /// Specifies the version of the certificate to look up.  (Defaults to latest)
         /// 
-        /// &gt; **NOTE:** The vault must be in the same subscription as the provider. If the vault is in another subscription, you must create an aliased provider for that subscription.
+        /// &gt; **Note:** The vault must be in the same subscription as the provider. If the vault is in another subscription, you must create an aliased provider for that subscription.
         /// </summary>
         [Input("version")]
         public Input<string>? Version { get; set; }

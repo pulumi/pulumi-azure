@@ -16,7 +16,7 @@ public final class WorkflowIdentity {
     /**
      * @return Specifies a list of User Assigned Managed Identity IDs to be assigned to this Logic App Workflow.
      * 
-     * &gt; **NOTE:** This is required when `type` is set to `UserAssigned`
+     * &gt; **Note:** This is required when `type` is set to `UserAssigned`
      * 
      */
     private @Nullable List<String> identityIds;
@@ -40,7 +40,7 @@ public final class WorkflowIdentity {
     /**
      * @return Specifies a list of User Assigned Managed Identity IDs to be assigned to this Logic App Workflow.
      * 
-     * &gt; **NOTE:** This is required when `type` is set to `UserAssigned`
+     * &gt; **Note:** This is required when `type` is set to `UserAssigned`
      * 
      */
     public List<String> identityIds() {

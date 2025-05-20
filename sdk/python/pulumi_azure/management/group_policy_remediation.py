@@ -329,6 +329,13 @@ class GroupPolicyRemediation(pulumi.CustomResource):
             policy_assignment_id=example_group_policy_assignment.id)
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Management`: 2021-10-01
+
         ## Import
 
         Policy Remediations can be imported using the `resource id`, e.g.
@@ -380,6 +387,13 @@ class GroupPolicyRemediation(pulumi.CustomResource):
             management_group_id=example_group.id,
             policy_assignment_id=example_group_policy_assignment.id)
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Management`: 2021-10-01
 
         ## Import
 

@@ -35,7 +35,7 @@ public final class LinuxFunctionAppSlotAuthSettingsV2AppleV2Args extends com.pul
     /**
      * The app setting name that contains the `client_secret` value used for Apple Login.
      * 
-     * !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+     * !&gt; **Note:** A setting with this name must exist in `app_settings` to function correctly.
      * 
      */
     @Import(name="clientSecretSettingName", required=true)
@@ -44,7 +44,7 @@ public final class LinuxFunctionAppSlotAuthSettingsV2AppleV2Args extends com.pul
     /**
      * @return The app setting name that contains the `client_secret` value used for Apple Login.
      * 
-     * !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+     * !&gt; **Note:** A setting with this name must exist in `app_settings` to function correctly.
      * 
      */
     public Output<String> clientSecretSettingName() {
@@ -54,7 +54,7 @@ public final class LinuxFunctionAppSlotAuthSettingsV2AppleV2Args extends com.pul
     /**
      * A list of Login Scopes provided by this Authentication Provider.
      * 
-     * &gt; **NOTE:** This is configured on the Authentication Provider side and is Read Only here.
+     * &gt; **Note:** This is configured on the Authentication Provider side and is Read Only here.
      * 
      */
     @Import(name="loginScopes")
@@ -63,7 +63,7 @@ public final class LinuxFunctionAppSlotAuthSettingsV2AppleV2Args extends com.pul
     /**
      * @return A list of Login Scopes provided by this Authentication Provider.
      * 
-     * &gt; **NOTE:** This is configured on the Authentication Provider side and is Read Only here.
+     * &gt; **Note:** This is configured on the Authentication Provider side and is Read Only here.
      * 
      */
     public Optional<Output<List<String>>> loginScopes() {
@@ -120,7 +120,7 @@ public final class LinuxFunctionAppSlotAuthSettingsV2AppleV2Args extends com.pul
         /**
          * @param clientSecretSettingName The app setting name that contains the `client_secret` value used for Apple Login.
          * 
-         * !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+         * !&gt; **Note:** A setting with this name must exist in `app_settings` to function correctly.
          * 
          * @return builder
          * 
@@ -133,7 +133,7 @@ public final class LinuxFunctionAppSlotAuthSettingsV2AppleV2Args extends com.pul
         /**
          * @param clientSecretSettingName The app setting name that contains the `client_secret` value used for Apple Login.
          * 
-         * !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+         * !&gt; **Note:** A setting with this name must exist in `app_settings` to function correctly.
          * 
          * @return builder
          * 
@@ -145,7 +145,7 @@ public final class LinuxFunctionAppSlotAuthSettingsV2AppleV2Args extends com.pul
         /**
          * @param loginScopes A list of Login Scopes provided by this Authentication Provider.
          * 
-         * &gt; **NOTE:** This is configured on the Authentication Provider side and is Read Only here.
+         * &gt; **Note:** This is configured on the Authentication Provider side and is Read Only here.
          * 
          * @return builder
          * 
@@ -158,7 +158,7 @@ public final class LinuxFunctionAppSlotAuthSettingsV2AppleV2Args extends com.pul
         /**
          * @param loginScopes A list of Login Scopes provided by this Authentication Provider.
          * 
-         * &gt; **NOTE:** This is configured on the Authentication Provider side and is Read Only here.
+         * &gt; **Note:** This is configured on the Authentication Provider side and is Read Only here.
          * 
          * @return builder
          * 
@@ -170,7 +170,7 @@ public final class LinuxFunctionAppSlotAuthSettingsV2AppleV2Args extends com.pul
         /**
          * @param loginScopes A list of Login Scopes provided by this Authentication Provider.
          * 
-         * &gt; **NOTE:** This is configured on the Authentication Provider side and is Read Only here.
+         * &gt; **Note:** This is configured on the Authentication Provider side and is Read Only here.
          * 
          * @return builder
          * 

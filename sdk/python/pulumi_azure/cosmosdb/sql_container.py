@@ -43,9 +43,6 @@ class SqlContainerArgs:
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] partition_key_paths: A list of partition key paths. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] resource_group_name: The name of the resource group in which the Cosmos DB SQL Container is created. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.int] analytical_storage_ttl: The default time to live of Analytical Storage for this SQL container. If present and the value is set to `-1`, it is equal to infinity, and items don’t expire by default. If present and the value is set to some number `n` – items will expire `n` seconds after their last modified time.
-        :param pulumi.Input['SqlContainerAutoscaleSettingsArgs'] autoscale_settings: An `autoscale_settings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual destroy-apply.
-               
-               > **Note:** Switching between autoscale and manual throughput is not supported via this provider and must be completed via the Azure Portal and refreshed.
         :param pulumi.Input['SqlContainerConflictResolutionPolicyArgs'] conflict_resolution_policy: A `conflict_resolution_policy` blocks as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.int] default_ttl: The default time to live of SQL container. If missing, items are not expired automatically. If present and the value is set to `-1`, it is equal to infinity, and items don’t expire by default. If present and the value is set to some number `n` – items will expire `n` seconds after their last modified time.
         :param pulumi.Input['SqlContainerIndexingPolicyArgs'] indexing_policy: An `indexing_policy` block as defined below.
@@ -54,7 +51,6 @@ class SqlContainerArgs:
         :param pulumi.Input[builtins.int] partition_key_version: Define a partition key version. Possible values are `1`and `2`. This should be set to `2` in order to use large partition keys.
                
                > **Note:** If `partition_key_version` is not specified when creating a new resource, you can update `partition_key_version` to `1`, updating to `2` forces a new resource to be created.
-        :param pulumi.Input[builtins.int] throughput: The throughput of SQL container (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon container creation otherwise it cannot be updated without a manual resource destroy-apply.
         :param pulumi.Input[Sequence[pulumi.Input['SqlContainerUniqueKeyArgs']]] unique_keys: One or more `unique_key` blocks as defined below. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "account_name", account_name)
@@ -145,11 +141,6 @@ class SqlContainerArgs:
     @property
     @pulumi.getter(name="autoscaleSettings")
     def autoscale_settings(self) -> Optional[pulumi.Input['SqlContainerAutoscaleSettingsArgs']]:
-        """
-        An `autoscale_settings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual destroy-apply.
-
-        > **Note:** Switching between autoscale and manual throughput is not supported via this provider and must be completed via the Azure Portal and refreshed.
-        """
         return pulumi.get(self, "autoscale_settings")
 
     @autoscale_settings.setter
@@ -233,9 +224,6 @@ class SqlContainerArgs:
     @property
     @pulumi.getter
     def throughput(self) -> Optional[pulumi.Input[builtins.int]]:
-        """
-        The throughput of SQL container (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon container creation otherwise it cannot be updated without a manual resource destroy-apply.
-        """
         return pulumi.get(self, "throughput")
 
     @throughput.setter
@@ -276,9 +264,6 @@ class _SqlContainerState:
         Input properties used for looking up and filtering SqlContainer resources.
         :param pulumi.Input[builtins.str] account_name: The name of the Cosmos DB Account to create the container within. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.int] analytical_storage_ttl: The default time to live of Analytical Storage for this SQL container. If present and the value is set to `-1`, it is equal to infinity, and items don’t expire by default. If present and the value is set to some number `n` – items will expire `n` seconds after their last modified time.
-        :param pulumi.Input['SqlContainerAutoscaleSettingsArgs'] autoscale_settings: An `autoscale_settings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual destroy-apply.
-               
-               > **Note:** Switching between autoscale and manual throughput is not supported via this provider and must be completed via the Azure Portal and refreshed.
         :param pulumi.Input['SqlContainerConflictResolutionPolicyArgs'] conflict_resolution_policy: A `conflict_resolution_policy` blocks as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] database_name: The name of the Cosmos DB SQL Database to create the container within. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.int] default_ttl: The default time to live of SQL container. If missing, items are not expired automatically. If present and the value is set to `-1`, it is equal to infinity, and items don’t expire by default. If present and the value is set to some number `n` – items will expire `n` seconds after their last modified time.
@@ -290,7 +275,6 @@ class _SqlContainerState:
                
                > **Note:** If `partition_key_version` is not specified when creating a new resource, you can update `partition_key_version` to `1`, updating to `2` forces a new resource to be created.
         :param pulumi.Input[builtins.str] resource_group_name: The name of the resource group in which the Cosmos DB SQL Container is created. Changing this forces a new resource to be created.
-        :param pulumi.Input[builtins.int] throughput: The throughput of SQL container (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon container creation otherwise it cannot be updated without a manual resource destroy-apply.
         :param pulumi.Input[Sequence[pulumi.Input['SqlContainerUniqueKeyArgs']]] unique_keys: One or more `unique_key` blocks as defined below. Changing this forces a new resource to be created.
         """
         if account_name is not None:
@@ -349,11 +333,6 @@ class _SqlContainerState:
     @property
     @pulumi.getter(name="autoscaleSettings")
     def autoscale_settings(self) -> Optional[pulumi.Input['SqlContainerAutoscaleSettingsArgs']]:
-        """
-        An `autoscale_settings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual destroy-apply.
-
-        > **Note:** Switching between autoscale and manual throughput is not supported via this provider and must be completed via the Azure Portal and refreshed.
-        """
         return pulumi.get(self, "autoscale_settings")
 
     @autoscale_settings.setter
@@ -473,9 +452,6 @@ class _SqlContainerState:
     @property
     @pulumi.getter
     def throughput(self) -> Optional[pulumi.Input[builtins.int]]:
-        """
-        The throughput of SQL container (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon container creation otherwise it cannot be updated without a manual resource destroy-apply.
-        """
         return pulumi.get(self, "throughput")
 
     @throughput.setter
@@ -573,9 +549,6 @@ class SqlContainer(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] account_name: The name of the Cosmos DB Account to create the container within. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.int] analytical_storage_ttl: The default time to live of Analytical Storage for this SQL container. If present and the value is set to `-1`, it is equal to infinity, and items don’t expire by default. If present and the value is set to some number `n` – items will expire `n` seconds after their last modified time.
-        :param pulumi.Input[Union['SqlContainerAutoscaleSettingsArgs', 'SqlContainerAutoscaleSettingsArgsDict']] autoscale_settings: An `autoscale_settings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual destroy-apply.
-               
-               > **Note:** Switching between autoscale and manual throughput is not supported via this provider and must be completed via the Azure Portal and refreshed.
         :param pulumi.Input[Union['SqlContainerConflictResolutionPolicyArgs', 'SqlContainerConflictResolutionPolicyArgsDict']] conflict_resolution_policy: A `conflict_resolution_policy` blocks as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] database_name: The name of the Cosmos DB SQL Database to create the container within. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.int] default_ttl: The default time to live of SQL container. If missing, items are not expired automatically. If present and the value is set to `-1`, it is equal to infinity, and items don’t expire by default. If present and the value is set to some number `n` – items will expire `n` seconds after their last modified time.
@@ -587,7 +560,6 @@ class SqlContainer(pulumi.CustomResource):
                
                > **Note:** If `partition_key_version` is not specified when creating a new resource, you can update `partition_key_version` to `1`, updating to `2` forces a new resource to be created.
         :param pulumi.Input[builtins.str] resource_group_name: The name of the resource group in which the Cosmos DB SQL Container is created. Changing this forces a new resource to be created.
-        :param pulumi.Input[builtins.int] throughput: The throughput of SQL container (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon container creation otherwise it cannot be updated without a manual resource destroy-apply.
         :param pulumi.Input[Sequence[pulumi.Input[Union['SqlContainerUniqueKeyArgs', 'SqlContainerUniqueKeyArgsDict']]]] unique_keys: One or more `unique_key` blocks as defined below. Changing this forces a new resource to be created.
         """
         ...
@@ -742,9 +714,6 @@ class SqlContainer(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] account_name: The name of the Cosmos DB Account to create the container within. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.int] analytical_storage_ttl: The default time to live of Analytical Storage for this SQL container. If present and the value is set to `-1`, it is equal to infinity, and items don’t expire by default. If present and the value is set to some number `n` – items will expire `n` seconds after their last modified time.
-        :param pulumi.Input[Union['SqlContainerAutoscaleSettingsArgs', 'SqlContainerAutoscaleSettingsArgsDict']] autoscale_settings: An `autoscale_settings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual destroy-apply.
-               
-               > **Note:** Switching between autoscale and manual throughput is not supported via this provider and must be completed via the Azure Portal and refreshed.
         :param pulumi.Input[Union['SqlContainerConflictResolutionPolicyArgs', 'SqlContainerConflictResolutionPolicyArgsDict']] conflict_resolution_policy: A `conflict_resolution_policy` blocks as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] database_name: The name of the Cosmos DB SQL Database to create the container within. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.int] default_ttl: The default time to live of SQL container. If missing, items are not expired automatically. If present and the value is set to `-1`, it is equal to infinity, and items don’t expire by default. If present and the value is set to some number `n` – items will expire `n` seconds after their last modified time.
@@ -756,7 +725,6 @@ class SqlContainer(pulumi.CustomResource):
                
                > **Note:** If `partition_key_version` is not specified when creating a new resource, you can update `partition_key_version` to `1`, updating to `2` forces a new resource to be created.
         :param pulumi.Input[builtins.str] resource_group_name: The name of the resource group in which the Cosmos DB SQL Container is created. Changing this forces a new resource to be created.
-        :param pulumi.Input[builtins.int] throughput: The throughput of SQL container (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon container creation otherwise it cannot be updated without a manual resource destroy-apply.
         :param pulumi.Input[Sequence[pulumi.Input[Union['SqlContainerUniqueKeyArgs', 'SqlContainerUniqueKeyArgsDict']]]] unique_keys: One or more `unique_key` blocks as defined below. Changing this forces a new resource to be created.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -798,11 +766,6 @@ class SqlContainer(pulumi.CustomResource):
     @property
     @pulumi.getter(name="autoscaleSettings")
     def autoscale_settings(self) -> pulumi.Output[Optional['outputs.SqlContainerAutoscaleSettings']]:
-        """
-        An `autoscale_settings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual destroy-apply.
-
-        > **Note:** Switching between autoscale and manual throughput is not supported via this provider and must be completed via the Azure Portal and refreshed.
-        """
         return pulumi.get(self, "autoscale_settings")
 
     @property
@@ -882,9 +845,6 @@ class SqlContainer(pulumi.CustomResource):
     @property
     @pulumi.getter
     def throughput(self) -> pulumi.Output[builtins.int]:
-        """
-        The throughput of SQL container (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon container creation otherwise it cannot be updated without a manual resource destroy-apply.
-        """
         return pulumi.get(self, "throughput")
 
     @property

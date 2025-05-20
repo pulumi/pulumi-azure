@@ -23,7 +23,7 @@ public final class WindowsVirtualMachinePlan {
     /**
      * @return Specifies the Publisher of the Marketplace Image this Virtual Machine should be created from. Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE:** If you use the `plan` block with one of Microsoft&#39;s marketplace images (e.g. `publisher = &#34;MicrosoftWindowsServer&#34;`). This may prevent the purchase of the offer. An example Azure API error: `The Offer: &#39;WindowsServer&#39; cannot be purchased by subscription: &#39;12345678-12234-5678-9012-123456789012&#39; as it is not to be sold in market: &#39;US&#39;. Please choose a subscription which is associated with a different market.`
+     * &gt; **Note:** If you use the `plan` block with one of Microsoft&#39;s marketplace images (e.g. `publisher = &#34;MicrosoftWindowsServer&#34;`). This may prevent the purchase of the offer. An example Azure API error: `The Offer: &#39;WindowsServer&#39; cannot be purchased by subscription: &#39;12345678-12234-5678-9012-123456789012&#39; as it is not to be sold in market: &#39;US&#39;. Please choose a subscription which is associated with a different market.`
      * 
      */
     private String publisher;
@@ -46,7 +46,7 @@ public final class WindowsVirtualMachinePlan {
     /**
      * @return Specifies the Publisher of the Marketplace Image this Virtual Machine should be created from. Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE:** If you use the `plan` block with one of Microsoft&#39;s marketplace images (e.g. `publisher = &#34;MicrosoftWindowsServer&#34;`). This may prevent the purchase of the offer. An example Azure API error: `The Offer: &#39;WindowsServer&#39; cannot be purchased by subscription: &#39;12345678-12234-5678-9012-123456789012&#39; as it is not to be sold in market: &#39;US&#39;. Please choose a subscription which is associated with a different market.`
+     * &gt; **Note:** If you use the `plan` block with one of Microsoft&#39;s marketplace images (e.g. `publisher = &#34;MicrosoftWindowsServer&#34;`). This may prevent the purchase of the offer. An example Azure API error: `The Offer: &#39;WindowsServer&#39; cannot be purchased by subscription: &#39;12345678-12234-5678-9012-123456789012&#39; as it is not to be sold in market: &#39;US&#39;. Please choose a subscription which is associated with a different market.`
      * 
      */
     public String publisher() {

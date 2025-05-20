@@ -371,6 +371,13 @@ class ResourceGroupCostManagementExport(pulumi.CustomResource):
             })
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.CostManagement`: 2023-08-01
+
         ## Import
 
         Cost Management Export for a Resource Group can be imported using the `resource id`, e.g.
@@ -434,6 +441,13 @@ class ResourceGroupCostManagementExport(pulumi.CustomResource):
                 "time_frame": "WeekToDate",
             })
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.CostManagement`: 2023-08-01
 
         ## Import
 

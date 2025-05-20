@@ -4,8 +4,11 @@
 package com.pulumi.azure.pim;
 
 import com.pulumi.azure.Utilities;
+import com.pulumi.azure.pim.inputs.GetRoleAssignmentsArgs;
+import com.pulumi.azure.pim.inputs.GetRoleAssignmentsPlainArgs;
 import com.pulumi.azure.pim.inputs.GetRoleManagementPolicyArgs;
 import com.pulumi.azure.pim.inputs.GetRoleManagementPolicyPlainArgs;
+import com.pulumi.azure.pim.outputs.GetRoleAssignmentsResult;
 import com.pulumi.azure.pim.outputs.GetRoleManagementPolicyResult;
 import com.pulumi.core.Output;
 import com.pulumi.core.TypeShape;
@@ -15,6 +18,291 @@ import com.pulumi.deployment.InvokeOutputOptions;
 import java.util.concurrent.CompletableFuture;
 
 public final class PimFunctions {
+    /**
+     * Use this data source to access information about existing Role Assignments.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.core.ResourceGroup;
+     * import com.pulumi.azure.core.ResourceGroupArgs;
+     * import com.pulumi.azure.pim.PimFunctions;
+     * import com.pulumi.azure.pim.inputs.GetRoleAssignmentsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         var exampleResourceGroup = new ResourceGroup("exampleResourceGroup", ResourceGroupArgs.builder()
+     *             .name("example")
+     *             .location("West Europe")
+     *             .build());
+     * 
+     *         final var example = PimFunctions.getRoleAssignments(GetRoleAssignmentsArgs.builder()
+     *             .scope(exampleResourceGroup.id())
+     *             .build());
+     * 
+     *         ctx.export("id", example.applyValue(_example -> _example.roleAssignments()));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Authorization`: 2022-04-01
+     * 
+     */
+    public static Output<GetRoleAssignmentsResult> getRoleAssignments(GetRoleAssignmentsArgs args) {
+        return getRoleAssignments(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to access information about existing Role Assignments.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.core.ResourceGroup;
+     * import com.pulumi.azure.core.ResourceGroupArgs;
+     * import com.pulumi.azure.pim.PimFunctions;
+     * import com.pulumi.azure.pim.inputs.GetRoleAssignmentsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         var exampleResourceGroup = new ResourceGroup("exampleResourceGroup", ResourceGroupArgs.builder()
+     *             .name("example")
+     *             .location("West Europe")
+     *             .build());
+     * 
+     *         final var example = PimFunctions.getRoleAssignments(GetRoleAssignmentsArgs.builder()
+     *             .scope(exampleResourceGroup.id())
+     *             .build());
+     * 
+     *         ctx.export("id", example.applyValue(_example -> _example.roleAssignments()));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Authorization`: 2022-04-01
+     * 
+     */
+    public static CompletableFuture<GetRoleAssignmentsResult> getRoleAssignmentsPlain(GetRoleAssignmentsPlainArgs args) {
+        return getRoleAssignmentsPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to access information about existing Role Assignments.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.core.ResourceGroup;
+     * import com.pulumi.azure.core.ResourceGroupArgs;
+     * import com.pulumi.azure.pim.PimFunctions;
+     * import com.pulumi.azure.pim.inputs.GetRoleAssignmentsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         var exampleResourceGroup = new ResourceGroup("exampleResourceGroup", ResourceGroupArgs.builder()
+     *             .name("example")
+     *             .location("West Europe")
+     *             .build());
+     * 
+     *         final var example = PimFunctions.getRoleAssignments(GetRoleAssignmentsArgs.builder()
+     *             .scope(exampleResourceGroup.id())
+     *             .build());
+     * 
+     *         ctx.export("id", example.applyValue(_example -> _example.roleAssignments()));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Authorization`: 2022-04-01
+     * 
+     */
+    public static Output<GetRoleAssignmentsResult> getRoleAssignments(GetRoleAssignmentsArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("azure:pim/getRoleAssignments:getRoleAssignments", TypeShape.of(GetRoleAssignmentsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to access information about existing Role Assignments.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.core.ResourceGroup;
+     * import com.pulumi.azure.core.ResourceGroupArgs;
+     * import com.pulumi.azure.pim.PimFunctions;
+     * import com.pulumi.azure.pim.inputs.GetRoleAssignmentsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         var exampleResourceGroup = new ResourceGroup("exampleResourceGroup", ResourceGroupArgs.builder()
+     *             .name("example")
+     *             .location("West Europe")
+     *             .build());
+     * 
+     *         final var example = PimFunctions.getRoleAssignments(GetRoleAssignmentsArgs.builder()
+     *             .scope(exampleResourceGroup.id())
+     *             .build());
+     * 
+     *         ctx.export("id", example.applyValue(_example -> _example.roleAssignments()));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Authorization`: 2022-04-01
+     * 
+     */
+    public static Output<GetRoleAssignmentsResult> getRoleAssignments(GetRoleAssignmentsArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("azure:pim/getRoleAssignments:getRoleAssignments", TypeShape.of(GetRoleAssignmentsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to access information about existing Role Assignments.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.core.ResourceGroup;
+     * import com.pulumi.azure.core.ResourceGroupArgs;
+     * import com.pulumi.azure.pim.PimFunctions;
+     * import com.pulumi.azure.pim.inputs.GetRoleAssignmentsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         var exampleResourceGroup = new ResourceGroup("exampleResourceGroup", ResourceGroupArgs.builder()
+     *             .name("example")
+     *             .location("West Europe")
+     *             .build());
+     * 
+     *         final var example = PimFunctions.getRoleAssignments(GetRoleAssignmentsArgs.builder()
+     *             .scope(exampleResourceGroup.id())
+     *             .build());
+     * 
+     *         ctx.export("id", example.applyValue(_example -> _example.roleAssignments()));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Authorization`: 2022-04-01
+     * 
+     */
+    public static CompletableFuture<GetRoleAssignmentsResult> getRoleAssignmentsPlain(GetRoleAssignmentsPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("azure:pim/getRoleAssignments:getRoleAssignments", TypeShape.of(GetRoleAssignmentsResult.class), args, Utilities.withVersion(options));
+    }
     /**
      * Use this data source to get information on a role policy for an Azure Management Group, Subscription, Resource Group or resource.
      * 
@@ -117,6 +405,13 @@ public final class PimFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Authorization`: 2020-10-01
      * 
      */
     public static Output<GetRoleManagementPolicyResult> getRoleManagementPolicy(GetRoleManagementPolicyArgs args) {
@@ -225,6 +520,13 @@ public final class PimFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Authorization`: 2020-10-01
+     * 
      */
     public static CompletableFuture<GetRoleManagementPolicyResult> getRoleManagementPolicyPlain(GetRoleManagementPolicyPlainArgs args) {
         return getRoleManagementPolicyPlain(args, InvokeOptions.Empty);
@@ -331,6 +633,13 @@ public final class PimFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Authorization`: 2020-10-01
      * 
      */
     public static Output<GetRoleManagementPolicyResult> getRoleManagementPolicy(GetRoleManagementPolicyArgs args, InvokeOptions options) {
@@ -439,6 +748,13 @@ public final class PimFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Authorization`: 2020-10-01
+     * 
      */
     public static Output<GetRoleManagementPolicyResult> getRoleManagementPolicy(GetRoleManagementPolicyArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("azure:pim/getRoleManagementPolicy:getRoleManagementPolicy", TypeShape.of(GetRoleManagementPolicyResult.class), args, Utilities.withVersion(options));
@@ -545,6 +861,13 @@ public final class PimFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Authorization`: 2020-10-01
      * 
      */
     public static CompletableFuture<GetRoleManagementPolicyResult> getRoleManagementPolicyPlain(GetRoleManagementPolicyPlainArgs args, InvokeOptions options) {

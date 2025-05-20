@@ -289,7 +289,7 @@ public final class GetAccountResult {
      * 
      */
     private String queueEncryptionKeyType;
-    private @Nullable String resourceGroupName;
+    private String resourceGroupName;
     /**
      * @return The secondary access key for the Storage Account.
      * 
@@ -861,8 +861,8 @@ public final class GetAccountResult {
     public String queueEncryptionKeyType() {
         return this.queueEncryptionKeyType;
     }
-    public Optional<String> resourceGroupName() {
-        return Optional.ofNullable(this.resourceGroupName);
+    public String resourceGroupName() {
+        return this.resourceGroupName;
     }
     /**
      * @return The secondary access key for the Storage Account.
@@ -1194,7 +1194,7 @@ public final class GetAccountResult {
         private String primaryWebMicrosoftEndpoint;
         private String primaryWebMicrosoftHost;
         private String queueEncryptionKeyType;
-        private @Nullable String resourceGroupName;
+        private String resourceGroupName;
         private String secondaryAccessKey;
         private String secondaryBlobConnectionString;
         private String secondaryBlobEndpoint;
@@ -1771,8 +1771,10 @@ public final class GetAccountResult {
             return this;
         }
         @CustomType.Setter
-        public Builder resourceGroupName(@Nullable String resourceGroupName) {
-
+        public Builder resourceGroupName(String resourceGroupName) {
+            if (resourceGroupName == null) {
+              throw new MissingRequiredPropertyException("GetAccountResult", "resourceGroupName");
+            }
             this.resourceGroupName = resourceGroupName;
             return this;
         }

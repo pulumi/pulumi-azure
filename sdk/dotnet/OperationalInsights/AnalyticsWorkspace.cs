@@ -40,6 +40,13 @@ namespace Pulumi.Azure.OperationalInsights
     /// });
     /// ```
     /// 
+    /// ## API Providers
+    /// 
+    /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+    /// This resource uses the following Azure API Providers:
+    /// 
+    /// * `Microsoft.OperationalInsights`: 2022-10-01, 2020-08-01
+    /// 
     /// ## Import
     /// 
     /// Log Analytics Workspaces can be imported using the `resource id`, e.g.

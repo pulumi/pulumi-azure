@@ -246,6 +246,13 @@ def get_cluster(name: Optional[builtins.str] = None,
     pulumi.export("clusterId", example.cluster_id)
     ```
 
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.HDInsight`: 2021-06-01
+
 
     :param builtins.str name: Specifies the name of this HDInsight Cluster.
     :param builtins.str resource_group_name: Specifies the name of the Resource Group in which this HDInsight Cluster exists.
@@ -290,6 +297,13 @@ def get_cluster_output(name: Optional[pulumi.Input[builtins.str]] = None,
     pulumi.export("httpsEndpoint", example.https_endpoint)
     pulumi.export("clusterId", example.cluster_id)
     ```
+
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.HDInsight`: 2021-06-01
 
 
     :param builtins.str name: Specifies the name of this HDInsight Cluster.

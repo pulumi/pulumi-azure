@@ -322,9 +322,9 @@ type IoTHubEndpoint struct {
 	FileNameFormat *string `pulumi:"fileNameFormat"`
 	// The ID of the User Managed Identity used to authenticate against the endpoint.
 	//
-	// > **NOTE:** `identityId` can only be specified when `authenticationType` is `identityBased`. It must be one of the `identityIds` of the IoT Hub. If `identityId` is omitted when `authenticationType` is `identityBased`, then the System-Assigned Managed Identity of the IoT Hub will be used.
+	// > **Note:** `identityId` can only be specified when `authenticationType` is `identityBased`. It must be one of the `identityIds` of the IoT Hub. If `identityId` is omitted when `authenticationType` is `identityBased`, then the System-Assigned Managed Identity of the IoT Hub will be used.
 	//
-	// > **NOTE:** An IoT Hub can only be updated to use the System-Assigned Managed Identity for `endpoint` since it is not possible to grant access to the endpoint until after creation. The extracted resources `azurerm_iothub_endpoint_*` can be used to configure Endpoints with the IoT Hub's System-Assigned Managed Identity without the need for an update.
+	// > **Note:** An IoT Hub can only be updated to use the System-Assigned Managed Identity for `endpoint` since it is not possible to grant access to the endpoint until after creation. The extracted resources `azurerm_iothub_endpoint_*` can be used to configure Endpoints with the IoT Hub's System-Assigned Managed Identity without the need for an update.
 	IdentityId *string `pulumi:"identityId"`
 	// Maximum number of bytes for each blob written to storage. Value should be between 10485760(10MB) and 524288000(500MB). Default value is 314572800(300MB). This attribute is applicable for endpoint type `AzureIotHub.StorageContainer`.
 	MaxChunkSizeInBytes *int `pulumi:"maxChunkSizeInBytes"`
@@ -366,9 +366,9 @@ type IoTHubEndpointArgs struct {
 	FileNameFormat pulumi.StringPtrInput `pulumi:"fileNameFormat"`
 	// The ID of the User Managed Identity used to authenticate against the endpoint.
 	//
-	// > **NOTE:** `identityId` can only be specified when `authenticationType` is `identityBased`. It must be one of the `identityIds` of the IoT Hub. If `identityId` is omitted when `authenticationType` is `identityBased`, then the System-Assigned Managed Identity of the IoT Hub will be used.
+	// > **Note:** `identityId` can only be specified when `authenticationType` is `identityBased`. It must be one of the `identityIds` of the IoT Hub. If `identityId` is omitted when `authenticationType` is `identityBased`, then the System-Assigned Managed Identity of the IoT Hub will be used.
 	//
-	// > **NOTE:** An IoT Hub can only be updated to use the System-Assigned Managed Identity for `endpoint` since it is not possible to grant access to the endpoint until after creation. The extracted resources `azurerm_iothub_endpoint_*` can be used to configure Endpoints with the IoT Hub's System-Assigned Managed Identity without the need for an update.
+	// > **Note:** An IoT Hub can only be updated to use the System-Assigned Managed Identity for `endpoint` since it is not possible to grant access to the endpoint until after creation. The extracted resources `azurerm_iothub_endpoint_*` can be used to configure Endpoints with the IoT Hub's System-Assigned Managed Identity without the need for an update.
 	IdentityId pulumi.StringPtrInput `pulumi:"identityId"`
 	// Maximum number of bytes for each blob written to storage. Value should be between 10485760(10MB) and 524288000(500MB). Default value is 314572800(300MB). This attribute is applicable for endpoint type `AzureIotHub.StorageContainer`.
 	MaxChunkSizeInBytes pulumi.IntPtrInput `pulumi:"maxChunkSizeInBytes"`
@@ -473,9 +473,9 @@ func (o IoTHubEndpointOutput) FileNameFormat() pulumi.StringPtrOutput {
 
 // The ID of the User Managed Identity used to authenticate against the endpoint.
 //
-// > **NOTE:** `identityId` can only be specified when `authenticationType` is `identityBased`. It must be one of the `identityIds` of the IoT Hub. If `identityId` is omitted when `authenticationType` is `identityBased`, then the System-Assigned Managed Identity of the IoT Hub will be used.
+// > **Note:** `identityId` can only be specified when `authenticationType` is `identityBased`. It must be one of the `identityIds` of the IoT Hub. If `identityId` is omitted when `authenticationType` is `identityBased`, then the System-Assigned Managed Identity of the IoT Hub will be used.
 //
-// > **NOTE:** An IoT Hub can only be updated to use the System-Assigned Managed Identity for `endpoint` since it is not possible to grant access to the endpoint until after creation. The extracted resources `azurerm_iothub_endpoint_*` can be used to configure Endpoints with the IoT Hub's System-Assigned Managed Identity without the need for an update.
+// > **Note:** An IoT Hub can only be updated to use the System-Assigned Managed Identity for `endpoint` since it is not possible to grant access to the endpoint until after creation. The extracted resources `azurerm_iothub_endpoint_*` can be used to configure Endpoints with the IoT Hub's System-Assigned Managed Identity without the need for an update.
 func (o IoTHubEndpointOutput) IdentityId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IoTHubEndpoint) *string { return v.IdentityId }).(pulumi.StringPtrOutput)
 }
@@ -840,9 +840,9 @@ type IoTHubFileUpload struct {
 	DefaultTtl *string `pulumi:"defaultTtl"`
 	// The ID of the User Managed Identity used to authenticate against the storage account.
 	//
-	// > **NOTE:** `identityId` can only be specified when `authenticationType` is `identityBased`. It must be one of the `identityIds` of the IoT Hub. If `identityId` is omitted when `authenticationType` is `identityBased`, then the System-Assigned Managed Identity of the IoT Hub will be used.
+	// > **Note:** `identityId` can only be specified when `authenticationType` is `identityBased`. It must be one of the `identityIds` of the IoT Hub. If `identityId` is omitted when `authenticationType` is `identityBased`, then the System-Assigned Managed Identity of the IoT Hub will be used.
 	//
-	// > **NOTE:** An IoT Hub can only be updated to use the System-Assigned Managed Identity for `fileUpload` since it is not possible to grant access to the endpoint until after creation.
+	// > **Note:** An IoT Hub can only be updated to use the System-Assigned Managed Identity for `fileUpload` since it is not possible to grant access to the endpoint until after creation.
 	IdentityId *string `pulumi:"identityId"`
 	// The lock duration for the file upload notifications queue, specified as an [ISO 8601 timespan duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). This value must be between 5 and 300 seconds. Defaults to `PT1M`.
 	LockDuration *string `pulumi:"lockDuration"`
@@ -876,9 +876,9 @@ type IoTHubFileUploadArgs struct {
 	DefaultTtl pulumi.StringPtrInput `pulumi:"defaultTtl"`
 	// The ID of the User Managed Identity used to authenticate against the storage account.
 	//
-	// > **NOTE:** `identityId` can only be specified when `authenticationType` is `identityBased`. It must be one of the `identityIds` of the IoT Hub. If `identityId` is omitted when `authenticationType` is `identityBased`, then the System-Assigned Managed Identity of the IoT Hub will be used.
+	// > **Note:** `identityId` can only be specified when `authenticationType` is `identityBased`. It must be one of the `identityIds` of the IoT Hub. If `identityId` is omitted when `authenticationType` is `identityBased`, then the System-Assigned Managed Identity of the IoT Hub will be used.
 	//
-	// > **NOTE:** An IoT Hub can only be updated to use the System-Assigned Managed Identity for `fileUpload` since it is not possible to grant access to the endpoint until after creation.
+	// > **Note:** An IoT Hub can only be updated to use the System-Assigned Managed Identity for `fileUpload` since it is not possible to grant access to the endpoint until after creation.
 	IdentityId pulumi.StringPtrInput `pulumi:"identityId"`
 	// The lock duration for the file upload notifications queue, specified as an [ISO 8601 timespan duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). This value must be between 5 and 300 seconds. Defaults to `PT1M`.
 	LockDuration pulumi.StringPtrInput `pulumi:"lockDuration"`
@@ -989,9 +989,9 @@ func (o IoTHubFileUploadOutput) DefaultTtl() pulumi.StringPtrOutput {
 
 // The ID of the User Managed Identity used to authenticate against the storage account.
 //
-// > **NOTE:** `identityId` can only be specified when `authenticationType` is `identityBased`. It must be one of the `identityIds` of the IoT Hub. If `identityId` is omitted when `authenticationType` is `identityBased`, then the System-Assigned Managed Identity of the IoT Hub will be used.
+// > **Note:** `identityId` can only be specified when `authenticationType` is `identityBased`. It must be one of the `identityIds` of the IoT Hub. If `identityId` is omitted when `authenticationType` is `identityBased`, then the System-Assigned Managed Identity of the IoT Hub will be used.
 //
-// > **NOTE:** An IoT Hub can only be updated to use the System-Assigned Managed Identity for `fileUpload` since it is not possible to grant access to the endpoint until after creation.
+// > **Note:** An IoT Hub can only be updated to use the System-Assigned Managed Identity for `fileUpload` since it is not possible to grant access to the endpoint until after creation.
 func (o IoTHubFileUploadOutput) IdentityId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IoTHubFileUpload) *string { return v.IdentityId }).(pulumi.StringPtrOutput)
 }
@@ -1082,9 +1082,9 @@ func (o IoTHubFileUploadPtrOutput) DefaultTtl() pulumi.StringPtrOutput {
 
 // The ID of the User Managed Identity used to authenticate against the storage account.
 //
-// > **NOTE:** `identityId` can only be specified when `authenticationType` is `identityBased`. It must be one of the `identityIds` of the IoT Hub. If `identityId` is omitted when `authenticationType` is `identityBased`, then the System-Assigned Managed Identity of the IoT Hub will be used.
+// > **Note:** `identityId` can only be specified when `authenticationType` is `identityBased`. It must be one of the `identityIds` of the IoT Hub. If `identityId` is omitted when `authenticationType` is `identityBased`, then the System-Assigned Managed Identity of the IoT Hub will be used.
 //
-// > **NOTE:** An IoT Hub can only be updated to use the System-Assigned Managed Identity for `fileUpload` since it is not possible to grant access to the endpoint until after creation.
+// > **Note:** An IoT Hub can only be updated to use the System-Assigned Managed Identity for `fileUpload` since it is not possible to grant access to the endpoint until after creation.
 func (o IoTHubFileUploadPtrOutput) IdentityId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IoTHubFileUpload) *string {
 		if v == nil {
@@ -1137,7 +1137,7 @@ func (o IoTHubFileUploadPtrOutput) SasTtl() pulumi.StringPtrOutput {
 type IoTHubIdentity struct {
 	// Specifies a list of User Assigned Managed Identity IDs to be assigned to this IoT Hub.
 	//
-	// > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+	// > **Note:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
 	IdentityIds []string `pulumi:"identityIds"`
 	// The Principal ID associated with this Managed Service Identity.
 	PrincipalId *string `pulumi:"principalId"`
@@ -1161,7 +1161,7 @@ type IoTHubIdentityInput interface {
 type IoTHubIdentityArgs struct {
 	// Specifies a list of User Assigned Managed Identity IDs to be assigned to this IoT Hub.
 	//
-	// > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+	// > **Note:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
 	IdentityIds pulumi.StringArrayInput `pulumi:"identityIds"`
 	// The Principal ID associated with this Managed Service Identity.
 	PrincipalId pulumi.StringPtrInput `pulumi:"principalId"`
@@ -1250,7 +1250,7 @@ func (o IoTHubIdentityOutput) ToIoTHubIdentityPtrOutputWithContext(ctx context.C
 
 // Specifies a list of User Assigned Managed Identity IDs to be assigned to this IoT Hub.
 //
-// > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+// > **Note:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
 func (o IoTHubIdentityOutput) IdentityIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v IoTHubIdentity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
 }
@@ -1296,7 +1296,7 @@ func (o IoTHubIdentityPtrOutput) Elem() IoTHubIdentityOutput {
 
 // Specifies a list of User Assigned Managed Identity IDs to be assigned to this IoT Hub.
 //
-// > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+// > **Note:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
 func (o IoTHubIdentityPtrOutput) IdentityIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *IoTHubIdentity) []string {
 		if v == nil {
@@ -1339,7 +1339,7 @@ func (o IoTHubIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 type IoTHubNetworkRuleSet struct {
 	// Determines if Network Rule Set is also applied to the BuiltIn EventHub EndPoint of the IotHub. Defaults to `false`.
 	ApplyToBuiltinEventhubEndpoint *bool `pulumi:"applyToBuiltinEventhubEndpoint"`
-	// Default Action for Network Rule Set. Possible values are `DefaultActionDeny`, `DefaultActionAllow`. Defaults to `DefaultActionDeny`.
+	// Default Action for Network Rule Set. Possible values are `Deny`, `Allow`. Defaults to `Deny`.
 	DefaultAction *string `pulumi:"defaultAction"`
 	// One or more `ipRule` blocks as defined below.
 	IpRules []IoTHubNetworkRuleSetIpRule `pulumi:"ipRules"`
@@ -1359,7 +1359,7 @@ type IoTHubNetworkRuleSetInput interface {
 type IoTHubNetworkRuleSetArgs struct {
 	// Determines if Network Rule Set is also applied to the BuiltIn EventHub EndPoint of the IotHub. Defaults to `false`.
 	ApplyToBuiltinEventhubEndpoint pulumi.BoolPtrInput `pulumi:"applyToBuiltinEventhubEndpoint"`
-	// Default Action for Network Rule Set. Possible values are `DefaultActionDeny`, `DefaultActionAllow`. Defaults to `DefaultActionDeny`.
+	// Default Action for Network Rule Set. Possible values are `Deny`, `Allow`. Defaults to `Deny`.
 	DefaultAction pulumi.StringPtrInput `pulumi:"defaultAction"`
 	// One or more `ipRule` blocks as defined below.
 	IpRules IoTHubNetworkRuleSetIpRuleArrayInput `pulumi:"ipRules"`
@@ -1421,7 +1421,7 @@ func (o IoTHubNetworkRuleSetOutput) ApplyToBuiltinEventhubEndpoint() pulumi.Bool
 	return o.ApplyT(func(v IoTHubNetworkRuleSet) *bool { return v.ApplyToBuiltinEventhubEndpoint }).(pulumi.BoolPtrOutput)
 }
 
-// Default Action for Network Rule Set. Possible values are `DefaultActionDeny`, `DefaultActionAllow`. Defaults to `DefaultActionDeny`.
+// Default Action for Network Rule Set. Possible values are `Deny`, `Allow`. Defaults to `Deny`.
 func (o IoTHubNetworkRuleSetOutput) DefaultAction() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IoTHubNetworkRuleSet) *string { return v.DefaultAction }).(pulumi.StringPtrOutput)
 }
@@ -1454,9 +1454,9 @@ func (o IoTHubNetworkRuleSetArrayOutput) Index(i pulumi.IntInput) IoTHubNetworkR
 type IoTHubNetworkRuleSetIpRule struct {
 	// The desired action for requests captured by this rule. Possible values are `Allow`. Defaults to `Allow`.
 	Action *string `pulumi:"action"`
-	// The IP address range in CIDR notation for the ip rule.
+	// The IP address range in CIDR notation for the IP rule.
 	IpMask string `pulumi:"ipMask"`
-	// The name of the ip rule.
+	// The name of the IP rule.
 	Name string `pulumi:"name"`
 }
 
@@ -1474,9 +1474,9 @@ type IoTHubNetworkRuleSetIpRuleInput interface {
 type IoTHubNetworkRuleSetIpRuleArgs struct {
 	// The desired action for requests captured by this rule. Possible values are `Allow`. Defaults to `Allow`.
 	Action pulumi.StringPtrInput `pulumi:"action"`
-	// The IP address range in CIDR notation for the ip rule.
+	// The IP address range in CIDR notation for the IP rule.
 	IpMask pulumi.StringInput `pulumi:"ipMask"`
-	// The name of the ip rule.
+	// The name of the IP rule.
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -1536,12 +1536,12 @@ func (o IoTHubNetworkRuleSetIpRuleOutput) Action() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IoTHubNetworkRuleSetIpRule) *string { return v.Action }).(pulumi.StringPtrOutput)
 }
 
-// The IP address range in CIDR notation for the ip rule.
+// The IP address range in CIDR notation for the IP rule.
 func (o IoTHubNetworkRuleSetIpRuleOutput) IpMask() pulumi.StringOutput {
 	return o.ApplyT(func(v IoTHubNetworkRuleSetIpRule) string { return v.IpMask }).(pulumi.StringOutput)
 }
 
-// The name of the ip rule.
+// The name of the IP rule.
 func (o IoTHubNetworkRuleSetIpRuleOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v IoTHubNetworkRuleSetIpRule) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -1826,11 +1826,11 @@ func (o IoTHubSharedAccessPolicyArrayOutput) Index(i pulumi.IntInput) IoTHubShar
 type IoTHubSku struct {
 	// The number of provisioned IoT Hub units.
 	//
-	// > **NOTE:** Only one IotHub can be on the `Free` tier per subscription.
+	// > **Note:** Only one IotHub can be on the `Free` tier per subscription.
 	Capacity int `pulumi:"capacity"`
 	// The name of the sku. Possible values are `B1`, `B2`, `B3`, `F1`, `S1`, `S2`, and `S3`.
 	//
-	// > **NOTE:** The `F1` sku is on `Free` tier.
+	// > **Note:** The `F1` sku is on `Free` tier.
 	Name string `pulumi:"name"`
 }
 
@@ -1848,11 +1848,11 @@ type IoTHubSkuInput interface {
 type IoTHubSkuArgs struct {
 	// The number of provisioned IoT Hub units.
 	//
-	// > **NOTE:** Only one IotHub can be on the `Free` tier per subscription.
+	// > **Note:** Only one IotHub can be on the `Free` tier per subscription.
 	Capacity pulumi.IntInput `pulumi:"capacity"`
 	// The name of the sku. Possible values are `B1`, `B2`, `B3`, `F1`, `S1`, `S2`, and `S3`.
 	//
-	// > **NOTE:** The `F1` sku is on `Free` tier.
+	// > **Note:** The `F1` sku is on `Free` tier.
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -1935,14 +1935,14 @@ func (o IoTHubSkuOutput) ToIoTHubSkuPtrOutputWithContext(ctx context.Context) Io
 
 // The number of provisioned IoT Hub units.
 //
-// > **NOTE:** Only one IotHub can be on the `Free` tier per subscription.
+// > **Note:** Only one IotHub can be on the `Free` tier per subscription.
 func (o IoTHubSkuOutput) Capacity() pulumi.IntOutput {
 	return o.ApplyT(func(v IoTHubSku) int { return v.Capacity }).(pulumi.IntOutput)
 }
 
 // The name of the sku. Possible values are `B1`, `B2`, `B3`, `F1`, `S1`, `S2`, and `S3`.
 //
-// > **NOTE:** The `F1` sku is on `Free` tier.
+// > **Note:** The `F1` sku is on `Free` tier.
 func (o IoTHubSkuOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v IoTHubSku) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -1973,7 +1973,7 @@ func (o IoTHubSkuPtrOutput) Elem() IoTHubSkuOutput {
 
 // The number of provisioned IoT Hub units.
 //
-// > **NOTE:** Only one IotHub can be on the `Free` tier per subscription.
+// > **Note:** Only one IotHub can be on the `Free` tier per subscription.
 func (o IoTHubSkuPtrOutput) Capacity() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *IoTHubSku) *int {
 		if v == nil {
@@ -1985,7 +1985,7 @@ func (o IoTHubSkuPtrOutput) Capacity() pulumi.IntPtrOutput {
 
 // The name of the sku. Possible values are `B1`, `B2`, `B3`, `F1`, `S1`, `S2`, and `S3`.
 //
-// > **NOTE:** The `F1` sku is on `Free` tier.
+// > **Note:** The `F1` sku is on `Free` tier.
 func (o IoTHubSkuPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IoTHubSku) *string {
 		if v == nil {
@@ -1998,7 +1998,7 @@ func (o IoTHubSkuPtrOutput) Name() pulumi.StringPtrOutput {
 type IotHubDeviceUpdateAccountIdentity struct {
 	// A list of User Assigned Managed Identity IDs to be assigned to this IoT Hub Device Update Account.
 	//
-	// > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+	// > **Note:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
 	IdentityIds []string `pulumi:"identityIds"`
 	// The Principal ID for the Service Principal associated with the Managed Service Identity of this IoT Hub Device Update Account.
 	PrincipalId *string `pulumi:"principalId"`
@@ -2022,7 +2022,7 @@ type IotHubDeviceUpdateAccountIdentityInput interface {
 type IotHubDeviceUpdateAccountIdentityArgs struct {
 	// A list of User Assigned Managed Identity IDs to be assigned to this IoT Hub Device Update Account.
 	//
-	// > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+	// > **Note:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
 	IdentityIds pulumi.StringArrayInput `pulumi:"identityIds"`
 	// The Principal ID for the Service Principal associated with the Managed Service Identity of this IoT Hub Device Update Account.
 	PrincipalId pulumi.StringPtrInput `pulumi:"principalId"`
@@ -2111,7 +2111,7 @@ func (o IotHubDeviceUpdateAccountIdentityOutput) ToIotHubDeviceUpdateAccountIden
 
 // A list of User Assigned Managed Identity IDs to be assigned to this IoT Hub Device Update Account.
 //
-// > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+// > **Note:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
 func (o IotHubDeviceUpdateAccountIdentityOutput) IdentityIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v IotHubDeviceUpdateAccountIdentity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
 }
@@ -2157,7 +2157,7 @@ func (o IotHubDeviceUpdateAccountIdentityPtrOutput) Elem() IotHubDeviceUpdateAcc
 
 // A list of User Assigned Managed Identity IDs to be assigned to this IoT Hub Device Update Account.
 //
-// > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+// > **Note:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
 func (o IotHubDeviceUpdateAccountIdentityPtrOutput) IdentityIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *IotHubDeviceUpdateAccountIdentity) []string {
 		if v == nil {

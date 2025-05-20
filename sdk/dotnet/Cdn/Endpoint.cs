@@ -12,6 +12,12 @@ namespace Pulumi.Azure.Cdn
     /// <summary>
     /// A CDN Endpoint is the entity within a CDN Profile containing configuration information regarding caching behaviours and origins. The CDN Endpoint is exposed using the URL format `&lt;endpointname&gt;.azureedge.net`.
     /// 
+    /// !&gt; **Note:** Azure rolled out a breaking change on Friday 9th April 2021 which may cause issues with the CDN/FrontDoor resources. More information is available in this GitHub issue - unfortunately this may necessitate a breaking change to the CDN and FrontDoor resources, more information will be posted in the GitHub issue as the necessary changes are identified.
+    /// 
+    /// !&gt; **Note:** The CDN services from Edgio(formerly Verizon) was shut down on 15 January 2025 and is no longer available.
+    /// 
+    /// !&gt; **Note:** Support for CDN services from Akamai was removed on 31 October 2023.
+    /// 
     /// ## Example Usage
     /// 
     /// ```csharp
@@ -33,7 +39,7 @@ namespace Pulumi.Azure.Cdn
     ///         Name = "example-cdn",
     ///         Location = example.Location,
     ///         ResourceGroupName = example.Name,
-    ///         Sku = "Standard_Verizon",
+    ///         Sku = "Standard_Microsoft",
     ///     });
     /// 
     ///     var exampleEndpoint = new Azure.Cdn.Endpoint("example", new()
@@ -153,7 +159,7 @@ namespace Pulumi.Azure.Cdn
         /// <summary>
         /// the path to a file hosted on the origin which helps accelerate delivery of the dynamic content and calculate the most optimal routes for the CDN. This is relative to the `origin_path`.
         /// 
-        /// &gt; **NOTE:** `global_delivery_rule` and `delivery_rule` are currently only available for `Microsoft_Standard` CDN profiles.
+        /// &gt; **Note:** `global_delivery_rule` and `delivery_rule` are currently only available for `Microsoft_Standard` CDN profiles.
         /// </summary>
         [Output("probePath")]
         public Output<string?> ProbePath { get; private set; } = null!;
@@ -333,7 +339,7 @@ namespace Pulumi.Azure.Cdn
         /// <summary>
         /// the path to a file hosted on the origin which helps accelerate delivery of the dynamic content and calculate the most optimal routes for the CDN. This is relative to the `origin_path`.
         /// 
-        /// &gt; **NOTE:** `global_delivery_rule` and `delivery_rule` are currently only available for `Microsoft_Standard` CDN profiles.
+        /// &gt; **Note:** `global_delivery_rule` and `delivery_rule` are currently only available for `Microsoft_Standard` CDN profiles.
         /// </summary>
         [Input("probePath")]
         public Input<string>? ProbePath { get; set; }
@@ -487,7 +493,7 @@ namespace Pulumi.Azure.Cdn
         /// <summary>
         /// the path to a file hosted on the origin which helps accelerate delivery of the dynamic content and calculate the most optimal routes for the CDN. This is relative to the `origin_path`.
         /// 
-        /// &gt; **NOTE:** `global_delivery_rule` and `delivery_rule` are currently only available for `Microsoft_Standard` CDN profiles.
+        /// &gt; **Note:** `global_delivery_rule` and `delivery_rule` are currently only available for `Microsoft_Standard` CDN profiles.
         /// </summary>
         [Input("probePath")]
         public Input<string>? ProbePath { get; set; }

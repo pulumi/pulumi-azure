@@ -14,16 +14,32 @@ import javax.annotation.Nullable;
 @CustomType
 public final class NextGenerationFirewallVirtualHubPanoramaDnsSettings {
     private @Nullable List<String> azureDnsServers;
+    /**
+     * @return Specifies a list of DNS servers to proxy. Conflicts with `dns_settings[0].use_azure_dns`.
+     * 
+     */
     private @Nullable List<String> dnsServers;
+    /**
+     * @return Should Azure DNS servers be used? Conflicts with `dns_settings[0].dns_servers`. Defaults to `false`.
+     * 
+     */
     private @Nullable Boolean useAzureDns;
 
     private NextGenerationFirewallVirtualHubPanoramaDnsSettings() {}
     public List<String> azureDnsServers() {
         return this.azureDnsServers == null ? List.of() : this.azureDnsServers;
     }
+    /**
+     * @return Specifies a list of DNS servers to proxy. Conflicts with `dns_settings[0].use_azure_dns`.
+     * 
+     */
     public List<String> dnsServers() {
         return this.dnsServers == null ? List.of() : this.dnsServers;
     }
+    /**
+     * @return Should Azure DNS servers be used? Conflicts with `dns_settings[0].dns_servers`. Defaults to `false`.
+     * 
+     */
     public Optional<Boolean> useAzureDns() {
         return Optional.ofNullable(this.useAzureDns);
     }

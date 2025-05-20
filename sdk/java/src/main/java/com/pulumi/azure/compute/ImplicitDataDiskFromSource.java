@@ -160,6 +160,13 @@ import javax.annotation.Nullable;
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
+ * ## API Providers
+ * 
+ * &lt;!-- This section is generated, changes will be overwritten --&gt;
+ * This resource uses the following Azure API Providers:
+ * 
+ * * `Microsoft.Compute`: 2024-03-01, 2023-04-02
+ * 
  * ## Import
  * 
  * The implicit Data Disk of the Virtual Machine can be imported using the `resource id`, e.g.
@@ -199,17 +206,9 @@ public class ImplicitDataDiskFromSource extends com.pulumi.resources.CustomResou
     public Output<String> createOption() {
         return this.createOption;
     }
-    /**
-     * Specifies the size of the Data Disk in gigabytes. Changing this forces a new resource to be created.
-     * 
-     */
     @Export(name="diskSizeGb", refs={Integer.class}, tree="[0]")
     private Output<Integer> diskSizeGb;
 
-    /**
-     * @return Specifies the size of the Data Disk in gigabytes. Changing this forces a new resource to be created.
-     * 
-     */
     public Output<Integer> diskSizeGb() {
         return this.diskSizeGb;
     }

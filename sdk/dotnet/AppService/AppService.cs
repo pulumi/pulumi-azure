@@ -18,7 +18,7 @@ namespace Pulumi.Azure.AppService
     /// 
     /// ## Example Usage
     /// 
-    /// This example provisions a Windows App Service.
+    /// This example provisions a Windows App Service. Other examples of the `azure.appservice.AppService` resource can be found in the `./examples/app-service` directory within the GitHub Repository
     /// 
     /// ```csharp
     /// using System.Collections.Generic;

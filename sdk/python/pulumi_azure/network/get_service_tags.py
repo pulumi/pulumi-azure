@@ -145,6 +145,13 @@ def get_service_tags(location: Optional[builtins.str] = None,
     pulumi.export("ipv4Cidrs", example.ipv4_cidrs)
     ```
 
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.Network`: 2024-05-01
+
 
     :param builtins.str location: The Azure Region where the Service Tags exists. This value is not used to filter the results but for specifying the region to request. For filtering by region use `location_filter` instead.  More information can be found here: [Service Tags URL parameters](https://docs.microsoft.com/rest/api/virtualnetwork/servicetags/list#uri-parameters).
     :param builtins.str location_filter: Changes the scope of the service tags. Can be any value that is also valid for `location`. If this field is empty then all address prefixes are considered instead of only location specific ones.
@@ -185,6 +192,13 @@ def get_service_tags_output(location: Optional[pulumi.Input[builtins.str]] = Non
     pulumi.export("addressPrefixes", example.address_prefixes)
     pulumi.export("ipv4Cidrs", example.ipv4_cidrs)
     ```
+
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.Network`: 2024-05-01
 
 
     :param builtins.str location: The Azure Region where the Service Tags exists. This value is not used to filter the results but for specifying the region to request. For filtering by region use `location_filter` instead.  More information can be found here: [Service Tags URL parameters](https://docs.microsoft.com/rest/api/virtualnetwork/servicetags/list#uri-parameters).

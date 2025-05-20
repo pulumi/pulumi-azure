@@ -107,6 +107,13 @@ import javax.annotation.Nullable;
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
+ * ## API Providers
+ * 
+ * &lt;!-- This section is generated, changes will be overwritten --&gt;
+ * This resource uses the following Azure API Providers:
+ * 
+ * * `Microsoft.DevTestLab`: 2018-09-15
+ * 
  * ## Import
  * 
  * Dev Test Linux Virtual Machines can be imported using the `resource id`, e.g.
@@ -177,7 +184,7 @@ public class LinuxVirtualMachine extends com.pulumi.resources.CustomResource {
     /**
      * One or more `inbound_nat_rule` blocks as defined below. Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE:** If any `inbound_nat_rule` blocks are specified then `disallow_public_ip_address` must be set to `true`.
+     * &gt; **Note:** If any `inbound_nat_rule` blocks are specified then `disallow_public_ip_address` must be set to `true`.
      * 
      */
     @Export(name="inboundNatRules", refs={List.class,LinuxVirtualMachineInboundNatRule.class}, tree="[0,1]")
@@ -186,7 +193,7 @@ public class LinuxVirtualMachine extends com.pulumi.resources.CustomResource {
     /**
      * @return One or more `inbound_nat_rule` blocks as defined below. Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE:** If any `inbound_nat_rule` blocks are specified then `disallow_public_ip_address` must be set to `true`.
+     * &gt; **Note:** If any `inbound_nat_rule` blocks are specified then `disallow_public_ip_address` must be set to `true`.
      * 
      */
     public Output<Optional<List<LinuxVirtualMachineInboundNatRule>>> inboundNatRules() {
@@ -251,7 +258,7 @@ public class LinuxVirtualMachine extends com.pulumi.resources.CustomResource {
     /**
      * Specifies the name of the Dev Test Machine. Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE:** The validation requirements for the Name change based on the `os_type` used in this Virtual Machine. For a Linux VM the name must be between 1-62 characters, and for a Windows VM the name must be between 1-15 characters. It must begin and end with a letter or number, and cannot be all numbers.
+     * &gt; **Note:** The validation requirements for the Name change based on the `os_type` used in this Virtual Machine. For a Linux VM the name must be between 1-62 characters, and for a Windows VM the name must be between 1-15 characters. It must begin and end with a letter or number, and cannot be all numbers.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
@@ -260,7 +267,7 @@ public class LinuxVirtualMachine extends com.pulumi.resources.CustomResource {
     /**
      * @return Specifies the name of the Dev Test Machine. Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE:** The validation requirements for the Name change based on the `os_type` used in this Virtual Machine. For a Linux VM the name must be between 1-62 characters, and for a Windows VM the name must be between 1-15 characters. It must begin and end with a letter or number, and cannot be all numbers.
+     * &gt; **Note:** The validation requirements for the Name change based on the `os_type` used in this Virtual Machine. For a Linux VM the name must be between 1-62 characters, and for a Windows VM the name must be between 1-15 characters. It must begin and end with a letter or number, and cannot be all numbers.
      * 
      */
     public Output<String> name() {
@@ -325,7 +332,7 @@ public class LinuxVirtualMachine extends com.pulumi.resources.CustomResource {
     /**
      * The SSH Key associated with the `username` used to login to this Virtual Machine. Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE:** One or either `password` or `ssh_key` must be specified.
+     * &gt; **Note:** One or either `password` or `ssh_key` must be specified.
      * 
      */
     @Export(name="sshKey", refs={String.class}, tree="[0]")
@@ -334,7 +341,7 @@ public class LinuxVirtualMachine extends com.pulumi.resources.CustomResource {
     /**
      * @return The SSH Key associated with the `username` used to login to this Virtual Machine. Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE:** One or either `password` or `ssh_key` must be specified.
+     * &gt; **Note:** One or either `password` or `ssh_key` must be specified.
      * 
      */
     public Output<Optional<String>> sshKey() {

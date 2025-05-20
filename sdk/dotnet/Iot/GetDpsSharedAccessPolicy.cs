@@ -33,6 +33,13 @@ namespace Pulumi.Azure.Iot
         /// 
         /// });
         /// ```
+        /// 
+        /// ## API Providers
+        /// 
+        /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+        /// This data source uses the following Azure API Providers:
+        /// 
+        /// * `Microsoft.Devices`: 2022-02-05
         /// </summary>
         public static Task<GetDpsSharedAccessPolicyResult> InvokeAsync(GetDpsSharedAccessPolicyArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDpsSharedAccessPolicyResult>("azure:iot/getDpsSharedAccessPolicy:getDpsSharedAccessPolicy", args ?? new GetDpsSharedAccessPolicyArgs(), options.WithDefaults());
@@ -59,6 +66,13 @@ namespace Pulumi.Azure.Iot
         /// 
         /// });
         /// ```
+        /// 
+        /// ## API Providers
+        /// 
+        /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+        /// This data source uses the following Azure API Providers:
+        /// 
+        /// * `Microsoft.Devices`: 2022-02-05
         /// </summary>
         public static Output<GetDpsSharedAccessPolicyResult> Invoke(GetDpsSharedAccessPolicyInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDpsSharedAccessPolicyResult>("azure:iot/getDpsSharedAccessPolicy:getDpsSharedAccessPolicy", args ?? new GetDpsSharedAccessPolicyInvokeArgs(), options.WithDefaults());
@@ -85,6 +99,13 @@ namespace Pulumi.Azure.Iot
         /// 
         /// });
         /// ```
+        /// 
+        /// ## API Providers
+        /// 
+        /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+        /// This data source uses the following Azure API Providers:
+        /// 
+        /// * `Microsoft.Devices`: 2022-02-05
         /// </summary>
         public static Output<GetDpsSharedAccessPolicyResult> Invoke(GetDpsSharedAccessPolicyInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetDpsSharedAccessPolicyResult>("azure:iot/getDpsSharedAccessPolicy:getDpsSharedAccessPolicy", args ?? new GetDpsSharedAccessPolicyInvokeArgs(), options.WithDefaults());

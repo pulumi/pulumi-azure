@@ -44,16 +44,6 @@ namespace Pulumi.Azure.ContainerService.Inputs
 
         [Input("secret")]
         private InputMap<string>? _secret;
-
-        /// <summary>
-        /// A map of secrets that will be mounted as files in the volume. Changing this forces a new resource to be created.
-        /// 
-        /// &gt; **Note:** Exactly one of `empty_dir` volume, `git_repo` volume, `secret` volume or storage account volume (`share_name`, `storage_account_name`, and `storage_account_key`) must be specified.
-        /// 
-        /// &gt; **Note** when using a storage account volume, all of `share_name`, `storage_account_name`, and `storage_account_key` must be specified.
-        /// 
-        /// &gt; **Note:** The secret values must be supplied as Base64 encoded strings. The secret values are decoded to their original values when mounted in the volume on the container.
-        /// </summary>
         public InputMap<string> Secret
         {
             get => _secret ?? (_secret = new InputMap<string>());

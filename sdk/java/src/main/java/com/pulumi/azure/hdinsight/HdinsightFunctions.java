@@ -56,6 +56,13 @@ public final class HdinsightFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.HDInsight`: 2021-06-01
+     * 
      */
     public static Output<GetClusterResult> getCluster(GetClusterArgs args) {
         return getCluster(args, InvokeOptions.Empty);
@@ -100,6 +107,13 @@ public final class HdinsightFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.HDInsight`: 2021-06-01
      * 
      */
     public static CompletableFuture<GetClusterResult> getClusterPlain(GetClusterPlainArgs args) {
@@ -146,6 +160,13 @@ public final class HdinsightFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.HDInsight`: 2021-06-01
+     * 
      */
     public static Output<GetClusterResult> getCluster(GetClusterArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:hdinsight/getCluster:getCluster", TypeShape.of(GetClusterResult.class), args, Utilities.withVersion(options));
@@ -191,6 +212,13 @@ public final class HdinsightFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.HDInsight`: 2021-06-01
+     * 
      */
     public static Output<GetClusterResult> getCluster(GetClusterArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("azure:hdinsight/getCluster:getCluster", TypeShape.of(GetClusterResult.class), args, Utilities.withVersion(options));
@@ -235,6 +263,13 @@ public final class HdinsightFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.HDInsight`: 2021-06-01
      * 
      */
     public static CompletableFuture<GetClusterResult> getClusterPlain(GetClusterPlainArgs args, InvokeOptions options) {

@@ -121,6 +121,13 @@ def get_sync(name: Optional[builtins.str] = None,
     pulumi.export("id", example.id)
     ```
 
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.StorageSync`: 2020-03-01
+
 
     :param builtins.str name: The name of this Storage Sync.
     :param builtins.str resource_group_name: The name of the Resource Group where the Storage Sync exists.
@@ -154,6 +161,13 @@ def get_sync_output(name: Optional[pulumi.Input[builtins.str]] = None,
         resource_group_name="existingResGroup")
     pulumi.export("id", example.id)
     ```
+
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.StorageSync`: 2020-03-01
 
 
     :param builtins.str name: The name of this Storage Sync.

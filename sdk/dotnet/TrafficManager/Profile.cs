@@ -66,6 +66,13 @@ namespace Pulumi.Azure.TrafficManager
     /// });
     /// ```
     /// 
+    /// ## API Providers
+    /// 
+    /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+    /// This resource uses the following Azure API Providers:
+    /// 
+    /// * `Microsoft.Network`: 2022-04-01
+    /// 
     /// ## Import
     /// 
     /// Traffic Manager Profiles can be imported using the `resource id`, e.g.
@@ -93,7 +100,7 @@ namespace Pulumi.Azure.TrafficManager
         /// <summary>
         /// The amount of endpoints to return for DNS queries to this Profile. Possible values range from `1` to `8`.
         /// 
-        /// &gt; **NOTE:** `max_return` must be set when the `traffic_routing_method` is `MultiValue`.
+        /// &gt; **Note:** `max_return` must be set when the `traffic_routing_method` is `MultiValue`.
         /// </summary>
         [Output("maxReturn")]
         public Output<int?> MaxReturn { get; private set; } = null!;
@@ -201,7 +208,7 @@ namespace Pulumi.Azure.TrafficManager
         /// <summary>
         /// The amount of endpoints to return for DNS queries to this Profile. Possible values range from `1` to `8`.
         /// 
-        /// &gt; **NOTE:** `max_return` must be set when the `traffic_routing_method` is `MultiValue`.
+        /// &gt; **Note:** `max_return` must be set when the `traffic_routing_method` is `MultiValue`.
         /// </summary>
         [Input("maxReturn")]
         public Input<int>? MaxReturn { get; set; }
@@ -283,7 +290,7 @@ namespace Pulumi.Azure.TrafficManager
         /// <summary>
         /// The amount of endpoints to return for DNS queries to this Profile. Possible values range from `1` to `8`.
         /// 
-        /// &gt; **NOTE:** `max_return` must be set when the `traffic_routing_method` is `MultiValue`.
+        /// &gt; **Note:** `max_return` must be set when the `traffic_routing_method` is `MultiValue`.
         /// </summary>
         [Input("maxReturn")]
         public Input<int>? MaxReturn { get; set; }

@@ -34,7 +34,7 @@ class FrontdoorRuleArgs:
         :param pulumi.Input[builtins.str] cdn_frontdoor_rule_set_id: The resource ID of the Front Door Rule Set for this Front Door Rule. Changing this forces a new Front Door Rule to be created.
         :param pulumi.Input[builtins.int] order: The order in which the rules will be applied for the Front Door Endpoint. The order value should be sequential and begin at `1`(e.g. `1`, `2`, `3`...). A Front Door Rule with a lesser order value will be applied before a rule with a greater order value.
                
-               ->**NOTE:** If the Front Door Rule has an order value of `0` they do not require any conditions and the actions will always be applied.
+               > **Note:** If the Front Door Rule has an order value of `0` they do not require any conditions and the actions will always be applied.
         :param pulumi.Input[builtins.str] behavior_on_match: If this rule is a match should the rules engine continue processing the remaining rules or stop? Possible values are `Continue` and `Stop`. Defaults to `Continue`.
         :param pulumi.Input['FrontdoorRuleConditionsArgs'] conditions: A `conditions` block as defined below.
         :param pulumi.Input[builtins.str] name: The name which should be used for this Front Door Rule. Possible values must be between 1 and 260 characters in length, begin with a letter and may contain only letters and numbers. Changing this forces a new Front Door Rule to be created.
@@ -79,7 +79,7 @@ class FrontdoorRuleArgs:
         """
         The order in which the rules will be applied for the Front Door Endpoint. The order value should be sequential and begin at `1`(e.g. `1`, `2`, `3`...). A Front Door Rule with a lesser order value will be applied before a rule with a greater order value.
 
-        ->**NOTE:** If the Front Door Rule has an order value of `0` they do not require any conditions and the actions will always be applied.
+        > **Note:** If the Front Door Rule has an order value of `0` they do not require any conditions and the actions will always be applied.
         """
         return pulumi.get(self, "order")
 
@@ -144,7 +144,7 @@ class _FrontdoorRuleState:
         :param pulumi.Input[builtins.str] name: The name which should be used for this Front Door Rule. Possible values must be between 1 and 260 characters in length, begin with a letter and may contain only letters and numbers. Changing this forces a new Front Door Rule to be created.
         :param pulumi.Input[builtins.int] order: The order in which the rules will be applied for the Front Door Endpoint. The order value should be sequential and begin at `1`(e.g. `1`, `2`, `3`...). A Front Door Rule with a lesser order value will be applied before a rule with a greater order value.
                
-               ->**NOTE:** If the Front Door Rule has an order value of `0` they do not require any conditions and the actions will always be applied.
+               > **Note:** If the Front Door Rule has an order value of `0` they do not require any conditions and the actions will always be applied.
         """
         if actions is not None:
             pulumi.set(__self__, "actions", actions)
@@ -239,7 +239,7 @@ class _FrontdoorRuleState:
         """
         The order in which the rules will be applied for the Front Door Endpoint. The order value should be sequential and begin at `1`(e.g. `1`, `2`, `3`...). A Front Door Rule with a lesser order value will be applied before a rule with a greater order value.
 
-        ->**NOTE:** If the Front Door Rule has an order value of `0` they do not require any conditions and the actions will always be applied.
+        > **Note:** If the Front Door Rule has an order value of `0` they do not require any conditions and the actions will always be applied.
         """
         return pulumi.get(self, "order")
 
@@ -264,7 +264,7 @@ class FrontdoorRule(pulumi.CustomResource):
         """
         Manages a Front Door (standard/premium) Rule.
 
-        !>**IMPORTANT:** The Rules resource **must** include a `depends_on` meta-argument which references the `cdn.FrontdoorOrigin` and the `cdn.FrontdoorOriginGroup`.
+        !> **Note:** The Rules resource **must** include a `depends_on` meta-argument which references the `cdn.FrontdoorOrigin` and the `cdn.FrontdoorOriginGroup`.
 
         ## Example Usage
 
@@ -530,7 +530,7 @@ class FrontdoorRule(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] name: The name which should be used for this Front Door Rule. Possible values must be between 1 and 260 characters in length, begin with a letter and may contain only letters and numbers. Changing this forces a new Front Door Rule to be created.
         :param pulumi.Input[builtins.int] order: The order in which the rules will be applied for the Front Door Endpoint. The order value should be sequential and begin at `1`(e.g. `1`, `2`, `3`...). A Front Door Rule with a lesser order value will be applied before a rule with a greater order value.
                
-               ->**NOTE:** If the Front Door Rule has an order value of `0` they do not require any conditions and the actions will always be applied.
+               > **Note:** If the Front Door Rule has an order value of `0` they do not require any conditions and the actions will always be applied.
         """
         ...
     @overload
@@ -541,7 +541,7 @@ class FrontdoorRule(pulumi.CustomResource):
         """
         Manages a Front Door (standard/premium) Rule.
 
-        !>**IMPORTANT:** The Rules resource **must** include a `depends_on` meta-argument which references the `cdn.FrontdoorOrigin` and the `cdn.FrontdoorOriginGroup`.
+        !> **Note:** The Rules resource **must** include a `depends_on` meta-argument which references the `cdn.FrontdoorOrigin` and the `cdn.FrontdoorOriginGroup`.
 
         ## Example Usage
 
@@ -873,7 +873,7 @@ class FrontdoorRule(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] name: The name which should be used for this Front Door Rule. Possible values must be between 1 and 260 characters in length, begin with a letter and may contain only letters and numbers. Changing this forces a new Front Door Rule to be created.
         :param pulumi.Input[builtins.int] order: The order in which the rules will be applied for the Front Door Endpoint. The order value should be sequential and begin at `1`(e.g. `1`, `2`, `3`...). A Front Door Rule with a lesser order value will be applied before a rule with a greater order value.
                
-               ->**NOTE:** If the Front Door Rule has an order value of `0` they do not require any conditions and the actions will always be applied.
+               > **Note:** If the Front Door Rule has an order value of `0` they do not require any conditions and the actions will always be applied.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -942,7 +942,7 @@ class FrontdoorRule(pulumi.CustomResource):
         """
         The order in which the rules will be applied for the Front Door Endpoint. The order value should be sequential and begin at `1`(e.g. `1`, `2`, `3`...). A Front Door Rule with a lesser order value will be applied before a rule with a greater order value.
 
-        ->**NOTE:** If the Front Door Rule has an order value of `0` they do not require any conditions and the actions will always be applied.
+        > **Note:** If the Front Door Rule has an order value of `0` they do not require any conditions and the actions will always be applied.
         """
         return pulumi.get(self, "order")
 

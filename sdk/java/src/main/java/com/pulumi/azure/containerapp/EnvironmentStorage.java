@@ -12,6 +12,7 @@ import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.String;
 import java.util.List;
+import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
@@ -101,6 +102,13 @@ import javax.annotation.Nullable;
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
+ * ## API Providers
+ * 
+ * &lt;!-- This section is generated, changes will be overwritten --&gt;
+ * This resource uses the following Azure API Providers:
+ * 
+ * * `Microsoft.App`: 2025-01-01
+ * 
  * ## Import
  * 
  * A Container App Environment Storage can be imported using the `resource id`, e.g.
@@ -117,14 +125,14 @@ public class EnvironmentStorage extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="accessKey", refs={String.class}, tree="[0]")
-    private Output<String> accessKey;
+    private Output</* @Nullable */ String> accessKey;
 
     /**
      * @return The Storage Account Access Key.
      * 
      */
-    public Output<String> accessKey() {
-        return this.accessKey;
+    public Output<Optional<String>> accessKey() {
+        return Codegen.optional(this.accessKey);
     }
     /**
      * The access mode to connect this storage to the Container App. Possible values include `ReadOnly` and `ReadWrite`. Changing this forces a new resource to be created.
@@ -145,14 +153,14 @@ public class EnvironmentStorage extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="accountName", refs={String.class}, tree="[0]")
-    private Output<String> accountName;
+    private Output</* @Nullable */ String> accountName;
 
     /**
      * @return The Azure Storage Account in which the Share to be used is located. Changing this forces a new resource to be created.
      * 
      */
-    public Output<String> accountName() {
-        return this.accountName;
+    public Output<Optional<String>> accountName() {
+        return Codegen.optional(this.accountName);
     }
     /**
      * The ID of the Container App Environment to which this storage belongs. Changing this forces a new resource to be created.
@@ -181,6 +189,22 @@ public class EnvironmentStorage extends com.pulumi.resources.CustomResource {
      */
     public Output<String> name() {
         return this.name;
+    }
+    /**
+     * The NFS server to use for the Azure File Share, the format will be `yourstorageaccountname.file.core.windows.net`. Changing this forces a new resource to be created.
+     * *
+     * 
+     */
+    @Export(name="nfsServerUrl", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> nfsServerUrl;
+
+    /**
+     * @return The NFS server to use for the Azure File Share, the format will be `yourstorageaccountname.file.core.windows.net`. Changing this forces a new resource to be created.
+     * *
+     * 
+     */
+    public Output<Optional<String>> nfsServerUrl() {
+        return Codegen.optional(this.nfsServerUrl);
     }
     /**
      * The name of the Azure Storage Share to use. Changing this forces a new resource to be created.

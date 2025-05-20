@@ -103,6 +103,13 @@ def get_placement_group(name: Optional[builtins.str] = None,
     pulumi.export("proximityPlacementGroupId", example.id)
     ```
 
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.Compute`: 2022-03-01
+
 
     :param builtins.str name: The name of the Proximity Placement Group.
     :param builtins.str resource_group_name: The name of the resource group in which the Proximity Placement Group exists.
@@ -135,6 +142,13 @@ def get_placement_group_output(name: Optional[pulumi.Input[builtins.str]] = None
         resource_group_name="my-resource-group")
     pulumi.export("proximityPlacementGroupId", example.id)
     ```
+
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.Compute`: 2022-03-01
 
 
     :param builtins.str name: The name of the Proximity Placement Group.

@@ -38,6 +38,13 @@ namespace Pulumi.Azure.Mobile
         /// 
         /// });
         /// ```
+        /// 
+        /// ## API Providers
+        /// 
+        /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+        /// This data source uses the following Azure API Providers:
+        /// 
+        /// * `Microsoft.MobileNetwork`: 2022-11-01
         /// </summary>
         public static Task<GetNetworkDataNetworkResult> InvokeAsync(GetNetworkDataNetworkArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetNetworkDataNetworkResult>("azure:mobile/getNetworkDataNetwork:getNetworkDataNetwork", args ?? new GetNetworkDataNetworkArgs(), options.WithDefaults());
@@ -69,6 +76,13 @@ namespace Pulumi.Azure.Mobile
         /// 
         /// });
         /// ```
+        /// 
+        /// ## API Providers
+        /// 
+        /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+        /// This data source uses the following Azure API Providers:
+        /// 
+        /// * `Microsoft.MobileNetwork`: 2022-11-01
         /// </summary>
         public static Output<GetNetworkDataNetworkResult> Invoke(GetNetworkDataNetworkInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetNetworkDataNetworkResult>("azure:mobile/getNetworkDataNetwork:getNetworkDataNetwork", args ?? new GetNetworkDataNetworkInvokeArgs(), options.WithDefaults());
@@ -100,6 +114,13 @@ namespace Pulumi.Azure.Mobile
         /// 
         /// });
         /// ```
+        /// 
+        /// ## API Providers
+        /// 
+        /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+        /// This data source uses the following Azure API Providers:
+        /// 
+        /// * `Microsoft.MobileNetwork`: 2022-11-01
         /// </summary>
         public static Output<GetNetworkDataNetworkResult> Invoke(GetNetworkDataNetworkInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetNetworkDataNetworkResult>("azure:mobile/getNetworkDataNetwork:getNetworkDataNetwork", args ?? new GetNetworkDataNetworkInvokeArgs(), options.WithDefaults());

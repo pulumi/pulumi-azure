@@ -83,7 +83,7 @@ public final class TrafficManagerNestedEndpointState extends com.pulumi.resource
     /**
      * This argument specifies the minimum number of endpoints that must be ‘online’ in the child profile in order for the parent profile to direct traffic to any of the endpoints in that child profile. This value must be larger than `0`.
      * 
-     * ~&gt;**NOTE:** If `min_child_endpoints` is less than either `minimum_required_child_endpoints_ipv4` or `minimum_required_child_endpoints_ipv6`, then it won&#39;t have any effect.
+     * &gt; **Note:** If `min_child_endpoints` is less than either `minimum_required_child_endpoints_ipv4` or `minimum_required_child_endpoints_ipv6`, then it won&#39;t have any effect.
      * 
      */
     @Import(name="minimumChildEndpoints")
@@ -92,7 +92,7 @@ public final class TrafficManagerNestedEndpointState extends com.pulumi.resource
     /**
      * @return This argument specifies the minimum number of endpoints that must be ‘online’ in the child profile in order for the parent profile to direct traffic to any of the endpoints in that child profile. This value must be larger than `0`.
      * 
-     * ~&gt;**NOTE:** If `min_child_endpoints` is less than either `minimum_required_child_endpoints_ipv4` or `minimum_required_child_endpoints_ipv6`, then it won&#39;t have any effect.
+     * &gt; **Note:** If `min_child_endpoints` is less than either `minimum_required_child_endpoints_ipv4` or `minimum_required_child_endpoints_ipv6`, then it won&#39;t have any effect.
      * 
      */
     public Optional<Output<Integer>> minimumChildEndpoints() {
@@ -145,14 +145,14 @@ public final class TrafficManagerNestedEndpointState extends com.pulumi.resource
     }
 
     /**
-     * Specifies the priority of this Endpoint, this must be specified for Profiles using the `Priority` traffic routing method. Supports values between 1 and 1000, with no Endpoints sharing the same value. If omitted the value will be computed in order of creation. Defaults to `1`.
+     * Specifies the priority of this Endpoint, this must be specified for Profiles using the `Priority` traffic routing method. Supports values between 1 and 1000, with no Endpoints sharing the same value. If omitted the value will be computed in order of creation.
      * 
      */
     @Import(name="priority")
     private @Nullable Output<Integer> priority;
 
     /**
-     * @return Specifies the priority of this Endpoint, this must be specified for Profiles using the `Priority` traffic routing method. Supports values between 1 and 1000, with no Endpoints sharing the same value. If omitted the value will be computed in order of creation. Defaults to `1`.
+     * @return Specifies the priority of this Endpoint, this must be specified for Profiles using the `Priority` traffic routing method. Supports values between 1 and 1000, with no Endpoints sharing the same value. If omitted the value will be computed in order of creation.
      * 
      */
     public Optional<Output<Integer>> priority() {
@@ -362,7 +362,7 @@ public final class TrafficManagerNestedEndpointState extends com.pulumi.resource
         /**
          * @param minimumChildEndpoints This argument specifies the minimum number of endpoints that must be ‘online’ in the child profile in order for the parent profile to direct traffic to any of the endpoints in that child profile. This value must be larger than `0`.
          * 
-         * ~&gt;**NOTE:** If `min_child_endpoints` is less than either `minimum_required_child_endpoints_ipv4` or `minimum_required_child_endpoints_ipv6`, then it won&#39;t have any effect.
+         * &gt; **Note:** If `min_child_endpoints` is less than either `minimum_required_child_endpoints_ipv4` or `minimum_required_child_endpoints_ipv6`, then it won&#39;t have any effect.
          * 
          * @return builder
          * 
@@ -375,7 +375,7 @@ public final class TrafficManagerNestedEndpointState extends com.pulumi.resource
         /**
          * @param minimumChildEndpoints This argument specifies the minimum number of endpoints that must be ‘online’ in the child profile in order for the parent profile to direct traffic to any of the endpoints in that child profile. This value must be larger than `0`.
          * 
-         * ~&gt;**NOTE:** If `min_child_endpoints` is less than either `minimum_required_child_endpoints_ipv4` or `minimum_required_child_endpoints_ipv6`, then it won&#39;t have any effect.
+         * &gt; **Note:** If `min_child_endpoints` is less than either `minimum_required_child_endpoints_ipv4` or `minimum_required_child_endpoints_ipv6`, then it won&#39;t have any effect.
          * 
          * @return builder
          * 
@@ -448,7 +448,7 @@ public final class TrafficManagerNestedEndpointState extends com.pulumi.resource
         }
 
         /**
-         * @param priority Specifies the priority of this Endpoint, this must be specified for Profiles using the `Priority` traffic routing method. Supports values between 1 and 1000, with no Endpoints sharing the same value. If omitted the value will be computed in order of creation. Defaults to `1`.
+         * @param priority Specifies the priority of this Endpoint, this must be specified for Profiles using the `Priority` traffic routing method. Supports values between 1 and 1000, with no Endpoints sharing the same value. If omitted the value will be computed in order of creation.
          * 
          * @return builder
          * 
@@ -459,7 +459,7 @@ public final class TrafficManagerNestedEndpointState extends com.pulumi.resource
         }
 
         /**
-         * @param priority Specifies the priority of this Endpoint, this must be specified for Profiles using the `Priority` traffic routing method. Supports values between 1 and 1000, with no Endpoints sharing the same value. If omitted the value will be computed in order of creation. Defaults to `1`.
+         * @param priority Specifies the priority of this Endpoint, this must be specified for Profiles using the `Priority` traffic routing method. Supports values between 1 and 1000, with no Endpoints sharing the same value. If omitted the value will be computed in order of creation.
          * 
          * @return builder
          * 

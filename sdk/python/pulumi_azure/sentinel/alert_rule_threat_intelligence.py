@@ -205,6 +205,13 @@ class AlertRuleThreatIntelligence(pulumi.CustomResource):
             alert_rule_template_guid=example.name)
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.OperationalInsights`: 2023-12-01-preview
+
         ## Import
 
         Sentinel Threat Intelligence Alert Rules can be imported using the `resource id`, e.g.
@@ -260,6 +267,13 @@ class AlertRuleThreatIntelligence(pulumi.CustomResource):
             log_analytics_workspace_id=example_analytics_solution.workspace_resource_id,
             alert_rule_template_guid=example.name)
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.OperationalInsights`: 2023-12-01-preview
 
         ## Import
 

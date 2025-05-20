@@ -14,7 +14,7 @@ namespace Pulumi.Azure.Waf.Outputs
     public sealed class PolicyCustomRule
     {
         /// <summary>
-        /// Type of action. Possible values are `Allow`, `Block` and `Log`.
+        /// Type of action. Possible values are `Allow`, `Block`, `JSChallenge` and `Log`.
         /// 
         /// &gt; **Note:** If the `rule_type` is specified as `RateLimitRule`, the `Allow` is not supported.
         /// </summary>

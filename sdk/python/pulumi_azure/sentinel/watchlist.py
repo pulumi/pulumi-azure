@@ -293,6 +293,13 @@ class Watchlist(pulumi.CustomResource):
             item_search_key="Key")
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.OperationalInsights`: 2022-11-01
+
         ## Import
 
         Sentinel Watchlists can be imported using the `resource id`, e.g.
@@ -341,6 +348,13 @@ class Watchlist(pulumi.CustomResource):
             display_name="example-wl",
             item_search_key="Key")
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.OperationalInsights`: 2022-11-01
 
         ## Import
 

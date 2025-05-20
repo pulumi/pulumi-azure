@@ -42,7 +42,7 @@ public final class CacheAccessPolicyAccessRule {
     /**
      * @return The scope of this rule. The `scope` and (potentially) the `filter` determine which clients match the rule. Possible values are: `default`, `network`, `host`.
      * 
-     * &gt; **NOTE:** Each `access_rule` should set a unique `scope`.
+     * &gt; **Note:** Each `access_rule` should set a unique `scope`.
      * 
      */
     private String scope;
@@ -96,7 +96,7 @@ public final class CacheAccessPolicyAccessRule {
     /**
      * @return The scope of this rule. The `scope` and (potentially) the `filter` determine which clients match the rule. Possible values are: `default`, `network`, `host`.
      * 
-     * &gt; **NOTE:** Each `access_rule` should set a unique `scope`.
+     * &gt; **Note:** Each `access_rule` should set a unique `scope`.
      * 
      */
     public String scope() {

@@ -17,12 +17,6 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * Manages a Blueprint Assignment resource
- * 
- * &gt; **NOTE:** Azure Blueprints are in Preview and potentially subject to breaking change without notice.
- * 
- * &gt; **NOTE:** Azure Blueprint Assignments can only be applied to Subscriptions.  Assignments to Management Groups is not currently supported by the service or by this provider.
- * 
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
@@ -133,6 +127,13 @@ import javax.annotation.Nullable;
  * }
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
+ * 
+ * ## API Providers
+ * 
+ * &lt;!-- This section is generated, changes will be overwritten --&gt;
+ * This resource uses the following Azure API Providers:
+ * 
+ * * `Microsoft.Blueprint`: 2018-11-01-preview
  * 
  * ## Import
  * 
@@ -274,7 +275,7 @@ public class Assignment extends com.pulumi.resources.CustomResource {
     /**
      * a JSON string to supply Blueprint Assignment parameter values.
      * 
-     * &gt; **NOTE:** Improperly formatted JSON, or missing values required by a Blueprint will cause the assignment to fail.
+     * &gt; **Note:** Improperly formatted JSON, or missing values required by a Blueprint will cause the assignment to fail.
      * 
      */
     @Export(name="parameterValues", refs={String.class}, tree="[0]")
@@ -283,7 +284,7 @@ public class Assignment extends com.pulumi.resources.CustomResource {
     /**
      * @return a JSON string to supply Blueprint Assignment parameter values.
      * 
-     * &gt; **NOTE:** Improperly formatted JSON, or missing values required by a Blueprint will cause the assignment to fail.
+     * &gt; **Note:** Improperly formatted JSON, or missing values required by a Blueprint will cause the assignment to fail.
      * 
      */
     public Output<Optional<String>> parameterValues() {
@@ -292,7 +293,7 @@ public class Assignment extends com.pulumi.resources.CustomResource {
     /**
      * a JSON string to supply the Blueprint Resource Group information.
      * 
-     * &gt; **NOTE:** Improperly formatted JSON, or missing values required by a Blueprint will cause the assignment to fail.
+     * &gt; **Note:** Improperly formatted JSON, or missing values required by a Blueprint will cause the assignment to fail.
      * 
      */
     @Export(name="resourceGroups", refs={String.class}, tree="[0]")
@@ -301,7 +302,7 @@ public class Assignment extends com.pulumi.resources.CustomResource {
     /**
      * @return a JSON string to supply the Blueprint Resource Group information.
      * 
-     * &gt; **NOTE:** Improperly formatted JSON, or missing values required by a Blueprint will cause the assignment to fail.
+     * &gt; **Note:** Improperly formatted JSON, or missing values required by a Blueprint will cause the assignment to fail.
      * 
      */
     public Output<Optional<String>> resourceGroups() {

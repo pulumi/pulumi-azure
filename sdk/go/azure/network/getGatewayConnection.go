@@ -40,6 +40,13 @@ import (
 //	}
 //
 // ```
+//
+// ## API Providers
+//
+// <!-- This section is generated, changes will be overwritten -->
+// This data source uses the following Azure API Providers:
+//
+// * `Microsoft.Network`: 2024-05-01
 func GetGatewayConnection(ctx *pulumi.Context, args *GetGatewayConnectionArgs, opts ...pulumi.InvokeOption) (*GetGatewayConnectionResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetGatewayConnectionResult

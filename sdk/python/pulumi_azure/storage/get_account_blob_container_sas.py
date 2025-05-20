@@ -233,7 +233,6 @@ def get_account_blob_container_sas(cache_control: Optional[builtins.str] = None,
 
 
     :param builtins.str cache_control: The `Cache-Control` response header that is sent when this SAS token is used.
-    :param builtins.str connection_string: The connection string for the storage account to which this SAS applies. Typically directly from the `primary_connection_string` attribute of an `storage.Account` resource.
     :param builtins.str container_name: Name of the container.
     :param builtins.str content_disposition: The `Content-Disposition` response header that is sent when this SAS token is used.
     :param builtins.str content_encoding: The `Content-Encoding` response header that is sent when this SAS token is used.
@@ -241,7 +240,7 @@ def get_account_blob_container_sas(cache_control: Optional[builtins.str] = None,
     :param builtins.str content_type: The `Content-Type` response header that is sent when this SAS token is used.
     :param builtins.str expiry: The expiration time and date of this SAS. Must be a valid ISO-8601 format time/date string.
            
-           > **NOTE:** The [ISO-8601 Time offset from UTC](https://en.wikipedia.org/wiki/ISO_8601#Time_offsets_from_UTC) is currently not supported by the service, which will result into 409 error.
+           > **Note:** The [ISO-8601 Time offset from UTC](https://en.wikipedia.org/wiki/ISO_8601#Time_offsets_from_UTC) is currently not supported by the service, which will result into 409 error.
     :param builtins.bool https_only: Only permit `https` access. If `false`, both `http` and `https` are permitted. Defaults to `true`.
     :param builtins.str ip_address: Single IPv4 address or range (connected with a dash) of IPv4 addresses.
     :param Union['GetAccountBlobContainerSASPermissionsArgs', 'GetAccountBlobContainerSASPermissionsArgsDict'] permissions: A `permissions` block as defined below.
@@ -339,7 +338,6 @@ def get_account_blob_container_sas_output(cache_control: Optional[pulumi.Input[O
 
 
     :param builtins.str cache_control: The `Cache-Control` response header that is sent when this SAS token is used.
-    :param builtins.str connection_string: The connection string for the storage account to which this SAS applies. Typically directly from the `primary_connection_string` attribute of an `storage.Account` resource.
     :param builtins.str container_name: Name of the container.
     :param builtins.str content_disposition: The `Content-Disposition` response header that is sent when this SAS token is used.
     :param builtins.str content_encoding: The `Content-Encoding` response header that is sent when this SAS token is used.
@@ -347,7 +345,7 @@ def get_account_blob_container_sas_output(cache_control: Optional[pulumi.Input[O
     :param builtins.str content_type: The `Content-Type` response header that is sent when this SAS token is used.
     :param builtins.str expiry: The expiration time and date of this SAS. Must be a valid ISO-8601 format time/date string.
            
-           > **NOTE:** The [ISO-8601 Time offset from UTC](https://en.wikipedia.org/wiki/ISO_8601#Time_offsets_from_UTC) is currently not supported by the service, which will result into 409 error.
+           > **Note:** The [ISO-8601 Time offset from UTC](https://en.wikipedia.org/wiki/ISO_8601#Time_offsets_from_UTC) is currently not supported by the service, which will result into 409 error.
     :param builtins.bool https_only: Only permit `https` access. If `false`, both `http` and `https` are permitted. Defaults to `true`.
     :param builtins.str ip_address: Single IPv4 address or range (connected with a dash) of IPv4 addresses.
     :param Union['GetAccountBlobContainerSASPermissionsArgs', 'GetAccountBlobContainerSASPermissionsArgsDict'] permissions: A `permissions` block as defined below.

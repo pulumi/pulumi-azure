@@ -43,7 +43,7 @@ class UserArgs:
         :param pulumi.Input[builtins.str] password: The password associated with this user.
         :param pulumi.Input[builtins.str] state: The state of this user. Possible values are `active`, `blocked` and `pending`.
                
-               > **NOTE:** the State can be changed from Pending > Active/Blocked but not from Active/Blocked > Pending.
+               > **Note:** the State can be changed from Pending > Active/Blocked but not from Active/Blocked > Pending.
         """
         pulumi.set(__self__, "api_management_name", api_management_name)
         pulumi.set(__self__, "email", email)
@@ -174,7 +174,7 @@ class UserArgs:
         """
         The state of this user. Possible values are `active`, `blocked` and `pending`.
 
-        > **NOTE:** the State can be changed from Pending > Active/Blocked but not from Active/Blocked > Pending.
+        > **Note:** the State can be changed from Pending > Active/Blocked but not from Active/Blocked > Pending.
         """
         return pulumi.get(self, "state")
 
@@ -208,7 +208,7 @@ class _UserState:
         :param pulumi.Input[builtins.str] resource_group_name: The name of the Resource Group in which the API Management Service exists. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] state: The state of this user. Possible values are `active`, `blocked` and `pending`.
                
-               > **NOTE:** the State can be changed from Pending > Active/Blocked but not from Active/Blocked > Pending.
+               > **Note:** the State can be changed from Pending > Active/Blocked but not from Active/Blocked > Pending.
         :param pulumi.Input[builtins.str] user_id: The Identifier for this User, which must be unique within the API Management Service. Changing this forces a new resource to be created.
         """
         if api_management_name is not None:
@@ -334,7 +334,7 @@ class _UserState:
         """
         The state of this user. Possible values are `active`, `blocked` and `pending`.
 
-        > **NOTE:** the State can be changed from Pending > Active/Blocked but not from Active/Blocked > Pending.
+        > **Note:** the State can be changed from Pending > Active/Blocked but not from Active/Blocked > Pending.
         """
         return pulumi.get(self, "state")
 
@@ -389,7 +389,7 @@ class User(pulumi.CustomResource):
             location=example.location,
             resource_group_name=example.name,
             publisher_name="My Company",
-            publisher_email="company@exmaple.com",
+            publisher_email="company@terraform.io",
             sku_name="Developer_1")
         example_user = azure.apimanagement.User("example",
             user_id="5931a75ae4bbd512288c680b",
@@ -397,9 +397,16 @@ class User(pulumi.CustomResource):
             resource_group_name=example.name,
             first_name="Example",
             last_name="User",
-            email="user@example.com",
+            email="tom+tfdev@example.com",
             state="active")
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.ApiManagement`: 2022-08-01
 
         ## Import
 
@@ -421,7 +428,7 @@ class User(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] resource_group_name: The name of the Resource Group in which the API Management Service exists. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] state: The state of this user. Possible values are `active`, `blocked` and `pending`.
                
-               > **NOTE:** the State can be changed from Pending > Active/Blocked but not from Active/Blocked > Pending.
+               > **Note:** the State can be changed from Pending > Active/Blocked but not from Active/Blocked > Pending.
         :param pulumi.Input[builtins.str] user_id: The Identifier for this User, which must be unique within the API Management Service. Changing this forces a new resource to be created.
         """
         ...
@@ -447,7 +454,7 @@ class User(pulumi.CustomResource):
             location=example.location,
             resource_group_name=example.name,
             publisher_name="My Company",
-            publisher_email="company@exmaple.com",
+            publisher_email="company@terraform.io",
             sku_name="Developer_1")
         example_user = azure.apimanagement.User("example",
             user_id="5931a75ae4bbd512288c680b",
@@ -455,9 +462,16 @@ class User(pulumi.CustomResource):
             resource_group_name=example.name,
             first_name="Example",
             last_name="User",
-            email="user@example.com",
+            email="tom+tfdev@example.com",
             state="active")
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.ApiManagement`: 2022-08-01
 
         ## Import
 
@@ -562,7 +576,7 @@ class User(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] resource_group_name: The name of the Resource Group in which the API Management Service exists. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] state: The state of this user. Possible values are `active`, `blocked` and `pending`.
                
-               > **NOTE:** the State can be changed from Pending > Active/Blocked but not from Active/Blocked > Pending.
+               > **Note:** the State can be changed from Pending > Active/Blocked but not from Active/Blocked > Pending.
         :param pulumi.Input[builtins.str] user_id: The Identifier for this User, which must be unique within the API Management Service. Changing this forces a new resource to be created.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -651,7 +665,7 @@ class User(pulumi.CustomResource):
         """
         The state of this user. Possible values are `active`, `blocked` and `pending`.
 
-        > **NOTE:** the State can be changed from Pending > Active/Blocked but not from Active/Blocked > Pending.
+        > **Note:** the State can be changed from Pending > Active/Blocked but not from Active/Blocked > Pending.
         """
         return pulumi.get(self, "state")
 

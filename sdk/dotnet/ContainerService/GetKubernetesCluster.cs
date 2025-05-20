@@ -14,6 +14,9 @@ namespace Pulumi.Azure.ContainerService
         /// <summary>
         /// Use this data source to access information about an existing Managed Kubernetes Cluster (AKS).
         /// 
+        /// &gt; **Note:** All arguments including the client secret will be stored in the raw state as plain text.
+        /// [Read more about sensitive data in the state](https://www.terraform.io/docs/state/sensitive-data.html).
+        /// 
         /// ## Example Usage
         /// 
         /// ```csharp
@@ -32,6 +35,13 @@ namespace Pulumi.Azure.ContainerService
         /// 
         /// });
         /// ```
+        /// 
+        /// ## API Providers
+        /// 
+        /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+        /// This data source uses the following Azure API Providers:
+        /// 
+        /// * `Microsoft.ContainerService`: 2024-09-01
         /// </summary>
         public static Task<GetKubernetesClusterResult> InvokeAsync(GetKubernetesClusterArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetKubernetesClusterResult>("azure:containerservice/getKubernetesCluster:getKubernetesCluster", args ?? new GetKubernetesClusterArgs(), options.WithDefaults());
@@ -39,6 +49,9 @@ namespace Pulumi.Azure.ContainerService
         /// <summary>
         /// Use this data source to access information about an existing Managed Kubernetes Cluster (AKS).
         /// 
+        /// &gt; **Note:** All arguments including the client secret will be stored in the raw state as plain text.
+        /// [Read more about sensitive data in the state](https://www.terraform.io/docs/state/sensitive-data.html).
+        /// 
         /// ## Example Usage
         /// 
         /// ```csharp
@@ -57,6 +70,13 @@ namespace Pulumi.Azure.ContainerService
         /// 
         /// });
         /// ```
+        /// 
+        /// ## API Providers
+        /// 
+        /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+        /// This data source uses the following Azure API Providers:
+        /// 
+        /// * `Microsoft.ContainerService`: 2024-09-01
         /// </summary>
         public static Output<GetKubernetesClusterResult> Invoke(GetKubernetesClusterInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetKubernetesClusterResult>("azure:containerservice/getKubernetesCluster:getKubernetesCluster", args ?? new GetKubernetesClusterInvokeArgs(), options.WithDefaults());
@@ -64,6 +84,9 @@ namespace Pulumi.Azure.ContainerService
         /// <summary>
         /// Use this data source to access information about an existing Managed Kubernetes Cluster (AKS).
         /// 
+        /// &gt; **Note:** All arguments including the client secret will be stored in the raw state as plain text.
+        /// [Read more about sensitive data in the state](https://www.terraform.io/docs/state/sensitive-data.html).
+        /// 
         /// ## Example Usage
         /// 
         /// ```csharp
@@ -82,6 +105,13 @@ namespace Pulumi.Azure.ContainerService
         /// 
         /// });
         /// ```
+        /// 
+        /// ## API Providers
+        /// 
+        /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+        /// This data source uses the following Azure API Providers:
+        /// 
+        /// * `Microsoft.ContainerService`: 2024-09-01
         /// </summary>
         public static Output<GetKubernetesClusterResult> Invoke(GetKubernetesClusterInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetKubernetesClusterResult>("azure:containerservice/getKubernetesCluster:getKubernetesCluster", args ?? new GetKubernetesClusterInvokeArgs(), options.WithDefaults());

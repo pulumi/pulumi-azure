@@ -19,7 +19,7 @@ public final class StreamInputBlobSerializationArgs extends com.pulumi.resources
     /**
      * The encoding of the incoming data in the case of input and the encoding of outgoing data in the case of output. It currently can only be set to `UTF8`.
      * 
-     * &gt; **NOTE:** This is required when `type` is set to `Csv` or `Json`.
+     * &gt; **Note:** This is required when `type` is set to `Csv` or `Json`.
      * 
      */
     @Import(name="encoding")
@@ -28,7 +28,7 @@ public final class StreamInputBlobSerializationArgs extends com.pulumi.resources
     /**
      * @return The encoding of the incoming data in the case of input and the encoding of outgoing data in the case of output. It currently can only be set to `UTF8`.
      * 
-     * &gt; **NOTE:** This is required when `type` is set to `Csv` or `Json`.
+     * &gt; **Note:** This is required when `type` is set to `Csv` or `Json`.
      * 
      */
     public Optional<Output<String>> encoding() {
@@ -38,7 +38,7 @@ public final class StreamInputBlobSerializationArgs extends com.pulumi.resources
     /**
      * The delimiter that will be used to separate comma-separated value (CSV) records. Possible values are ` ` (space), `,` (comma), `	` (tab), `|` (pipe) and `;`.
      * 
-     * &gt; **NOTE:** This is required when `type` is set to `Csv`.
+     * &gt; **Note:** This is required when `type` is set to `Csv`.
      * 
      */
     @Import(name="fieldDelimiter")
@@ -47,7 +47,7 @@ public final class StreamInputBlobSerializationArgs extends com.pulumi.resources
     /**
      * @return The delimiter that will be used to separate comma-separated value (CSV) records. Possible values are ` ` (space), `,` (comma), `	` (tab), `|` (pipe) and `;`.
      * 
-     * &gt; **NOTE:** This is required when `type` is set to `Csv`.
+     * &gt; **Note:** This is required when `type` is set to `Csv`.
      * 
      */
     public Optional<Output<String>> fieldDelimiter() {
@@ -98,7 +98,7 @@ public final class StreamInputBlobSerializationArgs extends com.pulumi.resources
         /**
          * @param encoding The encoding of the incoming data in the case of input and the encoding of outgoing data in the case of output. It currently can only be set to `UTF8`.
          * 
-         * &gt; **NOTE:** This is required when `type` is set to `Csv` or `Json`.
+         * &gt; **Note:** This is required when `type` is set to `Csv` or `Json`.
          * 
          * @return builder
          * 
@@ -111,7 +111,7 @@ public final class StreamInputBlobSerializationArgs extends com.pulumi.resources
         /**
          * @param encoding The encoding of the incoming data in the case of input and the encoding of outgoing data in the case of output. It currently can only be set to `UTF8`.
          * 
-         * &gt; **NOTE:** This is required when `type` is set to `Csv` or `Json`.
+         * &gt; **Note:** This is required when `type` is set to `Csv` or `Json`.
          * 
          * @return builder
          * 
@@ -123,7 +123,7 @@ public final class StreamInputBlobSerializationArgs extends com.pulumi.resources
         /**
          * @param fieldDelimiter The delimiter that will be used to separate comma-separated value (CSV) records. Possible values are ` ` (space), `,` (comma), `	` (tab), `|` (pipe) and `;`.
          * 
-         * &gt; **NOTE:** This is required when `type` is set to `Csv`.
+         * &gt; **Note:** This is required when `type` is set to `Csv`.
          * 
          * @return builder
          * 
@@ -136,7 +136,7 @@ public final class StreamInputBlobSerializationArgs extends com.pulumi.resources
         /**
          * @param fieldDelimiter The delimiter that will be used to separate comma-separated value (CSV) records. Possible values are ` ` (space), `,` (comma), `	` (tab), `|` (pipe) and `;`.
          * 
-         * &gt; **NOTE:** This is required when `type` is set to `Csv`.
+         * &gt; **Note:** This is required when `type` is set to `Csv`.
          * 
          * @return builder
          * 

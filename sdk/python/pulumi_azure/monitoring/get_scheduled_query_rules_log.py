@@ -165,7 +165,7 @@ def get_scheduled_query_rules_log(name: Optional[builtins.str] = None,
     import pulumi
     import pulumi_azure as azure
 
-    example = azure.monitoring.get_scheduled_query_rules_log(resource_group_name="example-rg",
+    example = azure.monitoring.get_scheduled_query_rules_log(resource_group_name="terraform-example-rg",
         name="tfex-queryrule")
     pulumi.export("queryRuleId", example.id)
     ```
@@ -203,7 +203,7 @@ def get_scheduled_query_rules_log_output(name: Optional[pulumi.Input[builtins.st
     import pulumi
     import pulumi_azure as azure
 
-    example = azure.monitoring.get_scheduled_query_rules_log(resource_group_name="example-rg",
+    example = azure.monitoring.get_scheduled_query_rules_log(resource_group_name="terraform-example-rg",
         name="tfex-queryrule")
     pulumi.export("queryRuleId", example.id)
     ```

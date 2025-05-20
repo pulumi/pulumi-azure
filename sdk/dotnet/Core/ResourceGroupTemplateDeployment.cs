@@ -51,11 +51,6 @@ namespace Pulumi.Azure.Core
         [Output("outputContent")]
         public Output<string> OutputContent { get; private set; } = null!;
 
-        /// <summary>
-        /// The contents of the ARM Template parameters file - containing a JSON list of parameters.
-        /// 
-        /// &gt; An example of how to pass variables into an ARM Template can be seen in the example.
-        /// </summary>
         [Output("parametersContent")]
         public Output<string> ParametersContent { get; private set; } = null!;
 
@@ -153,11 +148,6 @@ namespace Pulumi.Azure.Core
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// The contents of the ARM Template parameters file - containing a JSON list of parameters.
-        /// 
-        /// &gt; An example of how to pass variables into an ARM Template can be seen in the example.
-        /// </summary>
         [Input("parametersContent")]
         public Input<string>? ParametersContent { get; set; }
 
@@ -225,11 +215,6 @@ namespace Pulumi.Azure.Core
         [Input("outputContent")]
         public Input<string>? OutputContent { get; set; }
 
-        /// <summary>
-        /// The contents of the ARM Template parameters file - containing a JSON list of parameters.
-        /// 
-        /// &gt; An example of how to pass variables into an ARM Template can be seen in the example.
-        /// </summary>
         [Input("parametersContent")]
         public Input<string>? ParametersContent { get; set; }
 

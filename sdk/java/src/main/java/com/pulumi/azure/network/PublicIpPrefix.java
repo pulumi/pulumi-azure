@@ -136,7 +136,7 @@ public class PublicIpPrefix extends com.pulumi.resources.CustomResource {
     /**
      * Specifies the number of bits of the prefix. The value can be set between 0 (4,294,967,296 addresses) and 31 (2 addresses). Defaults to `28`(16 addresses). Changing this forces a new resource to be created.
      * 
-     * &gt; **Please Note:** There may be Public IP address limits on the subscription . [More information available here](https://docs.microsoft.com/azure/azure-subscription-service-limits?toc=%2fazure%2fvirtual-network%2ftoc.json#publicip-address)
+     * &gt; **Note:** There may be Public IP address limits on the subscription . [More information available here](https://docs.microsoft.com/azure/azure-subscription-service-limits?toc=%2fazure%2fvirtual-network%2ftoc.json#publicip-address)
      * 
      */
     @Export(name="prefixLength", refs={Integer.class}, tree="[0]")
@@ -145,7 +145,7 @@ public class PublicIpPrefix extends com.pulumi.resources.CustomResource {
     /**
      * @return Specifies the number of bits of the prefix. The value can be set between 0 (4,294,967,296 addresses) and 31 (2 addresses). Defaults to `28`(16 addresses). Changing this forces a new resource to be created.
      * 
-     * &gt; **Please Note:** There may be Public IP address limits on the subscription . [More information available here](https://docs.microsoft.com/azure/azure-subscription-service-limits?toc=%2fazure%2fvirtual-network%2ftoc.json#publicip-address)
+     * &gt; **Note:** There may be Public IP address limits on the subscription . [More information available here](https://docs.microsoft.com/azure/azure-subscription-service-limits?toc=%2fazure%2fvirtual-network%2ftoc.json#publicip-address)
      * 
      */
     public Output<Optional<Integer>> prefixLength() {
@@ -214,7 +214,7 @@ public class PublicIpPrefix extends com.pulumi.resources.CustomResource {
     /**
      * Specifies a list of Availability Zones in which this Public IP Prefix should be located. Changing this forces a new Public IP Prefix to be created.
      * 
-     * &gt; **Please Note:** Availability Zones are [only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview).
+     * &gt; **Note:** Availability Zones are [only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview).
      * 
      */
     @Export(name="zones", refs={List.class,String.class}, tree="[0,1]")
@@ -223,7 +223,7 @@ public class PublicIpPrefix extends com.pulumi.resources.CustomResource {
     /**
      * @return Specifies a list of Availability Zones in which this Public IP Prefix should be located. Changing this forces a new Public IP Prefix to be created.
      * 
-     * &gt; **Please Note:** Availability Zones are [only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview).
+     * &gt; **Note:** Availability Zones are [only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview).
      * 
      */
     public Output<Optional<List<String>>> zones() {

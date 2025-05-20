@@ -16,7 +16,7 @@ namespace Pulumi.Azure.Cdn.Outputs
         /// <summary>
         /// For the IP Match or IP Not Match operators: specify one or more IP address ranges. If multiple IP address ranges are specified, they're evaluated using `OR` logic. For the Geo Match or Geo Not Match operators: specify one or more locations using their country code.
         /// 
-        /// -&gt;**NOTE:** See the `Specifying IP Address Ranges` section below on how to correctly define the `match_values` field.
+        /// &gt; **Note:** See the `Specifying IP Address Ranges` section below on how to correctly define the `match_values` field.
         /// </summary>
         public readonly ImmutableArray<string> MatchValues;
         /// <summary>

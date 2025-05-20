@@ -436,7 +436,57 @@ class NetworkWatcherFlowLog(pulumi.CustomResource):
         """
         Manages a Network Watcher Flow Log.
 
-        > **Note** The `network.NetworkWatcherFlowLog` creates a new storage lifecyle management rule that overwrites existing rules. Please make sure to use a `storage_account` with no existing management rules, until the issue is fixed.
+        > **Note:** The `network.NetworkWatcherFlowLog` creates a new storage lifecyle management rule that overwrites existing rules. Please make sure to use a `storage_account` with no existing management rules, until the issue is fixed.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        test = azure.network.NetworkSecurityGroup("test",
+            name="acctestnsg",
+            location=example.location,
+            resource_group_name=example.name)
+        test_network_watcher = azure.network.NetworkWatcher("test",
+            name="acctestnw",
+            location=example.location,
+            resource_group_name=example.name)
+        test_account = azure.storage.Account("test",
+            name="acctestsa",
+            resource_group_name=example.name,
+            location=example.location,
+            account_tier="Standard",
+            account_kind="StorageV2",
+            account_replication_type="LRS",
+            https_traffic_only_enabled=True)
+        test_analytics_workspace = azure.operationalinsights.AnalyticsWorkspace("test",
+            name="acctestlaw",
+            location=example.location,
+            resource_group_name=example.name,
+            sku="PerGB2018")
+        test_network_watcher_flow_log = azure.network.NetworkWatcherFlowLog("test",
+            network_watcher_name=test_network_watcher.name,
+            resource_group_name=example.name,
+            name="example-log",
+            target_resource_id=test.id,
+            storage_account_id=test_account.id,
+            enabled=True,
+            retention_policy={
+                "enabled": True,
+                "days": 7,
+            },
+            traffic_analytics={
+                "enabled": True,
+                "workspace_id": test_analytics_workspace.workspace_id,
+                "workspace_region": test_analytics_workspace.location,
+                "workspace_resource_id": test_analytics_workspace.id,
+                "interval_in_minutes": 10,
+            })
+        ```
 
         ## Import
 
@@ -469,7 +519,57 @@ class NetworkWatcherFlowLog(pulumi.CustomResource):
         """
         Manages a Network Watcher Flow Log.
 
-        > **Note** The `network.NetworkWatcherFlowLog` creates a new storage lifecyle management rule that overwrites existing rules. Please make sure to use a `storage_account` with no existing management rules, until the issue is fixed.
+        > **Note:** The `network.NetworkWatcherFlowLog` creates a new storage lifecyle management rule that overwrites existing rules. Please make sure to use a `storage_account` with no existing management rules, until the issue is fixed.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        test = azure.network.NetworkSecurityGroup("test",
+            name="acctestnsg",
+            location=example.location,
+            resource_group_name=example.name)
+        test_network_watcher = azure.network.NetworkWatcher("test",
+            name="acctestnw",
+            location=example.location,
+            resource_group_name=example.name)
+        test_account = azure.storage.Account("test",
+            name="acctestsa",
+            resource_group_name=example.name,
+            location=example.location,
+            account_tier="Standard",
+            account_kind="StorageV2",
+            account_replication_type="LRS",
+            https_traffic_only_enabled=True)
+        test_analytics_workspace = azure.operationalinsights.AnalyticsWorkspace("test",
+            name="acctestlaw",
+            location=example.location,
+            resource_group_name=example.name,
+            sku="PerGB2018")
+        test_network_watcher_flow_log = azure.network.NetworkWatcherFlowLog("test",
+            network_watcher_name=test_network_watcher.name,
+            resource_group_name=example.name,
+            name="example-log",
+            target_resource_id=test.id,
+            storage_account_id=test_account.id,
+            enabled=True,
+            retention_policy={
+                "enabled": True,
+                "days": 7,
+            },
+            traffic_analytics={
+                "enabled": True,
+                "workspace_id": test_analytics_workspace.workspace_id,
+                "workspace_region": test_analytics_workspace.location,
+                "workspace_resource_id": test_analytics_workspace.id,
+                "interval_in_minutes": 10,
+            })
+        ```
 
         ## Import
 

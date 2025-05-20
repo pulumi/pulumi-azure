@@ -638,6 +638,13 @@ class MongoCluster(pulumi.CustomResource):
             create_mode="GeoReplica")
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.DocumentDB`: 2024-07-01
+
         ## Import
 
         MongoDB Clusters can be imported using the `resource id`, e.g.
@@ -723,6 +730,13 @@ class MongoCluster(pulumi.CustomResource):
             source_location=example_mongo_cluster.location,
             create_mode="GeoReplica")
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.DocumentDB`: 2024-07-01
 
         ## Import
 

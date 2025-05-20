@@ -32,6 +32,18 @@ __all__ = [
     'DeploymentLoggingStorageAccountArgsDict',
     'DeploymentNetworkInterfaceArgs',
     'DeploymentNetworkInterfaceArgsDict',
+    'DeploymentWebApplicationFirewallArgs',
+    'DeploymentWebApplicationFirewallArgsDict',
+    'DeploymentWebApplicationFirewallStatusArgs',
+    'DeploymentWebApplicationFirewallStatusArgsDict',
+    'DeploymentWebApplicationFirewallStatusAttackSignaturesPackageArgs',
+    'DeploymentWebApplicationFirewallStatusAttackSignaturesPackageArgsDict',
+    'DeploymentWebApplicationFirewallStatusBotSignaturesPackageArgs',
+    'DeploymentWebApplicationFirewallStatusBotSignaturesPackageArgsDict',
+    'DeploymentWebApplicationFirewallStatusComponentVersionArgs',
+    'DeploymentWebApplicationFirewallStatusComponentVersionArgsDict',
+    'DeploymentWebApplicationFirewallStatusThreatCampaignsPackageArgs',
+    'DeploymentWebApplicationFirewallStatusThreatCampaignsPackageArgsDict',
 ]
 
 MYPY = False
@@ -222,15 +234,15 @@ if not MYPY:
     class DeploymentFrontendPrivateArgsDict(TypedDict):
         allocation_method: pulumi.Input[builtins.str]
         """
-        Specify the method for allocating the private IP. Possible values are `Static` and `Dynamic`. Changing this forces a new NGINX Deployment to be created.
+        Specify the method for allocating the private IP. Possible values are `Static` and `Dynamic`.
         """
         ip_address: pulumi.Input[builtins.str]
         """
-        Specify the private IP Address. Changing this forces a new NGINX Deployment to be created.
+        Specify the private IP Address.
         """
         subnet_id: pulumi.Input[builtins.str]
         """
-        Specify the Subnet Resource ID for this NGINX Deployment. Changing this forces a new NGINX Deployment to be created.
+        Specify the Subnet Resource ID for this NGINX Deployment.
         """
 elif False:
     DeploymentFrontendPrivateArgsDict: TypeAlias = Mapping[str, Any]
@@ -242,9 +254,9 @@ class DeploymentFrontendPrivateArgs:
                  ip_address: pulumi.Input[builtins.str],
                  subnet_id: pulumi.Input[builtins.str]):
         """
-        :param pulumi.Input[builtins.str] allocation_method: Specify the method for allocating the private IP. Possible values are `Static` and `Dynamic`. Changing this forces a new NGINX Deployment to be created.
-        :param pulumi.Input[builtins.str] ip_address: Specify the private IP Address. Changing this forces a new NGINX Deployment to be created.
-        :param pulumi.Input[builtins.str] subnet_id: Specify the Subnet Resource ID for this NGINX Deployment. Changing this forces a new NGINX Deployment to be created.
+        :param pulumi.Input[builtins.str] allocation_method: Specify the method for allocating the private IP. Possible values are `Static` and `Dynamic`.
+        :param pulumi.Input[builtins.str] ip_address: Specify the private IP Address.
+        :param pulumi.Input[builtins.str] subnet_id: Specify the Subnet Resource ID for this NGINX Deployment.
         """
         pulumi.set(__self__, "allocation_method", allocation_method)
         pulumi.set(__self__, "ip_address", ip_address)
@@ -254,7 +266,7 @@ class DeploymentFrontendPrivateArgs:
     @pulumi.getter(name="allocationMethod")
     def allocation_method(self) -> pulumi.Input[builtins.str]:
         """
-        Specify the method for allocating the private IP. Possible values are `Static` and `Dynamic`. Changing this forces a new NGINX Deployment to be created.
+        Specify the method for allocating the private IP. Possible values are `Static` and `Dynamic`.
         """
         return pulumi.get(self, "allocation_method")
 
@@ -266,7 +278,7 @@ class DeploymentFrontendPrivateArgs:
     @pulumi.getter(name="ipAddress")
     def ip_address(self) -> pulumi.Input[builtins.str]:
         """
-        Specify the private IP Address. Changing this forces a new NGINX Deployment to be created.
+        Specify the private IP Address.
         """
         return pulumi.get(self, "ip_address")
 
@@ -278,7 +290,7 @@ class DeploymentFrontendPrivateArgs:
     @pulumi.getter(name="subnetId")
     def subnet_id(self) -> pulumi.Input[builtins.str]:
         """
-        Specify the Subnet Resource ID for this NGINX Deployment. Changing this forces a new NGINX Deployment to be created.
+        Specify the Subnet Resource ID for this NGINX Deployment.
         """
         return pulumi.get(self, "subnet_id")
 
@@ -291,7 +303,7 @@ if not MYPY:
     class DeploymentFrontendPublicArgsDict(TypedDict):
         ip_addresses: NotRequired[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]
         """
-        Specifies a list of Public IP Resource ID to this NGINX Deployment. Changing this forces a new NGINX Deployment to be created.
+        Specifies a list of Public IP Resource ID to this NGINX Deployment.
         """
 elif False:
     DeploymentFrontendPublicArgsDict: TypeAlias = Mapping[str, Any]
@@ -301,7 +313,7 @@ class DeploymentFrontendPublicArgs:
     def __init__(__self__, *,
                  ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] ip_addresses: Specifies a list of Public IP Resource ID to this NGINX Deployment. Changing this forces a new NGINX Deployment to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] ip_addresses: Specifies a list of Public IP Resource ID to this NGINX Deployment.
         """
         if ip_addresses is not None:
             pulumi.set(__self__, "ip_addresses", ip_addresses)
@@ -310,7 +322,7 @@ class DeploymentFrontendPublicArgs:
     @pulumi.getter(name="ipAddresses")
     def ip_addresses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]:
         """
-        Specifies a list of Public IP Resource ID to this NGINX Deployment. Changing this forces a new NGINX Deployment to be created.
+        Specifies a list of Public IP Resource ID to this NGINX Deployment.
         """
         return pulumi.get(self, "ip_addresses")
 
@@ -329,7 +341,7 @@ if not MYPY:
         """
         Specifies a list of user managed identity ids to be assigned.
 
-        > **NOTE:** This is required when `type` is set to `UserAssigned`.
+        > **Note:** This is required when `type` is set to `UserAssigned`.
         """
         principal_id: NotRequired[pulumi.Input[builtins.str]]
         tenant_id: NotRequired[pulumi.Input[builtins.str]]
@@ -347,7 +359,7 @@ class DeploymentIdentityArgs:
         :param pulumi.Input[builtins.str] type: Specifies the identity type of the NGINX Deployment. Possible values are `SystemAssigned`, `UserAssigned` or `SystemAssigned, UserAssigned`.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] identity_ids: Specifies a list of user managed identity ids to be assigned.
                
-               > **NOTE:** This is required when `type` is set to `UserAssigned`.
+               > **Note:** This is required when `type` is set to `UserAssigned`.
         """
         pulumi.set(__self__, "type", type)
         if identity_ids is not None:
@@ -375,7 +387,7 @@ class DeploymentIdentityArgs:
         """
         Specifies a list of user managed identity ids to be assigned.
 
-        > **NOTE:** This is required when `type` is set to `UserAssigned`.
+        > **Note:** This is required when `type` is set to `UserAssigned`.
         """
         return pulumi.get(self, "identity_ids")
 
@@ -451,7 +463,7 @@ if not MYPY:
     class DeploymentNetworkInterfaceArgsDict(TypedDict):
         subnet_id: pulumi.Input[builtins.str]
         """
-        Specify The Subnet Resource ID for this NGINX Deployment. Changing this forces a new NGINX Deployment to be created.
+        Specify The Subnet Resource ID for this NGINX Deployment.
         """
 elif False:
     DeploymentNetworkInterfaceArgsDict: TypeAlias = Mapping[str, Any]
@@ -461,7 +473,7 @@ class DeploymentNetworkInterfaceArgs:
     def __init__(__self__, *,
                  subnet_id: pulumi.Input[builtins.str]):
         """
-        :param pulumi.Input[builtins.str] subnet_id: Specify The Subnet Resource ID for this NGINX Deployment. Changing this forces a new NGINX Deployment to be created.
+        :param pulumi.Input[builtins.str] subnet_id: Specify The Subnet Resource ID for this NGINX Deployment.
         """
         pulumi.set(__self__, "subnet_id", subnet_id)
 
@@ -469,12 +481,299 @@ class DeploymentNetworkInterfaceArgs:
     @pulumi.getter(name="subnetId")
     def subnet_id(self) -> pulumi.Input[builtins.str]:
         """
-        Specify The Subnet Resource ID for this NGINX Deployment. Changing this forces a new NGINX Deployment to be created.
+        Specify The Subnet Resource ID for this NGINX Deployment.
         """
         return pulumi.get(self, "subnet_id")
 
     @subnet_id.setter
     def subnet_id(self, value: pulumi.Input[builtins.str]):
         pulumi.set(self, "subnet_id", value)
+
+
+if not MYPY:
+    class DeploymentWebApplicationFirewallArgsDict(TypedDict):
+        activation_state_enabled: pulumi.Input[builtins.bool]
+        """
+        Whether WAF is enabled/disabled for this NGINX Deployment.
+        """
+        statuses: NotRequired[pulumi.Input[Sequence[pulumi.Input['DeploymentWebApplicationFirewallStatusArgsDict']]]]
+        """
+        A `web_application_firewall.status` block as defined below:
+        """
+elif False:
+    DeploymentWebApplicationFirewallArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class DeploymentWebApplicationFirewallArgs:
+    def __init__(__self__, *,
+                 activation_state_enabled: pulumi.Input[builtins.bool],
+                 statuses: Optional[pulumi.Input[Sequence[pulumi.Input['DeploymentWebApplicationFirewallStatusArgs']]]] = None):
+        """
+        :param pulumi.Input[builtins.bool] activation_state_enabled: Whether WAF is enabled/disabled for this NGINX Deployment.
+        :param pulumi.Input[Sequence[pulumi.Input['DeploymentWebApplicationFirewallStatusArgs']]] statuses: A `web_application_firewall.status` block as defined below:
+        """
+        pulumi.set(__self__, "activation_state_enabled", activation_state_enabled)
+        if statuses is not None:
+            pulumi.set(__self__, "statuses", statuses)
+
+    @property
+    @pulumi.getter(name="activationStateEnabled")
+    def activation_state_enabled(self) -> pulumi.Input[builtins.bool]:
+        """
+        Whether WAF is enabled/disabled for this NGINX Deployment.
+        """
+        return pulumi.get(self, "activation_state_enabled")
+
+    @activation_state_enabled.setter
+    def activation_state_enabled(self, value: pulumi.Input[builtins.bool]):
+        pulumi.set(self, "activation_state_enabled", value)
+
+    @property
+    @pulumi.getter
+    def statuses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DeploymentWebApplicationFirewallStatusArgs']]]]:
+        """
+        A `web_application_firewall.status` block as defined below:
+        """
+        return pulumi.get(self, "statuses")
+
+    @statuses.setter
+    def statuses(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DeploymentWebApplicationFirewallStatusArgs']]]]):
+        pulumi.set(self, "statuses", value)
+
+
+if not MYPY:
+    class DeploymentWebApplicationFirewallStatusArgsDict(TypedDict):
+        attack_signatures_packages: NotRequired[pulumi.Input[Sequence[pulumi.Input['DeploymentWebApplicationFirewallStatusAttackSignaturesPackageArgsDict']]]]
+        """
+        Indicates the version of the attack signatures package used by NGINX App Protect.
+        """
+        bot_signatures_packages: NotRequired[pulumi.Input[Sequence[pulumi.Input['DeploymentWebApplicationFirewallStatusBotSignaturesPackageArgsDict']]]]
+        """
+        Indicates the version of the bot signatures package used by NGINX App Protect.
+        """
+        component_versions: NotRequired[pulumi.Input[Sequence[pulumi.Input['DeploymentWebApplicationFirewallStatusComponentVersionArgsDict']]]]
+        """
+        Indicates the version of the WAF Engine and Nginx WAF Module used by NGINX App Protect.
+        """
+        threat_campaigns_packages: NotRequired[pulumi.Input[Sequence[pulumi.Input['DeploymentWebApplicationFirewallStatusThreatCampaignsPackageArgsDict']]]]
+        """
+        Indicates the version of the threat campaigns package used by NGINX App Protect.
+        """
+elif False:
+    DeploymentWebApplicationFirewallStatusArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class DeploymentWebApplicationFirewallStatusArgs:
+    def __init__(__self__, *,
+                 attack_signatures_packages: Optional[pulumi.Input[Sequence[pulumi.Input['DeploymentWebApplicationFirewallStatusAttackSignaturesPackageArgs']]]] = None,
+                 bot_signatures_packages: Optional[pulumi.Input[Sequence[pulumi.Input['DeploymentWebApplicationFirewallStatusBotSignaturesPackageArgs']]]] = None,
+                 component_versions: Optional[pulumi.Input[Sequence[pulumi.Input['DeploymentWebApplicationFirewallStatusComponentVersionArgs']]]] = None,
+                 threat_campaigns_packages: Optional[pulumi.Input[Sequence[pulumi.Input['DeploymentWebApplicationFirewallStatusThreatCampaignsPackageArgs']]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['DeploymentWebApplicationFirewallStatusAttackSignaturesPackageArgs']]] attack_signatures_packages: Indicates the version of the attack signatures package used by NGINX App Protect.
+        :param pulumi.Input[Sequence[pulumi.Input['DeploymentWebApplicationFirewallStatusBotSignaturesPackageArgs']]] bot_signatures_packages: Indicates the version of the bot signatures package used by NGINX App Protect.
+        :param pulumi.Input[Sequence[pulumi.Input['DeploymentWebApplicationFirewallStatusComponentVersionArgs']]] component_versions: Indicates the version of the WAF Engine and Nginx WAF Module used by NGINX App Protect.
+        :param pulumi.Input[Sequence[pulumi.Input['DeploymentWebApplicationFirewallStatusThreatCampaignsPackageArgs']]] threat_campaigns_packages: Indicates the version of the threat campaigns package used by NGINX App Protect.
+        """
+        if attack_signatures_packages is not None:
+            pulumi.set(__self__, "attack_signatures_packages", attack_signatures_packages)
+        if bot_signatures_packages is not None:
+            pulumi.set(__self__, "bot_signatures_packages", bot_signatures_packages)
+        if component_versions is not None:
+            pulumi.set(__self__, "component_versions", component_versions)
+        if threat_campaigns_packages is not None:
+            pulumi.set(__self__, "threat_campaigns_packages", threat_campaigns_packages)
+
+    @property
+    @pulumi.getter(name="attackSignaturesPackages")
+    def attack_signatures_packages(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DeploymentWebApplicationFirewallStatusAttackSignaturesPackageArgs']]]]:
+        """
+        Indicates the version of the attack signatures package used by NGINX App Protect.
+        """
+        return pulumi.get(self, "attack_signatures_packages")
+
+    @attack_signatures_packages.setter
+    def attack_signatures_packages(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DeploymentWebApplicationFirewallStatusAttackSignaturesPackageArgs']]]]):
+        pulumi.set(self, "attack_signatures_packages", value)
+
+    @property
+    @pulumi.getter(name="botSignaturesPackages")
+    def bot_signatures_packages(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DeploymentWebApplicationFirewallStatusBotSignaturesPackageArgs']]]]:
+        """
+        Indicates the version of the bot signatures package used by NGINX App Protect.
+        """
+        return pulumi.get(self, "bot_signatures_packages")
+
+    @bot_signatures_packages.setter
+    def bot_signatures_packages(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DeploymentWebApplicationFirewallStatusBotSignaturesPackageArgs']]]]):
+        pulumi.set(self, "bot_signatures_packages", value)
+
+    @property
+    @pulumi.getter(name="componentVersions")
+    def component_versions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DeploymentWebApplicationFirewallStatusComponentVersionArgs']]]]:
+        """
+        Indicates the version of the WAF Engine and Nginx WAF Module used by NGINX App Protect.
+        """
+        return pulumi.get(self, "component_versions")
+
+    @component_versions.setter
+    def component_versions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DeploymentWebApplicationFirewallStatusComponentVersionArgs']]]]):
+        pulumi.set(self, "component_versions", value)
+
+    @property
+    @pulumi.getter(name="threatCampaignsPackages")
+    def threat_campaigns_packages(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DeploymentWebApplicationFirewallStatusThreatCampaignsPackageArgs']]]]:
+        """
+        Indicates the version of the threat campaigns package used by NGINX App Protect.
+        """
+        return pulumi.get(self, "threat_campaigns_packages")
+
+    @threat_campaigns_packages.setter
+    def threat_campaigns_packages(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DeploymentWebApplicationFirewallStatusThreatCampaignsPackageArgs']]]]):
+        pulumi.set(self, "threat_campaigns_packages", value)
+
+
+if not MYPY:
+    class DeploymentWebApplicationFirewallStatusAttackSignaturesPackageArgsDict(TypedDict):
+        revision_datetime: NotRequired[pulumi.Input[builtins.str]]
+        version: NotRequired[pulumi.Input[builtins.str]]
+elif False:
+    DeploymentWebApplicationFirewallStatusAttackSignaturesPackageArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class DeploymentWebApplicationFirewallStatusAttackSignaturesPackageArgs:
+    def __init__(__self__, *,
+                 revision_datetime: Optional[pulumi.Input[builtins.str]] = None,
+                 version: Optional[pulumi.Input[builtins.str]] = None):
+        if revision_datetime is not None:
+            pulumi.set(__self__, "revision_datetime", revision_datetime)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
+
+    @property
+    @pulumi.getter(name="revisionDatetime")
+    def revision_datetime(self) -> Optional[pulumi.Input[builtins.str]]:
+        return pulumi.get(self, "revision_datetime")
+
+    @revision_datetime.setter
+    def revision_datetime(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "revision_datetime", value)
+
+    @property
+    @pulumi.getter
+    def version(self) -> Optional[pulumi.Input[builtins.str]]:
+        return pulumi.get(self, "version")
+
+    @version.setter
+    def version(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "version", value)
+
+
+if not MYPY:
+    class DeploymentWebApplicationFirewallStatusBotSignaturesPackageArgsDict(TypedDict):
+        revision_datetime: NotRequired[pulumi.Input[builtins.str]]
+        version: NotRequired[pulumi.Input[builtins.str]]
+elif False:
+    DeploymentWebApplicationFirewallStatusBotSignaturesPackageArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class DeploymentWebApplicationFirewallStatusBotSignaturesPackageArgs:
+    def __init__(__self__, *,
+                 revision_datetime: Optional[pulumi.Input[builtins.str]] = None,
+                 version: Optional[pulumi.Input[builtins.str]] = None):
+        if revision_datetime is not None:
+            pulumi.set(__self__, "revision_datetime", revision_datetime)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
+
+    @property
+    @pulumi.getter(name="revisionDatetime")
+    def revision_datetime(self) -> Optional[pulumi.Input[builtins.str]]:
+        return pulumi.get(self, "revision_datetime")
+
+    @revision_datetime.setter
+    def revision_datetime(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "revision_datetime", value)
+
+    @property
+    @pulumi.getter
+    def version(self) -> Optional[pulumi.Input[builtins.str]]:
+        return pulumi.get(self, "version")
+
+    @version.setter
+    def version(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "version", value)
+
+
+if not MYPY:
+    class DeploymentWebApplicationFirewallStatusComponentVersionArgsDict(TypedDict):
+        waf_engine_version: NotRequired[pulumi.Input[builtins.str]]
+        waf_nginx_version: NotRequired[pulumi.Input[builtins.str]]
+elif False:
+    DeploymentWebApplicationFirewallStatusComponentVersionArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class DeploymentWebApplicationFirewallStatusComponentVersionArgs:
+    def __init__(__self__, *,
+                 waf_engine_version: Optional[pulumi.Input[builtins.str]] = None,
+                 waf_nginx_version: Optional[pulumi.Input[builtins.str]] = None):
+        if waf_engine_version is not None:
+            pulumi.set(__self__, "waf_engine_version", waf_engine_version)
+        if waf_nginx_version is not None:
+            pulumi.set(__self__, "waf_nginx_version", waf_nginx_version)
+
+    @property
+    @pulumi.getter(name="wafEngineVersion")
+    def waf_engine_version(self) -> Optional[pulumi.Input[builtins.str]]:
+        return pulumi.get(self, "waf_engine_version")
+
+    @waf_engine_version.setter
+    def waf_engine_version(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "waf_engine_version", value)
+
+    @property
+    @pulumi.getter(name="wafNginxVersion")
+    def waf_nginx_version(self) -> Optional[pulumi.Input[builtins.str]]:
+        return pulumi.get(self, "waf_nginx_version")
+
+    @waf_nginx_version.setter
+    def waf_nginx_version(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "waf_nginx_version", value)
+
+
+if not MYPY:
+    class DeploymentWebApplicationFirewallStatusThreatCampaignsPackageArgsDict(TypedDict):
+        revision_datetime: NotRequired[pulumi.Input[builtins.str]]
+        version: NotRequired[pulumi.Input[builtins.str]]
+elif False:
+    DeploymentWebApplicationFirewallStatusThreatCampaignsPackageArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class DeploymentWebApplicationFirewallStatusThreatCampaignsPackageArgs:
+    def __init__(__self__, *,
+                 revision_datetime: Optional[pulumi.Input[builtins.str]] = None,
+                 version: Optional[pulumi.Input[builtins.str]] = None):
+        if revision_datetime is not None:
+            pulumi.set(__self__, "revision_datetime", revision_datetime)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
+
+    @property
+    @pulumi.getter(name="revisionDatetime")
+    def revision_datetime(self) -> Optional[pulumi.Input[builtins.str]]:
+        return pulumi.get(self, "revision_datetime")
+
+    @revision_datetime.setter
+    def revision_datetime(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "revision_datetime", value)
+
+    @property
+    @pulumi.getter
+    def version(self) -> Optional[pulumi.Input[builtins.str]]:
+        return pulumi.get(self, "version")
+
+    @version.setter
+    def version(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "version", value)
 
 

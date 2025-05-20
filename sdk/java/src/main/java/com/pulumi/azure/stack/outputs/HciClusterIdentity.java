@@ -20,7 +20,7 @@ public final class HciClusterIdentity {
     /**
      * @return The Tenant ID of the Azure Active Directory which is used by the Azure Stack HCI Cluster. Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE** If unspecified the Tenant ID of the Provider will be used.
+     * &gt; **Note:** If unspecified the Tenant ID of the Provider will be used.
      * 
      */
     private @Nullable String tenantId;
@@ -41,7 +41,7 @@ public final class HciClusterIdentity {
     /**
      * @return The Tenant ID of the Azure Active Directory which is used by the Azure Stack HCI Cluster. Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE** If unspecified the Tenant ID of the Provider will be used.
+     * &gt; **Note:** If unspecified the Tenant ID of the Provider will be used.
      * 
      */
     public Optional<String> tenantId() {

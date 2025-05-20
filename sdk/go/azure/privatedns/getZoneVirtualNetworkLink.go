@@ -41,6 +41,13 @@ import (
 //	}
 //
 // ```
+//
+// ## API Providers
+//
+// <!-- This section is generated, changes will be overwritten -->
+// This data source uses the following Azure API Providers:
+//
+// * `Microsoft.Network`: 2024-06-01
 func LookupZoneVirtualNetworkLink(ctx *pulumi.Context, args *LookupZoneVirtualNetworkLinkArgs, opts ...pulumi.InvokeOption) (*LookupZoneVirtualNetworkLinkResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupZoneVirtualNetworkLinkResult

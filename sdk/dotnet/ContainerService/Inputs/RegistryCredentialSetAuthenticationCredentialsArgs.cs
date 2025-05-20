@@ -15,7 +15,7 @@ namespace Pulumi.Azure.ContainerService.Inputs
         /// <summary>
         /// The URI of the secret containing the password in a Key Vault.
         /// 
-        /// &gt; NOTE: Be aware that you will need to permit the Identity that is created for the Container Registry to have `get` on secrets to the Key Vault, e.g. using the `azure.keyvault.AccessPolicy` resource.
+        /// &gt; **Note:** Be aware that you will need to permit the Identity that is created for the Container Registry to have `get` on secrets to the Key Vault, e.g. using the `azure.keyvault.AccessPolicy` resource.
         /// </summary>
         [Input("passwordSecretId", required: true)]
         public Input<string> PasswordSecretId { get; set; } = null!;

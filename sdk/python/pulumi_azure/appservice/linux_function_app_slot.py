@@ -83,12 +83,12 @@ class LinuxFunctionAppSlotArgs:
         :param pulumi.Input[Sequence[pulumi.Input['LinuxFunctionAppSlotStorageAccountArgs']]] storage_accounts: One or more `storage_account` blocks as defined below.
         :param pulumi.Input[builtins.str] storage_key_vault_secret_id: The Key Vault Secret ID, optionally including version, that contains the Connection String to connect to the storage account for this Function App.
                
-               > **NOTE:** `storage_key_vault_secret_id` cannot be used with `storage_account_name`.
+               > **Note:** `storage_key_vault_secret_id` cannot be used with `storage_account_name`.
                
-               > **NOTE:** `storage_key_vault_secret_id` used without a version will use the latest version of the secret, however, the service can take up to 24h to pick up a rotation of the latest version. See the [official docs](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#rotation) for more information.
+               > **Note:** `storage_key_vault_secret_id` used without a version will use the latest version of the secret, however, the service can take up to 24h to pick up a rotation of the latest version. See the [official docs](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#rotation) for more information.
         :param pulumi.Input[builtins.bool] storage_uses_managed_identity: Should the Function App Slot use its Managed Identity to access storage.
                
-               > **NOTE:** One of `storage_account_access_key` or `storage_uses_managed_identity` must be specified when using `storage_account_name`.
+               > **Note:** One of `storage_account_access_key` or `storage_uses_managed_identity` must be specified when using `storage_account_name`.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A mapping of tags which should be assigned to the Linux Function App.
         :param pulumi.Input[builtins.bool] virtual_network_backup_restore_enabled: Whether backup and restore operations over the linked virtual network are enabled. Defaults to `false`.
         :param pulumi.Input[builtins.bool] vnet_image_pull_enabled: Specifies whether traffic for the image pull should be routed over virtual network. Defaults to `false`.
@@ -465,9 +465,9 @@ class LinuxFunctionAppSlotArgs:
         """
         The Key Vault Secret ID, optionally including version, that contains the Connection String to connect to the storage account for this Function App.
 
-        > **NOTE:** `storage_key_vault_secret_id` cannot be used with `storage_account_name`.
+        > **Note:** `storage_key_vault_secret_id` cannot be used with `storage_account_name`.
 
-        > **NOTE:** `storage_key_vault_secret_id` used without a version will use the latest version of the secret, however, the service can take up to 24h to pick up a rotation of the latest version. See the [official docs](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#rotation) for more information.
+        > **Note:** `storage_key_vault_secret_id` used without a version will use the latest version of the secret, however, the service can take up to 24h to pick up a rotation of the latest version. See the [official docs](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#rotation) for more information.
         """
         return pulumi.get(self, "storage_key_vault_secret_id")
 
@@ -481,7 +481,7 @@ class LinuxFunctionAppSlotArgs:
         """
         Should the Function App Slot use its Managed Identity to access storage.
 
-        > **NOTE:** One of `storage_account_access_key` or `storage_uses_managed_identity` must be specified when using `storage_account_name`.
+        > **Note:** One of `storage_account_access_key` or `storage_uses_managed_identity` must be specified when using `storage_account_name`.
         """
         return pulumi.get(self, "storage_uses_managed_identity")
 
@@ -631,12 +631,12 @@ class _LinuxFunctionAppSlotState:
         :param pulumi.Input[Sequence[pulumi.Input['LinuxFunctionAppSlotStorageAccountArgs']]] storage_accounts: One or more `storage_account` blocks as defined below.
         :param pulumi.Input[builtins.str] storage_key_vault_secret_id: The Key Vault Secret ID, optionally including version, that contains the Connection String to connect to the storage account for this Function App.
                
-               > **NOTE:** `storage_key_vault_secret_id` cannot be used with `storage_account_name`.
+               > **Note:** `storage_key_vault_secret_id` cannot be used with `storage_account_name`.
                
-               > **NOTE:** `storage_key_vault_secret_id` used without a version will use the latest version of the secret, however, the service can take up to 24h to pick up a rotation of the latest version. See the [official docs](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#rotation) for more information.
+               > **Note:** `storage_key_vault_secret_id` used without a version will use the latest version of the secret, however, the service can take up to 24h to pick up a rotation of the latest version. See the [official docs](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#rotation) for more information.
         :param pulumi.Input[builtins.bool] storage_uses_managed_identity: Should the Function App Slot use its Managed Identity to access storage.
                
-               > **NOTE:** One of `storage_account_access_key` or `storage_uses_managed_identity` must be specified when using `storage_account_name`.
+               > **Note:** One of `storage_account_access_key` or `storage_uses_managed_identity` must be specified when using `storage_account_name`.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A mapping of tags which should be assigned to the Linux Function App.
         :param pulumi.Input[builtins.bool] virtual_network_backup_restore_enabled: Whether backup and restore operations over the linked virtual network are enabled. Defaults to `false`.
         :param pulumi.Input[builtins.bool] vnet_image_pull_enabled: Specifies whether traffic for the image pull should be routed over virtual network. Defaults to `false`.
@@ -1141,9 +1141,9 @@ class _LinuxFunctionAppSlotState:
         """
         The Key Vault Secret ID, optionally including version, that contains the Connection String to connect to the storage account for this Function App.
 
-        > **NOTE:** `storage_key_vault_secret_id` cannot be used with `storage_account_name`.
+        > **Note:** `storage_key_vault_secret_id` cannot be used with `storage_account_name`.
 
-        > **NOTE:** `storage_key_vault_secret_id` used without a version will use the latest version of the secret, however, the service can take up to 24h to pick up a rotation of the latest version. See the [official docs](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#rotation) for more information.
+        > **Note:** `storage_key_vault_secret_id` used without a version will use the latest version of the secret, however, the service can take up to 24h to pick up a rotation of the latest version. See the [official docs](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#rotation) for more information.
         """
         return pulumi.get(self, "storage_key_vault_secret_id")
 
@@ -1157,7 +1157,7 @@ class _LinuxFunctionAppSlotState:
         """
         Should the Function App Slot use its Managed Identity to access storage.
 
-        > **NOTE:** One of `storage_account_access_key` or `storage_uses_managed_identity` must be specified when using `storage_account_name`.
+        > **Note:** One of `storage_account_access_key` or `storage_uses_managed_identity` must be specified when using `storage_account_name`.
         """
         return pulumi.get(self, "storage_uses_managed_identity")
 
@@ -1302,6 +1302,13 @@ class LinuxFunctionAppSlot(pulumi.CustomResource):
             site_config={})
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Web`: 2023-12-01, 2023-01-01
+
         ## Import
 
         A Linux Function App Slot can be imported using the `resource id`, e.g.
@@ -1339,12 +1346,12 @@ class LinuxFunctionAppSlot(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[Union['LinuxFunctionAppSlotStorageAccountArgs', 'LinuxFunctionAppSlotStorageAccountArgsDict']]]] storage_accounts: One or more `storage_account` blocks as defined below.
         :param pulumi.Input[builtins.str] storage_key_vault_secret_id: The Key Vault Secret ID, optionally including version, that contains the Connection String to connect to the storage account for this Function App.
                
-               > **NOTE:** `storage_key_vault_secret_id` cannot be used with `storage_account_name`.
+               > **Note:** `storage_key_vault_secret_id` cannot be used with `storage_account_name`.
                
-               > **NOTE:** `storage_key_vault_secret_id` used without a version will use the latest version of the secret, however, the service can take up to 24h to pick up a rotation of the latest version. See the [official docs](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#rotation) for more information.
+               > **Note:** `storage_key_vault_secret_id` used without a version will use the latest version of the secret, however, the service can take up to 24h to pick up a rotation of the latest version. See the [official docs](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#rotation) for more information.
         :param pulumi.Input[builtins.bool] storage_uses_managed_identity: Should the Function App Slot use its Managed Identity to access storage.
                
-               > **NOTE:** One of `storage_account_access_key` or `storage_uses_managed_identity` must be specified when using `storage_account_name`.
+               > **Note:** One of `storage_account_access_key` or `storage_uses_managed_identity` must be specified when using `storage_account_name`.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A mapping of tags which should be assigned to the Linux Function App.
         :param pulumi.Input[builtins.bool] virtual_network_backup_restore_enabled: Whether backup and restore operations over the linked virtual network are enabled. Defaults to `false`.
         :param pulumi.Input[builtins.bool] vnet_image_pull_enabled: Specifies whether traffic for the image pull should be routed over virtual network. Defaults to `false`.
@@ -1395,6 +1402,13 @@ class LinuxFunctionAppSlot(pulumi.CustomResource):
             storage_account_name=example_account.name,
             site_config={})
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Web`: 2023-12-01, 2023-01-01
 
         ## Import
 
@@ -1601,12 +1615,12 @@ class LinuxFunctionAppSlot(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[Union['LinuxFunctionAppSlotStorageAccountArgs', 'LinuxFunctionAppSlotStorageAccountArgsDict']]]] storage_accounts: One or more `storage_account` blocks as defined below.
         :param pulumi.Input[builtins.str] storage_key_vault_secret_id: The Key Vault Secret ID, optionally including version, that contains the Connection String to connect to the storage account for this Function App.
                
-               > **NOTE:** `storage_key_vault_secret_id` cannot be used with `storage_account_name`.
+               > **Note:** `storage_key_vault_secret_id` cannot be used with `storage_account_name`.
                
-               > **NOTE:** `storage_key_vault_secret_id` used without a version will use the latest version of the secret, however, the service can take up to 24h to pick up a rotation of the latest version. See the [official docs](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#rotation) for more information.
+               > **Note:** `storage_key_vault_secret_id` used without a version will use the latest version of the secret, however, the service can take up to 24h to pick up a rotation of the latest version. See the [official docs](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#rotation) for more information.
         :param pulumi.Input[builtins.bool] storage_uses_managed_identity: Should the Function App Slot use its Managed Identity to access storage.
                
-               > **NOTE:** One of `storage_account_access_key` or `storage_uses_managed_identity` must be specified when using `storage_account_name`.
+               > **Note:** One of `storage_account_access_key` or `storage_uses_managed_identity` must be specified when using `storage_account_name`.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A mapping of tags which should be assigned to the Linux Function App.
         :param pulumi.Input[builtins.bool] virtual_network_backup_restore_enabled: Whether backup and restore operations over the linked virtual network are enabled. Defaults to `false`.
         :param pulumi.Input[builtins.bool] vnet_image_pull_enabled: Specifies whether traffic for the image pull should be routed over virtual network. Defaults to `false`.
@@ -1939,9 +1953,9 @@ class LinuxFunctionAppSlot(pulumi.CustomResource):
         """
         The Key Vault Secret ID, optionally including version, that contains the Connection String to connect to the storage account for this Function App.
 
-        > **NOTE:** `storage_key_vault_secret_id` cannot be used with `storage_account_name`.
+        > **Note:** `storage_key_vault_secret_id` cannot be used with `storage_account_name`.
 
-        > **NOTE:** `storage_key_vault_secret_id` used without a version will use the latest version of the secret, however, the service can take up to 24h to pick up a rotation of the latest version. See the [official docs](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#rotation) for more information.
+        > **Note:** `storage_key_vault_secret_id` used without a version will use the latest version of the secret, however, the service can take up to 24h to pick up a rotation of the latest version. See the [official docs](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#rotation) for more information.
         """
         return pulumi.get(self, "storage_key_vault_secret_id")
 
@@ -1951,7 +1965,7 @@ class LinuxFunctionAppSlot(pulumi.CustomResource):
         """
         Should the Function App Slot use its Managed Identity to access storage.
 
-        > **NOTE:** One of `storage_account_access_key` or `storage_uses_managed_identity` must be specified when using `storage_account_name`.
+        > **Note:** One of `storage_account_access_key` or `storage_uses_managed_identity` must be specified when using `storage_account_name`.
         """
         return pulumi.get(self, "storage_uses_managed_identity")
 

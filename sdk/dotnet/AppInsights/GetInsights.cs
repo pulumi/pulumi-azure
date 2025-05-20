@@ -36,6 +36,13 @@ namespace Pulumi.Azure.AppInsights
         ///     };
         /// });
         /// ```
+        /// 
+        /// ## API Providers
+        /// 
+        /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+        /// This data source uses the following Azure API Providers:
+        /// 
+        /// * `Microsoft.Insights`: 2020-02-02
         /// </summary>
         public static Task<GetInsightsResult> InvokeAsync(GetInsightsArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetInsightsResult>("azure:appinsights/getInsights:getInsights", args ?? new GetInsightsArgs(), options.WithDefaults());
@@ -65,6 +72,13 @@ namespace Pulumi.Azure.AppInsights
         ///     };
         /// });
         /// ```
+        /// 
+        /// ## API Providers
+        /// 
+        /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+        /// This data source uses the following Azure API Providers:
+        /// 
+        /// * `Microsoft.Insights`: 2020-02-02
         /// </summary>
         public static Output<GetInsightsResult> Invoke(GetInsightsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetInsightsResult>("azure:appinsights/getInsights:getInsights", args ?? new GetInsightsInvokeArgs(), options.WithDefaults());
@@ -94,6 +108,13 @@ namespace Pulumi.Azure.AppInsights
         ///     };
         /// });
         /// ```
+        /// 
+        /// ## API Providers
+        /// 
+        /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+        /// This data source uses the following Azure API Providers:
+        /// 
+        /// * `Microsoft.Insights`: 2020-02-02
         /// </summary>
         public static Output<GetInsightsResult> Invoke(GetInsightsInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetInsightsResult>("azure:appinsights/getInsights:getInsights", args ?? new GetInsightsInvokeArgs(), options.WithDefaults());

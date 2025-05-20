@@ -17,33 +17,23 @@ public final class ServiceAuthenticationConfigurationArgs extends com.pulumi.res
     public static final ServiceAuthenticationConfigurationArgs Empty = new ServiceAuthenticationConfigurationArgs();
 
     /**
-     * The intended audience to receive authentication tokens for the service. The default value is https://azurehealthcareapis.com
+     * The intended audience to receive authentication tokens for the service. The default value is &lt;https://azurehealthcareapis.com&gt;
      * 
      */
     @Import(name="audience")
     private @Nullable Output<String> audience;
 
     /**
-     * @return The intended audience to receive authentication tokens for the service. The default value is https://azurehealthcareapis.com
+     * @return The intended audience to receive authentication tokens for the service. The default value is &lt;https://azurehealthcareapis.com&gt;
      * 
      */
     public Optional<Output<String>> audience() {
         return Optional.ofNullable(this.audience);
     }
 
-    /**
-     * The Azure Active Directory (tenant) that serves as the authentication authority to access the service. The default authority is the Directory defined in the authentication scheme in use when running this provider.
-     * Authority must be registered to Azure AD and in the following format: https://{Azure-AD-endpoint}/{tenant-id}.
-     * 
-     */
     @Import(name="authority")
     private @Nullable Output<String> authority;
 
-    /**
-     * @return The Azure Active Directory (tenant) that serves as the authentication authority to access the service. The default authority is the Directory defined in the authentication scheme in use when running this provider.
-     * Authority must be registered to Azure AD and in the following format: https://{Azure-AD-endpoint}/{tenant-id}.
-     * 
-     */
     public Optional<Output<String>> authority() {
         return Optional.ofNullable(this.authority);
     }
@@ -90,7 +80,7 @@ public final class ServiceAuthenticationConfigurationArgs extends com.pulumi.res
         }
 
         /**
-         * @param audience The intended audience to receive authentication tokens for the service. The default value is https://azurehealthcareapis.com
+         * @param audience The intended audience to receive authentication tokens for the service. The default value is &lt;https://azurehealthcareapis.com&gt;
          * 
          * @return builder
          * 
@@ -101,7 +91,7 @@ public final class ServiceAuthenticationConfigurationArgs extends com.pulumi.res
         }
 
         /**
-         * @param audience The intended audience to receive authentication tokens for the service. The default value is https://azurehealthcareapis.com
+         * @param audience The intended audience to receive authentication tokens for the service. The default value is &lt;https://azurehealthcareapis.com&gt;
          * 
          * @return builder
          * 
@@ -110,25 +100,11 @@ public final class ServiceAuthenticationConfigurationArgs extends com.pulumi.res
             return audience(Output.of(audience));
         }
 
-        /**
-         * @param authority The Azure Active Directory (tenant) that serves as the authentication authority to access the service. The default authority is the Directory defined in the authentication scheme in use when running this provider.
-         * Authority must be registered to Azure AD and in the following format: https://{Azure-AD-endpoint}/{tenant-id}.
-         * 
-         * @return builder
-         * 
-         */
         public Builder authority(@Nullable Output<String> authority) {
             $.authority = authority;
             return this;
         }
 
-        /**
-         * @param authority The Azure Active Directory (tenant) that serves as the authentication authority to access the service. The default authority is the Directory defined in the authentication scheme in use when running this provider.
-         * Authority must be registered to Azure AD and in the following format: https://{Azure-AD-endpoint}/{tenant-id}.
-         * 
-         * @return builder
-         * 
-         */
         public Builder authority(String authority) {
             return authority(Output.of(authority));
         }

@@ -21,7 +21,7 @@ namespace Pulumi.Azure.Compute.Inputs
         /// <summary>
         /// The Username for which this Public SSH Key should be configured. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **NOTE:** The Azure VM Agent only allows creating SSH Keys at the path `/home/{username}/.ssh/authorized_keys` - as such this public key will be written to the authorized keys file.
+        /// &gt; **Note:** The Azure VM Agent only allows creating SSH Keys at the path `/home/{username}/.ssh/authorized_keys` - as such this public key will be written to the authorized keys file.
         /// </summary>
         [Input("username", required: true)]
         public Input<string> Username { get; set; } = null!;

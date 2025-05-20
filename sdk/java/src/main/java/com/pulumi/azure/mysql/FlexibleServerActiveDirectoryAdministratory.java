@@ -70,7 +70,7 @@ import javax.annotation.Nullable;
  *             .location(example.location())
  *             .administratorLogin("_admin_Terraform_892123456789312")
  *             .administratorPassword("QAZwsx123")
- *             .skuName("B_Standard_B1s")
+ *             .skuName("B_Standard_B1ms")
  *             .zone("2")
  *             .identity(FlexibleServerIdentityArgs.builder()
  *                 .type("UserAssigned")
@@ -91,6 +91,13 @@ import javax.annotation.Nullable;
  * }
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
+ * 
+ * ## API Providers
+ * 
+ * &lt;!-- This section is generated, changes will be overwritten --&gt;
+ * This resource uses the following Azure API Providers:
+ * 
+ * * `Microsoft.DBforMySQL`: 2023-12-30
  * 
  * ## Import
  * 

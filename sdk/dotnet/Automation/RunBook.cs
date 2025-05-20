@@ -75,7 +75,7 @@ namespace Pulumi.Azure.Automation
         /// <summary>
         /// The desired content of the runbook.
         /// 
-        /// &gt; **NOTE** The Azure API requires a `publish_content_link` to be supplied even when specifying your own `content`.
+        /// &gt; **Note:** The Azure API requires a `publish_content_link` to be supplied even when specifying your own `content`.
         /// </summary>
         [Output("content")]
         public Output<string> Content { get; private set; } = null!;
@@ -95,7 +95,7 @@ namespace Pulumi.Azure.Automation
         /// <summary>
         /// One or more `job_schedule` block as defined below.
         /// 
-        /// &gt; **NOTE** AzureRM provides a stand-alone azure.automation.JobSchedule and this inlined `job_schedule` property to manage the job schedules. At this time you should choose one of them to manage the job schedule resources.
+        /// &gt; **Note:** AzureRM provides a stand-alone azure.automation.JobSchedule and this inlined `job_schedule` property to manage the job schedules. At this time you should choose one of them to manage the job schedule resources.
         /// </summary>
         [Output("jobSchedules")]
         public Output<ImmutableArray<Outputs.RunBookJobSchedule>> JobSchedules { get; private set; } = null!;
@@ -209,7 +209,7 @@ namespace Pulumi.Azure.Automation
         /// <summary>
         /// The desired content of the runbook.
         /// 
-        /// &gt; **NOTE** The Azure API requires a `publish_content_link` to be supplied even when specifying your own `content`.
+        /// &gt; **Note:** The Azure API requires a `publish_content_link` to be supplied even when specifying your own `content`.
         /// </summary>
         [Input("content")]
         public Input<string>? Content { get; set; }
@@ -232,7 +232,7 @@ namespace Pulumi.Azure.Automation
         /// <summary>
         /// One or more `job_schedule` block as defined below.
         /// 
-        /// &gt; **NOTE** AzureRM provides a stand-alone azure.automation.JobSchedule and this inlined `job_schedule` property to manage the job schedules. At this time you should choose one of them to manage the job schedule resources.
+        /// &gt; **Note:** AzureRM provides a stand-alone azure.automation.JobSchedule and this inlined `job_schedule` property to manage the job schedules. At this time you should choose one of them to manage the job schedule resources.
         /// </summary>
         public InputList<Inputs.RunBookJobScheduleArgs> JobSchedules
         {
@@ -317,7 +317,7 @@ namespace Pulumi.Azure.Automation
         /// <summary>
         /// The desired content of the runbook.
         /// 
-        /// &gt; **NOTE** The Azure API requires a `publish_content_link` to be supplied even when specifying your own `content`.
+        /// &gt; **Note:** The Azure API requires a `publish_content_link` to be supplied even when specifying your own `content`.
         /// </summary>
         [Input("content")]
         public Input<string>? Content { get; set; }
@@ -340,7 +340,7 @@ namespace Pulumi.Azure.Automation
         /// <summary>
         /// One or more `job_schedule` block as defined below.
         /// 
-        /// &gt; **NOTE** AzureRM provides a stand-alone azure.automation.JobSchedule and this inlined `job_schedule` property to manage the job schedules. At this time you should choose one of them to manage the job schedule resources.
+        /// &gt; **Note:** AzureRM provides a stand-alone azure.automation.JobSchedule and this inlined `job_schedule` property to manage the job schedules. At this time you should choose one of them to manage the job schedule resources.
         /// </summary>
         public InputList<Inputs.RunBookJobScheduleGetArgs> JobSchedules
         {

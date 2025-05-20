@@ -53,7 +53,7 @@ import javax.annotation.Nullable;
  *         var example = new RoleDefinition("example", RoleDefinitionArgs.builder()
  *             .name("my-custom-role")
  *             .scope(primary.id())
- *             .description("This is a custom role created")
+ *             .description("This is a custom role created via Terraform")
  *             .permissions(RoleDefinitionPermissionArgs.builder()
  *                 .actions("*")
  *                 .notActions()
@@ -121,6 +121,13 @@ import javax.annotation.Nullable;
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
+ * ## API Providers
+ * 
+ * &lt;!-- This section is generated, changes will be overwritten --&gt;
+ * This resource uses the following Azure API Providers:
+ * 
+ * * `Microsoft.Authorization`: 2022-05-01-preview
+ * 
  * ## Import
  * 
  * Role Definitions can be imported using the `resource id`, e.g.
@@ -139,7 +146,7 @@ public class Definition extends com.pulumi.resources.CustomResource {
     /**
      * One or more assignable scopes for this Role Definition, such as `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333`, `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup`, `/providers/Microsoft.Management/managementGroups/0b1f6471-1bf0-4dda-aec3-111122223333` , or `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup/providers/Microsoft.Compute/virtualMachines/myVM`.
      * 
-     * &gt; **NOTE:** The value for `scope` is automatically included in this list if no other values supplied.
+     * &gt; **Note:** The value for `scope` is automatically included in this list if no other values supplied.
      * 
      */
     @Export(name="assignableScopes", refs={List.class,String.class}, tree="[0,1]")
@@ -148,7 +155,7 @@ public class Definition extends com.pulumi.resources.CustomResource {
     /**
      * @return One or more assignable scopes for this Role Definition, such as `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333`, `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup`, `/providers/Microsoft.Management/managementGroups/0b1f6471-1bf0-4dda-aec3-111122223333` , or `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup/providers/Microsoft.Compute/virtualMachines/myVM`.
      * 
-     * &gt; **NOTE:** The value for `scope` is automatically included in this list if no other values supplied.
+     * &gt; **Note:** The value for `scope` is automatically included in this list if no other values supplied.
      * 
      */
     public Output<List<String>> assignableScopes() {

@@ -2198,7 +2198,7 @@ if not MYPY:
         """
         The severity to add to the incident. Possible values are `High`, `Informational`, `Low` and `Medium`.
 
-        > **Note:**: At least one of `status`, `labels`, `owner_id` and `severity` has to be set.
+        > **Note:** At least one of `status`, `labels`, `owner_id` and `severity` has to be set.
         """
         status: NotRequired[pulumi.Input[builtins.str]]
         """
@@ -2229,7 +2229,7 @@ class AuthomationRuleActionIncidentArgs:
         :param pulumi.Input[builtins.str] owner_id: The object ID of the entity this incident is assigned to.
         :param pulumi.Input[builtins.str] severity: The severity to add to the incident. Possible values are `High`, `Informational`, `Low` and `Medium`.
                
-               > **Note:**: At least one of `status`, `labels`, `owner_id` and `severity` has to be set.
+               > **Note:** At least one of `status`, `labels`, `owner_id` and `severity` has to be set.
         :param pulumi.Input[builtins.str] status: The status to set to the incident. Possible values are: `Active`, `Closed`, `New`.
         """
         pulumi.set(__self__, "order", order)
@@ -2316,7 +2316,7 @@ class AuthomationRuleActionIncidentArgs:
         """
         The severity to add to the incident. Possible values are `High`, `Informational`, `Low` and `Medium`.
 
-        > **Note:**: At least one of `status`, `labels`, `owner_id` and `severity` has to be set.
+        > **Note:** At least one of `status`, `labels`, `owner_id` and `severity` has to be set.
         """
         return pulumi.get(self, "severity")
 
@@ -2437,7 +2437,7 @@ if not MYPY:
         """
         The severity to add to the incident. Possible values are `High`, `Informational`, `Low` and `Medium`.
 
-        > **Note:**: At least one of `status`, `labels`, `owner_id` and `severity` has to be set.
+        > **Note:** At least one of `status`, `labels`, `owner_id` and `severity` has to be set.
         """
         status: NotRequired[pulumi.Input[builtins.str]]
         """
@@ -2468,7 +2468,7 @@ class AutomationRuleActionIncidentArgs:
         :param pulumi.Input[builtins.str] owner_id: The object ID of the entity this incident is assigned to.
         :param pulumi.Input[builtins.str] severity: The severity to add to the incident. Possible values are `High`, `Informational`, `Low` and `Medium`.
                
-               > **Note:**: At least one of `status`, `labels`, `owner_id` and `severity` has to be set.
+               > **Note:** At least one of `status`, `labels`, `owner_id` and `severity` has to be set.
         :param pulumi.Input[builtins.str] status: The status to set to the incident. Possible values are: `Active`, `Closed`, `New`.
         """
         pulumi.set(__self__, "order", order)
@@ -2555,7 +2555,7 @@ class AutomationRuleActionIncidentArgs:
         """
         The severity to add to the incident. Possible values are `High`, `Informational`, `Low` and `Medium`.
 
-        > **Note:**: At least one of `status`, `labels`, `owner_id` and `severity` has to be set.
+        > **Note:** At least one of `status`, `labels`, `owner_id` and `severity` has to be set.
         """
         return pulumi.get(self, "severity")
 

@@ -440,6 +440,13 @@ class OutputMssql(pulumi.CustomResource):
             table="ExampleTable")
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.StreamAnalytics`: 2021-10-01-preview
+
         ## Import
 
         Stream Analytics Outputs to Microsoft SQL Server Database can be imported using the `resource id`, e.g.
@@ -509,6 +516,13 @@ class OutputMssql(pulumi.CustomResource):
             database=example_sql_database["name"],
             table="ExampleTable")
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.StreamAnalytics`: 2021-10-01-preview
 
         ## Import
 

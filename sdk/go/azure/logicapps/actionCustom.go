@@ -85,12 +85,14 @@ type ActionCustom struct {
 	pulumi.CustomResourceState
 
 	// Specifies the JSON Blob defining the Body of this Custom Action.
+	//
+	// > **Note:** To make the Action more readable, you may wish to consider using HEREDOC syntax (as shown above) or the `localFile` resource to load the schema from a file on disk.
 	Body pulumi.StringOutput `pulumi:"body"`
 	// Specifies the ID of the Logic App Workflow. Changing this forces a new resource to be created.
 	LogicAppId pulumi.StringOutput `pulumi:"logicAppId"`
 	// Specifies the name of the HTTP Action to be created within the Logic App Workflow. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** This name must be unique across all Actions within the Logic App Workflow.
+	// > **Note:** This name must be unique across all Actions within the Logic App Workflow.
 	Name pulumi.StringOutput `pulumi:"name"`
 }
 
@@ -131,23 +133,27 @@ func GetActionCustom(ctx *pulumi.Context,
 // Input properties used for looking up and filtering ActionCustom resources.
 type actionCustomState struct {
 	// Specifies the JSON Blob defining the Body of this Custom Action.
+	//
+	// > **Note:** To make the Action more readable, you may wish to consider using HEREDOC syntax (as shown above) or the `localFile` resource to load the schema from a file on disk.
 	Body *string `pulumi:"body"`
 	// Specifies the ID of the Logic App Workflow. Changing this forces a new resource to be created.
 	LogicAppId *string `pulumi:"logicAppId"`
 	// Specifies the name of the HTTP Action to be created within the Logic App Workflow. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** This name must be unique across all Actions within the Logic App Workflow.
+	// > **Note:** This name must be unique across all Actions within the Logic App Workflow.
 	Name *string `pulumi:"name"`
 }
 
 type ActionCustomState struct {
 	// Specifies the JSON Blob defining the Body of this Custom Action.
+	//
+	// > **Note:** To make the Action more readable, you may wish to consider using HEREDOC syntax (as shown above) or the `localFile` resource to load the schema from a file on disk.
 	Body pulumi.StringPtrInput
 	// Specifies the ID of the Logic App Workflow. Changing this forces a new resource to be created.
 	LogicAppId pulumi.StringPtrInput
 	// Specifies the name of the HTTP Action to be created within the Logic App Workflow. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** This name must be unique across all Actions within the Logic App Workflow.
+	// > **Note:** This name must be unique across all Actions within the Logic App Workflow.
 	Name pulumi.StringPtrInput
 }
 
@@ -157,24 +163,28 @@ func (ActionCustomState) ElementType() reflect.Type {
 
 type actionCustomArgs struct {
 	// Specifies the JSON Blob defining the Body of this Custom Action.
+	//
+	// > **Note:** To make the Action more readable, you may wish to consider using HEREDOC syntax (as shown above) or the `localFile` resource to load the schema from a file on disk.
 	Body string `pulumi:"body"`
 	// Specifies the ID of the Logic App Workflow. Changing this forces a new resource to be created.
 	LogicAppId string `pulumi:"logicAppId"`
 	// Specifies the name of the HTTP Action to be created within the Logic App Workflow. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** This name must be unique across all Actions within the Logic App Workflow.
+	// > **Note:** This name must be unique across all Actions within the Logic App Workflow.
 	Name *string `pulumi:"name"`
 }
 
 // The set of arguments for constructing a ActionCustom resource.
 type ActionCustomArgs struct {
 	// Specifies the JSON Blob defining the Body of this Custom Action.
+	//
+	// > **Note:** To make the Action more readable, you may wish to consider using HEREDOC syntax (as shown above) or the `localFile` resource to load the schema from a file on disk.
 	Body pulumi.StringInput
 	// Specifies the ID of the Logic App Workflow. Changing this forces a new resource to be created.
 	LogicAppId pulumi.StringInput
 	// Specifies the name of the HTTP Action to be created within the Logic App Workflow. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** This name must be unique across all Actions within the Logic App Workflow.
+	// > **Note:** This name must be unique across all Actions within the Logic App Workflow.
 	Name pulumi.StringPtrInput
 }
 
@@ -266,6 +276,8 @@ func (o ActionCustomOutput) ToActionCustomOutputWithContext(ctx context.Context)
 }
 
 // Specifies the JSON Blob defining the Body of this Custom Action.
+//
+// > **Note:** To make the Action more readable, you may wish to consider using HEREDOC syntax (as shown above) or the `localFile` resource to load the schema from a file on disk.
 func (o ActionCustomOutput) Body() pulumi.StringOutput {
 	return o.ApplyT(func(v *ActionCustom) pulumi.StringOutput { return v.Body }).(pulumi.StringOutput)
 }
@@ -277,7 +289,7 @@ func (o ActionCustomOutput) LogicAppId() pulumi.StringOutput {
 
 // Specifies the name of the HTTP Action to be created within the Logic App Workflow. Changing this forces a new resource to be created.
 //
-// > **NOTE:** This name must be unique across all Actions within the Logic App Workflow.
+// > **Note:** This name must be unique across all Actions within the Logic App Workflow.
 func (o ActionCustomOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *ActionCustom) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }

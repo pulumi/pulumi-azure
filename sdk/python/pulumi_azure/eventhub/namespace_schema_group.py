@@ -191,6 +191,13 @@ class NamespaceSchemaGroup(pulumi.CustomResource):
             schema_type="Avro")
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.EventHub`: 2024-01-01
+
         ## Import
 
         Schema Group for a EventHub Namespace can be imported using the `resource id`, e.g.
@@ -233,6 +240,13 @@ class NamespaceSchemaGroup(pulumi.CustomResource):
             schema_compatibility="Forward",
             schema_type="Avro")
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.EventHub`: 2024-01-01
 
         ## Import
 

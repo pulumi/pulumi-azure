@@ -63,6 +63,13 @@ import (
 //	}
 //
 // ```
+//
+// ## API Providers
+//
+// <!-- This section is generated, changes will be overwritten -->
+// This resource uses the following Azure API Providers:
+//
+// * `Microsoft.OperationalInsights`: 2022-10-01
 type WorkspaceTable struct {
 	pulumi.CustomResourceState
 

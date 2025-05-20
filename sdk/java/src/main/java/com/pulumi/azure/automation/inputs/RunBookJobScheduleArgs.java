@@ -35,7 +35,7 @@ public final class RunBookJobScheduleArgs extends com.pulumi.resources.ResourceA
     /**
      * A map of key/value pairs corresponding to the arguments that can be passed to the Runbook.
      * 
-     * &gt; **NOTE:** The parameter keys/names must strictly be in lowercase, even if this is not the case in the runbook. This is due to a limitation in Azure Automation where the parameter names are normalized. The values specified don&#39;t have this limitation.
+     * &gt; **Note:** The parameter keys/names must strictly be in lowercase, even if this is not the case in the runbook. This is due to a limitation in Azure Automation where the parameter names are normalized. The values specified don&#39;t have this limitation.
      * 
      */
     @Import(name="parameters")
@@ -44,7 +44,7 @@ public final class RunBookJobScheduleArgs extends com.pulumi.resources.ResourceA
     /**
      * @return A map of key/value pairs corresponding to the arguments that can be passed to the Runbook.
      * 
-     * &gt; **NOTE:** The parameter keys/names must strictly be in lowercase, even if this is not the case in the runbook. This is due to a limitation in Azure Automation where the parameter names are normalized. The values specified don&#39;t have this limitation.
+     * &gt; **Note:** The parameter keys/names must strictly be in lowercase, even if this is not the case in the runbook. This is due to a limitation in Azure Automation where the parameter names are normalized. The values specified don&#39;t have this limitation.
      * 
      */
     public Optional<Output<Map<String,String>>> parameters() {
@@ -132,7 +132,7 @@ public final class RunBookJobScheduleArgs extends com.pulumi.resources.ResourceA
         /**
          * @param parameters A map of key/value pairs corresponding to the arguments that can be passed to the Runbook.
          * 
-         * &gt; **NOTE:** The parameter keys/names must strictly be in lowercase, even if this is not the case in the runbook. This is due to a limitation in Azure Automation where the parameter names are normalized. The values specified don&#39;t have this limitation.
+         * &gt; **Note:** The parameter keys/names must strictly be in lowercase, even if this is not the case in the runbook. This is due to a limitation in Azure Automation where the parameter names are normalized. The values specified don&#39;t have this limitation.
          * 
          * @return builder
          * 
@@ -145,7 +145,7 @@ public final class RunBookJobScheduleArgs extends com.pulumi.resources.ResourceA
         /**
          * @param parameters A map of key/value pairs corresponding to the arguments that can be passed to the Runbook.
          * 
-         * &gt; **NOTE:** The parameter keys/names must strictly be in lowercase, even if this is not the case in the runbook. This is due to a limitation in Azure Automation where the parameter names are normalized. The values specified don&#39;t have this limitation.
+         * &gt; **Note:** The parameter keys/names must strictly be in lowercase, even if this is not the case in the runbook. This is due to a limitation in Azure Automation where the parameter names are normalized. The values specified don&#39;t have this limitation.
          * 
          * @return builder
          * 

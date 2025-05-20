@@ -1877,7 +1877,7 @@ type RunBookJobSchedule struct {
 	JobScheduleId *string `pulumi:"jobScheduleId"`
 	// A map of key/value pairs corresponding to the arguments that can be passed to the Runbook.
 	//
-	// > **NOTE:** The parameter keys/names must strictly be in lowercase, even if this is not the case in the runbook. This is due to a limitation in Azure Automation where the parameter names are normalized. The values specified don't have this limitation.
+	// > **Note:** The parameter keys/names must strictly be in lowercase, even if this is not the case in the runbook. This is due to a limitation in Azure Automation where the parameter names are normalized. The values specified don't have this limitation.
 	Parameters map[string]string `pulumi:"parameters"`
 	// Name of a Hybrid Worker Group the Runbook will be executed on.
 	RunOn *string `pulumi:"runOn"`
@@ -1901,7 +1901,7 @@ type RunBookJobScheduleArgs struct {
 	JobScheduleId pulumi.StringPtrInput `pulumi:"jobScheduleId"`
 	// A map of key/value pairs corresponding to the arguments that can be passed to the Runbook.
 	//
-	// > **NOTE:** The parameter keys/names must strictly be in lowercase, even if this is not the case in the runbook. This is due to a limitation in Azure Automation where the parameter names are normalized. The values specified don't have this limitation.
+	// > **Note:** The parameter keys/names must strictly be in lowercase, even if this is not the case in the runbook. This is due to a limitation in Azure Automation where the parameter names are normalized. The values specified don't have this limitation.
 	Parameters pulumi.StringMapInput `pulumi:"parameters"`
 	// Name of a Hybrid Worker Group the Runbook will be executed on.
 	RunOn pulumi.StringPtrInput `pulumi:"runOn"`
@@ -1967,7 +1967,7 @@ func (o RunBookJobScheduleOutput) JobScheduleId() pulumi.StringPtrOutput {
 
 // A map of key/value pairs corresponding to the arguments that can be passed to the Runbook.
 //
-// > **NOTE:** The parameter keys/names must strictly be in lowercase, even if this is not the case in the runbook. This is due to a limitation in Azure Automation where the parameter names are normalized. The values specified don't have this limitation.
+// > **Note:** The parameter keys/names must strictly be in lowercase, even if this is not the case in the runbook. This is due to a limitation in Azure Automation where the parameter names are normalized. The values specified don't have this limitation.
 func (o RunBookJobScheduleOutput) Parameters() pulumi.StringMapOutput {
 	return o.ApplyT(func(v RunBookJobSchedule) map[string]string { return v.Parameters }).(pulumi.StringMapOutput)
 }

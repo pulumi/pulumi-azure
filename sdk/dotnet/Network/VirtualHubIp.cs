@@ -12,7 +12,7 @@ namespace Pulumi.Azure.Network
     /// <summary>
     /// Manages a Virtual Hub IP. This resource is also known as a Route Server.
     /// 
-    /// &gt; **NOTE** Virtual Hub IP only supports Standard Virtual Hub without Virtual Wan.
+    /// &gt; **Note:** Virtual Hub IP only supports Standard Virtual Hub without Virtual Wan.
     /// 
     /// ## Example Usage
     /// 

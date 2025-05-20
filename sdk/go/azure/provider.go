@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -69,9 +70,12 @@ type Provider struct {
 func NewProvider(ctx *pulumi.Context,
 	name string, args *ProviderArgs, opts ...pulumi.ResourceOption) (*Provider, error) {
 	if args == nil {
-		args = &ProviderArgs{}
+		return nil, errors.New("missing one or more required arguments")
 	}
 
+	if args.Features == nil {
+		return nil, errors.New("invalid value for required argument 'Features'")
+	}
 	if args.Environment == nil {
 		if d := internal.GetEnvOrDefault("public", nil, "AZURE_ENVIRONMENT", "ARM_ENVIRONMENT"); d != nil {
 			args.Environment = pulumi.StringPtr(d.(string))
@@ -186,8 +190,8 @@ type providerArgs struct {
 	DisableTerraformPartnerId   *bool `pulumi:"disableTerraformPartnerId"`
 	// The Cloud Environment which should be used. Possible values are public, usgovernment, and china. Defaults to public. Not
 	// used and should not be specified when `metadataHost` is specified.
-	Environment *string           `pulumi:"environment"`
-	Features    *ProviderFeatures `pulumi:"features"`
+	Environment *string          `pulumi:"environment"`
+	Features    ProviderFeatures `pulumi:"features"`
 	// The Hostname which should be used for the Azure Metadata Service.
 	MetadataHost *string `pulumi:"metadataHost"`
 	// The path to a custom endpoint for Managed Service Identity - in most circumstances this should be detected
@@ -259,7 +263,7 @@ type ProviderArgs struct {
 	// The Cloud Environment which should be used. Possible values are public, usgovernment, and china. Defaults to public. Not
 	// used and should not be specified when `metadataHost` is specified.
 	Environment pulumi.StringPtrInput
-	Features    ProviderFeaturesPtrInput
+	Features    ProviderFeaturesInput
 	// The Hostname which should be used for the Azure Metadata Service.
 	MetadataHost pulumi.StringPtrInput
 	// The path to a custom endpoint for Managed Service Identity - in most circumstances this should be detected

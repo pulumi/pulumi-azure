@@ -17,7 +17,7 @@ namespace Pulumi.Azure.NetApp.Inputs
         /// 
         /// A full example of the `data_protection_snapshot_policy` attribute usage can be found in the `./examples/netapp/nfsv3_volume_with_snapshot_policy` directory within the GitHub Repository
         /// 
-        /// &gt; **NOTE:** `data_protection_snapshot_policy` block can be used alone or with data_protection_replication in the primary volume only, if enabling it in the secondary, an error will be thrown.
+        /// &gt; **Note:** `data_protection_snapshot_policy` block can be used alone or with data_protection_replication in the primary volume only, if enabling it in the secondary, an error will be thrown.
         /// </summary>
         [Input("snapshotPolicyId", required: true)]
         public Input<string> SnapshotPolicyId { get; set; } = null!;

@@ -29,17 +29,9 @@ public final class HubApnsCredentialArgs extends com.pulumi.resources.ResourceAr
         return this.applicationMode;
     }
 
-    /**
-     * The Bundle ID of the iOS/macOS application to send push notifications for, such as `com.org.example`.
-     * 
-     */
     @Import(name="bundleId", required=true)
     private Output<String> bundleId;
 
-    /**
-     * @return The Bundle ID of the iOS/macOS application to send push notifications for, such as `com.org.example`.
-     * 
-     */
     public Output<String> bundleId() {
         return this.bundleId;
     }
@@ -138,23 +130,11 @@ public final class HubApnsCredentialArgs extends com.pulumi.resources.ResourceAr
             return applicationMode(Output.of(applicationMode));
         }
 
-        /**
-         * @param bundleId The Bundle ID of the iOS/macOS application to send push notifications for, such as `com.org.example`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder bundleId(Output<String> bundleId) {
             $.bundleId = bundleId;
             return this;
         }
 
-        /**
-         * @param bundleId The Bundle ID of the iOS/macOS application to send push notifications for, such as `com.org.example`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder bundleId(String bundleId) {
             return bundleId(Output.of(bundleId));
         }

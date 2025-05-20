@@ -125,6 +125,13 @@ def get_volume_snapshot(name: Optional[builtins.str] = None,
     pulumi.export("id", example_get_volume_snapshot.id)
     ```
 
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.ElasticSan`: 2023-01-01
+
 
     :param builtins.str name: The name of the Elastic SAN Volume Snapshot.
     :param builtins.str volume_group_id: The Elastic SAN Volume Group ID within which the Elastic SAN Volume Snapshot exists.
@@ -162,6 +169,13 @@ def get_volume_snapshot_output(name: Optional[pulumi.Input[builtins.str]] = None
         volume_group_id=example_get_volume_group.id)
     pulumi.export("id", example_get_volume_snapshot.id)
     ```
+
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.ElasticSan`: 2023-01-01
 
 
     :param builtins.str name: The name of the Elastic SAN Volume Snapshot.

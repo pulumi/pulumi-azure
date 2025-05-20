@@ -260,6 +260,13 @@ namespace Pulumi.Azure.MSSql
     /// });
     /// ```
     /// 
+    /// ## API Providers
+    /// 
+    /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+    /// This resource uses the following Azure API Providers:
+    /// 
+    /// * `Microsoft.Sql`: 2023-08-01-preview
+    /// 
     /// ## Import
     /// 
     /// Microsoft SQL Managed Instances can be imported using the `resource id`, e.g.
@@ -354,7 +361,7 @@ namespace Pulumi.Azure.MSSql
         /// <summary>
         /// The Minimum TLS Version. Default value is `1.2` Valid values include `1.0`, `1.1`, `1.2`.
         /// 
-        /// &gt; **NOTE:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
+        /// &gt; **Note:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
         /// </summary>
         [Output("minimumTlsVersion")]
         public Output<string?> MinimumTlsVersion { get; private set; } = null!;
@@ -572,7 +579,7 @@ namespace Pulumi.Azure.MSSql
         /// <summary>
         /// The Minimum TLS Version. Default value is `1.2` Valid values include `1.0`, `1.1`, `1.2`.
         /// 
-        /// &gt; **NOTE:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
+        /// &gt; **Note:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
         /// </summary>
         [Input("minimumTlsVersion")]
         public Input<string>? MinimumTlsVersion { get; set; }
@@ -762,7 +769,7 @@ namespace Pulumi.Azure.MSSql
         /// <summary>
         /// The Minimum TLS Version. Default value is `1.2` Valid values include `1.0`, `1.1`, `1.2`.
         /// 
-        /// &gt; **NOTE:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
+        /// &gt; **Note:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
         /// </summary>
         [Input("minimumTlsVersion")]
         public Input<string>? MinimumTlsVersion { get; set; }

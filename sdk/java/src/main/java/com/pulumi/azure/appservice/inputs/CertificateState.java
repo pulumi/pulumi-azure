@@ -132,7 +132,7 @@ public final class CertificateState extends com.pulumi.resources.ResourceArgs {
     /**
      * The ID of the Key Vault secret. Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE:** Exactly one of `key_vault_secret_id` or `pfx_blob` must be specified.
+     * &gt; **Note:** Exactly one of `key_vault_secret_id` or `pfx_blob` must be specified.
      * 
      */
     @Import(name="keyVaultSecretId")
@@ -141,7 +141,7 @@ public final class CertificateState extends com.pulumi.resources.ResourceArgs {
     /**
      * @return The ID of the Key Vault secret. Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE:** Exactly one of `key_vault_secret_id` or `pfx_blob` must be specified.
+     * &gt; **Note:** Exactly one of `key_vault_secret_id` or `pfx_blob` must be specified.
      * 
      */
     public Optional<Output<String>> keyVaultSecretId() {
@@ -196,7 +196,7 @@ public final class CertificateState extends com.pulumi.resources.ResourceArgs {
     /**
      * The base64-encoded contents of the certificate. Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE:** Exactly one of `key_vault_secret_id` or `pfx_blob` must be specified.
+     * &gt; **Note:** Exactly one of `key_vault_secret_id` or `pfx_blob` must be specified.
      * 
      */
     @Import(name="pfxBlob")
@@ -205,7 +205,7 @@ public final class CertificateState extends com.pulumi.resources.ResourceArgs {
     /**
      * @return The base64-encoded contents of the certificate. Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE:** Exactly one of `key_vault_secret_id` or `pfx_blob` must be specified.
+     * &gt; **Note:** Exactly one of `key_vault_secret_id` or `pfx_blob` must be specified.
      * 
      */
     public Optional<Output<String>> pfxBlob() {
@@ -215,7 +215,7 @@ public final class CertificateState extends com.pulumi.resources.ResourceArgs {
     /**
      * The name of the resource group in which to create the certificate. Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE:** The resource group must be the same as that which the app service plan is defined in - otherwise the certificate will not show as available for the app services.
+     * &gt; **Note:** The resource group must be the same as that which the app service plan is defined in - otherwise the certificate will not show as available for the app services.
      * 
      */
     @Import(name="resourceGroupName")
@@ -224,7 +224,7 @@ public final class CertificateState extends com.pulumi.resources.ResourceArgs {
     /**
      * @return The name of the resource group in which to create the certificate. Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE:** The resource group must be the same as that which the app service plan is defined in - otherwise the certificate will not show as available for the app services.
+     * &gt; **Note:** The resource group must be the same as that which the app service plan is defined in - otherwise the certificate will not show as available for the app services.
      * 
      */
     public Optional<Output<String>> resourceGroupName() {
@@ -477,7 +477,7 @@ public final class CertificateState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param keyVaultSecretId The ID of the Key Vault secret. Changing this forces a new resource to be created.
          * 
-         * &gt; **NOTE:** Exactly one of `key_vault_secret_id` or `pfx_blob` must be specified.
+         * &gt; **Note:** Exactly one of `key_vault_secret_id` or `pfx_blob` must be specified.
          * 
          * @return builder
          * 
@@ -490,7 +490,7 @@ public final class CertificateState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param keyVaultSecretId The ID of the Key Vault secret. Changing this forces a new resource to be created.
          * 
-         * &gt; **NOTE:** Exactly one of `key_vault_secret_id` or `pfx_blob` must be specified.
+         * &gt; **Note:** Exactly one of `key_vault_secret_id` or `pfx_blob` must be specified.
          * 
          * @return builder
          * 
@@ -565,7 +565,7 @@ public final class CertificateState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param pfxBlob The base64-encoded contents of the certificate. Changing this forces a new resource to be created.
          * 
-         * &gt; **NOTE:** Exactly one of `key_vault_secret_id` or `pfx_blob` must be specified.
+         * &gt; **Note:** Exactly one of `key_vault_secret_id` or `pfx_blob` must be specified.
          * 
          * @return builder
          * 
@@ -578,7 +578,7 @@ public final class CertificateState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param pfxBlob The base64-encoded contents of the certificate. Changing this forces a new resource to be created.
          * 
-         * &gt; **NOTE:** Exactly one of `key_vault_secret_id` or `pfx_blob` must be specified.
+         * &gt; **Note:** Exactly one of `key_vault_secret_id` or `pfx_blob` must be specified.
          * 
          * @return builder
          * 
@@ -590,7 +590,7 @@ public final class CertificateState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param resourceGroupName The name of the resource group in which to create the certificate. Changing this forces a new resource to be created.
          * 
-         * &gt; **NOTE:** The resource group must be the same as that which the app service plan is defined in - otherwise the certificate will not show as available for the app services.
+         * &gt; **Note:** The resource group must be the same as that which the app service plan is defined in - otherwise the certificate will not show as available for the app services.
          * 
          * @return builder
          * 
@@ -603,7 +603,7 @@ public final class CertificateState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param resourceGroupName The name of the resource group in which to create the certificate. Changing this forces a new resource to be created.
          * 
-         * &gt; **NOTE:** The resource group must be the same as that which the app service plan is defined in - otherwise the certificate will not show as available for the app services.
+         * &gt; **Note:** The resource group must be the same as that which the app service plan is defined in - otherwise the certificate will not show as available for the app services.
          * 
          * @return builder
          * 

@@ -28,7 +28,7 @@ namespace Pulumi.Azure.Monitoring.Outputs
         /// <summary>
         /// A list of severity level of the event. Possible values are `Verbose`, `Informational`, `Warning`, `Error`, and `Critical`.
         /// 
-        /// &gt; **NOTE:** `level` and `levels` are mutually exclusive.
+        /// &gt; **Note:** `level` and `levels` are mutually exclusive.
         /// </summary>
         public readonly ImmutableArray<string> Levels;
         /// <summary>
@@ -54,7 +54,7 @@ namespace Pulumi.Azure.Monitoring.Outputs
         /// <summary>
         /// A list of names of resource groups monitored by the activity log alert.
         /// 
-        /// &gt; **NOTE:** `resource_group` and `resource_groups` are mutually exclusive.
+        /// &gt; **Note:** `resource_group` and `resource_groups` are mutually exclusive.
         /// </summary>
         public readonly ImmutableArray<string> ResourceGroups;
         /// <summary>
@@ -68,7 +68,7 @@ namespace Pulumi.Azure.Monitoring.Outputs
         /// <summary>
         /// A list of specific resources monitored by the activity log alert. It should be within one of the `scopes`.
         /// 
-        /// &gt; **NOTE:** `resource_id` and `resource_ids` are mutually exclusive.
+        /// &gt; **Note:** `resource_id` and `resource_ids` are mutually exclusive.
         /// </summary>
         public readonly ImmutableArray<string> ResourceIds;
         /// <summary>
@@ -78,7 +78,7 @@ namespace Pulumi.Azure.Monitoring.Outputs
         /// <summary>
         /// A list of names of resource providers monitored by the activity log alert.
         /// 
-        /// &gt; **NOTE:** `resource_provider` and `resource_providers` are mutually exclusive.
+        /// &gt; **Note:** `resource_provider` and `resource_providers` are mutually exclusive.
         /// </summary>
         public readonly ImmutableArray<string> ResourceProviders;
         /// <summary>
@@ -88,7 +88,7 @@ namespace Pulumi.Azure.Monitoring.Outputs
         /// <summary>
         /// A list of resource types monitored by the activity log alert.
         /// 
-        /// &gt; **NOTE:** `resource_type` and `resource_types` are mutually exclusive.
+        /// &gt; **Note:** `resource_type` and `resource_types` are mutually exclusive.
         /// </summary>
         public readonly ImmutableArray<string> ResourceTypes;
         /// <summary>
@@ -102,7 +102,7 @@ namespace Pulumi.Azure.Monitoring.Outputs
         /// <summary>
         /// A list of status of the event. For example, `Started`, `Failed`, or `Succeeded`.
         /// 
-        /// &gt; **NOTE:** `status` and `statuses` are mutually exclusive.
+        /// &gt; **Note:** `status` and `statuses` are mutually exclusive.
         /// </summary>
         public readonly ImmutableArray<string> Statuses;
         /// <summary>
@@ -112,7 +112,7 @@ namespace Pulumi.Azure.Monitoring.Outputs
         /// <summary>
         /// A list of sub status of the event.
         /// 
-        /// &gt; **NOTE:** `sub_status` and `sub_statuses` are mutually exclusive.
+        /// &gt; **Note:** `sub_status` and `sub_statuses` are mutually exclusive.
         /// </summary>
         public readonly ImmutableArray<string> SubStatuses;
 

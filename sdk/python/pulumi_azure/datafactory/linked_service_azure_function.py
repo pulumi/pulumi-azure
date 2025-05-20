@@ -381,6 +381,8 @@ class LinkedServiceAzureFunction(pulumi.CustomResource):
         """
         Manages a Linked Service (connection) between an Azure Function and Azure Data Factory.
 
+        > **Note:** All arguments including the client secret will be stored in the raw state as plain-text. [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
+
         ## Example Usage
 
         ```python
@@ -434,6 +436,8 @@ class LinkedServiceAzureFunction(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Linked Service (connection) between an Azure Function and Azure Data Factory.
+
+        > **Note:** All arguments including the client secret will be stored in the raw state as plain-text. [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
 
         ## Example Usage
 

@@ -20,7 +20,7 @@ public final class SparkClusterStorageAccountArgs extends com.pulumi.resources.R
     /**
      * Is this the Default Storage Account for the HDInsight Hadoop Cluster? Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE:** One of the `storage_account` or `storage_account_gen2` blocks must be marked as the default.
+     * &gt; **Note:** One of the `storage_account` or `storage_account_gen2` blocks must be marked as the default.
      * 
      */
     @Import(name="isDefault", required=true)
@@ -29,7 +29,7 @@ public final class SparkClusterStorageAccountArgs extends com.pulumi.resources.R
     /**
      * @return Is this the Default Storage Account for the HDInsight Hadoop Cluster? Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE:** One of the `storage_account` or `storage_account_gen2` blocks must be marked as the default.
+     * &gt; **Note:** One of the `storage_account` or `storage_account_gen2` blocks must be marked as the default.
      * 
      */
     public Output<Boolean> isDefault() {
@@ -54,7 +54,7 @@ public final class SparkClusterStorageAccountArgs extends com.pulumi.resources.R
     /**
      * The ID of the Storage Container. Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE:** This can be obtained from the `id` of the `azure.storage.Container` resource.
+     * &gt; **Note:** This can be obtained from the `id` of the `azure.storage.Container` resource.
      * 
      */
     @Import(name="storageContainerId", required=true)
@@ -63,7 +63,7 @@ public final class SparkClusterStorageAccountArgs extends com.pulumi.resources.R
     /**
      * @return The ID of the Storage Container. Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE:** This can be obtained from the `id` of the `azure.storage.Container` resource.
+     * &gt; **Note:** This can be obtained from the `id` of the `azure.storage.Container` resource.
      * 
      */
     public Output<String> storageContainerId() {
@@ -115,7 +115,7 @@ public final class SparkClusterStorageAccountArgs extends com.pulumi.resources.R
         /**
          * @param isDefault Is this the Default Storage Account for the HDInsight Hadoop Cluster? Changing this forces a new resource to be created.
          * 
-         * &gt; **NOTE:** One of the `storage_account` or `storage_account_gen2` blocks must be marked as the default.
+         * &gt; **Note:** One of the `storage_account` or `storage_account_gen2` blocks must be marked as the default.
          * 
          * @return builder
          * 
@@ -128,7 +128,7 @@ public final class SparkClusterStorageAccountArgs extends com.pulumi.resources.R
         /**
          * @param isDefault Is this the Default Storage Account for the HDInsight Hadoop Cluster? Changing this forces a new resource to be created.
          * 
-         * &gt; **NOTE:** One of the `storage_account` or `storage_account_gen2` blocks must be marked as the default.
+         * &gt; **Note:** One of the `storage_account` or `storage_account_gen2` blocks must be marked as the default.
          * 
          * @return builder
          * 
@@ -161,7 +161,7 @@ public final class SparkClusterStorageAccountArgs extends com.pulumi.resources.R
         /**
          * @param storageContainerId The ID of the Storage Container. Changing this forces a new resource to be created.
          * 
-         * &gt; **NOTE:** This can be obtained from the `id` of the `azure.storage.Container` resource.
+         * &gt; **Note:** This can be obtained from the `id` of the `azure.storage.Container` resource.
          * 
          * @return builder
          * 
@@ -174,7 +174,7 @@ public final class SparkClusterStorageAccountArgs extends com.pulumi.resources.R
         /**
          * @param storageContainerId The ID of the Storage Container. Changing this forces a new resource to be created.
          * 
-         * &gt; **NOTE:** This can be obtained from the `id` of the `azure.storage.Container` resource.
+         * &gt; **Note:** This can be obtained from the `id` of the `azure.storage.Container` resource.
          * 
          * @return builder
          * 

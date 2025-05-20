@@ -36,9 +36,6 @@ class NamedValueArgs:
         :param pulumi.Input[builtins.str] display_name: The display name of this API Management Named Value.
         :param pulumi.Input[builtins.str] resource_group_name: The name of the Resource Group in which the API Management Named Value should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] name: The name of the API Management Named Value. Changing this forces a new resource to be created.
-        :param pulumi.Input[builtins.bool] secret: Specifies whether the API Management Named Value is secret. Valid values are `true` or `false`. The default value is `false`.
-               
-               > **NOTE:** setting the field `secret` to `true` doesn't make this field sensitive in the provider, instead it marks the value as secret and encrypts the value in Azure.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] tags: A list of tags to be applied to the API Management Named Value.
         :param pulumi.Input[builtins.str] value: The value of this API Management Named Value.
         :param pulumi.Input['NamedValueValueFromKeyVaultArgs'] value_from_key_vault: A `value_from_key_vault` block as defined below. If specified, `secret` must also be set to `true`.
@@ -108,11 +105,6 @@ class NamedValueArgs:
     @property
     @pulumi.getter
     def secret(self) -> Optional[pulumi.Input[builtins.bool]]:
-        """
-        Specifies whether the API Management Named Value is secret. Valid values are `true` or `false`. The default value is `false`.
-
-        > **NOTE:** setting the field `secret` to `true` doesn't make this field sensitive in the provider, instead it marks the value as secret and encrypts the value in Azure.
-        """
         return pulumi.get(self, "secret")
 
     @secret.setter
@@ -173,9 +165,6 @@ class _NamedValueState:
         :param pulumi.Input[builtins.str] display_name: The display name of this API Management Named Value.
         :param pulumi.Input[builtins.str] name: The name of the API Management Named Value. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] resource_group_name: The name of the Resource Group in which the API Management Named Value should exist. Changing this forces a new resource to be created.
-        :param pulumi.Input[builtins.bool] secret: Specifies whether the API Management Named Value is secret. Valid values are `true` or `false`. The default value is `false`.
-               
-               > **NOTE:** setting the field `secret` to `true` doesn't make this field sensitive in the provider, instead it marks the value as secret and encrypts the value in Azure.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] tags: A list of tags to be applied to the API Management Named Value.
         :param pulumi.Input[builtins.str] value: The value of this API Management Named Value.
         :param pulumi.Input['NamedValueValueFromKeyVaultArgs'] value_from_key_vault: A `value_from_key_vault` block as defined below. If specified, `secret` must also be set to `true`.
@@ -248,11 +237,6 @@ class _NamedValueState:
     @property
     @pulumi.getter
     def secret(self) -> Optional[pulumi.Input[builtins.bool]]:
-        """
-        Specifies whether the API Management Named Value is secret. Valid values are `true` or `false`. The default value is `false`.
-
-        > **NOTE:** setting the field `secret` to `true` doesn't make this field sensitive in the provider, instead it marks the value as secret and encrypts the value in Azure.
-        """
         return pulumi.get(self, "secret")
 
     @secret.setter
@@ -338,6 +322,13 @@ class NamedValue(pulumi.CustomResource):
             value="Example Value")
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.ApiManagement`: 2022-08-01
+
         ## Import
 
         API Management Properties can be imported using the `resource id`, e.g.
@@ -352,9 +343,6 @@ class NamedValue(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] display_name: The display name of this API Management Named Value.
         :param pulumi.Input[builtins.str] name: The name of the API Management Named Value. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] resource_group_name: The name of the Resource Group in which the API Management Named Value should exist. Changing this forces a new resource to be created.
-        :param pulumi.Input[builtins.bool] secret: Specifies whether the API Management Named Value is secret. Valid values are `true` or `false`. The default value is `false`.
-               
-               > **NOTE:** setting the field `secret` to `true` doesn't make this field sensitive in the provider, instead it marks the value as secret and encrypts the value in Azure.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] tags: A list of tags to be applied to the API Management Named Value.
         :param pulumi.Input[builtins.str] value: The value of this API Management Named Value.
         :param pulumi.Input[Union['NamedValueValueFromKeyVaultArgs', 'NamedValueValueFromKeyVaultArgsDict']] value_from_key_vault: A `value_from_key_vault` block as defined below. If specified, `secret` must also be set to `true`.
@@ -391,6 +379,13 @@ class NamedValue(pulumi.CustomResource):
             display_name="ExampleProperty",
             value="Example Value")
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.ApiManagement`: 2022-08-01
 
         ## Import
 
@@ -477,9 +472,6 @@ class NamedValue(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] display_name: The display name of this API Management Named Value.
         :param pulumi.Input[builtins.str] name: The name of the API Management Named Value. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] resource_group_name: The name of the Resource Group in which the API Management Named Value should exist. Changing this forces a new resource to be created.
-        :param pulumi.Input[builtins.bool] secret: Specifies whether the API Management Named Value is secret. Valid values are `true` or `false`. The default value is `false`.
-               
-               > **NOTE:** setting the field `secret` to `true` doesn't make this field sensitive in the provider, instead it marks the value as secret and encrypts the value in Azure.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] tags: A list of tags to be applied to the API Management Named Value.
         :param pulumi.Input[builtins.str] value: The value of this API Management Named Value.
         :param pulumi.Input[Union['NamedValueValueFromKeyVaultArgs', 'NamedValueValueFromKeyVaultArgsDict']] value_from_key_vault: A `value_from_key_vault` block as defined below. If specified, `secret` must also be set to `true`.
@@ -533,11 +525,6 @@ class NamedValue(pulumi.CustomResource):
     @property
     @pulumi.getter
     def secret(self) -> pulumi.Output[Optional[builtins.bool]]:
-        """
-        Specifies whether the API Management Named Value is secret. Valid values are `true` or `false`. The default value is `false`.
-
-        > **NOTE:** setting the field `secret` to `true` doesn't make this field sensitive in the provider, instead it marks the value as secret and encrypts the value in Azure.
-        """
         return pulumi.get(self, "secret")
 
     @property

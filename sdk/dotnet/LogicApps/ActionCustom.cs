@@ -72,6 +72,8 @@ namespace Pulumi.Azure.LogicApps
     {
         /// <summary>
         /// Specifies the JSON Blob defining the Body of this Custom Action.
+        /// 
+        /// &gt; **Note:** To make the Action more readable, you may wish to consider using HEREDOC syntax (as shown above) or the `local_file` resource to load the schema from a file on disk.
         /// </summary>
         [Output("body")]
         public Output<string> Body { get; private set; } = null!;
@@ -85,7 +87,7 @@ namespace Pulumi.Azure.LogicApps
         /// <summary>
         /// Specifies the name of the HTTP Action to be created within the Logic App Workflow. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **NOTE:** This name must be unique across all Actions within the Logic App Workflow.
+        /// &gt; **Note:** This name must be unique across all Actions within the Logic App Workflow.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -138,6 +140,8 @@ namespace Pulumi.Azure.LogicApps
     {
         /// <summary>
         /// Specifies the JSON Blob defining the Body of this Custom Action.
+        /// 
+        /// &gt; **Note:** To make the Action more readable, you may wish to consider using HEREDOC syntax (as shown above) or the `local_file` resource to load the schema from a file on disk.
         /// </summary>
         [Input("body", required: true)]
         public Input<string> Body { get; set; } = null!;
@@ -151,7 +155,7 @@ namespace Pulumi.Azure.LogicApps
         /// <summary>
         /// Specifies the name of the HTTP Action to be created within the Logic App Workflow. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **NOTE:** This name must be unique across all Actions within the Logic App Workflow.
+        /// &gt; **Note:** This name must be unique across all Actions within the Logic App Workflow.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -166,6 +170,8 @@ namespace Pulumi.Azure.LogicApps
     {
         /// <summary>
         /// Specifies the JSON Blob defining the Body of this Custom Action.
+        /// 
+        /// &gt; **Note:** To make the Action more readable, you may wish to consider using HEREDOC syntax (as shown above) or the `local_file` resource to load the schema from a file on disk.
         /// </summary>
         [Input("body")]
         public Input<string>? Body { get; set; }
@@ -179,7 +185,7 @@ namespace Pulumi.Azure.LogicApps
         /// <summary>
         /// Specifies the name of the HTTP Action to be created within the Logic App Workflow. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **NOTE:** This name must be unique across all Actions within the Logic App Workflow.
+        /// &gt; **Note:** This name must be unique across all Actions within the Logic App Workflow.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }

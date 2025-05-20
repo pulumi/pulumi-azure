@@ -14,7 +14,7 @@ namespace Pulumi.Azure.Avs
     /// 
     /// ## Example Usage
     /// 
-    /// &gt; **NOTE :**  Normal `pulumi up` could ignore this note. Please disable correlation request id for continuous operations in one build (like acctest). The continuous operations like `update` or `delete` could not be triggered when it shares the same `correlation-id` with its previous operation.
+    /// &gt; **Note:** Normal `pulumi up` could ignore this note. Please disable correlation request id for continuous operations in one build (like acctest). The continuous operations like `update` or `delete` could not be triggered when it shares the same `correlation-id` with its previous operation.
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
@@ -49,6 +49,13 @@ namespace Pulumi.Azure.Avs
     /// });
     /// ```
     /// 
+    /// ## API Providers
+    /// 
+    /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+    /// This resource uses the following Azure API Providers:
+    /// 
+    /// * `Microsoft.AVS`: 2022-05-01
+    /// 
     /// ## Import
     /// 
     /// Azure VMware Solution Private Clouds can be imported using the `resource id`, e.g.
@@ -74,7 +81,7 @@ namespace Pulumi.Azure.Avs
 
         /// <summary>
         /// Is the Azure VMware Solution Private Cloud connected to the internet? This field can not be updated with `management_cluster[0].size` together.
-        /// &gt; **NOTE :** `internet_connection_enabled` and `management_cluster[0].size` cannot be updated at the same time.
+        /// &gt; **Note:** `internet_connection_enabled` and `management_cluster[0].size` cannot be updated at the same time.
         /// </summary>
         [Output("internetConnectionEnabled")]
         public Output<bool?> InternetConnectionEnabled { get; private set; } = null!;
@@ -87,7 +94,7 @@ namespace Pulumi.Azure.Avs
 
         /// <summary>
         /// A `management_cluster` block as defined below.
-        /// &gt; **NOTE :** `internet_connection_enabled` and `management_cluster[0].size` cannot be updated at the same time.
+        /// &gt; **Note:** `internet_connection_enabled` and `management_cluster[0].size` cannot be updated at the same time.
         /// </summary>
         [Output("managementCluster")]
         public Output<Outputs.PrivateCloudManagementCluster> ManagementCluster { get; private set; } = null!;
@@ -229,7 +236,7 @@ namespace Pulumi.Azure.Avs
     {
         /// <summary>
         /// Is the Azure VMware Solution Private Cloud connected to the internet? This field can not be updated with `management_cluster[0].size` together.
-        /// &gt; **NOTE :** `internet_connection_enabled` and `management_cluster[0].size` cannot be updated at the same time.
+        /// &gt; **Note:** `internet_connection_enabled` and `management_cluster[0].size` cannot be updated at the same time.
         /// </summary>
         [Input("internetConnectionEnabled")]
         public Input<bool>? InternetConnectionEnabled { get; set; }
@@ -242,7 +249,7 @@ namespace Pulumi.Azure.Avs
 
         /// <summary>
         /// A `management_cluster` block as defined below.
-        /// &gt; **NOTE :** `internet_connection_enabled` and `management_cluster[0].size` cannot be updated at the same time.
+        /// &gt; **Note:** `internet_connection_enabled` and `management_cluster[0].size` cannot be updated at the same time.
         /// </summary>
         [Input("managementCluster", required: true)]
         public Input<Inputs.PrivateCloudManagementClusterArgs> ManagementCluster { get; set; } = null!;
@@ -343,7 +350,7 @@ namespace Pulumi.Azure.Avs
 
         /// <summary>
         /// Is the Azure VMware Solution Private Cloud connected to the internet? This field can not be updated with `management_cluster[0].size` together.
-        /// &gt; **NOTE :** `internet_connection_enabled` and `management_cluster[0].size` cannot be updated at the same time.
+        /// &gt; **Note:** `internet_connection_enabled` and `management_cluster[0].size` cannot be updated at the same time.
         /// </summary>
         [Input("internetConnectionEnabled")]
         public Input<bool>? InternetConnectionEnabled { get; set; }
@@ -356,7 +363,7 @@ namespace Pulumi.Azure.Avs
 
         /// <summary>
         /// A `management_cluster` block as defined below.
-        /// &gt; **NOTE :** `internet_connection_enabled` and `management_cluster[0].size` cannot be updated at the same time.
+        /// &gt; **Note:** `internet_connection_enabled` and `management_cluster[0].size` cannot be updated at the same time.
         /// </summary>
         [Input("managementCluster")]
         public Input<Inputs.PrivateCloudManagementClusterGetArgs>? ManagementCluster { get; set; }

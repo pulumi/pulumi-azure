@@ -36,6 +36,13 @@ namespace Pulumi.Azure.Storage
         ///     };
         /// });
         /// ```
+        /// 
+        /// ## API Providers
+        /// 
+        /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+        /// This data source uses the following Azure API Providers:
+        /// 
+        /// * `Microsoft.Storage`: 2023-05-01
         /// </summary>
         public static Task<GetAccountResult> InvokeAsync(GetAccountArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAccountResult>("azure:storage/getAccount:getAccount", args ?? new GetAccountArgs(), options.WithDefaults());
@@ -65,6 +72,13 @@ namespace Pulumi.Azure.Storage
         ///     };
         /// });
         /// ```
+        /// 
+        /// ## API Providers
+        /// 
+        /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+        /// This data source uses the following Azure API Providers:
+        /// 
+        /// * `Microsoft.Storage`: 2023-05-01
         /// </summary>
         public static Output<GetAccountResult> Invoke(GetAccountInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAccountResult>("azure:storage/getAccount:getAccount", args ?? new GetAccountInvokeArgs(), options.WithDefaults());
@@ -94,6 +108,13 @@ namespace Pulumi.Azure.Storage
         ///     };
         /// });
         /// ```
+        /// 
+        /// ## API Providers
+        /// 
+        /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+        /// This data source uses the following Azure API Providers:
+        /// 
+        /// * `Microsoft.Storage`: 2023-05-01
         /// </summary>
         public static Output<GetAccountResult> Invoke(GetAccountInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetAccountResult>("azure:storage/getAccount:getAccount", args ?? new GetAccountInvokeArgs(), options.WithDefaults());
@@ -117,8 +138,8 @@ namespace Pulumi.Azure.Storage
         /// <summary>
         /// Specifies the name of the resource group the Storage Account is located in.
         /// </summary>
-        [Input("resourceGroupName")]
-        public string? ResourceGroupName { get; set; }
+        [Input("resourceGroupName", required: true)]
+        public string ResourceGroupName { get; set; } = null!;
 
         public GetAccountArgs()
         {
@@ -143,8 +164,8 @@ namespace Pulumi.Azure.Storage
         /// <summary>
         /// Specifies the name of the resource group the Storage Account is located in.
         /// </summary>
-        [Input("resourceGroupName")]
-        public Input<string>? ResourceGroupName { get; set; }
+        [Input("resourceGroupName", required: true)]
+        public Input<string> ResourceGroupName { get; set; } = null!;
 
         public GetAccountInvokeArgs()
         {
@@ -373,7 +394,7 @@ namespace Pulumi.Azure.Storage
         /// The encryption key type of the queue.
         /// </summary>
         public readonly string QueueEncryptionKeyType;
-        public readonly string? ResourceGroupName;
+        public readonly string ResourceGroupName;
         /// <summary>
         /// The secondary access key for the Storage Account.
         /// </summary>
@@ -637,7 +658,7 @@ namespace Pulumi.Azure.Storage
 
             string queueEncryptionKeyType,
 
-            string? resourceGroupName,
+            string resourceGroupName,
 
             string secondaryAccessKey,
 

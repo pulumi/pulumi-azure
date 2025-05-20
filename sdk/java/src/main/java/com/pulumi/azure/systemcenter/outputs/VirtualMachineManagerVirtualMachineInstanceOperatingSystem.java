@@ -4,7 +4,6 @@
 package com.pulumi.azure.systemcenter.outputs;
 
 import com.pulumi.core.annotations.CustomType;
-import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -21,7 +20,7 @@ public final class VirtualMachineManagerVirtualMachineInstanceOperatingSystem {
      * @return The computer name of the Virtual Machine. Changing this forces a new resource to be created.
      * 
      */
-    private String computerName;
+    private @Nullable String computerName;
 
     private VirtualMachineManagerVirtualMachineInstanceOperatingSystem() {}
     /**
@@ -35,8 +34,8 @@ public final class VirtualMachineManagerVirtualMachineInstanceOperatingSystem {
      * @return The computer name of the Virtual Machine. Changing this forces a new resource to be created.
      * 
      */
-    public String computerName() {
-        return this.computerName;
+    public Optional<String> computerName() {
+        return Optional.ofNullable(this.computerName);
     }
 
     public static Builder builder() {
@@ -49,7 +48,7 @@ public final class VirtualMachineManagerVirtualMachineInstanceOperatingSystem {
     @CustomType.Builder
     public static final class Builder {
         private @Nullable String adminPassword;
-        private String computerName;
+        private @Nullable String computerName;
         public Builder() {}
         public Builder(VirtualMachineManagerVirtualMachineInstanceOperatingSystem defaults) {
     	      Objects.requireNonNull(defaults);
@@ -64,10 +63,8 @@ public final class VirtualMachineManagerVirtualMachineInstanceOperatingSystem {
             return this;
         }
         @CustomType.Setter
-        public Builder computerName(String computerName) {
-            if (computerName == null) {
-              throw new MissingRequiredPropertyException("VirtualMachineManagerVirtualMachineInstanceOperatingSystem", "computerName");
-            }
+        public Builder computerName(@Nullable String computerName) {
+
             this.computerName = computerName;
             return this;
         }

@@ -78,7 +78,7 @@ class WindowsWebAppSlotArgs:
         :param pulumi.Input[builtins.bool] virtual_network_backup_restore_enabled: Whether backup and restore operations over the linked virtual network are enabled. Defaults to `false`.
         :param pulumi.Input[builtins.bool] webdeploy_publish_basic_authentication_enabled: Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to `true`.
                
-               > **NOTE:** Setting this value to true will disable the ability to use `zip_deploy_file` which currently relies on the default publishing profile.
+               > **Note:** Setting this value to true will disable the ability to use `zip_deploy_file` which currently relies on the default publishing profile.
         :param pulumi.Input[builtins.str] zip_deploy_file: The local path and filename of the Zip packaged application to deploy to this Windows Web App.
         """
         pulumi.set(__self__, "app_service_id", app_service_id)
@@ -424,7 +424,7 @@ class WindowsWebAppSlotArgs:
         """
         Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to `true`.
 
-        > **NOTE:** Setting this value to true will disable the ability to use `zip_deploy_file` which currently relies on the default publishing profile.
+        > **Note:** Setting this value to true will disable the ability to use `zip_deploy_file` which currently relies on the default publishing profile.
         """
         return pulumi.get(self, "webdeploy_publish_basic_authentication_enabled")
 
@@ -522,7 +522,7 @@ class _WindowsWebAppSlotState:
         :param pulumi.Input[builtins.bool] virtual_network_backup_restore_enabled: Whether backup and restore operations over the linked virtual network are enabled. Defaults to `false`.
         :param pulumi.Input[builtins.bool] webdeploy_publish_basic_authentication_enabled: Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to `true`.
                
-               > **NOTE:** Setting this value to true will disable the ability to use `zip_deploy_file` which currently relies on the default publishing profile.
+               > **Note:** Setting this value to true will disable the ability to use `zip_deploy_file` which currently relies on the default publishing profile.
         :param pulumi.Input[builtins.str] zip_deploy_file: The local path and filename of the Zip packaged application to deploy to this Windows Web App.
         """
         if app_service_id is not None:
@@ -996,7 +996,7 @@ class _WindowsWebAppSlotState:
         """
         Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to `true`.
 
-        > **NOTE:** Setting this value to true will disable the ability to use `zip_deploy_file` which currently relies on the default publishing profile.
+        > **Note:** Setting this value to true will disable the ability to use `zip_deploy_file` which currently relies on the default publishing profile.
         """
         return pulumi.get(self, "webdeploy_publish_basic_authentication_enabled")
 
@@ -1080,6 +1080,13 @@ class WindowsWebAppSlot(pulumi.CustomResource):
             site_config={})
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Web`: 2023-12-01
+
         ## Import
 
         Windows Web Apps can be imported using the `resource id`, e.g.
@@ -1118,7 +1125,7 @@ class WindowsWebAppSlot(pulumi.CustomResource):
         :param pulumi.Input[builtins.bool] virtual_network_backup_restore_enabled: Whether backup and restore operations over the linked virtual network are enabled. Defaults to `false`.
         :param pulumi.Input[builtins.bool] webdeploy_publish_basic_authentication_enabled: Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to `true`.
                
-               > **NOTE:** Setting this value to true will disable the ability to use `zip_deploy_file` which currently relies on the default publishing profile.
+               > **Note:** Setting this value to true will disable the ability to use `zip_deploy_file` which currently relies on the default publishing profile.
         :param pulumi.Input[builtins.str] zip_deploy_file: The local path and filename of the Zip packaged application to deploy to this Windows Web App.
         """
         ...
@@ -1156,6 +1163,13 @@ class WindowsWebAppSlot(pulumi.CustomResource):
             app_service_id=example_windows_web_app.id,
             site_config={})
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Web`: 2023-12-01
 
         ## Import
 
@@ -1345,7 +1359,7 @@ class WindowsWebAppSlot(pulumi.CustomResource):
         :param pulumi.Input[builtins.bool] virtual_network_backup_restore_enabled: Whether backup and restore operations over the linked virtual network are enabled. Defaults to `false`.
         :param pulumi.Input[builtins.bool] webdeploy_publish_basic_authentication_enabled: Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to `true`.
                
-               > **NOTE:** Setting this value to true will disable the ability to use `zip_deploy_file` which currently relies on the default publishing profile.
+               > **Note:** Setting this value to true will disable the ability to use `zip_deploy_file` which currently relies on the default publishing profile.
         :param pulumi.Input[builtins.str] zip_deploy_file: The local path and filename of the Zip packaged application to deploy to this Windows Web App.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -1657,7 +1671,7 @@ class WindowsWebAppSlot(pulumi.CustomResource):
         """
         Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to `true`.
 
-        > **NOTE:** Setting this value to true will disable the ability to use `zip_deploy_file` which currently relies on the default publishing profile.
+        > **Note:** Setting this value to true will disable the ability to use `zip_deploy_file` which currently relies on the default publishing profile.
         """
         return pulumi.get(self, "webdeploy_publish_basic_authentication_enabled")
 

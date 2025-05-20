@@ -38,6 +38,13 @@ namespace Pulumi.Azure.MixedReality
         ///     };
         /// });
         /// ```
+        /// 
+        /// ## API Providers
+        /// 
+        /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+        /// This data source uses the following Azure API Providers:
+        /// 
+        /// * `Microsoft.MixedReality`: 2021-01-01
         /// </summary>
         public static Task<GetSpatialAnchorsAccountResult> InvokeAsync(GetSpatialAnchorsAccountArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSpatialAnchorsAccountResult>("azure:mixedreality/getSpatialAnchorsAccount:getSpatialAnchorsAccount", args ?? new GetSpatialAnchorsAccountArgs(), options.WithDefaults());
@@ -69,6 +76,13 @@ namespace Pulumi.Azure.MixedReality
         ///     };
         /// });
         /// ```
+        /// 
+        /// ## API Providers
+        /// 
+        /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+        /// This data source uses the following Azure API Providers:
+        /// 
+        /// * `Microsoft.MixedReality`: 2021-01-01
         /// </summary>
         public static Output<GetSpatialAnchorsAccountResult> Invoke(GetSpatialAnchorsAccountInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSpatialAnchorsAccountResult>("azure:mixedreality/getSpatialAnchorsAccount:getSpatialAnchorsAccount", args ?? new GetSpatialAnchorsAccountInvokeArgs(), options.WithDefaults());
@@ -100,6 +114,13 @@ namespace Pulumi.Azure.MixedReality
         ///     };
         /// });
         /// ```
+        /// 
+        /// ## API Providers
+        /// 
+        /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+        /// This data source uses the following Azure API Providers:
+        /// 
+        /// * `Microsoft.MixedReality`: 2021-01-01
         /// </summary>
         public static Output<GetSpatialAnchorsAccountResult> Invoke(GetSpatialAnchorsAccountInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetSpatialAnchorsAccountResult>("azure:mixedreality/getSpatialAnchorsAccount:getSpatialAnchorsAccount", args ?? new GetSpatialAnchorsAccountInvokeArgs(), options.WithDefaults());

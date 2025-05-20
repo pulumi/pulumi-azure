@@ -36,7 +36,7 @@ namespace Pulumi.Azure.Network.Inputs
         /// <summary>
         /// Specifies a list of resources or aliases that this Subnet Service Endpoint Storage Policy Definition applies to.
         /// 
-        /// &gt; **NOTE** The `service_resources` property must contain either Aliases or Resource IDs, but not both.
+        /// &gt; **Note:** The `service_resources` property must contain either Aliases or Resource IDs, but not both.
         /// </summary>
         public InputList<string> ServiceResources
         {

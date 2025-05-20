@@ -19,7 +19,7 @@ namespace Pulumi.Azure.Iot.Inputs
         public Input<bool>? ApplyToBuiltinEventhubEndpoint { get; set; }
 
         /// <summary>
-        /// Default Action for Network Rule Set. Possible values are `DefaultActionDeny`, `DefaultActionAllow`. Defaults to `DefaultActionDeny`.
+        /// Default Action for Network Rule Set. Possible values are `Deny`, `Allow`. Defaults to `Deny`.
         /// </summary>
         [Input("defaultAction")]
         public Input<string>? DefaultAction { get; set; }

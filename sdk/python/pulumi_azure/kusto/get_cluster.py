@@ -139,6 +139,13 @@ def get_cluster(name: Optional[builtins.str] = None,
         resource_group_name="test_resource_group")
     ```
 
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.Kusto`: 2024-04-13
+
 
     :param builtins.str name: Specifies the name of the Kusto Cluster.
     :param builtins.str resource_group_name: The name of the Resource Group where the Kusto Cluster exists.
@@ -173,6 +180,13 @@ def get_cluster_output(name: Optional[pulumi.Input[builtins.str]] = None,
     example = azure.kusto.get_cluster(name="kustocluster",
         resource_group_name="test_resource_group")
     ```
+
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.Kusto`: 2024-04-13
 
 
     :param builtins.str name: Specifies the name of the Kusto Cluster.

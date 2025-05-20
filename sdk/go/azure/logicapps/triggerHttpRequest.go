@@ -86,13 +86,15 @@ type TriggerHttpRequest struct {
 	Method pulumi.StringPtrOutput `pulumi:"method"`
 	// Specifies the name of the HTTP Request Trigger to be created within the Logic App Workflow. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** This name must be unique across all Triggers within the Logic App Workflow.
+	// > **Note:** This name must be unique across all Triggers within the Logic App Workflow.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Specifies the Relative Path used for this Request.
 	//
-	// > **NOTE:** When `relativePath` is set a `method` must also be set.
+	// > **Note:** When `relativePath` is set a `method` must also be set.
 	RelativePath pulumi.StringPtrOutput `pulumi:"relativePath"`
 	// A JSON Blob defining the Schema of the incoming request. This needs to be valid JSON.
+	//
+	// > **Note:** To make the Trigger more readable, you may wish to consider using HEREDOC syntax (as shown above) or the `localFile` resource to load the schema from a file on disk.
 	Schema pulumi.StringOutput `pulumi:"schema"`
 }
 
@@ -140,13 +142,15 @@ type triggerHttpRequestState struct {
 	Method *string `pulumi:"method"`
 	// Specifies the name of the HTTP Request Trigger to be created within the Logic App Workflow. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** This name must be unique across all Triggers within the Logic App Workflow.
+	// > **Note:** This name must be unique across all Triggers within the Logic App Workflow.
 	Name *string `pulumi:"name"`
 	// Specifies the Relative Path used for this Request.
 	//
-	// > **NOTE:** When `relativePath` is set a `method` must also be set.
+	// > **Note:** When `relativePath` is set a `method` must also be set.
 	RelativePath *string `pulumi:"relativePath"`
 	// A JSON Blob defining the Schema of the incoming request. This needs to be valid JSON.
+	//
+	// > **Note:** To make the Trigger more readable, you may wish to consider using HEREDOC syntax (as shown above) or the `localFile` resource to load the schema from a file on disk.
 	Schema *string `pulumi:"schema"`
 }
 
@@ -159,13 +163,15 @@ type TriggerHttpRequestState struct {
 	Method pulumi.StringPtrInput
 	// Specifies the name of the HTTP Request Trigger to be created within the Logic App Workflow. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** This name must be unique across all Triggers within the Logic App Workflow.
+	// > **Note:** This name must be unique across all Triggers within the Logic App Workflow.
 	Name pulumi.StringPtrInput
 	// Specifies the Relative Path used for this Request.
 	//
-	// > **NOTE:** When `relativePath` is set a `method` must also be set.
+	// > **Note:** When `relativePath` is set a `method` must also be set.
 	RelativePath pulumi.StringPtrInput
 	// A JSON Blob defining the Schema of the incoming request. This needs to be valid JSON.
+	//
+	// > **Note:** To make the Trigger more readable, you may wish to consider using HEREDOC syntax (as shown above) or the `localFile` resource to load the schema from a file on disk.
 	Schema pulumi.StringPtrInput
 }
 
@@ -180,13 +186,15 @@ type triggerHttpRequestArgs struct {
 	Method *string `pulumi:"method"`
 	// Specifies the name of the HTTP Request Trigger to be created within the Logic App Workflow. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** This name must be unique across all Triggers within the Logic App Workflow.
+	// > **Note:** This name must be unique across all Triggers within the Logic App Workflow.
 	Name *string `pulumi:"name"`
 	// Specifies the Relative Path used for this Request.
 	//
-	// > **NOTE:** When `relativePath` is set a `method` must also be set.
+	// > **Note:** When `relativePath` is set a `method` must also be set.
 	RelativePath *string `pulumi:"relativePath"`
 	// A JSON Blob defining the Schema of the incoming request. This needs to be valid JSON.
+	//
+	// > **Note:** To make the Trigger more readable, you may wish to consider using HEREDOC syntax (as shown above) or the `localFile` resource to load the schema from a file on disk.
 	Schema string `pulumi:"schema"`
 }
 
@@ -198,13 +206,15 @@ type TriggerHttpRequestArgs struct {
 	Method pulumi.StringPtrInput
 	// Specifies the name of the HTTP Request Trigger to be created within the Logic App Workflow. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** This name must be unique across all Triggers within the Logic App Workflow.
+	// > **Note:** This name must be unique across all Triggers within the Logic App Workflow.
 	Name pulumi.StringPtrInput
 	// Specifies the Relative Path used for this Request.
 	//
-	// > **NOTE:** When `relativePath` is set a `method` must also be set.
+	// > **Note:** When `relativePath` is set a `method` must also be set.
 	RelativePath pulumi.StringPtrInput
 	// A JSON Blob defining the Schema of the incoming request. This needs to be valid JSON.
+	//
+	// > **Note:** To make the Trigger more readable, you may wish to consider using HEREDOC syntax (as shown above) or the `localFile` resource to load the schema from a file on disk.
 	Schema pulumi.StringInput
 }
 
@@ -312,19 +322,21 @@ func (o TriggerHttpRequestOutput) Method() pulumi.StringPtrOutput {
 
 // Specifies the name of the HTTP Request Trigger to be created within the Logic App Workflow. Changing this forces a new resource to be created.
 //
-// > **NOTE:** This name must be unique across all Triggers within the Logic App Workflow.
+// > **Note:** This name must be unique across all Triggers within the Logic App Workflow.
 func (o TriggerHttpRequestOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *TriggerHttpRequest) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
 // Specifies the Relative Path used for this Request.
 //
-// > **NOTE:** When `relativePath` is set a `method` must also be set.
+// > **Note:** When `relativePath` is set a `method` must also be set.
 func (o TriggerHttpRequestOutput) RelativePath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TriggerHttpRequest) pulumi.StringPtrOutput { return v.RelativePath }).(pulumi.StringPtrOutput)
 }
 
 // A JSON Blob defining the Schema of the incoming request. This needs to be valid JSON.
+//
+// > **Note:** To make the Trigger more readable, you may wish to consider using HEREDOC syntax (as shown above) or the `localFile` resource to load the schema from a file on disk.
 func (o TriggerHttpRequestOutput) Schema() pulumi.StringOutput {
 	return o.ApplyT(func(v *TriggerHttpRequest) pulumi.StringOutput { return v.Schema }).(pulumi.StringOutput)
 }

@@ -16,24 +16,44 @@ public final class ServiceProtocolsArgs extends com.pulumi.resources.ResourceArg
     public static final ServiceProtocolsArgs Empty = new ServiceProtocolsArgs();
 
     /**
+     * @deprecated
+     * `protocols.enable_http2` has been deprecated in favour of the `protocols.http2_enabled` property and will be removed in v5.0 of the AzureRM Provider
+     * 
+     */
+    @Deprecated /* `protocols.enable_http2` has been deprecated in favour of the `protocols.http2_enabled` property and will be removed in v5.0 of the AzureRM Provider */
+    @Import(name="enableHttp2")
+    private @Nullable Output<Boolean> enableHttp2;
+
+    /**
+     * @deprecated
+     * `protocols.enable_http2` has been deprecated in favour of the `protocols.http2_enabled` property and will be removed in v5.0 of the AzureRM Provider
+     * 
+     */
+    @Deprecated /* `protocols.enable_http2` has been deprecated in favour of the `protocols.http2_enabled` property and will be removed in v5.0 of the AzureRM Provider */
+    public Optional<Output<Boolean>> enableHttp2() {
+        return Optional.ofNullable(this.enableHttp2);
+    }
+
+    /**
      * Should HTTP/2 be supported by the API Management Service? Defaults to `false`.
      * 
      */
-    @Import(name="enableHttp2")
-    private @Nullable Output<Boolean> enableHttp2;
+    @Import(name="http2Enabled")
+    private @Nullable Output<Boolean> http2Enabled;
 
     /**
      * @return Should HTTP/2 be supported by the API Management Service? Defaults to `false`.
      * 
      */
-    public Optional<Output<Boolean>> enableHttp2() {
-        return Optional.ofNullable(this.enableHttp2);
+    public Optional<Output<Boolean>> http2Enabled() {
+        return Optional.ofNullable(this.http2Enabled);
     }
 
     private ServiceProtocolsArgs() {}
 
     private ServiceProtocolsArgs(ServiceProtocolsArgs $) {
         this.enableHttp2 = $.enableHttp2;
+        this.http2Enabled = $.http2Enabled;
     }
 
     public static Builder builder() {
@@ -55,24 +75,49 @@ public final class ServiceProtocolsArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param enableHttp2 Should HTTP/2 be supported by the API Management Service? Defaults to `false`.
-         * 
          * @return builder
          * 
+         * @deprecated
+         * `protocols.enable_http2` has been deprecated in favour of the `protocols.http2_enabled` property and will be removed in v5.0 of the AzureRM Provider
+         * 
          */
+        @Deprecated /* `protocols.enable_http2` has been deprecated in favour of the `protocols.http2_enabled` property and will be removed in v5.0 of the AzureRM Provider */
         public Builder enableHttp2(@Nullable Output<Boolean> enableHttp2) {
             $.enableHttp2 = enableHttp2;
             return this;
         }
 
         /**
-         * @param enableHttp2 Should HTTP/2 be supported by the API Management Service? Defaults to `false`.
+         * @return builder
+         * 
+         * @deprecated
+         * `protocols.enable_http2` has been deprecated in favour of the `protocols.http2_enabled` property and will be removed in v5.0 of the AzureRM Provider
+         * 
+         */
+        @Deprecated /* `protocols.enable_http2` has been deprecated in favour of the `protocols.http2_enabled` property and will be removed in v5.0 of the AzureRM Provider */
+        public Builder enableHttp2(Boolean enableHttp2) {
+            return enableHttp2(Output.of(enableHttp2));
+        }
+
+        /**
+         * @param http2Enabled Should HTTP/2 be supported by the API Management Service? Defaults to `false`.
          * 
          * @return builder
          * 
          */
-        public Builder enableHttp2(Boolean enableHttp2) {
-            return enableHttp2(Output.of(enableHttp2));
+        public Builder http2Enabled(@Nullable Output<Boolean> http2Enabled) {
+            $.http2Enabled = http2Enabled;
+            return this;
+        }
+
+        /**
+         * @param http2Enabled Should HTTP/2 be supported by the API Management Service? Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder http2Enabled(Boolean http2Enabled) {
+            return http2Enabled(Output.of(http2Enabled));
         }
 
         public ServiceProtocolsArgs build() {

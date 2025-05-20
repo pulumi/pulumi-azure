@@ -33,17 +33,17 @@ class CertificateArgs:
         The set of arguments for constructing a Certificate resource.
         :param pulumi.Input[builtins.str] resource_group_name: The name of the resource group in which to create the certificate. Changing this forces a new resource to be created.
                
-               > **NOTE:** The resource group must be the same as that which the app service plan is defined in - otherwise the certificate will not show as available for the app services.
+               > **Note:** The resource group must be the same as that which the app service plan is defined in - otherwise the certificate will not show as available for the app services.
         :param pulumi.Input[builtins.str] app_service_plan_id: The ID of the associated App Service plan. Must be specified when the certificate is used inside an App Service Environment hosted App Service or with Basic and Premium App Service plans. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] key_vault_secret_id: The ID of the Key Vault secret. Changing this forces a new resource to be created.
                
-               > **NOTE:** Exactly one of `key_vault_secret_id` or `pfx_blob` must be specified.
+               > **Note:** Exactly one of `key_vault_secret_id` or `pfx_blob` must be specified.
         :param pulumi.Input[builtins.str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] name: Specifies the name of the certificate. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] password: The password to access the certificate's private key. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] pfx_blob: The base64-encoded contents of the certificate. Changing this forces a new resource to be created.
                
-               > **NOTE:** Exactly one of `key_vault_secret_id` or `pfx_blob` must be specified.
+               > **Note:** Exactly one of `key_vault_secret_id` or `pfx_blob` must be specified.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if app_service_plan_id is not None:
@@ -69,7 +69,7 @@ class CertificateArgs:
         """
         The name of the resource group in which to create the certificate. Changing this forces a new resource to be created.
 
-        > **NOTE:** The resource group must be the same as that which the app service plan is defined in - otherwise the certificate will not show as available for the app services.
+        > **Note:** The resource group must be the same as that which the app service plan is defined in - otherwise the certificate will not show as available for the app services.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -104,7 +104,7 @@ class CertificateArgs:
         """
         The ID of the Key Vault secret. Changing this forces a new resource to be created.
 
-        > **NOTE:** Exactly one of `key_vault_secret_id` or `pfx_blob` must be specified.
+        > **Note:** Exactly one of `key_vault_secret_id` or `pfx_blob` must be specified.
         """
         return pulumi.get(self, "key_vault_secret_id")
 
@@ -154,7 +154,7 @@ class CertificateArgs:
         """
         The base64-encoded contents of the certificate. Changing this forces a new resource to be created.
 
-        > **NOTE:** Exactly one of `key_vault_secret_id` or `pfx_blob` must be specified.
+        > **Note:** Exactly one of `key_vault_secret_id` or `pfx_blob` must be specified.
         """
         return pulumi.get(self, "pfx_blob")
 
@@ -203,16 +203,16 @@ class _CertificateState:
         :param pulumi.Input[builtins.str] issuer: The name of the certificate issuer.
         :param pulumi.Input[builtins.str] key_vault_secret_id: The ID of the Key Vault secret. Changing this forces a new resource to be created.
                
-               > **NOTE:** Exactly one of `key_vault_secret_id` or `pfx_blob` must be specified.
+               > **Note:** Exactly one of `key_vault_secret_id` or `pfx_blob` must be specified.
         :param pulumi.Input[builtins.str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] name: Specifies the name of the certificate. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] password: The password to access the certificate's private key. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] pfx_blob: The base64-encoded contents of the certificate. Changing this forces a new resource to be created.
                
-               > **NOTE:** Exactly one of `key_vault_secret_id` or `pfx_blob` must be specified.
+               > **Note:** Exactly one of `key_vault_secret_id` or `pfx_blob` must be specified.
         :param pulumi.Input[builtins.str] resource_group_name: The name of the resource group in which to create the certificate. Changing this forces a new resource to be created.
                
-               > **NOTE:** The resource group must be the same as that which the app service plan is defined in - otherwise the certificate will not show as available for the app services.
+               > **Note:** The resource group must be the same as that which the app service plan is defined in - otherwise the certificate will not show as available for the app services.
         :param pulumi.Input[builtins.str] subject_name: The subject name of the certificate.
         :param pulumi.Input[builtins.str] thumbprint: The thumbprint for the certificate.
         """
@@ -350,7 +350,7 @@ class _CertificateState:
         """
         The ID of the Key Vault secret. Changing this forces a new resource to be created.
 
-        > **NOTE:** Exactly one of `key_vault_secret_id` or `pfx_blob` must be specified.
+        > **Note:** Exactly one of `key_vault_secret_id` or `pfx_blob` must be specified.
         """
         return pulumi.get(self, "key_vault_secret_id")
 
@@ -400,7 +400,7 @@ class _CertificateState:
         """
         The base64-encoded contents of the certificate. Changing this forces a new resource to be created.
 
-        > **NOTE:** Exactly one of `key_vault_secret_id` or `pfx_blob` must be specified.
+        > **Note:** Exactly one of `key_vault_secret_id` or `pfx_blob` must be specified.
         """
         return pulumi.get(self, "pfx_blob")
 
@@ -414,7 +414,7 @@ class _CertificateState:
         """
         The name of the resource group in which to create the certificate. Changing this forces a new resource to be created.
 
-        > **NOTE:** The resource group must be the same as that which the app service plan is defined in - otherwise the certificate will not show as available for the app services.
+        > **Note:** The resource group must be the same as that which the app service plan is defined in - otherwise the certificate will not show as available for the app services.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -477,7 +477,7 @@ class Certificate(pulumi.CustomResource):
 
         ## Example Usage
 
-        This example provisions an App Service Certificate from a Local File.
+        This example provisions an App Service Certificate from a Local File. Additional examples of how to use the `appservice.Certificate` resource can be found in the `./examples/app-service-certificate` directory within the GitHub Repository.
 
         ```python
         import pulumi
@@ -492,7 +492,7 @@ class Certificate(pulumi.CustomResource):
             resource_group_name=example.name,
             location=example.location,
             pfx_blob=std.filebase64(input="certificate.pfx").result,
-            password="password123!")
+            password="terraform")
         ```
 
         ## Import
@@ -508,16 +508,16 @@ class Certificate(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] app_service_plan_id: The ID of the associated App Service plan. Must be specified when the certificate is used inside an App Service Environment hosted App Service or with Basic and Premium App Service plans. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] key_vault_secret_id: The ID of the Key Vault secret. Changing this forces a new resource to be created.
                
-               > **NOTE:** Exactly one of `key_vault_secret_id` or `pfx_blob` must be specified.
+               > **Note:** Exactly one of `key_vault_secret_id` or `pfx_blob` must be specified.
         :param pulumi.Input[builtins.str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] name: Specifies the name of the certificate. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] password: The password to access the certificate's private key. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] pfx_blob: The base64-encoded contents of the certificate. Changing this forces a new resource to be created.
                
-               > **NOTE:** Exactly one of `key_vault_secret_id` or `pfx_blob` must be specified.
+               > **Note:** Exactly one of `key_vault_secret_id` or `pfx_blob` must be specified.
         :param pulumi.Input[builtins.str] resource_group_name: The name of the resource group in which to create the certificate. Changing this forces a new resource to be created.
                
-               > **NOTE:** The resource group must be the same as that which the app service plan is defined in - otherwise the certificate will not show as available for the app services.
+               > **Note:** The resource group must be the same as that which the app service plan is defined in - otherwise the certificate will not show as available for the app services.
         """
         ...
     @overload
@@ -530,7 +530,7 @@ class Certificate(pulumi.CustomResource):
 
         ## Example Usage
 
-        This example provisions an App Service Certificate from a Local File.
+        This example provisions an App Service Certificate from a Local File. Additional examples of how to use the `appservice.Certificate` resource can be found in the `./examples/app-service-certificate` directory within the GitHub Repository.
 
         ```python
         import pulumi
@@ -545,7 +545,7 @@ class Certificate(pulumi.CustomResource):
             resource_group_name=example.name,
             location=example.location,
             pfx_blob=std.filebase64(input="certificate.pfx").result,
-            password="password123!")
+            password="terraform")
         ```
 
         ## Import
@@ -653,16 +653,16 @@ class Certificate(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] issuer: The name of the certificate issuer.
         :param pulumi.Input[builtins.str] key_vault_secret_id: The ID of the Key Vault secret. Changing this forces a new resource to be created.
                
-               > **NOTE:** Exactly one of `key_vault_secret_id` or `pfx_blob` must be specified.
+               > **Note:** Exactly one of `key_vault_secret_id` or `pfx_blob` must be specified.
         :param pulumi.Input[builtins.str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] name: Specifies the name of the certificate. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] password: The password to access the certificate's private key. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] pfx_blob: The base64-encoded contents of the certificate. Changing this forces a new resource to be created.
                
-               > **NOTE:** Exactly one of `key_vault_secret_id` or `pfx_blob` must be specified.
+               > **Note:** Exactly one of `key_vault_secret_id` or `pfx_blob` must be specified.
         :param pulumi.Input[builtins.str] resource_group_name: The name of the resource group in which to create the certificate. Changing this forces a new resource to be created.
                
-               > **NOTE:** The resource group must be the same as that which the app service plan is defined in - otherwise the certificate will not show as available for the app services.
+               > **Note:** The resource group must be the same as that which the app service plan is defined in - otherwise the certificate will not show as available for the app services.
         :param pulumi.Input[builtins.str] subject_name: The subject name of the certificate.
         :param pulumi.Input[builtins.str] thumbprint: The thumbprint for the certificate.
         """
@@ -756,7 +756,7 @@ class Certificate(pulumi.CustomResource):
         """
         The ID of the Key Vault secret. Changing this forces a new resource to be created.
 
-        > **NOTE:** Exactly one of `key_vault_secret_id` or `pfx_blob` must be specified.
+        > **Note:** Exactly one of `key_vault_secret_id` or `pfx_blob` must be specified.
         """
         return pulumi.get(self, "key_vault_secret_id")
 
@@ -790,7 +790,7 @@ class Certificate(pulumi.CustomResource):
         """
         The base64-encoded contents of the certificate. Changing this forces a new resource to be created.
 
-        > **NOTE:** Exactly one of `key_vault_secret_id` or `pfx_blob` must be specified.
+        > **Note:** Exactly one of `key_vault_secret_id` or `pfx_blob` must be specified.
         """
         return pulumi.get(self, "pfx_blob")
 
@@ -800,7 +800,7 @@ class Certificate(pulumi.CustomResource):
         """
         The name of the resource group in which to create the certificate. Changing this forces a new resource to be created.
 
-        > **NOTE:** The resource group must be the same as that which the app service plan is defined in - otherwise the certificate will not show as available for the app services.
+        > **Note:** The resource group must be the same as that which the app service plan is defined in - otherwise the certificate will not show as available for the app services.
         """
         return pulumi.get(self, "resource_group_name")
 

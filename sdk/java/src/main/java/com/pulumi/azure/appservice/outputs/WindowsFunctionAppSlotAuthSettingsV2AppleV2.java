@@ -20,14 +20,14 @@ public final class WindowsFunctionAppSlotAuthSettingsV2AppleV2 {
     /**
      * @return The app setting name that contains the `client_secret` value used for Apple Login.
      * 
-     * !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+     * !&gt; **Note:** A setting with this name must exist in `app_settings` to function correctly.
      * 
      */
     private String clientSecretSettingName;
     /**
      * @return A list of Login Scopes provided by this Authentication Provider.
      * 
-     * &gt; **NOTE:** This is configured on the Authentication Provider side and is Read Only here.
+     * &gt; **Note:** This is configured on the Authentication Provider side and is Read Only here.
      * 
      */
     private @Nullable List<String> loginScopes;
@@ -43,7 +43,7 @@ public final class WindowsFunctionAppSlotAuthSettingsV2AppleV2 {
     /**
      * @return The app setting name that contains the `client_secret` value used for Apple Login.
      * 
-     * !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+     * !&gt; **Note:** A setting with this name must exist in `app_settings` to function correctly.
      * 
      */
     public String clientSecretSettingName() {
@@ -52,7 +52,7 @@ public final class WindowsFunctionAppSlotAuthSettingsV2AppleV2 {
     /**
      * @return A list of Login Scopes provided by this Authentication Provider.
      * 
-     * &gt; **NOTE:** This is configured on the Authentication Provider side and is Read Only here.
+     * &gt; **Note:** This is configured on the Authentication Provider side and is Read Only here.
      * 
      */
     public List<String> loginScopes() {

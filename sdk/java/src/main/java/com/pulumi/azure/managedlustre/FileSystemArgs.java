@@ -26,7 +26,7 @@ public final class FileSystemArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * An `encryption_key` block as defined below.
      * 
-     * &gt; **NOTE:** Removing `encryption_key` forces a new resource to be created.
+     * &gt; **Note:** Removing `encryption_key` forces a new resource to be created.
      * 
      */
     @Import(name="encryptionKey")
@@ -35,7 +35,7 @@ public final class FileSystemArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * @return An `encryption_key` block as defined below.
      * 
-     * &gt; **NOTE:** Removing `encryption_key` forces a new resource to be created.
+     * &gt; **Note:** Removing `encryption_key` forces a new resource to be created.
      * 
      */
     public Optional<Output<FileSystemEncryptionKeyArgs>> encryptionKey() {
@@ -245,7 +245,7 @@ public final class FileSystemArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param encryptionKey An `encryption_key` block as defined below.
          * 
-         * &gt; **NOTE:** Removing `encryption_key` forces a new resource to be created.
+         * &gt; **Note:** Removing `encryption_key` forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -258,7 +258,7 @@ public final class FileSystemArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param encryptionKey An `encryption_key` block as defined below.
          * 
-         * &gt; **NOTE:** Removing `encryption_key` forces a new resource to be created.
+         * &gt; **Note:** Removing `encryption_key` forces a new resource to be created.
          * 
          * @return builder
          * 

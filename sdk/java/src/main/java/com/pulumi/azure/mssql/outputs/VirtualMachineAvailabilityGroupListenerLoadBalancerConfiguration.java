@@ -35,7 +35,7 @@ public final class VirtualMachineAvailabilityGroupListenerLoadBalancerConfigurat
     /**
      * @return The ID of the Subnet to create the listener. Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE:** `sql_virtual_machine_ids` should match with the SQL Virtual Machines specified in `replica`.
+     * &gt; **Note:** `sql_virtual_machine_ids` should match with the SQL Virtual Machines specified in `replica`.
      * 
      */
     private String subnetId;
@@ -72,7 +72,7 @@ public final class VirtualMachineAvailabilityGroupListenerLoadBalancerConfigurat
     /**
      * @return The ID of the Subnet to create the listener. Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE:** `sql_virtual_machine_ids` should match with the SQL Virtual Machines specified in `replica`.
+     * &gt; **Note:** `sql_virtual_machine_ids` should match with the SQL Virtual Machines specified in `replica`.
      * 
      */
     public String subnetId() {

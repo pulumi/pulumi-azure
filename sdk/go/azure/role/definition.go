@@ -36,7 +36,7 @@ import (
 //			_, err = authorization.NewRoleDefinition(ctx, "example", &authorization.RoleDefinitionArgs{
 //				Name:        pulumi.String("my-custom-role"),
 //				Scope:       pulumi.String(primary.Id),
-//				Description: pulumi.String("This is a custom role created"),
+//				Description: pulumi.String("This is a custom role created via Terraform"),
 //				Permissions: authorization.RoleDefinitionPermissionArray{
 //					&authorization.RoleDefinitionPermissionArgs{
 //						Actions: pulumi.StringArray{
@@ -111,6 +111,13 @@ import (
 //
 // ```
 //
+// ## API Providers
+//
+// <!-- This section is generated, changes will be overwritten -->
+// This resource uses the following Azure API Providers:
+//
+// * `Microsoft.Authorization`: 2022-05-01-preview
+//
 // ## Import
 //
 // Role Definitions can be imported using the `resource id`, e.g.
@@ -125,7 +132,7 @@ type Definition struct {
 
 	// One or more assignable scopes for this Role Definition, such as `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333`, `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup`, `/providers/Microsoft.Management/managementGroups/0b1f6471-1bf0-4dda-aec3-111122223333` , or `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup/providers/Microsoft.Compute/virtualMachines/myVM`.
 	//
-	// > **NOTE:** The value for `scope` is automatically included in this list if no other values supplied.
+	// > **Note:** The value for `scope` is automatically included in this list if no other values supplied.
 	AssignableScopes pulumi.StringArrayOutput `pulumi:"assignableScopes"`
 	// A description of the Role Definition.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
@@ -176,7 +183,7 @@ func GetDefinition(ctx *pulumi.Context,
 type definitionState struct {
 	// One or more assignable scopes for this Role Definition, such as `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333`, `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup`, `/providers/Microsoft.Management/managementGroups/0b1f6471-1bf0-4dda-aec3-111122223333` , or `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup/providers/Microsoft.Compute/virtualMachines/myVM`.
 	//
-	// > **NOTE:** The value for `scope` is automatically included in this list if no other values supplied.
+	// > **Note:** The value for `scope` is automatically included in this list if no other values supplied.
 	AssignableScopes []string `pulumi:"assignableScopes"`
 	// A description of the Role Definition.
 	Description *string `pulumi:"description"`
@@ -195,7 +202,7 @@ type definitionState struct {
 type DefinitionState struct {
 	// One or more assignable scopes for this Role Definition, such as `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333`, `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup`, `/providers/Microsoft.Management/managementGroups/0b1f6471-1bf0-4dda-aec3-111122223333` , or `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup/providers/Microsoft.Compute/virtualMachines/myVM`.
 	//
-	// > **NOTE:** The value for `scope` is automatically included in this list if no other values supplied.
+	// > **Note:** The value for `scope` is automatically included in this list if no other values supplied.
 	AssignableScopes pulumi.StringArrayInput
 	// A description of the Role Definition.
 	Description pulumi.StringPtrInput
@@ -218,7 +225,7 @@ func (DefinitionState) ElementType() reflect.Type {
 type definitionArgs struct {
 	// One or more assignable scopes for this Role Definition, such as `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333`, `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup`, `/providers/Microsoft.Management/managementGroups/0b1f6471-1bf0-4dda-aec3-111122223333` , or `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup/providers/Microsoft.Compute/virtualMachines/myVM`.
 	//
-	// > **NOTE:** The value for `scope` is automatically included in this list if no other values supplied.
+	// > **Note:** The value for `scope` is automatically included in this list if no other values supplied.
 	AssignableScopes []string `pulumi:"assignableScopes"`
 	// A description of the Role Definition.
 	Description *string `pulumi:"description"`
@@ -236,7 +243,7 @@ type definitionArgs struct {
 type DefinitionArgs struct {
 	// One or more assignable scopes for this Role Definition, such as `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333`, `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup`, `/providers/Microsoft.Management/managementGroups/0b1f6471-1bf0-4dda-aec3-111122223333` , or `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup/providers/Microsoft.Compute/virtualMachines/myVM`.
 	//
-	// > **NOTE:** The value for `scope` is automatically included in this list if no other values supplied.
+	// > **Note:** The value for `scope` is automatically included in this list if no other values supplied.
 	AssignableScopes pulumi.StringArrayInput
 	// A description of the Role Definition.
 	Description pulumi.StringPtrInput
@@ -339,7 +346,7 @@ func (o DefinitionOutput) ToDefinitionOutputWithContext(ctx context.Context) Def
 
 // One or more assignable scopes for this Role Definition, such as `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333`, `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup`, `/providers/Microsoft.Management/managementGroups/0b1f6471-1bf0-4dda-aec3-111122223333` , or `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup/providers/Microsoft.Compute/virtualMachines/myVM`.
 //
-// > **NOTE:** The value for `scope` is automatically included in this list if no other values supplied.
+// > **Note:** The value for `scope` is automatically included in this list if no other values supplied.
 func (o DefinitionOutput) AssignableScopes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Definition) pulumi.StringArrayOutput { return v.AssignableScopes }).(pulumi.StringArrayOutput)
 }

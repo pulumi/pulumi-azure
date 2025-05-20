@@ -39,6 +39,13 @@ import (
 //	}
 //
 // ```
+//
+// ## API Providers
+//
+// <!-- This section is generated, changes will be overwritten -->
+// This data source uses the following Azure API Providers:
+//
+// * `Microsoft.NetApp`: 2025-01-01
 func LookupAccountEncryption(ctx *pulumi.Context, args *LookupAccountEncryptionArgs, opts ...pulumi.InvokeOption) (*LookupAccountEncryptionResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupAccountEncryptionResult

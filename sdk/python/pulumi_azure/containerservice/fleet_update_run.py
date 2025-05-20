@@ -260,6 +260,13 @@ class FleetUpdateRun(pulumi.CustomResource):
             }])
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.ContainerService`: 2024-04-01
+
         ## Import
 
         Kubernetes Fleet Update Runs can be imported using the `resource id`, e.g.
@@ -336,6 +343,13 @@ class FleetUpdateRun(pulumi.CustomResource):
                 "after_stage_wait_in_seconds": 21,
             }])
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.ContainerService`: 2024-04-01
 
         ## Import
 

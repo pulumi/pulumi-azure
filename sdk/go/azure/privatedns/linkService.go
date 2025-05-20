@@ -14,7 +14,7 @@ import (
 
 // Manages a Private Link Service.
 //
-// > **NOTE** Private Link is now in [GA](https://docs.microsoft.com/en-gb/azure/private-link/).
+// > **Note:** Private Link is now in [GA](https://docs.microsoft.com/en-gb/azure/private-link/).
 //
 // ## Import
 //
@@ -48,7 +48,7 @@ type LinkService struct {
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A list of Subscription UUID/GUID's that will be able to see this Private Link Service.
 	//
-	// > **NOTE:** If no Subscription IDs are specified then Azure allows every Subscription to see this Private Link Service.
+	// > **Note:** If no Subscription IDs are specified then Azure allows every Subscription to see this Private Link Service.
 	VisibilitySubscriptionIds pulumi.StringArrayOutput `pulumi:"visibilitySubscriptionIds"`
 }
 
@@ -113,7 +113,7 @@ type linkServiceState struct {
 	Tags map[string]string `pulumi:"tags"`
 	// A list of Subscription UUID/GUID's that will be able to see this Private Link Service.
 	//
-	// > **NOTE:** If no Subscription IDs are specified then Azure allows every Subscription to see this Private Link Service.
+	// > **Note:** If no Subscription IDs are specified then Azure allows every Subscription to see this Private Link Service.
 	VisibilitySubscriptionIds []string `pulumi:"visibilitySubscriptionIds"`
 }
 
@@ -140,7 +140,7 @@ type LinkServiceState struct {
 	Tags pulumi.StringMapInput
 	// A list of Subscription UUID/GUID's that will be able to see this Private Link Service.
 	//
-	// > **NOTE:** If no Subscription IDs are specified then Azure allows every Subscription to see this Private Link Service.
+	// > **Note:** If no Subscription IDs are specified then Azure allows every Subscription to see this Private Link Service.
 	VisibilitySubscriptionIds pulumi.StringArrayInput
 }
 
@@ -169,7 +169,7 @@ type linkServiceArgs struct {
 	Tags map[string]string `pulumi:"tags"`
 	// A list of Subscription UUID/GUID's that will be able to see this Private Link Service.
 	//
-	// > **NOTE:** If no Subscription IDs are specified then Azure allows every Subscription to see this Private Link Service.
+	// > **Note:** If no Subscription IDs are specified then Azure allows every Subscription to see this Private Link Service.
 	VisibilitySubscriptionIds []string `pulumi:"visibilitySubscriptionIds"`
 }
 
@@ -195,7 +195,7 @@ type LinkServiceArgs struct {
 	Tags pulumi.StringMapInput
 	// A list of Subscription UUID/GUID's that will be able to see this Private Link Service.
 	//
-	// > **NOTE:** If no Subscription IDs are specified then Azure allows every Subscription to see this Private Link Service.
+	// > **Note:** If no Subscription IDs are specified then Azure allows every Subscription to see this Private Link Service.
 	VisibilitySubscriptionIds pulumi.StringArrayInput
 }
 
@@ -338,7 +338,7 @@ func (o LinkServiceOutput) Tags() pulumi.StringMapOutput {
 
 // A list of Subscription UUID/GUID's that will be able to see this Private Link Service.
 //
-// > **NOTE:** If no Subscription IDs are specified then Azure allows every Subscription to see this Private Link Service.
+// > **Note:** If no Subscription IDs are specified then Azure allows every Subscription to see this Private Link Service.
 func (o LinkServiceOutput) VisibilitySubscriptionIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *LinkService) pulumi.StringArrayOutput { return v.VisibilitySubscriptionIds }).(pulumi.StringArrayOutput)
 }

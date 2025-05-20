@@ -10,11 +10,11 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.ApiManagement
 {
     /// <summary>
-    /// Manages a API Management Custom Domain.
+    /// Manages an API Management Custom Domain.
     /// 
     /// ## Disclaimers
     /// 
-    /// &gt; **Note:** It's possible to define Custom Domains both within the `azure.apimanagement.Service` resource via the `hostname_configurations` block and by using this resource. However it's not possible to use both methods to manage Custom Domains within an API Management Service, since there will be conflicts.
+    /// &gt; **Note:** It's possible to define Custom Domains both within the `azure.apimanagement.Service` resource via the `hostname_configurations` block and by using this resource. However, it's not possible to use both methods to manage Custom Domains within an API Management Service, since there will be conflicts.
     /// 
     /// ## Example Usage
     /// 
@@ -116,7 +116,7 @@ namespace Pulumi.Azure.ApiManagement
     ///             new Azure.ApiManagement.Inputs.CustomDomainGatewayArgs
     ///             {
     ///                 HostName = "api.example.com",
-    ///                 KeyVaultId = exampleCertificate.VersionlessSecretId,
+    ///                 KeyVaultCertificateId = exampleCertificate.VersionlessSecretId,
     ///             },
     ///         },
     ///         DeveloperPortals = new[]
@@ -124,13 +124,20 @@ namespace Pulumi.Azure.ApiManagement
     ///             new Azure.ApiManagement.Inputs.CustomDomainDeveloperPortalArgs
     ///             {
     ///                 HostName = "portal.example.com",
-    ///                 KeyVaultId = exampleCertificate.VersionlessSecretId,
+    ///                 KeyVaultCertificateId = exampleCertificate.VersionlessSecretId,
     ///             },
     ///         },
     ///     });
     /// 
     /// });
     /// ```
+    /// 
+    /// ## API Providers
+    /// 
+    /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+    /// This resource uses the following Azure API Providers:
+    /// 
+    /// * `Microsoft.ApiManagement`: 2022-08-01
     /// 
     /// ## Import
     /// 

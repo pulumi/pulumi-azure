@@ -65,7 +65,7 @@ import (
 //					&dns.CaaRecordRecordArgs{
 //						Flags: pulumi.Int(0),
 //						Tag:   pulumi.String("iodef"),
-//						Value: pulumi.String("mailto:user@nonexisting.tld"),
+//						Value: pulumi.String("mailto:terraform@nonexisting.tld"),
 //					},
 //				},
 //				Tags: pulumi.StringMap{
@@ -80,6 +80,13 @@ import (
 //	}
 //
 // ```
+//
+// ## API Providers
+//
+// <!-- This section is generated, changes will be overwritten -->
+// This resource uses the following Azure API Providers:
+//
+// * `Microsoft.Network`: 2018-05-01
 //
 // ## Import
 //

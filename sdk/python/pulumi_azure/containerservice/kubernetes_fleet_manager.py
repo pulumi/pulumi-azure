@@ -224,6 +224,13 @@ class KubernetesFleetManager(pulumi.CustomResource):
             resource_group_name=example.name)
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.ContainerService`: 2024-04-01
+
         ## Import
 
         An existing Kubernetes Fleet Manager can be imported into Pulumi using the `resource id`, e.g.
@@ -268,6 +275,13 @@ class KubernetesFleetManager(pulumi.CustomResource):
             name="example",
             resource_group_name=example.name)
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.ContainerService`: 2024-04-01
 
         ## Import
 

@@ -20,7 +20,7 @@ import javax.annotation.Nullable;
 /**
  * Manages a Machine Learning Inference Cluster.
  * 
- * &gt; **NOTE:** The Machine Learning Inference Cluster resource is used to attach an existing AKS cluster to the Machine Learning Workspace, it doesn&#39;t create the AKS cluster itself. Therefore it can only be created and deleted, not updated. Any change to the configuration will recreate the resource.
+ * &gt; **Note:** The Machine Learning Inference Cluster resource is used to attach an existing AKS cluster to the Machine Learning Workspace, it doesn&#39;t create the AKS cluster itself. Therefore it can only be created and deleted, not updated. Any change to the configuration will recreate the resource.
  * 
  * ## Example Usage
  * 
@@ -157,6 +157,15 @@ import javax.annotation.Nullable;
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
+ * ## API Providers
+ * 
+ * &lt;!-- This section is generated, changes will be overwritten --&gt;
+ * This resource uses the following Azure API Providers:
+ * 
+ * * `Microsoft.ContainerService`: 2024-09-01
+ * 
+ * * `Microsoft.MachineLearningServices`: 2024-04-01
+ * 
  * ## Import
  * 
  * Machine Learning Inference Clusters can be imported using the `resource id`, e.g.
@@ -171,7 +180,7 @@ public class InferenceCluster extends com.pulumi.resources.CustomResource {
     /**
      * The purpose of the Inference Cluster. Options are `DevTest`, `DenseProd` and `FastProd`. If used for Development or Testing, use `DevTest` here. Default purpose is `FastProd`, which is recommended for production workloads. Changing this forces a new Machine Learning Inference Cluster to be created.
      * 
-     * &gt; **NOTE:** When creating or attaching a cluster, if the cluster will be used for production (`cluster_purpose = &#34;FastProd&#34;`), then it must contain at least 12 virtual CPUs. The number of virtual CPUs can be calculated by multiplying the number of nodes in the cluster by the number of cores provided by the VM size selected. For example, if you use a VM size of &#34;Standard_D3_v2&#34;, which has 4 virtual cores, then you should select 3 or greater as the number of nodes.
+     * &gt; **Note:** When creating or attaching a cluster, if the cluster will be used for production (`cluster_purpose = &#34;FastProd&#34;`), then it must contain at least 12 virtual CPUs. The number of virtual CPUs can be calculated by multiplying the number of nodes in the cluster by the number of cores provided by the VM size selected. For example, if you use a VM size of &#34;Standard_D3_v2&#34;, which has 4 virtual cores, then you should select 3 or greater as the number of nodes.
      * 
      */
     @Export(name="clusterPurpose", refs={String.class}, tree="[0]")
@@ -180,7 +189,7 @@ public class InferenceCluster extends com.pulumi.resources.CustomResource {
     /**
      * @return The purpose of the Inference Cluster. Options are `DevTest`, `DenseProd` and `FastProd`. If used for Development or Testing, use `DevTest` here. Default purpose is `FastProd`, which is recommended for production workloads. Changing this forces a new Machine Learning Inference Cluster to be created.
      * 
-     * &gt; **NOTE:** When creating or attaching a cluster, if the cluster will be used for production (`cluster_purpose = &#34;FastProd&#34;`), then it must contain at least 12 virtual CPUs. The number of virtual CPUs can be calculated by multiplying the number of nodes in the cluster by the number of cores provided by the VM size selected. For example, if you use a VM size of &#34;Standard_D3_v2&#34;, which has 4 virtual cores, then you should select 3 or greater as the number of nodes.
+     * &gt; **Note:** When creating or attaching a cluster, if the cluster will be used for production (`cluster_purpose = &#34;FastProd&#34;`), then it must contain at least 12 virtual CPUs. The number of virtual CPUs can be calculated by multiplying the number of nodes in the cluster by the number of cores provided by the VM size selected. For example, if you use a VM size of &#34;Standard_D3_v2&#34;, which has 4 virtual cores, then you should select 3 or greater as the number of nodes.
      * 
      */
     public Output<Optional<String>> clusterPurpose() {

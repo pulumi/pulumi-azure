@@ -10,15 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Network
 {
     /// <summary>
-    /// Manages a virtual network including any configured subnets. Each subnet can
-    /// optionally be configured with a security group to be associated with the subnet.
-    /// 
-    /// &gt; **NOTE on Virtual Networks and Subnet's:** This provider currently
-    /// provides both a standalone Subnet resource, and allows for Subnets to be defined in-line within the Virtual Network resource.
-    /// At this time you cannot use a Virtual Network with in-line Subnets in conjunction with any Subnet resources. Doing so will cause a conflict of Subnet configurations and will overwrite Subnet's.
-    /// **NOTE on Virtual Networks and DNS Servers:** This provider currently provides both a standalone virtual network DNS Servers resource, and allows for DNS servers to be defined in-line within the Virtual Network resource.
-    /// At this time you cannot use a Virtual Network with in-line DNS servers in conjunction with any Virtual Network DNS Servers resources. Doing so will cause a conflict of Virtual Network DNS Servers configurations and will overwrite virtual networks DNS servers.
-    /// 
     /// ## Example Usage
     /// 
     /// ```csharp
@@ -105,7 +96,7 @@ namespace Pulumi.Azure.Network
         /// <summary>
         /// The BGP community attribute in format `&lt;as-number&gt;:&lt;community-value&gt;`.
         /// 
-        /// &gt; **NOTE** The `as-number` segment is the Microsoft ASN, which is always `12076` for now.
+        /// &gt; **Note:** The `as-number` segment is the Microsoft ASN, which is always `12076` for now.
         /// </summary>
         [Output("bgpCommunity")]
         public Output<string?> BgpCommunity { get; private set; } = null!;
@@ -119,7 +110,7 @@ namespace Pulumi.Azure.Network
         /// <summary>
         /// List of IP addresses of DNS servers
         /// 
-        /// &gt; **NOTE** Since `dns_servers` can be configured both inline and via the separate `azure.network.VirtualNetworkDnsServers` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
+        /// &gt; **Note:** Since `dns_servers` can be configured both inline and via the separate `azure.network.VirtualNetworkDnsServers` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
         /// </summary>
         [Output("dnsServers")]
         public Output<ImmutableArray<string>> DnsServers { get; private set; } = null!;
@@ -175,7 +166,7 @@ namespace Pulumi.Azure.Network
         /// <summary>
         /// Can be specified multiple times to define multiple subnets. Each `subnet` block supports fields documented below.
         /// 
-        /// &gt; **NOTE** Since `subnet` can be configured both inline and via the separate `azure.network.Subnet` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
+        /// &gt; **Note:** Since `subnet` can be configured both inline and via the separate `azure.network.Subnet` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
         /// </summary>
         [Output("subnets")]
         public Output<ImmutableArray<Outputs.VirtualNetworkSubnet>> Subnets { get; private set; } = null!;
@@ -247,7 +238,7 @@ namespace Pulumi.Azure.Network
         /// <summary>
         /// The BGP community attribute in format `&lt;as-number&gt;:&lt;community-value&gt;`.
         /// 
-        /// &gt; **NOTE** The `as-number` segment is the Microsoft ASN, which is always `12076` for now.
+        /// &gt; **Note:** The `as-number` segment is the Microsoft ASN, which is always `12076` for now.
         /// </summary>
         [Input("bgpCommunity")]
         public Input<string>? BgpCommunity { get; set; }
@@ -264,7 +255,7 @@ namespace Pulumi.Azure.Network
         /// <summary>
         /// List of IP addresses of DNS servers
         /// 
-        /// &gt; **NOTE** Since `dns_servers` can be configured both inline and via the separate `azure.network.VirtualNetworkDnsServers` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
+        /// &gt; **Note:** Since `dns_servers` can be configured both inline and via the separate `azure.network.VirtualNetworkDnsServers` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
         /// </summary>
         public InputList<string> DnsServers
         {
@@ -320,7 +311,7 @@ namespace Pulumi.Azure.Network
         /// <summary>
         /// Can be specified multiple times to define multiple subnets. Each `subnet` block supports fields documented below.
         /// 
-        /// &gt; **NOTE** Since `subnet` can be configured both inline and via the separate `azure.network.Subnet` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
+        /// &gt; **Note:** Since `subnet` can be configured both inline and via the separate `azure.network.Subnet` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
         /// </summary>
         public InputList<Inputs.VirtualNetworkSubnetArgs> Subnets
         {
@@ -363,7 +354,7 @@ namespace Pulumi.Azure.Network
         /// <summary>
         /// The BGP community attribute in format `&lt;as-number&gt;:&lt;community-value&gt;`.
         /// 
-        /// &gt; **NOTE** The `as-number` segment is the Microsoft ASN, which is always `12076` for now.
+        /// &gt; **Note:** The `as-number` segment is the Microsoft ASN, which is always `12076` for now.
         /// </summary>
         [Input("bgpCommunity")]
         public Input<string>? BgpCommunity { get; set; }
@@ -380,7 +371,7 @@ namespace Pulumi.Azure.Network
         /// <summary>
         /// List of IP addresses of DNS servers
         /// 
-        /// &gt; **NOTE** Since `dns_servers` can be configured both inline and via the separate `azure.network.VirtualNetworkDnsServers` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
+        /// &gt; **Note:** Since `dns_servers` can be configured both inline and via the separate `azure.network.VirtualNetworkDnsServers` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
         /// </summary>
         public InputList<string> DnsServers
         {
@@ -442,7 +433,7 @@ namespace Pulumi.Azure.Network
         /// <summary>
         /// Can be specified multiple times to define multiple subnets. Each `subnet` block supports fields documented below.
         /// 
-        /// &gt; **NOTE** Since `subnet` can be configured both inline and via the separate `azure.network.Subnet` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
+        /// &gt; **Note:** Since `subnet` can be configured both inline and via the separate `azure.network.Subnet` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
         /// </summary>
         public InputList<Inputs.VirtualNetworkSubnetGetArgs> Subnets
         {

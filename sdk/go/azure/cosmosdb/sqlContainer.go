@@ -100,11 +100,8 @@ type SqlContainer struct {
 	// The name of the Cosmos DB Account to create the container within. Changing this forces a new resource to be created.
 	AccountName pulumi.StringOutput `pulumi:"accountName"`
 	// The default time to live of Analytical Storage for this SQL container. If present and the value is set to `-1`, it is equal to infinity, and items don’t expire by default. If present and the value is set to some number `n` – items will expire `n` seconds after their last modified time.
-	AnalyticalStorageTtl pulumi.IntPtrOutput `pulumi:"analyticalStorageTtl"`
-	// An `autoscaleSettings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual destroy-apply.
-	//
-	// > **Note:** Switching between autoscale and manual throughput is not supported via this provider and must be completed via the Azure Portal and refreshed.
-	AutoscaleSettings SqlContainerAutoscaleSettingsPtrOutput `pulumi:"autoscaleSettings"`
+	AnalyticalStorageTtl pulumi.IntPtrOutput                    `pulumi:"analyticalStorageTtl"`
+	AutoscaleSettings    SqlContainerAutoscaleSettingsPtrOutput `pulumi:"autoscaleSettings"`
 	// A `conflictResolutionPolicy` blocks as defined below. Changing this forces a new resource to be created.
 	ConflictResolutionPolicy SqlContainerConflictResolutionPolicyOutput `pulumi:"conflictResolutionPolicy"`
 	// The name of the Cosmos DB SQL Database to create the container within. Changing this forces a new resource to be created.
@@ -125,8 +122,7 @@ type SqlContainer struct {
 	PartitionKeyVersion pulumi.IntPtrOutput `pulumi:"partitionKeyVersion"`
 	// The name of the resource group in which the Cosmos DB SQL Container is created. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
-	// The throughput of SQL container (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon container creation otherwise it cannot be updated without a manual resource destroy-apply.
-	Throughput pulumi.IntOutput `pulumi:"throughput"`
+	Throughput        pulumi.IntOutput    `pulumi:"throughput"`
 	// One or more `uniqueKey` blocks as defined below. Changing this forces a new resource to be created.
 	UniqueKeys SqlContainerUniqueKeyArrayOutput `pulumi:"uniqueKeys"`
 }
@@ -176,11 +172,8 @@ type sqlContainerState struct {
 	// The name of the Cosmos DB Account to create the container within. Changing this forces a new resource to be created.
 	AccountName *string `pulumi:"accountName"`
 	// The default time to live of Analytical Storage for this SQL container. If present and the value is set to `-1`, it is equal to infinity, and items don’t expire by default. If present and the value is set to some number `n` – items will expire `n` seconds after their last modified time.
-	AnalyticalStorageTtl *int `pulumi:"analyticalStorageTtl"`
-	// An `autoscaleSettings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual destroy-apply.
-	//
-	// > **Note:** Switching between autoscale and manual throughput is not supported via this provider and must be completed via the Azure Portal and refreshed.
-	AutoscaleSettings *SqlContainerAutoscaleSettings `pulumi:"autoscaleSettings"`
+	AnalyticalStorageTtl *int                           `pulumi:"analyticalStorageTtl"`
+	AutoscaleSettings    *SqlContainerAutoscaleSettings `pulumi:"autoscaleSettings"`
 	// A `conflictResolutionPolicy` blocks as defined below. Changing this forces a new resource to be created.
 	ConflictResolutionPolicy *SqlContainerConflictResolutionPolicy `pulumi:"conflictResolutionPolicy"`
 	// The name of the Cosmos DB SQL Database to create the container within. Changing this forces a new resource to be created.
@@ -201,8 +194,7 @@ type sqlContainerState struct {
 	PartitionKeyVersion *int `pulumi:"partitionKeyVersion"`
 	// The name of the resource group in which the Cosmos DB SQL Container is created. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
-	// The throughput of SQL container (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon container creation otherwise it cannot be updated without a manual resource destroy-apply.
-	Throughput *int `pulumi:"throughput"`
+	Throughput        *int    `pulumi:"throughput"`
 	// One or more `uniqueKey` blocks as defined below. Changing this forces a new resource to be created.
 	UniqueKeys []SqlContainerUniqueKey `pulumi:"uniqueKeys"`
 }
@@ -212,10 +204,7 @@ type SqlContainerState struct {
 	AccountName pulumi.StringPtrInput
 	// The default time to live of Analytical Storage for this SQL container. If present and the value is set to `-1`, it is equal to infinity, and items don’t expire by default. If present and the value is set to some number `n` – items will expire `n` seconds after their last modified time.
 	AnalyticalStorageTtl pulumi.IntPtrInput
-	// An `autoscaleSettings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual destroy-apply.
-	//
-	// > **Note:** Switching between autoscale and manual throughput is not supported via this provider and must be completed via the Azure Portal and refreshed.
-	AutoscaleSettings SqlContainerAutoscaleSettingsPtrInput
+	AutoscaleSettings    SqlContainerAutoscaleSettingsPtrInput
 	// A `conflictResolutionPolicy` blocks as defined below. Changing this forces a new resource to be created.
 	ConflictResolutionPolicy SqlContainerConflictResolutionPolicyPtrInput
 	// The name of the Cosmos DB SQL Database to create the container within. Changing this forces a new resource to be created.
@@ -236,8 +225,7 @@ type SqlContainerState struct {
 	PartitionKeyVersion pulumi.IntPtrInput
 	// The name of the resource group in which the Cosmos DB SQL Container is created. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
-	// The throughput of SQL container (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon container creation otherwise it cannot be updated without a manual resource destroy-apply.
-	Throughput pulumi.IntPtrInput
+	Throughput        pulumi.IntPtrInput
 	// One or more `uniqueKey` blocks as defined below. Changing this forces a new resource to be created.
 	UniqueKeys SqlContainerUniqueKeyArrayInput
 }
@@ -250,11 +238,8 @@ type sqlContainerArgs struct {
 	// The name of the Cosmos DB Account to create the container within. Changing this forces a new resource to be created.
 	AccountName string `pulumi:"accountName"`
 	// The default time to live of Analytical Storage for this SQL container. If present and the value is set to `-1`, it is equal to infinity, and items don’t expire by default. If present and the value is set to some number `n` – items will expire `n` seconds after their last modified time.
-	AnalyticalStorageTtl *int `pulumi:"analyticalStorageTtl"`
-	// An `autoscaleSettings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual destroy-apply.
-	//
-	// > **Note:** Switching between autoscale and manual throughput is not supported via this provider and must be completed via the Azure Portal and refreshed.
-	AutoscaleSettings *SqlContainerAutoscaleSettings `pulumi:"autoscaleSettings"`
+	AnalyticalStorageTtl *int                           `pulumi:"analyticalStorageTtl"`
+	AutoscaleSettings    *SqlContainerAutoscaleSettings `pulumi:"autoscaleSettings"`
 	// A `conflictResolutionPolicy` blocks as defined below. Changing this forces a new resource to be created.
 	ConflictResolutionPolicy *SqlContainerConflictResolutionPolicy `pulumi:"conflictResolutionPolicy"`
 	// The name of the Cosmos DB SQL Database to create the container within. Changing this forces a new resource to be created.
@@ -275,8 +260,7 @@ type sqlContainerArgs struct {
 	PartitionKeyVersion *int `pulumi:"partitionKeyVersion"`
 	// The name of the resource group in which the Cosmos DB SQL Container is created. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The throughput of SQL container (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon container creation otherwise it cannot be updated without a manual resource destroy-apply.
-	Throughput *int `pulumi:"throughput"`
+	Throughput        *int   `pulumi:"throughput"`
 	// One or more `uniqueKey` blocks as defined below. Changing this forces a new resource to be created.
 	UniqueKeys []SqlContainerUniqueKey `pulumi:"uniqueKeys"`
 }
@@ -287,10 +271,7 @@ type SqlContainerArgs struct {
 	AccountName pulumi.StringInput
 	// The default time to live of Analytical Storage for this SQL container. If present and the value is set to `-1`, it is equal to infinity, and items don’t expire by default. If present and the value is set to some number `n` – items will expire `n` seconds after their last modified time.
 	AnalyticalStorageTtl pulumi.IntPtrInput
-	// An `autoscaleSettings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual destroy-apply.
-	//
-	// > **Note:** Switching between autoscale and manual throughput is not supported via this provider and must be completed via the Azure Portal and refreshed.
-	AutoscaleSettings SqlContainerAutoscaleSettingsPtrInput
+	AutoscaleSettings    SqlContainerAutoscaleSettingsPtrInput
 	// A `conflictResolutionPolicy` blocks as defined below. Changing this forces a new resource to be created.
 	ConflictResolutionPolicy SqlContainerConflictResolutionPolicyPtrInput
 	// The name of the Cosmos DB SQL Database to create the container within. Changing this forces a new resource to be created.
@@ -311,8 +292,7 @@ type SqlContainerArgs struct {
 	PartitionKeyVersion pulumi.IntPtrInput
 	// The name of the resource group in which the Cosmos DB SQL Container is created. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
-	// The throughput of SQL container (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon container creation otherwise it cannot be updated without a manual resource destroy-apply.
-	Throughput pulumi.IntPtrInput
+	Throughput        pulumi.IntPtrInput
 	// One or more `uniqueKey` blocks as defined below. Changing this forces a new resource to be created.
 	UniqueKeys SqlContainerUniqueKeyArrayInput
 }
@@ -414,9 +394,6 @@ func (o SqlContainerOutput) AnalyticalStorageTtl() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *SqlContainer) pulumi.IntPtrOutput { return v.AnalyticalStorageTtl }).(pulumi.IntPtrOutput)
 }
 
-// An `autoscaleSettings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual destroy-apply.
-//
-// > **Note:** Switching between autoscale and manual throughput is not supported via this provider and must be completed via the Azure Portal and refreshed.
 func (o SqlContainerOutput) AutoscaleSettings() SqlContainerAutoscaleSettingsPtrOutput {
 	return o.ApplyT(func(v *SqlContainer) SqlContainerAutoscaleSettingsPtrOutput { return v.AutoscaleSettings }).(SqlContainerAutoscaleSettingsPtrOutput)
 }
@@ -468,7 +445,6 @@ func (o SqlContainerOutput) ResourceGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v *SqlContainer) pulumi.StringOutput { return v.ResourceGroupName }).(pulumi.StringOutput)
 }
 
-// The throughput of SQL container (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon container creation otherwise it cannot be updated without a manual resource destroy-apply.
 func (o SqlContainerOutput) Throughput() pulumi.IntOutput {
 	return o.ApplyT(func(v *SqlContainer) pulumi.IntOutput { return v.Throughput }).(pulumi.IntOutput)
 }

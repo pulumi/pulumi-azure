@@ -78,7 +78,7 @@ import (
 //					&monitoring.ActivityLogAlertActionArgs{
 //						ActionGroupId: main.ID(),
 //						WebhookProperties: pulumi.StringMap{
-//							"from": pulumi.String("source"),
+//							"from": pulumi.String("terraform"),
 //						},
 //					},
 //				},

@@ -24,8 +24,8 @@ namespace Pulumi.Azure.EventHub
     /// {
     ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
-    ///         Name = "my-servicebus",
-    ///         Location = "West US",
+    ///         Name = "terraform-servicebus",
+    ///         Location = "West Europe",
     ///     });
     /// 
     ///     var exampleNamespace = new Azure.ServiceBus.Namespace("example", new()
@@ -36,7 +36,7 @@ namespace Pulumi.Azure.EventHub
     ///         Sku = "Standard",
     ///         Tags = 
     ///         {
-    ///             { "source", "example" },
+    ///             { "source", "terraform" },
     ///         },
     ///     });
     /// 
@@ -65,13 +65,13 @@ namespace Pulumi.Azure.EventHub
     public partial class NamespaceAuthorizationRule : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Grants listen access to this this Authorization Rule. Defaults to `false`.
+        /// Grants listen access to this Authorization Rule. Defaults to `false`.
         /// </summary>
         [Output("listen")]
         public Output<bool?> Listen { get; private set; } = null!;
 
         /// <summary>
-        /// Grants manage access to this this Authorization Rule. When this property is `true` - both `listen` and `send` must be too. Defaults to `false`.
+        /// Grants manage access to this Authorization Rule. When this property is `true` - both `listen` and `send` must be too. Defaults to `false`.
         /// </summary>
         [Output("manage")]
         public Output<bool?> Manage { get; private set; } = null!;
@@ -85,7 +85,7 @@ namespace Pulumi.Azure.EventHub
         /// <summary>
         /// Specifies the ID of the ServiceBus Namespace. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **NOTE** At least one of the 3 permissions below needs to be set.
+        /// &gt; **Note:** At least one of the 3 permissions below needs to be set.
         /// </summary>
         [Output("namespaceId")]
         public Output<string> NamespaceId { get; private set; } = null!;
@@ -127,7 +127,7 @@ namespace Pulumi.Azure.EventHub
         public Output<string> SecondaryKey { get; private set; } = null!;
 
         /// <summary>
-        /// Grants send access to this this Authorization Rule. Defaults to `false`.
+        /// Grants send access to this Authorization Rule. Defaults to `false`.
         /// </summary>
         [Output("send")]
         public Output<bool?> Send { get; private set; } = null!;
@@ -188,13 +188,13 @@ namespace Pulumi.Azure.EventHub
     public sealed class NamespaceAuthorizationRuleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Grants listen access to this this Authorization Rule. Defaults to `false`.
+        /// Grants listen access to this Authorization Rule. Defaults to `false`.
         /// </summary>
         [Input("listen")]
         public Input<bool>? Listen { get; set; }
 
         /// <summary>
-        /// Grants manage access to this this Authorization Rule. When this property is `true` - both `listen` and `send` must be too. Defaults to `false`.
+        /// Grants manage access to this Authorization Rule. When this property is `true` - both `listen` and `send` must be too. Defaults to `false`.
         /// </summary>
         [Input("manage")]
         public Input<bool>? Manage { get; set; }
@@ -208,13 +208,13 @@ namespace Pulumi.Azure.EventHub
         /// <summary>
         /// Specifies the ID of the ServiceBus Namespace. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **NOTE** At least one of the 3 permissions below needs to be set.
+        /// &gt; **Note:** At least one of the 3 permissions below needs to be set.
         /// </summary>
         [Input("namespaceId", required: true)]
         public Input<string> NamespaceId { get; set; } = null!;
 
         /// <summary>
-        /// Grants send access to this this Authorization Rule. Defaults to `false`.
+        /// Grants send access to this Authorization Rule. Defaults to `false`.
         /// </summary>
         [Input("send")]
         public Input<bool>? Send { get; set; }
@@ -228,13 +228,13 @@ namespace Pulumi.Azure.EventHub
     public sealed class NamespaceAuthorizationRuleState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Grants listen access to this this Authorization Rule. Defaults to `false`.
+        /// Grants listen access to this Authorization Rule. Defaults to `false`.
         /// </summary>
         [Input("listen")]
         public Input<bool>? Listen { get; set; }
 
         /// <summary>
-        /// Grants manage access to this this Authorization Rule. When this property is `true` - both `listen` and `send` must be too. Defaults to `false`.
+        /// Grants manage access to this Authorization Rule. When this property is `true` - both `listen` and `send` must be too. Defaults to `false`.
         /// </summary>
         [Input("manage")]
         public Input<bool>? Manage { get; set; }
@@ -248,7 +248,7 @@ namespace Pulumi.Azure.EventHub
         /// <summary>
         /// Specifies the ID of the ServiceBus Namespace. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **NOTE** At least one of the 3 permissions below needs to be set.
+        /// &gt; **Note:** At least one of the 3 permissions below needs to be set.
         /// </summary>
         [Input("namespaceId")]
         public Input<string>? NamespaceId { get; set; }
@@ -350,7 +350,7 @@ namespace Pulumi.Azure.EventHub
         }
 
         /// <summary>
-        /// Grants send access to this this Authorization Rule. Defaults to `false`.
+        /// Grants send access to this Authorization Rule. Defaults to `false`.
         /// </summary>
         [Input("send")]
         public Input<bool>? Send { get; set; }

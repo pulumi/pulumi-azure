@@ -41,6 +41,13 @@ import (
 //	}
 //
 // ```
+//
+// ## API Providers
+//
+// <!-- This section is generated, changes will be overwritten -->
+// This data source uses the following Azure API Providers:
+//
+// * `Microsoft.Sql`: 2023-08-01-preview
 func LookupElasticPool(ctx *pulumi.Context, args *LookupElasticPoolArgs, opts ...pulumi.InvokeOption) (*LookupElasticPoolResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupElasticPoolResult

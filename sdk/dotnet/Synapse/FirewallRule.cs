@@ -84,9 +84,9 @@ namespace Pulumi.Azure.Synapse
         /// <summary>
         /// The ending IP address to allow through the firewall for this rule.
         /// 
-        /// &gt; **NOTE:** The Azure feature `Allow access to Azure services` can be enabled by setting `start_ip_address` and `end_ip_address` to `0.0.0.0`.
+        /// &gt; **Note:** The Azure feature `Allow access to Azure services` can be enabled by setting `start_ip_address` and `end_ip_address` to `0.0.0.0`.
         /// 
-        /// &gt; **NOTE:** The Azure feature `Allow access to Azure services` requires the `name` to be `AllowAllWindowsAzureIps`.
+        /// &gt; **Note:** The Azure feature `Allow access to Azure services` requires the `name` to be `AllowAllWindowsAzureIps`.
         /// </summary>
         [Output("endIpAddress")]
         public Output<string> EndIpAddress { get; private set; } = null!;
@@ -158,9 +158,9 @@ namespace Pulumi.Azure.Synapse
         /// <summary>
         /// The ending IP address to allow through the firewall for this rule.
         /// 
-        /// &gt; **NOTE:** The Azure feature `Allow access to Azure services` can be enabled by setting `start_ip_address` and `end_ip_address` to `0.0.0.0`.
+        /// &gt; **Note:** The Azure feature `Allow access to Azure services` can be enabled by setting `start_ip_address` and `end_ip_address` to `0.0.0.0`.
         /// 
-        /// &gt; **NOTE:** The Azure feature `Allow access to Azure services` requires the `name` to be `AllowAllWindowsAzureIps`.
+        /// &gt; **Note:** The Azure feature `Allow access to Azure services` requires the `name` to be `AllowAllWindowsAzureIps`.
         /// </summary>
         [Input("endIpAddress", required: true)]
         public Input<string> EndIpAddress { get; set; } = null!;
@@ -194,9 +194,9 @@ namespace Pulumi.Azure.Synapse
         /// <summary>
         /// The ending IP address to allow through the firewall for this rule.
         /// 
-        /// &gt; **NOTE:** The Azure feature `Allow access to Azure services` can be enabled by setting `start_ip_address` and `end_ip_address` to `0.0.0.0`.
+        /// &gt; **Note:** The Azure feature `Allow access to Azure services` can be enabled by setting `start_ip_address` and `end_ip_address` to `0.0.0.0`.
         /// 
-        /// &gt; **NOTE:** The Azure feature `Allow access to Azure services` requires the `name` to be `AllowAllWindowsAzureIps`.
+        /// &gt; **Note:** The Azure feature `Allow access to Azure services` requires the `name` to be `AllowAllWindowsAzureIps`.
         /// </summary>
         [Input("endIpAddress")]
         public Input<string>? EndIpAddress { get; set; }

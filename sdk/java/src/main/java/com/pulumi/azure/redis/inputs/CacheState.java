@@ -115,7 +115,7 @@ public final class CacheState extends com.pulumi.resources.ResourceArgs {
     /**
      * The minimum TLS version. Possible values are `1.0`, `1.1` and `1.2`. Defaults to `1.0`.
      * 
-     * &gt; **NOTE:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
+     * &gt; **Note:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
      * 
      */
     @Import(name="minimumTlsVersion")
@@ -124,7 +124,7 @@ public final class CacheState extends com.pulumi.resources.ResourceArgs {
     /**
      * @return The minimum TLS version. Possible values are `1.0`, `1.1` and `1.2`. Defaults to `1.0`.
      * 
-     * &gt; **NOTE:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
+     * &gt; **Note:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
      * 
      */
     public Optional<Output<String>> minimumTlsVersion() {
@@ -378,7 +378,7 @@ public final class CacheState extends com.pulumi.resources.ResourceArgs {
     /**
      * The SKU of Redis to use. Possible values are `Basic`, `Standard` and `Premium`.
      * 
-     * &gt; **Note** Downgrading the SKU will force a new resource to be created.
+     * &gt; **Note:** Downgrading the SKU will force a new resource to be created.
      * 
      */
     @Import(name="skuName")
@@ -387,7 +387,7 @@ public final class CacheState extends com.pulumi.resources.ResourceArgs {
     /**
      * @return The SKU of Redis to use. Possible values are `Basic`, `Standard` and `Premium`.
      * 
-     * &gt; **Note** Downgrading the SKU will force a new resource to be created.
+     * &gt; **Note:** Downgrading the SKU will force a new resource to be created.
      * 
      */
     public Optional<Output<String>> skuName() {
@@ -457,7 +457,7 @@ public final class CacheState extends com.pulumi.resources.ResourceArgs {
     /**
      * Specifies a list of Availability Zones in which this Redis Cache should be located. Changing this forces a new Redis Cache to be created.
      * 
-     * &gt; **Please Note:** Availability Zones are [in Preview and only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview) - as such you must be opted into the Preview to use this functionality. You can [opt into the Availability Zones Preview in the Azure Portal](https://aka.ms/azenroll).
+     * &gt; **Note:** Availability Zones are [in Preview and only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview) - as such you must be opted into the Preview to use this functionality. You can [opt into the Availability Zones Preview in the Azure Portal](https://aka.ms/azenroll).
      * 
      */
     @Import(name="zones")
@@ -466,7 +466,7 @@ public final class CacheState extends com.pulumi.resources.ResourceArgs {
     /**
      * @return Specifies a list of Availability Zones in which this Redis Cache should be located. Changing this forces a new Redis Cache to be created.
      * 
-     * &gt; **Please Note:** Availability Zones are [in Preview and only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview) - as such you must be opted into the Preview to use this functionality. You can [opt into the Availability Zones Preview in the Azure Portal](https://aka.ms/azenroll).
+     * &gt; **Note:** Availability Zones are [in Preview and only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview) - as such you must be opted into the Preview to use this functionality. You can [opt into the Availability Zones Preview in the Azure Portal](https://aka.ms/azenroll).
      * 
      */
     public Optional<Output<List<String>>> zones() {
@@ -654,7 +654,7 @@ public final class CacheState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param minimumTlsVersion The minimum TLS version. Possible values are `1.0`, `1.1` and `1.2`. Defaults to `1.0`.
          * 
-         * &gt; **NOTE:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
+         * &gt; **Note:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
          * 
          * @return builder
          * 
@@ -667,7 +667,7 @@ public final class CacheState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param minimumTlsVersion The minimum TLS version. Possible values are `1.0`, `1.1` and `1.2`. Defaults to `1.0`.
          * 
-         * &gt; **NOTE:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
+         * &gt; **Note:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
          * 
          * @return builder
          * 
@@ -1029,7 +1029,7 @@ public final class CacheState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param skuName The SKU of Redis to use. Possible values are `Basic`, `Standard` and `Premium`.
          * 
-         * &gt; **Note** Downgrading the SKU will force a new resource to be created.
+         * &gt; **Note:** Downgrading the SKU will force a new resource to be created.
          * 
          * @return builder
          * 
@@ -1042,7 +1042,7 @@ public final class CacheState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param skuName The SKU of Redis to use. Possible values are `Basic`, `Standard` and `Premium`.
          * 
-         * &gt; **Note** Downgrading the SKU will force a new resource to be created.
+         * &gt; **Note:** Downgrading the SKU will force a new resource to be created.
          * 
          * @return builder
          * 
@@ -1138,7 +1138,7 @@ public final class CacheState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param zones Specifies a list of Availability Zones in which this Redis Cache should be located. Changing this forces a new Redis Cache to be created.
          * 
-         * &gt; **Please Note:** Availability Zones are [in Preview and only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview) - as such you must be opted into the Preview to use this functionality. You can [opt into the Availability Zones Preview in the Azure Portal](https://aka.ms/azenroll).
+         * &gt; **Note:** Availability Zones are [in Preview and only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview) - as such you must be opted into the Preview to use this functionality. You can [opt into the Availability Zones Preview in the Azure Portal](https://aka.ms/azenroll).
          * 
          * @return builder
          * 
@@ -1151,7 +1151,7 @@ public final class CacheState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param zones Specifies a list of Availability Zones in which this Redis Cache should be located. Changing this forces a new Redis Cache to be created.
          * 
-         * &gt; **Please Note:** Availability Zones are [in Preview and only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview) - as such you must be opted into the Preview to use this functionality. You can [opt into the Availability Zones Preview in the Azure Portal](https://aka.ms/azenroll).
+         * &gt; **Note:** Availability Zones are [in Preview and only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview) - as such you must be opted into the Preview to use this functionality. You can [opt into the Availability Zones Preview in the Azure Portal](https://aka.ms/azenroll).
          * 
          * @return builder
          * 
@@ -1163,7 +1163,7 @@ public final class CacheState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param zones Specifies a list of Availability Zones in which this Redis Cache should be located. Changing this forces a new Redis Cache to be created.
          * 
-         * &gt; **Please Note:** Availability Zones are [in Preview and only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview) - as such you must be opted into the Preview to use this functionality. You can [opt into the Availability Zones Preview in the Azure Portal](https://aka.ms/azenroll).
+         * &gt; **Note:** Availability Zones are [in Preview and only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview) - as such you must be opted into the Preview to use this functionality. You can [opt into the Availability Zones Preview in the Azure Portal](https://aka.ms/azenroll).
          * 
          * @return builder
          * 

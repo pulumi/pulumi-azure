@@ -88,6 +88,13 @@ import javax.annotation.Nullable;
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
+ * ## API Providers
+ * 
+ * &lt;!-- This section is generated, changes will be overwritten --&gt;
+ * This resource uses the following Azure API Providers:
+ * 
+ * * `Microsoft.Network`: 2022-04-01
+ * 
  * ## Import
  * 
  * Traffic Manager Profiles can be imported using the `resource id`, e.g.
@@ -134,7 +141,7 @@ public class Profile extends com.pulumi.resources.CustomResource {
     /**
      * The amount of endpoints to return for DNS queries to this Profile. Possible values range from `1` to `8`.
      * 
-     * &gt; **NOTE:** `max_return` must be set when the `traffic_routing_method` is `MultiValue`.
+     * &gt; **Note:** `max_return` must be set when the `traffic_routing_method` is `MultiValue`.
      * 
      */
     @Export(name="maxReturn", refs={Integer.class}, tree="[0]")
@@ -143,7 +150,7 @@ public class Profile extends com.pulumi.resources.CustomResource {
     /**
      * @return The amount of endpoints to return for DNS queries to this Profile. Possible values range from `1` to `8`.
      * 
-     * &gt; **NOTE:** `max_return` must be set when the `traffic_routing_method` is `MultiValue`.
+     * &gt; **Note:** `max_return` must be set when the `traffic_routing_method` is `MultiValue`.
      * 
      */
     public Output<Optional<Integer>> maxReturn() {

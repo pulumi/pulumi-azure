@@ -79,7 +79,7 @@ type ActionHttp struct {
 	Method pulumi.StringOutput `pulumi:"method"`
 	// Specifies the name of the HTTP Action to be created within the Logic App Workflow. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** This name must be unique across all Actions within the Logic App Workflow.
+	// > **Note:** This name must be unique across all Actions within the Logic App Workflow.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Specifies a Map of Key-Value Pairs that should be sent to the `uri` when this HTTP Action is triggered.
 	Queries pulumi.StringMapOutput `pulumi:"queries"`
@@ -138,7 +138,7 @@ type actionHttpState struct {
 	Method *string `pulumi:"method"`
 	// Specifies the name of the HTTP Action to be created within the Logic App Workflow. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** This name must be unique across all Actions within the Logic App Workflow.
+	// > **Note:** This name must be unique across all Actions within the Logic App Workflow.
 	Name *string `pulumi:"name"`
 	// Specifies a Map of Key-Value Pairs that should be sent to the `uri` when this HTTP Action is triggered.
 	Queries map[string]string `pulumi:"queries"`
@@ -159,7 +159,7 @@ type ActionHttpState struct {
 	Method pulumi.StringPtrInput
 	// Specifies the name of the HTTP Action to be created within the Logic App Workflow. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** This name must be unique across all Actions within the Logic App Workflow.
+	// > **Note:** This name must be unique across all Actions within the Logic App Workflow.
 	Name pulumi.StringPtrInput
 	// Specifies a Map of Key-Value Pairs that should be sent to the `uri` when this HTTP Action is triggered.
 	Queries pulumi.StringMapInput
@@ -184,7 +184,7 @@ type actionHttpArgs struct {
 	Method string `pulumi:"method"`
 	// Specifies the name of the HTTP Action to be created within the Logic App Workflow. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** This name must be unique across all Actions within the Logic App Workflow.
+	// > **Note:** This name must be unique across all Actions within the Logic App Workflow.
 	Name *string `pulumi:"name"`
 	// Specifies a Map of Key-Value Pairs that should be sent to the `uri` when this HTTP Action is triggered.
 	Queries map[string]string `pulumi:"queries"`
@@ -206,7 +206,7 @@ type ActionHttpArgs struct {
 	Method pulumi.StringInput
 	// Specifies the name of the HTTP Action to be created within the Logic App Workflow. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** This name must be unique across all Actions within the Logic App Workflow.
+	// > **Note:** This name must be unique across all Actions within the Logic App Workflow.
 	Name pulumi.StringPtrInput
 	// Specifies a Map of Key-Value Pairs that should be sent to the `uri` when this HTTP Action is triggered.
 	Queries pulumi.StringMapInput
@@ -325,7 +325,7 @@ func (o ActionHttpOutput) Method() pulumi.StringOutput {
 
 // Specifies the name of the HTTP Action to be created within the Logic App Workflow. Changing this forces a new resource to be created.
 //
-// > **NOTE:** This name must be unique across all Actions within the Logic App Workflow.
+// > **Note:** This name must be unique across all Actions within the Logic App Workflow.
 func (o ActionHttpOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *ActionHttp) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }

@@ -12,11 +12,11 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Manages a API Management Custom Domain.
+// Manages an API Management Custom Domain.
 //
 // ## Disclaimers
 //
-// > **Note:** It's possible to define Custom Domains both within the `apimanagement.Service` resource via the `hostnameConfigurations` block and by using this resource. However it's not possible to use both methods to manage Custom Domains within an API Management Service, since there will be conflicts.
+// > **Note:** It's possible to define Custom Domains both within the `apimanagement.Service` resource via the `hostnameConfigurations` block and by using this resource. However, it's not possible to use both methods to manage Custom Domains within an API Management Service, since there will be conflicts.
 //
 // ## Example Usage
 //
@@ -112,14 +112,14 @@ import (
 //				ApiManagementId: exampleService.ID(),
 //				Gateways: apimanagement.CustomDomainGatewayArray{
 //					&apimanagement.CustomDomainGatewayArgs{
-//						HostName:   pulumi.String("api.example.com"),
-//						KeyVaultId: exampleCertificate.VersionlessSecretId,
+//						HostName:              pulumi.String("api.example.com"),
+//						KeyVaultCertificateId: exampleCertificate.VersionlessSecretId,
 //					},
 //				},
 //				DeveloperPortals: apimanagement.CustomDomainDeveloperPortalArray{
 //					&apimanagement.CustomDomainDeveloperPortalArgs{
-//						HostName:   pulumi.String("portal.example.com"),
-//						KeyVaultId: exampleCertificate.VersionlessSecretId,
+//						HostName:              pulumi.String("portal.example.com"),
+//						KeyVaultCertificateId: exampleCertificate.VersionlessSecretId,
 //					},
 //				},
 //			})
@@ -131,6 +131,13 @@ import (
 //	}
 //
 // ```
+//
+// ## API Providers
+//
+// <!-- This section is generated, changes will be overwritten -->
+// This resource uses the following Azure API Providers:
+//
+// * `Microsoft.ApiManagement`: 2022-08-01
 //
 // ## Import
 //

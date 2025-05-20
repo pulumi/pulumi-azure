@@ -415,6 +415,13 @@ class ClusterExtension(pulumi.CustomResource):
             extension_type="microsoft.flux")
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.KubernetesConfiguration`: 2022-11-01
+
         ## Import
 
         Arc Kubernetes Cluster Extension can be imported using the `resource id` for different `cluster_resource_name`, e.g.
@@ -471,6 +478,13 @@ class ClusterExtension(pulumi.CustomResource):
             cluster_id=example_cluster.id,
             extension_type="microsoft.flux")
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.KubernetesConfiguration`: 2022-11-01
 
         ## Import
 

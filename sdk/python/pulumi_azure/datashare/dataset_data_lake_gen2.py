@@ -299,6 +299,13 @@ class DatasetDataLakeGen2(pulumi.CustomResource):
             opts = pulumi.ResourceOptions(depends_on=[example_assignment]))
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.DataShare`: 2019-11-01
+
         ## Import
 
         Data Share Data Lake Gen2 Datasets can be imported using the `resource id`, e.g.
@@ -369,6 +376,13 @@ class DatasetDataLakeGen2(pulumi.CustomResource):
             file_path="myfile.txt",
             opts = pulumi.ResourceOptions(depends_on=[example_assignment]))
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.DataShare`: 2019-11-01
 
         ## Import
 

@@ -15,16 +15,32 @@ public final class NextGenerationFirewallVirtualHubLocalRulestackDestinationNatF
 
     public static final NextGenerationFirewallVirtualHubLocalRulestackDestinationNatFrontendConfigArgs Empty = new NextGenerationFirewallVirtualHubLocalRulestackDestinationNatFrontendConfigArgs();
 
+    /**
+     * The port on which traffic will be receiveed.
+     * 
+     */
     @Import(name="port", required=true)
     private Output<Integer> port;
 
+    /**
+     * @return The port on which traffic will be receiveed.
+     * 
+     */
     public Output<Integer> port() {
         return this.port;
     }
 
+    /**
+     * The ID of the Public IP Address resource the traffic will be received on.
+     * 
+     */
     @Import(name="publicIpAddressId", required=true)
     private Output<String> publicIpAddressId;
 
+    /**
+     * @return The ID of the Public IP Address resource the traffic will be received on.
+     * 
+     */
     public Output<String> publicIpAddressId() {
         return this.publicIpAddressId;
     }
@@ -54,20 +70,44 @@ public final class NextGenerationFirewallVirtualHubLocalRulestackDestinationNatF
             $ = new NextGenerationFirewallVirtualHubLocalRulestackDestinationNatFrontendConfigArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param port The port on which traffic will be receiveed.
+         * 
+         * @return builder
+         * 
+         */
         public Builder port(Output<Integer> port) {
             $.port = port;
             return this;
         }
 
+        /**
+         * @param port The port on which traffic will be receiveed.
+         * 
+         * @return builder
+         * 
+         */
         public Builder port(Integer port) {
             return port(Output.of(port));
         }
 
+        /**
+         * @param publicIpAddressId The ID of the Public IP Address resource the traffic will be received on.
+         * 
+         * @return builder
+         * 
+         */
         public Builder publicIpAddressId(Output<String> publicIpAddressId) {
             $.publicIpAddressId = publicIpAddressId;
             return this;
         }
 
+        /**
+         * @param publicIpAddressId The ID of the Public IP Address resource the traffic will be received on.
+         * 
+         * @return builder
+         * 
+         */
         public Builder publicIpAddressId(String publicIpAddressId) {
             return publicIpAddressId(Output.of(publicIpAddressId));
         }

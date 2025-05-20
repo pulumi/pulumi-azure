@@ -77,7 +77,7 @@ type TriggerRecurrence struct {
 	LogicAppId pulumi.StringOutput `pulumi:"logicAppId"`
 	// Specifies the name of the Recurrence Triggers to be created within the Logic App Workflow. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** This name must be unique across all Triggers within the Logic App Workflow.
+	// > **Note:** This name must be unique across all Triggers within the Logic App Workflow.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// A `schedule` block as specified below.
 	Schedule TriggerRecurrenceSchedulePtrOutput `pulumi:"schedule"`
@@ -134,7 +134,7 @@ type triggerRecurrenceState struct {
 	LogicAppId *string `pulumi:"logicAppId"`
 	// Specifies the name of the Recurrence Triggers to be created within the Logic App Workflow. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** This name must be unique across all Triggers within the Logic App Workflow.
+	// > **Note:** This name must be unique across all Triggers within the Logic App Workflow.
 	Name *string `pulumi:"name"`
 	// A `schedule` block as specified below.
 	Schedule *TriggerRecurrenceSchedule `pulumi:"schedule"`
@@ -153,7 +153,7 @@ type TriggerRecurrenceState struct {
 	LogicAppId pulumi.StringPtrInput
 	// Specifies the name of the Recurrence Triggers to be created within the Logic App Workflow. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** This name must be unique across all Triggers within the Logic App Workflow.
+	// > **Note:** This name must be unique across all Triggers within the Logic App Workflow.
 	Name pulumi.StringPtrInput
 	// A `schedule` block as specified below.
 	Schedule TriggerRecurrenceSchedulePtrInput
@@ -176,7 +176,7 @@ type triggerRecurrenceArgs struct {
 	LogicAppId string `pulumi:"logicAppId"`
 	// Specifies the name of the Recurrence Triggers to be created within the Logic App Workflow. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** This name must be unique across all Triggers within the Logic App Workflow.
+	// > **Note:** This name must be unique across all Triggers within the Logic App Workflow.
 	Name *string `pulumi:"name"`
 	// A `schedule` block as specified below.
 	Schedule *TriggerRecurrenceSchedule `pulumi:"schedule"`
@@ -196,7 +196,7 @@ type TriggerRecurrenceArgs struct {
 	LogicAppId pulumi.StringInput
 	// Specifies the name of the Recurrence Triggers to be created within the Logic App Workflow. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** This name must be unique across all Triggers within the Logic App Workflow.
+	// > **Note:** This name must be unique across all Triggers within the Logic App Workflow.
 	Name pulumi.StringPtrInput
 	// A `schedule` block as specified below.
 	Schedule TriggerRecurrenceSchedulePtrInput
@@ -310,7 +310,7 @@ func (o TriggerRecurrenceOutput) LogicAppId() pulumi.StringOutput {
 
 // Specifies the name of the Recurrence Triggers to be created within the Logic App Workflow. Changing this forces a new resource to be created.
 //
-// > **NOTE:** This name must be unique across all Triggers within the Logic App Workflow.
+// > **Note:** This name must be unique across all Triggers within the Logic App Workflow.
 func (o TriggerRecurrenceOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *TriggerRecurrence) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }

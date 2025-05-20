@@ -23,18 +23,18 @@ public final class KeyVaultState extends com.pulumi.resources.ResourceArgs {
     public static final KeyVaultState Empty = new KeyVaultState();
 
     /**
-     * A list of up to 1024 objects describing access policies, as described below.
+     * [A list](https://www.terraform.io/docs/configuration/attr-as-blocks.html) of `access_policy` objects (up to 1024) describing access policies, as described below.
      * 
-     * &gt; **NOTE** Since `access_policy` can be configured both inline and via the separate `azure.keyvault.AccessPolicy` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
+     * &gt; **Note:** Since `access_policy` can be configured both inline and via the separate `azure.keyvault.AccessPolicy` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
      * 
      */
     @Import(name="accessPolicies")
     private @Nullable Output<List<KeyVaultAccessPolicyArgs>> accessPolicies;
 
     /**
-     * @return A list of up to 1024 objects describing access policies, as described below.
+     * @return [A list](https://www.terraform.io/docs/configuration/attr-as-blocks.html) of `access_policy` objects (up to 1024) describing access policies, as described below.
      * 
-     * &gt; **NOTE** Since `access_policy` can be configured both inline and via the separate `azure.keyvault.AccessPolicy` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
+     * &gt; **Note:** Since `access_policy` can be configured both inline and via the separate `azure.keyvault.AccessPolicy` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
      * 
      */
     public Optional<Output<List<KeyVaultAccessPolicyArgs>>> accessPolicies() {
@@ -180,21 +180,9 @@ public final class KeyVaultState extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.publicNetworkAccessEnabled);
     }
 
-    /**
-     * Is Purge Protection enabled for this Key Vault?
-     * 
-     * !&gt; **Note:** Once Purge Protection has been Enabled it&#39;s not possible to Disable it. Support for [disabling purge protection is being tracked in this Azure API issue](https://github.com/Azure/azure-rest-api-specs/issues/8075). Deleting the Key Vault with Purge Protection Enabled will schedule the Key Vault to be deleted (which will happen by Azure in the configured number of days, currently 90 days).
-     * 
-     */
     @Import(name="purgeProtectionEnabled")
     private @Nullable Output<Boolean> purgeProtectionEnabled;
 
-    /**
-     * @return Is Purge Protection enabled for this Key Vault?
-     * 
-     * !&gt; **Note:** Once Purge Protection has been Enabled it&#39;s not possible to Disable it. Support for [disabling purge protection is being tracked in this Azure API issue](https://github.com/Azure/azure-rest-api-specs/issues/8075). Deleting the Key Vault with Purge Protection Enabled will schedule the Key Vault to be deleted (which will happen by Azure in the configured number of days, currently 90 days).
-     * 
-     */
     public Optional<Output<Boolean>> purgeProtectionEnabled() {
         return Optional.ofNullable(this.purgeProtectionEnabled);
     }
@@ -334,9 +322,9 @@ public final class KeyVaultState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param accessPolicies A list of up to 1024 objects describing access policies, as described below.
+         * @param accessPolicies [A list](https://www.terraform.io/docs/configuration/attr-as-blocks.html) of `access_policy` objects (up to 1024) describing access policies, as described below.
          * 
-         * &gt; **NOTE** Since `access_policy` can be configured both inline and via the separate `azure.keyvault.AccessPolicy` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
+         * &gt; **Note:** Since `access_policy` can be configured both inline and via the separate `azure.keyvault.AccessPolicy` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
          * 
          * @return builder
          * 
@@ -347,9 +335,9 @@ public final class KeyVaultState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param accessPolicies A list of up to 1024 objects describing access policies, as described below.
+         * @param accessPolicies [A list](https://www.terraform.io/docs/configuration/attr-as-blocks.html) of `access_policy` objects (up to 1024) describing access policies, as described below.
          * 
-         * &gt; **NOTE** Since `access_policy` can be configured both inline and via the separate `azure.keyvault.AccessPolicy` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
+         * &gt; **Note:** Since `access_policy` can be configured both inline and via the separate `azure.keyvault.AccessPolicy` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
          * 
          * @return builder
          * 
@@ -359,9 +347,9 @@ public final class KeyVaultState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param accessPolicies A list of up to 1024 objects describing access policies, as described below.
+         * @param accessPolicies [A list](https://www.terraform.io/docs/configuration/attr-as-blocks.html) of `access_policy` objects (up to 1024) describing access policies, as described below.
          * 
-         * &gt; **NOTE** Since `access_policy` can be configured both inline and via the separate `azure.keyvault.AccessPolicy` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
+         * &gt; **Note:** Since `access_policy` can be configured both inline and via the separate `azure.keyvault.AccessPolicy` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
          * 
          * @return builder
          * 
@@ -575,27 +563,11 @@ public final class KeyVaultState extends com.pulumi.resources.ResourceArgs {
             return publicNetworkAccessEnabled(Output.of(publicNetworkAccessEnabled));
         }
 
-        /**
-         * @param purgeProtectionEnabled Is Purge Protection enabled for this Key Vault?
-         * 
-         * !&gt; **Note:** Once Purge Protection has been Enabled it&#39;s not possible to Disable it. Support for [disabling purge protection is being tracked in this Azure API issue](https://github.com/Azure/azure-rest-api-specs/issues/8075). Deleting the Key Vault with Purge Protection Enabled will schedule the Key Vault to be deleted (which will happen by Azure in the configured number of days, currently 90 days).
-         * 
-         * @return builder
-         * 
-         */
         public Builder purgeProtectionEnabled(@Nullable Output<Boolean> purgeProtectionEnabled) {
             $.purgeProtectionEnabled = purgeProtectionEnabled;
             return this;
         }
 
-        /**
-         * @param purgeProtectionEnabled Is Purge Protection enabled for this Key Vault?
-         * 
-         * !&gt; **Note:** Once Purge Protection has been Enabled it&#39;s not possible to Disable it. Support for [disabling purge protection is being tracked in this Azure API issue](https://github.com/Azure/azure-rest-api-specs/issues/8075). Deleting the Key Vault with Purge Protection Enabled will schedule the Key Vault to be deleted (which will happen by Azure in the configured number of days, currently 90 days).
-         * 
-         * @return builder
-         * 
-         */
         public Builder purgeProtectionEnabled(Boolean purgeProtectionEnabled) {
             return purgeProtectionEnabled(Output.of(purgeProtectionEnabled));
         }

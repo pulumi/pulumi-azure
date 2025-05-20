@@ -23,7 +23,7 @@ public final class KubernetesClusterServiceMeshProfile {
     /**
      * @return Is Istio External Ingress Gateway enabled?
      * 
-     * &gt; **NOTE:** Currently only one Internal Ingress Gateway and one External Ingress Gateway are allowed per cluster
+     * &gt; **Note:** Currently only one Internal Ingress Gateway and one External Ingress Gateway are allowed per cluster
      * 
      */
     private @Nullable Boolean externalIngressGatewayEnabled;
@@ -40,7 +40,7 @@ public final class KubernetesClusterServiceMeshProfile {
     /**
      * @return Specify 1 or 2 Istio control plane revisions for managing minor upgrades using the canary upgrade process. For example, create the resource with `revisions` set to `[&#34;asm-1-20&#34;]`, or leave it empty (the `revisions` will only be known after apply). To start the canary upgrade, change `revisions` to `[&#34;asm-1-20&#34;, &#34;asm-1-21&#34;]`. To roll back the canary upgrade, revert to `[&#34;asm-1-20&#34;]`. To confirm the upgrade, change to `[&#34;asm-1-21&#34;]`.
      * 
-     * &gt; **NOTE:** Upgrading to a new (canary) revision does not affect existing sidecar proxies. You need to apply the canary revision label to selected namespaces and restart pods with kubectl to inject the new sidecar proxy. [Learn more](https://istio.io/latest/docs/setup/upgrade/canary/#data-plane).
+     * &gt; **Note:** Upgrading to a new (canary) revision does not affect existing sidecar proxies. You need to apply the canary revision label to selected namespaces and restart pods with kubectl to inject the new sidecar proxy. [Learn more](https://istio.io/latest/docs/setup/upgrade/canary/#data-plane).
      * 
      */
     private List<String> revisions;
@@ -56,7 +56,7 @@ public final class KubernetesClusterServiceMeshProfile {
     /**
      * @return Is Istio External Ingress Gateway enabled?
      * 
-     * &gt; **NOTE:** Currently only one Internal Ingress Gateway and one External Ingress Gateway are allowed per cluster
+     * &gt; **Note:** Currently only one Internal Ingress Gateway and one External Ingress Gateway are allowed per cluster
      * 
      */
     public Optional<Boolean> externalIngressGatewayEnabled() {
@@ -79,7 +79,7 @@ public final class KubernetesClusterServiceMeshProfile {
     /**
      * @return Specify 1 or 2 Istio control plane revisions for managing minor upgrades using the canary upgrade process. For example, create the resource with `revisions` set to `[&#34;asm-1-20&#34;]`, or leave it empty (the `revisions` will only be known after apply). To start the canary upgrade, change `revisions` to `[&#34;asm-1-20&#34;, &#34;asm-1-21&#34;]`. To roll back the canary upgrade, revert to `[&#34;asm-1-20&#34;]`. To confirm the upgrade, change to `[&#34;asm-1-21&#34;]`.
      * 
-     * &gt; **NOTE:** Upgrading to a new (canary) revision does not affect existing sidecar proxies. You need to apply the canary revision label to selected namespaces and restart pods with kubectl to inject the new sidecar proxy. [Learn more](https://istio.io/latest/docs/setup/upgrade/canary/#data-plane).
+     * &gt; **Note:** Upgrading to a new (canary) revision does not affect existing sidecar proxies. You need to apply the canary revision label to selected namespaces and restart pods with kubectl to inject the new sidecar proxy. [Learn more](https://istio.io/latest/docs/setup/upgrade/canary/#data-plane).
      * 
      */
     public List<String> revisions() {

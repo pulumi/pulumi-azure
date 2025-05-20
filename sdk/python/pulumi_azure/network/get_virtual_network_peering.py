@@ -171,6 +171,13 @@ def get_virtual_network_peering(name: Optional[builtins.str] = None,
     pulumi.export("id", example_get_virtual_network_peering.id)
     ```
 
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.Network`: 2024-05-01
+
 
     :param builtins.str name: The name of this virtual network peering.
     :param builtins.str virtual_network_id: The resource ID of the virtual network.
@@ -210,6 +217,13 @@ def get_virtual_network_peering_output(name: Optional[pulumi.Input[builtins.str]
         virtual_network_id=example.id)
     pulumi.export("id", example_get_virtual_network_peering.id)
     ```
+
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.Network`: 2024-05-01
 
 
     :param builtins.str name: The name of this virtual network peering.

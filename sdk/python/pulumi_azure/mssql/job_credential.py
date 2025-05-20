@@ -238,6 +238,13 @@ class JobCredential(pulumi.CustomResource):
             password="MyP4ssw0rd!!!")
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Sql`: 2023-08-01-preview
+
         ## Import
 
         Elastic Job Credentials can be imported using the `resource id`, e.g.
@@ -294,6 +301,13 @@ class JobCredential(pulumi.CustomResource):
             username="my-username",
             password="MyP4ssw0rd!!!")
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Sql`: 2023-08-01-preview
 
         ## Import
 

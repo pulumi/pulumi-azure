@@ -20,7 +20,7 @@ namespace Pulumi.Azure.Storage.Inputs
         /// 
         /// &gt; **Note:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
         /// 
-        /// &gt; The assigned `principal_id` and `tenant_id` can be retrieved after the identity `type` has been set to `SystemAssigned`  and Storage Account has been created. More details are available below.
+        /// &gt; **Note:** The assigned `principal_id` and `tenant_id` can be retrieved after the identity `type` has been set to `SystemAssigned`  and Storage Account has been created. More details are available below.
         /// </summary>
         public InputList<string> IdentityIds
         {

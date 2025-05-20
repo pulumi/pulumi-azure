@@ -107,6 +107,13 @@ def get_fabric(name: Optional[builtins.str] = None,
         resource_group_name="tfex-resource_group")
     ```
 
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.RecoveryServices`: 2024-04-01
+
 
     :param builtins.str name: Specifies the name of the Site Recovery Replication Fabric.
     :param builtins.str recovery_vault_name: The name of the Recovery Services Vault that the Site Recovery Replication Fabric is associated witth.
@@ -142,6 +149,13 @@ def get_fabric_output(name: Optional[pulumi.Input[builtins.str]] = None,
         recovery_vault_name="tfex-recovery_vault",
         resource_group_name="tfex-resource_group")
     ```
+
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.RecoveryServices`: 2024-04-01
 
 
     :param builtins.str name: Specifies the name of the Site Recovery Replication Fabric.

@@ -16,7 +16,7 @@ var _ = internal.GetEnvOrDefault
 type CacheIdentity struct {
 	// A list of User Assigned Managed Identity IDs to be assigned to this Redis Cluster.
 	//
-	// > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+	// > **Note:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
 	IdentityIds []string `pulumi:"identityIds"`
 	PrincipalId *string  `pulumi:"principalId"`
 	TenantId    *string  `pulumi:"tenantId"`
@@ -38,7 +38,7 @@ type CacheIdentityInput interface {
 type CacheIdentityArgs struct {
 	// A list of User Assigned Managed Identity IDs to be assigned to this Redis Cluster.
 	//
-	// > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+	// > **Note:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
 	IdentityIds pulumi.StringArrayInput `pulumi:"identityIds"`
 	PrincipalId pulumi.StringPtrInput   `pulumi:"principalId"`
 	TenantId    pulumi.StringPtrInput   `pulumi:"tenantId"`
@@ -125,7 +125,7 @@ func (o CacheIdentityOutput) ToCacheIdentityPtrOutputWithContext(ctx context.Con
 
 // A list of User Assigned Managed Identity IDs to be assigned to this Redis Cluster.
 //
-// > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+// > **Note:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
 func (o CacheIdentityOutput) IdentityIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v CacheIdentity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
 }
@@ -169,7 +169,7 @@ func (o CacheIdentityPtrOutput) Elem() CacheIdentityOutput {
 
 // A list of User Assigned Managed Identity IDs to be assigned to this Redis Cluster.
 //
-// > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+// > **Note:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
 func (o CacheIdentityPtrOutput) IdentityIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *CacheIdentity) []string {
 		if v == nil {
@@ -333,7 +333,7 @@ type CacheRedisConfiguration struct {
 	ActiveDirectoryAuthenticationEnabled *bool `pulumi:"activeDirectoryAuthenticationEnabled"`
 	// Enable or disable AOF persistence for this Redis Cache. Defaults to `false`.
 	//
-	// > **NOTE:** `aofBackupEnabled` can only be set when SKU is `Premium`.
+	// > **Note:** `aofBackupEnabled` can only be set when SKU is `Premium`.
 	AofBackupEnabled *bool `pulumi:"aofBackupEnabled"`
 	// First Storage Account connection string for AOF persistence.
 	AofStorageConnectionString0 *string `pulumi:"aofStorageConnectionString0"`
@@ -343,7 +343,7 @@ type CacheRedisConfiguration struct {
 	AofStorageConnectionString1 *string `pulumi:"aofStorageConnectionString1"`
 	// If set to `false`, the Redis instance will be accessible without authentication. Defaults to `true`.
 	//
-	// > **NOTE:** `authenticationEnabled` can only be set to `false` if a `subnetId` is specified; and only works if there aren't existing instances within the subnet with `authenticationEnabled` set to `true`.
+	// > **Note:** `authenticationEnabled` can only be set to `false` if a `subnetId` is specified; and only works if there aren't existing instances within the subnet with `authenticationEnabled` set to `true`.
 	AuthenticationEnabled *bool `pulumi:"authenticationEnabled"`
 	// Preferred auth method to communicate to storage account used for data persistence. Possible values are `SAS` and `ManagedIdentity`.
 	DataPersistenceAuthenticationMethod *string `pulumi:"dataPersistenceAuthenticationMethod"`
@@ -361,7 +361,7 @@ type CacheRedisConfiguration struct {
 	NotifyKeyspaceEvents *string `pulumi:"notifyKeyspaceEvents"`
 	// Is Backup Enabled? Only supported on Premium SKUs. Defaults to `false`.
 	//
-	// > **NOTE:** If `rdbBackupEnabled` set to `true`, `rdbStorageConnectionString` must also be set.
+	// > **Note:** If `rdbBackupEnabled` set to `true`, `rdbStorageConnectionString` must also be set.
 	RdbBackupEnabled *bool `pulumi:"rdbBackupEnabled"`
 	// The Backup Frequency in Minutes. Only supported on Premium SKUs. Possible values are: `15`, `30`, `60`, `360`, `720` and `1440`.
 	RdbBackupFrequency *int `pulumi:"rdbBackupFrequency"`
@@ -369,7 +369,7 @@ type CacheRedisConfiguration struct {
 	RdbBackupMaxSnapshotCount *int `pulumi:"rdbBackupMaxSnapshotCount"`
 	// The Connection String to the Storage Account. Only supported for Premium SKUs. In the format: `DefaultEndpointsProtocol=https;BlobEndpoint=${azurerm_storage_account.example.primary_blob_endpoint};AccountName=${azurerm_storage_account.example.name};AccountKey=${azurerm_storage_account.example.primary_access_key}`.
 	//
-	// > **NOTE:** There's a bug in the Redis API where the original storage connection string isn't being returned, which [is being tracked in this issue](https://github.com/Azure/azure-rest-api-specs/issues/3037). In the interim you can use [the `ignoreChanges` attribute to ignore changes to this field](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) e.g.:
+	// > **Note:** There's a bug in the Redis API where the original storage connection string isn't being returned, which [is being tracked in this issue](https://github.com/Azure/azure-rest-api-specs/issues/3037). In the interim you can use the `ignoreChanges` attribute to ignore changes to this field e.g.:
 	RdbStorageConnectionString *string `pulumi:"rdbStorageConnectionString"`
 	// The ID of the Subscription containing the Storage Account.
 	StorageAccountSubscriptionId *string `pulumi:"storageAccountSubscriptionId"`
@@ -391,7 +391,7 @@ type CacheRedisConfigurationArgs struct {
 	ActiveDirectoryAuthenticationEnabled pulumi.BoolPtrInput `pulumi:"activeDirectoryAuthenticationEnabled"`
 	// Enable or disable AOF persistence for this Redis Cache. Defaults to `false`.
 	//
-	// > **NOTE:** `aofBackupEnabled` can only be set when SKU is `Premium`.
+	// > **Note:** `aofBackupEnabled` can only be set when SKU is `Premium`.
 	AofBackupEnabled pulumi.BoolPtrInput `pulumi:"aofBackupEnabled"`
 	// First Storage Account connection string for AOF persistence.
 	AofStorageConnectionString0 pulumi.StringPtrInput `pulumi:"aofStorageConnectionString0"`
@@ -401,7 +401,7 @@ type CacheRedisConfigurationArgs struct {
 	AofStorageConnectionString1 pulumi.StringPtrInput `pulumi:"aofStorageConnectionString1"`
 	// If set to `false`, the Redis instance will be accessible without authentication. Defaults to `true`.
 	//
-	// > **NOTE:** `authenticationEnabled` can only be set to `false` if a `subnetId` is specified; and only works if there aren't existing instances within the subnet with `authenticationEnabled` set to `true`.
+	// > **Note:** `authenticationEnabled` can only be set to `false` if a `subnetId` is specified; and only works if there aren't existing instances within the subnet with `authenticationEnabled` set to `true`.
 	AuthenticationEnabled pulumi.BoolPtrInput `pulumi:"authenticationEnabled"`
 	// Preferred auth method to communicate to storage account used for data persistence. Possible values are `SAS` and `ManagedIdentity`.
 	DataPersistenceAuthenticationMethod pulumi.StringPtrInput `pulumi:"dataPersistenceAuthenticationMethod"`
@@ -419,7 +419,7 @@ type CacheRedisConfigurationArgs struct {
 	NotifyKeyspaceEvents pulumi.StringPtrInput `pulumi:"notifyKeyspaceEvents"`
 	// Is Backup Enabled? Only supported on Premium SKUs. Defaults to `false`.
 	//
-	// > **NOTE:** If `rdbBackupEnabled` set to `true`, `rdbStorageConnectionString` must also be set.
+	// > **Note:** If `rdbBackupEnabled` set to `true`, `rdbStorageConnectionString` must also be set.
 	RdbBackupEnabled pulumi.BoolPtrInput `pulumi:"rdbBackupEnabled"`
 	// The Backup Frequency in Minutes. Only supported on Premium SKUs. Possible values are: `15`, `30`, `60`, `360`, `720` and `1440`.
 	RdbBackupFrequency pulumi.IntPtrInput `pulumi:"rdbBackupFrequency"`
@@ -427,7 +427,7 @@ type CacheRedisConfigurationArgs struct {
 	RdbBackupMaxSnapshotCount pulumi.IntPtrInput `pulumi:"rdbBackupMaxSnapshotCount"`
 	// The Connection String to the Storage Account. Only supported for Premium SKUs. In the format: `DefaultEndpointsProtocol=https;BlobEndpoint=${azurerm_storage_account.example.primary_blob_endpoint};AccountName=${azurerm_storage_account.example.name};AccountKey=${azurerm_storage_account.example.primary_access_key}`.
 	//
-	// > **NOTE:** There's a bug in the Redis API where the original storage connection string isn't being returned, which [is being tracked in this issue](https://github.com/Azure/azure-rest-api-specs/issues/3037). In the interim you can use [the `ignoreChanges` attribute to ignore changes to this field](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) e.g.:
+	// > **Note:** There's a bug in the Redis API where the original storage connection string isn't being returned, which [is being tracked in this issue](https://github.com/Azure/azure-rest-api-specs/issues/3037). In the interim you can use the `ignoreChanges` attribute to ignore changes to this field e.g.:
 	RdbStorageConnectionString pulumi.StringPtrInput `pulumi:"rdbStorageConnectionString"`
 	// The ID of the Subscription containing the Storage Account.
 	StorageAccountSubscriptionId pulumi.StringPtrInput `pulumi:"storageAccountSubscriptionId"`
@@ -517,7 +517,7 @@ func (o CacheRedisConfigurationOutput) ActiveDirectoryAuthenticationEnabled() pu
 
 // Enable or disable AOF persistence for this Redis Cache. Defaults to `false`.
 //
-// > **NOTE:** `aofBackupEnabled` can only be set when SKU is `Premium`.
+// > **Note:** `aofBackupEnabled` can only be set when SKU is `Premium`.
 func (o CacheRedisConfigurationOutput) AofBackupEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v CacheRedisConfiguration) *bool { return v.AofBackupEnabled }).(pulumi.BoolPtrOutput)
 }
@@ -536,7 +536,7 @@ func (o CacheRedisConfigurationOutput) AofStorageConnectionString1() pulumi.Stri
 
 // If set to `false`, the Redis instance will be accessible without authentication. Defaults to `true`.
 //
-// > **NOTE:** `authenticationEnabled` can only be set to `false` if a `subnetId` is specified; and only works if there aren't existing instances within the subnet with `authenticationEnabled` set to `true`.
+// > **Note:** `authenticationEnabled` can only be set to `false` if a `subnetId` is specified; and only works if there aren't existing instances within the subnet with `authenticationEnabled` set to `true`.
 func (o CacheRedisConfigurationOutput) AuthenticationEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v CacheRedisConfiguration) *bool { return v.AuthenticationEnabled }).(pulumi.BoolPtrOutput)
 }
@@ -578,7 +578,7 @@ func (o CacheRedisConfigurationOutput) NotifyKeyspaceEvents() pulumi.StringPtrOu
 
 // Is Backup Enabled? Only supported on Premium SKUs. Defaults to `false`.
 //
-// > **NOTE:** If `rdbBackupEnabled` set to `true`, `rdbStorageConnectionString` must also be set.
+// > **Note:** If `rdbBackupEnabled` set to `true`, `rdbStorageConnectionString` must also be set.
 func (o CacheRedisConfigurationOutput) RdbBackupEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v CacheRedisConfiguration) *bool { return v.RdbBackupEnabled }).(pulumi.BoolPtrOutput)
 }
@@ -595,7 +595,7 @@ func (o CacheRedisConfigurationOutput) RdbBackupMaxSnapshotCount() pulumi.IntPtr
 
 // The Connection String to the Storage Account. Only supported for Premium SKUs. In the format: `DefaultEndpointsProtocol=https;BlobEndpoint=${azurerm_storage_account.example.primary_blob_endpoint};AccountName=${azurerm_storage_account.example.name};AccountKey=${azurerm_storage_account.example.primary_access_key}`.
 //
-// > **NOTE:** There's a bug in the Redis API where the original storage connection string isn't being returned, which [is being tracked in this issue](https://github.com/Azure/azure-rest-api-specs/issues/3037). In the interim you can use [the `ignoreChanges` attribute to ignore changes to this field](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) e.g.:
+// > **Note:** There's a bug in the Redis API where the original storage connection string isn't being returned, which [is being tracked in this issue](https://github.com/Azure/azure-rest-api-specs/issues/3037). In the interim you can use the `ignoreChanges` attribute to ignore changes to this field e.g.:
 func (o CacheRedisConfigurationOutput) RdbStorageConnectionString() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CacheRedisConfiguration) *string { return v.RdbStorageConnectionString }).(pulumi.StringPtrOutput)
 }
@@ -641,7 +641,7 @@ func (o CacheRedisConfigurationPtrOutput) ActiveDirectoryAuthenticationEnabled()
 
 // Enable or disable AOF persistence for this Redis Cache. Defaults to `false`.
 //
-// > **NOTE:** `aofBackupEnabled` can only be set when SKU is `Premium`.
+// > **Note:** `aofBackupEnabled` can only be set when SKU is `Premium`.
 func (o CacheRedisConfigurationPtrOutput) AofBackupEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *CacheRedisConfiguration) *bool {
 		if v == nil {
@@ -675,7 +675,7 @@ func (o CacheRedisConfigurationPtrOutput) AofStorageConnectionString1() pulumi.S
 
 // If set to `false`, the Redis instance will be accessible without authentication. Defaults to `true`.
 //
-// > **NOTE:** `authenticationEnabled` can only be set to `false` if a `subnetId` is specified; and only works if there aren't existing instances within the subnet with `authenticationEnabled` set to `true`.
+// > **Note:** `authenticationEnabled` can only be set to `false` if a `subnetId` is specified; and only works if there aren't existing instances within the subnet with `authenticationEnabled` set to `true`.
 func (o CacheRedisConfigurationPtrOutput) AuthenticationEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *CacheRedisConfiguration) *bool {
 		if v == nil {
@@ -757,7 +757,7 @@ func (o CacheRedisConfigurationPtrOutput) NotifyKeyspaceEvents() pulumi.StringPt
 
 // Is Backup Enabled? Only supported on Premium SKUs. Defaults to `false`.
 //
-// > **NOTE:** If `rdbBackupEnabled` set to `true`, `rdbStorageConnectionString` must also be set.
+// > **Note:** If `rdbBackupEnabled` set to `true`, `rdbStorageConnectionString` must also be set.
 func (o CacheRedisConfigurationPtrOutput) RdbBackupEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *CacheRedisConfiguration) *bool {
 		if v == nil {
@@ -789,7 +789,7 @@ func (o CacheRedisConfigurationPtrOutput) RdbBackupMaxSnapshotCount() pulumi.Int
 
 // The Connection String to the Storage Account. Only supported for Premium SKUs. In the format: `DefaultEndpointsProtocol=https;BlobEndpoint=${azurerm_storage_account.example.primary_blob_endpoint};AccountName=${azurerm_storage_account.example.name};AccountKey=${azurerm_storage_account.example.primary_access_key}`.
 //
-// > **NOTE:** There's a bug in the Redis API where the original storage connection string isn't being returned, which [is being tracked in this issue](https://github.com/Azure/azure-rest-api-specs/issues/3037). In the interim you can use [the `ignoreChanges` attribute to ignore changes to this field](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) e.g.:
+// > **Note:** There's a bug in the Redis API where the original storage connection string isn't being returned, which [is being tracked in this issue](https://github.com/Azure/azure-rest-api-specs/issues/3037). In the interim you can use the `ignoreChanges` attribute to ignore changes to this field e.g.:
 func (o CacheRedisConfigurationPtrOutput) RdbStorageConnectionString() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CacheRedisConfiguration) *string {
 		if v == nil {

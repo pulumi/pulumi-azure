@@ -50,6 +50,13 @@ import (
 //
 // ```
 //
+// ## API Providers
+//
+// <!-- This section is generated, changes will be overwritten -->
+// This resource uses the following Azure API Providers:
+//
+// * `Microsoft.ServiceNetworking`: 2023-11-01
+//
 // ## Import
 //
 // Application Gateway for Containers (ALB) can be imported using the `resource id`, e.g.

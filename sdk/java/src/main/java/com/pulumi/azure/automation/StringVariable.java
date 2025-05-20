@@ -63,7 +63,7 @@ import javax.annotation.Nullable;
  *             .name("tfex-example-var")
  *             .resourceGroupName(example.name())
  *             .automationAccountName(exampleAccount.name())
- *             .value("Hello, Basic Test.")
+ *             .value("Hello, Terraform Basic Test.")
  *             .build());
  * 
  *     }

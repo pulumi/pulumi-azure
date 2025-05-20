@@ -66,7 +66,7 @@ import javax.annotation.Nullable;
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .publisherName("My Company")
- *             .publisherEmail("company}{@literal @}{@code exmaple.com")
+ *             .publisherEmail("company}{@literal @}{@code terraform.io")
  *             .skuName("Developer_1")
  *             .build());
  * 
@@ -75,6 +75,13 @@ import javax.annotation.Nullable;
  * }
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
+ * 
+ * ## API Providers
+ * 
+ * &lt;!-- This section is generated, changes will be overwritten --&gt;
+ * This resource uses the following Azure API Providers:
+ * 
+ * * `Microsoft.ApiManagement`: 2022-08-01
  * 
  * ## Import
  * 
@@ -342,7 +349,7 @@ public class Service extends com.pulumi.resources.CustomResource {
     /**
      * ID of a standard SKU IPv4 Public IP.
      * 
-     * &gt; **NOTE:** Custom public IPs are only supported on the `Premium` and `Developer` tiers when deployed in a virtual network.
+     * &gt; **Note:** Custom public IPs are only supported on the `Premium` and `Developer` tiers when deployed in a virtual network.
      * 
      */
     @Export(name="publicIpAddressId", refs={String.class}, tree="[0]")
@@ -351,7 +358,7 @@ public class Service extends com.pulumi.resources.CustomResource {
     /**
      * @return ID of a standard SKU IPv4 Public IP.
      * 
-     * &gt; **NOTE:** Custom public IPs are only supported on the `Premium` and `Developer` tiers when deployed in a virtual network.
+     * &gt; **Note:** Custom public IPs are only supported on the `Premium` and `Developer` tiers when deployed in a virtual network.
      * 
      */
     public Output<Optional<String>> publicIpAddressId() {
@@ -374,7 +381,7 @@ public class Service extends com.pulumi.resources.CustomResource {
     /**
      * Is public access to the service allowed? Defaults to `true`.
      * 
-     * &gt; **NOTE:** This option is applicable only to the Management plane, not the API gateway or Developer portal. It is required to be `true` on the creation.
+     * &gt; **Note:** This option is applicable only to the Management plane, not the API gateway or Developer portal. It is required to be `true` on the creation.
      * 
      */
     @Export(name="publicNetworkAccessEnabled", refs={Boolean.class}, tree="[0]")
@@ -383,7 +390,7 @@ public class Service extends com.pulumi.resources.CustomResource {
     /**
      * @return Is public access to the service allowed? Defaults to `true`.
      * 
-     * &gt; **NOTE:** This option is applicable only to the Management plane, not the API gateway or Developer portal. It is required to be `true` on the creation.
+     * &gt; **Note:** This option is applicable only to the Management plane, not the API gateway or Developer portal. It is required to be `true` on the creation.
      * 
      */
     public Output<Optional<Boolean>> publicNetworkAccessEnabled() {
@@ -418,14 +425,14 @@ public class Service extends com.pulumi.resources.CustomResource {
         return this.publisherName;
     }
     /**
-     * The name of the Resource Group in which the API Management Service should be exist. Changing this forces a new resource to be created.
+     * The name of the Resource Group in which the API Management Service should exist. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
     private Output<String> resourceGroupName;
 
     /**
-     * @return The name of the Resource Group in which the API Management Service should be exist. Changing this forces a new resource to be created.
+     * @return The name of the Resource Group in which the API Management Service should exist. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> resourceGroupName() {
@@ -490,9 +497,9 @@ public class Service extends com.pulumi.resources.CustomResource {
     /**
      * `sku_name` is a string consisting of two parts separated by an underscore(\_). The first part is the `name`, valid values include: `Consumption`, `Developer`, `Basic`, `Standard` and `Premium`. The second part is the `capacity` (e.g. the number of deployed units of the `sku`), which must be a positive `integer` (e.g. `Developer_1`).
      * 
-     * &gt; **NOTE:** Premium SKU&#39;s are limited to a default maximum of 12 (i.e. `Premium_12`), this can, however, be increased via support request.
+     * &gt; **Note:** Premium SKUs are limited to a default maximum of 12 (i.e. `Premium_12`), this can, however, be increased via support request.
      * 
-     * &gt; **NOTE:** Consumption SKU capacity should be 0 (e.g. `Consumption_0`) as this tier includes automatic scaling.
+     * &gt; **Note:** Consumption SKU capacity should be 0 (e.g. `Consumption_0`) as this tier includes automatic scaling.
      * 
      */
     @Export(name="skuName", refs={String.class}, tree="[0]")
@@ -501,9 +508,9 @@ public class Service extends com.pulumi.resources.CustomResource {
     /**
      * @return `sku_name` is a string consisting of two parts separated by an underscore(\_). The first part is the `name`, valid values include: `Consumption`, `Developer`, `Basic`, `Standard` and `Premium`. The second part is the `capacity` (e.g. the number of deployed units of the `sku`), which must be a positive `integer` (e.g. `Developer_1`).
      * 
-     * &gt; **NOTE:** Premium SKU&#39;s are limited to a default maximum of 12 (i.e. `Premium_12`), this can, however, be increased via support request.
+     * &gt; **Note:** Premium SKUs are limited to a default maximum of 12 (i.e. `Premium_12`), this can, however, be increased via support request.
      * 
-     * &gt; **NOTE:** Consumption SKU capacity should be 0 (e.g. `Consumption_0`) as this tier includes automatic scaling.
+     * &gt; **Note:** Consumption SKU capacity should be 0 (e.g. `Consumption_0`) as this tier includes automatic scaling.
      * 
      */
     public Output<String> skuName() {
@@ -554,7 +561,7 @@ public class Service extends com.pulumi.resources.CustomResource {
     /**
      * The type of virtual network you want to use, valid values include: `None`, `External`, `Internal`. Defaults to `None`.
      * 
-     * &gt; **NOTE:** Please ensure that in the subnet, inbound port 3443 is open when `virtual_network_type` is `Internal` or `External`. And please ensure other necessary ports are open according to [api management network configuration](https://learn.microsoft.com/azure/api-management/virtual-network-reference).
+     * &gt; **Note:** Please ensure that in the subnet, inbound port 3443 is open when `virtual_network_type` is `Internal` or `External`. Additionally, please ensure other necessary ports are open according to [api management network configuration](https://learn.microsoft.com/azure/api-management/virtual-network-reference).
      * 
      */
     @Export(name="virtualNetworkType", refs={String.class}, tree="[0]")
@@ -563,7 +570,7 @@ public class Service extends com.pulumi.resources.CustomResource {
     /**
      * @return The type of virtual network you want to use, valid values include: `None`, `External`, `Internal`. Defaults to `None`.
      * 
-     * &gt; **NOTE:** Please ensure that in the subnet, inbound port 3443 is open when `virtual_network_type` is `Internal` or `External`. And please ensure other necessary ports are open according to [api management network configuration](https://learn.microsoft.com/azure/api-management/virtual-network-reference).
+     * &gt; **Note:** Please ensure that in the subnet, inbound port 3443 is open when `virtual_network_type` is `Internal` or `External`. Additionally, please ensure other necessary ports are open according to [api management network configuration](https://learn.microsoft.com/azure/api-management/virtual-network-reference).
      * 
      */
     public Output<Optional<String>> virtualNetworkType() {
@@ -572,7 +579,7 @@ public class Service extends com.pulumi.resources.CustomResource {
     /**
      * Specifies a list of Availability Zones in which this API Management service should be located.
      * 
-     * &gt; **NOTE:** Availability zones are only supported in the Premium tier.
+     * &gt; **Note:** Availability zones are only supported in the Premium tier.
      * 
      */
     @Export(name="zones", refs={List.class,String.class}, tree="[0,1]")
@@ -581,7 +588,7 @@ public class Service extends com.pulumi.resources.CustomResource {
     /**
      * @return Specifies a list of Availability Zones in which this API Management service should be located.
      * 
-     * &gt; **NOTE:** Availability zones are only supported in the Premium tier.
+     * &gt; **Note:** Availability zones are only supported in the Premium tier.
      * 
      */
     public Output<Optional<List<String>>> zones() {

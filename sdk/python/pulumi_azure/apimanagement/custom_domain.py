@@ -240,11 +240,11 @@ class CustomDomain(pulumi.CustomResource):
                  scms: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CustomDomainScmArgs', 'CustomDomainScmArgsDict']]]]] = None,
                  __props__=None):
         """
-        Manages a API Management Custom Domain.
+        Manages an API Management Custom Domain.
 
         ## Disclaimers
 
-        > **Note:** It's possible to define Custom Domains both within the `apimanagement.Service` resource via the `hostname_configurations` block and by using this resource. However it's not possible to use both methods to manage Custom Domains within an API Management Service, since there will be conflicts.
+        > **Note:** It's possible to define Custom Domains both within the `apimanagement.Service` resource via the `hostname_configurations` block and by using this resource. However, it's not possible to use both methods to manage Custom Domains within an API Management Service, since there will be conflicts.
 
         ## Example Usage
 
@@ -311,13 +311,20 @@ class CustomDomain(pulumi.CustomResource):
             api_management_id=example_service.id,
             gateways=[{
                 "host_name": "api.example.com",
-                "key_vault_id": example_certificate.versionless_secret_id,
+                "key_vault_certificate_id": example_certificate.versionless_secret_id,
             }],
             developer_portals=[{
                 "host_name": "portal.example.com",
-                "key_vault_id": example_certificate.versionless_secret_id,
+                "key_vault_certificate_id": example_certificate.versionless_secret_id,
             }])
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.ApiManagement`: 2022-08-01
 
         ## Import
 
@@ -343,11 +350,11 @@ class CustomDomain(pulumi.CustomResource):
                  args: CustomDomainArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Manages a API Management Custom Domain.
+        Manages an API Management Custom Domain.
 
         ## Disclaimers
 
-        > **Note:** It's possible to define Custom Domains both within the `apimanagement.Service` resource via the `hostname_configurations` block and by using this resource. However it's not possible to use both methods to manage Custom Domains within an API Management Service, since there will be conflicts.
+        > **Note:** It's possible to define Custom Domains both within the `apimanagement.Service` resource via the `hostname_configurations` block and by using this resource. However, it's not possible to use both methods to manage Custom Domains within an API Management Service, since there will be conflicts.
 
         ## Example Usage
 
@@ -414,13 +421,20 @@ class CustomDomain(pulumi.CustomResource):
             api_management_id=example_service.id,
             gateways=[{
                 "host_name": "api.example.com",
-                "key_vault_id": example_certificate.versionless_secret_id,
+                "key_vault_certificate_id": example_certificate.versionless_secret_id,
             }],
             developer_portals=[{
                 "host_name": "portal.example.com",
-                "key_vault_id": example_certificate.versionless_secret_id,
+                "key_vault_certificate_id": example_certificate.versionless_secret_id,
             }])
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.ApiManagement`: 2022-08-01
 
         ## Import
 

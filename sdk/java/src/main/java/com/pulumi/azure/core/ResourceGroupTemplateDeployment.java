@@ -93,21 +93,9 @@ public class ResourceGroupTemplateDeployment extends com.pulumi.resources.Custom
     public Output<String> outputContent() {
         return this.outputContent;
     }
-    /**
-     * The contents of the ARM Template parameters file - containing a JSON list of parameters.
-     * 
-     * &gt; An example of how to pass variables into an ARM Template can be seen in the example.
-     * 
-     */
     @Export(name="parametersContent", refs={String.class}, tree="[0]")
     private Output<String> parametersContent;
 
-    /**
-     * @return The contents of the ARM Template parameters file - containing a JSON list of parameters.
-     * 
-     * &gt; An example of how to pass variables into an ARM Template can be seen in the example.
-     * 
-     */
     public Output<String> parametersContent() {
         return this.parametersContent;
     }

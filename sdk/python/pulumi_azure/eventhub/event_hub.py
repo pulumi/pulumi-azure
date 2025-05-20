@@ -372,6 +372,13 @@ class EventHub(pulumi.CustomResource):
             message_retention=1)
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.EventHub`: 2024-01-01
+
         ## Import
 
         EventHubs can be imported using the `resource id`, e.g.
@@ -428,6 +435,13 @@ class EventHub(pulumi.CustomResource):
             partition_count=2,
             message_retention=1)
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.EventHub`: 2024-01-01
 
         ## Import
 

@@ -64,9 +64,9 @@ public final class PoolSecurityProfileArgs extends com.pulumi.resources.Resource
     /**
      * Whether to enable virtual trusted platform module (vTPM) for the Virtual Machine or Virtual Machine Scale Set. Possible values are `true` and `false`. Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE:** `security_profile` block can only be specified during creation and does not support updates.
+     * &gt; **Note:** `security_profile` block can only be specified during creation and does not support updates.
      * 
-     * &gt; **NOTE:** `security_type` must be specified to set UEFI related properties including `secure_boot_enabled` and `vtpm_enabled`.
+     * &gt; **Note:** `security_type` must be specified to set UEFI related properties including `secure_boot_enabled` and `vtpm_enabled`.
      * 
      */
     @Import(name="vtpmEnabled")
@@ -75,9 +75,9 @@ public final class PoolSecurityProfileArgs extends com.pulumi.resources.Resource
     /**
      * @return Whether to enable virtual trusted platform module (vTPM) for the Virtual Machine or Virtual Machine Scale Set. Possible values are `true` and `false`. Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE:** `security_profile` block can only be specified during creation and does not support updates.
+     * &gt; **Note:** `security_profile` block can only be specified during creation and does not support updates.
      * 
-     * &gt; **NOTE:** `security_type` must be specified to set UEFI related properties including `secure_boot_enabled` and `vtpm_enabled`.
+     * &gt; **Note:** `security_type` must be specified to set UEFI related properties including `secure_boot_enabled` and `vtpm_enabled`.
      * 
      */
     public Optional<Output<Boolean>> vtpmEnabled() {
@@ -177,9 +177,9 @@ public final class PoolSecurityProfileArgs extends com.pulumi.resources.Resource
         /**
          * @param vtpmEnabled Whether to enable virtual trusted platform module (vTPM) for the Virtual Machine or Virtual Machine Scale Set. Possible values are `true` and `false`. Changing this forces a new resource to be created.
          * 
-         * &gt; **NOTE:** `security_profile` block can only be specified during creation and does not support updates.
+         * &gt; **Note:** `security_profile` block can only be specified during creation and does not support updates.
          * 
-         * &gt; **NOTE:** `security_type` must be specified to set UEFI related properties including `secure_boot_enabled` and `vtpm_enabled`.
+         * &gt; **Note:** `security_type` must be specified to set UEFI related properties including `secure_boot_enabled` and `vtpm_enabled`.
          * 
          * @return builder
          * 
@@ -192,9 +192,9 @@ public final class PoolSecurityProfileArgs extends com.pulumi.resources.Resource
         /**
          * @param vtpmEnabled Whether to enable virtual trusted platform module (vTPM) for the Virtual Machine or Virtual Machine Scale Set. Possible values are `true` and `false`. Changing this forces a new resource to be created.
          * 
-         * &gt; **NOTE:** `security_profile` block can only be specified during creation and does not support updates.
+         * &gt; **Note:** `security_profile` block can only be specified during creation and does not support updates.
          * 
-         * &gt; **NOTE:** `security_type` must be specified to set UEFI related properties including `secure_boot_enabled` and `vtpm_enabled`.
+         * &gt; **Note:** `security_type` must be specified to set UEFI related properties including `secure_boot_enabled` and `vtpm_enabled`.
          * 
          * @return builder
          * 

@@ -751,7 +751,7 @@ type NetworkPacketCoreControlPlanePlatform struct {
 	ArcKubernetesClusterId *string `pulumi:"arcKubernetesClusterId"`
 	// The ID of the Azure Arc custom location where the packet core is deployed.
 	//
-	// > **NOTE:** At least one of `edgeDeviceId`, `arcKubernetesClusterId`, `stackHciClusterId` and `customLocationId` should be specified. If multiple are set, they must be consistent with each other.
+	// > **Note:** At least one of `edgeDeviceId`, `arcKubernetesClusterId`, `stackHciClusterId` and `customLocationId` should be specified. If multiple are set, they must be consistent with each other.
 	CustomLocationId *string `pulumi:"customLocationId"`
 	// The ID of the Azure Stack Edge device where the packet core is deployed. If the device is part of a fault-tolerant pair, either device in the pair can be specified.
 	EdgeDeviceId *string `pulumi:"edgeDeviceId"`
@@ -777,7 +777,7 @@ type NetworkPacketCoreControlPlanePlatformArgs struct {
 	ArcKubernetesClusterId pulumi.StringPtrInput `pulumi:"arcKubernetesClusterId"`
 	// The ID of the Azure Arc custom location where the packet core is deployed.
 	//
-	// > **NOTE:** At least one of `edgeDeviceId`, `arcKubernetesClusterId`, `stackHciClusterId` and `customLocationId` should be specified. If multiple are set, they must be consistent with each other.
+	// > **Note:** At least one of `edgeDeviceId`, `arcKubernetesClusterId`, `stackHciClusterId` and `customLocationId` should be specified. If multiple are set, they must be consistent with each other.
 	CustomLocationId pulumi.StringPtrInput `pulumi:"customLocationId"`
 	// The ID of the Azure Stack Edge device where the packet core is deployed. If the device is part of a fault-tolerant pair, either device in the pair can be specified.
 	EdgeDeviceId pulumi.StringPtrInput `pulumi:"edgeDeviceId"`
@@ -871,7 +871,7 @@ func (o NetworkPacketCoreControlPlanePlatformOutput) ArcKubernetesClusterId() pu
 
 // The ID of the Azure Arc custom location where the packet core is deployed.
 //
-// > **NOTE:** At least one of `edgeDeviceId`, `arcKubernetesClusterId`, `stackHciClusterId` and `customLocationId` should be specified. If multiple are set, they must be consistent with each other.
+// > **Note:** At least one of `edgeDeviceId`, `arcKubernetesClusterId`, `stackHciClusterId` and `customLocationId` should be specified. If multiple are set, they must be consistent with each other.
 func (o NetworkPacketCoreControlPlanePlatformOutput) CustomLocationId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NetworkPacketCoreControlPlanePlatform) *string { return v.CustomLocationId }).(pulumi.StringPtrOutput)
 }
@@ -927,7 +927,7 @@ func (o NetworkPacketCoreControlPlanePlatformPtrOutput) ArcKubernetesClusterId()
 
 // The ID of the Azure Arc custom location where the packet core is deployed.
 //
-// > **NOTE:** At least one of `edgeDeviceId`, `arcKubernetesClusterId`, `stackHciClusterId` and `customLocationId` should be specified. If multiple are set, they must be consistent with each other.
+// > **Note:** At least one of `edgeDeviceId`, `arcKubernetesClusterId`, `stackHciClusterId` and `customLocationId` should be specified. If multiple are set, they must be consistent with each other.
 func (o NetworkPacketCoreControlPlanePlatformPtrOutput) CustomLocationId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NetworkPacketCoreControlPlanePlatform) *string {
 		if v == nil {

@@ -13,6 +13,9 @@ import (
 
 // Use this data source to access information about an existing Managed Kubernetes Cluster (AKS).
 //
+// > **Note:** All arguments including the client secret will be stored in the raw state as plain text.
+// [Read more about sensitive data in the state](https://www.terraform.io/docs/state/sensitive-data.html).
+//
 // ## Example Usage
 //
 // ```go
@@ -39,6 +42,13 @@ import (
 //	}
 //
 // ```
+//
+// ## API Providers
+//
+// <!-- This section is generated, changes will be overwritten -->
+// This data source uses the following Azure API Providers:
+//
+// * `Microsoft.ContainerService`: 2024-09-01
 func LookupKubernetesCluster(ctx *pulumi.Context, args *LookupKubernetesClusterArgs, opts ...pulumi.InvokeOption) (*LookupKubernetesClusterResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupKubernetesClusterResult

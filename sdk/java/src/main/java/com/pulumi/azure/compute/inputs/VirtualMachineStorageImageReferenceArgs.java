@@ -18,12 +18,16 @@ public final class VirtualMachineStorageImageReferenceArgs extends com.pulumi.re
     /**
      * Specifies the ID of the Custom Image which the Virtual Machine should be created from. Changing this forces a new resource to be created.
      * 
+     * &gt; **Note:** An example of how to use this is available within the `./examples/virtual-machines/virtual_machine/managed-disks/from-custom-image` directory within the GitHub Repository
+     * 
      */
     @Import(name="id")
     private @Nullable Output<String> id;
 
     /**
      * @return Specifies the ID of the Custom Image which the Virtual Machine should be created from. Changing this forces a new resource to be created.
+     * 
+     * &gt; **Note:** An example of how to use this is available within the `./examples/virtual-machines/virtual_machine/managed-disks/from-custom-image` directory within the GitHub Repository
      * 
      */
     public Optional<Output<String>> id() {
@@ -125,6 +129,8 @@ public final class VirtualMachineStorageImageReferenceArgs extends com.pulumi.re
         /**
          * @param id Specifies the ID of the Custom Image which the Virtual Machine should be created from. Changing this forces a new resource to be created.
          * 
+         * &gt; **Note:** An example of how to use this is available within the `./examples/virtual-machines/virtual_machine/managed-disks/from-custom-image` directory within the GitHub Repository
+         * 
          * @return builder
          * 
          */
@@ -135,6 +141,8 @@ public final class VirtualMachineStorageImageReferenceArgs extends com.pulumi.re
 
         /**
          * @param id Specifies the ID of the Custom Image which the Virtual Machine should be created from. Changing this forces a new resource to be created.
+         * 
+         * &gt; **Note:** An example of how to use this is available within the `./examples/virtual-machines/virtual_machine/managed-disks/from-custom-image` directory within the GitHub Repository
          * 
          * @return builder
          * 

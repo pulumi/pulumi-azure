@@ -61,6 +61,13 @@ public final class ElasticsanFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.ElasticSan`: 2023-01-01
+     * 
      */
     public static Output<GetResult> get(GetArgs args) {
         return get(args, InvokeOptions.Empty);
@@ -104,6 +111,13 @@ public final class ElasticsanFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.ElasticSan`: 2023-01-01
      * 
      */
     public static CompletableFuture<GetResult> getPlain(GetPlainArgs args) {
@@ -149,6 +163,13 @@ public final class ElasticsanFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.ElasticSan`: 2023-01-01
+     * 
      */
     public static Output<GetResult> get(GetArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:elasticsan/get:get", TypeShape.of(GetResult.class), args, Utilities.withVersion(options));
@@ -193,6 +214,13 @@ public final class ElasticsanFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.ElasticSan`: 2023-01-01
+     * 
      */
     public static Output<GetResult> get(GetArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("azure:elasticsan/get:get", TypeShape.of(GetResult.class), args, Utilities.withVersion(options));
@@ -236,6 +264,13 @@ public final class ElasticsanFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.ElasticSan`: 2023-01-01
      * 
      */
     public static CompletableFuture<GetResult> getPlain(GetPlainArgs args, InvokeOptions options) {
@@ -287,6 +322,13 @@ public final class ElasticsanFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.ElasticSan`: 2023-01-01
+     * 
      */
     public static Output<GetVolumeGroupResult> getVolumeGroup(GetVolumeGroupArgs args) {
         return getVolumeGroup(args, InvokeOptions.Empty);
@@ -336,6 +378,13 @@ public final class ElasticsanFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.ElasticSan`: 2023-01-01
      * 
      */
     public static CompletableFuture<GetVolumeGroupResult> getVolumeGroupPlain(GetVolumeGroupPlainArgs args) {
@@ -387,6 +436,13 @@ public final class ElasticsanFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.ElasticSan`: 2023-01-01
+     * 
      */
     public static Output<GetVolumeGroupResult> getVolumeGroup(GetVolumeGroupArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:elasticsan/getVolumeGroup:getVolumeGroup", TypeShape.of(GetVolumeGroupResult.class), args, Utilities.withVersion(options));
@@ -437,6 +493,13 @@ public final class ElasticsanFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.ElasticSan`: 2023-01-01
+     * 
      */
     public static Output<GetVolumeGroupResult> getVolumeGroup(GetVolumeGroupArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("azure:elasticsan/getVolumeGroup:getVolumeGroup", TypeShape.of(GetVolumeGroupResult.class), args, Utilities.withVersion(options));
@@ -486,6 +549,13 @@ public final class ElasticsanFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.ElasticSan`: 2023-01-01
      * 
      */
     public static CompletableFuture<GetVolumeGroupResult> getVolumeGroupPlain(GetVolumeGroupPlainArgs args, InvokeOptions options) {
@@ -543,6 +613,13 @@ public final class ElasticsanFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.ElasticSan`: 2023-01-01
+     * 
      */
     public static Output<GetVolumeSnapshotResult> getVolumeSnapshot(GetVolumeSnapshotArgs args) {
         return getVolumeSnapshot(args, InvokeOptions.Empty);
@@ -598,6 +675,13 @@ public final class ElasticsanFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.ElasticSan`: 2023-01-01
      * 
      */
     public static CompletableFuture<GetVolumeSnapshotResult> getVolumeSnapshotPlain(GetVolumeSnapshotPlainArgs args) {
@@ -655,6 +739,13 @@ public final class ElasticsanFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.ElasticSan`: 2023-01-01
+     * 
      */
     public static Output<GetVolumeSnapshotResult> getVolumeSnapshot(GetVolumeSnapshotArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:elasticsan/getVolumeSnapshot:getVolumeSnapshot", TypeShape.of(GetVolumeSnapshotResult.class), args, Utilities.withVersion(options));
@@ -711,6 +802,13 @@ public final class ElasticsanFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.ElasticSan`: 2023-01-01
+     * 
      */
     public static Output<GetVolumeSnapshotResult> getVolumeSnapshot(GetVolumeSnapshotArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("azure:elasticsan/getVolumeSnapshot:getVolumeSnapshot", TypeShape.of(GetVolumeSnapshotResult.class), args, Utilities.withVersion(options));
@@ -766,6 +864,13 @@ public final class ElasticsanFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.ElasticSan`: 2023-01-01
      * 
      */
     public static CompletableFuture<GetVolumeSnapshotResult> getVolumeSnapshotPlain(GetVolumeSnapshotPlainArgs args, InvokeOptions options) {

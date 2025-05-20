@@ -30,8 +30,8 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("my-signalr"),
-//				Location: pulumi.String("West US"),
+//				Name:     pulumi.String("terraform-signalr"),
+//				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
@@ -79,6 +79,13 @@ import (
 //	}
 //
 // ```
+//
+// ## API Providers
+//
+// <!-- This section is generated, changes will be overwritten -->
+// This resource uses the following Azure API Providers:
+//
+// * `Microsoft.SignalRService`: 2024-03-01
 //
 // ## Import
 //

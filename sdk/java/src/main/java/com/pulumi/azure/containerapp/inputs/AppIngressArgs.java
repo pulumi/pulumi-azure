@@ -164,7 +164,7 @@ public final class AppIngressArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * The transport method for the Ingress. Possible values are `auto`, `http`, `http2` and `tcp`. Defaults to `auto`.
      * 
-     * &gt; **Note:**  if `transport` is set to `tcp`, `exposed_port` and `target_port` should be set at the same time.
+     * &gt; **Note:** if `transport` is set to `tcp`, `exposed_port` and `target_port` should be set at the same time.
      * 
      */
     @Import(name="transport")
@@ -173,7 +173,7 @@ public final class AppIngressArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * @return The transport method for the Ingress. Possible values are `auto`, `http`, `http2` and `tcp`. Defaults to `auto`.
      * 
-     * &gt; **Note:**  if `transport` is set to `tcp`, `exposed_port` and `target_port` should be set at the same time.
+     * &gt; **Note:** if `transport` is set to `tcp`, `exposed_port` and `target_port` should be set at the same time.
      * 
      */
     public Optional<Output<String>> transport() {
@@ -439,7 +439,7 @@ public final class AppIngressArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param transport The transport method for the Ingress. Possible values are `auto`, `http`, `http2` and `tcp`. Defaults to `auto`.
          * 
-         * &gt; **Note:**  if `transport` is set to `tcp`, `exposed_port` and `target_port` should be set at the same time.
+         * &gt; **Note:** if `transport` is set to `tcp`, `exposed_port` and `target_port` should be set at the same time.
          * 
          * @return builder
          * 
@@ -452,7 +452,7 @@ public final class AppIngressArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param transport The transport method for the Ingress. Possible values are `auto`, `http`, `http2` and `tcp`. Defaults to `auto`.
          * 
-         * &gt; **Note:**  if `transport` is set to `tcp`, `exposed_port` and `target_port` should be set at the same time.
+         * &gt; **Note:** if `transport` is set to `tcp`, `exposed_port` and `target_port` should be set at the same time.
          * 
          * @return builder
          * 

@@ -45,7 +45,7 @@ class DataCollectionRuleArgs:
         :param pulumi.Input['DataCollectionRuleIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[builtins.str] kind: The kind of the Data Collection Rule. Possible values are `Linux`, `Windows`, `AgentDirectToStore` and `WorkspaceTransforms`. A rule of kind `Linux` does not allow for `windows_event_log` data sources. And a rule of kind `Windows` does not allow for `syslog` data sources. If kind is not specified, all kinds of data sources are allowed.
                
-               > **NOTE** Once `kind` has been set, changing it forces a new Data Collection Rule to be created.
+               > **Note:** Once `kind` has been set, changing it forces a new Data Collection Rule to be created.
         :param pulumi.Input[builtins.str] location: The Azure Region where the Data Collection Rule should exist. Changing this forces a new Data Collection Rule to be created.
         :param pulumi.Input[builtins.str] name: The name which should be used for this Data Collection Rule. Changing this forces a new Data Collection Rule to be created.
         :param pulumi.Input[Sequence[pulumi.Input['DataCollectionRuleStreamDeclarationArgs']]] stream_declarations: A `stream_declaration` block as defined below.
@@ -163,7 +163,7 @@ class DataCollectionRuleArgs:
         """
         The kind of the Data Collection Rule. Possible values are `Linux`, `Windows`, `AgentDirectToStore` and `WorkspaceTransforms`. A rule of kind `Linux` does not allow for `windows_event_log` data sources. And a rule of kind `Windows` does not allow for `syslog` data sources. If kind is not specified, all kinds of data sources are allowed.
 
-        > **NOTE** Once `kind` has been set, changing it forces a new Data Collection Rule to be created.
+        > **Note:** Once `kind` has been set, changing it forces a new Data Collection Rule to be created.
         """
         return pulumi.get(self, "kind")
 
@@ -247,7 +247,7 @@ class _DataCollectionRuleState:
         :param pulumi.Input[builtins.str] immutable_id: The immutable ID of the Data Collection Rule.
         :param pulumi.Input[builtins.str] kind: The kind of the Data Collection Rule. Possible values are `Linux`, `Windows`, `AgentDirectToStore` and `WorkspaceTransforms`. A rule of kind `Linux` does not allow for `windows_event_log` data sources. And a rule of kind `Windows` does not allow for `syslog` data sources. If kind is not specified, all kinds of data sources are allowed.
                
-               > **NOTE** Once `kind` has been set, changing it forces a new Data Collection Rule to be created.
+               > **Note:** Once `kind` has been set, changing it forces a new Data Collection Rule to be created.
         :param pulumi.Input[builtins.str] location: The Azure Region where the Data Collection Rule should exist. Changing this forces a new Data Collection Rule to be created.
         :param pulumi.Input[builtins.str] name: The name which should be used for this Data Collection Rule. Changing this forces a new Data Collection Rule to be created.
         :param pulumi.Input[builtins.str] resource_group_name: The name of the Resource Group where the Data Collection Rule should exist. Changing this forces a new Data Collection Rule to be created.
@@ -371,7 +371,7 @@ class _DataCollectionRuleState:
         """
         The kind of the Data Collection Rule. Possible values are `Linux`, `Windows`, `AgentDirectToStore` and `WorkspaceTransforms`. A rule of kind `Linux` does not allow for `windows_event_log` data sources. And a rule of kind `Windows` does not allow for `syslog` data sources. If kind is not specified, all kinds of data sources are allowed.
 
-        > **NOTE** Once `kind` has been set, changing it forces a new Data Collection Rule to be created.
+        > **Note:** Once `kind` has been set, changing it forces a new Data Collection Rule to be created.
         """
         return pulumi.get(self, "kind")
 
@@ -480,7 +480,7 @@ class DataCollectionRule(pulumi.CustomResource):
         :param pulumi.Input[Union['DataCollectionRuleIdentityArgs', 'DataCollectionRuleIdentityArgsDict']] identity: An `identity` block as defined below.
         :param pulumi.Input[builtins.str] kind: The kind of the Data Collection Rule. Possible values are `Linux`, `Windows`, `AgentDirectToStore` and `WorkspaceTransforms`. A rule of kind `Linux` does not allow for `windows_event_log` data sources. And a rule of kind `Windows` does not allow for `syslog` data sources. If kind is not specified, all kinds of data sources are allowed.
                
-               > **NOTE** Once `kind` has been set, changing it forces a new Data Collection Rule to be created.
+               > **Note:** Once `kind` has been set, changing it forces a new Data Collection Rule to be created.
         :param pulumi.Input[builtins.str] location: The Azure Region where the Data Collection Rule should exist. Changing this forces a new Data Collection Rule to be created.
         :param pulumi.Input[builtins.str] name: The name which should be used for this Data Collection Rule. Changing this forces a new Data Collection Rule to be created.
         :param pulumi.Input[builtins.str] resource_group_name: The name of the Resource Group where the Data Collection Rule should exist. Changing this forces a new Data Collection Rule to be created.
@@ -598,7 +598,7 @@ class DataCollectionRule(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] immutable_id: The immutable ID of the Data Collection Rule.
         :param pulumi.Input[builtins.str] kind: The kind of the Data Collection Rule. Possible values are `Linux`, `Windows`, `AgentDirectToStore` and `WorkspaceTransforms`. A rule of kind `Linux` does not allow for `windows_event_log` data sources. And a rule of kind `Windows` does not allow for `syslog` data sources. If kind is not specified, all kinds of data sources are allowed.
                
-               > **NOTE** Once `kind` has been set, changing it forces a new Data Collection Rule to be created.
+               > **Note:** Once `kind` has been set, changing it forces a new Data Collection Rule to be created.
         :param pulumi.Input[builtins.str] location: The Azure Region where the Data Collection Rule should exist. Changing this forces a new Data Collection Rule to be created.
         :param pulumi.Input[builtins.str] name: The name which should be used for this Data Collection Rule. Changing this forces a new Data Collection Rule to be created.
         :param pulumi.Input[builtins.str] resource_group_name: The name of the Resource Group where the Data Collection Rule should exist. Changing this forces a new Data Collection Rule to be created.
@@ -686,7 +686,7 @@ class DataCollectionRule(pulumi.CustomResource):
         """
         The kind of the Data Collection Rule. Possible values are `Linux`, `Windows`, `AgentDirectToStore` and `WorkspaceTransforms`. A rule of kind `Linux` does not allow for `windows_event_log` data sources. And a rule of kind `Windows` does not allow for `syslog` data sources. If kind is not specified, all kinds of data sources are allowed.
 
-        > **NOTE** Once `kind` has been set, changing it forces a new Data Collection Rule to be created.
+        > **Note:** Once `kind` has been set, changing it forces a new Data Collection Rule to be created.
         """
         return pulumi.get(self, "kind")
 

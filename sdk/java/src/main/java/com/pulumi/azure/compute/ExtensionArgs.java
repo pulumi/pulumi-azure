@@ -53,7 +53,7 @@ public final class ExtensionArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * Should failures from the extension be suppressed? Possible values are `true` or `false`. Defaults to `false`.
      * 
-     * &gt; **NOTE:** Operational failures such as not connecting to the VM will not be suppressed regardless of the `failure_suppression_enabled` value.
+     * &gt; **Note:** Operational failures such as not connecting to the VM will not be suppressed regardless of the `failure_suppression_enabled` value.
      * 
      */
     @Import(name="failureSuppressionEnabled")
@@ -62,7 +62,7 @@ public final class ExtensionArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * @return Should failures from the extension be suppressed? Possible values are `true` or `false`. Defaults to `false`.
      * 
-     * &gt; **NOTE:** Operational failures such as not connecting to the VM will not be suppressed regardless of the `failure_suppression_enabled` value.
+     * &gt; **Note:** Operational failures such as not connecting to the VM will not be suppressed regardless of the `failure_suppression_enabled` value.
      * 
      */
     public Optional<Output<Boolean>> failureSuppressionEnabled() {
@@ -87,7 +87,7 @@ public final class ExtensionArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * The protected_settings passed to the extension, like settings, these are specified as a JSON object in a string.
      * 
-     * &gt; **Please Note:** Certain VM Extensions require that the keys in the `protected_settings` block are case sensitive. If you&#39;re seeing unhelpful errors, please ensure the keys are consistent with how Azure is expecting them (for instance, for the `JsonADDomainExtension` extension, the keys are expected to be in `TitleCase`.)
+     * &gt; **Note:** Certain VM Extensions require that the keys in the `protected_settings` block are case sensitive. If you&#39;re seeing unhelpful errors, please ensure the keys are consistent with how Azure is expecting them (for instance, for the `JsonADDomainExtension` extension, the keys are expected to be in `TitleCase`.)
      * 
      */
     @Import(name="protectedSettings")
@@ -96,7 +96,7 @@ public final class ExtensionArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * @return The protected_settings passed to the extension, like settings, these are specified as a JSON object in a string.
      * 
-     * &gt; **Please Note:** Certain VM Extensions require that the keys in the `protected_settings` block are case sensitive. If you&#39;re seeing unhelpful errors, please ensure the keys are consistent with how Azure is expecting them (for instance, for the `JsonADDomainExtension` extension, the keys are expected to be in `TitleCase`.)
+     * &gt; **Note:** Certain VM Extensions require that the keys in the `protected_settings` block are case sensitive. If you&#39;re seeing unhelpful errors, please ensure the keys are consistent with how Azure is expecting them (for instance, for the `JsonADDomainExtension` extension, the keys are expected to be in `TitleCase`.)
      * 
      */
     public Optional<Output<String>> protectedSettings() {
@@ -155,7 +155,7 @@ public final class ExtensionArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * The settings passed to the extension, these are specified as a JSON object in a string.
      * 
-     * &gt; **Please Note:** Certain VM Extensions require that the keys in the `settings` block are case sensitive. If you&#39;re seeing unhelpful errors, please ensure the keys are consistent with how Azure is expecting them (for instance, for the `JsonADDomainExtension` extension, the keys are expected to be in `TitleCase`.)
+     * &gt; **Note:** Certain VM Extensions require that the keys in the `settings` block are case sensitive. If you&#39;re seeing unhelpful errors, please ensure the keys are consistent with how Azure is expecting them (for instance, for the `JsonADDomainExtension` extension, the keys are expected to be in `TitleCase`.)
      * 
      */
     @Import(name="settings")
@@ -164,7 +164,7 @@ public final class ExtensionArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * @return The settings passed to the extension, these are specified as a JSON object in a string.
      * 
-     * &gt; **Please Note:** Certain VM Extensions require that the keys in the `settings` block are case sensitive. If you&#39;re seeing unhelpful errors, please ensure the keys are consistent with how Azure is expecting them (for instance, for the `JsonADDomainExtension` extension, the keys are expected to be in `TitleCase`.)
+     * &gt; **Note:** Certain VM Extensions require that the keys in the `settings` block are case sensitive. If you&#39;re seeing unhelpful errors, please ensure the keys are consistent with how Azure is expecting them (for instance, for the `JsonADDomainExtension` extension, the keys are expected to be in `TitleCase`.)
      * 
      */
     public Optional<Output<String>> settings() {
@@ -316,7 +316,7 @@ public final class ExtensionArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param failureSuppressionEnabled Should failures from the extension be suppressed? Possible values are `true` or `false`. Defaults to `false`.
          * 
-         * &gt; **NOTE:** Operational failures such as not connecting to the VM will not be suppressed regardless of the `failure_suppression_enabled` value.
+         * &gt; **Note:** Operational failures such as not connecting to the VM will not be suppressed regardless of the `failure_suppression_enabled` value.
          * 
          * @return builder
          * 
@@ -329,7 +329,7 @@ public final class ExtensionArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param failureSuppressionEnabled Should failures from the extension be suppressed? Possible values are `true` or `false`. Defaults to `false`.
          * 
-         * &gt; **NOTE:** Operational failures such as not connecting to the VM will not be suppressed regardless of the `failure_suppression_enabled` value.
+         * &gt; **Note:** Operational failures such as not connecting to the VM will not be suppressed regardless of the `failure_suppression_enabled` value.
          * 
          * @return builder
          * 
@@ -362,7 +362,7 @@ public final class ExtensionArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param protectedSettings The protected_settings passed to the extension, like settings, these are specified as a JSON object in a string.
          * 
-         * &gt; **Please Note:** Certain VM Extensions require that the keys in the `protected_settings` block are case sensitive. If you&#39;re seeing unhelpful errors, please ensure the keys are consistent with how Azure is expecting them (for instance, for the `JsonADDomainExtension` extension, the keys are expected to be in `TitleCase`.)
+         * &gt; **Note:** Certain VM Extensions require that the keys in the `protected_settings` block are case sensitive. If you&#39;re seeing unhelpful errors, please ensure the keys are consistent with how Azure is expecting them (for instance, for the `JsonADDomainExtension` extension, the keys are expected to be in `TitleCase`.)
          * 
          * @return builder
          * 
@@ -375,7 +375,7 @@ public final class ExtensionArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param protectedSettings The protected_settings passed to the extension, like settings, these are specified as a JSON object in a string.
          * 
-         * &gt; **Please Note:** Certain VM Extensions require that the keys in the `protected_settings` block are case sensitive. If you&#39;re seeing unhelpful errors, please ensure the keys are consistent with how Azure is expecting them (for instance, for the `JsonADDomainExtension` extension, the keys are expected to be in `TitleCase`.)
+         * &gt; **Note:** Certain VM Extensions require that the keys in the `protected_settings` block are case sensitive. If you&#39;re seeing unhelpful errors, please ensure the keys are consistent with how Azure is expecting them (for instance, for the `JsonADDomainExtension` extension, the keys are expected to be in `TitleCase`.)
          * 
          * @return builder
          * 
@@ -464,7 +464,7 @@ public final class ExtensionArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param settings The settings passed to the extension, these are specified as a JSON object in a string.
          * 
-         * &gt; **Please Note:** Certain VM Extensions require that the keys in the `settings` block are case sensitive. If you&#39;re seeing unhelpful errors, please ensure the keys are consistent with how Azure is expecting them (for instance, for the `JsonADDomainExtension` extension, the keys are expected to be in `TitleCase`.)
+         * &gt; **Note:** Certain VM Extensions require that the keys in the `settings` block are case sensitive. If you&#39;re seeing unhelpful errors, please ensure the keys are consistent with how Azure is expecting them (for instance, for the `JsonADDomainExtension` extension, the keys are expected to be in `TitleCase`.)
          * 
          * @return builder
          * 
@@ -477,7 +477,7 @@ public final class ExtensionArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param settings The settings passed to the extension, these are specified as a JSON object in a string.
          * 
-         * &gt; **Please Note:** Certain VM Extensions require that the keys in the `settings` block are case sensitive. If you&#39;re seeing unhelpful errors, please ensure the keys are consistent with how Azure is expecting them (for instance, for the `JsonADDomainExtension` extension, the keys are expected to be in `TitleCase`.)
+         * &gt; **Note:** Certain VM Extensions require that the keys in the `settings` block are case sensitive. If you&#39;re seeing unhelpful errors, please ensure the keys are consistent with how Azure is expecting them (for instance, for the `JsonADDomainExtension` extension, the keys are expected to be in `TitleCase`.)
          * 
          * @return builder
          * 

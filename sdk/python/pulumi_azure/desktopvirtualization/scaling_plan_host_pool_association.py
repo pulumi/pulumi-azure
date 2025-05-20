@@ -202,6 +202,13 @@ class ScalingPlanHostPoolAssociation(pulumi.CustomResource):
             opts = pulumi.ResourceOptions(depends_on=[example_assignment]))
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.DesktopVirtualization`: 2024-04-03
+
         ## Import
 
         Associations between Virtual Desktop Scaling Plans and Virtual Desktop Host Pools can be imported using the `resource id`, e.g.
@@ -287,6 +294,13 @@ class ScalingPlanHostPoolAssociation(pulumi.CustomResource):
             enabled=True,
             opts = pulumi.ResourceOptions(depends_on=[example_assignment]))
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.DesktopVirtualization`: 2024-04-03
 
         ## Import
 

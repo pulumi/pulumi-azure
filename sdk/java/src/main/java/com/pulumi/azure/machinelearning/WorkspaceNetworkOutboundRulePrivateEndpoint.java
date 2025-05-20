@@ -122,6 +122,13 @@ import javax.annotation.Nullable;
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
+ * ## API Providers
+ * 
+ * &lt;!-- This section is generated, changes will be overwritten --&gt;
+ * This resource uses the following Azure API Providers:
+ * 
+ * * `Microsoft.MachineLearningServices`: 2024-04-01
+ * 
  * ## Import
  * 
  * Machine Learning Workspace Network Outbound Rule Private Endpoint can be imported using the `resource id`, e.g.
@@ -150,7 +157,7 @@ public class WorkspaceNetworkOutboundRulePrivateEndpoint extends com.pulumi.reso
     /**
      * Specifies the Service Resource ID to connect. Changing this forces a new resource to be created.
      * 
-     * &gt; **Note** Supported service resources: **Key Vault**, **Storage Account**, **Machine Learning Workspace**, **Redis**.
+     * &gt; **Note:** Supported service resources: **Key Vault**, **Storage Account**, **Machine Learning Workspace**, **Redis**.
      * 
      */
     @Export(name="serviceResourceId", refs={String.class}, tree="[0]")
@@ -159,7 +166,7 @@ public class WorkspaceNetworkOutboundRulePrivateEndpoint extends com.pulumi.reso
     /**
      * @return Specifies the Service Resource ID to connect. Changing this forces a new resource to be created.
      * 
-     * &gt; **Note** Supported service resources: **Key Vault**, **Storage Account**, **Machine Learning Workspace**, **Redis**.
+     * &gt; **Note:** Supported service resources: **Key Vault**, **Storage Account**, **Machine Learning Workspace**, **Redis**.
      * 
      */
     public Output<String> serviceResourceId() {

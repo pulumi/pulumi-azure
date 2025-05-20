@@ -17,12 +17,14 @@ namespace Pulumi.Azure.Compute.Outputs
         /// The Public SSH Key which should be written to the `path` defined above.
         /// 
         /// &gt; **Note:** Azure only supports RSA SSH2 key signatures of at least 2048 bits in length
+        /// 
+        /// &gt; **Note:** Rather than defining this in-line you can source this from a local file using the `file` function - for example `key_data = file("~/.ssh/id_rsa.pub")`.
         /// </summary>
         public readonly string KeyData;
         /// <summary>
         /// The path of the destination file on the virtual machine
         /// 
-        /// &gt; **NOTE:** Due to a limitation in the Azure VM Agent the only allowed `path` is `/home/{username}/.ssh/authorized_keys`.
+        /// &gt; **Note:** Due to a limitation in the Azure VM Agent the only allowed `path` is `/home/{username}/.ssh/authorized_keys`.
         /// </summary>
         public readonly string Path;
 

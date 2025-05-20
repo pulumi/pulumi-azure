@@ -14,7 +14,9 @@ import (
 
 // Manages a Spring Cloud Configuration Service.
 //
-// > **NOTE:** This resource is applicable only for Spring Cloud Service with enterprise tier.
+// > **Note:** This resource is applicable only for Spring Cloud Service with enterprise tier.
+//
+// !> **Note:** Azure Spring Apps is now deprecated and will be retired on 2028-05-31 - as such the `appplatform.SpringCloudConfigurationService` resource is deprecated and will be removed in a future major version of the AzureRM Provider. See https://aka.ms/asaretirement for more information.
 //
 // ## Example Usage
 //
@@ -76,6 +78,13 @@ import (
 //	}
 //
 // ```
+//
+// ## API Providers
+//
+// <!-- This section is generated, changes will be overwritten -->
+// This resource uses the following Azure API Providers:
+//
+// * `Microsoft.AppPlatform`: 2024-01-01-preview
 //
 // ## Import
 //

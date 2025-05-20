@@ -55,12 +55,6 @@ class VirtualMachineArgs:
         :param pulumi.Input['VirtualMachineAdditionalCapabilitiesArgs'] additional_capabilities: An `additional_capabilities` block as defined below.
         :param pulumi.Input[builtins.str] availability_set_id: The ID of the Availability Set in which the Virtual Machine should exist. Changing this forces a new resource to be created.
         :param pulumi.Input['VirtualMachineBootDiagnosticsArgs'] boot_diagnostics: A `boot_diagnostics` block as defined below.
-        :param pulumi.Input[builtins.bool] delete_data_disks_on_termination: Should the Data Disks (either the Managed Disks / VHD Blobs) be deleted when the Virtual Machine is destroyed? Defaults to `false`.
-               
-               > **Note:** This setting works when instance is deleted via the provider only and don't forget to delete disks manually if you deleted VM manually. It can increase spending.
-        :param pulumi.Input[builtins.bool] delete_os_disk_on_termination: Should the OS Disk (either the Managed Disk / VHD Blob) be deleted when the Virtual Machine is destroyed? Defaults to `false`.
-               
-               > **Note:** This setting works when instance is deleted via the provider only and don't forget to delete disks manually if you deleted VM manually. It can increase spending.
         :param pulumi.Input['VirtualMachineIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[builtins.str] license_type: Specifies the BYOL Type for this Virtual Machine. This is only applicable to Windows Virtual Machines. Possible values are `Windows_Client` and `Windows_Server`.
         :param pulumi.Input[builtins.str] location: Specifies the Azure Region where the Virtual Machine exists. Changing this forces a new resource to be created.
@@ -74,12 +68,12 @@ class VirtualMachineArgs:
         :param pulumi.Input[builtins.str] proximity_placement_group_id: The ID of the Proximity Placement Group to which this Virtual Machine should be assigned. Changing this forces a new resource to be created
         :param pulumi.Input[Sequence[pulumi.Input['VirtualMachineStorageDataDiskArgs']]] storage_data_disks: One or more `storage_data_disk` blocks as defined below.
                
-               > **Please Note:** Data Disks can also be attached either using this block or the `compute.DataDiskAttachment` resource - but not both.
+               > **Note:** Data Disks can also be attached either using this block or the `compute.DataDiskAttachment` resource - but not both.
         :param pulumi.Input['VirtualMachineStorageImageReferenceArgs'] storage_image_reference: A `storage_image_reference` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A mapping of tags to assign to the Virtual Machine.
         :param pulumi.Input[builtins.str] zones: A list of a single item of the Availability Zone which the Virtual Machine should be allocated in. Changing this forces a new resource to be created.
                
-               > **Please Note:** Availability Zones are [only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview).
+               > **Note:** Availability Zones are [only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview).
                
                For more information on the different example configurations, please check out the [Azure documentation](https://docs.microsoft.com/en-gb/rest/api/compute/virtualmachines/createorupdate#examples)
         """
@@ -215,11 +209,6 @@ class VirtualMachineArgs:
     @property
     @pulumi.getter(name="deleteDataDisksOnTermination")
     def delete_data_disks_on_termination(self) -> Optional[pulumi.Input[builtins.bool]]:
-        """
-        Should the Data Disks (either the Managed Disks / VHD Blobs) be deleted when the Virtual Machine is destroyed? Defaults to `false`.
-
-        > **Note:** This setting works when instance is deleted via the provider only and don't forget to delete disks manually if you deleted VM manually. It can increase spending.
-        """
         return pulumi.get(self, "delete_data_disks_on_termination")
 
     @delete_data_disks_on_termination.setter
@@ -229,11 +218,6 @@ class VirtualMachineArgs:
     @property
     @pulumi.getter(name="deleteOsDiskOnTermination")
     def delete_os_disk_on_termination(self) -> Optional[pulumi.Input[builtins.bool]]:
-        """
-        Should the OS Disk (either the Managed Disk / VHD Blob) be deleted when the Virtual Machine is destroyed? Defaults to `false`.
-
-        > **Note:** This setting works when instance is deleted via the provider only and don't forget to delete disks manually if you deleted VM manually. It can increase spending.
-        """
         return pulumi.get(self, "delete_os_disk_on_termination")
 
     @delete_os_disk_on_termination.setter
@@ -378,7 +362,7 @@ class VirtualMachineArgs:
         """
         One or more `storage_data_disk` blocks as defined below.
 
-        > **Please Note:** Data Disks can also be attached either using this block or the `compute.DataDiskAttachment` resource - but not both.
+        > **Note:** Data Disks can also be attached either using this block or the `compute.DataDiskAttachment` resource - but not both.
         """
         return pulumi.get(self, "storage_data_disks")
 
@@ -416,7 +400,7 @@ class VirtualMachineArgs:
         """
         A list of a single item of the Availability Zone which the Virtual Machine should be allocated in. Changing this forces a new resource to be created.
 
-        > **Please Note:** Availability Zones are [only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview).
+        > **Note:** Availability Zones are [only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview).
 
         For more information on the different example configurations, please check out the [Azure documentation](https://docs.microsoft.com/en-gb/rest/api/compute/virtualmachines/createorupdate#examples)
         """
@@ -459,12 +443,6 @@ class _VirtualMachineState:
         :param pulumi.Input['VirtualMachineAdditionalCapabilitiesArgs'] additional_capabilities: An `additional_capabilities` block as defined below.
         :param pulumi.Input[builtins.str] availability_set_id: The ID of the Availability Set in which the Virtual Machine should exist. Changing this forces a new resource to be created.
         :param pulumi.Input['VirtualMachineBootDiagnosticsArgs'] boot_diagnostics: A `boot_diagnostics` block as defined below.
-        :param pulumi.Input[builtins.bool] delete_data_disks_on_termination: Should the Data Disks (either the Managed Disks / VHD Blobs) be deleted when the Virtual Machine is destroyed? Defaults to `false`.
-               
-               > **Note:** This setting works when instance is deleted via the provider only and don't forget to delete disks manually if you deleted VM manually. It can increase spending.
-        :param pulumi.Input[builtins.bool] delete_os_disk_on_termination: Should the OS Disk (either the Managed Disk / VHD Blob) be deleted when the Virtual Machine is destroyed? Defaults to `false`.
-               
-               > **Note:** This setting works when instance is deleted via the provider only and don't forget to delete disks manually if you deleted VM manually. It can increase spending.
         :param pulumi.Input['VirtualMachineIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[builtins.str] license_type: Specifies the BYOL Type for this Virtual Machine. This is only applicable to Windows Virtual Machines. Possible values are `Windows_Client` and `Windows_Server`.
         :param pulumi.Input[builtins.str] location: Specifies the Azure Region where the Virtual Machine exists. Changing this forces a new resource to be created.
@@ -480,14 +458,14 @@ class _VirtualMachineState:
         :param pulumi.Input[builtins.str] resource_group_name: Specifies the name of the Resource Group in which the Virtual Machine should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input['VirtualMachineStorageDataDiskArgs']]] storage_data_disks: One or more `storage_data_disk` blocks as defined below.
                
-               > **Please Note:** Data Disks can also be attached either using this block or the `compute.DataDiskAttachment` resource - but not both.
+               > **Note:** Data Disks can also be attached either using this block or the `compute.DataDiskAttachment` resource - but not both.
         :param pulumi.Input['VirtualMachineStorageImageReferenceArgs'] storage_image_reference: A `storage_image_reference` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input['VirtualMachineStorageOsDiskArgs'] storage_os_disk: A `storage_os_disk` block as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A mapping of tags to assign to the Virtual Machine.
         :param pulumi.Input[builtins.str] vm_size: Specifies the [size of the Virtual Machine](https://docs.microsoft.com/azure/virtual-machines/sizes-general). See also [Azure VM Naming Conventions](https://docs.microsoft.com/azure/virtual-machines/vm-naming-conventions).
         :param pulumi.Input[builtins.str] zones: A list of a single item of the Availability Zone which the Virtual Machine should be allocated in. Changing this forces a new resource to be created.
                
-               > **Please Note:** Availability Zones are [only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview).
+               > **Note:** Availability Zones are [only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview).
                
                For more information on the different example configurations, please check out the [Azure documentation](https://docs.microsoft.com/en-gb/rest/api/compute/virtualmachines/createorupdate#examples)
         """
@@ -579,11 +557,6 @@ class _VirtualMachineState:
     @property
     @pulumi.getter(name="deleteDataDisksOnTermination")
     def delete_data_disks_on_termination(self) -> Optional[pulumi.Input[builtins.bool]]:
-        """
-        Should the Data Disks (either the Managed Disks / VHD Blobs) be deleted when the Virtual Machine is destroyed? Defaults to `false`.
-
-        > **Note:** This setting works when instance is deleted via the provider only and don't forget to delete disks manually if you deleted VM manually. It can increase spending.
-        """
         return pulumi.get(self, "delete_data_disks_on_termination")
 
     @delete_data_disks_on_termination.setter
@@ -593,11 +566,6 @@ class _VirtualMachineState:
     @property
     @pulumi.getter(name="deleteOsDiskOnTermination")
     def delete_os_disk_on_termination(self) -> Optional[pulumi.Input[builtins.bool]]:
-        """
-        Should the OS Disk (either the Managed Disk / VHD Blob) be deleted when the Virtual Machine is destroyed? Defaults to `false`.
-
-        > **Note:** This setting works when instance is deleted via the provider only and don't forget to delete disks manually if you deleted VM manually. It can increase spending.
-        """
         return pulumi.get(self, "delete_os_disk_on_termination")
 
     @delete_os_disk_on_termination.setter
@@ -766,7 +734,7 @@ class _VirtualMachineState:
         """
         One or more `storage_data_disk` blocks as defined below.
 
-        > **Please Note:** Data Disks can also be attached either using this block or the `compute.DataDiskAttachment` resource - but not both.
+        > **Note:** Data Disks can also be attached either using this block or the `compute.DataDiskAttachment` resource - but not both.
         """
         return pulumi.get(self, "storage_data_disks")
 
@@ -828,7 +796,7 @@ class _VirtualMachineState:
         """
         A list of a single item of the Availability Zone which the Virtual Machine should be allocated in. Changing this forces a new resource to be created.
 
-        > **Please Note:** Availability Zones are [only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview).
+        > **Note:** Availability Zones are [only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview).
 
         For more information on the different example configurations, please check out the [Azure documentation](https://docs.microsoft.com/en-gb/rest/api/compute/virtualmachines/createorupdate#examples)
         """
@@ -875,7 +843,7 @@ class VirtualMachine(pulumi.CustomResource):
 
         ## Disclaimers
 
-        > **Note:** The `compute.VirtualMachine` resource has been superseded by the `compute.LinuxVirtualMachine` and `compute.WindowsVirtualMachine` resources. The existing `compute.VirtualMachine` resource will continue to be available throughout the 2.x releases however is in a feature-frozen state to maintain compatibility - new functionality will instead be added to the `compute.LinuxVirtualMachine` and `compute.WindowsVirtualMachine` resources.
+        > **Note:** The `compute.VirtualMachine` resource has been superseded by the `compute.LinuxVirtualMachine` and `compute.WindowsVirtualMachine` resources. The existing `compute.VirtualMachine` resource will continue to be available throughout the 3.x releases however is in a feature-frozen state to maintain compatibility - new functionality will instead be added to the `compute.LinuxVirtualMachine` and `compute.WindowsVirtualMachine` resources.
 
         > **Note:** Data Disks can be attached either directly on the `compute.VirtualMachine` resource, or using the `compute.DataDiskAttachment` resource - but the two cannot be used together. If both are used against the same Virtual Machine, spurious changes will occur.
 
@@ -883,7 +851,7 @@ class VirtualMachine(pulumi.CustomResource):
 
         ### From An Azure Platform Image)
 
-        This example provisions a Virtual Machine with Managed Disks.
+        This example provisions a Virtual Machine with Managed Disks. Other examples of the `compute.VirtualMachine` resource can be found in the `./examples/virtual-machines` directory within the GitHub Repository
 
         ```python
         import pulumi
@@ -959,12 +927,6 @@ class VirtualMachine(pulumi.CustomResource):
         :param pulumi.Input[Union['VirtualMachineAdditionalCapabilitiesArgs', 'VirtualMachineAdditionalCapabilitiesArgsDict']] additional_capabilities: An `additional_capabilities` block as defined below.
         :param pulumi.Input[builtins.str] availability_set_id: The ID of the Availability Set in which the Virtual Machine should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[Union['VirtualMachineBootDiagnosticsArgs', 'VirtualMachineBootDiagnosticsArgsDict']] boot_diagnostics: A `boot_diagnostics` block as defined below.
-        :param pulumi.Input[builtins.bool] delete_data_disks_on_termination: Should the Data Disks (either the Managed Disks / VHD Blobs) be deleted when the Virtual Machine is destroyed? Defaults to `false`.
-               
-               > **Note:** This setting works when instance is deleted via the provider only and don't forget to delete disks manually if you deleted VM manually. It can increase spending.
-        :param pulumi.Input[builtins.bool] delete_os_disk_on_termination: Should the OS Disk (either the Managed Disk / VHD Blob) be deleted when the Virtual Machine is destroyed? Defaults to `false`.
-               
-               > **Note:** This setting works when instance is deleted via the provider only and don't forget to delete disks manually if you deleted VM manually. It can increase spending.
         :param pulumi.Input[Union['VirtualMachineIdentityArgs', 'VirtualMachineIdentityArgsDict']] identity: An `identity` block as defined below.
         :param pulumi.Input[builtins.str] license_type: Specifies the BYOL Type for this Virtual Machine. This is only applicable to Windows Virtual Machines. Possible values are `Windows_Client` and `Windows_Server`.
         :param pulumi.Input[builtins.str] location: Specifies the Azure Region where the Virtual Machine exists. Changing this forces a new resource to be created.
@@ -980,14 +942,14 @@ class VirtualMachine(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] resource_group_name: Specifies the name of the Resource Group in which the Virtual Machine should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[Union['VirtualMachineStorageDataDiskArgs', 'VirtualMachineStorageDataDiskArgsDict']]]] storage_data_disks: One or more `storage_data_disk` blocks as defined below.
                
-               > **Please Note:** Data Disks can also be attached either using this block or the `compute.DataDiskAttachment` resource - but not both.
+               > **Note:** Data Disks can also be attached either using this block or the `compute.DataDiskAttachment` resource - but not both.
         :param pulumi.Input[Union['VirtualMachineStorageImageReferenceArgs', 'VirtualMachineStorageImageReferenceArgsDict']] storage_image_reference: A `storage_image_reference` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[Union['VirtualMachineStorageOsDiskArgs', 'VirtualMachineStorageOsDiskArgsDict']] storage_os_disk: A `storage_os_disk` block as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A mapping of tags to assign to the Virtual Machine.
         :param pulumi.Input[builtins.str] vm_size: Specifies the [size of the Virtual Machine](https://docs.microsoft.com/azure/virtual-machines/sizes-general). See also [Azure VM Naming Conventions](https://docs.microsoft.com/azure/virtual-machines/vm-naming-conventions).
         :param pulumi.Input[builtins.str] zones: A list of a single item of the Availability Zone which the Virtual Machine should be allocated in. Changing this forces a new resource to be created.
                
-               > **Please Note:** Availability Zones are [only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview).
+               > **Note:** Availability Zones are [only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview).
                
                For more information on the different example configurations, please check out the [Azure documentation](https://docs.microsoft.com/en-gb/rest/api/compute/virtualmachines/createorupdate#examples)
         """
@@ -1002,7 +964,7 @@ class VirtualMachine(pulumi.CustomResource):
 
         ## Disclaimers
 
-        > **Note:** The `compute.VirtualMachine` resource has been superseded by the `compute.LinuxVirtualMachine` and `compute.WindowsVirtualMachine` resources. The existing `compute.VirtualMachine` resource will continue to be available throughout the 2.x releases however is in a feature-frozen state to maintain compatibility - new functionality will instead be added to the `compute.LinuxVirtualMachine` and `compute.WindowsVirtualMachine` resources.
+        > **Note:** The `compute.VirtualMachine` resource has been superseded by the `compute.LinuxVirtualMachine` and `compute.WindowsVirtualMachine` resources. The existing `compute.VirtualMachine` resource will continue to be available throughout the 3.x releases however is in a feature-frozen state to maintain compatibility - new functionality will instead be added to the `compute.LinuxVirtualMachine` and `compute.WindowsVirtualMachine` resources.
 
         > **Note:** Data Disks can be attached either directly on the `compute.VirtualMachine` resource, or using the `compute.DataDiskAttachment` resource - but the two cannot be used together. If both are used against the same Virtual Machine, spurious changes will occur.
 
@@ -1010,7 +972,7 @@ class VirtualMachine(pulumi.CustomResource):
 
         ### From An Azure Platform Image)
 
-        This example provisions a Virtual Machine with Managed Disks.
+        This example provisions a Virtual Machine with Managed Disks. Other examples of the `compute.VirtualMachine` resource can be found in the `./examples/virtual-machines` directory within the GitHub Repository
 
         ```python
         import pulumi
@@ -1205,12 +1167,6 @@ class VirtualMachine(pulumi.CustomResource):
         :param pulumi.Input[Union['VirtualMachineAdditionalCapabilitiesArgs', 'VirtualMachineAdditionalCapabilitiesArgsDict']] additional_capabilities: An `additional_capabilities` block as defined below.
         :param pulumi.Input[builtins.str] availability_set_id: The ID of the Availability Set in which the Virtual Machine should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[Union['VirtualMachineBootDiagnosticsArgs', 'VirtualMachineBootDiagnosticsArgsDict']] boot_diagnostics: A `boot_diagnostics` block as defined below.
-        :param pulumi.Input[builtins.bool] delete_data_disks_on_termination: Should the Data Disks (either the Managed Disks / VHD Blobs) be deleted when the Virtual Machine is destroyed? Defaults to `false`.
-               
-               > **Note:** This setting works when instance is deleted via the provider only and don't forget to delete disks manually if you deleted VM manually. It can increase spending.
-        :param pulumi.Input[builtins.bool] delete_os_disk_on_termination: Should the OS Disk (either the Managed Disk / VHD Blob) be deleted when the Virtual Machine is destroyed? Defaults to `false`.
-               
-               > **Note:** This setting works when instance is deleted via the provider only and don't forget to delete disks manually if you deleted VM manually. It can increase spending.
         :param pulumi.Input[Union['VirtualMachineIdentityArgs', 'VirtualMachineIdentityArgsDict']] identity: An `identity` block as defined below.
         :param pulumi.Input[builtins.str] license_type: Specifies the BYOL Type for this Virtual Machine. This is only applicable to Windows Virtual Machines. Possible values are `Windows_Client` and `Windows_Server`.
         :param pulumi.Input[builtins.str] location: Specifies the Azure Region where the Virtual Machine exists. Changing this forces a new resource to be created.
@@ -1226,14 +1182,14 @@ class VirtualMachine(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] resource_group_name: Specifies the name of the Resource Group in which the Virtual Machine should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[Union['VirtualMachineStorageDataDiskArgs', 'VirtualMachineStorageDataDiskArgsDict']]]] storage_data_disks: One or more `storage_data_disk` blocks as defined below.
                
-               > **Please Note:** Data Disks can also be attached either using this block or the `compute.DataDiskAttachment` resource - but not both.
+               > **Note:** Data Disks can also be attached either using this block or the `compute.DataDiskAttachment` resource - but not both.
         :param pulumi.Input[Union['VirtualMachineStorageImageReferenceArgs', 'VirtualMachineStorageImageReferenceArgsDict']] storage_image_reference: A `storage_image_reference` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[Union['VirtualMachineStorageOsDiskArgs', 'VirtualMachineStorageOsDiskArgsDict']] storage_os_disk: A `storage_os_disk` block as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A mapping of tags to assign to the Virtual Machine.
         :param pulumi.Input[builtins.str] vm_size: Specifies the [size of the Virtual Machine](https://docs.microsoft.com/azure/virtual-machines/sizes-general). See also [Azure VM Naming Conventions](https://docs.microsoft.com/azure/virtual-machines/vm-naming-conventions).
         :param pulumi.Input[builtins.str] zones: A list of a single item of the Availability Zone which the Virtual Machine should be allocated in. Changing this forces a new resource to be created.
                
-               > **Please Note:** Availability Zones are [only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview).
+               > **Note:** Availability Zones are [only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview).
                
                For more information on the different example configurations, please check out the [Azure documentation](https://docs.microsoft.com/en-gb/rest/api/compute/virtualmachines/createorupdate#examples)
         """
@@ -1294,21 +1250,11 @@ class VirtualMachine(pulumi.CustomResource):
     @property
     @pulumi.getter(name="deleteDataDisksOnTermination")
     def delete_data_disks_on_termination(self) -> pulumi.Output[Optional[builtins.bool]]:
-        """
-        Should the Data Disks (either the Managed Disks / VHD Blobs) be deleted when the Virtual Machine is destroyed? Defaults to `false`.
-
-        > **Note:** This setting works when instance is deleted via the provider only and don't forget to delete disks manually if you deleted VM manually. It can increase spending.
-        """
         return pulumi.get(self, "delete_data_disks_on_termination")
 
     @property
     @pulumi.getter(name="deleteOsDiskOnTermination")
     def delete_os_disk_on_termination(self) -> pulumi.Output[Optional[builtins.bool]]:
-        """
-        Should the OS Disk (either the Managed Disk / VHD Blob) be deleted when the Virtual Machine is destroyed? Defaults to `false`.
-
-        > **Note:** This setting works when instance is deleted via the provider only and don't forget to delete disks manually if you deleted VM manually. It can increase spending.
-        """
         return pulumi.get(self, "delete_os_disk_on_termination")
 
     @property
@@ -1421,7 +1367,7 @@ class VirtualMachine(pulumi.CustomResource):
         """
         One or more `storage_data_disk` blocks as defined below.
 
-        > **Please Note:** Data Disks can also be attached either using this block or the `compute.DataDiskAttachment` resource - but not both.
+        > **Note:** Data Disks can also be attached either using this block or the `compute.DataDiskAttachment` resource - but not both.
         """
         return pulumi.get(self, "storage_data_disks")
 
@@ -1463,7 +1409,7 @@ class VirtualMachine(pulumi.CustomResource):
         """
         A list of a single item of the Availability Zone which the Virtual Machine should be allocated in. Changing this forces a new resource to be created.
 
-        > **Please Note:** Availability Zones are [only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview).
+        > **Note:** Availability Zones are [only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview).
 
         For more information on the different example configurations, please check out the [Azure documentation](https://docs.microsoft.com/en-gb/rest/api/compute/virtualmachines/createorupdate#examples)
         """

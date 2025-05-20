@@ -36,6 +36,13 @@ namespace Pulumi.Azure.Proximity
         ///     };
         /// });
         /// ```
+        /// 
+        /// ## API Providers
+        /// 
+        /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+        /// This data source uses the following Azure API Providers:
+        /// 
+        /// * `Microsoft.Compute`: 2022-03-01
         /// </summary>
         public static Task<GetPlacementGroupResult> InvokeAsync(GetPlacementGroupArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPlacementGroupResult>("azure:proximity/getPlacementGroup:getPlacementGroup", args ?? new GetPlacementGroupArgs(), options.WithDefaults());
@@ -65,6 +72,13 @@ namespace Pulumi.Azure.Proximity
         ///     };
         /// });
         /// ```
+        /// 
+        /// ## API Providers
+        /// 
+        /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+        /// This data source uses the following Azure API Providers:
+        /// 
+        /// * `Microsoft.Compute`: 2022-03-01
         /// </summary>
         public static Output<GetPlacementGroupResult> Invoke(GetPlacementGroupInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPlacementGroupResult>("azure:proximity/getPlacementGroup:getPlacementGroup", args ?? new GetPlacementGroupInvokeArgs(), options.WithDefaults());
@@ -94,6 +108,13 @@ namespace Pulumi.Azure.Proximity
         ///     };
         /// });
         /// ```
+        /// 
+        /// ## API Providers
+        /// 
+        /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+        /// This data source uses the following Azure API Providers:
+        /// 
+        /// * `Microsoft.Compute`: 2022-03-01
         /// </summary>
         public static Output<GetPlacementGroupResult> Invoke(GetPlacementGroupInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetPlacementGroupResult>("azure:proximity/getPlacementGroup:getPlacementGroup", args ?? new GetPlacementGroupInvokeArgs(), options.WithDefaults());

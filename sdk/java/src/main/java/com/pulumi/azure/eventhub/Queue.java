@@ -49,7 +49,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
- *             .name("my-servicebus")
+ *             .name("terraform-servicebus")
  *             .location("West Europe")
  *             .build());
  * 
@@ -58,7 +58,7 @@ import javax.annotation.Nullable;
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .sku("Standard")
- *             .tags(Map.of("source", "example"))
+ *             .tags(Map.of("source", "terraform"))
  *             .build());
  * 
  *         var exampleQueue = new Queue("exampleQueue", QueueArgs.builder()
@@ -161,7 +161,7 @@ public class Queue extends com.pulumi.resources.CustomResource {
     /**
      * Boolean flag which controls whether Express Entities are enabled. An express queue holds a message in memory temporarily before writing it to persistent storage. Defaults to `false` for Basic and Standard. For Premium, it MUST be set to `false`.
      * 
-     * &gt; **NOTE:** Service Bus Premium namespaces do not support Express Entities, so `express_enabled` MUST be set to `false`.
+     * &gt; **Note:** Service Bus Premium namespaces do not support Express Entities, so `express_enabled` MUST be set to `false`.
      * 
      */
     @Export(name="expressEnabled", refs={Boolean.class}, tree="[0]")
@@ -170,7 +170,7 @@ public class Queue extends com.pulumi.resources.CustomResource {
     /**
      * @return Boolean flag which controls whether Express Entities are enabled. An express queue holds a message in memory temporarily before writing it to persistent storage. Defaults to `false` for Basic and Standard. For Premium, it MUST be set to `false`.
      * 
-     * &gt; **NOTE:** Service Bus Premium namespaces do not support Express Entities, so `express_enabled` MUST be set to `false`.
+     * &gt; **Note:** Service Bus Premium namespaces do not support Express Entities, so `express_enabled` MUST be set to `false`.
      * 
      */
     public Output<Optional<Boolean>> expressEnabled() {
@@ -288,16 +288,10 @@ public class Queue extends com.pulumi.resources.CustomResource {
     public Output<String> namespaceId() {
         return this.namespaceId;
     }
-    @Export(name="namespaceName", refs={String.class}, tree="[0]")
-    private Output<String> namespaceName;
-
-    public Output<String> namespaceName() {
-        return this.namespaceName;
-    }
     /**
      * Boolean flag which controls whether to enable the queue to be partitioned across multiple message brokers. Changing this forces a new resource to be created. Defaults to `false` for Basic and Standard.
      * 
-     * &gt; **NOTE:** Partitioning is available at entity creation for all queues and topics in Basic or Standard SKUs. For premium namespace, partitioning is available at namespace creation, and all queues and topics in the partitioned namespace will be partitioned, for the premium namespace that has `premium_messaging_partitions` sets to `1`, the namespace is not partitioned.
+     * &gt; **Note:** Partitioning is available at entity creation for all queues and topics in Basic or Standard SKUs. For premium namespace, partitioning is available at namespace creation, and all queues and topics in the partitioned namespace will be partitioned, for the premium namespace that has `premium_messaging_partitions` sets to `1`, the namespace is not partitioned.
      * 
      */
     @Export(name="partitioningEnabled", refs={Boolean.class}, tree="[0]")
@@ -306,7 +300,7 @@ public class Queue extends com.pulumi.resources.CustomResource {
     /**
      * @return Boolean flag which controls whether to enable the queue to be partitioned across multiple message brokers. Changing this forces a new resource to be created. Defaults to `false` for Basic and Standard.
      * 
-     * &gt; **NOTE:** Partitioning is available at entity creation for all queues and topics in Basic or Standard SKUs. For premium namespace, partitioning is available at namespace creation, and all queues and topics in the partitioned namespace will be partitioned, for the premium namespace that has `premium_messaging_partitions` sets to `1`, the namespace is not partitioned.
+     * &gt; **Note:** Partitioning is available at entity creation for all queues and topics in Basic or Standard SKUs. For premium namespace, partitioning is available at namespace creation, and all queues and topics in the partitioned namespace will be partitioned, for the premium namespace that has `premium_messaging_partitions` sets to `1`, the namespace is not partitioned.
      * 
      */
     public Output<Optional<Boolean>> partitioningEnabled() {
@@ -339,12 +333,6 @@ public class Queue extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<Boolean>> requiresSession() {
         return Codegen.optional(this.requiresSession);
-    }
-    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
-    private Output<String> resourceGroupName;
-
-    public Output<String> resourceGroupName() {
-        return this.resourceGroupName;
     }
     /**
      * The status of the Queue. Possible values are `Active`, `Creating`, `Deleting`, `Disabled`, `ReceiveDisabled`, `Renaming`, `SendDisabled`, `Unknown`. Note that `Restoring` is not accepted. Defaults to `Active`.

@@ -28,13 +28,13 @@ namespace Pulumi.Azure.Cdn.Outputs
         /// <summary>
         /// Should the Front Door dynamically compress the content? Possible values include `true` or `false`.
         /// 
-        /// -&gt;**NOTE:** Content won't be compressed on AzureFrontDoor when requested content is smaller than `1 byte` or larger than `1 MB`.
+        /// &gt; **Note:** Content won't be compressed on AzureFrontDoor when requested content is smaller than `1 byte` or larger than `1 MB`.
         /// </summary>
         public readonly bool? CompressionEnabled;
         /// <summary>
         /// The forwarding protocol the request will be redirected as. This overrides the configuration specified in the route to be associated with. Possible values include `MatchRequest`, `HttpOnly` or `HttpsOnly`.
         /// 
-        /// -&gt;**NOTE:** If the `cdn_frontdoor_origin_group_id` is not defined you cannot set the `forwarding_protocol`.
+        /// &gt; **Note:** If the `cdn_frontdoor_origin_group_id` is not defined you cannot set the `forwarding_protocol`.
         /// </summary>
         public readonly string? ForwardingProtocol;
         /// <summary>
@@ -44,7 +44,7 @@ namespace Pulumi.Azure.Cdn.Outputs
         /// <summary>
         /// A list of query string parameter names.
         /// 
-        /// -&gt;**NOTE:** `query_string_parameters` is a required field when the `query_string_caching_behavior` is set to `IncludeSpecifiedQueryStrings` or `IgnoreSpecifiedQueryStrings`.
+        /// &gt; **Note:** `query_string_parameters` is a required field when the `query_string_caching_behavior` is set to `IncludeSpecifiedQueryStrings` or `IgnoreSpecifiedQueryStrings`.
         /// </summary>
         public readonly ImmutableArray<string> QueryStringParameters;
 

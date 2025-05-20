@@ -138,7 +138,7 @@ public class RoleAssignment extends com.pulumi.resources.CustomResource {
     /**
      * The Type of the Principal. One of `User`, `Group` or `ServicePrincipal`. Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE:** While `principal_type` is optional, it&#39;s still recommended to set this value, as some Synapse use-cases may not work correctly if this is not specified. Service Principals for example can&#39;t run SQL statements using `Entra ID` authentication if `principal_type` is not set to `ServicePrincipal`.
+     * &gt; **Note:** While `principal_type` is optional, it&#39;s still recommended to set this value, as some Synapse use-cases may not work correctly if this is not specified. Service Principals for example can&#39;t run SQL statements using `Entra ID` authentication if `principal_type` is not set to `ServicePrincipal`.
      * 
      */
     @Export(name="principalType", refs={String.class}, tree="[0]")
@@ -147,7 +147,7 @@ public class RoleAssignment extends com.pulumi.resources.CustomResource {
     /**
      * @return The Type of the Principal. One of `User`, `Group` or `ServicePrincipal`. Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE:** While `principal_type` is optional, it&#39;s still recommended to set this value, as some Synapse use-cases may not work correctly if this is not specified. Service Principals for example can&#39;t run SQL statements using `Entra ID` authentication if `principal_type` is not set to `ServicePrincipal`.
+     * &gt; **Note:** While `principal_type` is optional, it&#39;s still recommended to set this value, as some Synapse use-cases may not work correctly if this is not specified. Service Principals for example can&#39;t run SQL statements using `Entra ID` authentication if `principal_type` is not set to `ServicePrincipal`.
      * 
      */
     public Output<Optional<String>> principalType() {
@@ -156,9 +156,9 @@ public class RoleAssignment extends com.pulumi.resources.CustomResource {
     /**
      * The Role Name of the Synapse Built-In Role. Possible values are `Apache Spark Administrator`, `Synapse Administrator`, `Synapse Artifact Publisher`, `Synapse Artifact User`, `Synapse Compute Operator`, `Synapse Contributor`, `Synapse Credential User`, `Synapse Linked Data Manager`, `Synapse Monitoring Operator`, `Synapse SQL Administrator` and `Synapse User`. Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE:** Currently, the Synapse built-in roles are `Apache Spark Administrator`, `Synapse Administrator`, `Synapse Artifact Publisher`, `Synapse Artifact User`, `Synapse Compute Operator`, `Synapse Contributor`, `Synapse Credential User`, `Synapse Linked Data Manager`, `Synapse Monitoring Operator`, `Synapse SQL Administrator` and `Synapse User`.
+     * &gt; **Note:** Currently, the Synapse built-in roles are `Apache Spark Administrator`, `Synapse Administrator`, `Synapse Artifact Publisher`, `Synapse Artifact User`, `Synapse Compute Operator`, `Synapse Contributor`, `Synapse Credential User`, `Synapse Linked Data Manager`, `Synapse Monitoring Operator`, `Synapse SQL Administrator` and `Synapse User`.
      * 
-     * &gt; **NOTE:** Old roles are still supported: `Workspace Admin`, `Apache Spark Admin`, `Sql Admin`. These values will be removed in the next Major Version 3.0.
+     * &gt; **Note:** Old roles are still supported: `Workspace Admin`, `Apache Spark Admin`, `Sql Admin`. These values will be removed in the next Major Version 3.0.
      * 
      */
     @Export(name="roleName", refs={String.class}, tree="[0]")
@@ -167,9 +167,9 @@ public class RoleAssignment extends com.pulumi.resources.CustomResource {
     /**
      * @return The Role Name of the Synapse Built-In Role. Possible values are `Apache Spark Administrator`, `Synapse Administrator`, `Synapse Artifact Publisher`, `Synapse Artifact User`, `Synapse Compute Operator`, `Synapse Contributor`, `Synapse Credential User`, `Synapse Linked Data Manager`, `Synapse Monitoring Operator`, `Synapse SQL Administrator` and `Synapse User`. Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE:** Currently, the Synapse built-in roles are `Apache Spark Administrator`, `Synapse Administrator`, `Synapse Artifact Publisher`, `Synapse Artifact User`, `Synapse Compute Operator`, `Synapse Contributor`, `Synapse Credential User`, `Synapse Linked Data Manager`, `Synapse Monitoring Operator`, `Synapse SQL Administrator` and `Synapse User`.
+     * &gt; **Note:** Currently, the Synapse built-in roles are `Apache Spark Administrator`, `Synapse Administrator`, `Synapse Artifact Publisher`, `Synapse Artifact User`, `Synapse Compute Operator`, `Synapse Contributor`, `Synapse Credential User`, `Synapse Linked Data Manager`, `Synapse Monitoring Operator`, `Synapse SQL Administrator` and `Synapse User`.
      * 
-     * &gt; **NOTE:** Old roles are still supported: `Workspace Admin`, `Apache Spark Admin`, `Sql Admin`. These values will be removed in the next Major Version 3.0.
+     * &gt; **Note:** Old roles are still supported: `Workspace Admin`, `Apache Spark Admin`, `Sql Admin`. These values will be removed in the next Major Version 3.0.
      * 
      */
     public Output<String> roleName() {
@@ -178,7 +178,7 @@ public class RoleAssignment extends com.pulumi.resources.CustomResource {
     /**
      * The Synapse Spark Pool which the Synapse Role Assignment applies to. Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE:** A Synapse firewall rule including local IP is needed to allow access. Only one of `synapse_workspace_id`, `synapse_spark_pool_id` must be set.
+     * &gt; **Note:** A Synapse firewall rule including local IP is needed to allow access. Only one of `synapse_workspace_id`, `synapse_spark_pool_id` must be set.
      * 
      */
     @Export(name="synapseSparkPoolId", refs={String.class}, tree="[0]")
@@ -187,7 +187,7 @@ public class RoleAssignment extends com.pulumi.resources.CustomResource {
     /**
      * @return The Synapse Spark Pool which the Synapse Role Assignment applies to. Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE:** A Synapse firewall rule including local IP is needed to allow access. Only one of `synapse_workspace_id`, `synapse_spark_pool_id` must be set.
+     * &gt; **Note:** A Synapse firewall rule including local IP is needed to allow access. Only one of `synapse_workspace_id`, `synapse_spark_pool_id` must be set.
      * 
      */
     public Output<Optional<String>> synapseSparkPoolId() {

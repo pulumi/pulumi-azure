@@ -46,6 +46,13 @@ namespace Pulumi.Azure.DataBricks
     /// });
     /// ```
     /// 
+    /// ## API Providers
+    /// 
+    /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+    /// This resource uses the following Azure API Providers:
+    /// 
+    /// * `Microsoft.Databricks`: 2022-10-01-preview
+    /// 
     /// ## Import
     /// 
     /// Databricks Access Connectors can be imported using the `resource id`, e.g.

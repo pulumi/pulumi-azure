@@ -31,7 +31,7 @@ class DataConnectorMicrosoftThreatIntelligenceArgs:
         :param pulumi.Input[builtins.str] name: The name which should be used for this Microsoft Threat Intelligence Data Connector. Changing this forces a new Microsoft Threat Intelligence Data Connector to be created.
         :param pulumi.Input[builtins.str] tenant_id: The ID of the tenant that this Microsoft Threat Intelligence Data Connector connects to. Changing this forces a new Microsoft Threat Intelligence Data Connector to be created.
                
-               > **NOTE** Currently, only the same tenant as the running account is allowed. Cross-tenant scenario is not supported yet.
+               > **Note:** Currently, only the same tenant as the running account is allowed. Cross-tenant scenario is not supported yet.
         """
         pulumi.set(__self__, "log_analytics_workspace_id", log_analytics_workspace_id)
         pulumi.set(__self__, "microsoft_emerging_threat_feed_lookback_date", microsoft_emerging_threat_feed_lookback_date)
@@ -82,7 +82,7 @@ class DataConnectorMicrosoftThreatIntelligenceArgs:
         """
         The ID of the tenant that this Microsoft Threat Intelligence Data Connector connects to. Changing this forces a new Microsoft Threat Intelligence Data Connector to be created.
 
-        > **NOTE** Currently, only the same tenant as the running account is allowed. Cross-tenant scenario is not supported yet.
+        > **Note:** Currently, only the same tenant as the running account is allowed. Cross-tenant scenario is not supported yet.
         """
         return pulumi.get(self, "tenant_id")
 
@@ -105,7 +105,7 @@ class _DataConnectorMicrosoftThreatIntelligenceState:
         :param pulumi.Input[builtins.str] name: The name which should be used for this Microsoft Threat Intelligence Data Connector. Changing this forces a new Microsoft Threat Intelligence Data Connector to be created.
         :param pulumi.Input[builtins.str] tenant_id: The ID of the tenant that this Microsoft Threat Intelligence Data Connector connects to. Changing this forces a new Microsoft Threat Intelligence Data Connector to be created.
                
-               > **NOTE** Currently, only the same tenant as the running account is allowed. Cross-tenant scenario is not supported yet.
+               > **Note:** Currently, only the same tenant as the running account is allowed. Cross-tenant scenario is not supported yet.
         """
         if log_analytics_workspace_id is not None:
             pulumi.set(__self__, "log_analytics_workspace_id", log_analytics_workspace_id)
@@ -158,7 +158,7 @@ class _DataConnectorMicrosoftThreatIntelligenceState:
         """
         The ID of the tenant that this Microsoft Threat Intelligence Data Connector connects to. Changing this forces a new Microsoft Threat Intelligence Data Connector to be created.
 
-        > **NOTE** Currently, only the same tenant as the running account is allowed. Cross-tenant scenario is not supported yet.
+        > **Note:** Currently, only the same tenant as the running account is allowed. Cross-tenant scenario is not supported yet.
         """
         return pulumi.get(self, "tenant_id")
 
@@ -217,7 +217,7 @@ class DataConnectorMicrosoftThreatIntelligence(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] name: The name which should be used for this Microsoft Threat Intelligence Data Connector. Changing this forces a new Microsoft Threat Intelligence Data Connector to be created.
         :param pulumi.Input[builtins.str] tenant_id: The ID of the tenant that this Microsoft Threat Intelligence Data Connector connects to. Changing this forces a new Microsoft Threat Intelligence Data Connector to be created.
                
-               > **NOTE** Currently, only the same tenant as the running account is allowed. Cross-tenant scenario is not supported yet.
+               > **Note:** Currently, only the same tenant as the running account is allowed. Cross-tenant scenario is not supported yet.
         """
         ...
     @overload
@@ -319,7 +319,7 @@ class DataConnectorMicrosoftThreatIntelligence(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] name: The name which should be used for this Microsoft Threat Intelligence Data Connector. Changing this forces a new Microsoft Threat Intelligence Data Connector to be created.
         :param pulumi.Input[builtins.str] tenant_id: The ID of the tenant that this Microsoft Threat Intelligence Data Connector connects to. Changing this forces a new Microsoft Threat Intelligence Data Connector to be created.
                
-               > **NOTE** Currently, only the same tenant as the running account is allowed. Cross-tenant scenario is not supported yet.
+               > **Note:** Currently, only the same tenant as the running account is allowed. Cross-tenant scenario is not supported yet.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -361,7 +361,7 @@ class DataConnectorMicrosoftThreatIntelligence(pulumi.CustomResource):
         """
         The ID of the tenant that this Microsoft Threat Intelligence Data Connector connects to. Changing this forces a new Microsoft Threat Intelligence Data Connector to be created.
 
-        > **NOTE** Currently, only the same tenant as the running account is allowed. Cross-tenant scenario is not supported yet.
+        > **Note:** Currently, only the same tenant as the running account is allowed. Cross-tenant scenario is not supported yet.
         """
         return pulumi.get(self, "tenant_id")
 

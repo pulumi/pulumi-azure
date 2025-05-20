@@ -56,7 +56,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleAnalyticsWorkspace = new AnalyticsWorkspace("exampleAnalyticsWorkspace", AnalyticsWorkspaceArgs.builder()
- *             .name("acctest-01")
+ *             .name("example-workspace")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .sku("PerGB2018")
@@ -76,6 +76,15 @@ import javax.annotation.Nullable;
  * }
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
+ * 
+ * ## API Providers
+ * 
+ * &lt;!-- This section is generated, changes will be overwritten --&gt;
+ * This resource uses the following Azure API Providers:
+ * 
+ * * `Microsoft.App`: 2025-01-01
+ * 
+ * * `Microsoft.OperationalInsights`: 2020-08-01
  * 
  * ## Import
  * 

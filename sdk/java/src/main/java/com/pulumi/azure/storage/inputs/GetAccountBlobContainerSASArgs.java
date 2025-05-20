@@ -33,17 +33,9 @@ public final class GetAccountBlobContainerSASArgs extends com.pulumi.resources.I
         return Optional.ofNullable(this.cacheControl);
     }
 
-    /**
-     * The connection string for the storage account to which this SAS applies. Typically directly from the `primary_connection_string` attribute of an `azure.storage.Account` resource.
-     * 
-     */
     @Import(name="connectionString", required=true)
     private Output<String> connectionString;
 
-    /**
-     * @return The connection string for the storage account to which this SAS applies. Typically directly from the `primary_connection_string` attribute of an `azure.storage.Account` resource.
-     * 
-     */
     public Output<String> connectionString() {
         return this.connectionString;
     }
@@ -126,7 +118,7 @@ public final class GetAccountBlobContainerSASArgs extends com.pulumi.resources.I
     /**
      * The expiration time and date of this SAS. Must be a valid ISO-8601 format time/date string.
      * 
-     * &gt; **NOTE:** The [ISO-8601 Time offset from UTC](https://en.wikipedia.org/wiki/ISO_8601#Time_offsets_from_UTC) is currently not supported by the service, which will result into 409 error.
+     * &gt; **Note:** The [ISO-8601 Time offset from UTC](https://en.wikipedia.org/wiki/ISO_8601#Time_offsets_from_UTC) is currently not supported by the service, which will result into 409 error.
      * 
      */
     @Import(name="expiry", required=true)
@@ -135,7 +127,7 @@ public final class GetAccountBlobContainerSASArgs extends com.pulumi.resources.I
     /**
      * @return The expiration time and date of this SAS. Must be a valid ISO-8601 format time/date string.
      * 
-     * &gt; **NOTE:** The [ISO-8601 Time offset from UTC](https://en.wikipedia.org/wiki/ISO_8601#Time_offsets_from_UTC) is currently not supported by the service, which will result into 409 error.
+     * &gt; **Note:** The [ISO-8601 Time offset from UTC](https://en.wikipedia.org/wiki/ISO_8601#Time_offsets_from_UTC) is currently not supported by the service, which will result into 409 error.
      * 
      */
     public Output<String> expiry() {
@@ -258,23 +250,11 @@ public final class GetAccountBlobContainerSASArgs extends com.pulumi.resources.I
             return cacheControl(Output.of(cacheControl));
         }
 
-        /**
-         * @param connectionString The connection string for the storage account to which this SAS applies. Typically directly from the `primary_connection_string` attribute of an `azure.storage.Account` resource.
-         * 
-         * @return builder
-         * 
-         */
         public Builder connectionString(Output<String> connectionString) {
             $.connectionString = connectionString;
             return this;
         }
 
-        /**
-         * @param connectionString The connection string for the storage account to which this SAS applies. Typically directly from the `primary_connection_string` attribute of an `azure.storage.Account` resource.
-         * 
-         * @return builder
-         * 
-         */
         public Builder connectionString(String connectionString) {
             return connectionString(Output.of(connectionString));
         }
@@ -387,7 +367,7 @@ public final class GetAccountBlobContainerSASArgs extends com.pulumi.resources.I
         /**
          * @param expiry The expiration time and date of this SAS. Must be a valid ISO-8601 format time/date string.
          * 
-         * &gt; **NOTE:** The [ISO-8601 Time offset from UTC](https://en.wikipedia.org/wiki/ISO_8601#Time_offsets_from_UTC) is currently not supported by the service, which will result into 409 error.
+         * &gt; **Note:** The [ISO-8601 Time offset from UTC](https://en.wikipedia.org/wiki/ISO_8601#Time_offsets_from_UTC) is currently not supported by the service, which will result into 409 error.
          * 
          * @return builder
          * 
@@ -400,7 +380,7 @@ public final class GetAccountBlobContainerSASArgs extends com.pulumi.resources.I
         /**
          * @param expiry The expiration time and date of this SAS. Must be a valid ISO-8601 format time/date string.
          * 
-         * &gt; **NOTE:** The [ISO-8601 Time offset from UTC](https://en.wikipedia.org/wiki/ISO_8601#Time_offsets_from_UTC) is currently not supported by the service, which will result into 409 error.
+         * &gt; **Note:** The [ISO-8601 Time offset from UTC](https://en.wikipedia.org/wiki/ISO_8601#Time_offsets_from_UTC) is currently not supported by the service, which will result into 409 error.
          * 
          * @return builder
          * 

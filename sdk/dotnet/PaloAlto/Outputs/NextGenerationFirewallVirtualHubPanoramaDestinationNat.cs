@@ -13,9 +13,21 @@ namespace Pulumi.Azure.PaloAlto.Outputs
     [OutputType]
     public sealed class NextGenerationFirewallVirtualHubPanoramaDestinationNat
     {
+        /// <summary>
+        /// A `backend_config` block as defined above.
+        /// </summary>
         public readonly Outputs.NextGenerationFirewallVirtualHubPanoramaDestinationNatBackendConfig? BackendConfig;
+        /// <summary>
+        /// A `frontend_config` block as defined below.
+        /// </summary>
         public readonly Outputs.NextGenerationFirewallVirtualHubPanoramaDestinationNatFrontendConfig? FrontendConfig;
+        /// <summary>
+        /// The name which should be used for this NAT.
+        /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// The protocol used for this Destination NAT. Possible values include `TCP` and `UDP`.
+        /// </summary>
         public readonly string Protocol;
 
         [OutputConstructor]

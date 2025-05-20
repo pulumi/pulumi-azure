@@ -315,7 +315,7 @@ class OpenIdConnectProvider(pulumi.CustomResource):
             location=example.location,
             resource_group_name=example.name,
             publisher_name="My Company",
-            publisher_email="company@exmaple.com",
+            publisher_email="company@terraform.io",
             sku_name="Developer_1")
         example_open_id_connect_provider = azure.apimanagement.OpenIdConnectProvider("example",
             name="example-provider",
@@ -326,6 +326,13 @@ class OpenIdConnectProvider(pulumi.CustomResource):
             display_name="Example Provider",
             metadata_endpoint="https://example.com/example")
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.ApiManagement`: 2022-08-01
 
         ## Import
 
@@ -369,7 +376,7 @@ class OpenIdConnectProvider(pulumi.CustomResource):
             location=example.location,
             resource_group_name=example.name,
             publisher_name="My Company",
-            publisher_email="company@exmaple.com",
+            publisher_email="company@terraform.io",
             sku_name="Developer_1")
         example_open_id_connect_provider = azure.apimanagement.OpenIdConnectProvider("example",
             name="example-provider",
@@ -380,6 +387,13 @@ class OpenIdConnectProvider(pulumi.CustomResource):
             display_name="Example Provider",
             metadata_endpoint="https://example.com/example")
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.ApiManagement`: 2022-08-01
 
         ## Import
 

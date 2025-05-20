@@ -32,23 +32,9 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * Manages a Windows Virtual Machine.
- * 
- * ## Disclaimers
- * 
- * &gt; **Note** This provider will automatically remove the OS Disk by default - this behaviour can be configured using the `features` setting within the Provider block.
- * 
- * &gt; **Note** All arguments including the administrator login and password will be stored in the raw state as plain-text.
- * 
- * &gt; **Note** This resource does not support Unmanaged Disks. If you need to use Unmanaged Disks you can continue to use the `azure.compute.VirtualMachine` resource instead.
- * 
- * &gt; **Note** This resource does not support attaching existing OS Disks. You can instead capture an image of the OS Disk or continue to use the `azure.compute.VirtualMachine` resource instead.
- * 
- * &gt; In this release there&#39;s a known issue where the `public_ip_address` and `public_ip_addresses` fields may not be fully populated for Dynamic Public IP&#39;s.
- * 
  * ## Example Usage
  * 
- * This example provisions a basic Windows Virtual Machine on an internal network.
+ * This example provisions a basic Windows Virtual Machine on an internal network. Additional examples of how to use the `azure.compute.WindowsVirtualMachine` resource can be found in the ./examples/virtual-machines/windows directory within the GitHub Repository.
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
  * <pre>
@@ -252,7 +238,7 @@ public class WindowsVirtualMachine extends com.pulumi.resources.CustomResource {
     /**
      * Specifies whether to skip platform scheduled patching when a user schedule is associated with the VM. Defaults to `false`.
      * 
-     * &gt; **NOTE:** `bypass_platform_safety_checks_on_user_schedule_enabled` can only be set to `true` when `patch_mode` is set to `AutomaticByPlatform`.
+     * &gt; **Note:** `bypass_platform_safety_checks_on_user_schedule_enabled` can only be set to `true` when `patch_mode` is set to `AutomaticByPlatform`.
      * 
      */
     @Export(name="bypassPlatformSafetyChecksOnUserScheduleEnabled", refs={Boolean.class}, tree="[0]")
@@ -261,7 +247,7 @@ public class WindowsVirtualMachine extends com.pulumi.resources.CustomResource {
     /**
      * @return Specifies whether to skip platform scheduled patching when a user schedule is associated with the VM. Defaults to `false`.
      * 
-     * &gt; **NOTE:** `bypass_platform_safety_checks_on_user_schedule_enabled` can only be set to `true` when `patch_mode` is set to `AutomaticByPlatform`.
+     * &gt; **Note:** `bypass_platform_safety_checks_on_user_schedule_enabled` can only be set to `true` when `patch_mode` is set to `AutomaticByPlatform`.
      * 
      */
     public Output<Optional<Boolean>> bypassPlatformSafetyChecksOnUserScheduleEnabled() {
@@ -270,7 +256,7 @@ public class WindowsVirtualMachine extends com.pulumi.resources.CustomResource {
     /**
      * Specifies the ID of the Capacity Reservation Group which the Virtual Machine should be allocated to.
      * 
-     * &gt; **NOTE:** `capacity_reservation_group_id` cannot be used with `availability_set_id` or `proximity_placement_group_id`
+     * &gt; **Note:** `capacity_reservation_group_id` cannot be used with `availability_set_id` or `proximity_placement_group_id`
      * 
      */
     @Export(name="capacityReservationGroupId", refs={String.class}, tree="[0]")
@@ -279,7 +265,7 @@ public class WindowsVirtualMachine extends com.pulumi.resources.CustomResource {
     /**
      * @return Specifies the ID of the Capacity Reservation Group which the Virtual Machine should be allocated to.
      * 
-     * &gt; **NOTE:** `capacity_reservation_group_id` cannot be used with `availability_set_id` or `proximity_placement_group_id`
+     * &gt; **Note:** `capacity_reservation_group_id` cannot be used with `availability_set_id` or `proximity_placement_group_id`
      * 
      */
     public Output<Optional<String>> capacityReservationGroupId() {
@@ -400,7 +386,7 @@ public class WindowsVirtualMachine extends com.pulumi.resources.CustomResource {
     /**
      * Specifies what should happen when the Virtual Machine is evicted for price reasons when using a Spot instance. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE:** This can only be configured when `priority` is set to `Spot`.
+     * &gt; **Note:** This can only be configured when `priority` is set to `Spot`.
      * 
      */
     @Export(name="evictionPolicy", refs={String.class}, tree="[0]")
@@ -409,7 +395,7 @@ public class WindowsVirtualMachine extends com.pulumi.resources.CustomResource {
     /**
      * @return Specifies what should happen when the Virtual Machine is evicted for price reasons when using a Spot instance. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE:** This can only be configured when `priority` is set to `Spot`.
+     * &gt; **Note:** This can only be configured when `priority` is set to `Spot`.
      * 
      */
     public Output<Optional<String>> evictionPolicy() {
@@ -432,7 +418,7 @@ public class WindowsVirtualMachine extends com.pulumi.resources.CustomResource {
     /**
      * One or more `gallery_application` blocks as defined below.
      * 
-     * &gt; **Note** Gallery Application Assignments can be defined either directly on `azure.compute.WindowsVirtualMachine` resource, or using the `azure.compute.GalleryApplicationAssignment` resource - but the two approaches cannot be used together. If both are used with the same Virtual Machine, spurious changes will occur. If `azure.compute.GalleryApplicationAssignment` is used, it&#39;s recommended to use `ignore_changes` for the `gallery_application` block on the corresponding `azure.compute.WindowsVirtualMachine` resource, to avoid a persistent diff when using this resource.
+     * &gt; **Note:** Gallery Application Assignments can be defined either directly on `azure.compute.WindowsVirtualMachine` resource, or using the `azure.compute.GalleryApplicationAssignment` resource - but the two approaches cannot be used together. If both are used with the same Virtual Machine, spurious changes will occur. If `azure.compute.GalleryApplicationAssignment` is used, it&#39;s recommended to use `ignore_changes` for the `gallery_application` block on the corresponding `azure.compute.WindowsVirtualMachine` resource, to avoid a persistent diff when using this resource.
      * 
      */
     @Export(name="galleryApplications", refs={List.class,WindowsVirtualMachineGalleryApplication.class}, tree="[0,1]")
@@ -441,7 +427,7 @@ public class WindowsVirtualMachine extends com.pulumi.resources.CustomResource {
     /**
      * @return One or more `gallery_application` blocks as defined below.
      * 
-     * &gt; **Note** Gallery Application Assignments can be defined either directly on `azure.compute.WindowsVirtualMachine` resource, or using the `azure.compute.GalleryApplicationAssignment` resource - but the two approaches cannot be used together. If both are used with the same Virtual Machine, spurious changes will occur. If `azure.compute.GalleryApplicationAssignment` is used, it&#39;s recommended to use `ignore_changes` for the `gallery_application` block on the corresponding `azure.compute.WindowsVirtualMachine` resource, to avoid a persistent diff when using this resource.
+     * &gt; **Note:** Gallery Application Assignments can be defined either directly on `azure.compute.WindowsVirtualMachine` resource, or using the `azure.compute.GalleryApplicationAssignment` resource - but the two approaches cannot be used together. If both are used with the same Virtual Machine, spurious changes will occur. If `azure.compute.GalleryApplicationAssignment` is used, it&#39;s recommended to use `ignore_changes` for the `gallery_application` block on the corresponding `azure.compute.WindowsVirtualMachine` resource, to avoid a persistent diff when using this resource.
      * 
      */
     public Output<Optional<List<WindowsVirtualMachineGalleryApplication>>> galleryApplications() {
@@ -450,7 +436,7 @@ public class WindowsVirtualMachine extends com.pulumi.resources.CustomResource {
     /**
      * Should the VM be patched without requiring a reboot? Possible values are `true` or `false`. Defaults to `false`. For more information about hot patching please see the [product documentation](https://docs.microsoft.com/azure/automanage/automanage-hotpatch).
      * 
-     * &gt; **NOTE:** Hotpatching can only be enabled if the `patch_mode` is set to `AutomaticByPlatform`, the `provision_vm_agent` is set to `true`, your `source_image_reference` references a hotpatching enabled image, and the VM&#39;s `size` is set to a [Azure generation 2](https://docs.microsoft.com/azure/virtual-machines/generation-2#generation-2-vm-sizes) VM. An example of how to correctly configure a Windows Virtual Machine to use the `hotpatching_enabled` field can be found in the `./examples/virtual-machines/windows/hotpatching-enabled` directory within the GitHub Repository.
+     * &gt; **Note:** Hotpatching can only be enabled if the `patch_mode` is set to `AutomaticByPlatform`, the `provision_vm_agent` is set to `true`, your `source_image_reference` references a hotpatching enabled image, and the VM&#39;s `size` is set to a [Azure generation 2](https://docs.microsoft.com/azure/virtual-machines/generation-2#generation-2-vm-sizes) VM. An example of how to correctly configure a Windows Virtual Machine to use the `hotpatching_enabled` field can be found in the `./examples/virtual-machines/windows/hotpatching-enabled` directory within the GitHub Repository.
      * 
      */
     @Export(name="hotpatchingEnabled", refs={Boolean.class}, tree="[0]")
@@ -459,7 +445,7 @@ public class WindowsVirtualMachine extends com.pulumi.resources.CustomResource {
     /**
      * @return Should the VM be patched without requiring a reboot? Possible values are `true` or `false`. Defaults to `false`. For more information about hot patching please see the [product documentation](https://docs.microsoft.com/azure/automanage/automanage-hotpatch).
      * 
-     * &gt; **NOTE:** Hotpatching can only be enabled if the `patch_mode` is set to `AutomaticByPlatform`, the `provision_vm_agent` is set to `true`, your `source_image_reference` references a hotpatching enabled image, and the VM&#39;s `size` is set to a [Azure generation 2](https://docs.microsoft.com/azure/virtual-machines/generation-2#generation-2-vm-sizes) VM. An example of how to correctly configure a Windows Virtual Machine to use the `hotpatching_enabled` field can be found in the `./examples/virtual-machines/windows/hotpatching-enabled` directory within the GitHub Repository.
+     * &gt; **Note:** Hotpatching can only be enabled if the `patch_mode` is set to `AutomaticByPlatform`, the `provision_vm_agent` is set to `true`, your `source_image_reference` references a hotpatching enabled image, and the VM&#39;s `size` is set to a [Azure generation 2](https://docs.microsoft.com/azure/virtual-machines/generation-2#generation-2-vm-sizes) VM. An example of how to correctly configure a Windows Virtual Machine to use the `hotpatching_enabled` field can be found in the `./examples/virtual-machines/windows/hotpatching-enabled` directory within the GitHub Repository.
      * 
      */
     public Output<Optional<Boolean>> hotpatchingEnabled() {
@@ -510,7 +496,7 @@ public class WindowsVirtualMachine extends com.pulumi.resources.CustomResource {
     /**
      * The maximum price you&#39;re willing to pay for this Virtual Machine, in US Dollars; which must be greater than the current spot price. If this bid price falls below the current spot price the Virtual Machine will be evicted using the `eviction_policy`. Defaults to `-1`, which means that the Virtual Machine should not be evicted for price reasons.
      * 
-     * &gt; **NOTE:** This can only be configured when `priority` is set to `Spot`.
+     * &gt; **Note:** This can only be configured when `priority` is set to `Spot`.
      * 
      */
     @Export(name="maxBidPrice", refs={Double.class}, tree="[0]")
@@ -519,7 +505,7 @@ public class WindowsVirtualMachine extends com.pulumi.resources.CustomResource {
     /**
      * @return The maximum price you&#39;re willing to pay for this Virtual Machine, in US Dollars; which must be greater than the current spot price. If this bid price falls below the current spot price the Virtual Machine will be evicted using the `eviction_policy`. Defaults to `-1`, which means that the Virtual Machine should not be evicted for price reasons.
      * 
-     * &gt; **NOTE:** This can only be configured when `priority` is set to `Spot`.
+     * &gt; **Note:** This can only be configured when `priority` is set to `Spot`.
      * 
      */
     public Output<Optional<Double>> maxBidPrice() {
@@ -584,7 +570,7 @@ public class WindowsVirtualMachine extends com.pulumi.resources.CustomResource {
     /**
      * Specifies the mode of VM Guest Patching for the Virtual Machine. Possible values are `AutomaticByPlatform` or `ImageDefault`. Defaults to `ImageDefault`.
      * 
-     * &gt; **NOTE:** If the `patch_assessment_mode` is set to `AutomaticByPlatform` then the `provision_vm_agent` field must be set to `true`.
+     * &gt; **Note:** If the `patch_assessment_mode` is set to `AutomaticByPlatform` then the `provision_vm_agent` field must be set to `true`.
      * 
      */
     @Export(name="patchAssessmentMode", refs={String.class}, tree="[0]")
@@ -593,7 +579,7 @@ public class WindowsVirtualMachine extends com.pulumi.resources.CustomResource {
     /**
      * @return Specifies the mode of VM Guest Patching for the Virtual Machine. Possible values are `AutomaticByPlatform` or `ImageDefault`. Defaults to `ImageDefault`.
      * 
-     * &gt; **NOTE:** If the `patch_assessment_mode` is set to `AutomaticByPlatform` then the `provision_vm_agent` field must be set to `true`.
+     * &gt; **Note:** If the `patch_assessment_mode` is set to `AutomaticByPlatform` then the `provision_vm_agent` field must be set to `true`.
      * 
      */
     public Output<Optional<String>> patchAssessmentMode() {
@@ -602,7 +588,7 @@ public class WindowsVirtualMachine extends com.pulumi.resources.CustomResource {
     /**
      * Specifies the mode of in-guest patching to this Windows Virtual Machine. Possible values are `Manual`, `AutomaticByOS` and `AutomaticByPlatform`. Defaults to `AutomaticByOS`. For more information on patch modes please see the [product documentation](https://docs.microsoft.com/azure/virtual-machines/automatic-vm-guest-patching#patch-orchestration-modes).
      * 
-     * &gt; **NOTE:** If `patch_mode` is set to `AutomaticByPlatform` then `provision_vm_agent` must also be set to `true`. If the Virtual Machine is using a hotpatching enabled image the `patch_mode` must always be set to `AutomaticByPlatform`.
+     * &gt; **Note:** If `patch_mode` is set to `AutomaticByPlatform` then `provision_vm_agent` must also be set to `true`. If the Virtual Machine is using a hotpatching enabled image the `patch_mode` must always be set to `AutomaticByPlatform`.
      * 
      */
     @Export(name="patchMode", refs={String.class}, tree="[0]")
@@ -611,7 +597,7 @@ public class WindowsVirtualMachine extends com.pulumi.resources.CustomResource {
     /**
      * @return Specifies the mode of in-guest patching to this Windows Virtual Machine. Possible values are `Manual`, `AutomaticByOS` and `AutomaticByPlatform`. Defaults to `AutomaticByOS`. For more information on patch modes please see the [product documentation](https://docs.microsoft.com/azure/virtual-machines/automatic-vm-guest-patching#patch-orchestration-modes).
      * 
-     * &gt; **NOTE:** If `patch_mode` is set to `AutomaticByPlatform` then `provision_vm_agent` must also be set to `true`. If the Virtual Machine is using a hotpatching enabled image the `patch_mode` must always be set to `AutomaticByPlatform`.
+     * &gt; **Note:** If `patch_mode` is set to `AutomaticByPlatform` then `provision_vm_agent` must also be set to `true`. If the Virtual Machine is using a hotpatching enabled image the `patch_mode` must always be set to `AutomaticByPlatform`.
      * 
      */
     public Output<Optional<String>> patchMode() {
@@ -690,7 +676,7 @@ public class WindowsVirtualMachine extends com.pulumi.resources.CustomResource {
     /**
      * Should the Azure VM Agent be provisioned on this Virtual Machine? Defaults to `true`. Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE:** If `provision_vm_agent` is set to `false` then `allow_extension_operations` must also be set to `false`.
+     * &gt; **Note:** If `provision_vm_agent` is set to `false` then `allow_extension_operations` must also be set to `false`.
      * 
      */
     @Export(name="provisionVmAgent", refs={Boolean.class}, tree="[0]")
@@ -699,7 +685,7 @@ public class WindowsVirtualMachine extends com.pulumi.resources.CustomResource {
     /**
      * @return Should the Azure VM Agent be provisioned on this Virtual Machine? Defaults to `true`. Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE:** If `provision_vm_agent` is set to `false` then `allow_extension_operations` must also be set to `false`.
+     * &gt; **Note:** If `provision_vm_agent` is set to `false` then `allow_extension_operations` must also be set to `false`.
      * 
      */
     public Output<Optional<Boolean>> provisionVmAgent() {
@@ -750,7 +736,7 @@ public class WindowsVirtualMachine extends com.pulumi.resources.CustomResource {
     /**
      * Specifies the reboot setting for platform scheduled patching. Possible values are `Always`, `IfRequired` and `Never`.
      * 
-     * &gt; **NOTE:** `reboot_setting` can only be set when `patch_mode` is set to `AutomaticByPlatform`.
+     * &gt; **Note:** `reboot_setting` can only be set when `patch_mode` is set to `AutomaticByPlatform`.
      * 
      */
     @Export(name="rebootSetting", refs={String.class}, tree="[0]")
@@ -759,7 +745,7 @@ public class WindowsVirtualMachine extends com.pulumi.resources.CustomResource {
     /**
      * @return Specifies the reboot setting for platform scheduled patching. Possible values are `Always`, `IfRequired` and `Never`.
      * 
-     * &gt; **NOTE:** `reboot_setting` can only be set when `patch_mode` is set to `AutomaticByPlatform`.
+     * &gt; **Note:** `reboot_setting` can only be set when `patch_mode` is set to `AutomaticByPlatform`.
      * 
      */
     public Output<Optional<String>> rebootSetting() {
@@ -824,7 +810,7 @@ public class WindowsVirtualMachine extends com.pulumi.resources.CustomResource {
     /**
      * The ID of the Image which this Virtual Machine should be created from. Changing this forces a new resource to be created. Possible Image ID types include `Image ID`s, `Shared Image ID`s, `Shared Image Version ID`s, `Community Gallery Image ID`s, `Community Gallery Image Version ID`s, `Shared Gallery Image ID`s and `Shared Gallery Image Version ID`s.
      * 
-     * &gt; **NOTE:** One of either `source_image_id` or `source_image_reference` must be set.
+     * &gt; **Note:** One of either `source_image_id` or `source_image_reference` must be set.
      * 
      */
     @Export(name="sourceImageId", refs={String.class}, tree="[0]")
@@ -833,7 +819,7 @@ public class WindowsVirtualMachine extends com.pulumi.resources.CustomResource {
     /**
      * @return The ID of the Image which this Virtual Machine should be created from. Changing this forces a new resource to be created. Possible Image ID types include `Image ID`s, `Shared Image ID`s, `Shared Image Version ID`s, `Community Gallery Image ID`s, `Community Gallery Image Version ID`s, `Shared Gallery Image ID`s and `Shared Gallery Image Version ID`s.
      * 
-     * &gt; **NOTE:** One of either `source_image_id` or `source_image_reference` must be set.
+     * &gt; **Note:** One of either `source_image_id` or `source_image_reference` must be set.
      * 
      */
     public Output<Optional<String>> sourceImageId() {
@@ -842,7 +828,7 @@ public class WindowsVirtualMachine extends com.pulumi.resources.CustomResource {
     /**
      * A `source_image_reference` block as defined below. Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE:** One of either `source_image_id` or `source_image_reference` must be set.
+     * &gt; **Note:** One of either `source_image_id` or `source_image_reference` must be set.
      * 
      */
     @Export(name="sourceImageReference", refs={WindowsVirtualMachineSourceImageReference.class}, tree="[0]")
@@ -851,7 +837,7 @@ public class WindowsVirtualMachine extends com.pulumi.resources.CustomResource {
     /**
      * @return A `source_image_reference` block as defined below. Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE:** One of either `source_image_id` or `source_image_reference` must be set.
+     * &gt; **Note:** One of either `source_image_id` or `source_image_reference` must be set.
      * 
      */
     public Output<Optional<WindowsVirtualMachineSourceImageReference>> sourceImageReference() {
@@ -930,11 +916,11 @@ public class WindowsVirtualMachine extends com.pulumi.resources.CustomResource {
     /**
      * Specifies the Orchestrated Virtual Machine Scale Set that this Virtual Machine should be created within.
      * 
-     * &gt; **NOTE:** To update `virtual_machine_scale_set_id` the Preview Feature `Microsoft.Compute/SingleFDAttachDetachVMToVmss` needs to be enabled, see [the documentation](https://review.learn.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-attach-detach-vm#enroll-in-the-preview) for more information.
+     * &gt; **Note:** To update `virtual_machine_scale_set_id` the Preview Feature `Microsoft.Compute/SingleFDAttachDetachVMToVmss` needs to be enabled, see [the documentation](https://review.learn.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-attach-detach-vm#enroll-in-the-preview) for more information.
      * 
-     * &gt; **NOTE:** Orchestrated Virtual Machine Scale Sets can be provisioned using [the `azure.compute.OrchestratedVirtualMachineScaleSet` resource](https://www.terraform.io/docs/providers/azurerm/r/orchestrated_virtual_machine_scale_set.html).
+     * &gt; **Note:** Orchestrated Virtual Machine Scale Sets can be provisioned using [the `azure.compute.OrchestratedVirtualMachineScaleSet` resource](https://www.terraform.io/docs/providers/azurerm/r/orchestrated_virtual_machine_scale_set.html).
      * 
-     * &gt; **NOTE:** To attach an existing VM to a Virtual Machine Scale Set, the scale set must have `single_placement_group` set to `false`, see [the documentation](https://learn.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-attach-detach-vm?tabs=portal-1%2Cportal-2%2Cportal-3#limitations-for-attaching-an-existing-vm-to-a-scale-set) for more information.
+     * &gt; **Note:** To attach an existing VM to a Virtual Machine Scale Set, the scale set must have `single_placement_group` set to `false`, see [the documentation](https://learn.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-attach-detach-vm?tabs=portal-1%2Cportal-2%2Cportal-3#limitations-for-attaching-an-existing-vm-to-a-scale-set) for more information.
      * 
      */
     @Export(name="virtualMachineScaleSetId", refs={String.class}, tree="[0]")
@@ -943,29 +929,33 @@ public class WindowsVirtualMachine extends com.pulumi.resources.CustomResource {
     /**
      * @return Specifies the Orchestrated Virtual Machine Scale Set that this Virtual Machine should be created within.
      * 
-     * &gt; **NOTE:** To update `virtual_machine_scale_set_id` the Preview Feature `Microsoft.Compute/SingleFDAttachDetachVMToVmss` needs to be enabled, see [the documentation](https://review.learn.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-attach-detach-vm#enroll-in-the-preview) for more information.
+     * &gt; **Note:** To update `virtual_machine_scale_set_id` the Preview Feature `Microsoft.Compute/SingleFDAttachDetachVMToVmss` needs to be enabled, see [the documentation](https://review.learn.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-attach-detach-vm#enroll-in-the-preview) for more information.
      * 
-     * &gt; **NOTE:** Orchestrated Virtual Machine Scale Sets can be provisioned using [the `azure.compute.OrchestratedVirtualMachineScaleSet` resource](https://www.terraform.io/docs/providers/azurerm/r/orchestrated_virtual_machine_scale_set.html).
+     * &gt; **Note:** Orchestrated Virtual Machine Scale Sets can be provisioned using [the `azure.compute.OrchestratedVirtualMachineScaleSet` resource](https://www.terraform.io/docs/providers/azurerm/r/orchestrated_virtual_machine_scale_set.html).
      * 
-     * &gt; **NOTE:** To attach an existing VM to a Virtual Machine Scale Set, the scale set must have `single_placement_group` set to `false`, see [the documentation](https://learn.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-attach-detach-vm?tabs=portal-1%2Cportal-2%2Cportal-3#limitations-for-attaching-an-existing-vm-to-a-scale-set) for more information.
+     * &gt; **Note:** To attach an existing VM to a Virtual Machine Scale Set, the scale set must have `single_placement_group` set to `false`, see [the documentation](https://learn.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-attach-detach-vm?tabs=portal-1%2Cportal-2%2Cportal-3#limitations-for-attaching-an-existing-vm-to-a-scale-set) for more information.
      * 
      */
     public Output<Optional<String>> virtualMachineScaleSetId() {
         return Codegen.optional(this.virtualMachineScaleSetId);
     }
     /**
-     * Specifies whether VMAgent Platform Updates is enabled. Defaults to `false`.
+     * Are Virtual Machine Agent Platform Updates `enabled` on this Virtual Machine?
+     * 
+     * @deprecated
+     * this property has been deprecated due to a breaking change introduced by the Service team, which redefined it as a read-only field within the API
      * 
      */
+    @Deprecated /* this property has been deprecated due to a breaking change introduced by the Service team, which redefined it as a read-only field within the API */
     @Export(name="vmAgentPlatformUpdatesEnabled", refs={Boolean.class}, tree="[0]")
-    private Output</* @Nullable */ Boolean> vmAgentPlatformUpdatesEnabled;
+    private Output<Boolean> vmAgentPlatformUpdatesEnabled;
 
     /**
-     * @return Specifies whether VMAgent Platform Updates is enabled. Defaults to `false`.
+     * @return Are Virtual Machine Agent Platform Updates `enabled` on this Virtual Machine?
      * 
      */
-    public Output<Optional<Boolean>> vmAgentPlatformUpdatesEnabled() {
-        return Codegen.optional(this.vmAgentPlatformUpdatesEnabled);
+    public Output<Boolean> vmAgentPlatformUpdatesEnabled() {
+        return this.vmAgentPlatformUpdatesEnabled;
     }
     /**
      * Specifies if vTPM (virtual Trusted Platform Module) and Trusted Launch is enabled for the Virtual Machine. Changing this forces a new resource to be created.

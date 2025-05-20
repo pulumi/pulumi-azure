@@ -206,6 +206,13 @@ def get_policy_assignment(name: Optional[builtins.str] = None,
     pulumi.export("id", example.id)
     ```
 
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.Authorization`: 2022-06-01
+
 
     :param builtins.str name: The name of this Policy Assignment. Changing this forces a new Policy Assignment to be created.
     :param builtins.str scope_id: The ID of the scope this Policy Assignment is assigned to. The `scope_id` can be a subscription id, a resource group id, a management group id, or an ID of any resource that is assigned with a policy. Changing this forces a new Policy Assignment to be created.
@@ -246,6 +253,13 @@ def get_policy_assignment_output(name: Optional[pulumi.Input[builtins.str]] = No
         scope_id=example_azurerm_resource_group["id"])
     pulumi.export("id", example.id)
     ```
+
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.Authorization`: 2022-06-01
 
 
     :param builtins.str name: The name of this Policy Assignment. Changing this forces a new Policy Assignment to be created.

@@ -55,7 +55,7 @@ import javax.annotation.Nullable;
  * 
  *         var example = new Definition("example", DefinitionArgs.builder()
  *             .name("Sample definition")
- *             .description("This is a lighthouse definition created IaC")
+ *             .description("This is a lighthouse definition created via Terraform")
  *             .managingTenantId("00000000-0000-0000-0000-000000000000")
  *             .scope("/subscriptions/00000000-0000-0000-0000-000000000000")
  *             .authorizations(DefinitionAuthorizationArgs.builder()
@@ -70,6 +70,13 @@ import javax.annotation.Nullable;
  * }
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
+ * 
+ * ## API Providers
+ * 
+ * &lt;!-- This section is generated, changes will be overwritten --&gt;
+ * This resource uses the following Azure API Providers:
+ * 
+ * * `Microsoft.ManagedServices`: 2022-10-01
  * 
  * ## Import
  * 

@@ -112,7 +112,7 @@ public final class EnvironmentDaprComponentState extends com.pulumi.resources.Re
     /**
      * A list of scopes to which this component applies.
      * 
-     * &gt; **NOTE:** See the official docs for more information at https://learn.microsoft.com/en-us/azure/container-apps/dapr-overview?tabs=bicep1%2Cyaml#component-scopes
+     * &gt; **Note:** See the official docs for more information at https://learn.microsoft.com/en-us/azure/container-apps/dapr-overview?tabs=bicep1%2Cyaml#component-scopes
      * 
      */
     @Import(name="scopes")
@@ -121,7 +121,7 @@ public final class EnvironmentDaprComponentState extends com.pulumi.resources.Re
     /**
      * @return A list of scopes to which this component applies.
      * 
-     * &gt; **NOTE:** See the official docs for more information at https://learn.microsoft.com/en-us/azure/container-apps/dapr-overview?tabs=bicep1%2Cyaml#component-scopes
+     * &gt; **Note:** See the official docs for more information at https://learn.microsoft.com/en-us/azure/container-apps/dapr-overview?tabs=bicep1%2Cyaml#component-scopes
      * 
      */
     public Optional<Output<List<String>>> scopes() {
@@ -329,7 +329,7 @@ public final class EnvironmentDaprComponentState extends com.pulumi.resources.Re
         /**
          * @param scopes A list of scopes to which this component applies.
          * 
-         * &gt; **NOTE:** See the official docs for more information at https://learn.microsoft.com/en-us/azure/container-apps/dapr-overview?tabs=bicep1%2Cyaml#component-scopes
+         * &gt; **Note:** See the official docs for more information at https://learn.microsoft.com/en-us/azure/container-apps/dapr-overview?tabs=bicep1%2Cyaml#component-scopes
          * 
          * @return builder
          * 
@@ -342,7 +342,7 @@ public final class EnvironmentDaprComponentState extends com.pulumi.resources.Re
         /**
          * @param scopes A list of scopes to which this component applies.
          * 
-         * &gt; **NOTE:** See the official docs for more information at https://learn.microsoft.com/en-us/azure/container-apps/dapr-overview?tabs=bicep1%2Cyaml#component-scopes
+         * &gt; **Note:** See the official docs for more information at https://learn.microsoft.com/en-us/azure/container-apps/dapr-overview?tabs=bicep1%2Cyaml#component-scopes
          * 
          * @return builder
          * 
@@ -354,7 +354,7 @@ public final class EnvironmentDaprComponentState extends com.pulumi.resources.Re
         /**
          * @param scopes A list of scopes to which this component applies.
          * 
-         * &gt; **NOTE:** See the official docs for more information at https://learn.microsoft.com/en-us/azure/container-apps/dapr-overview?tabs=bicep1%2Cyaml#component-scopes
+         * &gt; **Note:** See the official docs for more information at https://learn.microsoft.com/en-us/azure/container-apps/dapr-overview?tabs=bicep1%2Cyaml#component-scopes
          * 
          * @return builder
          * 

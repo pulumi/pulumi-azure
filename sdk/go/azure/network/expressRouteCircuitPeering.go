@@ -181,7 +181,7 @@ type ExpressRouteCircuitPeering struct {
 	PeerAsn pulumi.IntOutput `pulumi:"peerAsn"`
 	// The type of the ExpressRoute Circuit Peering. Acceptable values include `AzurePrivatePeering`, `AzurePublicPeering` and `MicrosoftPeering`.
 	//
-	// > **NOTE:** only one Peering of each Type can be created. Attempting to create multiple peerings of the same type will overwrite the original peering.
+	// > **Note:** only one Peering of each Type can be created. Attempting to create multiple peerings of the same type will overwrite the original peering.
 	PeeringType pulumi.StringOutput `pulumi:"peeringType"`
 	// The Primary Port used by Azure for this Peering.
 	PrimaryAzurePort pulumi.StringOutput `pulumi:"primaryAzurePort"`
@@ -191,7 +191,7 @@ type ExpressRouteCircuitPeering struct {
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// The ID of the Route Filter. Only available when `peeringType` is set to `MicrosoftPeering`.
 	//
-	// > **NOTE:** `ipv6` can be specified when `peeringType` is `MicrosoftPeering` or `AzurePrivatePeering`
+	// > **Note:** `ipv6` can be specified when `peeringType` is `MicrosoftPeering` or `AzurePrivatePeering`
 	RouteFilterId pulumi.StringPtrOutput `pulumi:"routeFilterId"`
 	// The Secondary Port used by Azure for this Peering.
 	SecondaryAzurePort pulumi.StringOutput `pulumi:"secondaryAzurePort"`
@@ -267,7 +267,7 @@ type expressRouteCircuitPeeringState struct {
 	PeerAsn *int `pulumi:"peerAsn"`
 	// The type of the ExpressRoute Circuit Peering. Acceptable values include `AzurePrivatePeering`, `AzurePublicPeering` and `MicrosoftPeering`.
 	//
-	// > **NOTE:** only one Peering of each Type can be created. Attempting to create multiple peerings of the same type will overwrite the original peering.
+	// > **Note:** only one Peering of each Type can be created. Attempting to create multiple peerings of the same type will overwrite the original peering.
 	PeeringType *string `pulumi:"peeringType"`
 	// The Primary Port used by Azure for this Peering.
 	PrimaryAzurePort *string `pulumi:"primaryAzurePort"`
@@ -277,7 +277,7 @@ type expressRouteCircuitPeeringState struct {
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// The ID of the Route Filter. Only available when `peeringType` is set to `MicrosoftPeering`.
 	//
-	// > **NOTE:** `ipv6` can be specified when `peeringType` is `MicrosoftPeering` or `AzurePrivatePeering`
+	// > **Note:** `ipv6` can be specified when `peeringType` is `MicrosoftPeering` or `AzurePrivatePeering`
 	RouteFilterId *string `pulumi:"routeFilterId"`
 	// The Secondary Port used by Azure for this Peering.
 	SecondaryAzurePort *string `pulumi:"secondaryAzurePort"`
@@ -305,7 +305,7 @@ type ExpressRouteCircuitPeeringState struct {
 	PeerAsn pulumi.IntPtrInput
 	// The type of the ExpressRoute Circuit Peering. Acceptable values include `AzurePrivatePeering`, `AzurePublicPeering` and `MicrosoftPeering`.
 	//
-	// > **NOTE:** only one Peering of each Type can be created. Attempting to create multiple peerings of the same type will overwrite the original peering.
+	// > **Note:** only one Peering of each Type can be created. Attempting to create multiple peerings of the same type will overwrite the original peering.
 	PeeringType pulumi.StringPtrInput
 	// The Primary Port used by Azure for this Peering.
 	PrimaryAzurePort pulumi.StringPtrInput
@@ -315,7 +315,7 @@ type ExpressRouteCircuitPeeringState struct {
 	ResourceGroupName pulumi.StringPtrInput
 	// The ID of the Route Filter. Only available when `peeringType` is set to `MicrosoftPeering`.
 	//
-	// > **NOTE:** `ipv6` can be specified when `peeringType` is `MicrosoftPeering` or `AzurePrivatePeering`
+	// > **Note:** `ipv6` can be specified when `peeringType` is `MicrosoftPeering` or `AzurePrivatePeering`
 	RouteFilterId pulumi.StringPtrInput
 	// The Secondary Port used by Azure for this Peering.
 	SecondaryAzurePort pulumi.StringPtrInput
@@ -344,7 +344,7 @@ type expressRouteCircuitPeeringArgs struct {
 	PeerAsn *int `pulumi:"peerAsn"`
 	// The type of the ExpressRoute Circuit Peering. Acceptable values include `AzurePrivatePeering`, `AzurePublicPeering` and `MicrosoftPeering`.
 	//
-	// > **NOTE:** only one Peering of each Type can be created. Attempting to create multiple peerings of the same type will overwrite the original peering.
+	// > **Note:** only one Peering of each Type can be created. Attempting to create multiple peerings of the same type will overwrite the original peering.
 	PeeringType string `pulumi:"peeringType"`
 	// A subnet for the primary link.
 	PrimaryPeerAddressPrefix *string `pulumi:"primaryPeerAddressPrefix"`
@@ -352,7 +352,7 @@ type expressRouteCircuitPeeringArgs struct {
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The ID of the Route Filter. Only available when `peeringType` is set to `MicrosoftPeering`.
 	//
-	// > **NOTE:** `ipv6` can be specified when `peeringType` is `MicrosoftPeering` or `AzurePrivatePeering`
+	// > **Note:** `ipv6` can be specified when `peeringType` is `MicrosoftPeering` or `AzurePrivatePeering`
 	RouteFilterId *string `pulumi:"routeFilterId"`
 	// A subnet for the secondary link.
 	SecondaryPeerAddressPrefix *string `pulumi:"secondaryPeerAddressPrefix"`
@@ -376,7 +376,7 @@ type ExpressRouteCircuitPeeringArgs struct {
 	PeerAsn pulumi.IntPtrInput
 	// The type of the ExpressRoute Circuit Peering. Acceptable values include `AzurePrivatePeering`, `AzurePublicPeering` and `MicrosoftPeering`.
 	//
-	// > **NOTE:** only one Peering of each Type can be created. Attempting to create multiple peerings of the same type will overwrite the original peering.
+	// > **Note:** only one Peering of each Type can be created. Attempting to create multiple peerings of the same type will overwrite the original peering.
 	PeeringType pulumi.StringInput
 	// A subnet for the primary link.
 	PrimaryPeerAddressPrefix pulumi.StringPtrInput
@@ -384,7 +384,7 @@ type ExpressRouteCircuitPeeringArgs struct {
 	ResourceGroupName pulumi.StringInput
 	// The ID of the Route Filter. Only available when `peeringType` is set to `MicrosoftPeering`.
 	//
-	// > **NOTE:** `ipv6` can be specified when `peeringType` is `MicrosoftPeering` or `AzurePrivatePeering`
+	// > **Note:** `ipv6` can be specified when `peeringType` is `MicrosoftPeering` or `AzurePrivatePeering`
 	RouteFilterId pulumi.StringPtrInput
 	// A subnet for the secondary link.
 	SecondaryPeerAddressPrefix pulumi.StringPtrInput
@@ -519,7 +519,7 @@ func (o ExpressRouteCircuitPeeringOutput) PeerAsn() pulumi.IntOutput {
 
 // The type of the ExpressRoute Circuit Peering. Acceptable values include `AzurePrivatePeering`, `AzurePublicPeering` and `MicrosoftPeering`.
 //
-// > **NOTE:** only one Peering of each Type can be created. Attempting to create multiple peerings of the same type will overwrite the original peering.
+// > **Note:** only one Peering of each Type can be created. Attempting to create multiple peerings of the same type will overwrite the original peering.
 func (o ExpressRouteCircuitPeeringOutput) PeeringType() pulumi.StringOutput {
 	return o.ApplyT(func(v *ExpressRouteCircuitPeering) pulumi.StringOutput { return v.PeeringType }).(pulumi.StringOutput)
 }
@@ -541,7 +541,7 @@ func (o ExpressRouteCircuitPeeringOutput) ResourceGroupName() pulumi.StringOutpu
 
 // The ID of the Route Filter. Only available when `peeringType` is set to `MicrosoftPeering`.
 //
-// > **NOTE:** `ipv6` can be specified when `peeringType` is `MicrosoftPeering` or `AzurePrivatePeering`
+// > **Note:** `ipv6` can be specified when `peeringType` is `MicrosoftPeering` or `AzurePrivatePeering`
 func (o ExpressRouteCircuitPeeringOutput) RouteFilterId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ExpressRouteCircuitPeering) pulumi.StringPtrOutput { return v.RouteFilterId }).(pulumi.StringPtrOutput)
 }

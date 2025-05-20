@@ -42,6 +42,13 @@ namespace Pulumi.Azure.DataShare
         ///     };
         /// });
         /// ```
+        /// 
+        /// ## API Providers
+        /// 
+        /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+        /// This data source uses the following Azure API Providers:
+        /// 
+        /// * `Microsoft.DataShare`: 2019-11-01
         /// </summary>
         public static Task<GetShareResult> InvokeAsync(GetShareArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetShareResult>("azure:datashare/getShare:getShare", args ?? new GetShareArgs(), options.WithDefaults());
@@ -77,6 +84,13 @@ namespace Pulumi.Azure.DataShare
         ///     };
         /// });
         /// ```
+        /// 
+        /// ## API Providers
+        /// 
+        /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+        /// This data source uses the following Azure API Providers:
+        /// 
+        /// * `Microsoft.DataShare`: 2019-11-01
         /// </summary>
         public static Output<GetShareResult> Invoke(GetShareInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetShareResult>("azure:datashare/getShare:getShare", args ?? new GetShareInvokeArgs(), options.WithDefaults());
@@ -112,6 +126,13 @@ namespace Pulumi.Azure.DataShare
         ///     };
         /// });
         /// ```
+        /// 
+        /// ## API Providers
+        /// 
+        /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+        /// This data source uses the following Azure API Providers:
+        /// 
+        /// * `Microsoft.DataShare`: 2019-11-01
         /// </summary>
         public static Output<GetShareResult> Invoke(GetShareInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetShareResult>("azure:datashare/getShare:getShare", args ?? new GetShareInvokeArgs(), options.WithDefaults());

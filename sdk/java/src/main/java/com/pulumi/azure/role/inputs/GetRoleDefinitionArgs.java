@@ -18,7 +18,7 @@ public final class GetRoleDefinitionArgs extends com.pulumi.resources.InvokeArgs
     /**
      * Specifies the Name of either a built-in or custom Role Definition.
      * 
-     * &gt; You can also use this for built-in roles such as `Contributor`, `Owner`, `Reader` and `Virtual Machine Contributor`
+     * &gt; **Note:** You can also use this for built-in roles such as `Contributor`, `Owner`, `Reader` and `Virtual Machine Contributor`
      * 
      */
     @Import(name="name")
@@ -27,7 +27,7 @@ public final class GetRoleDefinitionArgs extends com.pulumi.resources.InvokeArgs
     /**
      * @return Specifies the Name of either a built-in or custom Role Definition.
      * 
-     * &gt; You can also use this for built-in roles such as `Contributor`, `Owner`, `Reader` and `Virtual Machine Contributor`
+     * &gt; **Note:** You can also use this for built-in roles such as `Contributor`, `Owner`, `Reader` and `Virtual Machine Contributor`
      * 
      */
     public Optional<Output<String>> name() {
@@ -97,7 +97,7 @@ public final class GetRoleDefinitionArgs extends com.pulumi.resources.InvokeArgs
         /**
          * @param name Specifies the Name of either a built-in or custom Role Definition.
          * 
-         * &gt; You can also use this for built-in roles such as `Contributor`, `Owner`, `Reader` and `Virtual Machine Contributor`
+         * &gt; **Note:** You can also use this for built-in roles such as `Contributor`, `Owner`, `Reader` and `Virtual Machine Contributor`
          * 
          * @return builder
          * 
@@ -110,7 +110,7 @@ public final class GetRoleDefinitionArgs extends com.pulumi.resources.InvokeArgs
         /**
          * @param name Specifies the Name of either a built-in or custom Role Definition.
          * 
-         * &gt; You can also use this for built-in roles such as `Contributor`, `Owner`, `Reader` and `Virtual Machine Contributor`
+         * &gt; **Note:** You can also use this for built-in roles such as `Contributor`, `Owner`, `Reader` and `Virtual Machine Contributor`
          * 
          * @return builder
          * 

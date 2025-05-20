@@ -19,7 +19,7 @@ public final class VirtualMachineOsProfileWindowsConfigWinrmArgs extends com.pul
     /**
      * The ID of the Key Vault Secret which contains the encrypted Certificate which should be installed on the Virtual Machine. This certificate must also be specified in the `vault_certificates` block within the `os_profile_secrets` block.
      * 
-     * &gt; **NOTE:** This can be sourced from the `secret_id` field on the `azure.keyvault.Certificate` resource.
+     * &gt; **Note:** This can be sourced from the `secret_id` field on the `azure.keyvault.Certificate` resource.
      * 
      */
     @Import(name="certificateUrl")
@@ -28,7 +28,7 @@ public final class VirtualMachineOsProfileWindowsConfigWinrmArgs extends com.pul
     /**
      * @return The ID of the Key Vault Secret which contains the encrypted Certificate which should be installed on the Virtual Machine. This certificate must also be specified in the `vault_certificates` block within the `os_profile_secrets` block.
      * 
-     * &gt; **NOTE:** This can be sourced from the `secret_id` field on the `azure.keyvault.Certificate` resource.
+     * &gt; **Note:** This can be sourced from the `secret_id` field on the `azure.keyvault.Certificate` resource.
      * 
      */
     public Optional<Output<String>> certificateUrl() {
@@ -78,7 +78,7 @@ public final class VirtualMachineOsProfileWindowsConfigWinrmArgs extends com.pul
         /**
          * @param certificateUrl The ID of the Key Vault Secret which contains the encrypted Certificate which should be installed on the Virtual Machine. This certificate must also be specified in the `vault_certificates` block within the `os_profile_secrets` block.
          * 
-         * &gt; **NOTE:** This can be sourced from the `secret_id` field on the `azure.keyvault.Certificate` resource.
+         * &gt; **Note:** This can be sourced from the `secret_id` field on the `azure.keyvault.Certificate` resource.
          * 
          * @return builder
          * 
@@ -91,7 +91,7 @@ public final class VirtualMachineOsProfileWindowsConfigWinrmArgs extends com.pul
         /**
          * @param certificateUrl The ID of the Key Vault Secret which contains the encrypted Certificate which should be installed on the Virtual Machine. This certificate must also be specified in the `vault_certificates` block within the `os_profile_secrets` block.
          * 
-         * &gt; **NOTE:** This can be sourced from the `secret_id` field on the `azure.keyvault.Certificate` resource.
+         * &gt; **Note:** This can be sourced from the `secret_id` field on the `azure.keyvault.Certificate` resource.
          * 
          * @return builder
          * 

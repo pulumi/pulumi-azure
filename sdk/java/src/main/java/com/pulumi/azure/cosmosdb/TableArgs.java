@@ -33,21 +33,9 @@ public final class TableArgs extends com.pulumi.resources.ResourceArgs {
         return this.accountName;
     }
 
-    /**
-     * An `autoscale_settings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual destroy-apply.
-     * 
-     * &gt; **Note:** Switching between autoscale and manual throughput is not supported via this provider and must be completed via the Azure Portal and refreshed.
-     * 
-     */
     @Import(name="autoscaleSettings")
     private @Nullable Output<TableAutoscaleSettingsArgs> autoscaleSettings;
 
-    /**
-     * @return An `autoscale_settings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual destroy-apply.
-     * 
-     * &gt; **Note:** Switching between autoscale and manual throughput is not supported via this provider and must be completed via the Azure Portal and refreshed.
-     * 
-     */
     public Optional<Output<TableAutoscaleSettingsArgs>> autoscaleSettings() {
         return Optional.ofNullable(this.autoscaleSettings);
     }
@@ -82,21 +70,9 @@ public final class TableArgs extends com.pulumi.resources.ResourceArgs {
         return this.resourceGroupName;
     }
 
-    /**
-     * The throughput of Table (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon database creation otherwise it cannot be updated without a manual resource destroy-apply.
-     * 
-     * &gt; **Note:** throughput has a maximum value of `1000000` unless a higher limit is requested via Azure Support
-     * 
-     */
     @Import(name="throughput")
     private @Nullable Output<Integer> throughput;
 
-    /**
-     * @return The throughput of Table (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon database creation otherwise it cannot be updated without a manual resource destroy-apply.
-     * 
-     * &gt; **Note:** throughput has a maximum value of `1000000` unless a higher limit is requested via Azure Support
-     * 
-     */
     public Optional<Output<Integer>> throughput() {
         return Optional.ofNullable(this.throughput);
     }
@@ -150,27 +126,11 @@ public final class TableArgs extends com.pulumi.resources.ResourceArgs {
             return accountName(Output.of(accountName));
         }
 
-        /**
-         * @param autoscaleSettings An `autoscale_settings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual destroy-apply.
-         * 
-         * &gt; **Note:** Switching between autoscale and manual throughput is not supported via this provider and must be completed via the Azure Portal and refreshed.
-         * 
-         * @return builder
-         * 
-         */
         public Builder autoscaleSettings(@Nullable Output<TableAutoscaleSettingsArgs> autoscaleSettings) {
             $.autoscaleSettings = autoscaleSettings;
             return this;
         }
 
-        /**
-         * @param autoscaleSettings An `autoscale_settings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual destroy-apply.
-         * 
-         * &gt; **Note:** Switching between autoscale and manual throughput is not supported via this provider and must be completed via the Azure Portal and refreshed.
-         * 
-         * @return builder
-         * 
-         */
         public Builder autoscaleSettings(TableAutoscaleSettingsArgs autoscaleSettings) {
             return autoscaleSettings(Output.of(autoscaleSettings));
         }
@@ -217,27 +177,11 @@ public final class TableArgs extends com.pulumi.resources.ResourceArgs {
             return resourceGroupName(Output.of(resourceGroupName));
         }
 
-        /**
-         * @param throughput The throughput of Table (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon database creation otherwise it cannot be updated without a manual resource destroy-apply.
-         * 
-         * &gt; **Note:** throughput has a maximum value of `1000000` unless a higher limit is requested via Azure Support
-         * 
-         * @return builder
-         * 
-         */
         public Builder throughput(@Nullable Output<Integer> throughput) {
             $.throughput = throughput;
             return this;
         }
 
-        /**
-         * @param throughput The throughput of Table (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon database creation otherwise it cannot be updated without a manual resource destroy-apply.
-         * 
-         * &gt; **Note:** throughput has a maximum value of `1000000` unless a higher limit is requested via Azure Support
-         * 
-         * @return builder
-         * 
-         */
         public Builder throughput(Integer throughput) {
             return throughput(Output.of(throughput));
         }

@@ -74,7 +74,7 @@ public final class LinuxFunctionAppSlotAuthSettingsArgs extends com.pulumi.resou
     /**
      * The default authentication provider to use when multiple providers are configured. Possible values include: `AzureActiveDirectory`, `Facebook`, `Google`, `MicrosoftAccount`, `Twitter`, `Github`.
      * 
-     * &gt; **NOTE:** This setting is only needed if multiple providers are configured, and the `unauthenticated_client_action` is set to &#34;RedirectToLoginPage&#34;.
+     * &gt; **Note:** This setting is only needed if multiple providers are configured, and the `unauthenticated_client_action` is set to &#34;RedirectToLoginPage&#34;.
      * 
      */
     @Import(name="defaultProvider")
@@ -83,7 +83,7 @@ public final class LinuxFunctionAppSlotAuthSettingsArgs extends com.pulumi.resou
     /**
      * @return The default authentication provider to use when multiple providers are configured. Possible values include: `AzureActiveDirectory`, `Facebook`, `Google`, `MicrosoftAccount`, `Twitter`, `Github`.
      * 
-     * &gt; **NOTE:** This setting is only needed if multiple providers are configured, and the `unauthenticated_client_action` is set to &#34;RedirectToLoginPage&#34;.
+     * &gt; **Note:** This setting is only needed if multiple providers are configured, and the `unauthenticated_client_action` is set to &#34;RedirectToLoginPage&#34;.
      * 
      */
     public Optional<Output<String>> defaultProvider() {
@@ -153,7 +153,7 @@ public final class LinuxFunctionAppSlotAuthSettingsArgs extends com.pulumi.resou
     /**
      * The OpenID Connect Issuer URI that represents the entity which issues access tokens.
      * 
-     * &gt; **NOTE:** When using Azure Active Directory, this value is the URI of the directory tenant, e.g. &lt;https://sts.windows.net/{tenant-guid}/&gt;.
+     * &gt; **Note:** When using Azure Active Directory, this value is the URI of the directory tenant, e.g. &lt;https://sts.windows.net/{tenant-guid}/&gt;.
      * 
      */
     @Import(name="issuer")
@@ -162,7 +162,7 @@ public final class LinuxFunctionAppSlotAuthSettingsArgs extends com.pulumi.resou
     /**
      * @return The OpenID Connect Issuer URI that represents the entity which issues access tokens.
      * 
-     * &gt; **NOTE:** When using Azure Active Directory, this value is the URI of the directory tenant, e.g. &lt;https://sts.windows.net/{tenant-guid}/&gt;.
+     * &gt; **Note:** When using Azure Active Directory, this value is the URI of the directory tenant, e.g. &lt;https://sts.windows.net/{tenant-guid}/&gt;.
      * 
      */
     public Optional<Output<String>> issuer() {
@@ -373,7 +373,7 @@ public final class LinuxFunctionAppSlotAuthSettingsArgs extends com.pulumi.resou
         /**
          * @param defaultProvider The default authentication provider to use when multiple providers are configured. Possible values include: `AzureActiveDirectory`, `Facebook`, `Google`, `MicrosoftAccount`, `Twitter`, `Github`.
          * 
-         * &gt; **NOTE:** This setting is only needed if multiple providers are configured, and the `unauthenticated_client_action` is set to &#34;RedirectToLoginPage&#34;.
+         * &gt; **Note:** This setting is only needed if multiple providers are configured, and the `unauthenticated_client_action` is set to &#34;RedirectToLoginPage&#34;.
          * 
          * @return builder
          * 
@@ -386,7 +386,7 @@ public final class LinuxFunctionAppSlotAuthSettingsArgs extends com.pulumi.resou
         /**
          * @param defaultProvider The default authentication provider to use when multiple providers are configured. Possible values include: `AzureActiveDirectory`, `Facebook`, `Google`, `MicrosoftAccount`, `Twitter`, `Github`.
          * 
-         * &gt; **NOTE:** This setting is only needed if multiple providers are configured, and the `unauthenticated_client_action` is set to &#34;RedirectToLoginPage&#34;.
+         * &gt; **Note:** This setting is only needed if multiple providers are configured, and the `unauthenticated_client_action` is set to &#34;RedirectToLoginPage&#34;.
          * 
          * @return builder
          * 
@@ -482,7 +482,7 @@ public final class LinuxFunctionAppSlotAuthSettingsArgs extends com.pulumi.resou
         /**
          * @param issuer The OpenID Connect Issuer URI that represents the entity which issues access tokens.
          * 
-         * &gt; **NOTE:** When using Azure Active Directory, this value is the URI of the directory tenant, e.g. &lt;https://sts.windows.net/{tenant-guid}/&gt;.
+         * &gt; **Note:** When using Azure Active Directory, this value is the URI of the directory tenant, e.g. &lt;https://sts.windows.net/{tenant-guid}/&gt;.
          * 
          * @return builder
          * 
@@ -495,7 +495,7 @@ public final class LinuxFunctionAppSlotAuthSettingsArgs extends com.pulumi.resou
         /**
          * @param issuer The OpenID Connect Issuer URI that represents the entity which issues access tokens.
          * 
-         * &gt; **NOTE:** When using Azure Active Directory, this value is the URI of the directory tenant, e.g. &lt;https://sts.windows.net/{tenant-guid}/&gt;.
+         * &gt; **Note:** When using Azure Active Directory, this value is the URI of the directory tenant, e.g. &lt;https://sts.windows.net/{tenant-guid}/&gt;.
          * 
          * @return builder
          * 

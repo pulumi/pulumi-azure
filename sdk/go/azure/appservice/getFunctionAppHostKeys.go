@@ -39,6 +39,8 @@ import (
 //	}
 //
 // ```
+//
+// > **Note:** All arguments including the secret value will be stored in the raw state as plain-text, including `defaultFunctionKey` and `primaryKey`. [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
 func GetFunctionAppHostKeys(ctx *pulumi.Context, args *GetFunctionAppHostKeysArgs, opts ...pulumi.InvokeOption) (*GetFunctionAppHostKeysResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetFunctionAppHostKeysResult

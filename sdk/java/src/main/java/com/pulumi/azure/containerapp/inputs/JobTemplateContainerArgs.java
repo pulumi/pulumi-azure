@@ -56,7 +56,7 @@ public final class JobTemplateContainerArgs extends com.pulumi.resources.Resourc
     /**
      * The amount of vCPU to allocate to the container. Possible values include `0.25`, `0.5`, `0.75`, `1.0`, `1.25`, `1.5`, `1.75`, and `2.0`.
      * 
-     * &gt; **NOTE:** `cpu` and `memory` must be specified in `0.25&#39;/&#39;0.5Gi` combination increments. e.g. `1.0` / `2.0` or `0.5` / `1.0`
+     * &gt; **Note:** `cpu` and `memory` must be specified in `0.25&#39;/&#39;0.5Gi` combination increments. e.g. `1.0` / `2.0` or `0.5` / `1.0`
      * 
      */
     @Import(name="cpu", required=true)
@@ -65,7 +65,7 @@ public final class JobTemplateContainerArgs extends com.pulumi.resources.Resourc
     /**
      * @return The amount of vCPU to allocate to the container. Possible values include `0.25`, `0.5`, `0.75`, `1.0`, `1.25`, `1.5`, `1.75`, and `2.0`.
      * 
-     * &gt; **NOTE:** `cpu` and `memory` must be specified in `0.25&#39;/&#39;0.5Gi` combination increments. e.g. `1.0` / `2.0` or `0.5` / `1.0`
+     * &gt; **Note:** `cpu` and `memory` must be specified in `0.25&#39;/&#39;0.5Gi` combination increments. e.g. `1.0` / `2.0` or `0.5` / `1.0`
      * 
      */
     public Output<Double> cpu() {
@@ -90,7 +90,7 @@ public final class JobTemplateContainerArgs extends com.pulumi.resources.Resourc
     /**
      * The amount of ephemeral storage available to the Container App.
      * 
-     * &gt; **NOTE:** `ephemeral_storage` is currently in preview and not configurable at this time.
+     * &gt; **Note:** `ephemeral_storage` is currently in preview and not configurable at this time.
      * 
      */
     @Import(name="ephemeralStorage")
@@ -99,7 +99,7 @@ public final class JobTemplateContainerArgs extends com.pulumi.resources.Resourc
     /**
      * @return The amount of ephemeral storage available to the Container App.
      * 
-     * &gt; **NOTE:** `ephemeral_storage` is currently in preview and not configurable at this time.
+     * &gt; **Note:** `ephemeral_storage` is currently in preview and not configurable at this time.
      * 
      */
     public Optional<Output<String>> ephemeralStorage() {
@@ -139,7 +139,7 @@ public final class JobTemplateContainerArgs extends com.pulumi.resources.Resourc
     /**
      * The amount of memory to allocate to the container. Possible values are `0.5Gi`, `1Gi`, `1.5Gi`, `2Gi`, `2.5Gi`, `3Gi`, `3.5Gi` and `4Gi`.
      * 
-     * &gt; **NOTE:** `cpu` and `memory` must be specified in `0.25&#39;/&#39;0.5Gi` combination increments. e.g. `1.25` / `2.5Gi` or `0.75` / `1.5Gi`
+     * &gt; **Note:** `cpu` and `memory` must be specified in `0.25&#39;/&#39;0.5Gi` combination increments. e.g. `1.25` / `2.5Gi` or `0.75` / `1.5Gi`
      * 
      */
     @Import(name="memory", required=true)
@@ -148,7 +148,7 @@ public final class JobTemplateContainerArgs extends com.pulumi.resources.Resourc
     /**
      * @return The amount of memory to allocate to the container. Possible values are `0.5Gi`, `1Gi`, `1.5Gi`, `2Gi`, `2.5Gi`, `3Gi`, `3.5Gi` and `4Gi`.
      * 
-     * &gt; **NOTE:** `cpu` and `memory` must be specified in `0.25&#39;/&#39;0.5Gi` combination increments. e.g. `1.25` / `2.5Gi` or `0.75` / `1.5Gi`
+     * &gt; **Note:** `cpu` and `memory` must be specified in `0.25&#39;/&#39;0.5Gi` combination increments. e.g. `1.25` / `2.5Gi` or `0.75` / `1.5Gi`
      * 
      */
     public Output<String> memory() {
@@ -315,7 +315,7 @@ public final class JobTemplateContainerArgs extends com.pulumi.resources.Resourc
         /**
          * @param cpu The amount of vCPU to allocate to the container. Possible values include `0.25`, `0.5`, `0.75`, `1.0`, `1.25`, `1.5`, `1.75`, and `2.0`.
          * 
-         * &gt; **NOTE:** `cpu` and `memory` must be specified in `0.25&#39;/&#39;0.5Gi` combination increments. e.g. `1.0` / `2.0` or `0.5` / `1.0`
+         * &gt; **Note:** `cpu` and `memory` must be specified in `0.25&#39;/&#39;0.5Gi` combination increments. e.g. `1.0` / `2.0` or `0.5` / `1.0`
          * 
          * @return builder
          * 
@@ -328,7 +328,7 @@ public final class JobTemplateContainerArgs extends com.pulumi.resources.Resourc
         /**
          * @param cpu The amount of vCPU to allocate to the container. Possible values include `0.25`, `0.5`, `0.75`, `1.0`, `1.25`, `1.5`, `1.75`, and `2.0`.
          * 
-         * &gt; **NOTE:** `cpu` and `memory` must be specified in `0.25&#39;/&#39;0.5Gi` combination increments. e.g. `1.0` / `2.0` or `0.5` / `1.0`
+         * &gt; **Note:** `cpu` and `memory` must be specified in `0.25&#39;/&#39;0.5Gi` combination increments. e.g. `1.0` / `2.0` or `0.5` / `1.0`
          * 
          * @return builder
          * 
@@ -371,7 +371,7 @@ public final class JobTemplateContainerArgs extends com.pulumi.resources.Resourc
         /**
          * @param ephemeralStorage The amount of ephemeral storage available to the Container App.
          * 
-         * &gt; **NOTE:** `ephemeral_storage` is currently in preview and not configurable at this time.
+         * &gt; **Note:** `ephemeral_storage` is currently in preview and not configurable at this time.
          * 
          * @return builder
          * 
@@ -384,7 +384,7 @@ public final class JobTemplateContainerArgs extends com.pulumi.resources.Resourc
         /**
          * @param ephemeralStorage The amount of ephemeral storage available to the Container App.
          * 
-         * &gt; **NOTE:** `ephemeral_storage` is currently in preview and not configurable at this time.
+         * &gt; **Note:** `ephemeral_storage` is currently in preview and not configurable at this time.
          * 
          * @return builder
          * 
@@ -448,7 +448,7 @@ public final class JobTemplateContainerArgs extends com.pulumi.resources.Resourc
         /**
          * @param memory The amount of memory to allocate to the container. Possible values are `0.5Gi`, `1Gi`, `1.5Gi`, `2Gi`, `2.5Gi`, `3Gi`, `3.5Gi` and `4Gi`.
          * 
-         * &gt; **NOTE:** `cpu` and `memory` must be specified in `0.25&#39;/&#39;0.5Gi` combination increments. e.g. `1.25` / `2.5Gi` or `0.75` / `1.5Gi`
+         * &gt; **Note:** `cpu` and `memory` must be specified in `0.25&#39;/&#39;0.5Gi` combination increments. e.g. `1.25` / `2.5Gi` or `0.75` / `1.5Gi`
          * 
          * @return builder
          * 
@@ -461,7 +461,7 @@ public final class JobTemplateContainerArgs extends com.pulumi.resources.Resourc
         /**
          * @param memory The amount of memory to allocate to the container. Possible values are `0.5Gi`, `1Gi`, `1.5Gi`, `2Gi`, `2.5Gi`, `3Gi`, `3.5Gi` and `4Gi`.
          * 
-         * &gt; **NOTE:** `cpu` and `memory` must be specified in `0.25&#39;/&#39;0.5Gi` combination increments. e.g. `1.25` / `2.5Gi` or `0.75` / `1.5Gi`
+         * &gt; **Note:** `cpu` and `memory` must be specified in `0.25&#39;/&#39;0.5Gi` combination increments. e.g. `1.25` / `2.5Gi` or `0.75` / `1.5Gi`
          * 
          * @return builder
          * 

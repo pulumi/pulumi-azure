@@ -40,6 +40,13 @@ import (
 //	}
 //
 // ```
+//
+// ## API Providers
+//
+// <!-- This section is generated, changes will be overwritten -->
+// This data source uses the following Azure API Providers:
+//
+// * `Nginx.NginxPlus`: 2024-11-01-preview
 func LookupDeployment(ctx *pulumi.Context, args *LookupDeploymentArgs, opts ...pulumi.InvokeOption) (*LookupDeploymentResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupDeploymentResult
@@ -99,6 +106,8 @@ type LookupDeploymentResult struct {
 	Sku string `pulumi:"sku"`
 	// A mapping of tags assigned to the NGINX Deployment.
 	Tags map[string]string `pulumi:"tags"`
+	// A `webApplicationFirewall` block as defined below.
+	WebApplicationFirewalls []GetDeploymentWebApplicationFirewall `pulumi:"webApplicationFirewalls"`
 }
 
 func LookupDeploymentOutput(ctx *pulumi.Context, args LookupDeploymentOutputArgs, opts ...pulumi.InvokeOption) LookupDeploymentResultOutput {
@@ -234,6 +243,11 @@ func (o LookupDeploymentResultOutput) Sku() pulumi.StringOutput {
 // A mapping of tags assigned to the NGINX Deployment.
 func (o LookupDeploymentResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupDeploymentResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// A `webApplicationFirewall` block as defined below.
+func (o LookupDeploymentResultOutput) WebApplicationFirewalls() GetDeploymentWebApplicationFirewallArrayOutput {
+	return o.ApplyT(func(v LookupDeploymentResult) []GetDeploymentWebApplicationFirewall { return v.WebApplicationFirewalls }).(GetDeploymentWebApplicationFirewallArrayOutput)
 }
 
 func init() {

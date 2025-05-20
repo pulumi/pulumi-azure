@@ -19,7 +19,7 @@ import javax.annotation.Nullable;
 /**
  * Manages the Pricing Tier for Azure Security Center in the current subscription.
  * 
- * &gt; **NOTE:** Deletion of this resource will reset the pricing tier to `Free`
+ * &gt; **Note:** Deletion of this resource will reset the pricing tier to `Free`
  * 
  * ## Example Usage
  * 

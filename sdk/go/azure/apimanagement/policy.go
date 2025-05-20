@@ -14,7 +14,7 @@ import (
 
 // Manages a API Management service Policy.
 //
-// > **NOTE:** This resource will, upon creation, **overwrite any existing policy in the API Management service**, as there is no feasible way to test whether the policy has been modified from the default. Similarly, when this resource is destroyed, the API Management service will revert to its default policy.
+// > **Note:** This resource will, upon creation, **overwrite any existing policy in the API Management service**, as there is no feasible way to test whether the policy has been modified from the default. Similarly, when this resource is destroyed, the API Management service will revert to its default policy.
 //
 // ## Example Usage
 //
@@ -79,6 +79,13 @@ import (
 //
 // ```
 //
+// ## API Providers
+//
+// <!-- This section is generated, changes will be overwritten -->
+// This resource uses the following Azure API Providers:
+//
+// * `Microsoft.ApiManagement`: 2022-08-01
+//
 // ## Import
 //
 // API Management service Policys can be imported using the `resource id`, e.g.
@@ -91,8 +98,7 @@ type Policy struct {
 
 	// The ID of the API Management service. Changing this forces a new API Management service Policy to be created.
 	ApiManagementId pulumi.StringOutput `pulumi:"apiManagementId"`
-	// The XML Content for this Policy as a string. To integrate frontend and backend services in Azure API Management, utilize the [`set-backend-service`](https://learn.microsoft.com/azure/api-management/set-backend-service-policy) policy, specifying the `base-url` value. Typically, this value corresponds to the `url` property defined in the `Backend` resource configuration.
-	XmlContent pulumi.StringOutput `pulumi:"xmlContent"`
+	XmlContent      pulumi.StringOutput `pulumi:"xmlContent"`
 	// A link to a Policy XML Document, which must be publicly available.
 	XmlLink pulumi.StringPtrOutput `pulumi:"xmlLink"`
 }
@@ -132,8 +138,7 @@ func GetPolicy(ctx *pulumi.Context,
 type policyState struct {
 	// The ID of the API Management service. Changing this forces a new API Management service Policy to be created.
 	ApiManagementId *string `pulumi:"apiManagementId"`
-	// The XML Content for this Policy as a string. To integrate frontend and backend services in Azure API Management, utilize the [`set-backend-service`](https://learn.microsoft.com/azure/api-management/set-backend-service-policy) policy, specifying the `base-url` value. Typically, this value corresponds to the `url` property defined in the `Backend` resource configuration.
-	XmlContent *string `pulumi:"xmlContent"`
+	XmlContent      *string `pulumi:"xmlContent"`
 	// A link to a Policy XML Document, which must be publicly available.
 	XmlLink *string `pulumi:"xmlLink"`
 }
@@ -141,8 +146,7 @@ type policyState struct {
 type PolicyState struct {
 	// The ID of the API Management service. Changing this forces a new API Management service Policy to be created.
 	ApiManagementId pulumi.StringPtrInput
-	// The XML Content for this Policy as a string. To integrate frontend and backend services in Azure API Management, utilize the [`set-backend-service`](https://learn.microsoft.com/azure/api-management/set-backend-service-policy) policy, specifying the `base-url` value. Typically, this value corresponds to the `url` property defined in the `Backend` resource configuration.
-	XmlContent pulumi.StringPtrInput
+	XmlContent      pulumi.StringPtrInput
 	// A link to a Policy XML Document, which must be publicly available.
 	XmlLink pulumi.StringPtrInput
 }
@@ -153,9 +157,8 @@ func (PolicyState) ElementType() reflect.Type {
 
 type policyArgs struct {
 	// The ID of the API Management service. Changing this forces a new API Management service Policy to be created.
-	ApiManagementId string `pulumi:"apiManagementId"`
-	// The XML Content for this Policy as a string. To integrate frontend and backend services in Azure API Management, utilize the [`set-backend-service`](https://learn.microsoft.com/azure/api-management/set-backend-service-policy) policy, specifying the `base-url` value. Typically, this value corresponds to the `url` property defined in the `Backend` resource configuration.
-	XmlContent *string `pulumi:"xmlContent"`
+	ApiManagementId string  `pulumi:"apiManagementId"`
+	XmlContent      *string `pulumi:"xmlContent"`
 	// A link to a Policy XML Document, which must be publicly available.
 	XmlLink *string `pulumi:"xmlLink"`
 }
@@ -164,8 +167,7 @@ type policyArgs struct {
 type PolicyArgs struct {
 	// The ID of the API Management service. Changing this forces a new API Management service Policy to be created.
 	ApiManagementId pulumi.StringInput
-	// The XML Content for this Policy as a string. To integrate frontend and backend services in Azure API Management, utilize the [`set-backend-service`](https://learn.microsoft.com/azure/api-management/set-backend-service-policy) policy, specifying the `base-url` value. Typically, this value corresponds to the `url` property defined in the `Backend` resource configuration.
-	XmlContent pulumi.StringPtrInput
+	XmlContent      pulumi.StringPtrInput
 	// A link to a Policy XML Document, which must be publicly available.
 	XmlLink pulumi.StringPtrInput
 }
@@ -262,7 +264,6 @@ func (o PolicyOutput) ApiManagementId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Policy) pulumi.StringOutput { return v.ApiManagementId }).(pulumi.StringOutput)
 }
 
-// The XML Content for this Policy as a string. To integrate frontend and backend services in Azure API Management, utilize the [`set-backend-service`](https://learn.microsoft.com/azure/api-management/set-backend-service-policy) policy, specifying the `base-url` value. Typically, this value corresponds to the `url` property defined in the `Backend` resource configuration.
 func (o PolicyOutput) XmlContent() pulumi.StringOutput {
 	return o.ApplyT(func(v *Policy) pulumi.StringOutput { return v.XmlContent }).(pulumi.StringOutput)
 }

@@ -226,6 +226,13 @@ def get_topic_authorization_rule(name: Optional[builtins.str] = None,
     pulumi.export("servicebusAuthorizationRuleId", example_azurem_servicebus_topic_authorization_rule["id"])
     ```
 
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.ServiceBus`: 2021-06-01-preview
+
 
     :param builtins.str name: The name of the ServiceBus Topic Authorization Rule resource.
     :param builtins.str namespace_name: The name of the ServiceBus Namespace.
@@ -281,6 +288,13 @@ def get_topic_authorization_rule_output(name: Optional[pulumi.Input[builtins.str
         topic_name="example-servicebus_topic")
     pulumi.export("servicebusAuthorizationRuleId", example_azurem_servicebus_topic_authorization_rule["id"])
     ```
+
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.ServiceBus`: 2021-06-01-preview
 
 
     :param builtins.str name: The name of the ServiceBus Topic Authorization Rule resource.

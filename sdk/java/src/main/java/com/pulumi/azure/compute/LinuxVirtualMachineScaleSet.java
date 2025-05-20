@@ -38,16 +38,9 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * Manages a Linux Virtual Machine Scale Set.
- * 
- * ## Disclaimers
- * 
- * &gt; **Note:** As of the **v2.86.0** (November 19, 2021) release of the provider this resource will only create Virtual Machine Scale Sets with the **Uniform** Orchestration Mode. For Virtual Machine Scale Sets with **Flexible** orchestration mode, use `azure.compute.OrchestratedVirtualMachineScaleSet`. Flexible orchestration mode is recommended for workloads on Azure.
- * rraform will automatically update &amp; reimage the nodes in the Scale Set (if Required) during an Update - this behaviour can be configured using the `features` setting within the Provider block.
- * 
  * ## Example Usage
  * 
- * This example provisions a basic Linux Virtual Machine Scale Set on an internal network.
+ * This example provisions a basic Linux Virtual Machine Scale Set on an internal network. Additional examples of how to use the `azure.compute.LinuxVirtualMachineScaleSet` resource can be found in the ./examples/vm-scale-set/linux` directory within the GitHub Repository.
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
  * <pre>
@@ -337,7 +330,7 @@ public class LinuxVirtualMachineScaleSet extends com.pulumi.resources.CustomReso
     /**
      * Should Password Authentication be disabled on this Virtual Machine Scale Set? Defaults to `true`.
      * 
-     * &gt; In general we&#39;d recommend using SSH Keys for authentication rather than Passwords - but there&#39;s tradeoff&#39;s to each - please [see this thread for more information](https://security.stackexchange.com/questions/69407/why-is-using-an-ssh-key-more-secure-than-using-passwords).
+     * &gt; **Note:** In general we&#39;d recommend using SSH Keys for authentication rather than Passwords - but there&#39;s tradeoff&#39;s to each - please [see this thread for more information](https://security.stackexchange.com/questions/69407/why-is-using-an-ssh-key-more-secure-than-using-passwords).
      * 
      * &gt; **Note:** When a `admin_password` is specified `disable_password_authentication` must be set to `false`.
      * 
@@ -348,7 +341,7 @@ public class LinuxVirtualMachineScaleSet extends com.pulumi.resources.CustomReso
     /**
      * @return Should Password Authentication be disabled on this Virtual Machine Scale Set? Defaults to `true`.
      * 
-     * &gt; In general we&#39;d recommend using SSH Keys for authentication rather than Passwords - but there&#39;s tradeoff&#39;s to each - please [see this thread for more information](https://security.stackexchange.com/questions/69407/why-is-using-an-ssh-key-more-secure-than-using-passwords).
+     * &gt; **Note:** In general we&#39;d recommend using SSH Keys for authentication rather than Passwords - but there&#39;s tradeoff&#39;s to each - please [see this thread for more information](https://security.stackexchange.com/questions/69407/why-is-using-an-ssh-key-more-secure-than-using-passwords).
      * 
      * &gt; **Note:** When a `admin_password` is specified `disable_password_authentication` must be set to `false`.
      * 
@@ -518,21 +511,9 @@ public class LinuxVirtualMachineScaleSet extends com.pulumi.resources.CustomReso
     public Output<Optional<LinuxVirtualMachineScaleSetIdentity>> identity() {
         return Codegen.optional(this.identity);
     }
-    /**
-     * The number of Virtual Machines in the Scale Set. Defaults to `0`.
-     * 
-     * &gt; **NOTE:** If you&#39;re using AutoScaling, you may wish to use [`Ignore Changes` functionality](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) to ignore changes to this field.
-     * 
-     */
     @Export(name="instances", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> instances;
 
-    /**
-     * @return The number of Virtual Machines in the Scale Set. Defaults to `0`.
-     * 
-     * &gt; **NOTE:** If you&#39;re using AutoScaling, you may wish to use [`Ignore Changes` functionality](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) to ignore changes to this field.
-     * 
-     */
     public Output<Optional<Integer>> instances() {
         return Codegen.optional(this.instances);
     }

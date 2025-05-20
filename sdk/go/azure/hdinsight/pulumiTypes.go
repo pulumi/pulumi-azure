@@ -589,7 +589,7 @@ func (o HBaseClusterExtensionPtrOutput) PrimaryKey() pulumi.StringPtrOutput {
 type HBaseClusterGateway struct {
 	// The password used for the Ambari Portal.
 	//
-	// > **NOTE:** This password must be different from the one used for the `headNode`, `workerNode` and `zookeeperNode` roles.
+	// > **Note:** This password must be different from the one used for the `headNode`, `workerNode` and `zookeeperNode` roles.
 	Password string `pulumi:"password"`
 	// The username used for the Ambari Portal. Changing this forces a new resource to be created.
 	Username string `pulumi:"username"`
@@ -609,7 +609,7 @@ type HBaseClusterGatewayInput interface {
 type HBaseClusterGatewayArgs struct {
 	// The password used for the Ambari Portal.
 	//
-	// > **NOTE:** This password must be different from the one used for the `headNode`, `workerNode` and `zookeeperNode` roles.
+	// > **Note:** This password must be different from the one used for the `headNode`, `workerNode` and `zookeeperNode` roles.
 	Password pulumi.StringInput `pulumi:"password"`
 	// The username used for the Ambari Portal. Changing this forces a new resource to be created.
 	Username pulumi.StringInput `pulumi:"username"`
@@ -694,7 +694,7 @@ func (o HBaseClusterGatewayOutput) ToHBaseClusterGatewayPtrOutputWithContext(ctx
 
 // The password used for the Ambari Portal.
 //
-// > **NOTE:** This password must be different from the one used for the `headNode`, `workerNode` and `zookeeperNode` roles.
+// > **Note:** This password must be different from the one used for the `headNode`, `workerNode` and `zookeeperNode` roles.
 func (o HBaseClusterGatewayOutput) Password() pulumi.StringOutput {
 	return o.ApplyT(func(v HBaseClusterGateway) string { return v.Password }).(pulumi.StringOutput)
 }
@@ -730,7 +730,7 @@ func (o HBaseClusterGatewayPtrOutput) Elem() HBaseClusterGatewayOutput {
 
 // The password used for the Ambari Portal.
 //
-// > **NOTE:** This password must be different from the one used for the `headNode`, `workerNode` and `zookeeperNode` roles.
+// > **Note:** This password must be different from the one used for the `headNode`, `workerNode` and `zookeeperNode` roles.
 func (o HBaseClusterGatewayPtrOutput) Password() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *HBaseClusterGateway) *string {
 		if v == nil {
@@ -1666,7 +1666,7 @@ func (o HBaseClusterMonitorPtrOutput) PrimaryKey() pulumi.StringPtrOutput {
 type HBaseClusterNetwork struct {
 	// The direction of the resource provider connection. Possible values include `Inbound` or `Outbound`. Defaults to `Inbound`. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** To enable the private link the `connectionDirection` must be set to `Outbound`.
+	// > **Note:** To enable the private link the `connectionDirection` must be set to `Outbound`.
 	ConnectionDirection *string `pulumi:"connectionDirection"`
 	// Is the private link enabled? Possible values include `true` or `false`. Defaults to `false`. Changing this forces a new resource to be created.
 	PrivateLinkEnabled *bool `pulumi:"privateLinkEnabled"`
@@ -1686,7 +1686,7 @@ type HBaseClusterNetworkInput interface {
 type HBaseClusterNetworkArgs struct {
 	// The direction of the resource provider connection. Possible values include `Inbound` or `Outbound`. Defaults to `Inbound`. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** To enable the private link the `connectionDirection` must be set to `Outbound`.
+	// > **Note:** To enable the private link the `connectionDirection` must be set to `Outbound`.
 	ConnectionDirection pulumi.StringPtrInput `pulumi:"connectionDirection"`
 	// Is the private link enabled? Possible values include `true` or `false`. Defaults to `false`. Changing this forces a new resource to be created.
 	PrivateLinkEnabled pulumi.BoolPtrInput `pulumi:"privateLinkEnabled"`
@@ -1771,7 +1771,7 @@ func (o HBaseClusterNetworkOutput) ToHBaseClusterNetworkPtrOutputWithContext(ctx
 
 // The direction of the resource provider connection. Possible values include `Inbound` or `Outbound`. Defaults to `Inbound`. Changing this forces a new resource to be created.
 //
-// > **NOTE:** To enable the private link the `connectionDirection` must be set to `Outbound`.
+// > **Note:** To enable the private link the `connectionDirection` must be set to `Outbound`.
 func (o HBaseClusterNetworkOutput) ConnectionDirection() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v HBaseClusterNetwork) *string { return v.ConnectionDirection }).(pulumi.StringPtrOutput)
 }
@@ -1807,7 +1807,7 @@ func (o HBaseClusterNetworkPtrOutput) Elem() HBaseClusterNetworkOutput {
 
 // The direction of the resource provider connection. Possible values include `Inbound` or `Outbound`. Defaults to `Inbound`. Changing this forces a new resource to be created.
 //
-// > **NOTE:** To enable the private link the `connectionDirection` must be set to `Outbound`.
+// > **Note:** To enable the private link the `connectionDirection` must be set to `Outbound`.
 func (o HBaseClusterNetworkPtrOutput) ConnectionDirection() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *HBaseClusterNetwork) *string {
 		if v == nil {
@@ -2389,13 +2389,13 @@ func (o HBaseClusterRolesPtrOutput) ZookeeperNode() HBaseClusterRolesZookeeperNo
 type HBaseClusterRolesHeadNode struct {
 	// The Password associated with the local administrator for the Head Nodes. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** If specified, this password must be at least 10 characters in length and must contain at least one digit, one uppercase and one lower case letter, one non-alphanumeric character (except characters ' " ` \).
+	// > **Note:** If specified, this password must be at least 10 characters in length and must contain at least one digit, one uppercase and one lower case letter, one non-alphanumeric character (except characters ' " ` \).
 	Password *string `pulumi:"password"`
 	// The script action which will run on the cluster. One or more `scriptActions` blocks as defined below.
 	ScriptActions []HBaseClusterRolesHeadNodeScriptAction `pulumi:"scriptActions"`
 	// A list of SSH Keys which should be used for the local administrator on the Head Nodes. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** Either a `password` or one or more `sshKeys` must be specified - but not both.
+	// > **Note:** Either a `password` or one or more `sshKeys` must be specified - but not both.
 	SshKeys []string `pulumi:"sshKeys"`
 	// The ID of the Subnet within the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.
 	SubnetId *string `pulumi:"subnetId"`
@@ -2421,13 +2421,13 @@ type HBaseClusterRolesHeadNodeInput interface {
 type HBaseClusterRolesHeadNodeArgs struct {
 	// The Password associated with the local administrator for the Head Nodes. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** If specified, this password must be at least 10 characters in length and must contain at least one digit, one uppercase and one lower case letter, one non-alphanumeric character (except characters ' " ` \).
+	// > **Note:** If specified, this password must be at least 10 characters in length and must contain at least one digit, one uppercase and one lower case letter, one non-alphanumeric character (except characters ' " ` \).
 	Password pulumi.StringPtrInput `pulumi:"password"`
 	// The script action which will run on the cluster. One or more `scriptActions` blocks as defined below.
 	ScriptActions HBaseClusterRolesHeadNodeScriptActionArrayInput `pulumi:"scriptActions"`
 	// A list of SSH Keys which should be used for the local administrator on the Head Nodes. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** Either a `password` or one or more `sshKeys` must be specified - but not both.
+	// > **Note:** Either a `password` or one or more `sshKeys` must be specified - but not both.
 	SshKeys pulumi.StringArrayInput `pulumi:"sshKeys"`
 	// The ID of the Subnet within the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.
 	SubnetId pulumi.StringPtrInput `pulumi:"subnetId"`
@@ -2518,7 +2518,7 @@ func (o HBaseClusterRolesHeadNodeOutput) ToHBaseClusterRolesHeadNodePtrOutputWit
 
 // The Password associated with the local administrator for the Head Nodes. Changing this forces a new resource to be created.
 //
-// > **NOTE:** If specified, this password must be at least 10 characters in length and must contain at least one digit, one uppercase and one lower case letter, one non-alphanumeric character (except characters ' " ` \).
+// > **Note:** If specified, this password must be at least 10 characters in length and must contain at least one digit, one uppercase and one lower case letter, one non-alphanumeric character (except characters ' " ` \).
 func (o HBaseClusterRolesHeadNodeOutput) Password() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v HBaseClusterRolesHeadNode) *string { return v.Password }).(pulumi.StringPtrOutput)
 }
@@ -2530,7 +2530,7 @@ func (o HBaseClusterRolesHeadNodeOutput) ScriptActions() HBaseClusterRolesHeadNo
 
 // A list of SSH Keys which should be used for the local administrator on the Head Nodes. Changing this forces a new resource to be created.
 //
-// > **NOTE:** Either a `password` or one or more `sshKeys` must be specified - but not both.
+// > **Note:** Either a `password` or one or more `sshKeys` must be specified - but not both.
 func (o HBaseClusterRolesHeadNodeOutput) SshKeys() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v HBaseClusterRolesHeadNode) []string { return v.SshKeys }).(pulumi.StringArrayOutput)
 }
@@ -2581,7 +2581,7 @@ func (o HBaseClusterRolesHeadNodePtrOutput) Elem() HBaseClusterRolesHeadNodeOutp
 
 // The Password associated with the local administrator for the Head Nodes. Changing this forces a new resource to be created.
 //
-// > **NOTE:** If specified, this password must be at least 10 characters in length and must contain at least one digit, one uppercase and one lower case letter, one non-alphanumeric character (except characters ' " ` \).
+// > **Note:** If specified, this password must be at least 10 characters in length and must contain at least one digit, one uppercase and one lower case letter, one non-alphanumeric character (except characters ' " ` \).
 func (o HBaseClusterRolesHeadNodePtrOutput) Password() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *HBaseClusterRolesHeadNode) *string {
 		if v == nil {
@@ -2603,7 +2603,7 @@ func (o HBaseClusterRolesHeadNodePtrOutput) ScriptActions() HBaseClusterRolesHea
 
 // A list of SSH Keys which should be used for the local administrator on the Head Nodes. Changing this forces a new resource to be created.
 //
-// > **NOTE:** Either a `password` or one or more `sshKeys` must be specified - but not both.
+// > **Note:** Either a `password` or one or more `sshKeys` must be specified - but not both.
 func (o HBaseClusterRolesHeadNodePtrOutput) SshKeys() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *HBaseClusterRolesHeadNode) []string {
 		if v == nil {
@@ -2773,13 +2773,13 @@ type HBaseClusterRolesWorkerNode struct {
 	Autoscale *HBaseClusterRolesWorkerNodeAutoscale `pulumi:"autoscale"`
 	// The Password associated with the local administrator for the Worker Nodes. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** If specified, this password must be at least 10 characters in length and must contain at least one digit, one uppercase and one lower case letter, one non-alphanumeric character (except characters ' " ` \).
+	// > **Note:** If specified, this password must be at least 10 characters in length and must contain at least one digit, one uppercase and one lower case letter, one non-alphanumeric character (except characters ' " ` \).
 	Password *string `pulumi:"password"`
 	// The script action which will run on the cluster. One or more `scriptActions` blocks as defined above.
 	ScriptActions []HBaseClusterRolesWorkerNodeScriptAction `pulumi:"scriptActions"`
 	// A list of SSH Keys which should be used for the local administrator on the Worker Nodes. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** Either a `password` or one or more `sshKeys` must be specified - but not both.
+	// > **Note:** Either a `password` or one or more `sshKeys` must be specified - but not both.
 	SshKeys []string `pulumi:"sshKeys"`
 	// The ID of the Subnet within the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.
 	SubnetId *string `pulumi:"subnetId"`
@@ -2809,13 +2809,13 @@ type HBaseClusterRolesWorkerNodeArgs struct {
 	Autoscale HBaseClusterRolesWorkerNodeAutoscalePtrInput `pulumi:"autoscale"`
 	// The Password associated with the local administrator for the Worker Nodes. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** If specified, this password must be at least 10 characters in length and must contain at least one digit, one uppercase and one lower case letter, one non-alphanumeric character (except characters ' " ` \).
+	// > **Note:** If specified, this password must be at least 10 characters in length and must contain at least one digit, one uppercase and one lower case letter, one non-alphanumeric character (except characters ' " ` \).
 	Password pulumi.StringPtrInput `pulumi:"password"`
 	// The script action which will run on the cluster. One or more `scriptActions` blocks as defined above.
 	ScriptActions HBaseClusterRolesWorkerNodeScriptActionArrayInput `pulumi:"scriptActions"`
 	// A list of SSH Keys which should be used for the local administrator on the Worker Nodes. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** Either a `password` or one or more `sshKeys` must be specified - but not both.
+	// > **Note:** Either a `password` or one or more `sshKeys` must be specified - but not both.
 	SshKeys pulumi.StringArrayInput `pulumi:"sshKeys"`
 	// The ID of the Subnet within the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.
 	SubnetId pulumi.StringPtrInput `pulumi:"subnetId"`
@@ -2913,7 +2913,7 @@ func (o HBaseClusterRolesWorkerNodeOutput) Autoscale() HBaseClusterRolesWorkerNo
 
 // The Password associated with the local administrator for the Worker Nodes. Changing this forces a new resource to be created.
 //
-// > **NOTE:** If specified, this password must be at least 10 characters in length and must contain at least one digit, one uppercase and one lower case letter, one non-alphanumeric character (except characters ' " ` \).
+// > **Note:** If specified, this password must be at least 10 characters in length and must contain at least one digit, one uppercase and one lower case letter, one non-alphanumeric character (except characters ' " ` \).
 func (o HBaseClusterRolesWorkerNodeOutput) Password() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v HBaseClusterRolesWorkerNode) *string { return v.Password }).(pulumi.StringPtrOutput)
 }
@@ -2925,7 +2925,7 @@ func (o HBaseClusterRolesWorkerNodeOutput) ScriptActions() HBaseClusterRolesWork
 
 // A list of SSH Keys which should be used for the local administrator on the Worker Nodes. Changing this forces a new resource to be created.
 //
-// > **NOTE:** Either a `password` or one or more `sshKeys` must be specified - but not both.
+// > **Note:** Either a `password` or one or more `sshKeys` must be specified - but not both.
 func (o HBaseClusterRolesWorkerNodeOutput) SshKeys() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v HBaseClusterRolesWorkerNode) []string { return v.SshKeys }).(pulumi.StringArrayOutput)
 }
@@ -2991,7 +2991,7 @@ func (o HBaseClusterRolesWorkerNodePtrOutput) Autoscale() HBaseClusterRolesWorke
 
 // The Password associated with the local administrator for the Worker Nodes. Changing this forces a new resource to be created.
 //
-// > **NOTE:** If specified, this password must be at least 10 characters in length and must contain at least one digit, one uppercase and one lower case letter, one non-alphanumeric character (except characters ' " ` \).
+// > **Note:** If specified, this password must be at least 10 characters in length and must contain at least one digit, one uppercase and one lower case letter, one non-alphanumeric character (except characters ' " ` \).
 func (o HBaseClusterRolesWorkerNodePtrOutput) Password() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *HBaseClusterRolesWorkerNode) *string {
 		if v == nil {
@@ -3013,7 +3013,7 @@ func (o HBaseClusterRolesWorkerNodePtrOutput) ScriptActions() HBaseClusterRolesW
 
 // A list of SSH Keys which should be used for the local administrator on the Worker Nodes. Changing this forces a new resource to be created.
 //
-// > **NOTE:** Either a `password` or one or more `sshKeys` must be specified - but not both.
+// > **Note:** Either a `password` or one or more `sshKeys` must be specified - but not both.
 func (o HBaseClusterRolesWorkerNodePtrOutput) SshKeys() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *HBaseClusterRolesWorkerNode) []string {
 		if v == nil {
@@ -3076,7 +3076,7 @@ func (o HBaseClusterRolesWorkerNodePtrOutput) VmSize() pulumi.StringPtrOutput {
 type HBaseClusterRolesWorkerNodeAutoscale struct {
 	// A `recurrence` block as defined below.
 	//
-	// > **NOTE:** Either a `capacity` or `recurrence` block must be specified - but not both.
+	// > **Note:** Either a `capacity` or `recurrence` block must be specified - but not both.
 	Recurrence *HBaseClusterRolesWorkerNodeAutoscaleRecurrence `pulumi:"recurrence"`
 }
 
@@ -3094,7 +3094,7 @@ type HBaseClusterRolesWorkerNodeAutoscaleInput interface {
 type HBaseClusterRolesWorkerNodeAutoscaleArgs struct {
 	// A `recurrence` block as defined below.
 	//
-	// > **NOTE:** Either a `capacity` or `recurrence` block must be specified - but not both.
+	// > **Note:** Either a `capacity` or `recurrence` block must be specified - but not both.
 	Recurrence HBaseClusterRolesWorkerNodeAutoscaleRecurrencePtrInput `pulumi:"recurrence"`
 }
 
@@ -3177,7 +3177,7 @@ func (o HBaseClusterRolesWorkerNodeAutoscaleOutput) ToHBaseClusterRolesWorkerNod
 
 // A `recurrence` block as defined below.
 //
-// > **NOTE:** Either a `capacity` or `recurrence` block must be specified - but not both.
+// > **Note:** Either a `capacity` or `recurrence` block must be specified - but not both.
 func (o HBaseClusterRolesWorkerNodeAutoscaleOutput) Recurrence() HBaseClusterRolesWorkerNodeAutoscaleRecurrencePtrOutput {
 	return o.ApplyT(func(v HBaseClusterRolesWorkerNodeAutoscale) *HBaseClusterRolesWorkerNodeAutoscaleRecurrence {
 		return v.Recurrence
@@ -3210,7 +3210,7 @@ func (o HBaseClusterRolesWorkerNodeAutoscalePtrOutput) Elem() HBaseClusterRolesW
 
 // A `recurrence` block as defined below.
 //
-// > **NOTE:** Either a `capacity` or `recurrence` block must be specified - but not both.
+// > **Note:** Either a `capacity` or `recurrence` block must be specified - but not both.
 func (o HBaseClusterRolesWorkerNodeAutoscalePtrOutput) Recurrence() HBaseClusterRolesWorkerNodeAutoscaleRecurrencePtrOutput {
 	return o.ApplyT(func(v *HBaseClusterRolesWorkerNodeAutoscale) *HBaseClusterRolesWorkerNodeAutoscaleRecurrence {
 		if v == nil {
@@ -3611,13 +3611,13 @@ func (o HBaseClusterRolesWorkerNodeScriptActionArrayOutput) Index(i pulumi.IntIn
 type HBaseClusterRolesZookeeperNode struct {
 	// The Password associated with the local administrator for the Zookeeper Nodes. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** If specified, this password must be at least 10 characters in length and must contain at least one digit, one uppercase and one lower case letter, one non-alphanumeric character (except characters ' " ` \).
+	// > **Note:** If specified, this password must be at least 10 characters in length and must contain at least one digit, one uppercase and one lower case letter, one non-alphanumeric character (except characters ' " ` \).
 	Password *string `pulumi:"password"`
 	// The script action which will run on the cluster. One or more `scriptActions` blocks as defined above.
 	ScriptActions []HBaseClusterRolesZookeeperNodeScriptAction `pulumi:"scriptActions"`
 	// A list of SSH Keys which should be used for the local administrator on the Zookeeper Nodes. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** Either a `password` or one or more `sshKeys` must be specified - but not both.
+	// > **Note:** Either a `password` or one or more `sshKeys` must be specified - but not both.
 	SshKeys []string `pulumi:"sshKeys"`
 	// The ID of the Subnet within the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.
 	SubnetId *string `pulumi:"subnetId"`
@@ -3643,13 +3643,13 @@ type HBaseClusterRolesZookeeperNodeInput interface {
 type HBaseClusterRolesZookeeperNodeArgs struct {
 	// The Password associated with the local administrator for the Zookeeper Nodes. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** If specified, this password must be at least 10 characters in length and must contain at least one digit, one uppercase and one lower case letter, one non-alphanumeric character (except characters ' " ` \).
+	// > **Note:** If specified, this password must be at least 10 characters in length and must contain at least one digit, one uppercase and one lower case letter, one non-alphanumeric character (except characters ' " ` \).
 	Password pulumi.StringPtrInput `pulumi:"password"`
 	// The script action which will run on the cluster. One or more `scriptActions` blocks as defined above.
 	ScriptActions HBaseClusterRolesZookeeperNodeScriptActionArrayInput `pulumi:"scriptActions"`
 	// A list of SSH Keys which should be used for the local administrator on the Zookeeper Nodes. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** Either a `password` or one or more `sshKeys` must be specified - but not both.
+	// > **Note:** Either a `password` or one or more `sshKeys` must be specified - but not both.
 	SshKeys pulumi.StringArrayInput `pulumi:"sshKeys"`
 	// The ID of the Subnet within the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.
 	SubnetId pulumi.StringPtrInput `pulumi:"subnetId"`
@@ -3740,7 +3740,7 @@ func (o HBaseClusterRolesZookeeperNodeOutput) ToHBaseClusterRolesZookeeperNodePt
 
 // The Password associated with the local administrator for the Zookeeper Nodes. Changing this forces a new resource to be created.
 //
-// > **NOTE:** If specified, this password must be at least 10 characters in length and must contain at least one digit, one uppercase and one lower case letter, one non-alphanumeric character (except characters ' " ` \).
+// > **Note:** If specified, this password must be at least 10 characters in length and must contain at least one digit, one uppercase and one lower case letter, one non-alphanumeric character (except characters ' " ` \).
 func (o HBaseClusterRolesZookeeperNodeOutput) Password() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v HBaseClusterRolesZookeeperNode) *string { return v.Password }).(pulumi.StringPtrOutput)
 }
@@ -3754,7 +3754,7 @@ func (o HBaseClusterRolesZookeeperNodeOutput) ScriptActions() HBaseClusterRolesZ
 
 // A list of SSH Keys which should be used for the local administrator on the Zookeeper Nodes. Changing this forces a new resource to be created.
 //
-// > **NOTE:** Either a `password` or one or more `sshKeys` must be specified - but not both.
+// > **Note:** Either a `password` or one or more `sshKeys` must be specified - but not both.
 func (o HBaseClusterRolesZookeeperNodeOutput) SshKeys() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v HBaseClusterRolesZookeeperNode) []string { return v.SshKeys }).(pulumi.StringArrayOutput)
 }
@@ -3805,7 +3805,7 @@ func (o HBaseClusterRolesZookeeperNodePtrOutput) Elem() HBaseClusterRolesZookeep
 
 // The Password associated with the local administrator for the Zookeeper Nodes. Changing this forces a new resource to be created.
 //
-// > **NOTE:** If specified, this password must be at least 10 characters in length and must contain at least one digit, one uppercase and one lower case letter, one non-alphanumeric character (except characters ' " ` \).
+// > **Note:** If specified, this password must be at least 10 characters in length and must contain at least one digit, one uppercase and one lower case letter, one non-alphanumeric character (except characters ' " ` \).
 func (o HBaseClusterRolesZookeeperNodePtrOutput) Password() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *HBaseClusterRolesZookeeperNode) *string {
 		if v == nil {
@@ -3827,7 +3827,7 @@ func (o HBaseClusterRolesZookeeperNodePtrOutput) ScriptActions() HBaseClusterRol
 
 // A list of SSH Keys which should be used for the local administrator on the Zookeeper Nodes. Changing this forces a new resource to be created.
 //
-// > **NOTE:** Either a `password` or one or more `sshKeys` must be specified - but not both.
+// > **Note:** Either a `password` or one or more `sshKeys` must be specified - but not both.
 func (o HBaseClusterRolesZookeeperNodePtrOutput) SshKeys() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *HBaseClusterRolesZookeeperNode) []string {
 		if v == nil {
@@ -4246,13 +4246,13 @@ func (o HBaseClusterSecurityProfilePtrOutput) MsiResourceId() pulumi.StringPtrOu
 type HBaseClusterStorageAccount struct {
 	// Is this the Default Storage Account for the HDInsight Hadoop Cluster? Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** One of the `storageAccount` or `storageAccountGen2` blocks must be marked as the default.
+	// > **Note:** One of the `storageAccount` or `storageAccountGen2` blocks must be marked as the default.
 	IsDefault bool `pulumi:"isDefault"`
 	// The Access Key which should be used to connect to the Storage Account. Changing this forces a new resource to be created.
 	StorageAccountKey string `pulumi:"storageAccountKey"`
 	// The ID of the Storage Container. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** This can be obtained from the `id` of the `storage.Container` resource.
+	// > **Note:** This can be obtained from the `id` of the `storage.Container` resource.
 	StorageContainerId string `pulumi:"storageContainerId"`
 	// The ID of the Storage Account. Changing this forces a new resource to be created.
 	StorageResourceId *string `pulumi:"storageResourceId"`
@@ -4272,13 +4272,13 @@ type HBaseClusterStorageAccountInput interface {
 type HBaseClusterStorageAccountArgs struct {
 	// Is this the Default Storage Account for the HDInsight Hadoop Cluster? Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** One of the `storageAccount` or `storageAccountGen2` blocks must be marked as the default.
+	// > **Note:** One of the `storageAccount` or `storageAccountGen2` blocks must be marked as the default.
 	IsDefault pulumi.BoolInput `pulumi:"isDefault"`
 	// The Access Key which should be used to connect to the Storage Account. Changing this forces a new resource to be created.
 	StorageAccountKey pulumi.StringInput `pulumi:"storageAccountKey"`
 	// The ID of the Storage Container. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** This can be obtained from the `id` of the `storage.Container` resource.
+	// > **Note:** This can be obtained from the `id` of the `storage.Container` resource.
 	StorageContainerId pulumi.StringInput `pulumi:"storageContainerId"`
 	// The ID of the Storage Account. Changing this forces a new resource to be created.
 	StorageResourceId pulumi.StringPtrInput `pulumi:"storageResourceId"`
@@ -4337,7 +4337,7 @@ func (o HBaseClusterStorageAccountOutput) ToHBaseClusterStorageAccountOutputWith
 
 // Is this the Default Storage Account for the HDInsight Hadoop Cluster? Changing this forces a new resource to be created.
 //
-// > **NOTE:** One of the `storageAccount` or `storageAccountGen2` blocks must be marked as the default.
+// > **Note:** One of the `storageAccount` or `storageAccountGen2` blocks must be marked as the default.
 func (o HBaseClusterStorageAccountOutput) IsDefault() pulumi.BoolOutput {
 	return o.ApplyT(func(v HBaseClusterStorageAccount) bool { return v.IsDefault }).(pulumi.BoolOutput)
 }
@@ -4349,7 +4349,7 @@ func (o HBaseClusterStorageAccountOutput) StorageAccountKey() pulumi.StringOutpu
 
 // The ID of the Storage Container. Changing this forces a new resource to be created.
 //
-// > **NOTE:** This can be obtained from the `id` of the `storage.Container` resource.
+// > **Note:** This can be obtained from the `id` of the `storage.Container` resource.
 func (o HBaseClusterStorageAccountOutput) StorageContainerId() pulumi.StringOutput {
 	return o.ApplyT(func(v HBaseClusterStorageAccount) string { return v.StorageContainerId }).(pulumi.StringOutput)
 }
@@ -4384,11 +4384,11 @@ type HBaseClusterStorageAccountGen2 struct {
 	FilesystemId string `pulumi:"filesystemId"`
 	// Is this the Default Storage Account for the HDInsight Hadoop Cluster? Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** One of the `storageAccount` or `storageAccountGen2` blocks must be marked as the default.
+	// > **Note:** One of the `storageAccount` or `storageAccountGen2` blocks must be marked as the default.
 	IsDefault bool `pulumi:"isDefault"`
 	// The ID of Managed Identity to use for accessing the Gen2 filesystem. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** This can be obtained from the `id` of the `storage.Container` resource.
+	// > **Note:** This can be obtained from the `id` of the `storage.Container` resource.
 	ManagedIdentityResourceId string `pulumi:"managedIdentityResourceId"`
 	// The ID of the Storage Account. Changing this forces a new resource to be created.
 	StorageResourceId string `pulumi:"storageResourceId"`
@@ -4410,11 +4410,11 @@ type HBaseClusterStorageAccountGen2Args struct {
 	FilesystemId pulumi.StringInput `pulumi:"filesystemId"`
 	// Is this the Default Storage Account for the HDInsight Hadoop Cluster? Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** One of the `storageAccount` or `storageAccountGen2` blocks must be marked as the default.
+	// > **Note:** One of the `storageAccount` or `storageAccountGen2` blocks must be marked as the default.
 	IsDefault pulumi.BoolInput `pulumi:"isDefault"`
 	// The ID of Managed Identity to use for accessing the Gen2 filesystem. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** This can be obtained from the `id` of the `storage.Container` resource.
+	// > **Note:** This can be obtained from the `id` of the `storage.Container` resource.
 	ManagedIdentityResourceId pulumi.StringInput `pulumi:"managedIdentityResourceId"`
 	// The ID of the Storage Account. Changing this forces a new resource to be created.
 	StorageResourceId pulumi.StringInput `pulumi:"storageResourceId"`
@@ -4504,14 +4504,14 @@ func (o HBaseClusterStorageAccountGen2Output) FilesystemId() pulumi.StringOutput
 
 // Is this the Default Storage Account for the HDInsight Hadoop Cluster? Changing this forces a new resource to be created.
 //
-// > **NOTE:** One of the `storageAccount` or `storageAccountGen2` blocks must be marked as the default.
+// > **Note:** One of the `storageAccount` or `storageAccountGen2` blocks must be marked as the default.
 func (o HBaseClusterStorageAccountGen2Output) IsDefault() pulumi.BoolOutput {
 	return o.ApplyT(func(v HBaseClusterStorageAccountGen2) bool { return v.IsDefault }).(pulumi.BoolOutput)
 }
 
 // The ID of Managed Identity to use for accessing the Gen2 filesystem. Changing this forces a new resource to be created.
 //
-// > **NOTE:** This can be obtained from the `id` of the `storage.Container` resource.
+// > **Note:** This can be obtained from the `id` of the `storage.Container` resource.
 func (o HBaseClusterStorageAccountGen2Output) ManagedIdentityResourceId() pulumi.StringOutput {
 	return o.ApplyT(func(v HBaseClusterStorageAccountGen2) string { return v.ManagedIdentityResourceId }).(pulumi.StringOutput)
 }
@@ -4557,7 +4557,7 @@ func (o HBaseClusterStorageAccountGen2PtrOutput) FilesystemId() pulumi.StringPtr
 
 // Is this the Default Storage Account for the HDInsight Hadoop Cluster? Changing this forces a new resource to be created.
 //
-// > **NOTE:** One of the `storageAccount` or `storageAccountGen2` blocks must be marked as the default.
+// > **Note:** One of the `storageAccount` or `storageAccountGen2` blocks must be marked as the default.
 func (o HBaseClusterStorageAccountGen2PtrOutput) IsDefault() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *HBaseClusterStorageAccountGen2) *bool {
 		if v == nil {
@@ -4569,7 +4569,7 @@ func (o HBaseClusterStorageAccountGen2PtrOutput) IsDefault() pulumi.BoolPtrOutpu
 
 // The ID of Managed Identity to use for accessing the Gen2 filesystem. Changing this forces a new resource to be created.
 //
-// > **NOTE:** This can be obtained from the `id` of the `storage.Container` resource.
+// > **Note:** This can be obtained from the `id` of the `storage.Container` resource.
 func (o HBaseClusterStorageAccountGen2PtrOutput) ManagedIdentityResourceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *HBaseClusterStorageAccountGen2) *string {
 		if v == nil {
@@ -5165,7 +5165,7 @@ func (o HadoopClusterExtensionPtrOutput) PrimaryKey() pulumi.StringPtrOutput {
 type HadoopClusterGateway struct {
 	// The password used for the Ambari Portal.
 	//
-	// > **NOTE:** This password must be different from the one used for the `headNode`, `workerNode` and `zookeeperNode` roles.
+	// > **Note:** This password must be different from the one used for the `headNode`, `workerNode` and `zookeeperNode` roles.
 	Password string `pulumi:"password"`
 	// The username used for the Ambari Portal. Changing this forces a new resource to be created.
 	Username string `pulumi:"username"`
@@ -5185,7 +5185,7 @@ type HadoopClusterGatewayInput interface {
 type HadoopClusterGatewayArgs struct {
 	// The password used for the Ambari Portal.
 	//
-	// > **NOTE:** This password must be different from the one used for the `headNode`, `workerNode` and `zookeeperNode` roles.
+	// > **Note:** This password must be different from the one used for the `headNode`, `workerNode` and `zookeeperNode` roles.
 	Password pulumi.StringInput `pulumi:"password"`
 	// The username used for the Ambari Portal. Changing this forces a new resource to be created.
 	Username pulumi.StringInput `pulumi:"username"`
@@ -5270,7 +5270,7 @@ func (o HadoopClusterGatewayOutput) ToHadoopClusterGatewayPtrOutputWithContext(c
 
 // The password used for the Ambari Portal.
 //
-// > **NOTE:** This password must be different from the one used for the `headNode`, `workerNode` and `zookeeperNode` roles.
+// > **Note:** This password must be different from the one used for the `headNode`, `workerNode` and `zookeeperNode` roles.
 func (o HadoopClusterGatewayOutput) Password() pulumi.StringOutput {
 	return o.ApplyT(func(v HadoopClusterGateway) string { return v.Password }).(pulumi.StringOutput)
 }
@@ -5306,7 +5306,7 @@ func (o HadoopClusterGatewayPtrOutput) Elem() HadoopClusterGatewayOutput {
 
 // The password used for the Ambari Portal.
 //
-// > **NOTE:** This password must be different from the one used for the `headNode`, `workerNode` and `zookeeperNode` roles.
+// > **Note:** This password must be different from the one used for the `headNode`, `workerNode` and `zookeeperNode` roles.
 func (o HadoopClusterGatewayPtrOutput) Password() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *HadoopClusterGateway) *string {
 		if v == nil {
@@ -6242,7 +6242,7 @@ func (o HadoopClusterMonitorPtrOutput) PrimaryKey() pulumi.StringPtrOutput {
 type HadoopClusterNetwork struct {
 	// The direction of the resource provider connection. Possible values include `Inbound` or `Outbound`. Defaults to `Inbound`. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** To enabled the private link the `connectionDirection` must be set to `Outbound`.
+	// > **Note:** To enabled the private link the `connectionDirection` must be set to `Outbound`.
 	ConnectionDirection *string `pulumi:"connectionDirection"`
 	// Is the private link enabled? Possible values include `true` or `false`. Defaults to `false`. Changing this forces a new resource to be created.
 	PrivateLinkEnabled *bool `pulumi:"privateLinkEnabled"`
@@ -6262,7 +6262,7 @@ type HadoopClusterNetworkInput interface {
 type HadoopClusterNetworkArgs struct {
 	// The direction of the resource provider connection. Possible values include `Inbound` or `Outbound`. Defaults to `Inbound`. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** To enabled the private link the `connectionDirection` must be set to `Outbound`.
+	// > **Note:** To enabled the private link the `connectionDirection` must be set to `Outbound`.
 	ConnectionDirection pulumi.StringPtrInput `pulumi:"connectionDirection"`
 	// Is the private link enabled? Possible values include `true` or `false`. Defaults to `false`. Changing this forces a new resource to be created.
 	PrivateLinkEnabled pulumi.BoolPtrInput `pulumi:"privateLinkEnabled"`
@@ -6347,7 +6347,7 @@ func (o HadoopClusterNetworkOutput) ToHadoopClusterNetworkPtrOutputWithContext(c
 
 // The direction of the resource provider connection. Possible values include `Inbound` or `Outbound`. Defaults to `Inbound`. Changing this forces a new resource to be created.
 //
-// > **NOTE:** To enabled the private link the `connectionDirection` must be set to `Outbound`.
+// > **Note:** To enabled the private link the `connectionDirection` must be set to `Outbound`.
 func (o HadoopClusterNetworkOutput) ConnectionDirection() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v HadoopClusterNetwork) *string { return v.ConnectionDirection }).(pulumi.StringPtrOutput)
 }
@@ -6383,7 +6383,7 @@ func (o HadoopClusterNetworkPtrOutput) Elem() HadoopClusterNetworkOutput {
 
 // The direction of the resource provider connection. Possible values include `Inbound` or `Outbound`. Defaults to `Inbound`. Changing this forces a new resource to be created.
 //
-// > **NOTE:** To enabled the private link the `connectionDirection` must be set to `Outbound`.
+// > **Note:** To enabled the private link the `connectionDirection` must be set to `Outbound`.
 func (o HadoopClusterNetworkPtrOutput) ConnectionDirection() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *HadoopClusterNetwork) *string {
 		if v == nil {
@@ -7560,13 +7560,13 @@ func (o HadoopClusterRolesEdgeNodeUninstallScriptActionArrayOutput) Index(i pulu
 type HadoopClusterRolesHeadNode struct {
 	// The Password associated with the local administrator for the Head Nodes. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** If specified, this password must be at least 10 characters in length and must contain at least one digit, one uppercase and one lower case letter, one non-alphanumeric character (except characters ' " ` \).
+	// > **Note:** If specified, this password must be at least 10 characters in length and must contain at least one digit, one uppercase and one lower case letter, one non-alphanumeric character (except characters ' " ` \).
 	Password *string `pulumi:"password"`
 	// The script action which will run on the cluster. One or more `scriptActions` blocks as defined below.
 	ScriptActions []HadoopClusterRolesHeadNodeScriptAction `pulumi:"scriptActions"`
 	// A list of SSH Keys which should be used for the local administrator on the Head Nodes. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** Either a `password` or one or more `sshKeys` must be specified - but not both.
+	// > **Note:** Either a `password` or one or more `sshKeys` must be specified - but not both.
 	SshKeys []string `pulumi:"sshKeys"`
 	// The ID of the Subnet within the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.
 	SubnetId *string `pulumi:"subnetId"`
@@ -7592,13 +7592,13 @@ type HadoopClusterRolesHeadNodeInput interface {
 type HadoopClusterRolesHeadNodeArgs struct {
 	// The Password associated with the local administrator for the Head Nodes. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** If specified, this password must be at least 10 characters in length and must contain at least one digit, one uppercase and one lower case letter, one non-alphanumeric character (except characters ' " ` \).
+	// > **Note:** If specified, this password must be at least 10 characters in length and must contain at least one digit, one uppercase and one lower case letter, one non-alphanumeric character (except characters ' " ` \).
 	Password pulumi.StringPtrInput `pulumi:"password"`
 	// The script action which will run on the cluster. One or more `scriptActions` blocks as defined below.
 	ScriptActions HadoopClusterRolesHeadNodeScriptActionArrayInput `pulumi:"scriptActions"`
 	// A list of SSH Keys which should be used for the local administrator on the Head Nodes. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** Either a `password` or one or more `sshKeys` must be specified - but not both.
+	// > **Note:** Either a `password` or one or more `sshKeys` must be specified - but not both.
 	SshKeys pulumi.StringArrayInput `pulumi:"sshKeys"`
 	// The ID of the Subnet within the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.
 	SubnetId pulumi.StringPtrInput `pulumi:"subnetId"`
@@ -7689,7 +7689,7 @@ func (o HadoopClusterRolesHeadNodeOutput) ToHadoopClusterRolesHeadNodePtrOutputW
 
 // The Password associated with the local administrator for the Head Nodes. Changing this forces a new resource to be created.
 //
-// > **NOTE:** If specified, this password must be at least 10 characters in length and must contain at least one digit, one uppercase and one lower case letter, one non-alphanumeric character (except characters ' " ` \).
+// > **Note:** If specified, this password must be at least 10 characters in length and must contain at least one digit, one uppercase and one lower case letter, one non-alphanumeric character (except characters ' " ` \).
 func (o HadoopClusterRolesHeadNodeOutput) Password() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v HadoopClusterRolesHeadNode) *string { return v.Password }).(pulumi.StringPtrOutput)
 }
@@ -7701,7 +7701,7 @@ func (o HadoopClusterRolesHeadNodeOutput) ScriptActions() HadoopClusterRolesHead
 
 // A list of SSH Keys which should be used for the local administrator on the Head Nodes. Changing this forces a new resource to be created.
 //
-// > **NOTE:** Either a `password` or one or more `sshKeys` must be specified - but not both.
+// > **Note:** Either a `password` or one or more `sshKeys` must be specified - but not both.
 func (o HadoopClusterRolesHeadNodeOutput) SshKeys() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v HadoopClusterRolesHeadNode) []string { return v.SshKeys }).(pulumi.StringArrayOutput)
 }
@@ -7752,7 +7752,7 @@ func (o HadoopClusterRolesHeadNodePtrOutput) Elem() HadoopClusterRolesHeadNodeOu
 
 // The Password associated with the local administrator for the Head Nodes. Changing this forces a new resource to be created.
 //
-// > **NOTE:** If specified, this password must be at least 10 characters in length and must contain at least one digit, one uppercase and one lower case letter, one non-alphanumeric character (except characters ' " ` \).
+// > **Note:** If specified, this password must be at least 10 characters in length and must contain at least one digit, one uppercase and one lower case letter, one non-alphanumeric character (except characters ' " ` \).
 func (o HadoopClusterRolesHeadNodePtrOutput) Password() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *HadoopClusterRolesHeadNode) *string {
 		if v == nil {
@@ -7774,7 +7774,7 @@ func (o HadoopClusterRolesHeadNodePtrOutput) ScriptActions() HadoopClusterRolesH
 
 // A list of SSH Keys which should be used for the local administrator on the Head Nodes. Changing this forces a new resource to be created.
 //
-// > **NOTE:** Either a `password` or one or more `sshKeys` must be specified - but not both.
+// > **Note:** Either a `password` or one or more `sshKeys` must be specified - but not both.
 func (o HadoopClusterRolesHeadNodePtrOutput) SshKeys() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *HadoopClusterRolesHeadNode) []string {
 		if v == nil {
@@ -7944,13 +7944,13 @@ type HadoopClusterRolesWorkerNode struct {
 	Autoscale *HadoopClusterRolesWorkerNodeAutoscale `pulumi:"autoscale"`
 	// The Password associated with the local administrator for the Worker Nodes. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** If specified, this password must be at least 10 characters in length and must contain at least one digit, one uppercase and one lower case letter, one non-alphanumeric character (except characters ' " ` \).
+	// > **Note:** If specified, this password must be at least 10 characters in length and must contain at least one digit, one uppercase and one lower case letter, one non-alphanumeric character (except characters ' " ` \).
 	Password *string `pulumi:"password"`
 	// The script action which will run on the cluster. One or more `scriptActions` blocks as defined above.
 	ScriptActions []HadoopClusterRolesWorkerNodeScriptAction `pulumi:"scriptActions"`
 	// A list of SSH Keys which should be used for the local administrator on the Worker Nodes. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** Either a `password` or one or more `sshKeys` must be specified - but not both.
+	// > **Note:** Either a `password` or one or more `sshKeys` must be specified - but not both.
 	SshKeys []string `pulumi:"sshKeys"`
 	// The ID of the Subnet within the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.
 	SubnetId *string `pulumi:"subnetId"`
@@ -7980,13 +7980,13 @@ type HadoopClusterRolesWorkerNodeArgs struct {
 	Autoscale HadoopClusterRolesWorkerNodeAutoscalePtrInput `pulumi:"autoscale"`
 	// The Password associated with the local administrator for the Worker Nodes. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** If specified, this password must be at least 10 characters in length and must contain at least one digit, one uppercase and one lower case letter, one non-alphanumeric character (except characters ' " ` \).
+	// > **Note:** If specified, this password must be at least 10 characters in length and must contain at least one digit, one uppercase and one lower case letter, one non-alphanumeric character (except characters ' " ` \).
 	Password pulumi.StringPtrInput `pulumi:"password"`
 	// The script action which will run on the cluster. One or more `scriptActions` blocks as defined above.
 	ScriptActions HadoopClusterRolesWorkerNodeScriptActionArrayInput `pulumi:"scriptActions"`
 	// A list of SSH Keys which should be used for the local administrator on the Worker Nodes. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** Either a `password` or one or more `sshKeys` must be specified - but not both.
+	// > **Note:** Either a `password` or one or more `sshKeys` must be specified - but not both.
 	SshKeys pulumi.StringArrayInput `pulumi:"sshKeys"`
 	// The ID of the Subnet within the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.
 	SubnetId pulumi.StringPtrInput `pulumi:"subnetId"`
@@ -8084,7 +8084,7 @@ func (o HadoopClusterRolesWorkerNodeOutput) Autoscale() HadoopClusterRolesWorker
 
 // The Password associated with the local administrator for the Worker Nodes. Changing this forces a new resource to be created.
 //
-// > **NOTE:** If specified, this password must be at least 10 characters in length and must contain at least one digit, one uppercase and one lower case letter, one non-alphanumeric character (except characters ' " ` \).
+// > **Note:** If specified, this password must be at least 10 characters in length and must contain at least one digit, one uppercase and one lower case letter, one non-alphanumeric character (except characters ' " ` \).
 func (o HadoopClusterRolesWorkerNodeOutput) Password() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v HadoopClusterRolesWorkerNode) *string { return v.Password }).(pulumi.StringPtrOutput)
 }
@@ -8098,7 +8098,7 @@ func (o HadoopClusterRolesWorkerNodeOutput) ScriptActions() HadoopClusterRolesWo
 
 // A list of SSH Keys which should be used for the local administrator on the Worker Nodes. Changing this forces a new resource to be created.
 //
-// > **NOTE:** Either a `password` or one or more `sshKeys` must be specified - but not both.
+// > **Note:** Either a `password` or one or more `sshKeys` must be specified - but not both.
 func (o HadoopClusterRolesWorkerNodeOutput) SshKeys() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v HadoopClusterRolesWorkerNode) []string { return v.SshKeys }).(pulumi.StringArrayOutput)
 }
@@ -8164,7 +8164,7 @@ func (o HadoopClusterRolesWorkerNodePtrOutput) Autoscale() HadoopClusterRolesWor
 
 // The Password associated with the local administrator for the Worker Nodes. Changing this forces a new resource to be created.
 //
-// > **NOTE:** If specified, this password must be at least 10 characters in length and must contain at least one digit, one uppercase and one lower case letter, one non-alphanumeric character (except characters ' " ` \).
+// > **Note:** If specified, this password must be at least 10 characters in length and must contain at least one digit, one uppercase and one lower case letter, one non-alphanumeric character (except characters ' " ` \).
 func (o HadoopClusterRolesWorkerNodePtrOutput) Password() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *HadoopClusterRolesWorkerNode) *string {
 		if v == nil {
@@ -8186,7 +8186,7 @@ func (o HadoopClusterRolesWorkerNodePtrOutput) ScriptActions() HadoopClusterRole
 
 // A list of SSH Keys which should be used for the local administrator on the Worker Nodes. Changing this forces a new resource to be created.
 //
-// > **NOTE:** Either a `password` or one or more `sshKeys` must be specified - but not both.
+// > **Note:** Either a `password` or one or more `sshKeys` must be specified - but not both.
 func (o HadoopClusterRolesWorkerNodePtrOutput) SshKeys() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *HadoopClusterRolesWorkerNode) []string {
 		if v == nil {
@@ -8251,7 +8251,7 @@ type HadoopClusterRolesWorkerNodeAutoscale struct {
 	Capacity *HadoopClusterRolesWorkerNodeAutoscaleCapacity `pulumi:"capacity"`
 	// A `recurrence` block as defined below.
 	//
-	// > **NOTE:** Either a `capacity` or `recurrence` block must be specified - but not both.
+	// > **Note:** Either a `capacity` or `recurrence` block must be specified - but not both.
 	Recurrence *HadoopClusterRolesWorkerNodeAutoscaleRecurrence `pulumi:"recurrence"`
 }
 
@@ -8271,7 +8271,7 @@ type HadoopClusterRolesWorkerNodeAutoscaleArgs struct {
 	Capacity HadoopClusterRolesWorkerNodeAutoscaleCapacityPtrInput `pulumi:"capacity"`
 	// A `recurrence` block as defined below.
 	//
-	// > **NOTE:** Either a `capacity` or `recurrence` block must be specified - but not both.
+	// > **Note:** Either a `capacity` or `recurrence` block must be specified - but not both.
 	Recurrence HadoopClusterRolesWorkerNodeAutoscaleRecurrencePtrInput `pulumi:"recurrence"`
 }
 
@@ -8361,7 +8361,7 @@ func (o HadoopClusterRolesWorkerNodeAutoscaleOutput) Capacity() HadoopClusterRol
 
 // A `recurrence` block as defined below.
 //
-// > **NOTE:** Either a `capacity` or `recurrence` block must be specified - but not both.
+// > **Note:** Either a `capacity` or `recurrence` block must be specified - but not both.
 func (o HadoopClusterRolesWorkerNodeAutoscaleOutput) Recurrence() HadoopClusterRolesWorkerNodeAutoscaleRecurrencePtrOutput {
 	return o.ApplyT(func(v HadoopClusterRolesWorkerNodeAutoscale) *HadoopClusterRolesWorkerNodeAutoscaleRecurrence {
 		return v.Recurrence
@@ -8404,7 +8404,7 @@ func (o HadoopClusterRolesWorkerNodeAutoscalePtrOutput) Capacity() HadoopCluster
 
 // A `recurrence` block as defined below.
 //
-// > **NOTE:** Either a `capacity` or `recurrence` block must be specified - but not both.
+// > **Note:** Either a `capacity` or `recurrence` block must be specified - but not both.
 func (o HadoopClusterRolesWorkerNodeAutoscalePtrOutput) Recurrence() HadoopClusterRolesWorkerNodeAutoscaleRecurrencePtrOutput {
 	return o.ApplyT(func(v *HadoopClusterRolesWorkerNodeAutoscale) *HadoopClusterRolesWorkerNodeAutoscaleRecurrence {
 		if v == nil {
@@ -8961,13 +8961,13 @@ func (o HadoopClusterRolesWorkerNodeScriptActionArrayOutput) Index(i pulumi.IntI
 type HadoopClusterRolesZookeeperNode struct {
 	// The Password associated with the local administrator for the Zookeeper Nodes. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** If specified, this password must be at least 10 characters in length and must contain at least one digit, one uppercase and one lower case letter, one non-alphanumeric character (except characters ' " ` \).
+	// > **Note:** If specified, this password must be at least 10 characters in length and must contain at least one digit, one uppercase and one lower case letter, one non-alphanumeric character (except characters ' " ` \).
 	Password *string `pulumi:"password"`
 	// The script action which will run on the cluster. One or more `scriptActions` blocks as defined above.
 	ScriptActions []HadoopClusterRolesZookeeperNodeScriptAction `pulumi:"scriptActions"`
 	// A list of SSH Keys which should be used for the local administrator on the Zookeeper Nodes. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** Either a `password` or one or more `sshKeys` must be specified - but not both.
+	// > **Note:** Either a `password` or one or more `sshKeys` must be specified - but not both.
 	SshKeys []string `pulumi:"sshKeys"`
 	// The ID of the Subnet within the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.
 	SubnetId *string `pulumi:"subnetId"`
@@ -8993,13 +8993,13 @@ type HadoopClusterRolesZookeeperNodeInput interface {
 type HadoopClusterRolesZookeeperNodeArgs struct {
 	// The Password associated with the local administrator for the Zookeeper Nodes. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** If specified, this password must be at least 10 characters in length and must contain at least one digit, one uppercase and one lower case letter, one non-alphanumeric character (except characters ' " ` \).
+	// > **Note:** If specified, this password must be at least 10 characters in length and must contain at least one digit, one uppercase and one lower case letter, one non-alphanumeric character (except characters ' " ` \).
 	Password pulumi.StringPtrInput `pulumi:"password"`
 	// The script action which will run on the cluster. One or more `scriptActions` blocks as defined above.
 	ScriptActions HadoopClusterRolesZookeeperNodeScriptActionArrayInput `pulumi:"scriptActions"`
 	// A list of SSH Keys which should be used for the local administrator on the Zookeeper Nodes. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** Either a `password` or one or more `sshKeys` must be specified - but not both.
+	// > **Note:** Either a `password` or one or more `sshKeys` must be specified - but not both.
 	SshKeys pulumi.StringArrayInput `pulumi:"sshKeys"`
 	// The ID of the Subnet within the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.
 	SubnetId pulumi.StringPtrInput `pulumi:"subnetId"`
@@ -9090,7 +9090,7 @@ func (o HadoopClusterRolesZookeeperNodeOutput) ToHadoopClusterRolesZookeeperNode
 
 // The Password associated with the local administrator for the Zookeeper Nodes. Changing this forces a new resource to be created.
 //
-// > **NOTE:** If specified, this password must be at least 10 characters in length and must contain at least one digit, one uppercase and one lower case letter, one non-alphanumeric character (except characters ' " ` \).
+// > **Note:** If specified, this password must be at least 10 characters in length and must contain at least one digit, one uppercase and one lower case letter, one non-alphanumeric character (except characters ' " ` \).
 func (o HadoopClusterRolesZookeeperNodeOutput) Password() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v HadoopClusterRolesZookeeperNode) *string { return v.Password }).(pulumi.StringPtrOutput)
 }
@@ -9104,7 +9104,7 @@ func (o HadoopClusterRolesZookeeperNodeOutput) ScriptActions() HadoopClusterRole
 
 // A list of SSH Keys which should be used for the local administrator on the Zookeeper Nodes. Changing this forces a new resource to be created.
 //
-// > **NOTE:** Either a `password` or one or more `sshKeys` must be specified - but not both.
+// > **Note:** Either a `password` or one or more `sshKeys` must be specified - but not both.
 func (o HadoopClusterRolesZookeeperNodeOutput) SshKeys() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v HadoopClusterRolesZookeeperNode) []string { return v.SshKeys }).(pulumi.StringArrayOutput)
 }
@@ -9155,7 +9155,7 @@ func (o HadoopClusterRolesZookeeperNodePtrOutput) Elem() HadoopClusterRolesZooke
 
 // The Password associated with the local administrator for the Zookeeper Nodes. Changing this forces a new resource to be created.
 //
-// > **NOTE:** If specified, this password must be at least 10 characters in length and must contain at least one digit, one uppercase and one lower case letter, one non-alphanumeric character (except characters ' " ` \).
+// > **Note:** If specified, this password must be at least 10 characters in length and must contain at least one digit, one uppercase and one lower case letter, one non-alphanumeric character (except characters ' " ` \).
 func (o HadoopClusterRolesZookeeperNodePtrOutput) Password() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *HadoopClusterRolesZookeeperNode) *string {
 		if v == nil {
@@ -9177,7 +9177,7 @@ func (o HadoopClusterRolesZookeeperNodePtrOutput) ScriptActions() HadoopClusterR
 
 // A list of SSH Keys which should be used for the local administrator on the Zookeeper Nodes. Changing this forces a new resource to be created.
 //
-// > **NOTE:** Either a `password` or one or more `sshKeys` must be specified - but not both.
+// > **Note:** Either a `password` or one or more `sshKeys` must be specified - but not both.
 func (o HadoopClusterRolesZookeeperNodePtrOutput) SshKeys() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *HadoopClusterRolesZookeeperNode) []string {
 		if v == nil {
@@ -9596,13 +9596,13 @@ func (o HadoopClusterSecurityProfilePtrOutput) MsiResourceId() pulumi.StringPtrO
 type HadoopClusterStorageAccount struct {
 	// Is this the Default Storage Account for the HDInsight Hadoop Cluster? Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** One of the `storageAccount` or `storageAccountGen2` blocks must be marked as the default.
+	// > **Note:** One of the `storageAccount` or `storageAccountGen2` blocks must be marked as the default.
 	IsDefault bool `pulumi:"isDefault"`
 	// The Access Key which should be used to connect to the Storage Account. Changing this forces a new resource to be created.
 	StorageAccountKey string `pulumi:"storageAccountKey"`
 	// The ID of the Storage Container. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** This can be obtained from the `id` of the `storage.Container` resource.
+	// > **Note:** This can be obtained from the `id` of the `storage.Container` resource.
 	StorageContainerId string `pulumi:"storageContainerId"`
 	// The ID of the Storage Account. Changing this forces a new resource to be created.
 	StorageResourceId *string `pulumi:"storageResourceId"`
@@ -9622,13 +9622,13 @@ type HadoopClusterStorageAccountInput interface {
 type HadoopClusterStorageAccountArgs struct {
 	// Is this the Default Storage Account for the HDInsight Hadoop Cluster? Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** One of the `storageAccount` or `storageAccountGen2` blocks must be marked as the default.
+	// > **Note:** One of the `storageAccount` or `storageAccountGen2` blocks must be marked as the default.
 	IsDefault pulumi.BoolInput `pulumi:"isDefault"`
 	// The Access Key which should be used to connect to the Storage Account. Changing this forces a new resource to be created.
 	StorageAccountKey pulumi.StringInput `pulumi:"storageAccountKey"`
 	// The ID of the Storage Container. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** This can be obtained from the `id` of the `storage.Container` resource.
+	// > **Note:** This can be obtained from the `id` of the `storage.Container` resource.
 	StorageContainerId pulumi.StringInput `pulumi:"storageContainerId"`
 	// The ID of the Storage Account. Changing this forces a new resource to be created.
 	StorageResourceId pulumi.StringPtrInput `pulumi:"storageResourceId"`
@@ -9687,7 +9687,7 @@ func (o HadoopClusterStorageAccountOutput) ToHadoopClusterStorageAccountOutputWi
 
 // Is this the Default Storage Account for the HDInsight Hadoop Cluster? Changing this forces a new resource to be created.
 //
-// > **NOTE:** One of the `storageAccount` or `storageAccountGen2` blocks must be marked as the default.
+// > **Note:** One of the `storageAccount` or `storageAccountGen2` blocks must be marked as the default.
 func (o HadoopClusterStorageAccountOutput) IsDefault() pulumi.BoolOutput {
 	return o.ApplyT(func(v HadoopClusterStorageAccount) bool { return v.IsDefault }).(pulumi.BoolOutput)
 }
@@ -9699,7 +9699,7 @@ func (o HadoopClusterStorageAccountOutput) StorageAccountKey() pulumi.StringOutp
 
 // The ID of the Storage Container. Changing this forces a new resource to be created.
 //
-// > **NOTE:** This can be obtained from the `id` of the `storage.Container` resource.
+// > **Note:** This can be obtained from the `id` of the `storage.Container` resource.
 func (o HadoopClusterStorageAccountOutput) StorageContainerId() pulumi.StringOutput {
 	return o.ApplyT(func(v HadoopClusterStorageAccount) string { return v.StorageContainerId }).(pulumi.StringOutput)
 }
@@ -9734,11 +9734,11 @@ type HadoopClusterStorageAccountGen2 struct {
 	FilesystemId string `pulumi:"filesystemId"`
 	// Is this the Default Storage Account for the HDInsight Hadoop Cluster? Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** One of the `storageAccount` or `storageAccountGen2` blocks must be marked as the default.
+	// > **Note:** One of the `storageAccount` or `storageAccountGen2` blocks must be marked as the default.
 	IsDefault bool `pulumi:"isDefault"`
 	// The ID of Managed Identity to use for accessing the Gen2 filesystem. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** This can be obtained from the `id` of the `storage.Container` resource.
+	// > **Note:** This can be obtained from the `id` of the `storage.Container` resource.
 	ManagedIdentityResourceId string `pulumi:"managedIdentityResourceId"`
 	// The ID of the Storage Account. Changing this forces a new resource to be created.
 	StorageResourceId string `pulumi:"storageResourceId"`
@@ -9760,11 +9760,11 @@ type HadoopClusterStorageAccountGen2Args struct {
 	FilesystemId pulumi.StringInput `pulumi:"filesystemId"`
 	// Is this the Default Storage Account for the HDInsight Hadoop Cluster? Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** One of the `storageAccount` or `storageAccountGen2` blocks must be marked as the default.
+	// > **Note:** One of the `storageAccount` or `storageAccountGen2` blocks must be marked as the default.
 	IsDefault pulumi.BoolInput `pulumi:"isDefault"`
 	// The ID of Managed Identity to use for accessing the Gen2 filesystem. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** This can be obtained from the `id` of the `storage.Container` resource.
+	// > **Note:** This can be obtained from the `id` of the `storage.Container` resource.
 	ManagedIdentityResourceId pulumi.StringInput `pulumi:"managedIdentityResourceId"`
 	// The ID of the Storage Account. Changing this forces a new resource to be created.
 	StorageResourceId pulumi.StringInput `pulumi:"storageResourceId"`
@@ -9854,14 +9854,14 @@ func (o HadoopClusterStorageAccountGen2Output) FilesystemId() pulumi.StringOutpu
 
 // Is this the Default Storage Account for the HDInsight Hadoop Cluster? Changing this forces a new resource to be created.
 //
-// > **NOTE:** One of the `storageAccount` or `storageAccountGen2` blocks must be marked as the default.
+// > **Note:** One of the `storageAccount` or `storageAccountGen2` blocks must be marked as the default.
 func (o HadoopClusterStorageAccountGen2Output) IsDefault() pulumi.BoolOutput {
 	return o.ApplyT(func(v HadoopClusterStorageAccountGen2) bool { return v.IsDefault }).(pulumi.BoolOutput)
 }
 
 // The ID of Managed Identity to use for accessing the Gen2 filesystem. Changing this forces a new resource to be created.
 //
-// > **NOTE:** This can be obtained from the `id` of the `storage.Container` resource.
+// > **Note:** This can be obtained from the `id` of the `storage.Container` resource.
 func (o HadoopClusterStorageAccountGen2Output) ManagedIdentityResourceId() pulumi.StringOutput {
 	return o.ApplyT(func(v HadoopClusterStorageAccountGen2) string { return v.ManagedIdentityResourceId }).(pulumi.StringOutput)
 }
@@ -9907,7 +9907,7 @@ func (o HadoopClusterStorageAccountGen2PtrOutput) FilesystemId() pulumi.StringPt
 
 // Is this the Default Storage Account for the HDInsight Hadoop Cluster? Changing this forces a new resource to be created.
 //
-// > **NOTE:** One of the `storageAccount` or `storageAccountGen2` blocks must be marked as the default.
+// > **Note:** One of the `storageAccount` or `storageAccountGen2` blocks must be marked as the default.
 func (o HadoopClusterStorageAccountGen2PtrOutput) IsDefault() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *HadoopClusterStorageAccountGen2) *bool {
 		if v == nil {
@@ -9919,7 +9919,7 @@ func (o HadoopClusterStorageAccountGen2PtrOutput) IsDefault() pulumi.BoolPtrOutp
 
 // The ID of Managed Identity to use for accessing the Gen2 filesystem. Changing this forces a new resource to be created.
 //
-// > **NOTE:** This can be obtained from the `id` of the `storage.Container` resource.
+// > **Note:** This can be obtained from the `id` of the `storage.Container` resource.
 func (o HadoopClusterStorageAccountGen2PtrOutput) ManagedIdentityResourceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *HadoopClusterStorageAccountGen2) *string {
 		if v == nil {
@@ -10515,7 +10515,7 @@ func (o InteractiveQueryClusterExtensionPtrOutput) PrimaryKey() pulumi.StringPtr
 type InteractiveQueryClusterGateway struct {
 	// The password used for the Ambari Portal.
 	//
-	// > **NOTE:** This password must be different from the one used for the `headNode`, `workerNode` and `zookeeperNode` roles.
+	// > **Note:** This password must be different from the one used for the `headNode`, `workerNode` and `zookeeperNode` roles.
 	Password string `pulumi:"password"`
 	// The username used for the Ambari Portal. Changing this forces a new resource to be created.
 	Username string `pulumi:"username"`
@@ -10535,7 +10535,7 @@ type InteractiveQueryClusterGatewayInput interface {
 type InteractiveQueryClusterGatewayArgs struct {
 	// The password used for the Ambari Portal.
 	//
-	// > **NOTE:** This password must be different from the one used for the `headNode`, `workerNode` and `zookeeperNode` roles.
+	// > **Note:** This password must be different from the one used for the `headNode`, `workerNode` and `zookeeperNode` roles.
 	Password pulumi.StringInput `pulumi:"password"`
 	// The username used for the Ambari Portal. Changing this forces a new resource to be created.
 	Username pulumi.StringInput `pulumi:"username"`
@@ -10620,7 +10620,7 @@ func (o InteractiveQueryClusterGatewayOutput) ToInteractiveQueryClusterGatewayPt
 
 // The password used for the Ambari Portal.
 //
-// > **NOTE:** This password must be different from the one used for the `headNode`, `workerNode` and `zookeeperNode` roles.
+// > **Note:** This password must be different from the one used for the `headNode`, `workerNode` and `zookeeperNode` roles.
 func (o InteractiveQueryClusterGatewayOutput) Password() pulumi.StringOutput {
 	return o.ApplyT(func(v InteractiveQueryClusterGateway) string { return v.Password }).(pulumi.StringOutput)
 }
@@ -10656,7 +10656,7 @@ func (o InteractiveQueryClusterGatewayPtrOutput) Elem() InteractiveQueryClusterG
 
 // The password used for the Ambari Portal.
 //
-// > **NOTE:** This password must be different from the one used for the `headNode`, `workerNode` and `zookeeperNode` roles.
+// > **Note:** This password must be different from the one used for the `headNode`, `workerNode` and `zookeeperNode` roles.
 func (o InteractiveQueryClusterGatewayPtrOutput) Password() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *InteractiveQueryClusterGateway) *string {
 		if v == nil {
@@ -11592,7 +11592,7 @@ func (o InteractiveQueryClusterMonitorPtrOutput) PrimaryKey() pulumi.StringPtrOu
 type InteractiveQueryClusterNetwork struct {
 	// The direction of the resource provider connection. Possible values include `Inbound` or `Outbound`. Defaults to `Inbound`. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** To enabled the private link the `connectionDirection` must be set to `Outbound`.
+	// > **Note:** To enabled the private link the `connectionDirection` must be set to `Outbound`.
 	ConnectionDirection *string `pulumi:"connectionDirection"`
 	// Is the private link enabled? Possible values include `true` or `false`. Defaults to `false`. Changing this forces a new resource to be created.
 	PrivateLinkEnabled *bool `pulumi:"privateLinkEnabled"`
@@ -11612,7 +11612,7 @@ type InteractiveQueryClusterNetworkInput interface {
 type InteractiveQueryClusterNetworkArgs struct {
 	// The direction of the resource provider connection. Possible values include `Inbound` or `Outbound`. Defaults to `Inbound`. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** To enabled the private link the `connectionDirection` must be set to `Outbound`.
+	// > **Note:** To enabled the private link the `connectionDirection` must be set to `Outbound`.
 	ConnectionDirection pulumi.StringPtrInput `pulumi:"connectionDirection"`
 	// Is the private link enabled? Possible values include `true` or `false`. Defaults to `false`. Changing this forces a new resource to be created.
 	PrivateLinkEnabled pulumi.BoolPtrInput `pulumi:"privateLinkEnabled"`
@@ -11697,7 +11697,7 @@ func (o InteractiveQueryClusterNetworkOutput) ToInteractiveQueryClusterNetworkPt
 
 // The direction of the resource provider connection. Possible values include `Inbound` or `Outbound`. Defaults to `Inbound`. Changing this forces a new resource to be created.
 //
-// > **NOTE:** To enabled the private link the `connectionDirection` must be set to `Outbound`.
+// > **Note:** To enabled the private link the `connectionDirection` must be set to `Outbound`.
 func (o InteractiveQueryClusterNetworkOutput) ConnectionDirection() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InteractiveQueryClusterNetwork) *string { return v.ConnectionDirection }).(pulumi.StringPtrOutput)
 }
@@ -11733,7 +11733,7 @@ func (o InteractiveQueryClusterNetworkPtrOutput) Elem() InteractiveQueryClusterN
 
 // The direction of the resource provider connection. Possible values include `Inbound` or `Outbound`. Defaults to `Inbound`. Changing this forces a new resource to be created.
 //
-// > **NOTE:** To enabled the private link the `connectionDirection` must be set to `Outbound`.
+// > **Note:** To enabled the private link the `connectionDirection` must be set to `Outbound`.
 func (o InteractiveQueryClusterNetworkPtrOutput) ConnectionDirection() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *InteractiveQueryClusterNetwork) *string {
 		if v == nil {
@@ -12317,13 +12317,13 @@ func (o InteractiveQueryClusterRolesPtrOutput) ZookeeperNode() InteractiveQueryC
 type InteractiveQueryClusterRolesHeadNode struct {
 	// The Password associated with the local administrator for the Head Nodes. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** If specified, this password must be at least 10 characters in length and must contain at least one digit, one uppercase and one lower case letter, one non-alphanumeric character (except characters ' " ` \).
+	// > **Note:** If specified, this password must be at least 10 characters in length and must contain at least one digit, one uppercase and one lower case letter, one non-alphanumeric character (except characters ' " ` \).
 	Password *string `pulumi:"password"`
 	// The script action which will run on the cluster. One or more `scriptActions` blocks as defined below.
 	ScriptActions []InteractiveQueryClusterRolesHeadNodeScriptAction `pulumi:"scriptActions"`
 	// A list of SSH Keys which should be used for the local administrator on the Head Nodes. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** Either a `password` or one or more `sshKeys` must be specified - but not both.
+	// > **Note:** Either a `password` or one or more `sshKeys` must be specified - but not both.
 	SshKeys []string `pulumi:"sshKeys"`
 	// The ID of the Subnet within the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.
 	SubnetId *string `pulumi:"subnetId"`
@@ -12333,7 +12333,7 @@ type InteractiveQueryClusterRolesHeadNode struct {
 	VirtualNetworkId *string `pulumi:"virtualNetworkId"`
 	// The Size of the Virtual Machine which should be used as the Head Nodes. Possible values are `ExtraSmall`, `Small`, `Medium`, `Large`, `ExtraLarge`, `A5`, `A6`, `A7`, `A8`, `A9`, `A10`, `A11`, `Standard_A1_V2`, `Standard_A2_V2`, `Standard_A2m_V2`, `Standard_A3`, `Standard_A4_V2`, `Standard_A4m_V2`, `Standard_A8_V2`, `Standard_A8m_V2`, `Standard_D1`, `Standard_D2`, `Standard_D3`, `Standard_D4`, `Standard_D11`, `Standard_D12`, `Standard_D13`, `Standard_D14`, `Standard_D1_V2`, `Standard_D2_V2`, `Standard_D3_V2`, `Standard_D4_V2`, `Standard_D5_V2`, `Standard_D11_V2`, `Standard_D12_V2`, `Standard_D13_V2`, `Standard_D14_V2`, `Standard_DS1_V2`, `Standard_DS2_V2`, `Standard_DS3_V2`, `Standard_DS4_V2`, `Standard_DS5_V2`, `Standard_DS11_V2`, `Standard_DS12_V2`, `Standard_DS13_V2`, `Standard_DS14_V2`, `Standard_E2_V3`, `Standard_E4_V3`, `Standard_E8_V3`, `Standard_E16_V3`, `Standard_E20_V3`, `Standard_E32_V3`, `Standard_E64_V3`, `Standard_E64i_V3`, `Standard_E2s_V3`, `Standard_E4s_V3`, `Standard_E8s_V3`, `Standard_E16s_V3`, `Standard_E20s_V3`, `Standard_E32s_V3`, `Standard_E64s_V3`, `Standard_E64is_V3`, `Standard_D2a_V4`, `Standard_D4a_V4`, `Standard_D8a_V4`, `Standard_D16a_V4`, `Standard_D32a_V4`, `Standard_D48a_V4`, `Standard_D64a_V4`, `Standard_D96a_V4`, `Standard_E2a_V4`, `Standard_E4a_V4`, `Standard_E8a_V4`, `Standard_E16a_V4`, `Standard_E20a_V4`, `Standard_E32a_V4`, `Standard_E48a_V4`, `Standard_E64a_V4`, `Standard_E96a_V4`, `Standard_D2ads_V5`, `Standard_D4ads_V5`, `Standard_D8ads_V5`, `Standard_D16ads_V5`, `Standard_D32ads_V5`, `Standard_D48ads_V5`, `Standard_D64ads_V5`, `Standard_D96ads_V5`, `Standard_E2ads_V5`, `Standard_E4ads_V5`, `Standard_E8ads_V5`, `Standard_E16ads_V5`, `Standard_E20ads_V5`, `Standard_E32ads_V5`, `Standard_E48ads_V5`, `Standard_E64ads_V5`, `Standard_E96ads_V5`, `Standard_G1`, `Standard_G2`, `Standard_G3`, `Standard_G4`, `Standard_G5`, `Standard_F2s_V2`, `Standard_F4s_V2`, `Standard_F8s_V2`, `Standard_F16s_V2`, `Standard_F32s_V2`, `Standard_F64s_V2`, `Standard_F72s_V2`, `Standard_GS1`, `Standard_GS2`, `Standard_GS3`, `Standard_GS4`, `Standard_GS5` and `Standard_NC24`. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** High memory instances must be specified for the Head Node (Azure suggests a `Standard_D13_V2`).
+	// > **Note:** High memory instances must be specified for the Head Node (Azure suggests a `Standard_D13_V2`).
 	VmSize string `pulumi:"vmSize"`
 }
 
@@ -12351,13 +12351,13 @@ type InteractiveQueryClusterRolesHeadNodeInput interface {
 type InteractiveQueryClusterRolesHeadNodeArgs struct {
 	// The Password associated with the local administrator for the Head Nodes. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** If specified, this password must be at least 10 characters in length and must contain at least one digit, one uppercase and one lower case letter, one non-alphanumeric character (except characters ' " ` \).
+	// > **Note:** If specified, this password must be at least 10 characters in length and must contain at least one digit, one uppercase and one lower case letter, one non-alphanumeric character (except characters ' " ` \).
 	Password pulumi.StringPtrInput `pulumi:"password"`
 	// The script action which will run on the cluster. One or more `scriptActions` blocks as defined below.
 	ScriptActions InteractiveQueryClusterRolesHeadNodeScriptActionArrayInput `pulumi:"scriptActions"`
 	// A list of SSH Keys which should be used for the local administrator on the Head Nodes. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** Either a `password` or one or more `sshKeys` must be specified - but not both.
+	// > **Note:** Either a `password` or one or more `sshKeys` must be specified - but not both.
 	SshKeys pulumi.StringArrayInput `pulumi:"sshKeys"`
 	// The ID of the Subnet within the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.
 	SubnetId pulumi.StringPtrInput `pulumi:"subnetId"`
@@ -12367,7 +12367,7 @@ type InteractiveQueryClusterRolesHeadNodeArgs struct {
 	VirtualNetworkId pulumi.StringPtrInput `pulumi:"virtualNetworkId"`
 	// The Size of the Virtual Machine which should be used as the Head Nodes. Possible values are `ExtraSmall`, `Small`, `Medium`, `Large`, `ExtraLarge`, `A5`, `A6`, `A7`, `A8`, `A9`, `A10`, `A11`, `Standard_A1_V2`, `Standard_A2_V2`, `Standard_A2m_V2`, `Standard_A3`, `Standard_A4_V2`, `Standard_A4m_V2`, `Standard_A8_V2`, `Standard_A8m_V2`, `Standard_D1`, `Standard_D2`, `Standard_D3`, `Standard_D4`, `Standard_D11`, `Standard_D12`, `Standard_D13`, `Standard_D14`, `Standard_D1_V2`, `Standard_D2_V2`, `Standard_D3_V2`, `Standard_D4_V2`, `Standard_D5_V2`, `Standard_D11_V2`, `Standard_D12_V2`, `Standard_D13_V2`, `Standard_D14_V2`, `Standard_DS1_V2`, `Standard_DS2_V2`, `Standard_DS3_V2`, `Standard_DS4_V2`, `Standard_DS5_V2`, `Standard_DS11_V2`, `Standard_DS12_V2`, `Standard_DS13_V2`, `Standard_DS14_V2`, `Standard_E2_V3`, `Standard_E4_V3`, `Standard_E8_V3`, `Standard_E16_V3`, `Standard_E20_V3`, `Standard_E32_V3`, `Standard_E64_V3`, `Standard_E64i_V3`, `Standard_E2s_V3`, `Standard_E4s_V3`, `Standard_E8s_V3`, `Standard_E16s_V3`, `Standard_E20s_V3`, `Standard_E32s_V3`, `Standard_E64s_V3`, `Standard_E64is_V3`, `Standard_D2a_V4`, `Standard_D4a_V4`, `Standard_D8a_V4`, `Standard_D16a_V4`, `Standard_D32a_V4`, `Standard_D48a_V4`, `Standard_D64a_V4`, `Standard_D96a_V4`, `Standard_E2a_V4`, `Standard_E4a_V4`, `Standard_E8a_V4`, `Standard_E16a_V4`, `Standard_E20a_V4`, `Standard_E32a_V4`, `Standard_E48a_V4`, `Standard_E64a_V4`, `Standard_E96a_V4`, `Standard_D2ads_V5`, `Standard_D4ads_V5`, `Standard_D8ads_V5`, `Standard_D16ads_V5`, `Standard_D32ads_V5`, `Standard_D48ads_V5`, `Standard_D64ads_V5`, `Standard_D96ads_V5`, `Standard_E2ads_V5`, `Standard_E4ads_V5`, `Standard_E8ads_V5`, `Standard_E16ads_V5`, `Standard_E20ads_V5`, `Standard_E32ads_V5`, `Standard_E48ads_V5`, `Standard_E64ads_V5`, `Standard_E96ads_V5`, `Standard_G1`, `Standard_G2`, `Standard_G3`, `Standard_G4`, `Standard_G5`, `Standard_F2s_V2`, `Standard_F4s_V2`, `Standard_F8s_V2`, `Standard_F16s_V2`, `Standard_F32s_V2`, `Standard_F64s_V2`, `Standard_F72s_V2`, `Standard_GS1`, `Standard_GS2`, `Standard_GS3`, `Standard_GS4`, `Standard_GS5` and `Standard_NC24`. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** High memory instances must be specified for the Head Node (Azure suggests a `Standard_D13_V2`).
+	// > **Note:** High memory instances must be specified for the Head Node (Azure suggests a `Standard_D13_V2`).
 	VmSize pulumi.StringInput `pulumi:"vmSize"`
 }
 
@@ -12450,7 +12450,7 @@ func (o InteractiveQueryClusterRolesHeadNodeOutput) ToInteractiveQueryClusterRol
 
 // The Password associated with the local administrator for the Head Nodes. Changing this forces a new resource to be created.
 //
-// > **NOTE:** If specified, this password must be at least 10 characters in length and must contain at least one digit, one uppercase and one lower case letter, one non-alphanumeric character (except characters ' " ` \).
+// > **Note:** If specified, this password must be at least 10 characters in length and must contain at least one digit, one uppercase and one lower case letter, one non-alphanumeric character (except characters ' " ` \).
 func (o InteractiveQueryClusterRolesHeadNodeOutput) Password() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InteractiveQueryClusterRolesHeadNode) *string { return v.Password }).(pulumi.StringPtrOutput)
 }
@@ -12464,7 +12464,7 @@ func (o InteractiveQueryClusterRolesHeadNodeOutput) ScriptActions() InteractiveQ
 
 // A list of SSH Keys which should be used for the local administrator on the Head Nodes. Changing this forces a new resource to be created.
 //
-// > **NOTE:** Either a `password` or one or more `sshKeys` must be specified - but not both.
+// > **Note:** Either a `password` or one or more `sshKeys` must be specified - but not both.
 func (o InteractiveQueryClusterRolesHeadNodeOutput) SshKeys() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v InteractiveQueryClusterRolesHeadNode) []string { return v.SshKeys }).(pulumi.StringArrayOutput)
 }
@@ -12486,7 +12486,7 @@ func (o InteractiveQueryClusterRolesHeadNodeOutput) VirtualNetworkId() pulumi.St
 
 // The Size of the Virtual Machine which should be used as the Head Nodes. Possible values are `ExtraSmall`, `Small`, `Medium`, `Large`, `ExtraLarge`, `A5`, `A6`, `A7`, `A8`, `A9`, `A10`, `A11`, `Standard_A1_V2`, `Standard_A2_V2`, `Standard_A2m_V2`, `Standard_A3`, `Standard_A4_V2`, `Standard_A4m_V2`, `Standard_A8_V2`, `Standard_A8m_V2`, `Standard_D1`, `Standard_D2`, `Standard_D3`, `Standard_D4`, `Standard_D11`, `Standard_D12`, `Standard_D13`, `Standard_D14`, `Standard_D1_V2`, `Standard_D2_V2`, `Standard_D3_V2`, `Standard_D4_V2`, `Standard_D5_V2`, `Standard_D11_V2`, `Standard_D12_V2`, `Standard_D13_V2`, `Standard_D14_V2`, `Standard_DS1_V2`, `Standard_DS2_V2`, `Standard_DS3_V2`, `Standard_DS4_V2`, `Standard_DS5_V2`, `Standard_DS11_V2`, `Standard_DS12_V2`, `Standard_DS13_V2`, `Standard_DS14_V2`, `Standard_E2_V3`, `Standard_E4_V3`, `Standard_E8_V3`, `Standard_E16_V3`, `Standard_E20_V3`, `Standard_E32_V3`, `Standard_E64_V3`, `Standard_E64i_V3`, `Standard_E2s_V3`, `Standard_E4s_V3`, `Standard_E8s_V3`, `Standard_E16s_V3`, `Standard_E20s_V3`, `Standard_E32s_V3`, `Standard_E64s_V3`, `Standard_E64is_V3`, `Standard_D2a_V4`, `Standard_D4a_V4`, `Standard_D8a_V4`, `Standard_D16a_V4`, `Standard_D32a_V4`, `Standard_D48a_V4`, `Standard_D64a_V4`, `Standard_D96a_V4`, `Standard_E2a_V4`, `Standard_E4a_V4`, `Standard_E8a_V4`, `Standard_E16a_V4`, `Standard_E20a_V4`, `Standard_E32a_V4`, `Standard_E48a_V4`, `Standard_E64a_V4`, `Standard_E96a_V4`, `Standard_D2ads_V5`, `Standard_D4ads_V5`, `Standard_D8ads_V5`, `Standard_D16ads_V5`, `Standard_D32ads_V5`, `Standard_D48ads_V5`, `Standard_D64ads_V5`, `Standard_D96ads_V5`, `Standard_E2ads_V5`, `Standard_E4ads_V5`, `Standard_E8ads_V5`, `Standard_E16ads_V5`, `Standard_E20ads_V5`, `Standard_E32ads_V5`, `Standard_E48ads_V5`, `Standard_E64ads_V5`, `Standard_E96ads_V5`, `Standard_G1`, `Standard_G2`, `Standard_G3`, `Standard_G4`, `Standard_G5`, `Standard_F2s_V2`, `Standard_F4s_V2`, `Standard_F8s_V2`, `Standard_F16s_V2`, `Standard_F32s_V2`, `Standard_F64s_V2`, `Standard_F72s_V2`, `Standard_GS1`, `Standard_GS2`, `Standard_GS3`, `Standard_GS4`, `Standard_GS5` and `Standard_NC24`. Changing this forces a new resource to be created.
 //
-// > **NOTE:** High memory instances must be specified for the Head Node (Azure suggests a `Standard_D13_V2`).
+// > **Note:** High memory instances must be specified for the Head Node (Azure suggests a `Standard_D13_V2`).
 func (o InteractiveQueryClusterRolesHeadNodeOutput) VmSize() pulumi.StringOutput {
 	return o.ApplyT(func(v InteractiveQueryClusterRolesHeadNode) string { return v.VmSize }).(pulumi.StringOutput)
 }
@@ -12517,7 +12517,7 @@ func (o InteractiveQueryClusterRolesHeadNodePtrOutput) Elem() InteractiveQueryCl
 
 // The Password associated with the local administrator for the Head Nodes. Changing this forces a new resource to be created.
 //
-// > **NOTE:** If specified, this password must be at least 10 characters in length and must contain at least one digit, one uppercase and one lower case letter, one non-alphanumeric character (except characters ' " ` \).
+// > **Note:** If specified, this password must be at least 10 characters in length and must contain at least one digit, one uppercase and one lower case letter, one non-alphanumeric character (except characters ' " ` \).
 func (o InteractiveQueryClusterRolesHeadNodePtrOutput) Password() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *InteractiveQueryClusterRolesHeadNode) *string {
 		if v == nil {
@@ -12539,7 +12539,7 @@ func (o InteractiveQueryClusterRolesHeadNodePtrOutput) ScriptActions() Interacti
 
 // A list of SSH Keys which should be used for the local administrator on the Head Nodes. Changing this forces a new resource to be created.
 //
-// > **NOTE:** Either a `password` or one or more `sshKeys` must be specified - but not both.
+// > **Note:** Either a `password` or one or more `sshKeys` must be specified - but not both.
 func (o InteractiveQueryClusterRolesHeadNodePtrOutput) SshKeys() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *InteractiveQueryClusterRolesHeadNode) []string {
 		if v == nil {
@@ -12581,7 +12581,7 @@ func (o InteractiveQueryClusterRolesHeadNodePtrOutput) VirtualNetworkId() pulumi
 
 // The Size of the Virtual Machine which should be used as the Head Nodes. Possible values are `ExtraSmall`, `Small`, `Medium`, `Large`, `ExtraLarge`, `A5`, `A6`, `A7`, `A8`, `A9`, `A10`, `A11`, `Standard_A1_V2`, `Standard_A2_V2`, `Standard_A2m_V2`, `Standard_A3`, `Standard_A4_V2`, `Standard_A4m_V2`, `Standard_A8_V2`, `Standard_A8m_V2`, `Standard_D1`, `Standard_D2`, `Standard_D3`, `Standard_D4`, `Standard_D11`, `Standard_D12`, `Standard_D13`, `Standard_D14`, `Standard_D1_V2`, `Standard_D2_V2`, `Standard_D3_V2`, `Standard_D4_V2`, `Standard_D5_V2`, `Standard_D11_V2`, `Standard_D12_V2`, `Standard_D13_V2`, `Standard_D14_V2`, `Standard_DS1_V2`, `Standard_DS2_V2`, `Standard_DS3_V2`, `Standard_DS4_V2`, `Standard_DS5_V2`, `Standard_DS11_V2`, `Standard_DS12_V2`, `Standard_DS13_V2`, `Standard_DS14_V2`, `Standard_E2_V3`, `Standard_E4_V3`, `Standard_E8_V3`, `Standard_E16_V3`, `Standard_E20_V3`, `Standard_E32_V3`, `Standard_E64_V3`, `Standard_E64i_V3`, `Standard_E2s_V3`, `Standard_E4s_V3`, `Standard_E8s_V3`, `Standard_E16s_V3`, `Standard_E20s_V3`, `Standard_E32s_V3`, `Standard_E64s_V3`, `Standard_E64is_V3`, `Standard_D2a_V4`, `Standard_D4a_V4`, `Standard_D8a_V4`, `Standard_D16a_V4`, `Standard_D32a_V4`, `Standard_D48a_V4`, `Standard_D64a_V4`, `Standard_D96a_V4`, `Standard_E2a_V4`, `Standard_E4a_V4`, `Standard_E8a_V4`, `Standard_E16a_V4`, `Standard_E20a_V4`, `Standard_E32a_V4`, `Standard_E48a_V4`, `Standard_E64a_V4`, `Standard_E96a_V4`, `Standard_D2ads_V5`, `Standard_D4ads_V5`, `Standard_D8ads_V5`, `Standard_D16ads_V5`, `Standard_D32ads_V5`, `Standard_D48ads_V5`, `Standard_D64ads_V5`, `Standard_D96ads_V5`, `Standard_E2ads_V5`, `Standard_E4ads_V5`, `Standard_E8ads_V5`, `Standard_E16ads_V5`, `Standard_E20ads_V5`, `Standard_E32ads_V5`, `Standard_E48ads_V5`, `Standard_E64ads_V5`, `Standard_E96ads_V5`, `Standard_G1`, `Standard_G2`, `Standard_G3`, `Standard_G4`, `Standard_G5`, `Standard_F2s_V2`, `Standard_F4s_V2`, `Standard_F8s_V2`, `Standard_F16s_V2`, `Standard_F32s_V2`, `Standard_F64s_V2`, `Standard_F72s_V2`, `Standard_GS1`, `Standard_GS2`, `Standard_GS3`, `Standard_GS4`, `Standard_GS5` and `Standard_NC24`. Changing this forces a new resource to be created.
 //
-// > **NOTE:** High memory instances must be specified for the Head Node (Azure suggests a `Standard_D13_V2`).
+// > **Note:** High memory instances must be specified for the Head Node (Azure suggests a `Standard_D13_V2`).
 func (o InteractiveQueryClusterRolesHeadNodePtrOutput) VmSize() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *InteractiveQueryClusterRolesHeadNode) *string {
 		if v == nil {
@@ -12711,13 +12711,13 @@ type InteractiveQueryClusterRolesWorkerNode struct {
 	Autoscale *InteractiveQueryClusterRolesWorkerNodeAutoscale `pulumi:"autoscale"`
 	// The Password associated with the local administrator for the Worker Nodes. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** If specified, this password must be at least 10 characters in length and must contain at least one digit, one uppercase and one lower case letter, one non-alphanumeric character (except characters ' " ` \).
+	// > **Note:** If specified, this password must be at least 10 characters in length and must contain at least one digit, one uppercase and one lower case letter, one non-alphanumeric character (except characters ' " ` \).
 	Password *string `pulumi:"password"`
 	// The script action which will run on the cluster. One or more `scriptActions` blocks as defined above.
 	ScriptActions []InteractiveQueryClusterRolesWorkerNodeScriptAction `pulumi:"scriptActions"`
 	// A list of SSH Keys which should be used for the local administrator on the Worker Nodes. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** Either a `password` or one or more `sshKeys` must be specified - but not both.
+	// > **Note:** Either a `password` or one or more `sshKeys` must be specified - but not both.
 	SshKeys []string `pulumi:"sshKeys"`
 	// The ID of the Subnet within the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.
 	SubnetId *string `pulumi:"subnetId"`
@@ -12729,7 +12729,7 @@ type InteractiveQueryClusterRolesWorkerNode struct {
 	VirtualNetworkId *string `pulumi:"virtualNetworkId"`
 	// The Size of the Virtual Machine which should be used as the Worker Nodes. Possible values are `ExtraSmall`, `Small`, `Medium`, `Large`, `ExtraLarge`, `A5`, `A6`, `A7`, `A8`, `A9`, `A10`, `A11`, `Standard_A1_V2`, `Standard_A2_V2`, `Standard_A2m_V2`, `Standard_A3`, `Standard_A4_V2`, `Standard_A4m_V2`, `Standard_A8_V2`, `Standard_A8m_V2`, `Standard_D1`, `Standard_D2`, `Standard_D3`, `Standard_D4`, `Standard_D11`, `Standard_D12`, `Standard_D13`, `Standard_D14`, `Standard_D1_V2`, `Standard_D2_V2`, `Standard_D3_V2`, `Standard_D4_V2`, `Standard_D5_V2`, `Standard_D11_V2`, `Standard_D12_V2`, `Standard_D13_V2`, `Standard_D14_V2`, `Standard_DS1_V2`, `Standard_DS2_V2`, `Standard_DS3_V2`, `Standard_DS4_V2`, `Standard_DS5_V2`, `Standard_DS11_V2`, `Standard_DS12_V2`, `Standard_DS13_V2`, `Standard_DS14_V2`, `Standard_E2_V3`, `Standard_E4_V3`, `Standard_E8_V3`, `Standard_E16_V3`, `Standard_E20_V3`, `Standard_E32_V3`, `Standard_E64_V3`, `Standard_E64i_V3`, `Standard_E2s_V3`, `Standard_E4s_V3`, `Standard_E8s_V3`, `Standard_E16s_V3`, `Standard_E20s_V3`, `Standard_E32s_V3`, `Standard_E64s_V3`, `Standard_E64is_V3`, `Standard_D2a_V4`, `Standard_D4a_V4`, `Standard_D8a_V4`, `Standard_D16a_V4`, `Standard_D32a_V4`, `Standard_D48a_V4`, `Standard_D64a_V4`, `Standard_D96a_V4`, `Standard_E2a_V4`, `Standard_E4a_V4`, `Standard_E8a_V4`, `Standard_E16a_V4`, `Standard_E20a_V4`, `Standard_E32a_V4`, `Standard_E48a_V4`, `Standard_E64a_V4`, `Standard_E96a_V4`, `Standard_D2ads_V5`, `Standard_D4ads_V5`, `Standard_D8ads_V5`, `Standard_D16ads_V5`, `Standard_D32ads_V5`, `Standard_D48ads_V5`, `Standard_D64ads_V5`, `Standard_D96ads_V5`, `Standard_E2ads_V5`, `Standard_E4ads_V5`, `Standard_E8ads_V5`, `Standard_E16ads_V5`, `Standard_E20ads_V5`, `Standard_E32ads_V5`, `Standard_E48ads_V5`, `Standard_E64ads_V5`, `Standard_E96ads_V5`, `Standard_G1`, `Standard_G2`, `Standard_G3`, `Standard_G4`, `Standard_G5`, `Standard_F2s_V2`, `Standard_F4s_V2`, `Standard_F8s_V2`, `Standard_F16s_V2`, `Standard_F32s_V2`, `Standard_F64s_V2`, `Standard_F72s_V2`, `Standard_GS1`, `Standard_GS2`, `Standard_GS3`, `Standard_GS4`, `Standard_GS5` and `Standard_NC24`. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** High memory instances must be specified for the Head Node (Azure suggests a `Standard_D14_V2`).
+	// > **Note:** High memory instances must be specified for the Head Node (Azure suggests a `Standard_D14_V2`).
 	VmSize string `pulumi:"vmSize"`
 }
 
@@ -12749,13 +12749,13 @@ type InteractiveQueryClusterRolesWorkerNodeArgs struct {
 	Autoscale InteractiveQueryClusterRolesWorkerNodeAutoscalePtrInput `pulumi:"autoscale"`
 	// The Password associated with the local administrator for the Worker Nodes. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** If specified, this password must be at least 10 characters in length and must contain at least one digit, one uppercase and one lower case letter, one non-alphanumeric character (except characters ' " ` \).
+	// > **Note:** If specified, this password must be at least 10 characters in length and must contain at least one digit, one uppercase and one lower case letter, one non-alphanumeric character (except characters ' " ` \).
 	Password pulumi.StringPtrInput `pulumi:"password"`
 	// The script action which will run on the cluster. One or more `scriptActions` blocks as defined above.
 	ScriptActions InteractiveQueryClusterRolesWorkerNodeScriptActionArrayInput `pulumi:"scriptActions"`
 	// A list of SSH Keys which should be used for the local administrator on the Worker Nodes. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** Either a `password` or one or more `sshKeys` must be specified - but not both.
+	// > **Note:** Either a `password` or one or more `sshKeys` must be specified - but not both.
 	SshKeys pulumi.StringArrayInput `pulumi:"sshKeys"`
 	// The ID of the Subnet within the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.
 	SubnetId pulumi.StringPtrInput `pulumi:"subnetId"`
@@ -12767,7 +12767,7 @@ type InteractiveQueryClusterRolesWorkerNodeArgs struct {
 	VirtualNetworkId pulumi.StringPtrInput `pulumi:"virtualNetworkId"`
 	// The Size of the Virtual Machine which should be used as the Worker Nodes. Possible values are `ExtraSmall`, `Small`, `Medium`, `Large`, `ExtraLarge`, `A5`, `A6`, `A7`, `A8`, `A9`, `A10`, `A11`, `Standard_A1_V2`, `Standard_A2_V2`, `Standard_A2m_V2`, `Standard_A3`, `Standard_A4_V2`, `Standard_A4m_V2`, `Standard_A8_V2`, `Standard_A8m_V2`, `Standard_D1`, `Standard_D2`, `Standard_D3`, `Standard_D4`, `Standard_D11`, `Standard_D12`, `Standard_D13`, `Standard_D14`, `Standard_D1_V2`, `Standard_D2_V2`, `Standard_D3_V2`, `Standard_D4_V2`, `Standard_D5_V2`, `Standard_D11_V2`, `Standard_D12_V2`, `Standard_D13_V2`, `Standard_D14_V2`, `Standard_DS1_V2`, `Standard_DS2_V2`, `Standard_DS3_V2`, `Standard_DS4_V2`, `Standard_DS5_V2`, `Standard_DS11_V2`, `Standard_DS12_V2`, `Standard_DS13_V2`, `Standard_DS14_V2`, `Standard_E2_V3`, `Standard_E4_V3`, `Standard_E8_V3`, `Standard_E16_V3`, `Standard_E20_V3`, `Standard_E32_V3`, `Standard_E64_V3`, `Standard_E64i_V3`, `Standard_E2s_V3`, `Standard_E4s_V3`, `Standard_E8s_V3`, `Standard_E16s_V3`, `Standard_E20s_V3`, `Standard_E32s_V3`, `Standard_E64s_V3`, `Standard_E64is_V3`, `Standard_D2a_V4`, `Standard_D4a_V4`, `Standard_D8a_V4`, `Standard_D16a_V4`, `Standard_D32a_V4`, `Standard_D48a_V4`, `Standard_D64a_V4`, `Standard_D96a_V4`, `Standard_E2a_V4`, `Standard_E4a_V4`, `Standard_E8a_V4`, `Standard_E16a_V4`, `Standard_E20a_V4`, `Standard_E32a_V4`, `Standard_E48a_V4`, `Standard_E64a_V4`, `Standard_E96a_V4`, `Standard_D2ads_V5`, `Standard_D4ads_V5`, `Standard_D8ads_V5`, `Standard_D16ads_V5`, `Standard_D32ads_V5`, `Standard_D48ads_V5`, `Standard_D64ads_V5`, `Standard_D96ads_V5`, `Standard_E2ads_V5`, `Standard_E4ads_V5`, `Standard_E8ads_V5`, `Standard_E16ads_V5`, `Standard_E20ads_V5`, `Standard_E32ads_V5`, `Standard_E48ads_V5`, `Standard_E64ads_V5`, `Standard_E96ads_V5`, `Standard_G1`, `Standard_G2`, `Standard_G3`, `Standard_G4`, `Standard_G5`, `Standard_F2s_V2`, `Standard_F4s_V2`, `Standard_F8s_V2`, `Standard_F16s_V2`, `Standard_F32s_V2`, `Standard_F64s_V2`, `Standard_F72s_V2`, `Standard_GS1`, `Standard_GS2`, `Standard_GS3`, `Standard_GS4`, `Standard_GS5` and `Standard_NC24`. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** High memory instances must be specified for the Head Node (Azure suggests a `Standard_D14_V2`).
+	// > **Note:** High memory instances must be specified for the Head Node (Azure suggests a `Standard_D14_V2`).
 	VmSize pulumi.StringInput `pulumi:"vmSize"`
 }
 
@@ -12857,7 +12857,7 @@ func (o InteractiveQueryClusterRolesWorkerNodeOutput) Autoscale() InteractiveQue
 
 // The Password associated with the local administrator for the Worker Nodes. Changing this forces a new resource to be created.
 //
-// > **NOTE:** If specified, this password must be at least 10 characters in length and must contain at least one digit, one uppercase and one lower case letter, one non-alphanumeric character (except characters ' " ` \).
+// > **Note:** If specified, this password must be at least 10 characters in length and must contain at least one digit, one uppercase and one lower case letter, one non-alphanumeric character (except characters ' " ` \).
 func (o InteractiveQueryClusterRolesWorkerNodeOutput) Password() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InteractiveQueryClusterRolesWorkerNode) *string { return v.Password }).(pulumi.StringPtrOutput)
 }
@@ -12871,7 +12871,7 @@ func (o InteractiveQueryClusterRolesWorkerNodeOutput) ScriptActions() Interactiv
 
 // A list of SSH Keys which should be used for the local administrator on the Worker Nodes. Changing this forces a new resource to be created.
 //
-// > **NOTE:** Either a `password` or one or more `sshKeys` must be specified - but not both.
+// > **Note:** Either a `password` or one or more `sshKeys` must be specified - but not both.
 func (o InteractiveQueryClusterRolesWorkerNodeOutput) SshKeys() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v InteractiveQueryClusterRolesWorkerNode) []string { return v.SshKeys }).(pulumi.StringArrayOutput)
 }
@@ -12898,7 +12898,7 @@ func (o InteractiveQueryClusterRolesWorkerNodeOutput) VirtualNetworkId() pulumi.
 
 // The Size of the Virtual Machine which should be used as the Worker Nodes. Possible values are `ExtraSmall`, `Small`, `Medium`, `Large`, `ExtraLarge`, `A5`, `A6`, `A7`, `A8`, `A9`, `A10`, `A11`, `Standard_A1_V2`, `Standard_A2_V2`, `Standard_A2m_V2`, `Standard_A3`, `Standard_A4_V2`, `Standard_A4m_V2`, `Standard_A8_V2`, `Standard_A8m_V2`, `Standard_D1`, `Standard_D2`, `Standard_D3`, `Standard_D4`, `Standard_D11`, `Standard_D12`, `Standard_D13`, `Standard_D14`, `Standard_D1_V2`, `Standard_D2_V2`, `Standard_D3_V2`, `Standard_D4_V2`, `Standard_D5_V2`, `Standard_D11_V2`, `Standard_D12_V2`, `Standard_D13_V2`, `Standard_D14_V2`, `Standard_DS1_V2`, `Standard_DS2_V2`, `Standard_DS3_V2`, `Standard_DS4_V2`, `Standard_DS5_V2`, `Standard_DS11_V2`, `Standard_DS12_V2`, `Standard_DS13_V2`, `Standard_DS14_V2`, `Standard_E2_V3`, `Standard_E4_V3`, `Standard_E8_V3`, `Standard_E16_V3`, `Standard_E20_V3`, `Standard_E32_V3`, `Standard_E64_V3`, `Standard_E64i_V3`, `Standard_E2s_V3`, `Standard_E4s_V3`, `Standard_E8s_V3`, `Standard_E16s_V3`, `Standard_E20s_V3`, `Standard_E32s_V3`, `Standard_E64s_V3`, `Standard_E64is_V3`, `Standard_D2a_V4`, `Standard_D4a_V4`, `Standard_D8a_V4`, `Standard_D16a_V4`, `Standard_D32a_V4`, `Standard_D48a_V4`, `Standard_D64a_V4`, `Standard_D96a_V4`, `Standard_E2a_V4`, `Standard_E4a_V4`, `Standard_E8a_V4`, `Standard_E16a_V4`, `Standard_E20a_V4`, `Standard_E32a_V4`, `Standard_E48a_V4`, `Standard_E64a_V4`, `Standard_E96a_V4`, `Standard_D2ads_V5`, `Standard_D4ads_V5`, `Standard_D8ads_V5`, `Standard_D16ads_V5`, `Standard_D32ads_V5`, `Standard_D48ads_V5`, `Standard_D64ads_V5`, `Standard_D96ads_V5`, `Standard_E2ads_V5`, `Standard_E4ads_V5`, `Standard_E8ads_V5`, `Standard_E16ads_V5`, `Standard_E20ads_V5`, `Standard_E32ads_V5`, `Standard_E48ads_V5`, `Standard_E64ads_V5`, `Standard_E96ads_V5`, `Standard_G1`, `Standard_G2`, `Standard_G3`, `Standard_G4`, `Standard_G5`, `Standard_F2s_V2`, `Standard_F4s_V2`, `Standard_F8s_V2`, `Standard_F16s_V2`, `Standard_F32s_V2`, `Standard_F64s_V2`, `Standard_F72s_V2`, `Standard_GS1`, `Standard_GS2`, `Standard_GS3`, `Standard_GS4`, `Standard_GS5` and `Standard_NC24`. Changing this forces a new resource to be created.
 //
-// > **NOTE:** High memory instances must be specified for the Head Node (Azure suggests a `Standard_D14_V2`).
+// > **Note:** High memory instances must be specified for the Head Node (Azure suggests a `Standard_D14_V2`).
 func (o InteractiveQueryClusterRolesWorkerNodeOutput) VmSize() pulumi.StringOutput {
 	return o.ApplyT(func(v InteractiveQueryClusterRolesWorkerNode) string { return v.VmSize }).(pulumi.StringOutput)
 }
@@ -12939,7 +12939,7 @@ func (o InteractiveQueryClusterRolesWorkerNodePtrOutput) Autoscale() Interactive
 
 // The Password associated with the local administrator for the Worker Nodes. Changing this forces a new resource to be created.
 //
-// > **NOTE:** If specified, this password must be at least 10 characters in length and must contain at least one digit, one uppercase and one lower case letter, one non-alphanumeric character (except characters ' " ` \).
+// > **Note:** If specified, this password must be at least 10 characters in length and must contain at least one digit, one uppercase and one lower case letter, one non-alphanumeric character (except characters ' " ` \).
 func (o InteractiveQueryClusterRolesWorkerNodePtrOutput) Password() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *InteractiveQueryClusterRolesWorkerNode) *string {
 		if v == nil {
@@ -12961,7 +12961,7 @@ func (o InteractiveQueryClusterRolesWorkerNodePtrOutput) ScriptActions() Interac
 
 // A list of SSH Keys which should be used for the local administrator on the Worker Nodes. Changing this forces a new resource to be created.
 //
-// > **NOTE:** Either a `password` or one or more `sshKeys` must be specified - but not both.
+// > **Note:** Either a `password` or one or more `sshKeys` must be specified - but not both.
 func (o InteractiveQueryClusterRolesWorkerNodePtrOutput) SshKeys() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *InteractiveQueryClusterRolesWorkerNode) []string {
 		if v == nil {
@@ -13013,7 +13013,7 @@ func (o InteractiveQueryClusterRolesWorkerNodePtrOutput) VirtualNetworkId() pulu
 
 // The Size of the Virtual Machine which should be used as the Worker Nodes. Possible values are `ExtraSmall`, `Small`, `Medium`, `Large`, `ExtraLarge`, `A5`, `A6`, `A7`, `A8`, `A9`, `A10`, `A11`, `Standard_A1_V2`, `Standard_A2_V2`, `Standard_A2m_V2`, `Standard_A3`, `Standard_A4_V2`, `Standard_A4m_V2`, `Standard_A8_V2`, `Standard_A8m_V2`, `Standard_D1`, `Standard_D2`, `Standard_D3`, `Standard_D4`, `Standard_D11`, `Standard_D12`, `Standard_D13`, `Standard_D14`, `Standard_D1_V2`, `Standard_D2_V2`, `Standard_D3_V2`, `Standard_D4_V2`, `Standard_D5_V2`, `Standard_D11_V2`, `Standard_D12_V2`, `Standard_D13_V2`, `Standard_D14_V2`, `Standard_DS1_V2`, `Standard_DS2_V2`, `Standard_DS3_V2`, `Standard_DS4_V2`, `Standard_DS5_V2`, `Standard_DS11_V2`, `Standard_DS12_V2`, `Standard_DS13_V2`, `Standard_DS14_V2`, `Standard_E2_V3`, `Standard_E4_V3`, `Standard_E8_V3`, `Standard_E16_V3`, `Standard_E20_V3`, `Standard_E32_V3`, `Standard_E64_V3`, `Standard_E64i_V3`, `Standard_E2s_V3`, `Standard_E4s_V3`, `Standard_E8s_V3`, `Standard_E16s_V3`, `Standard_E20s_V3`, `Standard_E32s_V3`, `Standard_E64s_V3`, `Standard_E64is_V3`, `Standard_D2a_V4`, `Standard_D4a_V4`, `Standard_D8a_V4`, `Standard_D16a_V4`, `Standard_D32a_V4`, `Standard_D48a_V4`, `Standard_D64a_V4`, `Standard_D96a_V4`, `Standard_E2a_V4`, `Standard_E4a_V4`, `Standard_E8a_V4`, `Standard_E16a_V4`, `Standard_E20a_V4`, `Standard_E32a_V4`, `Standard_E48a_V4`, `Standard_E64a_V4`, `Standard_E96a_V4`, `Standard_D2ads_V5`, `Standard_D4ads_V5`, `Standard_D8ads_V5`, `Standard_D16ads_V5`, `Standard_D32ads_V5`, `Standard_D48ads_V5`, `Standard_D64ads_V5`, `Standard_D96ads_V5`, `Standard_E2ads_V5`, `Standard_E4ads_V5`, `Standard_E8ads_V5`, `Standard_E16ads_V5`, `Standard_E20ads_V5`, `Standard_E32ads_V5`, `Standard_E48ads_V5`, `Standard_E64ads_V5`, `Standard_E96ads_V5`, `Standard_G1`, `Standard_G2`, `Standard_G3`, `Standard_G4`, `Standard_G5`, `Standard_F2s_V2`, `Standard_F4s_V2`, `Standard_F8s_V2`, `Standard_F16s_V2`, `Standard_F32s_V2`, `Standard_F64s_V2`, `Standard_F72s_V2`, `Standard_GS1`, `Standard_GS2`, `Standard_GS3`, `Standard_GS4`, `Standard_GS5` and `Standard_NC24`. Changing this forces a new resource to be created.
 //
-// > **NOTE:** High memory instances must be specified for the Head Node (Azure suggests a `Standard_D14_V2`).
+// > **Note:** High memory instances must be specified for the Head Node (Azure suggests a `Standard_D14_V2`).
 func (o InteractiveQueryClusterRolesWorkerNodePtrOutput) VmSize() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *InteractiveQueryClusterRolesWorkerNode) *string {
 		if v == nil {
@@ -13555,13 +13555,13 @@ func (o InteractiveQueryClusterRolesWorkerNodeScriptActionArrayOutput) Index(i p
 type InteractiveQueryClusterRolesZookeeperNode struct {
 	// The Password associated with the local administrator for the Zookeeper Nodes. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** If specified, this password must be at least 10 characters in length and must contain at least one digit, one uppercase and one lower case letter, one non-alphanumeric character (except characters ' " ` \).
+	// > **Note:** If specified, this password must be at least 10 characters in length and must contain at least one digit, one uppercase and one lower case letter, one non-alphanumeric character (except characters ' " ` \).
 	Password *string `pulumi:"password"`
 	// The script action which will run on the cluster. One or more `scriptActions` blocks as defined above.
 	ScriptActions []InteractiveQueryClusterRolesZookeeperNodeScriptAction `pulumi:"scriptActions"`
 	// A list of SSH Keys which should be used for the local administrator on the Zookeeper Nodes. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** Either a `password` or one or more `sshKeys` must be specified - but not both.
+	// > **Note:** Either a `password` or one or more `sshKeys` must be specified - but not both.
 	SshKeys []string `pulumi:"sshKeys"`
 	// The ID of the Subnet within the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.
 	SubnetId *string `pulumi:"subnetId"`
@@ -13587,13 +13587,13 @@ type InteractiveQueryClusterRolesZookeeperNodeInput interface {
 type InteractiveQueryClusterRolesZookeeperNodeArgs struct {
 	// The Password associated with the local administrator for the Zookeeper Nodes. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** If specified, this password must be at least 10 characters in length and must contain at least one digit, one uppercase and one lower case letter, one non-alphanumeric character (except characters ' " ` \).
+	// > **Note:** If specified, this password must be at least 10 characters in length and must contain at least one digit, one uppercase and one lower case letter, one non-alphanumeric character (except characters ' " ` \).
 	Password pulumi.StringPtrInput `pulumi:"password"`
 	// The script action which will run on the cluster. One or more `scriptActions` blocks as defined above.
 	ScriptActions InteractiveQueryClusterRolesZookeeperNodeScriptActionArrayInput `pulumi:"scriptActions"`
 	// A list of SSH Keys which should be used for the local administrator on the Zookeeper Nodes. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** Either a `password` or one or more `sshKeys` must be specified - but not both.
+	// > **Note:** Either a `password` or one or more `sshKeys` must be specified - but not both.
 	SshKeys pulumi.StringArrayInput `pulumi:"sshKeys"`
 	// The ID of the Subnet within the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.
 	SubnetId pulumi.StringPtrInput `pulumi:"subnetId"`
@@ -13684,7 +13684,7 @@ func (o InteractiveQueryClusterRolesZookeeperNodeOutput) ToInteractiveQueryClust
 
 // The Password associated with the local administrator for the Zookeeper Nodes. Changing this forces a new resource to be created.
 //
-// > **NOTE:** If specified, this password must be at least 10 characters in length and must contain at least one digit, one uppercase and one lower case letter, one non-alphanumeric character (except characters ' " ` \).
+// > **Note:** If specified, this password must be at least 10 characters in length and must contain at least one digit, one uppercase and one lower case letter, one non-alphanumeric character (except characters ' " ` \).
 func (o InteractiveQueryClusterRolesZookeeperNodeOutput) Password() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InteractiveQueryClusterRolesZookeeperNode) *string { return v.Password }).(pulumi.StringPtrOutput)
 }
@@ -13698,7 +13698,7 @@ func (o InteractiveQueryClusterRolesZookeeperNodeOutput) ScriptActions() Interac
 
 // A list of SSH Keys which should be used for the local administrator on the Zookeeper Nodes. Changing this forces a new resource to be created.
 //
-// > **NOTE:** Either a `password` or one or more `sshKeys` must be specified - but not both.
+// > **Note:** Either a `password` or one or more `sshKeys` must be specified - but not both.
 func (o InteractiveQueryClusterRolesZookeeperNodeOutput) SshKeys() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v InteractiveQueryClusterRolesZookeeperNode) []string { return v.SshKeys }).(pulumi.StringArrayOutput)
 }
@@ -13749,7 +13749,7 @@ func (o InteractiveQueryClusterRolesZookeeperNodePtrOutput) Elem() InteractiveQu
 
 // The Password associated with the local administrator for the Zookeeper Nodes. Changing this forces a new resource to be created.
 //
-// > **NOTE:** If specified, this password must be at least 10 characters in length and must contain at least one digit, one uppercase and one lower case letter, one non-alphanumeric character (except characters ' " ` \).
+// > **Note:** If specified, this password must be at least 10 characters in length and must contain at least one digit, one uppercase and one lower case letter, one non-alphanumeric character (except characters ' " ` \).
 func (o InteractiveQueryClusterRolesZookeeperNodePtrOutput) Password() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *InteractiveQueryClusterRolesZookeeperNode) *string {
 		if v == nil {
@@ -13771,7 +13771,7 @@ func (o InteractiveQueryClusterRolesZookeeperNodePtrOutput) ScriptActions() Inte
 
 // A list of SSH Keys which should be used for the local administrator on the Zookeeper Nodes. Changing this forces a new resource to be created.
 //
-// > **NOTE:** Either a `password` or one or more `sshKeys` must be specified - but not both.
+// > **Note:** Either a `password` or one or more `sshKeys` must be specified - but not both.
 func (o InteractiveQueryClusterRolesZookeeperNodePtrOutput) SshKeys() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *InteractiveQueryClusterRolesZookeeperNode) []string {
 		if v == nil {
@@ -14190,13 +14190,13 @@ func (o InteractiveQueryClusterSecurityProfilePtrOutput) MsiResourceId() pulumi.
 type InteractiveQueryClusterStorageAccount struct {
 	// Is this the Default Storage Account for the HDInsight Hadoop Cluster? Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** One of the `storageAccount` or `storageAccountGen2` blocks must be marked as the default.
+	// > **Note:** One of the `storageAccount` or `storageAccountGen2` blocks must be marked as the default.
 	IsDefault bool `pulumi:"isDefault"`
 	// The Access Key which should be used to connect to the Storage Account. Changing this forces a new resource to be created.
 	StorageAccountKey string `pulumi:"storageAccountKey"`
 	// The ID of the Storage Container. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** This can be obtained from the `id` of the `storage.Container` resource.
+	// > **Note:** This can be obtained from the `id` of the `storage.Container` resource.
 	StorageContainerId string `pulumi:"storageContainerId"`
 	// The ID of the Storage Account. Changing this forces a new resource to be created.
 	StorageResourceId *string `pulumi:"storageResourceId"`
@@ -14216,13 +14216,13 @@ type InteractiveQueryClusterStorageAccountInput interface {
 type InteractiveQueryClusterStorageAccountArgs struct {
 	// Is this the Default Storage Account for the HDInsight Hadoop Cluster? Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** One of the `storageAccount` or `storageAccountGen2` blocks must be marked as the default.
+	// > **Note:** One of the `storageAccount` or `storageAccountGen2` blocks must be marked as the default.
 	IsDefault pulumi.BoolInput `pulumi:"isDefault"`
 	// The Access Key which should be used to connect to the Storage Account. Changing this forces a new resource to be created.
 	StorageAccountKey pulumi.StringInput `pulumi:"storageAccountKey"`
 	// The ID of the Storage Container. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** This can be obtained from the `id` of the `storage.Container` resource.
+	// > **Note:** This can be obtained from the `id` of the `storage.Container` resource.
 	StorageContainerId pulumi.StringInput `pulumi:"storageContainerId"`
 	// The ID of the Storage Account. Changing this forces a new resource to be created.
 	StorageResourceId pulumi.StringPtrInput `pulumi:"storageResourceId"`
@@ -14281,7 +14281,7 @@ func (o InteractiveQueryClusterStorageAccountOutput) ToInteractiveQueryClusterSt
 
 // Is this the Default Storage Account for the HDInsight Hadoop Cluster? Changing this forces a new resource to be created.
 //
-// > **NOTE:** One of the `storageAccount` or `storageAccountGen2` blocks must be marked as the default.
+// > **Note:** One of the `storageAccount` or `storageAccountGen2` blocks must be marked as the default.
 func (o InteractiveQueryClusterStorageAccountOutput) IsDefault() pulumi.BoolOutput {
 	return o.ApplyT(func(v InteractiveQueryClusterStorageAccount) bool { return v.IsDefault }).(pulumi.BoolOutput)
 }
@@ -14293,7 +14293,7 @@ func (o InteractiveQueryClusterStorageAccountOutput) StorageAccountKey() pulumi.
 
 // The ID of the Storage Container. Changing this forces a new resource to be created.
 //
-// > **NOTE:** This can be obtained from the `id` of the `storage.Container` resource.
+// > **Note:** This can be obtained from the `id` of the `storage.Container` resource.
 func (o InteractiveQueryClusterStorageAccountOutput) StorageContainerId() pulumi.StringOutput {
 	return o.ApplyT(func(v InteractiveQueryClusterStorageAccount) string { return v.StorageContainerId }).(pulumi.StringOutput)
 }
@@ -14328,11 +14328,11 @@ type InteractiveQueryClusterStorageAccountGen2 struct {
 	FilesystemId string `pulumi:"filesystemId"`
 	// Is this the Default Storage Account for the HDInsight Hadoop Cluster? Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** One of the `storageAccount` or `storageAccountGen2` blocks must be marked as the default.
+	// > **Note:** One of the `storageAccount` or `storageAccountGen2` blocks must be marked as the default.
 	IsDefault bool `pulumi:"isDefault"`
 	// The ID of Managed Identity to use for accessing the Gen2 filesystem. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** This can be obtained from the `id` of the `storage.Container` resource.
+	// > **Note:** This can be obtained from the `id` of the `storage.Container` resource.
 	ManagedIdentityResourceId string `pulumi:"managedIdentityResourceId"`
 	// The ID of the Storage Account. Changing this forces a new resource to be created.
 	StorageResourceId string `pulumi:"storageResourceId"`
@@ -14354,11 +14354,11 @@ type InteractiveQueryClusterStorageAccountGen2Args struct {
 	FilesystemId pulumi.StringInput `pulumi:"filesystemId"`
 	// Is this the Default Storage Account for the HDInsight Hadoop Cluster? Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** One of the `storageAccount` or `storageAccountGen2` blocks must be marked as the default.
+	// > **Note:** One of the `storageAccount` or `storageAccountGen2` blocks must be marked as the default.
 	IsDefault pulumi.BoolInput `pulumi:"isDefault"`
 	// The ID of Managed Identity to use for accessing the Gen2 filesystem. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** This can be obtained from the `id` of the `storage.Container` resource.
+	// > **Note:** This can be obtained from the `id` of the `storage.Container` resource.
 	ManagedIdentityResourceId pulumi.StringInput `pulumi:"managedIdentityResourceId"`
 	// The ID of the Storage Account. Changing this forces a new resource to be created.
 	StorageResourceId pulumi.StringInput `pulumi:"storageResourceId"`
@@ -14448,14 +14448,14 @@ func (o InteractiveQueryClusterStorageAccountGen2Output) FilesystemId() pulumi.S
 
 // Is this the Default Storage Account for the HDInsight Hadoop Cluster? Changing this forces a new resource to be created.
 //
-// > **NOTE:** One of the `storageAccount` or `storageAccountGen2` blocks must be marked as the default.
+// > **Note:** One of the `storageAccount` or `storageAccountGen2` blocks must be marked as the default.
 func (o InteractiveQueryClusterStorageAccountGen2Output) IsDefault() pulumi.BoolOutput {
 	return o.ApplyT(func(v InteractiveQueryClusterStorageAccountGen2) bool { return v.IsDefault }).(pulumi.BoolOutput)
 }
 
 // The ID of Managed Identity to use for accessing the Gen2 filesystem. Changing this forces a new resource to be created.
 //
-// > **NOTE:** This can be obtained from the `id` of the `storage.Container` resource.
+// > **Note:** This can be obtained from the `id` of the `storage.Container` resource.
 func (o InteractiveQueryClusterStorageAccountGen2Output) ManagedIdentityResourceId() pulumi.StringOutput {
 	return o.ApplyT(func(v InteractiveQueryClusterStorageAccountGen2) string { return v.ManagedIdentityResourceId }).(pulumi.StringOutput)
 }
@@ -14501,7 +14501,7 @@ func (o InteractiveQueryClusterStorageAccountGen2PtrOutput) FilesystemId() pulum
 
 // Is this the Default Storage Account for the HDInsight Hadoop Cluster? Changing this forces a new resource to be created.
 //
-// > **NOTE:** One of the `storageAccount` or `storageAccountGen2` blocks must be marked as the default.
+// > **Note:** One of the `storageAccount` or `storageAccountGen2` blocks must be marked as the default.
 func (o InteractiveQueryClusterStorageAccountGen2PtrOutput) IsDefault() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *InteractiveQueryClusterStorageAccountGen2) *bool {
 		if v == nil {
@@ -14513,7 +14513,7 @@ func (o InteractiveQueryClusterStorageAccountGen2PtrOutput) IsDefault() pulumi.B
 
 // The ID of Managed Identity to use for accessing the Gen2 filesystem. Changing this forces a new resource to be created.
 //
-// > **NOTE:** This can be obtained from the `id` of the `storage.Container` resource.
+// > **Note:** This can be obtained from the `id` of the `storage.Container` resource.
 func (o InteractiveQueryClusterStorageAccountGen2PtrOutput) ManagedIdentityResourceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *InteractiveQueryClusterStorageAccountGen2) *string {
 		if v == nil {
@@ -15109,7 +15109,7 @@ func (o KafkaClusterExtensionPtrOutput) PrimaryKey() pulumi.StringPtrOutput {
 type KafkaClusterGateway struct {
 	// The password used for the Ambari Portal.
 	//
-	// > **NOTE:** This password must be different from the one used for the `headNode`, `workerNode` and `zookeeperNode` roles.
+	// > **Note:** This password must be different from the one used for the `headNode`, `workerNode` and `zookeeperNode` roles.
 	Password string `pulumi:"password"`
 	// The username used for the Ambari Portal. Changing this forces a new resource to be created.
 	Username string `pulumi:"username"`
@@ -15129,7 +15129,7 @@ type KafkaClusterGatewayInput interface {
 type KafkaClusterGatewayArgs struct {
 	// The password used for the Ambari Portal.
 	//
-	// > **NOTE:** This password must be different from the one used for the `headNode`, `workerNode` and `zookeeperNode` roles.
+	// > **Note:** This password must be different from the one used for the `headNode`, `workerNode` and `zookeeperNode` roles.
 	Password pulumi.StringInput `pulumi:"password"`
 	// The username used for the Ambari Portal. Changing this forces a new resource to be created.
 	Username pulumi.StringInput `pulumi:"username"`
@@ -15214,7 +15214,7 @@ func (o KafkaClusterGatewayOutput) ToKafkaClusterGatewayPtrOutputWithContext(ctx
 
 // The password used for the Ambari Portal.
 //
-// > **NOTE:** This password must be different from the one used for the `headNode`, `workerNode` and `zookeeperNode` roles.
+// > **Note:** This password must be different from the one used for the `headNode`, `workerNode` and `zookeeperNode` roles.
 func (o KafkaClusterGatewayOutput) Password() pulumi.StringOutput {
 	return o.ApplyT(func(v KafkaClusterGateway) string { return v.Password }).(pulumi.StringOutput)
 }
@@ -15250,7 +15250,7 @@ func (o KafkaClusterGatewayPtrOutput) Elem() KafkaClusterGatewayOutput {
 
 // The password used for the Ambari Portal.
 //
-// > **NOTE:** This password must be different from the one used for the `headNode`, `workerNode` and `zookeeperNode` roles.
+// > **Note:** This password must be different from the one used for the `headNode`, `workerNode` and `zookeeperNode` roles.
 func (o KafkaClusterGatewayPtrOutput) Password() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KafkaClusterGateway) *string {
 		if v == nil {
@@ -16186,7 +16186,7 @@ func (o KafkaClusterMonitorPtrOutput) PrimaryKey() pulumi.StringPtrOutput {
 type KafkaClusterNetwork struct {
 	// The direction of the resource provider connection. Possible values include `Inbound` or `Outbound`. Defaults to `Inbound`. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** To enabled the private link the `connectionDirection` must be set to `Outbound`.
+	// > **Note:** To enabled the private link the `connectionDirection` must be set to `Outbound`.
 	ConnectionDirection *string `pulumi:"connectionDirection"`
 	// Is the private link enabled? Possible values include `true` or `false`. Defaults to `false`. Changing this forces a new resource to be created.
 	PrivateLinkEnabled *bool `pulumi:"privateLinkEnabled"`
@@ -16206,7 +16206,7 @@ type KafkaClusterNetworkInput interface {
 type KafkaClusterNetworkArgs struct {
 	// The direction of the resource provider connection. Possible values include `Inbound` or `Outbound`. Defaults to `Inbound`. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** To enabled the private link the `connectionDirection` must be set to `Outbound`.
+	// > **Note:** To enabled the private link the `connectionDirection` must be set to `Outbound`.
 	ConnectionDirection pulumi.StringPtrInput `pulumi:"connectionDirection"`
 	// Is the private link enabled? Possible values include `true` or `false`. Defaults to `false`. Changing this forces a new resource to be created.
 	PrivateLinkEnabled pulumi.BoolPtrInput `pulumi:"privateLinkEnabled"`
@@ -16291,7 +16291,7 @@ func (o KafkaClusterNetworkOutput) ToKafkaClusterNetworkPtrOutputWithContext(ctx
 
 // The direction of the resource provider connection. Possible values include `Inbound` or `Outbound`. Defaults to `Inbound`. Changing this forces a new resource to be created.
 //
-// > **NOTE:** To enabled the private link the `connectionDirection` must be set to `Outbound`.
+// > **Note:** To enabled the private link the `connectionDirection` must be set to `Outbound`.
 func (o KafkaClusterNetworkOutput) ConnectionDirection() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KafkaClusterNetwork) *string { return v.ConnectionDirection }).(pulumi.StringPtrOutput)
 }
@@ -16327,7 +16327,7 @@ func (o KafkaClusterNetworkPtrOutput) Elem() KafkaClusterNetworkOutput {
 
 // The direction of the resource provider connection. Possible values include `Inbound` or `Outbound`. Defaults to `Inbound`. Changing this forces a new resource to be created.
 //
-// > **NOTE:** To enabled the private link the `connectionDirection` must be set to `Outbound`.
+// > **Note:** To enabled the private link the `connectionDirection` must be set to `Outbound`.
 func (o KafkaClusterNetworkPtrOutput) ConnectionDirection() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KafkaClusterNetwork) *string {
 		if v == nil {
@@ -17100,13 +17100,13 @@ func (o KafkaClusterRolesPtrOutput) ZookeeperNode() KafkaClusterRolesZookeeperNo
 type KafkaClusterRolesHeadNode struct {
 	// The Password associated with the local administrator for the Head Nodes. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** If specified, this password must be at least 10 characters in length and must contain at least one digit, one uppercase and one lower case letter, one non-alphanumeric character (except characters ' " ` \).
+	// > **Note:** If specified, this password must be at least 10 characters in length and must contain at least one digit, one uppercase and one lower case letter, one non-alphanumeric character (except characters ' " ` \).
 	Password *string `pulumi:"password"`
 	// The script action which will run on the cluster. One or more `scriptActions` blocks as defined below.
 	ScriptActions []KafkaClusterRolesHeadNodeScriptAction `pulumi:"scriptActions"`
 	// A list of SSH Keys which should be used for the local administrator on the Head Nodes. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** Either a `password` or one or more `sshKeys` must be specified - but not both.
+	// > **Note:** Either a `password` or one or more `sshKeys` must be specified - but not both.
 	SshKeys []string `pulumi:"sshKeys"`
 	// The ID of the Subnet within the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.
 	SubnetId *string `pulumi:"subnetId"`
@@ -17132,13 +17132,13 @@ type KafkaClusterRolesHeadNodeInput interface {
 type KafkaClusterRolesHeadNodeArgs struct {
 	// The Password associated with the local administrator for the Head Nodes. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** If specified, this password must be at least 10 characters in length and must contain at least one digit, one uppercase and one lower case letter, one non-alphanumeric character (except characters ' " ` \).
+	// > **Note:** If specified, this password must be at least 10 characters in length and must contain at least one digit, one uppercase and one lower case letter, one non-alphanumeric character (except characters ' " ` \).
 	Password pulumi.StringPtrInput `pulumi:"password"`
 	// The script action which will run on the cluster. One or more `scriptActions` blocks as defined below.
 	ScriptActions KafkaClusterRolesHeadNodeScriptActionArrayInput `pulumi:"scriptActions"`
 	// A list of SSH Keys which should be used for the local administrator on the Head Nodes. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** Either a `password` or one or more `sshKeys` must be specified - but not both.
+	// > **Note:** Either a `password` or one or more `sshKeys` must be specified - but not both.
 	SshKeys pulumi.StringArrayInput `pulumi:"sshKeys"`
 	// The ID of the Subnet within the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.
 	SubnetId pulumi.StringPtrInput `pulumi:"subnetId"`
@@ -17229,7 +17229,7 @@ func (o KafkaClusterRolesHeadNodeOutput) ToKafkaClusterRolesHeadNodePtrOutputWit
 
 // The Password associated with the local administrator for the Head Nodes. Changing this forces a new resource to be created.
 //
-// > **NOTE:** If specified, this password must be at least 10 characters in length and must contain at least one digit, one uppercase and one lower case letter, one non-alphanumeric character (except characters ' " ` \).
+// > **Note:** If specified, this password must be at least 10 characters in length and must contain at least one digit, one uppercase and one lower case letter, one non-alphanumeric character (except characters ' " ` \).
 func (o KafkaClusterRolesHeadNodeOutput) Password() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KafkaClusterRolesHeadNode) *string { return v.Password }).(pulumi.StringPtrOutput)
 }
@@ -17241,7 +17241,7 @@ func (o KafkaClusterRolesHeadNodeOutput) ScriptActions() KafkaClusterRolesHeadNo
 
 // A list of SSH Keys which should be used for the local administrator on the Head Nodes. Changing this forces a new resource to be created.
 //
-// > **NOTE:** Either a `password` or one or more `sshKeys` must be specified - but not both.
+// > **Note:** Either a `password` or one or more `sshKeys` must be specified - but not both.
 func (o KafkaClusterRolesHeadNodeOutput) SshKeys() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v KafkaClusterRolesHeadNode) []string { return v.SshKeys }).(pulumi.StringArrayOutput)
 }
@@ -17292,7 +17292,7 @@ func (o KafkaClusterRolesHeadNodePtrOutput) Elem() KafkaClusterRolesHeadNodeOutp
 
 // The Password associated with the local administrator for the Head Nodes. Changing this forces a new resource to be created.
 //
-// > **NOTE:** If specified, this password must be at least 10 characters in length and must contain at least one digit, one uppercase and one lower case letter, one non-alphanumeric character (except characters ' " ` \).
+// > **Note:** If specified, this password must be at least 10 characters in length and must contain at least one digit, one uppercase and one lower case letter, one non-alphanumeric character (except characters ' " ` \).
 func (o KafkaClusterRolesHeadNodePtrOutput) Password() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KafkaClusterRolesHeadNode) *string {
 		if v == nil {
@@ -17314,7 +17314,7 @@ func (o KafkaClusterRolesHeadNodePtrOutput) ScriptActions() KafkaClusterRolesHea
 
 // A list of SSH Keys which should be used for the local administrator on the Head Nodes. Changing this forces a new resource to be created.
 //
-// > **NOTE:** Either a `password` or one or more `sshKeys` must be specified - but not both.
+// > **Note:** Either a `password` or one or more `sshKeys` must be specified - but not both.
 func (o KafkaClusterRolesHeadNodePtrOutput) SshKeys() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *KafkaClusterRolesHeadNode) []string {
 		if v == nil {
@@ -17482,19 +17482,19 @@ func (o KafkaClusterRolesHeadNodeScriptActionArrayOutput) Index(i pulumi.IntInpu
 type KafkaClusterRolesKafkaManagementNode struct {
 	// The Password associated with the local administrator for the Kafka Management Nodes. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** If specified, this password must be at least 10 characters in length and must contain at least one digit, one uppercase and one lower case letter, one non-alphanumeric character (except characters ' " ` \).
+	// > **Note:** If specified, this password must be at least 10 characters in length and must contain at least one digit, one uppercase and one lower case letter, one non-alphanumeric character (except characters ' " ` \).
 	Password *string `pulumi:"password"`
 	// The script action which will run on the cluster. One or more `scriptActions` blocks as defined below.
 	ScriptActions []KafkaClusterRolesKafkaManagementNodeScriptAction `pulumi:"scriptActions"`
 	// A list of SSH Keys which should be used for the local administrator on the Kafka Management Nodes. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** Either a `password` or one or more `sshKeys` must be specified - but not both.
+	// > **Note:** Either a `password` or one or more `sshKeys` must be specified - but not both.
 	SshKeys []string `pulumi:"sshKeys"`
 	// The ID of the Subnet within the Virtual Network where the Kafka Management Nodes should be provisioned within. Changing this forces a new resource to be created.
 	SubnetId *string `pulumi:"subnetId"`
 	// The Username of the local administrator for the Kafka Management Nodes.
 	//
-	// > **NOTE:** The `username` value is automatically generated by the service and cannot be user specified. This property will become `Computed` only in 4.0 of the provider.
+	// > **Note:** The `username` value is automatically generated by the service and cannot be user specified. This property will become `Computed` only in 4.0 of the provider.
 	Username *string `pulumi:"username"`
 	// The ID of the Virtual Network where the Kafka Management Nodes should be provisioned within. Changing this forces a new resource to be created.
 	VirtualNetworkId *string `pulumi:"virtualNetworkId"`
@@ -17516,19 +17516,19 @@ type KafkaClusterRolesKafkaManagementNodeInput interface {
 type KafkaClusterRolesKafkaManagementNodeArgs struct {
 	// The Password associated with the local administrator for the Kafka Management Nodes. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** If specified, this password must be at least 10 characters in length and must contain at least one digit, one uppercase and one lower case letter, one non-alphanumeric character (except characters ' " ` \).
+	// > **Note:** If specified, this password must be at least 10 characters in length and must contain at least one digit, one uppercase and one lower case letter, one non-alphanumeric character (except characters ' " ` \).
 	Password pulumi.StringPtrInput `pulumi:"password"`
 	// The script action which will run on the cluster. One or more `scriptActions` blocks as defined below.
 	ScriptActions KafkaClusterRolesKafkaManagementNodeScriptActionArrayInput `pulumi:"scriptActions"`
 	// A list of SSH Keys which should be used for the local administrator on the Kafka Management Nodes. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** Either a `password` or one or more `sshKeys` must be specified - but not both.
+	// > **Note:** Either a `password` or one or more `sshKeys` must be specified - but not both.
 	SshKeys pulumi.StringArrayInput `pulumi:"sshKeys"`
 	// The ID of the Subnet within the Virtual Network where the Kafka Management Nodes should be provisioned within. Changing this forces a new resource to be created.
 	SubnetId pulumi.StringPtrInput `pulumi:"subnetId"`
 	// The Username of the local administrator for the Kafka Management Nodes.
 	//
-	// > **NOTE:** The `username` value is automatically generated by the service and cannot be user specified. This property will become `Computed` only in 4.0 of the provider.
+	// > **Note:** The `username` value is automatically generated by the service and cannot be user specified. This property will become `Computed` only in 4.0 of the provider.
 	Username pulumi.StringPtrInput `pulumi:"username"`
 	// The ID of the Virtual Network where the Kafka Management Nodes should be provisioned within. Changing this forces a new resource to be created.
 	VirtualNetworkId pulumi.StringPtrInput `pulumi:"virtualNetworkId"`
@@ -17615,7 +17615,7 @@ func (o KafkaClusterRolesKafkaManagementNodeOutput) ToKafkaClusterRolesKafkaMana
 
 // The Password associated with the local administrator for the Kafka Management Nodes. Changing this forces a new resource to be created.
 //
-// > **NOTE:** If specified, this password must be at least 10 characters in length and must contain at least one digit, one uppercase and one lower case letter, one non-alphanumeric character (except characters ' " ` \).
+// > **Note:** If specified, this password must be at least 10 characters in length and must contain at least one digit, one uppercase and one lower case letter, one non-alphanumeric character (except characters ' " ` \).
 func (o KafkaClusterRolesKafkaManagementNodeOutput) Password() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KafkaClusterRolesKafkaManagementNode) *string { return v.Password }).(pulumi.StringPtrOutput)
 }
@@ -17629,7 +17629,7 @@ func (o KafkaClusterRolesKafkaManagementNodeOutput) ScriptActions() KafkaCluster
 
 // A list of SSH Keys which should be used for the local administrator on the Kafka Management Nodes. Changing this forces a new resource to be created.
 //
-// > **NOTE:** Either a `password` or one or more `sshKeys` must be specified - but not both.
+// > **Note:** Either a `password` or one or more `sshKeys` must be specified - but not both.
 func (o KafkaClusterRolesKafkaManagementNodeOutput) SshKeys() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v KafkaClusterRolesKafkaManagementNode) []string { return v.SshKeys }).(pulumi.StringArrayOutput)
 }
@@ -17641,7 +17641,7 @@ func (o KafkaClusterRolesKafkaManagementNodeOutput) SubnetId() pulumi.StringPtrO
 
 // The Username of the local administrator for the Kafka Management Nodes.
 //
-// > **NOTE:** The `username` value is automatically generated by the service and cannot be user specified. This property will become `Computed` only in 4.0 of the provider.
+// > **Note:** The `username` value is automatically generated by the service and cannot be user specified. This property will become `Computed` only in 4.0 of the provider.
 func (o KafkaClusterRolesKafkaManagementNodeOutput) Username() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KafkaClusterRolesKafkaManagementNode) *string { return v.Username }).(pulumi.StringPtrOutput)
 }
@@ -17682,7 +17682,7 @@ func (o KafkaClusterRolesKafkaManagementNodePtrOutput) Elem() KafkaClusterRolesK
 
 // The Password associated with the local administrator for the Kafka Management Nodes. Changing this forces a new resource to be created.
 //
-// > **NOTE:** If specified, this password must be at least 10 characters in length and must contain at least one digit, one uppercase and one lower case letter, one non-alphanumeric character (except characters ' " ` \).
+// > **Note:** If specified, this password must be at least 10 characters in length and must contain at least one digit, one uppercase and one lower case letter, one non-alphanumeric character (except characters ' " ` \).
 func (o KafkaClusterRolesKafkaManagementNodePtrOutput) Password() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KafkaClusterRolesKafkaManagementNode) *string {
 		if v == nil {
@@ -17704,7 +17704,7 @@ func (o KafkaClusterRolesKafkaManagementNodePtrOutput) ScriptActions() KafkaClus
 
 // A list of SSH Keys which should be used for the local administrator on the Kafka Management Nodes. Changing this forces a new resource to be created.
 //
-// > **NOTE:** Either a `password` or one or more `sshKeys` must be specified - but not both.
+// > **Note:** Either a `password` or one or more `sshKeys` must be specified - but not both.
 func (o KafkaClusterRolesKafkaManagementNodePtrOutput) SshKeys() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *KafkaClusterRolesKafkaManagementNode) []string {
 		if v == nil {
@@ -17726,7 +17726,7 @@ func (o KafkaClusterRolesKafkaManagementNodePtrOutput) SubnetId() pulumi.StringP
 
 // The Username of the local administrator for the Kafka Management Nodes.
 //
-// > **NOTE:** The `username` value is automatically generated by the service and cannot be user specified. This property will become `Computed` only in 4.0 of the provider.
+// > **Note:** The `username` value is automatically generated by the service and cannot be user specified. This property will become `Computed` only in 4.0 of the provider.
 func (o KafkaClusterRolesKafkaManagementNodePtrOutput) Username() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KafkaClusterRolesKafkaManagementNode) *string {
 		if v == nil {
@@ -17876,13 +17876,13 @@ type KafkaClusterRolesWorkerNode struct {
 	NumberOfDisksPerNode int `pulumi:"numberOfDisksPerNode"`
 	// The Password associated with the local administrator for the Worker Nodes. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** If specified, this password must be at least 10 characters in length and must contain at least one digit, one uppercase and one lower case letter, one non-alphanumeric character (except characters ' " ` \).
+	// > **Note:** If specified, this password must be at least 10 characters in length and must contain at least one digit, one uppercase and one lower case letter, one non-alphanumeric character (except characters ' " ` \).
 	Password *string `pulumi:"password"`
 	// The script action which will run on the cluster. One or more `scriptActions` blocks as defined below.
 	ScriptActions []KafkaClusterRolesWorkerNodeScriptAction `pulumi:"scriptActions"`
 	// A list of SSH Keys which should be used for the local administrator on the Worker Nodes. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** Either a `password` or one or more `sshKeys` must be specified - but not both.
+	// > **Note:** Either a `password` or one or more `sshKeys` must be specified - but not both.
 	SshKeys []string `pulumi:"sshKeys"`
 	// The ID of the Subnet within the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.
 	SubnetId *string `pulumi:"subnetId"`
@@ -17912,13 +17912,13 @@ type KafkaClusterRolesWorkerNodeArgs struct {
 	NumberOfDisksPerNode pulumi.IntInput `pulumi:"numberOfDisksPerNode"`
 	// The Password associated with the local administrator for the Worker Nodes. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** If specified, this password must be at least 10 characters in length and must contain at least one digit, one uppercase and one lower case letter, one non-alphanumeric character (except characters ' " ` \).
+	// > **Note:** If specified, this password must be at least 10 characters in length and must contain at least one digit, one uppercase and one lower case letter, one non-alphanumeric character (except characters ' " ` \).
 	Password pulumi.StringPtrInput `pulumi:"password"`
 	// The script action which will run on the cluster. One or more `scriptActions` blocks as defined below.
 	ScriptActions KafkaClusterRolesWorkerNodeScriptActionArrayInput `pulumi:"scriptActions"`
 	// A list of SSH Keys which should be used for the local administrator on the Worker Nodes. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** Either a `password` or one or more `sshKeys` must be specified - but not both.
+	// > **Note:** Either a `password` or one or more `sshKeys` must be specified - but not both.
 	SshKeys pulumi.StringArrayInput `pulumi:"sshKeys"`
 	// The ID of the Subnet within the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.
 	SubnetId pulumi.StringPtrInput `pulumi:"subnetId"`
@@ -18016,7 +18016,7 @@ func (o KafkaClusterRolesWorkerNodeOutput) NumberOfDisksPerNode() pulumi.IntOutp
 
 // The Password associated with the local administrator for the Worker Nodes. Changing this forces a new resource to be created.
 //
-// > **NOTE:** If specified, this password must be at least 10 characters in length and must contain at least one digit, one uppercase and one lower case letter, one non-alphanumeric character (except characters ' " ` \).
+// > **Note:** If specified, this password must be at least 10 characters in length and must contain at least one digit, one uppercase and one lower case letter, one non-alphanumeric character (except characters ' " ` \).
 func (o KafkaClusterRolesWorkerNodeOutput) Password() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KafkaClusterRolesWorkerNode) *string { return v.Password }).(pulumi.StringPtrOutput)
 }
@@ -18028,7 +18028,7 @@ func (o KafkaClusterRolesWorkerNodeOutput) ScriptActions() KafkaClusterRolesWork
 
 // A list of SSH Keys which should be used for the local administrator on the Worker Nodes. Changing this forces a new resource to be created.
 //
-// > **NOTE:** Either a `password` or one or more `sshKeys` must be specified - but not both.
+// > **Note:** Either a `password` or one or more `sshKeys` must be specified - but not both.
 func (o KafkaClusterRolesWorkerNodeOutput) SshKeys() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v KafkaClusterRolesWorkerNode) []string { return v.SshKeys }).(pulumi.StringArrayOutput)
 }
@@ -18094,7 +18094,7 @@ func (o KafkaClusterRolesWorkerNodePtrOutput) NumberOfDisksPerNode() pulumi.IntP
 
 // The Password associated with the local administrator for the Worker Nodes. Changing this forces a new resource to be created.
 //
-// > **NOTE:** If specified, this password must be at least 10 characters in length and must contain at least one digit, one uppercase and one lower case letter, one non-alphanumeric character (except characters ' " ` \).
+// > **Note:** If specified, this password must be at least 10 characters in length and must contain at least one digit, one uppercase and one lower case letter, one non-alphanumeric character (except characters ' " ` \).
 func (o KafkaClusterRolesWorkerNodePtrOutput) Password() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KafkaClusterRolesWorkerNode) *string {
 		if v == nil {
@@ -18116,7 +18116,7 @@ func (o KafkaClusterRolesWorkerNodePtrOutput) ScriptActions() KafkaClusterRolesW
 
 // A list of SSH Keys which should be used for the local administrator on the Worker Nodes. Changing this forces a new resource to be created.
 //
-// > **NOTE:** Either a `password` or one or more `sshKeys` must be specified - but not both.
+// > **Note:** Either a `password` or one or more `sshKeys` must be specified - but not both.
 func (o KafkaClusterRolesWorkerNodePtrOutput) SshKeys() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *KafkaClusterRolesWorkerNode) []string {
 		if v == nil {
@@ -18294,13 +18294,13 @@ func (o KafkaClusterRolesWorkerNodeScriptActionArrayOutput) Index(i pulumi.IntIn
 type KafkaClusterRolesZookeeperNode struct {
 	// The Password associated with the local administrator for the Zookeeper Nodes. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** If specified, this password must be at least 10 characters in length and must contain at least one digit, one uppercase and one lower case letter, one non-alphanumeric character (except characters ' " ` \).
+	// > **Note:** If specified, this password must be at least 10 characters in length and must contain at least one digit, one uppercase and one lower case letter, one non-alphanumeric character (except characters ' " ` \).
 	Password *string `pulumi:"password"`
 	// The script action which will run on the cluster. One or more `scriptActions` blocks as defined below.
 	ScriptActions []KafkaClusterRolesZookeeperNodeScriptAction `pulumi:"scriptActions"`
 	// A list of SSH Keys which should be used for the local administrator on the Zookeeper Nodes. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** Either a `password` or one or more `sshKeys` must be specified - but not both.
+	// > **Note:** Either a `password` or one or more `sshKeys` must be specified - but not both.
 	SshKeys []string `pulumi:"sshKeys"`
 	// The ID of the Subnet within the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.
 	SubnetId *string `pulumi:"subnetId"`
@@ -18326,13 +18326,13 @@ type KafkaClusterRolesZookeeperNodeInput interface {
 type KafkaClusterRolesZookeeperNodeArgs struct {
 	// The Password associated with the local administrator for the Zookeeper Nodes. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** If specified, this password must be at least 10 characters in length and must contain at least one digit, one uppercase and one lower case letter, one non-alphanumeric character (except characters ' " ` \).
+	// > **Note:** If specified, this password must be at least 10 characters in length and must contain at least one digit, one uppercase and one lower case letter, one non-alphanumeric character (except characters ' " ` \).
 	Password pulumi.StringPtrInput `pulumi:"password"`
 	// The script action which will run on the cluster. One or more `scriptActions` blocks as defined below.
 	ScriptActions KafkaClusterRolesZookeeperNodeScriptActionArrayInput `pulumi:"scriptActions"`
 	// A list of SSH Keys which should be used for the local administrator on the Zookeeper Nodes. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** Either a `password` or one or more `sshKeys` must be specified - but not both.
+	// > **Note:** Either a `password` or one or more `sshKeys` must be specified - but not both.
 	SshKeys pulumi.StringArrayInput `pulumi:"sshKeys"`
 	// The ID of the Subnet within the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.
 	SubnetId pulumi.StringPtrInput `pulumi:"subnetId"`
@@ -18423,7 +18423,7 @@ func (o KafkaClusterRolesZookeeperNodeOutput) ToKafkaClusterRolesZookeeperNodePt
 
 // The Password associated with the local administrator for the Zookeeper Nodes. Changing this forces a new resource to be created.
 //
-// > **NOTE:** If specified, this password must be at least 10 characters in length and must contain at least one digit, one uppercase and one lower case letter, one non-alphanumeric character (except characters ' " ` \).
+// > **Note:** If specified, this password must be at least 10 characters in length and must contain at least one digit, one uppercase and one lower case letter, one non-alphanumeric character (except characters ' " ` \).
 func (o KafkaClusterRolesZookeeperNodeOutput) Password() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KafkaClusterRolesZookeeperNode) *string { return v.Password }).(pulumi.StringPtrOutput)
 }
@@ -18437,7 +18437,7 @@ func (o KafkaClusterRolesZookeeperNodeOutput) ScriptActions() KafkaClusterRolesZ
 
 // A list of SSH Keys which should be used for the local administrator on the Zookeeper Nodes. Changing this forces a new resource to be created.
 //
-// > **NOTE:** Either a `password` or one or more `sshKeys` must be specified - but not both.
+// > **Note:** Either a `password` or one or more `sshKeys` must be specified - but not both.
 func (o KafkaClusterRolesZookeeperNodeOutput) SshKeys() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v KafkaClusterRolesZookeeperNode) []string { return v.SshKeys }).(pulumi.StringArrayOutput)
 }
@@ -18488,7 +18488,7 @@ func (o KafkaClusterRolesZookeeperNodePtrOutput) Elem() KafkaClusterRolesZookeep
 
 // The Password associated with the local administrator for the Zookeeper Nodes. Changing this forces a new resource to be created.
 //
-// > **NOTE:** If specified, this password must be at least 10 characters in length and must contain at least one digit, one uppercase and one lower case letter, one non-alphanumeric character (except characters ' " ` \).
+// > **Note:** If specified, this password must be at least 10 characters in length and must contain at least one digit, one uppercase and one lower case letter, one non-alphanumeric character (except characters ' " ` \).
 func (o KafkaClusterRolesZookeeperNodePtrOutput) Password() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KafkaClusterRolesZookeeperNode) *string {
 		if v == nil {
@@ -18510,7 +18510,7 @@ func (o KafkaClusterRolesZookeeperNodePtrOutput) ScriptActions() KafkaClusterRol
 
 // A list of SSH Keys which should be used for the local administrator on the Zookeeper Nodes. Changing this forces a new resource to be created.
 //
-// > **NOTE:** Either a `password` or one or more `sshKeys` must be specified - but not both.
+// > **Note:** Either a `password` or one or more `sshKeys` must be specified - but not both.
 func (o KafkaClusterRolesZookeeperNodePtrOutput) SshKeys() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *KafkaClusterRolesZookeeperNode) []string {
 		if v == nil {
@@ -18929,13 +18929,13 @@ func (o KafkaClusterSecurityProfilePtrOutput) MsiResourceId() pulumi.StringPtrOu
 type KafkaClusterStorageAccount struct {
 	// Is this the Default Storage Account for the HDInsight Hadoop Cluster? Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** One of the `storageAccount` or `storageAccountGen2` blocks must be marked as the default.
+	// > **Note:** One of the `storageAccount` or `storageAccountGen2` blocks must be marked as the default.
 	IsDefault bool `pulumi:"isDefault"`
 	// The Access Key which should be used to connect to the Storage Account. Changing this forces a new resource to be created.
 	StorageAccountKey string `pulumi:"storageAccountKey"`
 	// The ID of the Storage Container. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** This can be obtained from the `id` of the `storage.Container` resource.
+	// > **Note:** This can be obtained from the `id` of the `storage.Container` resource.
 	StorageContainerId string `pulumi:"storageContainerId"`
 	// The ID of the Storage Account. Changing this forces a new resource to be created.
 	StorageResourceId *string `pulumi:"storageResourceId"`
@@ -18955,13 +18955,13 @@ type KafkaClusterStorageAccountInput interface {
 type KafkaClusterStorageAccountArgs struct {
 	// Is this the Default Storage Account for the HDInsight Hadoop Cluster? Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** One of the `storageAccount` or `storageAccountGen2` blocks must be marked as the default.
+	// > **Note:** One of the `storageAccount` or `storageAccountGen2` blocks must be marked as the default.
 	IsDefault pulumi.BoolInput `pulumi:"isDefault"`
 	// The Access Key which should be used to connect to the Storage Account. Changing this forces a new resource to be created.
 	StorageAccountKey pulumi.StringInput `pulumi:"storageAccountKey"`
 	// The ID of the Storage Container. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** This can be obtained from the `id` of the `storage.Container` resource.
+	// > **Note:** This can be obtained from the `id` of the `storage.Container` resource.
 	StorageContainerId pulumi.StringInput `pulumi:"storageContainerId"`
 	// The ID of the Storage Account. Changing this forces a new resource to be created.
 	StorageResourceId pulumi.StringPtrInput `pulumi:"storageResourceId"`
@@ -19020,7 +19020,7 @@ func (o KafkaClusterStorageAccountOutput) ToKafkaClusterStorageAccountOutputWith
 
 // Is this the Default Storage Account for the HDInsight Hadoop Cluster? Changing this forces a new resource to be created.
 //
-// > **NOTE:** One of the `storageAccount` or `storageAccountGen2` blocks must be marked as the default.
+// > **Note:** One of the `storageAccount` or `storageAccountGen2` blocks must be marked as the default.
 func (o KafkaClusterStorageAccountOutput) IsDefault() pulumi.BoolOutput {
 	return o.ApplyT(func(v KafkaClusterStorageAccount) bool { return v.IsDefault }).(pulumi.BoolOutput)
 }
@@ -19032,7 +19032,7 @@ func (o KafkaClusterStorageAccountOutput) StorageAccountKey() pulumi.StringOutpu
 
 // The ID of the Storage Container. Changing this forces a new resource to be created.
 //
-// > **NOTE:** This can be obtained from the `id` of the `storage.Container` resource.
+// > **Note:** This can be obtained from the `id` of the `storage.Container` resource.
 func (o KafkaClusterStorageAccountOutput) StorageContainerId() pulumi.StringOutput {
 	return o.ApplyT(func(v KafkaClusterStorageAccount) string { return v.StorageContainerId }).(pulumi.StringOutput)
 }
@@ -19067,11 +19067,11 @@ type KafkaClusterStorageAccountGen2 struct {
 	FilesystemId string `pulumi:"filesystemId"`
 	// Is this the Default Storage Account for the HDInsight Hadoop Cluster? Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** One of the `storageAccount` or `storageAccountGen2` blocks must be marked as the default.
+	// > **Note:** One of the `storageAccount` or `storageAccountGen2` blocks must be marked as the default.
 	IsDefault bool `pulumi:"isDefault"`
 	// The ID of Managed Identity to use for accessing the Gen2 filesystem. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** This can be obtained from the `id` of the `storage.Container` resource.
+	// > **Note:** This can be obtained from the `id` of the `storage.Container` resource.
 	ManagedIdentityResourceId string `pulumi:"managedIdentityResourceId"`
 	// The ID of the Storage Account. Changing this forces a new resource to be created.
 	StorageResourceId string `pulumi:"storageResourceId"`
@@ -19093,11 +19093,11 @@ type KafkaClusterStorageAccountGen2Args struct {
 	FilesystemId pulumi.StringInput `pulumi:"filesystemId"`
 	// Is this the Default Storage Account for the HDInsight Hadoop Cluster? Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** One of the `storageAccount` or `storageAccountGen2` blocks must be marked as the default.
+	// > **Note:** One of the `storageAccount` or `storageAccountGen2` blocks must be marked as the default.
 	IsDefault pulumi.BoolInput `pulumi:"isDefault"`
 	// The ID of Managed Identity to use for accessing the Gen2 filesystem. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** This can be obtained from the `id` of the `storage.Container` resource.
+	// > **Note:** This can be obtained from the `id` of the `storage.Container` resource.
 	ManagedIdentityResourceId pulumi.StringInput `pulumi:"managedIdentityResourceId"`
 	// The ID of the Storage Account. Changing this forces a new resource to be created.
 	StorageResourceId pulumi.StringInput `pulumi:"storageResourceId"`
@@ -19187,14 +19187,14 @@ func (o KafkaClusterStorageAccountGen2Output) FilesystemId() pulumi.StringOutput
 
 // Is this the Default Storage Account for the HDInsight Hadoop Cluster? Changing this forces a new resource to be created.
 //
-// > **NOTE:** One of the `storageAccount` or `storageAccountGen2` blocks must be marked as the default.
+// > **Note:** One of the `storageAccount` or `storageAccountGen2` blocks must be marked as the default.
 func (o KafkaClusterStorageAccountGen2Output) IsDefault() pulumi.BoolOutput {
 	return o.ApplyT(func(v KafkaClusterStorageAccountGen2) bool { return v.IsDefault }).(pulumi.BoolOutput)
 }
 
 // The ID of Managed Identity to use for accessing the Gen2 filesystem. Changing this forces a new resource to be created.
 //
-// > **NOTE:** This can be obtained from the `id` of the `storage.Container` resource.
+// > **Note:** This can be obtained from the `id` of the `storage.Container` resource.
 func (o KafkaClusterStorageAccountGen2Output) ManagedIdentityResourceId() pulumi.StringOutput {
 	return o.ApplyT(func(v KafkaClusterStorageAccountGen2) string { return v.ManagedIdentityResourceId }).(pulumi.StringOutput)
 }
@@ -19240,7 +19240,7 @@ func (o KafkaClusterStorageAccountGen2PtrOutput) FilesystemId() pulumi.StringPtr
 
 // Is this the Default Storage Account for the HDInsight Hadoop Cluster? Changing this forces a new resource to be created.
 //
-// > **NOTE:** One of the `storageAccount` or `storageAccountGen2` blocks must be marked as the default.
+// > **Note:** One of the `storageAccount` or `storageAccountGen2` blocks must be marked as the default.
 func (o KafkaClusterStorageAccountGen2PtrOutput) IsDefault() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *KafkaClusterStorageAccountGen2) *bool {
 		if v == nil {
@@ -19252,7 +19252,7 @@ func (o KafkaClusterStorageAccountGen2PtrOutput) IsDefault() pulumi.BoolPtrOutpu
 
 // The ID of Managed Identity to use for accessing the Gen2 filesystem. Changing this forces a new resource to be created.
 //
-// > **NOTE:** This can be obtained from the `id` of the `storage.Container` resource.
+// > **Note:** This can be obtained from the `id` of the `storage.Container` resource.
 func (o KafkaClusterStorageAccountGen2PtrOutput) ManagedIdentityResourceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KafkaClusterStorageAccountGen2) *string {
 		if v == nil {
@@ -19848,7 +19848,7 @@ func (o SparkClusterExtensionPtrOutput) PrimaryKey() pulumi.StringPtrOutput {
 type SparkClusterGateway struct {
 	// The password used for the Ambari Portal.
 	//
-	// > **NOTE:** This password must be different from the one used for the `headNode`, `workerNode` and `zookeeperNode` roles.
+	// > **Note:** This password must be different from the one used for the `headNode`, `workerNode` and `zookeeperNode` roles.
 	Password string `pulumi:"password"`
 	// The username used for the Ambari Portal. Changing this forces a new resource to be created.
 	Username string `pulumi:"username"`
@@ -19868,7 +19868,7 @@ type SparkClusterGatewayInput interface {
 type SparkClusterGatewayArgs struct {
 	// The password used for the Ambari Portal.
 	//
-	// > **NOTE:** This password must be different from the one used for the `headNode`, `workerNode` and `zookeeperNode` roles.
+	// > **Note:** This password must be different from the one used for the `headNode`, `workerNode` and `zookeeperNode` roles.
 	Password pulumi.StringInput `pulumi:"password"`
 	// The username used for the Ambari Portal. Changing this forces a new resource to be created.
 	Username pulumi.StringInput `pulumi:"username"`
@@ -19953,7 +19953,7 @@ func (o SparkClusterGatewayOutput) ToSparkClusterGatewayPtrOutputWithContext(ctx
 
 // The password used for the Ambari Portal.
 //
-// > **NOTE:** This password must be different from the one used for the `headNode`, `workerNode` and `zookeeperNode` roles.
+// > **Note:** This password must be different from the one used for the `headNode`, `workerNode` and `zookeeperNode` roles.
 func (o SparkClusterGatewayOutput) Password() pulumi.StringOutput {
 	return o.ApplyT(func(v SparkClusterGateway) string { return v.Password }).(pulumi.StringOutput)
 }
@@ -19989,7 +19989,7 @@ func (o SparkClusterGatewayPtrOutput) Elem() SparkClusterGatewayOutput {
 
 // The password used for the Ambari Portal.
 //
-// > **NOTE:** This password must be different from the one used for the `headNode`, `workerNode` and `zookeeperNode` roles.
+// > **Note:** This password must be different from the one used for the `headNode`, `workerNode` and `zookeeperNode` roles.
 func (o SparkClusterGatewayPtrOutput) Password() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SparkClusterGateway) *string {
 		if v == nil {
@@ -20925,7 +20925,7 @@ func (o SparkClusterMonitorPtrOutput) PrimaryKey() pulumi.StringPtrOutput {
 type SparkClusterNetwork struct {
 	// The direction of the resource provider connection. Possible values include `Inbound` or `Outbound`. Defaults to `Inbound`. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** To enabled the private link the `connectionDirection` must be set to `Outbound`.
+	// > **Note:** To enabled the private link the `connectionDirection` must be set to `Outbound`.
 	ConnectionDirection *string `pulumi:"connectionDirection"`
 	// Is the private link enabled? Possible values include `true` or `false`. Defaults to `false`. Changing this forces a new resource to be created.
 	PrivateLinkEnabled *bool `pulumi:"privateLinkEnabled"`
@@ -20945,7 +20945,7 @@ type SparkClusterNetworkInput interface {
 type SparkClusterNetworkArgs struct {
 	// The direction of the resource provider connection. Possible values include `Inbound` or `Outbound`. Defaults to `Inbound`. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** To enabled the private link the `connectionDirection` must be set to `Outbound`.
+	// > **Note:** To enabled the private link the `connectionDirection` must be set to `Outbound`.
 	ConnectionDirection pulumi.StringPtrInput `pulumi:"connectionDirection"`
 	// Is the private link enabled? Possible values include `true` or `false`. Defaults to `false`. Changing this forces a new resource to be created.
 	PrivateLinkEnabled pulumi.BoolPtrInput `pulumi:"privateLinkEnabled"`
@@ -21030,7 +21030,7 @@ func (o SparkClusterNetworkOutput) ToSparkClusterNetworkPtrOutputWithContext(ctx
 
 // The direction of the resource provider connection. Possible values include `Inbound` or `Outbound`. Defaults to `Inbound`. Changing this forces a new resource to be created.
 //
-// > **NOTE:** To enabled the private link the `connectionDirection` must be set to `Outbound`.
+// > **Note:** To enabled the private link the `connectionDirection` must be set to `Outbound`.
 func (o SparkClusterNetworkOutput) ConnectionDirection() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SparkClusterNetwork) *string { return v.ConnectionDirection }).(pulumi.StringPtrOutput)
 }
@@ -21066,7 +21066,7 @@ func (o SparkClusterNetworkPtrOutput) Elem() SparkClusterNetworkOutput {
 
 // The direction of the resource provider connection. Possible values include `Inbound` or `Outbound`. Defaults to `Inbound`. Changing this forces a new resource to be created.
 //
-// > **NOTE:** To enabled the private link the `connectionDirection` must be set to `Outbound`.
+// > **Note:** To enabled the private link the `connectionDirection` must be set to `Outbound`.
 func (o SparkClusterNetworkPtrOutput) ConnectionDirection() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SparkClusterNetwork) *string {
 		if v == nil {
@@ -21648,13 +21648,13 @@ func (o SparkClusterRolesPtrOutput) ZookeeperNode() SparkClusterRolesZookeeperNo
 type SparkClusterRolesHeadNode struct {
 	// The Password associated with the local administrator for the Head Nodes. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** If specified, this password must be at least 10 characters in length and must contain at least one digit, one uppercase and one lower case letter, one non-alphanumeric character (except characters ' " ` \).
+	// > **Note:** If specified, this password must be at least 10 characters in length and must contain at least one digit, one uppercase and one lower case letter, one non-alphanumeric character (except characters ' " ` \).
 	Password *string `pulumi:"password"`
 	// The script action which will run on the cluster. One or more `scriptActions` blocks as defined below.
 	ScriptActions []SparkClusterRolesHeadNodeScriptAction `pulumi:"scriptActions"`
 	// A list of SSH Keys which should be used for the local administrator on the Head Nodes. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** Either a `password` or one or more `sshKeys` must be specified - but not both.
+	// > **Note:** Either a `password` or one or more `sshKeys` must be specified - but not both.
 	SshKeys []string `pulumi:"sshKeys"`
 	// The ID of the Subnet within the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.
 	SubnetId *string `pulumi:"subnetId"`
@@ -21680,13 +21680,13 @@ type SparkClusterRolesHeadNodeInput interface {
 type SparkClusterRolesHeadNodeArgs struct {
 	// The Password associated with the local administrator for the Head Nodes. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** If specified, this password must be at least 10 characters in length and must contain at least one digit, one uppercase and one lower case letter, one non-alphanumeric character (except characters ' " ` \).
+	// > **Note:** If specified, this password must be at least 10 characters in length and must contain at least one digit, one uppercase and one lower case letter, one non-alphanumeric character (except characters ' " ` \).
 	Password pulumi.StringPtrInput `pulumi:"password"`
 	// The script action which will run on the cluster. One or more `scriptActions` blocks as defined below.
 	ScriptActions SparkClusterRolesHeadNodeScriptActionArrayInput `pulumi:"scriptActions"`
 	// A list of SSH Keys which should be used for the local administrator on the Head Nodes. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** Either a `password` or one or more `sshKeys` must be specified - but not both.
+	// > **Note:** Either a `password` or one or more `sshKeys` must be specified - but not both.
 	SshKeys pulumi.StringArrayInput `pulumi:"sshKeys"`
 	// The ID of the Subnet within the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.
 	SubnetId pulumi.StringPtrInput `pulumi:"subnetId"`
@@ -21777,7 +21777,7 @@ func (o SparkClusterRolesHeadNodeOutput) ToSparkClusterRolesHeadNodePtrOutputWit
 
 // The Password associated with the local administrator for the Head Nodes. Changing this forces a new resource to be created.
 //
-// > **NOTE:** If specified, this password must be at least 10 characters in length and must contain at least one digit, one uppercase and one lower case letter, one non-alphanumeric character (except characters ' " ` \).
+// > **Note:** If specified, this password must be at least 10 characters in length and must contain at least one digit, one uppercase and one lower case letter, one non-alphanumeric character (except characters ' " ` \).
 func (o SparkClusterRolesHeadNodeOutput) Password() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SparkClusterRolesHeadNode) *string { return v.Password }).(pulumi.StringPtrOutput)
 }
@@ -21789,7 +21789,7 @@ func (o SparkClusterRolesHeadNodeOutput) ScriptActions() SparkClusterRolesHeadNo
 
 // A list of SSH Keys which should be used for the local administrator on the Head Nodes. Changing this forces a new resource to be created.
 //
-// > **NOTE:** Either a `password` or one or more `sshKeys` must be specified - but not both.
+// > **Note:** Either a `password` or one or more `sshKeys` must be specified - but not both.
 func (o SparkClusterRolesHeadNodeOutput) SshKeys() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v SparkClusterRolesHeadNode) []string { return v.SshKeys }).(pulumi.StringArrayOutput)
 }
@@ -21840,7 +21840,7 @@ func (o SparkClusterRolesHeadNodePtrOutput) Elem() SparkClusterRolesHeadNodeOutp
 
 // The Password associated with the local administrator for the Head Nodes. Changing this forces a new resource to be created.
 //
-// > **NOTE:** If specified, this password must be at least 10 characters in length and must contain at least one digit, one uppercase and one lower case letter, one non-alphanumeric character (except characters ' " ` \).
+// > **Note:** If specified, this password must be at least 10 characters in length and must contain at least one digit, one uppercase and one lower case letter, one non-alphanumeric character (except characters ' " ` \).
 func (o SparkClusterRolesHeadNodePtrOutput) Password() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SparkClusterRolesHeadNode) *string {
 		if v == nil {
@@ -21862,7 +21862,7 @@ func (o SparkClusterRolesHeadNodePtrOutput) ScriptActions() SparkClusterRolesHea
 
 // A list of SSH Keys which should be used for the local administrator on the Head Nodes. Changing this forces a new resource to be created.
 //
-// > **NOTE:** Either a `password` or one or more `sshKeys` must be specified - but not both.
+// > **Note:** Either a `password` or one or more `sshKeys` must be specified - but not both.
 func (o SparkClusterRolesHeadNodePtrOutput) SshKeys() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *SparkClusterRolesHeadNode) []string {
 		if v == nil {
@@ -22032,13 +22032,13 @@ type SparkClusterRolesWorkerNode struct {
 	Autoscale *SparkClusterRolesWorkerNodeAutoscale `pulumi:"autoscale"`
 	// The Password associated with the local administrator for the Worker Nodes. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** If specified, this password must be at least 10 characters in length and must contain at least one digit, one uppercase and one lower case letter, one non-alphanumeric character (except characters ' " ` \).
+	// > **Note:** If specified, this password must be at least 10 characters in length and must contain at least one digit, one uppercase and one lower case letter, one non-alphanumeric character (except characters ' " ` \).
 	Password *string `pulumi:"password"`
 	// The script action which will run on the cluster. One or more `scriptActions` blocks as defined above.
 	ScriptActions []SparkClusterRolesWorkerNodeScriptAction `pulumi:"scriptActions"`
 	// A list of SSH Keys which should be used for the local administrator on the Worker Nodes. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** Either a `password` or one or more `sshKeys` must be specified - but not both.
+	// > **Note:** Either a `password` or one or more `sshKeys` must be specified - but not both.
 	SshKeys []string `pulumi:"sshKeys"`
 	// The ID of the Subnet within the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.
 	SubnetId *string `pulumi:"subnetId"`
@@ -22068,13 +22068,13 @@ type SparkClusterRolesWorkerNodeArgs struct {
 	Autoscale SparkClusterRolesWorkerNodeAutoscalePtrInput `pulumi:"autoscale"`
 	// The Password associated with the local administrator for the Worker Nodes. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** If specified, this password must be at least 10 characters in length and must contain at least one digit, one uppercase and one lower case letter, one non-alphanumeric character (except characters ' " ` \).
+	// > **Note:** If specified, this password must be at least 10 characters in length and must contain at least one digit, one uppercase and one lower case letter, one non-alphanumeric character (except characters ' " ` \).
 	Password pulumi.StringPtrInput `pulumi:"password"`
 	// The script action which will run on the cluster. One or more `scriptActions` blocks as defined above.
 	ScriptActions SparkClusterRolesWorkerNodeScriptActionArrayInput `pulumi:"scriptActions"`
 	// A list of SSH Keys which should be used for the local administrator on the Worker Nodes. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** Either a `password` or one or more `sshKeys` must be specified - but not both.
+	// > **Note:** Either a `password` or one or more `sshKeys` must be specified - but not both.
 	SshKeys pulumi.StringArrayInput `pulumi:"sshKeys"`
 	// The ID of the Subnet within the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.
 	SubnetId pulumi.StringPtrInput `pulumi:"subnetId"`
@@ -22172,7 +22172,7 @@ func (o SparkClusterRolesWorkerNodeOutput) Autoscale() SparkClusterRolesWorkerNo
 
 // The Password associated with the local administrator for the Worker Nodes. Changing this forces a new resource to be created.
 //
-// > **NOTE:** If specified, this password must be at least 10 characters in length and must contain at least one digit, one uppercase and one lower case letter, one non-alphanumeric character (except characters ' " ` \).
+// > **Note:** If specified, this password must be at least 10 characters in length and must contain at least one digit, one uppercase and one lower case letter, one non-alphanumeric character (except characters ' " ` \).
 func (o SparkClusterRolesWorkerNodeOutput) Password() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SparkClusterRolesWorkerNode) *string { return v.Password }).(pulumi.StringPtrOutput)
 }
@@ -22184,7 +22184,7 @@ func (o SparkClusterRolesWorkerNodeOutput) ScriptActions() SparkClusterRolesWork
 
 // A list of SSH Keys which should be used for the local administrator on the Worker Nodes. Changing this forces a new resource to be created.
 //
-// > **NOTE:** Either a `password` or one or more `sshKeys` must be specified - but not both.
+// > **Note:** Either a `password` or one or more `sshKeys` must be specified - but not both.
 func (o SparkClusterRolesWorkerNodeOutput) SshKeys() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v SparkClusterRolesWorkerNode) []string { return v.SshKeys }).(pulumi.StringArrayOutput)
 }
@@ -22250,7 +22250,7 @@ func (o SparkClusterRolesWorkerNodePtrOutput) Autoscale() SparkClusterRolesWorke
 
 // The Password associated with the local administrator for the Worker Nodes. Changing this forces a new resource to be created.
 //
-// > **NOTE:** If specified, this password must be at least 10 characters in length and must contain at least one digit, one uppercase and one lower case letter, one non-alphanumeric character (except characters ' " ` \).
+// > **Note:** If specified, this password must be at least 10 characters in length and must contain at least one digit, one uppercase and one lower case letter, one non-alphanumeric character (except characters ' " ` \).
 func (o SparkClusterRolesWorkerNodePtrOutput) Password() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SparkClusterRolesWorkerNode) *string {
 		if v == nil {
@@ -22272,7 +22272,7 @@ func (o SparkClusterRolesWorkerNodePtrOutput) ScriptActions() SparkClusterRolesW
 
 // A list of SSH Keys which should be used for the local administrator on the Worker Nodes. Changing this forces a new resource to be created.
 //
-// > **NOTE:** Either a `password` or one or more `sshKeys` must be specified - but not both.
+// > **Note:** Either a `password` or one or more `sshKeys` must be specified - but not both.
 func (o SparkClusterRolesWorkerNodePtrOutput) SshKeys() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *SparkClusterRolesWorkerNode) []string {
 		if v == nil {
@@ -22337,7 +22337,7 @@ type SparkClusterRolesWorkerNodeAutoscale struct {
 	Capacity *SparkClusterRolesWorkerNodeAutoscaleCapacity `pulumi:"capacity"`
 	// A `recurrence` block as defined below.
 	//
-	// > **NOTE:** Either a `capacity` or `recurrence` block must be specified - but not both.
+	// > **Note:** Either a `capacity` or `recurrence` block must be specified - but not both.
 	Recurrence *SparkClusterRolesWorkerNodeAutoscaleRecurrence `pulumi:"recurrence"`
 }
 
@@ -22357,7 +22357,7 @@ type SparkClusterRolesWorkerNodeAutoscaleArgs struct {
 	Capacity SparkClusterRolesWorkerNodeAutoscaleCapacityPtrInput `pulumi:"capacity"`
 	// A `recurrence` block as defined below.
 	//
-	// > **NOTE:** Either a `capacity` or `recurrence` block must be specified - but not both.
+	// > **Note:** Either a `capacity` or `recurrence` block must be specified - but not both.
 	Recurrence SparkClusterRolesWorkerNodeAutoscaleRecurrencePtrInput `pulumi:"recurrence"`
 }
 
@@ -22447,7 +22447,7 @@ func (o SparkClusterRolesWorkerNodeAutoscaleOutput) Capacity() SparkClusterRoles
 
 // A `recurrence` block as defined below.
 //
-// > **NOTE:** Either a `capacity` or `recurrence` block must be specified - but not both.
+// > **Note:** Either a `capacity` or `recurrence` block must be specified - but not both.
 func (o SparkClusterRolesWorkerNodeAutoscaleOutput) Recurrence() SparkClusterRolesWorkerNodeAutoscaleRecurrencePtrOutput {
 	return o.ApplyT(func(v SparkClusterRolesWorkerNodeAutoscale) *SparkClusterRolesWorkerNodeAutoscaleRecurrence {
 		return v.Recurrence
@@ -22490,7 +22490,7 @@ func (o SparkClusterRolesWorkerNodeAutoscalePtrOutput) Capacity() SparkClusterRo
 
 // A `recurrence` block as defined below.
 //
-// > **NOTE:** Either a `capacity` or `recurrence` block must be specified - but not both.
+// > **Note:** Either a `capacity` or `recurrence` block must be specified - but not both.
 func (o SparkClusterRolesWorkerNodeAutoscalePtrOutput) Recurrence() SparkClusterRolesWorkerNodeAutoscaleRecurrencePtrOutput {
 	return o.ApplyT(func(v *SparkClusterRolesWorkerNodeAutoscale) *SparkClusterRolesWorkerNodeAutoscaleRecurrence {
 		if v == nil {
@@ -23047,13 +23047,13 @@ func (o SparkClusterRolesWorkerNodeScriptActionArrayOutput) Index(i pulumi.IntIn
 type SparkClusterRolesZookeeperNode struct {
 	// The Password associated with the local administrator for the Zookeeper Nodes. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** If specified, this password must be at least 10 characters in length and must contain at least one digit, one uppercase and one lower case letter, one non-alphanumeric character (except characters ' " ` \).
+	// > **Note:** If specified, this password must be at least 10 characters in length and must contain at least one digit, one uppercase and one lower case letter, one non-alphanumeric character (except characters ' " ` \).
 	Password *string `pulumi:"password"`
 	// The script action which will run on the cluster. One or more `scriptActions` blocks as defined above.
 	ScriptActions []SparkClusterRolesZookeeperNodeScriptAction `pulumi:"scriptActions"`
 	// A list of SSH Keys which should be used for the local administrator on the Zookeeper Nodes. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** Either a `password` or one or more `sshKeys` must be specified - but not both.
+	// > **Note:** Either a `password` or one or more `sshKeys` must be specified - but not both.
 	SshKeys []string `pulumi:"sshKeys"`
 	// The ID of the Subnet within the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.
 	SubnetId *string `pulumi:"subnetId"`
@@ -23079,13 +23079,13 @@ type SparkClusterRolesZookeeperNodeInput interface {
 type SparkClusterRolesZookeeperNodeArgs struct {
 	// The Password associated with the local administrator for the Zookeeper Nodes. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** If specified, this password must be at least 10 characters in length and must contain at least one digit, one uppercase and one lower case letter, one non-alphanumeric character (except characters ' " ` \).
+	// > **Note:** If specified, this password must be at least 10 characters in length and must contain at least one digit, one uppercase and one lower case letter, one non-alphanumeric character (except characters ' " ` \).
 	Password pulumi.StringPtrInput `pulumi:"password"`
 	// The script action which will run on the cluster. One or more `scriptActions` blocks as defined above.
 	ScriptActions SparkClusterRolesZookeeperNodeScriptActionArrayInput `pulumi:"scriptActions"`
 	// A list of SSH Keys which should be used for the local administrator on the Zookeeper Nodes. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** Either a `password` or one or more `sshKeys` must be specified - but not both.
+	// > **Note:** Either a `password` or one or more `sshKeys` must be specified - but not both.
 	SshKeys pulumi.StringArrayInput `pulumi:"sshKeys"`
 	// The ID of the Subnet within the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.
 	SubnetId pulumi.StringPtrInput `pulumi:"subnetId"`
@@ -23176,7 +23176,7 @@ func (o SparkClusterRolesZookeeperNodeOutput) ToSparkClusterRolesZookeeperNodePt
 
 // The Password associated with the local administrator for the Zookeeper Nodes. Changing this forces a new resource to be created.
 //
-// > **NOTE:** If specified, this password must be at least 10 characters in length and must contain at least one digit, one uppercase and one lower case letter, one non-alphanumeric character (except characters ' " ` \).
+// > **Note:** If specified, this password must be at least 10 characters in length and must contain at least one digit, one uppercase and one lower case letter, one non-alphanumeric character (except characters ' " ` \).
 func (o SparkClusterRolesZookeeperNodeOutput) Password() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SparkClusterRolesZookeeperNode) *string { return v.Password }).(pulumi.StringPtrOutput)
 }
@@ -23190,7 +23190,7 @@ func (o SparkClusterRolesZookeeperNodeOutput) ScriptActions() SparkClusterRolesZ
 
 // A list of SSH Keys which should be used for the local administrator on the Zookeeper Nodes. Changing this forces a new resource to be created.
 //
-// > **NOTE:** Either a `password` or one or more `sshKeys` must be specified - but not both.
+// > **Note:** Either a `password` or one or more `sshKeys` must be specified - but not both.
 func (o SparkClusterRolesZookeeperNodeOutput) SshKeys() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v SparkClusterRolesZookeeperNode) []string { return v.SshKeys }).(pulumi.StringArrayOutput)
 }
@@ -23241,7 +23241,7 @@ func (o SparkClusterRolesZookeeperNodePtrOutput) Elem() SparkClusterRolesZookeep
 
 // The Password associated with the local administrator for the Zookeeper Nodes. Changing this forces a new resource to be created.
 //
-// > **NOTE:** If specified, this password must be at least 10 characters in length and must contain at least one digit, one uppercase and one lower case letter, one non-alphanumeric character (except characters ' " ` \).
+// > **Note:** If specified, this password must be at least 10 characters in length and must contain at least one digit, one uppercase and one lower case letter, one non-alphanumeric character (except characters ' " ` \).
 func (o SparkClusterRolesZookeeperNodePtrOutput) Password() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SparkClusterRolesZookeeperNode) *string {
 		if v == nil {
@@ -23263,7 +23263,7 @@ func (o SparkClusterRolesZookeeperNodePtrOutput) ScriptActions() SparkClusterRol
 
 // A list of SSH Keys which should be used for the local administrator on the Zookeeper Nodes. Changing this forces a new resource to be created.
 //
-// > **NOTE:** Either a `password` or one or more `sshKeys` must be specified - but not both.
+// > **Note:** Either a `password` or one or more `sshKeys` must be specified - but not both.
 func (o SparkClusterRolesZookeeperNodePtrOutput) SshKeys() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *SparkClusterRolesZookeeperNode) []string {
 		if v == nil {
@@ -23682,13 +23682,13 @@ func (o SparkClusterSecurityProfilePtrOutput) MsiResourceId() pulumi.StringPtrOu
 type SparkClusterStorageAccount struct {
 	// Is this the Default Storage Account for the HDInsight Hadoop Cluster? Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** One of the `storageAccount` or `storageAccountGen2` blocks must be marked as the default.
+	// > **Note:** One of the `storageAccount` or `storageAccountGen2` blocks must be marked as the default.
 	IsDefault bool `pulumi:"isDefault"`
 	// The Access Key which should be used to connect to the Storage Account. Changing this forces a new resource to be created.
 	StorageAccountKey string `pulumi:"storageAccountKey"`
 	// The ID of the Storage Container. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** This can be obtained from the `id` of the `storage.Container` resource.
+	// > **Note:** This can be obtained from the `id` of the `storage.Container` resource.
 	StorageContainerId string `pulumi:"storageContainerId"`
 	// The ID of the Storage Account. Changing this forces a new resource to be created.
 	StorageResourceId *string `pulumi:"storageResourceId"`
@@ -23708,13 +23708,13 @@ type SparkClusterStorageAccountInput interface {
 type SparkClusterStorageAccountArgs struct {
 	// Is this the Default Storage Account for the HDInsight Hadoop Cluster? Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** One of the `storageAccount` or `storageAccountGen2` blocks must be marked as the default.
+	// > **Note:** One of the `storageAccount` or `storageAccountGen2` blocks must be marked as the default.
 	IsDefault pulumi.BoolInput `pulumi:"isDefault"`
 	// The Access Key which should be used to connect to the Storage Account. Changing this forces a new resource to be created.
 	StorageAccountKey pulumi.StringInput `pulumi:"storageAccountKey"`
 	// The ID of the Storage Container. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** This can be obtained from the `id` of the `storage.Container` resource.
+	// > **Note:** This can be obtained from the `id` of the `storage.Container` resource.
 	StorageContainerId pulumi.StringInput `pulumi:"storageContainerId"`
 	// The ID of the Storage Account. Changing this forces a new resource to be created.
 	StorageResourceId pulumi.StringPtrInput `pulumi:"storageResourceId"`
@@ -23773,7 +23773,7 @@ func (o SparkClusterStorageAccountOutput) ToSparkClusterStorageAccountOutputWith
 
 // Is this the Default Storage Account for the HDInsight Hadoop Cluster? Changing this forces a new resource to be created.
 //
-// > **NOTE:** One of the `storageAccount` or `storageAccountGen2` blocks must be marked as the default.
+// > **Note:** One of the `storageAccount` or `storageAccountGen2` blocks must be marked as the default.
 func (o SparkClusterStorageAccountOutput) IsDefault() pulumi.BoolOutput {
 	return o.ApplyT(func(v SparkClusterStorageAccount) bool { return v.IsDefault }).(pulumi.BoolOutput)
 }
@@ -23785,7 +23785,7 @@ func (o SparkClusterStorageAccountOutput) StorageAccountKey() pulumi.StringOutpu
 
 // The ID of the Storage Container. Changing this forces a new resource to be created.
 //
-// > **NOTE:** This can be obtained from the `id` of the `storage.Container` resource.
+// > **Note:** This can be obtained from the `id` of the `storage.Container` resource.
 func (o SparkClusterStorageAccountOutput) StorageContainerId() pulumi.StringOutput {
 	return o.ApplyT(func(v SparkClusterStorageAccount) string { return v.StorageContainerId }).(pulumi.StringOutput)
 }
@@ -23820,11 +23820,11 @@ type SparkClusterStorageAccountGen2 struct {
 	FilesystemId string `pulumi:"filesystemId"`
 	// Is this the Default Storage Account for the HDInsight Hadoop Cluster? Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** One of the `storageAccount` or `storageAccountGen2` blocks must be marked as the default.
+	// > **Note:** One of the `storageAccount` or `storageAccountGen2` blocks must be marked as the default.
 	IsDefault bool `pulumi:"isDefault"`
 	// The ID of Managed Identity to use for accessing the Gen2 filesystem. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** This can be obtained from the `id` of the `storage.Container` resource.
+	// > **Note:** This can be obtained from the `id` of the `storage.Container` resource.
 	ManagedIdentityResourceId string `pulumi:"managedIdentityResourceId"`
 	// The ID of the Storage Account. Changing this forces a new resource to be created.
 	StorageResourceId string `pulumi:"storageResourceId"`
@@ -23846,11 +23846,11 @@ type SparkClusterStorageAccountGen2Args struct {
 	FilesystemId pulumi.StringInput `pulumi:"filesystemId"`
 	// Is this the Default Storage Account for the HDInsight Hadoop Cluster? Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** One of the `storageAccount` or `storageAccountGen2` blocks must be marked as the default.
+	// > **Note:** One of the `storageAccount` or `storageAccountGen2` blocks must be marked as the default.
 	IsDefault pulumi.BoolInput `pulumi:"isDefault"`
 	// The ID of Managed Identity to use for accessing the Gen2 filesystem. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** This can be obtained from the `id` of the `storage.Container` resource.
+	// > **Note:** This can be obtained from the `id` of the `storage.Container` resource.
 	ManagedIdentityResourceId pulumi.StringInput `pulumi:"managedIdentityResourceId"`
 	// The ID of the Storage Account. Changing this forces a new resource to be created.
 	StorageResourceId pulumi.StringInput `pulumi:"storageResourceId"`
@@ -23940,14 +23940,14 @@ func (o SparkClusterStorageAccountGen2Output) FilesystemId() pulumi.StringOutput
 
 // Is this the Default Storage Account for the HDInsight Hadoop Cluster? Changing this forces a new resource to be created.
 //
-// > **NOTE:** One of the `storageAccount` or `storageAccountGen2` blocks must be marked as the default.
+// > **Note:** One of the `storageAccount` or `storageAccountGen2` blocks must be marked as the default.
 func (o SparkClusterStorageAccountGen2Output) IsDefault() pulumi.BoolOutput {
 	return o.ApplyT(func(v SparkClusterStorageAccountGen2) bool { return v.IsDefault }).(pulumi.BoolOutput)
 }
 
 // The ID of Managed Identity to use for accessing the Gen2 filesystem. Changing this forces a new resource to be created.
 //
-// > **NOTE:** This can be obtained from the `id` of the `storage.Container` resource.
+// > **Note:** This can be obtained from the `id` of the `storage.Container` resource.
 func (o SparkClusterStorageAccountGen2Output) ManagedIdentityResourceId() pulumi.StringOutput {
 	return o.ApplyT(func(v SparkClusterStorageAccountGen2) string { return v.ManagedIdentityResourceId }).(pulumi.StringOutput)
 }
@@ -23993,7 +23993,7 @@ func (o SparkClusterStorageAccountGen2PtrOutput) FilesystemId() pulumi.StringPtr
 
 // Is this the Default Storage Account for the HDInsight Hadoop Cluster? Changing this forces a new resource to be created.
 //
-// > **NOTE:** One of the `storageAccount` or `storageAccountGen2` blocks must be marked as the default.
+// > **Note:** One of the `storageAccount` or `storageAccountGen2` blocks must be marked as the default.
 func (o SparkClusterStorageAccountGen2PtrOutput) IsDefault() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *SparkClusterStorageAccountGen2) *bool {
 		if v == nil {
@@ -24005,7 +24005,7 @@ func (o SparkClusterStorageAccountGen2PtrOutput) IsDefault() pulumi.BoolPtrOutpu
 
 // The ID of Managed Identity to use for accessing the Gen2 filesystem. Changing this forces a new resource to be created.
 //
-// > **NOTE:** This can be obtained from the `id` of the `storage.Container` resource.
+// > **Note:** This can be obtained from the `id` of the `storage.Container` resource.
 func (o SparkClusterStorageAccountGen2PtrOutput) ManagedIdentityResourceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SparkClusterStorageAccountGen2) *string {
 		if v == nil {

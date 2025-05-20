@@ -347,11 +347,11 @@ func (o DeploymentAutoScaleProfileArrayOutput) Index(i pulumi.IntInput) Deployme
 }
 
 type DeploymentFrontendPrivate struct {
-	// Specify the method for allocating the private IP. Possible values are `Static` and `Dynamic`. Changing this forces a new NGINX Deployment to be created.
+	// Specify the method for allocating the private IP. Possible values are `Static` and `Dynamic`.
 	AllocationMethod string `pulumi:"allocationMethod"`
-	// Specify the private IP Address. Changing this forces a new NGINX Deployment to be created.
+	// Specify the private IP Address.
 	IpAddress string `pulumi:"ipAddress"`
-	// Specify the Subnet Resource ID for this NGINX Deployment. Changing this forces a new NGINX Deployment to be created.
+	// Specify the Subnet Resource ID for this NGINX Deployment.
 	SubnetId string `pulumi:"subnetId"`
 }
 
@@ -367,11 +367,11 @@ type DeploymentFrontendPrivateInput interface {
 }
 
 type DeploymentFrontendPrivateArgs struct {
-	// Specify the method for allocating the private IP. Possible values are `Static` and `Dynamic`. Changing this forces a new NGINX Deployment to be created.
+	// Specify the method for allocating the private IP. Possible values are `Static` and `Dynamic`.
 	AllocationMethod pulumi.StringInput `pulumi:"allocationMethod"`
-	// Specify the private IP Address. Changing this forces a new NGINX Deployment to be created.
+	// Specify the private IP Address.
 	IpAddress pulumi.StringInput `pulumi:"ipAddress"`
-	// Specify the Subnet Resource ID for this NGINX Deployment. Changing this forces a new NGINX Deployment to be created.
+	// Specify the Subnet Resource ID for this NGINX Deployment.
 	SubnetId pulumi.StringInput `pulumi:"subnetId"`
 }
 
@@ -426,17 +426,17 @@ func (o DeploymentFrontendPrivateOutput) ToDeploymentFrontendPrivateOutputWithCo
 	return o
 }
 
-// Specify the method for allocating the private IP. Possible values are `Static` and `Dynamic`. Changing this forces a new NGINX Deployment to be created.
+// Specify the method for allocating the private IP. Possible values are `Static` and `Dynamic`.
 func (o DeploymentFrontendPrivateOutput) AllocationMethod() pulumi.StringOutput {
 	return o.ApplyT(func(v DeploymentFrontendPrivate) string { return v.AllocationMethod }).(pulumi.StringOutput)
 }
 
-// Specify the private IP Address. Changing this forces a new NGINX Deployment to be created.
+// Specify the private IP Address.
 func (o DeploymentFrontendPrivateOutput) IpAddress() pulumi.StringOutput {
 	return o.ApplyT(func(v DeploymentFrontendPrivate) string { return v.IpAddress }).(pulumi.StringOutput)
 }
 
-// Specify the Subnet Resource ID for this NGINX Deployment. Changing this forces a new NGINX Deployment to be created.
+// Specify the Subnet Resource ID for this NGINX Deployment.
 func (o DeploymentFrontendPrivateOutput) SubnetId() pulumi.StringOutput {
 	return o.ApplyT(func(v DeploymentFrontendPrivate) string { return v.SubnetId }).(pulumi.StringOutput)
 }
@@ -462,7 +462,7 @@ func (o DeploymentFrontendPrivateArrayOutput) Index(i pulumi.IntInput) Deploymen
 }
 
 type DeploymentFrontendPublic struct {
-	// Specifies a list of Public IP Resource ID to this NGINX Deployment. Changing this forces a new NGINX Deployment to be created.
+	// Specifies a list of Public IP Resource ID to this NGINX Deployment.
 	IpAddresses []string `pulumi:"ipAddresses"`
 }
 
@@ -478,7 +478,7 @@ type DeploymentFrontendPublicInput interface {
 }
 
 type DeploymentFrontendPublicArgs struct {
-	// Specifies a list of Public IP Resource ID to this NGINX Deployment. Changing this forces a new NGINX Deployment to be created.
+	// Specifies a list of Public IP Resource ID to this NGINX Deployment.
 	IpAddresses pulumi.StringArrayInput `pulumi:"ipAddresses"`
 }
 
@@ -559,7 +559,7 @@ func (o DeploymentFrontendPublicOutput) ToDeploymentFrontendPublicPtrOutputWithC
 	}).(DeploymentFrontendPublicPtrOutput)
 }
 
-// Specifies a list of Public IP Resource ID to this NGINX Deployment. Changing this forces a new NGINX Deployment to be created.
+// Specifies a list of Public IP Resource ID to this NGINX Deployment.
 func (o DeploymentFrontendPublicOutput) IpAddresses() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DeploymentFrontendPublic) []string { return v.IpAddresses }).(pulumi.StringArrayOutput)
 }
@@ -588,7 +588,7 @@ func (o DeploymentFrontendPublicPtrOutput) Elem() DeploymentFrontendPublicOutput
 	}).(DeploymentFrontendPublicOutput)
 }
 
-// Specifies a list of Public IP Resource ID to this NGINX Deployment. Changing this forces a new NGINX Deployment to be created.
+// Specifies a list of Public IP Resource ID to this NGINX Deployment.
 func (o DeploymentFrontendPublicPtrOutput) IpAddresses() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *DeploymentFrontendPublic) []string {
 		if v == nil {
@@ -601,7 +601,7 @@ func (o DeploymentFrontendPublicPtrOutput) IpAddresses() pulumi.StringArrayOutpu
 type DeploymentIdentity struct {
 	// Specifies a list of user managed identity ids to be assigned.
 	//
-	// > **NOTE:** This is required when `type` is set to `UserAssigned`.
+	// > **Note:** This is required when `type` is set to `UserAssigned`.
 	IdentityIds []string `pulumi:"identityIds"`
 	PrincipalId *string  `pulumi:"principalId"`
 	TenantId    *string  `pulumi:"tenantId"`
@@ -623,7 +623,7 @@ type DeploymentIdentityInput interface {
 type DeploymentIdentityArgs struct {
 	// Specifies a list of user managed identity ids to be assigned.
 	//
-	// > **NOTE:** This is required when `type` is set to `UserAssigned`.
+	// > **Note:** This is required when `type` is set to `UserAssigned`.
 	IdentityIds pulumi.StringArrayInput `pulumi:"identityIds"`
 	PrincipalId pulumi.StringPtrInput   `pulumi:"principalId"`
 	TenantId    pulumi.StringPtrInput   `pulumi:"tenantId"`
@@ -710,7 +710,7 @@ func (o DeploymentIdentityOutput) ToDeploymentIdentityPtrOutputWithContext(ctx c
 
 // Specifies a list of user managed identity ids to be assigned.
 //
-// > **NOTE:** This is required when `type` is set to `UserAssigned`.
+// > **Note:** This is required when `type` is set to `UserAssigned`.
 func (o DeploymentIdentityOutput) IdentityIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DeploymentIdentity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
 }
@@ -754,7 +754,7 @@ func (o DeploymentIdentityPtrOutput) Elem() DeploymentIdentityOutput {
 
 // Specifies a list of user managed identity ids to be assigned.
 //
-// > **NOTE:** This is required when `type` is set to `UserAssigned`.
+// > **Note:** This is required when `type` is set to `UserAssigned`.
 func (o DeploymentIdentityPtrOutput) IdentityIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *DeploymentIdentity) []string {
 		if v == nil {
@@ -896,7 +896,7 @@ func (o DeploymentLoggingStorageAccountArrayOutput) Index(i pulumi.IntInput) Dep
 }
 
 type DeploymentNetworkInterface struct {
-	// Specify The Subnet Resource ID for this NGINX Deployment. Changing this forces a new NGINX Deployment to be created.
+	// Specify The Subnet Resource ID for this NGINX Deployment.
 	SubnetId string `pulumi:"subnetId"`
 }
 
@@ -912,7 +912,7 @@ type DeploymentNetworkInterfaceInput interface {
 }
 
 type DeploymentNetworkInterfaceArgs struct {
-	// Specify The Subnet Resource ID for this NGINX Deployment. Changing this forces a new NGINX Deployment to be created.
+	// Specify The Subnet Resource ID for this NGINX Deployment.
 	SubnetId pulumi.StringInput `pulumi:"subnetId"`
 }
 
@@ -967,7 +967,7 @@ func (o DeploymentNetworkInterfaceOutput) ToDeploymentNetworkInterfaceOutputWith
 	return o
 }
 
-// Specify The Subnet Resource ID for this NGINX Deployment. Changing this forces a new NGINX Deployment to be created.
+// Specify The Subnet Resource ID for this NGINX Deployment.
 func (o DeploymentNetworkInterfaceOutput) SubnetId() pulumi.StringOutput {
 	return o.ApplyT(func(v DeploymentNetworkInterface) string { return v.SubnetId }).(pulumi.StringOutput)
 }
@@ -990,6 +990,698 @@ func (o DeploymentNetworkInterfaceArrayOutput) Index(i pulumi.IntInput) Deployme
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DeploymentNetworkInterface {
 		return vs[0].([]DeploymentNetworkInterface)[vs[1].(int)]
 	}).(DeploymentNetworkInterfaceOutput)
+}
+
+type DeploymentWebApplicationFirewall struct {
+	// Whether WAF is enabled/disabled for this NGINX Deployment.
+	ActivationStateEnabled bool `pulumi:"activationStateEnabled"`
+	// A `web_application_firewall.status` block as defined below:
+	Statuses []DeploymentWebApplicationFirewallStatus `pulumi:"statuses"`
+}
+
+// DeploymentWebApplicationFirewallInput is an input type that accepts DeploymentWebApplicationFirewallArgs and DeploymentWebApplicationFirewallOutput values.
+// You can construct a concrete instance of `DeploymentWebApplicationFirewallInput` via:
+//
+//	DeploymentWebApplicationFirewallArgs{...}
+type DeploymentWebApplicationFirewallInput interface {
+	pulumi.Input
+
+	ToDeploymentWebApplicationFirewallOutput() DeploymentWebApplicationFirewallOutput
+	ToDeploymentWebApplicationFirewallOutputWithContext(context.Context) DeploymentWebApplicationFirewallOutput
+}
+
+type DeploymentWebApplicationFirewallArgs struct {
+	// Whether WAF is enabled/disabled for this NGINX Deployment.
+	ActivationStateEnabled pulumi.BoolInput `pulumi:"activationStateEnabled"`
+	// A `web_application_firewall.status` block as defined below:
+	Statuses DeploymentWebApplicationFirewallStatusArrayInput `pulumi:"statuses"`
+}
+
+func (DeploymentWebApplicationFirewallArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeploymentWebApplicationFirewall)(nil)).Elem()
+}
+
+func (i DeploymentWebApplicationFirewallArgs) ToDeploymentWebApplicationFirewallOutput() DeploymentWebApplicationFirewallOutput {
+	return i.ToDeploymentWebApplicationFirewallOutputWithContext(context.Background())
+}
+
+func (i DeploymentWebApplicationFirewallArgs) ToDeploymentWebApplicationFirewallOutputWithContext(ctx context.Context) DeploymentWebApplicationFirewallOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeploymentWebApplicationFirewallOutput)
+}
+
+func (i DeploymentWebApplicationFirewallArgs) ToDeploymentWebApplicationFirewallPtrOutput() DeploymentWebApplicationFirewallPtrOutput {
+	return i.ToDeploymentWebApplicationFirewallPtrOutputWithContext(context.Background())
+}
+
+func (i DeploymentWebApplicationFirewallArgs) ToDeploymentWebApplicationFirewallPtrOutputWithContext(ctx context.Context) DeploymentWebApplicationFirewallPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeploymentWebApplicationFirewallOutput).ToDeploymentWebApplicationFirewallPtrOutputWithContext(ctx)
+}
+
+// DeploymentWebApplicationFirewallPtrInput is an input type that accepts DeploymentWebApplicationFirewallArgs, DeploymentWebApplicationFirewallPtr and DeploymentWebApplicationFirewallPtrOutput values.
+// You can construct a concrete instance of `DeploymentWebApplicationFirewallPtrInput` via:
+//
+//	        DeploymentWebApplicationFirewallArgs{...}
+//
+//	or:
+//
+//	        nil
+type DeploymentWebApplicationFirewallPtrInput interface {
+	pulumi.Input
+
+	ToDeploymentWebApplicationFirewallPtrOutput() DeploymentWebApplicationFirewallPtrOutput
+	ToDeploymentWebApplicationFirewallPtrOutputWithContext(context.Context) DeploymentWebApplicationFirewallPtrOutput
+}
+
+type deploymentWebApplicationFirewallPtrType DeploymentWebApplicationFirewallArgs
+
+func DeploymentWebApplicationFirewallPtr(v *DeploymentWebApplicationFirewallArgs) DeploymentWebApplicationFirewallPtrInput {
+	return (*deploymentWebApplicationFirewallPtrType)(v)
+}
+
+func (*deploymentWebApplicationFirewallPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DeploymentWebApplicationFirewall)(nil)).Elem()
+}
+
+func (i *deploymentWebApplicationFirewallPtrType) ToDeploymentWebApplicationFirewallPtrOutput() DeploymentWebApplicationFirewallPtrOutput {
+	return i.ToDeploymentWebApplicationFirewallPtrOutputWithContext(context.Background())
+}
+
+func (i *deploymentWebApplicationFirewallPtrType) ToDeploymentWebApplicationFirewallPtrOutputWithContext(ctx context.Context) DeploymentWebApplicationFirewallPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeploymentWebApplicationFirewallPtrOutput)
+}
+
+type DeploymentWebApplicationFirewallOutput struct{ *pulumi.OutputState }
+
+func (DeploymentWebApplicationFirewallOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeploymentWebApplicationFirewall)(nil)).Elem()
+}
+
+func (o DeploymentWebApplicationFirewallOutput) ToDeploymentWebApplicationFirewallOutput() DeploymentWebApplicationFirewallOutput {
+	return o
+}
+
+func (o DeploymentWebApplicationFirewallOutput) ToDeploymentWebApplicationFirewallOutputWithContext(ctx context.Context) DeploymentWebApplicationFirewallOutput {
+	return o
+}
+
+func (o DeploymentWebApplicationFirewallOutput) ToDeploymentWebApplicationFirewallPtrOutput() DeploymentWebApplicationFirewallPtrOutput {
+	return o.ToDeploymentWebApplicationFirewallPtrOutputWithContext(context.Background())
+}
+
+func (o DeploymentWebApplicationFirewallOutput) ToDeploymentWebApplicationFirewallPtrOutputWithContext(ctx context.Context) DeploymentWebApplicationFirewallPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DeploymentWebApplicationFirewall) *DeploymentWebApplicationFirewall {
+		return &v
+	}).(DeploymentWebApplicationFirewallPtrOutput)
+}
+
+// Whether WAF is enabled/disabled for this NGINX Deployment.
+func (o DeploymentWebApplicationFirewallOutput) ActivationStateEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v DeploymentWebApplicationFirewall) bool { return v.ActivationStateEnabled }).(pulumi.BoolOutput)
+}
+
+// A `web_application_firewall.status` block as defined below:
+func (o DeploymentWebApplicationFirewallOutput) Statuses() DeploymentWebApplicationFirewallStatusArrayOutput {
+	return o.ApplyT(func(v DeploymentWebApplicationFirewall) []DeploymentWebApplicationFirewallStatus { return v.Statuses }).(DeploymentWebApplicationFirewallStatusArrayOutput)
+}
+
+type DeploymentWebApplicationFirewallPtrOutput struct{ *pulumi.OutputState }
+
+func (DeploymentWebApplicationFirewallPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DeploymentWebApplicationFirewall)(nil)).Elem()
+}
+
+func (o DeploymentWebApplicationFirewallPtrOutput) ToDeploymentWebApplicationFirewallPtrOutput() DeploymentWebApplicationFirewallPtrOutput {
+	return o
+}
+
+func (o DeploymentWebApplicationFirewallPtrOutput) ToDeploymentWebApplicationFirewallPtrOutputWithContext(ctx context.Context) DeploymentWebApplicationFirewallPtrOutput {
+	return o
+}
+
+func (o DeploymentWebApplicationFirewallPtrOutput) Elem() DeploymentWebApplicationFirewallOutput {
+	return o.ApplyT(func(v *DeploymentWebApplicationFirewall) DeploymentWebApplicationFirewall {
+		if v != nil {
+			return *v
+		}
+		var ret DeploymentWebApplicationFirewall
+		return ret
+	}).(DeploymentWebApplicationFirewallOutput)
+}
+
+// Whether WAF is enabled/disabled for this NGINX Deployment.
+func (o DeploymentWebApplicationFirewallPtrOutput) ActivationStateEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *DeploymentWebApplicationFirewall) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.ActivationStateEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// A `web_application_firewall.status` block as defined below:
+func (o DeploymentWebApplicationFirewallPtrOutput) Statuses() DeploymentWebApplicationFirewallStatusArrayOutput {
+	return o.ApplyT(func(v *DeploymentWebApplicationFirewall) []DeploymentWebApplicationFirewallStatus {
+		if v == nil {
+			return nil
+		}
+		return v.Statuses
+	}).(DeploymentWebApplicationFirewallStatusArrayOutput)
+}
+
+type DeploymentWebApplicationFirewallStatus struct {
+	// Indicates the version of the attack signatures package used by NGINX App Protect.
+	AttackSignaturesPackages []DeploymentWebApplicationFirewallStatusAttackSignaturesPackage `pulumi:"attackSignaturesPackages"`
+	// Indicates the version of the bot signatures package used by NGINX App Protect.
+	BotSignaturesPackages []DeploymentWebApplicationFirewallStatusBotSignaturesPackage `pulumi:"botSignaturesPackages"`
+	// Indicates the version of the WAF Engine and Nginx WAF Module used by NGINX App Protect.
+	ComponentVersions []DeploymentWebApplicationFirewallStatusComponentVersion `pulumi:"componentVersions"`
+	// Indicates the version of the threat campaigns package used by NGINX App Protect.
+	ThreatCampaignsPackages []DeploymentWebApplicationFirewallStatusThreatCampaignsPackage `pulumi:"threatCampaignsPackages"`
+}
+
+// DeploymentWebApplicationFirewallStatusInput is an input type that accepts DeploymentWebApplicationFirewallStatusArgs and DeploymentWebApplicationFirewallStatusOutput values.
+// You can construct a concrete instance of `DeploymentWebApplicationFirewallStatusInput` via:
+//
+//	DeploymentWebApplicationFirewallStatusArgs{...}
+type DeploymentWebApplicationFirewallStatusInput interface {
+	pulumi.Input
+
+	ToDeploymentWebApplicationFirewallStatusOutput() DeploymentWebApplicationFirewallStatusOutput
+	ToDeploymentWebApplicationFirewallStatusOutputWithContext(context.Context) DeploymentWebApplicationFirewallStatusOutput
+}
+
+type DeploymentWebApplicationFirewallStatusArgs struct {
+	// Indicates the version of the attack signatures package used by NGINX App Protect.
+	AttackSignaturesPackages DeploymentWebApplicationFirewallStatusAttackSignaturesPackageArrayInput `pulumi:"attackSignaturesPackages"`
+	// Indicates the version of the bot signatures package used by NGINX App Protect.
+	BotSignaturesPackages DeploymentWebApplicationFirewallStatusBotSignaturesPackageArrayInput `pulumi:"botSignaturesPackages"`
+	// Indicates the version of the WAF Engine and Nginx WAF Module used by NGINX App Protect.
+	ComponentVersions DeploymentWebApplicationFirewallStatusComponentVersionArrayInput `pulumi:"componentVersions"`
+	// Indicates the version of the threat campaigns package used by NGINX App Protect.
+	ThreatCampaignsPackages DeploymentWebApplicationFirewallStatusThreatCampaignsPackageArrayInput `pulumi:"threatCampaignsPackages"`
+}
+
+func (DeploymentWebApplicationFirewallStatusArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeploymentWebApplicationFirewallStatus)(nil)).Elem()
+}
+
+func (i DeploymentWebApplicationFirewallStatusArgs) ToDeploymentWebApplicationFirewallStatusOutput() DeploymentWebApplicationFirewallStatusOutput {
+	return i.ToDeploymentWebApplicationFirewallStatusOutputWithContext(context.Background())
+}
+
+func (i DeploymentWebApplicationFirewallStatusArgs) ToDeploymentWebApplicationFirewallStatusOutputWithContext(ctx context.Context) DeploymentWebApplicationFirewallStatusOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeploymentWebApplicationFirewallStatusOutput)
+}
+
+// DeploymentWebApplicationFirewallStatusArrayInput is an input type that accepts DeploymentWebApplicationFirewallStatusArray and DeploymentWebApplicationFirewallStatusArrayOutput values.
+// You can construct a concrete instance of `DeploymentWebApplicationFirewallStatusArrayInput` via:
+//
+//	DeploymentWebApplicationFirewallStatusArray{ DeploymentWebApplicationFirewallStatusArgs{...} }
+type DeploymentWebApplicationFirewallStatusArrayInput interface {
+	pulumi.Input
+
+	ToDeploymentWebApplicationFirewallStatusArrayOutput() DeploymentWebApplicationFirewallStatusArrayOutput
+	ToDeploymentWebApplicationFirewallStatusArrayOutputWithContext(context.Context) DeploymentWebApplicationFirewallStatusArrayOutput
+}
+
+type DeploymentWebApplicationFirewallStatusArray []DeploymentWebApplicationFirewallStatusInput
+
+func (DeploymentWebApplicationFirewallStatusArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DeploymentWebApplicationFirewallStatus)(nil)).Elem()
+}
+
+func (i DeploymentWebApplicationFirewallStatusArray) ToDeploymentWebApplicationFirewallStatusArrayOutput() DeploymentWebApplicationFirewallStatusArrayOutput {
+	return i.ToDeploymentWebApplicationFirewallStatusArrayOutputWithContext(context.Background())
+}
+
+func (i DeploymentWebApplicationFirewallStatusArray) ToDeploymentWebApplicationFirewallStatusArrayOutputWithContext(ctx context.Context) DeploymentWebApplicationFirewallStatusArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeploymentWebApplicationFirewallStatusArrayOutput)
+}
+
+type DeploymentWebApplicationFirewallStatusOutput struct{ *pulumi.OutputState }
+
+func (DeploymentWebApplicationFirewallStatusOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeploymentWebApplicationFirewallStatus)(nil)).Elem()
+}
+
+func (o DeploymentWebApplicationFirewallStatusOutput) ToDeploymentWebApplicationFirewallStatusOutput() DeploymentWebApplicationFirewallStatusOutput {
+	return o
+}
+
+func (o DeploymentWebApplicationFirewallStatusOutput) ToDeploymentWebApplicationFirewallStatusOutputWithContext(ctx context.Context) DeploymentWebApplicationFirewallStatusOutput {
+	return o
+}
+
+// Indicates the version of the attack signatures package used by NGINX App Protect.
+func (o DeploymentWebApplicationFirewallStatusOutput) AttackSignaturesPackages() DeploymentWebApplicationFirewallStatusAttackSignaturesPackageArrayOutput {
+	return o.ApplyT(func(v DeploymentWebApplicationFirewallStatus) []DeploymentWebApplicationFirewallStatusAttackSignaturesPackage {
+		return v.AttackSignaturesPackages
+	}).(DeploymentWebApplicationFirewallStatusAttackSignaturesPackageArrayOutput)
+}
+
+// Indicates the version of the bot signatures package used by NGINX App Protect.
+func (o DeploymentWebApplicationFirewallStatusOutput) BotSignaturesPackages() DeploymentWebApplicationFirewallStatusBotSignaturesPackageArrayOutput {
+	return o.ApplyT(func(v DeploymentWebApplicationFirewallStatus) []DeploymentWebApplicationFirewallStatusBotSignaturesPackage {
+		return v.BotSignaturesPackages
+	}).(DeploymentWebApplicationFirewallStatusBotSignaturesPackageArrayOutput)
+}
+
+// Indicates the version of the WAF Engine and Nginx WAF Module used by NGINX App Protect.
+func (o DeploymentWebApplicationFirewallStatusOutput) ComponentVersions() DeploymentWebApplicationFirewallStatusComponentVersionArrayOutput {
+	return o.ApplyT(func(v DeploymentWebApplicationFirewallStatus) []DeploymentWebApplicationFirewallStatusComponentVersion {
+		return v.ComponentVersions
+	}).(DeploymentWebApplicationFirewallStatusComponentVersionArrayOutput)
+}
+
+// Indicates the version of the threat campaigns package used by NGINX App Protect.
+func (o DeploymentWebApplicationFirewallStatusOutput) ThreatCampaignsPackages() DeploymentWebApplicationFirewallStatusThreatCampaignsPackageArrayOutput {
+	return o.ApplyT(func(v DeploymentWebApplicationFirewallStatus) []DeploymentWebApplicationFirewallStatusThreatCampaignsPackage {
+		return v.ThreatCampaignsPackages
+	}).(DeploymentWebApplicationFirewallStatusThreatCampaignsPackageArrayOutput)
+}
+
+type DeploymentWebApplicationFirewallStatusArrayOutput struct{ *pulumi.OutputState }
+
+func (DeploymentWebApplicationFirewallStatusArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DeploymentWebApplicationFirewallStatus)(nil)).Elem()
+}
+
+func (o DeploymentWebApplicationFirewallStatusArrayOutput) ToDeploymentWebApplicationFirewallStatusArrayOutput() DeploymentWebApplicationFirewallStatusArrayOutput {
+	return o
+}
+
+func (o DeploymentWebApplicationFirewallStatusArrayOutput) ToDeploymentWebApplicationFirewallStatusArrayOutputWithContext(ctx context.Context) DeploymentWebApplicationFirewallStatusArrayOutput {
+	return o
+}
+
+func (o DeploymentWebApplicationFirewallStatusArrayOutput) Index(i pulumi.IntInput) DeploymentWebApplicationFirewallStatusOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DeploymentWebApplicationFirewallStatus {
+		return vs[0].([]DeploymentWebApplicationFirewallStatus)[vs[1].(int)]
+	}).(DeploymentWebApplicationFirewallStatusOutput)
+}
+
+type DeploymentWebApplicationFirewallStatusAttackSignaturesPackage struct {
+	RevisionDatetime *string `pulumi:"revisionDatetime"`
+	Version          *string `pulumi:"version"`
+}
+
+// DeploymentWebApplicationFirewallStatusAttackSignaturesPackageInput is an input type that accepts DeploymentWebApplicationFirewallStatusAttackSignaturesPackageArgs and DeploymentWebApplicationFirewallStatusAttackSignaturesPackageOutput values.
+// You can construct a concrete instance of `DeploymentWebApplicationFirewallStatusAttackSignaturesPackageInput` via:
+//
+//	DeploymentWebApplicationFirewallStatusAttackSignaturesPackageArgs{...}
+type DeploymentWebApplicationFirewallStatusAttackSignaturesPackageInput interface {
+	pulumi.Input
+
+	ToDeploymentWebApplicationFirewallStatusAttackSignaturesPackageOutput() DeploymentWebApplicationFirewallStatusAttackSignaturesPackageOutput
+	ToDeploymentWebApplicationFirewallStatusAttackSignaturesPackageOutputWithContext(context.Context) DeploymentWebApplicationFirewallStatusAttackSignaturesPackageOutput
+}
+
+type DeploymentWebApplicationFirewallStatusAttackSignaturesPackageArgs struct {
+	RevisionDatetime pulumi.StringPtrInput `pulumi:"revisionDatetime"`
+	Version          pulumi.StringPtrInput `pulumi:"version"`
+}
+
+func (DeploymentWebApplicationFirewallStatusAttackSignaturesPackageArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeploymentWebApplicationFirewallStatusAttackSignaturesPackage)(nil)).Elem()
+}
+
+func (i DeploymentWebApplicationFirewallStatusAttackSignaturesPackageArgs) ToDeploymentWebApplicationFirewallStatusAttackSignaturesPackageOutput() DeploymentWebApplicationFirewallStatusAttackSignaturesPackageOutput {
+	return i.ToDeploymentWebApplicationFirewallStatusAttackSignaturesPackageOutputWithContext(context.Background())
+}
+
+func (i DeploymentWebApplicationFirewallStatusAttackSignaturesPackageArgs) ToDeploymentWebApplicationFirewallStatusAttackSignaturesPackageOutputWithContext(ctx context.Context) DeploymentWebApplicationFirewallStatusAttackSignaturesPackageOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeploymentWebApplicationFirewallStatusAttackSignaturesPackageOutput)
+}
+
+// DeploymentWebApplicationFirewallStatusAttackSignaturesPackageArrayInput is an input type that accepts DeploymentWebApplicationFirewallStatusAttackSignaturesPackageArray and DeploymentWebApplicationFirewallStatusAttackSignaturesPackageArrayOutput values.
+// You can construct a concrete instance of `DeploymentWebApplicationFirewallStatusAttackSignaturesPackageArrayInput` via:
+//
+//	DeploymentWebApplicationFirewallStatusAttackSignaturesPackageArray{ DeploymentWebApplicationFirewallStatusAttackSignaturesPackageArgs{...} }
+type DeploymentWebApplicationFirewallStatusAttackSignaturesPackageArrayInput interface {
+	pulumi.Input
+
+	ToDeploymentWebApplicationFirewallStatusAttackSignaturesPackageArrayOutput() DeploymentWebApplicationFirewallStatusAttackSignaturesPackageArrayOutput
+	ToDeploymentWebApplicationFirewallStatusAttackSignaturesPackageArrayOutputWithContext(context.Context) DeploymentWebApplicationFirewallStatusAttackSignaturesPackageArrayOutput
+}
+
+type DeploymentWebApplicationFirewallStatusAttackSignaturesPackageArray []DeploymentWebApplicationFirewallStatusAttackSignaturesPackageInput
+
+func (DeploymentWebApplicationFirewallStatusAttackSignaturesPackageArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DeploymentWebApplicationFirewallStatusAttackSignaturesPackage)(nil)).Elem()
+}
+
+func (i DeploymentWebApplicationFirewallStatusAttackSignaturesPackageArray) ToDeploymentWebApplicationFirewallStatusAttackSignaturesPackageArrayOutput() DeploymentWebApplicationFirewallStatusAttackSignaturesPackageArrayOutput {
+	return i.ToDeploymentWebApplicationFirewallStatusAttackSignaturesPackageArrayOutputWithContext(context.Background())
+}
+
+func (i DeploymentWebApplicationFirewallStatusAttackSignaturesPackageArray) ToDeploymentWebApplicationFirewallStatusAttackSignaturesPackageArrayOutputWithContext(ctx context.Context) DeploymentWebApplicationFirewallStatusAttackSignaturesPackageArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeploymentWebApplicationFirewallStatusAttackSignaturesPackageArrayOutput)
+}
+
+type DeploymentWebApplicationFirewallStatusAttackSignaturesPackageOutput struct{ *pulumi.OutputState }
+
+func (DeploymentWebApplicationFirewallStatusAttackSignaturesPackageOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeploymentWebApplicationFirewallStatusAttackSignaturesPackage)(nil)).Elem()
+}
+
+func (o DeploymentWebApplicationFirewallStatusAttackSignaturesPackageOutput) ToDeploymentWebApplicationFirewallStatusAttackSignaturesPackageOutput() DeploymentWebApplicationFirewallStatusAttackSignaturesPackageOutput {
+	return o
+}
+
+func (o DeploymentWebApplicationFirewallStatusAttackSignaturesPackageOutput) ToDeploymentWebApplicationFirewallStatusAttackSignaturesPackageOutputWithContext(ctx context.Context) DeploymentWebApplicationFirewallStatusAttackSignaturesPackageOutput {
+	return o
+}
+
+func (o DeploymentWebApplicationFirewallStatusAttackSignaturesPackageOutput) RevisionDatetime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DeploymentWebApplicationFirewallStatusAttackSignaturesPackage) *string {
+		return v.RevisionDatetime
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o DeploymentWebApplicationFirewallStatusAttackSignaturesPackageOutput) Version() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DeploymentWebApplicationFirewallStatusAttackSignaturesPackage) *string { return v.Version }).(pulumi.StringPtrOutput)
+}
+
+type DeploymentWebApplicationFirewallStatusAttackSignaturesPackageArrayOutput struct{ *pulumi.OutputState }
+
+func (DeploymentWebApplicationFirewallStatusAttackSignaturesPackageArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DeploymentWebApplicationFirewallStatusAttackSignaturesPackage)(nil)).Elem()
+}
+
+func (o DeploymentWebApplicationFirewallStatusAttackSignaturesPackageArrayOutput) ToDeploymentWebApplicationFirewallStatusAttackSignaturesPackageArrayOutput() DeploymentWebApplicationFirewallStatusAttackSignaturesPackageArrayOutput {
+	return o
+}
+
+func (o DeploymentWebApplicationFirewallStatusAttackSignaturesPackageArrayOutput) ToDeploymentWebApplicationFirewallStatusAttackSignaturesPackageArrayOutputWithContext(ctx context.Context) DeploymentWebApplicationFirewallStatusAttackSignaturesPackageArrayOutput {
+	return o
+}
+
+func (o DeploymentWebApplicationFirewallStatusAttackSignaturesPackageArrayOutput) Index(i pulumi.IntInput) DeploymentWebApplicationFirewallStatusAttackSignaturesPackageOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DeploymentWebApplicationFirewallStatusAttackSignaturesPackage {
+		return vs[0].([]DeploymentWebApplicationFirewallStatusAttackSignaturesPackage)[vs[1].(int)]
+	}).(DeploymentWebApplicationFirewallStatusAttackSignaturesPackageOutput)
+}
+
+type DeploymentWebApplicationFirewallStatusBotSignaturesPackage struct {
+	RevisionDatetime *string `pulumi:"revisionDatetime"`
+	Version          *string `pulumi:"version"`
+}
+
+// DeploymentWebApplicationFirewallStatusBotSignaturesPackageInput is an input type that accepts DeploymentWebApplicationFirewallStatusBotSignaturesPackageArgs and DeploymentWebApplicationFirewallStatusBotSignaturesPackageOutput values.
+// You can construct a concrete instance of `DeploymentWebApplicationFirewallStatusBotSignaturesPackageInput` via:
+//
+//	DeploymentWebApplicationFirewallStatusBotSignaturesPackageArgs{...}
+type DeploymentWebApplicationFirewallStatusBotSignaturesPackageInput interface {
+	pulumi.Input
+
+	ToDeploymentWebApplicationFirewallStatusBotSignaturesPackageOutput() DeploymentWebApplicationFirewallStatusBotSignaturesPackageOutput
+	ToDeploymentWebApplicationFirewallStatusBotSignaturesPackageOutputWithContext(context.Context) DeploymentWebApplicationFirewallStatusBotSignaturesPackageOutput
+}
+
+type DeploymentWebApplicationFirewallStatusBotSignaturesPackageArgs struct {
+	RevisionDatetime pulumi.StringPtrInput `pulumi:"revisionDatetime"`
+	Version          pulumi.StringPtrInput `pulumi:"version"`
+}
+
+func (DeploymentWebApplicationFirewallStatusBotSignaturesPackageArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeploymentWebApplicationFirewallStatusBotSignaturesPackage)(nil)).Elem()
+}
+
+func (i DeploymentWebApplicationFirewallStatusBotSignaturesPackageArgs) ToDeploymentWebApplicationFirewallStatusBotSignaturesPackageOutput() DeploymentWebApplicationFirewallStatusBotSignaturesPackageOutput {
+	return i.ToDeploymentWebApplicationFirewallStatusBotSignaturesPackageOutputWithContext(context.Background())
+}
+
+func (i DeploymentWebApplicationFirewallStatusBotSignaturesPackageArgs) ToDeploymentWebApplicationFirewallStatusBotSignaturesPackageOutputWithContext(ctx context.Context) DeploymentWebApplicationFirewallStatusBotSignaturesPackageOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeploymentWebApplicationFirewallStatusBotSignaturesPackageOutput)
+}
+
+// DeploymentWebApplicationFirewallStatusBotSignaturesPackageArrayInput is an input type that accepts DeploymentWebApplicationFirewallStatusBotSignaturesPackageArray and DeploymentWebApplicationFirewallStatusBotSignaturesPackageArrayOutput values.
+// You can construct a concrete instance of `DeploymentWebApplicationFirewallStatusBotSignaturesPackageArrayInput` via:
+//
+//	DeploymentWebApplicationFirewallStatusBotSignaturesPackageArray{ DeploymentWebApplicationFirewallStatusBotSignaturesPackageArgs{...} }
+type DeploymentWebApplicationFirewallStatusBotSignaturesPackageArrayInput interface {
+	pulumi.Input
+
+	ToDeploymentWebApplicationFirewallStatusBotSignaturesPackageArrayOutput() DeploymentWebApplicationFirewallStatusBotSignaturesPackageArrayOutput
+	ToDeploymentWebApplicationFirewallStatusBotSignaturesPackageArrayOutputWithContext(context.Context) DeploymentWebApplicationFirewallStatusBotSignaturesPackageArrayOutput
+}
+
+type DeploymentWebApplicationFirewallStatusBotSignaturesPackageArray []DeploymentWebApplicationFirewallStatusBotSignaturesPackageInput
+
+func (DeploymentWebApplicationFirewallStatusBotSignaturesPackageArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DeploymentWebApplicationFirewallStatusBotSignaturesPackage)(nil)).Elem()
+}
+
+func (i DeploymentWebApplicationFirewallStatusBotSignaturesPackageArray) ToDeploymentWebApplicationFirewallStatusBotSignaturesPackageArrayOutput() DeploymentWebApplicationFirewallStatusBotSignaturesPackageArrayOutput {
+	return i.ToDeploymentWebApplicationFirewallStatusBotSignaturesPackageArrayOutputWithContext(context.Background())
+}
+
+func (i DeploymentWebApplicationFirewallStatusBotSignaturesPackageArray) ToDeploymentWebApplicationFirewallStatusBotSignaturesPackageArrayOutputWithContext(ctx context.Context) DeploymentWebApplicationFirewallStatusBotSignaturesPackageArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeploymentWebApplicationFirewallStatusBotSignaturesPackageArrayOutput)
+}
+
+type DeploymentWebApplicationFirewallStatusBotSignaturesPackageOutput struct{ *pulumi.OutputState }
+
+func (DeploymentWebApplicationFirewallStatusBotSignaturesPackageOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeploymentWebApplicationFirewallStatusBotSignaturesPackage)(nil)).Elem()
+}
+
+func (o DeploymentWebApplicationFirewallStatusBotSignaturesPackageOutput) ToDeploymentWebApplicationFirewallStatusBotSignaturesPackageOutput() DeploymentWebApplicationFirewallStatusBotSignaturesPackageOutput {
+	return o
+}
+
+func (o DeploymentWebApplicationFirewallStatusBotSignaturesPackageOutput) ToDeploymentWebApplicationFirewallStatusBotSignaturesPackageOutputWithContext(ctx context.Context) DeploymentWebApplicationFirewallStatusBotSignaturesPackageOutput {
+	return o
+}
+
+func (o DeploymentWebApplicationFirewallStatusBotSignaturesPackageOutput) RevisionDatetime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DeploymentWebApplicationFirewallStatusBotSignaturesPackage) *string { return v.RevisionDatetime }).(pulumi.StringPtrOutput)
+}
+
+func (o DeploymentWebApplicationFirewallStatusBotSignaturesPackageOutput) Version() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DeploymentWebApplicationFirewallStatusBotSignaturesPackage) *string { return v.Version }).(pulumi.StringPtrOutput)
+}
+
+type DeploymentWebApplicationFirewallStatusBotSignaturesPackageArrayOutput struct{ *pulumi.OutputState }
+
+func (DeploymentWebApplicationFirewallStatusBotSignaturesPackageArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DeploymentWebApplicationFirewallStatusBotSignaturesPackage)(nil)).Elem()
+}
+
+func (o DeploymentWebApplicationFirewallStatusBotSignaturesPackageArrayOutput) ToDeploymentWebApplicationFirewallStatusBotSignaturesPackageArrayOutput() DeploymentWebApplicationFirewallStatusBotSignaturesPackageArrayOutput {
+	return o
+}
+
+func (o DeploymentWebApplicationFirewallStatusBotSignaturesPackageArrayOutput) ToDeploymentWebApplicationFirewallStatusBotSignaturesPackageArrayOutputWithContext(ctx context.Context) DeploymentWebApplicationFirewallStatusBotSignaturesPackageArrayOutput {
+	return o
+}
+
+func (o DeploymentWebApplicationFirewallStatusBotSignaturesPackageArrayOutput) Index(i pulumi.IntInput) DeploymentWebApplicationFirewallStatusBotSignaturesPackageOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DeploymentWebApplicationFirewallStatusBotSignaturesPackage {
+		return vs[0].([]DeploymentWebApplicationFirewallStatusBotSignaturesPackage)[vs[1].(int)]
+	}).(DeploymentWebApplicationFirewallStatusBotSignaturesPackageOutput)
+}
+
+type DeploymentWebApplicationFirewallStatusComponentVersion struct {
+	WafEngineVersion *string `pulumi:"wafEngineVersion"`
+	WafNginxVersion  *string `pulumi:"wafNginxVersion"`
+}
+
+// DeploymentWebApplicationFirewallStatusComponentVersionInput is an input type that accepts DeploymentWebApplicationFirewallStatusComponentVersionArgs and DeploymentWebApplicationFirewallStatusComponentVersionOutput values.
+// You can construct a concrete instance of `DeploymentWebApplicationFirewallStatusComponentVersionInput` via:
+//
+//	DeploymentWebApplicationFirewallStatusComponentVersionArgs{...}
+type DeploymentWebApplicationFirewallStatusComponentVersionInput interface {
+	pulumi.Input
+
+	ToDeploymentWebApplicationFirewallStatusComponentVersionOutput() DeploymentWebApplicationFirewallStatusComponentVersionOutput
+	ToDeploymentWebApplicationFirewallStatusComponentVersionOutputWithContext(context.Context) DeploymentWebApplicationFirewallStatusComponentVersionOutput
+}
+
+type DeploymentWebApplicationFirewallStatusComponentVersionArgs struct {
+	WafEngineVersion pulumi.StringPtrInput `pulumi:"wafEngineVersion"`
+	WafNginxVersion  pulumi.StringPtrInput `pulumi:"wafNginxVersion"`
+}
+
+func (DeploymentWebApplicationFirewallStatusComponentVersionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeploymentWebApplicationFirewallStatusComponentVersion)(nil)).Elem()
+}
+
+func (i DeploymentWebApplicationFirewallStatusComponentVersionArgs) ToDeploymentWebApplicationFirewallStatusComponentVersionOutput() DeploymentWebApplicationFirewallStatusComponentVersionOutput {
+	return i.ToDeploymentWebApplicationFirewallStatusComponentVersionOutputWithContext(context.Background())
+}
+
+func (i DeploymentWebApplicationFirewallStatusComponentVersionArgs) ToDeploymentWebApplicationFirewallStatusComponentVersionOutputWithContext(ctx context.Context) DeploymentWebApplicationFirewallStatusComponentVersionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeploymentWebApplicationFirewallStatusComponentVersionOutput)
+}
+
+// DeploymentWebApplicationFirewallStatusComponentVersionArrayInput is an input type that accepts DeploymentWebApplicationFirewallStatusComponentVersionArray and DeploymentWebApplicationFirewallStatusComponentVersionArrayOutput values.
+// You can construct a concrete instance of `DeploymentWebApplicationFirewallStatusComponentVersionArrayInput` via:
+//
+//	DeploymentWebApplicationFirewallStatusComponentVersionArray{ DeploymentWebApplicationFirewallStatusComponentVersionArgs{...} }
+type DeploymentWebApplicationFirewallStatusComponentVersionArrayInput interface {
+	pulumi.Input
+
+	ToDeploymentWebApplicationFirewallStatusComponentVersionArrayOutput() DeploymentWebApplicationFirewallStatusComponentVersionArrayOutput
+	ToDeploymentWebApplicationFirewallStatusComponentVersionArrayOutputWithContext(context.Context) DeploymentWebApplicationFirewallStatusComponentVersionArrayOutput
+}
+
+type DeploymentWebApplicationFirewallStatusComponentVersionArray []DeploymentWebApplicationFirewallStatusComponentVersionInput
+
+func (DeploymentWebApplicationFirewallStatusComponentVersionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DeploymentWebApplicationFirewallStatusComponentVersion)(nil)).Elem()
+}
+
+func (i DeploymentWebApplicationFirewallStatusComponentVersionArray) ToDeploymentWebApplicationFirewallStatusComponentVersionArrayOutput() DeploymentWebApplicationFirewallStatusComponentVersionArrayOutput {
+	return i.ToDeploymentWebApplicationFirewallStatusComponentVersionArrayOutputWithContext(context.Background())
+}
+
+func (i DeploymentWebApplicationFirewallStatusComponentVersionArray) ToDeploymentWebApplicationFirewallStatusComponentVersionArrayOutputWithContext(ctx context.Context) DeploymentWebApplicationFirewallStatusComponentVersionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeploymentWebApplicationFirewallStatusComponentVersionArrayOutput)
+}
+
+type DeploymentWebApplicationFirewallStatusComponentVersionOutput struct{ *pulumi.OutputState }
+
+func (DeploymentWebApplicationFirewallStatusComponentVersionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeploymentWebApplicationFirewallStatusComponentVersion)(nil)).Elem()
+}
+
+func (o DeploymentWebApplicationFirewallStatusComponentVersionOutput) ToDeploymentWebApplicationFirewallStatusComponentVersionOutput() DeploymentWebApplicationFirewallStatusComponentVersionOutput {
+	return o
+}
+
+func (o DeploymentWebApplicationFirewallStatusComponentVersionOutput) ToDeploymentWebApplicationFirewallStatusComponentVersionOutputWithContext(ctx context.Context) DeploymentWebApplicationFirewallStatusComponentVersionOutput {
+	return o
+}
+
+func (o DeploymentWebApplicationFirewallStatusComponentVersionOutput) WafEngineVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DeploymentWebApplicationFirewallStatusComponentVersion) *string { return v.WafEngineVersion }).(pulumi.StringPtrOutput)
+}
+
+func (o DeploymentWebApplicationFirewallStatusComponentVersionOutput) WafNginxVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DeploymentWebApplicationFirewallStatusComponentVersion) *string { return v.WafNginxVersion }).(pulumi.StringPtrOutput)
+}
+
+type DeploymentWebApplicationFirewallStatusComponentVersionArrayOutput struct{ *pulumi.OutputState }
+
+func (DeploymentWebApplicationFirewallStatusComponentVersionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DeploymentWebApplicationFirewallStatusComponentVersion)(nil)).Elem()
+}
+
+func (o DeploymentWebApplicationFirewallStatusComponentVersionArrayOutput) ToDeploymentWebApplicationFirewallStatusComponentVersionArrayOutput() DeploymentWebApplicationFirewallStatusComponentVersionArrayOutput {
+	return o
+}
+
+func (o DeploymentWebApplicationFirewallStatusComponentVersionArrayOutput) ToDeploymentWebApplicationFirewallStatusComponentVersionArrayOutputWithContext(ctx context.Context) DeploymentWebApplicationFirewallStatusComponentVersionArrayOutput {
+	return o
+}
+
+func (o DeploymentWebApplicationFirewallStatusComponentVersionArrayOutput) Index(i pulumi.IntInput) DeploymentWebApplicationFirewallStatusComponentVersionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DeploymentWebApplicationFirewallStatusComponentVersion {
+		return vs[0].([]DeploymentWebApplicationFirewallStatusComponentVersion)[vs[1].(int)]
+	}).(DeploymentWebApplicationFirewallStatusComponentVersionOutput)
+}
+
+type DeploymentWebApplicationFirewallStatusThreatCampaignsPackage struct {
+	RevisionDatetime *string `pulumi:"revisionDatetime"`
+	Version          *string `pulumi:"version"`
+}
+
+// DeploymentWebApplicationFirewallStatusThreatCampaignsPackageInput is an input type that accepts DeploymentWebApplicationFirewallStatusThreatCampaignsPackageArgs and DeploymentWebApplicationFirewallStatusThreatCampaignsPackageOutput values.
+// You can construct a concrete instance of `DeploymentWebApplicationFirewallStatusThreatCampaignsPackageInput` via:
+//
+//	DeploymentWebApplicationFirewallStatusThreatCampaignsPackageArgs{...}
+type DeploymentWebApplicationFirewallStatusThreatCampaignsPackageInput interface {
+	pulumi.Input
+
+	ToDeploymentWebApplicationFirewallStatusThreatCampaignsPackageOutput() DeploymentWebApplicationFirewallStatusThreatCampaignsPackageOutput
+	ToDeploymentWebApplicationFirewallStatusThreatCampaignsPackageOutputWithContext(context.Context) DeploymentWebApplicationFirewallStatusThreatCampaignsPackageOutput
+}
+
+type DeploymentWebApplicationFirewallStatusThreatCampaignsPackageArgs struct {
+	RevisionDatetime pulumi.StringPtrInput `pulumi:"revisionDatetime"`
+	Version          pulumi.StringPtrInput `pulumi:"version"`
+}
+
+func (DeploymentWebApplicationFirewallStatusThreatCampaignsPackageArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeploymentWebApplicationFirewallStatusThreatCampaignsPackage)(nil)).Elem()
+}
+
+func (i DeploymentWebApplicationFirewallStatusThreatCampaignsPackageArgs) ToDeploymentWebApplicationFirewallStatusThreatCampaignsPackageOutput() DeploymentWebApplicationFirewallStatusThreatCampaignsPackageOutput {
+	return i.ToDeploymentWebApplicationFirewallStatusThreatCampaignsPackageOutputWithContext(context.Background())
+}
+
+func (i DeploymentWebApplicationFirewallStatusThreatCampaignsPackageArgs) ToDeploymentWebApplicationFirewallStatusThreatCampaignsPackageOutputWithContext(ctx context.Context) DeploymentWebApplicationFirewallStatusThreatCampaignsPackageOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeploymentWebApplicationFirewallStatusThreatCampaignsPackageOutput)
+}
+
+// DeploymentWebApplicationFirewallStatusThreatCampaignsPackageArrayInput is an input type that accepts DeploymentWebApplicationFirewallStatusThreatCampaignsPackageArray and DeploymentWebApplicationFirewallStatusThreatCampaignsPackageArrayOutput values.
+// You can construct a concrete instance of `DeploymentWebApplicationFirewallStatusThreatCampaignsPackageArrayInput` via:
+//
+//	DeploymentWebApplicationFirewallStatusThreatCampaignsPackageArray{ DeploymentWebApplicationFirewallStatusThreatCampaignsPackageArgs{...} }
+type DeploymentWebApplicationFirewallStatusThreatCampaignsPackageArrayInput interface {
+	pulumi.Input
+
+	ToDeploymentWebApplicationFirewallStatusThreatCampaignsPackageArrayOutput() DeploymentWebApplicationFirewallStatusThreatCampaignsPackageArrayOutput
+	ToDeploymentWebApplicationFirewallStatusThreatCampaignsPackageArrayOutputWithContext(context.Context) DeploymentWebApplicationFirewallStatusThreatCampaignsPackageArrayOutput
+}
+
+type DeploymentWebApplicationFirewallStatusThreatCampaignsPackageArray []DeploymentWebApplicationFirewallStatusThreatCampaignsPackageInput
+
+func (DeploymentWebApplicationFirewallStatusThreatCampaignsPackageArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DeploymentWebApplicationFirewallStatusThreatCampaignsPackage)(nil)).Elem()
+}
+
+func (i DeploymentWebApplicationFirewallStatusThreatCampaignsPackageArray) ToDeploymentWebApplicationFirewallStatusThreatCampaignsPackageArrayOutput() DeploymentWebApplicationFirewallStatusThreatCampaignsPackageArrayOutput {
+	return i.ToDeploymentWebApplicationFirewallStatusThreatCampaignsPackageArrayOutputWithContext(context.Background())
+}
+
+func (i DeploymentWebApplicationFirewallStatusThreatCampaignsPackageArray) ToDeploymentWebApplicationFirewallStatusThreatCampaignsPackageArrayOutputWithContext(ctx context.Context) DeploymentWebApplicationFirewallStatusThreatCampaignsPackageArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeploymentWebApplicationFirewallStatusThreatCampaignsPackageArrayOutput)
+}
+
+type DeploymentWebApplicationFirewallStatusThreatCampaignsPackageOutput struct{ *pulumi.OutputState }
+
+func (DeploymentWebApplicationFirewallStatusThreatCampaignsPackageOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeploymentWebApplicationFirewallStatusThreatCampaignsPackage)(nil)).Elem()
+}
+
+func (o DeploymentWebApplicationFirewallStatusThreatCampaignsPackageOutput) ToDeploymentWebApplicationFirewallStatusThreatCampaignsPackageOutput() DeploymentWebApplicationFirewallStatusThreatCampaignsPackageOutput {
+	return o
+}
+
+func (o DeploymentWebApplicationFirewallStatusThreatCampaignsPackageOutput) ToDeploymentWebApplicationFirewallStatusThreatCampaignsPackageOutputWithContext(ctx context.Context) DeploymentWebApplicationFirewallStatusThreatCampaignsPackageOutput {
+	return o
+}
+
+func (o DeploymentWebApplicationFirewallStatusThreatCampaignsPackageOutput) RevisionDatetime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DeploymentWebApplicationFirewallStatusThreatCampaignsPackage) *string {
+		return v.RevisionDatetime
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o DeploymentWebApplicationFirewallStatusThreatCampaignsPackageOutput) Version() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DeploymentWebApplicationFirewallStatusThreatCampaignsPackage) *string { return v.Version }).(pulumi.StringPtrOutput)
+}
+
+type DeploymentWebApplicationFirewallStatusThreatCampaignsPackageArrayOutput struct{ *pulumi.OutputState }
+
+func (DeploymentWebApplicationFirewallStatusThreatCampaignsPackageArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DeploymentWebApplicationFirewallStatusThreatCampaignsPackage)(nil)).Elem()
+}
+
+func (o DeploymentWebApplicationFirewallStatusThreatCampaignsPackageArrayOutput) ToDeploymentWebApplicationFirewallStatusThreatCampaignsPackageArrayOutput() DeploymentWebApplicationFirewallStatusThreatCampaignsPackageArrayOutput {
+	return o
+}
+
+func (o DeploymentWebApplicationFirewallStatusThreatCampaignsPackageArrayOutput) ToDeploymentWebApplicationFirewallStatusThreatCampaignsPackageArrayOutputWithContext(ctx context.Context) DeploymentWebApplicationFirewallStatusThreatCampaignsPackageArrayOutput {
+	return o
+}
+
+func (o DeploymentWebApplicationFirewallStatusThreatCampaignsPackageArrayOutput) Index(i pulumi.IntInput) DeploymentWebApplicationFirewallStatusThreatCampaignsPackageOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DeploymentWebApplicationFirewallStatusThreatCampaignsPackage {
+		return vs[0].([]DeploymentWebApplicationFirewallStatusThreatCampaignsPackage)[vs[1].(int)]
+	}).(DeploymentWebApplicationFirewallStatusThreatCampaignsPackageOutput)
 }
 
 type GetConfigurationConfigFile struct {
@@ -1864,6 +2556,652 @@ func (o GetDeploymentNetworkInterfaceArrayOutput) Index(i pulumi.IntInput) GetDe
 	}).(GetDeploymentNetworkInterfaceOutput)
 }
 
+type GetDeploymentWebApplicationFirewall struct {
+	// Whether WAF is enabled/disabled for this NGINX Deployment.
+	ActivationStateEnabled bool `pulumi:"activationStateEnabled"`
+	// A `status` block as defined below.
+	Statuses []GetDeploymentWebApplicationFirewallStatus `pulumi:"statuses"`
+}
+
+// GetDeploymentWebApplicationFirewallInput is an input type that accepts GetDeploymentWebApplicationFirewallArgs and GetDeploymentWebApplicationFirewallOutput values.
+// You can construct a concrete instance of `GetDeploymentWebApplicationFirewallInput` via:
+//
+//	GetDeploymentWebApplicationFirewallArgs{...}
+type GetDeploymentWebApplicationFirewallInput interface {
+	pulumi.Input
+
+	ToGetDeploymentWebApplicationFirewallOutput() GetDeploymentWebApplicationFirewallOutput
+	ToGetDeploymentWebApplicationFirewallOutputWithContext(context.Context) GetDeploymentWebApplicationFirewallOutput
+}
+
+type GetDeploymentWebApplicationFirewallArgs struct {
+	// Whether WAF is enabled/disabled for this NGINX Deployment.
+	ActivationStateEnabled pulumi.BoolInput `pulumi:"activationStateEnabled"`
+	// A `status` block as defined below.
+	Statuses GetDeploymentWebApplicationFirewallStatusArrayInput `pulumi:"statuses"`
+}
+
+func (GetDeploymentWebApplicationFirewallArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDeploymentWebApplicationFirewall)(nil)).Elem()
+}
+
+func (i GetDeploymentWebApplicationFirewallArgs) ToGetDeploymentWebApplicationFirewallOutput() GetDeploymentWebApplicationFirewallOutput {
+	return i.ToGetDeploymentWebApplicationFirewallOutputWithContext(context.Background())
+}
+
+func (i GetDeploymentWebApplicationFirewallArgs) ToGetDeploymentWebApplicationFirewallOutputWithContext(ctx context.Context) GetDeploymentWebApplicationFirewallOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDeploymentWebApplicationFirewallOutput)
+}
+
+// GetDeploymentWebApplicationFirewallArrayInput is an input type that accepts GetDeploymentWebApplicationFirewallArray and GetDeploymentWebApplicationFirewallArrayOutput values.
+// You can construct a concrete instance of `GetDeploymentWebApplicationFirewallArrayInput` via:
+//
+//	GetDeploymentWebApplicationFirewallArray{ GetDeploymentWebApplicationFirewallArgs{...} }
+type GetDeploymentWebApplicationFirewallArrayInput interface {
+	pulumi.Input
+
+	ToGetDeploymentWebApplicationFirewallArrayOutput() GetDeploymentWebApplicationFirewallArrayOutput
+	ToGetDeploymentWebApplicationFirewallArrayOutputWithContext(context.Context) GetDeploymentWebApplicationFirewallArrayOutput
+}
+
+type GetDeploymentWebApplicationFirewallArray []GetDeploymentWebApplicationFirewallInput
+
+func (GetDeploymentWebApplicationFirewallArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetDeploymentWebApplicationFirewall)(nil)).Elem()
+}
+
+func (i GetDeploymentWebApplicationFirewallArray) ToGetDeploymentWebApplicationFirewallArrayOutput() GetDeploymentWebApplicationFirewallArrayOutput {
+	return i.ToGetDeploymentWebApplicationFirewallArrayOutputWithContext(context.Background())
+}
+
+func (i GetDeploymentWebApplicationFirewallArray) ToGetDeploymentWebApplicationFirewallArrayOutputWithContext(ctx context.Context) GetDeploymentWebApplicationFirewallArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDeploymentWebApplicationFirewallArrayOutput)
+}
+
+type GetDeploymentWebApplicationFirewallOutput struct{ *pulumi.OutputState }
+
+func (GetDeploymentWebApplicationFirewallOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDeploymentWebApplicationFirewall)(nil)).Elem()
+}
+
+func (o GetDeploymentWebApplicationFirewallOutput) ToGetDeploymentWebApplicationFirewallOutput() GetDeploymentWebApplicationFirewallOutput {
+	return o
+}
+
+func (o GetDeploymentWebApplicationFirewallOutput) ToGetDeploymentWebApplicationFirewallOutputWithContext(ctx context.Context) GetDeploymentWebApplicationFirewallOutput {
+	return o
+}
+
+// Whether WAF is enabled/disabled for this NGINX Deployment.
+func (o GetDeploymentWebApplicationFirewallOutput) ActivationStateEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetDeploymentWebApplicationFirewall) bool { return v.ActivationStateEnabled }).(pulumi.BoolOutput)
+}
+
+// A `status` block as defined below.
+func (o GetDeploymentWebApplicationFirewallOutput) Statuses() GetDeploymentWebApplicationFirewallStatusArrayOutput {
+	return o.ApplyT(func(v GetDeploymentWebApplicationFirewall) []GetDeploymentWebApplicationFirewallStatus {
+		return v.Statuses
+	}).(GetDeploymentWebApplicationFirewallStatusArrayOutput)
+}
+
+type GetDeploymentWebApplicationFirewallArrayOutput struct{ *pulumi.OutputState }
+
+func (GetDeploymentWebApplicationFirewallArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetDeploymentWebApplicationFirewall)(nil)).Elem()
+}
+
+func (o GetDeploymentWebApplicationFirewallArrayOutput) ToGetDeploymentWebApplicationFirewallArrayOutput() GetDeploymentWebApplicationFirewallArrayOutput {
+	return o
+}
+
+func (o GetDeploymentWebApplicationFirewallArrayOutput) ToGetDeploymentWebApplicationFirewallArrayOutputWithContext(ctx context.Context) GetDeploymentWebApplicationFirewallArrayOutput {
+	return o
+}
+
+func (o GetDeploymentWebApplicationFirewallArrayOutput) Index(i pulumi.IntInput) GetDeploymentWebApplicationFirewallOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetDeploymentWebApplicationFirewall {
+		return vs[0].([]GetDeploymentWebApplicationFirewall)[vs[1].(int)]
+	}).(GetDeploymentWebApplicationFirewallOutput)
+}
+
+type GetDeploymentWebApplicationFirewallStatus struct {
+	// Indicates the version of the attack signatures package used by NGINX App Protect.
+	AttackSignaturesPackages []GetDeploymentWebApplicationFirewallStatusAttackSignaturesPackage `pulumi:"attackSignaturesPackages"`
+	// Indicates the version of the bot signatures package used by NGINX App Protect.
+	BotSignaturesPackages []GetDeploymentWebApplicationFirewallStatusBotSignaturesPackage `pulumi:"botSignaturesPackages"`
+	// Indicates the version of the WAF Engine and Nginx WAF Module used by NGINX App Protect.
+	ComponentVersions []GetDeploymentWebApplicationFirewallStatusComponentVersion `pulumi:"componentVersions"`
+	// Indicates the version of the threat campaigns package used by NGINX App Protect.
+	ThreatCampaignsPackages []GetDeploymentWebApplicationFirewallStatusThreatCampaignsPackage `pulumi:"threatCampaignsPackages"`
+}
+
+// GetDeploymentWebApplicationFirewallStatusInput is an input type that accepts GetDeploymentWebApplicationFirewallStatusArgs and GetDeploymentWebApplicationFirewallStatusOutput values.
+// You can construct a concrete instance of `GetDeploymentWebApplicationFirewallStatusInput` via:
+//
+//	GetDeploymentWebApplicationFirewallStatusArgs{...}
+type GetDeploymentWebApplicationFirewallStatusInput interface {
+	pulumi.Input
+
+	ToGetDeploymentWebApplicationFirewallStatusOutput() GetDeploymentWebApplicationFirewallStatusOutput
+	ToGetDeploymentWebApplicationFirewallStatusOutputWithContext(context.Context) GetDeploymentWebApplicationFirewallStatusOutput
+}
+
+type GetDeploymentWebApplicationFirewallStatusArgs struct {
+	// Indicates the version of the attack signatures package used by NGINX App Protect.
+	AttackSignaturesPackages GetDeploymentWebApplicationFirewallStatusAttackSignaturesPackageArrayInput `pulumi:"attackSignaturesPackages"`
+	// Indicates the version of the bot signatures package used by NGINX App Protect.
+	BotSignaturesPackages GetDeploymentWebApplicationFirewallStatusBotSignaturesPackageArrayInput `pulumi:"botSignaturesPackages"`
+	// Indicates the version of the WAF Engine and Nginx WAF Module used by NGINX App Protect.
+	ComponentVersions GetDeploymentWebApplicationFirewallStatusComponentVersionArrayInput `pulumi:"componentVersions"`
+	// Indicates the version of the threat campaigns package used by NGINX App Protect.
+	ThreatCampaignsPackages GetDeploymentWebApplicationFirewallStatusThreatCampaignsPackageArrayInput `pulumi:"threatCampaignsPackages"`
+}
+
+func (GetDeploymentWebApplicationFirewallStatusArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDeploymentWebApplicationFirewallStatus)(nil)).Elem()
+}
+
+func (i GetDeploymentWebApplicationFirewallStatusArgs) ToGetDeploymentWebApplicationFirewallStatusOutput() GetDeploymentWebApplicationFirewallStatusOutput {
+	return i.ToGetDeploymentWebApplicationFirewallStatusOutputWithContext(context.Background())
+}
+
+func (i GetDeploymentWebApplicationFirewallStatusArgs) ToGetDeploymentWebApplicationFirewallStatusOutputWithContext(ctx context.Context) GetDeploymentWebApplicationFirewallStatusOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDeploymentWebApplicationFirewallStatusOutput)
+}
+
+// GetDeploymentWebApplicationFirewallStatusArrayInput is an input type that accepts GetDeploymentWebApplicationFirewallStatusArray and GetDeploymentWebApplicationFirewallStatusArrayOutput values.
+// You can construct a concrete instance of `GetDeploymentWebApplicationFirewallStatusArrayInput` via:
+//
+//	GetDeploymentWebApplicationFirewallStatusArray{ GetDeploymentWebApplicationFirewallStatusArgs{...} }
+type GetDeploymentWebApplicationFirewallStatusArrayInput interface {
+	pulumi.Input
+
+	ToGetDeploymentWebApplicationFirewallStatusArrayOutput() GetDeploymentWebApplicationFirewallStatusArrayOutput
+	ToGetDeploymentWebApplicationFirewallStatusArrayOutputWithContext(context.Context) GetDeploymentWebApplicationFirewallStatusArrayOutput
+}
+
+type GetDeploymentWebApplicationFirewallStatusArray []GetDeploymentWebApplicationFirewallStatusInput
+
+func (GetDeploymentWebApplicationFirewallStatusArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetDeploymentWebApplicationFirewallStatus)(nil)).Elem()
+}
+
+func (i GetDeploymentWebApplicationFirewallStatusArray) ToGetDeploymentWebApplicationFirewallStatusArrayOutput() GetDeploymentWebApplicationFirewallStatusArrayOutput {
+	return i.ToGetDeploymentWebApplicationFirewallStatusArrayOutputWithContext(context.Background())
+}
+
+func (i GetDeploymentWebApplicationFirewallStatusArray) ToGetDeploymentWebApplicationFirewallStatusArrayOutputWithContext(ctx context.Context) GetDeploymentWebApplicationFirewallStatusArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDeploymentWebApplicationFirewallStatusArrayOutput)
+}
+
+type GetDeploymentWebApplicationFirewallStatusOutput struct{ *pulumi.OutputState }
+
+func (GetDeploymentWebApplicationFirewallStatusOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDeploymentWebApplicationFirewallStatus)(nil)).Elem()
+}
+
+func (o GetDeploymentWebApplicationFirewallStatusOutput) ToGetDeploymentWebApplicationFirewallStatusOutput() GetDeploymentWebApplicationFirewallStatusOutput {
+	return o
+}
+
+func (o GetDeploymentWebApplicationFirewallStatusOutput) ToGetDeploymentWebApplicationFirewallStatusOutputWithContext(ctx context.Context) GetDeploymentWebApplicationFirewallStatusOutput {
+	return o
+}
+
+// Indicates the version of the attack signatures package used by NGINX App Protect.
+func (o GetDeploymentWebApplicationFirewallStatusOutput) AttackSignaturesPackages() GetDeploymentWebApplicationFirewallStatusAttackSignaturesPackageArrayOutput {
+	return o.ApplyT(func(v GetDeploymentWebApplicationFirewallStatus) []GetDeploymentWebApplicationFirewallStatusAttackSignaturesPackage {
+		return v.AttackSignaturesPackages
+	}).(GetDeploymentWebApplicationFirewallStatusAttackSignaturesPackageArrayOutput)
+}
+
+// Indicates the version of the bot signatures package used by NGINX App Protect.
+func (o GetDeploymentWebApplicationFirewallStatusOutput) BotSignaturesPackages() GetDeploymentWebApplicationFirewallStatusBotSignaturesPackageArrayOutput {
+	return o.ApplyT(func(v GetDeploymentWebApplicationFirewallStatus) []GetDeploymentWebApplicationFirewallStatusBotSignaturesPackage {
+		return v.BotSignaturesPackages
+	}).(GetDeploymentWebApplicationFirewallStatusBotSignaturesPackageArrayOutput)
+}
+
+// Indicates the version of the WAF Engine and Nginx WAF Module used by NGINX App Protect.
+func (o GetDeploymentWebApplicationFirewallStatusOutput) ComponentVersions() GetDeploymentWebApplicationFirewallStatusComponentVersionArrayOutput {
+	return o.ApplyT(func(v GetDeploymentWebApplicationFirewallStatus) []GetDeploymentWebApplicationFirewallStatusComponentVersion {
+		return v.ComponentVersions
+	}).(GetDeploymentWebApplicationFirewallStatusComponentVersionArrayOutput)
+}
+
+// Indicates the version of the threat campaigns package used by NGINX App Protect.
+func (o GetDeploymentWebApplicationFirewallStatusOutput) ThreatCampaignsPackages() GetDeploymentWebApplicationFirewallStatusThreatCampaignsPackageArrayOutput {
+	return o.ApplyT(func(v GetDeploymentWebApplicationFirewallStatus) []GetDeploymentWebApplicationFirewallStatusThreatCampaignsPackage {
+		return v.ThreatCampaignsPackages
+	}).(GetDeploymentWebApplicationFirewallStatusThreatCampaignsPackageArrayOutput)
+}
+
+type GetDeploymentWebApplicationFirewallStatusArrayOutput struct{ *pulumi.OutputState }
+
+func (GetDeploymentWebApplicationFirewallStatusArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetDeploymentWebApplicationFirewallStatus)(nil)).Elem()
+}
+
+func (o GetDeploymentWebApplicationFirewallStatusArrayOutput) ToGetDeploymentWebApplicationFirewallStatusArrayOutput() GetDeploymentWebApplicationFirewallStatusArrayOutput {
+	return o
+}
+
+func (o GetDeploymentWebApplicationFirewallStatusArrayOutput) ToGetDeploymentWebApplicationFirewallStatusArrayOutputWithContext(ctx context.Context) GetDeploymentWebApplicationFirewallStatusArrayOutput {
+	return o
+}
+
+func (o GetDeploymentWebApplicationFirewallStatusArrayOutput) Index(i pulumi.IntInput) GetDeploymentWebApplicationFirewallStatusOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetDeploymentWebApplicationFirewallStatus {
+		return vs[0].([]GetDeploymentWebApplicationFirewallStatus)[vs[1].(int)]
+	}).(GetDeploymentWebApplicationFirewallStatusOutput)
+}
+
+type GetDeploymentWebApplicationFirewallStatusAttackSignaturesPackage struct {
+	RevisionDatetime string `pulumi:"revisionDatetime"`
+	Version          string `pulumi:"version"`
+}
+
+// GetDeploymentWebApplicationFirewallStatusAttackSignaturesPackageInput is an input type that accepts GetDeploymentWebApplicationFirewallStatusAttackSignaturesPackageArgs and GetDeploymentWebApplicationFirewallStatusAttackSignaturesPackageOutput values.
+// You can construct a concrete instance of `GetDeploymentWebApplicationFirewallStatusAttackSignaturesPackageInput` via:
+//
+//	GetDeploymentWebApplicationFirewallStatusAttackSignaturesPackageArgs{...}
+type GetDeploymentWebApplicationFirewallStatusAttackSignaturesPackageInput interface {
+	pulumi.Input
+
+	ToGetDeploymentWebApplicationFirewallStatusAttackSignaturesPackageOutput() GetDeploymentWebApplicationFirewallStatusAttackSignaturesPackageOutput
+	ToGetDeploymentWebApplicationFirewallStatusAttackSignaturesPackageOutputWithContext(context.Context) GetDeploymentWebApplicationFirewallStatusAttackSignaturesPackageOutput
+}
+
+type GetDeploymentWebApplicationFirewallStatusAttackSignaturesPackageArgs struct {
+	RevisionDatetime pulumi.StringInput `pulumi:"revisionDatetime"`
+	Version          pulumi.StringInput `pulumi:"version"`
+}
+
+func (GetDeploymentWebApplicationFirewallStatusAttackSignaturesPackageArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDeploymentWebApplicationFirewallStatusAttackSignaturesPackage)(nil)).Elem()
+}
+
+func (i GetDeploymentWebApplicationFirewallStatusAttackSignaturesPackageArgs) ToGetDeploymentWebApplicationFirewallStatusAttackSignaturesPackageOutput() GetDeploymentWebApplicationFirewallStatusAttackSignaturesPackageOutput {
+	return i.ToGetDeploymentWebApplicationFirewallStatusAttackSignaturesPackageOutputWithContext(context.Background())
+}
+
+func (i GetDeploymentWebApplicationFirewallStatusAttackSignaturesPackageArgs) ToGetDeploymentWebApplicationFirewallStatusAttackSignaturesPackageOutputWithContext(ctx context.Context) GetDeploymentWebApplicationFirewallStatusAttackSignaturesPackageOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDeploymentWebApplicationFirewallStatusAttackSignaturesPackageOutput)
+}
+
+// GetDeploymentWebApplicationFirewallStatusAttackSignaturesPackageArrayInput is an input type that accepts GetDeploymentWebApplicationFirewallStatusAttackSignaturesPackageArray and GetDeploymentWebApplicationFirewallStatusAttackSignaturesPackageArrayOutput values.
+// You can construct a concrete instance of `GetDeploymentWebApplicationFirewallStatusAttackSignaturesPackageArrayInput` via:
+//
+//	GetDeploymentWebApplicationFirewallStatusAttackSignaturesPackageArray{ GetDeploymentWebApplicationFirewallStatusAttackSignaturesPackageArgs{...} }
+type GetDeploymentWebApplicationFirewallStatusAttackSignaturesPackageArrayInput interface {
+	pulumi.Input
+
+	ToGetDeploymentWebApplicationFirewallStatusAttackSignaturesPackageArrayOutput() GetDeploymentWebApplicationFirewallStatusAttackSignaturesPackageArrayOutput
+	ToGetDeploymentWebApplicationFirewallStatusAttackSignaturesPackageArrayOutputWithContext(context.Context) GetDeploymentWebApplicationFirewallStatusAttackSignaturesPackageArrayOutput
+}
+
+type GetDeploymentWebApplicationFirewallStatusAttackSignaturesPackageArray []GetDeploymentWebApplicationFirewallStatusAttackSignaturesPackageInput
+
+func (GetDeploymentWebApplicationFirewallStatusAttackSignaturesPackageArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetDeploymentWebApplicationFirewallStatusAttackSignaturesPackage)(nil)).Elem()
+}
+
+func (i GetDeploymentWebApplicationFirewallStatusAttackSignaturesPackageArray) ToGetDeploymentWebApplicationFirewallStatusAttackSignaturesPackageArrayOutput() GetDeploymentWebApplicationFirewallStatusAttackSignaturesPackageArrayOutput {
+	return i.ToGetDeploymentWebApplicationFirewallStatusAttackSignaturesPackageArrayOutputWithContext(context.Background())
+}
+
+func (i GetDeploymentWebApplicationFirewallStatusAttackSignaturesPackageArray) ToGetDeploymentWebApplicationFirewallStatusAttackSignaturesPackageArrayOutputWithContext(ctx context.Context) GetDeploymentWebApplicationFirewallStatusAttackSignaturesPackageArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDeploymentWebApplicationFirewallStatusAttackSignaturesPackageArrayOutput)
+}
+
+type GetDeploymentWebApplicationFirewallStatusAttackSignaturesPackageOutput struct{ *pulumi.OutputState }
+
+func (GetDeploymentWebApplicationFirewallStatusAttackSignaturesPackageOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDeploymentWebApplicationFirewallStatusAttackSignaturesPackage)(nil)).Elem()
+}
+
+func (o GetDeploymentWebApplicationFirewallStatusAttackSignaturesPackageOutput) ToGetDeploymentWebApplicationFirewallStatusAttackSignaturesPackageOutput() GetDeploymentWebApplicationFirewallStatusAttackSignaturesPackageOutput {
+	return o
+}
+
+func (o GetDeploymentWebApplicationFirewallStatusAttackSignaturesPackageOutput) ToGetDeploymentWebApplicationFirewallStatusAttackSignaturesPackageOutputWithContext(ctx context.Context) GetDeploymentWebApplicationFirewallStatusAttackSignaturesPackageOutput {
+	return o
+}
+
+func (o GetDeploymentWebApplicationFirewallStatusAttackSignaturesPackageOutput) RevisionDatetime() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDeploymentWebApplicationFirewallStatusAttackSignaturesPackage) string {
+		return v.RevisionDatetime
+	}).(pulumi.StringOutput)
+}
+
+func (o GetDeploymentWebApplicationFirewallStatusAttackSignaturesPackageOutput) Version() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDeploymentWebApplicationFirewallStatusAttackSignaturesPackage) string { return v.Version }).(pulumi.StringOutput)
+}
+
+type GetDeploymentWebApplicationFirewallStatusAttackSignaturesPackageArrayOutput struct{ *pulumi.OutputState }
+
+func (GetDeploymentWebApplicationFirewallStatusAttackSignaturesPackageArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetDeploymentWebApplicationFirewallStatusAttackSignaturesPackage)(nil)).Elem()
+}
+
+func (o GetDeploymentWebApplicationFirewallStatusAttackSignaturesPackageArrayOutput) ToGetDeploymentWebApplicationFirewallStatusAttackSignaturesPackageArrayOutput() GetDeploymentWebApplicationFirewallStatusAttackSignaturesPackageArrayOutput {
+	return o
+}
+
+func (o GetDeploymentWebApplicationFirewallStatusAttackSignaturesPackageArrayOutput) ToGetDeploymentWebApplicationFirewallStatusAttackSignaturesPackageArrayOutputWithContext(ctx context.Context) GetDeploymentWebApplicationFirewallStatusAttackSignaturesPackageArrayOutput {
+	return o
+}
+
+func (o GetDeploymentWebApplicationFirewallStatusAttackSignaturesPackageArrayOutput) Index(i pulumi.IntInput) GetDeploymentWebApplicationFirewallStatusAttackSignaturesPackageOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetDeploymentWebApplicationFirewallStatusAttackSignaturesPackage {
+		return vs[0].([]GetDeploymentWebApplicationFirewallStatusAttackSignaturesPackage)[vs[1].(int)]
+	}).(GetDeploymentWebApplicationFirewallStatusAttackSignaturesPackageOutput)
+}
+
+type GetDeploymentWebApplicationFirewallStatusBotSignaturesPackage struct {
+	RevisionDatetime string `pulumi:"revisionDatetime"`
+	Version          string `pulumi:"version"`
+}
+
+// GetDeploymentWebApplicationFirewallStatusBotSignaturesPackageInput is an input type that accepts GetDeploymentWebApplicationFirewallStatusBotSignaturesPackageArgs and GetDeploymentWebApplicationFirewallStatusBotSignaturesPackageOutput values.
+// You can construct a concrete instance of `GetDeploymentWebApplicationFirewallStatusBotSignaturesPackageInput` via:
+//
+//	GetDeploymentWebApplicationFirewallStatusBotSignaturesPackageArgs{...}
+type GetDeploymentWebApplicationFirewallStatusBotSignaturesPackageInput interface {
+	pulumi.Input
+
+	ToGetDeploymentWebApplicationFirewallStatusBotSignaturesPackageOutput() GetDeploymentWebApplicationFirewallStatusBotSignaturesPackageOutput
+	ToGetDeploymentWebApplicationFirewallStatusBotSignaturesPackageOutputWithContext(context.Context) GetDeploymentWebApplicationFirewallStatusBotSignaturesPackageOutput
+}
+
+type GetDeploymentWebApplicationFirewallStatusBotSignaturesPackageArgs struct {
+	RevisionDatetime pulumi.StringInput `pulumi:"revisionDatetime"`
+	Version          pulumi.StringInput `pulumi:"version"`
+}
+
+func (GetDeploymentWebApplicationFirewallStatusBotSignaturesPackageArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDeploymentWebApplicationFirewallStatusBotSignaturesPackage)(nil)).Elem()
+}
+
+func (i GetDeploymentWebApplicationFirewallStatusBotSignaturesPackageArgs) ToGetDeploymentWebApplicationFirewallStatusBotSignaturesPackageOutput() GetDeploymentWebApplicationFirewallStatusBotSignaturesPackageOutput {
+	return i.ToGetDeploymentWebApplicationFirewallStatusBotSignaturesPackageOutputWithContext(context.Background())
+}
+
+func (i GetDeploymentWebApplicationFirewallStatusBotSignaturesPackageArgs) ToGetDeploymentWebApplicationFirewallStatusBotSignaturesPackageOutputWithContext(ctx context.Context) GetDeploymentWebApplicationFirewallStatusBotSignaturesPackageOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDeploymentWebApplicationFirewallStatusBotSignaturesPackageOutput)
+}
+
+// GetDeploymentWebApplicationFirewallStatusBotSignaturesPackageArrayInput is an input type that accepts GetDeploymentWebApplicationFirewallStatusBotSignaturesPackageArray and GetDeploymentWebApplicationFirewallStatusBotSignaturesPackageArrayOutput values.
+// You can construct a concrete instance of `GetDeploymentWebApplicationFirewallStatusBotSignaturesPackageArrayInput` via:
+//
+//	GetDeploymentWebApplicationFirewallStatusBotSignaturesPackageArray{ GetDeploymentWebApplicationFirewallStatusBotSignaturesPackageArgs{...} }
+type GetDeploymentWebApplicationFirewallStatusBotSignaturesPackageArrayInput interface {
+	pulumi.Input
+
+	ToGetDeploymentWebApplicationFirewallStatusBotSignaturesPackageArrayOutput() GetDeploymentWebApplicationFirewallStatusBotSignaturesPackageArrayOutput
+	ToGetDeploymentWebApplicationFirewallStatusBotSignaturesPackageArrayOutputWithContext(context.Context) GetDeploymentWebApplicationFirewallStatusBotSignaturesPackageArrayOutput
+}
+
+type GetDeploymentWebApplicationFirewallStatusBotSignaturesPackageArray []GetDeploymentWebApplicationFirewallStatusBotSignaturesPackageInput
+
+func (GetDeploymentWebApplicationFirewallStatusBotSignaturesPackageArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetDeploymentWebApplicationFirewallStatusBotSignaturesPackage)(nil)).Elem()
+}
+
+func (i GetDeploymentWebApplicationFirewallStatusBotSignaturesPackageArray) ToGetDeploymentWebApplicationFirewallStatusBotSignaturesPackageArrayOutput() GetDeploymentWebApplicationFirewallStatusBotSignaturesPackageArrayOutput {
+	return i.ToGetDeploymentWebApplicationFirewallStatusBotSignaturesPackageArrayOutputWithContext(context.Background())
+}
+
+func (i GetDeploymentWebApplicationFirewallStatusBotSignaturesPackageArray) ToGetDeploymentWebApplicationFirewallStatusBotSignaturesPackageArrayOutputWithContext(ctx context.Context) GetDeploymentWebApplicationFirewallStatusBotSignaturesPackageArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDeploymentWebApplicationFirewallStatusBotSignaturesPackageArrayOutput)
+}
+
+type GetDeploymentWebApplicationFirewallStatusBotSignaturesPackageOutput struct{ *pulumi.OutputState }
+
+func (GetDeploymentWebApplicationFirewallStatusBotSignaturesPackageOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDeploymentWebApplicationFirewallStatusBotSignaturesPackage)(nil)).Elem()
+}
+
+func (o GetDeploymentWebApplicationFirewallStatusBotSignaturesPackageOutput) ToGetDeploymentWebApplicationFirewallStatusBotSignaturesPackageOutput() GetDeploymentWebApplicationFirewallStatusBotSignaturesPackageOutput {
+	return o
+}
+
+func (o GetDeploymentWebApplicationFirewallStatusBotSignaturesPackageOutput) ToGetDeploymentWebApplicationFirewallStatusBotSignaturesPackageOutputWithContext(ctx context.Context) GetDeploymentWebApplicationFirewallStatusBotSignaturesPackageOutput {
+	return o
+}
+
+func (o GetDeploymentWebApplicationFirewallStatusBotSignaturesPackageOutput) RevisionDatetime() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDeploymentWebApplicationFirewallStatusBotSignaturesPackage) string {
+		return v.RevisionDatetime
+	}).(pulumi.StringOutput)
+}
+
+func (o GetDeploymentWebApplicationFirewallStatusBotSignaturesPackageOutput) Version() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDeploymentWebApplicationFirewallStatusBotSignaturesPackage) string { return v.Version }).(pulumi.StringOutput)
+}
+
+type GetDeploymentWebApplicationFirewallStatusBotSignaturesPackageArrayOutput struct{ *pulumi.OutputState }
+
+func (GetDeploymentWebApplicationFirewallStatusBotSignaturesPackageArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetDeploymentWebApplicationFirewallStatusBotSignaturesPackage)(nil)).Elem()
+}
+
+func (o GetDeploymentWebApplicationFirewallStatusBotSignaturesPackageArrayOutput) ToGetDeploymentWebApplicationFirewallStatusBotSignaturesPackageArrayOutput() GetDeploymentWebApplicationFirewallStatusBotSignaturesPackageArrayOutput {
+	return o
+}
+
+func (o GetDeploymentWebApplicationFirewallStatusBotSignaturesPackageArrayOutput) ToGetDeploymentWebApplicationFirewallStatusBotSignaturesPackageArrayOutputWithContext(ctx context.Context) GetDeploymentWebApplicationFirewallStatusBotSignaturesPackageArrayOutput {
+	return o
+}
+
+func (o GetDeploymentWebApplicationFirewallStatusBotSignaturesPackageArrayOutput) Index(i pulumi.IntInput) GetDeploymentWebApplicationFirewallStatusBotSignaturesPackageOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetDeploymentWebApplicationFirewallStatusBotSignaturesPackage {
+		return vs[0].([]GetDeploymentWebApplicationFirewallStatusBotSignaturesPackage)[vs[1].(int)]
+	}).(GetDeploymentWebApplicationFirewallStatusBotSignaturesPackageOutput)
+}
+
+type GetDeploymentWebApplicationFirewallStatusComponentVersion struct {
+	WafEngineVersion string `pulumi:"wafEngineVersion"`
+	WafNginxVersion  string `pulumi:"wafNginxVersion"`
+}
+
+// GetDeploymentWebApplicationFirewallStatusComponentVersionInput is an input type that accepts GetDeploymentWebApplicationFirewallStatusComponentVersionArgs and GetDeploymentWebApplicationFirewallStatusComponentVersionOutput values.
+// You can construct a concrete instance of `GetDeploymentWebApplicationFirewallStatusComponentVersionInput` via:
+//
+//	GetDeploymentWebApplicationFirewallStatusComponentVersionArgs{...}
+type GetDeploymentWebApplicationFirewallStatusComponentVersionInput interface {
+	pulumi.Input
+
+	ToGetDeploymentWebApplicationFirewallStatusComponentVersionOutput() GetDeploymentWebApplicationFirewallStatusComponentVersionOutput
+	ToGetDeploymentWebApplicationFirewallStatusComponentVersionOutputWithContext(context.Context) GetDeploymentWebApplicationFirewallStatusComponentVersionOutput
+}
+
+type GetDeploymentWebApplicationFirewallStatusComponentVersionArgs struct {
+	WafEngineVersion pulumi.StringInput `pulumi:"wafEngineVersion"`
+	WafNginxVersion  pulumi.StringInput `pulumi:"wafNginxVersion"`
+}
+
+func (GetDeploymentWebApplicationFirewallStatusComponentVersionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDeploymentWebApplicationFirewallStatusComponentVersion)(nil)).Elem()
+}
+
+func (i GetDeploymentWebApplicationFirewallStatusComponentVersionArgs) ToGetDeploymentWebApplicationFirewallStatusComponentVersionOutput() GetDeploymentWebApplicationFirewallStatusComponentVersionOutput {
+	return i.ToGetDeploymentWebApplicationFirewallStatusComponentVersionOutputWithContext(context.Background())
+}
+
+func (i GetDeploymentWebApplicationFirewallStatusComponentVersionArgs) ToGetDeploymentWebApplicationFirewallStatusComponentVersionOutputWithContext(ctx context.Context) GetDeploymentWebApplicationFirewallStatusComponentVersionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDeploymentWebApplicationFirewallStatusComponentVersionOutput)
+}
+
+// GetDeploymentWebApplicationFirewallStatusComponentVersionArrayInput is an input type that accepts GetDeploymentWebApplicationFirewallStatusComponentVersionArray and GetDeploymentWebApplicationFirewallStatusComponentVersionArrayOutput values.
+// You can construct a concrete instance of `GetDeploymentWebApplicationFirewallStatusComponentVersionArrayInput` via:
+//
+//	GetDeploymentWebApplicationFirewallStatusComponentVersionArray{ GetDeploymentWebApplicationFirewallStatusComponentVersionArgs{...} }
+type GetDeploymentWebApplicationFirewallStatusComponentVersionArrayInput interface {
+	pulumi.Input
+
+	ToGetDeploymentWebApplicationFirewallStatusComponentVersionArrayOutput() GetDeploymentWebApplicationFirewallStatusComponentVersionArrayOutput
+	ToGetDeploymentWebApplicationFirewallStatusComponentVersionArrayOutputWithContext(context.Context) GetDeploymentWebApplicationFirewallStatusComponentVersionArrayOutput
+}
+
+type GetDeploymentWebApplicationFirewallStatusComponentVersionArray []GetDeploymentWebApplicationFirewallStatusComponentVersionInput
+
+func (GetDeploymentWebApplicationFirewallStatusComponentVersionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetDeploymentWebApplicationFirewallStatusComponentVersion)(nil)).Elem()
+}
+
+func (i GetDeploymentWebApplicationFirewallStatusComponentVersionArray) ToGetDeploymentWebApplicationFirewallStatusComponentVersionArrayOutput() GetDeploymentWebApplicationFirewallStatusComponentVersionArrayOutput {
+	return i.ToGetDeploymentWebApplicationFirewallStatusComponentVersionArrayOutputWithContext(context.Background())
+}
+
+func (i GetDeploymentWebApplicationFirewallStatusComponentVersionArray) ToGetDeploymentWebApplicationFirewallStatusComponentVersionArrayOutputWithContext(ctx context.Context) GetDeploymentWebApplicationFirewallStatusComponentVersionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDeploymentWebApplicationFirewallStatusComponentVersionArrayOutput)
+}
+
+type GetDeploymentWebApplicationFirewallStatusComponentVersionOutput struct{ *pulumi.OutputState }
+
+func (GetDeploymentWebApplicationFirewallStatusComponentVersionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDeploymentWebApplicationFirewallStatusComponentVersion)(nil)).Elem()
+}
+
+func (o GetDeploymentWebApplicationFirewallStatusComponentVersionOutput) ToGetDeploymentWebApplicationFirewallStatusComponentVersionOutput() GetDeploymentWebApplicationFirewallStatusComponentVersionOutput {
+	return o
+}
+
+func (o GetDeploymentWebApplicationFirewallStatusComponentVersionOutput) ToGetDeploymentWebApplicationFirewallStatusComponentVersionOutputWithContext(ctx context.Context) GetDeploymentWebApplicationFirewallStatusComponentVersionOutput {
+	return o
+}
+
+func (o GetDeploymentWebApplicationFirewallStatusComponentVersionOutput) WafEngineVersion() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDeploymentWebApplicationFirewallStatusComponentVersion) string { return v.WafEngineVersion }).(pulumi.StringOutput)
+}
+
+func (o GetDeploymentWebApplicationFirewallStatusComponentVersionOutput) WafNginxVersion() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDeploymentWebApplicationFirewallStatusComponentVersion) string { return v.WafNginxVersion }).(pulumi.StringOutput)
+}
+
+type GetDeploymentWebApplicationFirewallStatusComponentVersionArrayOutput struct{ *pulumi.OutputState }
+
+func (GetDeploymentWebApplicationFirewallStatusComponentVersionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetDeploymentWebApplicationFirewallStatusComponentVersion)(nil)).Elem()
+}
+
+func (o GetDeploymentWebApplicationFirewallStatusComponentVersionArrayOutput) ToGetDeploymentWebApplicationFirewallStatusComponentVersionArrayOutput() GetDeploymentWebApplicationFirewallStatusComponentVersionArrayOutput {
+	return o
+}
+
+func (o GetDeploymentWebApplicationFirewallStatusComponentVersionArrayOutput) ToGetDeploymentWebApplicationFirewallStatusComponentVersionArrayOutputWithContext(ctx context.Context) GetDeploymentWebApplicationFirewallStatusComponentVersionArrayOutput {
+	return o
+}
+
+func (o GetDeploymentWebApplicationFirewallStatusComponentVersionArrayOutput) Index(i pulumi.IntInput) GetDeploymentWebApplicationFirewallStatusComponentVersionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetDeploymentWebApplicationFirewallStatusComponentVersion {
+		return vs[0].([]GetDeploymentWebApplicationFirewallStatusComponentVersion)[vs[1].(int)]
+	}).(GetDeploymentWebApplicationFirewallStatusComponentVersionOutput)
+}
+
+type GetDeploymentWebApplicationFirewallStatusThreatCampaignsPackage struct {
+	RevisionDatetime string `pulumi:"revisionDatetime"`
+	Version          string `pulumi:"version"`
+}
+
+// GetDeploymentWebApplicationFirewallStatusThreatCampaignsPackageInput is an input type that accepts GetDeploymentWebApplicationFirewallStatusThreatCampaignsPackageArgs and GetDeploymentWebApplicationFirewallStatusThreatCampaignsPackageOutput values.
+// You can construct a concrete instance of `GetDeploymentWebApplicationFirewallStatusThreatCampaignsPackageInput` via:
+//
+//	GetDeploymentWebApplicationFirewallStatusThreatCampaignsPackageArgs{...}
+type GetDeploymentWebApplicationFirewallStatusThreatCampaignsPackageInput interface {
+	pulumi.Input
+
+	ToGetDeploymentWebApplicationFirewallStatusThreatCampaignsPackageOutput() GetDeploymentWebApplicationFirewallStatusThreatCampaignsPackageOutput
+	ToGetDeploymentWebApplicationFirewallStatusThreatCampaignsPackageOutputWithContext(context.Context) GetDeploymentWebApplicationFirewallStatusThreatCampaignsPackageOutput
+}
+
+type GetDeploymentWebApplicationFirewallStatusThreatCampaignsPackageArgs struct {
+	RevisionDatetime pulumi.StringInput `pulumi:"revisionDatetime"`
+	Version          pulumi.StringInput `pulumi:"version"`
+}
+
+func (GetDeploymentWebApplicationFirewallStatusThreatCampaignsPackageArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDeploymentWebApplicationFirewallStatusThreatCampaignsPackage)(nil)).Elem()
+}
+
+func (i GetDeploymentWebApplicationFirewallStatusThreatCampaignsPackageArgs) ToGetDeploymentWebApplicationFirewallStatusThreatCampaignsPackageOutput() GetDeploymentWebApplicationFirewallStatusThreatCampaignsPackageOutput {
+	return i.ToGetDeploymentWebApplicationFirewallStatusThreatCampaignsPackageOutputWithContext(context.Background())
+}
+
+func (i GetDeploymentWebApplicationFirewallStatusThreatCampaignsPackageArgs) ToGetDeploymentWebApplicationFirewallStatusThreatCampaignsPackageOutputWithContext(ctx context.Context) GetDeploymentWebApplicationFirewallStatusThreatCampaignsPackageOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDeploymentWebApplicationFirewallStatusThreatCampaignsPackageOutput)
+}
+
+// GetDeploymentWebApplicationFirewallStatusThreatCampaignsPackageArrayInput is an input type that accepts GetDeploymentWebApplicationFirewallStatusThreatCampaignsPackageArray and GetDeploymentWebApplicationFirewallStatusThreatCampaignsPackageArrayOutput values.
+// You can construct a concrete instance of `GetDeploymentWebApplicationFirewallStatusThreatCampaignsPackageArrayInput` via:
+//
+//	GetDeploymentWebApplicationFirewallStatusThreatCampaignsPackageArray{ GetDeploymentWebApplicationFirewallStatusThreatCampaignsPackageArgs{...} }
+type GetDeploymentWebApplicationFirewallStatusThreatCampaignsPackageArrayInput interface {
+	pulumi.Input
+
+	ToGetDeploymentWebApplicationFirewallStatusThreatCampaignsPackageArrayOutput() GetDeploymentWebApplicationFirewallStatusThreatCampaignsPackageArrayOutput
+	ToGetDeploymentWebApplicationFirewallStatusThreatCampaignsPackageArrayOutputWithContext(context.Context) GetDeploymentWebApplicationFirewallStatusThreatCampaignsPackageArrayOutput
+}
+
+type GetDeploymentWebApplicationFirewallStatusThreatCampaignsPackageArray []GetDeploymentWebApplicationFirewallStatusThreatCampaignsPackageInput
+
+func (GetDeploymentWebApplicationFirewallStatusThreatCampaignsPackageArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetDeploymentWebApplicationFirewallStatusThreatCampaignsPackage)(nil)).Elem()
+}
+
+func (i GetDeploymentWebApplicationFirewallStatusThreatCampaignsPackageArray) ToGetDeploymentWebApplicationFirewallStatusThreatCampaignsPackageArrayOutput() GetDeploymentWebApplicationFirewallStatusThreatCampaignsPackageArrayOutput {
+	return i.ToGetDeploymentWebApplicationFirewallStatusThreatCampaignsPackageArrayOutputWithContext(context.Background())
+}
+
+func (i GetDeploymentWebApplicationFirewallStatusThreatCampaignsPackageArray) ToGetDeploymentWebApplicationFirewallStatusThreatCampaignsPackageArrayOutputWithContext(ctx context.Context) GetDeploymentWebApplicationFirewallStatusThreatCampaignsPackageArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDeploymentWebApplicationFirewallStatusThreatCampaignsPackageArrayOutput)
+}
+
+type GetDeploymentWebApplicationFirewallStatusThreatCampaignsPackageOutput struct{ *pulumi.OutputState }
+
+func (GetDeploymentWebApplicationFirewallStatusThreatCampaignsPackageOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDeploymentWebApplicationFirewallStatusThreatCampaignsPackage)(nil)).Elem()
+}
+
+func (o GetDeploymentWebApplicationFirewallStatusThreatCampaignsPackageOutput) ToGetDeploymentWebApplicationFirewallStatusThreatCampaignsPackageOutput() GetDeploymentWebApplicationFirewallStatusThreatCampaignsPackageOutput {
+	return o
+}
+
+func (o GetDeploymentWebApplicationFirewallStatusThreatCampaignsPackageOutput) ToGetDeploymentWebApplicationFirewallStatusThreatCampaignsPackageOutputWithContext(ctx context.Context) GetDeploymentWebApplicationFirewallStatusThreatCampaignsPackageOutput {
+	return o
+}
+
+func (o GetDeploymentWebApplicationFirewallStatusThreatCampaignsPackageOutput) RevisionDatetime() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDeploymentWebApplicationFirewallStatusThreatCampaignsPackage) string {
+		return v.RevisionDatetime
+	}).(pulumi.StringOutput)
+}
+
+func (o GetDeploymentWebApplicationFirewallStatusThreatCampaignsPackageOutput) Version() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDeploymentWebApplicationFirewallStatusThreatCampaignsPackage) string { return v.Version }).(pulumi.StringOutput)
+}
+
+type GetDeploymentWebApplicationFirewallStatusThreatCampaignsPackageArrayOutput struct{ *pulumi.OutputState }
+
+func (GetDeploymentWebApplicationFirewallStatusThreatCampaignsPackageArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetDeploymentWebApplicationFirewallStatusThreatCampaignsPackage)(nil)).Elem()
+}
+
+func (o GetDeploymentWebApplicationFirewallStatusThreatCampaignsPackageArrayOutput) ToGetDeploymentWebApplicationFirewallStatusThreatCampaignsPackageArrayOutput() GetDeploymentWebApplicationFirewallStatusThreatCampaignsPackageArrayOutput {
+	return o
+}
+
+func (o GetDeploymentWebApplicationFirewallStatusThreatCampaignsPackageArrayOutput) ToGetDeploymentWebApplicationFirewallStatusThreatCampaignsPackageArrayOutputWithContext(ctx context.Context) GetDeploymentWebApplicationFirewallStatusThreatCampaignsPackageArrayOutput {
+	return o
+}
+
+func (o GetDeploymentWebApplicationFirewallStatusThreatCampaignsPackageArrayOutput) Index(i pulumi.IntInput) GetDeploymentWebApplicationFirewallStatusThreatCampaignsPackageOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetDeploymentWebApplicationFirewallStatusThreatCampaignsPackage {
+		return vs[0].([]GetDeploymentWebApplicationFirewallStatusThreatCampaignsPackage)[vs[1].(int)]
+	}).(GetDeploymentWebApplicationFirewallStatusThreatCampaignsPackageOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationConfigFileInput)(nil)).Elem(), ConfigurationConfigFileArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationConfigFileArrayInput)(nil)).Elem(), ConfigurationConfigFileArray{})
@@ -1881,6 +3219,18 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentLoggingStorageAccountArrayInput)(nil)).Elem(), DeploymentLoggingStorageAccountArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentNetworkInterfaceInput)(nil)).Elem(), DeploymentNetworkInterfaceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentNetworkInterfaceArrayInput)(nil)).Elem(), DeploymentNetworkInterfaceArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentWebApplicationFirewallInput)(nil)).Elem(), DeploymentWebApplicationFirewallArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentWebApplicationFirewallPtrInput)(nil)).Elem(), DeploymentWebApplicationFirewallArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentWebApplicationFirewallStatusInput)(nil)).Elem(), DeploymentWebApplicationFirewallStatusArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentWebApplicationFirewallStatusArrayInput)(nil)).Elem(), DeploymentWebApplicationFirewallStatusArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentWebApplicationFirewallStatusAttackSignaturesPackageInput)(nil)).Elem(), DeploymentWebApplicationFirewallStatusAttackSignaturesPackageArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentWebApplicationFirewallStatusAttackSignaturesPackageArrayInput)(nil)).Elem(), DeploymentWebApplicationFirewallStatusAttackSignaturesPackageArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentWebApplicationFirewallStatusBotSignaturesPackageInput)(nil)).Elem(), DeploymentWebApplicationFirewallStatusBotSignaturesPackageArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentWebApplicationFirewallStatusBotSignaturesPackageArrayInput)(nil)).Elem(), DeploymentWebApplicationFirewallStatusBotSignaturesPackageArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentWebApplicationFirewallStatusComponentVersionInput)(nil)).Elem(), DeploymentWebApplicationFirewallStatusComponentVersionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentWebApplicationFirewallStatusComponentVersionArrayInput)(nil)).Elem(), DeploymentWebApplicationFirewallStatusComponentVersionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentWebApplicationFirewallStatusThreatCampaignsPackageInput)(nil)).Elem(), DeploymentWebApplicationFirewallStatusThreatCampaignsPackageArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentWebApplicationFirewallStatusThreatCampaignsPackageArrayInput)(nil)).Elem(), DeploymentWebApplicationFirewallStatusThreatCampaignsPackageArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetConfigurationConfigFileInput)(nil)).Elem(), GetConfigurationConfigFileArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetConfigurationConfigFileArrayInput)(nil)).Elem(), GetConfigurationConfigFileArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetConfigurationProtectedFileInput)(nil)).Elem(), GetConfigurationProtectedFileArgs{})
@@ -1897,6 +3247,18 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetDeploymentLoggingStorageAccountArrayInput)(nil)).Elem(), GetDeploymentLoggingStorageAccountArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetDeploymentNetworkInterfaceInput)(nil)).Elem(), GetDeploymentNetworkInterfaceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetDeploymentNetworkInterfaceArrayInput)(nil)).Elem(), GetDeploymentNetworkInterfaceArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDeploymentWebApplicationFirewallInput)(nil)).Elem(), GetDeploymentWebApplicationFirewallArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDeploymentWebApplicationFirewallArrayInput)(nil)).Elem(), GetDeploymentWebApplicationFirewallArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDeploymentWebApplicationFirewallStatusInput)(nil)).Elem(), GetDeploymentWebApplicationFirewallStatusArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDeploymentWebApplicationFirewallStatusArrayInput)(nil)).Elem(), GetDeploymentWebApplicationFirewallStatusArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDeploymentWebApplicationFirewallStatusAttackSignaturesPackageInput)(nil)).Elem(), GetDeploymentWebApplicationFirewallStatusAttackSignaturesPackageArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDeploymentWebApplicationFirewallStatusAttackSignaturesPackageArrayInput)(nil)).Elem(), GetDeploymentWebApplicationFirewallStatusAttackSignaturesPackageArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDeploymentWebApplicationFirewallStatusBotSignaturesPackageInput)(nil)).Elem(), GetDeploymentWebApplicationFirewallStatusBotSignaturesPackageArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDeploymentWebApplicationFirewallStatusBotSignaturesPackageArrayInput)(nil)).Elem(), GetDeploymentWebApplicationFirewallStatusBotSignaturesPackageArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDeploymentWebApplicationFirewallStatusComponentVersionInput)(nil)).Elem(), GetDeploymentWebApplicationFirewallStatusComponentVersionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDeploymentWebApplicationFirewallStatusComponentVersionArrayInput)(nil)).Elem(), GetDeploymentWebApplicationFirewallStatusComponentVersionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDeploymentWebApplicationFirewallStatusThreatCampaignsPackageInput)(nil)).Elem(), GetDeploymentWebApplicationFirewallStatusThreatCampaignsPackageArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDeploymentWebApplicationFirewallStatusThreatCampaignsPackageArrayInput)(nil)).Elem(), GetDeploymentWebApplicationFirewallStatusThreatCampaignsPackageArray{})
 	pulumi.RegisterOutputType(ConfigurationConfigFileOutput{})
 	pulumi.RegisterOutputType(ConfigurationConfigFileArrayOutput{})
 	pulumi.RegisterOutputType(ConfigurationProtectedFileOutput{})
@@ -1913,6 +3275,18 @@ func init() {
 	pulumi.RegisterOutputType(DeploymentLoggingStorageAccountArrayOutput{})
 	pulumi.RegisterOutputType(DeploymentNetworkInterfaceOutput{})
 	pulumi.RegisterOutputType(DeploymentNetworkInterfaceArrayOutput{})
+	pulumi.RegisterOutputType(DeploymentWebApplicationFirewallOutput{})
+	pulumi.RegisterOutputType(DeploymentWebApplicationFirewallPtrOutput{})
+	pulumi.RegisterOutputType(DeploymentWebApplicationFirewallStatusOutput{})
+	pulumi.RegisterOutputType(DeploymentWebApplicationFirewallStatusArrayOutput{})
+	pulumi.RegisterOutputType(DeploymentWebApplicationFirewallStatusAttackSignaturesPackageOutput{})
+	pulumi.RegisterOutputType(DeploymentWebApplicationFirewallStatusAttackSignaturesPackageArrayOutput{})
+	pulumi.RegisterOutputType(DeploymentWebApplicationFirewallStatusBotSignaturesPackageOutput{})
+	pulumi.RegisterOutputType(DeploymentWebApplicationFirewallStatusBotSignaturesPackageArrayOutput{})
+	pulumi.RegisterOutputType(DeploymentWebApplicationFirewallStatusComponentVersionOutput{})
+	pulumi.RegisterOutputType(DeploymentWebApplicationFirewallStatusComponentVersionArrayOutput{})
+	pulumi.RegisterOutputType(DeploymentWebApplicationFirewallStatusThreatCampaignsPackageOutput{})
+	pulumi.RegisterOutputType(DeploymentWebApplicationFirewallStatusThreatCampaignsPackageArrayOutput{})
 	pulumi.RegisterOutputType(GetConfigurationConfigFileOutput{})
 	pulumi.RegisterOutputType(GetConfigurationConfigFileArrayOutput{})
 	pulumi.RegisterOutputType(GetConfigurationProtectedFileOutput{})
@@ -1929,4 +3303,16 @@ func init() {
 	pulumi.RegisterOutputType(GetDeploymentLoggingStorageAccountArrayOutput{})
 	pulumi.RegisterOutputType(GetDeploymentNetworkInterfaceOutput{})
 	pulumi.RegisterOutputType(GetDeploymentNetworkInterfaceArrayOutput{})
+	pulumi.RegisterOutputType(GetDeploymentWebApplicationFirewallOutput{})
+	pulumi.RegisterOutputType(GetDeploymentWebApplicationFirewallArrayOutput{})
+	pulumi.RegisterOutputType(GetDeploymentWebApplicationFirewallStatusOutput{})
+	pulumi.RegisterOutputType(GetDeploymentWebApplicationFirewallStatusArrayOutput{})
+	pulumi.RegisterOutputType(GetDeploymentWebApplicationFirewallStatusAttackSignaturesPackageOutput{})
+	pulumi.RegisterOutputType(GetDeploymentWebApplicationFirewallStatusAttackSignaturesPackageArrayOutput{})
+	pulumi.RegisterOutputType(GetDeploymentWebApplicationFirewallStatusBotSignaturesPackageOutput{})
+	pulumi.RegisterOutputType(GetDeploymentWebApplicationFirewallStatusBotSignaturesPackageArrayOutput{})
+	pulumi.RegisterOutputType(GetDeploymentWebApplicationFirewallStatusComponentVersionOutput{})
+	pulumi.RegisterOutputType(GetDeploymentWebApplicationFirewallStatusComponentVersionArrayOutput{})
+	pulumi.RegisterOutputType(GetDeploymentWebApplicationFirewallStatusThreatCampaignsPackageOutput{})
+	pulumi.RegisterOutputType(GetDeploymentWebApplicationFirewallStatusThreatCampaignsPackageArrayOutput{})
 }

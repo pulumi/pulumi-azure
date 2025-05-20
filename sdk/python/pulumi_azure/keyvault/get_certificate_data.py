@@ -168,6 +168,9 @@ def get_certificate_data(key_vault_id: Optional[builtins.str] = None,
     """
     Use this data source to access data stored in an existing Key Vault Certificate.
 
+    > **Note:** All arguments including the secret value will be stored in the raw state as plain-text.
+    [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
+
     > **Note:** This data source uses the `GetSecret` function of the Azure API, to get the key of the certificate. Therefore you need secret/get permission
 
     ## Example Usage
@@ -188,7 +191,7 @@ def get_certificate_data(key_vault_id: Optional[builtins.str] = None,
     :param builtins.str name: Specifies the name of the Key Vault Secret.
     :param builtins.str version: Specifies the version of the certificate to look up.  (Defaults to latest)
            
-           > **NOTE:** The vault must be in the same subscription as the provider. If the vault is in another subscription, you must create an aliased provider for that subscription.
+           > **Note:** The vault must be in the same subscription as the provider. If the vault is in another subscription, you must create an aliased provider for that subscription.
     """
     __args__ = dict()
     __args__['keyVaultId'] = key_vault_id
@@ -216,6 +219,9 @@ def get_certificate_data_output(key_vault_id: Optional[pulumi.Input[builtins.str
     """
     Use this data source to access data stored in an existing Key Vault Certificate.
 
+    > **Note:** All arguments including the secret value will be stored in the raw state as plain-text.
+    [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
+
     > **Note:** This data source uses the `GetSecret` function of the Azure API, to get the key of the certificate. Therefore you need secret/get permission
 
     ## Example Usage
@@ -236,7 +242,7 @@ def get_certificate_data_output(key_vault_id: Optional[pulumi.Input[builtins.str
     :param builtins.str name: Specifies the name of the Key Vault Secret.
     :param builtins.str version: Specifies the version of the certificate to look up.  (Defaults to latest)
            
-           > **NOTE:** The vault must be in the same subscription as the provider. If the vault is in another subscription, you must create an aliased provider for that subscription.
+           > **Note:** The vault must be in the same subscription as the provider. If the vault is in another subscription, you must create an aliased provider for that subscription.
     """
     __args__ = dict()
     __args__['keyVaultId'] = key_vault_id

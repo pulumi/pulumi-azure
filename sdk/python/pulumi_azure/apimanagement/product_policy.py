@@ -226,6 +226,13 @@ class ProductPolicy(pulumi.CustomResource):
         \"\"\")
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.ApiManagement`: 2022-08-01
+
         ## Import
 
         API Management Product Policy can be imported using the `resource id`, e.g.
@@ -271,6 +278,13 @@ class ProductPolicy(pulumi.CustomResource):
         </policies>
         \"\"\")
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.ApiManagement`: 2022-08-01
 
         ## Import
 

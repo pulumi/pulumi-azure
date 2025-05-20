@@ -20,47 +20,209 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
+/**
+ * Manages a Palo Alto Next Generation Firewall VHub Panorama.
+ * 
+ * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.azure.core.ResourceGroup;
+ * import com.pulumi.azure.core.ResourceGroupArgs;
+ * import com.pulumi.azure.network.PublicIp;
+ * import com.pulumi.azure.network.PublicIpArgs;
+ * import com.pulumi.azure.network.VirtualWan;
+ * import com.pulumi.azure.network.VirtualWanArgs;
+ * import com.pulumi.azure.network.VirtualHub;
+ * import com.pulumi.azure.network.VirtualHubArgs;
+ * import com.pulumi.azure.paloalto.VirtualNetworkAppliance;
+ * import com.pulumi.azure.paloalto.VirtualNetworkApplianceArgs;
+ * import com.pulumi.azure.paloalto.NextGenerationFirewallVirtualHubPanorama;
+ * import com.pulumi.azure.paloalto.NextGenerationFirewallVirtualHubPanoramaArgs;
+ * import com.pulumi.azure.paloalto.inputs.NextGenerationFirewallVirtualHubPanoramaNetworkProfileArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
+ *             .name("example-resources")
+ *             .location("West Europe")
+ *             .build());
+ * 
+ *         var examplePublicIp = new PublicIp("examplePublicIp", PublicIpArgs.builder()
+ *             .name("acceptanceTestPublicIp1")
+ *             .resourceGroupName(example.name())
+ *             .location(example.location())
+ *             .allocationMethod("Static")
+ *             .tags(Map.of("environment", "Production"))
+ *             .build());
+ * 
+ *         var exampleVirtualWan = new VirtualWan("exampleVirtualWan", VirtualWanArgs.builder()
+ *             .name("example-virtualwan")
+ *             .resourceGroupName(example.name())
+ *             .location(example.location())
+ *             .build());
+ * 
+ *         var exampleVirtualHub = new VirtualHub("exampleVirtualHub", VirtualHubArgs.builder()
+ *             .name("example-virtualhub")
+ *             .resourceGroupName(example.name())
+ *             .location(example.location())
+ *             .virtualWanId(exampleVirtualWan.id())
+ *             .addressPrefix("10.0.0.0/23")
+ *             .tags(Map.of("hubSaaSPreview", "true"))
+ *             .build());
+ * 
+ *         var exampleVirtualNetworkAppliance = new VirtualNetworkAppliance("exampleVirtualNetworkAppliance", VirtualNetworkApplianceArgs.builder()
+ *             .name("example-appliance")
+ *             .virtualHubId(exampleVirtualHub.id())
+ *             .build());
+ * 
+ *         var exampleNextGenerationFirewallVirtualHubPanorama = new NextGenerationFirewallVirtualHubPanorama("exampleNextGenerationFirewallVirtualHubPanorama", NextGenerationFirewallVirtualHubPanoramaArgs.builder()
+ *             .name("example")
+ *             .resourceGroupName(example.name())
+ *             .location(example.location())
+ *             .networkProfile(NextGenerationFirewallVirtualHubPanoramaNetworkProfileArgs.builder()
+ *                 .publicIpAddressIds(examplePublicIp.id())
+ *                 .virtualHubId(exampleVirtualHub.id())
+ *                 .networkVirtualApplianceId(exampleVirtualNetworkAppliance.id())
+ *                 .build())
+ *             .panoramaBase64Config("VGhpcyBpcyBub3QgYSByZWFsIGNvbmZpZywgcGxlYXNlIHVzZSB5b3VyIFBhbm9yYW1hIHNlcnZlciB0byBnZW5lcmF0ZSBhIHJlYWwgdmFsdWUgZm9yIHRoaXMgcHJvcGVydHkhCg==")
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
+ * ## API Providers
+ * 
+ * &lt;!-- This section is generated, changes will be overwritten --&gt;
+ * This resource uses the following Azure API Providers:
+ * 
+ * * `PaloAltoNetworks.Cloudngfw`: 2023-09-01
+ * 
+ * ## Import
+ * 
+ * Palo Alto Next Generation Firewall VHub Panoramas can be imported using the `resource id`, e.g.
+ * 
+ * ```sh
+ * $ pulumi import azure:paloalto/nextGenerationFirewallVirtualHubPanorama:NextGenerationFirewallVirtualHubPanorama example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/PaloAltoNetworks.Cloudngfw/firewalls/myVhubPanoramaFW
+ * ```
+ * 
+ */
 @ResourceType(type="azure:paloalto/nextGenerationFirewallVirtualHubPanorama:NextGenerationFirewallVirtualHubPanorama")
 public class NextGenerationFirewallVirtualHubPanorama extends com.pulumi.resources.CustomResource {
+    /**
+     * One or more `destination_nat` blocks as defined below.
+     * 
+     */
     @Export(name="destinationNats", refs={List.class,NextGenerationFirewallVirtualHubPanoramaDestinationNat.class}, tree="[0,1]")
     private Output</* @Nullable */ List<NextGenerationFirewallVirtualHubPanoramaDestinationNat>> destinationNats;
 
+    /**
+     * @return One or more `destination_nat` blocks as defined below.
+     * 
+     */
     public Output<Optional<List<NextGenerationFirewallVirtualHubPanoramaDestinationNat>>> destinationNats() {
         return Codegen.optional(this.destinationNats);
     }
+    /**
+     * A `dns_settings` block as defined below.
+     * 
+     */
     @Export(name="dnsSettings", refs={NextGenerationFirewallVirtualHubPanoramaDnsSettings.class}, tree="[0]")
     private Output</* @Nullable */ NextGenerationFirewallVirtualHubPanoramaDnsSettings> dnsSettings;
 
+    /**
+     * @return A `dns_settings` block as defined below.
+     * 
+     */
     public Output<Optional<NextGenerationFirewallVirtualHubPanoramaDnsSettings>> dnsSettings() {
         return Codegen.optional(this.dnsSettings);
     }
+    /**
+     * The Azure Region where the Palo Alto Next Generation Firewall VHub Panorama should exist. Changing this forces a new Palo Alto Next Generation Firewall VHub Panorama to be created.
+     * 
+     */
     @Export(name="location", refs={String.class}, tree="[0]")
     private Output<String> location;
 
+    /**
+     * @return The Azure Region where the Palo Alto Next Generation Firewall VHub Panorama should exist. Changing this forces a new Palo Alto Next Generation Firewall VHub Panorama to be created.
+     * 
+     */
     public Output<String> location() {
         return this.location;
     }
+    /**
+     * The marketplace offer ID. Defaults to `pan_swfw_cloud_ngfw`. Changing this forces a new resource to be created.
+     * 
+     */
     @Export(name="marketplaceOfferId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> marketplaceOfferId;
 
+    /**
+     * @return The marketplace offer ID. Defaults to `pan_swfw_cloud_ngfw`. Changing this forces a new resource to be created.
+     * 
+     */
     public Output<Optional<String>> marketplaceOfferId() {
         return Codegen.optional(this.marketplaceOfferId);
     }
+    /**
+     * The name which should be used for this Palo Alto Next Generation Firewall VHub Panorama. Changing this forces a new Palo Alto Next Generation Firewall VHub Panorama to be created.
+     * 
+     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
+    /**
+     * @return The name which should be used for this Palo Alto Next Generation Firewall VHub Panorama. Changing this forces a new Palo Alto Next Generation Firewall VHub Panorama to be created.
+     * 
+     */
     public Output<String> name() {
         return this.name;
     }
+    /**
+     * A `network_profile` block as defined below.
+     * 
+     */
     @Export(name="networkProfile", refs={NextGenerationFirewallVirtualHubPanoramaNetworkProfile.class}, tree="[0]")
     private Output<NextGenerationFirewallVirtualHubPanoramaNetworkProfile> networkProfile;
 
+    /**
+     * @return A `network_profile` block as defined below.
+     * 
+     */
     public Output<NextGenerationFirewallVirtualHubPanoramaNetworkProfile> networkProfile() {
         return this.networkProfile;
     }
+    /**
+     * The Base64 Encoded configuration value for connecting to the Panorama Configuration server.
+     * 
+     */
     @Export(name="panoramaBase64Config", refs={String.class}, tree="[0]")
     private Output<String> panoramaBase64Config;
 
+    /**
+     * @return The Base64 Encoded configuration value for connecting to the Panorama Configuration server.
+     * 
+     */
     public Output<String> panoramaBase64Config() {
         return this.panoramaBase64Config;
     }
@@ -70,21 +232,49 @@ public class NextGenerationFirewallVirtualHubPanorama extends com.pulumi.resourc
     public Output<List<NextGenerationFirewallVirtualHubPanoramaPanorama>> panoramas() {
         return this.panoramas;
     }
+    /**
+     * The billing plan ID as published by Liftr.PAN. Defaults to `panw-cloud-ngfw-payg`.
+     * 
+     * &gt; **Note:** The former `plan_id` `panw-cloud-ngfw-payg` is defined as stop sell, but has been set as the default to not break any existing resources that were originally provisioned with it. Users need to explicitly set `plan_id` to `panw-cngfw-payg` when creating new resources.
+     * 
+     */
     @Export(name="planId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> planId;
 
+    /**
+     * @return The billing plan ID as published by Liftr.PAN. Defaults to `panw-cloud-ngfw-payg`.
+     * 
+     * &gt; **Note:** The former `plan_id` `panw-cloud-ngfw-payg` is defined as stop sell, but has been set as the default to not break any existing resources that were originally provisioned with it. Users need to explicitly set `plan_id` to `panw-cngfw-payg` when creating new resources.
+     * 
+     */
     public Output<Optional<String>> planId() {
         return Codegen.optional(this.planId);
     }
+    /**
+     * The name of the Resource Group where the Palo Alto Next Generation Firewall VHub Panorama should exist. Changing this forces a new Palo Alto Next Generation Firewall VHub Panorama to be created.
+     * 
+     */
     @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
     private Output<String> resourceGroupName;
 
+    /**
+     * @return The name of the Resource Group where the Palo Alto Next Generation Firewall VHub Panorama should exist. Changing this forces a new Palo Alto Next Generation Firewall VHub Panorama to be created.
+     * 
+     */
     public Output<String> resourceGroupName() {
         return this.resourceGroupName;
     }
+    /**
+     * A mapping of tags which should be assigned to the Palo Alto Next Generation Firewall VHub Panorama.
+     * 
+     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
+    /**
+     * @return A mapping of tags which should be assigned to the Palo Alto Next Generation Firewall VHub Panorama.
+     * 
+     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }

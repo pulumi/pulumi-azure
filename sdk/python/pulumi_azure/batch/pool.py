@@ -85,9 +85,9 @@ class PoolArgs:
         :param pulumi.Input[Sequence[pulumi.Input['PoolUserAccountArgs']]] user_accounts: A `user_accounts` block that describes the list of user accounts to be created on each node in the pool as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['PoolWindowArgs']]] windows: A `windows` block that describes the Windows configuration in the pool as defined below.
                
-               > **NOTE:** For Windows compute nodes, the Batch service installs the certificates to the specified certificate store and location. For Linux compute nodes, the certificates are stored in a directory inside the task working directory and an environment variable `AZ_BATCH_CERTIFICATES_DIR` is supplied to the task to query for this location. For certificates with visibility of `remoteUser`, a `certs` directory is created in the user's home directory (e.g., `/home/{user-name}/certs`) and certificates are placed in that directory.
+               > **Note:** For Windows compute nodes, the Batch service installs the certificates to the specified certificate store and location. For Linux compute nodes, the certificates are stored in a directory inside the task working directory and an environment variable `AZ_BATCH_CERTIFICATES_DIR` is supplied to the task to query for this location. For certificates with visibility of `remoteUser`, a `certs` directory is created in the user's home directory (e.g., `/home/{user-name}/certs`) and certificates are placed in that directory.
                
-               > **Please Note:** `fixed_scale` and `auto_scale` blocks cannot be used both at the same time.
+               > **Note:** `fixed_scale` and `auto_scale` blocks cannot be used both at the same time.
         """
         pulumi.set(__self__, "account_name", account_name)
         pulumi.set(__self__, "node_agent_sku_id", node_agent_sku_id)
@@ -499,9 +499,9 @@ class PoolArgs:
         """
         A `windows` block that describes the Windows configuration in the pool as defined below.
 
-        > **NOTE:** For Windows compute nodes, the Batch service installs the certificates to the specified certificate store and location. For Linux compute nodes, the certificates are stored in a directory inside the task working directory and an environment variable `AZ_BATCH_CERTIFICATES_DIR` is supplied to the task to query for this location. For certificates with visibility of `remoteUser`, a `certs` directory is created in the user's home directory (e.g., `/home/{user-name}/certs`) and certificates are placed in that directory.
+        > **Note:** For Windows compute nodes, the Batch service installs the certificates to the specified certificate store and location. For Linux compute nodes, the certificates are stored in a directory inside the task working directory and an environment variable `AZ_BATCH_CERTIFICATES_DIR` is supplied to the task to query for this location. For certificates with visibility of `remoteUser`, a `certs` directory is created in the user's home directory (e.g., `/home/{user-name}/certs`) and certificates are placed in that directory.
 
-        > **Please Note:** `fixed_scale` and `auto_scale` blocks cannot be used both at the same time.
+        > **Note:** `fixed_scale` and `auto_scale` blocks cannot be used both at the same time.
         """
         return pulumi.get(self, "windows")
 
@@ -576,9 +576,9 @@ class _PoolState:
         :param pulumi.Input[builtins.str] vm_size: Specifies the size of the VM created in the Batch pool. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input['PoolWindowArgs']]] windows: A `windows` block that describes the Windows configuration in the pool as defined below.
                
-               > **NOTE:** For Windows compute nodes, the Batch service installs the certificates to the specified certificate store and location. For Linux compute nodes, the certificates are stored in a directory inside the task working directory and an environment variable `AZ_BATCH_CERTIFICATES_DIR` is supplied to the task to query for this location. For certificates with visibility of `remoteUser`, a `certs` directory is created in the user's home directory (e.g., `/home/{user-name}/certs`) and certificates are placed in that directory.
+               > **Note:** For Windows compute nodes, the Batch service installs the certificates to the specified certificate store and location. For Linux compute nodes, the certificates are stored in a directory inside the task working directory and an environment variable `AZ_BATCH_CERTIFICATES_DIR` is supplied to the task to query for this location. For certificates with visibility of `remoteUser`, a `certs` directory is created in the user's home directory (e.g., `/home/{user-name}/certs`) and certificates are placed in that directory.
                
-               > **Please Note:** `fixed_scale` and `auto_scale` blocks cannot be used both at the same time.
+               > **Note:** `fixed_scale` and `auto_scale` blocks cannot be used both at the same time.
         """
         if account_name is not None:
             pulumi.set(__self__, "account_name", account_name)
@@ -995,9 +995,9 @@ class _PoolState:
         """
         A `windows` block that describes the Windows configuration in the pool as defined below.
 
-        > **NOTE:** For Windows compute nodes, the Batch service installs the certificates to the specified certificate store and location. For Linux compute nodes, the certificates are stored in a directory inside the task working directory and an environment variable `AZ_BATCH_CERTIFICATES_DIR` is supplied to the task to query for this location. For certificates with visibility of `remoteUser`, a `certs` directory is created in the user's home directory (e.g., `/home/{user-name}/certs`) and certificates are placed in that directory.
+        > **Note:** For Windows compute nodes, the Batch service installs the certificates to the specified certificate store and location. For Linux compute nodes, the certificates are stored in a directory inside the task working directory and an environment variable `AZ_BATCH_CERTIFICATES_DIR` is supplied to the task to query for this location. For certificates with visibility of `remoteUser`, a `certs` directory is created in the user's home directory (e.g., `/home/{user-name}/certs`) and certificates are placed in that directory.
 
-        > **Please Note:** `fixed_scale` and `auto_scale` blocks cannot be used both at the same time.
+        > **Note:** `fixed_scale` and `auto_scale` blocks cannot be used both at the same time.
         """
         return pulumi.get(self, "windows")
 
@@ -1130,6 +1130,13 @@ class Pool(pulumi.CustomResource):
             }])
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Batch`: 2024-07-01
+
         ## Import
 
         Batch Pools can be imported using the `resource id`, e.g.
@@ -1171,9 +1178,9 @@ class Pool(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] vm_size: Specifies the size of the VM created in the Batch pool. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[Union['PoolWindowArgs', 'PoolWindowArgsDict']]]] windows: A `windows` block that describes the Windows configuration in the pool as defined below.
                
-               > **NOTE:** For Windows compute nodes, the Batch service installs the certificates to the specified certificate store and location. For Linux compute nodes, the certificates are stored in a directory inside the task working directory and an environment variable `AZ_BATCH_CERTIFICATES_DIR` is supplied to the task to query for this location. For certificates with visibility of `remoteUser`, a `certs` directory is created in the user's home directory (e.g., `/home/{user-name}/certs`) and certificates are placed in that directory.
+               > **Note:** For Windows compute nodes, the Batch service installs the certificates to the specified certificate store and location. For Linux compute nodes, the certificates are stored in a directory inside the task working directory and an environment variable `AZ_BATCH_CERTIFICATES_DIR` is supplied to the task to query for this location. For certificates with visibility of `remoteUser`, a `certs` directory is created in the user's home directory (e.g., `/home/{user-name}/certs`) and certificates are placed in that directory.
                
-               > **Please Note:** `fixed_scale` and `auto_scale` blocks cannot be used both at the same time.
+               > **Note:** `fixed_scale` and `auto_scale` blocks cannot be used both at the same time.
         """
         ...
     @overload
@@ -1267,6 +1274,13 @@ class Pool(pulumi.CustomResource):
                 "visibilities": ["StartTask"],
             }])
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Batch`: 2024-07-01
 
         ## Import
 
@@ -1448,9 +1462,9 @@ class Pool(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] vm_size: Specifies the size of the VM created in the Batch pool. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[Union['PoolWindowArgs', 'PoolWindowArgsDict']]]] windows: A `windows` block that describes the Windows configuration in the pool as defined below.
                
-               > **NOTE:** For Windows compute nodes, the Batch service installs the certificates to the specified certificate store and location. For Linux compute nodes, the certificates are stored in a directory inside the task working directory and an environment variable `AZ_BATCH_CERTIFICATES_DIR` is supplied to the task to query for this location. For certificates with visibility of `remoteUser`, a `certs` directory is created in the user's home directory (e.g., `/home/{user-name}/certs`) and certificates are placed in that directory.
+               > **Note:** For Windows compute nodes, the Batch service installs the certificates to the specified certificate store and location. For Linux compute nodes, the certificates are stored in a directory inside the task working directory and an environment variable `AZ_BATCH_CERTIFICATES_DIR` is supplied to the task to query for this location. For certificates with visibility of `remoteUser`, a `certs` directory is created in the user's home directory (e.g., `/home/{user-name}/certs`) and certificates are placed in that directory.
                
-               > **Please Note:** `fixed_scale` and `auto_scale` blocks cannot be used both at the same time.
+               > **Note:** `fixed_scale` and `auto_scale` blocks cannot be used both at the same time.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -1726,9 +1740,9 @@ class Pool(pulumi.CustomResource):
         """
         A `windows` block that describes the Windows configuration in the pool as defined below.
 
-        > **NOTE:** For Windows compute nodes, the Batch service installs the certificates to the specified certificate store and location. For Linux compute nodes, the certificates are stored in a directory inside the task working directory and an environment variable `AZ_BATCH_CERTIFICATES_DIR` is supplied to the task to query for this location. For certificates with visibility of `remoteUser`, a `certs` directory is created in the user's home directory (e.g., `/home/{user-name}/certs`) and certificates are placed in that directory.
+        > **Note:** For Windows compute nodes, the Batch service installs the certificates to the specified certificate store and location. For Linux compute nodes, the certificates are stored in a directory inside the task working directory and an environment variable `AZ_BATCH_CERTIFICATES_DIR` is supplied to the task to query for this location. For certificates with visibility of `remoteUser`, a `certs` directory is created in the user's home directory (e.g., `/home/{user-name}/certs`) and certificates are placed in that directory.
 
-        > **Please Note:** `fixed_scale` and `auto_scale` blocks cannot be used both at the same time.
+        > **Note:** `fixed_scale` and `auto_scale` blocks cannot be used both at the same time.
         """
         return pulumi.get(self, "windows")
 

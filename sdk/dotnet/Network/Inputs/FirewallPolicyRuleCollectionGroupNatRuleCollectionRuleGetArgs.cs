@@ -63,7 +63,7 @@ namespace Pulumi.Azure.Network.Inputs
         /// <summary>
         /// Specifies the translated FQDN.
         /// 
-        /// &gt; **NOTE:** Exactly one of `translated_address` and `translated_fqdn` should be set.
+        /// &gt; **Note:** Exactly one of `translated_address` and `translated_fqdn` should be set.
         /// </summary>
         [Input("translatedFqdn")]
         public Input<string>? TranslatedFqdn { get; set; }

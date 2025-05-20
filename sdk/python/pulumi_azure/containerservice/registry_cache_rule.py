@@ -230,6 +230,13 @@ class RegistryCacheRule(pulumi.CustomResource):
             credential_set_id=acr.id.apply(lambda id: f"{id}/credentialSets/example"))
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.ContainerRegistry`: 2023-07-01
+
         ## Import
 
         Container Registry Cache Rules can be imported using the `resource id`, e.g.
@@ -279,6 +286,13 @@ class RegistryCacheRule(pulumi.CustomResource):
             source_repo="docker.io/hello-world",
             credential_set_id=acr.id.apply(lambda id: f"{id}/credentialSets/example"))
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.ContainerRegistry`: 2023-07-01
 
         ## Import
 

@@ -104,6 +104,9 @@ __all__ = [
     'LinkedServiceAzureSqlDatabaseKeyVaultPassword',
     'LinkedServiceOdataBasicAuthentication',
     'LinkedServiceOdbcBasicAuthentication',
+    'LinkedServiceSftpKeyVaultPassword',
+    'LinkedServiceSftpKeyVaultPrivateKeyContentBase64',
+    'LinkedServiceSftpKeyVaultPrivateKeyPassphrase',
     'LinkedServiceSnowflakeKeyVaultPassword',
     'LinkedServiceSqlServerKeyVaultConnectionString',
     'LinkedServiceSqlServerKeyVaultPassword',
@@ -2694,7 +2697,7 @@ class FactoryIdentity(dict):
         :param builtins.str type: Specifies the type of Managed Service Identity that should be configured on this Data Factory. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
         :param Sequence[builtins.str] identity_ids: Specifies a list of User Assigned Managed Identity IDs to be assigned to this Data Factory.
                
-               > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+               > **Note:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
         :param builtins.str principal_id: The Principal ID associated with this Managed Service Identity.
         :param builtins.str tenant_id: The Tenant ID associated with this Managed Service Identity.
         """
@@ -2720,7 +2723,7 @@ class FactoryIdentity(dict):
         """
         Specifies a list of User Assigned Managed Identity IDs to be assigned to this Data Factory.
 
-        > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+        > **Note:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
         """
         return pulumi.get(self, "identity_ids")
 
@@ -3661,7 +3664,7 @@ class IntegrationRuntimeSelfHostedRbacAuthorization(dict):
         """
         :param builtins.str resource_id: The resource identifier of the integration runtime to be shared.
                
-               > **Please Note**: RBAC Authorization creates a [linked Self-hosted Integration Runtime targeting the Shared Self-hosted Integration Runtime in resource_id](https://docs.microsoft.com/azure/data-factory/create-shared-self-hosted-integration-runtime-powershell#share-the-self-hosted-integration-runtime-with-another-data-factory). The linked Self-hosted Integration Runtime needs Contributor access granted to the Shared Self-hosted Data Factory.
+               > **Note:** RBAC Authorization creates a [linked Self-hosted Integration Runtime targeting the Shared Self-hosted Integration Runtime in resource_id](https://docs.microsoft.com/azure/data-factory/create-shared-self-hosted-integration-runtime-powershell#share-the-self-hosted-integration-runtime-with-another-data-factory). The linked Self-hosted Integration Runtime needs Contributor access granted to the Shared Self-hosted Data Factory. See example Shared Self-hosted.
                
                For more information on the configuration, please check out the [Azure documentation](https://docs.microsoft.com/rest/api/datafactory/integrationruntimes/createorupdate#linkedintegrationruntimerbacauthorization)
         """
@@ -3673,7 +3676,7 @@ class IntegrationRuntimeSelfHostedRbacAuthorization(dict):
         """
         The resource identifier of the integration runtime to be shared.
 
-        > **Please Note**: RBAC Authorization creates a [linked Self-hosted Integration Runtime targeting the Shared Self-hosted Integration Runtime in resource_id](https://docs.microsoft.com/azure/data-factory/create-shared-self-hosted-integration-runtime-powershell#share-the-self-hosted-integration-runtime-with-another-data-factory). The linked Self-hosted Integration Runtime needs Contributor access granted to the Shared Self-hosted Data Factory.
+        > **Note:** RBAC Authorization creates a [linked Self-hosted Integration Runtime targeting the Shared Self-hosted Integration Runtime in resource_id](https://docs.microsoft.com/azure/data-factory/create-shared-self-hosted-integration-runtime-powershell#share-the-self-hosted-integration-runtime-with-another-data-factory). The linked Self-hosted Integration Runtime needs Contributor access granted to the Shared Self-hosted Data Factory. See example Shared Self-hosted.
 
         For more information on the configuration, please check out the [Azure documentation](https://docs.microsoft.com/rest/api/datafactory/integrationruntimes/createorupdate#linkedintegrationruntimerbacauthorization)
         """
@@ -3915,7 +3918,7 @@ class IntegrationRuntimeSsisExpressCustomSetup(dict):
         :param Mapping[str, builtins.str] environment: The Environment Variables for the Azure-SSIS Integration Runtime.
         :param builtins.str powershell_version: The version of Azure Powershell installed for the Azure-SSIS Integration Runtime.
                
-               > **NOTE** At least one of `env`, `powershell_version`, `component` and `command_key` should be specified.
+               > **Note:** At least one of `env`, `powershell_version`, `component` and `command_key` should be specified.
         """
         if command_keys is not None:
             pulumi.set(__self__, "command_keys", command_keys)
@@ -3956,7 +3959,7 @@ class IntegrationRuntimeSsisExpressCustomSetup(dict):
         """
         The version of Azure Powershell installed for the Azure-SSIS Integration Runtime.
 
-        > **NOTE** At least one of `env`, `powershell_version`, `component` and `command_key` should be specified.
+        > **Note:** At least one of `env`, `powershell_version`, `component` and `command_key` should be specified.
         """
         return pulumi.get(self, "powershell_version")
 
@@ -4473,7 +4476,7 @@ class IntegrationRuntimeSsisVnetIntegration(dict):
         :param Sequence[builtins.str] public_ips: Static public IP addresses for the Azure-SSIS Integration Runtime. The size must be 2.
         :param builtins.str subnet_id: id of the subnet to which the nodes of the Azure-SSIS Integration Runtime will be added.
                
-               > **NOTE** Only one of `subnet_id` and `subnet_name` can be specified. If `subnet_name` is specified, `vnet_id` must be provided.
+               > **Note:** Only one of `subnet_id` and `subnet_name` can be specified. If `subnet_name` is specified, `vnet_id` must be provided.
         :param builtins.str subnet_name: Name of the subnet to which the nodes of the Azure-SSIS Integration Runtime will be added.
         :param builtins.str vnet_id: ID of the virtual network to which the nodes of the Azure-SSIS Integration Runtime will be added.
         """
@@ -4500,7 +4503,7 @@ class IntegrationRuntimeSsisVnetIntegration(dict):
         """
         id of the subnet to which the nodes of the Azure-SSIS Integration Runtime will be added.
 
-        > **NOTE** Only one of `subnet_id` and `subnet_name` can be specified. If `subnet_name` is specified, `vnet_id` must be provided.
+        > **Note:** Only one of `subnet_id` and `subnet_name` can be specified. If `subnet_name` is specified, `vnet_id` must be provided.
         """
         return pulumi.get(self, "subnet_id")
 
@@ -5179,6 +5182,150 @@ class LinkedServiceOdbcBasicAuthentication(dict):
         The username which can be used to authenticate to the ODBC endpoint.
         """
         return pulumi.get(self, "username")
+
+
+@pulumi.output_type
+class LinkedServiceSftpKeyVaultPassword(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "linkedServiceName":
+            suggest = "linked_service_name"
+        elif key == "secretName":
+            suggest = "secret_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LinkedServiceSftpKeyVaultPassword. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LinkedServiceSftpKeyVaultPassword.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LinkedServiceSftpKeyVaultPassword.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 linked_service_name: builtins.str,
+                 secret_name: builtins.str):
+        """
+        :param builtins.str linked_service_name: Specifies the name of an existing Key Vault Data Factory Linked Service.
+        :param builtins.str secret_name: Specifies the name of the secret containing the password.
+        """
+        pulumi.set(__self__, "linked_service_name", linked_service_name)
+        pulumi.set(__self__, "secret_name", secret_name)
+
+    @property
+    @pulumi.getter(name="linkedServiceName")
+    def linked_service_name(self) -> builtins.str:
+        """
+        Specifies the name of an existing Key Vault Data Factory Linked Service.
+        """
+        return pulumi.get(self, "linked_service_name")
+
+    @property
+    @pulumi.getter(name="secretName")
+    def secret_name(self) -> builtins.str:
+        """
+        Specifies the name of the secret containing the password.
+        """
+        return pulumi.get(self, "secret_name")
+
+
+@pulumi.output_type
+class LinkedServiceSftpKeyVaultPrivateKeyContentBase64(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "linkedServiceName":
+            suggest = "linked_service_name"
+        elif key == "secretName":
+            suggest = "secret_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LinkedServiceSftpKeyVaultPrivateKeyContentBase64. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LinkedServiceSftpKeyVaultPrivateKeyContentBase64.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LinkedServiceSftpKeyVaultPrivateKeyContentBase64.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 linked_service_name: builtins.str,
+                 secret_name: builtins.str):
+        """
+        :param builtins.str linked_service_name: Specifies the name of an existing Key Vault Data Factory Linked Service.
+        :param builtins.str secret_name: Specifies the name of the secret containing the Base64 encoded SSH private key.
+        """
+        pulumi.set(__self__, "linked_service_name", linked_service_name)
+        pulumi.set(__self__, "secret_name", secret_name)
+
+    @property
+    @pulumi.getter(name="linkedServiceName")
+    def linked_service_name(self) -> builtins.str:
+        """
+        Specifies the name of an existing Key Vault Data Factory Linked Service.
+        """
+        return pulumi.get(self, "linked_service_name")
+
+    @property
+    @pulumi.getter(name="secretName")
+    def secret_name(self) -> builtins.str:
+        """
+        Specifies the name of the secret containing the Base64 encoded SSH private key.
+        """
+        return pulumi.get(self, "secret_name")
+
+
+@pulumi.output_type
+class LinkedServiceSftpKeyVaultPrivateKeyPassphrase(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "linkedServiceName":
+            suggest = "linked_service_name"
+        elif key == "secretName":
+            suggest = "secret_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LinkedServiceSftpKeyVaultPrivateKeyPassphrase. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LinkedServiceSftpKeyVaultPrivateKeyPassphrase.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LinkedServiceSftpKeyVaultPrivateKeyPassphrase.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 linked_service_name: builtins.str,
+                 secret_name: builtins.str):
+        """
+        :param builtins.str linked_service_name: Specifies the name of an existing Key Vault Data Factory Linked Service.
+        :param builtins.str secret_name: Specifies the name of the secret containing the SSH private key passphrase.
+        """
+        pulumi.set(__self__, "linked_service_name", linked_service_name)
+        pulumi.set(__self__, "secret_name", secret_name)
+
+    @property
+    @pulumi.getter(name="linkedServiceName")
+    def linked_service_name(self) -> builtins.str:
+        """
+        Specifies the name of an existing Key Vault Data Factory Linked Service.
+        """
+        return pulumi.get(self, "linked_service_name")
+
+    @property
+    @pulumi.getter(name="secretName")
+    def secret_name(self) -> builtins.str:
+        """
+        Specifies the name of the secret containing the SSH private key passphrase.
+        """
+        return pulumi.get(self, "secret_name")
 
 
 @pulumi.output_type

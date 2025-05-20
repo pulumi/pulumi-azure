@@ -21,7 +21,7 @@ public final class SourceControlArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * The ID of the Windows or Linux Web App. Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE:** Function apps are not supported at this time.
+     * &gt; **Note:** Function apps are not supported at this time.
      * 
      */
     @Import(name="appId", required=true)
@@ -30,7 +30,7 @@ public final class SourceControlArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * @return The ID of the Windows or Linux Web App. Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE:** Function apps are not supported at this time.
+     * &gt; **Note:** Function apps are not supported at this time.
      * 
      */
     public Output<String> appId() {
@@ -85,7 +85,7 @@ public final class SourceControlArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * Should the Deployment Rollback be enabled? Defaults to `false`. Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE:** Azure can typically set this value automatically based on the `repo_url` value.
+     * &gt; **Note:** Azure can typically set this value automatically based on the `repo_url` value.
      * 
      */
     @Import(name="rollbackEnabled")
@@ -94,7 +94,7 @@ public final class SourceControlArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * @return Should the Deployment Rollback be enabled? Defaults to `false`. Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE:** Azure can typically set this value automatically based on the `repo_url` value.
+     * &gt; **Note:** Azure can typically set this value automatically based on the `repo_url` value.
      * 
      */
     public Optional<Output<Boolean>> rollbackEnabled() {
@@ -180,7 +180,7 @@ public final class SourceControlArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param appId The ID of the Windows or Linux Web App. Changing this forces a new resource to be created.
          * 
-         * &gt; **NOTE:** Function apps are not supported at this time.
+         * &gt; **Note:** Function apps are not supported at this time.
          * 
          * @return builder
          * 
@@ -193,7 +193,7 @@ public final class SourceControlArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param appId The ID of the Windows or Linux Web App. Changing this forces a new resource to be created.
          * 
-         * &gt; **NOTE:** Function apps are not supported at this time.
+         * &gt; **Note:** Function apps are not supported at this time.
          * 
          * @return builder
          * 
@@ -268,7 +268,7 @@ public final class SourceControlArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param rollbackEnabled Should the Deployment Rollback be enabled? Defaults to `false`. Changing this forces a new resource to be created.
          * 
-         * &gt; **NOTE:** Azure can typically set this value automatically based on the `repo_url` value.
+         * &gt; **Note:** Azure can typically set this value automatically based on the `repo_url` value.
          * 
          * @return builder
          * 
@@ -281,7 +281,7 @@ public final class SourceControlArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param rollbackEnabled Should the Deployment Rollback be enabled? Defaults to `false`. Changing this forces a new resource to be created.
          * 
-         * &gt; **NOTE:** Azure can typically set this value automatically based on the `repo_url` value.
+         * &gt; **Note:** Azure can typically set this value automatically based on the `repo_url` value.
          * 
          * @return builder
          * 

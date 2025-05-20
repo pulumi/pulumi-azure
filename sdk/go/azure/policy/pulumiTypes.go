@@ -277,7 +277,7 @@ type VirtualMachineConfigurationAssignmentConfiguration struct {
 	ContentHash *string `pulumi:"contentHash"`
 	// The content URI where the Guest Configuration package is stored.
 	//
-	// > **NOTE:** When deploying a Custom Guest Configuration package the `contentHash` and `contentUri` fields must be defined. For Built-in Guest Configuration packages, such as the `AzureWindowsBaseline` package, the `contentHash` and `contentUri` should not be defined, rather these fields will be returned after the Built-in Guest Configuration package has been provisioned. For more information on guest configuration assignments please see the [product documentation](https://docs.microsoft.com/azure/governance/policy/concepts/guest-configuration-assignments).
+	// > **Note:** When deploying a Custom Guest Configuration package the `contentHash` and `contentUri` fields must be defined. For Built-in Guest Configuration packages, such as the `AzureWindowsBaseline` package, the `contentHash` and `contentUri` should not be defined, rather these fields will be returned after the Built-in Guest Configuration package has been provisioned. For more information on guest configuration assignments please see the [product documentation](https://docs.microsoft.com/azure/governance/policy/concepts/guest-configuration-assignments).
 	ContentUri *string `pulumi:"contentUri"`
 	// One or more `parameter` blocks as defined below which define what configuration parameters and values against.
 	Parameters []VirtualMachineConfigurationAssignmentConfigurationParameter `pulumi:"parameters"`
@@ -303,7 +303,7 @@ type VirtualMachineConfigurationAssignmentConfigurationArgs struct {
 	ContentHash pulumi.StringPtrInput `pulumi:"contentHash"`
 	// The content URI where the Guest Configuration package is stored.
 	//
-	// > **NOTE:** When deploying a Custom Guest Configuration package the `contentHash` and `contentUri` fields must be defined. For Built-in Guest Configuration packages, such as the `AzureWindowsBaseline` package, the `contentHash` and `contentUri` should not be defined, rather these fields will be returned after the Built-in Guest Configuration package has been provisioned. For more information on guest configuration assignments please see the [product documentation](https://docs.microsoft.com/azure/governance/policy/concepts/guest-configuration-assignments).
+	// > **Note:** When deploying a Custom Guest Configuration package the `contentHash` and `contentUri` fields must be defined. For Built-in Guest Configuration packages, such as the `AzureWindowsBaseline` package, the `contentHash` and `contentUri` should not be defined, rather these fields will be returned after the Built-in Guest Configuration package has been provisioned. For more information on guest configuration assignments please see the [product documentation](https://docs.microsoft.com/azure/governance/policy/concepts/guest-configuration-assignments).
 	ContentUri pulumi.StringPtrInput `pulumi:"contentUri"`
 	// One or more `parameter` blocks as defined below which define what configuration parameters and values against.
 	Parameters VirtualMachineConfigurationAssignmentConfigurationParameterArrayInput `pulumi:"parameters"`
@@ -400,7 +400,7 @@ func (o VirtualMachineConfigurationAssignmentConfigurationOutput) ContentHash() 
 
 // The content URI where the Guest Configuration package is stored.
 //
-// > **NOTE:** When deploying a Custom Guest Configuration package the `contentHash` and `contentUri` fields must be defined. For Built-in Guest Configuration packages, such as the `AzureWindowsBaseline` package, the `contentHash` and `contentUri` should not be defined, rather these fields will be returned after the Built-in Guest Configuration package has been provisioned. For more information on guest configuration assignments please see the [product documentation](https://docs.microsoft.com/azure/governance/policy/concepts/guest-configuration-assignments).
+// > **Note:** When deploying a Custom Guest Configuration package the `contentHash` and `contentUri` fields must be defined. For Built-in Guest Configuration packages, such as the `AzureWindowsBaseline` package, the `contentHash` and `contentUri` should not be defined, rather these fields will be returned after the Built-in Guest Configuration package has been provisioned. For more information on guest configuration assignments please see the [product documentation](https://docs.microsoft.com/azure/governance/policy/concepts/guest-configuration-assignments).
 func (o VirtualMachineConfigurationAssignmentConfigurationOutput) ContentUri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VirtualMachineConfigurationAssignmentConfiguration) *string { return v.ContentUri }).(pulumi.StringPtrOutput)
 }
@@ -463,7 +463,7 @@ func (o VirtualMachineConfigurationAssignmentConfigurationPtrOutput) ContentHash
 
 // The content URI where the Guest Configuration package is stored.
 //
-// > **NOTE:** When deploying a Custom Guest Configuration package the `contentHash` and `contentUri` fields must be defined. For Built-in Guest Configuration packages, such as the `AzureWindowsBaseline` package, the `contentHash` and `contentUri` should not be defined, rather these fields will be returned after the Built-in Guest Configuration package has been provisioned. For more information on guest configuration assignments please see the [product documentation](https://docs.microsoft.com/azure/governance/policy/concepts/guest-configuration-assignments).
+// > **Note:** When deploying a Custom Guest Configuration package the `contentHash` and `contentUri` fields must be defined. For Built-in Guest Configuration packages, such as the `AzureWindowsBaseline` package, the `contentHash` and `contentUri` should not be defined, rather these fields will be returned after the Built-in Guest Configuration package has been provisioned. For more information on guest configuration assignments please see the [product documentation](https://docs.microsoft.com/azure/governance/policy/concepts/guest-configuration-assignments).
 func (o VirtualMachineConfigurationAssignmentConfigurationPtrOutput) ContentUri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VirtualMachineConfigurationAssignmentConfiguration) *string {
 		if v == nil {

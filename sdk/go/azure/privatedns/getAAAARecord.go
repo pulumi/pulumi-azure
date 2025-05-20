@@ -39,6 +39,13 @@ import (
 //	}
 //
 // ```
+//
+// ## API Providers
+//
+// <!-- This section is generated, changes will be overwritten -->
+// This data source uses the following Azure API Providers:
+//
+// * `Microsoft.Network`: 2024-06-01
 func LookupAAAARecord(ctx *pulumi.Context, args *LookupAAAARecordArgs, opts ...pulumi.InvokeOption) (*LookupAAAARecordResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupAAAARecordResult

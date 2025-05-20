@@ -96,7 +96,7 @@ import javax.annotation.Nullable;
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
- * &gt; **NOTE:** The CosmosDB Account needs to have the `EnableGremlin` capability enabled to use this resource - which can be done by adding this to the `capabilities` list within the `azure.cosmosdb.Account` resource.
+ * &gt; **Note:** The CosmosDB Account needs to have the `EnableGremlin` capability enabled to use this resource - which can be done by adding this to the `capabilities` list within the `azure.cosmosdb.Account` resource.
  * 
  * ## Import
  * 
@@ -259,17 +259,9 @@ public class GremlinGraph extends com.pulumi.resources.CustomResource {
     public Output<String> resourceGroupName() {
         return this.resourceGroupName;
     }
-    /**
-     * The throughput of the Gremlin graph (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon database creation otherwise it cannot be updated without a manual destroy-apply.
-     * 
-     */
     @Export(name="throughput", refs={Integer.class}, tree="[0]")
     private Output<Integer> throughput;
 
-    /**
-     * @return The throughput of the Gremlin graph (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon database creation otherwise it cannot be updated without a manual destroy-apply.
-     * 
-     */
     public Output<Integer> throughput() {
         return this.throughput;
     }

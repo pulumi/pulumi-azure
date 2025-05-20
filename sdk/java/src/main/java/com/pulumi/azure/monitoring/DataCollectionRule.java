@@ -136,7 +136,7 @@ public class DataCollectionRule extends com.pulumi.resources.CustomResource {
     /**
      * The kind of the Data Collection Rule. Possible values are `Linux`, `Windows`, `AgentDirectToStore` and `WorkspaceTransforms`. A rule of kind `Linux` does not allow for `windows_event_log` data sources. And a rule of kind `Windows` does not allow for `syslog` data sources. If kind is not specified, all kinds of data sources are allowed.
      * 
-     * &gt; **NOTE** Once `kind` has been set, changing it forces a new Data Collection Rule to be created.
+     * &gt; **Note:** Once `kind` has been set, changing it forces a new Data Collection Rule to be created.
      * 
      */
     @Export(name="kind", refs={String.class}, tree="[0]")
@@ -145,7 +145,7 @@ public class DataCollectionRule extends com.pulumi.resources.CustomResource {
     /**
      * @return The kind of the Data Collection Rule. Possible values are `Linux`, `Windows`, `AgentDirectToStore` and `WorkspaceTransforms`. A rule of kind `Linux` does not allow for `windows_event_log` data sources. And a rule of kind `Windows` does not allow for `syslog` data sources. If kind is not specified, all kinds of data sources are allowed.
      * 
-     * &gt; **NOTE** Once `kind` has been set, changing it forces a new Data Collection Rule to be created.
+     * &gt; **Note:** Once `kind` has been set, changing it forces a new Data Collection Rule to be created.
      * 
      */
     public Output<Optional<String>> kind() {

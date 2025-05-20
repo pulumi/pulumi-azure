@@ -79,6 +79,13 @@ import (
 //
 // ```
 //
+// ## API Providers
+//
+// <!-- This section is generated, changes will be overwritten -->
+// This resource uses the following Azure API Providers:
+//
+// * `Microsoft.HealthcareApis`: 2022-12-01
+//
 // ## Import
 //
 // Healthcare Service can be imported using the resource`id`, e.g.
@@ -98,7 +105,7 @@ type Service struct {
 	CorsConfiguration ServiceCorsConfigurationOutput `pulumi:"corsConfiguration"`
 	// A versionless Key Vault Key ID for CMK encryption of the backing database. Changing this forces a new resource to be created.
 	//
-	// > **Please Note:** In order to use a `Custom Key` from Key Vault for encryption you must grant Azure Cosmos DB Service access to your key vault. For instructions on how to configure your Key Vault correctly please refer to the [product documentation](https://docs.microsoft.com/azure/cosmos-db/how-to-setup-cmk#add-an-access-policy-to-your-azure-key-vault-instance)
+	// > **Note:** In order to use a `Custom Key` from Key Vault for encryption you must grant Azure Cosmos DB Service access to your key vault. For instructions on how to configure your Key Vault correctly please refer to the [product documentation](https://docs.microsoft.com/azure/cosmos-db/how-to-setup-cmk#add-an-access-policy-to-your-azure-key-vault-instance)
 	CosmosdbKeyVaultKeyVersionlessId pulumi.StringPtrOutput `pulumi:"cosmosdbKeyVaultKeyVersionlessId"`
 	// The provisioned throughput for the backing database. Range of `400`-`100000`. Defaults to `1000`.
 	CosmosdbThroughput pulumi.IntPtrOutput `pulumi:"cosmosdbThroughput"`
@@ -108,7 +115,7 @@ type Service struct {
 	Kind pulumi.StringPtrOutput `pulumi:"kind"`
 	// Specifies the supported Azure Region where the Service should be created. Changing this forces a new resource to be created.
 	//
-	// > **Please Note:** Not all locations support this resource. Some are `West US 2`, `North Central US`, and `UK West`.
+	// > **Note:** Not all locations support this resource. Some are `West US 2`, `North Central US`, and `UK West`.
 	Location pulumi.StringOutput `pulumi:"location"`
 	// The name of the service instance. Used for service endpoint, must be unique within the audience. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -162,7 +169,7 @@ type serviceState struct {
 	CorsConfiguration *ServiceCorsConfiguration `pulumi:"corsConfiguration"`
 	// A versionless Key Vault Key ID for CMK encryption of the backing database. Changing this forces a new resource to be created.
 	//
-	// > **Please Note:** In order to use a `Custom Key` from Key Vault for encryption you must grant Azure Cosmos DB Service access to your key vault. For instructions on how to configure your Key Vault correctly please refer to the [product documentation](https://docs.microsoft.com/azure/cosmos-db/how-to-setup-cmk#add-an-access-policy-to-your-azure-key-vault-instance)
+	// > **Note:** In order to use a `Custom Key` from Key Vault for encryption you must grant Azure Cosmos DB Service access to your key vault. For instructions on how to configure your Key Vault correctly please refer to the [product documentation](https://docs.microsoft.com/azure/cosmos-db/how-to-setup-cmk#add-an-access-policy-to-your-azure-key-vault-instance)
 	CosmosdbKeyVaultKeyVersionlessId *string `pulumi:"cosmosdbKeyVaultKeyVersionlessId"`
 	// The provisioned throughput for the backing database. Range of `400`-`100000`. Defaults to `1000`.
 	CosmosdbThroughput *int `pulumi:"cosmosdbThroughput"`
@@ -172,7 +179,7 @@ type serviceState struct {
 	Kind *string `pulumi:"kind"`
 	// Specifies the supported Azure Region where the Service should be created. Changing this forces a new resource to be created.
 	//
-	// > **Please Note:** Not all locations support this resource. Some are `West US 2`, `North Central US`, and `UK West`.
+	// > **Note:** Not all locations support this resource. Some are `West US 2`, `North Central US`, and `UK West`.
 	Location *string `pulumi:"location"`
 	// The name of the service instance. Used for service endpoint, must be unique within the audience. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
@@ -194,7 +201,7 @@ type ServiceState struct {
 	CorsConfiguration ServiceCorsConfigurationPtrInput
 	// A versionless Key Vault Key ID for CMK encryption of the backing database. Changing this forces a new resource to be created.
 	//
-	// > **Please Note:** In order to use a `Custom Key` from Key Vault for encryption you must grant Azure Cosmos DB Service access to your key vault. For instructions on how to configure your Key Vault correctly please refer to the [product documentation](https://docs.microsoft.com/azure/cosmos-db/how-to-setup-cmk#add-an-access-policy-to-your-azure-key-vault-instance)
+	// > **Note:** In order to use a `Custom Key` from Key Vault for encryption you must grant Azure Cosmos DB Service access to your key vault. For instructions on how to configure your Key Vault correctly please refer to the [product documentation](https://docs.microsoft.com/azure/cosmos-db/how-to-setup-cmk#add-an-access-policy-to-your-azure-key-vault-instance)
 	CosmosdbKeyVaultKeyVersionlessId pulumi.StringPtrInput
 	// The provisioned throughput for the backing database. Range of `400`-`100000`. Defaults to `1000`.
 	CosmosdbThroughput pulumi.IntPtrInput
@@ -204,7 +211,7 @@ type ServiceState struct {
 	Kind pulumi.StringPtrInput
 	// Specifies the supported Azure Region where the Service should be created. Changing this forces a new resource to be created.
 	//
-	// > **Please Note:** Not all locations support this resource. Some are `West US 2`, `North Central US`, and `UK West`.
+	// > **Note:** Not all locations support this resource. Some are `West US 2`, `North Central US`, and `UK West`.
 	Location pulumi.StringPtrInput
 	// The name of the service instance. Used for service endpoint, must be unique within the audience. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
@@ -230,7 +237,7 @@ type serviceArgs struct {
 	CorsConfiguration *ServiceCorsConfiguration `pulumi:"corsConfiguration"`
 	// A versionless Key Vault Key ID for CMK encryption of the backing database. Changing this forces a new resource to be created.
 	//
-	// > **Please Note:** In order to use a `Custom Key` from Key Vault for encryption you must grant Azure Cosmos DB Service access to your key vault. For instructions on how to configure your Key Vault correctly please refer to the [product documentation](https://docs.microsoft.com/azure/cosmos-db/how-to-setup-cmk#add-an-access-policy-to-your-azure-key-vault-instance)
+	// > **Note:** In order to use a `Custom Key` from Key Vault for encryption you must grant Azure Cosmos DB Service access to your key vault. For instructions on how to configure your Key Vault correctly please refer to the [product documentation](https://docs.microsoft.com/azure/cosmos-db/how-to-setup-cmk#add-an-access-policy-to-your-azure-key-vault-instance)
 	CosmosdbKeyVaultKeyVersionlessId *string `pulumi:"cosmosdbKeyVaultKeyVersionlessId"`
 	// The provisioned throughput for the backing database. Range of `400`-`100000`. Defaults to `1000`.
 	CosmosdbThroughput *int `pulumi:"cosmosdbThroughput"`
@@ -240,7 +247,7 @@ type serviceArgs struct {
 	Kind *string `pulumi:"kind"`
 	// Specifies the supported Azure Region where the Service should be created. Changing this forces a new resource to be created.
 	//
-	// > **Please Note:** Not all locations support this resource. Some are `West US 2`, `North Central US`, and `UK West`.
+	// > **Note:** Not all locations support this resource. Some are `West US 2`, `North Central US`, and `UK West`.
 	Location *string `pulumi:"location"`
 	// The name of the service instance. Used for service endpoint, must be unique within the audience. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
@@ -263,7 +270,7 @@ type ServiceArgs struct {
 	CorsConfiguration ServiceCorsConfigurationPtrInput
 	// A versionless Key Vault Key ID for CMK encryption of the backing database. Changing this forces a new resource to be created.
 	//
-	// > **Please Note:** In order to use a `Custom Key` from Key Vault for encryption you must grant Azure Cosmos DB Service access to your key vault. For instructions on how to configure your Key Vault correctly please refer to the [product documentation](https://docs.microsoft.com/azure/cosmos-db/how-to-setup-cmk#add-an-access-policy-to-your-azure-key-vault-instance)
+	// > **Note:** In order to use a `Custom Key` from Key Vault for encryption you must grant Azure Cosmos DB Service access to your key vault. For instructions on how to configure your Key Vault correctly please refer to the [product documentation](https://docs.microsoft.com/azure/cosmos-db/how-to-setup-cmk#add-an-access-policy-to-your-azure-key-vault-instance)
 	CosmosdbKeyVaultKeyVersionlessId pulumi.StringPtrInput
 	// The provisioned throughput for the backing database. Range of `400`-`100000`. Defaults to `1000`.
 	CosmosdbThroughput pulumi.IntPtrInput
@@ -273,7 +280,7 @@ type ServiceArgs struct {
 	Kind pulumi.StringPtrInput
 	// Specifies the supported Azure Region where the Service should be created. Changing this forces a new resource to be created.
 	//
-	// > **Please Note:** Not all locations support this resource. Some are `West US 2`, `North Central US`, and `UK West`.
+	// > **Note:** Not all locations support this resource. Some are `West US 2`, `North Central US`, and `UK West`.
 	Location pulumi.StringPtrInput
 	// The name of the service instance. Used for service endpoint, must be unique within the audience. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
@@ -393,7 +400,7 @@ func (o ServiceOutput) CorsConfiguration() ServiceCorsConfigurationOutput {
 
 // A versionless Key Vault Key ID for CMK encryption of the backing database. Changing this forces a new resource to be created.
 //
-// > **Please Note:** In order to use a `Custom Key` from Key Vault for encryption you must grant Azure Cosmos DB Service access to your key vault. For instructions on how to configure your Key Vault correctly please refer to the [product documentation](https://docs.microsoft.com/azure/cosmos-db/how-to-setup-cmk#add-an-access-policy-to-your-azure-key-vault-instance)
+// > **Note:** In order to use a `Custom Key` from Key Vault for encryption you must grant Azure Cosmos DB Service access to your key vault. For instructions on how to configure your Key Vault correctly please refer to the [product documentation](https://docs.microsoft.com/azure/cosmos-db/how-to-setup-cmk#add-an-access-policy-to-your-azure-key-vault-instance)
 func (o ServiceOutput) CosmosdbKeyVaultKeyVersionlessId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Service) pulumi.StringPtrOutput { return v.CosmosdbKeyVaultKeyVersionlessId }).(pulumi.StringPtrOutput)
 }
@@ -415,7 +422,7 @@ func (o ServiceOutput) Kind() pulumi.StringPtrOutput {
 
 // Specifies the supported Azure Region where the Service should be created. Changing this forces a new resource to be created.
 //
-// > **Please Note:** Not all locations support this resource. Some are `West US 2`, `North Central US`, and `UK West`.
+// > **Note:** Not all locations support this resource. Some are `West US 2`, `North Central US`, and `UK West`.
 func (o ServiceOutput) Location() pulumi.StringOutput {
 	return o.ApplyT(func(v *Service) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
 }

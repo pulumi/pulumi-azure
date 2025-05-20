@@ -41,7 +41,7 @@ import (
 //				Location:          example.Location,
 //				ResourceGroupName: example.Name,
 //				PublisherName:     pulumi.String("My Company"),
-//				PublisherEmail:    pulumi.String("company@exmaple.com"),
+//				PublisherEmail:    pulumi.String("company@terraform.io"),
 //				SkuName:           pulumi.String("Developer_1"),
 //			})
 //			if err != nil {
@@ -71,6 +71,13 @@ import (
 //
 // ```
 //
+// ## API Providers
+//
+// <!-- This section is generated, changes will be overwritten -->
+// This resource uses the following Azure API Providers:
+//
+// * `Microsoft.ApiManagement`: 2022-08-01
+//
 // ## Import
 //
 // API Management API's can be imported using the `resource id`, e.g.
@@ -93,7 +100,7 @@ type Api struct {
 	DisplayName pulumi.StringOutput `pulumi:"displayName"`
 	// A `import` block as documented below.
 	//
-	// > **NOTE:** The `displayName`, `description`, `contact`, and `license` fields can be imported by the `import` block, which might cause a drift if these fields are set along with the `import` block.
+	// > **Note:** The `displayName`, `description`, `contact`, and `license` fields can be imported by the `import` block, which might cause a drift if these fields are set along with the `import` block.
 	Import ApiImportPtrOutput `pulumi:"import"`
 	// Is this the current API Revision?
 	IsCurrent pulumi.BoolOutput `pulumi:"isCurrent"`
@@ -111,7 +118,7 @@ type Api struct {
 	Path pulumi.StringOutput `pulumi:"path"`
 	// A list of protocols the operations in this API can be invoked. Possible values are `http`, `https`, `ws`, and `wss`.
 	//
-	// > **NOTE:** `displayName`, `path` and `protocols` are required when `sourceApiId` is not set.
+	// > **Note:** `displayName`, `path` and `protocols` are required when `sourceApiId` is not set.
 	Protocols pulumi.StringArrayOutput `pulumi:"protocols"`
 	// The Name of the Resource Group where the API Management API exists. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
@@ -135,7 +142,7 @@ type Api struct {
 	VersionDescription pulumi.StringPtrOutput `pulumi:"versionDescription"`
 	// The ID of the Version Set which this API is associated with.
 	//
-	// > **NOTE:** When `version` is set, `versionSetId` must also be specified
+	// > **Note:** When `version` is set, `versionSetId` must also be specified
 	VersionSetId pulumi.StringOutput `pulumi:"versionSetId"`
 }
 
@@ -190,7 +197,7 @@ type apiState struct {
 	DisplayName *string `pulumi:"displayName"`
 	// A `import` block as documented below.
 	//
-	// > **NOTE:** The `displayName`, `description`, `contact`, and `license` fields can be imported by the `import` block, which might cause a drift if these fields are set along with the `import` block.
+	// > **Note:** The `displayName`, `description`, `contact`, and `license` fields can be imported by the `import` block, which might cause a drift if these fields are set along with the `import` block.
 	Import *ApiImport `pulumi:"import"`
 	// Is this the current API Revision?
 	IsCurrent *bool `pulumi:"isCurrent"`
@@ -208,7 +215,7 @@ type apiState struct {
 	Path *string `pulumi:"path"`
 	// A list of protocols the operations in this API can be invoked. Possible values are `http`, `https`, `ws`, and `wss`.
 	//
-	// > **NOTE:** `displayName`, `path` and `protocols` are required when `sourceApiId` is not set.
+	// > **Note:** `displayName`, `path` and `protocols` are required when `sourceApiId` is not set.
 	Protocols []string `pulumi:"protocols"`
 	// The Name of the Resource Group where the API Management API exists. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
@@ -232,7 +239,7 @@ type apiState struct {
 	VersionDescription *string `pulumi:"versionDescription"`
 	// The ID of the Version Set which this API is associated with.
 	//
-	// > **NOTE:** When `version` is set, `versionSetId` must also be specified
+	// > **Note:** When `version` is set, `versionSetId` must also be specified
 	VersionSetId *string `pulumi:"versionSetId"`
 }
 
@@ -249,7 +256,7 @@ type ApiState struct {
 	DisplayName pulumi.StringPtrInput
 	// A `import` block as documented below.
 	//
-	// > **NOTE:** The `displayName`, `description`, `contact`, and `license` fields can be imported by the `import` block, which might cause a drift if these fields are set along with the `import` block.
+	// > **Note:** The `displayName`, `description`, `contact`, and `license` fields can be imported by the `import` block, which might cause a drift if these fields are set along with the `import` block.
 	Import ApiImportPtrInput
 	// Is this the current API Revision?
 	IsCurrent pulumi.BoolPtrInput
@@ -267,7 +274,7 @@ type ApiState struct {
 	Path pulumi.StringPtrInput
 	// A list of protocols the operations in this API can be invoked. Possible values are `http`, `https`, `ws`, and `wss`.
 	//
-	// > **NOTE:** `displayName`, `path` and `protocols` are required when `sourceApiId` is not set.
+	// > **Note:** `displayName`, `path` and `protocols` are required when `sourceApiId` is not set.
 	Protocols pulumi.StringArrayInput
 	// The Name of the Resource Group where the API Management API exists. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
@@ -291,7 +298,7 @@ type ApiState struct {
 	VersionDescription pulumi.StringPtrInput
 	// The ID of the Version Set which this API is associated with.
 	//
-	// > **NOTE:** When `version` is set, `versionSetId` must also be specified
+	// > **Note:** When `version` is set, `versionSetId` must also be specified
 	VersionSetId pulumi.StringPtrInput
 }
 
@@ -312,7 +319,7 @@ type apiArgs struct {
 	DisplayName *string `pulumi:"displayName"`
 	// A `import` block as documented below.
 	//
-	// > **NOTE:** The `displayName`, `description`, `contact`, and `license` fields can be imported by the `import` block, which might cause a drift if these fields are set along with the `import` block.
+	// > **Note:** The `displayName`, `description`, `contact`, and `license` fields can be imported by the `import` block, which might cause a drift if these fields are set along with the `import` block.
 	Import *ApiImport `pulumi:"import"`
 	// A `license` block as documented below.
 	License *ApiLicense `pulumi:"license"`
@@ -326,7 +333,7 @@ type apiArgs struct {
 	Path *string `pulumi:"path"`
 	// A list of protocols the operations in this API can be invoked. Possible values are `http`, `https`, `ws`, and `wss`.
 	//
-	// > **NOTE:** `displayName`, `path` and `protocols` are required when `sourceApiId` is not set.
+	// > **Note:** `displayName`, `path` and `protocols` are required when `sourceApiId` is not set.
 	Protocols []string `pulumi:"protocols"`
 	// The Name of the Resource Group where the API Management API exists. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
@@ -350,7 +357,7 @@ type apiArgs struct {
 	VersionDescription *string `pulumi:"versionDescription"`
 	// The ID of the Version Set which this API is associated with.
 	//
-	// > **NOTE:** When `version` is set, `versionSetId` must also be specified
+	// > **Note:** When `version` is set, `versionSetId` must also be specified
 	VersionSetId *string `pulumi:"versionSetId"`
 }
 
@@ -368,7 +375,7 @@ type ApiArgs struct {
 	DisplayName pulumi.StringPtrInput
 	// A `import` block as documented below.
 	//
-	// > **NOTE:** The `displayName`, `description`, `contact`, and `license` fields can be imported by the `import` block, which might cause a drift if these fields are set along with the `import` block.
+	// > **Note:** The `displayName`, `description`, `contact`, and `license` fields can be imported by the `import` block, which might cause a drift if these fields are set along with the `import` block.
 	Import ApiImportPtrInput
 	// A `license` block as documented below.
 	License ApiLicensePtrInput
@@ -382,7 +389,7 @@ type ApiArgs struct {
 	Path pulumi.StringPtrInput
 	// A list of protocols the operations in this API can be invoked. Possible values are `http`, `https`, `ws`, and `wss`.
 	//
-	// > **NOTE:** `displayName`, `path` and `protocols` are required when `sourceApiId` is not set.
+	// > **Note:** `displayName`, `path` and `protocols` are required when `sourceApiId` is not set.
 	Protocols pulumi.StringArrayInput
 	// The Name of the Resource Group where the API Management API exists. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
@@ -406,7 +413,7 @@ type ApiArgs struct {
 	VersionDescription pulumi.StringPtrInput
 	// The ID of the Version Set which this API is associated with.
 	//
-	// > **NOTE:** When `version` is set, `versionSetId` must also be specified
+	// > **Note:** When `version` is set, `versionSetId` must also be specified
 	VersionSetId pulumi.StringPtrInput
 }
 
@@ -524,7 +531,7 @@ func (o ApiOutput) DisplayName() pulumi.StringOutput {
 
 // A `import` block as documented below.
 //
-// > **NOTE:** The `displayName`, `description`, `contact`, and `license` fields can be imported by the `import` block, which might cause a drift if these fields are set along with the `import` block.
+// > **Note:** The `displayName`, `description`, `contact`, and `license` fields can be imported by the `import` block, which might cause a drift if these fields are set along with the `import` block.
 func (o ApiOutput) Import() ApiImportPtrOutput {
 	return o.ApplyT(func(v *Api) ApiImportPtrOutput { return v.Import }).(ApiImportPtrOutput)
 }
@@ -566,7 +573,7 @@ func (o ApiOutput) Path() pulumi.StringOutput {
 
 // A list of protocols the operations in this API can be invoked. Possible values are `http`, `https`, `ws`, and `wss`.
 //
-// > **NOTE:** `displayName`, `path` and `protocols` are required when `sourceApiId` is not set.
+// > **Note:** `displayName`, `path` and `protocols` are required when `sourceApiId` is not set.
 func (o ApiOutput) Protocols() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Api) pulumi.StringArrayOutput { return v.Protocols }).(pulumi.StringArrayOutput)
 }
@@ -623,7 +630,7 @@ func (o ApiOutput) VersionDescription() pulumi.StringPtrOutput {
 
 // The ID of the Version Set which this API is associated with.
 //
-// > **NOTE:** When `version` is set, `versionSetId` must also be specified
+// > **Note:** When `version` is set, `versionSetId` must also be specified
 func (o ApiOutput) VersionSetId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Api) pulumi.StringOutput { return v.VersionSetId }).(pulumi.StringOutput)
 }

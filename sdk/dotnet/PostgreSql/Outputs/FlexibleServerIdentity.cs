@@ -16,7 +16,7 @@ namespace Pulumi.Azure.PostgreSql.Outputs
         /// <summary>
         /// A list of User Assigned Managed Identity IDs to be assigned to this PostgreSQL Flexible Server. Required if used together with `customer_managed_key` block.
         /// 
-        /// &gt; **Note**: `identity_ids` is required when `type` is set to `UserAssigned`.
+        /// &gt; **Note:** `identity_ids` is required when `type` is set to `UserAssigned`.
         /// </summary>
         public readonly ImmutableArray<string> IdentityIds;
         /// <summary>

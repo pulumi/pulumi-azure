@@ -55,6 +55,13 @@ public final class ArcFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.ResourceConnector`: 2022-10-27
+     * 
      */
     public static Output<GetResourceBridgeApplianceResult> getResourceBridgeAppliance(GetResourceBridgeApplianceArgs args) {
         return getResourceBridgeAppliance(args, InvokeOptions.Empty);
@@ -98,6 +105,13 @@ public final class ArcFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.ResourceConnector`: 2022-10-27
      * 
      */
     public static CompletableFuture<GetResourceBridgeApplianceResult> getResourceBridgeAppliancePlain(GetResourceBridgeAppliancePlainArgs args) {
@@ -143,6 +157,13 @@ public final class ArcFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.ResourceConnector`: 2022-10-27
+     * 
      */
     public static Output<GetResourceBridgeApplianceResult> getResourceBridgeAppliance(GetResourceBridgeApplianceArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:arc/getResourceBridgeAppliance:getResourceBridgeAppliance", TypeShape.of(GetResourceBridgeApplianceResult.class), args, Utilities.withVersion(options));
@@ -187,6 +208,13 @@ public final class ArcFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.ResourceConnector`: 2022-10-27
+     * 
      */
     public static Output<GetResourceBridgeApplianceResult> getResourceBridgeAppliance(GetResourceBridgeApplianceArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("azure:arc/getResourceBridgeAppliance:getResourceBridgeAppliance", TypeShape.of(GetResourceBridgeApplianceResult.class), args, Utilities.withVersion(options));
@@ -230,6 +258,13 @@ public final class ArcFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.ResourceConnector`: 2022-10-27
      * 
      */
     public static CompletableFuture<GetResourceBridgeApplianceResult> getResourceBridgeAppliancePlain(GetResourceBridgeAppliancePlainArgs args, InvokeOptions options) {

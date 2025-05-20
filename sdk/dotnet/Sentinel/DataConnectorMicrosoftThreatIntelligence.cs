@@ -83,7 +83,7 @@ namespace Pulumi.Azure.Sentinel
         /// <summary>
         /// The ID of the tenant that this Microsoft Threat Intelligence Data Connector connects to. Changing this forces a new Microsoft Threat Intelligence Data Connector to be created.
         /// 
-        /// &gt; **NOTE** Currently, only the same tenant as the running account is allowed. Cross-tenant scenario is not supported yet.
+        /// &gt; **Note:** Currently, only the same tenant as the running account is allowed. Cross-tenant scenario is not supported yet.
         /// </summary>
         [Output("tenantId")]
         public Output<string> TenantId { get; private set; } = null!;
@@ -155,7 +155,7 @@ namespace Pulumi.Azure.Sentinel
         /// <summary>
         /// The ID of the tenant that this Microsoft Threat Intelligence Data Connector connects to. Changing this forces a new Microsoft Threat Intelligence Data Connector to be created.
         /// 
-        /// &gt; **NOTE** Currently, only the same tenant as the running account is allowed. Cross-tenant scenario is not supported yet.
+        /// &gt; **Note:** Currently, only the same tenant as the running account is allowed. Cross-tenant scenario is not supported yet.
         /// </summary>
         [Input("tenantId")]
         public Input<string>? TenantId { get; set; }
@@ -189,7 +189,7 @@ namespace Pulumi.Azure.Sentinel
         /// <summary>
         /// The ID of the tenant that this Microsoft Threat Intelligence Data Connector connects to. Changing this forces a new Microsoft Threat Intelligence Data Connector to be created.
         /// 
-        /// &gt; **NOTE** Currently, only the same tenant as the running account is allowed. Cross-tenant scenario is not supported yet.
+        /// &gt; **Note:** Currently, only the same tenant as the running account is allowed. Cross-tenant scenario is not supported yet.
         /// </summary>
         [Input("tenantId")]
         public Input<string>? TenantId { get; set; }

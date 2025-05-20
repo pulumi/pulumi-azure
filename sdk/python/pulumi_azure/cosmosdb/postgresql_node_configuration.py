@@ -165,6 +165,13 @@ class PostgresqlNodeConfiguration(pulumi.CustomResource):
             value="on")
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.DBforPostgreSQL`: 2022-11-08
+
         ## Import
 
         Node Configurations on Azure Cosmos DB for PostgreSQL Clusters can be imported using the `resource id`, e.g.
@@ -212,6 +219,13 @@ class PostgresqlNodeConfiguration(pulumi.CustomResource):
             cluster_id=example_postgresql_cluster.id,
             value="on")
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.DBforPostgreSQL`: 2022-11-08
 
         ## Import
 

@@ -20,7 +20,7 @@ public final class FrontdoorRuleConditionsRemoteAddressConditionArgs extends com
     /**
      * For the IP Match or IP Not Match operators: specify one or more IP address ranges. If multiple IP address ranges are specified, they&#39;re evaluated using `OR` logic. For the Geo Match or Geo Not Match operators: specify one or more locations using their country code.
      * 
-     * -&gt;**NOTE:** See the `Specifying IP Address Ranges` section below on how to correctly define the `match_values` field.
+     * &gt; **Note:** See the `Specifying IP Address Ranges` section below on how to correctly define the `match_values` field.
      * 
      */
     @Import(name="matchValues")
@@ -29,7 +29,7 @@ public final class FrontdoorRuleConditionsRemoteAddressConditionArgs extends com
     /**
      * @return For the IP Match or IP Not Match operators: specify one or more IP address ranges. If multiple IP address ranges are specified, they&#39;re evaluated using `OR` logic. For the Geo Match or Geo Not Match operators: specify one or more locations using their country code.
      * 
-     * -&gt;**NOTE:** See the `Specifying IP Address Ranges` section below on how to correctly define the `match_values` field.
+     * &gt; **Note:** See the `Specifying IP Address Ranges` section below on how to correctly define the `match_values` field.
      * 
      */
     public Optional<Output<List<String>>> matchValues() {
@@ -95,7 +95,7 @@ public final class FrontdoorRuleConditionsRemoteAddressConditionArgs extends com
         /**
          * @param matchValues For the IP Match or IP Not Match operators: specify one or more IP address ranges. If multiple IP address ranges are specified, they&#39;re evaluated using `OR` logic. For the Geo Match or Geo Not Match operators: specify one or more locations using their country code.
          * 
-         * -&gt;**NOTE:** See the `Specifying IP Address Ranges` section below on how to correctly define the `match_values` field.
+         * &gt; **Note:** See the `Specifying IP Address Ranges` section below on how to correctly define the `match_values` field.
          * 
          * @return builder
          * 
@@ -108,7 +108,7 @@ public final class FrontdoorRuleConditionsRemoteAddressConditionArgs extends com
         /**
          * @param matchValues For the IP Match or IP Not Match operators: specify one or more IP address ranges. If multiple IP address ranges are specified, they&#39;re evaluated using `OR` logic. For the Geo Match or Geo Not Match operators: specify one or more locations using their country code.
          * 
-         * -&gt;**NOTE:** See the `Specifying IP Address Ranges` section below on how to correctly define the `match_values` field.
+         * &gt; **Note:** See the `Specifying IP Address Ranges` section below on how to correctly define the `match_values` field.
          * 
          * @return builder
          * 
@@ -120,7 +120,7 @@ public final class FrontdoorRuleConditionsRemoteAddressConditionArgs extends com
         /**
          * @param matchValues For the IP Match or IP Not Match operators: specify one or more IP address ranges. If multiple IP address ranges are specified, they&#39;re evaluated using `OR` logic. For the Geo Match or Geo Not Match operators: specify one or more locations using their country code.
          * 
-         * -&gt;**NOTE:** See the `Specifying IP Address Ranges` section below on how to correctly define the `match_values` field.
+         * &gt; **Note:** See the `Specifying IP Address Ranges` section below on how to correctly define the `match_values` field.
          * 
          * @return builder
          * 

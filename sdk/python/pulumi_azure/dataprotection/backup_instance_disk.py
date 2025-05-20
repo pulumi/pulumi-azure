@@ -284,6 +284,13 @@ class BackupInstanceDisk(pulumi.CustomResource):
             backup_policy_id=example_backup_policy_disk.id)
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.DataProtection`: 2024-04-01
+
         ## Import
 
         Backup Instance Disks can be imported using the `resource id`, e.g.
@@ -356,6 +363,13 @@ class BackupInstanceDisk(pulumi.CustomResource):
             snapshot_resource_group_name=example.name,
             backup_policy_id=example_backup_policy_disk.id)
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.DataProtection`: 2024-04-01
 
         ## Import
 

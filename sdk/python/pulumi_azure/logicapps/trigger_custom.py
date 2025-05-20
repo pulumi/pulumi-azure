@@ -26,10 +26,12 @@ class TriggerCustomArgs:
         """
         The set of arguments for constructing a TriggerCustom resource.
         :param pulumi.Input[builtins.str] body: Specifies the JSON Blob defining the Body of this Custom Trigger.
+               
+               > **Note:** To make the Trigger more readable, you may wish to consider using HEREDOC syntax (as shown above) or the `local_file` resource to load the schema from a file on disk.
         :param pulumi.Input[builtins.str] logic_app_id: Specifies the ID of the Logic App Workflow. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] name: Specifies the name of the HTTP Trigger to be created within the Logic App Workflow. Changing this forces a new resource to be created.
                
-               > **NOTE:** This name must be unique across all Triggers within the Logic App Workflow.
+               > **Note:** This name must be unique across all Triggers within the Logic App Workflow.
         """
         pulumi.set(__self__, "body", body)
         pulumi.set(__self__, "logic_app_id", logic_app_id)
@@ -41,6 +43,8 @@ class TriggerCustomArgs:
     def body(self) -> pulumi.Input[builtins.str]:
         """
         Specifies the JSON Blob defining the Body of this Custom Trigger.
+
+        > **Note:** To make the Trigger more readable, you may wish to consider using HEREDOC syntax (as shown above) or the `local_file` resource to load the schema from a file on disk.
         """
         return pulumi.get(self, "body")
 
@@ -66,7 +70,7 @@ class TriggerCustomArgs:
         """
         Specifies the name of the HTTP Trigger to be created within the Logic App Workflow. Changing this forces a new resource to be created.
 
-        > **NOTE:** This name must be unique across all Triggers within the Logic App Workflow.
+        > **Note:** This name must be unique across all Triggers within the Logic App Workflow.
         """
         return pulumi.get(self, "name")
 
@@ -85,11 +89,13 @@ class _TriggerCustomState:
         """
         Input properties used for looking up and filtering TriggerCustom resources.
         :param pulumi.Input[builtins.str] body: Specifies the JSON Blob defining the Body of this Custom Trigger.
+               
+               > **Note:** To make the Trigger more readable, you may wish to consider using HEREDOC syntax (as shown above) or the `local_file` resource to load the schema from a file on disk.
         :param pulumi.Input[builtins.str] callback_url: The URL of the Trigger within the Logic App Workflow. For use with certain resources like monitor_action_group and security_center_automation.
         :param pulumi.Input[builtins.str] logic_app_id: Specifies the ID of the Logic App Workflow. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] name: Specifies the name of the HTTP Trigger to be created within the Logic App Workflow. Changing this forces a new resource to be created.
                
-               > **NOTE:** This name must be unique across all Triggers within the Logic App Workflow.
+               > **Note:** This name must be unique across all Triggers within the Logic App Workflow.
         """
         if body is not None:
             pulumi.set(__self__, "body", body)
@@ -105,6 +111,8 @@ class _TriggerCustomState:
     def body(self) -> Optional[pulumi.Input[builtins.str]]:
         """
         Specifies the JSON Blob defining the Body of this Custom Trigger.
+
+        > **Note:** To make the Trigger more readable, you may wish to consider using HEREDOC syntax (as shown above) or the `local_file` resource to load the schema from a file on disk.
         """
         return pulumi.get(self, "body")
 
@@ -142,7 +150,7 @@ class _TriggerCustomState:
         """
         Specifies the name of the HTTP Trigger to be created within the Logic App Workflow. Changing this forces a new resource to be created.
 
-        > **NOTE:** This name must be unique across all Triggers within the Logic App Workflow.
+        > **Note:** This name must be unique across all Triggers within the Logic App Workflow.
         """
         return pulumi.get(self, "name")
 
@@ -201,10 +209,12 @@ class TriggerCustom(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] body: Specifies the JSON Blob defining the Body of this Custom Trigger.
+               
+               > **Note:** To make the Trigger more readable, you may wish to consider using HEREDOC syntax (as shown above) or the `local_file` resource to load the schema from a file on disk.
         :param pulumi.Input[builtins.str] logic_app_id: Specifies the ID of the Logic App Workflow. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] name: Specifies the name of the HTTP Trigger to be created within the Logic App Workflow. Changing this forces a new resource to be created.
                
-               > **NOTE:** This name must be unique across all Triggers within the Logic App Workflow.
+               > **Note:** This name must be unique across all Triggers within the Logic App Workflow.
         """
         ...
     @overload
@@ -306,11 +316,13 @@ class TriggerCustom(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] body: Specifies the JSON Blob defining the Body of this Custom Trigger.
+               
+               > **Note:** To make the Trigger more readable, you may wish to consider using HEREDOC syntax (as shown above) or the `local_file` resource to load the schema from a file on disk.
         :param pulumi.Input[builtins.str] callback_url: The URL of the Trigger within the Logic App Workflow. For use with certain resources like monitor_action_group and security_center_automation.
         :param pulumi.Input[builtins.str] logic_app_id: Specifies the ID of the Logic App Workflow. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] name: Specifies the name of the HTTP Trigger to be created within the Logic App Workflow. Changing this forces a new resource to be created.
                
-               > **NOTE:** This name must be unique across all Triggers within the Logic App Workflow.
+               > **Note:** This name must be unique across all Triggers within the Logic App Workflow.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -327,6 +339,8 @@ class TriggerCustom(pulumi.CustomResource):
     def body(self) -> pulumi.Output[builtins.str]:
         """
         Specifies the JSON Blob defining the Body of this Custom Trigger.
+
+        > **Note:** To make the Trigger more readable, you may wish to consider using HEREDOC syntax (as shown above) or the `local_file` resource to load the schema from a file on disk.
         """
         return pulumi.get(self, "body")
 
@@ -352,7 +366,7 @@ class TriggerCustom(pulumi.CustomResource):
         """
         Specifies the name of the HTTP Trigger to be created within the Logic App Workflow. Changing this forces a new resource to be created.
 
-        > **NOTE:** This name must be unique across all Triggers within the Logic App Workflow.
+        > **Note:** This name must be unique across all Triggers within the Logic App Workflow.
         """
         return pulumi.get(self, "name")
 

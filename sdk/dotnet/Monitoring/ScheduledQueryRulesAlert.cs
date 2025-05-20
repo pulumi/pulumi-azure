@@ -12,7 +12,7 @@ namespace Pulumi.Azure.Monitoring
     /// <summary>
     /// Manages an AlertingAction Scheduled Query Rules resource within Azure Monitor.
     /// 
-    /// &gt; **Warning** This resource is using an older AzureRM API version which is known to cause problems e.g. with custom webhook properties not included in triggered alerts. This resource is superseded by the azure.monitoring.ScheduledQueryRulesAlertV2 resource using newer API versions.
+    /// &gt; **Note:** This resource is using an older AzureRM API version which is known to cause problems e.g. with custom webhook properties not included in triggered alerts. This resource is superseded by the azure.monitoring.ScheduledQueryRulesAlertV2 resource using newer API versions.
     /// 
     /// ## Import
     /// 
@@ -39,7 +39,7 @@ namespace Pulumi.Azure.Monitoring
 
         /// <summary>
         /// Should the alerts in this Metric Alert be auto resolved? Defaults to `false`.
-        /// &gt; **NOTE** `auto_mitigation_enabled` and `throttling` are mutually exclusive and cannot both be set.
+        /// &gt; **Note:** `auto_mitigation_enabled` and `throttling` are mutually exclusive and cannot both be set.
         /// </summary>
         [Output("autoMitigationEnabled")]
         public Output<bool?> AutoMitigationEnabled { get; private set; } = null!;
@@ -194,7 +194,7 @@ namespace Pulumi.Azure.Monitoring
 
         /// <summary>
         /// Should the alerts in this Metric Alert be auto resolved? Defaults to `false`.
-        /// &gt; **NOTE** `auto_mitigation_enabled` and `throttling` are mutually exclusive and cannot both be set.
+        /// &gt; **Note:** `auto_mitigation_enabled` and `throttling` are mutually exclusive and cannot both be set.
         /// </summary>
         [Input("autoMitigationEnabled")]
         public Input<bool>? AutoMitigationEnabled { get; set; }
@@ -317,7 +317,7 @@ namespace Pulumi.Azure.Monitoring
 
         /// <summary>
         /// Should the alerts in this Metric Alert be auto resolved? Defaults to `false`.
-        /// &gt; **NOTE** `auto_mitigation_enabled` and `throttling` are mutually exclusive and cannot both be set.
+        /// &gt; **Note:** `auto_mitigation_enabled` and `throttling` are mutually exclusive and cannot both be set.
         /// </summary>
         [Input("autoMitigationEnabled")]
         public Input<bool>? AutoMitigationEnabled { get; set; }

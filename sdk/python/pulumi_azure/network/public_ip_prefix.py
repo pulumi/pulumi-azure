@@ -37,7 +37,7 @@ class PublicIpPrefixArgs:
         :param pulumi.Input[builtins.str] name: Specifies the name of the Public IP Prefix resource . Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.int] prefix_length: Specifies the number of bits of the prefix. The value can be set between 0 (4,294,967,296 addresses) and 31 (2 addresses). Defaults to `28`(16 addresses). Changing this forces a new resource to be created.
                
-               > **Please Note:** There may be Public IP address limits on the subscription . [More information available here](https://docs.microsoft.com/azure/azure-subscription-service-limits?toc=%2fazure%2fvirtual-network%2ftoc.json#publicip-address)
+               > **Note:** There may be Public IP address limits on the subscription . [More information available here](https://docs.microsoft.com/azure/azure-subscription-service-limits?toc=%2fazure%2fvirtual-network%2ftoc.json#publicip-address)
         :param pulumi.Input[builtins.str] sku: The SKU of the Public IP Prefix. Accepted values are `Standard`. Defaults to `Standard`. Changing this forces a new resource to be created.
                
                > **Note:** Public IP Prefix can only be created with Standard SKUs at this time.
@@ -45,7 +45,7 @@ class PublicIpPrefixArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] zones: Specifies a list of Availability Zones in which this Public IP Prefix should be located. Changing this forces a new Public IP Prefix to be created.
                
-               > **Please Note:** Availability Zones are [only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview).
+               > **Note:** Availability Zones are [only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview).
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if ip_version is not None:
@@ -119,7 +119,7 @@ class PublicIpPrefixArgs:
         """
         Specifies the number of bits of the prefix. The value can be set between 0 (4,294,967,296 addresses) and 31 (2 addresses). Defaults to `28`(16 addresses). Changing this forces a new resource to be created.
 
-        > **Please Note:** There may be Public IP address limits on the subscription . [More information available here](https://docs.microsoft.com/azure/azure-subscription-service-limits?toc=%2fazure%2fvirtual-network%2ftoc.json#publicip-address)
+        > **Note:** There may be Public IP address limits on the subscription . [More information available here](https://docs.microsoft.com/azure/azure-subscription-service-limits?toc=%2fazure%2fvirtual-network%2ftoc.json#publicip-address)
         """
         return pulumi.get(self, "prefix_length")
 
@@ -171,7 +171,7 @@ class PublicIpPrefixArgs:
         """
         Specifies a list of Availability Zones in which this Public IP Prefix should be located. Changing this forces a new Public IP Prefix to be created.
 
-        > **Please Note:** Availability Zones are [only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview).
+        > **Note:** Availability Zones are [only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview).
         """
         return pulumi.get(self, "zones")
 
@@ -201,7 +201,7 @@ class _PublicIpPrefixState:
         :param pulumi.Input[builtins.str] name: Specifies the name of the Public IP Prefix resource . Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.int] prefix_length: Specifies the number of bits of the prefix. The value can be set between 0 (4,294,967,296 addresses) and 31 (2 addresses). Defaults to `28`(16 addresses). Changing this forces a new resource to be created.
                
-               > **Please Note:** There may be Public IP address limits on the subscription . [More information available here](https://docs.microsoft.com/azure/azure-subscription-service-limits?toc=%2fazure%2fvirtual-network%2ftoc.json#publicip-address)
+               > **Note:** There may be Public IP address limits on the subscription . [More information available here](https://docs.microsoft.com/azure/azure-subscription-service-limits?toc=%2fazure%2fvirtual-network%2ftoc.json#publicip-address)
         :param pulumi.Input[builtins.str] resource_group_name: The name of the resource group in which to create the Public IP Prefix. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] sku: The SKU of the Public IP Prefix. Accepted values are `Standard`. Defaults to `Standard`. Changing this forces a new resource to be created.
                
@@ -210,7 +210,7 @@ class _PublicIpPrefixState:
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] zones: Specifies a list of Availability Zones in which this Public IP Prefix should be located. Changing this forces a new Public IP Prefix to be created.
                
-               > **Please Note:** Availability Zones are [only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview).
+               > **Note:** Availability Zones are [only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview).
         """
         if ip_prefix is not None:
             pulumi.set(__self__, "ip_prefix", ip_prefix)
@@ -287,7 +287,7 @@ class _PublicIpPrefixState:
         """
         Specifies the number of bits of the prefix. The value can be set between 0 (4,294,967,296 addresses) and 31 (2 addresses). Defaults to `28`(16 addresses). Changing this forces a new resource to be created.
 
-        > **Please Note:** There may be Public IP address limits on the subscription . [More information available here](https://docs.microsoft.com/azure/azure-subscription-service-limits?toc=%2fazure%2fvirtual-network%2ftoc.json#publicip-address)
+        > **Note:** There may be Public IP address limits on the subscription . [More information available here](https://docs.microsoft.com/azure/azure-subscription-service-limits?toc=%2fazure%2fvirtual-network%2ftoc.json#publicip-address)
         """
         return pulumi.get(self, "prefix_length")
 
@@ -351,7 +351,7 @@ class _PublicIpPrefixState:
         """
         Specifies a list of Availability Zones in which this Public IP Prefix should be located. Changing this forces a new Public IP Prefix to be created.
 
-        > **Please Note:** Availability Zones are [only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview).
+        > **Note:** Availability Zones are [only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview).
         """
         return pulumi.get(self, "zones")
 
@@ -413,7 +413,7 @@ class PublicIpPrefix(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] name: Specifies the name of the Public IP Prefix resource . Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.int] prefix_length: Specifies the number of bits of the prefix. The value can be set between 0 (4,294,967,296 addresses) and 31 (2 addresses). Defaults to `28`(16 addresses). Changing this forces a new resource to be created.
                
-               > **Please Note:** There may be Public IP address limits on the subscription . [More information available here](https://docs.microsoft.com/azure/azure-subscription-service-limits?toc=%2fazure%2fvirtual-network%2ftoc.json#publicip-address)
+               > **Note:** There may be Public IP address limits on the subscription . [More information available here](https://docs.microsoft.com/azure/azure-subscription-service-limits?toc=%2fazure%2fvirtual-network%2ftoc.json#publicip-address)
         :param pulumi.Input[builtins.str] resource_group_name: The name of the resource group in which to create the Public IP Prefix. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] sku: The SKU of the Public IP Prefix. Accepted values are `Standard`. Defaults to `Standard`. Changing this forces a new resource to be created.
                
@@ -422,7 +422,7 @@ class PublicIpPrefix(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] zones: Specifies a list of Availability Zones in which this Public IP Prefix should be located. Changing this forces a new Public IP Prefix to be created.
                
-               > **Please Note:** Availability Zones are [only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview).
+               > **Note:** Availability Zones are [only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview).
         """
         ...
     @overload
@@ -538,7 +538,7 @@ class PublicIpPrefix(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] name: Specifies the name of the Public IP Prefix resource . Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.int] prefix_length: Specifies the number of bits of the prefix. The value can be set between 0 (4,294,967,296 addresses) and 31 (2 addresses). Defaults to `28`(16 addresses). Changing this forces a new resource to be created.
                
-               > **Please Note:** There may be Public IP address limits on the subscription . [More information available here](https://docs.microsoft.com/azure/azure-subscription-service-limits?toc=%2fazure%2fvirtual-network%2ftoc.json#publicip-address)
+               > **Note:** There may be Public IP address limits on the subscription . [More information available here](https://docs.microsoft.com/azure/azure-subscription-service-limits?toc=%2fazure%2fvirtual-network%2ftoc.json#publicip-address)
         :param pulumi.Input[builtins.str] resource_group_name: The name of the resource group in which to create the Public IP Prefix. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] sku: The SKU of the Public IP Prefix. Accepted values are `Standard`. Defaults to `Standard`. Changing this forces a new resource to be created.
                
@@ -547,7 +547,7 @@ class PublicIpPrefix(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] zones: Specifies a list of Availability Zones in which this Public IP Prefix should be located. Changing this forces a new Public IP Prefix to be created.
                
-               > **Please Note:** Availability Zones are [only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview).
+               > **Note:** Availability Zones are [only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview).
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -603,7 +603,7 @@ class PublicIpPrefix(pulumi.CustomResource):
         """
         Specifies the number of bits of the prefix. The value can be set between 0 (4,294,967,296 addresses) and 31 (2 addresses). Defaults to `28`(16 addresses). Changing this forces a new resource to be created.
 
-        > **Please Note:** There may be Public IP address limits on the subscription . [More information available here](https://docs.microsoft.com/azure/azure-subscription-service-limits?toc=%2fazure%2fvirtual-network%2ftoc.json#publicip-address)
+        > **Note:** There may be Public IP address limits on the subscription . [More information available here](https://docs.microsoft.com/azure/azure-subscription-service-limits?toc=%2fazure%2fvirtual-network%2ftoc.json#publicip-address)
         """
         return pulumi.get(self, "prefix_length")
 
@@ -647,7 +647,7 @@ class PublicIpPrefix(pulumi.CustomResource):
         """
         Specifies a list of Availability Zones in which this Public IP Prefix should be located. Changing this forces a new Public IP Prefix to be created.
 
-        > **Please Note:** Availability Zones are [only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview).
+        > **Note:** Availability Zones are [only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview).
         """
         return pulumi.get(self, "zones")
 

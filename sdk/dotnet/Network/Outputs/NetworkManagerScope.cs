@@ -16,7 +16,7 @@ namespace Pulumi.Azure.Network.Outputs
         /// <summary>
         /// A list of management group IDs.
         /// 
-        /// &gt; **NOTE:** When specifying a scope at the management group level, you need to register the `Microsoft.Network` at the management group scope before deploying a Network Manager, more information can be found in the [Azure document](https://learn.microsoft.com/en-us/azure/virtual-network-manager/concept-network-manager-scope#scope).
+        /// &gt; **Note:** When specifying a scope at the management group level, you need to register the `Microsoft.Network` at the management group scope before deploying a Network Manager, more information can be found in the [Azure document](https://learn.microsoft.com/en-us/azure/virtual-network-manager/concept-network-manager-scope#scope).
         /// </summary>
         public readonly ImmutableArray<string> ManagementGroupIds;
         /// <summary>

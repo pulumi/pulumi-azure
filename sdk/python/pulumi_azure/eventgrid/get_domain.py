@@ -218,6 +218,13 @@ def get_domain(name: Optional[builtins.str] = None,
     pulumi.export("eventgridDomainMappingTopic", example.input_mapping_fields[0].topic)
     ```
 
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.EventGrid`: 2022-06-15
+
 
     :param builtins.str name: The name of the EventGrid Domain resource.
     :param builtins.str resource_group_name: The name of the resource group in which the EventGrid Domain exists.
@@ -259,6 +266,13 @@ def get_domain_output(name: Optional[pulumi.Input[builtins.str]] = None,
         resource_group_name="example-resources")
     pulumi.export("eventgridDomainMappingTopic", example.input_mapping_fields[0].topic)
     ```
+
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.EventGrid`: 2022-06-15
 
 
     :param builtins.str name: The name of the EventGrid Domain resource.

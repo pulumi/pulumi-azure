@@ -10,23 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Compute
 {
     /// <summary>
-    /// Manages a Windows Virtual Machine.
-    /// 
-    /// ## Disclaimers
-    /// 
-    /// &gt; **Note** This provider will automatically remove the OS Disk by default - this behaviour can be configured using the `features` setting within the Provider block.
-    /// 
-    /// &gt; **Note** All arguments including the administrator login and password will be stored in the raw state as plain-text.
-    /// 
-    /// &gt; **Note** This resource does not support Unmanaged Disks. If you need to use Unmanaged Disks you can continue to use the `azure.compute.VirtualMachine` resource instead.
-    /// 
-    /// &gt; **Note** This resource does not support attaching existing OS Disks. You can instead capture an image of the OS Disk or continue to use the `azure.compute.VirtualMachine` resource instead.
-    /// 
-    /// &gt; In this release there's a known issue where the `public_ip_address` and `public_ip_addresses` fields may not be fully populated for Dynamic Public IP's.
-    /// 
     /// ## Example Usage
     /// 
-    /// This example provisions a basic Windows Virtual Machine on an internal network.
+    /// This example provisions a basic Windows Virtual Machine on an internal network. Additional examples of how to use the `azure.compute.WindowsVirtualMachine` resource can be found in the ./examples/virtual-machines/windows directory within the GitHub Repository.
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
@@ -165,7 +151,7 @@ namespace Pulumi.Azure.Compute
         /// <summary>
         /// Specifies whether to skip platform scheduled patching when a user schedule is associated with the VM. Defaults to `false`.
         /// 
-        /// &gt; **NOTE:** `bypass_platform_safety_checks_on_user_schedule_enabled` can only be set to `true` when `patch_mode` is set to `AutomaticByPlatform`.
+        /// &gt; **Note:** `bypass_platform_safety_checks_on_user_schedule_enabled` can only be set to `true` when `patch_mode` is set to `AutomaticByPlatform`.
         /// </summary>
         [Output("bypassPlatformSafetyChecksOnUserScheduleEnabled")]
         public Output<bool?> BypassPlatformSafetyChecksOnUserScheduleEnabled { get; private set; } = null!;
@@ -173,7 +159,7 @@ namespace Pulumi.Azure.Compute
         /// <summary>
         /// Specifies the ID of the Capacity Reservation Group which the Virtual Machine should be allocated to.
         /// 
-        /// &gt; **NOTE:** `capacity_reservation_group_id` cannot be used with `availability_set_id` or `proximity_placement_group_id`
+        /// &gt; **Note:** `capacity_reservation_group_id` cannot be used with `availability_set_id` or `proximity_placement_group_id`
         /// </summary>
         [Output("capacityReservationGroupId")]
         public Output<string?> CapacityReservationGroupId { get; private set; } = null!;
@@ -229,7 +215,7 @@ namespace Pulumi.Azure.Compute
         /// <summary>
         /// Specifies what should happen when the Virtual Machine is evicted for price reasons when using a Spot instance. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **NOTE:** This can only be configured when `priority` is set to `Spot`.
+        /// &gt; **Note:** This can only be configured when `priority` is set to `Spot`.
         /// </summary>
         [Output("evictionPolicy")]
         public Output<string?> EvictionPolicy { get; private set; } = null!;
@@ -243,7 +229,7 @@ namespace Pulumi.Azure.Compute
         /// <summary>
         /// One or more `gallery_application` blocks as defined below.
         /// 
-        /// &gt; **Note** Gallery Application Assignments can be defined either directly on `azure.compute.WindowsVirtualMachine` resource, or using the `azure.compute.GalleryApplicationAssignment` resource - but the two approaches cannot be used together. If both are used with the same Virtual Machine, spurious changes will occur. If `azure.compute.GalleryApplicationAssignment` is used, it's recommended to use `ignore_changes` for the `gallery_application` block on the corresponding `azure.compute.WindowsVirtualMachine` resource, to avoid a persistent diff when using this resource.
+        /// &gt; **Note:** Gallery Application Assignments can be defined either directly on `azure.compute.WindowsVirtualMachine` resource, or using the `azure.compute.GalleryApplicationAssignment` resource - but the two approaches cannot be used together. If both are used with the same Virtual Machine, spurious changes will occur. If `azure.compute.GalleryApplicationAssignment` is used, it's recommended to use `ignore_changes` for the `gallery_application` block on the corresponding `azure.compute.WindowsVirtualMachine` resource, to avoid a persistent diff when using this resource.
         /// </summary>
         [Output("galleryApplications")]
         public Output<ImmutableArray<Outputs.WindowsVirtualMachineGalleryApplication>> GalleryApplications { get; private set; } = null!;
@@ -251,7 +237,7 @@ namespace Pulumi.Azure.Compute
         /// <summary>
         /// Should the VM be patched without requiring a reboot? Possible values are `true` or `false`. Defaults to `false`. For more information about hot patching please see the [product documentation](https://docs.microsoft.com/azure/automanage/automanage-hotpatch).
         /// 
-        /// &gt; **NOTE:** Hotpatching can only be enabled if the `patch_mode` is set to `AutomaticByPlatform`, the `provision_vm_agent` is set to `true`, your `source_image_reference` references a hotpatching enabled image, and the VM's `size` is set to a [Azure generation 2](https://docs.microsoft.com/azure/virtual-machines/generation-2#generation-2-vm-sizes) VM. An example of how to correctly configure a Windows Virtual Machine to use the `hotpatching_enabled` field can be found in the `./examples/virtual-machines/windows/hotpatching-enabled` directory within the GitHub Repository.
+        /// &gt; **Note:** Hotpatching can only be enabled if the `patch_mode` is set to `AutomaticByPlatform`, the `provision_vm_agent` is set to `true`, your `source_image_reference` references a hotpatching enabled image, and the VM's `size` is set to a [Azure generation 2](https://docs.microsoft.com/azure/virtual-machines/generation-2#generation-2-vm-sizes) VM. An example of how to correctly configure a Windows Virtual Machine to use the `hotpatching_enabled` field can be found in the `./examples/virtual-machines/windows/hotpatching-enabled` directory within the GitHub Repository.
         /// </summary>
         [Output("hotpatchingEnabled")]
         public Output<bool?> HotpatchingEnabled { get; private set; } = null!;
@@ -277,7 +263,7 @@ namespace Pulumi.Azure.Compute
         /// <summary>
         /// The maximum price you're willing to pay for this Virtual Machine, in US Dollars; which must be greater than the current spot price. If this bid price falls below the current spot price the Virtual Machine will be evicted using the `eviction_policy`. Defaults to `-1`, which means that the Virtual Machine should not be evicted for price reasons.
         /// 
-        /// &gt; **NOTE:** This can only be configured when `priority` is set to `Spot`.
+        /// &gt; **Note:** This can only be configured when `priority` is set to `Spot`.
         /// </summary>
         [Output("maxBidPrice")]
         public Output<double?> MaxBidPrice { get; private set; } = null!;
@@ -309,7 +295,7 @@ namespace Pulumi.Azure.Compute
         /// <summary>
         /// Specifies the mode of VM Guest Patching for the Virtual Machine. Possible values are `AutomaticByPlatform` or `ImageDefault`. Defaults to `ImageDefault`.
         /// 
-        /// &gt; **NOTE:** If the `patch_assessment_mode` is set to `AutomaticByPlatform` then the `provision_vm_agent` field must be set to `true`.
+        /// &gt; **Note:** If the `patch_assessment_mode` is set to `AutomaticByPlatform` then the `provision_vm_agent` field must be set to `true`.
         /// </summary>
         [Output("patchAssessmentMode")]
         public Output<string?> PatchAssessmentMode { get; private set; } = null!;
@@ -317,7 +303,7 @@ namespace Pulumi.Azure.Compute
         /// <summary>
         /// Specifies the mode of in-guest patching to this Windows Virtual Machine. Possible values are `Manual`, `AutomaticByOS` and `AutomaticByPlatform`. Defaults to `AutomaticByOS`. For more information on patch modes please see the [product documentation](https://docs.microsoft.com/azure/virtual-machines/automatic-vm-guest-patching#patch-orchestration-modes).
         /// 
-        /// &gt; **NOTE:** If `patch_mode` is set to `AutomaticByPlatform` then `provision_vm_agent` must also be set to `true`. If the Virtual Machine is using a hotpatching enabled image the `patch_mode` must always be set to `AutomaticByPlatform`.
+        /// &gt; **Note:** If `patch_mode` is set to `AutomaticByPlatform` then `provision_vm_agent` must also be set to `true`. If the Virtual Machine is using a hotpatching enabled image the `patch_mode` must always be set to `AutomaticByPlatform`.
         /// </summary>
         [Output("patchMode")]
         public Output<string?> PatchMode { get; private set; } = null!;
@@ -355,7 +341,7 @@ namespace Pulumi.Azure.Compute
         /// <summary>
         /// Should the Azure VM Agent be provisioned on this Virtual Machine? Defaults to `true`. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **NOTE:** If `provision_vm_agent` is set to `false` then `allow_extension_operations` must also be set to `false`.
+        /// &gt; **Note:** If `provision_vm_agent` is set to `false` then `allow_extension_operations` must also be set to `false`.
         /// </summary>
         [Output("provisionVmAgent")]
         public Output<bool?> ProvisionVmAgent { get; private set; } = null!;
@@ -381,7 +367,7 @@ namespace Pulumi.Azure.Compute
         /// <summary>
         /// Specifies the reboot setting for platform scheduled patching. Possible values are `Always`, `IfRequired` and `Never`.
         /// 
-        /// &gt; **NOTE:** `reboot_setting` can only be set when `patch_mode` is set to `AutomaticByPlatform`.
+        /// &gt; **Note:** `reboot_setting` can only be set when `patch_mode` is set to `AutomaticByPlatform`.
         /// </summary>
         [Output("rebootSetting")]
         public Output<string?> RebootSetting { get; private set; } = null!;
@@ -413,7 +399,7 @@ namespace Pulumi.Azure.Compute
         /// <summary>
         /// The ID of the Image which this Virtual Machine should be created from. Changing this forces a new resource to be created. Possible Image ID types include `Image ID`s, `Shared Image ID`s, `Shared Image Version ID`s, `Community Gallery Image ID`s, `Community Gallery Image Version ID`s, `Shared Gallery Image ID`s and `Shared Gallery Image Version ID`s.
         /// 
-        /// &gt; **NOTE:** One of either `source_image_id` or `source_image_reference` must be set.
+        /// &gt; **Note:** One of either `source_image_id` or `source_image_reference` must be set.
         /// </summary>
         [Output("sourceImageId")]
         public Output<string?> SourceImageId { get; private set; } = null!;
@@ -421,7 +407,7 @@ namespace Pulumi.Azure.Compute
         /// <summary>
         /// A `source_image_reference` block as defined below. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **NOTE:** One of either `source_image_id` or `source_image_reference` must be set.
+        /// &gt; **Note:** One of either `source_image_id` or `source_image_reference` must be set.
         /// </summary>
         [Output("sourceImageReference")]
         public Output<Outputs.WindowsVirtualMachineSourceImageReference?> SourceImageReference { get; private set; } = null!;
@@ -459,20 +445,20 @@ namespace Pulumi.Azure.Compute
         /// <summary>
         /// Specifies the Orchestrated Virtual Machine Scale Set that this Virtual Machine should be created within.
         /// 
-        /// &gt; **NOTE:** To update `virtual_machine_scale_set_id` the Preview Feature `Microsoft.Compute/SingleFDAttachDetachVMToVmss` needs to be enabled, see [the documentation](https://review.learn.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-attach-detach-vm#enroll-in-the-preview) for more information.
+        /// &gt; **Note:** To update `virtual_machine_scale_set_id` the Preview Feature `Microsoft.Compute/SingleFDAttachDetachVMToVmss` needs to be enabled, see [the documentation](https://review.learn.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-attach-detach-vm#enroll-in-the-preview) for more information.
         /// 
-        /// &gt; **NOTE:** Orchestrated Virtual Machine Scale Sets can be provisioned using [the `azure.compute.OrchestratedVirtualMachineScaleSet` resource](https://www.terraform.io/docs/providers/azurerm/r/orchestrated_virtual_machine_scale_set.html).
+        /// &gt; **Note:** Orchestrated Virtual Machine Scale Sets can be provisioned using [the `azure.compute.OrchestratedVirtualMachineScaleSet` resource](https://www.terraform.io/docs/providers/azurerm/r/orchestrated_virtual_machine_scale_set.html).
         /// 
-        /// &gt; **NOTE:** To attach an existing VM to a Virtual Machine Scale Set, the scale set must have `single_placement_group` set to `false`, see [the documentation](https://learn.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-attach-detach-vm?tabs=portal-1%2Cportal-2%2Cportal-3#limitations-for-attaching-an-existing-vm-to-a-scale-set) for more information.
+        /// &gt; **Note:** To attach an existing VM to a Virtual Machine Scale Set, the scale set must have `single_placement_group` set to `false`, see [the documentation](https://learn.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-attach-detach-vm?tabs=portal-1%2Cportal-2%2Cportal-3#limitations-for-attaching-an-existing-vm-to-a-scale-set) for more information.
         /// </summary>
         [Output("virtualMachineScaleSetId")]
         public Output<string?> VirtualMachineScaleSetId { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies whether VMAgent Platform Updates is enabled. Defaults to `false`.
+        /// Are Virtual Machine Agent Platform Updates `enabled` on this Virtual Machine?
         /// </summary>
         [Output("vmAgentPlatformUpdatesEnabled")]
-        public Output<bool?> VmAgentPlatformUpdatesEnabled { get; private set; } = null!;
+        public Output<bool> VmAgentPlatformUpdatesEnabled { get; private set; } = null!;
 
         /// <summary>
         /// Specifies if vTPM (virtual Trusted Platform Module) and Trusted Launch is enabled for the Virtual Machine. Changing this forces a new resource to be created.
@@ -604,7 +590,7 @@ namespace Pulumi.Azure.Compute
         /// <summary>
         /// Specifies whether to skip platform scheduled patching when a user schedule is associated with the VM. Defaults to `false`.
         /// 
-        /// &gt; **NOTE:** `bypass_platform_safety_checks_on_user_schedule_enabled` can only be set to `true` when `patch_mode` is set to `AutomaticByPlatform`.
+        /// &gt; **Note:** `bypass_platform_safety_checks_on_user_schedule_enabled` can only be set to `true` when `patch_mode` is set to `AutomaticByPlatform`.
         /// </summary>
         [Input("bypassPlatformSafetyChecksOnUserScheduleEnabled")]
         public Input<bool>? BypassPlatformSafetyChecksOnUserScheduleEnabled { get; set; }
@@ -612,7 +598,7 @@ namespace Pulumi.Azure.Compute
         /// <summary>
         /// Specifies the ID of the Capacity Reservation Group which the Virtual Machine should be allocated to.
         /// 
-        /// &gt; **NOTE:** `capacity_reservation_group_id` cannot be used with `availability_set_id` or `proximity_placement_group_id`
+        /// &gt; **Note:** `capacity_reservation_group_id` cannot be used with `availability_set_id` or `proximity_placement_group_id`
         /// </summary>
         [Input("capacityReservationGroupId")]
         public Input<string>? CapacityReservationGroupId { get; set; }
@@ -678,7 +664,7 @@ namespace Pulumi.Azure.Compute
         /// <summary>
         /// Specifies what should happen when the Virtual Machine is evicted for price reasons when using a Spot instance. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **NOTE:** This can only be configured when `priority` is set to `Spot`.
+        /// &gt; **Note:** This can only be configured when `priority` is set to `Spot`.
         /// </summary>
         [Input("evictionPolicy")]
         public Input<string>? EvictionPolicy { get; set; }
@@ -695,7 +681,7 @@ namespace Pulumi.Azure.Compute
         /// <summary>
         /// One or more `gallery_application` blocks as defined below.
         /// 
-        /// &gt; **Note** Gallery Application Assignments can be defined either directly on `azure.compute.WindowsVirtualMachine` resource, or using the `azure.compute.GalleryApplicationAssignment` resource - but the two approaches cannot be used together. If both are used with the same Virtual Machine, spurious changes will occur. If `azure.compute.GalleryApplicationAssignment` is used, it's recommended to use `ignore_changes` for the `gallery_application` block on the corresponding `azure.compute.WindowsVirtualMachine` resource, to avoid a persistent diff when using this resource.
+        /// &gt; **Note:** Gallery Application Assignments can be defined either directly on `azure.compute.WindowsVirtualMachine` resource, or using the `azure.compute.GalleryApplicationAssignment` resource - but the two approaches cannot be used together. If both are used with the same Virtual Machine, spurious changes will occur. If `azure.compute.GalleryApplicationAssignment` is used, it's recommended to use `ignore_changes` for the `gallery_application` block on the corresponding `azure.compute.WindowsVirtualMachine` resource, to avoid a persistent diff when using this resource.
         /// </summary>
         public InputList<Inputs.WindowsVirtualMachineGalleryApplicationArgs> GalleryApplications
         {
@@ -706,7 +692,7 @@ namespace Pulumi.Azure.Compute
         /// <summary>
         /// Should the VM be patched without requiring a reboot? Possible values are `true` or `false`. Defaults to `false`. For more information about hot patching please see the [product documentation](https://docs.microsoft.com/azure/automanage/automanage-hotpatch).
         /// 
-        /// &gt; **NOTE:** Hotpatching can only be enabled if the `patch_mode` is set to `AutomaticByPlatform`, the `provision_vm_agent` is set to `true`, your `source_image_reference` references a hotpatching enabled image, and the VM's `size` is set to a [Azure generation 2](https://docs.microsoft.com/azure/virtual-machines/generation-2#generation-2-vm-sizes) VM. An example of how to correctly configure a Windows Virtual Machine to use the `hotpatching_enabled` field can be found in the `./examples/virtual-machines/windows/hotpatching-enabled` directory within the GitHub Repository.
+        /// &gt; **Note:** Hotpatching can only be enabled if the `patch_mode` is set to `AutomaticByPlatform`, the `provision_vm_agent` is set to `true`, your `source_image_reference` references a hotpatching enabled image, and the VM's `size` is set to a [Azure generation 2](https://docs.microsoft.com/azure/virtual-machines/generation-2#generation-2-vm-sizes) VM. An example of how to correctly configure a Windows Virtual Machine to use the `hotpatching_enabled` field can be found in the `./examples/virtual-machines/windows/hotpatching-enabled` directory within the GitHub Repository.
         /// </summary>
         [Input("hotpatchingEnabled")]
         public Input<bool>? HotpatchingEnabled { get; set; }
@@ -732,7 +718,7 @@ namespace Pulumi.Azure.Compute
         /// <summary>
         /// The maximum price you're willing to pay for this Virtual Machine, in US Dollars; which must be greater than the current spot price. If this bid price falls below the current spot price the Virtual Machine will be evicted using the `eviction_policy`. Defaults to `-1`, which means that the Virtual Machine should not be evicted for price reasons.
         /// 
-        /// &gt; **NOTE:** This can only be configured when `priority` is set to `Spot`.
+        /// &gt; **Note:** This can only be configured when `priority` is set to `Spot`.
         /// </summary>
         [Input("maxBidPrice")]
         public Input<double>? MaxBidPrice { get; set; }
@@ -770,7 +756,7 @@ namespace Pulumi.Azure.Compute
         /// <summary>
         /// Specifies the mode of VM Guest Patching for the Virtual Machine. Possible values are `AutomaticByPlatform` or `ImageDefault`. Defaults to `ImageDefault`.
         /// 
-        /// &gt; **NOTE:** If the `patch_assessment_mode` is set to `AutomaticByPlatform` then the `provision_vm_agent` field must be set to `true`.
+        /// &gt; **Note:** If the `patch_assessment_mode` is set to `AutomaticByPlatform` then the `provision_vm_agent` field must be set to `true`.
         /// </summary>
         [Input("patchAssessmentMode")]
         public Input<string>? PatchAssessmentMode { get; set; }
@@ -778,7 +764,7 @@ namespace Pulumi.Azure.Compute
         /// <summary>
         /// Specifies the mode of in-guest patching to this Windows Virtual Machine. Possible values are `Manual`, `AutomaticByOS` and `AutomaticByPlatform`. Defaults to `AutomaticByOS`. For more information on patch modes please see the [product documentation](https://docs.microsoft.com/azure/virtual-machines/automatic-vm-guest-patching#patch-orchestration-modes).
         /// 
-        /// &gt; **NOTE:** If `patch_mode` is set to `AutomaticByPlatform` then `provision_vm_agent` must also be set to `true`. If the Virtual Machine is using a hotpatching enabled image the `patch_mode` must always be set to `AutomaticByPlatform`.
+        /// &gt; **Note:** If `patch_mode` is set to `AutomaticByPlatform` then `provision_vm_agent` must also be set to `true`. If the Virtual Machine is using a hotpatching enabled image the `patch_mode` must always be set to `AutomaticByPlatform`.
         /// </summary>
         [Input("patchMode")]
         public Input<string>? PatchMode { get; set; }
@@ -804,7 +790,7 @@ namespace Pulumi.Azure.Compute
         /// <summary>
         /// Should the Azure VM Agent be provisioned on this Virtual Machine? Defaults to `true`. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **NOTE:** If `provision_vm_agent` is set to `false` then `allow_extension_operations` must also be set to `false`.
+        /// &gt; **Note:** If `provision_vm_agent` is set to `false` then `allow_extension_operations` must also be set to `false`.
         /// </summary>
         [Input("provisionVmAgent")]
         public Input<bool>? ProvisionVmAgent { get; set; }
@@ -818,7 +804,7 @@ namespace Pulumi.Azure.Compute
         /// <summary>
         /// Specifies the reboot setting for platform scheduled patching. Possible values are `Always`, `IfRequired` and `Never`.
         /// 
-        /// &gt; **NOTE:** `reboot_setting` can only be set when `patch_mode` is set to `AutomaticByPlatform`.
+        /// &gt; **Note:** `reboot_setting` can only be set when `patch_mode` is set to `AutomaticByPlatform`.
         /// </summary>
         [Input("rebootSetting")]
         public Input<string>? RebootSetting { get; set; }
@@ -856,7 +842,7 @@ namespace Pulumi.Azure.Compute
         /// <summary>
         /// The ID of the Image which this Virtual Machine should be created from. Changing this forces a new resource to be created. Possible Image ID types include `Image ID`s, `Shared Image ID`s, `Shared Image Version ID`s, `Community Gallery Image ID`s, `Community Gallery Image Version ID`s, `Shared Gallery Image ID`s and `Shared Gallery Image Version ID`s.
         /// 
-        /// &gt; **NOTE:** One of either `source_image_id` or `source_image_reference` must be set.
+        /// &gt; **Note:** One of either `source_image_id` or `source_image_reference` must be set.
         /// </summary>
         [Input("sourceImageId")]
         public Input<string>? SourceImageId { get; set; }
@@ -864,7 +850,7 @@ namespace Pulumi.Azure.Compute
         /// <summary>
         /// A `source_image_reference` block as defined below. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **NOTE:** One of either `source_image_id` or `source_image_reference` must be set.
+        /// &gt; **Note:** One of either `source_image_id` or `source_image_reference` must be set.
         /// </summary>
         [Input("sourceImageReference")]
         public Input<Inputs.WindowsVirtualMachineSourceImageReferenceArgs>? SourceImageReference { get; set; }
@@ -902,17 +888,17 @@ namespace Pulumi.Azure.Compute
         /// <summary>
         /// Specifies the Orchestrated Virtual Machine Scale Set that this Virtual Machine should be created within.
         /// 
-        /// &gt; **NOTE:** To update `virtual_machine_scale_set_id` the Preview Feature `Microsoft.Compute/SingleFDAttachDetachVMToVmss` needs to be enabled, see [the documentation](https://review.learn.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-attach-detach-vm#enroll-in-the-preview) for more information.
+        /// &gt; **Note:** To update `virtual_machine_scale_set_id` the Preview Feature `Microsoft.Compute/SingleFDAttachDetachVMToVmss` needs to be enabled, see [the documentation](https://review.learn.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-attach-detach-vm#enroll-in-the-preview) for more information.
         /// 
-        /// &gt; **NOTE:** Orchestrated Virtual Machine Scale Sets can be provisioned using [the `azure.compute.OrchestratedVirtualMachineScaleSet` resource](https://www.terraform.io/docs/providers/azurerm/r/orchestrated_virtual_machine_scale_set.html).
+        /// &gt; **Note:** Orchestrated Virtual Machine Scale Sets can be provisioned using [the `azure.compute.OrchestratedVirtualMachineScaleSet` resource](https://www.terraform.io/docs/providers/azurerm/r/orchestrated_virtual_machine_scale_set.html).
         /// 
-        /// &gt; **NOTE:** To attach an existing VM to a Virtual Machine Scale Set, the scale set must have `single_placement_group` set to `false`, see [the documentation](https://learn.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-attach-detach-vm?tabs=portal-1%2Cportal-2%2Cportal-3#limitations-for-attaching-an-existing-vm-to-a-scale-set) for more information.
+        /// &gt; **Note:** To attach an existing VM to a Virtual Machine Scale Set, the scale set must have `single_placement_group` set to `false`, see [the documentation](https://learn.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-attach-detach-vm?tabs=portal-1%2Cportal-2%2Cportal-3#limitations-for-attaching-an-existing-vm-to-a-scale-set) for more information.
         /// </summary>
         [Input("virtualMachineScaleSetId")]
         public Input<string>? VirtualMachineScaleSetId { get; set; }
 
         /// <summary>
-        /// Specifies whether VMAgent Platform Updates is enabled. Defaults to `false`.
+        /// Are Virtual Machine Agent Platform Updates `enabled` on this Virtual Machine?
         /// </summary>
         [Input("vmAgentPlatformUpdatesEnabled")]
         public Input<bool>? VmAgentPlatformUpdatesEnabled { get; set; }
@@ -1010,7 +996,7 @@ namespace Pulumi.Azure.Compute
         /// <summary>
         /// Specifies whether to skip platform scheduled patching when a user schedule is associated with the VM. Defaults to `false`.
         /// 
-        /// &gt; **NOTE:** `bypass_platform_safety_checks_on_user_schedule_enabled` can only be set to `true` when `patch_mode` is set to `AutomaticByPlatform`.
+        /// &gt; **Note:** `bypass_platform_safety_checks_on_user_schedule_enabled` can only be set to `true` when `patch_mode` is set to `AutomaticByPlatform`.
         /// </summary>
         [Input("bypassPlatformSafetyChecksOnUserScheduleEnabled")]
         public Input<bool>? BypassPlatformSafetyChecksOnUserScheduleEnabled { get; set; }
@@ -1018,7 +1004,7 @@ namespace Pulumi.Azure.Compute
         /// <summary>
         /// Specifies the ID of the Capacity Reservation Group which the Virtual Machine should be allocated to.
         /// 
-        /// &gt; **NOTE:** `capacity_reservation_group_id` cannot be used with `availability_set_id` or `proximity_placement_group_id`
+        /// &gt; **Note:** `capacity_reservation_group_id` cannot be used with `availability_set_id` or `proximity_placement_group_id`
         /// </summary>
         [Input("capacityReservationGroupId")]
         public Input<string>? CapacityReservationGroupId { get; set; }
@@ -1084,7 +1070,7 @@ namespace Pulumi.Azure.Compute
         /// <summary>
         /// Specifies what should happen when the Virtual Machine is evicted for price reasons when using a Spot instance. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **NOTE:** This can only be configured when `priority` is set to `Spot`.
+        /// &gt; **Note:** This can only be configured when `priority` is set to `Spot`.
         /// </summary>
         [Input("evictionPolicy")]
         public Input<string>? EvictionPolicy { get; set; }
@@ -1101,7 +1087,7 @@ namespace Pulumi.Azure.Compute
         /// <summary>
         /// One or more `gallery_application` blocks as defined below.
         /// 
-        /// &gt; **Note** Gallery Application Assignments can be defined either directly on `azure.compute.WindowsVirtualMachine` resource, or using the `azure.compute.GalleryApplicationAssignment` resource - but the two approaches cannot be used together. If both are used with the same Virtual Machine, spurious changes will occur. If `azure.compute.GalleryApplicationAssignment` is used, it's recommended to use `ignore_changes` for the `gallery_application` block on the corresponding `azure.compute.WindowsVirtualMachine` resource, to avoid a persistent diff when using this resource.
+        /// &gt; **Note:** Gallery Application Assignments can be defined either directly on `azure.compute.WindowsVirtualMachine` resource, or using the `azure.compute.GalleryApplicationAssignment` resource - but the two approaches cannot be used together. If both are used with the same Virtual Machine, spurious changes will occur. If `azure.compute.GalleryApplicationAssignment` is used, it's recommended to use `ignore_changes` for the `gallery_application` block on the corresponding `azure.compute.WindowsVirtualMachine` resource, to avoid a persistent diff when using this resource.
         /// </summary>
         public InputList<Inputs.WindowsVirtualMachineGalleryApplicationGetArgs> GalleryApplications
         {
@@ -1112,7 +1098,7 @@ namespace Pulumi.Azure.Compute
         /// <summary>
         /// Should the VM be patched without requiring a reboot? Possible values are `true` or `false`. Defaults to `false`. For more information about hot patching please see the [product documentation](https://docs.microsoft.com/azure/automanage/automanage-hotpatch).
         /// 
-        /// &gt; **NOTE:** Hotpatching can only be enabled if the `patch_mode` is set to `AutomaticByPlatform`, the `provision_vm_agent` is set to `true`, your `source_image_reference` references a hotpatching enabled image, and the VM's `size` is set to a [Azure generation 2](https://docs.microsoft.com/azure/virtual-machines/generation-2#generation-2-vm-sizes) VM. An example of how to correctly configure a Windows Virtual Machine to use the `hotpatching_enabled` field can be found in the `./examples/virtual-machines/windows/hotpatching-enabled` directory within the GitHub Repository.
+        /// &gt; **Note:** Hotpatching can only be enabled if the `patch_mode` is set to `AutomaticByPlatform`, the `provision_vm_agent` is set to `true`, your `source_image_reference` references a hotpatching enabled image, and the VM's `size` is set to a [Azure generation 2](https://docs.microsoft.com/azure/virtual-machines/generation-2#generation-2-vm-sizes) VM. An example of how to correctly configure a Windows Virtual Machine to use the `hotpatching_enabled` field can be found in the `./examples/virtual-machines/windows/hotpatching-enabled` directory within the GitHub Repository.
         /// </summary>
         [Input("hotpatchingEnabled")]
         public Input<bool>? HotpatchingEnabled { get; set; }
@@ -1138,7 +1124,7 @@ namespace Pulumi.Azure.Compute
         /// <summary>
         /// The maximum price you're willing to pay for this Virtual Machine, in US Dollars; which must be greater than the current spot price. If this bid price falls below the current spot price the Virtual Machine will be evicted using the `eviction_policy`. Defaults to `-1`, which means that the Virtual Machine should not be evicted for price reasons.
         /// 
-        /// &gt; **NOTE:** This can only be configured when `priority` is set to `Spot`.
+        /// &gt; **Note:** This can only be configured when `priority` is set to `Spot`.
         /// </summary>
         [Input("maxBidPrice")]
         public Input<double>? MaxBidPrice { get; set; }
@@ -1176,7 +1162,7 @@ namespace Pulumi.Azure.Compute
         /// <summary>
         /// Specifies the mode of VM Guest Patching for the Virtual Machine. Possible values are `AutomaticByPlatform` or `ImageDefault`. Defaults to `ImageDefault`.
         /// 
-        /// &gt; **NOTE:** If the `patch_assessment_mode` is set to `AutomaticByPlatform` then the `provision_vm_agent` field must be set to `true`.
+        /// &gt; **Note:** If the `patch_assessment_mode` is set to `AutomaticByPlatform` then the `provision_vm_agent` field must be set to `true`.
         /// </summary>
         [Input("patchAssessmentMode")]
         public Input<string>? PatchAssessmentMode { get; set; }
@@ -1184,7 +1170,7 @@ namespace Pulumi.Azure.Compute
         /// <summary>
         /// Specifies the mode of in-guest patching to this Windows Virtual Machine. Possible values are `Manual`, `AutomaticByOS` and `AutomaticByPlatform`. Defaults to `AutomaticByOS`. For more information on patch modes please see the [product documentation](https://docs.microsoft.com/azure/virtual-machines/automatic-vm-guest-patching#patch-orchestration-modes).
         /// 
-        /// &gt; **NOTE:** If `patch_mode` is set to `AutomaticByPlatform` then `provision_vm_agent` must also be set to `true`. If the Virtual Machine is using a hotpatching enabled image the `patch_mode` must always be set to `AutomaticByPlatform`.
+        /// &gt; **Note:** If `patch_mode` is set to `AutomaticByPlatform` then `provision_vm_agent` must also be set to `true`. If the Virtual Machine is using a hotpatching enabled image the `patch_mode` must always be set to `AutomaticByPlatform`.
         /// </summary>
         [Input("patchMode")]
         public Input<string>? PatchMode { get; set; }
@@ -1228,7 +1214,7 @@ namespace Pulumi.Azure.Compute
         /// <summary>
         /// Should the Azure VM Agent be provisioned on this Virtual Machine? Defaults to `true`. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **NOTE:** If `provision_vm_agent` is set to `false` then `allow_extension_operations` must also be set to `false`.
+        /// &gt; **Note:** If `provision_vm_agent` is set to `false` then `allow_extension_operations` must also be set to `false`.
         /// </summary>
         [Input("provisionVmAgent")]
         public Input<bool>? ProvisionVmAgent { get; set; }
@@ -1260,7 +1246,7 @@ namespace Pulumi.Azure.Compute
         /// <summary>
         /// Specifies the reboot setting for platform scheduled patching. Possible values are `Always`, `IfRequired` and `Never`.
         /// 
-        /// &gt; **NOTE:** `reboot_setting` can only be set when `patch_mode` is set to `AutomaticByPlatform`.
+        /// &gt; **Note:** `reboot_setting` can only be set when `patch_mode` is set to `AutomaticByPlatform`.
         /// </summary>
         [Input("rebootSetting")]
         public Input<string>? RebootSetting { get; set; }
@@ -1298,7 +1284,7 @@ namespace Pulumi.Azure.Compute
         /// <summary>
         /// The ID of the Image which this Virtual Machine should be created from. Changing this forces a new resource to be created. Possible Image ID types include `Image ID`s, `Shared Image ID`s, `Shared Image Version ID`s, `Community Gallery Image ID`s, `Community Gallery Image Version ID`s, `Shared Gallery Image ID`s and `Shared Gallery Image Version ID`s.
         /// 
-        /// &gt; **NOTE:** One of either `source_image_id` or `source_image_reference` must be set.
+        /// &gt; **Note:** One of either `source_image_id` or `source_image_reference` must be set.
         /// </summary>
         [Input("sourceImageId")]
         public Input<string>? SourceImageId { get; set; }
@@ -1306,7 +1292,7 @@ namespace Pulumi.Azure.Compute
         /// <summary>
         /// A `source_image_reference` block as defined below. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **NOTE:** One of either `source_image_id` or `source_image_reference` must be set.
+        /// &gt; **Note:** One of either `source_image_id` or `source_image_reference` must be set.
         /// </summary>
         [Input("sourceImageReference")]
         public Input<Inputs.WindowsVirtualMachineSourceImageReferenceGetArgs>? SourceImageReference { get; set; }
@@ -1350,17 +1336,17 @@ namespace Pulumi.Azure.Compute
         /// <summary>
         /// Specifies the Orchestrated Virtual Machine Scale Set that this Virtual Machine should be created within.
         /// 
-        /// &gt; **NOTE:** To update `virtual_machine_scale_set_id` the Preview Feature `Microsoft.Compute/SingleFDAttachDetachVMToVmss` needs to be enabled, see [the documentation](https://review.learn.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-attach-detach-vm#enroll-in-the-preview) for more information.
+        /// &gt; **Note:** To update `virtual_machine_scale_set_id` the Preview Feature `Microsoft.Compute/SingleFDAttachDetachVMToVmss` needs to be enabled, see [the documentation](https://review.learn.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-attach-detach-vm#enroll-in-the-preview) for more information.
         /// 
-        /// &gt; **NOTE:** Orchestrated Virtual Machine Scale Sets can be provisioned using [the `azure.compute.OrchestratedVirtualMachineScaleSet` resource](https://www.terraform.io/docs/providers/azurerm/r/orchestrated_virtual_machine_scale_set.html).
+        /// &gt; **Note:** Orchestrated Virtual Machine Scale Sets can be provisioned using [the `azure.compute.OrchestratedVirtualMachineScaleSet` resource](https://www.terraform.io/docs/providers/azurerm/r/orchestrated_virtual_machine_scale_set.html).
         /// 
-        /// &gt; **NOTE:** To attach an existing VM to a Virtual Machine Scale Set, the scale set must have `single_placement_group` set to `false`, see [the documentation](https://learn.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-attach-detach-vm?tabs=portal-1%2Cportal-2%2Cportal-3#limitations-for-attaching-an-existing-vm-to-a-scale-set) for more information.
+        /// &gt; **Note:** To attach an existing VM to a Virtual Machine Scale Set, the scale set must have `single_placement_group` set to `false`, see [the documentation](https://learn.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-attach-detach-vm?tabs=portal-1%2Cportal-2%2Cportal-3#limitations-for-attaching-an-existing-vm-to-a-scale-set) for more information.
         /// </summary>
         [Input("virtualMachineScaleSetId")]
         public Input<string>? VirtualMachineScaleSetId { get; set; }
 
         /// <summary>
-        /// Specifies whether VMAgent Platform Updates is enabled. Defaults to `false`.
+        /// Are Virtual Machine Agent Platform Updates `enabled` on this Virtual Machine?
         /// </summary>
         [Input("vmAgentPlatformUpdatesEnabled")]
         public Input<bool>? VmAgentPlatformUpdatesEnabled { get; set; }

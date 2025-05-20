@@ -21,7 +21,7 @@ import javax.annotation.Nullable;
  * 
  * ## Example Usage
  * 
- * This example provisions an App Service Certificate from a Local File.
+ * This example provisions an App Service Certificate from a Local File. Additional examples of how to use the `azure.appservice.Certificate` resource can be found in the `./examples/app-service-certificate` directory within the GitHub Repository.
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
  * <pre>
@@ -62,7 +62,7 @@ import javax.annotation.Nullable;
  *             .pfxBlob(StdFunctions.filebase64(Filebase64Args.builder()
  *                 .input("certificate.pfx")
  *                 .build()).result())
- *             .password("password123!")
+ *             .password("terraform")
  *             .build());
  * 
  *     }
@@ -189,7 +189,7 @@ public class Certificate extends com.pulumi.resources.CustomResource {
     /**
      * The ID of the Key Vault secret. Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE:** Exactly one of `key_vault_secret_id` or `pfx_blob` must be specified.
+     * &gt; **Note:** Exactly one of `key_vault_secret_id` or `pfx_blob` must be specified.
      * 
      */
     @Export(name="keyVaultSecretId", refs={String.class}, tree="[0]")
@@ -198,7 +198,7 @@ public class Certificate extends com.pulumi.resources.CustomResource {
     /**
      * @return The ID of the Key Vault secret. Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE:** Exactly one of `key_vault_secret_id` or `pfx_blob` must be specified.
+     * &gt; **Note:** Exactly one of `key_vault_secret_id` or `pfx_blob` must be specified.
      * 
      */
     public Output<Optional<String>> keyVaultSecretId() {
@@ -249,7 +249,7 @@ public class Certificate extends com.pulumi.resources.CustomResource {
     /**
      * The base64-encoded contents of the certificate. Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE:** Exactly one of `key_vault_secret_id` or `pfx_blob` must be specified.
+     * &gt; **Note:** Exactly one of `key_vault_secret_id` or `pfx_blob` must be specified.
      * 
      */
     @Export(name="pfxBlob", refs={String.class}, tree="[0]")
@@ -258,7 +258,7 @@ public class Certificate extends com.pulumi.resources.CustomResource {
     /**
      * @return The base64-encoded contents of the certificate. Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE:** Exactly one of `key_vault_secret_id` or `pfx_blob` must be specified.
+     * &gt; **Note:** Exactly one of `key_vault_secret_id` or `pfx_blob` must be specified.
      * 
      */
     public Output<Optional<String>> pfxBlob() {
@@ -267,7 +267,7 @@ public class Certificate extends com.pulumi.resources.CustomResource {
     /**
      * The name of the resource group in which to create the certificate. Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE:** The resource group must be the same as that which the app service plan is defined in - otherwise the certificate will not show as available for the app services.
+     * &gt; **Note:** The resource group must be the same as that which the app service plan is defined in - otherwise the certificate will not show as available for the app services.
      * 
      */
     @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
@@ -276,7 +276,7 @@ public class Certificate extends com.pulumi.resources.CustomResource {
     /**
      * @return The name of the resource group in which to create the certificate. Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE:** The resource group must be the same as that which the app service plan is defined in - otherwise the certificate will not show as available for the app services.
+     * &gt; **Note:** The resource group must be the same as that which the app service plan is defined in - otherwise the certificate will not show as available for the app services.
      * 
      */
     public Output<String> resourceGroupName() {

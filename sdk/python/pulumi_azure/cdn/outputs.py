@@ -137,7 +137,7 @@ class EndpointCustomDomainCdnManagedHttps(dict):
         :param builtins.str protocol_type: The type of protocol. Possible values are `ServerNameIndication` and `IPBased`.
         :param builtins.str tls_version: The minimum TLS protocol version that is used for HTTPS. Possible values are `TLS10` (representing TLS 1.0/1.1), `TLS12` (representing TLS 1.2) and `None` (representing no minimums). Defaults to `TLS12`.
                
-               > **Note** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
+               > **Note:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
         """
         pulumi.set(__self__, "certificate_type", certificate_type)
         pulumi.set(__self__, "protocol_type", protocol_type)
@@ -166,7 +166,7 @@ class EndpointCustomDomainCdnManagedHttps(dict):
         """
         The minimum TLS protocol version that is used for HTTPS. Possible values are `TLS10` (representing TLS 1.0/1.1), `TLS12` (representing TLS 1.2) and `None` (representing no minimums). Defaults to `TLS12`.
 
-        > **Note** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
+        > **Note:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
         """
         return pulumi.get(self, "tls_version")
 
@@ -199,7 +199,7 @@ class EndpointCustomDomainUserManagedHttps(dict):
         :param builtins.str key_vault_secret_id: The ID of the Key Vault Secret that contains the HTTPS certificate.
         :param builtins.str tls_version: The minimum TLS protocol version that is used for HTTPS. Possible values are `TLS10` (representing TLS 1.0/1.1), `TLS12` (representing TLS 1.2) and `None` (representing no minimums). Defaults to `TLS12`.
                
-               > **Note** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
+               > **Note:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
         """
         pulumi.set(__self__, "key_vault_secret_id", key_vault_secret_id)
         if tls_version is not None:
@@ -219,7 +219,7 @@ class EndpointCustomDomainUserManagedHttps(dict):
         """
         The minimum TLS protocol version that is used for HTTPS. Possible values are `TLS10` (representing TLS 1.0/1.1), `TLS12` (representing TLS 1.2) and `None` (representing no minimums). Defaults to `TLS12`.
 
-        > **Note** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
+        > **Note:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
         """
         return pulumi.get(self, "tls_version")
 
@@ -2411,7 +2411,7 @@ class FrontdoorCustomDomainTls(dict):
         :param builtins.str cdn_frontdoor_secret_id: Resource ID of the Front Door Secret.
         :param builtins.str certificate_type: Defines the source of the SSL certificate. Possible values include `CustomerCertificate` and `ManagedCertificate`. Defaults to `ManagedCertificate`.
                
-               ->**Note:** It may take up to 15 minutes for the Front Door Service to validate the state and Domain ownership of the Custom Domain.
+               > **Note:** It may take up to 15 minutes for the Front Door Service to validate the state and Domain ownership of the Custom Domain.
         :param builtins.str minimum_tls_version: TLS protocol version that will be used for Https. Possible values are `TLS12`. Defaults to `TLS12`.
                
                > **Note:** On March 1, 2025, support for Transport Layer Security (TLS) 1.0 and 1.1 will be retired for Azure Front Door, all connections to Azure Front Door must employ `TLS 1.2` or later, please see the product [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more details.
@@ -2437,7 +2437,7 @@ class FrontdoorCustomDomainTls(dict):
         """
         Defines the source of the SSL certificate. Possible values include `CustomerCertificate` and `ManagedCertificate`. Defaults to `ManagedCertificate`.
 
-        ->**Note:** It may take up to 15 minutes for the Front Door Service to validate the state and Domain ownership of the Custom Domain.
+        > **Note:** It may take up to 15 minutes for the Front Door Service to validate the state and Domain ownership of the Custom Domain.
         """
         return pulumi.get(self, "certificate_type")
 
@@ -3232,7 +3232,7 @@ class FrontdoorOriginGroupHealthProbe(dict):
         :param builtins.str protocol: Specifies the protocol to use for health probe. Possible values are `Http` and `Https`.
         :param builtins.str path: Specifies the path relative to the origin that is used to determine the health of the origin. Defaults to `/`.
                
-               > **NOTE:** Health probes can only be disabled if there is a single enabled origin in a single enabled origin group. For more information about the `health_probe` settings please see the [product documentation](https://docs.microsoft.com/azure/frontdoor/health-probes).
+               > **Note:** Health probes can only be disabled if there is a single enabled origin in a single enabled origin group. For more information about the `health_probe` settings please see the [product documentation](https://docs.microsoft.com/azure/frontdoor/health-probes).
         :param builtins.str request_type: Specifies the type of health probe request that is made. Possible values are `GET` and `HEAD`. Defaults to `HEAD`.
         """
         pulumi.set(__self__, "interval_in_seconds", interval_in_seconds)
@@ -3264,7 +3264,7 @@ class FrontdoorOriginGroupHealthProbe(dict):
         """
         Specifies the path relative to the origin that is used to determine the health of the origin. Defaults to `/`.
 
-        > **NOTE:** Health probes can only be disabled if there is a single enabled origin in a single enabled origin group. For more information about the `health_probe` settings please see the [product documentation](https://docs.microsoft.com/azure/frontdoor/health-probes).
+        > **Note:** Health probes can only be disabled if there is a single enabled origin in a single enabled origin group. For more information about the `health_probe` settings please see the [product documentation](https://docs.microsoft.com/azure/frontdoor/health-probes).
         """
         return pulumi.get(self, "path")
 
@@ -3375,9 +3375,9 @@ class FrontdoorOriginPrivateLink(dict):
                
                > **Note:** the `private_link_target_id` property must specify the Resource ID of the Private Link Service when using Load Balancer as an Origin.
         :param builtins.str request_message: Specifies the request message that will be submitted to the `private_link_target_id` when requesting the private link endpoint connection. Values must be between `1` and `140` characters in length. Defaults to `Access request for CDN FrontDoor Private Link Origin`.
-        :param builtins.str target_type: Specifies the type of target for this Private Link Endpoint. Possible values are `blob`, `blob_secondary`, `web` and `sites`.
+        :param builtins.str target_type: Specifies the type of target for this Private Link Endpoint. Possible values are `blob`, `blob_secondary`, `Gateway`, `managedEnvironments`, `sites`, `web` and `web_secondary`.
                
-               > **NOTE:** `target_type` cannot be specified when using a Load Balancer as an Origin.
+               > **Note:** `target_type` cannot be specified when using a Load Balancer as an Origin.
         """
         pulumi.set(__self__, "location", location)
         pulumi.set(__self__, "private_link_target_id", private_link_target_id)
@@ -3416,9 +3416,9 @@ class FrontdoorOriginPrivateLink(dict):
     @pulumi.getter(name="targetType")
     def target_type(self) -> Optional[builtins.str]:
         """
-        Specifies the type of target for this Private Link Endpoint. Possible values are `blob`, `blob_secondary`, `web` and `sites`.
+        Specifies the type of target for this Private Link Endpoint. Possible values are `blob`, `blob_secondary`, `Gateway`, `managedEnvironments`, `sites`, `web` and `web_secondary`.
 
-        > **NOTE:** `target_type` cannot be specified when using a Load Balancer as an Origin.
+        > **Note:** `target_type` cannot be specified when using a Load Balancer as an Origin.
         """
         return pulumi.get(self, "target_type")
 
@@ -3523,11 +3523,11 @@ class FrontdoorRouteCache(dict):
         """
         :param builtins.bool compression_enabled: Is content compression enabled? Possible values are `true` or `false`. Defaults to `false`.
                
-               > **NOTE:** Content won't be compressed when the requested content is smaller than `1 KB` or larger than `8 MB`(inclusive).
+               > **Note:** Content won't be compressed when the requested content is smaller than `1 KB` or larger than `8 MB`(inclusive).
         :param Sequence[builtins.str] content_types_to_compresses: A list of one or more `Content types` (formerly known as `MIME types`) to compress. Possible values include `application/eot`, `application/font`, `application/font-sfnt`, `application/javascript`, `application/json`, `application/opentype`, `application/otf`, `application/pkcs7-mime`, `application/truetype`, `application/ttf`, `application/vnd.ms-fontobject`, `application/xhtml+xml`, `application/xml`, `application/xml+rss`, `application/x-font-opentype`, `application/x-font-truetype`, `application/x-font-ttf`, `application/x-httpd-cgi`, `application/x-mpegurl`, `application/x-opentype`, `application/x-otf`, `application/x-perl`, `application/x-ttf`, `application/x-javascript`, `font/eot`, `font/ttf`, `font/otf`, `font/opentype`, `image/svg+xml`, `text/css`, `text/csv`, `text/html`, `text/javascript`, `text/js`, `text/plain`, `text/richtext`, `text/tab-separated-values`, `text/xml`, `text/x-script`, `text/x-component` or `text/x-java-source`.
         :param builtins.str query_string_caching_behavior: Defines how the Front Door Route will cache requests that include query strings. Possible values include `IgnoreQueryString`, `IgnoreSpecifiedQueryStrings`, `IncludeSpecifiedQueryStrings` or `UseQueryString`. Defaults to `IgnoreQueryString`.
                
-               > **NOTE:** The value of the `query_string_caching_behavior` determines if the `query_strings` field will be used as an include list or an ignore list.
+               > **Note:** The value of the `query_string_caching_behavior` determines if the `query_strings` field will be used as an include list or an ignore list.
         :param Sequence[builtins.str] query_strings: Query strings to include or ignore.
         """
         if compression_enabled is not None:
@@ -3545,7 +3545,7 @@ class FrontdoorRouteCache(dict):
         """
         Is content compression enabled? Possible values are `true` or `false`. Defaults to `false`.
 
-        > **NOTE:** Content won't be compressed when the requested content is smaller than `1 KB` or larger than `8 MB`(inclusive).
+        > **Note:** Content won't be compressed when the requested content is smaller than `1 KB` or larger than `8 MB`(inclusive).
         """
         return pulumi.get(self, "compression_enabled")
 
@@ -3563,7 +3563,7 @@ class FrontdoorRouteCache(dict):
         """
         Defines how the Front Door Route will cache requests that include query strings. Possible values include `IgnoreQueryString`, `IgnoreSpecifiedQueryStrings`, `IncludeSpecifiedQueryStrings` or `UseQueryString`. Defaults to `IgnoreQueryString`.
 
-        > **NOTE:** The value of the `query_string_caching_behavior` determines if the `query_strings` field will be used as an include list or an ignore list.
+        > **Note:** The value of the `query_string_caching_behavior` determines if the `query_strings` field will be used as an include list or an ignore list.
         """
         return pulumi.get(self, "query_string_caching_behavior")
 
@@ -3696,11 +3696,11 @@ class FrontdoorRuleActionsRequestHeaderAction(dict):
         """
         :param builtins.str header_action: The action to be taken on the specified `header_name`. Possible values include `Append`, `Overwrite` or `Delete`.
                
-               > **NOTE:** `Append` causes the specified header to be added to the request with the specified value. If the header is already present, the value is appended to the existing header value using string concatenation. No delimiters are added. `Overwrite` causes specified header to be added to the request with the specified value. If the header is already present, the specified value overwrites the existing value. `Delete` causes the header to be deleted from the request.
+               > **Note:** `Append` causes the specified header to be added to the request with the specified value. If the header is already present, the value is appended to the existing header value using string concatenation. No delimiters are added. `Overwrite` causes specified header to be added to the request with the specified value. If the header is already present, the specified value overwrites the existing value. `Delete` causes the header to be deleted from the request.
         :param builtins.str header_name: The name of the header to modify.
         :param builtins.str value: The value to append or overwrite.
                
-               ->**NOTE:** `value` is required if the `header_action` is set to `Append` or `Overwrite`.
+               > **Note:** `value` is required if the `header_action` is set to `Append` or `Overwrite`.
         """
         pulumi.set(__self__, "header_action", header_action)
         pulumi.set(__self__, "header_name", header_name)
@@ -3713,7 +3713,7 @@ class FrontdoorRuleActionsRequestHeaderAction(dict):
         """
         The action to be taken on the specified `header_name`. Possible values include `Append`, `Overwrite` or `Delete`.
 
-        > **NOTE:** `Append` causes the specified header to be added to the request with the specified value. If the header is already present, the value is appended to the existing header value using string concatenation. No delimiters are added. `Overwrite` causes specified header to be added to the request with the specified value. If the header is already present, the specified value overwrites the existing value. `Delete` causes the header to be deleted from the request.
+        > **Note:** `Append` causes the specified header to be added to the request with the specified value. If the header is already present, the value is appended to the existing header value using string concatenation. No delimiters are added. `Overwrite` causes specified header to be added to the request with the specified value. If the header is already present, the specified value overwrites the existing value. `Delete` causes the header to be deleted from the request.
         """
         return pulumi.get(self, "header_action")
 
@@ -3731,7 +3731,7 @@ class FrontdoorRuleActionsRequestHeaderAction(dict):
         """
         The value to append or overwrite.
 
-        ->**NOTE:** `value` is required if the `header_action` is set to `Append` or `Overwrite`.
+        > **Note:** `value` is required if the `header_action` is set to `Append` or `Overwrite`.
         """
         return pulumi.get(self, "value")
 
@@ -3764,11 +3764,11 @@ class FrontdoorRuleActionsResponseHeaderAction(dict):
         """
         :param builtins.str header_action: The action to be taken on the specified `header_name`. Possible values include `Append`, `Overwrite` or `Delete`.
                
-               > **NOTE:** `Append` causes the specified header to be added to the request with the specified value. If the header is already present, the value is appended to the existing header value using string concatenation. No delimiters are added. `Overwrite` causes specified header to be added to the request with the specified value. If the header is already present, the specified value overwrites the existing value. `Delete` causes the header to be deleted from the request.
+               > **Note:** `Append` causes the specified header to be added to the request with the specified value. If the header is already present, the value is appended to the existing header value using string concatenation. No delimiters are added. `Overwrite` causes specified header to be added to the request with the specified value. If the header is already present, the specified value overwrites the existing value. `Delete` causes the header to be deleted from the request.
         :param builtins.str header_name: The name of the header to modify.
         :param builtins.str value: The value to append or overwrite.
                
-               ->**NOTE:** `value` is required if the `header_action` is set to `Append` or `Overwrite`.
+               > **Note:** `value` is required if the `header_action` is set to `Append` or `Overwrite`.
         """
         pulumi.set(__self__, "header_action", header_action)
         pulumi.set(__self__, "header_name", header_name)
@@ -3781,7 +3781,7 @@ class FrontdoorRuleActionsResponseHeaderAction(dict):
         """
         The action to be taken on the specified `header_name`. Possible values include `Append`, `Overwrite` or `Delete`.
 
-        > **NOTE:** `Append` causes the specified header to be added to the request with the specified value. If the header is already present, the value is appended to the existing header value using string concatenation. No delimiters are added. `Overwrite` causes specified header to be added to the request with the specified value. If the header is already present, the specified value overwrites the existing value. `Delete` causes the header to be deleted from the request.
+        > **Note:** `Append` causes the specified header to be added to the request with the specified value. If the header is already present, the value is appended to the existing header value using string concatenation. No delimiters are added. `Overwrite` causes specified header to be added to the request with the specified value. If the header is already present, the specified value overwrites the existing value. `Delete` causes the header to be deleted from the request.
         """
         return pulumi.get(self, "header_action")
 
@@ -3799,7 +3799,7 @@ class FrontdoorRuleActionsResponseHeaderAction(dict):
         """
         The value to append or overwrite.
 
-        ->**NOTE:** `value` is required if the `header_action` is set to `Append` or `Overwrite`.
+        > **Note:** `value` is required if the `header_action` is set to `Append` or `Overwrite`.
         """
         return pulumi.get(self, "value")
 
@@ -3849,14 +3849,14 @@ class FrontdoorRuleActionsRouteConfigurationOverrideAction(dict):
         :param builtins.str cdn_frontdoor_origin_group_id: The Front Door Origin Group resource ID that the request should be routed to. This overrides the configuration specified in the Front Door Endpoint route.
         :param builtins.bool compression_enabled: Should the Front Door dynamically compress the content? Possible values include `true` or `false`.
                
-               ->**NOTE:** Content won't be compressed on AzureFrontDoor when requested content is smaller than `1 byte` or larger than `1 MB`.
+               > **Note:** Content won't be compressed on AzureFrontDoor when requested content is smaller than `1 byte` or larger than `1 MB`.
         :param builtins.str forwarding_protocol: The forwarding protocol the request will be redirected as. This overrides the configuration specified in the route to be associated with. Possible values include `MatchRequest`, `HttpOnly` or `HttpsOnly`.
                
-               ->**NOTE:** If the `cdn_frontdoor_origin_group_id` is not defined you cannot set the `forwarding_protocol`.
+               > **Note:** If the `cdn_frontdoor_origin_group_id` is not defined you cannot set the `forwarding_protocol`.
         :param builtins.str query_string_caching_behavior: `IncludeSpecifiedQueryStrings` query strings specified in the `query_string_parameters` field get included when the cache key gets generated. `UseQueryString` cache every unique URL, each unique URL will have its own cache key. `IgnoreSpecifiedQueryStrings` query strings specified in the `query_string_parameters` field get excluded when the cache key gets generated. `IgnoreQueryString` query strings aren't considered when the cache key gets generated. Possible values include `IgnoreQueryString`, `UseQueryString`, `IgnoreSpecifiedQueryStrings` or `IncludeSpecifiedQueryStrings`.
         :param Sequence[builtins.str] query_string_parameters: A list of query string parameter names.
                
-               ->**NOTE:** `query_string_parameters` is a required field when the `query_string_caching_behavior` is set to `IncludeSpecifiedQueryStrings` or `IgnoreSpecifiedQueryStrings`.
+               > **Note:** `query_string_parameters` is a required field when the `query_string_caching_behavior` is set to `IncludeSpecifiedQueryStrings` or `IgnoreSpecifiedQueryStrings`.
         """
         if cache_behavior is not None:
             pulumi.set(__self__, "cache_behavior", cache_behavior)
@@ -3903,7 +3903,7 @@ class FrontdoorRuleActionsRouteConfigurationOverrideAction(dict):
         """
         Should the Front Door dynamically compress the content? Possible values include `true` or `false`.
 
-        ->**NOTE:** Content won't be compressed on AzureFrontDoor when requested content is smaller than `1 byte` or larger than `1 MB`.
+        > **Note:** Content won't be compressed on AzureFrontDoor when requested content is smaller than `1 byte` or larger than `1 MB`.
         """
         return pulumi.get(self, "compression_enabled")
 
@@ -3913,7 +3913,7 @@ class FrontdoorRuleActionsRouteConfigurationOverrideAction(dict):
         """
         The forwarding protocol the request will be redirected as. This overrides the configuration specified in the route to be associated with. Possible values include `MatchRequest`, `HttpOnly` or `HttpsOnly`.
 
-        ->**NOTE:** If the `cdn_frontdoor_origin_group_id` is not defined you cannot set the `forwarding_protocol`.
+        > **Note:** If the `cdn_frontdoor_origin_group_id` is not defined you cannot set the `forwarding_protocol`.
         """
         return pulumi.get(self, "forwarding_protocol")
 
@@ -3931,7 +3931,7 @@ class FrontdoorRuleActionsRouteConfigurationOverrideAction(dict):
         """
         A list of query string parameter names.
 
-        ->**NOTE:** `query_string_parameters` is a required field when the `query_string_caching_behavior` is set to `IncludeSpecifiedQueryStrings` or `IgnoreSpecifiedQueryStrings`.
+        > **Note:** `query_string_parameters` is a required field when the `query_string_caching_behavior` is set to `IncludeSpecifiedQueryStrings` or `IgnoreSpecifiedQueryStrings`.
         """
         return pulumi.get(self, "query_string_parameters")
 
@@ -4918,7 +4918,7 @@ class FrontdoorRuleConditionsRemoteAddressCondition(dict):
         """
         :param Sequence[builtins.str] match_values: For the IP Match or IP Not Match operators: specify one or more IP address ranges. If multiple IP address ranges are specified, they're evaluated using `OR` logic. For the Geo Match or Geo Not Match operators: specify one or more locations using their country code.
                
-               ->**NOTE:** See the `Specifying IP Address Ranges` section below on how to correctly define the `match_values` field.
+               > **Note:** See the `Specifying IP Address Ranges` section below on how to correctly define the `match_values` field.
         :param builtins.bool negate_condition: If `true` operator becomes the opposite of its value. Possible values `true` or `false`. Defaults to `false`. Details can be found in the `Condition Operator List` below.
         :param builtins.str operator: The type of the remote address to match. Possible values include `Any`, `GeoMatch` or `IPMatch`. Use the `negate_condition` to specify Not `GeoMatch` or Not `IPMatch`. Defaults to `IPMatch`.
         """
@@ -4935,7 +4935,7 @@ class FrontdoorRuleConditionsRemoteAddressCondition(dict):
         """
         For the IP Match or IP Not Match operators: specify one or more IP address ranges. If multiple IP address ranges are specified, they're evaluated using `OR` logic. For the Geo Match or Geo Not Match operators: specify one or more locations using their country code.
 
-        ->**NOTE:** See the `Specifying IP Address Ranges` section below on how to correctly define the `match_values` field.
+        > **Note:** See the `Specifying IP Address Ranges` section below on how to correctly define the `match_values` field.
         """
         return pulumi.get(self, "match_values")
 
@@ -5398,11 +5398,11 @@ class FrontdoorRuleConditionsSocketAddressCondition(dict):
         """
         :param Sequence[builtins.str] match_values: Specify one or more IP address ranges. If multiple IP address ranges are specified, they're evaluated using `OR` logic.
                
-               ->**NOTE:** See the `Specifying IP Address Ranges` section below on how to correctly define the `match_values` field.
+               > **Note:** See the `Specifying IP Address Ranges` section below on how to correctly define the `match_values` field.
         :param builtins.bool negate_condition: If `true` operator becomes the opposite of its value. Possible values `true` or `false`. Defaults to `false`. Details can be found in the `Condition Operator List` below.
         :param builtins.str operator: The type of match. The Possible values are `IpMatch` or `Any`. Defaults to `IPMatch`.
                
-               ->**NOTE:** If the value of the `operator` field is set to `IpMatch` then the `match_values` field is also required.
+               > **Note:** If the value of the `operator` field is set to `IpMatch` then the `match_values` field is also required.
         """
         if match_values is not None:
             pulumi.set(__self__, "match_values", match_values)
@@ -5417,7 +5417,7 @@ class FrontdoorRuleConditionsSocketAddressCondition(dict):
         """
         Specify one or more IP address ranges. If multiple IP address ranges are specified, they're evaluated using `OR` logic.
 
-        ->**NOTE:** See the `Specifying IP Address Ranges` section below on how to correctly define the `match_values` field.
+        > **Note:** See the `Specifying IP Address Ranges` section below on how to correctly define the `match_values` field.
         """
         return pulumi.get(self, "match_values")
 
@@ -5435,7 +5435,7 @@ class FrontdoorRuleConditionsSocketAddressCondition(dict):
         """
         The type of match. The Possible values are `IpMatch` or `Any`. Defaults to `IPMatch`.
 
-        ->**NOTE:** If the value of the `operator` field is set to `IpMatch` then the `match_values` field is also required.
+        > **Note:** If the value of the `operator` field is set to `IpMatch` then the `match_values` field is also required.
         """
         return pulumi.get(self, "operator")
 
@@ -5603,7 +5603,7 @@ class FrontdoorRuleConditionsUrlFilenameCondition(dict):
         :param builtins.str operator: A Conditional operator. Possible values include `Any`, `Equal`, `Contains`, `BeginsWith`, `EndsWith`, `LessThan`, `LessThanOrEqual`, `GreaterThan`, `GreaterThanOrEqual` or `RegEx`. Details can be found in the `Condition Operator List` below.
         :param Sequence[builtins.str] match_values: A list of one or more string or integer values(e.g. "1") representing the value of the request file name to match. If multiple values are specified, they're evaluated using `OR` logic.
                
-               > **NOTE:** The `match_values` field is only optional if the `operator` is set to `Any`.
+               > **Note:** The `match_values` field is only optional if the `operator` is set to `Any`.
         :param builtins.bool negate_condition: If `true` operator becomes the opposite of its value. Possible values `true` or `false`. Defaults to `false`. Details can be found in the `Condition Operator List` below.
         :param Sequence[builtins.str] transforms: A Conditional operator. Possible values include `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` or `UrlEncode`. Details can be found in the `Condition Transform List` below.
         """
@@ -5629,7 +5629,7 @@ class FrontdoorRuleConditionsUrlFilenameCondition(dict):
         """
         A list of one or more string or integer values(e.g. "1") representing the value of the request file name to match. If multiple values are specified, they're evaluated using `OR` logic.
 
-        > **NOTE:** The `match_values` field is only optional if the `operator` is set to `Any`.
+        > **Note:** The `match_values` field is only optional if the `operator` is set to `Any`.
         """
         return pulumi.get(self, "match_values")
 
@@ -5785,7 +5785,7 @@ class FrontdoorSecretSecretCustomerCertificate(dict):
         """
         :param builtins.str key_vault_certificate_id: The ID of the Key Vault certificate resource to use. Changing this forces a new Front Door Secret to be created.
                
-               ->**NOTE:** If you would like to use the **latest version** of the Key Vault Certificate use the Key Vault Certificates `versionless_id` attribute as the `key_vault_certificate_id` fields value(e.g. `key_vault_certificate_id = azurerm_key_vault_certificate.example.versionless_id`).
+               > **Note:** If you would like to use the **latest version** of the Key Vault Certificate use the Key Vault Certificates `versionless_id` attribute as the `key_vault_certificate_id` fields value(e.g. `key_vault_certificate_id = azurerm_key_vault_certificate.example.versionless_id`).
         :param Sequence[builtins.str] subject_alternative_names: One or more `subject alternative names` contained within the key vault certificate.
         """
         pulumi.set(__self__, "key_vault_certificate_id", key_vault_certificate_id)
@@ -5798,7 +5798,7 @@ class FrontdoorSecretSecretCustomerCertificate(dict):
         """
         The ID of the Key Vault certificate resource to use. Changing this forces a new Front Door Secret to be created.
 
-        ->**NOTE:** If you would like to use the **latest version** of the Key Vault Certificate use the Key Vault Certificates `versionless_id` attribute as the `key_vault_certificate_id` fields value(e.g. `key_vault_certificate_id = azurerm_key_vault_certificate.example.versionless_id`).
+        > **Note:** If you would like to use the **latest version** of the Key Vault Certificate use the Key Vault Certificates `versionless_id` attribute as the `key_vault_certificate_id` fields value(e.g. `key_vault_certificate_id = azurerm_key_vault_certificate.example.versionless_id`).
         """
         return pulumi.get(self, "key_vault_certificate_id")
 

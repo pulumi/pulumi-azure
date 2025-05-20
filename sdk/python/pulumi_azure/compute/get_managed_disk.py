@@ -275,6 +275,13 @@ def get_managed_disk(name: Optional[builtins.str] = None,
     pulumi.export("id", existing.id)
     ```
 
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.Compute`: 2023-04-02
+
 
     :param builtins.str name: Specifies the name of the Managed Disk.
     :param builtins.str resource_group_name: Specifies the name of the Resource Group where this Managed Disk exists.
@@ -321,6 +328,13 @@ def get_managed_disk_output(name: Optional[pulumi.Input[builtins.str]] = None,
         resource_group_name="example-resources")
     pulumi.export("id", existing.id)
     ```
+
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.Compute`: 2023-04-02
 
 
     :param builtins.str name: Specifies the name of the Managed Disk.

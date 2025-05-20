@@ -289,13 +289,20 @@ class CaaRecord(pulumi.CustomResource):
                 {
                     "flags": 0,
                     "tag": "iodef",
-                    "value": "mailto:user@nonexisting.tld",
+                    "value": "mailto:terraform@nonexisting.tld",
                 },
             ],
             tags={
                 "Environment": "Production",
             })
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Network`: 2018-05-01
 
         ## Import
 
@@ -357,13 +364,20 @@ class CaaRecord(pulumi.CustomResource):
                 {
                     "flags": 0,
                     "tag": "iodef",
-                    "value": "mailto:user@nonexisting.tld",
+                    "value": "mailto:terraform@nonexisting.tld",
                 },
             ],
             tags={
                 "Environment": "Production",
             })
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Network`: 2018-05-01
 
         ## Import
 

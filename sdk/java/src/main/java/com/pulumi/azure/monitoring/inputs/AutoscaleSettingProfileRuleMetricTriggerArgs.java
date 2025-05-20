@@ -53,7 +53,7 @@ public final class AutoscaleSettingProfileRuleMetricTriggerArgs extends com.pulu
     /**
      * The name of the metric that defines what the rule monitors, such as `Percentage CPU` for `Virtual Machine Scale Sets` and `CpuPercentage` for `App Service Plan`.
      * 
-     * &gt; **NOTE:** The allowed value of `metric_name` highly depends on the targeting resource type, please visit [Supported metrics with Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported) for more details.
+     * &gt; **Note:** The allowed value of `metric_name` highly depends on the targeting resource type, please visit [Supported metrics with Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported) for more details.
      * 
      */
     @Import(name="metricName", required=true)
@@ -62,7 +62,7 @@ public final class AutoscaleSettingProfileRuleMetricTriggerArgs extends com.pulu
     /**
      * @return The name of the metric that defines what the rule monitors, such as `Percentage CPU` for `Virtual Machine Scale Sets` and `CpuPercentage` for `App Service Plan`.
      * 
-     * &gt; **NOTE:** The allowed value of `metric_name` highly depends on the targeting resource type, please visit [Supported metrics with Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported) for more details.
+     * &gt; **Note:** The allowed value of `metric_name` highly depends on the targeting resource type, please visit [Supported metrics with Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported) for more details.
      * 
      */
     public Output<String> metricName() {
@@ -278,7 +278,7 @@ public final class AutoscaleSettingProfileRuleMetricTriggerArgs extends com.pulu
         /**
          * @param metricName The name of the metric that defines what the rule monitors, such as `Percentage CPU` for `Virtual Machine Scale Sets` and `CpuPercentage` for `App Service Plan`.
          * 
-         * &gt; **NOTE:** The allowed value of `metric_name` highly depends on the targeting resource type, please visit [Supported metrics with Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported) for more details.
+         * &gt; **Note:** The allowed value of `metric_name` highly depends on the targeting resource type, please visit [Supported metrics with Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported) for more details.
          * 
          * @return builder
          * 
@@ -291,7 +291,7 @@ public final class AutoscaleSettingProfileRuleMetricTriggerArgs extends com.pulu
         /**
          * @param metricName The name of the metric that defines what the rule monitors, such as `Percentage CPU` for `Virtual Machine Scale Sets` and `CpuPercentage` for `App Service Plan`.
          * 
-         * &gt; **NOTE:** The allowed value of `metric_name` highly depends on the targeting resource type, please visit [Supported metrics with Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported) for more details.
+         * &gt; **Note:** The allowed value of `metric_name` highly depends on the targeting resource type, please visit [Supported metrics with Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported) for more details.
          * 
          * @return builder
          * 

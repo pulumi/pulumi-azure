@@ -37,6 +37,13 @@ namespace Pulumi.Azure.ContainerService
         ///     };
         /// });
         /// ```
+        /// 
+        /// ## API Providers
+        /// 
+        /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+        /// This data source uses the following Azure API Providers:
+        /// 
+        /// * `Microsoft.ContainerService`: 2024-09-01
         /// </summary>
         public static Task<GetClusterNodePoolResult> InvokeAsync(GetClusterNodePoolArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetClusterNodePoolResult>("azure:containerservice/getClusterNodePool:getClusterNodePool", args ?? new GetClusterNodePoolArgs(), options.WithDefaults());
@@ -67,6 +74,13 @@ namespace Pulumi.Azure.ContainerService
         ///     };
         /// });
         /// ```
+        /// 
+        /// ## API Providers
+        /// 
+        /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+        /// This data source uses the following Azure API Providers:
+        /// 
+        /// * `Microsoft.ContainerService`: 2024-09-01
         /// </summary>
         public static Output<GetClusterNodePoolResult> Invoke(GetClusterNodePoolInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetClusterNodePoolResult>("azure:containerservice/getClusterNodePool:getClusterNodePool", args ?? new GetClusterNodePoolInvokeArgs(), options.WithDefaults());
@@ -97,6 +111,13 @@ namespace Pulumi.Azure.ContainerService
         ///     };
         /// });
         /// ```
+        /// 
+        /// ## API Providers
+        /// 
+        /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+        /// This data source uses the following Azure API Providers:
+        /// 
+        /// * `Microsoft.ContainerService`: 2024-09-01
         /// </summary>
         public static Output<GetClusterNodePoolResult> Invoke(GetClusterNodePoolInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetClusterNodePoolResult>("azure:containerservice/getClusterNodePool:getClusterNodePool", args ?? new GetClusterNodePoolInvokeArgs(), options.WithDefaults());

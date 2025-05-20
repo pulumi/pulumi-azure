@@ -269,6 +269,9 @@ public final class KeyvaultFunctions {
     /**
      * Use this data source to access information about an existing Key Vault Certificate.
      * 
+     * &gt; **Note:** All arguments including the secret value will be stored in the raw state as plain-text.
+     * [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
+     * 
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
@@ -318,6 +321,9 @@ public final class KeyvaultFunctions {
     }
     /**
      * Use this data source to access information about an existing Key Vault Certificate.
+     * 
+     * &gt; **Note:** All arguments including the secret value will be stored in the raw state as plain-text.
+     * [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
      * 
      * ## Example Usage
      * 
@@ -369,6 +375,9 @@ public final class KeyvaultFunctions {
     /**
      * Use this data source to access information about an existing Key Vault Certificate.
      * 
+     * &gt; **Note:** All arguments including the secret value will be stored in the raw state as plain-text.
+     * [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
+     * 
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
@@ -418,6 +427,9 @@ public final class KeyvaultFunctions {
     }
     /**
      * Use this data source to access information about an existing Key Vault Certificate.
+     * 
+     * &gt; **Note:** All arguments including the secret value will be stored in the raw state as plain-text.
+     * [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
      * 
      * ## Example Usage
      * 
@@ -469,6 +481,9 @@ public final class KeyvaultFunctions {
     /**
      * Use this data source to access information about an existing Key Vault Certificate.
      * 
+     * &gt; **Note:** All arguments including the secret value will be stored in the raw state as plain-text.
+     * [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
+     * 
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
@@ -518,6 +533,9 @@ public final class KeyvaultFunctions {
     }
     /**
      * Use this data source to access data stored in an existing Key Vault Certificate.
+     * 
+     * &gt; **Note:** All arguments including the secret value will be stored in the raw state as plain-text.
+     * [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
      * 
      * &gt; **Note:** This data source uses the `GetSecret` function of the Azure API, to get the key of the certificate. Therefore you need secret/get permission
      * 
@@ -571,6 +589,9 @@ public final class KeyvaultFunctions {
     /**
      * Use this data source to access data stored in an existing Key Vault Certificate.
      * 
+     * &gt; **Note:** All arguments including the secret value will be stored in the raw state as plain-text.
+     * [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
+     * 
      * &gt; **Note:** This data source uses the `GetSecret` function of the Azure API, to get the key of the certificate. Therefore you need secret/get permission
      * 
      * ## Example Usage
@@ -622,6 +643,9 @@ public final class KeyvaultFunctions {
     }
     /**
      * Use this data source to access data stored in an existing Key Vault Certificate.
+     * 
+     * &gt; **Note:** All arguments including the secret value will be stored in the raw state as plain-text.
+     * [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
      * 
      * &gt; **Note:** This data source uses the `GetSecret` function of the Azure API, to get the key of the certificate. Therefore you need secret/get permission
      * 
@@ -675,6 +699,9 @@ public final class KeyvaultFunctions {
     /**
      * Use this data source to access data stored in an existing Key Vault Certificate.
      * 
+     * &gt; **Note:** All arguments including the secret value will be stored in the raw state as plain-text.
+     * [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
+     * 
      * &gt; **Note:** This data source uses the `GetSecret` function of the Azure API, to get the key of the certificate. Therefore you need secret/get permission
      * 
      * ## Example Usage
@@ -726,6 +753,9 @@ public final class KeyvaultFunctions {
     }
     /**
      * Use this data source to access data stored in an existing Key Vault Certificate.
+     * 
+     * &gt; **Note:** All arguments including the secret value will be stored in the raw state as plain-text.
+     * [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
      * 
      * &gt; **Note:** This data source uses the `GetSecret` function of the Azure API, to get the key of the certificate. Therefore you need secret/get permission
      * 
@@ -1099,6 +1129,9 @@ public final class KeyvaultFunctions {
     /**
      * Use this data source to access information about an existing Key Vault Key.
      * 
+     * &gt; **Note:** All arguments including the secret value will be stored in the raw state as plain-text.
+     * [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
+     * 
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
@@ -1142,6 +1175,9 @@ public final class KeyvaultFunctions {
     }
     /**
      * Use this data source to access information about an existing Key Vault Key.
+     * 
+     * &gt; **Note:** All arguments including the secret value will be stored in the raw state as plain-text.
+     * [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
      * 
      * ## Example Usage
      * 
@@ -1187,6 +1223,9 @@ public final class KeyvaultFunctions {
     /**
      * Use this data source to access information about an existing Key Vault Key.
      * 
+     * &gt; **Note:** All arguments including the secret value will be stored in the raw state as plain-text.
+     * [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
+     * 
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
@@ -1231,6 +1270,9 @@ public final class KeyvaultFunctions {
     /**
      * Use this data source to access information about an existing Key Vault Key.
      * 
+     * &gt; **Note:** All arguments including the secret value will be stored in the raw state as plain-text.
+     * [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
+     * 
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
@@ -1274,6 +1316,9 @@ public final class KeyvaultFunctions {
     }
     /**
      * Use this data source to access information about an existing Key Vault Key.
+     * 
+     * &gt; **Note:** All arguments including the secret value will be stored in the raw state as plain-text.
+     * [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
      * 
      * ## Example Usage
      * 
@@ -1576,6 +1621,13 @@ public final class KeyvaultFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.KeyVault`: 2023-07-01
+     * 
      */
     public static Output<GetManagedHardwareSecurityModuleResult> getManagedHardwareSecurityModule(GetManagedHardwareSecurityModuleArgs args) {
         return getManagedHardwareSecurityModule(args, InvokeOptions.Empty);
@@ -1619,6 +1671,13 @@ public final class KeyvaultFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.KeyVault`: 2023-07-01
      * 
      */
     public static CompletableFuture<GetManagedHardwareSecurityModuleResult> getManagedHardwareSecurityModulePlain(GetManagedHardwareSecurityModulePlainArgs args) {
@@ -1664,6 +1723,13 @@ public final class KeyvaultFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.KeyVault`: 2023-07-01
+     * 
      */
     public static Output<GetManagedHardwareSecurityModuleResult> getManagedHardwareSecurityModule(GetManagedHardwareSecurityModuleArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:keyvault/getManagedHardwareSecurityModule:getManagedHardwareSecurityModule", TypeShape.of(GetManagedHardwareSecurityModuleResult.class), args, Utilities.withVersion(options));
@@ -1708,6 +1774,13 @@ public final class KeyvaultFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.KeyVault`: 2023-07-01
+     * 
      */
     public static Output<GetManagedHardwareSecurityModuleResult> getManagedHardwareSecurityModule(GetManagedHardwareSecurityModuleArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("azure:keyvault/getManagedHardwareSecurityModule:getManagedHardwareSecurityModule", TypeShape.of(GetManagedHardwareSecurityModuleResult.class), args, Utilities.withVersion(options));
@@ -1751,6 +1824,13 @@ public final class KeyvaultFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.KeyVault`: 2023-07-01
      * 
      */
     public static CompletableFuture<GetManagedHardwareSecurityModuleResult> getManagedHardwareSecurityModulePlain(GetManagedHardwareSecurityModulePlainArgs args, InvokeOptions options) {
@@ -2214,6 +2294,9 @@ public final class KeyvaultFunctions {
     /**
      * Use this data source to access information about an existing Key Vault Secret.
      * 
+     * &gt; **Note:** All arguments including the secret value will be stored in the raw state as plain-text.
+     * [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
+     * 
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
@@ -2257,6 +2340,9 @@ public final class KeyvaultFunctions {
     }
     /**
      * Use this data source to access information about an existing Key Vault Secret.
+     * 
+     * &gt; **Note:** All arguments including the secret value will be stored in the raw state as plain-text.
+     * [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
      * 
      * ## Example Usage
      * 
@@ -2302,6 +2388,9 @@ public final class KeyvaultFunctions {
     /**
      * Use this data source to access information about an existing Key Vault Secret.
      * 
+     * &gt; **Note:** All arguments including the secret value will be stored in the raw state as plain-text.
+     * [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
+     * 
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
@@ -2346,6 +2435,9 @@ public final class KeyvaultFunctions {
     /**
      * Use this data source to access information about an existing Key Vault Secret.
      * 
+     * &gt; **Note:** All arguments including the secret value will be stored in the raw state as plain-text.
+     * [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
+     * 
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
@@ -2389,6 +2481,9 @@ public final class KeyvaultFunctions {
     }
     /**
      * Use this data source to access information about an existing Key Vault Secret.
+     * 
+     * &gt; **Note:** All arguments including the secret value will be stored in the raw state as plain-text.
+     * [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
      * 
      * ## Example Usage
      * 

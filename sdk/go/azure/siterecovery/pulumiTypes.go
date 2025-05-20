@@ -221,7 +221,7 @@ type ReplicatedVMManagedDisk struct {
 	TargetDiskEncryption *ReplicatedVMManagedDiskTargetDiskEncryption `pulumi:"targetDiskEncryption"`
 	// The Disk Encryption Set that the Managed Disk will be associated with. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** Creating replicated vm with `targetDiskEncryptionSetId` wil take more time (up to 5 hours), please extend the `timeout` for `create`.
+	// > **Note:** Creating replicated vm with `targetDiskEncryptionSetId` wil take more time (up to 5 hours), please extend the `timeout` for `create`.
 	TargetDiskEncryptionSetId *string `pulumi:"targetDiskEncryptionSetId"`
 	// What type should the disk be when a failover is done. Possible values are `Standard_LRS`, `Premium_LRS`, `StandardSSD_LRS` and `UltraSSD_LRS`. Changing this forces a new resource to be created.
 	TargetDiskType string `pulumi:"targetDiskType"`
@@ -251,7 +251,7 @@ type ReplicatedVMManagedDiskArgs struct {
 	TargetDiskEncryption ReplicatedVMManagedDiskTargetDiskEncryptionPtrInput `pulumi:"targetDiskEncryption"`
 	// The Disk Encryption Set that the Managed Disk will be associated with. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** Creating replicated vm with `targetDiskEncryptionSetId` wil take more time (up to 5 hours), please extend the `timeout` for `create`.
+	// > **Note:** Creating replicated vm with `targetDiskEncryptionSetId` wil take more time (up to 5 hours), please extend the `timeout` for `create`.
 	TargetDiskEncryptionSetId pulumi.StringPtrInput `pulumi:"targetDiskEncryptionSetId"`
 	// What type should the disk be when a failover is done. Possible values are `Standard_LRS`, `Premium_LRS`, `StandardSSD_LRS` and `UltraSSD_LRS`. Changing this forces a new resource to be created.
 	TargetDiskType pulumi.StringInput `pulumi:"targetDiskType"`
@@ -331,7 +331,7 @@ func (o ReplicatedVMManagedDiskOutput) TargetDiskEncryption() ReplicatedVMManage
 
 // The Disk Encryption Set that the Managed Disk will be associated with. Changing this forces a new resource to be created.
 //
-// > **NOTE:** Creating replicated vm with `targetDiskEncryptionSetId` wil take more time (up to 5 hours), please extend the `timeout` for `create`.
+// > **Note:** Creating replicated vm with `targetDiskEncryptionSetId` wil take more time (up to 5 hours), please extend the `timeout` for `create`.
 func (o ReplicatedVMManagedDiskOutput) TargetDiskEncryptionSetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ReplicatedVMManagedDisk) *string { return v.TargetDiskEncryptionSetId }).(pulumi.StringPtrOutput)
 }
@@ -1450,7 +1450,7 @@ func (o ReplicationRecoveryPlanBootRecoveryGroupArrayOutput) Index(i pulumi.IntI
 type ReplicationRecoveryPlanBootRecoveryGroupPostAction struct {
 	// The fabric location of runbook or script. Possible values are `Primary` and `Recovery`. It must not be specified when `type` is `ManualActionDetails`.
 	//
-	// > **NOTE:** This is required when `type` is set to `AutomationRunbookActionDetails` or `ScriptActionDetails`.
+	// > **Note:** This is required when `type` is set to `AutomationRunbookActionDetails` or `ScriptActionDetails`.
 	FabricLocation *string `pulumi:"fabricLocation"`
 	// Directions of fail over. Possible values are `PrimaryToRecovery` and `RecoveryToPrimary`
 	FailOverDirections []string `pulumi:"failOverDirections"`
@@ -1458,17 +1458,17 @@ type ReplicationRecoveryPlanBootRecoveryGroupPostAction struct {
 	FailOverTypes []string `pulumi:"failOverTypes"`
 	// Instructions of manual action.
 	//
-	// > **NOTE:** This property is required when `type` is set to `ManualActionDetails`.
+	// > **Note:** This property is required when `type` is set to `ManualActionDetails`.
 	ManualActionInstruction *string `pulumi:"manualActionInstruction"`
 	// The name of the Replication Plan. The name can contain only letters, numbers, and hyphens. It should start with a letter and end with a letter or a number. Can be a maximum of 63 characters. Changing this forces a new resource to be created.
 	Name string `pulumi:"name"`
 	// Id of runbook.
 	//
-	// > **NOTE:** This property is required when `type` is set to `AutomationRunbookActionDetails`.
+	// > **Note:** This property is required when `type` is set to `AutomationRunbookActionDetails`.
 	RunbookId *string `pulumi:"runbookId"`
 	// Path of action script.
 	//
-	// > **NOTE:** This property is required when `type` is set to `ScriptActionDetails`.
+	// > **Note:** This property is required when `type` is set to `ScriptActionDetails`.
 	ScriptPath *string `pulumi:"scriptPath"`
 	// Type of the action detail. Possible values are `AutomationRunbookActionDetails`, `ManualActionDetails` and `ScriptActionDetails`.
 	Type string `pulumi:"type"`
@@ -1488,7 +1488,7 @@ type ReplicationRecoveryPlanBootRecoveryGroupPostActionInput interface {
 type ReplicationRecoveryPlanBootRecoveryGroupPostActionArgs struct {
 	// The fabric location of runbook or script. Possible values are `Primary` and `Recovery`. It must not be specified when `type` is `ManualActionDetails`.
 	//
-	// > **NOTE:** This is required when `type` is set to `AutomationRunbookActionDetails` or `ScriptActionDetails`.
+	// > **Note:** This is required when `type` is set to `AutomationRunbookActionDetails` or `ScriptActionDetails`.
 	FabricLocation pulumi.StringPtrInput `pulumi:"fabricLocation"`
 	// Directions of fail over. Possible values are `PrimaryToRecovery` and `RecoveryToPrimary`
 	FailOverDirections pulumi.StringArrayInput `pulumi:"failOverDirections"`
@@ -1496,17 +1496,17 @@ type ReplicationRecoveryPlanBootRecoveryGroupPostActionArgs struct {
 	FailOverTypes pulumi.StringArrayInput `pulumi:"failOverTypes"`
 	// Instructions of manual action.
 	//
-	// > **NOTE:** This property is required when `type` is set to `ManualActionDetails`.
+	// > **Note:** This property is required when `type` is set to `ManualActionDetails`.
 	ManualActionInstruction pulumi.StringPtrInput `pulumi:"manualActionInstruction"`
 	// The name of the Replication Plan. The name can contain only letters, numbers, and hyphens. It should start with a letter and end with a letter or a number. Can be a maximum of 63 characters. Changing this forces a new resource to be created.
 	Name pulumi.StringInput `pulumi:"name"`
 	// Id of runbook.
 	//
-	// > **NOTE:** This property is required when `type` is set to `AutomationRunbookActionDetails`.
+	// > **Note:** This property is required when `type` is set to `AutomationRunbookActionDetails`.
 	RunbookId pulumi.StringPtrInput `pulumi:"runbookId"`
 	// Path of action script.
 	//
-	// > **NOTE:** This property is required when `type` is set to `ScriptActionDetails`.
+	// > **Note:** This property is required when `type` is set to `ScriptActionDetails`.
 	ScriptPath pulumi.StringPtrInput `pulumi:"scriptPath"`
 	// Type of the action detail. Possible values are `AutomationRunbookActionDetails`, `ManualActionDetails` and `ScriptActionDetails`.
 	Type pulumi.StringInput `pulumi:"type"`
@@ -1565,7 +1565,7 @@ func (o ReplicationRecoveryPlanBootRecoveryGroupPostActionOutput) ToReplicationR
 
 // The fabric location of runbook or script. Possible values are `Primary` and `Recovery`. It must not be specified when `type` is `ManualActionDetails`.
 //
-// > **NOTE:** This is required when `type` is set to `AutomationRunbookActionDetails` or `ScriptActionDetails`.
+// > **Note:** This is required when `type` is set to `AutomationRunbookActionDetails` or `ScriptActionDetails`.
 func (o ReplicationRecoveryPlanBootRecoveryGroupPostActionOutput) FabricLocation() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ReplicationRecoveryPlanBootRecoveryGroupPostAction) *string { return v.FabricLocation }).(pulumi.StringPtrOutput)
 }
@@ -1582,7 +1582,7 @@ func (o ReplicationRecoveryPlanBootRecoveryGroupPostActionOutput) FailOverTypes(
 
 // Instructions of manual action.
 //
-// > **NOTE:** This property is required when `type` is set to `ManualActionDetails`.
+// > **Note:** This property is required when `type` is set to `ManualActionDetails`.
 func (o ReplicationRecoveryPlanBootRecoveryGroupPostActionOutput) ManualActionInstruction() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ReplicationRecoveryPlanBootRecoveryGroupPostAction) *string { return v.ManualActionInstruction }).(pulumi.StringPtrOutput)
 }
@@ -1594,14 +1594,14 @@ func (o ReplicationRecoveryPlanBootRecoveryGroupPostActionOutput) Name() pulumi.
 
 // Id of runbook.
 //
-// > **NOTE:** This property is required when `type` is set to `AutomationRunbookActionDetails`.
+// > **Note:** This property is required when `type` is set to `AutomationRunbookActionDetails`.
 func (o ReplicationRecoveryPlanBootRecoveryGroupPostActionOutput) RunbookId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ReplicationRecoveryPlanBootRecoveryGroupPostAction) *string { return v.RunbookId }).(pulumi.StringPtrOutput)
 }
 
 // Path of action script.
 //
-// > **NOTE:** This property is required when `type` is set to `ScriptActionDetails`.
+// > **Note:** This property is required when `type` is set to `ScriptActionDetails`.
 func (o ReplicationRecoveryPlanBootRecoveryGroupPostActionOutput) ScriptPath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ReplicationRecoveryPlanBootRecoveryGroupPostAction) *string { return v.ScriptPath }).(pulumi.StringPtrOutput)
 }
@@ -1634,7 +1634,7 @@ func (o ReplicationRecoveryPlanBootRecoveryGroupPostActionArrayOutput) Index(i p
 type ReplicationRecoveryPlanBootRecoveryGroupPreAction struct {
 	// The fabric location of runbook or script. Possible values are `Primary` and `Recovery`. It must not be specified when `type` is `ManualActionDetails`.
 	//
-	// > **NOTE:** This is required when `type` is set to `AutomationRunbookActionDetails` or `ScriptActionDetails`.
+	// > **Note:** This is required when `type` is set to `AutomationRunbookActionDetails` or `ScriptActionDetails`.
 	FabricLocation *string `pulumi:"fabricLocation"`
 	// Directions of fail over. Possible values are `PrimaryToRecovery` and `RecoveryToPrimary`
 	FailOverDirections []string `pulumi:"failOverDirections"`
@@ -1642,17 +1642,17 @@ type ReplicationRecoveryPlanBootRecoveryGroupPreAction struct {
 	FailOverTypes []string `pulumi:"failOverTypes"`
 	// Instructions of manual action.
 	//
-	// > **NOTE:** This property is required when `type` is set to `ManualActionDetails`.
+	// > **Note:** This property is required when `type` is set to `ManualActionDetails`.
 	ManualActionInstruction *string `pulumi:"manualActionInstruction"`
 	// The name of the Replication Plan. The name can contain only letters, numbers, and hyphens. It should start with a letter and end with a letter or a number. Can be a maximum of 63 characters. Changing this forces a new resource to be created.
 	Name string `pulumi:"name"`
 	// Id of runbook.
 	//
-	// > **NOTE:** This property is required when `type` is set to `AutomationRunbookActionDetails`.
+	// > **Note:** This property is required when `type` is set to `AutomationRunbookActionDetails`.
 	RunbookId *string `pulumi:"runbookId"`
 	// Path of action script.
 	//
-	// > **NOTE:** This property is required when `type` is set to `ScriptActionDetails`.
+	// > **Note:** This property is required when `type` is set to `ScriptActionDetails`.
 	ScriptPath *string `pulumi:"scriptPath"`
 	// Type of the action detail. Possible values are `AutomationRunbookActionDetails`, `ManualActionDetails` and `ScriptActionDetails`.
 	Type string `pulumi:"type"`
@@ -1672,7 +1672,7 @@ type ReplicationRecoveryPlanBootRecoveryGroupPreActionInput interface {
 type ReplicationRecoveryPlanBootRecoveryGroupPreActionArgs struct {
 	// The fabric location of runbook or script. Possible values are `Primary` and `Recovery`. It must not be specified when `type` is `ManualActionDetails`.
 	//
-	// > **NOTE:** This is required when `type` is set to `AutomationRunbookActionDetails` or `ScriptActionDetails`.
+	// > **Note:** This is required when `type` is set to `AutomationRunbookActionDetails` or `ScriptActionDetails`.
 	FabricLocation pulumi.StringPtrInput `pulumi:"fabricLocation"`
 	// Directions of fail over. Possible values are `PrimaryToRecovery` and `RecoveryToPrimary`
 	FailOverDirections pulumi.StringArrayInput `pulumi:"failOverDirections"`
@@ -1680,17 +1680,17 @@ type ReplicationRecoveryPlanBootRecoveryGroupPreActionArgs struct {
 	FailOverTypes pulumi.StringArrayInput `pulumi:"failOverTypes"`
 	// Instructions of manual action.
 	//
-	// > **NOTE:** This property is required when `type` is set to `ManualActionDetails`.
+	// > **Note:** This property is required when `type` is set to `ManualActionDetails`.
 	ManualActionInstruction pulumi.StringPtrInput `pulumi:"manualActionInstruction"`
 	// The name of the Replication Plan. The name can contain only letters, numbers, and hyphens. It should start with a letter and end with a letter or a number. Can be a maximum of 63 characters. Changing this forces a new resource to be created.
 	Name pulumi.StringInput `pulumi:"name"`
 	// Id of runbook.
 	//
-	// > **NOTE:** This property is required when `type` is set to `AutomationRunbookActionDetails`.
+	// > **Note:** This property is required when `type` is set to `AutomationRunbookActionDetails`.
 	RunbookId pulumi.StringPtrInput `pulumi:"runbookId"`
 	// Path of action script.
 	//
-	// > **NOTE:** This property is required when `type` is set to `ScriptActionDetails`.
+	// > **Note:** This property is required when `type` is set to `ScriptActionDetails`.
 	ScriptPath pulumi.StringPtrInput `pulumi:"scriptPath"`
 	// Type of the action detail. Possible values are `AutomationRunbookActionDetails`, `ManualActionDetails` and `ScriptActionDetails`.
 	Type pulumi.StringInput `pulumi:"type"`
@@ -1749,7 +1749,7 @@ func (o ReplicationRecoveryPlanBootRecoveryGroupPreActionOutput) ToReplicationRe
 
 // The fabric location of runbook or script. Possible values are `Primary` and `Recovery`. It must not be specified when `type` is `ManualActionDetails`.
 //
-// > **NOTE:** This is required when `type` is set to `AutomationRunbookActionDetails` or `ScriptActionDetails`.
+// > **Note:** This is required when `type` is set to `AutomationRunbookActionDetails` or `ScriptActionDetails`.
 func (o ReplicationRecoveryPlanBootRecoveryGroupPreActionOutput) FabricLocation() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ReplicationRecoveryPlanBootRecoveryGroupPreAction) *string { return v.FabricLocation }).(pulumi.StringPtrOutput)
 }
@@ -1766,7 +1766,7 @@ func (o ReplicationRecoveryPlanBootRecoveryGroupPreActionOutput) FailOverTypes()
 
 // Instructions of manual action.
 //
-// > **NOTE:** This property is required when `type` is set to `ManualActionDetails`.
+// > **Note:** This property is required when `type` is set to `ManualActionDetails`.
 func (o ReplicationRecoveryPlanBootRecoveryGroupPreActionOutput) ManualActionInstruction() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ReplicationRecoveryPlanBootRecoveryGroupPreAction) *string { return v.ManualActionInstruction }).(pulumi.StringPtrOutput)
 }
@@ -1778,14 +1778,14 @@ func (o ReplicationRecoveryPlanBootRecoveryGroupPreActionOutput) Name() pulumi.S
 
 // Id of runbook.
 //
-// > **NOTE:** This property is required when `type` is set to `AutomationRunbookActionDetails`.
+// > **Note:** This property is required when `type` is set to `AutomationRunbookActionDetails`.
 func (o ReplicationRecoveryPlanBootRecoveryGroupPreActionOutput) RunbookId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ReplicationRecoveryPlanBootRecoveryGroupPreAction) *string { return v.RunbookId }).(pulumi.StringPtrOutput)
 }
 
 // Path of action script.
 //
-// > **NOTE:** This property is required when `type` is set to `ScriptActionDetails`.
+// > **Note:** This property is required when `type` is set to `ScriptActionDetails`.
 func (o ReplicationRecoveryPlanBootRecoveryGroupPreActionOutput) ScriptPath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ReplicationRecoveryPlanBootRecoveryGroupPreAction) *string { return v.ScriptPath }).(pulumi.StringPtrOutput)
 }
@@ -1978,7 +1978,7 @@ func (o ReplicationRecoveryPlanFailoverRecoveryGroupPtrOutput) PreActions() Repl
 type ReplicationRecoveryPlanFailoverRecoveryGroupPostAction struct {
 	// The fabric location of runbook or script. Possible values are `Primary` and `Recovery`. It must not be specified when `type` is `ManualActionDetails`.
 	//
-	// > **NOTE:** This is required when `type` is set to `AutomationRunbookActionDetails` or `ScriptActionDetails`.
+	// > **Note:** This is required when `type` is set to `AutomationRunbookActionDetails` or `ScriptActionDetails`.
 	FabricLocation *string `pulumi:"fabricLocation"`
 	// Directions of fail over. Possible values are `PrimaryToRecovery` and `RecoveryToPrimary`
 	FailOverDirections []string `pulumi:"failOverDirections"`
@@ -1986,17 +1986,17 @@ type ReplicationRecoveryPlanFailoverRecoveryGroupPostAction struct {
 	FailOverTypes []string `pulumi:"failOverTypes"`
 	// Instructions of manual action.
 	//
-	// > **NOTE:** This property is required when `type` is set to `ManualActionDetails`.
+	// > **Note:** This property is required when `type` is set to `ManualActionDetails`.
 	ManualActionInstruction *string `pulumi:"manualActionInstruction"`
 	// The name of the Replication Plan. The name can contain only letters, numbers, and hyphens. It should start with a letter and end with a letter or a number. Can be a maximum of 63 characters. Changing this forces a new resource to be created.
 	Name string `pulumi:"name"`
 	// Id of runbook.
 	//
-	// > **NOTE:** This property is required when `type` is set to `AutomationRunbookActionDetails`.
+	// > **Note:** This property is required when `type` is set to `AutomationRunbookActionDetails`.
 	RunbookId *string `pulumi:"runbookId"`
 	// Path of action script.
 	//
-	// > **NOTE:** This property is required when `type` is set to `ScriptActionDetails`.
+	// > **Note:** This property is required when `type` is set to `ScriptActionDetails`.
 	ScriptPath *string `pulumi:"scriptPath"`
 	// Type of the action detail. Possible values are `AutomationRunbookActionDetails`, `ManualActionDetails` and `ScriptActionDetails`.
 	Type string `pulumi:"type"`
@@ -2016,7 +2016,7 @@ type ReplicationRecoveryPlanFailoverRecoveryGroupPostActionInput interface {
 type ReplicationRecoveryPlanFailoverRecoveryGroupPostActionArgs struct {
 	// The fabric location of runbook or script. Possible values are `Primary` and `Recovery`. It must not be specified when `type` is `ManualActionDetails`.
 	//
-	// > **NOTE:** This is required when `type` is set to `AutomationRunbookActionDetails` or `ScriptActionDetails`.
+	// > **Note:** This is required when `type` is set to `AutomationRunbookActionDetails` or `ScriptActionDetails`.
 	FabricLocation pulumi.StringPtrInput `pulumi:"fabricLocation"`
 	// Directions of fail over. Possible values are `PrimaryToRecovery` and `RecoveryToPrimary`
 	FailOverDirections pulumi.StringArrayInput `pulumi:"failOverDirections"`
@@ -2024,17 +2024,17 @@ type ReplicationRecoveryPlanFailoverRecoveryGroupPostActionArgs struct {
 	FailOverTypes pulumi.StringArrayInput `pulumi:"failOverTypes"`
 	// Instructions of manual action.
 	//
-	// > **NOTE:** This property is required when `type` is set to `ManualActionDetails`.
+	// > **Note:** This property is required when `type` is set to `ManualActionDetails`.
 	ManualActionInstruction pulumi.StringPtrInput `pulumi:"manualActionInstruction"`
 	// The name of the Replication Plan. The name can contain only letters, numbers, and hyphens. It should start with a letter and end with a letter or a number. Can be a maximum of 63 characters. Changing this forces a new resource to be created.
 	Name pulumi.StringInput `pulumi:"name"`
 	// Id of runbook.
 	//
-	// > **NOTE:** This property is required when `type` is set to `AutomationRunbookActionDetails`.
+	// > **Note:** This property is required when `type` is set to `AutomationRunbookActionDetails`.
 	RunbookId pulumi.StringPtrInput `pulumi:"runbookId"`
 	// Path of action script.
 	//
-	// > **NOTE:** This property is required when `type` is set to `ScriptActionDetails`.
+	// > **Note:** This property is required when `type` is set to `ScriptActionDetails`.
 	ScriptPath pulumi.StringPtrInput `pulumi:"scriptPath"`
 	// Type of the action detail. Possible values are `AutomationRunbookActionDetails`, `ManualActionDetails` and `ScriptActionDetails`.
 	Type pulumi.StringInput `pulumi:"type"`
@@ -2093,7 +2093,7 @@ func (o ReplicationRecoveryPlanFailoverRecoveryGroupPostActionOutput) ToReplicat
 
 // The fabric location of runbook or script. Possible values are `Primary` and `Recovery`. It must not be specified when `type` is `ManualActionDetails`.
 //
-// > **NOTE:** This is required when `type` is set to `AutomationRunbookActionDetails` or `ScriptActionDetails`.
+// > **Note:** This is required when `type` is set to `AutomationRunbookActionDetails` or `ScriptActionDetails`.
 func (o ReplicationRecoveryPlanFailoverRecoveryGroupPostActionOutput) FabricLocation() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ReplicationRecoveryPlanFailoverRecoveryGroupPostAction) *string { return v.FabricLocation }).(pulumi.StringPtrOutput)
 }
@@ -2110,7 +2110,7 @@ func (o ReplicationRecoveryPlanFailoverRecoveryGroupPostActionOutput) FailOverTy
 
 // Instructions of manual action.
 //
-// > **NOTE:** This property is required when `type` is set to `ManualActionDetails`.
+// > **Note:** This property is required when `type` is set to `ManualActionDetails`.
 func (o ReplicationRecoveryPlanFailoverRecoveryGroupPostActionOutput) ManualActionInstruction() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ReplicationRecoveryPlanFailoverRecoveryGroupPostAction) *string {
 		return v.ManualActionInstruction
@@ -2124,14 +2124,14 @@ func (o ReplicationRecoveryPlanFailoverRecoveryGroupPostActionOutput) Name() pul
 
 // Id of runbook.
 //
-// > **NOTE:** This property is required when `type` is set to `AutomationRunbookActionDetails`.
+// > **Note:** This property is required when `type` is set to `AutomationRunbookActionDetails`.
 func (o ReplicationRecoveryPlanFailoverRecoveryGroupPostActionOutput) RunbookId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ReplicationRecoveryPlanFailoverRecoveryGroupPostAction) *string { return v.RunbookId }).(pulumi.StringPtrOutput)
 }
 
 // Path of action script.
 //
-// > **NOTE:** This property is required when `type` is set to `ScriptActionDetails`.
+// > **Note:** This property is required when `type` is set to `ScriptActionDetails`.
 func (o ReplicationRecoveryPlanFailoverRecoveryGroupPostActionOutput) ScriptPath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ReplicationRecoveryPlanFailoverRecoveryGroupPostAction) *string { return v.ScriptPath }).(pulumi.StringPtrOutput)
 }
@@ -2164,7 +2164,7 @@ func (o ReplicationRecoveryPlanFailoverRecoveryGroupPostActionArrayOutput) Index
 type ReplicationRecoveryPlanFailoverRecoveryGroupPreAction struct {
 	// The fabric location of runbook or script. Possible values are `Primary` and `Recovery`. It must not be specified when `type` is `ManualActionDetails`.
 	//
-	// > **NOTE:** This is required when `type` is set to `AutomationRunbookActionDetails` or `ScriptActionDetails`.
+	// > **Note:** This is required when `type` is set to `AutomationRunbookActionDetails` or `ScriptActionDetails`.
 	FabricLocation *string `pulumi:"fabricLocation"`
 	// Directions of fail over. Possible values are `PrimaryToRecovery` and `RecoveryToPrimary`
 	FailOverDirections []string `pulumi:"failOverDirections"`
@@ -2172,17 +2172,17 @@ type ReplicationRecoveryPlanFailoverRecoveryGroupPreAction struct {
 	FailOverTypes []string `pulumi:"failOverTypes"`
 	// Instructions of manual action.
 	//
-	// > **NOTE:** This property is required when `type` is set to `ManualActionDetails`.
+	// > **Note:** This property is required when `type` is set to `ManualActionDetails`.
 	ManualActionInstruction *string `pulumi:"manualActionInstruction"`
 	// The name of the Replication Plan. The name can contain only letters, numbers, and hyphens. It should start with a letter and end with a letter or a number. Can be a maximum of 63 characters. Changing this forces a new resource to be created.
 	Name string `pulumi:"name"`
 	// Id of runbook.
 	//
-	// > **NOTE:** This property is required when `type` is set to `AutomationRunbookActionDetails`.
+	// > **Note:** This property is required when `type` is set to `AutomationRunbookActionDetails`.
 	RunbookId *string `pulumi:"runbookId"`
 	// Path of action script.
 	//
-	// > **NOTE:** This property is required when `type` is set to `ScriptActionDetails`.
+	// > **Note:** This property is required when `type` is set to `ScriptActionDetails`.
 	ScriptPath *string `pulumi:"scriptPath"`
 	// Type of the action detail. Possible values are `AutomationRunbookActionDetails`, `ManualActionDetails` and `ScriptActionDetails`.
 	Type string `pulumi:"type"`
@@ -2202,7 +2202,7 @@ type ReplicationRecoveryPlanFailoverRecoveryGroupPreActionInput interface {
 type ReplicationRecoveryPlanFailoverRecoveryGroupPreActionArgs struct {
 	// The fabric location of runbook or script. Possible values are `Primary` and `Recovery`. It must not be specified when `type` is `ManualActionDetails`.
 	//
-	// > **NOTE:** This is required when `type` is set to `AutomationRunbookActionDetails` or `ScriptActionDetails`.
+	// > **Note:** This is required when `type` is set to `AutomationRunbookActionDetails` or `ScriptActionDetails`.
 	FabricLocation pulumi.StringPtrInput `pulumi:"fabricLocation"`
 	// Directions of fail over. Possible values are `PrimaryToRecovery` and `RecoveryToPrimary`
 	FailOverDirections pulumi.StringArrayInput `pulumi:"failOverDirections"`
@@ -2210,17 +2210,17 @@ type ReplicationRecoveryPlanFailoverRecoveryGroupPreActionArgs struct {
 	FailOverTypes pulumi.StringArrayInput `pulumi:"failOverTypes"`
 	// Instructions of manual action.
 	//
-	// > **NOTE:** This property is required when `type` is set to `ManualActionDetails`.
+	// > **Note:** This property is required when `type` is set to `ManualActionDetails`.
 	ManualActionInstruction pulumi.StringPtrInput `pulumi:"manualActionInstruction"`
 	// The name of the Replication Plan. The name can contain only letters, numbers, and hyphens. It should start with a letter and end with a letter or a number. Can be a maximum of 63 characters. Changing this forces a new resource to be created.
 	Name pulumi.StringInput `pulumi:"name"`
 	// Id of runbook.
 	//
-	// > **NOTE:** This property is required when `type` is set to `AutomationRunbookActionDetails`.
+	// > **Note:** This property is required when `type` is set to `AutomationRunbookActionDetails`.
 	RunbookId pulumi.StringPtrInput `pulumi:"runbookId"`
 	// Path of action script.
 	//
-	// > **NOTE:** This property is required when `type` is set to `ScriptActionDetails`.
+	// > **Note:** This property is required when `type` is set to `ScriptActionDetails`.
 	ScriptPath pulumi.StringPtrInput `pulumi:"scriptPath"`
 	// Type of the action detail. Possible values are `AutomationRunbookActionDetails`, `ManualActionDetails` and `ScriptActionDetails`.
 	Type pulumi.StringInput `pulumi:"type"`
@@ -2279,7 +2279,7 @@ func (o ReplicationRecoveryPlanFailoverRecoveryGroupPreActionOutput) ToReplicati
 
 // The fabric location of runbook or script. Possible values are `Primary` and `Recovery`. It must not be specified when `type` is `ManualActionDetails`.
 //
-// > **NOTE:** This is required when `type` is set to `AutomationRunbookActionDetails` or `ScriptActionDetails`.
+// > **Note:** This is required when `type` is set to `AutomationRunbookActionDetails` or `ScriptActionDetails`.
 func (o ReplicationRecoveryPlanFailoverRecoveryGroupPreActionOutput) FabricLocation() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ReplicationRecoveryPlanFailoverRecoveryGroupPreAction) *string { return v.FabricLocation }).(pulumi.StringPtrOutput)
 }
@@ -2296,7 +2296,7 @@ func (o ReplicationRecoveryPlanFailoverRecoveryGroupPreActionOutput) FailOverTyp
 
 // Instructions of manual action.
 //
-// > **NOTE:** This property is required when `type` is set to `ManualActionDetails`.
+// > **Note:** This property is required when `type` is set to `ManualActionDetails`.
 func (o ReplicationRecoveryPlanFailoverRecoveryGroupPreActionOutput) ManualActionInstruction() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ReplicationRecoveryPlanFailoverRecoveryGroupPreAction) *string {
 		return v.ManualActionInstruction
@@ -2310,14 +2310,14 @@ func (o ReplicationRecoveryPlanFailoverRecoveryGroupPreActionOutput) Name() pulu
 
 // Id of runbook.
 //
-// > **NOTE:** This property is required when `type` is set to `AutomationRunbookActionDetails`.
+// > **Note:** This property is required when `type` is set to `AutomationRunbookActionDetails`.
 func (o ReplicationRecoveryPlanFailoverRecoveryGroupPreActionOutput) RunbookId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ReplicationRecoveryPlanFailoverRecoveryGroupPreAction) *string { return v.RunbookId }).(pulumi.StringPtrOutput)
 }
 
 // Path of action script.
 //
-// > **NOTE:** This property is required when `type` is set to `ScriptActionDetails`.
+// > **Note:** This property is required when `type` is set to `ScriptActionDetails`.
 func (o ReplicationRecoveryPlanFailoverRecoveryGroupPreActionOutput) ScriptPath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ReplicationRecoveryPlanFailoverRecoveryGroupPreAction) *string { return v.ScriptPath }).(pulumi.StringPtrOutput)
 }
@@ -2510,7 +2510,7 @@ func (o ReplicationRecoveryPlanShutdownRecoveryGroupPtrOutput) PreActions() Repl
 type ReplicationRecoveryPlanShutdownRecoveryGroupPostAction struct {
 	// The fabric location of runbook or script. Possible values are `Primary` and `Recovery`. It must not be specified when `type` is `ManualActionDetails`.
 	//
-	// > **NOTE:** This is required when `type` is set to `AutomationRunbookActionDetails` or `ScriptActionDetails`.
+	// > **Note:** This is required when `type` is set to `AutomationRunbookActionDetails` or `ScriptActionDetails`.
 	FabricLocation *string `pulumi:"fabricLocation"`
 	// Directions of fail over. Possible values are `PrimaryToRecovery` and `RecoveryToPrimary`
 	FailOverDirections []string `pulumi:"failOverDirections"`
@@ -2518,17 +2518,17 @@ type ReplicationRecoveryPlanShutdownRecoveryGroupPostAction struct {
 	FailOverTypes []string `pulumi:"failOverTypes"`
 	// Instructions of manual action.
 	//
-	// > **NOTE:** This property is required when `type` is set to `ManualActionDetails`.
+	// > **Note:** This property is required when `type` is set to `ManualActionDetails`.
 	ManualActionInstruction *string `pulumi:"manualActionInstruction"`
 	// The name of the Replication Plan. The name can contain only letters, numbers, and hyphens. It should start with a letter and end with a letter or a number. Can be a maximum of 63 characters. Changing this forces a new resource to be created.
 	Name string `pulumi:"name"`
 	// Id of runbook.
 	//
-	// > **NOTE:** This property is required when `type` is set to `AutomationRunbookActionDetails`.
+	// > **Note:** This property is required when `type` is set to `AutomationRunbookActionDetails`.
 	RunbookId *string `pulumi:"runbookId"`
 	// Path of action script.
 	//
-	// > **NOTE:** This property is required when `type` is set to `ScriptActionDetails`.
+	// > **Note:** This property is required when `type` is set to `ScriptActionDetails`.
 	ScriptPath *string `pulumi:"scriptPath"`
 	// Type of the action detail. Possible values are `AutomationRunbookActionDetails`, `ManualActionDetails` and `ScriptActionDetails`.
 	Type string `pulumi:"type"`
@@ -2548,7 +2548,7 @@ type ReplicationRecoveryPlanShutdownRecoveryGroupPostActionInput interface {
 type ReplicationRecoveryPlanShutdownRecoveryGroupPostActionArgs struct {
 	// The fabric location of runbook or script. Possible values are `Primary` and `Recovery`. It must not be specified when `type` is `ManualActionDetails`.
 	//
-	// > **NOTE:** This is required when `type` is set to `AutomationRunbookActionDetails` or `ScriptActionDetails`.
+	// > **Note:** This is required when `type` is set to `AutomationRunbookActionDetails` or `ScriptActionDetails`.
 	FabricLocation pulumi.StringPtrInput `pulumi:"fabricLocation"`
 	// Directions of fail over. Possible values are `PrimaryToRecovery` and `RecoveryToPrimary`
 	FailOverDirections pulumi.StringArrayInput `pulumi:"failOverDirections"`
@@ -2556,17 +2556,17 @@ type ReplicationRecoveryPlanShutdownRecoveryGroupPostActionArgs struct {
 	FailOverTypes pulumi.StringArrayInput `pulumi:"failOverTypes"`
 	// Instructions of manual action.
 	//
-	// > **NOTE:** This property is required when `type` is set to `ManualActionDetails`.
+	// > **Note:** This property is required when `type` is set to `ManualActionDetails`.
 	ManualActionInstruction pulumi.StringPtrInput `pulumi:"manualActionInstruction"`
 	// The name of the Replication Plan. The name can contain only letters, numbers, and hyphens. It should start with a letter and end with a letter or a number. Can be a maximum of 63 characters. Changing this forces a new resource to be created.
 	Name pulumi.StringInput `pulumi:"name"`
 	// Id of runbook.
 	//
-	// > **NOTE:** This property is required when `type` is set to `AutomationRunbookActionDetails`.
+	// > **Note:** This property is required when `type` is set to `AutomationRunbookActionDetails`.
 	RunbookId pulumi.StringPtrInput `pulumi:"runbookId"`
 	// Path of action script.
 	//
-	// > **NOTE:** This property is required when `type` is set to `ScriptActionDetails`.
+	// > **Note:** This property is required when `type` is set to `ScriptActionDetails`.
 	ScriptPath pulumi.StringPtrInput `pulumi:"scriptPath"`
 	// Type of the action detail. Possible values are `AutomationRunbookActionDetails`, `ManualActionDetails` and `ScriptActionDetails`.
 	Type pulumi.StringInput `pulumi:"type"`
@@ -2625,7 +2625,7 @@ func (o ReplicationRecoveryPlanShutdownRecoveryGroupPostActionOutput) ToReplicat
 
 // The fabric location of runbook or script. Possible values are `Primary` and `Recovery`. It must not be specified when `type` is `ManualActionDetails`.
 //
-// > **NOTE:** This is required when `type` is set to `AutomationRunbookActionDetails` or `ScriptActionDetails`.
+// > **Note:** This is required when `type` is set to `AutomationRunbookActionDetails` or `ScriptActionDetails`.
 func (o ReplicationRecoveryPlanShutdownRecoveryGroupPostActionOutput) FabricLocation() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ReplicationRecoveryPlanShutdownRecoveryGroupPostAction) *string { return v.FabricLocation }).(pulumi.StringPtrOutput)
 }
@@ -2642,7 +2642,7 @@ func (o ReplicationRecoveryPlanShutdownRecoveryGroupPostActionOutput) FailOverTy
 
 // Instructions of manual action.
 //
-// > **NOTE:** This property is required when `type` is set to `ManualActionDetails`.
+// > **Note:** This property is required when `type` is set to `ManualActionDetails`.
 func (o ReplicationRecoveryPlanShutdownRecoveryGroupPostActionOutput) ManualActionInstruction() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ReplicationRecoveryPlanShutdownRecoveryGroupPostAction) *string {
 		return v.ManualActionInstruction
@@ -2656,14 +2656,14 @@ func (o ReplicationRecoveryPlanShutdownRecoveryGroupPostActionOutput) Name() pul
 
 // Id of runbook.
 //
-// > **NOTE:** This property is required when `type` is set to `AutomationRunbookActionDetails`.
+// > **Note:** This property is required when `type` is set to `AutomationRunbookActionDetails`.
 func (o ReplicationRecoveryPlanShutdownRecoveryGroupPostActionOutput) RunbookId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ReplicationRecoveryPlanShutdownRecoveryGroupPostAction) *string { return v.RunbookId }).(pulumi.StringPtrOutput)
 }
 
 // Path of action script.
 //
-// > **NOTE:** This property is required when `type` is set to `ScriptActionDetails`.
+// > **Note:** This property is required when `type` is set to `ScriptActionDetails`.
 func (o ReplicationRecoveryPlanShutdownRecoveryGroupPostActionOutput) ScriptPath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ReplicationRecoveryPlanShutdownRecoveryGroupPostAction) *string { return v.ScriptPath }).(pulumi.StringPtrOutput)
 }
@@ -2696,7 +2696,7 @@ func (o ReplicationRecoveryPlanShutdownRecoveryGroupPostActionArrayOutput) Index
 type ReplicationRecoveryPlanShutdownRecoveryGroupPreAction struct {
 	// The fabric location of runbook or script. Possible values are `Primary` and `Recovery`. It must not be specified when `type` is `ManualActionDetails`.
 	//
-	// > **NOTE:** This is required when `type` is set to `AutomationRunbookActionDetails` or `ScriptActionDetails`.
+	// > **Note:** This is required when `type` is set to `AutomationRunbookActionDetails` or `ScriptActionDetails`.
 	FabricLocation *string `pulumi:"fabricLocation"`
 	// Directions of fail over. Possible values are `PrimaryToRecovery` and `RecoveryToPrimary`
 	FailOverDirections []string `pulumi:"failOverDirections"`
@@ -2704,17 +2704,17 @@ type ReplicationRecoveryPlanShutdownRecoveryGroupPreAction struct {
 	FailOverTypes []string `pulumi:"failOverTypes"`
 	// Instructions of manual action.
 	//
-	// > **NOTE:** This property is required when `type` is set to `ManualActionDetails`.
+	// > **Note:** This property is required when `type` is set to `ManualActionDetails`.
 	ManualActionInstruction *string `pulumi:"manualActionInstruction"`
 	// The name of the Replication Plan. The name can contain only letters, numbers, and hyphens. It should start with a letter and end with a letter or a number. Can be a maximum of 63 characters. Changing this forces a new resource to be created.
 	Name string `pulumi:"name"`
 	// Id of runbook.
 	//
-	// > **NOTE:** This property is required when `type` is set to `AutomationRunbookActionDetails`.
+	// > **Note:** This property is required when `type` is set to `AutomationRunbookActionDetails`.
 	RunbookId *string `pulumi:"runbookId"`
 	// Path of action script.
 	//
-	// > **NOTE:** This property is required when `type` is set to `ScriptActionDetails`.
+	// > **Note:** This property is required when `type` is set to `ScriptActionDetails`.
 	ScriptPath *string `pulumi:"scriptPath"`
 	// Type of the action detail. Possible values are `AutomationRunbookActionDetails`, `ManualActionDetails` and `ScriptActionDetails`.
 	Type string `pulumi:"type"`
@@ -2734,7 +2734,7 @@ type ReplicationRecoveryPlanShutdownRecoveryGroupPreActionInput interface {
 type ReplicationRecoveryPlanShutdownRecoveryGroupPreActionArgs struct {
 	// The fabric location of runbook or script. Possible values are `Primary` and `Recovery`. It must not be specified when `type` is `ManualActionDetails`.
 	//
-	// > **NOTE:** This is required when `type` is set to `AutomationRunbookActionDetails` or `ScriptActionDetails`.
+	// > **Note:** This is required when `type` is set to `AutomationRunbookActionDetails` or `ScriptActionDetails`.
 	FabricLocation pulumi.StringPtrInput `pulumi:"fabricLocation"`
 	// Directions of fail over. Possible values are `PrimaryToRecovery` and `RecoveryToPrimary`
 	FailOverDirections pulumi.StringArrayInput `pulumi:"failOverDirections"`
@@ -2742,17 +2742,17 @@ type ReplicationRecoveryPlanShutdownRecoveryGroupPreActionArgs struct {
 	FailOverTypes pulumi.StringArrayInput `pulumi:"failOverTypes"`
 	// Instructions of manual action.
 	//
-	// > **NOTE:** This property is required when `type` is set to `ManualActionDetails`.
+	// > **Note:** This property is required when `type` is set to `ManualActionDetails`.
 	ManualActionInstruction pulumi.StringPtrInput `pulumi:"manualActionInstruction"`
 	// The name of the Replication Plan. The name can contain only letters, numbers, and hyphens. It should start with a letter and end with a letter or a number. Can be a maximum of 63 characters. Changing this forces a new resource to be created.
 	Name pulumi.StringInput `pulumi:"name"`
 	// Id of runbook.
 	//
-	// > **NOTE:** This property is required when `type` is set to `AutomationRunbookActionDetails`.
+	// > **Note:** This property is required when `type` is set to `AutomationRunbookActionDetails`.
 	RunbookId pulumi.StringPtrInput `pulumi:"runbookId"`
 	// Path of action script.
 	//
-	// > **NOTE:** This property is required when `type` is set to `ScriptActionDetails`.
+	// > **Note:** This property is required when `type` is set to `ScriptActionDetails`.
 	ScriptPath pulumi.StringPtrInput `pulumi:"scriptPath"`
 	// Type of the action detail. Possible values are `AutomationRunbookActionDetails`, `ManualActionDetails` and `ScriptActionDetails`.
 	Type pulumi.StringInput `pulumi:"type"`
@@ -2811,7 +2811,7 @@ func (o ReplicationRecoveryPlanShutdownRecoveryGroupPreActionOutput) ToReplicati
 
 // The fabric location of runbook or script. Possible values are `Primary` and `Recovery`. It must not be specified when `type` is `ManualActionDetails`.
 //
-// > **NOTE:** This is required when `type` is set to `AutomationRunbookActionDetails` or `ScriptActionDetails`.
+// > **Note:** This is required when `type` is set to `AutomationRunbookActionDetails` or `ScriptActionDetails`.
 func (o ReplicationRecoveryPlanShutdownRecoveryGroupPreActionOutput) FabricLocation() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ReplicationRecoveryPlanShutdownRecoveryGroupPreAction) *string { return v.FabricLocation }).(pulumi.StringPtrOutput)
 }
@@ -2828,7 +2828,7 @@ func (o ReplicationRecoveryPlanShutdownRecoveryGroupPreActionOutput) FailOverTyp
 
 // Instructions of manual action.
 //
-// > **NOTE:** This property is required when `type` is set to `ManualActionDetails`.
+// > **Note:** This property is required when `type` is set to `ManualActionDetails`.
 func (o ReplicationRecoveryPlanShutdownRecoveryGroupPreActionOutput) ManualActionInstruction() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ReplicationRecoveryPlanShutdownRecoveryGroupPreAction) *string {
 		return v.ManualActionInstruction
@@ -2842,14 +2842,14 @@ func (o ReplicationRecoveryPlanShutdownRecoveryGroupPreActionOutput) Name() pulu
 
 // Id of runbook.
 //
-// > **NOTE:** This property is required when `type` is set to `AutomationRunbookActionDetails`.
+// > **Note:** This property is required when `type` is set to `AutomationRunbookActionDetails`.
 func (o ReplicationRecoveryPlanShutdownRecoveryGroupPreActionOutput) RunbookId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ReplicationRecoveryPlanShutdownRecoveryGroupPreAction) *string { return v.RunbookId }).(pulumi.StringPtrOutput)
 }
 
 // Path of action script.
 //
-// > **NOTE:** This property is required when `type` is set to `ScriptActionDetails`.
+// > **Note:** This property is required when `type` is set to `ScriptActionDetails`.
 func (o ReplicationRecoveryPlanShutdownRecoveryGroupPreActionOutput) ScriptPath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ReplicationRecoveryPlanShutdownRecoveryGroupPreAction) *string { return v.ScriptPath }).(pulumi.StringPtrOutput)
 }

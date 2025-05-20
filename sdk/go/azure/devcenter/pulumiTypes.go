@@ -14,10 +14,14 @@ import (
 var _ = internal.GetEnvOrDefault
 
 type CatalogCatalogAdogit struct {
-	Branch         string `pulumi:"branch"`
+	// The Git branch of the Dev Center Catalog.
+	Branch string `pulumi:"branch"`
+	// A reference to the Key Vault secret containing a security token to authenticate to a Git repository.
 	KeyVaultKeyUrl string `pulumi:"keyVaultKeyUrl"`
-	Path           string `pulumi:"path"`
-	Uri            string `pulumi:"uri"`
+	// The folder where the catalog items can be found inside the repository.
+	Path string `pulumi:"path"`
+	// The Git URI of the Dev Center Catalog.
+	Uri string `pulumi:"uri"`
 }
 
 // CatalogCatalogAdogitInput is an input type that accepts CatalogCatalogAdogitArgs and CatalogCatalogAdogitOutput values.
@@ -32,10 +36,14 @@ type CatalogCatalogAdogitInput interface {
 }
 
 type CatalogCatalogAdogitArgs struct {
-	Branch         pulumi.StringInput `pulumi:"branch"`
+	// The Git branch of the Dev Center Catalog.
+	Branch pulumi.StringInput `pulumi:"branch"`
+	// A reference to the Key Vault secret containing a security token to authenticate to a Git repository.
 	KeyVaultKeyUrl pulumi.StringInput `pulumi:"keyVaultKeyUrl"`
-	Path           pulumi.StringInput `pulumi:"path"`
-	Uri            pulumi.StringInput `pulumi:"uri"`
+	// The folder where the catalog items can be found inside the repository.
+	Path pulumi.StringInput `pulumi:"path"`
+	// The Git URI of the Dev Center Catalog.
+	Uri pulumi.StringInput `pulumi:"uri"`
 }
 
 func (CatalogCatalogAdogitArgs) ElementType() reflect.Type {
@@ -115,18 +123,22 @@ func (o CatalogCatalogAdogitOutput) ToCatalogCatalogAdogitPtrOutputWithContext(c
 	}).(CatalogCatalogAdogitPtrOutput)
 }
 
+// The Git branch of the Dev Center Catalog.
 func (o CatalogCatalogAdogitOutput) Branch() pulumi.StringOutput {
 	return o.ApplyT(func(v CatalogCatalogAdogit) string { return v.Branch }).(pulumi.StringOutput)
 }
 
+// A reference to the Key Vault secret containing a security token to authenticate to a Git repository.
 func (o CatalogCatalogAdogitOutput) KeyVaultKeyUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v CatalogCatalogAdogit) string { return v.KeyVaultKeyUrl }).(pulumi.StringOutput)
 }
 
+// The folder where the catalog items can be found inside the repository.
 func (o CatalogCatalogAdogitOutput) Path() pulumi.StringOutput {
 	return o.ApplyT(func(v CatalogCatalogAdogit) string { return v.Path }).(pulumi.StringOutput)
 }
 
+// The Git URI of the Dev Center Catalog.
 func (o CatalogCatalogAdogitOutput) Uri() pulumi.StringOutput {
 	return o.ApplyT(func(v CatalogCatalogAdogit) string { return v.Uri }).(pulumi.StringOutput)
 }
@@ -155,6 +167,7 @@ func (o CatalogCatalogAdogitPtrOutput) Elem() CatalogCatalogAdogitOutput {
 	}).(CatalogCatalogAdogitOutput)
 }
 
+// The Git branch of the Dev Center Catalog.
 func (o CatalogCatalogAdogitPtrOutput) Branch() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CatalogCatalogAdogit) *string {
 		if v == nil {
@@ -164,6 +177,7 @@ func (o CatalogCatalogAdogitPtrOutput) Branch() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// A reference to the Key Vault secret containing a security token to authenticate to a Git repository.
 func (o CatalogCatalogAdogitPtrOutput) KeyVaultKeyUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CatalogCatalogAdogit) *string {
 		if v == nil {
@@ -173,6 +187,7 @@ func (o CatalogCatalogAdogitPtrOutput) KeyVaultKeyUrl() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The folder where the catalog items can be found inside the repository.
 func (o CatalogCatalogAdogitPtrOutput) Path() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CatalogCatalogAdogit) *string {
 		if v == nil {
@@ -182,6 +197,7 @@ func (o CatalogCatalogAdogitPtrOutput) Path() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The Git URI of the Dev Center Catalog.
 func (o CatalogCatalogAdogitPtrOutput) Uri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CatalogCatalogAdogit) *string {
 		if v == nil {
@@ -192,10 +208,14 @@ func (o CatalogCatalogAdogitPtrOutput) Uri() pulumi.StringPtrOutput {
 }
 
 type CatalogCatalogGithub struct {
-	Branch         string `pulumi:"branch"`
+	// The Git branch of the Dev Center Catalog.
+	Branch string `pulumi:"branch"`
+	// A reference to the Key Vault secret containing a security token to authenticate to a Git repository.
 	KeyVaultKeyUrl string `pulumi:"keyVaultKeyUrl"`
-	Path           string `pulumi:"path"`
-	Uri            string `pulumi:"uri"`
+	// The folder where the catalog items can be found inside the repository.
+	Path string `pulumi:"path"`
+	// The Git URI of the Dev Center Catalog.
+	Uri string `pulumi:"uri"`
 }
 
 // CatalogCatalogGithubInput is an input type that accepts CatalogCatalogGithubArgs and CatalogCatalogGithubOutput values.
@@ -210,10 +230,14 @@ type CatalogCatalogGithubInput interface {
 }
 
 type CatalogCatalogGithubArgs struct {
-	Branch         pulumi.StringInput `pulumi:"branch"`
+	// The Git branch of the Dev Center Catalog.
+	Branch pulumi.StringInput `pulumi:"branch"`
+	// A reference to the Key Vault secret containing a security token to authenticate to a Git repository.
 	KeyVaultKeyUrl pulumi.StringInput `pulumi:"keyVaultKeyUrl"`
-	Path           pulumi.StringInput `pulumi:"path"`
-	Uri            pulumi.StringInput `pulumi:"uri"`
+	// The folder where the catalog items can be found inside the repository.
+	Path pulumi.StringInput `pulumi:"path"`
+	// The Git URI of the Dev Center Catalog.
+	Uri pulumi.StringInput `pulumi:"uri"`
 }
 
 func (CatalogCatalogGithubArgs) ElementType() reflect.Type {
@@ -293,18 +317,22 @@ func (o CatalogCatalogGithubOutput) ToCatalogCatalogGithubPtrOutputWithContext(c
 	}).(CatalogCatalogGithubPtrOutput)
 }
 
+// The Git branch of the Dev Center Catalog.
 func (o CatalogCatalogGithubOutput) Branch() pulumi.StringOutput {
 	return o.ApplyT(func(v CatalogCatalogGithub) string { return v.Branch }).(pulumi.StringOutput)
 }
 
+// A reference to the Key Vault secret containing a security token to authenticate to a Git repository.
 func (o CatalogCatalogGithubOutput) KeyVaultKeyUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v CatalogCatalogGithub) string { return v.KeyVaultKeyUrl }).(pulumi.StringOutput)
 }
 
+// The folder where the catalog items can be found inside the repository.
 func (o CatalogCatalogGithubOutput) Path() pulumi.StringOutput {
 	return o.ApplyT(func(v CatalogCatalogGithub) string { return v.Path }).(pulumi.StringOutput)
 }
 
+// The Git URI of the Dev Center Catalog.
 func (o CatalogCatalogGithubOutput) Uri() pulumi.StringOutput {
 	return o.ApplyT(func(v CatalogCatalogGithub) string { return v.Uri }).(pulumi.StringOutput)
 }
@@ -333,6 +361,7 @@ func (o CatalogCatalogGithubPtrOutput) Elem() CatalogCatalogGithubOutput {
 	}).(CatalogCatalogGithubOutput)
 }
 
+// The Git branch of the Dev Center Catalog.
 func (o CatalogCatalogGithubPtrOutput) Branch() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CatalogCatalogGithub) *string {
 		if v == nil {
@@ -342,6 +371,7 @@ func (o CatalogCatalogGithubPtrOutput) Branch() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// A reference to the Key Vault secret containing a security token to authenticate to a Git repository.
 func (o CatalogCatalogGithubPtrOutput) KeyVaultKeyUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CatalogCatalogGithub) *string {
 		if v == nil {
@@ -351,6 +381,7 @@ func (o CatalogCatalogGithubPtrOutput) KeyVaultKeyUrl() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The folder where the catalog items can be found inside the repository.
 func (o CatalogCatalogGithubPtrOutput) Path() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CatalogCatalogGithub) *string {
 		if v == nil {
@@ -360,6 +391,7 @@ func (o CatalogCatalogGithubPtrOutput) Path() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The Git URI of the Dev Center Catalog.
 func (o CatalogCatalogGithubPtrOutput) Uri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CatalogCatalogGithub) *string {
 		if v == nil {
@@ -847,6 +879,208 @@ func (o ProjectEnvironmentTypeUserRoleAssignmentArrayOutput) Index(i pulumi.IntI
 	}).(ProjectEnvironmentTypeUserRoleAssignmentOutput)
 }
 
+type ProjectIdentity struct {
+	// The ID of the User Assigned Identity which should be assigned to this Dev Center Project.
+	//
+	// > **Note:** `identityIds` is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+	IdentityIds []string `pulumi:"identityIds"`
+	// The Principal ID for the Service Principal associated with the Identity of this Dev Center Project.
+	PrincipalId *string `pulumi:"principalId"`
+	// The Tenant ID for the Service Principal associated with the Identity of this Dev Center Project.
+	TenantId *string `pulumi:"tenantId"`
+	// The type of identity used for this Dev Center Project. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned`.
+	Type string `pulumi:"type"`
+}
+
+// ProjectIdentityInput is an input type that accepts ProjectIdentityArgs and ProjectIdentityOutput values.
+// You can construct a concrete instance of `ProjectIdentityInput` via:
+//
+//	ProjectIdentityArgs{...}
+type ProjectIdentityInput interface {
+	pulumi.Input
+
+	ToProjectIdentityOutput() ProjectIdentityOutput
+	ToProjectIdentityOutputWithContext(context.Context) ProjectIdentityOutput
+}
+
+type ProjectIdentityArgs struct {
+	// The ID of the User Assigned Identity which should be assigned to this Dev Center Project.
+	//
+	// > **Note:** `identityIds` is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+	IdentityIds pulumi.StringArrayInput `pulumi:"identityIds"`
+	// The Principal ID for the Service Principal associated with the Identity of this Dev Center Project.
+	PrincipalId pulumi.StringPtrInput `pulumi:"principalId"`
+	// The Tenant ID for the Service Principal associated with the Identity of this Dev Center Project.
+	TenantId pulumi.StringPtrInput `pulumi:"tenantId"`
+	// The type of identity used for this Dev Center Project. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned`.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (ProjectIdentityArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProjectIdentity)(nil)).Elem()
+}
+
+func (i ProjectIdentityArgs) ToProjectIdentityOutput() ProjectIdentityOutput {
+	return i.ToProjectIdentityOutputWithContext(context.Background())
+}
+
+func (i ProjectIdentityArgs) ToProjectIdentityOutputWithContext(ctx context.Context) ProjectIdentityOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProjectIdentityOutput)
+}
+
+func (i ProjectIdentityArgs) ToProjectIdentityPtrOutput() ProjectIdentityPtrOutput {
+	return i.ToProjectIdentityPtrOutputWithContext(context.Background())
+}
+
+func (i ProjectIdentityArgs) ToProjectIdentityPtrOutputWithContext(ctx context.Context) ProjectIdentityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProjectIdentityOutput).ToProjectIdentityPtrOutputWithContext(ctx)
+}
+
+// ProjectIdentityPtrInput is an input type that accepts ProjectIdentityArgs, ProjectIdentityPtr and ProjectIdentityPtrOutput values.
+// You can construct a concrete instance of `ProjectIdentityPtrInput` via:
+//
+//	        ProjectIdentityArgs{...}
+//
+//	or:
+//
+//	        nil
+type ProjectIdentityPtrInput interface {
+	pulumi.Input
+
+	ToProjectIdentityPtrOutput() ProjectIdentityPtrOutput
+	ToProjectIdentityPtrOutputWithContext(context.Context) ProjectIdentityPtrOutput
+}
+
+type projectIdentityPtrType ProjectIdentityArgs
+
+func ProjectIdentityPtr(v *ProjectIdentityArgs) ProjectIdentityPtrInput {
+	return (*projectIdentityPtrType)(v)
+}
+
+func (*projectIdentityPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ProjectIdentity)(nil)).Elem()
+}
+
+func (i *projectIdentityPtrType) ToProjectIdentityPtrOutput() ProjectIdentityPtrOutput {
+	return i.ToProjectIdentityPtrOutputWithContext(context.Background())
+}
+
+func (i *projectIdentityPtrType) ToProjectIdentityPtrOutputWithContext(ctx context.Context) ProjectIdentityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProjectIdentityPtrOutput)
+}
+
+type ProjectIdentityOutput struct{ *pulumi.OutputState }
+
+func (ProjectIdentityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProjectIdentity)(nil)).Elem()
+}
+
+func (o ProjectIdentityOutput) ToProjectIdentityOutput() ProjectIdentityOutput {
+	return o
+}
+
+func (o ProjectIdentityOutput) ToProjectIdentityOutputWithContext(ctx context.Context) ProjectIdentityOutput {
+	return o
+}
+
+func (o ProjectIdentityOutput) ToProjectIdentityPtrOutput() ProjectIdentityPtrOutput {
+	return o.ToProjectIdentityPtrOutputWithContext(context.Background())
+}
+
+func (o ProjectIdentityOutput) ToProjectIdentityPtrOutputWithContext(ctx context.Context) ProjectIdentityPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ProjectIdentity) *ProjectIdentity {
+		return &v
+	}).(ProjectIdentityPtrOutput)
+}
+
+// The ID of the User Assigned Identity which should be assigned to this Dev Center Project.
+//
+// > **Note:** `identityIds` is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+func (o ProjectIdentityOutput) IdentityIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ProjectIdentity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
+}
+
+// The Principal ID for the Service Principal associated with the Identity of this Dev Center Project.
+func (o ProjectIdentityOutput) PrincipalId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProjectIdentity) *string { return v.PrincipalId }).(pulumi.StringPtrOutput)
+}
+
+// The Tenant ID for the Service Principal associated with the Identity of this Dev Center Project.
+func (o ProjectIdentityOutput) TenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProjectIdentity) *string { return v.TenantId }).(pulumi.StringPtrOutput)
+}
+
+// The type of identity used for this Dev Center Project. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned`.
+func (o ProjectIdentityOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v ProjectIdentity) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type ProjectIdentityPtrOutput struct{ *pulumi.OutputState }
+
+func (ProjectIdentityPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ProjectIdentity)(nil)).Elem()
+}
+
+func (o ProjectIdentityPtrOutput) ToProjectIdentityPtrOutput() ProjectIdentityPtrOutput {
+	return o
+}
+
+func (o ProjectIdentityPtrOutput) ToProjectIdentityPtrOutputWithContext(ctx context.Context) ProjectIdentityPtrOutput {
+	return o
+}
+
+func (o ProjectIdentityPtrOutput) Elem() ProjectIdentityOutput {
+	return o.ApplyT(func(v *ProjectIdentity) ProjectIdentity {
+		if v != nil {
+			return *v
+		}
+		var ret ProjectIdentity
+		return ret
+	}).(ProjectIdentityOutput)
+}
+
+// The ID of the User Assigned Identity which should be assigned to this Dev Center Project.
+//
+// > **Note:** `identityIds` is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+func (o ProjectIdentityPtrOutput) IdentityIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ProjectIdentity) []string {
+		if v == nil {
+			return nil
+		}
+		return v.IdentityIds
+	}).(pulumi.StringArrayOutput)
+}
+
+// The Principal ID for the Service Principal associated with the Identity of this Dev Center Project.
+func (o ProjectIdentityPtrOutput) PrincipalId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ProjectIdentity) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PrincipalId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Tenant ID for the Service Principal associated with the Identity of this Dev Center Project.
+func (o ProjectIdentityPtrOutput) TenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ProjectIdentity) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TenantId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The type of identity used for this Dev Center Project. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned`.
+func (o ProjectIdentityPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ProjectIdentity) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*CatalogCatalogAdogitInput)(nil)).Elem(), CatalogCatalogAdogitArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CatalogCatalogAdogitPtrInput)(nil)).Elem(), CatalogCatalogAdogitArgs{})
@@ -858,6 +1092,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ProjectEnvironmentTypeIdentityPtrInput)(nil)).Elem(), ProjectEnvironmentTypeIdentityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProjectEnvironmentTypeUserRoleAssignmentInput)(nil)).Elem(), ProjectEnvironmentTypeUserRoleAssignmentArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProjectEnvironmentTypeUserRoleAssignmentArrayInput)(nil)).Elem(), ProjectEnvironmentTypeUserRoleAssignmentArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProjectIdentityInput)(nil)).Elem(), ProjectIdentityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProjectIdentityPtrInput)(nil)).Elem(), ProjectIdentityArgs{})
 	pulumi.RegisterOutputType(CatalogCatalogAdogitOutput{})
 	pulumi.RegisterOutputType(CatalogCatalogAdogitPtrOutput{})
 	pulumi.RegisterOutputType(CatalogCatalogGithubOutput{})
@@ -868,4 +1104,6 @@ func init() {
 	pulumi.RegisterOutputType(ProjectEnvironmentTypeIdentityPtrOutput{})
 	pulumi.RegisterOutputType(ProjectEnvironmentTypeUserRoleAssignmentOutput{})
 	pulumi.RegisterOutputType(ProjectEnvironmentTypeUserRoleAssignmentArrayOutput{})
+	pulumi.RegisterOutputType(ProjectIdentityOutput{})
+	pulumi.RegisterOutputType(ProjectIdentityPtrOutput{})
 }

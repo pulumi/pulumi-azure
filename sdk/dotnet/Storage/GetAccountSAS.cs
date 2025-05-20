@@ -263,10 +263,6 @@ namespace Pulumi.Azure.Storage
     {
         [Input("connectionString", required: true)]
         private string? _connectionString;
-
-        /// <summary>
-        /// The connection string for the storage account to which this SAS applies. Typically directly from the `primary_connection_string` attribute of a `azure.storage.Account` resource.
-        /// </summary>
         public string? ConnectionString
         {
             get => _connectionString;
@@ -276,7 +272,7 @@ namespace Pulumi.Azure.Storage
         /// <summary>
         /// The expiration time and date of this SAS. Must be a valid ISO-8601 format time/date string.
         /// 
-        /// &gt; **NOTE:** The [ISO-8601 Time offset from UTC](https://en.wikipedia.org/wiki/ISO_8601#Time_offsets_from_UTC) is currently not supported by the service, which will result into 409 error.
+        /// &gt; **Note:** The [ISO-8601 Time offset from UTC](https://en.wikipedia.org/wiki/ISO_8601#Time_offsets_from_UTC) is currently not supported by the service, which will result into 409 error.
         /// </summary>
         [Input("expiry", required: true)]
         public string Expiry { get; set; } = null!;
@@ -333,10 +329,6 @@ namespace Pulumi.Azure.Storage
     {
         [Input("connectionString", required: true)]
         private Input<string>? _connectionString;
-
-        /// <summary>
-        /// The connection string for the storage account to which this SAS applies. Typically directly from the `primary_connection_string` attribute of a `azure.storage.Account` resource.
-        /// </summary>
         public Input<string>? ConnectionString
         {
             get => _connectionString;
@@ -350,7 +342,7 @@ namespace Pulumi.Azure.Storage
         /// <summary>
         /// The expiration time and date of this SAS. Must be a valid ISO-8601 format time/date string.
         /// 
-        /// &gt; **NOTE:** The [ISO-8601 Time offset from UTC](https://en.wikipedia.org/wiki/ISO_8601#Time_offsets_from_UTC) is currently not supported by the service, which will result into 409 error.
+        /// &gt; **Note:** The [ISO-8601 Time offset from UTC](https://en.wikipedia.org/wiki/ISO_8601#Time_offsets_from_UTC) is currently not supported by the service, which will result into 409 error.
         /// </summary>
         [Input("expiry", required: true)]
         public Input<string> Expiry { get; set; } = null!;

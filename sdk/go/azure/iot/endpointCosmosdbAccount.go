@@ -14,7 +14,7 @@ import (
 
 // Manages an IotHub Cosmos DB Account Endpoint
 //
-// > **NOTE:** Endpoints can be defined either directly on the `iot.IoTHub` resource, or using the `azurerm_iothub_endpoint_*` resources - but the two ways of defining the endpoints cannot be used together. If both are used against the same IoTHub, spurious changes will occur. Also, defining a `azurerm_iothub_endpoint_*` resource and another endpoint of a different type directly on the `iot.IoTHub` resource is not supported.
+// > **Note:** Endpoints can be defined either directly on the `iot.IoTHub` resource, or using the `azurerm_iothub_endpoint_*` resources - but the two ways of defining the endpoints cannot be used together. If both are used against the same IoTHub, spurious changes will occur. Also, defining a `azurerm_iothub_endpoint_*` resource and another endpoint of a different type directly on the `iot.IoTHub` resource is not supported.
 //
 // ## Import
 //
@@ -36,7 +36,7 @@ type EndpointCosmosdbAccount struct {
 	EndpointUri pulumi.StringOutput `pulumi:"endpointUri"`
 	// The ID of the User Managed Identity used to authenticate against the Cosmos DB Account endpoint.
 	//
-	// > **NOTE:** `identityId` can only be specified when `authenticationType` is `identityBased`. It must be one of the `identityIds` of the Iot Hub. If not specified when `authenticationType` is `identityBased`, System Assigned Managed Identity of the Iot Hub will be used.
+	// > **Note:** `identityId` can only be specified when `authenticationType` is `identityBased`. It must be one of the `identityIds` of the Iot Hub. If not specified when `authenticationType` is `identityBased`, System Assigned Managed Identity of the Iot Hub will be used.
 	IdentityId pulumi.StringPtrOutput `pulumi:"identityId"`
 	// The ID of the IoT Hub to create the endpoint. Changing this forces a new resource to be created.
 	IothubId pulumi.StringOutput `pulumi:"iothubId"`
@@ -48,13 +48,13 @@ type EndpointCosmosdbAccount struct {
 	PartitionKeyTemplate pulumi.StringPtrOutput `pulumi:"partitionKeyTemplate"`
 	// The primary key of the Cosmos DB Account.
 	//
-	// > **NOTE:** `primaryKey` must and can only be specified when `authenticationType` is `keyBased`.
+	// > **Note:** `primaryKey` must and can only be specified when `authenticationType` is `keyBased`.
 	PrimaryKey pulumi.StringPtrOutput `pulumi:"primaryKey"`
 	// The name of the resource group under which the Cosmos DB Account has been created. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// The secondary key of the Cosmos DB Account.
 	//
-	// > **NOTE:** `secondaryKey` must and can only be specified when `authenticationType` is `keyBased`.
+	// > **Note:** `secondaryKey` must and can only be specified when `authenticationType` is `keyBased`.
 	SecondaryKey pulumi.StringPtrOutput `pulumi:"secondaryKey"`
 }
 
@@ -124,7 +124,7 @@ type endpointCosmosdbAccountState struct {
 	EndpointUri *string `pulumi:"endpointUri"`
 	// The ID of the User Managed Identity used to authenticate against the Cosmos DB Account endpoint.
 	//
-	// > **NOTE:** `identityId` can only be specified when `authenticationType` is `identityBased`. It must be one of the `identityIds` of the Iot Hub. If not specified when `authenticationType` is `identityBased`, System Assigned Managed Identity of the Iot Hub will be used.
+	// > **Note:** `identityId` can only be specified when `authenticationType` is `identityBased`. It must be one of the `identityIds` of the Iot Hub. If not specified when `authenticationType` is `identityBased`, System Assigned Managed Identity of the Iot Hub will be used.
 	IdentityId *string `pulumi:"identityId"`
 	// The ID of the IoT Hub to create the endpoint. Changing this forces a new resource to be created.
 	IothubId *string `pulumi:"iothubId"`
@@ -136,13 +136,13 @@ type endpointCosmosdbAccountState struct {
 	PartitionKeyTemplate *string `pulumi:"partitionKeyTemplate"`
 	// The primary key of the Cosmos DB Account.
 	//
-	// > **NOTE:** `primaryKey` must and can only be specified when `authenticationType` is `keyBased`.
+	// > **Note:** `primaryKey` must and can only be specified when `authenticationType` is `keyBased`.
 	PrimaryKey *string `pulumi:"primaryKey"`
 	// The name of the resource group under which the Cosmos DB Account has been created. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// The secondary key of the Cosmos DB Account.
 	//
-	// > **NOTE:** `secondaryKey` must and can only be specified when `authenticationType` is `keyBased`.
+	// > **Note:** `secondaryKey` must and can only be specified when `authenticationType` is `keyBased`.
 	SecondaryKey *string `pulumi:"secondaryKey"`
 }
 
@@ -157,7 +157,7 @@ type EndpointCosmosdbAccountState struct {
 	EndpointUri pulumi.StringPtrInput
 	// The ID of the User Managed Identity used to authenticate against the Cosmos DB Account endpoint.
 	//
-	// > **NOTE:** `identityId` can only be specified when `authenticationType` is `identityBased`. It must be one of the `identityIds` of the Iot Hub. If not specified when `authenticationType` is `identityBased`, System Assigned Managed Identity of the Iot Hub will be used.
+	// > **Note:** `identityId` can only be specified when `authenticationType` is `identityBased`. It must be one of the `identityIds` of the Iot Hub. If not specified when `authenticationType` is `identityBased`, System Assigned Managed Identity of the Iot Hub will be used.
 	IdentityId pulumi.StringPtrInput
 	// The ID of the IoT Hub to create the endpoint. Changing this forces a new resource to be created.
 	IothubId pulumi.StringPtrInput
@@ -169,13 +169,13 @@ type EndpointCosmosdbAccountState struct {
 	PartitionKeyTemplate pulumi.StringPtrInput
 	// The primary key of the Cosmos DB Account.
 	//
-	// > **NOTE:** `primaryKey` must and can only be specified when `authenticationType` is `keyBased`.
+	// > **Note:** `primaryKey` must and can only be specified when `authenticationType` is `keyBased`.
 	PrimaryKey pulumi.StringPtrInput
 	// The name of the resource group under which the Cosmos DB Account has been created. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
 	// The secondary key of the Cosmos DB Account.
 	//
-	// > **NOTE:** `secondaryKey` must and can only be specified when `authenticationType` is `keyBased`.
+	// > **Note:** `secondaryKey` must and can only be specified when `authenticationType` is `keyBased`.
 	SecondaryKey pulumi.StringPtrInput
 }
 
@@ -194,7 +194,7 @@ type endpointCosmosdbAccountArgs struct {
 	EndpointUri string `pulumi:"endpointUri"`
 	// The ID of the User Managed Identity used to authenticate against the Cosmos DB Account endpoint.
 	//
-	// > **NOTE:** `identityId` can only be specified when `authenticationType` is `identityBased`. It must be one of the `identityIds` of the Iot Hub. If not specified when `authenticationType` is `identityBased`, System Assigned Managed Identity of the Iot Hub will be used.
+	// > **Note:** `identityId` can only be specified when `authenticationType` is `identityBased`. It must be one of the `identityIds` of the Iot Hub. If not specified when `authenticationType` is `identityBased`, System Assigned Managed Identity of the Iot Hub will be used.
 	IdentityId *string `pulumi:"identityId"`
 	// The ID of the IoT Hub to create the endpoint. Changing this forces a new resource to be created.
 	IothubId string `pulumi:"iothubId"`
@@ -206,13 +206,13 @@ type endpointCosmosdbAccountArgs struct {
 	PartitionKeyTemplate *string `pulumi:"partitionKeyTemplate"`
 	// The primary key of the Cosmos DB Account.
 	//
-	// > **NOTE:** `primaryKey` must and can only be specified when `authenticationType` is `keyBased`.
+	// > **Note:** `primaryKey` must and can only be specified when `authenticationType` is `keyBased`.
 	PrimaryKey *string `pulumi:"primaryKey"`
 	// The name of the resource group under which the Cosmos DB Account has been created. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The secondary key of the Cosmos DB Account.
 	//
-	// > **NOTE:** `secondaryKey` must and can only be specified when `authenticationType` is `keyBased`.
+	// > **Note:** `secondaryKey` must and can only be specified when `authenticationType` is `keyBased`.
 	SecondaryKey *string `pulumi:"secondaryKey"`
 }
 
@@ -228,7 +228,7 @@ type EndpointCosmosdbAccountArgs struct {
 	EndpointUri pulumi.StringInput
 	// The ID of the User Managed Identity used to authenticate against the Cosmos DB Account endpoint.
 	//
-	// > **NOTE:** `identityId` can only be specified when `authenticationType` is `identityBased`. It must be one of the `identityIds` of the Iot Hub. If not specified when `authenticationType` is `identityBased`, System Assigned Managed Identity of the Iot Hub will be used.
+	// > **Note:** `identityId` can only be specified when `authenticationType` is `identityBased`. It must be one of the `identityIds` of the Iot Hub. If not specified when `authenticationType` is `identityBased`, System Assigned Managed Identity of the Iot Hub will be used.
 	IdentityId pulumi.StringPtrInput
 	// The ID of the IoT Hub to create the endpoint. Changing this forces a new resource to be created.
 	IothubId pulumi.StringInput
@@ -240,13 +240,13 @@ type EndpointCosmosdbAccountArgs struct {
 	PartitionKeyTemplate pulumi.StringPtrInput
 	// The primary key of the Cosmos DB Account.
 	//
-	// > **NOTE:** `primaryKey` must and can only be specified when `authenticationType` is `keyBased`.
+	// > **Note:** `primaryKey` must and can only be specified when `authenticationType` is `keyBased`.
 	PrimaryKey pulumi.StringPtrInput
 	// The name of the resource group under which the Cosmos DB Account has been created. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
 	// The secondary key of the Cosmos DB Account.
 	//
-	// > **NOTE:** `secondaryKey` must and can only be specified when `authenticationType` is `keyBased`.
+	// > **Note:** `secondaryKey` must and can only be specified when `authenticationType` is `keyBased`.
 	SecondaryKey pulumi.StringPtrInput
 }
 
@@ -359,7 +359,7 @@ func (o EndpointCosmosdbAccountOutput) EndpointUri() pulumi.StringOutput {
 
 // The ID of the User Managed Identity used to authenticate against the Cosmos DB Account endpoint.
 //
-// > **NOTE:** `identityId` can only be specified when `authenticationType` is `identityBased`. It must be one of the `identityIds` of the Iot Hub. If not specified when `authenticationType` is `identityBased`, System Assigned Managed Identity of the Iot Hub will be used.
+// > **Note:** `identityId` can only be specified when `authenticationType` is `identityBased`. It must be one of the `identityIds` of the Iot Hub. If not specified when `authenticationType` is `identityBased`, System Assigned Managed Identity of the Iot Hub will be used.
 func (o EndpointCosmosdbAccountOutput) IdentityId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EndpointCosmosdbAccount) pulumi.StringPtrOutput { return v.IdentityId }).(pulumi.StringPtrOutput)
 }
@@ -386,7 +386,7 @@ func (o EndpointCosmosdbAccountOutput) PartitionKeyTemplate() pulumi.StringPtrOu
 
 // The primary key of the Cosmos DB Account.
 //
-// > **NOTE:** `primaryKey` must and can only be specified when `authenticationType` is `keyBased`.
+// > **Note:** `primaryKey` must and can only be specified when `authenticationType` is `keyBased`.
 func (o EndpointCosmosdbAccountOutput) PrimaryKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EndpointCosmosdbAccount) pulumi.StringPtrOutput { return v.PrimaryKey }).(pulumi.StringPtrOutput)
 }
@@ -398,7 +398,7 @@ func (o EndpointCosmosdbAccountOutput) ResourceGroupName() pulumi.StringOutput {
 
 // The secondary key of the Cosmos DB Account.
 //
-// > **NOTE:** `secondaryKey` must and can only be specified when `authenticationType` is `keyBased`.
+// > **Note:** `secondaryKey` must and can only be specified when `authenticationType` is `keyBased`.
 func (o EndpointCosmosdbAccountOutput) SecondaryKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EndpointCosmosdbAccount) pulumi.StringPtrOutput { return v.SecondaryKey }).(pulumi.StringPtrOutput)
 }

@@ -35,7 +35,7 @@ public final class ServiceHostnameConfigurationProxyArgs extends com.pulumi.reso
     /**
      * The password associated with the certificate provided above.
      * 
-     * &gt; **NOTE:** Either `key_vault_id` or `certificate` and `certificate_password` must be specified.
+     * &gt; **Note:** Either `key_vault_certificate_id` or `certificate` and `certificate_password` must be specified.
      * 
      */
     @Import(name="certificatePassword")
@@ -44,7 +44,7 @@ public final class ServiceHostnameConfigurationProxyArgs extends com.pulumi.reso
     /**
      * @return The password associated with the certificate provided above.
      * 
-     * &gt; **NOTE:** Either `key_vault_id` or `certificate` and `certificate_password` must be specified.
+     * &gt; **Note:** Either `key_vault_certificate_id` or `certificate` and `certificate_password` must be specified.
      * 
      */
     public Optional<Output<String>> certificatePassword() {
@@ -127,20 +127,39 @@ public final class ServiceHostnameConfigurationProxyArgs extends com.pulumi.reso
     }
 
     /**
-     * The ID of the Key Vault Secret containing the SSL Certificate, which must be should be of the type `application/x-pkcs12`.
+     * The ID of the Key Vault Secret containing the SSL Certificate, which must be of the type `application/x-pkcs12`.
      * 
-     * &gt; **NOTE:** Setting this field requires the `identity` block to be specified, since this identity is used for to retrieve the Key Vault Certificate. Auto-updating the Certificate from the Key Vault requires the Secret version isn&#39;t specified.
+     * &gt; **Note:** Setting this field requires the `identity` block to be specified, since this identity is used for to retrieve the Key Vault Certificate. Auto-updating the Certificate from the Key Vault requires the Secret version isn&#39;t specified.
      * 
      */
+    @Import(name="keyVaultCertificateId")
+    private @Nullable Output<String> keyVaultCertificateId;
+
+    /**
+     * @return The ID of the Key Vault Secret containing the SSL Certificate, which must be of the type `application/x-pkcs12`.
+     * 
+     * &gt; **Note:** Setting this field requires the `identity` block to be specified, since this identity is used for to retrieve the Key Vault Certificate. Auto-updating the Certificate from the Key Vault requires the Secret version isn&#39;t specified.
+     * 
+     */
+    public Optional<Output<String>> keyVaultCertificateId() {
+        return Optional.ofNullable(this.keyVaultCertificateId);
+    }
+
+    /**
+     * @deprecated
+     * `key_vault_id` has been deprecated in favour of `key_vault_certificate_id` and will be removed in v5.0 of the AzureRM provider
+     * 
+     */
+    @Deprecated /* `key_vault_id` has been deprecated in favour of `key_vault_certificate_id` and will be removed in v5.0 of the AzureRM provider */
     @Import(name="keyVaultId")
     private @Nullable Output<String> keyVaultId;
 
     /**
-     * @return The ID of the Key Vault Secret containing the SSL Certificate, which must be should be of the type `application/x-pkcs12`.
-     * 
-     * &gt; **NOTE:** Setting this field requires the `identity` block to be specified, since this identity is used for to retrieve the Key Vault Certificate. Auto-updating the Certificate from the Key Vault requires the Secret version isn&#39;t specified.
+     * @deprecated
+     * `key_vault_id` has been deprecated in favour of `key_vault_certificate_id` and will be removed in v5.0 of the AzureRM provider
      * 
      */
+    @Deprecated /* `key_vault_id` has been deprecated in favour of `key_vault_certificate_id` and will be removed in v5.0 of the AzureRM provider */
     public Optional<Output<String>> keyVaultId() {
         return Optional.ofNullable(this.keyVaultId);
     }
@@ -215,6 +234,7 @@ public final class ServiceHostnameConfigurationProxyArgs extends com.pulumi.reso
         this.defaultSslBinding = $.defaultSslBinding;
         this.expiry = $.expiry;
         this.hostName = $.hostName;
+        this.keyVaultCertificateId = $.keyVaultCertificateId;
         this.keyVaultId = $.keyVaultId;
         this.negotiateClientCertificate = $.negotiateClientCertificate;
         this.sslKeyvaultIdentityClientId = $.sslKeyvaultIdentityClientId;
@@ -264,7 +284,7 @@ public final class ServiceHostnameConfigurationProxyArgs extends com.pulumi.reso
         /**
          * @param certificatePassword The password associated with the certificate provided above.
          * 
-         * &gt; **NOTE:** Either `key_vault_id` or `certificate` and `certificate_password` must be specified.
+         * &gt; **Note:** Either `key_vault_certificate_id` or `certificate` and `certificate_password` must be specified.
          * 
          * @return builder
          * 
@@ -277,7 +297,7 @@ public final class ServiceHostnameConfigurationProxyArgs extends com.pulumi.reso
         /**
          * @param certificatePassword The password associated with the certificate provided above.
          * 
-         * &gt; **NOTE:** Either `key_vault_id` or `certificate` and `certificate_password` must be specified.
+         * &gt; **Note:** Either `key_vault_certificate_id` or `certificate` and `certificate_password` must be specified.
          * 
          * @return builder
          * 
@@ -392,26 +412,51 @@ public final class ServiceHostnameConfigurationProxyArgs extends com.pulumi.reso
         }
 
         /**
-         * @param keyVaultId The ID of the Key Vault Secret containing the SSL Certificate, which must be should be of the type `application/x-pkcs12`.
+         * @param keyVaultCertificateId The ID of the Key Vault Secret containing the SSL Certificate, which must be of the type `application/x-pkcs12`.
          * 
-         * &gt; **NOTE:** Setting this field requires the `identity` block to be specified, since this identity is used for to retrieve the Key Vault Certificate. Auto-updating the Certificate from the Key Vault requires the Secret version isn&#39;t specified.
+         * &gt; **Note:** Setting this field requires the `identity` block to be specified, since this identity is used for to retrieve the Key Vault Certificate. Auto-updating the Certificate from the Key Vault requires the Secret version isn&#39;t specified.
          * 
          * @return builder
          * 
          */
+        public Builder keyVaultCertificateId(@Nullable Output<String> keyVaultCertificateId) {
+            $.keyVaultCertificateId = keyVaultCertificateId;
+            return this;
+        }
+
+        /**
+         * @param keyVaultCertificateId The ID of the Key Vault Secret containing the SSL Certificate, which must be of the type `application/x-pkcs12`.
+         * 
+         * &gt; **Note:** Setting this field requires the `identity` block to be specified, since this identity is used for to retrieve the Key Vault Certificate. Auto-updating the Certificate from the Key Vault requires the Secret version isn&#39;t specified.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder keyVaultCertificateId(String keyVaultCertificateId) {
+            return keyVaultCertificateId(Output.of(keyVaultCertificateId));
+        }
+
+        /**
+         * @return builder
+         * 
+         * @deprecated
+         * `key_vault_id` has been deprecated in favour of `key_vault_certificate_id` and will be removed in v5.0 of the AzureRM provider
+         * 
+         */
+        @Deprecated /* `key_vault_id` has been deprecated in favour of `key_vault_certificate_id` and will be removed in v5.0 of the AzureRM provider */
         public Builder keyVaultId(@Nullable Output<String> keyVaultId) {
             $.keyVaultId = keyVaultId;
             return this;
         }
 
         /**
-         * @param keyVaultId The ID of the Key Vault Secret containing the SSL Certificate, which must be should be of the type `application/x-pkcs12`.
-         * 
-         * &gt; **NOTE:** Setting this field requires the `identity` block to be specified, since this identity is used for to retrieve the Key Vault Certificate. Auto-updating the Certificate from the Key Vault requires the Secret version isn&#39;t specified.
-         * 
          * @return builder
          * 
+         * @deprecated
+         * `key_vault_id` has been deprecated in favour of `key_vault_certificate_id` and will be removed in v5.0 of the AzureRM provider
+         * 
          */
+        @Deprecated /* `key_vault_id` has been deprecated in favour of `key_vault_certificate_id` and will be removed in v5.0 of the AzureRM provider */
         public Builder keyVaultId(String keyVaultId) {
             return keyVaultId(Output.of(keyVaultId));
         }

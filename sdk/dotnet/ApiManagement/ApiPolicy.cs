@@ -46,6 +46,13 @@ namespace Pulumi.Azure.ApiManagement
     /// });
     /// ```
     /// 
+    /// ## API Providers
+    /// 
+    /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+    /// This resource uses the following Azure API Providers:
+    /// 
+    /// * `Microsoft.ApiManagement`: 2022-08-01
+    /// 
     /// ## Import
     /// 
     /// API Management API Policy can be imported using the `resource id`, e.g.
@@ -75,9 +82,6 @@ namespace Pulumi.Azure.ApiManagement
         [Output("resourceGroupName")]
         public Output<string> ResourceGroupName { get; private set; } = null!;
 
-        /// <summary>
-        /// The XML Content for this Policy as a string.
-        /// </summary>
         [Output("xmlContent")]
         public Output<string> XmlContent { get; private set; } = null!;
 
@@ -151,9 +155,6 @@ namespace Pulumi.Azure.ApiManagement
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
 
-        /// <summary>
-        /// The XML Content for this Policy as a string.
-        /// </summary>
         [Input("xmlContent")]
         public Input<string>? XmlContent { get; set; }
 
@@ -189,9 +190,6 @@ namespace Pulumi.Azure.ApiManagement
         [Input("resourceGroupName")]
         public Input<string>? ResourceGroupName { get; set; }
 
-        /// <summary>
-        /// The XML Content for this Policy as a string.
-        /// </summary>
         [Input("xmlContent")]
         public Input<string>? XmlContent { get; set; }
 

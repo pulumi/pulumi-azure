@@ -19,7 +19,7 @@ import javax.annotation.Nullable;
 /**
  * Manages a Network Manager Deployment.
  * 
- * &gt; **NOTE on Virtual Network Peering:** Using Network Manager Deployment to deploy Connectivity Configuration may modify or delete existing Virtual Network Peering. At this time you should not use Network Peering resource in conjunction with Network Manager Deployment. Doing so may cause a conflict of Peering configurations.
+ * &gt; **Note:** Using Network Manager Deployment to deploy Connectivity Configuration may modify or delete existing Virtual Network Peering. At this time you should not use Network Peering resource in conjunction with Network Manager Deployment. Doing so may cause a conflict of Peering configurations.
  * 
  * ## Example Usage
  * 
@@ -253,6 +253,13 @@ import javax.annotation.Nullable;
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
+ * ## API Providers
+ * 
+ * &lt;!-- This section is generated, changes will be overwritten --&gt;
+ * This resource uses the following Azure API Providers:
+ * 
+ * * `Microsoft.Network`: 2024-05-01
+ * 
  * ## Import
  * 
  * Network Manager Deployment can be imported using the `resource id`, e.g.
@@ -307,14 +314,14 @@ public class NetworkManagerDeployment extends com.pulumi.resources.CustomResourc
         return this.networkManagerId;
     }
     /**
-     * Specifies the configuration deployment type. Possible values are `Connectivity` and `SecurityAdmin`. Changing this forces a new Network Manager Deployment to be created.
+     * Specifies the configuration deployment type. Possible values are `Connectivity`, `SecurityAdmin` and `Routing`. Changing this forces a new Network Manager Deployment to be created.
      * 
      */
     @Export(name="scopeAccess", refs={String.class}, tree="[0]")
     private Output<String> scopeAccess;
 
     /**
-     * @return Specifies the configuration deployment type. Possible values are `Connectivity` and `SecurityAdmin`. Changing this forces a new Network Manager Deployment to be created.
+     * @return Specifies the configuration deployment type. Possible values are `Connectivity`, `SecurityAdmin` and `Routing`. Changing this forces a new Network Manager Deployment to be created.
      * 
      */
     public Output<String> scopeAccess() {

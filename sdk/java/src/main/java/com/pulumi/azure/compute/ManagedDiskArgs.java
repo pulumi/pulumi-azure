@@ -21,28 +21,14 @@ public final class ManagedDiskArgs extends com.pulumi.resources.ResourceArgs {
     public static final ManagedDiskArgs Empty = new ManagedDiskArgs();
 
     /**
-     * The method to use when creating the managed disk. Changing this forces a new resource to be created. Possible values include:
-     * * `Import` - Import a VHD file in to the managed disk (VHD specified with `source_uri`).
-     * * `ImportSecure` - Securely import a VHD file in to the managed disk (VHD specified with `source_uri`).
-     * * `Empty` - Create an empty managed disk.
-     * * `Copy` - Copy an existing managed disk or snapshot (specified with `source_resource_id`).
-     * * `FromImage` - Copy a Platform Image (specified with `image_reference_id`)
-     * * `Restore` - Set by Azure Backup or Site Recovery on a restored disk (specified with `source_resource_id`).
-     * * `Upload` - Upload a VHD disk with the help of SAS URL (to be used with `upload_size_bytes`).
+     * The method to use when creating the managed disk. Changing this forces a new resource to be created. Possible values include: * `Import` - Import a VHD file in to the managed disk (VHD specified with `source_uri`). * `ImportSecure` - Securely import a VHD file in to the managed disk (VHD specified with `source_uri`). * `Empty` - Create an empty managed disk. * `Copy` - Copy an existing managed disk or snapshot (specified with `source_resource_id`). * `FromImage` - Copy a Platform Image (specified with `image_reference_id`) * `Restore` - Set by Azure Backup or Site Recovery on a restored disk (specified with `source_resource_id`). * `Upload` - Upload a VHD disk with the help of SAS URL (to be used with `upload_size_bytes`).
      * 
      */
     @Import(name="createOption", required=true)
     private Output<String> createOption;
 
     /**
-     * @return The method to use when creating the managed disk. Changing this forces a new resource to be created. Possible values include:
-     * * `Import` - Import a VHD file in to the managed disk (VHD specified with `source_uri`).
-     * * `ImportSecure` - Securely import a VHD file in to the managed disk (VHD specified with `source_uri`).
-     * * `Empty` - Create an empty managed disk.
-     * * `Copy` - Copy an existing managed disk or snapshot (specified with `source_resource_id`).
-     * * `FromImage` - Copy a Platform Image (specified with `image_reference_id`)
-     * * `Restore` - Set by Azure Backup or Site Recovery on a restored disk (specified with `source_resource_id`).
-     * * `Upload` - Upload a VHD disk with the help of SAS URL (to be used with `upload_size_bytes`).
+     * @return The method to use when creating the managed disk. Changing this forces a new resource to be created. Possible values include: * `Import` - Import a VHD file in to the managed disk (VHD specified with `source_uri`). * `ImportSecure` - Securely import a VHD file in to the managed disk (VHD specified with `source_uri`). * `Empty` - Create an empty managed disk. * `Copy` - Copy an existing managed disk or snapshot (specified with `source_resource_id`). * `FromImage` - Copy a Platform Image (specified with `image_reference_id`) * `Restore` - Set by Azure Backup or Site Recovery on a restored disk (specified with `source_resource_id`). * `Upload` - Upload a VHD disk with the help of SAS URL (to be used with `upload_size_bytes`).
      * 
      */
     public Output<String> createOption() {
@@ -71,9 +57,9 @@ public final class ManagedDiskArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * The ID of a Disk Encryption Set which should be used to encrypt this Managed Disk. Conflicts with `secure_vm_disk_encryption_set_id`.
      * 
-     * &gt; **NOTE:** The Disk Encryption Set must have the `Reader` Role Assignment scoped on the Key Vault - in addition to an Access Policy to the Key Vault
+     * &gt; **Note:** The Disk Encryption Set must have the `Reader` Role Assignment scoped on the Key Vault - in addition to an Access Policy to the Key Vault
      * 
-     * &gt; **NOTE:** Disk Encryption Sets are in Public Preview in a limited set of regions
+     * &gt; **Note:** Disk Encryption Sets are in Public Preview in a limited set of regions
      * 
      */
     @Import(name="diskEncryptionSetId")
@@ -82,9 +68,9 @@ public final class ManagedDiskArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * @return The ID of a Disk Encryption Set which should be used to encrypt this Managed Disk. Conflicts with `secure_vm_disk_encryption_set_id`.
      * 
-     * &gt; **NOTE:** The Disk Encryption Set must have the `Reader` Role Assignment scoped on the Key Vault - in addition to an Access Policy to the Key Vault
+     * &gt; **Note:** The Disk Encryption Set must have the `Reader` Role Assignment scoped on the Key Vault - in addition to an Access Policy to the Key Vault
      * 
-     * &gt; **NOTE:** Disk Encryption Sets are in Public Preview in a limited set of regions
+     * &gt; **Note:** Disk Encryption Sets are in Public Preview in a limited set of regions
      * 
      */
     public Optional<Output<String>> diskEncryptionSetId() {
@@ -176,7 +162,7 @@ public final class ManagedDiskArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * A `encryption_settings` block as defined below.
      * 
-     * &gt; **NOTE:** Removing `encryption_settings` forces a new resource to be created.
+     * &gt; **Note:** Removing `encryption_settings` forces a new resource to be created.
      * 
      */
     @Import(name="encryptionSettings")
@@ -185,7 +171,7 @@ public final class ManagedDiskArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * @return A `encryption_settings` block as defined below.
      * 
-     * &gt; **NOTE:** Removing `encryption_settings` forces a new resource to be created.
+     * &gt; **Note:** Removing `encryption_settings` forces a new resource to be created.
      * 
      */
     public Optional<Output<ManagedDiskEncryptionSettingsArgs>> encryptionSettings() {
@@ -255,7 +241,7 @@ public final class ManagedDiskArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * Logical Sector Size. Possible values are: `512` and `4096`. Defaults to `4096`. Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE:** Setting logical sector size is supported only with `UltraSSD_LRS` disks and `PremiumV2_LRS` disks.
+     * &gt; **Note:** Setting logical sector size is supported only with `UltraSSD_LRS` disks and `PremiumV2_LRS` disks.
      * 
      */
     @Import(name="logicalSectorSize")
@@ -264,7 +250,7 @@ public final class ManagedDiskArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * @return Logical Sector Size. Possible values are: `512` and `4096`. Defaults to `4096`. Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE:** Setting logical sector size is supported only with `UltraSSD_LRS` disks and `PremiumV2_LRS` disks.
+     * &gt; **Note:** Setting logical sector size is supported only with `UltraSSD_LRS` disks and `PremiumV2_LRS` disks.
      * 
      */
     public Optional<Output<Integer>> logicalSectorSize() {
@@ -425,7 +411,7 @@ public final class ManagedDiskArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * The ID of the Disk Encryption Set which should be used to Encrypt this OS Disk when the Virtual Machine is a Confidential VM. Conflicts with `disk_encryption_set_id`. Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE:** `secure_vm_disk_encryption_set_id` can only be specified when `security_type` is set to `ConfidentialVM_DiskEncryptedWithCustomerKey`.
+     * &gt; **Note:** `secure_vm_disk_encryption_set_id` can only be specified when `security_type` is set to `ConfidentialVM_DiskEncryptedWithCustomerKey`.
      * 
      */
     @Import(name="secureVmDiskEncryptionSetId")
@@ -434,7 +420,7 @@ public final class ManagedDiskArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * @return The ID of the Disk Encryption Set which should be used to Encrypt this OS Disk when the Virtual Machine is a Confidential VM. Conflicts with `disk_encryption_set_id`. Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE:** `secure_vm_disk_encryption_set_id` can only be specified when `security_type` is set to `ConfidentialVM_DiskEncryptedWithCustomerKey`.
+     * &gt; **Note:** `secure_vm_disk_encryption_set_id` can only be specified when `security_type` is set to `ConfidentialVM_DiskEncryptedWithCustomerKey`.
      * 
      */
     public Optional<Output<String>> secureVmDiskEncryptionSetId() {
@@ -444,11 +430,11 @@ public final class ManagedDiskArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * Security Type of the Managed Disk when it is used for a Confidential VM. Possible values are `ConfidentialVM_VMGuestStateOnlyEncryptedWithPlatformKey`, `ConfidentialVM_DiskEncryptedWithPlatformKey` and `ConfidentialVM_DiskEncryptedWithCustomerKey`. Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE:** When `security_type` is set to `ConfidentialVM_DiskEncryptedWithCustomerKey` the value of `create_option` must be one of `FromImage` or `ImportSecure`.
+     * &gt; **Note:** When `security_type` is set to `ConfidentialVM_DiskEncryptedWithCustomerKey` the value of `create_option` must be one of `FromImage` or `ImportSecure`.
      * 
-     * &gt; **NOTE:** `security_type` cannot be specified when `trusted_launch_enabled` is set to true.
+     * &gt; **Note:** `security_type` cannot be specified when `trusted_launch_enabled` is set to true.
      * 
-     * &gt; **NOTE:** `secure_vm_disk_encryption_set_id` must be specified when `security_type` is set to `ConfidentialVM_DiskEncryptedWithCustomerKey`.
+     * &gt; **Note:** `secure_vm_disk_encryption_set_id` must be specified when `security_type` is set to `ConfidentialVM_DiskEncryptedWithCustomerKey`.
      * 
      */
     @Import(name="securityType")
@@ -457,11 +443,11 @@ public final class ManagedDiskArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * @return Security Type of the Managed Disk when it is used for a Confidential VM. Possible values are `ConfidentialVM_VMGuestStateOnlyEncryptedWithPlatformKey`, `ConfidentialVM_DiskEncryptedWithPlatformKey` and `ConfidentialVM_DiskEncryptedWithCustomerKey`. Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE:** When `security_type` is set to `ConfidentialVM_DiskEncryptedWithCustomerKey` the value of `create_option` must be one of `FromImage` or `ImportSecure`.
+     * &gt; **Note:** When `security_type` is set to `ConfidentialVM_DiskEncryptedWithCustomerKey` the value of `create_option` must be one of `FromImage` or `ImportSecure`.
      * 
-     * &gt; **NOTE:** `security_type` cannot be specified when `trusted_launch_enabled` is set to true.
+     * &gt; **Note:** `security_type` cannot be specified when `trusted_launch_enabled` is set to true.
      * 
-     * &gt; **NOTE:** `secure_vm_disk_encryption_set_id` must be specified when `security_type` is set to `ConfidentialVM_DiskEncryptedWithCustomerKey`.
+     * &gt; **Note:** `secure_vm_disk_encryption_set_id` must be specified when `security_type` is set to `ConfidentialVM_DiskEncryptedWithCustomerKey`.
      * 
      */
     public Optional<Output<String>> securityType() {
@@ -666,14 +652,7 @@ public final class ManagedDiskArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param createOption The method to use when creating the managed disk. Changing this forces a new resource to be created. Possible values include:
-         * * `Import` - Import a VHD file in to the managed disk (VHD specified with `source_uri`).
-         * * `ImportSecure` - Securely import a VHD file in to the managed disk (VHD specified with `source_uri`).
-         * * `Empty` - Create an empty managed disk.
-         * * `Copy` - Copy an existing managed disk or snapshot (specified with `source_resource_id`).
-         * * `FromImage` - Copy a Platform Image (specified with `image_reference_id`)
-         * * `Restore` - Set by Azure Backup or Site Recovery on a restored disk (specified with `source_resource_id`).
-         * * `Upload` - Upload a VHD disk with the help of SAS URL (to be used with `upload_size_bytes`).
+         * @param createOption The method to use when creating the managed disk. Changing this forces a new resource to be created. Possible values include: * `Import` - Import a VHD file in to the managed disk (VHD specified with `source_uri`). * `ImportSecure` - Securely import a VHD file in to the managed disk (VHD specified with `source_uri`). * `Empty` - Create an empty managed disk. * `Copy` - Copy an existing managed disk or snapshot (specified with `source_resource_id`). * `FromImage` - Copy a Platform Image (specified with `image_reference_id`) * `Restore` - Set by Azure Backup or Site Recovery on a restored disk (specified with `source_resource_id`). * `Upload` - Upload a VHD disk with the help of SAS URL (to be used with `upload_size_bytes`).
          * 
          * @return builder
          * 
@@ -684,14 +663,7 @@ public final class ManagedDiskArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param createOption The method to use when creating the managed disk. Changing this forces a new resource to be created. Possible values include:
-         * * `Import` - Import a VHD file in to the managed disk (VHD specified with `source_uri`).
-         * * `ImportSecure` - Securely import a VHD file in to the managed disk (VHD specified with `source_uri`).
-         * * `Empty` - Create an empty managed disk.
-         * * `Copy` - Copy an existing managed disk or snapshot (specified with `source_resource_id`).
-         * * `FromImage` - Copy a Platform Image (specified with `image_reference_id`)
-         * * `Restore` - Set by Azure Backup or Site Recovery on a restored disk (specified with `source_resource_id`).
-         * * `Upload` - Upload a VHD disk with the help of SAS URL (to be used with `upload_size_bytes`).
+         * @param createOption The method to use when creating the managed disk. Changing this forces a new resource to be created. Possible values include: * `Import` - Import a VHD file in to the managed disk (VHD specified with `source_uri`). * `ImportSecure` - Securely import a VHD file in to the managed disk (VHD specified with `source_uri`). * `Empty` - Create an empty managed disk. * `Copy` - Copy an existing managed disk or snapshot (specified with `source_resource_id`). * `FromImage` - Copy a Platform Image (specified with `image_reference_id`) * `Restore` - Set by Azure Backup or Site Recovery on a restored disk (specified with `source_resource_id`). * `Upload` - Upload a VHD disk with the help of SAS URL (to be used with `upload_size_bytes`).
          * 
          * @return builder
          * 
@@ -728,9 +700,9 @@ public final class ManagedDiskArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param diskEncryptionSetId The ID of a Disk Encryption Set which should be used to encrypt this Managed Disk. Conflicts with `secure_vm_disk_encryption_set_id`.
          * 
-         * &gt; **NOTE:** The Disk Encryption Set must have the `Reader` Role Assignment scoped on the Key Vault - in addition to an Access Policy to the Key Vault
+         * &gt; **Note:** The Disk Encryption Set must have the `Reader` Role Assignment scoped on the Key Vault - in addition to an Access Policy to the Key Vault
          * 
-         * &gt; **NOTE:** Disk Encryption Sets are in Public Preview in a limited set of regions
+         * &gt; **Note:** Disk Encryption Sets are in Public Preview in a limited set of regions
          * 
          * @return builder
          * 
@@ -743,9 +715,9 @@ public final class ManagedDiskArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param diskEncryptionSetId The ID of a Disk Encryption Set which should be used to encrypt this Managed Disk. Conflicts with `secure_vm_disk_encryption_set_id`.
          * 
-         * &gt; **NOTE:** The Disk Encryption Set must have the `Reader` Role Assignment scoped on the Key Vault - in addition to an Access Policy to the Key Vault
+         * &gt; **Note:** The Disk Encryption Set must have the `Reader` Role Assignment scoped on the Key Vault - in addition to an Access Policy to the Key Vault
          * 
-         * &gt; **NOTE:** Disk Encryption Sets are in Public Preview in a limited set of regions
+         * &gt; **Note:** Disk Encryption Sets are in Public Preview in a limited set of regions
          * 
          * @return builder
          * 
@@ -871,7 +843,7 @@ public final class ManagedDiskArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param encryptionSettings A `encryption_settings` block as defined below.
          * 
-         * &gt; **NOTE:** Removing `encryption_settings` forces a new resource to be created.
+         * &gt; **Note:** Removing `encryption_settings` forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -884,7 +856,7 @@ public final class ManagedDiskArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param encryptionSettings A `encryption_settings` block as defined below.
          * 
-         * &gt; **NOTE:** Removing `encryption_settings` forces a new resource to be created.
+         * &gt; **Note:** Removing `encryption_settings` forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -980,7 +952,7 @@ public final class ManagedDiskArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param logicalSectorSize Logical Sector Size. Possible values are: `512` and `4096`. Defaults to `4096`. Changing this forces a new resource to be created.
          * 
-         * &gt; **NOTE:** Setting logical sector size is supported only with `UltraSSD_LRS` disks and `PremiumV2_LRS` disks.
+         * &gt; **Note:** Setting logical sector size is supported only with `UltraSSD_LRS` disks and `PremiumV2_LRS` disks.
          * 
          * @return builder
          * 
@@ -993,7 +965,7 @@ public final class ManagedDiskArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param logicalSectorSize Logical Sector Size. Possible values are: `512` and `4096`. Defaults to `4096`. Changing this forces a new resource to be created.
          * 
-         * &gt; **NOTE:** Setting logical sector size is supported only with `UltraSSD_LRS` disks and `PremiumV2_LRS` disks.
+         * &gt; **Note:** Setting logical sector size is supported only with `UltraSSD_LRS` disks and `PremiumV2_LRS` disks.
          * 
          * @return builder
          * 
@@ -1210,7 +1182,7 @@ public final class ManagedDiskArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param secureVmDiskEncryptionSetId The ID of the Disk Encryption Set which should be used to Encrypt this OS Disk when the Virtual Machine is a Confidential VM. Conflicts with `disk_encryption_set_id`. Changing this forces a new resource to be created.
          * 
-         * &gt; **NOTE:** `secure_vm_disk_encryption_set_id` can only be specified when `security_type` is set to `ConfidentialVM_DiskEncryptedWithCustomerKey`.
+         * &gt; **Note:** `secure_vm_disk_encryption_set_id` can only be specified when `security_type` is set to `ConfidentialVM_DiskEncryptedWithCustomerKey`.
          * 
          * @return builder
          * 
@@ -1223,7 +1195,7 @@ public final class ManagedDiskArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param secureVmDiskEncryptionSetId The ID of the Disk Encryption Set which should be used to Encrypt this OS Disk when the Virtual Machine is a Confidential VM. Conflicts with `disk_encryption_set_id`. Changing this forces a new resource to be created.
          * 
-         * &gt; **NOTE:** `secure_vm_disk_encryption_set_id` can only be specified when `security_type` is set to `ConfidentialVM_DiskEncryptedWithCustomerKey`.
+         * &gt; **Note:** `secure_vm_disk_encryption_set_id` can only be specified when `security_type` is set to `ConfidentialVM_DiskEncryptedWithCustomerKey`.
          * 
          * @return builder
          * 
@@ -1235,11 +1207,11 @@ public final class ManagedDiskArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param securityType Security Type of the Managed Disk when it is used for a Confidential VM. Possible values are `ConfidentialVM_VMGuestStateOnlyEncryptedWithPlatformKey`, `ConfidentialVM_DiskEncryptedWithPlatformKey` and `ConfidentialVM_DiskEncryptedWithCustomerKey`. Changing this forces a new resource to be created.
          * 
-         * &gt; **NOTE:** When `security_type` is set to `ConfidentialVM_DiskEncryptedWithCustomerKey` the value of `create_option` must be one of `FromImage` or `ImportSecure`.
+         * &gt; **Note:** When `security_type` is set to `ConfidentialVM_DiskEncryptedWithCustomerKey` the value of `create_option` must be one of `FromImage` or `ImportSecure`.
          * 
-         * &gt; **NOTE:** `security_type` cannot be specified when `trusted_launch_enabled` is set to true.
+         * &gt; **Note:** `security_type` cannot be specified when `trusted_launch_enabled` is set to true.
          * 
-         * &gt; **NOTE:** `secure_vm_disk_encryption_set_id` must be specified when `security_type` is set to `ConfidentialVM_DiskEncryptedWithCustomerKey`.
+         * &gt; **Note:** `secure_vm_disk_encryption_set_id` must be specified when `security_type` is set to `ConfidentialVM_DiskEncryptedWithCustomerKey`.
          * 
          * @return builder
          * 
@@ -1252,11 +1224,11 @@ public final class ManagedDiskArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param securityType Security Type of the Managed Disk when it is used for a Confidential VM. Possible values are `ConfidentialVM_VMGuestStateOnlyEncryptedWithPlatformKey`, `ConfidentialVM_DiskEncryptedWithPlatformKey` and `ConfidentialVM_DiskEncryptedWithCustomerKey`. Changing this forces a new resource to be created.
          * 
-         * &gt; **NOTE:** When `security_type` is set to `ConfidentialVM_DiskEncryptedWithCustomerKey` the value of `create_option` must be one of `FromImage` or `ImportSecure`.
+         * &gt; **Note:** When `security_type` is set to `ConfidentialVM_DiskEncryptedWithCustomerKey` the value of `create_option` must be one of `FromImage` or `ImportSecure`.
          * 
-         * &gt; **NOTE:** `security_type` cannot be specified when `trusted_launch_enabled` is set to true.
+         * &gt; **Note:** `security_type` cannot be specified when `trusted_launch_enabled` is set to true.
          * 
-         * &gt; **NOTE:** `secure_vm_disk_encryption_set_id` must be specified when `security_type` is set to `ConfidentialVM_DiskEncryptedWithCustomerKey`.
+         * &gt; **Note:** `secure_vm_disk_encryption_set_id` must be specified when `security_type` is set to `ConfidentialVM_DiskEncryptedWithCustomerKey`.
          * 
          * @return builder
          * 

@@ -21,7 +21,7 @@ namespace Pulumi.Azure.AppService.Inputs
         /// <summary>
         /// If using User Managed Identity, the User Managed Identity Client Id
         /// 
-        /// &gt; **NOTE:** When using User Managed Identity with Azure Container Registry the Identity will need to have the [ACRPull role assigned](https://docs.microsoft.com/azure/container-registry/container-registry-authentication-managed-identity#example-1-access-with-a-user-assigned-identity)
+        /// &gt; **Note:** When using User Managed Identity with Azure Container Registry the Identity will need to have the [ACRPull role assigned](https://docs.microsoft.com/azure/container-registry/container-registry-authentication-managed-identity#example-1-access-with-a-user-assigned-identity)
         /// </summary>
         [Input("acrUserManagedIdentityClientId")]
         public Input<string>? AcrUserManagedIdentityClientId { get; set; }
@@ -29,7 +29,7 @@ namespace Pulumi.Azure.AppService.Inputs
         /// <summary>
         /// Should the app be loaded at all times? Defaults to `false`.
         /// 
-        /// &gt; **NOTE:** when using an App Service Plan in the `Free` or `Shared` Tiers `always_on` must be set to `false`.
+        /// &gt; **Note:** when using an App Service Plan in the `Free` or `Shared` Tiers `always_on` must be set to `false`.
         /// </summary>
         [Input("alwaysOn")]
         public Input<bool>? AlwaysOn { get; set; }
@@ -92,9 +92,9 @@ namespace Pulumi.Azure.AppService.Inputs
         private InputList<Inputs.AppServiceSiteConfigIpRestrictionGetArgs>? _ipRestrictions;
 
         /// <summary>
-        /// A list of objects representing ip restrictions as defined below.
+        /// A list of `ip_restriction` objects representing IP restrictions as defined below.
         /// 
-        /// &gt; **NOTE** User has to explicitly set `ip_restriction` to empty slice (`[]`) to remove it.
+        /// &gt; **Note:** User has to explicitly set `ip_restriction` to empty slice (`[]`) to remove it.
         /// </summary>
         public InputList<Inputs.AppServiceSiteConfigIpRestrictionGetArgs> IpRestrictions
         {
@@ -123,7 +123,7 @@ namespace Pulumi.Azure.AppService.Inputs
         /// <summary>
         /// Linux App Framework and version for the App Service. Possible options are a Docker container (`DOCKER|&lt;user/image:tag&gt;`), a base-64 encoded Docker Compose file (`COMPOSE|${filebase64("compose.yml")}`) or a base-64 encoded Kubernetes Manifest (`KUBE|${filebase64("kubernetes.yml")}`).
         /// 
-        /// &gt; **NOTE:** To set this property the App Service Plan to which the App belongs must be configured with `kind = "Linux"`, and `reserved = true` or the API will reject any value supplied.
+        /// &gt; **Note:** To set this property the App Service Plan to which the App belongs must be configured with `kind = "Linux"`, and `reserved = true` or the API will reject any value supplied.
         /// </summary>
         [Input("linuxFxVersion")]
         public Input<string>? LinuxFxVersion { get; set; }
@@ -131,7 +131,7 @@ namespace Pulumi.Azure.AppService.Inputs
         /// <summary>
         /// Is "MySQL In App" Enabled? This runs a local MySQL instance with your app and shares resources from the App Service plan.
         /// 
-        /// &gt; **NOTE:** MySQL In App is not intended for production environments and will not scale beyond a single instance. Instead you may wish to use Azure Database for MySQL.
+        /// &gt; **Note:** MySQL In App is not intended for production environments and will not scale beyond a single instance. Instead you may wish [to use Azure Database for MySQL](https://www.terraform.io/docs/providers/azurerm/r/mysql_database.html).
         /// </summary>
         [Input("localMysqlEnabled")]
         public Input<bool>? LocalMysqlEnabled { get; set; }
@@ -184,7 +184,7 @@ namespace Pulumi.Azure.AppService.Inputs
         /// <summary>
         /// A list of `scm_ip_restriction` objects representing IP restrictions as defined below.
         /// 
-        /// &gt; **NOTE** User has to explicitly set `scm_ip_restriction` to empty slice (`[]`) to remove it.
+        /// &gt; **Note:** User has to explicitly set `scm_ip_restriction` to empty slice (`[]`) to remove it.
         /// </summary>
         public InputList<Inputs.AppServiceSiteConfigScmIpRestrictionGetArgs> ScmIpRestrictions
         {
@@ -201,7 +201,7 @@ namespace Pulumi.Azure.AppService.Inputs
         /// <summary>
         /// IP security restrictions for scm to use main. Defaults to `false`. 
         /// 
-        /// &gt; **NOTE** Any `scm_ip_restriction` blocks configured are ignored by the service when `scm_use_main_ip_restriction` is set to `true`. Any scm restrictions will become active if this is subsequently set to `false` or removed.
+        /// &gt; **Note:** Any `scm_ip_restriction` blocks configured are ignored by the service when `scm_use_main_ip_restriction` is set to `true`. Any scm restrictions will become active if this is subsequently set to `false` or removed.
         /// </summary>
         [Input("scmUseMainIpRestriction")]
         public Input<bool>? ScmUseMainIpRestriction { get; set; }
@@ -209,7 +209,7 @@ namespace Pulumi.Azure.AppService.Inputs
         /// <summary>
         /// Should the App Service run in 32 bit mode, rather than 64 bit mode?
         /// 
-        /// &gt; **NOTE:** when using an App Service Plan in the `Free` or `Shared` Tiers `use_32_bit_worker_process` must be set to `true`.
+        /// &gt; **Note:** when using an App Service Plan in the `Free` or `Shared` Tiers `use_32_bit_worker_process` must be set to `true`.
         /// </summary>
         [Input("use32BitWorkerProcess")]
         public Input<bool>? Use32BitWorkerProcess { get; set; }
@@ -225,6 +225,8 @@ namespace Pulumi.Azure.AppService.Inputs
 
         /// <summary>
         /// The Windows Docker container image (`DOCKER|&lt;user/image:tag&gt;`)
+        /// 
+        /// Additional examples of how to run Containers via the `azure.appservice.AppService` resource can be found in the `./examples/app-service` directory within the GitHub Repository.
         /// </summary>
         [Input("windowsFxVersion")]
         public Input<string>? WindowsFxVersion { get; set; }

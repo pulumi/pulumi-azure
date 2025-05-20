@@ -79,9 +79,6 @@ namespace Pulumi.Azure.Storage
         [Output("cacheControl")]
         public Output<string?> CacheControl { get; private set; } = null!;
 
-        /// <summary>
-        /// The MD5 sum of the blob contents. Cannot be defined if `source_uri` is defined, or if blob type is Append or Page. Changing this forces a new resource to be created.
-        /// </summary>
         [Output("contentMd5")]
         public Output<string?> ContentMd5 { get; private set; } = null!;
 
@@ -112,7 +109,7 @@ namespace Pulumi.Azure.Storage
         /// <summary>
         /// The number of workers per CPU core to run for concurrent uploads. Defaults to `8`. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **NOTE:** `parallelism` is only applicable for Page blobs - support for [Block Blobs is blocked on the upstream issue](https://github.com/jackofallops/giovanni/issues/15).
+        /// &gt; **Note:** `parallelism` is only applicable for Page blobs - support for [Block Blobs is blocked on the upstream issue](https://github.com/jackofallops/giovanni/issues/15).
         /// </summary>
         [Output("parallelism")]
         public Output<int?> Parallelism { get; private set; } = null!;
@@ -225,9 +222,6 @@ namespace Pulumi.Azure.Storage
         [Input("cacheControl")]
         public Input<string>? CacheControl { get; set; }
 
-        /// <summary>
-        /// The MD5 sum of the blob contents. Cannot be defined if `source_uri` is defined, or if blob type is Append or Page. Changing this forces a new resource to be created.
-        /// </summary>
         [Input("contentMd5")]
         public Input<string>? ContentMd5 { get; set; }
 
@@ -264,7 +258,7 @@ namespace Pulumi.Azure.Storage
         /// <summary>
         /// The number of workers per CPU core to run for concurrent uploads. Defaults to `8`. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **NOTE:** `parallelism` is only applicable for Page blobs - support for [Block Blobs is blocked on the upstream issue](https://github.com/jackofallops/giovanni/issues/15).
+        /// &gt; **Note:** `parallelism` is only applicable for Page blobs - support for [Block Blobs is blocked on the upstream issue](https://github.com/jackofallops/giovanni/issues/15).
         /// </summary>
         [Input("parallelism")]
         public Input<int>? Parallelism { get; set; }
@@ -333,9 +327,6 @@ namespace Pulumi.Azure.Storage
         [Input("cacheControl")]
         public Input<string>? CacheControl { get; set; }
 
-        /// <summary>
-        /// The MD5 sum of the blob contents. Cannot be defined if `source_uri` is defined, or if blob type is Append or Page. Changing this forces a new resource to be created.
-        /// </summary>
         [Input("contentMd5")]
         public Input<string>? ContentMd5 { get; set; }
 
@@ -372,7 +363,7 @@ namespace Pulumi.Azure.Storage
         /// <summary>
         /// The number of workers per CPU core to run for concurrent uploads. Defaults to `8`. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **NOTE:** `parallelism` is only applicable for Page blobs - support for [Block Blobs is blocked on the upstream issue](https://github.com/jackofallops/giovanni/issues/15).
+        /// &gt; **Note:** `parallelism` is only applicable for Page blobs - support for [Block Blobs is blocked on the upstream issue](https://github.com/jackofallops/giovanni/issues/15).
         /// </summary>
         [Input("parallelism")]
         public Input<int>? Parallelism { get; set; }

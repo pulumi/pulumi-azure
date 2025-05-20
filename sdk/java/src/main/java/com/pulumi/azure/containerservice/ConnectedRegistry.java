@@ -101,6 +101,13 @@ import javax.annotation.Nullable;
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
+ * ## API Providers
+ * 
+ * &lt;!-- This section is generated, changes will be overwritten --&gt;
+ * This resource uses the following Azure API Providers:
+ * 
+ * * `Microsoft.ContainerRegistry`: 2023-11-01-preview
+ * 
  * ## Import
  * 
  * Container Connected Registries can be imported using the `resource id`, e.g.
@@ -143,7 +150,7 @@ public class ConnectedRegistry extends com.pulumi.resources.CustomResource {
     /**
      * The ID of the Container Registry that this Connected Registry will reside in. Changing this forces a new Container Connected Registry to be created.
      * 
-     * &gt; If `parent_registry_id` is not specified, the Connected Registry will be connected to the Container Registry identified by `container_registry_id`.
+     * &gt; **Note:** If `parent_registry_id` is not specified, the Connected Registry will be connected to the Container Registry identified by `container_registry_id`.
      * 
      */
     @Export(name="containerRegistryId", refs={String.class}, tree="[0]")
@@ -152,7 +159,7 @@ public class ConnectedRegistry extends com.pulumi.resources.CustomResource {
     /**
      * @return The ID of the Container Registry that this Connected Registry will reside in. Changing this forces a new Container Connected Registry to be created.
      * 
-     * &gt; If `parent_registry_id` is not specified, the Connected Registry will be connected to the Container Registry identified by `container_registry_id`.
+     * &gt; **Note:** If `parent_registry_id` is not specified, the Connected Registry will be connected to the Container Registry identified by `container_registry_id`.
      * 
      */
     public Output<String> containerRegistryId() {

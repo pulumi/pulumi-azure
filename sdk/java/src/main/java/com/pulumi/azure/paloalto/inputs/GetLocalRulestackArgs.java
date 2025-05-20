@@ -14,16 +14,32 @@ public final class GetLocalRulestackArgs extends com.pulumi.resources.InvokeArgs
 
     public static final GetLocalRulestackArgs Empty = new GetLocalRulestackArgs();
 
+    /**
+     * The name of this Palo Alto Networks Rulestack.
+     * 
+     */
     @Import(name="name", required=true)
     private Output<String> name;
 
+    /**
+     * @return The name of this Palo Alto Networks Rulestack.
+     * 
+     */
     public Output<String> name() {
         return this.name;
     }
 
+    /**
+     * The name of the Resource Group where the Palo Alto Networks Rulestack exists.
+     * 
+     */
     @Import(name="resourceGroupName", required=true)
     private Output<String> resourceGroupName;
 
+    /**
+     * @return The name of the Resource Group where the Palo Alto Networks Rulestack exists.
+     * 
+     */
     public Output<String> resourceGroupName() {
         return this.resourceGroupName;
     }
@@ -53,20 +69,44 @@ public final class GetLocalRulestackArgs extends com.pulumi.resources.InvokeArgs
             $ = new GetLocalRulestackArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param name The name of this Palo Alto Networks Rulestack.
+         * 
+         * @return builder
+         * 
+         */
         public Builder name(Output<String> name) {
             $.name = name;
             return this;
         }
 
+        /**
+         * @param name The name of this Palo Alto Networks Rulestack.
+         * 
+         * @return builder
+         * 
+         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
+        /**
+         * @param resourceGroupName The name of the Resource Group where the Palo Alto Networks Rulestack exists.
+         * 
+         * @return builder
+         * 
+         */
         public Builder resourceGroupName(Output<String> resourceGroupName) {
             $.resourceGroupName = resourceGroupName;
             return this;
         }
 
+        /**
+         * @param resourceGroupName The name of the Resource Group where the Palo Alto Networks Rulestack exists.
+         * 
+         * @return builder
+         * 
+         */
         public Builder resourceGroupName(String resourceGroupName) {
             return resourceGroupName(Output.of(resourceGroupName));
         }

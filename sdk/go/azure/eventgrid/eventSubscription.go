@@ -74,6 +74,13 @@ import (
 //
 // ```
 //
+// ## API Providers
+//
+// <!-- This section is generated, changes will be overwritten -->
+// This resource uses the following Azure API Providers:
+//
+// * `Microsoft.EventGrid`: 2022-06-15
+//
 // ## Import
 //
 // EventGrid Event Subscription's can be imported using the `resource id`, e.g.
@@ -128,7 +135,7 @@ type EventSubscription struct {
 	SubjectFilter EventSubscriptionSubjectFilterPtrOutput `pulumi:"subjectFilter"`
 	// A `webhookEndpoint` block as defined below.
 	//
-	// > **NOTE:** One of `eventhubEndpointId`, `hybridConnectionEndpointId`, `serviceBusQueueEndpointId`, `serviceBusTopicEndpointId`, `storageQueueEndpoint`, `webhookEndpoint` or `azureFunctionEndpoint` must be specified.
+	// > **Note:** One of `eventhubEndpointId`, `hybridConnectionEndpointId`, `serviceBusQueueEndpointId`, `serviceBusTopicEndpointId`, `storageQueueEndpoint`, `webhookEndpoint` or `azureFunctionEndpoint` must be specified.
 	WebhookEndpoint EventSubscriptionWebhookEndpointPtrOutput `pulumi:"webhookEndpoint"`
 }
 
@@ -215,7 +222,7 @@ type eventSubscriptionState struct {
 	SubjectFilter *EventSubscriptionSubjectFilter `pulumi:"subjectFilter"`
 	// A `webhookEndpoint` block as defined below.
 	//
-	// > **NOTE:** One of `eventhubEndpointId`, `hybridConnectionEndpointId`, `serviceBusQueueEndpointId`, `serviceBusTopicEndpointId`, `storageQueueEndpoint`, `webhookEndpoint` or `azureFunctionEndpoint` must be specified.
+	// > **Note:** One of `eventhubEndpointId`, `hybridConnectionEndpointId`, `serviceBusQueueEndpointId`, `serviceBusTopicEndpointId`, `storageQueueEndpoint`, `webhookEndpoint` or `azureFunctionEndpoint` must be specified.
 	WebhookEndpoint *EventSubscriptionWebhookEndpoint `pulumi:"webhookEndpoint"`
 }
 
@@ -264,7 +271,7 @@ type EventSubscriptionState struct {
 	SubjectFilter EventSubscriptionSubjectFilterPtrInput
 	// A `webhookEndpoint` block as defined below.
 	//
-	// > **NOTE:** One of `eventhubEndpointId`, `hybridConnectionEndpointId`, `serviceBusQueueEndpointId`, `serviceBusTopicEndpointId`, `storageQueueEndpoint`, `webhookEndpoint` or `azureFunctionEndpoint` must be specified.
+	// > **Note:** One of `eventhubEndpointId`, `hybridConnectionEndpointId`, `serviceBusQueueEndpointId`, `serviceBusTopicEndpointId`, `storageQueueEndpoint`, `webhookEndpoint` or `azureFunctionEndpoint` must be specified.
 	WebhookEndpoint EventSubscriptionWebhookEndpointPtrInput
 }
 
@@ -317,7 +324,7 @@ type eventSubscriptionArgs struct {
 	SubjectFilter *EventSubscriptionSubjectFilter `pulumi:"subjectFilter"`
 	// A `webhookEndpoint` block as defined below.
 	//
-	// > **NOTE:** One of `eventhubEndpointId`, `hybridConnectionEndpointId`, `serviceBusQueueEndpointId`, `serviceBusTopicEndpointId`, `storageQueueEndpoint`, `webhookEndpoint` or `azureFunctionEndpoint` must be specified.
+	// > **Note:** One of `eventhubEndpointId`, `hybridConnectionEndpointId`, `serviceBusQueueEndpointId`, `serviceBusTopicEndpointId`, `storageQueueEndpoint`, `webhookEndpoint` or `azureFunctionEndpoint` must be specified.
 	WebhookEndpoint *EventSubscriptionWebhookEndpoint `pulumi:"webhookEndpoint"`
 }
 
@@ -367,7 +374,7 @@ type EventSubscriptionArgs struct {
 	SubjectFilter EventSubscriptionSubjectFilterPtrInput
 	// A `webhookEndpoint` block as defined below.
 	//
-	// > **NOTE:** One of `eventhubEndpointId`, `hybridConnectionEndpointId`, `serviceBusQueueEndpointId`, `serviceBusTopicEndpointId`, `storageQueueEndpoint`, `webhookEndpoint` or `azureFunctionEndpoint` must be specified.
+	// > **Note:** One of `eventhubEndpointId`, `hybridConnectionEndpointId`, `serviceBusQueueEndpointId`, `serviceBusTopicEndpointId`, `storageQueueEndpoint`, `webhookEndpoint` or `azureFunctionEndpoint` must be specified.
 	WebhookEndpoint EventSubscriptionWebhookEndpointPtrInput
 }
 
@@ -568,7 +575,7 @@ func (o EventSubscriptionOutput) SubjectFilter() EventSubscriptionSubjectFilterP
 
 // A `webhookEndpoint` block as defined below.
 //
-// > **NOTE:** One of `eventhubEndpointId`, `hybridConnectionEndpointId`, `serviceBusQueueEndpointId`, `serviceBusTopicEndpointId`, `storageQueueEndpoint`, `webhookEndpoint` or `azureFunctionEndpoint` must be specified.
+// > **Note:** One of `eventhubEndpointId`, `hybridConnectionEndpointId`, `serviceBusQueueEndpointId`, `serviceBusTopicEndpointId`, `storageQueueEndpoint`, `webhookEndpoint` or `azureFunctionEndpoint` must be specified.
 func (o EventSubscriptionOutput) WebhookEndpoint() EventSubscriptionWebhookEndpointPtrOutput {
 	return o.ApplyT(func(v *EventSubscription) EventSubscriptionWebhookEndpointPtrOutput { return v.WebhookEndpoint }).(EventSubscriptionWebhookEndpointPtrOutput)
 }

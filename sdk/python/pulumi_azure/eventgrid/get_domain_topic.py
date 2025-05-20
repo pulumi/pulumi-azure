@@ -97,6 +97,13 @@ def get_domain_topic(domain_name: Optional[builtins.str] = None,
         resource_group_name="example-resources")
     ```
 
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.EventGrid`: 2022-06-15
+
 
     :param builtins.str domain_name: The name of the EventGrid Domain Topic domain.
     :param builtins.str name: The name of the EventGrid Domain Topic resource.
@@ -130,6 +137,13 @@ def get_domain_topic_output(domain_name: Optional[pulumi.Input[builtins.str]] = 
     example = azure.eventgrid.get_domain_topic(name="my-eventgrid-domain-topic",
         resource_group_name="example-resources")
     ```
+
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.EventGrid`: 2022-06-15
 
 
     :param builtins.str domain_name: The name of the EventGrid Domain Topic domain.

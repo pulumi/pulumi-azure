@@ -57,6 +57,13 @@ public final class ManagementFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Management`: 2020-05-01
+     * 
      */
     public static Output<GetGroupResult> getGroup() {
         return getGroup(GetGroupArgs.Empty, InvokeOptions.Empty);
@@ -99,6 +106,13 @@ public final class ManagementFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Management`: 2020-05-01
      * 
      */
     public static CompletableFuture<GetGroupResult> getGroupPlain() {
@@ -143,6 +157,13 @@ public final class ManagementFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Management`: 2020-05-01
+     * 
      */
     public static Output<GetGroupResult> getGroup(GetGroupArgs args) {
         return getGroup(args, InvokeOptions.Empty);
@@ -185,6 +206,13 @@ public final class ManagementFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Management`: 2020-05-01
      * 
      */
     public static CompletableFuture<GetGroupResult> getGroupPlain(GetGroupPlainArgs args) {
@@ -229,6 +257,13 @@ public final class ManagementFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Management`: 2020-05-01
+     * 
      */
     public static Output<GetGroupResult> getGroup(GetGroupArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:management/getGroup:getGroup", TypeShape.of(GetGroupResult.class), args, Utilities.withVersion(options));
@@ -272,6 +307,13 @@ public final class ManagementFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Management`: 2020-05-01
+     * 
      */
     public static Output<GetGroupResult> getGroup(GetGroupArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("azure:management/getGroup:getGroup", TypeShape.of(GetGroupResult.class), args, Utilities.withVersion(options));
@@ -314,6 +356,13 @@ public final class ManagementFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Management`: 2020-05-01
      * 
      */
     public static CompletableFuture<GetGroupResult> getGroupPlain(GetGroupPlainArgs args, InvokeOptions options) {

@@ -33,7 +33,7 @@ namespace Pulumi.Azure.Monitoring.Inputs
         /// <summary>
         /// Specifies the column containing the metric measure number.
         /// 
-        /// &gt; **Note** `metric_measure_column` is required if `time_aggregation_method` is `Average`, `Maximum`, `Minimum`, or `Total`. And `metric_measure_column` can not be specified if `time_aggregation_method` is `Count`.
+        /// &gt; **Note:** `metric_measure_column` is required if `time_aggregation_method` is `Average`, `Maximum`, `Minimum`, or `Total`. And `metric_measure_column` can not be specified if `time_aggregation_method` is `Count`.
         /// </summary>
         [Input("metricMeasureColumn")]
         public Input<string>? MetricMeasureColumn { get; set; }

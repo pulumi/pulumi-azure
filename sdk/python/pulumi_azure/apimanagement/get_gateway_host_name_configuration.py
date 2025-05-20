@@ -172,6 +172,13 @@ def get_gateway_host_name_configuration(api_management_id: Optional[builtins.str
     pulumi.export("hostName", example_get_gateway_host_name_configuration.host_name)
     ```
 
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.ApiManagement`: 2022-08-01
+
 
     :param builtins.str api_management_id: The ID of the API Management Service.
     :param builtins.str gateway_name: The name of the API Management Gateway.
@@ -218,6 +225,13 @@ def get_gateway_host_name_configuration_output(api_management_id: Optional[pulum
         gateway_name=example_get_gateway.name)
     pulumi.export("hostName", example_get_gateway_host_name_configuration.host_name)
     ```
+
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.ApiManagement`: 2022-08-01
 
 
     :param builtins.str api_management_id: The ID of the API Management Service.

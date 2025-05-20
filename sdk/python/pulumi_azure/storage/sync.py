@@ -241,6 +241,13 @@ class Sync(pulumi.CustomResource):
             })
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.StorageSync`: 2020-03-01
+
         ## Import
 
         Storage Syncs can be imported using the `resource id`, e.g.
@@ -283,6 +290,13 @@ class Sync(pulumi.CustomResource):
                 "foo": "bar",
             })
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.StorageSync`: 2020-03-01
 
         ## Import
 

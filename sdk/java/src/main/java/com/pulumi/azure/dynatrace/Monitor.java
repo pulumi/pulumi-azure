@@ -20,12 +20,19 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * Manages Dynatrace monitors.
+ * Manages a Dynatrace monitor.
  * 
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
  * &lt;!--End PulumiCodeChooser --&gt;
+ * 
+ * ## API Providers
+ * 
+ * &lt;!-- This section is generated, changes will be overwritten --&gt;
+ * This resource uses the following Azure API Providers:
+ * 
+ * * `Dynatrace.Observability`: 2023-04-27
  * 
  * ## Import
  * 

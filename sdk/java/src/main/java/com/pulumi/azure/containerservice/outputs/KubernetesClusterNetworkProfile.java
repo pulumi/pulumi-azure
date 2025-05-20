@@ -23,9 +23,9 @@ public final class KubernetesClusterNetworkProfile {
     /**
      * @return Specifies a list of IP versions the Kubernetes Cluster will use to assign IP addresses to its nodes and pods. Possible values are `IPv4` and/or `IPv6`. `IPv4` must always be specified. Changing this forces a new resource to be created.
      * 
-     * -&gt;**Note:** To configure dual-stack networking `ip_versions` should be set to `[&#34;IPv4&#34;, &#34;IPv6&#34;]`.
+     * &gt; **Note:** To configure dual-stack networking `ip_versions` should be set to `[&#34;IPv4&#34;, &#34;IPv6&#34;]`.
      * 
-     * -&gt;**Note:** Dual-stack networking requires that the Preview Feature `Microsoft.ContainerService/AKS-EnableDualStack` is enabled and the Resource Provider is re-registered, see [the documentation](https://docs.microsoft.com/azure/aks/configure-kubenet-dual-stack?tabs=azure-cli%2Ckubectl#register-the-aks-enabledualstack-preview-feature) for more information.
+     * &gt; **Note:** Dual-stack networking requires that the Preview Feature `Microsoft.ContainerService/AKS-EnableDualStack` is enabled and the Resource Provider is re-registered, see [the documentation](https://docs.microsoft.com/azure/aks/configure-kubenet-dual-stack?tabs=azure-cli%2Ckubectl#register-the-aks-enabledualstack-preview-feature) for more information.
      * 
      */
     private @Nullable List<String> ipVersions;
@@ -110,6 +110,8 @@ public final class KubernetesClusterNetworkProfile {
      * 
      * &gt; **Note:** This range should not be used by any network element on or connected to this VNet. Service address CIDR must be smaller than /12. `docker_bridge_cidr`, `dns_service_ip` and `service_cidr` should all be empty or all should be set.
      * 
+     * Examples of how to use [AKS with Advanced Networking](https://docs.microsoft.com/azure/aks/networking-overview#advanced-networking) can be found in the `./examples/kubernetes/` directory in the GitHub repository.
+     * 
      */
     private @Nullable List<String> serviceCidrs;
 
@@ -124,9 +126,9 @@ public final class KubernetesClusterNetworkProfile {
     /**
      * @return Specifies a list of IP versions the Kubernetes Cluster will use to assign IP addresses to its nodes and pods. Possible values are `IPv4` and/or `IPv6`. `IPv4` must always be specified. Changing this forces a new resource to be created.
      * 
-     * -&gt;**Note:** To configure dual-stack networking `ip_versions` should be set to `[&#34;IPv4&#34;, &#34;IPv6&#34;]`.
+     * &gt; **Note:** To configure dual-stack networking `ip_versions` should be set to `[&#34;IPv4&#34;, &#34;IPv6&#34;]`.
      * 
-     * -&gt;**Note:** Dual-stack networking requires that the Preview Feature `Microsoft.ContainerService/AKS-EnableDualStack` is enabled and the Resource Provider is re-registered, see [the documentation](https://docs.microsoft.com/azure/aks/configure-kubenet-dual-stack?tabs=azure-cli%2Ckubectl#register-the-aks-enabledualstack-preview-feature) for more information.
+     * &gt; **Note:** Dual-stack networking requires that the Preview Feature `Microsoft.ContainerService/AKS-EnableDualStack` is enabled and the Resource Provider is re-registered, see [the documentation](https://docs.microsoft.com/azure/aks/configure-kubenet-dual-stack?tabs=azure-cli%2Ckubectl#register-the-aks-enabledualstack-preview-feature) for more information.
      * 
      */
     public List<String> ipVersions() {
@@ -236,6 +238,8 @@ public final class KubernetesClusterNetworkProfile {
      * @return A list of CIDRs to use for Kubernetes services. For single-stack networking a single IPv4 CIDR is expected. For dual-stack networking an IPv4 and IPv6 CIDR are expected. Changing this forces a new resource to be created.
      * 
      * &gt; **Note:** This range should not be used by any network element on or connected to this VNet. Service address CIDR must be smaller than /12. `docker_bridge_cidr`, `dns_service_ip` and `service_cidr` should all be empty or all should be set.
+     * 
+     * Examples of how to use [AKS with Advanced Networking](https://docs.microsoft.com/azure/aks/networking-overview#advanced-networking) can be found in the `./examples/kubernetes/` directory in the GitHub repository.
      * 
      */
     public List<String> serviceCidrs() {

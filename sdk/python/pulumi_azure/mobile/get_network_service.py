@@ -151,6 +151,13 @@ def get_network_service(mobile_network_id: Optional[builtins.str] = None,
         mobile_network_id=example.id)
     ```
 
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.MobileNetwork`: 2022-11-01
+
 
     :param builtins.str mobile_network_id: Specifies the ID of the Mobile Network Service.
     :param builtins.str name: Specifies the name which should be used for this Mobile Network Service.
@@ -188,6 +195,13 @@ def get_network_service_output(mobile_network_id: Optional[pulumi.Input[builtins
         name="example-mns",
         mobile_network_id=example.id)
     ```
+
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.MobileNetwork`: 2022-11-01
 
 
     :param builtins.str mobile_network_id: Specifies the ID of the Mobile Network Service.

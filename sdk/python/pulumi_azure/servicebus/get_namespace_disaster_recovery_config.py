@@ -177,6 +177,13 @@ def get_namespace_disaster_recovery_config(alias_authorization_rule_id: Optional
     pulumi.export("id", example.id)
     ```
 
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.ServiceBus`: 2021-06-01-preview
+
 
     :param builtins.str alias_authorization_rule_id: The Shared access policies used to access the connection string for the alias.
     :param builtins.str name: The name of this Service Bus Disaster Recovery Config.
@@ -222,6 +229,13 @@ def get_namespace_disaster_recovery_config_output(alias_authorization_rule_id: O
         namespace_id="example-namespace-id")
     pulumi.export("id", example.id)
     ```
+
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.ServiceBus`: 2021-06-01-preview
 
 
     :param builtins.str alias_authorization_rule_id: The Shared access policies used to access the connection string for the alias.

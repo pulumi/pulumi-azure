@@ -17,8 +17,6 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * &lt;!-- Note: This documentation is generated. Any manual changes will be overwritten --&gt;
- * 
  * Manages a Dev Center.
  * 
  * ## Example Usage
@@ -86,6 +84,13 @@ import javax.annotation.Nullable;
  * 
  * * `principal_id` - The Principal ID for the System-Assigned Managed Identity assigned to this Dev Center.
  * * `tenant_id` - The Tenant ID for the System-Assigned Managed Identity assigned to this Dev Center.
+ * 
+ * ## API Providers
+ * 
+ * &lt;!-- This section is generated, changes will be overwritten --&gt;
+ * This resource uses the following Azure API Providers:
+ * 
+ * * `Microsoft.DevCenter`: 2025-02-01
  * 
  * ## Import
  * 

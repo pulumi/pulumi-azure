@@ -33,7 +33,7 @@ import javax.annotation.Nullable;
  * 
  * ## Disclaimers
  * 
- * &gt; **Note:** The `azure.compute.VirtualMachine` resource has been superseded by the `azure.compute.LinuxVirtualMachine` and `azure.compute.WindowsVirtualMachine` resources. The existing `azure.compute.VirtualMachine` resource will continue to be available throughout the 2.x releases however is in a feature-frozen state to maintain compatibility - new functionality will instead be added to the `azure.compute.LinuxVirtualMachine` and `azure.compute.WindowsVirtualMachine` resources.
+ * &gt; **Note:** The `azure.compute.VirtualMachine` resource has been superseded by the `azure.compute.LinuxVirtualMachine` and `azure.compute.WindowsVirtualMachine` resources. The existing `azure.compute.VirtualMachine` resource will continue to be available throughout the 3.x releases however is in a feature-frozen state to maintain compatibility - new functionality will instead be added to the `azure.compute.LinuxVirtualMachine` and `azure.compute.WindowsVirtualMachine` resources.
  * 
  * &gt; **Note:** Data Disks can be attached either directly on the `azure.compute.VirtualMachine` resource, or using the `azure.compute.DataDiskAttachment` resource - but the two cannot be used together. If both are used against the same Virtual Machine, spurious changes will occur.
  * 
@@ -41,7 +41,7 @@ import javax.annotation.Nullable;
  * 
  * ### From An Azure Platform Image)
  * 
- * This example provisions a Virtual Machine with Managed Disks.
+ * This example provisions a Virtual Machine with Managed Disks. Other examples of the `azure.compute.VirtualMachine` resource can be found in the `./examples/virtual-machines` directory within the GitHub Repository
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
  * <pre>
@@ -199,39 +199,15 @@ public class VirtualMachine extends com.pulumi.resources.CustomResource {
     public Output<Optional<VirtualMachineBootDiagnostics>> bootDiagnostics() {
         return Codegen.optional(this.bootDiagnostics);
     }
-    /**
-     * Should the Data Disks (either the Managed Disks / VHD Blobs) be deleted when the Virtual Machine is destroyed? Defaults to `false`.
-     * 
-     * &gt; **Note:** This setting works when instance is deleted via the provider only and don&#39;t forget to delete disks manually if you deleted VM manually. It can increase spending.
-     * 
-     */
     @Export(name="deleteDataDisksOnTermination", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> deleteDataDisksOnTermination;
 
-    /**
-     * @return Should the Data Disks (either the Managed Disks / VHD Blobs) be deleted when the Virtual Machine is destroyed? Defaults to `false`.
-     * 
-     * &gt; **Note:** This setting works when instance is deleted via the provider only and don&#39;t forget to delete disks manually if you deleted VM manually. It can increase spending.
-     * 
-     */
     public Output<Optional<Boolean>> deleteDataDisksOnTermination() {
         return Codegen.optional(this.deleteDataDisksOnTermination);
     }
-    /**
-     * Should the OS Disk (either the Managed Disk / VHD Blob) be deleted when the Virtual Machine is destroyed? Defaults to `false`.
-     * 
-     * &gt; **Note:** This setting works when instance is deleted via the provider only and don&#39;t forget to delete disks manually if you deleted VM manually. It can increase spending.
-     * 
-     */
     @Export(name="deleteOsDiskOnTermination", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> deleteOsDiskOnTermination;
 
-    /**
-     * @return Should the OS Disk (either the Managed Disk / VHD Blob) be deleted when the Virtual Machine is destroyed? Defaults to `false`.
-     * 
-     * &gt; **Note:** This setting works when instance is deleted via the provider only and don&#39;t forget to delete disks manually if you deleted VM manually. It can increase spending.
-     * 
-     */
     public Output<Optional<Boolean>> deleteOsDiskOnTermination() {
         return Codegen.optional(this.deleteOsDiskOnTermination);
     }
@@ -420,7 +396,7 @@ public class VirtualMachine extends com.pulumi.resources.CustomResource {
     /**
      * One or more `storage_data_disk` blocks as defined below.
      * 
-     * &gt; **Please Note:** Data Disks can also be attached either using this block or the `azure.compute.DataDiskAttachment` resource - but not both.
+     * &gt; **Note:** Data Disks can also be attached either using this block or the `azure.compute.DataDiskAttachment` resource - but not both.
      * 
      */
     @Export(name="storageDataDisks", refs={List.class,VirtualMachineStorageDataDisk.class}, tree="[0,1]")
@@ -429,7 +405,7 @@ public class VirtualMachine extends com.pulumi.resources.CustomResource {
     /**
      * @return One or more `storage_data_disk` blocks as defined below.
      * 
-     * &gt; **Please Note:** Data Disks can also be attached either using this block or the `azure.compute.DataDiskAttachment` resource - but not both.
+     * &gt; **Note:** Data Disks can also be attached either using this block or the `azure.compute.DataDiskAttachment` resource - but not both.
      * 
      */
     public Output<List<VirtualMachineStorageDataDisk>> storageDataDisks() {
@@ -494,7 +470,7 @@ public class VirtualMachine extends com.pulumi.resources.CustomResource {
     /**
      * A list of a single item of the Availability Zone which the Virtual Machine should be allocated in. Changing this forces a new resource to be created.
      * 
-     * &gt; **Please Note:** Availability Zones are [only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview).
+     * &gt; **Note:** Availability Zones are [only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview).
      * 
      * For more information on the different example configurations, please check out the [Azure documentation](https://docs.microsoft.com/en-gb/rest/api/compute/virtualmachines/createorupdate#examples)
      * 
@@ -505,7 +481,7 @@ public class VirtualMachine extends com.pulumi.resources.CustomResource {
     /**
      * @return A list of a single item of the Availability Zone which the Virtual Machine should be allocated in. Changing this forces a new resource to be created.
      * 
-     * &gt; **Please Note:** Availability Zones are [only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview).
+     * &gt; **Note:** Availability Zones are [only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview).
      * 
      * For more information on the different example configurations, please check out the [Azure documentation](https://docs.microsoft.com/en-gb/rest/api/compute/virtualmachines/createorupdate#examples)
      * 

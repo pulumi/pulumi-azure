@@ -34,7 +34,7 @@ public final class ServerMicrosoftSupportAuditingPolicyState extends com.pulumi.
     /**
      * Whether to enable the extended auditing policy. Possible values are `true` and `false`. Defaults to `true`.
      * 
-     * -&gt;**NOTE:**  If `enabled` is `true`, `blob_storage_endpoint` or `log_monitoring_enabled` are required.
+     * &gt; **Note:** If `enabled` is `true`, `blob_storage_endpoint` or `log_monitoring_enabled` are required.
      * 
      */
     @Import(name="enabled")
@@ -43,7 +43,7 @@ public final class ServerMicrosoftSupportAuditingPolicyState extends com.pulumi.
     /**
      * @return Whether to enable the extended auditing policy. Possible values are `true` and `false`. Defaults to `true`.
      * 
-     * -&gt;**NOTE:**  If `enabled` is `true`, `blob_storage_endpoint` or `log_monitoring_enabled` are required.
+     * &gt; **Note:** If `enabled` is `true`, `blob_storage_endpoint` or `log_monitoring_enabled` are required.
      * 
      */
     public Optional<Output<Boolean>> enabled() {
@@ -163,7 +163,7 @@ public final class ServerMicrosoftSupportAuditingPolicyState extends com.pulumi.
         /**
          * @param enabled Whether to enable the extended auditing policy. Possible values are `true` and `false`. Defaults to `true`.
          * 
-         * -&gt;**NOTE:**  If `enabled` is `true`, `blob_storage_endpoint` or `log_monitoring_enabled` are required.
+         * &gt; **Note:** If `enabled` is `true`, `blob_storage_endpoint` or `log_monitoring_enabled` are required.
          * 
          * @return builder
          * 
@@ -176,7 +176,7 @@ public final class ServerMicrosoftSupportAuditingPolicyState extends com.pulumi.
         /**
          * @param enabled Whether to enable the extended auditing policy. Possible values are `true` and `false`. Defaults to `true`.
          * 
-         * -&gt;**NOTE:**  If `enabled` is `true`, `blob_storage_endpoint` or `log_monitoring_enabled` are required.
+         * &gt; **Note:** If `enabled` is `true`, `blob_storage_endpoint` or `log_monitoring_enabled` are required.
          * 
          * @return builder
          * 

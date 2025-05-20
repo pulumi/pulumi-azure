@@ -67,6 +67,13 @@ import javax.annotation.Nullable;
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
+ * ## API Providers
+ * 
+ * &lt;!-- This section is generated, changes will be overwritten --&gt;
+ * This resource uses the following Azure API Providers:
+ * 
+ * * `Microsoft.Insights`: 2023-03-11
+ * 
  * ## Import
  * 
  * Data Collection Endpoints can be imported using the `resource id`, e.g.
@@ -161,6 +168,20 @@ public class DataCollectionEndpoint extends com.pulumi.resources.CustomResource 
      */
     public Output<String> logsIngestionEndpoint() {
         return this.logsIngestionEndpoint;
+    }
+    /**
+     * The endpoint used for ingesting metrics, e.g., `https://mydce-abcd.eastus-1.metrics.ingest.monitor.azure.com`.
+     * 
+     */
+    @Export(name="metricsIngestionEndpoint", refs={String.class}, tree="[0]")
+    private Output<String> metricsIngestionEndpoint;
+
+    /**
+     * @return The endpoint used for ingesting metrics, e.g., `https://mydce-abcd.eastus-1.metrics.ingest.monitor.azure.com`.
+     * 
+     */
+    public Output<String> metricsIngestionEndpoint() {
+        return this.metricsIngestionEndpoint;
     }
     /**
      * The name which should be used for this Data Collection Endpoint. Changing this forces a new Data Collection Endpoint to be created.

@@ -14,15 +14,15 @@ import (
 
 // Manages an IotHub
 //
-// > **NOTE:** Endpoints can be defined either directly on the `iot.IoTHub` resource, or using the `azurerm_iothub_endpoint_*` resources - but the two ways of defining the endpoints cannot be used together. If both are used against the same IoTHub, spurious changes will occur. Also, defining a `azurerm_iothub_endpoint_*` resource and another endpoint of a different type directly on the `iot.IoTHub` resource is not supported.
+// > **Note:** Endpoints can be defined either directly on the `iot.IoTHub` resource, or using the `azurerm_iothub_endpoint_*` resources - but the two ways of defining the endpoints cannot be used together. If both are used against the same IoTHub, spurious changes will occur. Also, defining a `azurerm_iothub_endpoint_*` resource and another endpoint of a different type directly on the `iot.IoTHub` resource is not supported.
 //
-// > **NOTE:** Routes can be defined either directly on the `iot.IoTHub` resource, or using the `iot.Route` resource - but the two cannot be used together. If both are used against the same IoTHub, spurious changes will occur.
+// > **Note:** Routes can be defined either directly on the `iot.IoTHub` resource, or using the `iot.Route` resource - but the two cannot be used together. If both are used against the same IoTHub, spurious changes will occur.
 //
-// > **NOTE:** Enrichments can be defined either directly on the `iot.IoTHub` resource, or using the `iot.Enrichment` resource - but the two cannot be used together. If both are used against the same IoTHub, spurious changes will occur.
+// > **Note:** Enrichments can be defined either directly on the `iot.IoTHub` resource, or using the `iot.Enrichment` resource - but the two cannot be used together. If both are used against the same IoTHub, spurious changes will occur.
 //
-// > **NOTE:** Fallback route can be defined either directly on the `iot.IoTHub` resource, or using the `iot.FallbackRoute` resource - but the two cannot be used together. If both are used against the same IoTHub, spurious changes will occur.
+// > **Note:** Fallback route can be defined either directly on the `iot.IoTHub` resource, or using the `iot.FallbackRoute` resource - but the two cannot be used together. If both are used against the same IoTHub, spurious changes will occur.
 //
-// > **NOTE:** File upload can be defined either directly on the `iot.IoTHub` resource, or using the `iot.FileUpload` resource - but the two cannot be used together. If both are used against the same IoTHub, spurious changes will occur.
+// > **Note:** File upload can be defined either directly on the `iot.IoTHub` resource, or using the `iot.FileUpload` resource - but the two cannot be used together. If both are used against the same IoTHub, spurious changes will occur.
 //
 // ## Example Usage
 //
@@ -185,9 +185,11 @@ import (
 type IoTHub struct {
 	pulumi.CustomResourceState
 
+	// A `cloudToDevice` block as defined below.
 	CloudToDevice IoTHubCloudToDeviceOutput `pulumi:"cloudToDevice"`
 	// An `endpoint` block as defined below.
-	Endpoints   IoTHubEndpointArrayOutput   `pulumi:"endpoints"`
+	Endpoints IoTHubEndpointArrayOutput `pulumi:"endpoints"`
+	// A `enrichment` block as defined below.
 	Enrichments IoTHubEnrichmentArrayOutput `pulumi:"enrichments"`
 	// The EventHub compatible endpoint for events data
 	EventHubEventsEndpoint pulumi.StringOutput `pulumi:"eventHubEventsEndpoint"`
@@ -205,7 +207,7 @@ type IoTHub struct {
 	EventHubRetentionInDays pulumi.IntPtrOutput `pulumi:"eventHubRetentionInDays"`
 	// A `fallbackRoute` block as defined below. If the fallback route is enabled, messages that don't match any of the supplied routes are automatically sent to this route. Defaults to messages/events.
 	//
-	// > **NOTE:** If `fallbackRoute` isn't explicitly specified, the fallback route wouldn't be enabled by default.
+	// > **Note:** If `fallbackRoute` isn't explicitly specified, the fallback route wouldn't be enabled by default.
 	FallbackRoute IoTHubFallbackRouteOutput `pulumi:"fallbackRoute"`
 	// A `fileUpload` block as defined below.
 	FileUpload IoTHubFileUploadPtrOutput `pulumi:"fileUpload"`
@@ -216,20 +218,24 @@ type IoTHub struct {
 	// If false, SAS tokens with Iot hub scoped SAS keys cannot be used for authentication. Defaults to `true`.
 	LocalAuthenticationEnabled pulumi.BoolPtrOutput `pulumi:"localAuthenticationEnabled"`
 	// Specifies the supported Azure location where the resource has to be created. Changing this forces a new resource to be created.
-	Location      pulumi.StringOutput    `pulumi:"location"`
+	Location pulumi.StringOutput `pulumi:"location"`
+	// Specifies the minimum TLS version to support for this hub. The only valid value is `1.2`. Changing this forces a new resource to be created.
 	MinTlsVersion pulumi.StringPtrOutput `pulumi:"minTlsVersion"`
 	// Specifies the name of the IotHub resource. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// A `networkRuleSet` block as defined below.
-	NetworkRuleSets            IoTHubNetworkRuleSetArrayOutput `pulumi:"networkRuleSets"`
-	PublicNetworkAccessEnabled pulumi.BoolPtrOutput            `pulumi:"publicNetworkAccessEnabled"`
+	NetworkRuleSets IoTHubNetworkRuleSetArrayOutput `pulumi:"networkRuleSets"`
+	// Is the IotHub resource accessible from a public network?
+	PublicNetworkAccessEnabled pulumi.BoolPtrOutput `pulumi:"publicNetworkAccessEnabled"`
 	// The name of the resource group under which the IotHub resource has to be created. Changing this forces a new resource to be created.
-	ResourceGroupName pulumi.StringOutput    `pulumi:"resourceGroupName"`
-	Routes            IoTHubRouteArrayOutput `pulumi:"routes"`
+	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
+	// A `route` block as defined below.
+	Routes IoTHubRouteArrayOutput `pulumi:"routes"`
 	// One or more `sharedAccessPolicy` blocks as defined below.
 	SharedAccessPolicies IoTHubSharedAccessPolicyArrayOutput `pulumi:"sharedAccessPolicies"`
 	// A `sku` block as defined below.
-	Sku  IoTHubSkuOutput        `pulumi:"sku"`
+	Sku IoTHubSkuOutput `pulumi:"sku"`
+	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	Type pulumi.StringOutput    `pulumi:"type"`
 }
@@ -270,9 +276,11 @@ func GetIoTHub(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering IoTHub resources.
 type ioTHubState struct {
+	// A `cloudToDevice` block as defined below.
 	CloudToDevice *IoTHubCloudToDevice `pulumi:"cloudToDevice"`
 	// An `endpoint` block as defined below.
-	Endpoints   []IoTHubEndpoint   `pulumi:"endpoints"`
+	Endpoints []IoTHubEndpoint `pulumi:"endpoints"`
+	// A `enrichment` block as defined below.
 	Enrichments []IoTHubEnrichment `pulumi:"enrichments"`
 	// The EventHub compatible endpoint for events data
 	EventHubEventsEndpoint *string `pulumi:"eventHubEventsEndpoint"`
@@ -290,7 +298,7 @@ type ioTHubState struct {
 	EventHubRetentionInDays *int `pulumi:"eventHubRetentionInDays"`
 	// A `fallbackRoute` block as defined below. If the fallback route is enabled, messages that don't match any of the supplied routes are automatically sent to this route. Defaults to messages/events.
 	//
-	// > **NOTE:** If `fallbackRoute` isn't explicitly specified, the fallback route wouldn't be enabled by default.
+	// > **Note:** If `fallbackRoute` isn't explicitly specified, the fallback route wouldn't be enabled by default.
 	FallbackRoute *IoTHubFallbackRoute `pulumi:"fallbackRoute"`
 	// A `fileUpload` block as defined below.
 	FileUpload *IoTHubFileUpload `pulumi:"fileUpload"`
@@ -301,28 +309,34 @@ type ioTHubState struct {
 	// If false, SAS tokens with Iot hub scoped SAS keys cannot be used for authentication. Defaults to `true`.
 	LocalAuthenticationEnabled *bool `pulumi:"localAuthenticationEnabled"`
 	// Specifies the supported Azure location where the resource has to be created. Changing this forces a new resource to be created.
-	Location      *string `pulumi:"location"`
+	Location *string `pulumi:"location"`
+	// Specifies the minimum TLS version to support for this hub. The only valid value is `1.2`. Changing this forces a new resource to be created.
 	MinTlsVersion *string `pulumi:"minTlsVersion"`
 	// Specifies the name of the IotHub resource. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// A `networkRuleSet` block as defined below.
-	NetworkRuleSets            []IoTHubNetworkRuleSet `pulumi:"networkRuleSets"`
-	PublicNetworkAccessEnabled *bool                  `pulumi:"publicNetworkAccessEnabled"`
+	NetworkRuleSets []IoTHubNetworkRuleSet `pulumi:"networkRuleSets"`
+	// Is the IotHub resource accessible from a public network?
+	PublicNetworkAccessEnabled *bool `pulumi:"publicNetworkAccessEnabled"`
 	// The name of the resource group under which the IotHub resource has to be created. Changing this forces a new resource to be created.
-	ResourceGroupName *string       `pulumi:"resourceGroupName"`
-	Routes            []IoTHubRoute `pulumi:"routes"`
+	ResourceGroupName *string `pulumi:"resourceGroupName"`
+	// A `route` block as defined below.
+	Routes []IoTHubRoute `pulumi:"routes"`
 	// One or more `sharedAccessPolicy` blocks as defined below.
 	SharedAccessPolicies []IoTHubSharedAccessPolicy `pulumi:"sharedAccessPolicies"`
 	// A `sku` block as defined below.
-	Sku  *IoTHubSku        `pulumi:"sku"`
+	Sku *IoTHubSku `pulumi:"sku"`
+	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
 	Type *string           `pulumi:"type"`
 }
 
 type IoTHubState struct {
+	// A `cloudToDevice` block as defined below.
 	CloudToDevice IoTHubCloudToDevicePtrInput
 	// An `endpoint` block as defined below.
-	Endpoints   IoTHubEndpointArrayInput
+	Endpoints IoTHubEndpointArrayInput
+	// A `enrichment` block as defined below.
 	Enrichments IoTHubEnrichmentArrayInput
 	// The EventHub compatible endpoint for events data
 	EventHubEventsEndpoint pulumi.StringPtrInput
@@ -340,7 +354,7 @@ type IoTHubState struct {
 	EventHubRetentionInDays pulumi.IntPtrInput
 	// A `fallbackRoute` block as defined below. If the fallback route is enabled, messages that don't match any of the supplied routes are automatically sent to this route. Defaults to messages/events.
 	//
-	// > **NOTE:** If `fallbackRoute` isn't explicitly specified, the fallback route wouldn't be enabled by default.
+	// > **Note:** If `fallbackRoute` isn't explicitly specified, the fallback route wouldn't be enabled by default.
 	FallbackRoute IoTHubFallbackRoutePtrInput
 	// A `fileUpload` block as defined below.
 	FileUpload IoTHubFileUploadPtrInput
@@ -351,20 +365,24 @@ type IoTHubState struct {
 	// If false, SAS tokens with Iot hub scoped SAS keys cannot be used for authentication. Defaults to `true`.
 	LocalAuthenticationEnabled pulumi.BoolPtrInput
 	// Specifies the supported Azure location where the resource has to be created. Changing this forces a new resource to be created.
-	Location      pulumi.StringPtrInput
+	Location pulumi.StringPtrInput
+	// Specifies the minimum TLS version to support for this hub. The only valid value is `1.2`. Changing this forces a new resource to be created.
 	MinTlsVersion pulumi.StringPtrInput
 	// Specifies the name of the IotHub resource. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// A `networkRuleSet` block as defined below.
-	NetworkRuleSets            IoTHubNetworkRuleSetArrayInput
+	NetworkRuleSets IoTHubNetworkRuleSetArrayInput
+	// Is the IotHub resource accessible from a public network?
 	PublicNetworkAccessEnabled pulumi.BoolPtrInput
 	// The name of the resource group under which the IotHub resource has to be created. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
-	Routes            IoTHubRouteArrayInput
+	// A `route` block as defined below.
+	Routes IoTHubRouteArrayInput
 	// One or more `sharedAccessPolicy` blocks as defined below.
 	SharedAccessPolicies IoTHubSharedAccessPolicyArrayInput
 	// A `sku` block as defined below.
-	Sku  IoTHubSkuPtrInput
+	Sku IoTHubSkuPtrInput
+	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
 	Type pulumi.StringPtrInput
 }
@@ -374,9 +392,11 @@ func (IoTHubState) ElementType() reflect.Type {
 }
 
 type ioTHubArgs struct {
+	// A `cloudToDevice` block as defined below.
 	CloudToDevice *IoTHubCloudToDevice `pulumi:"cloudToDevice"`
 	// An `endpoint` block as defined below.
-	Endpoints   []IoTHubEndpoint   `pulumi:"endpoints"`
+	Endpoints []IoTHubEndpoint `pulumi:"endpoints"`
+	// A `enrichment` block as defined below.
 	Enrichments []IoTHubEnrichment `pulumi:"enrichments"`
 	// The number of device-to-cloud partitions used by backing event hubs. Must be between `2` and `128`. Defaults to `4`.
 	EventHubPartitionCount *int `pulumi:"eventHubPartitionCount"`
@@ -384,7 +404,7 @@ type ioTHubArgs struct {
 	EventHubRetentionInDays *int `pulumi:"eventHubRetentionInDays"`
 	// A `fallbackRoute` block as defined below. If the fallback route is enabled, messages that don't match any of the supplied routes are automatically sent to this route. Defaults to messages/events.
 	//
-	// > **NOTE:** If `fallbackRoute` isn't explicitly specified, the fallback route wouldn't be enabled by default.
+	// > **Note:** If `fallbackRoute` isn't explicitly specified, the fallback route wouldn't be enabled by default.
 	FallbackRoute *IoTHubFallbackRoute `pulumi:"fallbackRoute"`
 	// A `fileUpload` block as defined below.
 	FileUpload *IoTHubFileUpload `pulumi:"fileUpload"`
@@ -393,26 +413,32 @@ type ioTHubArgs struct {
 	// If false, SAS tokens with Iot hub scoped SAS keys cannot be used for authentication. Defaults to `true`.
 	LocalAuthenticationEnabled *bool `pulumi:"localAuthenticationEnabled"`
 	// Specifies the supported Azure location where the resource has to be created. Changing this forces a new resource to be created.
-	Location      *string `pulumi:"location"`
+	Location *string `pulumi:"location"`
+	// Specifies the minimum TLS version to support for this hub. The only valid value is `1.2`. Changing this forces a new resource to be created.
 	MinTlsVersion *string `pulumi:"minTlsVersion"`
 	// Specifies the name of the IotHub resource. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// A `networkRuleSet` block as defined below.
-	NetworkRuleSets            []IoTHubNetworkRuleSet `pulumi:"networkRuleSets"`
-	PublicNetworkAccessEnabled *bool                  `pulumi:"publicNetworkAccessEnabled"`
+	NetworkRuleSets []IoTHubNetworkRuleSet `pulumi:"networkRuleSets"`
+	// Is the IotHub resource accessible from a public network?
+	PublicNetworkAccessEnabled *bool `pulumi:"publicNetworkAccessEnabled"`
 	// The name of the resource group under which the IotHub resource has to be created. Changing this forces a new resource to be created.
-	ResourceGroupName string        `pulumi:"resourceGroupName"`
-	Routes            []IoTHubRoute `pulumi:"routes"`
+	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// A `route` block as defined below.
+	Routes []IoTHubRoute `pulumi:"routes"`
 	// A `sku` block as defined below.
-	Sku  IoTHubSku         `pulumi:"sku"`
+	Sku IoTHubSku `pulumi:"sku"`
+	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a IoTHub resource.
 type IoTHubArgs struct {
+	// A `cloudToDevice` block as defined below.
 	CloudToDevice IoTHubCloudToDevicePtrInput
 	// An `endpoint` block as defined below.
-	Endpoints   IoTHubEndpointArrayInput
+	Endpoints IoTHubEndpointArrayInput
+	// A `enrichment` block as defined below.
 	Enrichments IoTHubEnrichmentArrayInput
 	// The number of device-to-cloud partitions used by backing event hubs. Must be between `2` and `128`. Defaults to `4`.
 	EventHubPartitionCount pulumi.IntPtrInput
@@ -420,7 +446,7 @@ type IoTHubArgs struct {
 	EventHubRetentionInDays pulumi.IntPtrInput
 	// A `fallbackRoute` block as defined below. If the fallback route is enabled, messages that don't match any of the supplied routes are automatically sent to this route. Defaults to messages/events.
 	//
-	// > **NOTE:** If `fallbackRoute` isn't explicitly specified, the fallback route wouldn't be enabled by default.
+	// > **Note:** If `fallbackRoute` isn't explicitly specified, the fallback route wouldn't be enabled by default.
 	FallbackRoute IoTHubFallbackRoutePtrInput
 	// A `fileUpload` block as defined below.
 	FileUpload IoTHubFileUploadPtrInput
@@ -429,18 +455,22 @@ type IoTHubArgs struct {
 	// If false, SAS tokens with Iot hub scoped SAS keys cannot be used for authentication. Defaults to `true`.
 	LocalAuthenticationEnabled pulumi.BoolPtrInput
 	// Specifies the supported Azure location where the resource has to be created. Changing this forces a new resource to be created.
-	Location      pulumi.StringPtrInput
+	Location pulumi.StringPtrInput
+	// Specifies the minimum TLS version to support for this hub. The only valid value is `1.2`. Changing this forces a new resource to be created.
 	MinTlsVersion pulumi.StringPtrInput
 	// Specifies the name of the IotHub resource. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// A `networkRuleSet` block as defined below.
-	NetworkRuleSets            IoTHubNetworkRuleSetArrayInput
+	NetworkRuleSets IoTHubNetworkRuleSetArrayInput
+	// Is the IotHub resource accessible from a public network?
 	PublicNetworkAccessEnabled pulumi.BoolPtrInput
 	// The name of the resource group under which the IotHub resource has to be created. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
-	Routes            IoTHubRouteArrayInput
+	// A `route` block as defined below.
+	Routes IoTHubRouteArrayInput
 	// A `sku` block as defined below.
-	Sku  IoTHubSkuInput
+	Sku IoTHubSkuInput
+	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
 }
 
@@ -531,6 +561,7 @@ func (o IoTHubOutput) ToIoTHubOutputWithContext(ctx context.Context) IoTHubOutpu
 	return o
 }
 
+// A `cloudToDevice` block as defined below.
 func (o IoTHubOutput) CloudToDevice() IoTHubCloudToDeviceOutput {
 	return o.ApplyT(func(v *IoTHub) IoTHubCloudToDeviceOutput { return v.CloudToDevice }).(IoTHubCloudToDeviceOutput)
 }
@@ -540,6 +571,7 @@ func (o IoTHubOutput) Endpoints() IoTHubEndpointArrayOutput {
 	return o.ApplyT(func(v *IoTHub) IoTHubEndpointArrayOutput { return v.Endpoints }).(IoTHubEndpointArrayOutput)
 }
 
+// A `enrichment` block as defined below.
 func (o IoTHubOutput) Enrichments() IoTHubEnrichmentArrayOutput {
 	return o.ApplyT(func(v *IoTHub) IoTHubEnrichmentArrayOutput { return v.Enrichments }).(IoTHubEnrichmentArrayOutput)
 }
@@ -581,7 +613,7 @@ func (o IoTHubOutput) EventHubRetentionInDays() pulumi.IntPtrOutput {
 
 // A `fallbackRoute` block as defined below. If the fallback route is enabled, messages that don't match any of the supplied routes are automatically sent to this route. Defaults to messages/events.
 //
-// > **NOTE:** If `fallbackRoute` isn't explicitly specified, the fallback route wouldn't be enabled by default.
+// > **Note:** If `fallbackRoute` isn't explicitly specified, the fallback route wouldn't be enabled by default.
 func (o IoTHubOutput) FallbackRoute() IoTHubFallbackRouteOutput {
 	return o.ApplyT(func(v *IoTHub) IoTHubFallbackRouteOutput { return v.FallbackRoute }).(IoTHubFallbackRouteOutput)
 }
@@ -611,6 +643,7 @@ func (o IoTHubOutput) Location() pulumi.StringOutput {
 	return o.ApplyT(func(v *IoTHub) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
 }
 
+// Specifies the minimum TLS version to support for this hub. The only valid value is `1.2`. Changing this forces a new resource to be created.
 func (o IoTHubOutput) MinTlsVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IoTHub) pulumi.StringPtrOutput { return v.MinTlsVersion }).(pulumi.StringPtrOutput)
 }
@@ -625,6 +658,7 @@ func (o IoTHubOutput) NetworkRuleSets() IoTHubNetworkRuleSetArrayOutput {
 	return o.ApplyT(func(v *IoTHub) IoTHubNetworkRuleSetArrayOutput { return v.NetworkRuleSets }).(IoTHubNetworkRuleSetArrayOutput)
 }
 
+// Is the IotHub resource accessible from a public network?
 func (o IoTHubOutput) PublicNetworkAccessEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *IoTHub) pulumi.BoolPtrOutput { return v.PublicNetworkAccessEnabled }).(pulumi.BoolPtrOutput)
 }
@@ -634,6 +668,7 @@ func (o IoTHubOutput) ResourceGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v *IoTHub) pulumi.StringOutput { return v.ResourceGroupName }).(pulumi.StringOutput)
 }
 
+// A `route` block as defined below.
 func (o IoTHubOutput) Routes() IoTHubRouteArrayOutput {
 	return o.ApplyT(func(v *IoTHub) IoTHubRouteArrayOutput { return v.Routes }).(IoTHubRouteArrayOutput)
 }
@@ -648,6 +683,7 @@ func (o IoTHubOutput) Sku() IoTHubSkuOutput {
 	return o.ApplyT(func(v *IoTHub) IoTHubSkuOutput { return v.Sku }).(IoTHubSkuOutput)
 }
 
+// A mapping of tags to assign to the resource.
 func (o IoTHubOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *IoTHub) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }

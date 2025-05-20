@@ -63,6 +63,13 @@ namespace Pulumi.Azure.AppService
     /// });
     /// ```
     /// 
+    /// ## API Providers
+    /// 
+    /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+    /// This resource uses the following Azure API Providers:
+    /// 
+    /// * `Microsoft.Web`: 2023-12-01
+    /// 
     /// ## Import
     /// 
     /// an App Service Source Control Slot can be imported using the `resource id`, e.g.
@@ -107,7 +114,7 @@ namespace Pulumi.Azure.AppService
         /// <summary>
         /// The ID of the Linux or Windows Web App Slot. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **NOTE:** Function App Slots are not supported at this time.
+        /// &gt; **Note:** Function App Slots are not supported at this time.
         /// </summary>
         [Output("slotId")]
         public Output<string> SlotId { get; private set; } = null!;
@@ -209,7 +216,7 @@ namespace Pulumi.Azure.AppService
         /// <summary>
         /// The ID of the Linux or Windows Web App Slot. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **NOTE:** Function App Slots are not supported at this time.
+        /// &gt; **Note:** Function App Slots are not supported at this time.
         /// </summary>
         [Input("slotId", required: true)]
         public Input<string> SlotId { get; set; } = null!;
@@ -273,7 +280,7 @@ namespace Pulumi.Azure.AppService
         /// <summary>
         /// The ID of the Linux or Windows Web App Slot. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **NOTE:** Function App Slots are not supported at this time.
+        /// &gt; **Note:** Function App Slots are not supported at this time.
         /// </summary>
         [Input("slotId")]
         public Input<string>? SlotId { get; set; }

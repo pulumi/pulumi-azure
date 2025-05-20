@@ -181,6 +181,13 @@ def get_virtual_network(name: Optional[builtins.str] = None,
     pulumi.export("virtualNetworkId", example.id)
     ```
 
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.Network`: 2024-05-01
+
 
     :param builtins.str name: Specifies the name of the Virtual Network.
     :param builtins.str resource_group_name: Specifies the name of the resource group the Virtual Network is located in.
@@ -219,6 +226,13 @@ def get_virtual_network_output(name: Optional[pulumi.Input[builtins.str]] = None
         resource_group_name="networking")
     pulumi.export("virtualNetworkId", example.id)
     ```
+
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.Network`: 2024-05-01
 
 
     :param builtins.str name: Specifies the name of the Virtual Network.

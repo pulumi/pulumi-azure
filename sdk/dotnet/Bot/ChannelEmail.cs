@@ -12,7 +12,7 @@ namespace Pulumi.Azure.Bot
     /// <summary>
     /// Manages a Email integration for a Bot Channel
     /// 
-    /// &gt; **Note** A bot can only have a single Email Channel associated with it.
+    /// &gt; **Note:** A bot can only have a single Email Channel associated with it.
     /// 
     /// ## Example Usage
     /// 
@@ -52,6 +52,13 @@ namespace Pulumi.Azure.Bot
     /// 
     /// });
     /// ```
+    /// 
+    /// ## API Providers
+    /// 
+    /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+    /// This resource uses the following Azure API Providers:
+    /// 
+    /// * `Microsoft.BotService`: 2022-09-15
     /// 
     /// ## Import
     /// 

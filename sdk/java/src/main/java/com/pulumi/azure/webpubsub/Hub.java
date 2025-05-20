@@ -126,6 +126,13 @@ import javax.annotation.Nullable;
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
+ * ## API Providers
+ * 
+ * &lt;!-- This section is generated, changes will be overwritten --&gt;
+ * This resource uses the following Azure API Providers:
+ * 
+ * * `Microsoft.SignalRService`: 2024-03-01
+ * 
  * ## Import
  * 
  * Web Pubsub Hub can be imported using the `resource id`, e.g.
@@ -156,7 +163,7 @@ public class Hub extends com.pulumi.resources.CustomResource {
     /**
      * An `event_handler` block as defined below.
      * 
-     * &gt; **NOTE:** User can change the order of `event_handler` to change the priority accordingly.
+     * &gt; **Note:** User can change the order of `event_handler` to change the priority accordingly.
      * 
      */
     @Export(name="eventHandlers", refs={List.class,HubEventHandler.class}, tree="[0,1]")
@@ -165,7 +172,7 @@ public class Hub extends com.pulumi.resources.CustomResource {
     /**
      * @return An `event_handler` block as defined below.
      * 
-     * &gt; **NOTE:** User can change the order of `event_handler` to change the priority accordingly.
+     * &gt; **Note:** User can change the order of `event_handler` to change the priority accordingly.
      * 
      */
     public Output<Optional<List<HubEventHandler>>> eventHandlers() {
@@ -174,7 +181,7 @@ public class Hub extends com.pulumi.resources.CustomResource {
     /**
      * An `event_listener` block as defined below.
      * 
-     * &gt; **NOTE:**  The managed identity of Web PubSub service must be enabled and the identity must have the &#34;Azure Event Hubs Data sender&#34; role to access the Event Hub.
+     * &gt; **Note:** The managed identity of Web PubSub service must be enabled and the identity must have the &#34;Azure Event Hubs Data sender&#34; role to access the Event Hub.
      * 
      */
     @Export(name="eventListeners", refs={List.class,HubEventListener.class}, tree="[0,1]")
@@ -183,7 +190,7 @@ public class Hub extends com.pulumi.resources.CustomResource {
     /**
      * @return An `event_listener` block as defined below.
      * 
-     * &gt; **NOTE:**  The managed identity of Web PubSub service must be enabled and the identity must have the &#34;Azure Event Hubs Data sender&#34; role to access the Event Hub.
+     * &gt; **Note:** The managed identity of Web PubSub service must be enabled and the identity must have the &#34;Azure Event Hubs Data sender&#34; role to access the Event Hub.
      * 
      */
     public Output<Optional<List<HubEventListener>>> eventListeners() {

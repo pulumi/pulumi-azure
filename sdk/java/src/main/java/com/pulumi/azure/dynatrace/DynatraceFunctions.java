@@ -54,6 +54,13 @@ public final class DynatraceFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Dynatrace.Observability`: 2023-04-27
+     * 
      */
     public static Output<GetMonitorResult> getMonitor(GetMonitorArgs args) {
         return getMonitor(args, InvokeOptions.Empty);
@@ -96,6 +103,13 @@ public final class DynatraceFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Dynatrace.Observability`: 2023-04-27
      * 
      */
     public static CompletableFuture<GetMonitorResult> getMonitorPlain(GetMonitorPlainArgs args) {
@@ -140,6 +154,13 @@ public final class DynatraceFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Dynatrace.Observability`: 2023-04-27
+     * 
      */
     public static Output<GetMonitorResult> getMonitor(GetMonitorArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:dynatrace/getMonitor:getMonitor", TypeShape.of(GetMonitorResult.class), args, Utilities.withVersion(options));
@@ -183,6 +204,13 @@ public final class DynatraceFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Dynatrace.Observability`: 2023-04-27
+     * 
      */
     public static Output<GetMonitorResult> getMonitor(GetMonitorArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("azure:dynatrace/getMonitor:getMonitor", TypeShape.of(GetMonitorResult.class), args, Utilities.withVersion(options));
@@ -225,6 +253,13 @@ public final class DynatraceFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Dynatrace.Observability`: 2023-04-27
      * 
      */
     public static CompletableFuture<GetMonitorResult> getMonitorPlain(GetMonitorPlainArgs args, InvokeOptions options) {

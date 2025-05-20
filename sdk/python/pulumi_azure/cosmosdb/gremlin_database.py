@@ -31,13 +31,7 @@ class GremlinDatabaseArgs:
         The set of arguments for constructing a GremlinDatabase resource.
         :param pulumi.Input[builtins.str] account_name: The name of the CosmosDB Account to create the Gremlin Database within. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] resource_group_name: The name of the resource group in which the Cosmos DB Gremlin Database is created. Changing this forces a new resource to be created.
-        :param pulumi.Input['GremlinDatabaseAutoscaleSettingsArgs'] autoscale_settings: An `autoscale_settings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual destroy-apply.
-               
-               > **Note:** Switching between autoscale and manual throughput is not supported via this provider and must be completed via the Azure Portal and refreshed.
         :param pulumi.Input[builtins.str] name: Specifies the name of the Cosmos DB Gremlin Database. Changing this forces a new resource to be created.
-        :param pulumi.Input[builtins.int] throughput: The throughput of the Gremlin database (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon database creation otherwise it cannot be updated without a manual resource destroy-apply.
-               
-               > **Note:** throughput has a maximum value of `1000000` unless a higher limit is requested via Azure Support
         """
         pulumi.set(__self__, "account_name", account_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
@@ -75,11 +69,6 @@ class GremlinDatabaseArgs:
     @property
     @pulumi.getter(name="autoscaleSettings")
     def autoscale_settings(self) -> Optional[pulumi.Input['GremlinDatabaseAutoscaleSettingsArgs']]:
-        """
-        An `autoscale_settings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual destroy-apply.
-
-        > **Note:** Switching between autoscale and manual throughput is not supported via this provider and must be completed via the Azure Portal and refreshed.
-        """
         return pulumi.get(self, "autoscale_settings")
 
     @autoscale_settings.setter
@@ -101,11 +90,6 @@ class GremlinDatabaseArgs:
     @property
     @pulumi.getter
     def throughput(self) -> Optional[pulumi.Input[builtins.int]]:
-        """
-        The throughput of the Gremlin database (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon database creation otherwise it cannot be updated without a manual resource destroy-apply.
-
-        > **Note:** throughput has a maximum value of `1000000` unless a higher limit is requested via Azure Support
-        """
         return pulumi.get(self, "throughput")
 
     @throughput.setter
@@ -124,14 +108,8 @@ class _GremlinDatabaseState:
         """
         Input properties used for looking up and filtering GremlinDatabase resources.
         :param pulumi.Input[builtins.str] account_name: The name of the CosmosDB Account to create the Gremlin Database within. Changing this forces a new resource to be created.
-        :param pulumi.Input['GremlinDatabaseAutoscaleSettingsArgs'] autoscale_settings: An `autoscale_settings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual destroy-apply.
-               
-               > **Note:** Switching between autoscale and manual throughput is not supported via this provider and must be completed via the Azure Portal and refreshed.
         :param pulumi.Input[builtins.str] name: Specifies the name of the Cosmos DB Gremlin Database. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] resource_group_name: The name of the resource group in which the Cosmos DB Gremlin Database is created. Changing this forces a new resource to be created.
-        :param pulumi.Input[builtins.int] throughput: The throughput of the Gremlin database (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon database creation otherwise it cannot be updated without a manual resource destroy-apply.
-               
-               > **Note:** throughput has a maximum value of `1000000` unless a higher limit is requested via Azure Support
         """
         if account_name is not None:
             pulumi.set(__self__, "account_name", account_name)
@@ -159,11 +137,6 @@ class _GremlinDatabaseState:
     @property
     @pulumi.getter(name="autoscaleSettings")
     def autoscale_settings(self) -> Optional[pulumi.Input['GremlinDatabaseAutoscaleSettingsArgs']]:
-        """
-        An `autoscale_settings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual destroy-apply.
-
-        > **Note:** Switching between autoscale and manual throughput is not supported via this provider and must be completed via the Azure Portal and refreshed.
-        """
         return pulumi.get(self, "autoscale_settings")
 
     @autoscale_settings.setter
@@ -197,11 +170,6 @@ class _GremlinDatabaseState:
     @property
     @pulumi.getter
     def throughput(self) -> Optional[pulumi.Input[builtins.int]]:
-        """
-        The throughput of the Gremlin database (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon database creation otherwise it cannot be updated without a manual resource destroy-apply.
-
-        > **Note:** throughput has a maximum value of `1000000` unless a higher limit is requested via Azure Support
-        """
         return pulumi.get(self, "throughput")
 
     @throughput.setter
@@ -250,14 +218,8 @@ class GremlinDatabase(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] account_name: The name of the CosmosDB Account to create the Gremlin Database within. Changing this forces a new resource to be created.
-        :param pulumi.Input[Union['GremlinDatabaseAutoscaleSettingsArgs', 'GremlinDatabaseAutoscaleSettingsArgsDict']] autoscale_settings: An `autoscale_settings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual destroy-apply.
-               
-               > **Note:** Switching between autoscale and manual throughput is not supported via this provider and must be completed via the Azure Portal and refreshed.
         :param pulumi.Input[builtins.str] name: Specifies the name of the Cosmos DB Gremlin Database. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] resource_group_name: The name of the resource group in which the Cosmos DB Gremlin Database is created. Changing this forces a new resource to be created.
-        :param pulumi.Input[builtins.int] throughput: The throughput of the Gremlin database (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon database creation otherwise it cannot be updated without a manual resource destroy-apply.
-               
-               > **Note:** throughput has a maximum value of `1000000` unless a higher limit is requested via Azure Support
         """
         ...
     @overload
@@ -352,14 +314,8 @@ class GremlinDatabase(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] account_name: The name of the CosmosDB Account to create the Gremlin Database within. Changing this forces a new resource to be created.
-        :param pulumi.Input[Union['GremlinDatabaseAutoscaleSettingsArgs', 'GremlinDatabaseAutoscaleSettingsArgsDict']] autoscale_settings: An `autoscale_settings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual destroy-apply.
-               
-               > **Note:** Switching between autoscale and manual throughput is not supported via this provider and must be completed via the Azure Portal and refreshed.
         :param pulumi.Input[builtins.str] name: Specifies the name of the Cosmos DB Gremlin Database. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] resource_group_name: The name of the resource group in which the Cosmos DB Gremlin Database is created. Changing this forces a new resource to be created.
-        :param pulumi.Input[builtins.int] throughput: The throughput of the Gremlin database (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon database creation otherwise it cannot be updated without a manual resource destroy-apply.
-               
-               > **Note:** throughput has a maximum value of `1000000` unless a higher limit is requested via Azure Support
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -383,11 +339,6 @@ class GremlinDatabase(pulumi.CustomResource):
     @property
     @pulumi.getter(name="autoscaleSettings")
     def autoscale_settings(self) -> pulumi.Output[Optional['outputs.GremlinDatabaseAutoscaleSettings']]:
-        """
-        An `autoscale_settings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual destroy-apply.
-
-        > **Note:** Switching between autoscale and manual throughput is not supported via this provider and must be completed via the Azure Portal and refreshed.
-        """
         return pulumi.get(self, "autoscale_settings")
 
     @property
@@ -409,10 +360,5 @@ class GremlinDatabase(pulumi.CustomResource):
     @property
     @pulumi.getter
     def throughput(self) -> pulumi.Output[builtins.int]:
-        """
-        The throughput of the Gremlin database (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon database creation otherwise it cannot be updated without a manual resource destroy-apply.
-
-        > **Note:** throughput has a maximum value of `1000000` unless a higher limit is requested via Azure Support
-        """
         return pulumi.get(self, "throughput")
 

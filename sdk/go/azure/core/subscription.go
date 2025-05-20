@@ -148,6 +148,13 @@ import (
 //
 // ```
 //
+// ## API Providers
+//
+// <!-- This section is generated, changes will be overwritten -->
+// This resource uses the following Azure API Providers:
+//
+// * `Microsoft.Resources`: 2023-07-01
+//
 // ## Import
 //
 // Subscriptions can be imported using the `resource id`, e.g.
@@ -156,19 +163,19 @@ import (
 // $ pulumi import azure:core/subscription:Subscription example "/providers/Microsoft.Subscription/aliases/subscription1"
 // ```
 //
-// In this scenario, the `subscription_id` property can be completed and the provider will assume control of the existing subscription by creating an Alias. See the `adding an Alias to an existing Subscription` above. This provider requires an alias to correctly manage Subscription resources due to Azure Subscription API design.
+// In this scenario, the `subscription_id` property can be completed and Terraform will assume control of the existing subscription by creating an Alias. See the `adding an Alias to an existing Subscription` above. Terrafom requires an alias to correctly manage Subscription resources due to Azure Subscription API design.
 type Subscription struct {
 	pulumi.CustomResourceState
 
-	// The Alias name for the subscription. This provider will generate a new GUID if this is not supplied. Changing this forces a new Subscription to be created.
+	// The Alias Name of the subscription. If omitted a new UUID will be generated for this property.
 	Alias pulumi.StringOutput `pulumi:"alias"`
 	// The Azure Billing Scope ID. Can be a Microsoft Customer Account Billing Scope ID, a Microsoft Partner Account Billing Scope ID or an Enrollment Billing Scope ID.
 	BillingScopeId pulumi.StringPtrOutput `pulumi:"billingScopeId"`
 	// The ID of the Subscription. Changing this forces a new Subscription to be created.
 	//
-	// > **NOTE:** This value can be specified only for adopting control of an existing Subscription, it cannot be used to provide a custom Subscription ID.
+	// > **Note:** This value can be specified only for adopting control of an existing Subscription, it cannot be used to provide a custom Subscription ID.
 	//
-	// > **NOTE:** Either `billingScopeId` or `subscriptionId` has to be specified.
+	// > **Note:** Either `billingScopeId` or `subscriptionId` has to be specified.
 	SubscriptionId pulumi.StringOutput `pulumi:"subscriptionId"`
 	// The Name of the Subscription. This is the Display Name in the portal.
 	SubscriptionName pulumi.StringOutput `pulumi:"subscriptionName"`
@@ -213,15 +220,15 @@ func GetSubscription(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Subscription resources.
 type subscriptionState struct {
-	// The Alias name for the subscription. This provider will generate a new GUID if this is not supplied. Changing this forces a new Subscription to be created.
+	// The Alias Name of the subscription. If omitted a new UUID will be generated for this property.
 	Alias *string `pulumi:"alias"`
 	// The Azure Billing Scope ID. Can be a Microsoft Customer Account Billing Scope ID, a Microsoft Partner Account Billing Scope ID or an Enrollment Billing Scope ID.
 	BillingScopeId *string `pulumi:"billingScopeId"`
 	// The ID of the Subscription. Changing this forces a new Subscription to be created.
 	//
-	// > **NOTE:** This value can be specified only for adopting control of an existing Subscription, it cannot be used to provide a custom Subscription ID.
+	// > **Note:** This value can be specified only for adopting control of an existing Subscription, it cannot be used to provide a custom Subscription ID.
 	//
-	// > **NOTE:** Either `billingScopeId` or `subscriptionId` has to be specified.
+	// > **Note:** Either `billingScopeId` or `subscriptionId` has to be specified.
 	SubscriptionId *string `pulumi:"subscriptionId"`
 	// The Name of the Subscription. This is the Display Name in the portal.
 	SubscriptionName *string `pulumi:"subscriptionName"`
@@ -234,15 +241,15 @@ type subscriptionState struct {
 }
 
 type SubscriptionState struct {
-	// The Alias name for the subscription. This provider will generate a new GUID if this is not supplied. Changing this forces a new Subscription to be created.
+	// The Alias Name of the subscription. If omitted a new UUID will be generated for this property.
 	Alias pulumi.StringPtrInput
 	// The Azure Billing Scope ID. Can be a Microsoft Customer Account Billing Scope ID, a Microsoft Partner Account Billing Scope ID or an Enrollment Billing Scope ID.
 	BillingScopeId pulumi.StringPtrInput
 	// The ID of the Subscription. Changing this forces a new Subscription to be created.
 	//
-	// > **NOTE:** This value can be specified only for adopting control of an existing Subscription, it cannot be used to provide a custom Subscription ID.
+	// > **Note:** This value can be specified only for adopting control of an existing Subscription, it cannot be used to provide a custom Subscription ID.
 	//
-	// > **NOTE:** Either `billingScopeId` or `subscriptionId` has to be specified.
+	// > **Note:** Either `billingScopeId` or `subscriptionId` has to be specified.
 	SubscriptionId pulumi.StringPtrInput
 	// The Name of the Subscription. This is the Display Name in the portal.
 	SubscriptionName pulumi.StringPtrInput
@@ -259,15 +266,15 @@ func (SubscriptionState) ElementType() reflect.Type {
 }
 
 type subscriptionArgs struct {
-	// The Alias name for the subscription. This provider will generate a new GUID if this is not supplied. Changing this forces a new Subscription to be created.
+	// The Alias Name of the subscription. If omitted a new UUID will be generated for this property.
 	Alias *string `pulumi:"alias"`
 	// The Azure Billing Scope ID. Can be a Microsoft Customer Account Billing Scope ID, a Microsoft Partner Account Billing Scope ID or an Enrollment Billing Scope ID.
 	BillingScopeId *string `pulumi:"billingScopeId"`
 	// The ID of the Subscription. Changing this forces a new Subscription to be created.
 	//
-	// > **NOTE:** This value can be specified only for adopting control of an existing Subscription, it cannot be used to provide a custom Subscription ID.
+	// > **Note:** This value can be specified only for adopting control of an existing Subscription, it cannot be used to provide a custom Subscription ID.
 	//
-	// > **NOTE:** Either `billingScopeId` or `subscriptionId` has to be specified.
+	// > **Note:** Either `billingScopeId` or `subscriptionId` has to be specified.
 	SubscriptionId *string `pulumi:"subscriptionId"`
 	// The Name of the Subscription. This is the Display Name in the portal.
 	SubscriptionName string `pulumi:"subscriptionName"`
@@ -279,15 +286,15 @@ type subscriptionArgs struct {
 
 // The set of arguments for constructing a Subscription resource.
 type SubscriptionArgs struct {
-	// The Alias name for the subscription. This provider will generate a new GUID if this is not supplied. Changing this forces a new Subscription to be created.
+	// The Alias Name of the subscription. If omitted a new UUID will be generated for this property.
 	Alias pulumi.StringPtrInput
 	// The Azure Billing Scope ID. Can be a Microsoft Customer Account Billing Scope ID, a Microsoft Partner Account Billing Scope ID or an Enrollment Billing Scope ID.
 	BillingScopeId pulumi.StringPtrInput
 	// The ID of the Subscription. Changing this forces a new Subscription to be created.
 	//
-	// > **NOTE:** This value can be specified only for adopting control of an existing Subscription, it cannot be used to provide a custom Subscription ID.
+	// > **Note:** This value can be specified only for adopting control of an existing Subscription, it cannot be used to provide a custom Subscription ID.
 	//
-	// > **NOTE:** Either `billingScopeId` or `subscriptionId` has to be specified.
+	// > **Note:** Either `billingScopeId` or `subscriptionId` has to be specified.
 	SubscriptionId pulumi.StringPtrInput
 	// The Name of the Subscription. This is the Display Name in the portal.
 	SubscriptionName pulumi.StringInput
@@ -384,7 +391,7 @@ func (o SubscriptionOutput) ToSubscriptionOutputWithContext(ctx context.Context)
 	return o
 }
 
-// The Alias name for the subscription. This provider will generate a new GUID if this is not supplied. Changing this forces a new Subscription to be created.
+// The Alias Name of the subscription. If omitted a new UUID will be generated for this property.
 func (o SubscriptionOutput) Alias() pulumi.StringOutput {
 	return o.ApplyT(func(v *Subscription) pulumi.StringOutput { return v.Alias }).(pulumi.StringOutput)
 }
@@ -396,9 +403,9 @@ func (o SubscriptionOutput) BillingScopeId() pulumi.StringPtrOutput {
 
 // The ID of the Subscription. Changing this forces a new Subscription to be created.
 //
-// > **NOTE:** This value can be specified only for adopting control of an existing Subscription, it cannot be used to provide a custom Subscription ID.
+// > **Note:** This value can be specified only for adopting control of an existing Subscription, it cannot be used to provide a custom Subscription ID.
 //
-// > **NOTE:** Either `billingScopeId` or `subscriptionId` has to be specified.
+// > **Note:** Either `billingScopeId` or `subscriptionId` has to be specified.
 func (o SubscriptionOutput) SubscriptionId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Subscription) pulumi.StringOutput { return v.SubscriptionId }).(pulumi.StringOutput)
 }

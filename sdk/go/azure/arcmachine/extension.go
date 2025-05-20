@@ -58,6 +58,13 @@ import (
 //
 // ```
 //
+// ## API Providers
+//
+// <!-- This section is generated, changes will be overwritten -->
+// This resource uses the following Azure API Providers:
+//
+// * `Microsoft.HybridCompute`: 2022-11-10
+//
 // ## Import
 //
 // Hybrid Compute Machine Extensions can be imported using the `resource id`, e.g.
@@ -72,9 +79,9 @@ type Extension struct {
 	ArcMachineId pulumi.StringOutput `pulumi:"arcMachineId"`
 	// Indicates whether the extension should be automatically upgraded by the platform if there is a newer version available. Supported values are `true` and `false`. Defaults to `true`.
 	//
-	// > **NOTE:** When `automaticUpgradeEnabled` can only be set during creation. Any later change will be ignored.
+	// > **Note:** When `automaticUpgradeEnabled` can only be set during creation. Any later change will be ignored.
 	//
-	// > **NOTE:** When `automaticUpgradeEnabled` is set to `true`, the `typeHandlerVersion` is automatically updated by the Azure platform when a new version is available and any change in `typeHandlerVersion` will be automatically ignored.
+	// > **Note:** When `automaticUpgradeEnabled` is set to `true`, the `typeHandlerVersion` is automatically updated by the Azure platform when a new version is available and any change in `typeHandlerVersion` will be automatically ignored.
 	AutomaticUpgradeEnabled pulumi.BoolPtrOutput `pulumi:"automaticUpgradeEnabled"`
 	// How the extension handler should be forced to update even if the extension configuration has not changed.
 	ForceUpdateTag pulumi.StringPtrOutput `pulumi:"forceUpdateTag"`
@@ -94,7 +101,7 @@ type Extension struct {
 	Type pulumi.StringOutput `pulumi:"type"`
 	// Specifies the version of the script handler.
 	//
-	// > **NOTE:** 1. When `automaticUpgradeEnabled` is set to `false` and no `typeHandlerVersion` is specified, the `typeHandlerVersion` change should be manually ignored by `ignoreChanges` lifecycle block. This is because the `typeHandlerVersion` is set by the Azure platform when the extension is created. 2. When `automaticUpgradeEnabled` is set to `false` and `typeHandlerVersion` is specified, the provider will check whether the version prefix is aligned with user input. For example, if user specifies `1.24` in `typeHandlerVersion`, `1.24.1` will be considered as no diff.
+	// > **Note:** 1. When `automaticUpgradeEnabled` is set to `false` and no `typeHandlerVersion` is specified, the `typeHandlerVersion` change should be manually ignored by `ignoreChanges` lifecycle block. This is because the `typeHandlerVersion` is set by the Azure platform when the extension is created. 2. When `automaticUpgradeEnabled` is set to `false` and `typeHandlerVersion` is specified, the provider will check whether the version prefix is aligned with user input. For example, if user specifies `1.24` in `typeHandlerVersion`, `1.24.1` will be considered as no diff.
 	TypeHandlerVersion pulumi.StringPtrOutput `pulumi:"typeHandlerVersion"`
 }
 
@@ -148,9 +155,9 @@ type extensionState struct {
 	ArcMachineId *string `pulumi:"arcMachineId"`
 	// Indicates whether the extension should be automatically upgraded by the platform if there is a newer version available. Supported values are `true` and `false`. Defaults to `true`.
 	//
-	// > **NOTE:** When `automaticUpgradeEnabled` can only be set during creation. Any later change will be ignored.
+	// > **Note:** When `automaticUpgradeEnabled` can only be set during creation. Any later change will be ignored.
 	//
-	// > **NOTE:** When `automaticUpgradeEnabled` is set to `true`, the `typeHandlerVersion` is automatically updated by the Azure platform when a new version is available and any change in `typeHandlerVersion` will be automatically ignored.
+	// > **Note:** When `automaticUpgradeEnabled` is set to `true`, the `typeHandlerVersion` is automatically updated by the Azure platform when a new version is available and any change in `typeHandlerVersion` will be automatically ignored.
 	AutomaticUpgradeEnabled *bool `pulumi:"automaticUpgradeEnabled"`
 	// How the extension handler should be forced to update even if the extension configuration has not changed.
 	ForceUpdateTag *string `pulumi:"forceUpdateTag"`
@@ -170,7 +177,7 @@ type extensionState struct {
 	Type *string `pulumi:"type"`
 	// Specifies the version of the script handler.
 	//
-	// > **NOTE:** 1. When `automaticUpgradeEnabled` is set to `false` and no `typeHandlerVersion` is specified, the `typeHandlerVersion` change should be manually ignored by `ignoreChanges` lifecycle block. This is because the `typeHandlerVersion` is set by the Azure platform when the extension is created. 2. When `automaticUpgradeEnabled` is set to `false` and `typeHandlerVersion` is specified, the provider will check whether the version prefix is aligned with user input. For example, if user specifies `1.24` in `typeHandlerVersion`, `1.24.1` will be considered as no diff.
+	// > **Note:** 1. When `automaticUpgradeEnabled` is set to `false` and no `typeHandlerVersion` is specified, the `typeHandlerVersion` change should be manually ignored by `ignoreChanges` lifecycle block. This is because the `typeHandlerVersion` is set by the Azure platform when the extension is created. 2. When `automaticUpgradeEnabled` is set to `false` and `typeHandlerVersion` is specified, the provider will check whether the version prefix is aligned with user input. For example, if user specifies `1.24` in `typeHandlerVersion`, `1.24.1` will be considered as no diff.
 	TypeHandlerVersion *string `pulumi:"typeHandlerVersion"`
 }
 
@@ -179,9 +186,9 @@ type ExtensionState struct {
 	ArcMachineId pulumi.StringPtrInput
 	// Indicates whether the extension should be automatically upgraded by the platform if there is a newer version available. Supported values are `true` and `false`. Defaults to `true`.
 	//
-	// > **NOTE:** When `automaticUpgradeEnabled` can only be set during creation. Any later change will be ignored.
+	// > **Note:** When `automaticUpgradeEnabled` can only be set during creation. Any later change will be ignored.
 	//
-	// > **NOTE:** When `automaticUpgradeEnabled` is set to `true`, the `typeHandlerVersion` is automatically updated by the Azure platform when a new version is available and any change in `typeHandlerVersion` will be automatically ignored.
+	// > **Note:** When `automaticUpgradeEnabled` is set to `true`, the `typeHandlerVersion` is automatically updated by the Azure platform when a new version is available and any change in `typeHandlerVersion` will be automatically ignored.
 	AutomaticUpgradeEnabled pulumi.BoolPtrInput
 	// How the extension handler should be forced to update even if the extension configuration has not changed.
 	ForceUpdateTag pulumi.StringPtrInput
@@ -201,7 +208,7 @@ type ExtensionState struct {
 	Type pulumi.StringPtrInput
 	// Specifies the version of the script handler.
 	//
-	// > **NOTE:** 1. When `automaticUpgradeEnabled` is set to `false` and no `typeHandlerVersion` is specified, the `typeHandlerVersion` change should be manually ignored by `ignoreChanges` lifecycle block. This is because the `typeHandlerVersion` is set by the Azure platform when the extension is created. 2. When `automaticUpgradeEnabled` is set to `false` and `typeHandlerVersion` is specified, the provider will check whether the version prefix is aligned with user input. For example, if user specifies `1.24` in `typeHandlerVersion`, `1.24.1` will be considered as no diff.
+	// > **Note:** 1. When `automaticUpgradeEnabled` is set to `false` and no `typeHandlerVersion` is specified, the `typeHandlerVersion` change should be manually ignored by `ignoreChanges` lifecycle block. This is because the `typeHandlerVersion` is set by the Azure platform when the extension is created. 2. When `automaticUpgradeEnabled` is set to `false` and `typeHandlerVersion` is specified, the provider will check whether the version prefix is aligned with user input. For example, if user specifies `1.24` in `typeHandlerVersion`, `1.24.1` will be considered as no diff.
 	TypeHandlerVersion pulumi.StringPtrInput
 }
 
@@ -214,9 +221,9 @@ type extensionArgs struct {
 	ArcMachineId string `pulumi:"arcMachineId"`
 	// Indicates whether the extension should be automatically upgraded by the platform if there is a newer version available. Supported values are `true` and `false`. Defaults to `true`.
 	//
-	// > **NOTE:** When `automaticUpgradeEnabled` can only be set during creation. Any later change will be ignored.
+	// > **Note:** When `automaticUpgradeEnabled` can only be set during creation. Any later change will be ignored.
 	//
-	// > **NOTE:** When `automaticUpgradeEnabled` is set to `true`, the `typeHandlerVersion` is automatically updated by the Azure platform when a new version is available and any change in `typeHandlerVersion` will be automatically ignored.
+	// > **Note:** When `automaticUpgradeEnabled` is set to `true`, the `typeHandlerVersion` is automatically updated by the Azure platform when a new version is available and any change in `typeHandlerVersion` will be automatically ignored.
 	AutomaticUpgradeEnabled *bool `pulumi:"automaticUpgradeEnabled"`
 	// How the extension handler should be forced to update even if the extension configuration has not changed.
 	ForceUpdateTag *string `pulumi:"forceUpdateTag"`
@@ -236,7 +243,7 @@ type extensionArgs struct {
 	Type string `pulumi:"type"`
 	// Specifies the version of the script handler.
 	//
-	// > **NOTE:** 1. When `automaticUpgradeEnabled` is set to `false` and no `typeHandlerVersion` is specified, the `typeHandlerVersion` change should be manually ignored by `ignoreChanges` lifecycle block. This is because the `typeHandlerVersion` is set by the Azure platform when the extension is created. 2. When `automaticUpgradeEnabled` is set to `false` and `typeHandlerVersion` is specified, the provider will check whether the version prefix is aligned with user input. For example, if user specifies `1.24` in `typeHandlerVersion`, `1.24.1` will be considered as no diff.
+	// > **Note:** 1. When `automaticUpgradeEnabled` is set to `false` and no `typeHandlerVersion` is specified, the `typeHandlerVersion` change should be manually ignored by `ignoreChanges` lifecycle block. This is because the `typeHandlerVersion` is set by the Azure platform when the extension is created. 2. When `automaticUpgradeEnabled` is set to `false` and `typeHandlerVersion` is specified, the provider will check whether the version prefix is aligned with user input. For example, if user specifies `1.24` in `typeHandlerVersion`, `1.24.1` will be considered as no diff.
 	TypeHandlerVersion *string `pulumi:"typeHandlerVersion"`
 }
 
@@ -246,9 +253,9 @@ type ExtensionArgs struct {
 	ArcMachineId pulumi.StringInput
 	// Indicates whether the extension should be automatically upgraded by the platform if there is a newer version available. Supported values are `true` and `false`. Defaults to `true`.
 	//
-	// > **NOTE:** When `automaticUpgradeEnabled` can only be set during creation. Any later change will be ignored.
+	// > **Note:** When `automaticUpgradeEnabled` can only be set during creation. Any later change will be ignored.
 	//
-	// > **NOTE:** When `automaticUpgradeEnabled` is set to `true`, the `typeHandlerVersion` is automatically updated by the Azure platform when a new version is available and any change in `typeHandlerVersion` will be automatically ignored.
+	// > **Note:** When `automaticUpgradeEnabled` is set to `true`, the `typeHandlerVersion` is automatically updated by the Azure platform when a new version is available and any change in `typeHandlerVersion` will be automatically ignored.
 	AutomaticUpgradeEnabled pulumi.BoolPtrInput
 	// How the extension handler should be forced to update even if the extension configuration has not changed.
 	ForceUpdateTag pulumi.StringPtrInput
@@ -268,7 +275,7 @@ type ExtensionArgs struct {
 	Type pulumi.StringInput
 	// Specifies the version of the script handler.
 	//
-	// > **NOTE:** 1. When `automaticUpgradeEnabled` is set to `false` and no `typeHandlerVersion` is specified, the `typeHandlerVersion` change should be manually ignored by `ignoreChanges` lifecycle block. This is because the `typeHandlerVersion` is set by the Azure platform when the extension is created. 2. When `automaticUpgradeEnabled` is set to `false` and `typeHandlerVersion` is specified, the provider will check whether the version prefix is aligned with user input. For example, if user specifies `1.24` in `typeHandlerVersion`, `1.24.1` will be considered as no diff.
+	// > **Note:** 1. When `automaticUpgradeEnabled` is set to `false` and no `typeHandlerVersion` is specified, the `typeHandlerVersion` change should be manually ignored by `ignoreChanges` lifecycle block. This is because the `typeHandlerVersion` is set by the Azure platform when the extension is created. 2. When `automaticUpgradeEnabled` is set to `false` and `typeHandlerVersion` is specified, the provider will check whether the version prefix is aligned with user input. For example, if user specifies `1.24` in `typeHandlerVersion`, `1.24.1` will be considered as no diff.
 	TypeHandlerVersion pulumi.StringPtrInput
 }
 
@@ -366,9 +373,9 @@ func (o ExtensionOutput) ArcMachineId() pulumi.StringOutput {
 
 // Indicates whether the extension should be automatically upgraded by the platform if there is a newer version available. Supported values are `true` and `false`. Defaults to `true`.
 //
-// > **NOTE:** When `automaticUpgradeEnabled` can only be set during creation. Any later change will be ignored.
+// > **Note:** When `automaticUpgradeEnabled` can only be set during creation. Any later change will be ignored.
 //
-// > **NOTE:** When `automaticUpgradeEnabled` is set to `true`, the `typeHandlerVersion` is automatically updated by the Azure platform when a new version is available and any change in `typeHandlerVersion` will be automatically ignored.
+// > **Note:** When `automaticUpgradeEnabled` is set to `true`, the `typeHandlerVersion` is automatically updated by the Azure platform when a new version is available and any change in `typeHandlerVersion` will be automatically ignored.
 func (o ExtensionOutput) AutomaticUpgradeEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Extension) pulumi.BoolPtrOutput { return v.AutomaticUpgradeEnabled }).(pulumi.BoolPtrOutput)
 }
@@ -415,7 +422,7 @@ func (o ExtensionOutput) Type() pulumi.StringOutput {
 
 // Specifies the version of the script handler.
 //
-// > **NOTE:** 1. When `automaticUpgradeEnabled` is set to `false` and no `typeHandlerVersion` is specified, the `typeHandlerVersion` change should be manually ignored by `ignoreChanges` lifecycle block. This is because the `typeHandlerVersion` is set by the Azure platform when the extension is created. 2. When `automaticUpgradeEnabled` is set to `false` and `typeHandlerVersion` is specified, the provider will check whether the version prefix is aligned with user input. For example, if user specifies `1.24` in `typeHandlerVersion`, `1.24.1` will be considered as no diff.
+// > **Note:** 1. When `automaticUpgradeEnabled` is set to `false` and no `typeHandlerVersion` is specified, the `typeHandlerVersion` change should be manually ignored by `ignoreChanges` lifecycle block. This is because the `typeHandlerVersion` is set by the Azure platform when the extension is created. 2. When `automaticUpgradeEnabled` is set to `false` and `typeHandlerVersion` is specified, the provider will check whether the version prefix is aligned with user input. For example, if user specifies `1.24` in `typeHandlerVersion`, `1.24.1` will be considered as no diff.
 func (o ExtensionOutput) TypeHandlerVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Extension) pulumi.StringPtrOutput { return v.TypeHandlerVersion }).(pulumi.StringPtrOutput)
 }

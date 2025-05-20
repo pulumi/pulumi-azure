@@ -108,11 +108,6 @@ namespace Pulumi.Azure.CosmosDB
         [Output("analyticalStorageTtl")]
         public Output<int?> AnalyticalStorageTtl { get; private set; } = null!;
 
-        /// <summary>
-        /// An `autoscale_settings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual destroy-apply.
-        /// 
-        /// &gt; **Note:** Switching between autoscale and manual throughput is not supported via this provider and must be completed via the Azure Portal and refreshed.
-        /// </summary>
         [Output("autoscaleSettings")]
         public Output<Outputs.SqlContainerAutoscaleSettings?> AutoscaleSettings { get; private set; } = null!;
 
@@ -172,9 +167,6 @@ namespace Pulumi.Azure.CosmosDB
         [Output("resourceGroupName")]
         public Output<string> ResourceGroupName { get; private set; } = null!;
 
-        /// <summary>
-        /// The throughput of SQL container (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon container creation otherwise it cannot be updated without a manual resource destroy-apply.
-        /// </summary>
         [Output("throughput")]
         public Output<int> Throughput { get; private set; } = null!;
 
@@ -242,11 +234,6 @@ namespace Pulumi.Azure.CosmosDB
         [Input("analyticalStorageTtl")]
         public Input<int>? AnalyticalStorageTtl { get; set; }
 
-        /// <summary>
-        /// An `autoscale_settings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual destroy-apply.
-        /// 
-        /// &gt; **Note:** Switching between autoscale and manual throughput is not supported via this provider and must be completed via the Azure Portal and refreshed.
-        /// </summary>
         [Input("autoscaleSettings")]
         public Input<Inputs.SqlContainerAutoscaleSettingsArgs>? AutoscaleSettings { get; set; }
 
@@ -312,9 +299,6 @@ namespace Pulumi.Azure.CosmosDB
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
 
-        /// <summary>
-        /// The throughput of SQL container (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon container creation otherwise it cannot be updated without a manual resource destroy-apply.
-        /// </summary>
         [Input("throughput")]
         public Input<int>? Throughput { get; set; }
 
@@ -350,11 +334,6 @@ namespace Pulumi.Azure.CosmosDB
         [Input("analyticalStorageTtl")]
         public Input<int>? AnalyticalStorageTtl { get; set; }
 
-        /// <summary>
-        /// An `autoscale_settings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual destroy-apply.
-        /// 
-        /// &gt; **Note:** Switching between autoscale and manual throughput is not supported via this provider and must be completed via the Azure Portal and refreshed.
-        /// </summary>
         [Input("autoscaleSettings")]
         public Input<Inputs.SqlContainerAutoscaleSettingsGetArgs>? AutoscaleSettings { get; set; }
 
@@ -420,9 +399,6 @@ namespace Pulumi.Azure.CosmosDB
         [Input("resourceGroupName")]
         public Input<string>? ResourceGroupName { get; set; }
 
-        /// <summary>
-        /// The throughput of SQL container (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon container creation otherwise it cannot be updated without a manual resource destroy-apply.
-        /// </summary>
         [Input("throughput")]
         public Input<int>? Throughput { get; set; }
 

@@ -39,6 +39,13 @@ import (
 //	}
 //
 // ```
+//
+// ## API Providers
+//
+// <!-- This section is generated, changes will be overwritten -->
+// This data source uses the following Azure API Providers:
+//
+// * `Oracle.Database`: 2024-06-01
 func GetDbNodes(ctx *pulumi.Context, args *GetDbNodesArgs, opts ...pulumi.InvokeOption) (*GetDbNodesResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetDbNodesResult

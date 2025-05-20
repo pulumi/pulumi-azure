@@ -65,6 +65,13 @@ import (
 //	}
 //
 // ```
+//
+// ## API Providers
+//
+// <!-- This section is generated, changes will be overwritten -->
+// This data source uses the following Azure API Providers:
+//
+// * `Microsoft.Authorization`: 2022-05-01-preview
 func LookupRoleDefinition(ctx *pulumi.Context, args *LookupRoleDefinitionArgs, opts ...pulumi.InvokeOption) (*LookupRoleDefinitionResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupRoleDefinitionResult
@@ -79,7 +86,7 @@ func LookupRoleDefinition(ctx *pulumi.Context, args *LookupRoleDefinitionArgs, o
 type LookupRoleDefinitionArgs struct {
 	// Specifies the Name of either a built-in or custom Role Definition.
 	//
-	// > You can also use this for built-in roles such as `Contributor`, `Owner`, `Reader` and `Virtual Machine Contributor`
+	// > **Note:** You can also use this for built-in roles such as `Contributor`, `Owner`, `Reader` and `Virtual Machine Contributor`
 	Name *string `pulumi:"name"`
 	// Specifies the ID of the Role Definition as a UUID/GUID.
 	RoleDefinitionId *string `pulumi:"roleDefinitionId"`
@@ -119,7 +126,7 @@ func LookupRoleDefinitionOutput(ctx *pulumi.Context, args LookupRoleDefinitionOu
 type LookupRoleDefinitionOutputArgs struct {
 	// Specifies the Name of either a built-in or custom Role Definition.
 	//
-	// > You can also use this for built-in roles such as `Contributor`, `Owner`, `Reader` and `Virtual Machine Contributor`
+	// > **Note:** You can also use this for built-in roles such as `Contributor`, `Owner`, `Reader` and `Virtual Machine Contributor`
 	Name pulumi.StringPtrInput `pulumi:"name"`
 	// Specifies the ID of the Role Definition as a UUID/GUID.
 	RoleDefinitionId pulumi.StringPtrInput `pulumi:"roleDefinitionId"`

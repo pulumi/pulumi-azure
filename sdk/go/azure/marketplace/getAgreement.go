@@ -41,6 +41,13 @@ import (
 //	}
 //
 // ```
+//
+// ## API Providers
+//
+// <!-- This section is generated, changes will be overwritten -->
+// This data source uses the following Azure API Providers:
+//
+// * `Microsoft.MarketplaceOrdering`: 2015-06-01
 func LookupAgreement(ctx *pulumi.Context, args *LookupAgreementArgs, opts ...pulumi.InvokeOption) (*LookupAgreementResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupAgreementResult

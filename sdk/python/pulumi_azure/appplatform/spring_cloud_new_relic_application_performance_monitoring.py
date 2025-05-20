@@ -434,9 +434,11 @@ class SpringCloudNewRelicApplicationPerformanceMonitoring(pulumi.CustomResource)
                  spring_cloud_service_id: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         """
-        > **NOTE:** This resource is only applicable for Spring Cloud Service enterprise tier
+        > **Note:** This resource is only applicable for Spring Cloud Service enterprise tier
 
         Manages a Spring Cloud Application Performance Monitoring resource for New Relic.
+
+        !> **Note:** Azure Spring Apps is now deprecated and will be retired on 2028-05-31 - as such the `appplatform.SpringCloudNewRelicApplicationPerformanceMonitoring` resource is deprecated and will be removed in a future major version of the AzureRM Provider. See https://aka.ms/asaretirement for more information.
 
         ## Example Usage
 
@@ -464,6 +466,13 @@ class SpringCloudNewRelicApplicationPerformanceMonitoring(pulumi.CustomResource)
             },
             globally_enabled=True)
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.AppPlatform`: 2024-01-01-preview
 
         ## Import
 
@@ -495,9 +504,11 @@ class SpringCloudNewRelicApplicationPerformanceMonitoring(pulumi.CustomResource)
                  args: SpringCloudNewRelicApplicationPerformanceMonitoringArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        > **NOTE:** This resource is only applicable for Spring Cloud Service enterprise tier
+        > **Note:** This resource is only applicable for Spring Cloud Service enterprise tier
 
         Manages a Spring Cloud Application Performance Monitoring resource for New Relic.
+
+        !> **Note:** Azure Spring Apps is now deprecated and will be retired on 2028-05-31 - as such the `appplatform.SpringCloudNewRelicApplicationPerformanceMonitoring` resource is deprecated and will be removed in a future major version of the AzureRM Provider. See https://aka.ms/asaretirement for more information.
 
         ## Example Usage
 
@@ -525,6 +536,13 @@ class SpringCloudNewRelicApplicationPerformanceMonitoring(pulumi.CustomResource)
             },
             globally_enabled=True)
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.AppPlatform`: 2024-01-01-preview
 
         ## Import
 

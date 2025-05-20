@@ -45,7 +45,7 @@ import (
 //				AdministratorLogin:    pulumi.String("adminTerraform"),
 //				AdministratorPassword: pulumi.String("QAZwsx123"),
 //				Version:               pulumi.String("8.0.21"),
-//				SkuName:               pulumi.String("B_Standard_B1s"),
+//				SkuName:               pulumi.String("B_Standard_B1ms"),
 //				Zone:                  pulumi.String("1"),
 //			})
 //			if err != nil {
@@ -121,6 +121,13 @@ import (
 //	}
 //
 // ```
+//
+// ## API Providers
+//
+// <!-- This section is generated, changes will be overwritten -->
+// This resource uses the following Azure API Providers:
+//
+// * `Microsoft.DataProtection`: 2024-04-01
 //
 // ## Import
 //

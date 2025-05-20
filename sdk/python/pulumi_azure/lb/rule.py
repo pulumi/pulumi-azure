@@ -42,7 +42,7 @@ class RuleArgs:
         :param pulumi.Input[builtins.str] protocol: The transport protocol for the external endpoint. Possible values are `Tcp`, `Udp` or `All`.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] backend_address_pool_ids: A list of reference to a Backend Address Pool over which this Load Balancing Rule operates.
                
-               > **NOTE:** In most cases users can only set one Backend Address Pool ID in the `backend_address_pool_ids`. Especially, when the sku of the LB is `Gateway`, users can set up to two IDs in the `backend_address_pool_ids`.
+               > **Note:** In most cases users can only set one Backend Address Pool ID in the `backend_address_pool_ids`. Especially, when the sku of the LB is `Gateway`, users can set up to two IDs in the `backend_address_pool_ids`.
         :param pulumi.Input[builtins.bool] disable_outbound_snat: Is snat enabled for this Load Balancer Rule? Default `false`.
         :param pulumi.Input[builtins.bool] enable_floating_ip: Are the Floating IPs enabled for this Load Balancer Rule? A "floating” IP is reassigned to a secondary server in case the primary server fails. Required to configure a SQL AlwaysOn Availability Group. Defaults to `false`.
         :param pulumi.Input[builtins.bool] enable_tcp_reset: Is TCP Reset enabled for this Load Balancer Rule?
@@ -139,7 +139,7 @@ class RuleArgs:
         """
         A list of reference to a Backend Address Pool over which this Load Balancing Rule operates.
 
-        > **NOTE:** In most cases users can only set one Backend Address Pool ID in the `backend_address_pool_ids`. Especially, when the sku of the LB is `Gateway`, users can set up to two IDs in the `backend_address_pool_ids`.
+        > **Note:** In most cases users can only set one Backend Address Pool ID in the `backend_address_pool_ids`. Especially, when the sku of the LB is `Gateway`, users can set up to two IDs in the `backend_address_pool_ids`.
         """
         return pulumi.get(self, "backend_address_pool_ids")
 
@@ -253,7 +253,7 @@ class _RuleState:
         Input properties used for looking up and filtering Rule resources.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] backend_address_pool_ids: A list of reference to a Backend Address Pool over which this Load Balancing Rule operates.
                
-               > **NOTE:** In most cases users can only set one Backend Address Pool ID in the `backend_address_pool_ids`. Especially, when the sku of the LB is `Gateway`, users can set up to two IDs in the `backend_address_pool_ids`.
+               > **Note:** In most cases users can only set one Backend Address Pool ID in the `backend_address_pool_ids`. Especially, when the sku of the LB is `Gateway`, users can set up to two IDs in the `backend_address_pool_ids`.
         :param pulumi.Input[builtins.int] backend_port: The port used for internal connections on the endpoint. Possible values range between 0 and 65535, inclusive. A port of `0` means "Any Port".
         :param pulumi.Input[builtins.bool] disable_outbound_snat: Is snat enabled for this Load Balancer Rule? Default `false`.
         :param pulumi.Input[builtins.bool] enable_floating_ip: Are the Floating IPs enabled for this Load Balancer Rule? A "floating” IP is reassigned to a secondary server in case the primary server fails. Required to configure a SQL AlwaysOn Availability Group. Defaults to `false`.
@@ -302,7 +302,7 @@ class _RuleState:
         """
         A list of reference to a Backend Address Pool over which this Load Balancing Rule operates.
 
-        > **NOTE:** In most cases users can only set one Backend Address Pool ID in the `backend_address_pool_ids`. Especially, when the sku of the LB is `Gateway`, users can set up to two IDs in the `backend_address_pool_ids`.
+        > **Note:** In most cases users can only set one Backend Address Pool ID in the `backend_address_pool_ids`. Especially, when the sku of the LB is `Gateway`, users can set up to two IDs in the `backend_address_pool_ids`.
         """
         return pulumi.get(self, "backend_address_pool_ids")
 
@@ -487,7 +487,7 @@ class Rule(pulumi.CustomResource):
         """
         Manages a Load Balancer Rule.
 
-        > **NOTE** When using this resource, the Load Balancer needs to have a FrontEnd IP Configuration Attached
+        > **Note:** When using this resource, the Load Balancer needs to have a FrontEnd IP Configuration Attached
 
         ## Example Usage
 
@@ -520,6 +520,13 @@ class Rule(pulumi.CustomResource):
             frontend_ip_configuration_name="PublicIPAddress")
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Network`: 2023-09-01
+
         ## Import
 
         Load Balancer Rules can be imported using the `resource id`, e.g.
@@ -532,7 +539,7 @@ class Rule(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] backend_address_pool_ids: A list of reference to a Backend Address Pool over which this Load Balancing Rule operates.
                
-               > **NOTE:** In most cases users can only set one Backend Address Pool ID in the `backend_address_pool_ids`. Especially, when the sku of the LB is `Gateway`, users can set up to two IDs in the `backend_address_pool_ids`.
+               > **Note:** In most cases users can only set one Backend Address Pool ID in the `backend_address_pool_ids`. Especially, when the sku of the LB is `Gateway`, users can set up to two IDs in the `backend_address_pool_ids`.
         :param pulumi.Input[builtins.int] backend_port: The port used for internal connections on the endpoint. Possible values range between 0 and 65535, inclusive. A port of `0` means "Any Port".
         :param pulumi.Input[builtins.bool] disable_outbound_snat: Is snat enabled for this Load Balancer Rule? Default `false`.
         :param pulumi.Input[builtins.bool] enable_floating_ip: Are the Floating IPs enabled for this Load Balancer Rule? A "floating” IP is reassigned to a secondary server in case the primary server fails. Required to configure a SQL AlwaysOn Availability Group. Defaults to `false`.
@@ -555,7 +562,7 @@ class Rule(pulumi.CustomResource):
         """
         Manages a Load Balancer Rule.
 
-        > **NOTE** When using this resource, the Load Balancer needs to have a FrontEnd IP Configuration Attached
+        > **Note:** When using this resource, the Load Balancer needs to have a FrontEnd IP Configuration Attached
 
         ## Example Usage
 
@@ -587,6 +594,13 @@ class Rule(pulumi.CustomResource):
             backend_port=3389,
             frontend_ip_configuration_name="PublicIPAddress")
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Network`: 2023-09-01
 
         ## Import
 
@@ -690,7 +704,7 @@ class Rule(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] backend_address_pool_ids: A list of reference to a Backend Address Pool over which this Load Balancing Rule operates.
                
-               > **NOTE:** In most cases users can only set one Backend Address Pool ID in the `backend_address_pool_ids`. Especially, when the sku of the LB is `Gateway`, users can set up to two IDs in the `backend_address_pool_ids`.
+               > **Note:** In most cases users can only set one Backend Address Pool ID in the `backend_address_pool_ids`. Especially, when the sku of the LB is `Gateway`, users can set up to two IDs in the `backend_address_pool_ids`.
         :param pulumi.Input[builtins.int] backend_port: The port used for internal connections on the endpoint. Possible values range between 0 and 65535, inclusive. A port of `0` means "Any Port".
         :param pulumi.Input[builtins.bool] disable_outbound_snat: Is snat enabled for this Load Balancer Rule? Default `false`.
         :param pulumi.Input[builtins.bool] enable_floating_ip: Are the Floating IPs enabled for this Load Balancer Rule? A "floating” IP is reassigned to a secondary server in case the primary server fails. Required to configure a SQL AlwaysOn Availability Group. Defaults to `false`.
@@ -730,7 +744,7 @@ class Rule(pulumi.CustomResource):
         """
         A list of reference to a Backend Address Pool over which this Load Balancing Rule operates.
 
-        > **NOTE:** In most cases users can only set one Backend Address Pool ID in the `backend_address_pool_ids`. Especially, when the sku of the LB is `Gateway`, users can set up to two IDs in the `backend_address_pool_ids`.
+        > **Note:** In most cases users can only set one Backend Address Pool ID in the `backend_address_pool_ids`. Especially, when the sku of the LB is `Gateway`, users can set up to two IDs in the `backend_address_pool_ids`.
         """
         return pulumi.get(self, "backend_address_pool_ids")
 

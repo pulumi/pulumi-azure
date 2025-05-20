@@ -143,7 +143,7 @@ public class ActionHttp extends com.pulumi.resources.CustomResource {
     /**
      * Specifies the name of the HTTP Action to be created within the Logic App Workflow. Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE:** This name must be unique across all Actions within the Logic App Workflow.
+     * &gt; **Note:** This name must be unique across all Actions within the Logic App Workflow.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
@@ -152,7 +152,7 @@ public class ActionHttp extends com.pulumi.resources.CustomResource {
     /**
      * @return Specifies the name of the HTTP Action to be created within the Logic App Workflow. Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE:** This name must be unique across all Actions within the Logic App Workflow.
+     * &gt; **Note:** This name must be unique across all Actions within the Logic App Workflow.
      * 
      */
     public Output<String> name() {

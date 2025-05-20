@@ -19,7 +19,7 @@ import javax.annotation.Nullable;
 /**
  * Manages a Dashboard Grafana Managed Private Endpoint.
  * 
- * &gt; **NOTE:** This resource will _not_ approve the managed private endpoint connection on the linked resource. This will need to be done manually via Azure CLI, PowerShell, or AzAPI resources. See here for an example that uses AzAPI.
+ * &gt; **Note:** This resource will _not_ approve the managed private endpoint connection on the linked resource. This will need to be done manually via Azure CLI, PowerShell, or AzAPI resources. See here for an example that uses AzAPI.
  * 
  * ## Example Usage
  * 
@@ -90,6 +90,13 @@ import javax.annotation.Nullable;
  * }
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
+ * 
+ * ## API Providers
+ * 
+ * &lt;!-- This section is generated, changes will be overwritten --&gt;
+ * This resource uses the following Azure API Providers:
+ * 
+ * * `Microsoft.Dashboard`: 2023-09-01
  * 
  * ## Import
  * 

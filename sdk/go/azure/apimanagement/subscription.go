@@ -67,6 +67,13 @@ import (
 //
 // ```
 //
+// ## API Providers
+//
+// <!-- This section is generated, changes will be overwritten -->
+// This resource uses the following Azure API Providers:
+//
+// * `Microsoft.ApiManagement`: 2022-08-01
+//
 // ## Import
 //
 // API Management Subscriptions can be imported using the `resource id`, e.g.
@@ -81,7 +88,7 @@ type Subscription struct {
 	AllowTracing pulumi.BoolPtrOutput `pulumi:"allowTracing"`
 	// The ID of the API which should be assigned to this Subscription. Changing this forces a new resource to be created.
 	//
-	// > **Info:** Only one of `productId` and `apiId` can be set. If both are missing `/apis` scope is used for the subscription and all apis are accessible.
+	// > **Note:** Only one of `productId` and `apiId` can be set. If both are missing `/apis` scope is used for the subscription and all apis are accessible.
 	ApiId pulumi.StringPtrOutput `pulumi:"apiId"`
 	// The name of the API Management Service where this Subscription should be created. Changing this forces a new resource to be created.
 	ApiManagementName pulumi.StringOutput `pulumi:"apiManagementName"`
@@ -91,7 +98,7 @@ type Subscription struct {
 	PrimaryKey pulumi.StringOutput `pulumi:"primaryKey"`
 	// The ID of the Product which should be assigned to this Subscription. Changing this forces a new resource to be created.
 	//
-	// > **Info:** Only one of `productId` and `apiId` can be set. If both are missing `allApis` scope is used for the subscription.
+	// > **Note:** Only one of `productId` and `apiId` can be set. If both are missing `allApis` scope is used for the subscription.
 	ProductId pulumi.StringPtrOutput `pulumi:"productId"`
 	// The name of the Resource Group in which the API Management Service exists. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
@@ -159,7 +166,7 @@ type subscriptionState struct {
 	AllowTracing *bool `pulumi:"allowTracing"`
 	// The ID of the API which should be assigned to this Subscription. Changing this forces a new resource to be created.
 	//
-	// > **Info:** Only one of `productId` and `apiId` can be set. If both are missing `/apis` scope is used for the subscription and all apis are accessible.
+	// > **Note:** Only one of `productId` and `apiId` can be set. If both are missing `/apis` scope is used for the subscription and all apis are accessible.
 	ApiId *string `pulumi:"apiId"`
 	// The name of the API Management Service where this Subscription should be created. Changing this forces a new resource to be created.
 	ApiManagementName *string `pulumi:"apiManagementName"`
@@ -169,7 +176,7 @@ type subscriptionState struct {
 	PrimaryKey *string `pulumi:"primaryKey"`
 	// The ID of the Product which should be assigned to this Subscription. Changing this forces a new resource to be created.
 	//
-	// > **Info:** Only one of `productId` and `apiId` can be set. If both are missing `allApis` scope is used for the subscription.
+	// > **Note:** Only one of `productId` and `apiId` can be set. If both are missing `allApis` scope is used for the subscription.
 	ProductId *string `pulumi:"productId"`
 	// The name of the Resource Group in which the API Management Service exists. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
@@ -188,7 +195,7 @@ type SubscriptionState struct {
 	AllowTracing pulumi.BoolPtrInput
 	// The ID of the API which should be assigned to this Subscription. Changing this forces a new resource to be created.
 	//
-	// > **Info:** Only one of `productId` and `apiId` can be set. If both are missing `/apis` scope is used for the subscription and all apis are accessible.
+	// > **Note:** Only one of `productId` and `apiId` can be set. If both are missing `/apis` scope is used for the subscription and all apis are accessible.
 	ApiId pulumi.StringPtrInput
 	// The name of the API Management Service where this Subscription should be created. Changing this forces a new resource to be created.
 	ApiManagementName pulumi.StringPtrInput
@@ -198,7 +205,7 @@ type SubscriptionState struct {
 	PrimaryKey pulumi.StringPtrInput
 	// The ID of the Product which should be assigned to this Subscription. Changing this forces a new resource to be created.
 	//
-	// > **Info:** Only one of `productId` and `apiId` can be set. If both are missing `allApis` scope is used for the subscription.
+	// > **Note:** Only one of `productId` and `apiId` can be set. If both are missing `allApis` scope is used for the subscription.
 	ProductId pulumi.StringPtrInput
 	// The name of the Resource Group in which the API Management Service exists. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
@@ -221,7 +228,7 @@ type subscriptionArgs struct {
 	AllowTracing *bool `pulumi:"allowTracing"`
 	// The ID of the API which should be assigned to this Subscription. Changing this forces a new resource to be created.
 	//
-	// > **Info:** Only one of `productId` and `apiId` can be set. If both are missing `/apis` scope is used for the subscription and all apis are accessible.
+	// > **Note:** Only one of `productId` and `apiId` can be set. If both are missing `/apis` scope is used for the subscription and all apis are accessible.
 	ApiId *string `pulumi:"apiId"`
 	// The name of the API Management Service where this Subscription should be created. Changing this forces a new resource to be created.
 	ApiManagementName string `pulumi:"apiManagementName"`
@@ -231,7 +238,7 @@ type subscriptionArgs struct {
 	PrimaryKey *string `pulumi:"primaryKey"`
 	// The ID of the Product which should be assigned to this Subscription. Changing this forces a new resource to be created.
 	//
-	// > **Info:** Only one of `productId` and `apiId` can be set. If both are missing `allApis` scope is used for the subscription.
+	// > **Note:** Only one of `productId` and `apiId` can be set. If both are missing `allApis` scope is used for the subscription.
 	ProductId *string `pulumi:"productId"`
 	// The name of the Resource Group in which the API Management Service exists. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
@@ -251,7 +258,7 @@ type SubscriptionArgs struct {
 	AllowTracing pulumi.BoolPtrInput
 	// The ID of the API which should be assigned to this Subscription. Changing this forces a new resource to be created.
 	//
-	// > **Info:** Only one of `productId` and `apiId` can be set. If both are missing `/apis` scope is used for the subscription and all apis are accessible.
+	// > **Note:** Only one of `productId` and `apiId` can be set. If both are missing `/apis` scope is used for the subscription and all apis are accessible.
 	ApiId pulumi.StringPtrInput
 	// The name of the API Management Service where this Subscription should be created. Changing this forces a new resource to be created.
 	ApiManagementName pulumi.StringInput
@@ -261,7 +268,7 @@ type SubscriptionArgs struct {
 	PrimaryKey pulumi.StringPtrInput
 	// The ID of the Product which should be assigned to this Subscription. Changing this forces a new resource to be created.
 	//
-	// > **Info:** Only one of `productId` and `apiId` can be set. If both are missing `allApis` scope is used for the subscription.
+	// > **Note:** Only one of `productId` and `apiId` can be set. If both are missing `allApis` scope is used for the subscription.
 	ProductId pulumi.StringPtrInput
 	// The name of the Resource Group in which the API Management Service exists. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
@@ -369,7 +376,7 @@ func (o SubscriptionOutput) AllowTracing() pulumi.BoolPtrOutput {
 
 // The ID of the API which should be assigned to this Subscription. Changing this forces a new resource to be created.
 //
-// > **Info:** Only one of `productId` and `apiId` can be set. If both are missing `/apis` scope is used for the subscription and all apis are accessible.
+// > **Note:** Only one of `productId` and `apiId` can be set. If both are missing `/apis` scope is used for the subscription and all apis are accessible.
 func (o SubscriptionOutput) ApiId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Subscription) pulumi.StringPtrOutput { return v.ApiId }).(pulumi.StringPtrOutput)
 }
@@ -391,7 +398,7 @@ func (o SubscriptionOutput) PrimaryKey() pulumi.StringOutput {
 
 // The ID of the Product which should be assigned to this Subscription. Changing this forces a new resource to be created.
 //
-// > **Info:** Only one of `productId` and `apiId` can be set. If both are missing `allApis` scope is used for the subscription.
+// > **Note:** Only one of `productId` and `apiId` can be set. If both are missing `allApis` scope is used for the subscription.
 func (o SubscriptionOutput) ProductId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Subscription) pulumi.StringPtrOutput { return v.ProductId }).(pulumi.StringPtrOutput)
 }

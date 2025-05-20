@@ -61,17 +61,9 @@ public final class ApiPolicyArgs extends com.pulumi.resources.ResourceArgs {
         return this.resourceGroupName;
     }
 
-    /**
-     * The XML Content for this Policy as a string.
-     * 
-     */
     @Import(name="xmlContent")
     private @Nullable Output<String> xmlContent;
 
-    /**
-     * @return The XML Content for this Policy as a string.
-     * 
-     */
     public Optional<Output<String>> xmlContent() {
         return Optional.ofNullable(this.xmlContent);
     }
@@ -182,23 +174,11 @@ public final class ApiPolicyArgs extends com.pulumi.resources.ResourceArgs {
             return resourceGroupName(Output.of(resourceGroupName));
         }
 
-        /**
-         * @param xmlContent The XML Content for this Policy as a string.
-         * 
-         * @return builder
-         * 
-         */
         public Builder xmlContent(@Nullable Output<String> xmlContent) {
             $.xmlContent = xmlContent;
             return this;
         }
 
-        /**
-         * @param xmlContent The XML Content for this Policy as a string.
-         * 
-         * @return builder
-         * 
-         */
         public Builder xmlContent(String xmlContent) {
             return xmlContent(Output.of(xmlContent));
         }

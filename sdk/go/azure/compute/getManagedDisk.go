@@ -40,6 +40,13 @@ import (
 //	}
 //
 // ```
+//
+// ## API Providers
+//
+// <!-- This section is generated, changes will be overwritten -->
+// This data source uses the following Azure API Providers:
+//
+// * `Microsoft.Compute`: 2023-04-02
 func LookupManagedDisk(ctx *pulumi.Context, args *LookupManagedDiskArgs, opts ...pulumi.InvokeOption) (*LookupManagedDiskResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupManagedDiskResult

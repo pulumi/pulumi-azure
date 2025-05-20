@@ -273,6 +273,13 @@ class Workspace(pulumi.CustomResource):
             })
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Monitor`: 2023-04-03
+
         ## Import
 
         Azure Monitor Workspace can be imported using the `resource id`, e.g.
@@ -315,6 +322,13 @@ class Workspace(pulumi.CustomResource):
                 "key": "value",
             })
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Monitor`: 2023-04-03
 
         ## Import
 

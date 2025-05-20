@@ -72,6 +72,13 @@ import javax.annotation.Nullable;
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
+ * ## API Providers
+ * 
+ * &lt;!-- This section is generated, changes will be overwritten --&gt;
+ * This resource uses the following Azure API Providers:
+ * 
+ * * `Microsoft.ScVmm`: 2023-10-07
+ * 
  * ## Import
  * 
  * System Center Virtual Machine Manager Servers can be imported using the `resource id`, e.g.

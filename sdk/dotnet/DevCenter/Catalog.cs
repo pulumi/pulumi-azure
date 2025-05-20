@@ -9,21 +9,106 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Azure.DevCenter
 {
+    /// <summary>
+    /// Manages a Dev Center Catalog.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     {
+    ///         Name = "example-resources",
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleDevCenter = new Azure.DevCenter.DevCenter("example", new()
+    ///     {
+    ///         Location = example.Location,
+    ///         Name = "example",
+    ///         ResourceGroupName = example.Name,
+    ///         Identity = new Azure.DevCenter.Inputs.DevCenterIdentityArgs
+    ///         {
+    ///             Type = "SystemAssigned",
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleCatalog = new Azure.DevCenter.Catalog("example", new()
+    ///     {
+    ///         Name = "example",
+    ///         ResourceGroupName = testAzurermResourceGroup.Name,
+    ///         DevCenterId = test.Id,
+    ///         CatalogGithub = new Azure.DevCenter.Inputs.CatalogCatalogGithubArgs
+    ///         {
+    ///             Branch = "foo",
+    ///             Path = "",
+    ///             Uri = "example URI",
+    ///             KeyVaultKeyUrl = "secret",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ## API Providers
+    /// 
+    /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+    /// This resource uses the following Azure API Providers:
+    /// 
+    /// * `Microsoft.DevCenter`: 2025-02-01
+    /// 
+    /// ## Import
+    /// 
+    /// An existing Dev Center Catalog can be imported into Pulumi using the `resource id`, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure:devcenter/catalog:Catalog example /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DevCenter/devCenters/{devCenterName}/catalogs/{catalogName}
+    /// ```
+    /// 
+    /// * Where `{subscriptionId}` is the ID of the Azure Subscription where the Dev Center exists. For example `12345678-1234-9876-4563-123456789012`.
+    /// 
+    /// * Where `{resourceGroupName}` is the name of Resource Group where this Dev Center exists. For example `example-resource-group`.
+    /// 
+    /// * Where `{devCenterName}` is the name of the Dev Center. For example `devCenterValue`.
+    /// 
+    /// * Where `{catalogName}` is the name of the Dev Center Catalog. For example `catalogValue`.
+    /// </summary>
     [AzureResourceType("azure:devcenter/catalog:Catalog")]
     public partial class Catalog : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// A `catalog_adogit` block as defined below.
+        /// </summary>
         [Output("catalogAdogit")]
         public Output<Outputs.CatalogCatalogAdogit?> CatalogAdogit { get; private set; } = null!;
 
+        /// <summary>
+        /// A `catalog_github` block as defined below.
+        /// </summary>
         [Output("catalogGithub")]
         public Output<Outputs.CatalogCatalogGithub?> CatalogGithub { get; private set; } = null!;
 
+        /// <summary>
+        /// Specifies the Dev Center Id within which this Dev Center Catalog should exist. Changing this forces a new Dev Center Catalog to be created.
+        /// </summary>
         [Output("devCenterId")]
         public Output<string> DevCenterId { get; private set; } = null!;
 
+        /// <summary>
+        /// Specifies the name of this Dev Center Catalog. Changing this forces a new Dev Center to be created.
+        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// Specifies the name of the Resource Group within which this Dev Center Catalog should exist. Changing this forces a new Dev Center to be created.
+        /// </summary>
         [Output("resourceGroupName")]
         public Output<string> ResourceGroupName { get; private set; } = null!;
 
@@ -73,18 +158,33 @@ namespace Pulumi.Azure.DevCenter
 
     public sealed class CatalogArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// A `catalog_adogit` block as defined below.
+        /// </summary>
         [Input("catalogAdogit")]
         public Input<Inputs.CatalogCatalogAdogitArgs>? CatalogAdogit { get; set; }
 
+        /// <summary>
+        /// A `catalog_github` block as defined below.
+        /// </summary>
         [Input("catalogGithub")]
         public Input<Inputs.CatalogCatalogGithubArgs>? CatalogGithub { get; set; }
 
+        /// <summary>
+        /// Specifies the Dev Center Id within which this Dev Center Catalog should exist. Changing this forces a new Dev Center Catalog to be created.
+        /// </summary>
         [Input("devCenterId", required: true)]
         public Input<string> DevCenterId { get; set; } = null!;
 
+        /// <summary>
+        /// Specifies the name of this Dev Center Catalog. Changing this forces a new Dev Center to be created.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// Specifies the name of the Resource Group within which this Dev Center Catalog should exist. Changing this forces a new Dev Center to be created.
+        /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
 
@@ -96,18 +196,33 @@ namespace Pulumi.Azure.DevCenter
 
     public sealed class CatalogState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// A `catalog_adogit` block as defined below.
+        /// </summary>
         [Input("catalogAdogit")]
         public Input<Inputs.CatalogCatalogAdogitGetArgs>? CatalogAdogit { get; set; }
 
+        /// <summary>
+        /// A `catalog_github` block as defined below.
+        /// </summary>
         [Input("catalogGithub")]
         public Input<Inputs.CatalogCatalogGithubGetArgs>? CatalogGithub { get; set; }
 
+        /// <summary>
+        /// Specifies the Dev Center Id within which this Dev Center Catalog should exist. Changing this forces a new Dev Center Catalog to be created.
+        /// </summary>
         [Input("devCenterId")]
         public Input<string>? DevCenterId { get; set; }
 
+        /// <summary>
+        /// Specifies the name of this Dev Center Catalog. Changing this forces a new Dev Center to be created.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// Specifies the name of the Resource Group within which this Dev Center Catalog should exist. Changing this forces a new Dev Center to be created.
+        /// </summary>
         [Input("resourceGroupName")]
         public Input<string>? ResourceGroupName { get; set; }
 

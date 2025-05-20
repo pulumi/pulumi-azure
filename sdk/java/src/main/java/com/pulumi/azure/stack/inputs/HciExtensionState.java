@@ -139,7 +139,7 @@ public final class HciExtensionState extends com.pulumi.resources.ResourceArgs {
     /**
      * Specifies the version of the script handler.
      * 
-     * &gt; **NOTE:** `type_handler_version` cannot be set when `automatic_upgrade_enabled` is set to `true`.
+     * &gt; **Note:** `type_handler_version` cannot be set when `automatic_upgrade_enabled` is set to `true`.
      * 
      */
     @Import(name="typeHandlerVersion")
@@ -148,7 +148,7 @@ public final class HciExtensionState extends com.pulumi.resources.ResourceArgs {
     /**
      * @return Specifies the version of the script handler.
      * 
-     * &gt; **NOTE:** `type_handler_version` cannot be set when `automatic_upgrade_enabled` is set to `true`.
+     * &gt; **Note:** `type_handler_version` cannot be set when `automatic_upgrade_enabled` is set to `true`.
      * 
      */
     public Optional<Output<String>> typeHandlerVersion() {
@@ -358,7 +358,7 @@ public final class HciExtensionState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param typeHandlerVersion Specifies the version of the script handler.
          * 
-         * &gt; **NOTE:** `type_handler_version` cannot be set when `automatic_upgrade_enabled` is set to `true`.
+         * &gt; **Note:** `type_handler_version` cannot be set when `automatic_upgrade_enabled` is set to `true`.
          * 
          * @return builder
          * 
@@ -371,7 +371,7 @@ public final class HciExtensionState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param typeHandlerVersion Specifies the version of the script handler.
          * 
-         * &gt; **NOTE:** `type_handler_version` cannot be set when `automatic_upgrade_enabled` is set to `true`.
+         * &gt; **Note:** `type_handler_version` cannot be set when `automatic_upgrade_enabled` is set to `true`.
          * 
          * @return builder
          * 

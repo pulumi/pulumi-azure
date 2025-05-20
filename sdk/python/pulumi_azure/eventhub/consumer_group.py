@@ -237,6 +237,13 @@ class ConsumerGroup(pulumi.CustomResource):
             user_metadata="some-meta-data")
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.EventHub`: 2024-01-01
+
         ## Import
 
         EventHub Consumer Groups can be imported using the `resource id`, e.g.
@@ -293,6 +300,13 @@ class ConsumerGroup(pulumi.CustomResource):
             resource_group_name=example.name,
             user_metadata="some-meta-data")
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.EventHub`: 2024-01-01
 
         ## Import
 

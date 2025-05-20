@@ -40,6 +40,13 @@ import (
 //	}
 //
 // ```
+//
+// ## API Providers
+//
+// <!-- This section is generated, changes will be overwritten -->
+// This data source uses the following Azure API Providers:
+//
+// * `Microsoft.KeyVault`: 2023-07-01
 func LookupManagedHardwareSecurityModule(ctx *pulumi.Context, args *LookupManagedHardwareSecurityModuleArgs, opts ...pulumi.InvokeOption) (*LookupManagedHardwareSecurityModuleResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupManagedHardwareSecurityModuleResult

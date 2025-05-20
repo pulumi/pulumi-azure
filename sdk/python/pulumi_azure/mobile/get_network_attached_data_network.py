@@ -201,6 +201,13 @@ def get_network_attached_data_network(mobile_network_data_network_name: Optional
         mobile_network_packet_core_data_plane_id=example.id)
     ```
 
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.MobileNetwork`: 2022-11-01
+
 
     :param builtins.str mobile_network_data_network_name: The Name of the `mobile.NetworkDataNetwork` this resource belongs to.
     :param builtins.str mobile_network_packet_core_data_plane_id: The ID of the `mobile.NetworkPacketCoreDataPlane` which the Mobile Network Attached Data Network belongs to.
@@ -242,6 +249,13 @@ def get_network_attached_data_network_output(mobile_network_data_network_name: O
     example_get_network_attached_data_network = azure.mobile.get_network_attached_data_network(mobile_network_data_network_name=example.name,
         mobile_network_packet_core_data_plane_id=example.id)
     ```
+
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.MobileNetwork`: 2022-11-01
 
 
     :param builtins.str mobile_network_data_network_name: The Name of the `mobile.NetworkDataNetwork` this resource belongs to.

@@ -31,7 +31,7 @@ public final class SubnetServiceEndpointStoragePolicyDefinition {
     /**
      * @return Specifies a list of resources or aliases that this Subnet Service Endpoint Storage Policy Definition applies to.
      * 
-     * &gt; **NOTE** The `service_resources` property must contain either Aliases or Resource IDs, but not both.
+     * &gt; **Note:** The `service_resources` property must contain either Aliases or Resource IDs, but not both.
      * 
      */
     private List<String> serviceResources;
@@ -61,7 +61,7 @@ public final class SubnetServiceEndpointStoragePolicyDefinition {
     /**
      * @return Specifies a list of resources or aliases that this Subnet Service Endpoint Storage Policy Definition applies to.
      * 
-     * &gt; **NOTE** The `service_resources` property must contain either Aliases or Resource IDs, but not both.
+     * &gt; **Note:** The `service_resources` property must contain either Aliases or Resource IDs, but not both.
      * 
      */
     public List<String> serviceResources() {

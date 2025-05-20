@@ -110,7 +110,7 @@ public final class BackendAddressPoolState extends com.pulumi.resources.Resource
     /**
      * The backend address synchronous mode for the Backend Address Pool. Possible values are `Automatic` and `Manual`. This is required with `virtual_network_id`. Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE:** The `synchronous_mode` can set only for Load Balancer with `Standard` SKU.
+     * &gt; **Note:** The `synchronous_mode` can set only for Load Balancer with `Standard` SKU.
      * 
      */
     @Import(name="synchronousMode")
@@ -119,7 +119,7 @@ public final class BackendAddressPoolState extends com.pulumi.resources.Resource
     /**
      * @return The backend address synchronous mode for the Backend Address Pool. Possible values are `Automatic` and `Manual`. This is required with `virtual_network_id`. Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE:** The `synchronous_mode` can set only for Load Balancer with `Standard` SKU.
+     * &gt; **Note:** The `synchronous_mode` can set only for Load Balancer with `Standard` SKU.
      * 
      */
     public Optional<Output<String>> synchronousMode() {
@@ -357,7 +357,7 @@ public final class BackendAddressPoolState extends com.pulumi.resources.Resource
         /**
          * @param synchronousMode The backend address synchronous mode for the Backend Address Pool. Possible values are `Automatic` and `Manual`. This is required with `virtual_network_id`. Changing this forces a new resource to be created.
          * 
-         * &gt; **NOTE:** The `synchronous_mode` can set only for Load Balancer with `Standard` SKU.
+         * &gt; **Note:** The `synchronous_mode` can set only for Load Balancer with `Standard` SKU.
          * 
          * @return builder
          * 
@@ -370,7 +370,7 @@ public final class BackendAddressPoolState extends com.pulumi.resources.Resource
         /**
          * @param synchronousMode The backend address synchronous mode for the Backend Address Pool. Possible values are `Automatic` and `Manual`. This is required with `virtual_network_id`. Changing this forces a new resource to be created.
          * 
-         * &gt; **NOTE:** The `synchronous_mode` can set only for Load Balancer with `Standard` SKU.
+         * &gt; **Note:** The `synchronous_mode` can set only for Load Balancer with `Standard` SKU.
          * 
          * @return builder
          * 

@@ -34,7 +34,7 @@ namespace Pulumi.Azure.ApiManagement
     ///         Location = example.Location,
     ///         ResourceGroupName = example.Name,
     ///         PublisherName = "My Company",
-    ///         PublisherEmail = "company@exmaple.com",
+    ///         PublisherEmail = "company@terraform.io",
     ///         SkuName = "Developer_1",
     ///     });
     /// 
@@ -45,12 +45,19 @@ namespace Pulumi.Azure.ApiManagement
     ///         ResourceGroupName = example.Name,
     ///         FirstName = "Example",
     ///         LastName = "User",
-    ///         Email = "user@example.com",
+    ///         Email = "tom+tfdev@example.com",
     ///         State = "active",
     ///     });
     /// 
     /// });
     /// ```
+    /// 
+    /// ## API Providers
+    /// 
+    /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+    /// This resource uses the following Azure API Providers:
+    /// 
+    /// * `Microsoft.ApiManagement`: 2022-08-01
     /// 
     /// ## Import
     /// 
@@ -114,7 +121,7 @@ namespace Pulumi.Azure.ApiManagement
         /// <summary>
         /// The state of this user. Possible values are `active`, `blocked` and `pending`.
         /// 
-        /// &gt; **NOTE:** the State can be changed from Pending &gt; Active/Blocked but not from Active/Blocked &gt; Pending.
+        /// &gt; **Note:** the State can be changed from Pending &gt; Active/Blocked but not from Active/Blocked &gt; Pending.
         /// </summary>
         [Output("state")]
         public Output<string> State { get; private set; } = null!;
@@ -236,7 +243,7 @@ namespace Pulumi.Azure.ApiManagement
         /// <summary>
         /// The state of this user. Possible values are `active`, `blocked` and `pending`.
         /// 
-        /// &gt; **NOTE:** the State can be changed from Pending &gt; Active/Blocked but not from Active/Blocked &gt; Pending.
+        /// &gt; **Note:** the State can be changed from Pending &gt; Active/Blocked but not from Active/Blocked &gt; Pending.
         /// </summary>
         [Input("state")]
         public Input<string>? State { get; set; }
@@ -316,7 +323,7 @@ namespace Pulumi.Azure.ApiManagement
         /// <summary>
         /// The state of this user. Possible values are `active`, `blocked` and `pending`.
         /// 
-        /// &gt; **NOTE:** the State can be changed from Pending &gt; Active/Blocked but not from Active/Blocked &gt; Pending.
+        /// &gt; **Note:** the State can be changed from Pending &gt; Active/Blocked but not from Active/Blocked &gt; Pending.
         /// </summary>
         [Input("state")]
         public Input<string>? State { get; set; }

@@ -20,13 +20,13 @@ namespace Pulumi.Azure.SystemCenter.Outputs
         /// <summary>
         /// The computer name of the Virtual Machine. Changing this forces a new resource to be created.
         /// </summary>
-        public readonly string ComputerName;
+        public readonly string? ComputerName;
 
         [OutputConstructor]
         private VirtualMachineManagerVirtualMachineInstanceOperatingSystem(
             string? adminPassword,
 
-            string computerName)
+            string? computerName)
         {
             AdminPassword = adminPassword;
             ComputerName = computerName;

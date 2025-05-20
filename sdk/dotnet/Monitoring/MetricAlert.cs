@@ -116,7 +116,7 @@ namespace Pulumi.Azure.Monitoring
         /// <summary>
         /// A `application_insights_web_test_location_availability_criteria` block as defined below.
         /// 
-        /// &gt; **NOTE** One of either `criteria`, `dynamic_criteria` or `application_insights_web_test_location_availability_criteria` must be specified.
+        /// &gt; **Note:** One of either `criteria`, `dynamic_criteria` or `application_insights_web_test_location_availability_criteria` must be specified.
         /// </summary>
         [Output("applicationInsightsWebTestLocationAvailabilityCriteria")]
         public Output<Outputs.MetricAlertApplicationInsightsWebTestLocationAvailabilityCriteria?> ApplicationInsightsWebTestLocationAvailabilityCriteria { get; private set; } = null!;
@@ -130,7 +130,7 @@ namespace Pulumi.Azure.Monitoring
         /// <summary>
         /// One or more (static) `criteria` blocks as defined below.
         /// 
-        /// &gt; **NOTE** One of either `criteria`, `dynamic_criteria` or `application_insights_web_test_location_availability_criteria` must be specified.
+        /// &gt; **Note:** One of either `criteria`, `dynamic_criteria` or `application_insights_web_test_location_availability_criteria` must be specified.
         /// </summary>
         [Output("criterias")]
         public Output<ImmutableArray<Outputs.MetricAlertCriteria>> Criterias { get; private set; } = null!;
@@ -144,7 +144,7 @@ namespace Pulumi.Azure.Monitoring
         /// <summary>
         /// A `dynamic_criteria` block as defined below.
         /// 
-        /// &gt; **NOTE** One of either `criteria`, `dynamic_criteria` or `application_insights_web_test_location_availability_criteria` must be specified.
+        /// &gt; **Note:** One of either `criteria`, `dynamic_criteria` or `application_insights_web_test_location_availability_criteria` must be specified.
         /// </summary>
         [Output("dynamicCriteria")]
         public Output<Outputs.MetricAlertDynamicCriteria?> DynamicCriteria { get; private set; } = null!;
@@ -194,7 +194,7 @@ namespace Pulumi.Azure.Monitoring
         /// <summary>
         /// The location of the target resource.
         /// 
-        /// &gt; This is Required when using a Subscription as scope, a Resource Group as scope or Multiple Scopes.
+        /// &gt; **Note:** This is Required when using a Subscription as scope, a Resource Group as scope or Multiple Scopes.
         /// </summary>
         [Output("targetResourceLocation")]
         public Output<string> TargetResourceLocation { get; private set; } = null!;
@@ -202,7 +202,7 @@ namespace Pulumi.Azure.Monitoring
         /// <summary>
         /// The resource type (e.g. `Microsoft.Compute/virtualMachines`) of the target resource.
         /// 
-        /// &gt; This is Required when using a Subscription as scope, a Resource Group as scope or Multiple Scopes.
+        /// &gt; **Note:** This is Required when using a Subscription as scope, a Resource Group as scope or Multiple Scopes.
         /// </summary>
         [Output("targetResourceType")]
         public Output<string> TargetResourceType { get; private set; } = null!;
@@ -274,7 +274,7 @@ namespace Pulumi.Azure.Monitoring
         /// <summary>
         /// A `application_insights_web_test_location_availability_criteria` block as defined below.
         /// 
-        /// &gt; **NOTE** One of either `criteria`, `dynamic_criteria` or `application_insights_web_test_location_availability_criteria` must be specified.
+        /// &gt; **Note:** One of either `criteria`, `dynamic_criteria` or `application_insights_web_test_location_availability_criteria` must be specified.
         /// </summary>
         [Input("applicationInsightsWebTestLocationAvailabilityCriteria")]
         public Input<Inputs.MetricAlertApplicationInsightsWebTestLocationAvailabilityCriteriaArgs>? ApplicationInsightsWebTestLocationAvailabilityCriteria { get; set; }
@@ -291,7 +291,7 @@ namespace Pulumi.Azure.Monitoring
         /// <summary>
         /// One or more (static) `criteria` blocks as defined below.
         /// 
-        /// &gt; **NOTE** One of either `criteria`, `dynamic_criteria` or `application_insights_web_test_location_availability_criteria` must be specified.
+        /// &gt; **Note:** One of either `criteria`, `dynamic_criteria` or `application_insights_web_test_location_availability_criteria` must be specified.
         /// </summary>
         public InputList<Inputs.MetricAlertCriteriaArgs> Criterias
         {
@@ -308,7 +308,7 @@ namespace Pulumi.Azure.Monitoring
         /// <summary>
         /// A `dynamic_criteria` block as defined below.
         /// 
-        /// &gt; **NOTE** One of either `criteria`, `dynamic_criteria` or `application_insights_web_test_location_availability_criteria` must be specified.
+        /// &gt; **Note:** One of either `criteria`, `dynamic_criteria` or `application_insights_web_test_location_availability_criteria` must be specified.
         /// </summary>
         [Input("dynamicCriteria")]
         public Input<Inputs.MetricAlertDynamicCriteriaArgs>? DynamicCriteria { get; set; }
@@ -370,7 +370,7 @@ namespace Pulumi.Azure.Monitoring
         /// <summary>
         /// The location of the target resource.
         /// 
-        /// &gt; This is Required when using a Subscription as scope, a Resource Group as scope or Multiple Scopes.
+        /// &gt; **Note:** This is Required when using a Subscription as scope, a Resource Group as scope or Multiple Scopes.
         /// </summary>
         [Input("targetResourceLocation")]
         public Input<string>? TargetResourceLocation { get; set; }
@@ -378,7 +378,7 @@ namespace Pulumi.Azure.Monitoring
         /// <summary>
         /// The resource type (e.g. `Microsoft.Compute/virtualMachines`) of the target resource.
         /// 
-        /// &gt; This is Required when using a Subscription as scope, a Resource Group as scope or Multiple Scopes.
+        /// &gt; **Note:** This is Required when using a Subscription as scope, a Resource Group as scope or Multiple Scopes.
         /// </summary>
         [Input("targetResourceType")]
         public Input<string>? TargetResourceType { get; set; }
@@ -412,7 +412,7 @@ namespace Pulumi.Azure.Monitoring
         /// <summary>
         /// A `application_insights_web_test_location_availability_criteria` block as defined below.
         /// 
-        /// &gt; **NOTE** One of either `criteria`, `dynamic_criteria` or `application_insights_web_test_location_availability_criteria` must be specified.
+        /// &gt; **Note:** One of either `criteria`, `dynamic_criteria` or `application_insights_web_test_location_availability_criteria` must be specified.
         /// </summary>
         [Input("applicationInsightsWebTestLocationAvailabilityCriteria")]
         public Input<Inputs.MetricAlertApplicationInsightsWebTestLocationAvailabilityCriteriaGetArgs>? ApplicationInsightsWebTestLocationAvailabilityCriteria { get; set; }
@@ -429,7 +429,7 @@ namespace Pulumi.Azure.Monitoring
         /// <summary>
         /// One or more (static) `criteria` blocks as defined below.
         /// 
-        /// &gt; **NOTE** One of either `criteria`, `dynamic_criteria` or `application_insights_web_test_location_availability_criteria` must be specified.
+        /// &gt; **Note:** One of either `criteria`, `dynamic_criteria` or `application_insights_web_test_location_availability_criteria` must be specified.
         /// </summary>
         public InputList<Inputs.MetricAlertCriteriaGetArgs> Criterias
         {
@@ -446,7 +446,7 @@ namespace Pulumi.Azure.Monitoring
         /// <summary>
         /// A `dynamic_criteria` block as defined below.
         /// 
-        /// &gt; **NOTE** One of either `criteria`, `dynamic_criteria` or `application_insights_web_test_location_availability_criteria` must be specified.
+        /// &gt; **Note:** One of either `criteria`, `dynamic_criteria` or `application_insights_web_test_location_availability_criteria` must be specified.
         /// </summary>
         [Input("dynamicCriteria")]
         public Input<Inputs.MetricAlertDynamicCriteriaGetArgs>? DynamicCriteria { get; set; }
@@ -508,7 +508,7 @@ namespace Pulumi.Azure.Monitoring
         /// <summary>
         /// The location of the target resource.
         /// 
-        /// &gt; This is Required when using a Subscription as scope, a Resource Group as scope or Multiple Scopes.
+        /// &gt; **Note:** This is Required when using a Subscription as scope, a Resource Group as scope or Multiple Scopes.
         /// </summary>
         [Input("targetResourceLocation")]
         public Input<string>? TargetResourceLocation { get; set; }
@@ -516,7 +516,7 @@ namespace Pulumi.Azure.Monitoring
         /// <summary>
         /// The resource type (e.g. `Microsoft.Compute/virtualMachines`) of the target resource.
         /// 
-        /// &gt; This is Required when using a Subscription as scope, a Resource Group as scope or Multiple Scopes.
+        /// &gt; **Note:** This is Required when using a Subscription as scope, a Resource Group as scope or Multiple Scopes.
         /// </summary>
         [Input("targetResourceType")]
         public Input<string>? TargetResourceType { get; set; }

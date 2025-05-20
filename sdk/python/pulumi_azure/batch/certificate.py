@@ -331,10 +331,17 @@ class Certificate(pulumi.CustomResource):
             account_name=example_account2.name,
             certificate=std.filebase64(input="certificate.pfx").result,
             format="Pfx",
-            password="password",
+            password="terraform",
             thumbprint="42C107874FD0E4A9583292A2F1098E8FE4B2EDDA",
             thumbprint_algorithm="SHA1")
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Batch`: 2024-07-01
 
         ## Import
 
@@ -394,10 +401,17 @@ class Certificate(pulumi.CustomResource):
             account_name=example_account2.name,
             certificate=std.filebase64(input="certificate.pfx").result,
             format="Pfx",
-            password="password",
+            password="terraform",
             thumbprint="42C107874FD0E4A9583292A2F1098E8FE4B2EDDA",
             thumbprint_algorithm="SHA1")
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Batch`: 2024-07-01
 
         ## Import
 

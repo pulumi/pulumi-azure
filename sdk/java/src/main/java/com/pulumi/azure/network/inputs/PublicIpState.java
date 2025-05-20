@@ -21,7 +21,7 @@ public final class PublicIpState extends com.pulumi.resources.ResourceArgs {
     /**
      * Defines the allocation method for this IP address. Possible values are `Static` or `Dynamic`.
      * 
-     * &gt; **Note** `Dynamic` Public IP Addresses aren&#39;t allocated until they&#39;re assigned to a resource (such as a Virtual Machine or a Load Balancer) by design within Azure. See `ip_address` argument.
+     * &gt; **Note:** `Dynamic` Public IP Addresses aren&#39;t allocated until they&#39;re assigned to a resource (such as a Virtual Machine or a Load Balancer) by design within Azure. See `ip_address` argument.
      * 
      */
     @Import(name="allocationMethod")
@@ -30,7 +30,7 @@ public final class PublicIpState extends com.pulumi.resources.ResourceArgs {
     /**
      * @return Defines the allocation method for this IP address. Possible values are `Static` or `Dynamic`.
      * 
-     * &gt; **Note** `Dynamic` Public IP Addresses aren&#39;t allocated until they&#39;re assigned to a resource (such as a Virtual Machine or a Load Balancer) by design within Azure. See `ip_address` argument.
+     * &gt; **Note:** `Dynamic` Public IP Addresses aren&#39;t allocated until they&#39;re assigned to a resource (such as a Virtual Machine or a Load Balancer) by design within Azure. See `ip_address` argument.
      * 
      */
     public Optional<Output<String>> allocationMethod() {
@@ -164,7 +164,7 @@ public final class PublicIpState extends com.pulumi.resources.ResourceArgs {
     /**
      * A mapping of IP tags to assign to the public IP. Changing this forces a new resource to be created.
      * 
-     * &gt; **Note** IP Tag `RoutingPreference` requires multiple `zones` and `Standard` SKU to be set.
+     * &gt; **Note:** IP Tag `RoutingPreference` requires multiple `zones` and `Standard` SKU to be set.
      * 
      */
     @Import(name="ipTags")
@@ -173,7 +173,7 @@ public final class PublicIpState extends com.pulumi.resources.ResourceArgs {
     /**
      * @return A mapping of IP tags to assign to the public IP. Changing this forces a new resource to be created.
      * 
-     * &gt; **Note** IP Tag `RoutingPreference` requires multiple `zones` and `Standard` SKU to be set.
+     * &gt; **Note:** IP Tag `RoutingPreference` requires multiple `zones` and `Standard` SKU to be set.
      * 
      */
     public Optional<Output<Map<String,String>>> ipTags() {
@@ -183,7 +183,7 @@ public final class PublicIpState extends com.pulumi.resources.ResourceArgs {
     /**
      * The IP Version to use, IPv6 or IPv4. Changing this forces a new resource to be created. Defaults to `IPv4`.
      * 
-     * &gt; **Note** Only `static` IP address allocation is supported for IPv6.
+     * &gt; **Note:** Only `static` IP address allocation is supported for IPv6.
      * 
      */
     @Import(name="ipVersion")
@@ -192,7 +192,7 @@ public final class PublicIpState extends com.pulumi.resources.ResourceArgs {
     /**
      * @return The IP Version to use, IPv6 or IPv4. Changing this forces a new resource to be created. Defaults to `IPv4`.
      * 
-     * &gt; **Note** Only `static` IP address allocation is supported for IPv6.
+     * &gt; **Note:** Only `static` IP address allocation is supported for IPv6.
      * 
      */
     public Optional<Output<String>> ipVersion() {
@@ -277,7 +277,7 @@ public final class PublicIpState extends com.pulumi.resources.ResourceArgs {
     /**
      * The SKU of the Public IP. Accepted values are `Basic` and `Standard`. Defaults to `Standard`. Changing this forces a new resource to be created.
      * 
-     * &gt; **Note** Public IP Standard SKUs require `allocation_method` to be set to `Static`.
+     * &gt; **Note:** Public IP Standard SKUs require `allocation_method` to be set to `Static`.
      * 
      */
     @Import(name="sku")
@@ -286,7 +286,7 @@ public final class PublicIpState extends com.pulumi.resources.ResourceArgs {
     /**
      * @return The SKU of the Public IP. Accepted values are `Basic` and `Standard`. Defaults to `Standard`. Changing this forces a new resource to be created.
      * 
-     * &gt; **Note** Public IP Standard SKUs require `allocation_method` to be set to `Static`.
+     * &gt; **Note:** Public IP Standard SKUs require `allocation_method` to be set to `Static`.
      * 
      */
     public Optional<Output<String>> sku() {
@@ -296,7 +296,7 @@ public final class PublicIpState extends com.pulumi.resources.ResourceArgs {
     /**
      * The SKU Tier that should be used for the Public IP. Possible values are `Regional` and `Global`. Defaults to `Regional`. Changing this forces a new resource to be created.
      * 
-     * &gt; **Note** When `sku_tier` is set to `Global`, `sku` must be set to `Standard`.
+     * &gt; **Note:** When `sku_tier` is set to `Global`, `sku` must be set to `Standard`.
      * 
      */
     @Import(name="skuTier")
@@ -305,7 +305,7 @@ public final class PublicIpState extends com.pulumi.resources.ResourceArgs {
     /**
      * @return The SKU Tier that should be used for the Public IP. Possible values are `Regional` and `Global`. Defaults to `Regional`. Changing this forces a new resource to be created.
      * 
-     * &gt; **Note** When `sku_tier` is set to `Global`, `sku` must be set to `Standard`.
+     * &gt; **Note:** When `sku_tier` is set to `Global`, `sku` must be set to `Standard`.
      * 
      */
     public Optional<Output<String>> skuTier() {
@@ -392,7 +392,7 @@ public final class PublicIpState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param allocationMethod Defines the allocation method for this IP address. Possible values are `Static` or `Dynamic`.
          * 
-         * &gt; **Note** `Dynamic` Public IP Addresses aren&#39;t allocated until they&#39;re assigned to a resource (such as a Virtual Machine or a Load Balancer) by design within Azure. See `ip_address` argument.
+         * &gt; **Note:** `Dynamic` Public IP Addresses aren&#39;t allocated until they&#39;re assigned to a resource (such as a Virtual Machine or a Load Balancer) by design within Azure. See `ip_address` argument.
          * 
          * @return builder
          * 
@@ -405,7 +405,7 @@ public final class PublicIpState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param allocationMethod Defines the allocation method for this IP address. Possible values are `Static` or `Dynamic`.
          * 
-         * &gt; **Note** `Dynamic` Public IP Addresses aren&#39;t allocated until they&#39;re assigned to a resource (such as a Virtual Machine or a Load Balancer) by design within Azure. See `ip_address` argument.
+         * &gt; **Note:** `Dynamic` Public IP Addresses aren&#39;t allocated until they&#39;re assigned to a resource (such as a Virtual Machine or a Load Balancer) by design within Azure. See `ip_address` argument.
          * 
          * @return builder
          * 
@@ -589,7 +589,7 @@ public final class PublicIpState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param ipTags A mapping of IP tags to assign to the public IP. Changing this forces a new resource to be created.
          * 
-         * &gt; **Note** IP Tag `RoutingPreference` requires multiple `zones` and `Standard` SKU to be set.
+         * &gt; **Note:** IP Tag `RoutingPreference` requires multiple `zones` and `Standard` SKU to be set.
          * 
          * @return builder
          * 
@@ -602,7 +602,7 @@ public final class PublicIpState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param ipTags A mapping of IP tags to assign to the public IP. Changing this forces a new resource to be created.
          * 
-         * &gt; **Note** IP Tag `RoutingPreference` requires multiple `zones` and `Standard` SKU to be set.
+         * &gt; **Note:** IP Tag `RoutingPreference` requires multiple `zones` and `Standard` SKU to be set.
          * 
          * @return builder
          * 
@@ -614,7 +614,7 @@ public final class PublicIpState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param ipVersion The IP Version to use, IPv6 or IPv4. Changing this forces a new resource to be created. Defaults to `IPv4`.
          * 
-         * &gt; **Note** Only `static` IP address allocation is supported for IPv6.
+         * &gt; **Note:** Only `static` IP address allocation is supported for IPv6.
          * 
          * @return builder
          * 
@@ -627,7 +627,7 @@ public final class PublicIpState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param ipVersion The IP Version to use, IPv6 or IPv4. Changing this forces a new resource to be created. Defaults to `IPv4`.
          * 
-         * &gt; **Note** Only `static` IP address allocation is supported for IPv6.
+         * &gt; **Note:** Only `static` IP address allocation is supported for IPv6.
          * 
          * @return builder
          * 
@@ -744,7 +744,7 @@ public final class PublicIpState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param sku The SKU of the Public IP. Accepted values are `Basic` and `Standard`. Defaults to `Standard`. Changing this forces a new resource to be created.
          * 
-         * &gt; **Note** Public IP Standard SKUs require `allocation_method` to be set to `Static`.
+         * &gt; **Note:** Public IP Standard SKUs require `allocation_method` to be set to `Static`.
          * 
          * @return builder
          * 
@@ -757,7 +757,7 @@ public final class PublicIpState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param sku The SKU of the Public IP. Accepted values are `Basic` and `Standard`. Defaults to `Standard`. Changing this forces a new resource to be created.
          * 
-         * &gt; **Note** Public IP Standard SKUs require `allocation_method` to be set to `Static`.
+         * &gt; **Note:** Public IP Standard SKUs require `allocation_method` to be set to `Static`.
          * 
          * @return builder
          * 
@@ -769,7 +769,7 @@ public final class PublicIpState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param skuTier The SKU Tier that should be used for the Public IP. Possible values are `Regional` and `Global`. Defaults to `Regional`. Changing this forces a new resource to be created.
          * 
-         * &gt; **Note** When `sku_tier` is set to `Global`, `sku` must be set to `Standard`.
+         * &gt; **Note:** When `sku_tier` is set to `Global`, `sku` must be set to `Standard`.
          * 
          * @return builder
          * 
@@ -782,7 +782,7 @@ public final class PublicIpState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param skuTier The SKU Tier that should be used for the Public IP. Possible values are `Regional` and `Global`. Defaults to `Regional`. Changing this forces a new resource to be created.
          * 
-         * &gt; **Note** When `sku_tier` is set to `Global`, `sku` must be set to `Standard`.
+         * &gt; **Note:** When `sku_tier` is set to `Global`, `sku` must be set to `Standard`.
          * 
          * @return builder
          * 

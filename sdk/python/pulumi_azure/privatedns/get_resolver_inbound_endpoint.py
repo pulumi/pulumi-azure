@@ -121,6 +121,13 @@ def get_resolver_inbound_endpoint(name: Optional[builtins.str] = None,
         private_dns_resolver_id="example-private-dns-resolver-id")
     ```
 
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.Network`: 2022-07-01
+
 
     :param builtins.str name: Name of the Private DNS Resolver Inbound Endpoint.
     :param builtins.str private_dns_resolver_id: ID of the Private DNS Resolver.
@@ -153,6 +160,13 @@ def get_resolver_inbound_endpoint_output(name: Optional[pulumi.Input[builtins.st
     example = azure.privatedns.get_resolver_inbound_endpoint(name="example-drie",
         private_dns_resolver_id="example-private-dns-resolver-id")
     ```
+
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.Network`: 2022-07-01
 
 
     :param builtins.str name: Name of the Private DNS Resolver Inbound Endpoint.

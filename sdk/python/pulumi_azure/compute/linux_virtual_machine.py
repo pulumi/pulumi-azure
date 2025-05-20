@@ -81,82 +81,82 @@ class LinuxVirtualMachineArgs:
         :param pulumi.Input['LinuxVirtualMachineAdditionalCapabilitiesArgs'] additional_capabilities: A `additional_capabilities` block as defined below.
         :param pulumi.Input[builtins.str] admin_password: The Password which should be used for the local-administrator on this Virtual Machine. Changing this forces a new resource to be created.
                
-               > **NOTE:** When an `admin_password` is specified `disable_password_authentication` must be set to `false`.
-               > **NOTE:** One of either `admin_password` or `admin_ssh_key` must be specified.
+               > **Note:** When an `admin_password` is specified `disable_password_authentication` must be set to `false`.
+               > **Note:** One of either `admin_password` or `admin_ssh_key` must be specified.
         :param pulumi.Input[Sequence[pulumi.Input['LinuxVirtualMachineAdminSshKeyArgs']]] admin_ssh_keys: One or more `admin_ssh_key` blocks as defined below. Changing this forces a new resource to be created.
                
-               > **NOTE:** One of either `admin_password` or `admin_ssh_key` must be specified.
+               > **Note:** One of either `admin_password` or `admin_ssh_key` must be specified.
         :param pulumi.Input[builtins.bool] allow_extension_operations: Should Extension Operations be allowed on this Virtual Machine? Defaults to `true`.
         :param pulumi.Input[builtins.str] availability_set_id: Specifies the ID of the Availability Set in which the Virtual Machine should exist. Changing this forces a new resource to be created.
         :param pulumi.Input['LinuxVirtualMachineBootDiagnosticsArgs'] boot_diagnostics: A `boot_diagnostics` block as defined below.
         :param pulumi.Input[builtins.bool] bypass_platform_safety_checks_on_user_schedule_enabled: Specifies whether to skip platform scheduled patching when a user schedule is associated with the VM. Defaults to `false`.
                
-               > **NOTE:** `bypass_platform_safety_checks_on_user_schedule_enabled` can only be set to `true` when `patch_mode` is set to `AutomaticByPlatform`.
+               > **Note:** `bypass_platform_safety_checks_on_user_schedule_enabled` can only be set to `true` when `patch_mode` is set to `AutomaticByPlatform`.
         :param pulumi.Input[builtins.str] capacity_reservation_group_id: Specifies the ID of the Capacity Reservation Group which the Virtual Machine should be allocated to.
                
-               > **NOTE:** `capacity_reservation_group_id` cannot be used with `availability_set_id` or `proximity_placement_group_id`
+               > **Note:** `capacity_reservation_group_id` cannot be used with `availability_set_id` or `proximity_placement_group_id`
         :param pulumi.Input[builtins.str] computer_name: Specifies the Hostname which should be used for this Virtual Machine. If unspecified this defaults to the value for the `name` field. If the value of the `name` field is not a valid `computer_name`, then you must specify `computer_name`. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] custom_data: The Base64-Encoded Custom Data which should be used for this Virtual Machine. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] dedicated_host_group_id: The ID of a Dedicated Host Group that this Linux Virtual Machine should be run within. Conflicts with `dedicated_host_id`.
         :param pulumi.Input[builtins.str] dedicated_host_id: The ID of a Dedicated Host where this machine should be run on. Conflicts with `dedicated_host_group_id`.
         :param pulumi.Input[builtins.bool] disable_password_authentication: Should Password Authentication be disabled on this Virtual Machine? Defaults to `true`. Changing this forces a new resource to be created.
                
-               > In general we'd recommend using SSH Keys for authentication rather than Passwords - but there's tradeoff's to each - please [see this thread for more information](https://security.stackexchange.com/questions/69407/why-is-using-an-ssh-key-more-secure-than-using-passwords).
+               > **Note:** In general we'd recommend using SSH Keys for authentication rather than Passwords - but there's tradeoff's to each - please [see this thread for more information](https://security.stackexchange.com/questions/69407/why-is-using-an-ssh-key-more-secure-than-using-passwords).
                
-               > **NOTE:** When an `admin_password` is specified `disable_password_authentication` must be set to `false`.
+               > **Note:** When an `admin_password` is specified `disable_password_authentication` must be set to `false`.
         :param pulumi.Input[builtins.str] disk_controller_type: Specifies the Disk Controller Type used for this Virtual Machine. Possible values are `SCSI` and `NVMe`.
         :param pulumi.Input[builtins.str] edge_zone: Specifies the Edge Zone within the Azure Region where this Linux Virtual Machine should exist. Changing this forces a new Linux Virtual Machine to be created.
         :param pulumi.Input[builtins.bool] encryption_at_host_enabled: Should all of the disks (including the temp disk) attached to this Virtual Machine be encrypted by enabling Encryption at Host?
         :param pulumi.Input[builtins.str] eviction_policy: Specifies what should happen when the Virtual Machine is evicted for price reasons when using a Spot instance. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
                
-               > **NOTE:** This can only be configured when `priority` is set to `Spot`.
+               > **Note:** This can only be configured when `priority` is set to `Spot`.
         :param pulumi.Input[builtins.str] extensions_time_budget: Specifies the duration allocated for all extensions to start. The time duration should be between 15 minutes and 120 minutes (inclusive) and should be specified in ISO 8601 format. Defaults to `PT1H30M`.
         :param pulumi.Input[Sequence[pulumi.Input['LinuxVirtualMachineGalleryApplicationArgs']]] gallery_applications: One or more `gallery_application` blocks as defined below.
                
-               > **Note** Gallery Application Assignments can be defined either directly on `compute.LinuxVirtualMachine` resource, or using the `compute.GalleryApplicationAssignment` resource - but the two approaches cannot be used together. If both are used with the same Virtual Machine, spurious changes will occur. If `compute.GalleryApplicationAssignment` is used, it's recommended to use `ignore_changes` for the `gallery_application` block on the corresponding `compute.LinuxVirtualMachine` resource, to avoid a persistent diff when using this resource.
+               > **Note:** Gallery Application Assignments can be defined either directly on `compute.LinuxVirtualMachine` resource, or using the `compute.GalleryApplicationAssignment` resource - but the two approaches cannot be used together. If both are used with the same Virtual Machine, spurious changes will occur. If `compute.GalleryApplicationAssignment` is used, it's recommended to use `ignore_changes` for the `gallery_application` block on the corresponding `compute.LinuxVirtualMachine` resource, to avoid a persistent diff when using this resource.
         :param pulumi.Input['LinuxVirtualMachineIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[builtins.str] license_type: Specifies the License Type for this Virtual Machine. Possible values are `RHEL_BYOS`, `RHEL_BASE`, `RHEL_EUS`, `RHEL_SAPAPPS`, `RHEL_SAPHA`, `RHEL_BASESAPAPPS`, `RHEL_BASESAPHA`, `SLES_BYOS`, `SLES_SAP`, `SLES_HPC`, `UBUNTU_PRO`.
         :param pulumi.Input[builtins.str] location: The Azure location where the Linux Virtual Machine should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.float] max_bid_price: The maximum price you're willing to pay for this Virtual Machine, in US Dollars; which must be greater than the current spot price. If this bid price falls below the current spot price the Virtual Machine will be evicted using the `eviction_policy`. Defaults to `-1`, which means that the Virtual Machine should not be evicted for price reasons.
                
-               > **NOTE:** This can only be configured when `priority` is set to `Spot`.
+               > **Note:** This can only be configured when `priority` is set to `Spot`.
         :param pulumi.Input[builtins.str] name: The name of the Linux Virtual Machine. Changing this forces a new resource to be created.
         :param pulumi.Input['LinuxVirtualMachineOsImageNotificationArgs'] os_image_notification: A `os_image_notification` block as defined below.
         :param pulumi.Input[builtins.str] patch_assessment_mode: Specifies the mode of VM Guest Patching for the Virtual Machine. Possible values are `AutomaticByPlatform` or `ImageDefault`. Defaults to `ImageDefault`.
                
-               > **NOTE:** If the `patch_assessment_mode` is set to `AutomaticByPlatform` then the `provision_vm_agent` field must be set to `true`.
+               > **Note:** If the `patch_assessment_mode` is set to `AutomaticByPlatform` then the `provision_vm_agent` field must be set to `true`.
         :param pulumi.Input[builtins.str] patch_mode: Specifies the mode of in-guest patching to this Linux Virtual Machine. Possible values are `AutomaticByPlatform` and `ImageDefault`. Defaults to `ImageDefault`. For more information on patch modes please see the [product documentation](https://docs.microsoft.com/azure/virtual-machines/automatic-vm-guest-patching#patch-orchestration-modes).
                
-               > **NOTE:** If `patch_mode` is set to `AutomaticByPlatform` then `provision_vm_agent` must also be set to `true`.
+               > **Note:** If `patch_mode` is set to `AutomaticByPlatform` then `provision_vm_agent` must also be set to `true`.
         :param pulumi.Input['LinuxVirtualMachinePlanArgs'] plan: A `plan` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.int] platform_fault_domain: Specifies the Platform Fault Domain in which this Linux Virtual Machine should be created. Defaults to `-1`, which means this will be automatically assigned to a fault domain that best maintains balance across the available fault domains. Changing this forces a new Linux Virtual Machine to be created.
         :param pulumi.Input[builtins.str] priority: Specifies the priority of this Virtual Machine. Possible values are `Regular` and `Spot`. Defaults to `Regular`. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.bool] provision_vm_agent: Should the Azure VM Agent be provisioned on this Virtual Machine? Defaults to `true`. Changing this forces a new resource to be created.
                
-               > **NOTE:** If `provision_vm_agent` is set to `false` then `allow_extension_operations` must also be set to `false`.
+               > **Note:** If `provision_vm_agent` is set to `false` then `allow_extension_operations` must also be set to `false`.
         :param pulumi.Input[builtins.str] proximity_placement_group_id: The ID of the Proximity Placement Group which the Virtual Machine should be assigned to.
         :param pulumi.Input[builtins.str] reboot_setting: Specifies the reboot setting for platform scheduled patching. Possible values are `Always`, `IfRequired` and `Never`.
                
-               > **NOTE:** `reboot_setting` can only be set when `patch_mode` is set to `AutomaticByPlatform`.
+               > **Note:** `reboot_setting` can only be set when `patch_mode` is set to `AutomaticByPlatform`.
         :param pulumi.Input[Sequence[pulumi.Input['LinuxVirtualMachineSecretArgs']]] secrets: One or more `secret` blocks as defined below.
         :param pulumi.Input[builtins.bool] secure_boot_enabled: Specifies whether secure boot should be enabled on the virtual machine. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] source_image_id: The ID of the Image which this Virtual Machine should be created from. Changing this forces a new resource to be created. Possible Image ID types include `Image ID`s, `Shared Image ID`s, `Shared Image Version ID`s, `Community Gallery Image ID`s, `Community Gallery Image Version ID`s, `Shared Gallery Image ID`s and `Shared Gallery Image Version ID`s.
                
-               > **NOTE:** One of either `source_image_id` or `source_image_reference` must be set.
+               > **Note:** One of either `source_image_id` or `source_image_reference` must be set.
         :param pulumi.Input['LinuxVirtualMachineSourceImageReferenceArgs'] source_image_reference: A `source_image_reference` block as defined below. Changing this forces a new resource to be created.
                
-               > **NOTE:** One of either `source_image_id` or `source_image_reference` must be set.
+               > **Note:** One of either `source_image_id` or `source_image_reference` must be set.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A mapping of tags which should be assigned to this Virtual Machine.
         :param pulumi.Input['LinuxVirtualMachineTerminationNotificationArgs'] termination_notification: A `termination_notification` block as defined below.
         :param pulumi.Input[builtins.str] user_data: The Base64-Encoded User Data which should be used for this Virtual Machine.
         :param pulumi.Input[builtins.str] virtual_machine_scale_set_id: Specifies the Orchestrated Virtual Machine Scale Set that this Virtual Machine should be created within.
                
-               > **NOTE:** To update `virtual_machine_scale_set_id` the Preview Feature `Microsoft.Compute/SingleFDAttachDetachVMToVmss` needs to be enabled, see [the documentation](https://review.learn.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-attach-detach-vm#enroll-in-the-preview) for more information.
+               > **Note:** To update `virtual_machine_scale_set_id` the Preview Feature `Microsoft.Compute/SingleFDAttachDetachVMToVmss` needs to be enabled, see [the documentation](https://review.learn.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-attach-detach-vm#enroll-in-the-preview) for more information.
                
-               > **NOTE:** Orchestrated Virtual Machine Scale Sets can be provisioned using [the `compute.OrchestratedVirtualMachineScaleSet` resource](https://www.terraform.io/docs/providers/azurerm/r/orchestrated_virtual_machine_scale_set.html).
+               > **Note:** Orchestrated Virtual Machine Scale Sets can be provisioned using [the `compute.OrchestratedVirtualMachineScaleSet` resource](https://www.terraform.io/docs/providers/azurerm/r/orchestrated_virtual_machine_scale_set.html).
                
-               > **NOTE:** To attach an existing VM to a Virtual Machine Scale Set, the scale set must have `single_placement_group` set to `false`, see [the documentation](https://learn.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-attach-detach-vm?tabs=portal-1%2Cportal-2%2Cportal-3#limitations-for-attaching-an-existing-vm-to-a-scale-set) for more information.
-        :param pulumi.Input[builtins.bool] vm_agent_platform_updates_enabled: Specifies whether VMAgent Platform Updates is enabled. Defaults to `false`.
+               > **Note:** To attach an existing VM to a Virtual Machine Scale Set, the scale set must have `single_placement_group` set to `false`, see [the documentation](https://learn.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-attach-detach-vm?tabs=portal-1%2Cportal-2%2Cportal-3#limitations-for-attaching-an-existing-vm-to-a-scale-set) for more information.
+        :param pulumi.Input[builtins.bool] vm_agent_platform_updates_enabled: Are Virtual Machine Agent Platform Updates `enabled` on this Virtual Machine?
         :param pulumi.Input[builtins.bool] vtpm_enabled: Specifies whether vTPM should be enabled on the virtual machine. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] zone: Specifies the Availability Zones in which this Linux Virtual Machine should be located. Changing this forces a new Linux Virtual Machine to be created.
         """
@@ -248,6 +248,9 @@ class LinuxVirtualMachineArgs:
         if virtual_machine_scale_set_id is not None:
             pulumi.set(__self__, "virtual_machine_scale_set_id", virtual_machine_scale_set_id)
         if vm_agent_platform_updates_enabled is not None:
+            warnings.warn("""this property has been deprecated due to a breaking change introduced by the Service team, which redefined it as a read-only field within the API""", DeprecationWarning)
+            pulumi.log.warn("""vm_agent_platform_updates_enabled is deprecated: this property has been deprecated due to a breaking change introduced by the Service team, which redefined it as a read-only field within the API""")
+        if vm_agent_platform_updates_enabled is not None:
             pulumi.set(__self__, "vm_agent_platform_updates_enabled", vm_agent_platform_updates_enabled)
         if vtpm_enabled is not None:
             pulumi.set(__self__, "vtpm_enabled", vtpm_enabled)
@@ -332,8 +335,8 @@ class LinuxVirtualMachineArgs:
         """
         The Password which should be used for the local-administrator on this Virtual Machine. Changing this forces a new resource to be created.
 
-        > **NOTE:** When an `admin_password` is specified `disable_password_authentication` must be set to `false`.
-        > **NOTE:** One of either `admin_password` or `admin_ssh_key` must be specified.
+        > **Note:** When an `admin_password` is specified `disable_password_authentication` must be set to `false`.
+        > **Note:** One of either `admin_password` or `admin_ssh_key` must be specified.
         """
         return pulumi.get(self, "admin_password")
 
@@ -347,7 +350,7 @@ class LinuxVirtualMachineArgs:
         """
         One or more `admin_ssh_key` blocks as defined below. Changing this forces a new resource to be created.
 
-        > **NOTE:** One of either `admin_password` or `admin_ssh_key` must be specified.
+        > **Note:** One of either `admin_password` or `admin_ssh_key` must be specified.
         """
         return pulumi.get(self, "admin_ssh_keys")
 
@@ -397,7 +400,7 @@ class LinuxVirtualMachineArgs:
         """
         Specifies whether to skip platform scheduled patching when a user schedule is associated with the VM. Defaults to `false`.
 
-        > **NOTE:** `bypass_platform_safety_checks_on_user_schedule_enabled` can only be set to `true` when `patch_mode` is set to `AutomaticByPlatform`.
+        > **Note:** `bypass_platform_safety_checks_on_user_schedule_enabled` can only be set to `true` when `patch_mode` is set to `AutomaticByPlatform`.
         """
         return pulumi.get(self, "bypass_platform_safety_checks_on_user_schedule_enabled")
 
@@ -411,7 +414,7 @@ class LinuxVirtualMachineArgs:
         """
         Specifies the ID of the Capacity Reservation Group which the Virtual Machine should be allocated to.
 
-        > **NOTE:** `capacity_reservation_group_id` cannot be used with `availability_set_id` or `proximity_placement_group_id`
+        > **Note:** `capacity_reservation_group_id` cannot be used with `availability_set_id` or `proximity_placement_group_id`
         """
         return pulumi.get(self, "capacity_reservation_group_id")
 
@@ -473,9 +476,9 @@ class LinuxVirtualMachineArgs:
         """
         Should Password Authentication be disabled on this Virtual Machine? Defaults to `true`. Changing this forces a new resource to be created.
 
-        > In general we'd recommend using SSH Keys for authentication rather than Passwords - but there's tradeoff's to each - please [see this thread for more information](https://security.stackexchange.com/questions/69407/why-is-using-an-ssh-key-more-secure-than-using-passwords).
+        > **Note:** In general we'd recommend using SSH Keys for authentication rather than Passwords - but there's tradeoff's to each - please [see this thread for more information](https://security.stackexchange.com/questions/69407/why-is-using-an-ssh-key-more-secure-than-using-passwords).
 
-        > **NOTE:** When an `admin_password` is specified `disable_password_authentication` must be set to `false`.
+        > **Note:** When an `admin_password` is specified `disable_password_authentication` must be set to `false`.
         """
         return pulumi.get(self, "disable_password_authentication")
 
@@ -525,7 +528,7 @@ class LinuxVirtualMachineArgs:
         """
         Specifies what should happen when the Virtual Machine is evicted for price reasons when using a Spot instance. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
 
-        > **NOTE:** This can only be configured when `priority` is set to `Spot`.
+        > **Note:** This can only be configured when `priority` is set to `Spot`.
         """
         return pulumi.get(self, "eviction_policy")
 
@@ -551,7 +554,7 @@ class LinuxVirtualMachineArgs:
         """
         One or more `gallery_application` blocks as defined below.
 
-        > **Note** Gallery Application Assignments can be defined either directly on `compute.LinuxVirtualMachine` resource, or using the `compute.GalleryApplicationAssignment` resource - but the two approaches cannot be used together. If both are used with the same Virtual Machine, spurious changes will occur. If `compute.GalleryApplicationAssignment` is used, it's recommended to use `ignore_changes` for the `gallery_application` block on the corresponding `compute.LinuxVirtualMachine` resource, to avoid a persistent diff when using this resource.
+        > **Note:** Gallery Application Assignments can be defined either directly on `compute.LinuxVirtualMachine` resource, or using the `compute.GalleryApplicationAssignment` resource - but the two approaches cannot be used together. If both are used with the same Virtual Machine, spurious changes will occur. If `compute.GalleryApplicationAssignment` is used, it's recommended to use `ignore_changes` for the `gallery_application` block on the corresponding `compute.LinuxVirtualMachine` resource, to avoid a persistent diff when using this resource.
         """
         return pulumi.get(self, "gallery_applications")
 
@@ -601,7 +604,7 @@ class LinuxVirtualMachineArgs:
         """
         The maximum price you're willing to pay for this Virtual Machine, in US Dollars; which must be greater than the current spot price. If this bid price falls below the current spot price the Virtual Machine will be evicted using the `eviction_policy`. Defaults to `-1`, which means that the Virtual Machine should not be evicted for price reasons.
 
-        > **NOTE:** This can only be configured when `priority` is set to `Spot`.
+        > **Note:** This can only be configured when `priority` is set to `Spot`.
         """
         return pulumi.get(self, "max_bid_price")
 
@@ -639,7 +642,7 @@ class LinuxVirtualMachineArgs:
         """
         Specifies the mode of VM Guest Patching for the Virtual Machine. Possible values are `AutomaticByPlatform` or `ImageDefault`. Defaults to `ImageDefault`.
 
-        > **NOTE:** If the `patch_assessment_mode` is set to `AutomaticByPlatform` then the `provision_vm_agent` field must be set to `true`.
+        > **Note:** If the `patch_assessment_mode` is set to `AutomaticByPlatform` then the `provision_vm_agent` field must be set to `true`.
         """
         return pulumi.get(self, "patch_assessment_mode")
 
@@ -653,7 +656,7 @@ class LinuxVirtualMachineArgs:
         """
         Specifies the mode of in-guest patching to this Linux Virtual Machine. Possible values are `AutomaticByPlatform` and `ImageDefault`. Defaults to `ImageDefault`. For more information on patch modes please see the [product documentation](https://docs.microsoft.com/azure/virtual-machines/automatic-vm-guest-patching#patch-orchestration-modes).
 
-        > **NOTE:** If `patch_mode` is set to `AutomaticByPlatform` then `provision_vm_agent` must also be set to `true`.
+        > **Note:** If `patch_mode` is set to `AutomaticByPlatform` then `provision_vm_agent` must also be set to `true`.
         """
         return pulumi.get(self, "patch_mode")
 
@@ -703,7 +706,7 @@ class LinuxVirtualMachineArgs:
         """
         Should the Azure VM Agent be provisioned on this Virtual Machine? Defaults to `true`. Changing this forces a new resource to be created.
 
-        > **NOTE:** If `provision_vm_agent` is set to `false` then `allow_extension_operations` must also be set to `false`.
+        > **Note:** If `provision_vm_agent` is set to `false` then `allow_extension_operations` must also be set to `false`.
         """
         return pulumi.get(self, "provision_vm_agent")
 
@@ -729,7 +732,7 @@ class LinuxVirtualMachineArgs:
         """
         Specifies the reboot setting for platform scheduled patching. Possible values are `Always`, `IfRequired` and `Never`.
 
-        > **NOTE:** `reboot_setting` can only be set when `patch_mode` is set to `AutomaticByPlatform`.
+        > **Note:** `reboot_setting` can only be set when `patch_mode` is set to `AutomaticByPlatform`.
         """
         return pulumi.get(self, "reboot_setting")
 
@@ -767,7 +770,7 @@ class LinuxVirtualMachineArgs:
         """
         The ID of the Image which this Virtual Machine should be created from. Changing this forces a new resource to be created. Possible Image ID types include `Image ID`s, `Shared Image ID`s, `Shared Image Version ID`s, `Community Gallery Image ID`s, `Community Gallery Image Version ID`s, `Shared Gallery Image ID`s and `Shared Gallery Image Version ID`s.
 
-        > **NOTE:** One of either `source_image_id` or `source_image_reference` must be set.
+        > **Note:** One of either `source_image_id` or `source_image_reference` must be set.
         """
         return pulumi.get(self, "source_image_id")
 
@@ -781,7 +784,7 @@ class LinuxVirtualMachineArgs:
         """
         A `source_image_reference` block as defined below. Changing this forces a new resource to be created.
 
-        > **NOTE:** One of either `source_image_id` or `source_image_reference` must be set.
+        > **Note:** One of either `source_image_id` or `source_image_reference` must be set.
         """
         return pulumi.get(self, "source_image_reference")
 
@@ -831,11 +834,11 @@ class LinuxVirtualMachineArgs:
         """
         Specifies the Orchestrated Virtual Machine Scale Set that this Virtual Machine should be created within.
 
-        > **NOTE:** To update `virtual_machine_scale_set_id` the Preview Feature `Microsoft.Compute/SingleFDAttachDetachVMToVmss` needs to be enabled, see [the documentation](https://review.learn.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-attach-detach-vm#enroll-in-the-preview) for more information.
+        > **Note:** To update `virtual_machine_scale_set_id` the Preview Feature `Microsoft.Compute/SingleFDAttachDetachVMToVmss` needs to be enabled, see [the documentation](https://review.learn.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-attach-detach-vm#enroll-in-the-preview) for more information.
 
-        > **NOTE:** Orchestrated Virtual Machine Scale Sets can be provisioned using [the `compute.OrchestratedVirtualMachineScaleSet` resource](https://www.terraform.io/docs/providers/azurerm/r/orchestrated_virtual_machine_scale_set.html).
+        > **Note:** Orchestrated Virtual Machine Scale Sets can be provisioned using [the `compute.OrchestratedVirtualMachineScaleSet` resource](https://www.terraform.io/docs/providers/azurerm/r/orchestrated_virtual_machine_scale_set.html).
 
-        > **NOTE:** To attach an existing VM to a Virtual Machine Scale Set, the scale set must have `single_placement_group` set to `false`, see [the documentation](https://learn.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-attach-detach-vm?tabs=portal-1%2Cportal-2%2Cportal-3#limitations-for-attaching-an-existing-vm-to-a-scale-set) for more information.
+        > **Note:** To attach an existing VM to a Virtual Machine Scale Set, the scale set must have `single_placement_group` set to `false`, see [the documentation](https://learn.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-attach-detach-vm?tabs=portal-1%2Cportal-2%2Cportal-3#limitations-for-attaching-an-existing-vm-to-a-scale-set) for more information.
         """
         return pulumi.get(self, "virtual_machine_scale_set_id")
 
@@ -845,9 +848,10 @@ class LinuxVirtualMachineArgs:
 
     @property
     @pulumi.getter(name="vmAgentPlatformUpdatesEnabled")
+    @_utilities.deprecated("""this property has been deprecated due to a breaking change introduced by the Service team, which redefined it as a read-only field within the API""")
     def vm_agent_platform_updates_enabled(self) -> Optional[pulumi.Input[builtins.bool]]:
         """
-        Specifies whether VMAgent Platform Updates is enabled. Defaults to `false`.
+        Are Virtual Machine Agent Platform Updates `enabled` on this Virtual Machine?
         """
         return pulumi.get(self, "vm_agent_platform_updates_enabled")
 
@@ -942,56 +946,56 @@ class _LinuxVirtualMachineState:
         :param pulumi.Input['LinuxVirtualMachineAdditionalCapabilitiesArgs'] additional_capabilities: A `additional_capabilities` block as defined below.
         :param pulumi.Input[builtins.str] admin_password: The Password which should be used for the local-administrator on this Virtual Machine. Changing this forces a new resource to be created.
                
-               > **NOTE:** When an `admin_password` is specified `disable_password_authentication` must be set to `false`.
-               > **NOTE:** One of either `admin_password` or `admin_ssh_key` must be specified.
+               > **Note:** When an `admin_password` is specified `disable_password_authentication` must be set to `false`.
+               > **Note:** One of either `admin_password` or `admin_ssh_key` must be specified.
         :param pulumi.Input[Sequence[pulumi.Input['LinuxVirtualMachineAdminSshKeyArgs']]] admin_ssh_keys: One or more `admin_ssh_key` blocks as defined below. Changing this forces a new resource to be created.
                
-               > **NOTE:** One of either `admin_password` or `admin_ssh_key` must be specified.
+               > **Note:** One of either `admin_password` or `admin_ssh_key` must be specified.
         :param pulumi.Input[builtins.str] admin_username: The username of the local administrator used for the Virtual Machine. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.bool] allow_extension_operations: Should Extension Operations be allowed on this Virtual Machine? Defaults to `true`.
         :param pulumi.Input[builtins.str] availability_set_id: Specifies the ID of the Availability Set in which the Virtual Machine should exist. Changing this forces a new resource to be created.
         :param pulumi.Input['LinuxVirtualMachineBootDiagnosticsArgs'] boot_diagnostics: A `boot_diagnostics` block as defined below.
         :param pulumi.Input[builtins.bool] bypass_platform_safety_checks_on_user_schedule_enabled: Specifies whether to skip platform scheduled patching when a user schedule is associated with the VM. Defaults to `false`.
                
-               > **NOTE:** `bypass_platform_safety_checks_on_user_schedule_enabled` can only be set to `true` when `patch_mode` is set to `AutomaticByPlatform`.
+               > **Note:** `bypass_platform_safety_checks_on_user_schedule_enabled` can only be set to `true` when `patch_mode` is set to `AutomaticByPlatform`.
         :param pulumi.Input[builtins.str] capacity_reservation_group_id: Specifies the ID of the Capacity Reservation Group which the Virtual Machine should be allocated to.
                
-               > **NOTE:** `capacity_reservation_group_id` cannot be used with `availability_set_id` or `proximity_placement_group_id`
+               > **Note:** `capacity_reservation_group_id` cannot be used with `availability_set_id` or `proximity_placement_group_id`
         :param pulumi.Input[builtins.str] computer_name: Specifies the Hostname which should be used for this Virtual Machine. If unspecified this defaults to the value for the `name` field. If the value of the `name` field is not a valid `computer_name`, then you must specify `computer_name`. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] custom_data: The Base64-Encoded Custom Data which should be used for this Virtual Machine. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] dedicated_host_group_id: The ID of a Dedicated Host Group that this Linux Virtual Machine should be run within. Conflicts with `dedicated_host_id`.
         :param pulumi.Input[builtins.str] dedicated_host_id: The ID of a Dedicated Host where this machine should be run on. Conflicts with `dedicated_host_group_id`.
         :param pulumi.Input[builtins.bool] disable_password_authentication: Should Password Authentication be disabled on this Virtual Machine? Defaults to `true`. Changing this forces a new resource to be created.
                
-               > In general we'd recommend using SSH Keys for authentication rather than Passwords - but there's tradeoff's to each - please [see this thread for more information](https://security.stackexchange.com/questions/69407/why-is-using-an-ssh-key-more-secure-than-using-passwords).
+               > **Note:** In general we'd recommend using SSH Keys for authentication rather than Passwords - but there's tradeoff's to each - please [see this thread for more information](https://security.stackexchange.com/questions/69407/why-is-using-an-ssh-key-more-secure-than-using-passwords).
                
-               > **NOTE:** When an `admin_password` is specified `disable_password_authentication` must be set to `false`.
+               > **Note:** When an `admin_password` is specified `disable_password_authentication` must be set to `false`.
         :param pulumi.Input[builtins.str] disk_controller_type: Specifies the Disk Controller Type used for this Virtual Machine. Possible values are `SCSI` and `NVMe`.
         :param pulumi.Input[builtins.str] edge_zone: Specifies the Edge Zone within the Azure Region where this Linux Virtual Machine should exist. Changing this forces a new Linux Virtual Machine to be created.
         :param pulumi.Input[builtins.bool] encryption_at_host_enabled: Should all of the disks (including the temp disk) attached to this Virtual Machine be encrypted by enabling Encryption at Host?
         :param pulumi.Input[builtins.str] eviction_policy: Specifies what should happen when the Virtual Machine is evicted for price reasons when using a Spot instance. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
                
-               > **NOTE:** This can only be configured when `priority` is set to `Spot`.
+               > **Note:** This can only be configured when `priority` is set to `Spot`.
         :param pulumi.Input[builtins.str] extensions_time_budget: Specifies the duration allocated for all extensions to start. The time duration should be between 15 minutes and 120 minutes (inclusive) and should be specified in ISO 8601 format. Defaults to `PT1H30M`.
         :param pulumi.Input[Sequence[pulumi.Input['LinuxVirtualMachineGalleryApplicationArgs']]] gallery_applications: One or more `gallery_application` blocks as defined below.
                
-               > **Note** Gallery Application Assignments can be defined either directly on `compute.LinuxVirtualMachine` resource, or using the `compute.GalleryApplicationAssignment` resource - but the two approaches cannot be used together. If both are used with the same Virtual Machine, spurious changes will occur. If `compute.GalleryApplicationAssignment` is used, it's recommended to use `ignore_changes` for the `gallery_application` block on the corresponding `compute.LinuxVirtualMachine` resource, to avoid a persistent diff when using this resource.
+               > **Note:** Gallery Application Assignments can be defined either directly on `compute.LinuxVirtualMachine` resource, or using the `compute.GalleryApplicationAssignment` resource - but the two approaches cannot be used together. If both are used with the same Virtual Machine, spurious changes will occur. If `compute.GalleryApplicationAssignment` is used, it's recommended to use `ignore_changes` for the `gallery_application` block on the corresponding `compute.LinuxVirtualMachine` resource, to avoid a persistent diff when using this resource.
         :param pulumi.Input['LinuxVirtualMachineIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[builtins.str] license_type: Specifies the License Type for this Virtual Machine. Possible values are `RHEL_BYOS`, `RHEL_BASE`, `RHEL_EUS`, `RHEL_SAPAPPS`, `RHEL_SAPHA`, `RHEL_BASESAPAPPS`, `RHEL_BASESAPHA`, `SLES_BYOS`, `SLES_SAP`, `SLES_HPC`, `UBUNTU_PRO`.
         :param pulumi.Input[builtins.str] location: The Azure location where the Linux Virtual Machine should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.float] max_bid_price: The maximum price you're willing to pay for this Virtual Machine, in US Dollars; which must be greater than the current spot price. If this bid price falls below the current spot price the Virtual Machine will be evicted using the `eviction_policy`. Defaults to `-1`, which means that the Virtual Machine should not be evicted for price reasons.
                
-               > **NOTE:** This can only be configured when `priority` is set to `Spot`.
+               > **Note:** This can only be configured when `priority` is set to `Spot`.
         :param pulumi.Input[builtins.str] name: The name of the Linux Virtual Machine. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] network_interface_ids: . A list of Network Interface IDs which should be attached to this Virtual Machine. The first Network Interface ID in this list will be the Primary Network Interface on the Virtual Machine.
         :param pulumi.Input['LinuxVirtualMachineOsDiskArgs'] os_disk: A `os_disk` block as defined below.
         :param pulumi.Input['LinuxVirtualMachineOsImageNotificationArgs'] os_image_notification: A `os_image_notification` block as defined below.
         :param pulumi.Input[builtins.str] patch_assessment_mode: Specifies the mode of VM Guest Patching for the Virtual Machine. Possible values are `AutomaticByPlatform` or `ImageDefault`. Defaults to `ImageDefault`.
                
-               > **NOTE:** If the `patch_assessment_mode` is set to `AutomaticByPlatform` then the `provision_vm_agent` field must be set to `true`.
+               > **Note:** If the `patch_assessment_mode` is set to `AutomaticByPlatform` then the `provision_vm_agent` field must be set to `true`.
         :param pulumi.Input[builtins.str] patch_mode: Specifies the mode of in-guest patching to this Linux Virtual Machine. Possible values are `AutomaticByPlatform` and `ImageDefault`. Defaults to `ImageDefault`. For more information on patch modes please see the [product documentation](https://docs.microsoft.com/azure/virtual-machines/automatic-vm-guest-patching#patch-orchestration-modes).
                
-               > **NOTE:** If `patch_mode` is set to `AutomaticByPlatform` then `provision_vm_agent` must also be set to `true`.
+               > **Note:** If `patch_mode` is set to `AutomaticByPlatform` then `provision_vm_agent` must also be set to `true`.
         :param pulumi.Input['LinuxVirtualMachinePlanArgs'] plan: A `plan` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.int] platform_fault_domain: Specifies the Platform Fault Domain in which this Linux Virtual Machine should be created. Defaults to `-1`, which means this will be automatically assigned to a fault domain that best maintains balance across the available fault domains. Changing this forces a new Linux Virtual Machine to be created.
         :param pulumi.Input[builtins.str] priority: Specifies the priority of this Virtual Machine. Possible values are `Regular` and `Spot`. Defaults to `Regular`. Changing this forces a new resource to be created.
@@ -999,35 +1003,35 @@ class _LinuxVirtualMachineState:
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] private_ip_addresses: A list of Private IP Addresses assigned to this Virtual Machine.
         :param pulumi.Input[builtins.bool] provision_vm_agent: Should the Azure VM Agent be provisioned on this Virtual Machine? Defaults to `true`. Changing this forces a new resource to be created.
                
-               > **NOTE:** If `provision_vm_agent` is set to `false` then `allow_extension_operations` must also be set to `false`.
+               > **Note:** If `provision_vm_agent` is set to `false` then `allow_extension_operations` must also be set to `false`.
         :param pulumi.Input[builtins.str] proximity_placement_group_id: The ID of the Proximity Placement Group which the Virtual Machine should be assigned to.
         :param pulumi.Input[builtins.str] public_ip_address: The Primary Public IP Address assigned to this Virtual Machine.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] public_ip_addresses: A list of the Public IP Addresses assigned to this Virtual Machine.
         :param pulumi.Input[builtins.str] reboot_setting: Specifies the reboot setting for platform scheduled patching. Possible values are `Always`, `IfRequired` and `Never`.
                
-               > **NOTE:** `reboot_setting` can only be set when `patch_mode` is set to `AutomaticByPlatform`.
+               > **Note:** `reboot_setting` can only be set when `patch_mode` is set to `AutomaticByPlatform`.
         :param pulumi.Input[builtins.str] resource_group_name: The name of the Resource Group in which the Linux Virtual Machine should be exist. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input['LinuxVirtualMachineSecretArgs']]] secrets: One or more `secret` blocks as defined below.
         :param pulumi.Input[builtins.bool] secure_boot_enabled: Specifies whether secure boot should be enabled on the virtual machine. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] size: The SKU which should be used for this Virtual Machine, such as `Standard_F2`.
         :param pulumi.Input[builtins.str] source_image_id: The ID of the Image which this Virtual Machine should be created from. Changing this forces a new resource to be created. Possible Image ID types include `Image ID`s, `Shared Image ID`s, `Shared Image Version ID`s, `Community Gallery Image ID`s, `Community Gallery Image Version ID`s, `Shared Gallery Image ID`s and `Shared Gallery Image Version ID`s.
                
-               > **NOTE:** One of either `source_image_id` or `source_image_reference` must be set.
+               > **Note:** One of either `source_image_id` or `source_image_reference` must be set.
         :param pulumi.Input['LinuxVirtualMachineSourceImageReferenceArgs'] source_image_reference: A `source_image_reference` block as defined below. Changing this forces a new resource to be created.
                
-               > **NOTE:** One of either `source_image_id` or `source_image_reference` must be set.
+               > **Note:** One of either `source_image_id` or `source_image_reference` must be set.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A mapping of tags which should be assigned to this Virtual Machine.
         :param pulumi.Input['LinuxVirtualMachineTerminationNotificationArgs'] termination_notification: A `termination_notification` block as defined below.
         :param pulumi.Input[builtins.str] user_data: The Base64-Encoded User Data which should be used for this Virtual Machine.
         :param pulumi.Input[builtins.str] virtual_machine_id: A 128-bit identifier which uniquely identifies this Virtual Machine.
         :param pulumi.Input[builtins.str] virtual_machine_scale_set_id: Specifies the Orchestrated Virtual Machine Scale Set that this Virtual Machine should be created within.
                
-               > **NOTE:** To update `virtual_machine_scale_set_id` the Preview Feature `Microsoft.Compute/SingleFDAttachDetachVMToVmss` needs to be enabled, see [the documentation](https://review.learn.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-attach-detach-vm#enroll-in-the-preview) for more information.
+               > **Note:** To update `virtual_machine_scale_set_id` the Preview Feature `Microsoft.Compute/SingleFDAttachDetachVMToVmss` needs to be enabled, see [the documentation](https://review.learn.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-attach-detach-vm#enroll-in-the-preview) for more information.
                
-               > **NOTE:** Orchestrated Virtual Machine Scale Sets can be provisioned using [the `compute.OrchestratedVirtualMachineScaleSet` resource](https://www.terraform.io/docs/providers/azurerm/r/orchestrated_virtual_machine_scale_set.html).
+               > **Note:** Orchestrated Virtual Machine Scale Sets can be provisioned using [the `compute.OrchestratedVirtualMachineScaleSet` resource](https://www.terraform.io/docs/providers/azurerm/r/orchestrated_virtual_machine_scale_set.html).
                
-               > **NOTE:** To attach an existing VM to a Virtual Machine Scale Set, the scale set must have `single_placement_group` set to `false`, see [the documentation](https://learn.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-attach-detach-vm?tabs=portal-1%2Cportal-2%2Cportal-3#limitations-for-attaching-an-existing-vm-to-a-scale-set) for more information.
-        :param pulumi.Input[builtins.bool] vm_agent_platform_updates_enabled: Specifies whether VMAgent Platform Updates is enabled. Defaults to `false`.
+               > **Note:** To attach an existing VM to a Virtual Machine Scale Set, the scale set must have `single_placement_group` set to `false`, see [the documentation](https://learn.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-attach-detach-vm?tabs=portal-1%2Cportal-2%2Cportal-3#limitations-for-attaching-an-existing-vm-to-a-scale-set) for more information.
+        :param pulumi.Input[builtins.bool] vm_agent_platform_updates_enabled: Are Virtual Machine Agent Platform Updates `enabled` on this Virtual Machine?
         :param pulumi.Input[builtins.bool] vtpm_enabled: Specifies whether vTPM should be enabled on the virtual machine. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] zone: Specifies the Availability Zones in which this Linux Virtual Machine should be located. Changing this forces a new Linux Virtual Machine to be created.
         """
@@ -1134,6 +1138,9 @@ class _LinuxVirtualMachineState:
         if virtual_machine_scale_set_id is not None:
             pulumi.set(__self__, "virtual_machine_scale_set_id", virtual_machine_scale_set_id)
         if vm_agent_platform_updates_enabled is not None:
+            warnings.warn("""this property has been deprecated due to a breaking change introduced by the Service team, which redefined it as a read-only field within the API""", DeprecationWarning)
+            pulumi.log.warn("""vm_agent_platform_updates_enabled is deprecated: this property has been deprecated due to a breaking change introduced by the Service team, which redefined it as a read-only field within the API""")
+        if vm_agent_platform_updates_enabled is not None:
             pulumi.set(__self__, "vm_agent_platform_updates_enabled", vm_agent_platform_updates_enabled)
         if vtpm_enabled is not None:
             pulumi.set(__self__, "vtpm_enabled", vtpm_enabled)
@@ -1158,8 +1165,8 @@ class _LinuxVirtualMachineState:
         """
         The Password which should be used for the local-administrator on this Virtual Machine. Changing this forces a new resource to be created.
 
-        > **NOTE:** When an `admin_password` is specified `disable_password_authentication` must be set to `false`.
-        > **NOTE:** One of either `admin_password` or `admin_ssh_key` must be specified.
+        > **Note:** When an `admin_password` is specified `disable_password_authentication` must be set to `false`.
+        > **Note:** One of either `admin_password` or `admin_ssh_key` must be specified.
         """
         return pulumi.get(self, "admin_password")
 
@@ -1173,7 +1180,7 @@ class _LinuxVirtualMachineState:
         """
         One or more `admin_ssh_key` blocks as defined below. Changing this forces a new resource to be created.
 
-        > **NOTE:** One of either `admin_password` or `admin_ssh_key` must be specified.
+        > **Note:** One of either `admin_password` or `admin_ssh_key` must be specified.
         """
         return pulumi.get(self, "admin_ssh_keys")
 
@@ -1235,7 +1242,7 @@ class _LinuxVirtualMachineState:
         """
         Specifies whether to skip platform scheduled patching when a user schedule is associated with the VM. Defaults to `false`.
 
-        > **NOTE:** `bypass_platform_safety_checks_on_user_schedule_enabled` can only be set to `true` when `patch_mode` is set to `AutomaticByPlatform`.
+        > **Note:** `bypass_platform_safety_checks_on_user_schedule_enabled` can only be set to `true` when `patch_mode` is set to `AutomaticByPlatform`.
         """
         return pulumi.get(self, "bypass_platform_safety_checks_on_user_schedule_enabled")
 
@@ -1249,7 +1256,7 @@ class _LinuxVirtualMachineState:
         """
         Specifies the ID of the Capacity Reservation Group which the Virtual Machine should be allocated to.
 
-        > **NOTE:** `capacity_reservation_group_id` cannot be used with `availability_set_id` or `proximity_placement_group_id`
+        > **Note:** `capacity_reservation_group_id` cannot be used with `availability_set_id` or `proximity_placement_group_id`
         """
         return pulumi.get(self, "capacity_reservation_group_id")
 
@@ -1311,9 +1318,9 @@ class _LinuxVirtualMachineState:
         """
         Should Password Authentication be disabled on this Virtual Machine? Defaults to `true`. Changing this forces a new resource to be created.
 
-        > In general we'd recommend using SSH Keys for authentication rather than Passwords - but there's tradeoff's to each - please [see this thread for more information](https://security.stackexchange.com/questions/69407/why-is-using-an-ssh-key-more-secure-than-using-passwords).
+        > **Note:** In general we'd recommend using SSH Keys for authentication rather than Passwords - but there's tradeoff's to each - please [see this thread for more information](https://security.stackexchange.com/questions/69407/why-is-using-an-ssh-key-more-secure-than-using-passwords).
 
-        > **NOTE:** When an `admin_password` is specified `disable_password_authentication` must be set to `false`.
+        > **Note:** When an `admin_password` is specified `disable_password_authentication` must be set to `false`.
         """
         return pulumi.get(self, "disable_password_authentication")
 
@@ -1363,7 +1370,7 @@ class _LinuxVirtualMachineState:
         """
         Specifies what should happen when the Virtual Machine is evicted for price reasons when using a Spot instance. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
 
-        > **NOTE:** This can only be configured when `priority` is set to `Spot`.
+        > **Note:** This can only be configured when `priority` is set to `Spot`.
         """
         return pulumi.get(self, "eviction_policy")
 
@@ -1389,7 +1396,7 @@ class _LinuxVirtualMachineState:
         """
         One or more `gallery_application` blocks as defined below.
 
-        > **Note** Gallery Application Assignments can be defined either directly on `compute.LinuxVirtualMachine` resource, or using the `compute.GalleryApplicationAssignment` resource - but the two approaches cannot be used together. If both are used with the same Virtual Machine, spurious changes will occur. If `compute.GalleryApplicationAssignment` is used, it's recommended to use `ignore_changes` for the `gallery_application` block on the corresponding `compute.LinuxVirtualMachine` resource, to avoid a persistent diff when using this resource.
+        > **Note:** Gallery Application Assignments can be defined either directly on `compute.LinuxVirtualMachine` resource, or using the `compute.GalleryApplicationAssignment` resource - but the two approaches cannot be used together. If both are used with the same Virtual Machine, spurious changes will occur. If `compute.GalleryApplicationAssignment` is used, it's recommended to use `ignore_changes` for the `gallery_application` block on the corresponding `compute.LinuxVirtualMachine` resource, to avoid a persistent diff when using this resource.
         """
         return pulumi.get(self, "gallery_applications")
 
@@ -1439,7 +1446,7 @@ class _LinuxVirtualMachineState:
         """
         The maximum price you're willing to pay for this Virtual Machine, in US Dollars; which must be greater than the current spot price. If this bid price falls below the current spot price the Virtual Machine will be evicted using the `eviction_policy`. Defaults to `-1`, which means that the Virtual Machine should not be evicted for price reasons.
 
-        > **NOTE:** This can only be configured when `priority` is set to `Spot`.
+        > **Note:** This can only be configured when `priority` is set to `Spot`.
         """
         return pulumi.get(self, "max_bid_price")
 
@@ -1501,7 +1508,7 @@ class _LinuxVirtualMachineState:
         """
         Specifies the mode of VM Guest Patching for the Virtual Machine. Possible values are `AutomaticByPlatform` or `ImageDefault`. Defaults to `ImageDefault`.
 
-        > **NOTE:** If the `patch_assessment_mode` is set to `AutomaticByPlatform` then the `provision_vm_agent` field must be set to `true`.
+        > **Note:** If the `patch_assessment_mode` is set to `AutomaticByPlatform` then the `provision_vm_agent` field must be set to `true`.
         """
         return pulumi.get(self, "patch_assessment_mode")
 
@@ -1515,7 +1522,7 @@ class _LinuxVirtualMachineState:
         """
         Specifies the mode of in-guest patching to this Linux Virtual Machine. Possible values are `AutomaticByPlatform` and `ImageDefault`. Defaults to `ImageDefault`. For more information on patch modes please see the [product documentation](https://docs.microsoft.com/azure/virtual-machines/automatic-vm-guest-patching#patch-orchestration-modes).
 
-        > **NOTE:** If `patch_mode` is set to `AutomaticByPlatform` then `provision_vm_agent` must also be set to `true`.
+        > **Note:** If `patch_mode` is set to `AutomaticByPlatform` then `provision_vm_agent` must also be set to `true`.
         """
         return pulumi.get(self, "patch_mode")
 
@@ -1589,7 +1596,7 @@ class _LinuxVirtualMachineState:
         """
         Should the Azure VM Agent be provisioned on this Virtual Machine? Defaults to `true`. Changing this forces a new resource to be created.
 
-        > **NOTE:** If `provision_vm_agent` is set to `false` then `allow_extension_operations` must also be set to `false`.
+        > **Note:** If `provision_vm_agent` is set to `false` then `allow_extension_operations` must also be set to `false`.
         """
         return pulumi.get(self, "provision_vm_agent")
 
@@ -1639,7 +1646,7 @@ class _LinuxVirtualMachineState:
         """
         Specifies the reboot setting for platform scheduled patching. Possible values are `Always`, `IfRequired` and `Never`.
 
-        > **NOTE:** `reboot_setting` can only be set when `patch_mode` is set to `AutomaticByPlatform`.
+        > **Note:** `reboot_setting` can only be set when `patch_mode` is set to `AutomaticByPlatform`.
         """
         return pulumi.get(self, "reboot_setting")
 
@@ -1701,7 +1708,7 @@ class _LinuxVirtualMachineState:
         """
         The ID of the Image which this Virtual Machine should be created from. Changing this forces a new resource to be created. Possible Image ID types include `Image ID`s, `Shared Image ID`s, `Shared Image Version ID`s, `Community Gallery Image ID`s, `Community Gallery Image Version ID`s, `Shared Gallery Image ID`s and `Shared Gallery Image Version ID`s.
 
-        > **NOTE:** One of either `source_image_id` or `source_image_reference` must be set.
+        > **Note:** One of either `source_image_id` or `source_image_reference` must be set.
         """
         return pulumi.get(self, "source_image_id")
 
@@ -1715,7 +1722,7 @@ class _LinuxVirtualMachineState:
         """
         A `source_image_reference` block as defined below. Changing this forces a new resource to be created.
 
-        > **NOTE:** One of either `source_image_id` or `source_image_reference` must be set.
+        > **Note:** One of either `source_image_id` or `source_image_reference` must be set.
         """
         return pulumi.get(self, "source_image_reference")
 
@@ -1777,11 +1784,11 @@ class _LinuxVirtualMachineState:
         """
         Specifies the Orchestrated Virtual Machine Scale Set that this Virtual Machine should be created within.
 
-        > **NOTE:** To update `virtual_machine_scale_set_id` the Preview Feature `Microsoft.Compute/SingleFDAttachDetachVMToVmss` needs to be enabled, see [the documentation](https://review.learn.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-attach-detach-vm#enroll-in-the-preview) for more information.
+        > **Note:** To update `virtual_machine_scale_set_id` the Preview Feature `Microsoft.Compute/SingleFDAttachDetachVMToVmss` needs to be enabled, see [the documentation](https://review.learn.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-attach-detach-vm#enroll-in-the-preview) for more information.
 
-        > **NOTE:** Orchestrated Virtual Machine Scale Sets can be provisioned using [the `compute.OrchestratedVirtualMachineScaleSet` resource](https://www.terraform.io/docs/providers/azurerm/r/orchestrated_virtual_machine_scale_set.html).
+        > **Note:** Orchestrated Virtual Machine Scale Sets can be provisioned using [the `compute.OrchestratedVirtualMachineScaleSet` resource](https://www.terraform.io/docs/providers/azurerm/r/orchestrated_virtual_machine_scale_set.html).
 
-        > **NOTE:** To attach an existing VM to a Virtual Machine Scale Set, the scale set must have `single_placement_group` set to `false`, see [the documentation](https://learn.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-attach-detach-vm?tabs=portal-1%2Cportal-2%2Cportal-3#limitations-for-attaching-an-existing-vm-to-a-scale-set) for more information.
+        > **Note:** To attach an existing VM to a Virtual Machine Scale Set, the scale set must have `single_placement_group` set to `false`, see [the documentation](https://learn.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-attach-detach-vm?tabs=portal-1%2Cportal-2%2Cportal-3#limitations-for-attaching-an-existing-vm-to-a-scale-set) for more information.
         """
         return pulumi.get(self, "virtual_machine_scale_set_id")
 
@@ -1791,9 +1798,10 @@ class _LinuxVirtualMachineState:
 
     @property
     @pulumi.getter(name="vmAgentPlatformUpdatesEnabled")
+    @_utilities.deprecated("""this property has been deprecated due to a breaking change introduced by the Service team, which redefined it as a read-only field within the API""")
     def vm_agent_platform_updates_enabled(self) -> Optional[pulumi.Input[builtins.bool]]:
         """
-        Specifies whether VMAgent Platform Updates is enabled. Defaults to `false`.
+        Are Virtual Machine Agent Platform Updates `enabled` on this Virtual Machine?
         """
         return pulumi.get(self, "vm_agent_platform_updates_enabled")
 
@@ -1883,23 +1891,9 @@ class LinuxVirtualMachine(pulumi.CustomResource):
                  zone: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         """
-        Manages a Linux Virtual Machine.
-
-        ## Disclaimers
-
-        > **Note** This provider will automatically remove the OS Disk by default - this behaviour can be configured using the `features` configuration within the Provider configuration block.
-
-        > **Note** All arguments including the administrator login and password will be stored in the raw state as plain-text.
-
-        > **Note** This resource does not support Unmanaged Disks. If you need to use Unmanaged Disks you can continue to use the `compute.VirtualMachine` resource instead.
-
-        > **Note** This resource does not support attaching existing OS Disks. You can instead capture an image of the OS Disk or continue to use the `compute.VirtualMachine` resource instead.
-
-        > In this release there's a known issue where the `public_ip_address` and `public_ip_addresses` fields may not be fully populated for Dynamic Public IP's.
-
         ## Example Usage
 
-        This example provisions a basic Linux Virtual Machine on an internal network.
+        This example provisions a basic Linux Virtual Machine on an internal network. Additional examples of how to use the `compute.LinuxVirtualMachine` resource can be found in the ./examples/virtual-machines/linux directory within the GitHub Repository.
 
         ```python
         import pulumi
@@ -1964,87 +1958,87 @@ class LinuxVirtualMachine(pulumi.CustomResource):
         :param pulumi.Input[Union['LinuxVirtualMachineAdditionalCapabilitiesArgs', 'LinuxVirtualMachineAdditionalCapabilitiesArgsDict']] additional_capabilities: A `additional_capabilities` block as defined below.
         :param pulumi.Input[builtins.str] admin_password: The Password which should be used for the local-administrator on this Virtual Machine. Changing this forces a new resource to be created.
                
-               > **NOTE:** When an `admin_password` is specified `disable_password_authentication` must be set to `false`.
-               > **NOTE:** One of either `admin_password` or `admin_ssh_key` must be specified.
+               > **Note:** When an `admin_password` is specified `disable_password_authentication` must be set to `false`.
+               > **Note:** One of either `admin_password` or `admin_ssh_key` must be specified.
         :param pulumi.Input[Sequence[pulumi.Input[Union['LinuxVirtualMachineAdminSshKeyArgs', 'LinuxVirtualMachineAdminSshKeyArgsDict']]]] admin_ssh_keys: One or more `admin_ssh_key` blocks as defined below. Changing this forces a new resource to be created.
                
-               > **NOTE:** One of either `admin_password` or `admin_ssh_key` must be specified.
+               > **Note:** One of either `admin_password` or `admin_ssh_key` must be specified.
         :param pulumi.Input[builtins.str] admin_username: The username of the local administrator used for the Virtual Machine. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.bool] allow_extension_operations: Should Extension Operations be allowed on this Virtual Machine? Defaults to `true`.
         :param pulumi.Input[builtins.str] availability_set_id: Specifies the ID of the Availability Set in which the Virtual Machine should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[Union['LinuxVirtualMachineBootDiagnosticsArgs', 'LinuxVirtualMachineBootDiagnosticsArgsDict']] boot_diagnostics: A `boot_diagnostics` block as defined below.
         :param pulumi.Input[builtins.bool] bypass_platform_safety_checks_on_user_schedule_enabled: Specifies whether to skip platform scheduled patching when a user schedule is associated with the VM. Defaults to `false`.
                
-               > **NOTE:** `bypass_platform_safety_checks_on_user_schedule_enabled` can only be set to `true` when `patch_mode` is set to `AutomaticByPlatform`.
+               > **Note:** `bypass_platform_safety_checks_on_user_schedule_enabled` can only be set to `true` when `patch_mode` is set to `AutomaticByPlatform`.
         :param pulumi.Input[builtins.str] capacity_reservation_group_id: Specifies the ID of the Capacity Reservation Group which the Virtual Machine should be allocated to.
                
-               > **NOTE:** `capacity_reservation_group_id` cannot be used with `availability_set_id` or `proximity_placement_group_id`
+               > **Note:** `capacity_reservation_group_id` cannot be used with `availability_set_id` or `proximity_placement_group_id`
         :param pulumi.Input[builtins.str] computer_name: Specifies the Hostname which should be used for this Virtual Machine. If unspecified this defaults to the value for the `name` field. If the value of the `name` field is not a valid `computer_name`, then you must specify `computer_name`. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] custom_data: The Base64-Encoded Custom Data which should be used for this Virtual Machine. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] dedicated_host_group_id: The ID of a Dedicated Host Group that this Linux Virtual Machine should be run within. Conflicts with `dedicated_host_id`.
         :param pulumi.Input[builtins.str] dedicated_host_id: The ID of a Dedicated Host where this machine should be run on. Conflicts with `dedicated_host_group_id`.
         :param pulumi.Input[builtins.bool] disable_password_authentication: Should Password Authentication be disabled on this Virtual Machine? Defaults to `true`. Changing this forces a new resource to be created.
                
-               > In general we'd recommend using SSH Keys for authentication rather than Passwords - but there's tradeoff's to each - please [see this thread for more information](https://security.stackexchange.com/questions/69407/why-is-using-an-ssh-key-more-secure-than-using-passwords).
+               > **Note:** In general we'd recommend using SSH Keys for authentication rather than Passwords - but there's tradeoff's to each - please [see this thread for more information](https://security.stackexchange.com/questions/69407/why-is-using-an-ssh-key-more-secure-than-using-passwords).
                
-               > **NOTE:** When an `admin_password` is specified `disable_password_authentication` must be set to `false`.
+               > **Note:** When an `admin_password` is specified `disable_password_authentication` must be set to `false`.
         :param pulumi.Input[builtins.str] disk_controller_type: Specifies the Disk Controller Type used for this Virtual Machine. Possible values are `SCSI` and `NVMe`.
         :param pulumi.Input[builtins.str] edge_zone: Specifies the Edge Zone within the Azure Region where this Linux Virtual Machine should exist. Changing this forces a new Linux Virtual Machine to be created.
         :param pulumi.Input[builtins.bool] encryption_at_host_enabled: Should all of the disks (including the temp disk) attached to this Virtual Machine be encrypted by enabling Encryption at Host?
         :param pulumi.Input[builtins.str] eviction_policy: Specifies what should happen when the Virtual Machine is evicted for price reasons when using a Spot instance. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
                
-               > **NOTE:** This can only be configured when `priority` is set to `Spot`.
+               > **Note:** This can only be configured when `priority` is set to `Spot`.
         :param pulumi.Input[builtins.str] extensions_time_budget: Specifies the duration allocated for all extensions to start. The time duration should be between 15 minutes and 120 minutes (inclusive) and should be specified in ISO 8601 format. Defaults to `PT1H30M`.
         :param pulumi.Input[Sequence[pulumi.Input[Union['LinuxVirtualMachineGalleryApplicationArgs', 'LinuxVirtualMachineGalleryApplicationArgsDict']]]] gallery_applications: One or more `gallery_application` blocks as defined below.
                
-               > **Note** Gallery Application Assignments can be defined either directly on `compute.LinuxVirtualMachine` resource, or using the `compute.GalleryApplicationAssignment` resource - but the two approaches cannot be used together. If both are used with the same Virtual Machine, spurious changes will occur. If `compute.GalleryApplicationAssignment` is used, it's recommended to use `ignore_changes` for the `gallery_application` block on the corresponding `compute.LinuxVirtualMachine` resource, to avoid a persistent diff when using this resource.
+               > **Note:** Gallery Application Assignments can be defined either directly on `compute.LinuxVirtualMachine` resource, or using the `compute.GalleryApplicationAssignment` resource - but the two approaches cannot be used together. If both are used with the same Virtual Machine, spurious changes will occur. If `compute.GalleryApplicationAssignment` is used, it's recommended to use `ignore_changes` for the `gallery_application` block on the corresponding `compute.LinuxVirtualMachine` resource, to avoid a persistent diff when using this resource.
         :param pulumi.Input[Union['LinuxVirtualMachineIdentityArgs', 'LinuxVirtualMachineIdentityArgsDict']] identity: An `identity` block as defined below.
         :param pulumi.Input[builtins.str] license_type: Specifies the License Type for this Virtual Machine. Possible values are `RHEL_BYOS`, `RHEL_BASE`, `RHEL_EUS`, `RHEL_SAPAPPS`, `RHEL_SAPHA`, `RHEL_BASESAPAPPS`, `RHEL_BASESAPHA`, `SLES_BYOS`, `SLES_SAP`, `SLES_HPC`, `UBUNTU_PRO`.
         :param pulumi.Input[builtins.str] location: The Azure location where the Linux Virtual Machine should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.float] max_bid_price: The maximum price you're willing to pay for this Virtual Machine, in US Dollars; which must be greater than the current spot price. If this bid price falls below the current spot price the Virtual Machine will be evicted using the `eviction_policy`. Defaults to `-1`, which means that the Virtual Machine should not be evicted for price reasons.
                
-               > **NOTE:** This can only be configured when `priority` is set to `Spot`.
+               > **Note:** This can only be configured when `priority` is set to `Spot`.
         :param pulumi.Input[builtins.str] name: The name of the Linux Virtual Machine. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] network_interface_ids: . A list of Network Interface IDs which should be attached to this Virtual Machine. The first Network Interface ID in this list will be the Primary Network Interface on the Virtual Machine.
         :param pulumi.Input[Union['LinuxVirtualMachineOsDiskArgs', 'LinuxVirtualMachineOsDiskArgsDict']] os_disk: A `os_disk` block as defined below.
         :param pulumi.Input[Union['LinuxVirtualMachineOsImageNotificationArgs', 'LinuxVirtualMachineOsImageNotificationArgsDict']] os_image_notification: A `os_image_notification` block as defined below.
         :param pulumi.Input[builtins.str] patch_assessment_mode: Specifies the mode of VM Guest Patching for the Virtual Machine. Possible values are `AutomaticByPlatform` or `ImageDefault`. Defaults to `ImageDefault`.
                
-               > **NOTE:** If the `patch_assessment_mode` is set to `AutomaticByPlatform` then the `provision_vm_agent` field must be set to `true`.
+               > **Note:** If the `patch_assessment_mode` is set to `AutomaticByPlatform` then the `provision_vm_agent` field must be set to `true`.
         :param pulumi.Input[builtins.str] patch_mode: Specifies the mode of in-guest patching to this Linux Virtual Machine. Possible values are `AutomaticByPlatform` and `ImageDefault`. Defaults to `ImageDefault`. For more information on patch modes please see the [product documentation](https://docs.microsoft.com/azure/virtual-machines/automatic-vm-guest-patching#patch-orchestration-modes).
                
-               > **NOTE:** If `patch_mode` is set to `AutomaticByPlatform` then `provision_vm_agent` must also be set to `true`.
+               > **Note:** If `patch_mode` is set to `AutomaticByPlatform` then `provision_vm_agent` must also be set to `true`.
         :param pulumi.Input[Union['LinuxVirtualMachinePlanArgs', 'LinuxVirtualMachinePlanArgsDict']] plan: A `plan` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.int] platform_fault_domain: Specifies the Platform Fault Domain in which this Linux Virtual Machine should be created. Defaults to `-1`, which means this will be automatically assigned to a fault domain that best maintains balance across the available fault domains. Changing this forces a new Linux Virtual Machine to be created.
         :param pulumi.Input[builtins.str] priority: Specifies the priority of this Virtual Machine. Possible values are `Regular` and `Spot`. Defaults to `Regular`. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.bool] provision_vm_agent: Should the Azure VM Agent be provisioned on this Virtual Machine? Defaults to `true`. Changing this forces a new resource to be created.
                
-               > **NOTE:** If `provision_vm_agent` is set to `false` then `allow_extension_operations` must also be set to `false`.
+               > **Note:** If `provision_vm_agent` is set to `false` then `allow_extension_operations` must also be set to `false`.
         :param pulumi.Input[builtins.str] proximity_placement_group_id: The ID of the Proximity Placement Group which the Virtual Machine should be assigned to.
         :param pulumi.Input[builtins.str] reboot_setting: Specifies the reboot setting for platform scheduled patching. Possible values are `Always`, `IfRequired` and `Never`.
                
-               > **NOTE:** `reboot_setting` can only be set when `patch_mode` is set to `AutomaticByPlatform`.
+               > **Note:** `reboot_setting` can only be set when `patch_mode` is set to `AutomaticByPlatform`.
         :param pulumi.Input[builtins.str] resource_group_name: The name of the Resource Group in which the Linux Virtual Machine should be exist. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[Union['LinuxVirtualMachineSecretArgs', 'LinuxVirtualMachineSecretArgsDict']]]] secrets: One or more `secret` blocks as defined below.
         :param pulumi.Input[builtins.bool] secure_boot_enabled: Specifies whether secure boot should be enabled on the virtual machine. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] size: The SKU which should be used for this Virtual Machine, such as `Standard_F2`.
         :param pulumi.Input[builtins.str] source_image_id: The ID of the Image which this Virtual Machine should be created from. Changing this forces a new resource to be created. Possible Image ID types include `Image ID`s, `Shared Image ID`s, `Shared Image Version ID`s, `Community Gallery Image ID`s, `Community Gallery Image Version ID`s, `Shared Gallery Image ID`s and `Shared Gallery Image Version ID`s.
                
-               > **NOTE:** One of either `source_image_id` or `source_image_reference` must be set.
+               > **Note:** One of either `source_image_id` or `source_image_reference` must be set.
         :param pulumi.Input[Union['LinuxVirtualMachineSourceImageReferenceArgs', 'LinuxVirtualMachineSourceImageReferenceArgsDict']] source_image_reference: A `source_image_reference` block as defined below. Changing this forces a new resource to be created.
                
-               > **NOTE:** One of either `source_image_id` or `source_image_reference` must be set.
+               > **Note:** One of either `source_image_id` or `source_image_reference` must be set.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A mapping of tags which should be assigned to this Virtual Machine.
         :param pulumi.Input[Union['LinuxVirtualMachineTerminationNotificationArgs', 'LinuxVirtualMachineTerminationNotificationArgsDict']] termination_notification: A `termination_notification` block as defined below.
         :param pulumi.Input[builtins.str] user_data: The Base64-Encoded User Data which should be used for this Virtual Machine.
         :param pulumi.Input[builtins.str] virtual_machine_scale_set_id: Specifies the Orchestrated Virtual Machine Scale Set that this Virtual Machine should be created within.
                
-               > **NOTE:** To update `virtual_machine_scale_set_id` the Preview Feature `Microsoft.Compute/SingleFDAttachDetachVMToVmss` needs to be enabled, see [the documentation](https://review.learn.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-attach-detach-vm#enroll-in-the-preview) for more information.
+               > **Note:** To update `virtual_machine_scale_set_id` the Preview Feature `Microsoft.Compute/SingleFDAttachDetachVMToVmss` needs to be enabled, see [the documentation](https://review.learn.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-attach-detach-vm#enroll-in-the-preview) for more information.
                
-               > **NOTE:** Orchestrated Virtual Machine Scale Sets can be provisioned using [the `compute.OrchestratedVirtualMachineScaleSet` resource](https://www.terraform.io/docs/providers/azurerm/r/orchestrated_virtual_machine_scale_set.html).
+               > **Note:** Orchestrated Virtual Machine Scale Sets can be provisioned using [the `compute.OrchestratedVirtualMachineScaleSet` resource](https://www.terraform.io/docs/providers/azurerm/r/orchestrated_virtual_machine_scale_set.html).
                
-               > **NOTE:** To attach an existing VM to a Virtual Machine Scale Set, the scale set must have `single_placement_group` set to `false`, see [the documentation](https://learn.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-attach-detach-vm?tabs=portal-1%2Cportal-2%2Cportal-3#limitations-for-attaching-an-existing-vm-to-a-scale-set) for more information.
-        :param pulumi.Input[builtins.bool] vm_agent_platform_updates_enabled: Specifies whether VMAgent Platform Updates is enabled. Defaults to `false`.
+               > **Note:** To attach an existing VM to a Virtual Machine Scale Set, the scale set must have `single_placement_group` set to `false`, see [the documentation](https://learn.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-attach-detach-vm?tabs=portal-1%2Cportal-2%2Cportal-3#limitations-for-attaching-an-existing-vm-to-a-scale-set) for more information.
+        :param pulumi.Input[builtins.bool] vm_agent_platform_updates_enabled: Are Virtual Machine Agent Platform Updates `enabled` on this Virtual Machine?
         :param pulumi.Input[builtins.bool] vtpm_enabled: Specifies whether vTPM should be enabled on the virtual machine. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] zone: Specifies the Availability Zones in which this Linux Virtual Machine should be located. Changing this forces a new Linux Virtual Machine to be created.
         """
@@ -2055,23 +2049,9 @@ class LinuxVirtualMachine(pulumi.CustomResource):
                  args: LinuxVirtualMachineArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Manages a Linux Virtual Machine.
-
-        ## Disclaimers
-
-        > **Note** This provider will automatically remove the OS Disk by default - this behaviour can be configured using the `features` configuration within the Provider configuration block.
-
-        > **Note** All arguments including the administrator login and password will be stored in the raw state as plain-text.
-
-        > **Note** This resource does not support Unmanaged Disks. If you need to use Unmanaged Disks you can continue to use the `compute.VirtualMachine` resource instead.
-
-        > **Note** This resource does not support attaching existing OS Disks. You can instead capture an image of the OS Disk or continue to use the `compute.VirtualMachine` resource instead.
-
-        > In this release there's a known issue where the `public_ip_address` and `public_ip_addresses` fields may not be fully populated for Dynamic Public IP's.
-
         ## Example Usage
 
-        This example provisions a basic Linux Virtual Machine on an internal network.
+        This example provisions a basic Linux Virtual Machine on an internal network. Additional examples of how to use the `compute.LinuxVirtualMachine` resource can be found in the ./examples/virtual-machines/linux directory within the GitHub Repository.
 
         ```python
         import pulumi
@@ -2344,56 +2324,56 @@ class LinuxVirtualMachine(pulumi.CustomResource):
         :param pulumi.Input[Union['LinuxVirtualMachineAdditionalCapabilitiesArgs', 'LinuxVirtualMachineAdditionalCapabilitiesArgsDict']] additional_capabilities: A `additional_capabilities` block as defined below.
         :param pulumi.Input[builtins.str] admin_password: The Password which should be used for the local-administrator on this Virtual Machine. Changing this forces a new resource to be created.
                
-               > **NOTE:** When an `admin_password` is specified `disable_password_authentication` must be set to `false`.
-               > **NOTE:** One of either `admin_password` or `admin_ssh_key` must be specified.
+               > **Note:** When an `admin_password` is specified `disable_password_authentication` must be set to `false`.
+               > **Note:** One of either `admin_password` or `admin_ssh_key` must be specified.
         :param pulumi.Input[Sequence[pulumi.Input[Union['LinuxVirtualMachineAdminSshKeyArgs', 'LinuxVirtualMachineAdminSshKeyArgsDict']]]] admin_ssh_keys: One or more `admin_ssh_key` blocks as defined below. Changing this forces a new resource to be created.
                
-               > **NOTE:** One of either `admin_password` or `admin_ssh_key` must be specified.
+               > **Note:** One of either `admin_password` or `admin_ssh_key` must be specified.
         :param pulumi.Input[builtins.str] admin_username: The username of the local administrator used for the Virtual Machine. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.bool] allow_extension_operations: Should Extension Operations be allowed on this Virtual Machine? Defaults to `true`.
         :param pulumi.Input[builtins.str] availability_set_id: Specifies the ID of the Availability Set in which the Virtual Machine should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[Union['LinuxVirtualMachineBootDiagnosticsArgs', 'LinuxVirtualMachineBootDiagnosticsArgsDict']] boot_diagnostics: A `boot_diagnostics` block as defined below.
         :param pulumi.Input[builtins.bool] bypass_platform_safety_checks_on_user_schedule_enabled: Specifies whether to skip platform scheduled patching when a user schedule is associated with the VM. Defaults to `false`.
                
-               > **NOTE:** `bypass_platform_safety_checks_on_user_schedule_enabled` can only be set to `true` when `patch_mode` is set to `AutomaticByPlatform`.
+               > **Note:** `bypass_platform_safety_checks_on_user_schedule_enabled` can only be set to `true` when `patch_mode` is set to `AutomaticByPlatform`.
         :param pulumi.Input[builtins.str] capacity_reservation_group_id: Specifies the ID of the Capacity Reservation Group which the Virtual Machine should be allocated to.
                
-               > **NOTE:** `capacity_reservation_group_id` cannot be used with `availability_set_id` or `proximity_placement_group_id`
+               > **Note:** `capacity_reservation_group_id` cannot be used with `availability_set_id` or `proximity_placement_group_id`
         :param pulumi.Input[builtins.str] computer_name: Specifies the Hostname which should be used for this Virtual Machine. If unspecified this defaults to the value for the `name` field. If the value of the `name` field is not a valid `computer_name`, then you must specify `computer_name`. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] custom_data: The Base64-Encoded Custom Data which should be used for this Virtual Machine. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] dedicated_host_group_id: The ID of a Dedicated Host Group that this Linux Virtual Machine should be run within. Conflicts with `dedicated_host_id`.
         :param pulumi.Input[builtins.str] dedicated_host_id: The ID of a Dedicated Host where this machine should be run on. Conflicts with `dedicated_host_group_id`.
         :param pulumi.Input[builtins.bool] disable_password_authentication: Should Password Authentication be disabled on this Virtual Machine? Defaults to `true`. Changing this forces a new resource to be created.
                
-               > In general we'd recommend using SSH Keys for authentication rather than Passwords - but there's tradeoff's to each - please [see this thread for more information](https://security.stackexchange.com/questions/69407/why-is-using-an-ssh-key-more-secure-than-using-passwords).
+               > **Note:** In general we'd recommend using SSH Keys for authentication rather than Passwords - but there's tradeoff's to each - please [see this thread for more information](https://security.stackexchange.com/questions/69407/why-is-using-an-ssh-key-more-secure-than-using-passwords).
                
-               > **NOTE:** When an `admin_password` is specified `disable_password_authentication` must be set to `false`.
+               > **Note:** When an `admin_password` is specified `disable_password_authentication` must be set to `false`.
         :param pulumi.Input[builtins.str] disk_controller_type: Specifies the Disk Controller Type used for this Virtual Machine. Possible values are `SCSI` and `NVMe`.
         :param pulumi.Input[builtins.str] edge_zone: Specifies the Edge Zone within the Azure Region where this Linux Virtual Machine should exist. Changing this forces a new Linux Virtual Machine to be created.
         :param pulumi.Input[builtins.bool] encryption_at_host_enabled: Should all of the disks (including the temp disk) attached to this Virtual Machine be encrypted by enabling Encryption at Host?
         :param pulumi.Input[builtins.str] eviction_policy: Specifies what should happen when the Virtual Machine is evicted for price reasons when using a Spot instance. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
                
-               > **NOTE:** This can only be configured when `priority` is set to `Spot`.
+               > **Note:** This can only be configured when `priority` is set to `Spot`.
         :param pulumi.Input[builtins.str] extensions_time_budget: Specifies the duration allocated for all extensions to start. The time duration should be between 15 minutes and 120 minutes (inclusive) and should be specified in ISO 8601 format. Defaults to `PT1H30M`.
         :param pulumi.Input[Sequence[pulumi.Input[Union['LinuxVirtualMachineGalleryApplicationArgs', 'LinuxVirtualMachineGalleryApplicationArgsDict']]]] gallery_applications: One or more `gallery_application` blocks as defined below.
                
-               > **Note** Gallery Application Assignments can be defined either directly on `compute.LinuxVirtualMachine` resource, or using the `compute.GalleryApplicationAssignment` resource - but the two approaches cannot be used together. If both are used with the same Virtual Machine, spurious changes will occur. If `compute.GalleryApplicationAssignment` is used, it's recommended to use `ignore_changes` for the `gallery_application` block on the corresponding `compute.LinuxVirtualMachine` resource, to avoid a persistent diff when using this resource.
+               > **Note:** Gallery Application Assignments can be defined either directly on `compute.LinuxVirtualMachine` resource, or using the `compute.GalleryApplicationAssignment` resource - but the two approaches cannot be used together. If both are used with the same Virtual Machine, spurious changes will occur. If `compute.GalleryApplicationAssignment` is used, it's recommended to use `ignore_changes` for the `gallery_application` block on the corresponding `compute.LinuxVirtualMachine` resource, to avoid a persistent diff when using this resource.
         :param pulumi.Input[Union['LinuxVirtualMachineIdentityArgs', 'LinuxVirtualMachineIdentityArgsDict']] identity: An `identity` block as defined below.
         :param pulumi.Input[builtins.str] license_type: Specifies the License Type for this Virtual Machine. Possible values are `RHEL_BYOS`, `RHEL_BASE`, `RHEL_EUS`, `RHEL_SAPAPPS`, `RHEL_SAPHA`, `RHEL_BASESAPAPPS`, `RHEL_BASESAPHA`, `SLES_BYOS`, `SLES_SAP`, `SLES_HPC`, `UBUNTU_PRO`.
         :param pulumi.Input[builtins.str] location: The Azure location where the Linux Virtual Machine should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.float] max_bid_price: The maximum price you're willing to pay for this Virtual Machine, in US Dollars; which must be greater than the current spot price. If this bid price falls below the current spot price the Virtual Machine will be evicted using the `eviction_policy`. Defaults to `-1`, which means that the Virtual Machine should not be evicted for price reasons.
                
-               > **NOTE:** This can only be configured when `priority` is set to `Spot`.
+               > **Note:** This can only be configured when `priority` is set to `Spot`.
         :param pulumi.Input[builtins.str] name: The name of the Linux Virtual Machine. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] network_interface_ids: . A list of Network Interface IDs which should be attached to this Virtual Machine. The first Network Interface ID in this list will be the Primary Network Interface on the Virtual Machine.
         :param pulumi.Input[Union['LinuxVirtualMachineOsDiskArgs', 'LinuxVirtualMachineOsDiskArgsDict']] os_disk: A `os_disk` block as defined below.
         :param pulumi.Input[Union['LinuxVirtualMachineOsImageNotificationArgs', 'LinuxVirtualMachineOsImageNotificationArgsDict']] os_image_notification: A `os_image_notification` block as defined below.
         :param pulumi.Input[builtins.str] patch_assessment_mode: Specifies the mode of VM Guest Patching for the Virtual Machine. Possible values are `AutomaticByPlatform` or `ImageDefault`. Defaults to `ImageDefault`.
                
-               > **NOTE:** If the `patch_assessment_mode` is set to `AutomaticByPlatform` then the `provision_vm_agent` field must be set to `true`.
+               > **Note:** If the `patch_assessment_mode` is set to `AutomaticByPlatform` then the `provision_vm_agent` field must be set to `true`.
         :param pulumi.Input[builtins.str] patch_mode: Specifies the mode of in-guest patching to this Linux Virtual Machine. Possible values are `AutomaticByPlatform` and `ImageDefault`. Defaults to `ImageDefault`. For more information on patch modes please see the [product documentation](https://docs.microsoft.com/azure/virtual-machines/automatic-vm-guest-patching#patch-orchestration-modes).
                
-               > **NOTE:** If `patch_mode` is set to `AutomaticByPlatform` then `provision_vm_agent` must also be set to `true`.
+               > **Note:** If `patch_mode` is set to `AutomaticByPlatform` then `provision_vm_agent` must also be set to `true`.
         :param pulumi.Input[Union['LinuxVirtualMachinePlanArgs', 'LinuxVirtualMachinePlanArgsDict']] plan: A `plan` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.int] platform_fault_domain: Specifies the Platform Fault Domain in which this Linux Virtual Machine should be created. Defaults to `-1`, which means this will be automatically assigned to a fault domain that best maintains balance across the available fault domains. Changing this forces a new Linux Virtual Machine to be created.
         :param pulumi.Input[builtins.str] priority: Specifies the priority of this Virtual Machine. Possible values are `Regular` and `Spot`. Defaults to `Regular`. Changing this forces a new resource to be created.
@@ -2401,35 +2381,35 @@ class LinuxVirtualMachine(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] private_ip_addresses: A list of Private IP Addresses assigned to this Virtual Machine.
         :param pulumi.Input[builtins.bool] provision_vm_agent: Should the Azure VM Agent be provisioned on this Virtual Machine? Defaults to `true`. Changing this forces a new resource to be created.
                
-               > **NOTE:** If `provision_vm_agent` is set to `false` then `allow_extension_operations` must also be set to `false`.
+               > **Note:** If `provision_vm_agent` is set to `false` then `allow_extension_operations` must also be set to `false`.
         :param pulumi.Input[builtins.str] proximity_placement_group_id: The ID of the Proximity Placement Group which the Virtual Machine should be assigned to.
         :param pulumi.Input[builtins.str] public_ip_address: The Primary Public IP Address assigned to this Virtual Machine.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] public_ip_addresses: A list of the Public IP Addresses assigned to this Virtual Machine.
         :param pulumi.Input[builtins.str] reboot_setting: Specifies the reboot setting for platform scheduled patching. Possible values are `Always`, `IfRequired` and `Never`.
                
-               > **NOTE:** `reboot_setting` can only be set when `patch_mode` is set to `AutomaticByPlatform`.
+               > **Note:** `reboot_setting` can only be set when `patch_mode` is set to `AutomaticByPlatform`.
         :param pulumi.Input[builtins.str] resource_group_name: The name of the Resource Group in which the Linux Virtual Machine should be exist. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[Union['LinuxVirtualMachineSecretArgs', 'LinuxVirtualMachineSecretArgsDict']]]] secrets: One or more `secret` blocks as defined below.
         :param pulumi.Input[builtins.bool] secure_boot_enabled: Specifies whether secure boot should be enabled on the virtual machine. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] size: The SKU which should be used for this Virtual Machine, such as `Standard_F2`.
         :param pulumi.Input[builtins.str] source_image_id: The ID of the Image which this Virtual Machine should be created from. Changing this forces a new resource to be created. Possible Image ID types include `Image ID`s, `Shared Image ID`s, `Shared Image Version ID`s, `Community Gallery Image ID`s, `Community Gallery Image Version ID`s, `Shared Gallery Image ID`s and `Shared Gallery Image Version ID`s.
                
-               > **NOTE:** One of either `source_image_id` or `source_image_reference` must be set.
+               > **Note:** One of either `source_image_id` or `source_image_reference` must be set.
         :param pulumi.Input[Union['LinuxVirtualMachineSourceImageReferenceArgs', 'LinuxVirtualMachineSourceImageReferenceArgsDict']] source_image_reference: A `source_image_reference` block as defined below. Changing this forces a new resource to be created.
                
-               > **NOTE:** One of either `source_image_id` or `source_image_reference` must be set.
+               > **Note:** One of either `source_image_id` or `source_image_reference` must be set.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A mapping of tags which should be assigned to this Virtual Machine.
         :param pulumi.Input[Union['LinuxVirtualMachineTerminationNotificationArgs', 'LinuxVirtualMachineTerminationNotificationArgsDict']] termination_notification: A `termination_notification` block as defined below.
         :param pulumi.Input[builtins.str] user_data: The Base64-Encoded User Data which should be used for this Virtual Machine.
         :param pulumi.Input[builtins.str] virtual_machine_id: A 128-bit identifier which uniquely identifies this Virtual Machine.
         :param pulumi.Input[builtins.str] virtual_machine_scale_set_id: Specifies the Orchestrated Virtual Machine Scale Set that this Virtual Machine should be created within.
                
-               > **NOTE:** To update `virtual_machine_scale_set_id` the Preview Feature `Microsoft.Compute/SingleFDAttachDetachVMToVmss` needs to be enabled, see [the documentation](https://review.learn.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-attach-detach-vm#enroll-in-the-preview) for more information.
+               > **Note:** To update `virtual_machine_scale_set_id` the Preview Feature `Microsoft.Compute/SingleFDAttachDetachVMToVmss` needs to be enabled, see [the documentation](https://review.learn.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-attach-detach-vm#enroll-in-the-preview) for more information.
                
-               > **NOTE:** Orchestrated Virtual Machine Scale Sets can be provisioned using [the `compute.OrchestratedVirtualMachineScaleSet` resource](https://www.terraform.io/docs/providers/azurerm/r/orchestrated_virtual_machine_scale_set.html).
+               > **Note:** Orchestrated Virtual Machine Scale Sets can be provisioned using [the `compute.OrchestratedVirtualMachineScaleSet` resource](https://www.terraform.io/docs/providers/azurerm/r/orchestrated_virtual_machine_scale_set.html).
                
-               > **NOTE:** To attach an existing VM to a Virtual Machine Scale Set, the scale set must have `single_placement_group` set to `false`, see [the documentation](https://learn.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-attach-detach-vm?tabs=portal-1%2Cportal-2%2Cportal-3#limitations-for-attaching-an-existing-vm-to-a-scale-set) for more information.
-        :param pulumi.Input[builtins.bool] vm_agent_platform_updates_enabled: Specifies whether VMAgent Platform Updates is enabled. Defaults to `false`.
+               > **Note:** To attach an existing VM to a Virtual Machine Scale Set, the scale set must have `single_placement_group` set to `false`, see [the documentation](https://learn.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-attach-detach-vm?tabs=portal-1%2Cportal-2%2Cportal-3#limitations-for-attaching-an-existing-vm-to-a-scale-set) for more information.
+        :param pulumi.Input[builtins.bool] vm_agent_platform_updates_enabled: Are Virtual Machine Agent Platform Updates `enabled` on this Virtual Machine?
         :param pulumi.Input[builtins.bool] vtpm_enabled: Specifies whether vTPM should be enabled on the virtual machine. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] zone: Specifies the Availability Zones in which this Linux Virtual Machine should be located. Changing this forces a new Linux Virtual Machine to be created.
         """
@@ -2507,8 +2487,8 @@ class LinuxVirtualMachine(pulumi.CustomResource):
         """
         The Password which should be used for the local-administrator on this Virtual Machine. Changing this forces a new resource to be created.
 
-        > **NOTE:** When an `admin_password` is specified `disable_password_authentication` must be set to `false`.
-        > **NOTE:** One of either `admin_password` or `admin_ssh_key` must be specified.
+        > **Note:** When an `admin_password` is specified `disable_password_authentication` must be set to `false`.
+        > **Note:** One of either `admin_password` or `admin_ssh_key` must be specified.
         """
         return pulumi.get(self, "admin_password")
 
@@ -2518,7 +2498,7 @@ class LinuxVirtualMachine(pulumi.CustomResource):
         """
         One or more `admin_ssh_key` blocks as defined below. Changing this forces a new resource to be created.
 
-        > **NOTE:** One of either `admin_password` or `admin_ssh_key` must be specified.
+        > **Note:** One of either `admin_password` or `admin_ssh_key` must be specified.
         """
         return pulumi.get(self, "admin_ssh_keys")
 
@@ -2560,7 +2540,7 @@ class LinuxVirtualMachine(pulumi.CustomResource):
         """
         Specifies whether to skip platform scheduled patching when a user schedule is associated with the VM. Defaults to `false`.
 
-        > **NOTE:** `bypass_platform_safety_checks_on_user_schedule_enabled` can only be set to `true` when `patch_mode` is set to `AutomaticByPlatform`.
+        > **Note:** `bypass_platform_safety_checks_on_user_schedule_enabled` can only be set to `true` when `patch_mode` is set to `AutomaticByPlatform`.
         """
         return pulumi.get(self, "bypass_platform_safety_checks_on_user_schedule_enabled")
 
@@ -2570,7 +2550,7 @@ class LinuxVirtualMachine(pulumi.CustomResource):
         """
         Specifies the ID of the Capacity Reservation Group which the Virtual Machine should be allocated to.
 
-        > **NOTE:** `capacity_reservation_group_id` cannot be used with `availability_set_id` or `proximity_placement_group_id`
+        > **Note:** `capacity_reservation_group_id` cannot be used with `availability_set_id` or `proximity_placement_group_id`
         """
         return pulumi.get(self, "capacity_reservation_group_id")
 
@@ -2612,9 +2592,9 @@ class LinuxVirtualMachine(pulumi.CustomResource):
         """
         Should Password Authentication be disabled on this Virtual Machine? Defaults to `true`. Changing this forces a new resource to be created.
 
-        > In general we'd recommend using SSH Keys for authentication rather than Passwords - but there's tradeoff's to each - please [see this thread for more information](https://security.stackexchange.com/questions/69407/why-is-using-an-ssh-key-more-secure-than-using-passwords).
+        > **Note:** In general we'd recommend using SSH Keys for authentication rather than Passwords - but there's tradeoff's to each - please [see this thread for more information](https://security.stackexchange.com/questions/69407/why-is-using-an-ssh-key-more-secure-than-using-passwords).
 
-        > **NOTE:** When an `admin_password` is specified `disable_password_authentication` must be set to `false`.
+        > **Note:** When an `admin_password` is specified `disable_password_authentication` must be set to `false`.
         """
         return pulumi.get(self, "disable_password_authentication")
 
@@ -2648,7 +2628,7 @@ class LinuxVirtualMachine(pulumi.CustomResource):
         """
         Specifies what should happen when the Virtual Machine is evicted for price reasons when using a Spot instance. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
 
-        > **NOTE:** This can only be configured when `priority` is set to `Spot`.
+        > **Note:** This can only be configured when `priority` is set to `Spot`.
         """
         return pulumi.get(self, "eviction_policy")
 
@@ -2666,7 +2646,7 @@ class LinuxVirtualMachine(pulumi.CustomResource):
         """
         One or more `gallery_application` blocks as defined below.
 
-        > **Note** Gallery Application Assignments can be defined either directly on `compute.LinuxVirtualMachine` resource, or using the `compute.GalleryApplicationAssignment` resource - but the two approaches cannot be used together. If both are used with the same Virtual Machine, spurious changes will occur. If `compute.GalleryApplicationAssignment` is used, it's recommended to use `ignore_changes` for the `gallery_application` block on the corresponding `compute.LinuxVirtualMachine` resource, to avoid a persistent diff when using this resource.
+        > **Note:** Gallery Application Assignments can be defined either directly on `compute.LinuxVirtualMachine` resource, or using the `compute.GalleryApplicationAssignment` resource - but the two approaches cannot be used together. If both are used with the same Virtual Machine, spurious changes will occur. If `compute.GalleryApplicationAssignment` is used, it's recommended to use `ignore_changes` for the `gallery_application` block on the corresponding `compute.LinuxVirtualMachine` resource, to avoid a persistent diff when using this resource.
         """
         return pulumi.get(self, "gallery_applications")
 
@@ -2700,7 +2680,7 @@ class LinuxVirtualMachine(pulumi.CustomResource):
         """
         The maximum price you're willing to pay for this Virtual Machine, in US Dollars; which must be greater than the current spot price. If this bid price falls below the current spot price the Virtual Machine will be evicted using the `eviction_policy`. Defaults to `-1`, which means that the Virtual Machine should not be evicted for price reasons.
 
-        > **NOTE:** This can only be configured when `priority` is set to `Spot`.
+        > **Note:** This can only be configured when `priority` is set to `Spot`.
         """
         return pulumi.get(self, "max_bid_price")
 
@@ -2742,7 +2722,7 @@ class LinuxVirtualMachine(pulumi.CustomResource):
         """
         Specifies the mode of VM Guest Patching for the Virtual Machine. Possible values are `AutomaticByPlatform` or `ImageDefault`. Defaults to `ImageDefault`.
 
-        > **NOTE:** If the `patch_assessment_mode` is set to `AutomaticByPlatform` then the `provision_vm_agent` field must be set to `true`.
+        > **Note:** If the `patch_assessment_mode` is set to `AutomaticByPlatform` then the `provision_vm_agent` field must be set to `true`.
         """
         return pulumi.get(self, "patch_assessment_mode")
 
@@ -2752,7 +2732,7 @@ class LinuxVirtualMachine(pulumi.CustomResource):
         """
         Specifies the mode of in-guest patching to this Linux Virtual Machine. Possible values are `AutomaticByPlatform` and `ImageDefault`. Defaults to `ImageDefault`. For more information on patch modes please see the [product documentation](https://docs.microsoft.com/azure/virtual-machines/automatic-vm-guest-patching#patch-orchestration-modes).
 
-        > **NOTE:** If `patch_mode` is set to `AutomaticByPlatform` then `provision_vm_agent` must also be set to `true`.
+        > **Note:** If `patch_mode` is set to `AutomaticByPlatform` then `provision_vm_agent` must also be set to `true`.
         """
         return pulumi.get(self, "patch_mode")
 
@@ -2802,7 +2782,7 @@ class LinuxVirtualMachine(pulumi.CustomResource):
         """
         Should the Azure VM Agent be provisioned on this Virtual Machine? Defaults to `true`. Changing this forces a new resource to be created.
 
-        > **NOTE:** If `provision_vm_agent` is set to `false` then `allow_extension_operations` must also be set to `false`.
+        > **Note:** If `provision_vm_agent` is set to `false` then `allow_extension_operations` must also be set to `false`.
         """
         return pulumi.get(self, "provision_vm_agent")
 
@@ -2836,7 +2816,7 @@ class LinuxVirtualMachine(pulumi.CustomResource):
         """
         Specifies the reboot setting for platform scheduled patching. Possible values are `Always`, `IfRequired` and `Never`.
 
-        > **NOTE:** `reboot_setting` can only be set when `patch_mode` is set to `AutomaticByPlatform`.
+        > **Note:** `reboot_setting` can only be set when `patch_mode` is set to `AutomaticByPlatform`.
         """
         return pulumi.get(self, "reboot_setting")
 
@@ -2878,7 +2858,7 @@ class LinuxVirtualMachine(pulumi.CustomResource):
         """
         The ID of the Image which this Virtual Machine should be created from. Changing this forces a new resource to be created. Possible Image ID types include `Image ID`s, `Shared Image ID`s, `Shared Image Version ID`s, `Community Gallery Image ID`s, `Community Gallery Image Version ID`s, `Shared Gallery Image ID`s and `Shared Gallery Image Version ID`s.
 
-        > **NOTE:** One of either `source_image_id` or `source_image_reference` must be set.
+        > **Note:** One of either `source_image_id` or `source_image_reference` must be set.
         """
         return pulumi.get(self, "source_image_id")
 
@@ -2888,7 +2868,7 @@ class LinuxVirtualMachine(pulumi.CustomResource):
         """
         A `source_image_reference` block as defined below. Changing this forces a new resource to be created.
 
-        > **NOTE:** One of either `source_image_id` or `source_image_reference` must be set.
+        > **Note:** One of either `source_image_id` or `source_image_reference` must be set.
         """
         return pulumi.get(self, "source_image_reference")
 
@@ -2930,19 +2910,20 @@ class LinuxVirtualMachine(pulumi.CustomResource):
         """
         Specifies the Orchestrated Virtual Machine Scale Set that this Virtual Machine should be created within.
 
-        > **NOTE:** To update `virtual_machine_scale_set_id` the Preview Feature `Microsoft.Compute/SingleFDAttachDetachVMToVmss` needs to be enabled, see [the documentation](https://review.learn.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-attach-detach-vm#enroll-in-the-preview) for more information.
+        > **Note:** To update `virtual_machine_scale_set_id` the Preview Feature `Microsoft.Compute/SingleFDAttachDetachVMToVmss` needs to be enabled, see [the documentation](https://review.learn.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-attach-detach-vm#enroll-in-the-preview) for more information.
 
-        > **NOTE:** Orchestrated Virtual Machine Scale Sets can be provisioned using [the `compute.OrchestratedVirtualMachineScaleSet` resource](https://www.terraform.io/docs/providers/azurerm/r/orchestrated_virtual_machine_scale_set.html).
+        > **Note:** Orchestrated Virtual Machine Scale Sets can be provisioned using [the `compute.OrchestratedVirtualMachineScaleSet` resource](https://www.terraform.io/docs/providers/azurerm/r/orchestrated_virtual_machine_scale_set.html).
 
-        > **NOTE:** To attach an existing VM to a Virtual Machine Scale Set, the scale set must have `single_placement_group` set to `false`, see [the documentation](https://learn.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-attach-detach-vm?tabs=portal-1%2Cportal-2%2Cportal-3#limitations-for-attaching-an-existing-vm-to-a-scale-set) for more information.
+        > **Note:** To attach an existing VM to a Virtual Machine Scale Set, the scale set must have `single_placement_group` set to `false`, see [the documentation](https://learn.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-attach-detach-vm?tabs=portal-1%2Cportal-2%2Cportal-3#limitations-for-attaching-an-existing-vm-to-a-scale-set) for more information.
         """
         return pulumi.get(self, "virtual_machine_scale_set_id")
 
     @property
     @pulumi.getter(name="vmAgentPlatformUpdatesEnabled")
-    def vm_agent_platform_updates_enabled(self) -> pulumi.Output[Optional[builtins.bool]]:
+    @_utilities.deprecated("""this property has been deprecated due to a breaking change introduced by the Service team, which redefined it as a read-only field within the API""")
+    def vm_agent_platform_updates_enabled(self) -> pulumi.Output[builtins.bool]:
         """
-        Specifies whether VMAgent Platform Updates is enabled. Defaults to `false`.
+        Are Virtual Machine Agent Platform Updates `enabled` on this Virtual Machine?
         """
         return pulumi.get(self, "vm_agent_platform_updates_enabled")
 

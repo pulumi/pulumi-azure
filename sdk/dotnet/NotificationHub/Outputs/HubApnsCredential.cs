@@ -17,9 +17,6 @@ namespace Pulumi.Azure.NotificationHub.Outputs
         /// The Application Mode which defines which server the APNS Messages should be sent to. Possible values are `Production` and `Sandbox`.
         /// </summary>
         public readonly string ApplicationMode;
-        /// <summary>
-        /// The Bundle ID of the iOS/macOS application to send push notifications for, such as `com.org.example`.
-        /// </summary>
         public readonly string BundleId;
         /// <summary>
         /// The Apple Push Notifications Service (APNS) Key.

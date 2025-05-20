@@ -107,6 +107,13 @@ namespace Pulumi.Azure.Nginx
     /// });
     /// ```
     /// 
+    /// ## API Providers
+    /// 
+    /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+    /// This resource uses the following Azure API Providers:
+    /// 
+    /// * `Nginx.NginxPlus`: 2024-11-01-preview
+    /// 
     /// ## Import
     /// 
     /// NGINX Deployments can be imported using the `resource id`, e.g.
@@ -133,7 +140,7 @@ namespace Pulumi.Azure.Nginx
         /// <summary>
         /// Specify the number of NGINX capacity units for this NGINX deployment.
         /// 
-        /// &gt; **Note** For more information on NGINX capacity units, please refer to the [NGINX scaling guidance documentation](https://docs.nginx.com/nginxaas/azure/quickstart/scaling/)
+        /// &gt; **Note:** For more information on NGINX capacity units, please refer to the [NGINX scaling guidance documentation](https://docs.nginx.com/nginxaas/azure/quickstart/scaling/)
         /// </summary>
         [Output("capacity")]
         public Output<int?> Capacity { get; private set; } = null!;
@@ -157,13 +164,13 @@ namespace Pulumi.Azure.Nginx
         public Output<string?> Email { get; private set; } = null!;
 
         /// <summary>
-        /// One or more `frontend_private` blocks as defined below. Changing this forces a new NGINX Deployment to be created.
+        /// One or more `frontend_private` blocks as defined below.
         /// </summary>
         [Output("frontendPrivates")]
         public Output<ImmutableArray<Outputs.DeploymentFrontendPrivate>> FrontendPrivates { get; private set; } = null!;
 
         /// <summary>
-        /// A `frontend_public` block as defined below. Changing this forces a new NGINX Deployment to be created.
+        /// A `frontend_public` block as defined below.
         /// </summary>
         [Output("frontendPublic")]
         public Output<Outputs.DeploymentFrontendPublic?> FrontendPublic { get; private set; } = null!;
@@ -199,7 +206,7 @@ namespace Pulumi.Azure.Nginx
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// One or more `network_interface` blocks as defined below. Changing this forces a new NGINX Deployment to be created.
+        /// One or more `network_interface` blocks as defined below.
         /// </summary>
         [Output("networkInterfaces")]
         public Output<ImmutableArray<Outputs.DeploymentNetworkInterface>> NetworkInterfaces { get; private set; } = null!;
@@ -224,6 +231,12 @@ namespace Pulumi.Azure.Nginx
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
+
+        /// <summary>
+        /// A `web_application_firewall` blocks as defined below.
+        /// </summary>
+        [Output("webApplicationFirewall")]
+        public Output<Outputs.DeploymentWebApplicationFirewall?> WebApplicationFirewall { get; private set; } = null!;
 
 
         /// <summary>
@@ -292,7 +305,7 @@ namespace Pulumi.Azure.Nginx
         /// <summary>
         /// Specify the number of NGINX capacity units for this NGINX deployment.
         /// 
-        /// &gt; **Note** For more information on NGINX capacity units, please refer to the [NGINX scaling guidance documentation](https://docs.nginx.com/nginxaas/azure/quickstart/scaling/)
+        /// &gt; **Note:** For more information on NGINX capacity units, please refer to the [NGINX scaling guidance documentation](https://docs.nginx.com/nginxaas/azure/quickstart/scaling/)
         /// </summary>
         [Input("capacity")]
         public Input<int>? Capacity { get; set; }
@@ -313,7 +326,7 @@ namespace Pulumi.Azure.Nginx
         private InputList<Inputs.DeploymentFrontendPrivateArgs>? _frontendPrivates;
 
         /// <summary>
-        /// One or more `frontend_private` blocks as defined below. Changing this forces a new NGINX Deployment to be created.
+        /// One or more `frontend_private` blocks as defined below.
         /// </summary>
         public InputList<Inputs.DeploymentFrontendPrivateArgs> FrontendPrivates
         {
@@ -322,7 +335,7 @@ namespace Pulumi.Azure.Nginx
         }
 
         /// <summary>
-        /// A `frontend_public` block as defined below. Changing this forces a new NGINX Deployment to be created.
+        /// A `frontend_public` block as defined below.
         /// </summary>
         [Input("frontendPublic")]
         public Input<Inputs.DeploymentFrontendPublicArgs>? FrontendPublic { get; set; }
@@ -361,7 +374,7 @@ namespace Pulumi.Azure.Nginx
         private InputList<Inputs.DeploymentNetworkInterfaceArgs>? _networkInterfaces;
 
         /// <summary>
-        /// One or more `network_interface` blocks as defined below. Changing this forces a new NGINX Deployment to be created.
+        /// One or more `network_interface` blocks as defined below.
         /// </summary>
         public InputList<Inputs.DeploymentNetworkInterfaceArgs> NetworkInterfaces
         {
@@ -389,6 +402,12 @@ namespace Pulumi.Azure.Nginx
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
+
+        /// <summary>
+        /// A `web_application_firewall` blocks as defined below.
+        /// </summary>
+        [Input("webApplicationFirewall")]
+        public Input<Inputs.DeploymentWebApplicationFirewallArgs>? WebApplicationFirewall { get; set; }
 
         public DeploymentArgs()
         {
@@ -419,7 +438,7 @@ namespace Pulumi.Azure.Nginx
         /// <summary>
         /// Specify the number of NGINX capacity units for this NGINX deployment.
         /// 
-        /// &gt; **Note** For more information on NGINX capacity units, please refer to the [NGINX scaling guidance documentation](https://docs.nginx.com/nginxaas/azure/quickstart/scaling/)
+        /// &gt; **Note:** For more information on NGINX capacity units, please refer to the [NGINX scaling guidance documentation](https://docs.nginx.com/nginxaas/azure/quickstart/scaling/)
         /// </summary>
         [Input("capacity")]
         public Input<int>? Capacity { get; set; }
@@ -446,7 +465,7 @@ namespace Pulumi.Azure.Nginx
         private InputList<Inputs.DeploymentFrontendPrivateGetArgs>? _frontendPrivates;
 
         /// <summary>
-        /// One or more `frontend_private` blocks as defined below. Changing this forces a new NGINX Deployment to be created.
+        /// One or more `frontend_private` blocks as defined below.
         /// </summary>
         public InputList<Inputs.DeploymentFrontendPrivateGetArgs> FrontendPrivates
         {
@@ -455,7 +474,7 @@ namespace Pulumi.Azure.Nginx
         }
 
         /// <summary>
-        /// A `frontend_public` block as defined below. Changing this forces a new NGINX Deployment to be created.
+        /// A `frontend_public` block as defined below.
         /// </summary>
         [Input("frontendPublic")]
         public Input<Inputs.DeploymentFrontendPublicGetArgs>? FrontendPublic { get; set; }
@@ -500,7 +519,7 @@ namespace Pulumi.Azure.Nginx
         private InputList<Inputs.DeploymentNetworkInterfaceGetArgs>? _networkInterfaces;
 
         /// <summary>
-        /// One or more `network_interface` blocks as defined below. Changing this forces a new NGINX Deployment to be created.
+        /// One or more `network_interface` blocks as defined below.
         /// </summary>
         public InputList<Inputs.DeploymentNetworkInterfaceGetArgs> NetworkInterfaces
         {
@@ -534,6 +553,12 @@ namespace Pulumi.Azure.Nginx
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
+
+        /// <summary>
+        /// A `web_application_firewall` blocks as defined below.
+        /// </summary>
+        [Input("webApplicationFirewall")]
+        public Input<Inputs.DeploymentWebApplicationFirewallGetArgs>? WebApplicationFirewall { get; set; }
 
         public DeploymentState()
         {

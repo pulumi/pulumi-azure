@@ -146,6 +146,13 @@ def get_disk_encryption_set(name: Optional[builtins.str] = None,
     pulumi.export("id", existing.id)
     ```
 
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.Compute`: 2022-03-02
+
 
     :param builtins.str name: The name of the existing Disk Encryption Set.
     :param builtins.str resource_group_name: The name of the Resource Group where the Disk Encryption Set exists.
@@ -181,6 +188,13 @@ def get_disk_encryption_set_output(name: Optional[pulumi.Input[builtins.str]] = 
         resource_group_name="example-resources")
     pulumi.export("id", existing.id)
     ```
+
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.Compute`: 2022-03-02
 
 
     :param builtins.str name: The name of the existing Disk Encryption Set.

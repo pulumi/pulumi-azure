@@ -117,6 +117,13 @@ def get_platform_image(location: Optional[builtins.str] = None,
     pulumi.export("id", example.id)
     ```
 
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.Compute`: 2024-03-01
+
 
     :param builtins.str location: Specifies the Location to pull information about this Platform Image from.
     :param builtins.str offer: Specifies the Offer associated with the Platform Image.
@@ -161,6 +168,13 @@ def get_platform_image_output(location: Optional[pulumi.Input[builtins.str]] = N
         sku="20_04-lts")
     pulumi.export("id", example.id)
     ```
+
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.Compute`: 2024-03-01
 
 
     :param builtins.str location: Specifies the Location to pull information about this Platform Image from.

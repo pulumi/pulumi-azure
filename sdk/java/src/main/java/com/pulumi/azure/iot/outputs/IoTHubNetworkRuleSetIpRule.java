@@ -18,12 +18,12 @@ public final class IoTHubNetworkRuleSetIpRule {
      */
     private @Nullable String action;
     /**
-     * @return The IP address range in CIDR notation for the ip rule.
+     * @return The IP address range in CIDR notation for the IP rule.
      * 
      */
     private String ipMask;
     /**
-     * @return The name of the ip rule.
+     * @return The name of the IP rule.
      * 
      */
     private String name;
@@ -37,14 +37,14 @@ public final class IoTHubNetworkRuleSetIpRule {
         return Optional.ofNullable(this.action);
     }
     /**
-     * @return The IP address range in CIDR notation for the ip rule.
+     * @return The IP address range in CIDR notation for the IP rule.
      * 
      */
     public String ipMask() {
         return this.ipMask;
     }
     /**
-     * @return The name of the ip rule.
+     * @return The name of the IP rule.
      * 
      */
     public String name() {

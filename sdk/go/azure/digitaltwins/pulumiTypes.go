@@ -16,7 +16,7 @@ var _ = internal.GetEnvOrDefault
 type InstanceIdentity struct {
 	// A list of User Assigned Managed Identity IDs to be assigned to this Digital Twins instance.
 	//
-	// > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+	// > **Note:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
 	IdentityIds []string `pulumi:"identityIds"`
 	// The Principal ID associated with this Managed Service Identity.
 	PrincipalId *string `pulumi:"principalId"`
@@ -40,7 +40,7 @@ type InstanceIdentityInput interface {
 type InstanceIdentityArgs struct {
 	// A list of User Assigned Managed Identity IDs to be assigned to this Digital Twins instance.
 	//
-	// > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+	// > **Note:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
 	IdentityIds pulumi.StringArrayInput `pulumi:"identityIds"`
 	// The Principal ID associated with this Managed Service Identity.
 	PrincipalId pulumi.StringPtrInput `pulumi:"principalId"`
@@ -129,7 +129,7 @@ func (o InstanceIdentityOutput) ToInstanceIdentityPtrOutputWithContext(ctx conte
 
 // A list of User Assigned Managed Identity IDs to be assigned to this Digital Twins instance.
 //
-// > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+// > **Note:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
 func (o InstanceIdentityOutput) IdentityIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v InstanceIdentity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
 }
@@ -175,7 +175,7 @@ func (o InstanceIdentityPtrOutput) Elem() InstanceIdentityOutput {
 
 // A list of User Assigned Managed Identity IDs to be assigned to this Digital Twins instance.
 //
-// > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+// > **Note:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
 func (o InstanceIdentityPtrOutput) IdentityIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *InstanceIdentity) []string {
 		if v == nil {

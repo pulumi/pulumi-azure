@@ -42,7 +42,7 @@ class EnvironmentDaprComponentArgs:
         :param pulumi.Input[builtins.str] name: The name for this Dapr component. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] scopes: A list of scopes to which this component applies.
                
-               > **NOTE:** See the official docs for more information at https://learn.microsoft.com/en-us/azure/container-apps/dapr-overview?tabs=bicep1%2Cyaml#component-scopes
+               > **Note:** See the official docs for more information at https://learn.microsoft.com/en-us/azure/container-apps/dapr-overview?tabs=bicep1%2Cyaml#component-scopes
         :param pulumi.Input[Sequence[pulumi.Input['EnvironmentDaprComponentSecretArgs']]] secrets: A `secret` block as detailed below.
         """
         pulumi.set(__self__, "component_type", component_type)
@@ -151,7 +151,7 @@ class EnvironmentDaprComponentArgs:
         """
         A list of scopes to which this component applies.
 
-        > **NOTE:** See the official docs for more information at https://learn.microsoft.com/en-us/azure/container-apps/dapr-overview?tabs=bicep1%2Cyaml#component-scopes
+        > **Note:** See the official docs for more information at https://learn.microsoft.com/en-us/azure/container-apps/dapr-overview?tabs=bicep1%2Cyaml#component-scopes
         """
         return pulumi.get(self, "scopes")
 
@@ -194,7 +194,7 @@ class _EnvironmentDaprComponentState:
         :param pulumi.Input[builtins.str] name: The name for this Dapr component. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] scopes: A list of scopes to which this component applies.
                
-               > **NOTE:** See the official docs for more information at https://learn.microsoft.com/en-us/azure/container-apps/dapr-overview?tabs=bicep1%2Cyaml#component-scopes
+               > **Note:** See the official docs for more information at https://learn.microsoft.com/en-us/azure/container-apps/dapr-overview?tabs=bicep1%2Cyaml#component-scopes
         :param pulumi.Input[Sequence[pulumi.Input['EnvironmentDaprComponentSecretArgs']]] secrets: A `secret` block as detailed below.
         :param pulumi.Input[builtins.str] version: The version of the component.
         """
@@ -295,7 +295,7 @@ class _EnvironmentDaprComponentState:
         """
         A list of scopes to which this component applies.
 
-        > **NOTE:** See the official docs for more information at https://learn.microsoft.com/en-us/azure/container-apps/dapr-overview?tabs=bicep1%2Cyaml#component-scopes
+        > **Note:** See the official docs for more information at https://learn.microsoft.com/en-us/azure/container-apps/dapr-overview?tabs=bicep1%2Cyaml#component-scopes
         """
         return pulumi.get(self, "scopes")
 
@@ -374,6 +374,13 @@ class EnvironmentDaprComponent(pulumi.CustomResource):
             version="v1")
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.App`: 2025-01-01
+
         ## Import
 
         A Dapr Component for a Container App Environment can be imported using the `resource id`, e.g.
@@ -392,7 +399,7 @@ class EnvironmentDaprComponent(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] name: The name for this Dapr component. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] scopes: A list of scopes to which this component applies.
                
-               > **NOTE:** See the official docs for more information at https://learn.microsoft.com/en-us/azure/container-apps/dapr-overview?tabs=bicep1%2Cyaml#component-scopes
+               > **Note:** See the official docs for more information at https://learn.microsoft.com/en-us/azure/container-apps/dapr-overview?tabs=bicep1%2Cyaml#component-scopes
         :param pulumi.Input[Sequence[pulumi.Input[Union['EnvironmentDaprComponentSecretArgs', 'EnvironmentDaprComponentSecretArgsDict']]]] secrets: A `secret` block as detailed below.
         :param pulumi.Input[builtins.str] version: The version of the component.
         """
@@ -431,6 +438,13 @@ class EnvironmentDaprComponent(pulumi.CustomResource):
             component_type="state.azure.blobstorage",
             version="v1")
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.App`: 2025-01-01
 
         ## Import
 
@@ -524,7 +538,7 @@ class EnvironmentDaprComponent(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] name: The name for this Dapr component. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] scopes: A list of scopes to which this component applies.
                
-               > **NOTE:** See the official docs for more information at https://learn.microsoft.com/en-us/azure/container-apps/dapr-overview?tabs=bicep1%2Cyaml#component-scopes
+               > **Note:** See the official docs for more information at https://learn.microsoft.com/en-us/azure/container-apps/dapr-overview?tabs=bicep1%2Cyaml#component-scopes
         :param pulumi.Input[Sequence[pulumi.Input[Union['EnvironmentDaprComponentSecretArgs', 'EnvironmentDaprComponentSecretArgsDict']]]] secrets: A `secret` block as detailed below.
         :param pulumi.Input[builtins.str] version: The version of the component.
         """
@@ -597,7 +611,7 @@ class EnvironmentDaprComponent(pulumi.CustomResource):
         """
         A list of scopes to which this component applies.
 
-        > **NOTE:** See the official docs for more information at https://learn.microsoft.com/en-us/azure/container-apps/dapr-overview?tabs=bicep1%2Cyaml#component-scopes
+        > **Note:** See the official docs for more information at https://learn.microsoft.com/en-us/azure/container-apps/dapr-overview?tabs=bicep1%2Cyaml#component-scopes
         """
         return pulumi.get(self, "scopes")
 

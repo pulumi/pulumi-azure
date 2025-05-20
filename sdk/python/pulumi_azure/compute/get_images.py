@@ -96,6 +96,13 @@ def get_images(resource_group_name: Optional[builtins.str] = None,
     example = azure.compute.get_images(resource_group_name="example-resources")
     ```
 
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.Compute`: 2022-03-01
+
 
     :param builtins.str resource_group_name: The name of the Resource Group in which the Image exists.
     :param Mapping[str, builtins.str] tags_filter: A mapping of tags to filter the list of images against.
@@ -125,6 +132,13 @@ def get_images_output(resource_group_name: Optional[pulumi.Input[builtins.str]] 
 
     example = azure.compute.get_images(resource_group_name="example-resources")
     ```
+
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.Compute`: 2022-03-01
 
 
     :param builtins.str resource_group_name: The name of the Resource Group in which the Image exists.

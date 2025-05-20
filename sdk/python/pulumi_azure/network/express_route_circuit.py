@@ -43,12 +43,12 @@ class ExpressRouteCircuitArgs:
         :param pulumi.Input[builtins.str] authorization_key: The authorization key. This can be used to set up an ExpressRoute Circuit with an ExpressRoute Port from another subscription.
         :param pulumi.Input[builtins.float] bandwidth_in_gbps: The bandwidth in Gbps of the circuit being created on the Express Route Port.
                
-               > **NOTE:** The `express_route_port_id` and the `bandwidth_in_gbps` should be set together and they conflict with `service_provider_name`, `peering_location` and `bandwidth_in_mbps`.
+               > **Note:** The `express_route_port_id` and the `bandwidth_in_gbps` should be set together and they conflict with `service_provider_name`, `peering_location` and `bandwidth_in_mbps`.
         :param pulumi.Input[builtins.int] bandwidth_in_mbps: The bandwidth in Mbps of the circuit being created on the Service Provider.
                
-               > **NOTE:** Once you increase your bandwidth, you will not be able to decrease it to its previous value.
+               > **Note:** Once you increase your bandwidth, you will not be able to decrease it to its previous value.
                
-               > **NOTE:** The `service_provider_name`, the `peering_location` and the `bandwidth_in_mbps` should be set together and they conflict with `express_route_port_id` and `bandwidth_in_gbps`.
+               > **Note:** The `service_provider_name`, the `peering_location` and the `bandwidth_in_mbps` should be set together and they conflict with `express_route_port_id` and `bandwidth_in_gbps`.
         :param pulumi.Input[builtins.str] express_route_port_id: The ID of the Express Route Port this Express Route Circuit is based on. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] name: The name of the ExpressRoute circuit. Changing this forces a new resource to be created.
@@ -136,7 +136,7 @@ class ExpressRouteCircuitArgs:
         """
         The bandwidth in Gbps of the circuit being created on the Express Route Port.
 
-        > **NOTE:** The `express_route_port_id` and the `bandwidth_in_gbps` should be set together and they conflict with `service_provider_name`, `peering_location` and `bandwidth_in_mbps`.
+        > **Note:** The `express_route_port_id` and the `bandwidth_in_gbps` should be set together and they conflict with `service_provider_name`, `peering_location` and `bandwidth_in_mbps`.
         """
         return pulumi.get(self, "bandwidth_in_gbps")
 
@@ -150,9 +150,9 @@ class ExpressRouteCircuitArgs:
         """
         The bandwidth in Mbps of the circuit being created on the Service Provider.
 
-        > **NOTE:** Once you increase your bandwidth, you will not be able to decrease it to its previous value.
+        > **Note:** Once you increase your bandwidth, you will not be able to decrease it to its previous value.
 
-        > **NOTE:** The `service_provider_name`, the `peering_location` and the `bandwidth_in_mbps` should be set together and they conflict with `express_route_port_id` and `bandwidth_in_gbps`.
+        > **Note:** The `service_provider_name`, the `peering_location` and the `bandwidth_in_mbps` should be set together and they conflict with `express_route_port_id` and `bandwidth_in_gbps`.
         """
         return pulumi.get(self, "bandwidth_in_mbps")
 
@@ -269,12 +269,12 @@ class _ExpressRouteCircuitState:
         :param pulumi.Input[builtins.str] authorization_key: The authorization key. This can be used to set up an ExpressRoute Circuit with an ExpressRoute Port from another subscription.
         :param pulumi.Input[builtins.float] bandwidth_in_gbps: The bandwidth in Gbps of the circuit being created on the Express Route Port.
                
-               > **NOTE:** The `express_route_port_id` and the `bandwidth_in_gbps` should be set together and they conflict with `service_provider_name`, `peering_location` and `bandwidth_in_mbps`.
+               > **Note:** The `express_route_port_id` and the `bandwidth_in_gbps` should be set together and they conflict with `service_provider_name`, `peering_location` and `bandwidth_in_mbps`.
         :param pulumi.Input[builtins.int] bandwidth_in_mbps: The bandwidth in Mbps of the circuit being created on the Service Provider.
                
-               > **NOTE:** Once you increase your bandwidth, you will not be able to decrease it to its previous value.
+               > **Note:** Once you increase your bandwidth, you will not be able to decrease it to its previous value.
                
-               > **NOTE:** The `service_provider_name`, the `peering_location` and the `bandwidth_in_mbps` should be set together and they conflict with `express_route_port_id` and `bandwidth_in_gbps`.
+               > **Note:** The `service_provider_name`, the `peering_location` and the `bandwidth_in_mbps` should be set together and they conflict with `express_route_port_id` and `bandwidth_in_gbps`.
         :param pulumi.Input[builtins.str] express_route_port_id: The ID of the Express Route Port this Express Route Circuit is based on. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] name: The name of the ExpressRoute circuit. Changing this forces a new resource to be created.
@@ -348,7 +348,7 @@ class _ExpressRouteCircuitState:
         """
         The bandwidth in Gbps of the circuit being created on the Express Route Port.
 
-        > **NOTE:** The `express_route_port_id` and the `bandwidth_in_gbps` should be set together and they conflict with `service_provider_name`, `peering_location` and `bandwidth_in_mbps`.
+        > **Note:** The `express_route_port_id` and the `bandwidth_in_gbps` should be set together and they conflict with `service_provider_name`, `peering_location` and `bandwidth_in_mbps`.
         """
         return pulumi.get(self, "bandwidth_in_gbps")
 
@@ -362,9 +362,9 @@ class _ExpressRouteCircuitState:
         """
         The bandwidth in Mbps of the circuit being created on the Service Provider.
 
-        > **NOTE:** Once you increase your bandwidth, you will not be able to decrease it to its previous value.
+        > **Note:** Once you increase your bandwidth, you will not be able to decrease it to its previous value.
 
-        > **NOTE:** The `service_provider_name`, the `peering_location` and the `bandwidth_in_mbps` should be set together and they conflict with `express_route_port_id` and `bandwidth_in_gbps`.
+        > **Note:** The `service_provider_name`, the `peering_location` and the `bandwidth_in_mbps` should be set together and they conflict with `express_route_port_id` and `bandwidth_in_gbps`.
         """
         return pulumi.get(self, "bandwidth_in_mbps")
 
@@ -567,12 +567,12 @@ class ExpressRouteCircuit(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] authorization_key: The authorization key. This can be used to set up an ExpressRoute Circuit with an ExpressRoute Port from another subscription.
         :param pulumi.Input[builtins.float] bandwidth_in_gbps: The bandwidth in Gbps of the circuit being created on the Express Route Port.
                
-               > **NOTE:** The `express_route_port_id` and the `bandwidth_in_gbps` should be set together and they conflict with `service_provider_name`, `peering_location` and `bandwidth_in_mbps`.
+               > **Note:** The `express_route_port_id` and the `bandwidth_in_gbps` should be set together and they conflict with `service_provider_name`, `peering_location` and `bandwidth_in_mbps`.
         :param pulumi.Input[builtins.int] bandwidth_in_mbps: The bandwidth in Mbps of the circuit being created on the Service Provider.
                
-               > **NOTE:** Once you increase your bandwidth, you will not be able to decrease it to its previous value.
+               > **Note:** Once you increase your bandwidth, you will not be able to decrease it to its previous value.
                
-               > **NOTE:** The `service_provider_name`, the `peering_location` and the `bandwidth_in_mbps` should be set together and they conflict with `express_route_port_id` and `bandwidth_in_gbps`.
+               > **Note:** The `service_provider_name`, the `peering_location` and the `bandwidth_in_mbps` should be set together and they conflict with `express_route_port_id` and `bandwidth_in_gbps`.
         :param pulumi.Input[builtins.str] express_route_port_id: The ID of the Express Route Port this Express Route Circuit is based on. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] name: The name of the ExpressRoute circuit. Changing this forces a new resource to be created.
@@ -719,12 +719,12 @@ class ExpressRouteCircuit(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] authorization_key: The authorization key. This can be used to set up an ExpressRoute Circuit with an ExpressRoute Port from another subscription.
         :param pulumi.Input[builtins.float] bandwidth_in_gbps: The bandwidth in Gbps of the circuit being created on the Express Route Port.
                
-               > **NOTE:** The `express_route_port_id` and the `bandwidth_in_gbps` should be set together and they conflict with `service_provider_name`, `peering_location` and `bandwidth_in_mbps`.
+               > **Note:** The `express_route_port_id` and the `bandwidth_in_gbps` should be set together and they conflict with `service_provider_name`, `peering_location` and `bandwidth_in_mbps`.
         :param pulumi.Input[builtins.int] bandwidth_in_mbps: The bandwidth in Mbps of the circuit being created on the Service Provider.
                
-               > **NOTE:** Once you increase your bandwidth, you will not be able to decrease it to its previous value.
+               > **Note:** Once you increase your bandwidth, you will not be able to decrease it to its previous value.
                
-               > **NOTE:** The `service_provider_name`, the `peering_location` and the `bandwidth_in_mbps` should be set together and they conflict with `express_route_port_id` and `bandwidth_in_gbps`.
+               > **Note:** The `service_provider_name`, the `peering_location` and the `bandwidth_in_mbps` should be set together and they conflict with `express_route_port_id` and `bandwidth_in_gbps`.
         :param pulumi.Input[builtins.str] express_route_port_id: The ID of the Express Route Port this Express Route Circuit is based on. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] name: The name of the ExpressRoute circuit. Changing this forces a new resource to be created.
@@ -780,7 +780,7 @@ class ExpressRouteCircuit(pulumi.CustomResource):
         """
         The bandwidth in Gbps of the circuit being created on the Express Route Port.
 
-        > **NOTE:** The `express_route_port_id` and the `bandwidth_in_gbps` should be set together and they conflict with `service_provider_name`, `peering_location` and `bandwidth_in_mbps`.
+        > **Note:** The `express_route_port_id` and the `bandwidth_in_gbps` should be set together and they conflict with `service_provider_name`, `peering_location` and `bandwidth_in_mbps`.
         """
         return pulumi.get(self, "bandwidth_in_gbps")
 
@@ -790,9 +790,9 @@ class ExpressRouteCircuit(pulumi.CustomResource):
         """
         The bandwidth in Mbps of the circuit being created on the Service Provider.
 
-        > **NOTE:** Once you increase your bandwidth, you will not be able to decrease it to its previous value.
+        > **Note:** Once you increase your bandwidth, you will not be able to decrease it to its previous value.
 
-        > **NOTE:** The `service_provider_name`, the `peering_location` and the `bandwidth_in_mbps` should be set together and they conflict with `express_route_port_id` and `bandwidth_in_gbps`.
+        > **Note:** The `service_provider_name`, the `peering_location` and the `bandwidth_in_mbps` should be set together and they conflict with `express_route_port_id` and `bandwidth_in_gbps`.
         """
         return pulumi.get(self, "bandwidth_in_mbps")
 

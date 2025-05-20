@@ -57,7 +57,7 @@ import javax.annotation.Nullable;
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .publisherName("My Company")
- *             .publisherEmail("company}{@literal @}{@code mycompany.io")
+ *             .publisherEmail("company}{@literal @}{@code terraform.io")
  *             .skuName("Developer_1")
  *             .build());
  * 
@@ -74,6 +74,13 @@ import javax.annotation.Nullable;
  * }
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
+ * 
+ * ## API Providers
+ * 
+ * &lt;!-- This section is generated, changes will be overwritten --&gt;
+ * This resource uses the following Azure API Providers:
+ * 
+ * * `Microsoft.ApiManagement`: 2022-08-01
  * 
  * ## Import
  * 

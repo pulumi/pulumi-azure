@@ -37,6 +37,13 @@ namespace Pulumi.Azure.Core
         ///     };
         /// });
         /// ```
+        /// 
+        /// ## API Providers
+        /// 
+        /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+        /// This data source uses the following Azure API Providers:
+        /// 
+        /// * `Microsoft.Resources`: 2022-02-01
         /// </summary>
         public static Task<GetTemplateSpecVersionResult> InvokeAsync(GetTemplateSpecVersionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetTemplateSpecVersionResult>("azure:core/getTemplateSpecVersion:getTemplateSpecVersion", args ?? new GetTemplateSpecVersionArgs(), options.WithDefaults());
@@ -67,6 +74,13 @@ namespace Pulumi.Azure.Core
         ///     };
         /// });
         /// ```
+        /// 
+        /// ## API Providers
+        /// 
+        /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+        /// This data source uses the following Azure API Providers:
+        /// 
+        /// * `Microsoft.Resources`: 2022-02-01
         /// </summary>
         public static Output<GetTemplateSpecVersionResult> Invoke(GetTemplateSpecVersionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetTemplateSpecVersionResult>("azure:core/getTemplateSpecVersion:getTemplateSpecVersion", args ?? new GetTemplateSpecVersionInvokeArgs(), options.WithDefaults());
@@ -97,6 +111,13 @@ namespace Pulumi.Azure.Core
         ///     };
         /// });
         /// ```
+        /// 
+        /// ## API Providers
+        /// 
+        /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+        /// This data source uses the following Azure API Providers:
+        /// 
+        /// * `Microsoft.Resources`: 2022-02-01
         /// </summary>
         public static Output<GetTemplateSpecVersionResult> Invoke(GetTemplateSpecVersionInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetTemplateSpecVersionResult>("azure:core/getTemplateSpecVersion:getTemplateSpecVersion", args ?? new GetTemplateSpecVersionInvokeArgs(), options.WithDefaults());

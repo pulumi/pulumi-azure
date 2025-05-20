@@ -77,6 +77,13 @@ import javax.annotation.Nullable;
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
+ * ## API Providers
+ * 
+ * &lt;!-- This section is generated, changes will be overwritten --&gt;
+ * This resource uses the following Azure API Providers:
+ * 
+ * * `Microsoft.ApiManagement`: 2022-08-01
+ * 
  * ## Import
  * 
  * Api Management Policy Fragments can be imported using the `resource id`, e.g.
@@ -119,7 +126,7 @@ public class PolicyFragment extends com.pulumi.resources.CustomResource {
     /**
      * The format of the Policy Fragment. Possible values are `xml` or `rawxml`. Default is `xml`.
      * 
-     * &gt; **NOTE:** The `value` property will be updated to reflect the corresponding format when `format` is updated.
+     * &gt; **Note:** The `value` property will be updated to reflect the corresponding format when `format` is updated.
      * 
      */
     @Export(name="format", refs={String.class}, tree="[0]")
@@ -128,7 +135,7 @@ public class PolicyFragment extends com.pulumi.resources.CustomResource {
     /**
      * @return The format of the Policy Fragment. Possible values are `xml` or `rawxml`. Default is `xml`.
      * 
-     * &gt; **NOTE:** The `value` property will be updated to reflect the corresponding format when `format` is updated.
+     * &gt; **Note:** The `value` property will be updated to reflect the corresponding format when `format` is updated.
      * 
      */
     public Output<Optional<String>> format() {
@@ -151,7 +158,7 @@ public class PolicyFragment extends com.pulumi.resources.CustomResource {
     /**
      * The value of the Policy Fragment.
      * 
-     * &gt; **NOTE:** Be aware of the two format possibilities. If the `value` is not applied and continues to cause a diff the format could be wrong.
+     * &gt; **Note:** Be aware of the two format possibilities. If the `value` is not applied and continues to cause a diff the format could be wrong.
      * 
      */
     @Export(name="value", refs={String.class}, tree="[0]")
@@ -160,7 +167,7 @@ public class PolicyFragment extends com.pulumi.resources.CustomResource {
     /**
      * @return The value of the Policy Fragment.
      * 
-     * &gt; **NOTE:** Be aware of the two format possibilities. If the `value` is not applied and continues to cause a diff the format could be wrong.
+     * &gt; **Note:** Be aware of the two format possibilities. If the `value` is not applied and continues to cause a diff the format could be wrong.
      * 
      */
     public Output<String> value() {

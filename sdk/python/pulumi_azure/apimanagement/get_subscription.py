@@ -181,6 +181,13 @@ def get_subscription(api_management_id: Optional[builtins.str] = None,
     pulumi.export("id", example.subscription_id)
     ```
 
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.ApiManagement`: 2022-08-01
+
 
     :param builtins.str api_management_id: The ID of the API Management Service in which this Subscription exists.
     :param builtins.str subscription_id: The Identifier for the API Management Subscription.
@@ -219,6 +226,13 @@ def get_subscription_output(api_management_id: Optional[pulumi.Input[builtins.st
         subscription_id="example-subscription-id")
     pulumi.export("id", example.subscription_id)
     ```
+
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.ApiManagement`: 2022-08-01
 
 
     :param builtins.str api_management_id: The ID of the API Management Service in which this Subscription exists.

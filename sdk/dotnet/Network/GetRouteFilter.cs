@@ -36,6 +36,13 @@ namespace Pulumi.Azure.Network
         ///     };
         /// });
         /// ```
+        /// 
+        /// ## API Providers
+        /// 
+        /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+        /// This data source uses the following Azure API Providers:
+        /// 
+        /// * `Microsoft.Network`: 2024-05-01
         /// </summary>
         public static Task<GetRouteFilterResult> InvokeAsync(GetRouteFilterArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetRouteFilterResult>("azure:network/getRouteFilter:getRouteFilter", args ?? new GetRouteFilterArgs(), options.WithDefaults());
@@ -65,6 +72,13 @@ namespace Pulumi.Azure.Network
         ///     };
         /// });
         /// ```
+        /// 
+        /// ## API Providers
+        /// 
+        /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+        /// This data source uses the following Azure API Providers:
+        /// 
+        /// * `Microsoft.Network`: 2024-05-01
         /// </summary>
         public static Output<GetRouteFilterResult> Invoke(GetRouteFilterInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRouteFilterResult>("azure:network/getRouteFilter:getRouteFilter", args ?? new GetRouteFilterInvokeArgs(), options.WithDefaults());
@@ -94,6 +108,13 @@ namespace Pulumi.Azure.Network
         ///     };
         /// });
         /// ```
+        /// 
+        /// ## API Providers
+        /// 
+        /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+        /// This data source uses the following Azure API Providers:
+        /// 
+        /// * `Microsoft.Network`: 2024-05-01
         /// </summary>
         public static Output<GetRouteFilterResult> Invoke(GetRouteFilterInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetRouteFilterResult>("azure:network/getRouteFilter:getRouteFilter", args ?? new GetRouteFilterInvokeArgs(), options.WithDefaults());

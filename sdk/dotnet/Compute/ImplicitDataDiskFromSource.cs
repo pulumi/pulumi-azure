@@ -141,6 +141,13 @@ namespace Pulumi.Azure.Compute
     /// });
     /// ```
     /// 
+    /// ## API Providers
+    /// 
+    /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+    /// This resource uses the following Azure API Providers:
+    /// 
+    /// * `Microsoft.Compute`: 2024-03-01, 2023-04-02
+    /// 
     /// ## Import
     /// 
     /// The implicit Data Disk of the Virtual Machine can be imported using the `resource id`, e.g.
@@ -164,9 +171,6 @@ namespace Pulumi.Azure.Compute
         [Output("createOption")]
         public Output<string> CreateOption { get; private set; } = null!;
 
-        /// <summary>
-        /// Specifies the size of the Data Disk in gigabytes. Changing this forces a new resource to be created.
-        /// </summary>
         [Output("diskSizeGb")]
         public Output<int> DiskSizeGb { get; private set; } = null!;
 
@@ -258,9 +262,6 @@ namespace Pulumi.Azure.Compute
         [Input("createOption", required: true)]
         public Input<string> CreateOption { get; set; } = null!;
 
-        /// <summary>
-        /// Specifies the size of the Data Disk in gigabytes. Changing this forces a new resource to be created.
-        /// </summary>
         [Input("diskSizeGb", required: true)]
         public Input<int> DiskSizeGb { get; set; } = null!;
 
@@ -314,9 +315,6 @@ namespace Pulumi.Azure.Compute
         [Input("createOption")]
         public Input<string>? CreateOption { get; set; }
 
-        /// <summary>
-        /// Specifies the size of the Data Disk in gigabytes. Changing this forces a new resource to be created.
-        /// </summary>
         [Input("diskSizeGb")]
         public Input<int>? DiskSizeGb { get; set; }
 

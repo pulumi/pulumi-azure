@@ -108,7 +108,7 @@ namespace Pulumi.Azure.Lb.Inputs
         /// <summary>
         /// Specifies a list of Availability Zones in which the IP Address for this Load Balancer should be located.
         /// 
-        /// &gt; **NOTE:** Availability Zones are only supported with a [Standard SKU](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-availability-zones) and [in select regions](https://docs.microsoft.com/azure/availability-zones/az-overview) at this time.
+        /// &gt; **Note:** Availability Zones are only supported with a [Standard SKU](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-availability-zones) and [in select regions](https://docs.microsoft.com/azure/availability-zones/az-overview) at this time.
         /// </summary>
         public InputList<string> Zones
         {

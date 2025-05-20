@@ -40,7 +40,7 @@ class ManagedInstanceSecurityAlertPolicyArgs:
         :param pulumi.Input[builtins.int] retention_days: Specifies the number of days to keep in the Threat Detection audit logs. Defaults to `0`.
         :param pulumi.Input[builtins.str] storage_account_access_key: Specifies the identifier key of the Threat Detection audit storage account. This is mandatory when you use `storage_endpoint` to specify a storage account blob endpoint.
                
-               > **NOTE:**  Please note that storage accounts configured with `shared_access_key_enabled = false` cannot be used to configure `mssql.ManagedInstanceSecurityAlertPolicy` with `storage_endpoint` for now.
+               > **Note:** Please note that storage accounts configured with `shared_access_key_enabled = false` cannot be used to configure `mssql.ManagedInstanceSecurityAlertPolicy` with `storage_endpoint` for now.
         :param pulumi.Input[builtins.str] storage_endpoint: Specifies the blob storage endpoint (e.g. https://example.blob.core.windows.net). This blob storage will hold all Threat Detection audit logs.
         """
         pulumi.set(__self__, "managed_instance_name", managed_instance_name)
@@ -150,7 +150,7 @@ class ManagedInstanceSecurityAlertPolicyArgs:
         """
         Specifies the identifier key of the Threat Detection audit storage account. This is mandatory when you use `storage_endpoint` to specify a storage account blob endpoint.
 
-        > **NOTE:**  Please note that storage accounts configured with `shared_access_key_enabled = false` cannot be used to configure `mssql.ManagedInstanceSecurityAlertPolicy` with `storage_endpoint` for now.
+        > **Note:** Please note that storage accounts configured with `shared_access_key_enabled = false` cannot be used to configure `mssql.ManagedInstanceSecurityAlertPolicy` with `storage_endpoint` for now.
         """
         return pulumi.get(self, "storage_account_access_key")
 
@@ -194,7 +194,7 @@ class _ManagedInstanceSecurityAlertPolicyState:
         :param pulumi.Input[builtins.int] retention_days: Specifies the number of days to keep in the Threat Detection audit logs. Defaults to `0`.
         :param pulumi.Input[builtins.str] storage_account_access_key: Specifies the identifier key of the Threat Detection audit storage account. This is mandatory when you use `storage_endpoint` to specify a storage account blob endpoint.
                
-               > **NOTE:**  Please note that storage accounts configured with `shared_access_key_enabled = false` cannot be used to configure `mssql.ManagedInstanceSecurityAlertPolicy` with `storage_endpoint` for now.
+               > **Note:** Please note that storage accounts configured with `shared_access_key_enabled = false` cannot be used to configure `mssql.ManagedInstanceSecurityAlertPolicy` with `storage_endpoint` for now.
         :param pulumi.Input[builtins.str] storage_endpoint: Specifies the blob storage endpoint (e.g. https://example.blob.core.windows.net). This blob storage will hold all Threat Detection audit logs.
         """
         if disabled_alerts is not None:
@@ -306,7 +306,7 @@ class _ManagedInstanceSecurityAlertPolicyState:
         """
         Specifies the identifier key of the Threat Detection audit storage account. This is mandatory when you use `storage_endpoint` to specify a storage account blob endpoint.
 
-        > **NOTE:**  Please note that storage accounts configured with `shared_access_key_enabled = false` cannot be used to configure `mssql.ManagedInstanceSecurityAlertPolicy` with `storage_endpoint` for now.
+        > **Note:** Please note that storage accounts configured with `shared_access_key_enabled = false` cannot be used to configure `mssql.ManagedInstanceSecurityAlertPolicy` with `storage_endpoint` for now.
         """
         return pulumi.get(self, "storage_account_access_key")
 
@@ -365,7 +365,7 @@ class ManagedInstanceSecurityAlertPolicy(pulumi.CustomResource):
         :param pulumi.Input[builtins.int] retention_days: Specifies the number of days to keep in the Threat Detection audit logs. Defaults to `0`.
         :param pulumi.Input[builtins.str] storage_account_access_key: Specifies the identifier key of the Threat Detection audit storage account. This is mandatory when you use `storage_endpoint` to specify a storage account blob endpoint.
                
-               > **NOTE:**  Please note that storage accounts configured with `shared_access_key_enabled = false` cannot be used to configure `mssql.ManagedInstanceSecurityAlertPolicy` with `storage_endpoint` for now.
+               > **Note:** Please note that storage accounts configured with `shared_access_key_enabled = false` cannot be used to configure `mssql.ManagedInstanceSecurityAlertPolicy` with `storage_endpoint` for now.
         :param pulumi.Input[builtins.str] storage_endpoint: Specifies the blob storage endpoint (e.g. https://example.blob.core.windows.net). This blob storage will hold all Threat Detection audit logs.
         """
         ...
@@ -468,7 +468,7 @@ class ManagedInstanceSecurityAlertPolicy(pulumi.CustomResource):
         :param pulumi.Input[builtins.int] retention_days: Specifies the number of days to keep in the Threat Detection audit logs. Defaults to `0`.
         :param pulumi.Input[builtins.str] storage_account_access_key: Specifies the identifier key of the Threat Detection audit storage account. This is mandatory when you use `storage_endpoint` to specify a storage account blob endpoint.
                
-               > **NOTE:**  Please note that storage accounts configured with `shared_access_key_enabled = false` cannot be used to configure `mssql.ManagedInstanceSecurityAlertPolicy` with `storage_endpoint` for now.
+               > **Note:** Please note that storage accounts configured with `shared_access_key_enabled = false` cannot be used to configure `mssql.ManagedInstanceSecurityAlertPolicy` with `storage_endpoint` for now.
         :param pulumi.Input[builtins.str] storage_endpoint: Specifies the blob storage endpoint (e.g. https://example.blob.core.windows.net). This blob storage will hold all Threat Detection audit logs.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -548,7 +548,7 @@ class ManagedInstanceSecurityAlertPolicy(pulumi.CustomResource):
         """
         Specifies the identifier key of the Threat Detection audit storage account. This is mandatory when you use `storage_endpoint` to specify a storage account blob endpoint.
 
-        > **NOTE:**  Please note that storage accounts configured with `shared_access_key_enabled = false` cannot be used to configure `mssql.ManagedInstanceSecurityAlertPolicy` with `storage_endpoint` for now.
+        > **Note:** Please note that storage accounts configured with `shared_access_key_enabled = false` cannot be used to configure `mssql.ManagedInstanceSecurityAlertPolicy` with `storage_endpoint` for now.
         """
         return pulumi.get(self, "storage_account_access_key")
 

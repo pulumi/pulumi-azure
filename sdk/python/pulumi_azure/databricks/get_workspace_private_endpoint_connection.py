@@ -104,6 +104,13 @@ def get_workspace_private_endpoint_connection(private_endpoint_id: Optional[buil
     pulumi.export("databricksWorkspacePrivateEndpointConnectionStatus", example.connections[0].status)
     ```
 
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.Databricks`: 2024-05-01
+
 
     :param builtins.str private_endpoint_id: The resource ID of the Private Endpoint.
     :param builtins.str workspace_id: The resource ID of the Databricks Workspace.
@@ -135,6 +142,13 @@ def get_workspace_private_endpoint_connection_output(private_endpoint_id: Option
         private_endpoint_id=example_azurerm_private_endpoint["id"])
     pulumi.export("databricksWorkspacePrivateEndpointConnectionStatus", example.connections[0].status)
     ```
+
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.Databricks`: 2024-05-01
 
 
     :param builtins.str private_endpoint_id: The resource ID of the Private Endpoint.

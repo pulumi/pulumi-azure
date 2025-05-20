@@ -33,9 +33,6 @@ if not MYPY:
         The Application Mode which defines which server the APNS Messages should be sent to. Possible values are `Production` and `Sandbox`.
         """
         bundle_id: pulumi.Input[builtins.str]
-        """
-        The Bundle ID of the iOS/macOS application to send push notifications for, such as `com.org.example`.
-        """
         key_id: pulumi.Input[builtins.str]
         """
         The Apple Push Notifications Service (APNS) Key.
@@ -61,7 +58,6 @@ class HubApnsCredentialArgs:
                  token: pulumi.Input[builtins.str]):
         """
         :param pulumi.Input[builtins.str] application_mode: The Application Mode which defines which server the APNS Messages should be sent to. Possible values are `Production` and `Sandbox`.
-        :param pulumi.Input[builtins.str] bundle_id: The Bundle ID of the iOS/macOS application to send push notifications for, such as `com.org.example`.
         :param pulumi.Input[builtins.str] key_id: The Apple Push Notifications Service (APNS) Key.
         :param pulumi.Input[builtins.str] team_id: The ID of the team the Token.
         :param pulumi.Input[builtins.str] token: The Push Token associated with the Apple Developer Account. This is the contents of the `key` downloaded from [the Apple Developer Portal](https://developer.apple.com/account/ios/authkey/) between the `-----BEGIN PRIVATE KEY-----` and `-----END PRIVATE KEY-----` blocks.
@@ -87,9 +83,6 @@ class HubApnsCredentialArgs:
     @property
     @pulumi.getter(name="bundleId")
     def bundle_id(self) -> pulumi.Input[builtins.str]:
-        """
-        The Bundle ID of the iOS/macOS application to send push notifications for, such as `com.org.example`.
-        """
         return pulumi.get(self, "bundle_id")
 
     @bundle_id.setter

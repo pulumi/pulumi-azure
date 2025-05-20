@@ -130,6 +130,13 @@ class OutboundFirewallRule(pulumi.CustomResource):
             server_id=example_server.id)
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Sql`: 2023-08-01-preview
+
         ## Import
 
         SQL Outbound Firewall Rules can be imported using the `resource id`, e.g.
@@ -173,6 +180,13 @@ class OutboundFirewallRule(pulumi.CustomResource):
             name="sqlexamplefdqn.database.windows.net",
             server_id=example_server.id)
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Sql`: 2023-08-01-preview
 
         ## Import
 

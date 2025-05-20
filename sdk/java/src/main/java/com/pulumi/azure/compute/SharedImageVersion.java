@@ -95,9 +95,9 @@ public class SharedImageVersion extends com.pulumi.resources.CustomResource {
     /**
      * URI of the Azure Storage Blob used to create the Image Version. Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE:** You must specify exact one of `blob_uri`, `managed_image_id` and `os_disk_snapshot_id`.
+     * &gt; **Note:** You must specify exact one of `blob_uri`, `managed_image_id` and `os_disk_snapshot_id`.
      * 
-     * &gt; **NOTE:** `blob_uri` and `storage_account_id` must be specified together
+     * &gt; **Note:** `blob_uri` and `storage_account_id` must be specified together
      * 
      */
     @Export(name="blobUri", refs={String.class}, tree="[0]")
@@ -106,9 +106,9 @@ public class SharedImageVersion extends com.pulumi.resources.CustomResource {
     /**
      * @return URI of the Azure Storage Blob used to create the Image Version. Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE:** You must specify exact one of `blob_uri`, `managed_image_id` and `os_disk_snapshot_id`.
+     * &gt; **Note:** You must specify exact one of `blob_uri`, `managed_image_id` and `os_disk_snapshot_id`.
      * 
-     * &gt; **NOTE:** `blob_uri` and `storage_account_id` must be specified together
+     * &gt; **Note:** `blob_uri` and `storage_account_id` must be specified together
      * 
      */
     public Output<Optional<String>> blobUri() {
@@ -201,9 +201,9 @@ public class SharedImageVersion extends com.pulumi.resources.CustomResource {
     /**
      * The ID of the Managed Image or Virtual Machine ID which should be used for this Shared Image Version. Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE:** The ID can be sourced from the `azure.compute.Image` data source or resource
+     * &gt; **Note:** The ID can be sourced from the `azure.compute.Image` Data Source or Resource.
      * 
-     * &gt; **NOTE:** You must specify exact one of `blob_uri`, `managed_image_id` and `os_disk_snapshot_id`.
+     * &gt; **Note:** You must specify exact one of `blob_uri`, `managed_image_id` and `os_disk_snapshot_id`.
      * 
      */
     @Export(name="managedImageId", refs={String.class}, tree="[0]")
@@ -212,9 +212,9 @@ public class SharedImageVersion extends com.pulumi.resources.CustomResource {
     /**
      * @return The ID of the Managed Image or Virtual Machine ID which should be used for this Shared Image Version. Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE:** The ID can be sourced from the `azure.compute.Image` data source or resource
+     * &gt; **Note:** The ID can be sourced from the `azure.compute.Image` Data Source or Resource.
      * 
-     * &gt; **NOTE:** You must specify exact one of `blob_uri`, `managed_image_id` and `os_disk_snapshot_id`.
+     * &gt; **Note:** You must specify exact one of `blob_uri`, `managed_image_id` and `os_disk_snapshot_id`.
      * 
      */
     public Output<Optional<String>> managedImageId() {
@@ -237,7 +237,7 @@ public class SharedImageVersion extends com.pulumi.resources.CustomResource {
     /**
      * The ID of the OS disk snapshot which should be used for this Shared Image Version. Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE:** You must specify exact one of `blob_uri`, `managed_image_id` and `os_disk_snapshot_id`.
+     * &gt; **Note:** You must specify exact one of `blob_uri`, `managed_image_id` and `os_disk_snapshot_id`.
      * 
      */
     @Export(name="osDiskSnapshotId", refs={String.class}, tree="[0]")
@@ -246,7 +246,7 @@ public class SharedImageVersion extends com.pulumi.resources.CustomResource {
     /**
      * @return The ID of the OS disk snapshot which should be used for this Shared Image Version. Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE:** You must specify exact one of `blob_uri`, `managed_image_id` and `os_disk_snapshot_id`.
+     * &gt; **Note:** You must specify exact one of `blob_uri`, `managed_image_id` and `os_disk_snapshot_id`.
      * 
      */
     public Output<Optional<String>> osDiskSnapshotId() {
@@ -283,7 +283,7 @@ public class SharedImageVersion extends com.pulumi.resources.CustomResource {
     /**
      * The ID of the Storage Account where the Blob exists. Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE:** `blob_uri` and `storage_account_id` must be specified together
+     * &gt; **Note:** `blob_uri` and `storage_account_id` must be specified together
      * 
      */
     @Export(name="storageAccountId", refs={String.class}, tree="[0]")
@@ -292,7 +292,7 @@ public class SharedImageVersion extends com.pulumi.resources.CustomResource {
     /**
      * @return The ID of the Storage Account where the Blob exists. Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE:** `blob_uri` and `storage_account_id` must be specified together
+     * &gt; **Note:** `blob_uri` and `storage_account_id` must be specified together
      * 
      */
     public Output<Optional<String>> storageAccountId() {

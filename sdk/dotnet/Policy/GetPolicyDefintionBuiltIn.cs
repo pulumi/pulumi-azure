@@ -102,7 +102,7 @@ namespace Pulumi.Azure.Policy
         /// <summary>
         /// Specifies the display name of the Policy Definition. Conflicts with `name`.
         /// 
-        /// &gt; **NOTE** As `display_name` is not unique errors may occur when there are multiple policy definitions with same display name.
+        /// &gt; **Note:** As `display_name` is not unique errors may occur when there are multiple policy definitions with same display name.
         /// </summary>
         [Input("displayName")]
         public string? DisplayName { get; set; }
@@ -130,7 +130,7 @@ namespace Pulumi.Azure.Policy
         /// <summary>
         /// Specifies the display name of the Policy Definition. Conflicts with `name`.
         /// 
-        /// &gt; **NOTE** As `display_name` is not unique errors may occur when there are multiple policy definitions with same display name.
+        /// &gt; **Note:** As `display_name` is not unique errors may occur when there are multiple policy definitions with same display name.
         /// </summary>
         [Input("displayName")]
         public Input<string>? DisplayName { get; set; }

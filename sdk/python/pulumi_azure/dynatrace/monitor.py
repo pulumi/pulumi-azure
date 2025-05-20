@@ -335,7 +335,7 @@ class Monitor(pulumi.CustomResource):
                  user: Optional[pulumi.Input[Union['MonitorUserArgs', 'MonitorUserArgsDict']]] = None,
                  __props__=None):
         """
-        Manages Dynatrace monitors.
+        Manages a Dynatrace monitor.
 
         ## Import
 
@@ -364,7 +364,7 @@ class Monitor(pulumi.CustomResource):
                  args: MonitorArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Manages Dynatrace monitors.
+        Manages a Dynatrace monitor.
 
         ## Import
 

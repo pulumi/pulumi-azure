@@ -181,6 +181,13 @@ def get_registry(name: Optional[builtins.str] = None,
     pulumi.export("loginServer", example.login_server)
     ```
 
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.ContainerRegistry`: 2023-11-01-preview
+
 
     :param builtins.str name: The name of the Container Registry.
     :param builtins.str resource_group_name: The Name of the Resource Group where this Container Registry exists.
@@ -219,6 +226,13 @@ def get_registry_output(name: Optional[pulumi.Input[builtins.str]] = None,
         resource_group_name="test")
     pulumi.export("loginServer", example.login_server)
     ```
+
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.ContainerRegistry`: 2023-11-01-preview
 
 
     :param builtins.str name: The name of the Container Registry.

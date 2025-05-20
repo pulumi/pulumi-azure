@@ -141,7 +141,9 @@ class SpringCloudGatewayCustomDomain(pulumi.CustomResource):
         """
         Manages a Spring Cloud Gateway Custom Domain.
 
-        > **NOTE:** This resource is applicable only for Spring Cloud Service with enterprise tier.
+        > **Note:** This resource is applicable only for Spring Cloud Service with enterprise tier.
+
+        !> **Note:** Azure Spring Apps is now deprecated and will be retired on 2028-05-31 - as such the `appplatform.SpringCloudGatewayCustomDomain` resource is deprecated and will be removed in a future major version of the AzureRM Provider. See https://aka.ms/asaretirement for more information.
 
         ## Example Usage
 
@@ -188,7 +190,9 @@ class SpringCloudGatewayCustomDomain(pulumi.CustomResource):
         """
         Manages a Spring Cloud Gateway Custom Domain.
 
-        > **NOTE:** This resource is applicable only for Spring Cloud Service with enterprise tier.
+        > **Note:** This resource is applicable only for Spring Cloud Service with enterprise tier.
+
+        !> **Note:** Azure Spring Apps is now deprecated and will be retired on 2028-05-31 - as such the `appplatform.SpringCloudGatewayCustomDomain` resource is deprecated and will be removed in a future major version of the AzureRM Provider. See https://aka.ms/asaretirement for more information.
 
         ## Example Usage
 

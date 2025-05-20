@@ -221,7 +221,7 @@ class HybridConnection(pulumi.CustomResource):
             resource_group_name=example.name,
             sku_name="Standard",
             tags={
-                "source": "managed",
+                "source": "terraform",
             })
         example_hybrid_connection = azure.relay.HybridConnection("example",
             name="acctestrnhc-%d",
@@ -230,6 +230,13 @@ class HybridConnection(pulumi.CustomResource):
             requires_client_authorization=False,
             user_metadata="testmetadata")
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Relay`: 2021-11-01
 
         ## Import
 
@@ -271,7 +278,7 @@ class HybridConnection(pulumi.CustomResource):
             resource_group_name=example.name,
             sku_name="Standard",
             tags={
-                "source": "managed",
+                "source": "terraform",
             })
         example_hybrid_connection = azure.relay.HybridConnection("example",
             name="acctestrnhc-%d",
@@ -280,6 +287,13 @@ class HybridConnection(pulumi.CustomResource):
             requires_client_authorization=False,
             user_metadata="testmetadata")
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Relay`: 2021-11-01
 
         ## Import
 

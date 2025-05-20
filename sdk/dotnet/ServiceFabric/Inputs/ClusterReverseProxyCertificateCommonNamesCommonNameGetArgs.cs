@@ -21,7 +21,7 @@ namespace Pulumi.Azure.ServiceFabric.Inputs
         /// <summary>
         /// The Issuer Thumbprint of the Certificate.
         /// 
-        /// &gt; **NOTE:** Certificate Issuer Thumbprint may become required in the future, `https://docs.microsoft.com/azure/service-fabric/service-fabric-create-cluster-using-cert-cn#download-and-update-a-sample-template`.
+        /// &gt; **Note:** Certificate Issuer Thumbprint may become required in the future, `https://docs.microsoft.com/azure/service-fabric/service-fabric-create-cluster-using-cert-cn#download-and-update-a-sample-template`.
         /// </summary>
         [Input("certificateIssuerThumbprint")]
         public Input<string>? CertificateIssuerThumbprint { get; set; }

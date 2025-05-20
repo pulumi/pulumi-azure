@@ -327,6 +327,13 @@ class ConnectionServicePrincipal(pulumi.CustomResource):
             certificate_thumbprint=std.file(input="automation_certificate_test.thumb").result)
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Automation`: 2023-11-01
+
         ## Import
 
         Automation Connection can be imported using the `resource id`, e.g.
@@ -380,6 +387,13 @@ class ConnectionServicePrincipal(pulumi.CustomResource):
             subscription_id=example.subscription_id,
             certificate_thumbprint=std.file(input="automation_certificate_test.thumb").result)
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Automation`: 2023-11-01
 
         ## Import
 

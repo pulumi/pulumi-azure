@@ -34,7 +34,7 @@ public final class HadoopClusterRolesWorkerNodeAutoscaleArgs extends com.pulumi.
     /**
      * A `recurrence` block as defined below.
      * 
-     * &gt; **NOTE:** Either a `capacity` or `recurrence` block must be specified - but not both.
+     * &gt; **Note:** Either a `capacity` or `recurrence` block must be specified - but not both.
      * 
      */
     @Import(name="recurrence")
@@ -43,7 +43,7 @@ public final class HadoopClusterRolesWorkerNodeAutoscaleArgs extends com.pulumi.
     /**
      * @return A `recurrence` block as defined below.
      * 
-     * &gt; **NOTE:** Either a `capacity` or `recurrence` block must be specified - but not both.
+     * &gt; **Note:** Either a `capacity` or `recurrence` block must be specified - but not both.
      * 
      */
     public Optional<Output<HadoopClusterRolesWorkerNodeAutoscaleRecurrenceArgs>> recurrence() {
@@ -99,7 +99,7 @@ public final class HadoopClusterRolesWorkerNodeAutoscaleArgs extends com.pulumi.
         /**
          * @param recurrence A `recurrence` block as defined below.
          * 
-         * &gt; **NOTE:** Either a `capacity` or `recurrence` block must be specified - but not both.
+         * &gt; **Note:** Either a `capacity` or `recurrence` block must be specified - but not both.
          * 
          * @return builder
          * 
@@ -112,7 +112,7 @@ public final class HadoopClusterRolesWorkerNodeAutoscaleArgs extends com.pulumi.
         /**
          * @param recurrence A `recurrence` block as defined below.
          * 
-         * &gt; **NOTE:** Either a `capacity` or `recurrence` block must be specified - but not both.
+         * &gt; **Note:** Either a `capacity` or `recurrence` block must be specified - but not both.
          * 
          * @return builder
          * 

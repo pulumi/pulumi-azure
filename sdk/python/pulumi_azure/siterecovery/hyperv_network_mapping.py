@@ -231,6 +231,13 @@ class HypervNetworkMapping(pulumi.CustomResource):
             target_network_id=target_virtual_network.id)
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.RecoveryServices`: 2024-04-01
+
         ## Import
 
         Site Recovery Network Mapping can be imported using the `resource id`, e.g.
@@ -282,6 +289,13 @@ class HypervNetworkMapping(pulumi.CustomResource):
             source_network_name="my-vmm-network",
             target_network_id=target_virtual_network.id)
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.RecoveryServices`: 2024-04-01
 
         ## Import
 

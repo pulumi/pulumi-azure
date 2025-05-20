@@ -60,6 +60,13 @@ namespace Pulumi.Azure.Network
         /// 
         /// });
         /// ```
+        /// 
+        /// ## API Providers
+        /// 
+        /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+        /// This data source uses the following Azure API Providers:
+        /// 
+        /// * `Microsoft.Network`: 2024-05-01
         /// </summary>
         public static Task<GetNetworkManagerResult> InvokeAsync(GetNetworkManagerArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetNetworkManagerResult>("azure:network/getNetworkManager:getNetworkManager", args ?? new GetNetworkManagerArgs(), options.WithDefaults());
@@ -113,6 +120,13 @@ namespace Pulumi.Azure.Network
         /// 
         /// });
         /// ```
+        /// 
+        /// ## API Providers
+        /// 
+        /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+        /// This data source uses the following Azure API Providers:
+        /// 
+        /// * `Microsoft.Network`: 2024-05-01
         /// </summary>
         public static Output<GetNetworkManagerResult> Invoke(GetNetworkManagerInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetNetworkManagerResult>("azure:network/getNetworkManager:getNetworkManager", args ?? new GetNetworkManagerInvokeArgs(), options.WithDefaults());
@@ -166,6 +180,13 @@ namespace Pulumi.Azure.Network
         /// 
         /// });
         /// ```
+        /// 
+        /// ## API Providers
+        /// 
+        /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+        /// This data source uses the following Azure API Providers:
+        /// 
+        /// * `Microsoft.Network`: 2024-05-01
         /// </summary>
         public static Output<GetNetworkManagerResult> Invoke(GetNetworkManagerInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetNetworkManagerResult>("azure:network/getNetworkManager:getNetworkManager", args ?? new GetNetworkManagerInvokeArgs(), options.WithDefaults());

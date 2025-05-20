@@ -29,7 +29,7 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			example, err := storage.LookupAccount(ctx, &storage.LookupAccountArgs{
 //				Name:              "storageaccountname",
-//				ResourceGroupName: pulumi.StringRef("resourcegroupname"),
+//				ResourceGroupName: "resourcegroupname",
 //			}, nil)
 //			if err != nil {
 //				return err
@@ -47,6 +47,13 @@ import (
 //	}
 //
 // ```
+//
+// ## API Providers
+//
+// <!-- This section is generated, changes will be overwritten -->
+// This data source uses the following Azure API Providers:
+//
+// * `Microsoft.Storage`: 2023-05-01
 func LookupEncryptionScope(ctx *pulumi.Context, args *LookupEncryptionScopeArgs, opts ...pulumi.InvokeOption) (*LookupEncryptionScopeResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupEncryptionScopeResult

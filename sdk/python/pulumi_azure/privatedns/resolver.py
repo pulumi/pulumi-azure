@@ -227,6 +227,13 @@ class Resolver(pulumi.CustomResource):
             virtual_network_id=example_virtual_network.id)
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Network`: 2022-07-01
+
         ## Import
 
         DNS Resolver can be imported using the `resource id`, e.g.
@@ -272,6 +279,13 @@ class Resolver(pulumi.CustomResource):
             location=example.location,
             virtual_network_id=example_virtual_network.id)
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Network`: 2022-07-01
 
         ## Import
 

@@ -261,6 +261,13 @@ def get_service(name: Optional[builtins.str] = None,
         resource_group_name="signalr-resource-group")
     ```
 
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.SignalRService`: 2024-03-01
+
 
     :param builtins.str name: Specifies the name of the SignalR service.
     :param builtins.str resource_group_name: Specifies the name of the resource group the SignalR service is located in.
@@ -305,6 +312,13 @@ def get_service_output(name: Optional[pulumi.Input[builtins.str]] = None,
     example = azure.signalr.get_service(name="test-signalr",
         resource_group_name="signalr-resource-group")
     ```
+
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.SignalRService`: 2024-03-01
 
 
     :param builtins.str name: Specifies the name of the SignalR service.

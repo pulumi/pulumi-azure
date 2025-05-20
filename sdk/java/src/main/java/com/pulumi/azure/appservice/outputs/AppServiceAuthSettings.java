@@ -39,7 +39,7 @@ public final class AppServiceAuthSettings {
     /**
      * @return The default provider to use when multiple providers have been set up. Possible values are `AzureActiveDirectory`, `Facebook`, `Google`, `MicrosoftAccount` and `Twitter`.
      * 
-     * &gt; **NOTE:** When using multiple providers, the default provider must be set for settings like `unauthenticated_client_action` to work.
+     * &gt; **Note:** When using multiple providers, the default provider must be set for settings like `unauthenticated_client_action` to work.
      * 
      */
     private @Nullable String defaultProvider;
@@ -119,7 +119,7 @@ public final class AppServiceAuthSettings {
     /**
      * @return The default provider to use when multiple providers have been set up. Possible values are `AzureActiveDirectory`, `Facebook`, `Google`, `MicrosoftAccount` and `Twitter`.
      * 
-     * &gt; **NOTE:** When using multiple providers, the default provider must be set for settings like `unauthenticated_client_action` to work.
+     * &gt; **Note:** When using multiple providers, the default provider must be set for settings like `unauthenticated_client_action` to work.
      * 
      */
     public Optional<String> defaultProvider() {

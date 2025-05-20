@@ -17,7 +17,7 @@ public final class DiagnosticSettingMetric {
     /**
      * @return The name of a Diagnostic Metric Category for this Resource.
      * 
-     * &gt; **NOTE:** The Metric Categories available vary depending on the Resource being used. You may wish to use the `azure.monitoring.getDiagnosticCategories` Data Source to identify which categories are available for a given Resource.
+     * &gt; **Note:** The Metric Categories available vary depending on the Resource being used. You may wish to use the `azure.monitoring.getDiagnosticCategories` Data Source to identify which categories are available for a given Resource.
      * 
      */
     private String category;
@@ -38,7 +38,7 @@ public final class DiagnosticSettingMetric {
     /**
      * @return The name of a Diagnostic Metric Category for this Resource.
      * 
-     * &gt; **NOTE:** The Metric Categories available vary depending on the Resource being used. You may wish to use the `azure.monitoring.getDiagnosticCategories` Data Source to identify which categories are available for a given Resource.
+     * &gt; **Note:** The Metric Categories available vary depending on the Resource being used. You may wish to use the `azure.monitoring.getDiagnosticCategories` Data Source to identify which categories are available for a given Resource.
      * 
      */
     public String category() {

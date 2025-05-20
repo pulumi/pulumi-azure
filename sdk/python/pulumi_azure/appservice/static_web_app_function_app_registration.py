@@ -26,9 +26,9 @@ class StaticWebAppFunctionAppRegistrationArgs:
         The set of arguments for constructing a StaticWebAppFunctionAppRegistration resource.
         :param pulumi.Input[builtins.str] function_app_id: The ID of a Linux or Windows Function App to connect to the Static Web App as a Backend. Changing this forces a new resource to be created. 
                
-               > **NOTE:** Only one Function App can be connected to a Static Web App. Multiple Function Apps are not currently supported.
+               > **Note:** Only one Function App can be connected to a Static Web App. Multiple Function Apps are not currently supported.
                
-               > **NOTE:** Connecting a Function App resource to a Static Web App resource updates the Function App to use AuthV2 and configures the `azure_static_web_app_v2` which may need to be accounted for by the use of `ignore_changes` depending on the existing `auth_settings_v2` configuration of the target Function App.
+               > **Note:** Connecting a Function App resource to a Static Web App resource updates the Function App to use AuthV2 and configures the `azure_static_web_app_v2` which may need to be accounted for by the use of `ignore_changes` depending on the existing `auth_settings_v2` configuration of the target Function App.
         :param pulumi.Input[builtins.str] static_web_app_id: The ID of the Static Web App to register the Function App to as a backend. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "function_app_id", function_app_id)
@@ -40,9 +40,9 @@ class StaticWebAppFunctionAppRegistrationArgs:
         """
         The ID of a Linux or Windows Function App to connect to the Static Web App as a Backend. Changing this forces a new resource to be created. 
 
-        > **NOTE:** Only one Function App can be connected to a Static Web App. Multiple Function Apps are not currently supported.
+        > **Note:** Only one Function App can be connected to a Static Web App. Multiple Function Apps are not currently supported.
 
-        > **NOTE:** Connecting a Function App resource to a Static Web App resource updates the Function App to use AuthV2 and configures the `azure_static_web_app_v2` which may need to be accounted for by the use of `ignore_changes` depending on the existing `auth_settings_v2` configuration of the target Function App.
+        > **Note:** Connecting a Function App resource to a Static Web App resource updates the Function App to use AuthV2 and configures the `azure_static_web_app_v2` which may need to be accounted for by the use of `ignore_changes` depending on the existing `auth_settings_v2` configuration of the target Function App.
         """
         return pulumi.get(self, "function_app_id")
 
@@ -72,9 +72,9 @@ class _StaticWebAppFunctionAppRegistrationState:
         Input properties used for looking up and filtering StaticWebAppFunctionAppRegistration resources.
         :param pulumi.Input[builtins.str] function_app_id: The ID of a Linux or Windows Function App to connect to the Static Web App as a Backend. Changing this forces a new resource to be created. 
                
-               > **NOTE:** Only one Function App can be connected to a Static Web App. Multiple Function Apps are not currently supported.
+               > **Note:** Only one Function App can be connected to a Static Web App. Multiple Function Apps are not currently supported.
                
-               > **NOTE:** Connecting a Function App resource to a Static Web App resource updates the Function App to use AuthV2 and configures the `azure_static_web_app_v2` which may need to be accounted for by the use of `ignore_changes` depending on the existing `auth_settings_v2` configuration of the target Function App.
+               > **Note:** Connecting a Function App resource to a Static Web App resource updates the Function App to use AuthV2 and configures the `azure_static_web_app_v2` which may need to be accounted for by the use of `ignore_changes` depending on the existing `auth_settings_v2` configuration of the target Function App.
         :param pulumi.Input[builtins.str] static_web_app_id: The ID of the Static Web App to register the Function App to as a backend. Changing this forces a new resource to be created.
         """
         if function_app_id is not None:
@@ -88,9 +88,9 @@ class _StaticWebAppFunctionAppRegistrationState:
         """
         The ID of a Linux or Windows Function App to connect to the Static Web App as a Backend. Changing this forces a new resource to be created. 
 
-        > **NOTE:** Only one Function App can be connected to a Static Web App. Multiple Function Apps are not currently supported.
+        > **Note:** Only one Function App can be connected to a Static Web App. Multiple Function Apps are not currently supported.
 
-        > **NOTE:** Connecting a Function App resource to a Static Web App resource updates the Function App to use AuthV2 and configures the `azure_static_web_app_v2` which may need to be accounted for by the use of `ignore_changes` depending on the existing `auth_settings_v2` configuration of the target Function App.
+        > **Note:** Connecting a Function App resource to a Static Web App resource updates the Function App to use AuthV2 and configures the `azure_static_web_app_v2` which may need to be accounted for by the use of `ignore_changes` depending on the existing `auth_settings_v2` configuration of the target Function App.
         """
         return pulumi.get(self, "function_app_id")
 
@@ -123,7 +123,7 @@ class StaticWebAppFunctionAppRegistration(pulumi.CustomResource):
         """
         Manages an App Service Static Web App Function App Registration.
 
-        > **NOTE:** This resource registers the specified Function App to the `Production` build of the Static Web App.
+        > **Note:** This resource registers the specified Function App to the `Production` build of the Static Web App.
 
         ## Example Usage
 
@@ -162,6 +162,13 @@ class StaticWebAppFunctionAppRegistration(pulumi.CustomResource):
             static_web_app_id=example_static_web_app.id,
             function_app_id=example_linux_function_app.id)
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Web`: 2023-12-01, 2023-01-01
 
         ## Import
 
@@ -175,9 +182,9 @@ class StaticWebAppFunctionAppRegistration(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] function_app_id: The ID of a Linux or Windows Function App to connect to the Static Web App as a Backend. Changing this forces a new resource to be created. 
                
-               > **NOTE:** Only one Function App can be connected to a Static Web App. Multiple Function Apps are not currently supported.
+               > **Note:** Only one Function App can be connected to a Static Web App. Multiple Function Apps are not currently supported.
                
-               > **NOTE:** Connecting a Function App resource to a Static Web App resource updates the Function App to use AuthV2 and configures the `azure_static_web_app_v2` which may need to be accounted for by the use of `ignore_changes` depending on the existing `auth_settings_v2` configuration of the target Function App.
+               > **Note:** Connecting a Function App resource to a Static Web App resource updates the Function App to use AuthV2 and configures the `azure_static_web_app_v2` which may need to be accounted for by the use of `ignore_changes` depending on the existing `auth_settings_v2` configuration of the target Function App.
         :param pulumi.Input[builtins.str] static_web_app_id: The ID of the Static Web App to register the Function App to as a backend. Changing this forces a new resource to be created.
         """
         ...
@@ -189,7 +196,7 @@ class StaticWebAppFunctionAppRegistration(pulumi.CustomResource):
         """
         Manages an App Service Static Web App Function App Registration.
 
-        > **NOTE:** This resource registers the specified Function App to the `Production` build of the Static Web App.
+        > **Note:** This resource registers the specified Function App to the `Production` build of the Static Web App.
 
         ## Example Usage
 
@@ -228,6 +235,13 @@ class StaticWebAppFunctionAppRegistration(pulumi.CustomResource):
             static_web_app_id=example_static_web_app.id,
             function_app_id=example_linux_function_app.id)
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Web`: 2023-12-01, 2023-01-01
 
         ## Import
 
@@ -290,9 +304,9 @@ class StaticWebAppFunctionAppRegistration(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] function_app_id: The ID of a Linux or Windows Function App to connect to the Static Web App as a Backend. Changing this forces a new resource to be created. 
                
-               > **NOTE:** Only one Function App can be connected to a Static Web App. Multiple Function Apps are not currently supported.
+               > **Note:** Only one Function App can be connected to a Static Web App. Multiple Function Apps are not currently supported.
                
-               > **NOTE:** Connecting a Function App resource to a Static Web App resource updates the Function App to use AuthV2 and configures the `azure_static_web_app_v2` which may need to be accounted for by the use of `ignore_changes` depending on the existing `auth_settings_v2` configuration of the target Function App.
+               > **Note:** Connecting a Function App resource to a Static Web App resource updates the Function App to use AuthV2 and configures the `azure_static_web_app_v2` which may need to be accounted for by the use of `ignore_changes` depending on the existing `auth_settings_v2` configuration of the target Function App.
         :param pulumi.Input[builtins.str] static_web_app_id: The ID of the Static Web App to register the Function App to as a backend. Changing this forces a new resource to be created.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -309,9 +323,9 @@ class StaticWebAppFunctionAppRegistration(pulumi.CustomResource):
         """
         The ID of a Linux or Windows Function App to connect to the Static Web App as a Backend. Changing this forces a new resource to be created. 
 
-        > **NOTE:** Only one Function App can be connected to a Static Web App. Multiple Function Apps are not currently supported.
+        > **Note:** Only one Function App can be connected to a Static Web App. Multiple Function Apps are not currently supported.
 
-        > **NOTE:** Connecting a Function App resource to a Static Web App resource updates the Function App to use AuthV2 and configures the `azure_static_web_app_v2` which may need to be accounted for by the use of `ignore_changes` depending on the existing `auth_settings_v2` configuration of the target Function App.
+        > **Note:** Connecting a Function App resource to a Static Web App resource updates the Function App to use AuthV2 and configures the `azure_static_web_app_v2` which may need to be accounted for by the use of `ignore_changes` depending on the existing `auth_settings_v2` configuration of the target Function App.
         """
         return pulumi.get(self, "function_app_id")
 

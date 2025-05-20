@@ -102,7 +102,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .gateway(KafkaClusterGatewayArgs.builder()
  *                 .username("acctestusrgw")
- *                 .password("Password123!")
+ *                 .password("TerrAform123!")
  *                 .build())
  *             .storageAccounts(KafkaClusterStorageAccountArgs.builder()
  *                 .storageContainerId(exampleContainer.id())
@@ -135,6 +135,13 @@ import javax.annotation.Nullable;
  * }
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
+ * 
+ * ## API Providers
+ * 
+ * &lt;!-- This section is generated, changes will be overwritten --&gt;
+ * This resource uses the following Azure API Providers:
+ * 
+ * * `Microsoft.HDInsight`: 2021-06-01
  * 
  * ## Import
  * 
@@ -192,7 +199,7 @@ public class KafkaCluster extends com.pulumi.resources.CustomResource {
     /**
      * One or more `disk_encryption` block as defined below.
      * 
-     * &gt; **NOTE:** Starting on June 30, 2020, Azure HDInsight will enforce TLS 1.2 or later versions for all HTTPS connections. For more information, see [Azure HDInsight TLS 1.2 Enforcement](https://azure.microsoft.com/en-us/updates/azure-hdinsight-tls-12-enforcement/).
+     * &gt; **Note:** Starting on June 30, 2020, Azure HDInsight will enforce TLS 1.2 or later versions for all HTTPS connections. For more information, see [Azure HDInsight TLS 1.2 Enforcement](https://azure.microsoft.com/en-us/updates/azure-hdinsight-tls-12-enforcement/).
      * 
      */
     @Export(name="diskEncryptions", refs={List.class,KafkaClusterDiskEncryption.class}, tree="[0,1]")
@@ -201,7 +208,7 @@ public class KafkaCluster extends com.pulumi.resources.CustomResource {
     /**
      * @return One or more `disk_encryption` block as defined below.
      * 
-     * &gt; **NOTE:** Starting on June 30, 2020, Azure HDInsight will enforce TLS 1.2 or later versions for all HTTPS connections. For more information, see [Azure HDInsight TLS 1.2 Enforcement](https://azure.microsoft.com/en-us/updates/azure-hdinsight-tls-12-enforcement/).
+     * &gt; **Note:** Starting on June 30, 2020, Azure HDInsight will enforce TLS 1.2 or later versions for all HTTPS connections. For more information, see [Azure HDInsight TLS 1.2 Enforcement](https://azure.microsoft.com/en-us/updates/azure-hdinsight-tls-12-enforcement/).
      * 
      */
     public Output<Optional<List<KafkaClusterDiskEncryption>>> diskEncryptions() {

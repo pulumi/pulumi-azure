@@ -126,6 +126,15 @@ import javax.annotation.Nullable;
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
+ * ## API Providers
+ * 
+ * &lt;!-- This section is generated, changes will be overwritten --&gt;
+ * This resource uses the following Azure API Providers:
+ * 
+ * * `Microsoft.Network`: 2024-05-01
+ * 
+ * * `Microsoft.Web`: 2023-01-01
+ * 
  * ## Import
  * 
  * A 3rd Generation (v3) App Service Environment can be imported using the `resource id`, e.g.
@@ -350,9 +359,9 @@ public class EnvironmentV3 extends com.pulumi.resources.CustomResource {
     /**
      * The ID of the Subnet which the App Service Environment should be connected to. Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE** a /24 or larger CIDR is required. Once associated with an ASE, this size cannot be changed.
+     * &gt; **Note:** a /24 or larger CIDR is required. Once associated with an ASE, this size cannot be changed.
      * 
-     * &gt; **NOTE:** This Subnet requires a delegation to `Microsoft.Web/hostingEnvironments` as detailed in the example above.
+     * &gt; **Note:** This Subnet requires a delegation to `Microsoft.Web/hostingEnvironments` as detailed in the example above.
      * 
      */
     @Export(name="subnetId", refs={String.class}, tree="[0]")
@@ -361,9 +370,9 @@ public class EnvironmentV3 extends com.pulumi.resources.CustomResource {
     /**
      * @return The ID of the Subnet which the App Service Environment should be connected to. Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE** a /24 or larger CIDR is required. Once associated with an ASE, this size cannot be changed.
+     * &gt; **Note:** a /24 or larger CIDR is required. Once associated with an ASE, this size cannot be changed.
      * 
-     * &gt; **NOTE:** This Subnet requires a delegation to `Microsoft.Web/hostingEnvironments` as detailed in the example above.
+     * &gt; **Note:** This Subnet requires a delegation to `Microsoft.Web/hostingEnvironments` as detailed in the example above.
      * 
      */
     public Output<String> subnetId() {
@@ -392,7 +401,7 @@ public class EnvironmentV3 extends com.pulumi.resources.CustomResource {
     /**
      * Set to `true` to deploy the ASEv3 with availability zones supported. Zonal ASEs can be deployed in some regions, you can refer to [Availability Zone support for App Service Environments](https://docs.microsoft.com/azure/app-service/environment/zone-redundancy). You can only set either `dedicated_host_count` or `zone_redundant` but not both. Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE:** Setting this value will provision 2 Physical Hosts for your App Service Environment V3, this is done at additional cost, please be aware of the pricing commitment in the [General Availability Notes](https://techcommunity.microsoft.com/t5/apps-on-azure/announcing-app-service-environment-v3-ga/ba-p/2517990)
+     * &gt; **Note:** Setting this value will provision 2 Physical Hosts for your App Service Environment V3, this is done at additional cost, please be aware of the pricing commitment in the [General Availability Notes](https://techcommunity.microsoft.com/t5/apps-on-azure/announcing-app-service-environment-v3-ga/ba-p/2517990)
      * 
      */
     @Export(name="zoneRedundant", refs={Boolean.class}, tree="[0]")
@@ -401,7 +410,7 @@ public class EnvironmentV3 extends com.pulumi.resources.CustomResource {
     /**
      * @return Set to `true` to deploy the ASEv3 with availability zones supported. Zonal ASEs can be deployed in some regions, you can refer to [Availability Zone support for App Service Environments](https://docs.microsoft.com/azure/app-service/environment/zone-redundancy). You can only set either `dedicated_host_count` or `zone_redundant` but not both. Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE:** Setting this value will provision 2 Physical Hosts for your App Service Environment V3, this is done at additional cost, please be aware of the pricing commitment in the [General Availability Notes](https://techcommunity.microsoft.com/t5/apps-on-azure/announcing-app-service-environment-v3-ga/ba-p/2517990)
+     * &gt; **Note:** Setting this value will provision 2 Physical Hosts for your App Service Environment V3, this is done at additional cost, please be aware of the pricing commitment in the [General Availability Notes](https://techcommunity.microsoft.com/t5/apps-on-azure/announcing-app-service-environment-v3-ga/ba-p/2517990)
      * 
      */
     public Output<Optional<Boolean>> zoneRedundant() {

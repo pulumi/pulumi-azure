@@ -16,35 +16,165 @@ import java.lang.String;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
+/**
+ * Manages a Dev Center Catalog.
+ * 
+ * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.azure.core.ResourceGroup;
+ * import com.pulumi.azure.core.ResourceGroupArgs;
+ * import com.pulumi.azure.devcenter.DevCenter;
+ * import com.pulumi.azure.devcenter.DevCenterArgs;
+ * import com.pulumi.azure.devcenter.inputs.DevCenterIdentityArgs;
+ * import com.pulumi.azure.devcenter.Catalog;
+ * import com.pulumi.azure.devcenter.CatalogArgs;
+ * import com.pulumi.azure.devcenter.inputs.CatalogCatalogGithubArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
+ *             .name("example-resources")
+ *             .location("West Europe")
+ *             .build());
+ * 
+ *         var exampleDevCenter = new DevCenter("exampleDevCenter", DevCenterArgs.builder()
+ *             .location(example.location())
+ *             .name("example")
+ *             .resourceGroupName(example.name())
+ *             .identity(DevCenterIdentityArgs.builder()
+ *                 .type("SystemAssigned")
+ *                 .build())
+ *             .build());
+ * 
+ *         var exampleCatalog = new Catalog("exampleCatalog", CatalogArgs.builder()
+ *             .name("example")
+ *             .resourceGroupName(testAzurermResourceGroup.name())
+ *             .devCenterId(test.id())
+ *             .catalogGithub(CatalogCatalogGithubArgs.builder()
+ *                 .branch("foo")
+ *                 .path("")
+ *                 .uri("example URI")
+ *                 .keyVaultKeyUrl("secret")
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
+ * ## API Providers
+ * 
+ * &lt;!-- This section is generated, changes will be overwritten --&gt;
+ * This resource uses the following Azure API Providers:
+ * 
+ * * `Microsoft.DevCenter`: 2025-02-01
+ * 
+ * ## Import
+ * 
+ * An existing Dev Center Catalog can be imported into Pulumi using the `resource id`, e.g.
+ * 
+ * ```sh
+ * $ pulumi import azure:devcenter/catalog:Catalog example /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DevCenter/devCenters/{devCenterName}/catalogs/{catalogName}
+ * ```
+ * 
+ * * Where `{subscriptionId}` is the ID of the Azure Subscription where the Dev Center exists. For example `12345678-1234-9876-4563-123456789012`.
+ * 
+ * * Where `{resourceGroupName}` is the name of Resource Group where this Dev Center exists. For example `example-resource-group`.
+ * 
+ * * Where `{devCenterName}` is the name of the Dev Center. For example `devCenterValue`.
+ * 
+ * * Where `{catalogName}` is the name of the Dev Center Catalog. For example `catalogValue`.
+ * 
+ */
 @ResourceType(type="azure:devcenter/catalog:Catalog")
 public class Catalog extends com.pulumi.resources.CustomResource {
+    /**
+     * A `catalog_adogit` block as defined below.
+     * 
+     */
     @Export(name="catalogAdogit", refs={CatalogCatalogAdogit.class}, tree="[0]")
     private Output</* @Nullable */ CatalogCatalogAdogit> catalogAdogit;
 
+    /**
+     * @return A `catalog_adogit` block as defined below.
+     * 
+     */
     public Output<Optional<CatalogCatalogAdogit>> catalogAdogit() {
         return Codegen.optional(this.catalogAdogit);
     }
+    /**
+     * A `catalog_github` block as defined below.
+     * 
+     */
     @Export(name="catalogGithub", refs={CatalogCatalogGithub.class}, tree="[0]")
     private Output</* @Nullable */ CatalogCatalogGithub> catalogGithub;
 
+    /**
+     * @return A `catalog_github` block as defined below.
+     * 
+     */
     public Output<Optional<CatalogCatalogGithub>> catalogGithub() {
         return Codegen.optional(this.catalogGithub);
     }
+    /**
+     * Specifies the Dev Center Id within which this Dev Center Catalog should exist. Changing this forces a new Dev Center Catalog to be created.
+     * 
+     */
     @Export(name="devCenterId", refs={String.class}, tree="[0]")
     private Output<String> devCenterId;
 
+    /**
+     * @return Specifies the Dev Center Id within which this Dev Center Catalog should exist. Changing this forces a new Dev Center Catalog to be created.
+     * 
+     */
     public Output<String> devCenterId() {
         return this.devCenterId;
     }
+    /**
+     * Specifies the name of this Dev Center Catalog. Changing this forces a new Dev Center to be created.
+     * 
+     */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
+    /**
+     * @return Specifies the name of this Dev Center Catalog. Changing this forces a new Dev Center to be created.
+     * 
+     */
     public Output<String> name() {
         return this.name;
     }
+    /**
+     * Specifies the name of the Resource Group within which this Dev Center Catalog should exist. Changing this forces a new Dev Center to be created.
+     * 
+     */
     @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
     private Output<String> resourceGroupName;
 
+    /**
+     * @return Specifies the name of the Resource Group within which this Dev Center Catalog should exist. Changing this forces a new Dev Center to be created.
+     * 
+     */
     public Output<String> resourceGroupName() {
         return this.resourceGroupName;
     }

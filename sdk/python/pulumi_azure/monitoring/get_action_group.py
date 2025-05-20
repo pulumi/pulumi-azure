@@ -240,7 +240,7 @@ def get_action_group(name: Optional[builtins.str] = None,
     import pulumi
     import pulumi_azure as azure
 
-    example = azure.monitoring.get_action_group(resource_group_name="example-rg",
+    example = azure.monitoring.get_action_group(resource_group_name="terraform-example-rg",
         name="tfex-actiongroup")
     pulumi.export("actionGroupId", example.id)
     ```
@@ -284,7 +284,7 @@ def get_action_group_output(name: Optional[pulumi.Input[builtins.str]] = None,
     import pulumi
     import pulumi_azure as azure
 
-    example = azure.monitoring.get_action_group(resource_group_name="example-rg",
+    example = azure.monitoring.get_action_group(resource_group_name="terraform-example-rg",
         name="tfex-actiongroup")
     pulumi.export("actionGroupId", example.id)
     ```

@@ -57,7 +57,7 @@ import javax.annotation.Nullable;
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .publisherName("My Company")
- *             .publisherEmail("company}{@literal @}{@code exmaple.com")
+ *             .publisherEmail("company}{@literal @}{@code terraform.io")
  *             .skuName("Developer_1")
  *             .build());
  * 
@@ -67,7 +67,7 @@ import javax.annotation.Nullable;
  *             .resourceGroupName(example.name())
  *             .firstName("Example")
  *             .lastName("User")
- *             .email("user}{@literal @}{@code example.com")
+ *             .email("tom+tfdev}{@literal @}{@code example.com")
  *             .state("active")
  *             .build());
  * 
@@ -76,6 +76,13 @@ import javax.annotation.Nullable;
  * }
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
+ * 
+ * ## API Providers
+ * 
+ * &lt;!-- This section is generated, changes will be overwritten --&gt;
+ * This resource uses the following Azure API Providers:
+ * 
+ * * `Microsoft.ApiManagement`: 2022-08-01
  * 
  * ## Import
  * 
@@ -203,7 +210,7 @@ public class User extends com.pulumi.resources.CustomResource {
     /**
      * The state of this user. Possible values are `active`, `blocked` and `pending`.
      * 
-     * &gt; **NOTE:** the State can be changed from Pending &gt; Active/Blocked but not from Active/Blocked &gt; Pending.
+     * &gt; **Note:** the State can be changed from Pending &gt; Active/Blocked but not from Active/Blocked &gt; Pending.
      * 
      */
     @Export(name="state", refs={String.class}, tree="[0]")
@@ -212,7 +219,7 @@ public class User extends com.pulumi.resources.CustomResource {
     /**
      * @return The state of this user. Possible values are `active`, `blocked` and `pending`.
      * 
-     * &gt; **NOTE:** the State can be changed from Pending &gt; Active/Blocked but not from Active/Blocked &gt; Pending.
+     * &gt; **Note:** the State can be changed from Pending &gt; Active/Blocked but not from Active/Blocked &gt; Pending.
      * 
      */
     public Output<String> state() {

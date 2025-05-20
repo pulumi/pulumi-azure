@@ -10,10 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.DatabaseMigration
 {
     /// <summary>
-    /// Manage a Azure Database Migration Project.
-    /// 
-    /// &gt; **NOTE:** Destroying a Database Migration Project will leave any outstanding tasks untouched. This is to avoid unexpectedly deleting any tasks managed outside of this provider.
-    /// 
     /// ## Example Usage
     /// 
     /// ```csharp

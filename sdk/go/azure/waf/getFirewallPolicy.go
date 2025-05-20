@@ -40,6 +40,13 @@ import (
 //	}
 //
 // ```
+//
+// ## API Providers
+//
+// <!-- This section is generated, changes will be overwritten -->
+// This data source uses the following Azure API Providers:
+//
+// * `Microsoft.Network`: 2024-05-01
 func GetFirewallPolicy(ctx *pulumi.Context, args *GetFirewallPolicyArgs, opts ...pulumi.InvokeOption) (*GetFirewallPolicyResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetFirewallPolicyResult

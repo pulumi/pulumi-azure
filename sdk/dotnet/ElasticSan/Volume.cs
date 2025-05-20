@@ -128,6 +128,13 @@ namespace Pulumi.Azure.ElasticSan
     /// });
     /// ```
     /// 
+    /// ## API Providers
+    /// 
+    /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+    /// This resource uses the following Azure API Providers:
+    /// 
+    /// * `Microsoft.ElasticSan`: 2023-01-01
+    /// 
     /// ## Import
     /// 
     /// An existing Elastic SAN Volume can be imported into Pulumi using the `resource id`, e.g.
@@ -154,7 +161,7 @@ namespace Pulumi.Azure.ElasticSan
         /// <summary>
         /// Specifies the size of the Elastic SAN Volume in GiB. The size should be within the remaining capacity of the parent Elastic SAN. Possible values are between `1` and `65536` (16 TiB).
         /// 
-        /// &gt; **NOTE:** The size can only be increased. If `create_source` is specified, then the size must be equal to or greater than the source's size.
+        /// &gt; **Note:** The size can only be increased. If `create_source` is specified, then the size must be equal to or greater than the source's size.
         /// </summary>
         [Output("sizeInGib")]
         public Output<int> SizeInGib { get; private set; } = null!;
@@ -250,7 +257,7 @@ namespace Pulumi.Azure.ElasticSan
         /// <summary>
         /// Specifies the size of the Elastic SAN Volume in GiB. The size should be within the remaining capacity of the parent Elastic SAN. Possible values are between `1` and `65536` (16 TiB).
         /// 
-        /// &gt; **NOTE:** The size can only be increased. If `create_source` is specified, then the size must be equal to or greater than the source's size.
+        /// &gt; **Note:** The size can only be increased. If `create_source` is specified, then the size must be equal to or greater than the source's size.
         /// </summary>
         [Input("sizeInGib", required: true)]
         public Input<int> SizeInGib { get; set; } = null!;
@@ -284,7 +291,7 @@ namespace Pulumi.Azure.ElasticSan
         /// <summary>
         /// Specifies the size of the Elastic SAN Volume in GiB. The size should be within the remaining capacity of the parent Elastic SAN. Possible values are between `1` and `65536` (16 TiB).
         /// 
-        /// &gt; **NOTE:** The size can only be increased. If `create_source` is specified, then the size must be equal to or greater than the source's size.
+        /// &gt; **Note:** The size can only be increased. If `create_source` is specified, then the size must be equal to or greater than the source's size.
         /// </summary>
         [Input("sizeInGib")]
         public Input<int>? SizeInGib { get; set; }

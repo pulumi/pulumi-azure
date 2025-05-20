@@ -223,6 +223,13 @@ class SpatialAnchorsAccount(pulumi.CustomResource):
             resource_group_name=example.name)
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.MixedReality`: 2021-01-01
+
         ## Import
 
         Spatial Anchors Account can be imported using the `resource id`, e.g.
@@ -263,6 +270,13 @@ class SpatialAnchorsAccount(pulumi.CustomResource):
             location=example.location,
             resource_group_name=example.name)
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.MixedReality`: 2021-01-01
 
         ## Import
 

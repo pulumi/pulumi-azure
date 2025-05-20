@@ -68,6 +68,13 @@ import (
 //
 // ```
 //
+// ## API Providers
+//
+// <!-- This section is generated, changes will be overwritten -->
+// This resource uses the following Azure API Providers:
+//
+// * `Microsoft.OperationalInsights`: 2023-12-01-preview
+//
 // ## Import
 //
 // Sentinel NRT Alert Rules can be imported using the `resource id`, e.g.
@@ -106,7 +113,7 @@ type AlertRuleNrt struct {
 	Query pulumi.StringOutput `pulumi:"query"`
 	// A list of `sentinelEntityMapping` blocks as defined below.
 	//
-	// > **NOTE:** `entityMapping` and `sentinelEntityMapping` together can't exceed 5.
+	// > **Note:** `entityMapping` and `sentinelEntityMapping` together can't exceed 5.
 	SentinelEntityMappings AlertRuleNrtSentinelEntityMappingArrayOutput `pulumi:"sentinelEntityMappings"`
 	// The alert severity of this Sentinel NRT Alert Rule. Possible values are `High`, `Medium`, `Low` and `Informational`.
 	Severity pulumi.StringOutput `pulumi:"severity"`
@@ -193,7 +200,7 @@ type alertRuleNrtState struct {
 	Query *string `pulumi:"query"`
 	// A list of `sentinelEntityMapping` blocks as defined below.
 	//
-	// > **NOTE:** `entityMapping` and `sentinelEntityMapping` together can't exceed 5.
+	// > **Note:** `entityMapping` and `sentinelEntityMapping` together can't exceed 5.
 	SentinelEntityMappings []AlertRuleNrtSentinelEntityMapping `pulumi:"sentinelEntityMappings"`
 	// The alert severity of this Sentinel NRT Alert Rule. Possible values are `High`, `Medium`, `Low` and `Informational`.
 	Severity *string `pulumi:"severity"`
@@ -236,7 +243,7 @@ type AlertRuleNrtState struct {
 	Query pulumi.StringPtrInput
 	// A list of `sentinelEntityMapping` blocks as defined below.
 	//
-	// > **NOTE:** `entityMapping` and `sentinelEntityMapping` together can't exceed 5.
+	// > **Note:** `entityMapping` and `sentinelEntityMapping` together can't exceed 5.
 	SentinelEntityMappings AlertRuleNrtSentinelEntityMappingArrayInput
 	// The alert severity of this Sentinel NRT Alert Rule. Possible values are `High`, `Medium`, `Low` and `Informational`.
 	Severity pulumi.StringPtrInput
@@ -283,7 +290,7 @@ type alertRuleNrtArgs struct {
 	Query string `pulumi:"query"`
 	// A list of `sentinelEntityMapping` blocks as defined below.
 	//
-	// > **NOTE:** `entityMapping` and `sentinelEntityMapping` together can't exceed 5.
+	// > **Note:** `entityMapping` and `sentinelEntityMapping` together can't exceed 5.
 	SentinelEntityMappings []AlertRuleNrtSentinelEntityMapping `pulumi:"sentinelEntityMappings"`
 	// The alert severity of this Sentinel NRT Alert Rule. Possible values are `High`, `Medium`, `Low` and `Informational`.
 	Severity string `pulumi:"severity"`
@@ -327,7 +334,7 @@ type AlertRuleNrtArgs struct {
 	Query pulumi.StringInput
 	// A list of `sentinelEntityMapping` blocks as defined below.
 	//
-	// > **NOTE:** `entityMapping` and `sentinelEntityMapping` together can't exceed 5.
+	// > **Note:** `entityMapping` and `sentinelEntityMapping` together can't exceed 5.
 	SentinelEntityMappings AlertRuleNrtSentinelEntityMappingArrayInput
 	// The alert severity of this Sentinel NRT Alert Rule. Possible values are `High`, `Medium`, `Low` and `Informational`.
 	Severity pulumi.StringInput
@@ -495,7 +502,7 @@ func (o AlertRuleNrtOutput) Query() pulumi.StringOutput {
 
 // A list of `sentinelEntityMapping` blocks as defined below.
 //
-// > **NOTE:** `entityMapping` and `sentinelEntityMapping` together can't exceed 5.
+// > **Note:** `entityMapping` and `sentinelEntityMapping` together can't exceed 5.
 func (o AlertRuleNrtOutput) SentinelEntityMappings() AlertRuleNrtSentinelEntityMappingArrayOutput {
 	return o.ApplyT(func(v *AlertRuleNrt) AlertRuleNrtSentinelEntityMappingArrayOutput { return v.SentinelEntityMappings }).(AlertRuleNrtSentinelEntityMappingArrayOutput)
 }

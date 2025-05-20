@@ -20,7 +20,7 @@ public final class IoTHubNetworkRuleSet {
      */
     private @Nullable Boolean applyToBuiltinEventhubEndpoint;
     /**
-     * @return Default Action for Network Rule Set. Possible values are `DefaultActionDeny`, `DefaultActionAllow`. Defaults to `DefaultActionDeny`.
+     * @return Default Action for Network Rule Set. Possible values are `Deny`, `Allow`. Defaults to `Deny`.
      * 
      */
     private @Nullable String defaultAction;
@@ -39,7 +39,7 @@ public final class IoTHubNetworkRuleSet {
         return Optional.ofNullable(this.applyToBuiltinEventhubEndpoint);
     }
     /**
-     * @return Default Action for Network Rule Set. Possible values are `DefaultActionDeny`, `DefaultActionAllow`. Defaults to `DefaultActionDeny`.
+     * @return Default Action for Network Rule Set. Possible values are `Deny`, `Allow`. Defaults to `Deny`.
      * 
      */
     public Optional<String> defaultAction() {

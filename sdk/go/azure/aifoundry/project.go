@@ -54,7 +54,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = keyvault.NewAccessPolicy(ctx, "test", &keyvault.AccessPolicyArgs{
+//			_, err = keyvault.NewAccessPolicy(ctx, "example", &keyvault.AccessPolicyArgs{
 //				KeyVaultId: exampleKeyVault.ID(),
 //				TenantId:   pulumi.String(current.TenantId),
 //				ObjectId:   pulumi.String(current.ObjectId),
@@ -115,6 +115,13 @@ import (
 //
 // ```
 //
+// ## API Providers
+//
+// <!-- This section is generated, changes will be overwritten -->
+// This resource uses the following Azure API Providers:
+//
+// * `Microsoft.MachineLearningServices`: 2024-04-01
+//
 // ## Import
 //
 // AI Foundry Projects can be imported using the `resource id`, e.g.
@@ -139,6 +146,8 @@ type Project struct {
 	Location pulumi.StringOutput `pulumi:"location"`
 	// The name which should be used for this AI Foundry Project. Changing this forces a new AI Foundry Project to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// The user assigned identity ID that represents the AI Foundry Hub identity. This must be set when enabling encryption with a user assigned identity.
+	PrimaryUserAssignedIdentity pulumi.StringPtrOutput `pulumi:"primaryUserAssignedIdentity"`
 	// The immutable project ID associated with this AI Foundry Project.
 	ProjectId pulumi.StringOutput `pulumi:"projectId"`
 	// A mapping of tags which should be assigned to the AI Foundry Project.
@@ -192,6 +201,8 @@ type projectState struct {
 	Location *string `pulumi:"location"`
 	// The name which should be used for this AI Foundry Project. Changing this forces a new AI Foundry Project to be created.
 	Name *string `pulumi:"name"`
+	// The user assigned identity ID that represents the AI Foundry Hub identity. This must be set when enabling encryption with a user assigned identity.
+	PrimaryUserAssignedIdentity *string `pulumi:"primaryUserAssignedIdentity"`
 	// The immutable project ID associated with this AI Foundry Project.
 	ProjectId *string `pulumi:"projectId"`
 	// A mapping of tags which should be assigned to the AI Foundry Project.
@@ -213,6 +224,8 @@ type ProjectState struct {
 	Location pulumi.StringPtrInput
 	// The name which should be used for this AI Foundry Project. Changing this forces a new AI Foundry Project to be created.
 	Name pulumi.StringPtrInput
+	// The user assigned identity ID that represents the AI Foundry Hub identity. This must be set when enabling encryption with a user assigned identity.
+	PrimaryUserAssignedIdentity pulumi.StringPtrInput
 	// The immutable project ID associated with this AI Foundry Project.
 	ProjectId pulumi.StringPtrInput
 	// A mapping of tags which should be assigned to the AI Foundry Project.
@@ -238,6 +251,8 @@ type projectArgs struct {
 	Location *string `pulumi:"location"`
 	// The name which should be used for this AI Foundry Project. Changing this forces a new AI Foundry Project to be created.
 	Name *string `pulumi:"name"`
+	// The user assigned identity ID that represents the AI Foundry Hub identity. This must be set when enabling encryption with a user assigned identity.
+	PrimaryUserAssignedIdentity *string `pulumi:"primaryUserAssignedIdentity"`
 	// A mapping of tags which should be assigned to the AI Foundry Project.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -258,6 +273,8 @@ type ProjectArgs struct {
 	Location pulumi.StringPtrInput
 	// The name which should be used for this AI Foundry Project. Changing this forces a new AI Foundry Project to be created.
 	Name pulumi.StringPtrInput
+	// The user assigned identity ID that represents the AI Foundry Hub identity. This must be set when enabling encryption with a user assigned identity.
+	PrimaryUserAssignedIdentity pulumi.StringPtrInput
 	// A mapping of tags which should be assigned to the AI Foundry Project.
 	Tags pulumi.StringMapInput
 }
@@ -382,6 +399,11 @@ func (o ProjectOutput) Location() pulumi.StringOutput {
 // The name which should be used for this AI Foundry Project. Changing this forces a new AI Foundry Project to be created.
 func (o ProjectOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Project) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The user assigned identity ID that represents the AI Foundry Hub identity. This must be set when enabling encryption with a user assigned identity.
+func (o ProjectOutput) PrimaryUserAssignedIdentity() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Project) pulumi.StringPtrOutput { return v.PrimaryUserAssignedIdentity }).(pulumi.StringPtrOutput)
 }
 
 // The immutable project ID associated with this AI Foundry Project.

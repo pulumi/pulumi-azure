@@ -40,7 +40,7 @@ if not MYPY:
         """
         Specifies a list of User Assigned Managed Identity IDs to be assigned to the Databricks Access Connector. Only one User Assigned Managed Identity ID is supported per Databricks Access Connector resource.
 
-        > **NOTE:** `identity_ids` are required when `type` is set to `UserAssigned`.
+        > **Note:** `identity_ids` are required when `type` is set to `UserAssigned`.
         """
         principal_id: NotRequired[pulumi.Input[builtins.str]]
         """
@@ -64,7 +64,7 @@ class AccessConnectorIdentityArgs:
         :param pulumi.Input[builtins.str] type: Specifies the type of Managed Service Identity that should be configured on the Databricks Access Connector. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned`.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] identity_ids: Specifies a list of User Assigned Managed Identity IDs to be assigned to the Databricks Access Connector. Only one User Assigned Managed Identity ID is supported per Databricks Access Connector resource.
                
-               > **NOTE:** `identity_ids` are required when `type` is set to `UserAssigned`.
+               > **Note:** `identity_ids` are required when `type` is set to `UserAssigned`.
         :param pulumi.Input[builtins.str] principal_id: The Principal ID of the System Assigned Managed Service Identity that is configured on this Access Connector.
         :param pulumi.Input[builtins.str] tenant_id: The Tenant ID of the System Assigned Managed Service Identity that is configured on this Access Connector.
         """
@@ -94,7 +94,7 @@ class AccessConnectorIdentityArgs:
         """
         Specifies a list of User Assigned Managed Identity IDs to be assigned to the Databricks Access Connector. Only one User Assigned Managed Identity ID is supported per Databricks Access Connector resource.
 
-        > **NOTE:** `identity_ids` are required when `type` is set to `UserAssigned`.
+        > **Note:** `identity_ids` are required when `type` is set to `UserAssigned`.
         """
         return pulumi.get(self, "identity_ids")
 

@@ -40,6 +40,13 @@ import (
 //	}
 //
 // ```
+//
+// ## API Providers
+//
+// <!-- This section is generated, changes will be overwritten -->
+// This data source uses the following Azure API Providers:
+//
+// * `Microsoft.Network`: 2024-05-01
 func GetNetworkDdosProtectionPlan(ctx *pulumi.Context, args *GetNetworkDdosProtectionPlanArgs, opts ...pulumi.InvokeOption) (*GetNetworkDdosProtectionPlanResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetNetworkDdosProtectionPlanResult

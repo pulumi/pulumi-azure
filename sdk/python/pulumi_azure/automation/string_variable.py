@@ -257,7 +257,7 @@ class StringVariable(pulumi.CustomResource):
             name="tfex-example-var",
             resource_group_name=example.name,
             automation_account_name=example_account.name,
-            value="Hello, Basic Test.")
+            value="Hello, Terraform Basic Test.")
         ```
 
         ## Import
@@ -304,7 +304,7 @@ class StringVariable(pulumi.CustomResource):
             name="tfex-example-var",
             resource_group_name=example.name,
             automation_account_name=example_account.name,
-            value="Hello, Basic Test.")
+            value="Hello, Terraform Basic Test.")
         ```
 
         ## Import

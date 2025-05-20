@@ -14,6 +14,10 @@ import (
 
 // Manages a Custom Domain for a CDN Endpoint.
 //
+// !> **Note:** The CDN services from Edgio(formerly Verizon) was shut down on 15 January 2025 and is no longer available .
+//
+// !> **Note:** Support for CDN services from Akamai was removed on 31 October 2023.
+//
 // ## Example Usage
 //
 // ```go
@@ -54,7 +58,7 @@ import (
 //				Name:              pulumi.String("example-profile"),
 //				Location:          exampleResourceGroup.Location,
 //				ResourceGroupName: exampleResourceGroup.Name,
-//				Sku:               pulumi.String("Standard_Verizon"),
+//				Sku:               pulumi.String("Standard_Microsoft"),
 //			})
 //			if err != nil {
 //				return err
@@ -127,7 +131,7 @@ type EndpointCustomDomain struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// A `userManagedHttps` block as defined below.
 	//
-	// > **NOTE** Only one of `cdnManagedHttps` and `userManagedHttps` can be specified.
+	// > **Note:** Only one of `cdnManagedHttps` and `userManagedHttps` can be specified.
 	UserManagedHttps EndpointCustomDomainUserManagedHttpsPtrOutput `pulumi:"userManagedHttps"`
 }
 
@@ -177,7 +181,7 @@ type endpointCustomDomainState struct {
 	Name *string `pulumi:"name"`
 	// A `userManagedHttps` block as defined below.
 	//
-	// > **NOTE** Only one of `cdnManagedHttps` and `userManagedHttps` can be specified.
+	// > **Note:** Only one of `cdnManagedHttps` and `userManagedHttps` can be specified.
 	UserManagedHttps *EndpointCustomDomainUserManagedHttps `pulumi:"userManagedHttps"`
 }
 
@@ -192,7 +196,7 @@ type EndpointCustomDomainState struct {
 	Name pulumi.StringPtrInput
 	// A `userManagedHttps` block as defined below.
 	//
-	// > **NOTE** Only one of `cdnManagedHttps` and `userManagedHttps` can be specified.
+	// > **Note:** Only one of `cdnManagedHttps` and `userManagedHttps` can be specified.
 	UserManagedHttps EndpointCustomDomainUserManagedHttpsPtrInput
 }
 
@@ -211,7 +215,7 @@ type endpointCustomDomainArgs struct {
 	Name *string `pulumi:"name"`
 	// A `userManagedHttps` block as defined below.
 	//
-	// > **NOTE** Only one of `cdnManagedHttps` and `userManagedHttps` can be specified.
+	// > **Note:** Only one of `cdnManagedHttps` and `userManagedHttps` can be specified.
 	UserManagedHttps *EndpointCustomDomainUserManagedHttps `pulumi:"userManagedHttps"`
 }
 
@@ -227,7 +231,7 @@ type EndpointCustomDomainArgs struct {
 	Name pulumi.StringPtrInput
 	// A `userManagedHttps` block as defined below.
 	//
-	// > **NOTE** Only one of `cdnManagedHttps` and `userManagedHttps` can be specified.
+	// > **Note:** Only one of `cdnManagedHttps` and `userManagedHttps` can be specified.
 	UserManagedHttps EndpointCustomDomainUserManagedHttpsPtrInput
 }
 
@@ -340,7 +344,7 @@ func (o EndpointCustomDomainOutput) Name() pulumi.StringOutput {
 
 // A `userManagedHttps` block as defined below.
 //
-// > **NOTE** Only one of `cdnManagedHttps` and `userManagedHttps` can be specified.
+// > **Note:** Only one of `cdnManagedHttps` and `userManagedHttps` can be specified.
 func (o EndpointCustomDomainOutput) UserManagedHttps() EndpointCustomDomainUserManagedHttpsPtrOutput {
 	return o.ApplyT(func(v *EndpointCustomDomain) EndpointCustomDomainUserManagedHttpsPtrOutput { return v.UserManagedHttps }).(EndpointCustomDomainUserManagedHttpsPtrOutput)
 }

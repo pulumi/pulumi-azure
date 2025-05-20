@@ -17,7 +17,7 @@ import javax.annotation.Nullable;
 /**
  * Manages a API Management service Policy.
  * 
- * &gt; **NOTE:** This resource will, upon creation, **overwrite any existing policy in the API Management service**, as there is no feasible way to test whether the policy has been modified from the default. Similarly, when this resource is destroyed, the API Management service will revert to its default policy.
+ * &gt; **Note:** This resource will, upon creation, **overwrite any existing policy in the API Management service**, as there is no feasible way to test whether the policy has been modified from the default. Similarly, when this resource is destroyed, the API Management service will revert to its default policy.
  * 
  * ## Example Usage
  * 
@@ -87,6 +87,13 @@ import javax.annotation.Nullable;
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
+ * ## API Providers
+ * 
+ * &lt;!-- This section is generated, changes will be overwritten --&gt;
+ * This resource uses the following Azure API Providers:
+ * 
+ * * `Microsoft.ApiManagement`: 2022-08-01
+ * 
  * ## Import
  * 
  * API Management service Policys can be imported using the `resource id`, e.g.
@@ -112,17 +119,9 @@ public class Policy extends com.pulumi.resources.CustomResource {
     public Output<String> apiManagementId() {
         return this.apiManagementId;
     }
-    /**
-     * The XML Content for this Policy as a string. To integrate frontend and backend services in Azure API Management, utilize the [`set-backend-service`](https://learn.microsoft.com/azure/api-management/set-backend-service-policy) policy, specifying the `base-url` value. Typically, this value corresponds to the `url` property defined in the `Backend` resource configuration.
-     * 
-     */
     @Export(name="xmlContent", refs={String.class}, tree="[0]")
     private Output<String> xmlContent;
 
-    /**
-     * @return The XML Content for this Policy as a string. To integrate frontend and backend services in Azure API Management, utilize the [`set-backend-service`](https://learn.microsoft.com/azure/api-management/set-backend-service-policy) policy, specifying the `base-url` value. Typically, this value corresponds to the `url` property defined in the `Backend` resource configuration.
-     * 
-     */
     public Output<String> xmlContent() {
         return this.xmlContent;
     }

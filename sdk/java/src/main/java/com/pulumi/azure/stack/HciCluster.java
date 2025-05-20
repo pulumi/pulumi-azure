@@ -78,6 +78,15 @@ import javax.annotation.Nullable;
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
+ * ## API Providers
+ * 
+ * &lt;!-- This section is generated, changes will be overwritten --&gt;
+ * This resource uses the following Azure API Providers:
+ * 
+ * * `Microsoft.AutoManage`: 2022-05-04
+ * 
+ * * `Microsoft.AzureStackHCI`: 2024-01-01, 2022-05-04
+ * 
  * ## Import
  * 
  * Azure Stack HCI Clusters can be imported using the `resource id`, e.g.
@@ -232,7 +241,7 @@ public class HciCluster extends com.pulumi.resources.CustomResource {
     /**
      * The Tenant ID of the Azure Active Directory which is used by the Azure Stack HCI Cluster. Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE** If unspecified the Tenant ID of the Provider will be used.
+     * &gt; **Note:** If unspecified the Tenant ID of the Provider will be used.
      * 
      */
     @Export(name="tenantId", refs={String.class}, tree="[0]")
@@ -241,7 +250,7 @@ public class HciCluster extends com.pulumi.resources.CustomResource {
     /**
      * @return The Tenant ID of the Azure Active Directory which is used by the Azure Stack HCI Cluster. Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE** If unspecified the Tenant ID of the Provider will be used.
+     * &gt; **Note:** If unspecified the Tenant ID of the Provider will be used.
      * 
      */
     public Output<String> tenantId() {

@@ -46,7 +46,7 @@ class TopicArgs:
         :param pulumi.Input[builtins.str] name: Specifies the name of the ServiceBus Topic resource. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.bool] partitioning_enabled: Boolean flag which controls whether to enable the topic to be partitioned across multiple message brokers. Changing this forces a new resource to be created.
                
-               > **NOTE:** Partitioning is available at entity creation for all queues and topics in Basic or Standard SKUs. It is not available for the Premium messaging SKU, but any previously existing partitioned entities in Premium namespaces continue to work as expected. For premium namespaces, partitioning is available at namespace creation and all queues and topics in the partitioned namespace will be partitioned. Premium namespaces that have `premium_messaging_partitions` set to `1` are not partitioned. Please [see the documentation](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-partitioning) for more information.
+               > **Note:** Partitioning is available at entity creation for all queues and topics in Basic or Standard SKUs. It is not available for the Premium messaging SKU, but any previously existing partitioned entities in Premium namespaces continue to work as expected. For premium namespaces, partitioning is available at namespace creation and all queues and topics in the partitioned namespace will be partitioned. Premium namespaces that have `premium_messaging_partitions` set to `1` are not partitioned. Please [see the documentation](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-partitioning) for more information.
         :param pulumi.Input[builtins.bool] requires_duplicate_detection: Boolean flag which controls whether the Topic requires duplicate detection. Defaults to `false`. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] status: The Status of the Service Bus Topic. Acceptable values are `Active` or `Disabled`. Defaults to `Active`.
         :param pulumi.Input[builtins.bool] support_ordering: Boolean flag which controls whether the Topic supports ordering.
@@ -191,7 +191,7 @@ class TopicArgs:
         """
         Boolean flag which controls whether to enable the topic to be partitioned across multiple message brokers. Changing this forces a new resource to be created.
 
-        > **NOTE:** Partitioning is available at entity creation for all queues and topics in Basic or Standard SKUs. It is not available for the Premium messaging SKU, but any previously existing partitioned entities in Premium namespaces continue to work as expected. For premium namespaces, partitioning is available at namespace creation and all queues and topics in the partitioned namespace will be partitioned. Premium namespaces that have `premium_messaging_partitions` set to `1` are not partitioned. Please [see the documentation](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-partitioning) for more information.
+        > **Note:** Partitioning is available at entity creation for all queues and topics in Basic or Standard SKUs. It is not available for the Premium messaging SKU, but any previously existing partitioned entities in Premium namespaces continue to work as expected. For premium namespaces, partitioning is available at namespace creation and all queues and topics in the partitioned namespace will be partitioned. Premium namespaces that have `premium_messaging_partitions` set to `1` are not partitioned. Please [see the documentation](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-partitioning) for more information.
         """
         return pulumi.get(self, "partitioning_enabled")
 
@@ -248,10 +248,8 @@ class _TopicState:
                  max_size_in_megabytes: Optional[pulumi.Input[builtins.int]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  namespace_id: Optional[pulumi.Input[builtins.str]] = None,
-                 namespace_name: Optional[pulumi.Input[builtins.str]] = None,
                  partitioning_enabled: Optional[pulumi.Input[builtins.bool]] = None,
                  requires_duplicate_detection: Optional[pulumi.Input[builtins.bool]] = None,
-                 resource_group_name: Optional[pulumi.Input[builtins.str]] = None,
                  status: Optional[pulumi.Input[builtins.str]] = None,
                  support_ordering: Optional[pulumi.Input[builtins.bool]] = None):
         """
@@ -267,7 +265,7 @@ class _TopicState:
         :param pulumi.Input[builtins.str] namespace_id: The ID of the ServiceBus Namespace to create this topic in. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.bool] partitioning_enabled: Boolean flag which controls whether to enable the topic to be partitioned across multiple message brokers. Changing this forces a new resource to be created.
                
-               > **NOTE:** Partitioning is available at entity creation for all queues and topics in Basic or Standard SKUs. It is not available for the Premium messaging SKU, but any previously existing partitioned entities in Premium namespaces continue to work as expected. For premium namespaces, partitioning is available at namespace creation and all queues and topics in the partitioned namespace will be partitioned. Premium namespaces that have `premium_messaging_partitions` set to `1` are not partitioned. Please [see the documentation](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-partitioning) for more information.
+               > **Note:** Partitioning is available at entity creation for all queues and topics in Basic or Standard SKUs. It is not available for the Premium messaging SKU, but any previously existing partitioned entities in Premium namespaces continue to work as expected. For premium namespaces, partitioning is available at namespace creation and all queues and topics in the partitioned namespace will be partitioned. Premium namespaces that have `premium_messaging_partitions` set to `1` are not partitioned. Please [see the documentation](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-partitioning) for more information.
         :param pulumi.Input[builtins.bool] requires_duplicate_detection: Boolean flag which controls whether the Topic requires duplicate detection. Defaults to `false`. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] status: The Status of the Service Bus Topic. Acceptable values are `Active` or `Disabled`. Defaults to `Active`.
         :param pulumi.Input[builtins.bool] support_ordering: Boolean flag which controls whether the Topic supports ordering.
@@ -290,14 +288,10 @@ class _TopicState:
             pulumi.set(__self__, "name", name)
         if namespace_id is not None:
             pulumi.set(__self__, "namespace_id", namespace_id)
-        if namespace_name is not None:
-            pulumi.set(__self__, "namespace_name", namespace_name)
         if partitioning_enabled is not None:
             pulumi.set(__self__, "partitioning_enabled", partitioning_enabled)
         if requires_duplicate_detection is not None:
             pulumi.set(__self__, "requires_duplicate_detection", requires_duplicate_detection)
-        if resource_group_name is not None:
-            pulumi.set(__self__, "resource_group_name", resource_group_name)
         if status is not None:
             pulumi.set(__self__, "status", status)
         if support_ordering is not None:
@@ -412,21 +406,12 @@ class _TopicState:
         pulumi.set(self, "namespace_id", value)
 
     @property
-    @pulumi.getter(name="namespaceName")
-    def namespace_name(self) -> Optional[pulumi.Input[builtins.str]]:
-        return pulumi.get(self, "namespace_name")
-
-    @namespace_name.setter
-    def namespace_name(self, value: Optional[pulumi.Input[builtins.str]]):
-        pulumi.set(self, "namespace_name", value)
-
-    @property
     @pulumi.getter(name="partitioningEnabled")
     def partitioning_enabled(self) -> Optional[pulumi.Input[builtins.bool]]:
         """
         Boolean flag which controls whether to enable the topic to be partitioned across multiple message brokers. Changing this forces a new resource to be created.
 
-        > **NOTE:** Partitioning is available at entity creation for all queues and topics in Basic or Standard SKUs. It is not available for the Premium messaging SKU, but any previously existing partitioned entities in Premium namespaces continue to work as expected. For premium namespaces, partitioning is available at namespace creation and all queues and topics in the partitioned namespace will be partitioned. Premium namespaces that have `premium_messaging_partitions` set to `1` are not partitioned. Please [see the documentation](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-partitioning) for more information.
+        > **Note:** Partitioning is available at entity creation for all queues and topics in Basic or Standard SKUs. It is not available for the Premium messaging SKU, but any previously existing partitioned entities in Premium namespaces continue to work as expected. For premium namespaces, partitioning is available at namespace creation and all queues and topics in the partitioned namespace will be partitioned. Premium namespaces that have `premium_messaging_partitions` set to `1` are not partitioned. Please [see the documentation](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-partitioning) for more information.
         """
         return pulumi.get(self, "partitioning_enabled")
 
@@ -445,15 +430,6 @@ class _TopicState:
     @requires_duplicate_detection.setter
     def requires_duplicate_detection(self, value: Optional[pulumi.Input[builtins.bool]]):
         pulumi.set(self, "requires_duplicate_detection", value)
-
-    @property
-    @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> Optional[pulumi.Input[builtins.str]]:
-        return pulumi.get(self, "resource_group_name")
-
-    @resource_group_name.setter
-    def resource_group_name(self, value: Optional[pulumi.Input[builtins.str]]):
-        pulumi.set(self, "resource_group_name", value)
 
     @property
     @pulumi.getter
@@ -503,7 +479,7 @@ class Topic(pulumi.CustomResource):
         """
         Manages a ServiceBus Topic.
 
-        **Note** Topics can only be created in Namespaces with an SKU of `standard` or higher.
+        > **Note:** Topics can only be created in Namespaces with an SKU of `Standard` or higher.
 
         ## Example Usage
 
@@ -520,7 +496,7 @@ class Topic(pulumi.CustomResource):
             resource_group_name=example.name,
             sku="Standard",
             tags={
-                "source": "example",
+                "source": "terraform",
             })
         example_topic = azure.servicebus.Topic("example",
             name="tfex_servicebus_topic",
@@ -549,7 +525,7 @@ class Topic(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] namespace_id: The ID of the ServiceBus Namespace to create this topic in. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.bool] partitioning_enabled: Boolean flag which controls whether to enable the topic to be partitioned across multiple message brokers. Changing this forces a new resource to be created.
                
-               > **NOTE:** Partitioning is available at entity creation for all queues and topics in Basic or Standard SKUs. It is not available for the Premium messaging SKU, but any previously existing partitioned entities in Premium namespaces continue to work as expected. For premium namespaces, partitioning is available at namespace creation and all queues and topics in the partitioned namespace will be partitioned. Premium namespaces that have `premium_messaging_partitions` set to `1` are not partitioned. Please [see the documentation](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-partitioning) for more information.
+               > **Note:** Partitioning is available at entity creation for all queues and topics in Basic or Standard SKUs. It is not available for the Premium messaging SKU, but any previously existing partitioned entities in Premium namespaces continue to work as expected. For premium namespaces, partitioning is available at namespace creation and all queues and topics in the partitioned namespace will be partitioned. Premium namespaces that have `premium_messaging_partitions` set to `1` are not partitioned. Please [see the documentation](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-partitioning) for more information.
         :param pulumi.Input[builtins.bool] requires_duplicate_detection: Boolean flag which controls whether the Topic requires duplicate detection. Defaults to `false`. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] status: The Status of the Service Bus Topic. Acceptable values are `Active` or `Disabled`. Defaults to `Active`.
         :param pulumi.Input[builtins.bool] support_ordering: Boolean flag which controls whether the Topic supports ordering.
@@ -563,7 +539,7 @@ class Topic(pulumi.CustomResource):
         """
         Manages a ServiceBus Topic.
 
-        **Note** Topics can only be created in Namespaces with an SKU of `standard` or higher.
+        > **Note:** Topics can only be created in Namespaces with an SKU of `Standard` or higher.
 
         ## Example Usage
 
@@ -580,7 +556,7 @@ class Topic(pulumi.CustomResource):
             resource_group_name=example.name,
             sku="Standard",
             tags={
-                "source": "example",
+                "source": "terraform",
             })
         example_topic = azure.servicebus.Topic("example",
             name="tfex_servicebus_topic",
@@ -648,8 +624,6 @@ class Topic(pulumi.CustomResource):
             __props__.__dict__["requires_duplicate_detection"] = requires_duplicate_detection
             __props__.__dict__["status"] = status
             __props__.__dict__["support_ordering"] = support_ordering
-            __props__.__dict__["namespace_name"] = None
-            __props__.__dict__["resource_group_name"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure:eventhub/topic:Topic")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Topic, __self__).__init__(
@@ -671,10 +645,8 @@ class Topic(pulumi.CustomResource):
             max_size_in_megabytes: Optional[pulumi.Input[builtins.int]] = None,
             name: Optional[pulumi.Input[builtins.str]] = None,
             namespace_id: Optional[pulumi.Input[builtins.str]] = None,
-            namespace_name: Optional[pulumi.Input[builtins.str]] = None,
             partitioning_enabled: Optional[pulumi.Input[builtins.bool]] = None,
             requires_duplicate_detection: Optional[pulumi.Input[builtins.bool]] = None,
-            resource_group_name: Optional[pulumi.Input[builtins.str]] = None,
             status: Optional[pulumi.Input[builtins.str]] = None,
             support_ordering: Optional[pulumi.Input[builtins.bool]] = None) -> 'Topic':
         """
@@ -695,7 +667,7 @@ class Topic(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] namespace_id: The ID of the ServiceBus Namespace to create this topic in. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.bool] partitioning_enabled: Boolean flag which controls whether to enable the topic to be partitioned across multiple message brokers. Changing this forces a new resource to be created.
                
-               > **NOTE:** Partitioning is available at entity creation for all queues and topics in Basic or Standard SKUs. It is not available for the Premium messaging SKU, but any previously existing partitioned entities in Premium namespaces continue to work as expected. For premium namespaces, partitioning is available at namespace creation and all queues and topics in the partitioned namespace will be partitioned. Premium namespaces that have `premium_messaging_partitions` set to `1` are not partitioned. Please [see the documentation](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-partitioning) for more information.
+               > **Note:** Partitioning is available at entity creation for all queues and topics in Basic or Standard SKUs. It is not available for the Premium messaging SKU, but any previously existing partitioned entities in Premium namespaces continue to work as expected. For premium namespaces, partitioning is available at namespace creation and all queues and topics in the partitioned namespace will be partitioned. Premium namespaces that have `premium_messaging_partitions` set to `1` are not partitioned. Please [see the documentation](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-partitioning) for more information.
         :param pulumi.Input[builtins.bool] requires_duplicate_detection: Boolean flag which controls whether the Topic requires duplicate detection. Defaults to `false`. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] status: The Status of the Service Bus Topic. Acceptable values are `Active` or `Disabled`. Defaults to `Active`.
         :param pulumi.Input[builtins.bool] support_ordering: Boolean flag which controls whether the Topic supports ordering.
@@ -713,10 +685,8 @@ class Topic(pulumi.CustomResource):
         __props__.__dict__["max_size_in_megabytes"] = max_size_in_megabytes
         __props__.__dict__["name"] = name
         __props__.__dict__["namespace_id"] = namespace_id
-        __props__.__dict__["namespace_name"] = namespace_name
         __props__.__dict__["partitioning_enabled"] = partitioning_enabled
         __props__.__dict__["requires_duplicate_detection"] = requires_duplicate_detection
-        __props__.__dict__["resource_group_name"] = resource_group_name
         __props__.__dict__["status"] = status
         __props__.__dict__["support_ordering"] = support_ordering
         return Topic(resource_name, opts=opts, __props__=__props__)
@@ -794,17 +764,12 @@ class Topic(pulumi.CustomResource):
         return pulumi.get(self, "namespace_id")
 
     @property
-    @pulumi.getter(name="namespaceName")
-    def namespace_name(self) -> pulumi.Output[builtins.str]:
-        return pulumi.get(self, "namespace_name")
-
-    @property
     @pulumi.getter(name="partitioningEnabled")
     def partitioning_enabled(self) -> pulumi.Output[Optional[builtins.bool]]:
         """
         Boolean flag which controls whether to enable the topic to be partitioned across multiple message brokers. Changing this forces a new resource to be created.
 
-        > **NOTE:** Partitioning is available at entity creation for all queues and topics in Basic or Standard SKUs. It is not available for the Premium messaging SKU, but any previously existing partitioned entities in Premium namespaces continue to work as expected. For premium namespaces, partitioning is available at namespace creation and all queues and topics in the partitioned namespace will be partitioned. Premium namespaces that have `premium_messaging_partitions` set to `1` are not partitioned. Please [see the documentation](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-partitioning) for more information.
+        > **Note:** Partitioning is available at entity creation for all queues and topics in Basic or Standard SKUs. It is not available for the Premium messaging SKU, but any previously existing partitioned entities in Premium namespaces continue to work as expected. For premium namespaces, partitioning is available at namespace creation and all queues and topics in the partitioned namespace will be partitioned. Premium namespaces that have `premium_messaging_partitions` set to `1` are not partitioned. Please [see the documentation](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-partitioning) for more information.
         """
         return pulumi.get(self, "partitioning_enabled")
 
@@ -815,11 +780,6 @@ class Topic(pulumi.CustomResource):
         Boolean flag which controls whether the Topic requires duplicate detection. Defaults to `false`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "requires_duplicate_detection")
-
-    @property
-    @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> pulumi.Output[builtins.str]:
-        return pulumi.get(self, "resource_group_name")
 
     @property
     @pulumi.getter

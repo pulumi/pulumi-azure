@@ -12,7 +12,7 @@ namespace Pulumi.Azure.Network
     /// <summary>
     /// Manages a Public IP Address.
     /// 
-    /// &gt; **Note** If this resource is to be associated with a resource that requires disassociation before destruction (such as `azure.network.NetworkInterface`) it is recommended to set the `lifecycle` argument `create_before_destroy = true`. Otherwise, it can fail to disassociate on destruction.
+    /// &gt; **Note:** If this resource is to be associated with a resource that requires disassociation before destruction (such as `azure.network.NetworkInterface`) it is recommended to set the `lifecycle` argument `create_before_destroy = true`. Otherwise, it can fail to disassociate on destruction.
     /// 
     /// ## Example Usage
     /// 
@@ -59,7 +59,7 @@ namespace Pulumi.Azure.Network
         /// <summary>
         /// Defines the allocation method for this IP address. Possible values are `Static` or `Dynamic`.
         /// 
-        /// &gt; **Note** `Dynamic` Public IP Addresses aren't allocated until they're assigned to a resource (such as a Virtual Machine or a Load Balancer) by design within Azure. See `ip_address` argument.
+        /// &gt; **Note:** `Dynamic` Public IP Addresses aren't allocated until they're assigned to a resource (such as a Virtual Machine or a Load Balancer) by design within Azure. See `ip_address` argument.
         /// </summary>
         [Output("allocationMethod")]
         public Output<string> AllocationMethod { get; private set; } = null!;
@@ -117,7 +117,7 @@ namespace Pulumi.Azure.Network
         /// <summary>
         /// A mapping of IP tags to assign to the public IP. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **Note** IP Tag `RoutingPreference` requires multiple `zones` and `Standard` SKU to be set.
+        /// &gt; **Note:** IP Tag `RoutingPreference` requires multiple `zones` and `Standard` SKU to be set.
         /// </summary>
         [Output("ipTags")]
         public Output<ImmutableDictionary<string, string>?> IpTags { get; private set; } = null!;
@@ -125,7 +125,7 @@ namespace Pulumi.Azure.Network
         /// <summary>
         /// The IP Version to use, IPv6 or IPv4. Changing this forces a new resource to be created. Defaults to `IPv4`.
         /// 
-        /// &gt; **Note** Only `static` IP address allocation is supported for IPv6.
+        /// &gt; **Note:** Only `static` IP address allocation is supported for IPv6.
         /// </summary>
         [Output("ipVersion")]
         public Output<string?> IpVersion { get; private set; } = null!;
@@ -163,7 +163,7 @@ namespace Pulumi.Azure.Network
         /// <summary>
         /// The SKU of the Public IP. Accepted values are `Basic` and `Standard`. Defaults to `Standard`. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **Note** Public IP Standard SKUs require `allocation_method` to be set to `Static`.
+        /// &gt; **Note:** Public IP Standard SKUs require `allocation_method` to be set to `Static`.
         /// </summary>
         [Output("sku")]
         public Output<string?> Sku { get; private set; } = null!;
@@ -171,7 +171,7 @@ namespace Pulumi.Azure.Network
         /// <summary>
         /// The SKU Tier that should be used for the Public IP. Possible values are `Regional` and `Global`. Defaults to `Regional`. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **Note** When `sku_tier` is set to `Global`, `sku` must be set to `Standard`.
+        /// &gt; **Note:** When `sku_tier` is set to `Global`, `sku` must be set to `Standard`.
         /// </summary>
         [Output("skuTier")]
         public Output<string?> SkuTier { get; private set; } = null!;
@@ -239,7 +239,7 @@ namespace Pulumi.Azure.Network
         /// <summary>
         /// Defines the allocation method for this IP address. Possible values are `Static` or `Dynamic`.
         /// 
-        /// &gt; **Note** `Dynamic` Public IP Addresses aren't allocated until they're assigned to a resource (such as a Virtual Machine or a Load Balancer) by design within Azure. See `ip_address` argument.
+        /// &gt; **Note:** `Dynamic` Public IP Addresses aren't allocated until they're assigned to a resource (such as a Virtual Machine or a Load Balancer) by design within Azure. See `ip_address` argument.
         /// </summary>
         [Input("allocationMethod", required: true)]
         public Input<string> AllocationMethod { get; set; } = null!;
@@ -288,7 +288,7 @@ namespace Pulumi.Azure.Network
         /// <summary>
         /// A mapping of IP tags to assign to the public IP. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **Note** IP Tag `RoutingPreference` requires multiple `zones` and `Standard` SKU to be set.
+        /// &gt; **Note:** IP Tag `RoutingPreference` requires multiple `zones` and `Standard` SKU to be set.
         /// </summary>
         public InputMap<string> IpTags
         {
@@ -299,7 +299,7 @@ namespace Pulumi.Azure.Network
         /// <summary>
         /// The IP Version to use, IPv6 or IPv4. Changing this forces a new resource to be created. Defaults to `IPv4`.
         /// 
-        /// &gt; **Note** Only `static` IP address allocation is supported for IPv6.
+        /// &gt; **Note:** Only `static` IP address allocation is supported for IPv6.
         /// </summary>
         [Input("ipVersion")]
         public Input<string>? IpVersion { get; set; }
@@ -337,7 +337,7 @@ namespace Pulumi.Azure.Network
         /// <summary>
         /// The SKU of the Public IP. Accepted values are `Basic` and `Standard`. Defaults to `Standard`. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **Note** Public IP Standard SKUs require `allocation_method` to be set to `Static`.
+        /// &gt; **Note:** Public IP Standard SKUs require `allocation_method` to be set to `Static`.
         /// </summary>
         [Input("sku")]
         public Input<string>? Sku { get; set; }
@@ -345,7 +345,7 @@ namespace Pulumi.Azure.Network
         /// <summary>
         /// The SKU Tier that should be used for the Public IP. Possible values are `Regional` and `Global`. Defaults to `Regional`. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **Note** When `sku_tier` is set to `Global`, `sku` must be set to `Standard`.
+        /// &gt; **Note:** When `sku_tier` is set to `Global`, `sku` must be set to `Standard`.
         /// </summary>
         [Input("skuTier")]
         public Input<string>? SkuTier { get; set; }
@@ -387,7 +387,7 @@ namespace Pulumi.Azure.Network
         /// <summary>
         /// Defines the allocation method for this IP address. Possible values are `Static` or `Dynamic`.
         /// 
-        /// &gt; **Note** `Dynamic` Public IP Addresses aren't allocated until they're assigned to a resource (such as a Virtual Machine or a Load Balancer) by design within Azure. See `ip_address` argument.
+        /// &gt; **Note:** `Dynamic` Public IP Addresses aren't allocated until they're assigned to a resource (such as a Virtual Machine or a Load Balancer) by design within Azure. See `ip_address` argument.
         /// </summary>
         [Input("allocationMethod")]
         public Input<string>? AllocationMethod { get; set; }
@@ -448,7 +448,7 @@ namespace Pulumi.Azure.Network
         /// <summary>
         /// A mapping of IP tags to assign to the public IP. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **Note** IP Tag `RoutingPreference` requires multiple `zones` and `Standard` SKU to be set.
+        /// &gt; **Note:** IP Tag `RoutingPreference` requires multiple `zones` and `Standard` SKU to be set.
         /// </summary>
         public InputMap<string> IpTags
         {
@@ -459,7 +459,7 @@ namespace Pulumi.Azure.Network
         /// <summary>
         /// The IP Version to use, IPv6 or IPv4. Changing this forces a new resource to be created. Defaults to `IPv4`.
         /// 
-        /// &gt; **Note** Only `static` IP address allocation is supported for IPv6.
+        /// &gt; **Note:** Only `static` IP address allocation is supported for IPv6.
         /// </summary>
         [Input("ipVersion")]
         public Input<string>? IpVersion { get; set; }
@@ -497,7 +497,7 @@ namespace Pulumi.Azure.Network
         /// <summary>
         /// The SKU of the Public IP. Accepted values are `Basic` and `Standard`. Defaults to `Standard`. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **Note** Public IP Standard SKUs require `allocation_method` to be set to `Static`.
+        /// &gt; **Note:** Public IP Standard SKUs require `allocation_method` to be set to `Static`.
         /// </summary>
         [Input("sku")]
         public Input<string>? Sku { get; set; }
@@ -505,7 +505,7 @@ namespace Pulumi.Azure.Network
         /// <summary>
         /// The SKU Tier that should be used for the Public IP. Possible values are `Regional` and `Global`. Defaults to `Regional`. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **Note** When `sku_tier` is set to `Global`, `sku` must be set to `Standard`.
+        /// &gt; **Note:** When `sku_tier` is set to `Global`, `sku` must be set to `Standard`.
         /// </summary>
         [Input("skuTier")]
         public Input<string>? SkuTier { get; set; }

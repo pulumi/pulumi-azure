@@ -114,6 +114,13 @@ def get_gateway(api_management_id: Optional[builtins.str] = None,
         api_management_id=example.id)
     ```
 
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.ApiManagement`: 2022-08-01
+
 
     :param builtins.str api_management_id: The ID of the API Management Service in which the Gateway exists.
     :param builtins.str name: The name of the API Management Gateway.
@@ -147,6 +154,13 @@ def get_gateway_output(api_management_id: Optional[pulumi.Input[builtins.str]] =
     example_get_gateway = azure.apimanagement.get_gateway(name="example-api-gateway",
         api_management_id=example.id)
     ```
+
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.ApiManagement`: 2022-08-01
 
 
     :param builtins.str api_management_id: The ID of the API Management Service in which the Gateway exists.

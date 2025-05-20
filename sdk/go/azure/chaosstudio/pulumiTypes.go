@@ -16,7 +16,7 @@ var _ = internal.GetEnvOrDefault
 type ExperimentIdentity struct {
 	// A list of User Managed Identity IDs which should be assigned to the Policy Definition.
 	//
-	// > **NOTE:** This is required when `type` is set to `UserAssigned`.
+	// > **Note:** This is required when `type` is set to `UserAssigned`.
 	IdentityIds []string `pulumi:"identityIds"`
 	// The Principal ID associated with this Managed Service Identity.
 	PrincipalId *string `pulumi:"principalId"`
@@ -40,7 +40,7 @@ type ExperimentIdentityInput interface {
 type ExperimentIdentityArgs struct {
 	// A list of User Managed Identity IDs which should be assigned to the Policy Definition.
 	//
-	// > **NOTE:** This is required when `type` is set to `UserAssigned`.
+	// > **Note:** This is required when `type` is set to `UserAssigned`.
 	IdentityIds pulumi.StringArrayInput `pulumi:"identityIds"`
 	// The Principal ID associated with this Managed Service Identity.
 	PrincipalId pulumi.StringPtrInput `pulumi:"principalId"`
@@ -129,7 +129,7 @@ func (o ExperimentIdentityOutput) ToExperimentIdentityPtrOutputWithContext(ctx c
 
 // A list of User Managed Identity IDs which should be assigned to the Policy Definition.
 //
-// > **NOTE:** This is required when `type` is set to `UserAssigned`.
+// > **Note:** This is required when `type` is set to `UserAssigned`.
 func (o ExperimentIdentityOutput) IdentityIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ExperimentIdentity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
 }
@@ -175,7 +175,7 @@ func (o ExperimentIdentityPtrOutput) Elem() ExperimentIdentityOutput {
 
 // A list of User Managed Identity IDs which should be assigned to the Policy Definition.
 //
-// > **NOTE:** This is required when `type` is set to `UserAssigned`.
+// > **Note:** This is required when `type` is set to `UserAssigned`.
 func (o ExperimentIdentityPtrOutput) IdentityIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ExperimentIdentity) []string {
 		if v == nil {

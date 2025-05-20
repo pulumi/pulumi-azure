@@ -26,6 +26,8 @@ __all__ = [
     'ProjectEnvironmentTypeIdentityArgsDict',
     'ProjectEnvironmentTypeUserRoleAssignmentArgs',
     'ProjectEnvironmentTypeUserRoleAssignmentArgsDict',
+    'ProjectIdentityArgs',
+    'ProjectIdentityArgsDict',
 ]
 
 MYPY = False
@@ -33,9 +35,21 @@ MYPY = False
 if not MYPY:
     class CatalogCatalogAdogitArgsDict(TypedDict):
         branch: pulumi.Input[builtins.str]
+        """
+        The Git branch of the Dev Center Catalog.
+        """
         key_vault_key_url: pulumi.Input[builtins.str]
+        """
+        A reference to the Key Vault secret containing a security token to authenticate to a Git repository.
+        """
         path: pulumi.Input[builtins.str]
+        """
+        The folder where the catalog items can be found inside the repository.
+        """
         uri: pulumi.Input[builtins.str]
+        """
+        The Git URI of the Dev Center Catalog.
+        """
 elif False:
     CatalogCatalogAdogitArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -46,6 +60,12 @@ class CatalogCatalogAdogitArgs:
                  key_vault_key_url: pulumi.Input[builtins.str],
                  path: pulumi.Input[builtins.str],
                  uri: pulumi.Input[builtins.str]):
+        """
+        :param pulumi.Input[builtins.str] branch: The Git branch of the Dev Center Catalog.
+        :param pulumi.Input[builtins.str] key_vault_key_url: A reference to the Key Vault secret containing a security token to authenticate to a Git repository.
+        :param pulumi.Input[builtins.str] path: The folder where the catalog items can be found inside the repository.
+        :param pulumi.Input[builtins.str] uri: The Git URI of the Dev Center Catalog.
+        """
         pulumi.set(__self__, "branch", branch)
         pulumi.set(__self__, "key_vault_key_url", key_vault_key_url)
         pulumi.set(__self__, "path", path)
@@ -54,6 +74,9 @@ class CatalogCatalogAdogitArgs:
     @property
     @pulumi.getter
     def branch(self) -> pulumi.Input[builtins.str]:
+        """
+        The Git branch of the Dev Center Catalog.
+        """
         return pulumi.get(self, "branch")
 
     @branch.setter
@@ -63,6 +86,9 @@ class CatalogCatalogAdogitArgs:
     @property
     @pulumi.getter(name="keyVaultKeyUrl")
     def key_vault_key_url(self) -> pulumi.Input[builtins.str]:
+        """
+        A reference to the Key Vault secret containing a security token to authenticate to a Git repository.
+        """
         return pulumi.get(self, "key_vault_key_url")
 
     @key_vault_key_url.setter
@@ -72,6 +98,9 @@ class CatalogCatalogAdogitArgs:
     @property
     @pulumi.getter
     def path(self) -> pulumi.Input[builtins.str]:
+        """
+        The folder where the catalog items can be found inside the repository.
+        """
         return pulumi.get(self, "path")
 
     @path.setter
@@ -81,6 +110,9 @@ class CatalogCatalogAdogitArgs:
     @property
     @pulumi.getter
     def uri(self) -> pulumi.Input[builtins.str]:
+        """
+        The Git URI of the Dev Center Catalog.
+        """
         return pulumi.get(self, "uri")
 
     @uri.setter
@@ -91,9 +123,21 @@ class CatalogCatalogAdogitArgs:
 if not MYPY:
     class CatalogCatalogGithubArgsDict(TypedDict):
         branch: pulumi.Input[builtins.str]
+        """
+        The Git branch of the Dev Center Catalog.
+        """
         key_vault_key_url: pulumi.Input[builtins.str]
+        """
+        A reference to the Key Vault secret containing a security token to authenticate to a Git repository.
+        """
         path: pulumi.Input[builtins.str]
+        """
+        The folder where the catalog items can be found inside the repository.
+        """
         uri: pulumi.Input[builtins.str]
+        """
+        The Git URI of the Dev Center Catalog.
+        """
 elif False:
     CatalogCatalogGithubArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -104,6 +148,12 @@ class CatalogCatalogGithubArgs:
                  key_vault_key_url: pulumi.Input[builtins.str],
                  path: pulumi.Input[builtins.str],
                  uri: pulumi.Input[builtins.str]):
+        """
+        :param pulumi.Input[builtins.str] branch: The Git branch of the Dev Center Catalog.
+        :param pulumi.Input[builtins.str] key_vault_key_url: A reference to the Key Vault secret containing a security token to authenticate to a Git repository.
+        :param pulumi.Input[builtins.str] path: The folder where the catalog items can be found inside the repository.
+        :param pulumi.Input[builtins.str] uri: The Git URI of the Dev Center Catalog.
+        """
         pulumi.set(__self__, "branch", branch)
         pulumi.set(__self__, "key_vault_key_url", key_vault_key_url)
         pulumi.set(__self__, "path", path)
@@ -112,6 +162,9 @@ class CatalogCatalogGithubArgs:
     @property
     @pulumi.getter
     def branch(self) -> pulumi.Input[builtins.str]:
+        """
+        The Git branch of the Dev Center Catalog.
+        """
         return pulumi.get(self, "branch")
 
     @branch.setter
@@ -121,6 +174,9 @@ class CatalogCatalogGithubArgs:
     @property
     @pulumi.getter(name="keyVaultKeyUrl")
     def key_vault_key_url(self) -> pulumi.Input[builtins.str]:
+        """
+        A reference to the Key Vault secret containing a security token to authenticate to a Git repository.
+        """
         return pulumi.get(self, "key_vault_key_url")
 
     @key_vault_key_url.setter
@@ -130,6 +186,9 @@ class CatalogCatalogGithubArgs:
     @property
     @pulumi.getter
     def path(self) -> pulumi.Input[builtins.str]:
+        """
+        The folder where the catalog items can be found inside the repository.
+        """
         return pulumi.get(self, "path")
 
     @path.setter
@@ -139,6 +198,9 @@ class CatalogCatalogGithubArgs:
     @property
     @pulumi.getter
     def uri(self) -> pulumi.Input[builtins.str]:
+        """
+        The Git URI of the Dev Center Catalog.
+        """
         return pulumi.get(self, "uri")
 
     @uri.setter
@@ -338,5 +400,102 @@ class ProjectEnvironmentTypeUserRoleAssignmentArgs:
     @user_id.setter
     def user_id(self, value: pulumi.Input[builtins.str]):
         pulumi.set(self, "user_id", value)
+
+
+if not MYPY:
+    class ProjectIdentityArgsDict(TypedDict):
+        type: pulumi.Input[builtins.str]
+        """
+        The type of identity used for this Dev Center Project. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned`.
+        """
+        identity_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]
+        """
+        The ID of the User Assigned Identity which should be assigned to this Dev Center Project.
+
+        > **Note:** `identity_ids` is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+        """
+        principal_id: NotRequired[pulumi.Input[builtins.str]]
+        """
+        The Principal ID for the Service Principal associated with the Identity of this Dev Center Project.
+        """
+        tenant_id: NotRequired[pulumi.Input[builtins.str]]
+        """
+        The Tenant ID for the Service Principal associated with the Identity of this Dev Center Project.
+        """
+elif False:
+    ProjectIdentityArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ProjectIdentityArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input[builtins.str],
+                 identity_ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
+                 principal_id: Optional[pulumi.Input[builtins.str]] = None,
+                 tenant_id: Optional[pulumi.Input[builtins.str]] = None):
+        """
+        :param pulumi.Input[builtins.str] type: The type of identity used for this Dev Center Project. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned`.
+        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] identity_ids: The ID of the User Assigned Identity which should be assigned to this Dev Center Project.
+               
+               > **Note:** `identity_ids` is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+        :param pulumi.Input[builtins.str] principal_id: The Principal ID for the Service Principal associated with the Identity of this Dev Center Project.
+        :param pulumi.Input[builtins.str] tenant_id: The Tenant ID for the Service Principal associated with the Identity of this Dev Center Project.
+        """
+        pulumi.set(__self__, "type", type)
+        if identity_ids is not None:
+            pulumi.set(__self__, "identity_ids", identity_ids)
+        if principal_id is not None:
+            pulumi.set(__self__, "principal_id", principal_id)
+        if tenant_id is not None:
+            pulumi.set(__self__, "tenant_id", tenant_id)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[builtins.str]:
+        """
+        The type of identity used for this Dev Center Project. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned`.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[builtins.str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="identityIds")
+    def identity_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]:
+        """
+        The ID of the User Assigned Identity which should be assigned to this Dev Center Project.
+
+        > **Note:** `identity_ids` is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+        """
+        return pulumi.get(self, "identity_ids")
+
+    @identity_ids.setter
+    def identity_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]):
+        pulumi.set(self, "identity_ids", value)
+
+    @property
+    @pulumi.getter(name="principalId")
+    def principal_id(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The Principal ID for the Service Principal associated with the Identity of this Dev Center Project.
+        """
+        return pulumi.get(self, "principal_id")
+
+    @principal_id.setter
+    def principal_id(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "principal_id", value)
+
+    @property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The Tenant ID for the Service Principal associated with the Identity of this Dev Center Project.
+        """
+        return pulumi.get(self, "tenant_id")
+
+    @tenant_id.setter
+    def tenant_id(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "tenant_id", value)
 
 

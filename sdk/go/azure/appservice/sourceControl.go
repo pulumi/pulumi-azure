@@ -70,6 +70,13 @@ import (
 //
 // ```
 //
+// ## API Providers
+//
+// <!-- This section is generated, changes will be overwritten -->
+// This resource uses the following Azure API Providers:
+//
+// * `Microsoft.Web`: 2023-12-01
+//
 // ## Import
 //
 // App Service Source Controls can be imported using the `resource id`, e.g.
@@ -82,7 +89,7 @@ type SourceControl struct {
 
 	// The ID of the Windows or Linux Web App. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** Function apps are not supported at this time.
+	// > **Note:** Function apps are not supported at this time.
 	AppId pulumi.StringOutput `pulumi:"appId"`
 	// The branch name to use for deployments. Changing this forces a new resource to be created.
 	Branch pulumi.StringOutput `pulumi:"branch"`
@@ -92,7 +99,7 @@ type SourceControl struct {
 	RepoUrl pulumi.StringOutput `pulumi:"repoUrl"`
 	// Should the Deployment Rollback be enabled? Defaults to `false`. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** Azure can typically set this value automatically based on the `repoUrl` value.
+	// > **Note:** Azure can typically set this value automatically based on the `repoUrl` value.
 	RollbackEnabled pulumi.BoolPtrOutput `pulumi:"rollbackEnabled"`
 	// The SCM Type in use. This value is decoded by the service from the repository information supplied.
 	ScmType pulumi.StringOutput `pulumi:"scmType"`
@@ -141,7 +148,7 @@ func GetSourceControl(ctx *pulumi.Context,
 type sourceControlState struct {
 	// The ID of the Windows or Linux Web App. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** Function apps are not supported at this time.
+	// > **Note:** Function apps are not supported at this time.
 	AppId *string `pulumi:"appId"`
 	// The branch name to use for deployments. Changing this forces a new resource to be created.
 	Branch *string `pulumi:"branch"`
@@ -151,7 +158,7 @@ type sourceControlState struct {
 	RepoUrl *string `pulumi:"repoUrl"`
 	// Should the Deployment Rollback be enabled? Defaults to `false`. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** Azure can typically set this value automatically based on the `repoUrl` value.
+	// > **Note:** Azure can typically set this value automatically based on the `repoUrl` value.
 	RollbackEnabled *bool `pulumi:"rollbackEnabled"`
 	// The SCM Type in use. This value is decoded by the service from the repository information supplied.
 	ScmType *string `pulumi:"scmType"`
@@ -168,7 +175,7 @@ type sourceControlState struct {
 type SourceControlState struct {
 	// The ID of the Windows or Linux Web App. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** Function apps are not supported at this time.
+	// > **Note:** Function apps are not supported at this time.
 	AppId pulumi.StringPtrInput
 	// The branch name to use for deployments. Changing this forces a new resource to be created.
 	Branch pulumi.StringPtrInput
@@ -178,7 +185,7 @@ type SourceControlState struct {
 	RepoUrl pulumi.StringPtrInput
 	// Should the Deployment Rollback be enabled? Defaults to `false`. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** Azure can typically set this value automatically based on the `repoUrl` value.
+	// > **Note:** Azure can typically set this value automatically based on the `repoUrl` value.
 	RollbackEnabled pulumi.BoolPtrInput
 	// The SCM Type in use. This value is decoded by the service from the repository information supplied.
 	ScmType pulumi.StringPtrInput
@@ -199,7 +206,7 @@ func (SourceControlState) ElementType() reflect.Type {
 type sourceControlArgs struct {
 	// The ID of the Windows or Linux Web App. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** Function apps are not supported at this time.
+	// > **Note:** Function apps are not supported at this time.
 	AppId string `pulumi:"appId"`
 	// The branch name to use for deployments. Changing this forces a new resource to be created.
 	Branch *string `pulumi:"branch"`
@@ -209,7 +216,7 @@ type sourceControlArgs struct {
 	RepoUrl *string `pulumi:"repoUrl"`
 	// Should the Deployment Rollback be enabled? Defaults to `false`. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** Azure can typically set this value automatically based on the `repoUrl` value.
+	// > **Note:** Azure can typically set this value automatically based on the `repoUrl` value.
 	RollbackEnabled *bool `pulumi:"rollbackEnabled"`
 	// Should the App use local Git configuration. Changing this forces a new resource to be created.
 	UseLocalGit *bool `pulumi:"useLocalGit"`
@@ -223,7 +230,7 @@ type sourceControlArgs struct {
 type SourceControlArgs struct {
 	// The ID of the Windows or Linux Web App. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** Function apps are not supported at this time.
+	// > **Note:** Function apps are not supported at this time.
 	AppId pulumi.StringInput
 	// The branch name to use for deployments. Changing this forces a new resource to be created.
 	Branch pulumi.StringPtrInput
@@ -233,7 +240,7 @@ type SourceControlArgs struct {
 	RepoUrl pulumi.StringPtrInput
 	// Should the Deployment Rollback be enabled? Defaults to `false`. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** Azure can typically set this value automatically based on the `repoUrl` value.
+	// > **Note:** Azure can typically set this value automatically based on the `repoUrl` value.
 	RollbackEnabled pulumi.BoolPtrInput
 	// Should the App use local Git configuration. Changing this forces a new resource to be created.
 	UseLocalGit pulumi.BoolPtrInput
@@ -332,7 +339,7 @@ func (o SourceControlOutput) ToSourceControlOutputWithContext(ctx context.Contex
 
 // The ID of the Windows or Linux Web App. Changing this forces a new resource to be created.
 //
-// > **NOTE:** Function apps are not supported at this time.
+// > **Note:** Function apps are not supported at this time.
 func (o SourceControlOutput) AppId() pulumi.StringOutput {
 	return o.ApplyT(func(v *SourceControl) pulumi.StringOutput { return v.AppId }).(pulumi.StringOutput)
 }
@@ -356,7 +363,7 @@ func (o SourceControlOutput) RepoUrl() pulumi.StringOutput {
 
 // Should the Deployment Rollback be enabled? Defaults to `false`. Changing this forces a new resource to be created.
 //
-// > **NOTE:** Azure can typically set this value automatically based on the `repoUrl` value.
+// > **Note:** Azure can typically set this value automatically based on the `repoUrl` value.
 func (o SourceControlOutput) RollbackEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *SourceControl) pulumi.BoolPtrOutput { return v.RollbackEnabled }).(pulumi.BoolPtrOutput)
 }

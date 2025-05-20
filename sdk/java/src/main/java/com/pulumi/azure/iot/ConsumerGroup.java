@@ -63,7 +63,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleConsumerGroup = new ConsumerGroup("exampleConsumerGroup", ConsumerGroupArgs.builder()
- *             .name("group")
+ *             .name("terraform")
  *             .iothubName(exampleIoTHub.name())
  *             .eventhubEndpointName("events")
  *             .resourceGroupName(example.name())

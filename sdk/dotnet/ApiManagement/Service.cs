@@ -32,12 +32,19 @@ namespace Pulumi.Azure.ApiManagement
     ///         Location = example.Location,
     ///         ResourceGroupName = example.Name,
     ///         PublisherName = "My Company",
-    ///         PublisherEmail = "company@exmaple.com",
+    ///         PublisherEmail = "company@terraform.io",
     ///         SkuName = "Developer_1",
     ///     });
     /// 
     /// });
     /// ```
+    /// 
+    /// ## API Providers
+    /// 
+    /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+    /// This resource uses the following Azure API Providers:
+    /// 
+    /// * `Microsoft.ApiManagement`: 2022-08-01
     /// 
     /// ## Import
     /// 
@@ -161,7 +168,7 @@ namespace Pulumi.Azure.ApiManagement
         /// <summary>
         /// ID of a standard SKU IPv4 Public IP.
         /// 
-        /// &gt; **NOTE:** Custom public IPs are only supported on the `Premium` and `Developer` tiers when deployed in a virtual network.
+        /// &gt; **Note:** Custom public IPs are only supported on the `Premium` and `Developer` tiers when deployed in a virtual network.
         /// </summary>
         [Output("publicIpAddressId")]
         public Output<string?> PublicIpAddressId { get; private set; } = null!;
@@ -175,7 +182,7 @@ namespace Pulumi.Azure.ApiManagement
         /// <summary>
         /// Is public access to the service allowed? Defaults to `true`.
         /// 
-        /// &gt; **NOTE:** This option is applicable only to the Management plane, not the API gateway or Developer portal. It is required to be `true` on the creation.
+        /// &gt; **Note:** This option is applicable only to the Management plane, not the API gateway or Developer portal. It is required to be `true` on the creation.
         /// </summary>
         [Output("publicNetworkAccessEnabled")]
         public Output<bool?> PublicNetworkAccessEnabled { get; private set; } = null!;
@@ -193,7 +200,7 @@ namespace Pulumi.Azure.ApiManagement
         public Output<string> PublisherName { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the Resource Group in which the API Management Service should be exist. Changing this forces a new resource to be created.
+        /// The name of the Resource Group in which the API Management Service should exist. Changing this forces a new resource to be created.
         /// </summary>
         [Output("resourceGroupName")]
         public Output<string> ResourceGroupName { get; private set; } = null!;
@@ -225,9 +232,9 @@ namespace Pulumi.Azure.ApiManagement
         /// <summary>
         /// `sku_name` is a string consisting of two parts separated by an underscore(\_). The first part is the `name`, valid values include: `Consumption`, `Developer`, `Basic`, `Standard` and `Premium`. The second part is the `capacity` (e.g. the number of deployed units of the `sku`), which must be a positive `integer` (e.g. `Developer_1`).
         /// 
-        /// &gt; **NOTE:** Premium SKU's are limited to a default maximum of 12 (i.e. `Premium_12`), this can, however, be increased via support request.
+        /// &gt; **Note:** Premium SKUs are limited to a default maximum of 12 (i.e. `Premium_12`), this can, however, be increased via support request.
         /// 
-        /// &gt; **NOTE:** Consumption SKU capacity should be 0 (e.g. `Consumption_0`) as this tier includes automatic scaling.
+        /// &gt; **Note:** Consumption SKU capacity should be 0 (e.g. `Consumption_0`) as this tier includes automatic scaling.
         /// </summary>
         [Output("skuName")]
         public Output<string> SkuName { get; private set; } = null!;
@@ -253,7 +260,7 @@ namespace Pulumi.Azure.ApiManagement
         /// <summary>
         /// The type of virtual network you want to use, valid values include: `None`, `External`, `Internal`. Defaults to `None`.
         /// 
-        /// &gt; **NOTE:** Please ensure that in the subnet, inbound port 3443 is open when `virtual_network_type` is `Internal` or `External`. And please ensure other necessary ports are open according to [api management network configuration](https://learn.microsoft.com/azure/api-management/virtual-network-reference).
+        /// &gt; **Note:** Please ensure that in the subnet, inbound port 3443 is open when `virtual_network_type` is `Internal` or `External`. Additionally, please ensure other necessary ports are open according to [api management network configuration](https://learn.microsoft.com/azure/api-management/virtual-network-reference).
         /// </summary>
         [Output("virtualNetworkType")]
         public Output<string?> VirtualNetworkType { get; private set; } = null!;
@@ -261,7 +268,7 @@ namespace Pulumi.Azure.ApiManagement
         /// <summary>
         /// Specifies a list of Availability Zones in which this API Management service should be located.
         /// 
-        /// &gt; **NOTE:** Availability zones are only supported in the Premium tier.
+        /// &gt; **Note:** Availability zones are only supported in the Premium tier.
         /// </summary>
         [Output("zones")]
         public Output<ImmutableArray<string>> Zones { get; private set; } = null!;
@@ -399,7 +406,7 @@ namespace Pulumi.Azure.ApiManagement
         /// <summary>
         /// ID of a standard SKU IPv4 Public IP.
         /// 
-        /// &gt; **NOTE:** Custom public IPs are only supported on the `Premium` and `Developer` tiers when deployed in a virtual network.
+        /// &gt; **Note:** Custom public IPs are only supported on the `Premium` and `Developer` tiers when deployed in a virtual network.
         /// </summary>
         [Input("publicIpAddressId")]
         public Input<string>? PublicIpAddressId { get; set; }
@@ -407,7 +414,7 @@ namespace Pulumi.Azure.ApiManagement
         /// <summary>
         /// Is public access to the service allowed? Defaults to `true`.
         /// 
-        /// &gt; **NOTE:** This option is applicable only to the Management plane, not the API gateway or Developer portal. It is required to be `true` on the creation.
+        /// &gt; **Note:** This option is applicable only to the Management plane, not the API gateway or Developer portal. It is required to be `true` on the creation.
         /// </summary>
         [Input("publicNetworkAccessEnabled")]
         public Input<bool>? PublicNetworkAccessEnabled { get; set; }
@@ -425,7 +432,7 @@ namespace Pulumi.Azure.ApiManagement
         public Input<string> PublisherName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the Resource Group in which the API Management Service should be exist. Changing this forces a new resource to be created.
+        /// The name of the Resource Group in which the API Management Service should exist. Changing this forces a new resource to be created.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
@@ -451,9 +458,9 @@ namespace Pulumi.Azure.ApiManagement
         /// <summary>
         /// `sku_name` is a string consisting of two parts separated by an underscore(\_). The first part is the `name`, valid values include: `Consumption`, `Developer`, `Basic`, `Standard` and `Premium`. The second part is the `capacity` (e.g. the number of deployed units of the `sku`), which must be a positive `integer` (e.g. `Developer_1`).
         /// 
-        /// &gt; **NOTE:** Premium SKU's are limited to a default maximum of 12 (i.e. `Premium_12`), this can, however, be increased via support request.
+        /// &gt; **Note:** Premium SKUs are limited to a default maximum of 12 (i.e. `Premium_12`), this can, however, be increased via support request.
         /// 
-        /// &gt; **NOTE:** Consumption SKU capacity should be 0 (e.g. `Consumption_0`) as this tier includes automatic scaling.
+        /// &gt; **Note:** Consumption SKU capacity should be 0 (e.g. `Consumption_0`) as this tier includes automatic scaling.
         /// </summary>
         [Input("skuName", required: true)]
         public Input<string> SkuName { get; set; } = null!;
@@ -485,7 +492,7 @@ namespace Pulumi.Azure.ApiManagement
         /// <summary>
         /// The type of virtual network you want to use, valid values include: `None`, `External`, `Internal`. Defaults to `None`.
         /// 
-        /// &gt; **NOTE:** Please ensure that in the subnet, inbound port 3443 is open when `virtual_network_type` is `Internal` or `External`. And please ensure other necessary ports are open according to [api management network configuration](https://learn.microsoft.com/azure/api-management/virtual-network-reference).
+        /// &gt; **Note:** Please ensure that in the subnet, inbound port 3443 is open when `virtual_network_type` is `Internal` or `External`. Additionally, please ensure other necessary ports are open according to [api management network configuration](https://learn.microsoft.com/azure/api-management/virtual-network-reference).
         /// </summary>
         [Input("virtualNetworkType")]
         public Input<string>? VirtualNetworkType { get; set; }
@@ -496,7 +503,7 @@ namespace Pulumi.Azure.ApiManagement
         /// <summary>
         /// Specifies a list of Availability Zones in which this API Management service should be located.
         /// 
-        /// &gt; **NOTE:** Availability zones are only supported in the Premium tier.
+        /// &gt; **Note:** Availability zones are only supported in the Premium tier.
         /// </summary>
         public InputList<string> Zones
         {
@@ -641,7 +648,7 @@ namespace Pulumi.Azure.ApiManagement
         /// <summary>
         /// ID of a standard SKU IPv4 Public IP.
         /// 
-        /// &gt; **NOTE:** Custom public IPs are only supported on the `Premium` and `Developer` tiers when deployed in a virtual network.
+        /// &gt; **Note:** Custom public IPs are only supported on the `Premium` and `Developer` tiers when deployed in a virtual network.
         /// </summary>
         [Input("publicIpAddressId")]
         public Input<string>? PublicIpAddressId { get; set; }
@@ -661,7 +668,7 @@ namespace Pulumi.Azure.ApiManagement
         /// <summary>
         /// Is public access to the service allowed? Defaults to `true`.
         /// 
-        /// &gt; **NOTE:** This option is applicable only to the Management plane, not the API gateway or Developer portal. It is required to be `true` on the creation.
+        /// &gt; **Note:** This option is applicable only to the Management plane, not the API gateway or Developer portal. It is required to be `true` on the creation.
         /// </summary>
         [Input("publicNetworkAccessEnabled")]
         public Input<bool>? PublicNetworkAccessEnabled { get; set; }
@@ -679,7 +686,7 @@ namespace Pulumi.Azure.ApiManagement
         public Input<string>? PublisherName { get; set; }
 
         /// <summary>
-        /// The name of the Resource Group in which the API Management Service should be exist. Changing this forces a new resource to be created.
+        /// The name of the Resource Group in which the API Management Service should exist. Changing this forces a new resource to be created.
         /// </summary>
         [Input("resourceGroupName")]
         public Input<string>? ResourceGroupName { get; set; }
@@ -711,9 +718,9 @@ namespace Pulumi.Azure.ApiManagement
         /// <summary>
         /// `sku_name` is a string consisting of two parts separated by an underscore(\_). The first part is the `name`, valid values include: `Consumption`, `Developer`, `Basic`, `Standard` and `Premium`. The second part is the `capacity` (e.g. the number of deployed units of the `sku`), which must be a positive `integer` (e.g. `Developer_1`).
         /// 
-        /// &gt; **NOTE:** Premium SKU's are limited to a default maximum of 12 (i.e. `Premium_12`), this can, however, be increased via support request.
+        /// &gt; **Note:** Premium SKUs are limited to a default maximum of 12 (i.e. `Premium_12`), this can, however, be increased via support request.
         /// 
-        /// &gt; **NOTE:** Consumption SKU capacity should be 0 (e.g. `Consumption_0`) as this tier includes automatic scaling.
+        /// &gt; **Note:** Consumption SKU capacity should be 0 (e.g. `Consumption_0`) as this tier includes automatic scaling.
         /// </summary>
         [Input("skuName")]
         public Input<string>? SkuName { get; set; }
@@ -745,7 +752,7 @@ namespace Pulumi.Azure.ApiManagement
         /// <summary>
         /// The type of virtual network you want to use, valid values include: `None`, `External`, `Internal`. Defaults to `None`.
         /// 
-        /// &gt; **NOTE:** Please ensure that in the subnet, inbound port 3443 is open when `virtual_network_type` is `Internal` or `External`. And please ensure other necessary ports are open according to [api management network configuration](https://learn.microsoft.com/azure/api-management/virtual-network-reference).
+        /// &gt; **Note:** Please ensure that in the subnet, inbound port 3443 is open when `virtual_network_type` is `Internal` or `External`. Additionally, please ensure other necessary ports are open according to [api management network configuration](https://learn.microsoft.com/azure/api-management/virtual-network-reference).
         /// </summary>
         [Input("virtualNetworkType")]
         public Input<string>? VirtualNetworkType { get; set; }
@@ -756,7 +763,7 @@ namespace Pulumi.Azure.ApiManagement
         /// <summary>
         /// Specifies a list of Availability Zones in which this API Management service should be located.
         /// 
-        /// &gt; **NOTE:** Availability zones are only supported in the Premium tier.
+        /// &gt; **Note:** Availability zones are only supported in the Premium tier.
         /// </summary>
         public InputList<string> Zones
         {

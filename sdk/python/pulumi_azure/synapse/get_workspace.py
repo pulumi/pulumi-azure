@@ -55,7 +55,7 @@ class GetWorkspaceResult:
     @pulumi.getter(name="connectivityEndpoints")
     def connectivity_endpoints(self) -> Mapping[str, builtins.str]:
         """
-        A list of Connectivity endpoints for this Synapse Workspace.
+        A map of Connectivity endpoints for this Synapse Workspace.
         """
         return pulumi.get(self, "connectivity_endpoints")
 

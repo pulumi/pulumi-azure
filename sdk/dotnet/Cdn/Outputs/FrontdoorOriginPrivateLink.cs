@@ -28,9 +28,9 @@ namespace Pulumi.Azure.Cdn.Outputs
         /// </summary>
         public readonly string? RequestMessage;
         /// <summary>
-        /// Specifies the type of target for this Private Link Endpoint. Possible values are `blob`, `blob_secondary`, `web` and `sites`.
+        /// Specifies the type of target for this Private Link Endpoint. Possible values are `blob`, `blob_secondary`, `Gateway`, `managedEnvironments`, `sites`, `web` and `web_secondary`.
         /// 
-        /// &gt; **NOTE:** `target_type` cannot be specified when using a Load Balancer as an Origin.
+        /// &gt; **Note:** `target_type` cannot be specified when using a Load Balancer as an Origin.
         /// </summary>
         public readonly string? TargetType;
 

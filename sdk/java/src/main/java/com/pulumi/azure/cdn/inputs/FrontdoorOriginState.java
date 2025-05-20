@@ -66,7 +66,7 @@ public final class FrontdoorOriginState extends com.pulumi.resources.ResourceArg
     /**
      * The IPv4 address, IPv6 address or Domain name of the Origin.
      * 
-     * !&gt; **IMPORTANT:** This must be unique across all Front Door Origins within a Front Door Endpoint.
+     * !&gt; **Note:** This must be unique across all Front Door Origins within a Front Door Endpoint.
      * 
      */
     @Import(name="hostName")
@@ -75,7 +75,7 @@ public final class FrontdoorOriginState extends com.pulumi.resources.ResourceArg
     /**
      * @return The IPv4 address, IPv6 address or Domain name of the Origin.
      * 
-     * !&gt; **IMPORTANT:** This must be unique across all Front Door Origins within a Front Door Endpoint.
+     * !&gt; **Note:** This must be unique across all Front Door Origins within a Front Door Endpoint.
      * 
      */
     public Optional<Output<String>> hostName() {
@@ -130,7 +130,7 @@ public final class FrontdoorOriginState extends com.pulumi.resources.ResourceArg
     /**
      * The host header value (an IPv4 address, IPv6 address or Domain name) which is sent to the origin with each request. If unspecified the hostname from the request will be used.
      * 
-     * &gt; Azure Front Door Origins, such as Web Apps, Blob Storage, and Cloud Services require this host header value to match the origin&#39;s hostname. This field&#39;s value overrides the host header defined in the Front Door Endpoint. For more information on how to properly set the origin host header value please see the [product documentation](https://docs.microsoft.com/azure/frontdoor/origin?pivots=front-door-standard-premium#origin-host-header).
+     * &gt; **Note:** Azure Front Door Origins, such as Web Apps, Blob Storage, and Cloud Services require this host header value to match the origin&#39;s hostname. This field&#39;s value overrides the host header defined in the Front Door Endpoint. For more information on how to properly set the origin host header value please see the [product documentation](https://docs.microsoft.com/azure/frontdoor/origin?pivots=front-door-standard-premium#origin-host-header).
      * 
      */
     @Import(name="originHostHeader")
@@ -139,7 +139,7 @@ public final class FrontdoorOriginState extends com.pulumi.resources.ResourceArg
     /**
      * @return The host header value (an IPv4 address, IPv6 address or Domain name) which is sent to the origin with each request. If unspecified the hostname from the request will be used.
      * 
-     * &gt; Azure Front Door Origins, such as Web Apps, Blob Storage, and Cloud Services require this host header value to match the origin&#39;s hostname. This field&#39;s value overrides the host header defined in the Front Door Endpoint. For more information on how to properly set the origin host header value please see the [product documentation](https://docs.microsoft.com/azure/frontdoor/origin?pivots=front-door-standard-premium#origin-host-header).
+     * &gt; **Note:** Azure Front Door Origins, such as Web Apps, Blob Storage, and Cloud Services require this host header value to match the origin&#39;s hostname. This field&#39;s value overrides the host header defined in the Front Door Endpoint. For more information on how to properly set the origin host header value please see the [product documentation](https://docs.microsoft.com/azure/frontdoor/origin?pivots=front-door-standard-premium#origin-host-header).
      * 
      */
     public Optional<Output<String>> originHostHeader() {
@@ -164,7 +164,7 @@ public final class FrontdoorOriginState extends com.pulumi.resources.ResourceArg
     /**
      * A `private_link` block as defined below.
      * 
-     * &gt; **NOTE:** Private Link requires that the Front Door Profile this Origin is hosted within is using the SKU `Premium_AzureFrontDoor` and that the `certificate_name_check_enabled` field is set to `true`.
+     * &gt; **Note:** Private Link requires that the Front Door Profile this Origin is hosted within is using the SKU `Premium_AzureFrontDoor` and that the `certificate_name_check_enabled` field is set to `true`.
      * 
      */
     @Import(name="privateLink")
@@ -173,7 +173,7 @@ public final class FrontdoorOriginState extends com.pulumi.resources.ResourceArg
     /**
      * @return A `private_link` block as defined below.
      * 
-     * &gt; **NOTE:** Private Link requires that the Front Door Profile this Origin is hosted within is using the SKU `Premium_AzureFrontDoor` and that the `certificate_name_check_enabled` field is set to `true`.
+     * &gt; **Note:** Private Link requires that the Front Door Profile this Origin is hosted within is using the SKU `Premium_AzureFrontDoor` and that the `certificate_name_check_enabled` field is set to `true`.
      * 
      */
     public Optional<Output<FrontdoorOriginPrivateLinkArgs>> privateLink() {
@@ -295,7 +295,7 @@ public final class FrontdoorOriginState extends com.pulumi.resources.ResourceArg
         /**
          * @param hostName The IPv4 address, IPv6 address or Domain name of the Origin.
          * 
-         * !&gt; **IMPORTANT:** This must be unique across all Front Door Origins within a Front Door Endpoint.
+         * !&gt; **Note:** This must be unique across all Front Door Origins within a Front Door Endpoint.
          * 
          * @return builder
          * 
@@ -308,7 +308,7 @@ public final class FrontdoorOriginState extends com.pulumi.resources.ResourceArg
         /**
          * @param hostName The IPv4 address, IPv6 address or Domain name of the Origin.
          * 
-         * !&gt; **IMPORTANT:** This must be unique across all Front Door Origins within a Front Door Endpoint.
+         * !&gt; **Note:** This must be unique across all Front Door Origins within a Front Door Endpoint.
          * 
          * @return builder
          * 
@@ -383,7 +383,7 @@ public final class FrontdoorOriginState extends com.pulumi.resources.ResourceArg
         /**
          * @param originHostHeader The host header value (an IPv4 address, IPv6 address or Domain name) which is sent to the origin with each request. If unspecified the hostname from the request will be used.
          * 
-         * &gt; Azure Front Door Origins, such as Web Apps, Blob Storage, and Cloud Services require this host header value to match the origin&#39;s hostname. This field&#39;s value overrides the host header defined in the Front Door Endpoint. For more information on how to properly set the origin host header value please see the [product documentation](https://docs.microsoft.com/azure/frontdoor/origin?pivots=front-door-standard-premium#origin-host-header).
+         * &gt; **Note:** Azure Front Door Origins, such as Web Apps, Blob Storage, and Cloud Services require this host header value to match the origin&#39;s hostname. This field&#39;s value overrides the host header defined in the Front Door Endpoint. For more information on how to properly set the origin host header value please see the [product documentation](https://docs.microsoft.com/azure/frontdoor/origin?pivots=front-door-standard-premium#origin-host-header).
          * 
          * @return builder
          * 
@@ -396,7 +396,7 @@ public final class FrontdoorOriginState extends com.pulumi.resources.ResourceArg
         /**
          * @param originHostHeader The host header value (an IPv4 address, IPv6 address or Domain name) which is sent to the origin with each request. If unspecified the hostname from the request will be used.
          * 
-         * &gt; Azure Front Door Origins, such as Web Apps, Blob Storage, and Cloud Services require this host header value to match the origin&#39;s hostname. This field&#39;s value overrides the host header defined in the Front Door Endpoint. For more information on how to properly set the origin host header value please see the [product documentation](https://docs.microsoft.com/azure/frontdoor/origin?pivots=front-door-standard-premium#origin-host-header).
+         * &gt; **Note:** Azure Front Door Origins, such as Web Apps, Blob Storage, and Cloud Services require this host header value to match the origin&#39;s hostname. This field&#39;s value overrides the host header defined in the Front Door Endpoint. For more information on how to properly set the origin host header value please see the [product documentation](https://docs.microsoft.com/azure/frontdoor/origin?pivots=front-door-standard-premium#origin-host-header).
          * 
          * @return builder
          * 
@@ -429,7 +429,7 @@ public final class FrontdoorOriginState extends com.pulumi.resources.ResourceArg
         /**
          * @param privateLink A `private_link` block as defined below.
          * 
-         * &gt; **NOTE:** Private Link requires that the Front Door Profile this Origin is hosted within is using the SKU `Premium_AzureFrontDoor` and that the `certificate_name_check_enabled` field is set to `true`.
+         * &gt; **Note:** Private Link requires that the Front Door Profile this Origin is hosted within is using the SKU `Premium_AzureFrontDoor` and that the `certificate_name_check_enabled` field is set to `true`.
          * 
          * @return builder
          * 
@@ -442,7 +442,7 @@ public final class FrontdoorOriginState extends com.pulumi.resources.ResourceArg
         /**
          * @param privateLink A `private_link` block as defined below.
          * 
-         * &gt; **NOTE:** Private Link requires that the Front Door Profile this Origin is hosted within is using the SKU `Premium_AzureFrontDoor` and that the `certificate_name_check_enabled` field is set to `true`.
+         * &gt; **Note:** Private Link requires that the Front Door Profile this Origin is hosted within is using the SKU `Premium_AzureFrontDoor` and that the `certificate_name_check_enabled` field is set to `true`.
          * 
          * @return builder
          * 

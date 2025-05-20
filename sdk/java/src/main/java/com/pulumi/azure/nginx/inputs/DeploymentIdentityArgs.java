@@ -20,7 +20,7 @@ public final class DeploymentIdentityArgs extends com.pulumi.resources.ResourceA
     /**
      * Specifies a list of user managed identity ids to be assigned.
      * 
-     * &gt; **NOTE:** This is required when `type` is set to `UserAssigned`.
+     * &gt; **Note:** This is required when `type` is set to `UserAssigned`.
      * 
      */
     @Import(name="identityIds")
@@ -29,7 +29,7 @@ public final class DeploymentIdentityArgs extends com.pulumi.resources.ResourceA
     /**
      * @return Specifies a list of user managed identity ids to be assigned.
      * 
-     * &gt; **NOTE:** This is required when `type` is set to `UserAssigned`.
+     * &gt; **Note:** This is required when `type` is set to `UserAssigned`.
      * 
      */
     public Optional<Output<List<String>>> identityIds() {
@@ -95,7 +95,7 @@ public final class DeploymentIdentityArgs extends com.pulumi.resources.ResourceA
         /**
          * @param identityIds Specifies a list of user managed identity ids to be assigned.
          * 
-         * &gt; **NOTE:** This is required when `type` is set to `UserAssigned`.
+         * &gt; **Note:** This is required when `type` is set to `UserAssigned`.
          * 
          * @return builder
          * 
@@ -108,7 +108,7 @@ public final class DeploymentIdentityArgs extends com.pulumi.resources.ResourceA
         /**
          * @param identityIds Specifies a list of user managed identity ids to be assigned.
          * 
-         * &gt; **NOTE:** This is required when `type` is set to `UserAssigned`.
+         * &gt; **Note:** This is required when `type` is set to `UserAssigned`.
          * 
          * @return builder
          * 
@@ -120,7 +120,7 @@ public final class DeploymentIdentityArgs extends com.pulumi.resources.ResourceA
         /**
          * @param identityIds Specifies a list of user managed identity ids to be assigned.
          * 
-         * &gt; **NOTE:** This is required when `type` is set to `UserAssigned`.
+         * &gt; **Note:** This is required when `type` is set to `UserAssigned`.
          * 
          * @return builder
          * 

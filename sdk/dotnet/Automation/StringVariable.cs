@@ -41,7 +41,7 @@ namespace Pulumi.Azure.Automation
     ///         Name = "tfex-example-var",
     ///         ResourceGroupName = example.Name,
     ///         AutomationAccountName = exampleAccount.Name,
-    ///         Value = "Hello, Basic Test.",
+    ///         Value = "Hello, Terraform Basic Test.",
     ///     });
     /// 
     /// });

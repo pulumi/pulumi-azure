@@ -66,21 +66,9 @@ public final class ResourceGroupTemplateDeploymentArgs extends com.pulumi.resour
         return Optional.ofNullable(this.name);
     }
 
-    /**
-     * The contents of the ARM Template parameters file - containing a JSON list of parameters.
-     * 
-     * &gt; An example of how to pass variables into an ARM Template can be seen in the example.
-     * 
-     */
     @Import(name="parametersContent")
     private @Nullable Output<String> parametersContent;
 
-    /**
-     * @return The contents of the ARM Template parameters file - containing a JSON list of parameters.
-     * 
-     * &gt; An example of how to pass variables into an ARM Template can be seen in the example.
-     * 
-     */
     public Optional<Output<String>> parametersContent() {
         return Optional.ofNullable(this.parametersContent);
     }
@@ -243,27 +231,11 @@ public final class ResourceGroupTemplateDeploymentArgs extends com.pulumi.resour
             return name(Output.of(name));
         }
 
-        /**
-         * @param parametersContent The contents of the ARM Template parameters file - containing a JSON list of parameters.
-         * 
-         * &gt; An example of how to pass variables into an ARM Template can be seen in the example.
-         * 
-         * @return builder
-         * 
-         */
         public Builder parametersContent(@Nullable Output<String> parametersContent) {
             $.parametersContent = parametersContent;
             return this;
         }
 
-        /**
-         * @param parametersContent The contents of the ARM Template parameters file - containing a JSON list of parameters.
-         * 
-         * &gt; An example of how to pass variables into an ARM Template can be seen in the example.
-         * 
-         * @return builder
-         * 
-         */
         public Builder parametersContent(String parametersContent) {
             return parametersContent(Output.of(parametersContent));
         }

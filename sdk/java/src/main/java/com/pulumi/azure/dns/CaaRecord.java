@@ -83,7 +83,7 @@ import javax.annotation.Nullable;
  *                 CaaRecordRecordArgs.builder()
  *                     .flags(0)
  *                     .tag("iodef")
- *                     .value("mailto:user}{@literal @}{@code nonexisting.tld")
+ *                     .value("mailto:terraform}{@literal @}{@code nonexisting.tld")
  *                     .build())
  *             .tags(Map.of("Environment", "Production"))
  *             .build());
@@ -93,6 +93,13 @@ import javax.annotation.Nullable;
  * }
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
+ * 
+ * ## API Providers
+ * 
+ * &lt;!-- This section is generated, changes will be overwritten --&gt;
+ * This resource uses the following Azure API Providers:
+ * 
+ * * `Microsoft.Network`: 2018-05-01
  * 
  * ## Import
  * 

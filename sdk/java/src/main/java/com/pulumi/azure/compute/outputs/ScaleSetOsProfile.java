@@ -27,10 +27,6 @@ public final class ScaleSetOsProfile {
      * 
      */
     private String computerNamePrefix;
-    /**
-     * @return Specifies custom data to supply to the machine. On Linux-based systems, this can be used as a cloud-init script. On other systems, this will be copied as a file on disk. Internally, this provider will base64 encode this value before sending it to the API. The maximum length of the binary array is 65535 bytes.
-     * 
-     */
     private @Nullable String customData;
 
     private ScaleSetOsProfile() {}
@@ -55,10 +51,6 @@ public final class ScaleSetOsProfile {
     public String computerNamePrefix() {
         return this.computerNamePrefix;
     }
-    /**
-     * @return Specifies custom data to supply to the machine. On Linux-based systems, this can be used as a cloud-init script. On other systems, this will be copied as a file on disk. Internally, this provider will base64 encode this value before sending it to the API. The maximum length of the binary array is 65535 bytes.
-     * 
-     */
     public Optional<String> customData() {
         return Optional.ofNullable(this.customData);
     }

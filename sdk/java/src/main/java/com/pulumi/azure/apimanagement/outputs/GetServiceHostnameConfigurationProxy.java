@@ -25,6 +25,7 @@ public final class GetServiceHostnameConfigurationProxy {
      * @return The ID of the Key Vault Secret which contains the SSL Certificate.
      * 
      */
+    private String keyVaultCertificateId;
     private String keyVaultId;
     /**
      * @return Is Client Certificate Negotiation enabled?
@@ -51,6 +52,9 @@ public final class GetServiceHostnameConfigurationProxy {
      * @return The ID of the Key Vault Secret which contains the SSL Certificate.
      * 
      */
+    public String keyVaultCertificateId() {
+        return this.keyVaultCertificateId;
+    }
     public String keyVaultId() {
         return this.keyVaultId;
     }
@@ -73,6 +77,7 @@ public final class GetServiceHostnameConfigurationProxy {
     public static final class Builder {
         private Boolean defaultSslBinding;
         private String hostName;
+        private String keyVaultCertificateId;
         private String keyVaultId;
         private Boolean negotiateClientCertificate;
         public Builder() {}
@@ -80,6 +85,7 @@ public final class GetServiceHostnameConfigurationProxy {
     	      Objects.requireNonNull(defaults);
     	      this.defaultSslBinding = defaults.defaultSslBinding;
     	      this.hostName = defaults.hostName;
+    	      this.keyVaultCertificateId = defaults.keyVaultCertificateId;
     	      this.keyVaultId = defaults.keyVaultId;
     	      this.negotiateClientCertificate = defaults.negotiateClientCertificate;
         }
@@ -98,6 +104,14 @@ public final class GetServiceHostnameConfigurationProxy {
               throw new MissingRequiredPropertyException("GetServiceHostnameConfigurationProxy", "hostName");
             }
             this.hostName = hostName;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder keyVaultCertificateId(String keyVaultCertificateId) {
+            if (keyVaultCertificateId == null) {
+              throw new MissingRequiredPropertyException("GetServiceHostnameConfigurationProxy", "keyVaultCertificateId");
+            }
+            this.keyVaultCertificateId = keyVaultCertificateId;
             return this;
         }
         @CustomType.Setter
@@ -120,6 +134,7 @@ public final class GetServiceHostnameConfigurationProxy {
             final var _resultValue = new GetServiceHostnameConfigurationProxy();
             _resultValue.defaultSslBinding = defaultSslBinding;
             _resultValue.hostName = hostName;
+            _resultValue.keyVaultCertificateId = keyVaultCertificateId;
             _resultValue.keyVaultId = keyVaultId;
             _resultValue.negotiateClientCertificate = negotiateClientCertificate;
             return _resultValue;

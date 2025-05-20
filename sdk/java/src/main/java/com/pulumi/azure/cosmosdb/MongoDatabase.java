@@ -89,21 +89,9 @@ public class MongoDatabase extends com.pulumi.resources.CustomResource {
     public Output<String> accountName() {
         return this.accountName;
     }
-    /**
-     * An `autoscale_settings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual destroy-apply.
-     * 
-     * &gt; **Note:** Switching between autoscale and manual throughput is not supported via this provider and must be completed via the Azure Portal and refreshed.
-     * 
-     */
     @Export(name="autoscaleSettings", refs={MongoDatabaseAutoscaleSettings.class}, tree="[0]")
     private Output</* @Nullable */ MongoDatabaseAutoscaleSettings> autoscaleSettings;
 
-    /**
-     * @return An `autoscale_settings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual destroy-apply.
-     * 
-     * &gt; **Note:** Switching between autoscale and manual throughput is not supported via this provider and must be completed via the Azure Portal and refreshed.
-     * 
-     */
     public Output<Optional<MongoDatabaseAutoscaleSettings>> autoscaleSettings() {
         return Codegen.optional(this.autoscaleSettings);
     }
@@ -135,21 +123,9 @@ public class MongoDatabase extends com.pulumi.resources.CustomResource {
     public Output<String> resourceGroupName() {
         return this.resourceGroupName;
     }
-    /**
-     * The throughput of the MongoDB collection (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon database creation otherwise it cannot be updated without a manual resource destroy-apply.
-     * 
-     * &gt; **Note:** throughput has a maximum value of `1000000` unless a higher limit is requested via Azure Support.
-     * 
-     */
     @Export(name="throughput", refs={Integer.class}, tree="[0]")
     private Output<Integer> throughput;
 
-    /**
-     * @return The throughput of the MongoDB collection (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon database creation otherwise it cannot be updated without a manual resource destroy-apply.
-     * 
-     * &gt; **Note:** throughput has a maximum value of `1000000` unless a higher limit is requested via Azure Support.
-     * 
-     */
     public Output<Integer> throughput() {
         return this.throughput;
     }

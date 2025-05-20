@@ -81,6 +81,13 @@ public final class AuthorizationFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Authorization`: 2022-05-01-preview
+     * 
      */
     public static Output<GetRoleDefinitionResult> getRoleDefinition() {
         return getRoleDefinition(GetRoleDefinitionArgs.Empty, InvokeOptions.Empty);
@@ -147,6 +154,13 @@ public final class AuthorizationFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Authorization`: 2022-05-01-preview
      * 
      */
     public static CompletableFuture<GetRoleDefinitionResult> getRoleDefinitionPlain() {
@@ -215,6 +229,13 @@ public final class AuthorizationFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Authorization`: 2022-05-01-preview
+     * 
      */
     public static Output<GetRoleDefinitionResult> getRoleDefinition(GetRoleDefinitionArgs args) {
         return getRoleDefinition(args, InvokeOptions.Empty);
@@ -281,6 +302,13 @@ public final class AuthorizationFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Authorization`: 2022-05-01-preview
      * 
      */
     public static CompletableFuture<GetRoleDefinitionResult> getRoleDefinitionPlain(GetRoleDefinitionPlainArgs args) {
@@ -349,6 +377,13 @@ public final class AuthorizationFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Authorization`: 2022-05-01-preview
+     * 
      */
     public static Output<GetRoleDefinitionResult> getRoleDefinition(GetRoleDefinitionArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:authorization/getRoleDefinition:getRoleDefinition", TypeShape.of(GetRoleDefinitionResult.class), args, Utilities.withVersion(options));
@@ -415,6 +450,13 @@ public final class AuthorizationFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Authorization`: 2022-05-01-preview
      * 
      */
     public static Output<GetRoleDefinitionResult> getRoleDefinition(GetRoleDefinitionArgs args, InvokeOutputOptions options) {
@@ -483,6 +525,13 @@ public final class AuthorizationFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Authorization`: 2022-05-01-preview
+     * 
      */
     public static CompletableFuture<GetRoleDefinitionResult> getRoleDefinitionPlain(GetRoleDefinitionPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("azure:authorization/getRoleDefinition:getRoleDefinition", TypeShape.of(GetRoleDefinitionResult.class), args, Utilities.withVersion(options));
@@ -530,6 +579,13 @@ public final class AuthorizationFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.ManagedIdentity`: 2023-01-31
      * 
      */
     public static Output<GetUserAssignedIdentityResult> getUserAssignedIdentity(GetUserAssignedIdentityArgs args) {
@@ -579,6 +635,13 @@ public final class AuthorizationFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.ManagedIdentity`: 2023-01-31
+     * 
      */
     public static CompletableFuture<GetUserAssignedIdentityResult> getUserAssignedIdentityPlain(GetUserAssignedIdentityPlainArgs args) {
         return getUserAssignedIdentityPlain(args, InvokeOptions.Empty);
@@ -626,6 +689,13 @@ public final class AuthorizationFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.ManagedIdentity`: 2023-01-31
      * 
      */
     public static Output<GetUserAssignedIdentityResult> getUserAssignedIdentity(GetUserAssignedIdentityArgs args, InvokeOptions options) {
@@ -675,6 +745,13 @@ public final class AuthorizationFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.ManagedIdentity`: 2023-01-31
+     * 
      */
     public static Output<GetUserAssignedIdentityResult> getUserAssignedIdentity(GetUserAssignedIdentityArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("azure:authorization/getUserAssignedIdentity:getUserAssignedIdentity", TypeShape.of(GetUserAssignedIdentityResult.class), args, Utilities.withVersion(options));
@@ -722,6 +799,13 @@ public final class AuthorizationFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.ManagedIdentity`: 2023-01-31
      * 
      */
     public static CompletableFuture<GetUserAssignedIdentityResult> getUserAssignedIdentityPlain(GetUserAssignedIdentityPlainArgs args, InvokeOptions options) {

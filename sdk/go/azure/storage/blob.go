@@ -84,8 +84,7 @@ type Blob struct {
 	AccessTier pulumi.StringOutput `pulumi:"accessTier"`
 	// Controls the [cache control header](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cache-Control) content of the response when blob is requested .
 	CacheControl pulumi.StringPtrOutput `pulumi:"cacheControl"`
-	// The MD5 sum of the blob contents. Cannot be defined if `sourceUri` is defined, or if blob type is Append or Page. Changing this forces a new resource to be created.
-	ContentMd5 pulumi.StringPtrOutput `pulumi:"contentMd5"`
+	ContentMd5   pulumi.StringPtrOutput `pulumi:"contentMd5"`
 	// The content type of the storage blob. Cannot be defined if `sourceUri` is defined. Defaults to `application/octet-stream`.
 	ContentType pulumi.StringPtrOutput `pulumi:"contentType"`
 	// The encryption scope to use for this blob.
@@ -96,7 +95,7 @@ type Blob struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The number of workers per CPU core to run for concurrent uploads. Defaults to `8`. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** `parallelism` is only applicable for Page blobs - support for [Block Blobs is blocked on the upstream issue](https://github.com/jackofallops/giovanni/issues/15).
+	// > **Note:** `parallelism` is only applicable for Page blobs - support for [Block Blobs is blocked on the upstream issue](https://github.com/jackofallops/giovanni/issues/15).
 	Parallelism pulumi.IntPtrOutput `pulumi:"parallelism"`
 	// Used only for `page` blobs to specify the size in bytes of the blob to be created. Must be a multiple of 512. Defaults to `0`. Changing this forces a new resource to be created.
 	//
@@ -161,8 +160,7 @@ type blobState struct {
 	AccessTier *string `pulumi:"accessTier"`
 	// Controls the [cache control header](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cache-Control) content of the response when blob is requested .
 	CacheControl *string `pulumi:"cacheControl"`
-	// The MD5 sum of the blob contents. Cannot be defined if `sourceUri` is defined, or if blob type is Append or Page. Changing this forces a new resource to be created.
-	ContentMd5 *string `pulumi:"contentMd5"`
+	ContentMd5   *string `pulumi:"contentMd5"`
 	// The content type of the storage blob. Cannot be defined if `sourceUri` is defined. Defaults to `application/octet-stream`.
 	ContentType *string `pulumi:"contentType"`
 	// The encryption scope to use for this blob.
@@ -173,7 +171,7 @@ type blobState struct {
 	Name *string `pulumi:"name"`
 	// The number of workers per CPU core to run for concurrent uploads. Defaults to `8`. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** `parallelism` is only applicable for Page blobs - support for [Block Blobs is blocked on the upstream issue](https://github.com/jackofallops/giovanni/issues/15).
+	// > **Note:** `parallelism` is only applicable for Page blobs - support for [Block Blobs is blocked on the upstream issue](https://github.com/jackofallops/giovanni/issues/15).
 	Parallelism *int `pulumi:"parallelism"`
 	// Used only for `page` blobs to specify the size in bytes of the blob to be created. Must be a multiple of 512. Defaults to `0`. Changing this forces a new resource to be created.
 	//
@@ -200,8 +198,7 @@ type BlobState struct {
 	AccessTier pulumi.StringPtrInput
 	// Controls the [cache control header](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cache-Control) content of the response when blob is requested .
 	CacheControl pulumi.StringPtrInput
-	// The MD5 sum of the blob contents. Cannot be defined if `sourceUri` is defined, or if blob type is Append or Page. Changing this forces a new resource to be created.
-	ContentMd5 pulumi.StringPtrInput
+	ContentMd5   pulumi.StringPtrInput
 	// The content type of the storage blob. Cannot be defined if `sourceUri` is defined. Defaults to `application/octet-stream`.
 	ContentType pulumi.StringPtrInput
 	// The encryption scope to use for this blob.
@@ -212,7 +209,7 @@ type BlobState struct {
 	Name pulumi.StringPtrInput
 	// The number of workers per CPU core to run for concurrent uploads. Defaults to `8`. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** `parallelism` is only applicable for Page blobs - support for [Block Blobs is blocked on the upstream issue](https://github.com/jackofallops/giovanni/issues/15).
+	// > **Note:** `parallelism` is only applicable for Page blobs - support for [Block Blobs is blocked on the upstream issue](https://github.com/jackofallops/giovanni/issues/15).
 	Parallelism pulumi.IntPtrInput
 	// Used only for `page` blobs to specify the size in bytes of the blob to be created. Must be a multiple of 512. Defaults to `0`. Changing this forces a new resource to be created.
 	//
@@ -243,8 +240,7 @@ type blobArgs struct {
 	AccessTier *string `pulumi:"accessTier"`
 	// Controls the [cache control header](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cache-Control) content of the response when blob is requested .
 	CacheControl *string `pulumi:"cacheControl"`
-	// The MD5 sum of the blob contents. Cannot be defined if `sourceUri` is defined, or if blob type is Append or Page. Changing this forces a new resource to be created.
-	ContentMd5 *string `pulumi:"contentMd5"`
+	ContentMd5   *string `pulumi:"contentMd5"`
 	// The content type of the storage blob. Cannot be defined if `sourceUri` is defined. Defaults to `application/octet-stream`.
 	ContentType *string `pulumi:"contentType"`
 	// The encryption scope to use for this blob.
@@ -255,7 +251,7 @@ type blobArgs struct {
 	Name *string `pulumi:"name"`
 	// The number of workers per CPU core to run for concurrent uploads. Defaults to `8`. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** `parallelism` is only applicable for Page blobs - support for [Block Blobs is blocked on the upstream issue](https://github.com/jackofallops/giovanni/issues/15).
+	// > **Note:** `parallelism` is only applicable for Page blobs - support for [Block Blobs is blocked on the upstream issue](https://github.com/jackofallops/giovanni/issues/15).
 	Parallelism *int `pulumi:"parallelism"`
 	// Used only for `page` blobs to specify the size in bytes of the blob to be created. Must be a multiple of 512. Defaults to `0`. Changing this forces a new resource to be created.
 	//
@@ -281,8 +277,7 @@ type BlobArgs struct {
 	AccessTier pulumi.StringPtrInput
 	// Controls the [cache control header](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cache-Control) content of the response when blob is requested .
 	CacheControl pulumi.StringPtrInput
-	// The MD5 sum of the blob contents. Cannot be defined if `sourceUri` is defined, or if blob type is Append or Page. Changing this forces a new resource to be created.
-	ContentMd5 pulumi.StringPtrInput
+	ContentMd5   pulumi.StringPtrInput
 	// The content type of the storage blob. Cannot be defined if `sourceUri` is defined. Defaults to `application/octet-stream`.
 	ContentType pulumi.StringPtrInput
 	// The encryption scope to use for this blob.
@@ -293,7 +288,7 @@ type BlobArgs struct {
 	Name pulumi.StringPtrInput
 	// The number of workers per CPU core to run for concurrent uploads. Defaults to `8`. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** `parallelism` is only applicable for Page blobs - support for [Block Blobs is blocked on the upstream issue](https://github.com/jackofallops/giovanni/issues/15).
+	// > **Note:** `parallelism` is only applicable for Page blobs - support for [Block Blobs is blocked on the upstream issue](https://github.com/jackofallops/giovanni/issues/15).
 	Parallelism pulumi.IntPtrInput
 	// Used only for `page` blobs to specify the size in bytes of the blob to be created. Must be a multiple of 512. Defaults to `0`. Changing this forces a new resource to be created.
 	//
@@ -410,7 +405,6 @@ func (o BlobOutput) CacheControl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Blob) pulumi.StringPtrOutput { return v.CacheControl }).(pulumi.StringPtrOutput)
 }
 
-// The MD5 sum of the blob contents. Cannot be defined if `sourceUri` is defined, or if blob type is Append or Page. Changing this forces a new resource to be created.
 func (o BlobOutput) ContentMd5() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Blob) pulumi.StringPtrOutput { return v.ContentMd5 }).(pulumi.StringPtrOutput)
 }
@@ -437,7 +431,7 @@ func (o BlobOutput) Name() pulumi.StringOutput {
 
 // The number of workers per CPU core to run for concurrent uploads. Defaults to `8`. Changing this forces a new resource to be created.
 //
-// > **NOTE:** `parallelism` is only applicable for Page blobs - support for [Block Blobs is blocked on the upstream issue](https://github.com/jackofallops/giovanni/issues/15).
+// > **Note:** `parallelism` is only applicable for Page blobs - support for [Block Blobs is blocked on the upstream issue](https://github.com/jackofallops/giovanni/issues/15).
 func (o BlobOutput) Parallelism() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *Blob) pulumi.IntPtrOutput { return v.Parallelism }).(pulumi.IntPtrOutput)
 }

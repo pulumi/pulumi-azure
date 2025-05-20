@@ -111,6 +111,13 @@ import javax.annotation.Nullable;
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
+ * ## API Providers
+ * 
+ * &lt;!-- This section is generated, changes will be overwritten --&gt;
+ * This resource uses the following Azure API Providers:
+ * 
+ * * `Microsoft.MachineLearningServices`: 2024-04-01
+ * 
  * ## Import
  * 
  * Machine Learning Workspace FQDN Network Outbound Rule can be imported using the `resource id`, e.g.

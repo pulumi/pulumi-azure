@@ -34,7 +34,7 @@ class VolumeGroupArgs:
         :param pulumi.Input[builtins.str] elastic_san_id: Specifies the Elastic SAN ID within which this Elastic SAN Volume Group should exist. Changing this forces a new resource to be created.
         :param pulumi.Input['VolumeGroupEncryptionArgs'] encryption: An `encryption` block as defined below.
                
-               > **NOTE:** The `encryption` block can only be set when `encryption_type` is set to `EncryptionAtRestWithCustomerManagedKey`.
+               > **Note:** The `encryption` block can only be set when `encryption_type` is set to `EncryptionAtRestWithCustomerManagedKey`.
         :param pulumi.Input[builtins.str] encryption_type: Specifies the type of the key used to encrypt the data of the disk. Possible values are `EncryptionAtRestWithCustomerManagedKey` and `EncryptionAtRestWithPlatformKey`. Defaults to `EncryptionAtRestWithPlatformKey`.
         :param pulumi.Input['VolumeGroupIdentityArgs'] identity: An `identity` block as defined below. Specifies the Managed Identity which should be assigned to this Elastic SAN Volume Group.
         :param pulumi.Input[builtins.str] name: Specifies the name of this Elastic SAN Volume Group. Changing this forces a new resource to be created.
@@ -73,7 +73,7 @@ class VolumeGroupArgs:
         """
         An `encryption` block as defined below.
 
-        > **NOTE:** The `encryption` block can only be set when `encryption_type` is set to `EncryptionAtRestWithCustomerManagedKey`.
+        > **Note:** The `encryption` block can only be set when `encryption_type` is set to `EncryptionAtRestWithCustomerManagedKey`.
         """
         return pulumi.get(self, "encryption")
 
@@ -157,7 +157,7 @@ class _VolumeGroupState:
         :param pulumi.Input[builtins.str] elastic_san_id: Specifies the Elastic SAN ID within which this Elastic SAN Volume Group should exist. Changing this forces a new resource to be created.
         :param pulumi.Input['VolumeGroupEncryptionArgs'] encryption: An `encryption` block as defined below.
                
-               > **NOTE:** The `encryption` block can only be set when `encryption_type` is set to `EncryptionAtRestWithCustomerManagedKey`.
+               > **Note:** The `encryption` block can only be set when `encryption_type` is set to `EncryptionAtRestWithCustomerManagedKey`.
         :param pulumi.Input[builtins.str] encryption_type: Specifies the type of the key used to encrypt the data of the disk. Possible values are `EncryptionAtRestWithCustomerManagedKey` and `EncryptionAtRestWithPlatformKey`. Defaults to `EncryptionAtRestWithPlatformKey`.
         :param pulumi.Input['VolumeGroupIdentityArgs'] identity: An `identity` block as defined below. Specifies the Managed Identity which should be assigned to this Elastic SAN Volume Group.
         :param pulumi.Input[builtins.str] name: Specifies the name of this Elastic SAN Volume Group. Changing this forces a new resource to be created.
@@ -197,7 +197,7 @@ class _VolumeGroupState:
         """
         An `encryption` block as defined below.
 
-        > **NOTE:** The `encryption` block can only be set when `encryption_type` is set to `EncryptionAtRestWithCustomerManagedKey`.
+        > **Note:** The `encryption` block can only be set when `encryption_type` is set to `EncryptionAtRestWithCustomerManagedKey`.
         """
         return pulumi.get(self, "encryption")
 
@@ -391,6 +391,13 @@ class VolumeGroup(pulumi.CustomResource):
             }])
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.ElasticSan`: 2023-01-01
+
         ## Import
 
         An existing Elastic SAN Volume Group can be imported into Pulumi using the `resource id`, e.g.
@@ -404,7 +411,7 @@ class VolumeGroup(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] elastic_san_id: Specifies the Elastic SAN ID within which this Elastic SAN Volume Group should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[Union['VolumeGroupEncryptionArgs', 'VolumeGroupEncryptionArgsDict']] encryption: An `encryption` block as defined below.
                
-               > **NOTE:** The `encryption` block can only be set when `encryption_type` is set to `EncryptionAtRestWithCustomerManagedKey`.
+               > **Note:** The `encryption` block can only be set when `encryption_type` is set to `EncryptionAtRestWithCustomerManagedKey`.
         :param pulumi.Input[builtins.str] encryption_type: Specifies the type of the key used to encrypt the data of the disk. Possible values are `EncryptionAtRestWithCustomerManagedKey` and `EncryptionAtRestWithPlatformKey`. Defaults to `EncryptionAtRestWithPlatformKey`.
         :param pulumi.Input[Union['VolumeGroupIdentityArgs', 'VolumeGroupIdentityArgsDict']] identity: An `identity` block as defined below. Specifies the Managed Identity which should be assigned to this Elastic SAN Volume Group.
         :param pulumi.Input[builtins.str] name: Specifies the name of this Elastic SAN Volume Group. Changing this forces a new resource to be created.
@@ -528,6 +535,13 @@ class VolumeGroup(pulumi.CustomResource):
             }])
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.ElasticSan`: 2023-01-01
+
         ## Import
 
         An existing Elastic SAN Volume Group can be imported into Pulumi using the `resource id`, e.g.
@@ -603,7 +617,7 @@ class VolumeGroup(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] elastic_san_id: Specifies the Elastic SAN ID within which this Elastic SAN Volume Group should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[Union['VolumeGroupEncryptionArgs', 'VolumeGroupEncryptionArgsDict']] encryption: An `encryption` block as defined below.
                
-               > **NOTE:** The `encryption` block can only be set when `encryption_type` is set to `EncryptionAtRestWithCustomerManagedKey`.
+               > **Note:** The `encryption` block can only be set when `encryption_type` is set to `EncryptionAtRestWithCustomerManagedKey`.
         :param pulumi.Input[builtins.str] encryption_type: Specifies the type of the key used to encrypt the data of the disk. Possible values are `EncryptionAtRestWithCustomerManagedKey` and `EncryptionAtRestWithPlatformKey`. Defaults to `EncryptionAtRestWithPlatformKey`.
         :param pulumi.Input[Union['VolumeGroupIdentityArgs', 'VolumeGroupIdentityArgsDict']] identity: An `identity` block as defined below. Specifies the Managed Identity which should be assigned to this Elastic SAN Volume Group.
         :param pulumi.Input[builtins.str] name: Specifies the name of this Elastic SAN Volume Group. Changing this forces a new resource to be created.
@@ -637,7 +651,7 @@ class VolumeGroup(pulumi.CustomResource):
         """
         An `encryption` block as defined below.
 
-        > **NOTE:** The `encryption` block can only be set when `encryption_type` is set to `EncryptionAtRestWithCustomerManagedKey`.
+        > **Note:** The `encryption` block can only be set when `encryption_type` is set to `EncryptionAtRestWithCustomerManagedKey`.
         """
         return pulumi.get(self, "encryption")
 

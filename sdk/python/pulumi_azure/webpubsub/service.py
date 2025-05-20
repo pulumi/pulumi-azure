@@ -41,7 +41,7 @@ class ServiceArgs:
         :param pulumi.Input[builtins.bool] aad_auth_enabled: Whether to enable AAD auth? Defaults to `true`.
         :param pulumi.Input[builtins.int] capacity: Specifies the number of units associated with this Web PubSub resource. Valid values are `1`, `2`, `3`, `4`, `5`, `6`, `7`, `8`, `9`, `10`, `20`, `30`, `40`, `50`, `60`, `70`, `80`, `90`, `100`, `200`, `300`, `400`, `500`, `600`, `700`, `800`, `900` and `1000`.
                
-               > **NOTE:** The valid capacity range for sku `Free_F1` is `1`, for sku `Premium_P2` is from `100` to `1000`, and from `1` to `100` for sku `Standard_S1` and `Premium_P1`.
+               > **Note:** The valid capacity range for sku `Free_F1` is `1`, for sku `Premium_P2` is from `100` to `1000`, and from `1` to `100` for sku `Standard_S1` and `Premium_P1`.
         :param pulumi.Input['ServiceIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input['ServiceLiveTraceArgs'] live_trace: A `live_trace` block as defined below.
         :param pulumi.Input[builtins.bool] local_auth_enabled: Whether to enable local auth? Defaults to `true`.
@@ -116,7 +116,7 @@ class ServiceArgs:
         """
         Specifies the number of units associated with this Web PubSub resource. Valid values are `1`, `2`, `3`, `4`, `5`, `6`, `7`, `8`, `9`, `10`, `20`, `30`, `40`, `50`, `60`, `70`, `80`, `90`, `100`, `200`, `300`, `400`, `500`, `600`, `700`, `800`, `900` and `1000`.
 
-        > **NOTE:** The valid capacity range for sku `Free_F1` is `1`, for sku `Premium_P2` is from `100` to `1000`, and from `1` to `100` for sku `Standard_S1` and `Premium_P1`.
+        > **Note:** The valid capacity range for sku `Free_F1` is `1`, for sku `Premium_P2` is from `100` to `1000`, and from `1` to `100` for sku `Standard_S1` and `Premium_P1`.
         """
         return pulumi.get(self, "capacity")
 
@@ -250,7 +250,7 @@ class _ServiceState:
         :param pulumi.Input[builtins.bool] aad_auth_enabled: Whether to enable AAD auth? Defaults to `true`.
         :param pulumi.Input[builtins.int] capacity: Specifies the number of units associated with this Web PubSub resource. Valid values are `1`, `2`, `3`, `4`, `5`, `6`, `7`, `8`, `9`, `10`, `20`, `30`, `40`, `50`, `60`, `70`, `80`, `90`, `100`, `200`, `300`, `400`, `500`, `600`, `700`, `800`, `900` and `1000`.
                
-               > **NOTE:** The valid capacity range for sku `Free_F1` is `1`, for sku `Premium_P2` is from `100` to `1000`, and from `1` to `100` for sku `Standard_S1` and `Premium_P1`.
+               > **Note:** The valid capacity range for sku `Free_F1` is `1`, for sku `Premium_P2` is from `100` to `1000`, and from `1` to `100` for sku `Standard_S1` and `Premium_P1`.
         :param pulumi.Input[builtins.str] external_ip: The publicly accessible IP of the Web PubSub service.
         :param pulumi.Input[builtins.str] hostname: The FQDN of the Web PubSub service.
         :param pulumi.Input['ServiceIdentityArgs'] identity: An `identity` block as defined below.
@@ -331,7 +331,7 @@ class _ServiceState:
         """
         Specifies the number of units associated with this Web PubSub resource. Valid values are `1`, `2`, `3`, `4`, `5`, `6`, `7`, `8`, `9`, `10`, `20`, `30`, `40`, `50`, `60`, `70`, `80`, `90`, `100`, `200`, `300`, `400`, `500`, `600`, `700`, `800`, `900` and `1000`.
 
-        > **NOTE:** The valid capacity range for sku `Free_F1` is `1`, for sku `Premium_P2` is from `100` to `1000`, and from `1` to `100` for sku `Standard_S1` and `Premium_P1`.
+        > **Note:** The valid capacity range for sku `Free_F1` is `1`, for sku `Premium_P2` is from `100` to `1000`, and from `1` to `100` for sku `Standard_S1` and `Premium_P1`.
         """
         return pulumi.get(self, "capacity")
 
@@ -613,6 +613,13 @@ class Service(pulumi.CustomResource):
             })
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.SignalRService`: 2024-03-01
+
         ## Import
 
         Web PubSub services can be imported using the `resource id`, e.g.
@@ -626,7 +633,7 @@ class Service(pulumi.CustomResource):
         :param pulumi.Input[builtins.bool] aad_auth_enabled: Whether to enable AAD auth? Defaults to `true`.
         :param pulumi.Input[builtins.int] capacity: Specifies the number of units associated with this Web PubSub resource. Valid values are `1`, `2`, `3`, `4`, `5`, `6`, `7`, `8`, `9`, `10`, `20`, `30`, `40`, `50`, `60`, `70`, `80`, `90`, `100`, `200`, `300`, `400`, `500`, `600`, `700`, `800`, `900` and `1000`.
                
-               > **NOTE:** The valid capacity range for sku `Free_F1` is `1`, for sku `Premium_P2` is from `100` to `1000`, and from `1` to `100` for sku `Standard_S1` and `Premium_P1`.
+               > **Note:** The valid capacity range for sku `Free_F1` is `1`, for sku `Premium_P2` is from `100` to `1000`, and from `1` to `100` for sku `Standard_S1` and `Premium_P1`.
         :param pulumi.Input[Union['ServiceIdentityArgs', 'ServiceIdentityArgsDict']] identity: An `identity` block as defined below.
         :param pulumi.Input[Union['ServiceLiveTraceArgs', 'ServiceLiveTraceArgsDict']] live_trace: A `live_trace` block as defined below.
         :param pulumi.Input[builtins.bool] local_auth_enabled: Whether to enable local auth? Defaults to `true`.
@@ -672,6 +679,13 @@ class Service(pulumi.CustomResource):
                 "type": "SystemAssigned",
             })
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.SignalRService`: 2024-03-01
 
         ## Import
 
@@ -785,7 +799,7 @@ class Service(pulumi.CustomResource):
         :param pulumi.Input[builtins.bool] aad_auth_enabled: Whether to enable AAD auth? Defaults to `true`.
         :param pulumi.Input[builtins.int] capacity: Specifies the number of units associated with this Web PubSub resource. Valid values are `1`, `2`, `3`, `4`, `5`, `6`, `7`, `8`, `9`, `10`, `20`, `30`, `40`, `50`, `60`, `70`, `80`, `90`, `100`, `200`, `300`, `400`, `500`, `600`, `700`, `800`, `900` and `1000`.
                
-               > **NOTE:** The valid capacity range for sku `Free_F1` is `1`, for sku `Premium_P2` is from `100` to `1000`, and from `1` to `100` for sku `Standard_S1` and `Premium_P1`.
+               > **Note:** The valid capacity range for sku `Free_F1` is `1`, for sku `Premium_P2` is from `100` to `1000`, and from `1` to `100` for sku `Standard_S1` and `Premium_P1`.
         :param pulumi.Input[builtins.str] external_ip: The publicly accessible IP of the Web PubSub service.
         :param pulumi.Input[builtins.str] hostname: The FQDN of the Web PubSub service.
         :param pulumi.Input[Union['ServiceIdentityArgs', 'ServiceIdentityArgsDict']] identity: An `identity` block as defined below.
@@ -846,7 +860,7 @@ class Service(pulumi.CustomResource):
         """
         Specifies the number of units associated with this Web PubSub resource. Valid values are `1`, `2`, `3`, `4`, `5`, `6`, `7`, `8`, `9`, `10`, `20`, `30`, `40`, `50`, `60`, `70`, `80`, `90`, `100`, `200`, `300`, `400`, `500`, `600`, `700`, `800`, `900` and `1000`.
 
-        > **NOTE:** The valid capacity range for sku `Free_F1` is `1`, for sku `Premium_P2` is from `100` to `1000`, and from `1` to `100` for sku `Standard_S1` and `Premium_P1`.
+        > **Note:** The valid capacity range for sku `Free_F1` is `1`, for sku `Premium_P2` is from `100` to `1000`, and from `1` to `100` for sku `Standard_S1` and `Premium_P1`.
         """
         return pulumi.get(self, "capacity")
 

@@ -18,9 +18,6 @@ namespace Pulumi.Azure.NotificationHub.Inputs
         [Input("applicationMode", required: true)]
         public Input<string> ApplicationMode { get; set; } = null!;
 
-        /// <summary>
-        /// The Bundle ID of the iOS/macOS application to send push notifications for, such as `com.org.example`.
-        /// </summary>
         [Input("bundleId", required: true)]
         public Input<string> BundleId { get; set; } = null!;
 

@@ -144,6 +144,13 @@ class GetHostPoolRegistrationInfo(pulumi.CustomResource):
             expiration_date="2022-01-01T23:40:52Z")
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.DesktopVirtualization`: 2024-04-03
+
         ## Import
 
         AVD Registration Infos can be imported using the `resource id`, e.g.
@@ -186,6 +193,13 @@ class GetHostPoolRegistrationInfo(pulumi.CustomResource):
             hostpool_id=example_host_pool.id,
             expiration_date="2022-01-01T23:40:52Z")
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.DesktopVirtualization`: 2024-04-03
 
         ## Import
 

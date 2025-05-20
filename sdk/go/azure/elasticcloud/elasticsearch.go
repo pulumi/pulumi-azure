@@ -52,6 +52,13 @@ import (
 //
 // ```
 //
+// ## API Providers
+//
+// <!-- This section is generated, changes will be overwritten -->
+// This resource uses the following Azure API Providers:
+//
+// * `Microsoft.Elastic`: 2023-06-01
+//
 // ## Import
 //
 // Elasticsearch's can be imported using the `resource id`, e.g.
@@ -88,7 +95,7 @@ type Elasticsearch struct {
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// Specifies the name of the SKU for this Elasticsearch. Changing this forces a new Elasticsearch to be created.
 	//
-	// > **NOTE:** The SKU depends on the Elasticsearch Plans available for your account and is a combination of PlanID_Term.
+	// > **Note:** The SKU depends on the Elasticsearch Plans available for your account and is a combination of PlanID_Term.
 	// Ex: If the plan ID is "planXYZ" and term is "Yearly", the SKU will be "planXYZ_Yearly".
 	// You may find your eligible plans [here](https://portal.azure.com/#view/Microsoft_Azure_Marketplace/GalleryItemDetailsBladeNopdl/id/elastic.ec-azure-pp) or in the online documentation [here](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/elastic.ec-azure-pp?tab=PlansAndPrice) for more details or in case of any issues with the SKU.
 	SkuName pulumi.StringOutput `pulumi:"skuName"`
@@ -161,7 +168,7 @@ type elasticsearchState struct {
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// Specifies the name of the SKU for this Elasticsearch. Changing this forces a new Elasticsearch to be created.
 	//
-	// > **NOTE:** The SKU depends on the Elasticsearch Plans available for your account and is a combination of PlanID_Term.
+	// > **Note:** The SKU depends on the Elasticsearch Plans available for your account and is a combination of PlanID_Term.
 	// Ex: If the plan ID is "planXYZ" and term is "Yearly", the SKU will be "planXYZ_Yearly".
 	// You may find your eligible plans [here](https://portal.azure.com/#view/Microsoft_Azure_Marketplace/GalleryItemDetailsBladeNopdl/id/elastic.ec-azure-pp) or in the online documentation [here](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/elastic.ec-azure-pp?tab=PlansAndPrice) for more details or in case of any issues with the SKU.
 	SkuName *string `pulumi:"skuName"`
@@ -196,7 +203,7 @@ type ElasticsearchState struct {
 	ResourceGroupName pulumi.StringPtrInput
 	// Specifies the name of the SKU for this Elasticsearch. Changing this forces a new Elasticsearch to be created.
 	//
-	// > **NOTE:** The SKU depends on the Elasticsearch Plans available for your account and is a combination of PlanID_Term.
+	// > **Note:** The SKU depends on the Elasticsearch Plans available for your account and is a combination of PlanID_Term.
 	// Ex: If the plan ID is "planXYZ" and term is "Yearly", the SKU will be "planXYZ_Yearly".
 	// You may find your eligible plans [here](https://portal.azure.com/#view/Microsoft_Azure_Marketplace/GalleryItemDetailsBladeNopdl/id/elastic.ec-azure-pp) or in the online documentation [here](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/elastic.ec-azure-pp?tab=PlansAndPrice) for more details or in case of any issues with the SKU.
 	SkuName pulumi.StringPtrInput
@@ -223,7 +230,7 @@ type elasticsearchArgs struct {
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Specifies the name of the SKU for this Elasticsearch. Changing this forces a new Elasticsearch to be created.
 	//
-	// > **NOTE:** The SKU depends on the Elasticsearch Plans available for your account and is a combination of PlanID_Term.
+	// > **Note:** The SKU depends on the Elasticsearch Plans available for your account and is a combination of PlanID_Term.
 	// Ex: If the plan ID is "planXYZ" and term is "Yearly", the SKU will be "planXYZ_Yearly".
 	// You may find your eligible plans [here](https://portal.azure.com/#view/Microsoft_Azure_Marketplace/GalleryItemDetailsBladeNopdl/id/elastic.ec-azure-pp) or in the online documentation [here](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/elastic.ec-azure-pp?tab=PlansAndPrice) for more details or in case of any issues with the SKU.
 	SkuName string `pulumi:"skuName"`
@@ -247,7 +254,7 @@ type ElasticsearchArgs struct {
 	ResourceGroupName pulumi.StringInput
 	// Specifies the name of the SKU for this Elasticsearch. Changing this forces a new Elasticsearch to be created.
 	//
-	// > **NOTE:** The SKU depends on the Elasticsearch Plans available for your account and is a combination of PlanID_Term.
+	// > **Note:** The SKU depends on the Elasticsearch Plans available for your account and is a combination of PlanID_Term.
 	// Ex: If the plan ID is "planXYZ" and term is "Yearly", the SKU will be "planXYZ_Yearly".
 	// You may find your eligible plans [here](https://portal.azure.com/#view/Microsoft_Azure_Marketplace/GalleryItemDetailsBladeNopdl/id/elastic.ec-azure-pp) or in the online documentation [here](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/elastic.ec-azure-pp?tab=PlansAndPrice) for more details or in case of any issues with the SKU.
 	SkuName pulumi.StringInput
@@ -404,7 +411,7 @@ func (o ElasticsearchOutput) ResourceGroupName() pulumi.StringOutput {
 
 // Specifies the name of the SKU for this Elasticsearch. Changing this forces a new Elasticsearch to be created.
 //
-// > **NOTE:** The SKU depends on the Elasticsearch Plans available for your account and is a combination of PlanID_Term.
+// > **Note:** The SKU depends on the Elasticsearch Plans available for your account and is a combination of PlanID_Term.
 // Ex: If the plan ID is "planXYZ" and term is "Yearly", the SKU will be "planXYZ_Yearly".
 // You may find your eligible plans [here](https://portal.azure.com/#view/Microsoft_Azure_Marketplace/GalleryItemDetailsBladeNopdl/id/elastic.ec-azure-pp) or in the online documentation [here](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/elastic.ec-azure-pp?tab=PlansAndPrice) for more details or in case of any issues with the SKU.
 func (o ElasticsearchOutput) SkuName() pulumi.StringOutput {

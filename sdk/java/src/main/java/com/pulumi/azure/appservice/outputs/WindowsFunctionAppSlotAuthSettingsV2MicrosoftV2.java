@@ -25,7 +25,7 @@ public final class WindowsFunctionAppSlotAuthSettingsV2MicrosoftV2 {
     /**
      * @return The app setting name containing the OAuth 2.0 client secret that was created for the app used for authentication.
      * 
-     * !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+     * !&gt; **Note:** A setting with this name must exist in `app_settings` to function correctly.
      * 
      */
     private String clientSecretSettingName;
@@ -53,7 +53,7 @@ public final class WindowsFunctionAppSlotAuthSettingsV2MicrosoftV2 {
     /**
      * @return The app setting name containing the OAuth 2.0 client secret that was created for the app used for authentication.
      * 
-     * !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+     * !&gt; **Note:** A setting with this name must exist in `app_settings` to function correctly.
      * 
      */
     public String clientSecretSettingName() {

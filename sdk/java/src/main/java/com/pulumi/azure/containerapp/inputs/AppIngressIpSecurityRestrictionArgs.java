@@ -19,7 +19,7 @@ public final class AppIngressIpSecurityRestrictionArgs extends com.pulumi.resour
     /**
      * The IP-filter action. `Allow` or `Deny`.
      * 
-     * &gt; **NOTE:** The `action` types in an all `ip_security_restriction` blocks must be the same for the `ingress`, mixing `Allow` and `Deny` rules is not currently supported by the service.
+     * &gt; **Note:** The `action` types in an all `ip_security_restriction` blocks must be the same for the `ingress`, mixing `Allow` and `Deny` rules is not currently supported by the service.
      * 
      */
     @Import(name="action", required=true)
@@ -28,7 +28,7 @@ public final class AppIngressIpSecurityRestrictionArgs extends com.pulumi.resour
     /**
      * @return The IP-filter action. `Allow` or `Deny`.
      * 
-     * &gt; **NOTE:** The `action` types in an all `ip_security_restriction` blocks must be the same for the `ingress`, mixing `Allow` and `Deny` rules is not currently supported by the service.
+     * &gt; **Note:** The `action` types in an all `ip_security_restriction` blocks must be the same for the `ingress`, mixing `Allow` and `Deny` rules is not currently supported by the service.
      * 
      */
     public Output<String> action() {
@@ -110,7 +110,7 @@ public final class AppIngressIpSecurityRestrictionArgs extends com.pulumi.resour
         /**
          * @param action The IP-filter action. `Allow` or `Deny`.
          * 
-         * &gt; **NOTE:** The `action` types in an all `ip_security_restriction` blocks must be the same for the `ingress`, mixing `Allow` and `Deny` rules is not currently supported by the service.
+         * &gt; **Note:** The `action` types in an all `ip_security_restriction` blocks must be the same for the `ingress`, mixing `Allow` and `Deny` rules is not currently supported by the service.
          * 
          * @return builder
          * 
@@ -123,7 +123,7 @@ public final class AppIngressIpSecurityRestrictionArgs extends com.pulumi.resour
         /**
          * @param action The IP-filter action. `Allow` or `Deny`.
          * 
-         * &gt; **NOTE:** The `action` types in an all `ip_security_restriction` blocks must be the same for the `ingress`, mixing `Allow` and `Deny` rules is not currently supported by the service.
+         * &gt; **Note:** The `action` types in an all `ip_security_restriction` blocks must be the same for the `ingress`, mixing `Allow` and `Deny` rules is not currently supported by the service.
          * 
          * @return builder
          * 

@@ -80,18 +80,18 @@ public final class RouteTableState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A list of objects representing routes. Each object accepts the arguments documented below.
+     * List of `route` objects representing routes as defined below. Each object accepts the arguments documented below.
      * 
-     * &gt; **NOTE** Since `route` can be configured both inline and via the separate `azure.network.Route` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
+     * &gt; **Note:** Since `route` can be configured both inline and via the separate `azure.network.Route` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
      * 
      */
     @Import(name="routes")
     private @Nullable Output<List<RouteTableRouteArgs>> routes;
 
     /**
-     * @return A list of objects representing routes. Each object accepts the arguments documented below.
+     * @return List of `route` objects representing routes as defined below. Each object accepts the arguments documented below.
      * 
-     * &gt; **NOTE** Since `route` can be configured both inline and via the separate `azure.network.Route` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
+     * &gt; **Note:** Since `route` can be configured both inline and via the separate `azure.network.Route` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
      * 
      */
     public Optional<Output<List<RouteTableRouteArgs>>> routes() {
@@ -243,9 +243,9 @@ public final class RouteTableState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param routes A list of objects representing routes. Each object accepts the arguments documented below.
+         * @param routes List of `route` objects representing routes as defined below. Each object accepts the arguments documented below.
          * 
-         * &gt; **NOTE** Since `route` can be configured both inline and via the separate `azure.network.Route` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
+         * &gt; **Note:** Since `route` can be configured both inline and via the separate `azure.network.Route` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
          * 
          * @return builder
          * 
@@ -256,9 +256,9 @@ public final class RouteTableState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param routes A list of objects representing routes. Each object accepts the arguments documented below.
+         * @param routes List of `route` objects representing routes as defined below. Each object accepts the arguments documented below.
          * 
-         * &gt; **NOTE** Since `route` can be configured both inline and via the separate `azure.network.Route` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
+         * &gt; **Note:** Since `route` can be configured both inline and via the separate `azure.network.Route` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
          * 
          * @return builder
          * 
@@ -268,9 +268,9 @@ public final class RouteTableState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param routes A list of objects representing routes. Each object accepts the arguments documented below.
+         * @param routes List of `route` objects representing routes as defined below. Each object accepts the arguments documented below.
          * 
-         * &gt; **NOTE** Since `route` can be configured both inline and via the separate `azure.network.Route` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
+         * &gt; **Note:** Since `route` can be configured both inline and via the separate `azure.network.Route` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
          * 
          * @return builder
          * 

@@ -25,14 +25,14 @@ public final class AppServiceSiteConfig {
     /**
      * @return If using User Managed Identity, the User Managed Identity Client Id
      * 
-     * &gt; **NOTE:** When using User Managed Identity with Azure Container Registry the Identity will need to have the [ACRPull role assigned](https://docs.microsoft.com/azure/container-registry/container-registry-authentication-managed-identity#example-1-access-with-a-user-assigned-identity)
+     * &gt; **Note:** When using User Managed Identity with Azure Container Registry the Identity will need to have the [ACRPull role assigned](https://docs.microsoft.com/azure/container-registry/container-registry-authentication-managed-identity#example-1-access-with-a-user-assigned-identity)
      * 
      */
     private @Nullable String acrUserManagedIdentityClientId;
     /**
      * @return Should the app be loaded at all times? Defaults to `false`.
      * 
-     * &gt; **NOTE:** when using an App Service Plan in the `Free` or `Shared` Tiers `always_on` must be set to `false`.
+     * &gt; **Note:** when using an App Service Plan in the `Free` or `Shared` Tiers `always_on` must be set to `false`.
      * 
      */
     private @Nullable Boolean alwaysOn;
@@ -77,9 +77,9 @@ public final class AppServiceSiteConfig {
      */
     private @Nullable Boolean http2Enabled;
     /**
-     * @return A list of objects representing ip restrictions as defined below.
+     * @return A list of `ip_restriction` objects representing IP restrictions as defined below.
      * 
-     * &gt; **NOTE** User has to explicitly set `ip_restriction` to empty slice (`[]`) to remove it.
+     * &gt; **Note:** User has to explicitly set `ip_restriction` to empty slice (`[]`) to remove it.
      * 
      */
     private @Nullable List<AppServiceSiteConfigIpRestriction> ipRestrictions;
@@ -101,14 +101,14 @@ public final class AppServiceSiteConfig {
     /**
      * @return Linux App Framework and version for the App Service. Possible options are a Docker container (`DOCKER|&lt;user/image:tag&gt;`), a base-64 encoded Docker Compose file (`COMPOSE|${filebase64(&#34;compose.yml&#34;)}`) or a base-64 encoded Kubernetes Manifest (`KUBE|${filebase64(&#34;kubernetes.yml&#34;)}`).
      * 
-     * &gt; **NOTE:** To set this property the App Service Plan to which the App belongs must be configured with `kind = &#34;Linux&#34;`, and `reserved = true` or the API will reject any value supplied.
+     * &gt; **Note:** To set this property the App Service Plan to which the App belongs must be configured with `kind = &#34;Linux&#34;`, and `reserved = true` or the API will reject any value supplied.
      * 
      */
     private @Nullable String linuxFxVersion;
     /**
      * @return Is &#34;MySQL In App&#34; Enabled? This runs a local MySQL instance with your app and shares resources from the App Service plan.
      * 
-     * &gt; **NOTE:** MySQL In App is not intended for production environments and will not scale beyond a single instance. Instead you may wish to use Azure Database for MySQL.
+     * &gt; **Note:** MySQL In App is not intended for production environments and will not scale beyond a single instance. Instead you may wish [to use Azure Database for MySQL](https://www.terraform.io/docs/providers/azurerm/r/mysql_database.html).
      * 
      */
     private @Nullable Boolean localMysqlEnabled;
@@ -150,7 +150,7 @@ public final class AppServiceSiteConfig {
     /**
      * @return A list of `scm_ip_restriction` objects representing IP restrictions as defined below.
      * 
-     * &gt; **NOTE** User has to explicitly set `scm_ip_restriction` to empty slice (`[]`) to remove it.
+     * &gt; **Note:** User has to explicitly set `scm_ip_restriction` to empty slice (`[]`) to remove it.
      * 
      */
     private @Nullable List<AppServiceSiteConfigScmIpRestriction> scmIpRestrictions;
@@ -162,14 +162,14 @@ public final class AppServiceSiteConfig {
     /**
      * @return IP security restrictions for scm to use main. Defaults to `false`.
      * 
-     * &gt; **NOTE** Any `scm_ip_restriction` blocks configured are ignored by the service when `scm_use_main_ip_restriction` is set to `true`. Any scm restrictions will become active if this is subsequently set to `false` or removed.
+     * &gt; **Note:** Any `scm_ip_restriction` blocks configured are ignored by the service when `scm_use_main_ip_restriction` is set to `true`. Any scm restrictions will become active if this is subsequently set to `false` or removed.
      * 
      */
     private @Nullable Boolean scmUseMainIpRestriction;
     /**
      * @return Should the App Service run in 32 bit mode, rather than 64 bit mode?
      * 
-     * &gt; **NOTE:** when using an App Service Plan in the `Free` or `Shared` Tiers `use_32_bit_worker_process` must be set to `true`.
+     * &gt; **Note:** when using an App Service Plan in the `Free` or `Shared` Tiers `use_32_bit_worker_process` must be set to `true`.
      * 
      */
     private @Nullable Boolean use32BitWorkerProcess;
@@ -181,6 +181,8 @@ public final class AppServiceSiteConfig {
     private @Nullable Boolean websocketsEnabled;
     /**
      * @return The Windows Docker container image (`DOCKER|&lt;user/image:tag&gt;`)
+     * 
+     * Additional examples of how to run Containers via the `azure.appservice.AppService` resource can be found in the `./examples/app-service` directory within the GitHub Repository.
      * 
      */
     private @Nullable String windowsFxVersion;
@@ -196,7 +198,7 @@ public final class AppServiceSiteConfig {
     /**
      * @return If using User Managed Identity, the User Managed Identity Client Id
      * 
-     * &gt; **NOTE:** When using User Managed Identity with Azure Container Registry the Identity will need to have the [ACRPull role assigned](https://docs.microsoft.com/azure/container-registry/container-registry-authentication-managed-identity#example-1-access-with-a-user-assigned-identity)
+     * &gt; **Note:** When using User Managed Identity with Azure Container Registry the Identity will need to have the [ACRPull role assigned](https://docs.microsoft.com/azure/container-registry/container-registry-authentication-managed-identity#example-1-access-with-a-user-assigned-identity)
      * 
      */
     public Optional<String> acrUserManagedIdentityClientId() {
@@ -205,7 +207,7 @@ public final class AppServiceSiteConfig {
     /**
      * @return Should the app be loaded at all times? Defaults to `false`.
      * 
-     * &gt; **NOTE:** when using an App Service Plan in the `Free` or `Shared` Tiers `always_on` must be set to `false`.
+     * &gt; **Note:** when using an App Service Plan in the `Free` or `Shared` Tiers `always_on` must be set to `false`.
      * 
      */
     public Optional<Boolean> alwaysOn() {
@@ -268,9 +270,9 @@ public final class AppServiceSiteConfig {
         return Optional.ofNullable(this.http2Enabled);
     }
     /**
-     * @return A list of objects representing ip restrictions as defined below.
+     * @return A list of `ip_restriction` objects representing IP restrictions as defined below.
      * 
-     * &gt; **NOTE** User has to explicitly set `ip_restriction` to empty slice (`[]`) to remove it.
+     * &gt; **Note:** User has to explicitly set `ip_restriction` to empty slice (`[]`) to remove it.
      * 
      */
     public List<AppServiceSiteConfigIpRestriction> ipRestrictions() {
@@ -300,7 +302,7 @@ public final class AppServiceSiteConfig {
     /**
      * @return Linux App Framework and version for the App Service. Possible options are a Docker container (`DOCKER|&lt;user/image:tag&gt;`), a base-64 encoded Docker Compose file (`COMPOSE|${filebase64(&#34;compose.yml&#34;)}`) or a base-64 encoded Kubernetes Manifest (`KUBE|${filebase64(&#34;kubernetes.yml&#34;)}`).
      * 
-     * &gt; **NOTE:** To set this property the App Service Plan to which the App belongs must be configured with `kind = &#34;Linux&#34;`, and `reserved = true` or the API will reject any value supplied.
+     * &gt; **Note:** To set this property the App Service Plan to which the App belongs must be configured with `kind = &#34;Linux&#34;`, and `reserved = true` or the API will reject any value supplied.
      * 
      */
     public Optional<String> linuxFxVersion() {
@@ -309,7 +311,7 @@ public final class AppServiceSiteConfig {
     /**
      * @return Is &#34;MySQL In App&#34; Enabled? This runs a local MySQL instance with your app and shares resources from the App Service plan.
      * 
-     * &gt; **NOTE:** MySQL In App is not intended for production environments and will not scale beyond a single instance. Instead you may wish to use Azure Database for MySQL.
+     * &gt; **Note:** MySQL In App is not intended for production environments and will not scale beyond a single instance. Instead you may wish [to use Azure Database for MySQL](https://www.terraform.io/docs/providers/azurerm/r/mysql_database.html).
      * 
      */
     public Optional<Boolean> localMysqlEnabled() {
@@ -367,7 +369,7 @@ public final class AppServiceSiteConfig {
     /**
      * @return A list of `scm_ip_restriction` objects representing IP restrictions as defined below.
      * 
-     * &gt; **NOTE** User has to explicitly set `scm_ip_restriction` to empty slice (`[]`) to remove it.
+     * &gt; **Note:** User has to explicitly set `scm_ip_restriction` to empty slice (`[]`) to remove it.
      * 
      */
     public List<AppServiceSiteConfigScmIpRestriction> scmIpRestrictions() {
@@ -383,7 +385,7 @@ public final class AppServiceSiteConfig {
     /**
      * @return IP security restrictions for scm to use main. Defaults to `false`.
      * 
-     * &gt; **NOTE** Any `scm_ip_restriction` blocks configured are ignored by the service when `scm_use_main_ip_restriction` is set to `true`. Any scm restrictions will become active if this is subsequently set to `false` or removed.
+     * &gt; **Note:** Any `scm_ip_restriction` blocks configured are ignored by the service when `scm_use_main_ip_restriction` is set to `true`. Any scm restrictions will become active if this is subsequently set to `false` or removed.
      * 
      */
     public Optional<Boolean> scmUseMainIpRestriction() {
@@ -392,7 +394,7 @@ public final class AppServiceSiteConfig {
     /**
      * @return Should the App Service run in 32 bit mode, rather than 64 bit mode?
      * 
-     * &gt; **NOTE:** when using an App Service Plan in the `Free` or `Shared` Tiers `use_32_bit_worker_process` must be set to `true`.
+     * &gt; **Note:** when using an App Service Plan in the `Free` or `Shared` Tiers `use_32_bit_worker_process` must be set to `true`.
      * 
      */
     public Optional<Boolean> use32BitWorkerProcess() {
@@ -410,6 +412,8 @@ public final class AppServiceSiteConfig {
     }
     /**
      * @return The Windows Docker container image (`DOCKER|&lt;user/image:tag&gt;`)
+     * 
+     * Additional examples of how to run Containers via the `azure.appservice.AppService` resource can be found in the `./examples/app-service` directory within the GitHub Repository.
      * 
      */
     public Optional<String> windowsFxVersion() {

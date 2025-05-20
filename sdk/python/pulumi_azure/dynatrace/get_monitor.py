@@ -178,6 +178,13 @@ def get_monitor(name: Optional[builtins.str] = None,
         resource_group_name="example-resources")
     ```
 
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Dynatrace.Observability`: 2023-04-27
+
 
     :param builtins.str name: Name of the Dynatrace monitor.
     :param builtins.str resource_group_name: The name of the Resource Group where the Dynatrace monitor should exist.
@@ -215,6 +222,13 @@ def get_monitor_output(name: Optional[pulumi.Input[builtins.str]] = None,
     example = azure.dynatrace.get_monitor(name="example-dynatracemonitor",
         resource_group_name="example-resources")
     ```
+
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Dynatrace.Observability`: 2023-04-27
 
 
     :param builtins.str name: Name of the Dynatrace monitor.

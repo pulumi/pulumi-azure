@@ -29,7 +29,7 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			example, err := storage.LookupAccount(ctx, &storage.LookupAccountArgs{
 //				Name:              "packerimages",
-//				ResourceGroupName: pulumi.StringRef("packer-storage"),
+//				ResourceGroupName: "packer-storage",
 //			}, nil)
 //			if err != nil {
 //				return err
@@ -40,6 +40,13 @@ import (
 //	}
 //
 // ```
+//
+// ## API Providers
+//
+// <!-- This section is generated, changes will be overwritten -->
+// This data source uses the following Azure API Providers:
+//
+// * `Microsoft.Storage`: 2023-05-01
 func LookupAccount(ctx *pulumi.Context, args *LookupAccountArgs, opts ...pulumi.InvokeOption) (*LookupAccountResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupAccountResult
@@ -57,7 +64,7 @@ type LookupAccountArgs struct {
 	// Specifies the name of the Storage Account
 	Name string `pulumi:"name"`
 	// Specifies the name of the resource group the Storage Account is located in.
-	ResourceGroupName *string `pulumi:"resourceGroupName"`
+	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
 // A collection of values returned by getAccount.
@@ -170,8 +177,8 @@ type LookupAccountResult struct {
 	// The microsoft routing hostname with port if applicable for web storage in the primary location.
 	PrimaryWebMicrosoftHost string `pulumi:"primaryWebMicrosoftHost"`
 	// The encryption key type of the queue.
-	QueueEncryptionKeyType string  `pulumi:"queueEncryptionKeyType"`
-	ResourceGroupName      *string `pulumi:"resourceGroupName"`
+	QueueEncryptionKeyType string `pulumi:"queueEncryptionKeyType"`
+	ResourceGroupName      string `pulumi:"resourceGroupName"`
 	// The secondary access key for the Storage Account.
 	SecondaryAccessKey string `pulumi:"secondaryAccessKey"`
 	// The connection string associated with the secondary blob location
@@ -266,7 +273,7 @@ type LookupAccountOutputArgs struct {
 	// Specifies the name of the Storage Account
 	Name pulumi.StringInput `pulumi:"name"`
 	// Specifies the name of the resource group the Storage Account is located in.
-	ResourceGroupName pulumi.StringPtrInput `pulumi:"resourceGroupName"`
+	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 }
 
 func (LookupAccountOutputArgs) ElementType() reflect.Type {
@@ -559,8 +566,8 @@ func (o LookupAccountResultOutput) QueueEncryptionKeyType() pulumi.StringOutput 
 	return o.ApplyT(func(v LookupAccountResult) string { return v.QueueEncryptionKeyType }).(pulumi.StringOutput)
 }
 
-func (o LookupAccountResultOutput) ResourceGroupName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupAccountResult) *string { return v.ResourceGroupName }).(pulumi.StringPtrOutput)
+func (o LookupAccountResultOutput) ResourceGroupName() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupAccountResult) string { return v.ResourceGroupName }).(pulumi.StringOutput)
 }
 
 // The secondary access key for the Storage Account.

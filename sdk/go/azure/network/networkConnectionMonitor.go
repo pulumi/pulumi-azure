@@ -12,10 +12,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Manages a Network Connection Monitor.
-//
-// > **NOTE:** Any Network Connection Monitor resource created with API versions 2019-06-01 or earlier (v1) are now incompatible with this provider, which now only supports v2.
-//
 // ## Example Usage
 //
 // ```go
@@ -157,7 +153,7 @@ import (
 //					},
 //					&network.NetworkConnectionMonitorEndpointArgs{
 //						Name:    pulumi.String("destination"),
-//						Address: pulumi.String("mycompany.io"),
+//						Address: pulumi.String("terraform.io"),
 //					},
 //				},
 //				TestConfigurations: network.NetworkConnectionMonitorTestConfigurationArray{

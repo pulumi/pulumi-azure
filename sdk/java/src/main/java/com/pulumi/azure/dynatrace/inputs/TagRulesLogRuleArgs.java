@@ -19,14 +19,14 @@ public final class TagRulesLogRuleArgs extends com.pulumi.resources.ResourceArgs
     public static final TagRulesLogRuleArgs Empty = new TagRulesLogRuleArgs();
 
     /**
-     * Filtering tag for the log rule. A `filtering_tag` block as defined below. Changing this forces a new resource to be created.
+     * Filtering tag for the log rule. A `filtering_tag` block as defined below.
      * 
      */
     @Import(name="filteringTags", required=true)
     private Output<List<TagRulesLogRuleFilteringTagArgs>> filteringTags;
 
     /**
-     * @return Filtering tag for the log rule. A `filtering_tag` block as defined below. Changing this forces a new resource to be created.
+     * @return Filtering tag for the log rule. A `filtering_tag` block as defined below.
      * 
      */
     public Output<List<TagRulesLogRuleFilteringTagArgs>> filteringTags() {
@@ -34,14 +34,14 @@ public final class TagRulesLogRuleArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * Send Activity logs. The default value is `false`. Changing this forces a new resource to be created.
+     * Send Activity logs. The default value is `false`.
      * 
      */
     @Import(name="sendActivityLogsEnabled")
     private @Nullable Output<Boolean> sendActivityLogsEnabled;
 
     /**
-     * @return Send Activity logs. The default value is `false`. Changing this forces a new resource to be created.
+     * @return Send Activity logs. The default value is `false`.
      * 
      */
     public Optional<Output<Boolean>> sendActivityLogsEnabled() {
@@ -49,14 +49,14 @@ public final class TagRulesLogRuleArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * Send Azure Active Directory logs. The default value is `false`. Changing this forces a new resource to be created.
+     * Send Azure Active Directory logs. The default value is `false`.
      * 
      */
     @Import(name="sendAzureActiveDirectoryLogsEnabled")
     private @Nullable Output<Boolean> sendAzureActiveDirectoryLogsEnabled;
 
     /**
-     * @return Send Azure Active Directory logs. The default value is `false`. Changing this forces a new resource to be created.
+     * @return Send Azure Active Directory logs. The default value is `false`.
      * 
      */
     public Optional<Output<Boolean>> sendAzureActiveDirectoryLogsEnabled() {
@@ -64,14 +64,14 @@ public final class TagRulesLogRuleArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * Send Subscription logs. The default value is `false`. Changing this forces a new resource to be created.
+     * Send Subscription logs. The default value is `false`.
      * 
      */
     @Import(name="sendSubscriptionLogsEnabled")
     private @Nullable Output<Boolean> sendSubscriptionLogsEnabled;
 
     /**
-     * @return Send Subscription logs. The default value is `false`. Changing this forces a new resource to be created.
+     * @return Send Subscription logs. The default value is `false`.
      * 
      */
     public Optional<Output<Boolean>> sendSubscriptionLogsEnabled() {
@@ -106,7 +106,7 @@ public final class TagRulesLogRuleArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param filteringTags Filtering tag for the log rule. A `filtering_tag` block as defined below. Changing this forces a new resource to be created.
+         * @param filteringTags Filtering tag for the log rule. A `filtering_tag` block as defined below.
          * 
          * @return builder
          * 
@@ -117,7 +117,7 @@ public final class TagRulesLogRuleArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param filteringTags Filtering tag for the log rule. A `filtering_tag` block as defined below. Changing this forces a new resource to be created.
+         * @param filteringTags Filtering tag for the log rule. A `filtering_tag` block as defined below.
          * 
          * @return builder
          * 
@@ -127,7 +127,7 @@ public final class TagRulesLogRuleArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param filteringTags Filtering tag for the log rule. A `filtering_tag` block as defined below. Changing this forces a new resource to be created.
+         * @param filteringTags Filtering tag for the log rule. A `filtering_tag` block as defined below.
          * 
          * @return builder
          * 
@@ -137,7 +137,7 @@ public final class TagRulesLogRuleArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param sendActivityLogsEnabled Send Activity logs. The default value is `false`. Changing this forces a new resource to be created.
+         * @param sendActivityLogsEnabled Send Activity logs. The default value is `false`.
          * 
          * @return builder
          * 
@@ -148,7 +148,7 @@ public final class TagRulesLogRuleArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param sendActivityLogsEnabled Send Activity logs. The default value is `false`. Changing this forces a new resource to be created.
+         * @param sendActivityLogsEnabled Send Activity logs. The default value is `false`.
          * 
          * @return builder
          * 
@@ -158,7 +158,7 @@ public final class TagRulesLogRuleArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param sendAzureActiveDirectoryLogsEnabled Send Azure Active Directory logs. The default value is `false`. Changing this forces a new resource to be created.
+         * @param sendAzureActiveDirectoryLogsEnabled Send Azure Active Directory logs. The default value is `false`.
          * 
          * @return builder
          * 
@@ -169,7 +169,7 @@ public final class TagRulesLogRuleArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param sendAzureActiveDirectoryLogsEnabled Send Azure Active Directory logs. The default value is `false`. Changing this forces a new resource to be created.
+         * @param sendAzureActiveDirectoryLogsEnabled Send Azure Active Directory logs. The default value is `false`.
          * 
          * @return builder
          * 
@@ -179,7 +179,7 @@ public final class TagRulesLogRuleArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param sendSubscriptionLogsEnabled Send Subscription logs. The default value is `false`. Changing this forces a new resource to be created.
+         * @param sendSubscriptionLogsEnabled Send Subscription logs. The default value is `false`.
          * 
          * @return builder
          * 
@@ -190,7 +190,7 @@ public final class TagRulesLogRuleArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param sendSubscriptionLogsEnabled Send Subscription logs. The default value is `false`. Changing this forces a new resource to be created.
+         * @param sendSubscriptionLogsEnabled Send Subscription logs. The default value is `false`.
          * 
          * @return builder
          * 

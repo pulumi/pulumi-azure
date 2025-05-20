@@ -237,6 +237,13 @@ class MoverTargetEndpoint(pulumi.CustomResource):
             description="Example Storage Container Endpoint Description")
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.StorageMover`: 2023-03-01
+
         ## Import
 
         Storage Mover Target Endpoint can be imported using the `resource id`, e.g.
@@ -293,6 +300,13 @@ class MoverTargetEndpoint(pulumi.CustomResource):
             storage_container_name=example_container.name,
             description="Example Storage Container Endpoint Description")
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.StorageMover`: 2023-03-01
 
         ## Import
 

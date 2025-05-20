@@ -77,7 +77,7 @@ namespace Pulumi.Azure.CosmosDB
     /// });
     /// ```
     /// 
-    /// &gt; **NOTE:** The CosmosDB Account needs to have the `EnableGremlin` capability enabled to use this resource - which can be done by adding this to the `capabilities` list within the `azure.cosmosdb.Account` resource.
+    /// &gt; **Note:** The CosmosDB Account needs to have the `EnableGremlin` capability enabled to use this resource - which can be done by adding this to the `capabilities` list within the `azure.cosmosdb.Account` resource.
     /// 
     /// ## Import
     /// 
@@ -155,9 +155,6 @@ namespace Pulumi.Azure.CosmosDB
         [Output("resourceGroupName")]
         public Output<string> ResourceGroupName { get; private set; } = null!;
 
-        /// <summary>
-        /// The throughput of the Gremlin graph (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon database creation otherwise it cannot be updated without a manual destroy-apply.
-        /// </summary>
         [Output("throughput")]
         public Output<int> Throughput { get; private set; } = null!;
 
@@ -278,9 +275,6 @@ namespace Pulumi.Azure.CosmosDB
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
 
-        /// <summary>
-        /// The throughput of the Gremlin graph (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon database creation otherwise it cannot be updated without a manual destroy-apply.
-        /// </summary>
         [Input("throughput")]
         public Input<int>? Throughput { get; set; }
 
@@ -369,9 +363,6 @@ namespace Pulumi.Azure.CosmosDB
         [Input("resourceGroupName")]
         public Input<string>? ResourceGroupName { get; set; }
 
-        /// <summary>
-        /// The throughput of the Gremlin graph (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon database creation otherwise it cannot be updated without a manual destroy-apply.
-        /// </summary>
         [Input("throughput")]
         public Input<int>? Throughput { get; set; }
 

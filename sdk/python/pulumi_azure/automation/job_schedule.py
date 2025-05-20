@@ -36,7 +36,7 @@ class JobScheduleArgs:
         :param pulumi.Input[builtins.str] job_schedule_id: The UUID identifying the Automation Job Schedule.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] parameters: A map of key/value pairs corresponding to the arguments that can be passed to the Runbook. Changing this forces a new resource to be created.
                
-               > **NOTE:** The parameter keys/names must strictly be in lowercase, even if this is not the case in the runbook. This is due to a limitation in Azure Automation where the parameter names are normalized. The values specified don't have this limitation.
+               > **Note:** The parameter keys/names must strictly be in lowercase, even if this is not the case in the runbook. This is due to a limitation in Azure Automation where the parameter names are normalized. The values specified don't have this limitation.
         :param pulumi.Input[builtins.str] run_on: Name of a Hybrid Worker Group the Runbook will be executed on. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "automation_account_name", automation_account_name)
@@ -116,7 +116,7 @@ class JobScheduleArgs:
         """
         A map of key/value pairs corresponding to the arguments that can be passed to the Runbook. Changing this forces a new resource to be created.
 
-        > **NOTE:** The parameter keys/names must strictly be in lowercase, even if this is not the case in the runbook. This is due to a limitation in Azure Automation where the parameter names are normalized. The values specified don't have this limitation.
+        > **Note:** The parameter keys/names must strictly be in lowercase, even if this is not the case in the runbook. This is due to a limitation in Azure Automation where the parameter names are normalized. The values specified don't have this limitation.
         """
         return pulumi.get(self, "parameters")
 
@@ -154,7 +154,7 @@ class _JobScheduleState:
         :param pulumi.Input[builtins.str] job_schedule_id: The UUID identifying the Automation Job Schedule.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] parameters: A map of key/value pairs corresponding to the arguments that can be passed to the Runbook. Changing this forces a new resource to be created.
                
-               > **NOTE:** The parameter keys/names must strictly be in lowercase, even if this is not the case in the runbook. This is due to a limitation in Azure Automation where the parameter names are normalized. The values specified don't have this limitation.
+               > **Note:** The parameter keys/names must strictly be in lowercase, even if this is not the case in the runbook. This is due to a limitation in Azure Automation where the parameter names are normalized. The values specified don't have this limitation.
         :param pulumi.Input[builtins.str] resource_group_name: The name of the resource group in which the Job Schedule is created. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] resource_manager_id: The Resource Manager ID of the Automation Job Schedule.
         :param pulumi.Input[builtins.str] run_on: Name of a Hybrid Worker Group the Runbook will be executed on. Changing this forces a new resource to be created.
@@ -208,7 +208,7 @@ class _JobScheduleState:
         """
         A map of key/value pairs corresponding to the arguments that can be passed to the Runbook. Changing this forces a new resource to be created.
 
-        > **NOTE:** The parameter keys/names must strictly be in lowercase, even if this is not the case in the runbook. This is due to a limitation in Azure Automation where the parameter names are normalized. The values specified don't have this limitation.
+        > **Note:** The parameter keys/names must strictly be in lowercase, even if this is not the case in the runbook. This is due to a limitation in Azure Automation where the parameter names are normalized. The values specified don't have this limitation.
         """
         return pulumi.get(self, "parameters")
 
@@ -294,11 +294,11 @@ class JobSchedule(pulumi.CustomResource):
         """
         Links an Automation Runbook and Schedule.
 
-        > **NOTE** AzureRM provides this stand-alone automation.JobSchedule and an inlined `job_schedule` property in azurerm_runbook to manage the job schedules. You can only make use of one of these methods to manage a job schedule.
+        > **Note:** AzureRM provides this stand-alone automation.JobSchedule and an inlined `job_schedule` property in azurerm_runbook to manage the job schedules. You can only make use of one of these methods to manage a job schedule.
 
         ## Example Usage
 
-        This is an example of just the Job Schedule.
+        This is an example of just the Job Schedule. A full example of the `automation.JobSchedule` resource can be found in the `./examples/automation-account` directory within the GitHub Repository
 
         ```python
         import pulumi
@@ -314,6 +314,13 @@ class JobSchedule(pulumi.CustomResource):
                 "vmname": "TF-VM-01",
             })
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Automation`: 2023-11-01
 
         ## Import
 
@@ -329,7 +336,7 @@ class JobSchedule(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] job_schedule_id: The UUID identifying the Automation Job Schedule.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] parameters: A map of key/value pairs corresponding to the arguments that can be passed to the Runbook. Changing this forces a new resource to be created.
                
-               > **NOTE:** The parameter keys/names must strictly be in lowercase, even if this is not the case in the runbook. This is due to a limitation in Azure Automation where the parameter names are normalized. The values specified don't have this limitation.
+               > **Note:** The parameter keys/names must strictly be in lowercase, even if this is not the case in the runbook. This is due to a limitation in Azure Automation where the parameter names are normalized. The values specified don't have this limitation.
         :param pulumi.Input[builtins.str] resource_group_name: The name of the resource group in which the Job Schedule is created. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] run_on: Name of a Hybrid Worker Group the Runbook will be executed on. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] runbook_name: The name of a Runbook to link to a Schedule. It needs to be in the same Automation Account as the Schedule and Job Schedule. Changing this forces a new resource to be created.
@@ -344,11 +351,11 @@ class JobSchedule(pulumi.CustomResource):
         """
         Links an Automation Runbook and Schedule.
 
-        > **NOTE** AzureRM provides this stand-alone automation.JobSchedule and an inlined `job_schedule` property in azurerm_runbook to manage the job schedules. You can only make use of one of these methods to manage a job schedule.
+        > **Note:** AzureRM provides this stand-alone automation.JobSchedule and an inlined `job_schedule` property in azurerm_runbook to manage the job schedules. You can only make use of one of these methods to manage a job schedule.
 
         ## Example Usage
 
-        This is an example of just the Job Schedule.
+        This is an example of just the Job Schedule. A full example of the `automation.JobSchedule` resource can be found in the `./examples/automation-account` directory within the GitHub Repository
 
         ```python
         import pulumi
@@ -364,6 +371,13 @@ class JobSchedule(pulumi.CustomResource):
                 "vmname": "TF-VM-01",
             })
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Automation`: 2023-11-01
 
         ## Import
 
@@ -449,7 +463,7 @@ class JobSchedule(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] job_schedule_id: The UUID identifying the Automation Job Schedule.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] parameters: A map of key/value pairs corresponding to the arguments that can be passed to the Runbook. Changing this forces a new resource to be created.
                
-               > **NOTE:** The parameter keys/names must strictly be in lowercase, even if this is not the case in the runbook. This is due to a limitation in Azure Automation where the parameter names are normalized. The values specified don't have this limitation.
+               > **Note:** The parameter keys/names must strictly be in lowercase, even if this is not the case in the runbook. This is due to a limitation in Azure Automation where the parameter names are normalized. The values specified don't have this limitation.
         :param pulumi.Input[builtins.str] resource_group_name: The name of the resource group in which the Job Schedule is created. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] resource_manager_id: The Resource Manager ID of the Automation Job Schedule.
         :param pulumi.Input[builtins.str] run_on: Name of a Hybrid Worker Group the Runbook will be executed on. Changing this forces a new resource to be created.
@@ -492,7 +506,7 @@ class JobSchedule(pulumi.CustomResource):
         """
         A map of key/value pairs corresponding to the arguments that can be passed to the Runbook. Changing this forces a new resource to be created.
 
-        > **NOTE:** The parameter keys/names must strictly be in lowercase, even if this is not the case in the runbook. This is due to a limitation in Azure Automation where the parameter names are normalized. The values specified don't have this limitation.
+        > **Note:** The parameter keys/names must strictly be in lowercase, even if this is not the case in the runbook. This is due to a limitation in Azure Automation where the parameter names are normalized. The values specified don't have this limitation.
         """
         return pulumi.get(self, "parameters")
 

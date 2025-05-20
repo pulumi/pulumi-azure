@@ -84,6 +84,13 @@ public final class DnsFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Network`: 2018-05-01
+     * 
      */
     public static Output<GetAAAARecordResult> getAAAARecord(GetAAAARecordArgs args) {
         return getAAAARecord(args, InvokeOptions.Empty);
@@ -126,6 +133,13 @@ public final class DnsFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Network`: 2018-05-01
      * 
      */
     public static CompletableFuture<GetAAAARecordResult> getAAAARecordPlain(GetAAAARecordPlainArgs args) {
@@ -170,6 +184,13 @@ public final class DnsFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Network`: 2018-05-01
+     * 
      */
     public static Output<GetAAAARecordResult> getAAAARecord(GetAAAARecordArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:dns/getAAAARecord:getAAAARecord", TypeShape.of(GetAAAARecordResult.class), args, Utilities.withVersion(options));
@@ -212,6 +233,13 @@ public final class DnsFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Network`: 2018-05-01
      * 
      */
     public static Output<GetAAAARecordResult> getAAAARecord(GetAAAARecordArgs args, InvokeOutputOptions options) {
@@ -256,6 +284,13 @@ public final class DnsFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Network`: 2018-05-01
+     * 
      */
     public static CompletableFuture<GetAAAARecordResult> getAAAARecordPlain(GetAAAARecordPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("azure:dns/getAAAARecord:getAAAARecord", TypeShape.of(GetAAAARecordResult.class), args, Utilities.withVersion(options));
@@ -298,6 +333,13 @@ public final class DnsFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Network`: 2018-05-01
      * 
      */
     public static Output<GetARecordResult> getARecord(GetARecordArgs args) {
@@ -342,6 +384,13 @@ public final class DnsFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Network`: 2018-05-01
+     * 
      */
     public static CompletableFuture<GetARecordResult> getARecordPlain(GetARecordPlainArgs args) {
         return getARecordPlain(args, InvokeOptions.Empty);
@@ -384,6 +433,13 @@ public final class DnsFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Network`: 2018-05-01
      * 
      */
     public static Output<GetARecordResult> getARecord(GetARecordArgs args, InvokeOptions options) {
@@ -428,6 +484,13 @@ public final class DnsFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Network`: 2018-05-01
+     * 
      */
     public static Output<GetARecordResult> getARecord(GetARecordArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("azure:dns/getARecord:getARecord", TypeShape.of(GetARecordResult.class), args, Utilities.withVersion(options));
@@ -470,6 +533,13 @@ public final class DnsFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Network`: 2018-05-01
      * 
      */
     public static CompletableFuture<GetARecordResult> getARecordPlain(GetARecordPlainArgs args, InvokeOptions options) {
@@ -514,6 +584,13 @@ public final class DnsFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Network`: 2018-05-01
+     * 
      */
     public static Output<GetCAARecordResult> getCAARecord(GetCAARecordArgs args) {
         return getCAARecord(args, InvokeOptions.Empty);
@@ -556,6 +633,13 @@ public final class DnsFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Network`: 2018-05-01
      * 
      */
     public static CompletableFuture<GetCAARecordResult> getCAARecordPlain(GetCAARecordPlainArgs args) {
@@ -600,6 +684,13 @@ public final class DnsFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Network`: 2018-05-01
+     * 
      */
     public static Output<GetCAARecordResult> getCAARecord(GetCAARecordArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:dns/getCAARecord:getCAARecord", TypeShape.of(GetCAARecordResult.class), args, Utilities.withVersion(options));
@@ -642,6 +733,13 @@ public final class DnsFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Network`: 2018-05-01
      * 
      */
     public static Output<GetCAARecordResult> getCAARecord(GetCAARecordArgs args, InvokeOutputOptions options) {
@@ -686,6 +784,13 @@ public final class DnsFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Network`: 2018-05-01
+     * 
      */
     public static CompletableFuture<GetCAARecordResult> getCAARecordPlain(GetCAARecordPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("azure:dns/getCAARecord:getCAARecord", TypeShape.of(GetCAARecordResult.class), args, Utilities.withVersion(options));
@@ -728,6 +833,13 @@ public final class DnsFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Network`: 2018-05-01
      * 
      */
     public static Output<GetCnameRecordResult> getCnameRecord(GetCnameRecordArgs args) {
@@ -772,6 +884,13 @@ public final class DnsFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Network`: 2018-05-01
+     * 
      */
     public static CompletableFuture<GetCnameRecordResult> getCnameRecordPlain(GetCnameRecordPlainArgs args) {
         return getCnameRecordPlain(args, InvokeOptions.Empty);
@@ -814,6 +933,13 @@ public final class DnsFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Network`: 2018-05-01
      * 
      */
     public static Output<GetCnameRecordResult> getCnameRecord(GetCnameRecordArgs args, InvokeOptions options) {
@@ -858,6 +984,13 @@ public final class DnsFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Network`: 2018-05-01
+     * 
      */
     public static Output<GetCnameRecordResult> getCnameRecord(GetCnameRecordArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("azure:dns/getCnameRecord:getCnameRecord", TypeShape.of(GetCnameRecordResult.class), args, Utilities.withVersion(options));
@@ -900,6 +1033,13 @@ public final class DnsFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Network`: 2018-05-01
      * 
      */
     public static CompletableFuture<GetCnameRecordResult> getCnameRecordPlain(GetCnameRecordPlainArgs args, InvokeOptions options) {
@@ -944,6 +1084,13 @@ public final class DnsFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Network`: 2018-05-01
+     * 
      */
     public static Output<GetMxRecordResult> getMxRecord(GetMxRecordArgs args) {
         return getMxRecord(args, InvokeOptions.Empty);
@@ -986,6 +1133,13 @@ public final class DnsFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Network`: 2018-05-01
      * 
      */
     public static CompletableFuture<GetMxRecordResult> getMxRecordPlain(GetMxRecordPlainArgs args) {
@@ -1030,6 +1184,13 @@ public final class DnsFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Network`: 2018-05-01
+     * 
      */
     public static Output<GetMxRecordResult> getMxRecord(GetMxRecordArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:dns/getMxRecord:getMxRecord", TypeShape.of(GetMxRecordResult.class), args, Utilities.withVersion(options));
@@ -1072,6 +1233,13 @@ public final class DnsFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Network`: 2018-05-01
      * 
      */
     public static Output<GetMxRecordResult> getMxRecord(GetMxRecordArgs args, InvokeOutputOptions options) {
@@ -1116,6 +1284,13 @@ public final class DnsFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Network`: 2018-05-01
+     * 
      */
     public static CompletableFuture<GetMxRecordResult> getMxRecordPlain(GetMxRecordPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("azure:dns/getMxRecord:getMxRecord", TypeShape.of(GetMxRecordResult.class), args, Utilities.withVersion(options));
@@ -1158,6 +1333,13 @@ public final class DnsFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Network`: 2018-05-01
      * 
      */
     public static Output<GetNsRecordResult> getNsRecord(GetNsRecordArgs args) {
@@ -1202,6 +1384,13 @@ public final class DnsFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Network`: 2018-05-01
+     * 
      */
     public static CompletableFuture<GetNsRecordResult> getNsRecordPlain(GetNsRecordPlainArgs args) {
         return getNsRecordPlain(args, InvokeOptions.Empty);
@@ -1244,6 +1433,13 @@ public final class DnsFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Network`: 2018-05-01
      * 
      */
     public static Output<GetNsRecordResult> getNsRecord(GetNsRecordArgs args, InvokeOptions options) {
@@ -1288,6 +1484,13 @@ public final class DnsFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Network`: 2018-05-01
+     * 
      */
     public static Output<GetNsRecordResult> getNsRecord(GetNsRecordArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("azure:dns/getNsRecord:getNsRecord", TypeShape.of(GetNsRecordResult.class), args, Utilities.withVersion(options));
@@ -1330,6 +1533,13 @@ public final class DnsFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Network`: 2018-05-01
      * 
      */
     public static CompletableFuture<GetNsRecordResult> getNsRecordPlain(GetNsRecordPlainArgs args, InvokeOptions options) {
@@ -1374,6 +1584,13 @@ public final class DnsFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Network`: 2018-05-01
+     * 
      */
     public static Output<GetPtrRecordResult> getPtrRecord(GetPtrRecordArgs args) {
         return getPtrRecord(args, InvokeOptions.Empty);
@@ -1416,6 +1633,13 @@ public final class DnsFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Network`: 2018-05-01
      * 
      */
     public static CompletableFuture<GetPtrRecordResult> getPtrRecordPlain(GetPtrRecordPlainArgs args) {
@@ -1460,6 +1684,13 @@ public final class DnsFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Network`: 2018-05-01
+     * 
      */
     public static Output<GetPtrRecordResult> getPtrRecord(GetPtrRecordArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:dns/getPtrRecord:getPtrRecord", TypeShape.of(GetPtrRecordResult.class), args, Utilities.withVersion(options));
@@ -1502,6 +1733,13 @@ public final class DnsFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Network`: 2018-05-01
      * 
      */
     public static Output<GetPtrRecordResult> getPtrRecord(GetPtrRecordArgs args, InvokeOutputOptions options) {
@@ -1546,6 +1784,13 @@ public final class DnsFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Network`: 2018-05-01
+     * 
      */
     public static CompletableFuture<GetPtrRecordResult> getPtrRecordPlain(GetPtrRecordPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("azure:dns/getPtrRecord:getPtrRecord", TypeShape.of(GetPtrRecordResult.class), args, Utilities.withVersion(options));
@@ -1587,6 +1832,13 @@ public final class DnsFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Network`: 2018-05-01
      * 
      */
     public static Output<GetSoaRecordResult> getSoaRecord(GetSoaRecordArgs args) {
@@ -1630,6 +1882,13 @@ public final class DnsFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Network`: 2018-05-01
+     * 
      */
     public static CompletableFuture<GetSoaRecordResult> getSoaRecordPlain(GetSoaRecordPlainArgs args) {
         return getSoaRecordPlain(args, InvokeOptions.Empty);
@@ -1671,6 +1930,13 @@ public final class DnsFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Network`: 2018-05-01
      * 
      */
     public static Output<GetSoaRecordResult> getSoaRecord(GetSoaRecordArgs args, InvokeOptions options) {
@@ -1714,6 +1980,13 @@ public final class DnsFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Network`: 2018-05-01
+     * 
      */
     public static Output<GetSoaRecordResult> getSoaRecord(GetSoaRecordArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("azure:dns/getSoaRecord:getSoaRecord", TypeShape.of(GetSoaRecordResult.class), args, Utilities.withVersion(options));
@@ -1755,6 +2028,13 @@ public final class DnsFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Network`: 2018-05-01
      * 
      */
     public static CompletableFuture<GetSoaRecordResult> getSoaRecordPlain(GetSoaRecordPlainArgs args, InvokeOptions options) {
@@ -1799,6 +2079,13 @@ public final class DnsFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Network`: 2018-05-01
+     * 
      */
     public static Output<GetSrvRecordResult> getSrvRecord(GetSrvRecordArgs args) {
         return getSrvRecord(args, InvokeOptions.Empty);
@@ -1841,6 +2128,13 @@ public final class DnsFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Network`: 2018-05-01
      * 
      */
     public static CompletableFuture<GetSrvRecordResult> getSrvRecordPlain(GetSrvRecordPlainArgs args) {
@@ -1885,6 +2179,13 @@ public final class DnsFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Network`: 2018-05-01
+     * 
      */
     public static Output<GetSrvRecordResult> getSrvRecord(GetSrvRecordArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:dns/getSrvRecord:getSrvRecord", TypeShape.of(GetSrvRecordResult.class), args, Utilities.withVersion(options));
@@ -1927,6 +2228,13 @@ public final class DnsFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Network`: 2018-05-01
      * 
      */
     public static Output<GetSrvRecordResult> getSrvRecord(GetSrvRecordArgs args, InvokeOutputOptions options) {
@@ -1971,6 +2279,13 @@ public final class DnsFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Network`: 2018-05-01
+     * 
      */
     public static CompletableFuture<GetSrvRecordResult> getSrvRecordPlain(GetSrvRecordPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("azure:dns/getSrvRecord:getSrvRecord", TypeShape.of(GetSrvRecordResult.class), args, Utilities.withVersion(options));
@@ -2013,6 +2328,13 @@ public final class DnsFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Network`: 2018-05-01
      * 
      */
     public static Output<GetTxtRecordResult> getTxtRecord(GetTxtRecordArgs args) {
@@ -2057,6 +2379,13 @@ public final class DnsFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Network`: 2018-05-01
+     * 
      */
     public static CompletableFuture<GetTxtRecordResult> getTxtRecordPlain(GetTxtRecordPlainArgs args) {
         return getTxtRecordPlain(args, InvokeOptions.Empty);
@@ -2099,6 +2428,13 @@ public final class DnsFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Network`: 2018-05-01
      * 
      */
     public static Output<GetTxtRecordResult> getTxtRecord(GetTxtRecordArgs args, InvokeOptions options) {
@@ -2143,6 +2479,13 @@ public final class DnsFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Network`: 2018-05-01
+     * 
      */
     public static Output<GetTxtRecordResult> getTxtRecord(GetTxtRecordArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("azure:dns/getTxtRecord:getTxtRecord", TypeShape.of(GetTxtRecordResult.class), args, Utilities.withVersion(options));
@@ -2185,6 +2528,13 @@ public final class DnsFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Network`: 2018-05-01
      * 
      */
     public static CompletableFuture<GetTxtRecordResult> getTxtRecordPlain(GetTxtRecordPlainArgs args, InvokeOptions options) {
@@ -2230,6 +2580,13 @@ public final class DnsFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Network`: 2018-05-01
+     * 
      */
     public static Output<GetZoneResult> getZone(GetZoneArgs args) {
         return getZone(args, InvokeOptions.Empty);
@@ -2273,6 +2630,13 @@ public final class DnsFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Network`: 2018-05-01
      * 
      */
     public static CompletableFuture<GetZoneResult> getZonePlain(GetZonePlainArgs args) {
@@ -2318,6 +2682,13 @@ public final class DnsFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Network`: 2018-05-01
+     * 
      */
     public static Output<GetZoneResult> getZone(GetZoneArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:dns/getZone:getZone", TypeShape.of(GetZoneResult.class), args, Utilities.withVersion(options));
@@ -2362,6 +2733,13 @@ public final class DnsFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Network`: 2018-05-01
+     * 
      */
     public static Output<GetZoneResult> getZone(GetZoneArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("azure:dns/getZone:getZone", TypeShape.of(GetZoneResult.class), args, Utilities.withVersion(options));
@@ -2405,6 +2783,13 @@ public final class DnsFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Network`: 2018-05-01
      * 
      */
     public static CompletableFuture<GetZoneResult> getZonePlain(GetZonePlainArgs args, InvokeOptions options) {

@@ -40,6 +40,13 @@ import (
 //	}
 //
 // ```
+//
+// ## API Providers
+//
+// <!-- This section is generated, changes will be overwritten -->
+// This data source uses the following Azure API Providers:
+//
+// * `Microsoft.AzureActiveDirectory`: 2021-04-01-preview
 func LookupDirectory(ctx *pulumi.Context, args *LookupDirectoryArgs, opts ...pulumi.InvokeOption) (*LookupDirectoryResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupDirectoryResult

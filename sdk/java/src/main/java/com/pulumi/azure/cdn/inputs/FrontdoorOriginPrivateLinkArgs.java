@@ -66,18 +66,18 @@ public final class FrontdoorOriginPrivateLinkArgs extends com.pulumi.resources.R
     }
 
     /**
-     * Specifies the type of target for this Private Link Endpoint. Possible values are `blob`, `blob_secondary`, `web` and `sites`.
+     * Specifies the type of target for this Private Link Endpoint. Possible values are `blob`, `blob_secondary`, `Gateway`, `managedEnvironments`, `sites`, `web` and `web_secondary`.
      * 
-     * &gt; **NOTE:** `target_type` cannot be specified when using a Load Balancer as an Origin.
+     * &gt; **Note:** `target_type` cannot be specified when using a Load Balancer as an Origin.
      * 
      */
     @Import(name="targetType")
     private @Nullable Output<String> targetType;
 
     /**
-     * @return Specifies the type of target for this Private Link Endpoint. Possible values are `blob`, `blob_secondary`, `web` and `sites`.
+     * @return Specifies the type of target for this Private Link Endpoint. Possible values are `blob`, `blob_secondary`, `Gateway`, `managedEnvironments`, `sites`, `web` and `web_secondary`.
      * 
-     * &gt; **NOTE:** `target_type` cannot be specified when using a Load Balancer as an Origin.
+     * &gt; **Note:** `target_type` cannot be specified when using a Load Balancer as an Origin.
      * 
      */
     public Optional<Output<String>> targetType() {
@@ -179,9 +179,9 @@ public final class FrontdoorOriginPrivateLinkArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param targetType Specifies the type of target for this Private Link Endpoint. Possible values are `blob`, `blob_secondary`, `web` and `sites`.
+         * @param targetType Specifies the type of target for this Private Link Endpoint. Possible values are `blob`, `blob_secondary`, `Gateway`, `managedEnvironments`, `sites`, `web` and `web_secondary`.
          * 
-         * &gt; **NOTE:** `target_type` cannot be specified when using a Load Balancer as an Origin.
+         * &gt; **Note:** `target_type` cannot be specified when using a Load Balancer as an Origin.
          * 
          * @return builder
          * 
@@ -192,9 +192,9 @@ public final class FrontdoorOriginPrivateLinkArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param targetType Specifies the type of target for this Private Link Endpoint. Possible values are `blob`, `blob_secondary`, `web` and `sites`.
+         * @param targetType Specifies the type of target for this Private Link Endpoint. Possible values are `blob`, `blob_secondary`, `Gateway`, `managedEnvironments`, `sites`, `web` and `web_secondary`.
          * 
-         * &gt; **NOTE:** `target_type` cannot be specified when using a Load Balancer as an Origin.
+         * &gt; **Note:** `target_type` cannot be specified when using a Load Balancer as an Origin.
          * 
          * @return builder
          * 

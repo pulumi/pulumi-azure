@@ -53,6 +53,13 @@ import (
 //
 // ```
 //
+// ## API Providers
+//
+// <!-- This section is generated, changes will be overwritten -->
+// This resource uses the following Azure API Providers:
+//
+// * `Microsoft.Purview`: 2021-07-01
+//
 // ## Import
 //
 // Purview Accounts can be imported using the `resource id`, e.g.
@@ -77,7 +84,7 @@ type Account struct {
 	Location pulumi.StringOutput `pulumi:"location"`
 	// The name which should be used for the new Resource Group where Purview Account creates the managed resources. Changing this forces a new Purview Account to be created.
 	//
-	// > **Note:** `managedResourceGroupName` must be a new Resource Group
+	// > **Note:** `managedResourceGroupName` must be a new Resource Group.
 	ManagedResourceGroupName pulumi.StringOutput `pulumi:"managedResourceGroupName"`
 	// A `managedResources` block as defined below.
 	ManagedResources AccountManagedResourceArrayOutput `pulumi:"managedResources"`
@@ -148,7 +155,7 @@ type accountState struct {
 	Location *string `pulumi:"location"`
 	// The name which should be used for the new Resource Group where Purview Account creates the managed resources. Changing this forces a new Purview Account to be created.
 	//
-	// > **Note:** `managedResourceGroupName` must be a new Resource Group
+	// > **Note:** `managedResourceGroupName` must be a new Resource Group.
 	ManagedResourceGroupName *string `pulumi:"managedResourceGroupName"`
 	// A `managedResources` block as defined below.
 	ManagedResources []AccountManagedResource `pulumi:"managedResources"`
@@ -179,7 +186,7 @@ type AccountState struct {
 	Location pulumi.StringPtrInput
 	// The name which should be used for the new Resource Group where Purview Account creates the managed resources. Changing this forces a new Purview Account to be created.
 	//
-	// > **Note:** `managedResourceGroupName` must be a new Resource Group
+	// > **Note:** `managedResourceGroupName` must be a new Resource Group.
 	ManagedResourceGroupName pulumi.StringPtrInput
 	// A `managedResources` block as defined below.
 	ManagedResources AccountManagedResourceArrayInput
@@ -206,7 +213,7 @@ type accountArgs struct {
 	Location *string `pulumi:"location"`
 	// The name which should be used for the new Resource Group where Purview Account creates the managed resources. Changing this forces a new Purview Account to be created.
 	//
-	// > **Note:** `managedResourceGroupName` must be a new Resource Group
+	// > **Note:** `managedResourceGroupName` must be a new Resource Group.
 	ManagedResourceGroupName *string `pulumi:"managedResourceGroupName"`
 	// The name which should be used for this Purview Account. Changing this forces a new Purview Account to be created.
 	Name *string `pulumi:"name"`
@@ -226,7 +233,7 @@ type AccountArgs struct {
 	Location pulumi.StringPtrInput
 	// The name which should be used for the new Resource Group where Purview Account creates the managed resources. Changing this forces a new Purview Account to be created.
 	//
-	// > **Note:** `managedResourceGroupName` must be a new Resource Group
+	// > **Note:** `managedResourceGroupName` must be a new Resource Group.
 	ManagedResourceGroupName pulumi.StringPtrInput
 	// The name which should be used for this Purview Account. Changing this forces a new Purview Account to be created.
 	Name pulumi.StringPtrInput
@@ -357,7 +364,7 @@ func (o AccountOutput) Location() pulumi.StringOutput {
 
 // The name which should be used for the new Resource Group where Purview Account creates the managed resources. Changing this forces a new Purview Account to be created.
 //
-// > **Note:** `managedResourceGroupName` must be a new Resource Group
+// > **Note:** `managedResourceGroupName` must be a new Resource Group.
 func (o AccountOutput) ManagedResourceGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Account) pulumi.StringOutput { return v.ManagedResourceGroupName }).(pulumi.StringOutput)
 }

@@ -34,14 +34,14 @@ public final class IoTHubNetworkRuleSetArgs extends com.pulumi.resources.Resourc
     }
 
     /**
-     * Default Action for Network Rule Set. Possible values are `DefaultActionDeny`, `DefaultActionAllow`. Defaults to `DefaultActionDeny`.
+     * Default Action for Network Rule Set. Possible values are `Deny`, `Allow`. Defaults to `Deny`.
      * 
      */
     @Import(name="defaultAction")
     private @Nullable Output<String> defaultAction;
 
     /**
-     * @return Default Action for Network Rule Set. Possible values are `DefaultActionDeny`, `DefaultActionAllow`. Defaults to `DefaultActionDeny`.
+     * @return Default Action for Network Rule Set. Possible values are `Deny`, `Allow`. Defaults to `Deny`.
      * 
      */
     public Optional<Output<String>> defaultAction() {
@@ -111,7 +111,7 @@ public final class IoTHubNetworkRuleSetArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param defaultAction Default Action for Network Rule Set. Possible values are `DefaultActionDeny`, `DefaultActionAllow`. Defaults to `DefaultActionDeny`.
+         * @param defaultAction Default Action for Network Rule Set. Possible values are `Deny`, `Allow`. Defaults to `Deny`.
          * 
          * @return builder
          * 
@@ -122,7 +122,7 @@ public final class IoTHubNetworkRuleSetArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param defaultAction Default Action for Network Rule Set. Possible values are `DefaultActionDeny`, `DefaultActionAllow`. Defaults to `DefaultActionDeny`.
+         * @param defaultAction Default Action for Network Rule Set. Possible values are `Deny`, `Allow`. Defaults to `Deny`.
          * 
          * @return builder
          * 

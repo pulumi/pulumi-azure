@@ -821,8 +821,8 @@ class Service(pulumi.CustomResource):
         import pulumi_azure as azure
 
         example = azure.core.ResourceGroup("example",
-            name="my-signalr",
-            location="West US")
+            name="terraform-signalr",
+            location="West Europe")
         example_service = azure.signalr.Service("example",
             name="tfex-signalr",
             location=example.location,
@@ -848,6 +848,13 @@ class Service(pulumi.CustomResource):
                 "url_template": "http://foo.com",
             }])
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.SignalRService`: 2024-03-01
 
         ## Import
 
@@ -898,8 +905,8 @@ class Service(pulumi.CustomResource):
         import pulumi_azure as azure
 
         example = azure.core.ResourceGroup("example",
-            name="my-signalr",
-            location="West US")
+            name="terraform-signalr",
+            location="West Europe")
         example_service = azure.signalr.Service("example",
             name="tfex-signalr",
             location=example.location,
@@ -925,6 +932,13 @@ class Service(pulumi.CustomResource):
                 "url_template": "http://foo.com",
             }])
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.SignalRService`: 2024-03-01
 
         ## Import
 

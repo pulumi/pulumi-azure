@@ -376,7 +376,7 @@ class ActivityLogAlert(pulumi.CustomResource):
             actions=[{
                 "action_group_id": main.id,
                 "webhook_properties": {
-                    "from": "source",
+                    "from": "terraform",
                 },
             }])
         ```
@@ -447,7 +447,7 @@ class ActivityLogAlert(pulumi.CustomResource):
             actions=[{
                 "action_group_id": main.id,
                 "webhook_properties": {
-                    "from": "source",
+                    "from": "terraform",
                 },
             }])
         ```

@@ -303,6 +303,13 @@ class AnalyticsSolution(pulumi.CustomResource):
             })
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.OperationsManagement`: 2015-11-01-preview
+
         ## Import
 
         Log Analytics Solutions can be imported using the `resource id`, e.g.
@@ -361,6 +368,13 @@ class AnalyticsSolution(pulumi.CustomResource):
                 "product": "OMSGallery/ContainerInsights",
             })
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.OperationsManagement`: 2015-11-01-preview
 
         ## Import
 

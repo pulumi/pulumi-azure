@@ -36,6 +36,13 @@ namespace Pulumi.Azure.DataBricks
         ///     };
         /// });
         /// ```
+        /// 
+        /// ## API Providers
+        /// 
+        /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+        /// This data source uses the following Azure API Providers:
+        /// 
+        /// * `Microsoft.Databricks`: 2022-10-01-preview
         /// </summary>
         public static Task<GetAccessConnectorResult> InvokeAsync(GetAccessConnectorArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAccessConnectorResult>("azure:databricks/getAccessConnector:getAccessConnector", args ?? new GetAccessConnectorArgs(), options.WithDefaults());
@@ -65,6 +72,13 @@ namespace Pulumi.Azure.DataBricks
         ///     };
         /// });
         /// ```
+        /// 
+        /// ## API Providers
+        /// 
+        /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+        /// This data source uses the following Azure API Providers:
+        /// 
+        /// * `Microsoft.Databricks`: 2022-10-01-preview
         /// </summary>
         public static Output<GetAccessConnectorResult> Invoke(GetAccessConnectorInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAccessConnectorResult>("azure:databricks/getAccessConnector:getAccessConnector", args ?? new GetAccessConnectorInvokeArgs(), options.WithDefaults());
@@ -94,6 +108,13 @@ namespace Pulumi.Azure.DataBricks
         ///     };
         /// });
         /// ```
+        /// 
+        /// ## API Providers
+        /// 
+        /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+        /// This data source uses the following Azure API Providers:
+        /// 
+        /// * `Microsoft.Databricks`: 2022-10-01-preview
         /// </summary>
         public static Output<GetAccessConnectorResult> Invoke(GetAccessConnectorInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetAccessConnectorResult>("azure:databricks/getAccessConnector:getAccessConnector", args ?? new GetAccessConnectorInvokeArgs(), options.WithDefaults());

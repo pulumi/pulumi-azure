@@ -122,6 +122,13 @@ def get_access_connector(name: Optional[builtins.str] = None,
     pulumi.export("id", example.id)
     ```
 
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.Databricks`: 2022-10-01-preview
+
 
     :param builtins.str name: The name of this Databricks Access Connector.
     :param builtins.str resource_group_name: The name of the Resource Group where the Databricks Access Connector exists. Changing this forces a new Databricks Access Connector to be created.
@@ -155,6 +162,13 @@ def get_access_connector_output(name: Optional[pulumi.Input[builtins.str]] = Non
         resource_group_name="existing")
     pulumi.export("id", example.id)
     ```
+
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.Databricks`: 2022-10-01-preview
 
 
     :param builtins.str name: The name of this Databricks Access Connector.

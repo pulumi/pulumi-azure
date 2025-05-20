@@ -7,6 +7,7 @@ import com.pulumi.azure.inputs.ProviderFeaturesArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.core.internal.Codegen;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -191,11 +192,11 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.environment);
     }
 
-    @Import(name="features", json=true)
-    private @Nullable Output<ProviderFeaturesArgs> features;
+    @Import(name="features", required=true, json=true)
+    private Output<ProviderFeaturesArgs> features;
 
-    public Optional<Output<ProviderFeaturesArgs>> features() {
-        return Optional.ofNullable(this.features);
+    public Output<ProviderFeaturesArgs> features() {
+        return this.features;
     }
 
     /**
@@ -764,7 +765,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
             return environment(Output.of(environment));
         }
 
-        public Builder features(@Nullable Output<ProviderFeaturesArgs> features) {
+        public Builder features(Output<ProviderFeaturesArgs> features) {
             $.features = features;
             return this;
         }
@@ -1161,6 +1162,9 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
 
         public ProviderArgs build() {
             $.environment = Codegen.stringProp("environment").output().arg($.environment).env("AZURE_ENVIRONMENT", "ARM_ENVIRONMENT").def("public").getNullable();
+            if ($.features == null) {
+                throw new MissingRequiredPropertyException("ProviderArgs", "features");
+            }
             $.metadataHost = Codegen.stringProp("metadataHost").output().arg($.metadataHost).env("ARM_METADATA_HOSTNAME").getNullable();
             $.skipProviderRegistration = Codegen.booleanProp("skipProviderRegistration").output().arg($.skipProviderRegistration).env("ARM_SKIP_PROVIDER_REGISTRATION").def(false).getNullable();
             $.storageUseAzuread = Codegen.booleanProp("storageUseAzuread").output().arg($.storageUseAzuread).env("ARM_STORAGE_USE_AZUREAD").def(false).getNullable();

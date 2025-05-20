@@ -18,7 +18,7 @@ type ConnectedRegistryNotification struct {
 	Action string `pulumi:"action"`
 	// The digest of the artifact that wants to be subscribed for the Connected Registry.
 	//
-	// > **NOTE:** One of either `tag` or `digest` can be specified.
+	// > **Note:** One of either `tag` or `digest` can be specified.
 	Digest *string `pulumi:"digest"`
 	// The name of the artifact that wants to be subscribed for the Connected Registry.
 	Name string `pulumi:"name"`
@@ -42,7 +42,7 @@ type ConnectedRegistryNotificationArgs struct {
 	Action pulumi.StringInput `pulumi:"action"`
 	// The digest of the artifact that wants to be subscribed for the Connected Registry.
 	//
-	// > **NOTE:** One of either `tag` or `digest` can be specified.
+	// > **Note:** One of either `tag` or `digest` can be specified.
 	Digest pulumi.StringPtrInput `pulumi:"digest"`
 	// The name of the artifact that wants to be subscribed for the Connected Registry.
 	Name pulumi.StringInput `pulumi:"name"`
@@ -108,7 +108,7 @@ func (o ConnectedRegistryNotificationOutput) Action() pulumi.StringOutput {
 
 // The digest of the artifact that wants to be subscribed for the Connected Registry.
 //
-// > **NOTE:** One of either `tag` or `digest` can be specified.
+// > **Note:** One of either `tag` or `digest` can be specified.
 func (o ConnectedRegistryNotificationOutput) Digest() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConnectedRegistryNotification) *string { return v.Digest }).(pulumi.StringPtrOutput)
 }
@@ -3788,7 +3788,7 @@ func (o GroupContainerReadinessProbeHttpGetArrayOutput) Index(i pulumi.IntInput)
 type GroupContainerSecurity struct {
 	// Whether the container's permission is elevated to privileged? Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** Currently, this only applies when the `osType` is `Linux` and the `sku` is `Confidential`.
+	// > **Note:** Currently, this only applies when the `osType` is `Linux` and the `sku` is `Confidential`.
 	PrivilegeEnabled bool `pulumi:"privilegeEnabled"`
 }
 
@@ -3806,7 +3806,7 @@ type GroupContainerSecurityInput interface {
 type GroupContainerSecurityArgs struct {
 	// Whether the container's permission is elevated to privileged? Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** Currently, this only applies when the `osType` is `Linux` and the `sku` is `Confidential`.
+	// > **Note:** Currently, this only applies when the `osType` is `Linux` and the `sku` is `Confidential`.
 	PrivilegeEnabled pulumi.BoolInput `pulumi:"privilegeEnabled"`
 }
 
@@ -3863,7 +3863,7 @@ func (o GroupContainerSecurityOutput) ToGroupContainerSecurityOutputWithContext(
 
 // Whether the container's permission is elevated to privileged? Changing this forces a new resource to be created.
 //
-// > **NOTE:** Currently, this only applies when the `osType` is `Linux` and the `sku` is `Confidential`.
+// > **Note:** Currently, this only applies when the `osType` is `Linux` and the `sku` is `Confidential`.
 func (o GroupContainerSecurityOutput) PrivilegeEnabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v GroupContainerSecurity) bool { return v.PrivilegeEnabled }).(pulumi.BoolOutput)
 }
@@ -3898,15 +3898,8 @@ type GroupContainerVolume struct {
 	// The name of the volume mount. Changing this forces a new resource to be created.
 	Name string `pulumi:"name"`
 	// Specify if the volume is to be mounted as read only or not. The default value is `false`. Changing this forces a new resource to be created.
-	ReadOnly *bool `pulumi:"readOnly"`
-	// A map of secrets that will be mounted as files in the volume. Changing this forces a new resource to be created.
-	//
-	// > **Note:** Exactly one of `emptyDir` volume, `gitRepo` volume, `secret` volume or storage account volume (`shareName`, `storageAccountName`, and `storageAccountKey`) must be specified.
-	//
-	// > **Note** when using a storage account volume, all of `shareName`, `storageAccountName`, and `storageAccountKey` must be specified.
-	//
-	// > **Note:** The secret values must be supplied as Base64 encoded strings. The secret values are decoded to their original values when mounted in the volume on the container.
-	Secret map[string]string `pulumi:"secret"`
+	ReadOnly *bool             `pulumi:"readOnly"`
+	Secret   map[string]string `pulumi:"secret"`
 	// The Azure storage share that is to be mounted as a volume. This must be created on the storage account specified as above. Changing this forces a new resource to be created.
 	ShareName *string `pulumi:"shareName"`
 	// The access key for the Azure Storage account specified as above. Changing this forces a new resource to be created.
@@ -3936,15 +3929,8 @@ type GroupContainerVolumeArgs struct {
 	// The name of the volume mount. Changing this forces a new resource to be created.
 	Name pulumi.StringInput `pulumi:"name"`
 	// Specify if the volume is to be mounted as read only or not. The default value is `false`. Changing this forces a new resource to be created.
-	ReadOnly pulumi.BoolPtrInput `pulumi:"readOnly"`
-	// A map of secrets that will be mounted as files in the volume. Changing this forces a new resource to be created.
-	//
-	// > **Note:** Exactly one of `emptyDir` volume, `gitRepo` volume, `secret` volume or storage account volume (`shareName`, `storageAccountName`, and `storageAccountKey`) must be specified.
-	//
-	// > **Note** when using a storage account volume, all of `shareName`, `storageAccountName`, and `storageAccountKey` must be specified.
-	//
-	// > **Note:** The secret values must be supplied as Base64 encoded strings. The secret values are decoded to their original values when mounted in the volume on the container.
-	Secret pulumi.StringMapInput `pulumi:"secret"`
+	ReadOnly pulumi.BoolPtrInput   `pulumi:"readOnly"`
+	Secret   pulumi.StringMapInput `pulumi:"secret"`
 	// The Azure storage share that is to be mounted as a volume. This must be created on the storage account specified as above. Changing this forces a new resource to be created.
 	ShareName pulumi.StringPtrInput `pulumi:"shareName"`
 	// The access key for the Azure Storage account specified as above. Changing this forces a new resource to be created.
@@ -4029,13 +4015,6 @@ func (o GroupContainerVolumeOutput) ReadOnly() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v GroupContainerVolume) *bool { return v.ReadOnly }).(pulumi.BoolPtrOutput)
 }
 
-// A map of secrets that will be mounted as files in the volume. Changing this forces a new resource to be created.
-//
-// > **Note:** Exactly one of `emptyDir` volume, `gitRepo` volume, `secret` volume or storage account volume (`shareName`, `storageAccountName`, and `storageAccountKey`) must be specified.
-//
-// > **Note** when using a storage account volume, all of `shareName`, `storageAccountName`, and `storageAccountKey` must be specified.
-//
-// > **Note:** The secret values must be supplied as Base64 encoded strings. The secret values are decoded to their original values when mounted in the volume on the container.
 func (o GroupContainerVolumeOutput) Secret() pulumi.StringMapOutput {
 	return o.ApplyT(func(v GroupContainerVolume) map[string]string { return v.Secret }).(pulumi.StringMapOutput)
 }
@@ -4871,9 +4850,9 @@ func (o GroupExposedPortArrayOutput) Index(i pulumi.IntInput) GroupExposedPortOu
 type GroupIdentity struct {
 	// Specifies a list of User Assigned Managed Identity IDs to be assigned to this Container Group.
 	//
-	// > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+	// > **Note:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
 	//
-	// > **NOTE:** Currently you can't use a managed identity in a container group deployed to a virtual network.
+	// > **Note:** Currently you can't use a managed identity in a container group deployed to a virtual network.
 	IdentityIds []string `pulumi:"identityIds"`
 	// The Principal ID associated with this Managed Service Identity.
 	PrincipalId *string `pulumi:"principalId"`
@@ -4881,7 +4860,7 @@ type GroupIdentity struct {
 	TenantId *string `pulumi:"tenantId"`
 	// Specifies the type of Managed Service Identity that should be configured on this Container Group. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
 	//
-	// > **NOTE:** When `type` is set to `SystemAssigned`, the identity of the Principal ID can be retrieved after the container group has been created. See [documentation](https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview) for more information.
+	// > **Note:** When `type` is set to `SystemAssigned`, the identity of the Principal ID can be retrieved after the container group has been created. See [documentation](https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview) for more information.
 	Type string `pulumi:"type"`
 }
 
@@ -4899,9 +4878,9 @@ type GroupIdentityInput interface {
 type GroupIdentityArgs struct {
 	// Specifies a list of User Assigned Managed Identity IDs to be assigned to this Container Group.
 	//
-	// > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+	// > **Note:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
 	//
-	// > **NOTE:** Currently you can't use a managed identity in a container group deployed to a virtual network.
+	// > **Note:** Currently you can't use a managed identity in a container group deployed to a virtual network.
 	IdentityIds pulumi.StringArrayInput `pulumi:"identityIds"`
 	// The Principal ID associated with this Managed Service Identity.
 	PrincipalId pulumi.StringPtrInput `pulumi:"principalId"`
@@ -4909,7 +4888,7 @@ type GroupIdentityArgs struct {
 	TenantId pulumi.StringPtrInput `pulumi:"tenantId"`
 	// Specifies the type of Managed Service Identity that should be configured on this Container Group. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
 	//
-	// > **NOTE:** When `type` is set to `SystemAssigned`, the identity of the Principal ID can be retrieved after the container group has been created. See [documentation](https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview) for more information.
+	// > **Note:** When `type` is set to `SystemAssigned`, the identity of the Principal ID can be retrieved after the container group has been created. See [documentation](https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview) for more information.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -4992,9 +4971,9 @@ func (o GroupIdentityOutput) ToGroupIdentityPtrOutputWithContext(ctx context.Con
 
 // Specifies a list of User Assigned Managed Identity IDs to be assigned to this Container Group.
 //
-// > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+// > **Note:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
 //
-// > **NOTE:** Currently you can't use a managed identity in a container group deployed to a virtual network.
+// > **Note:** Currently you can't use a managed identity in a container group deployed to a virtual network.
 func (o GroupIdentityOutput) IdentityIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GroupIdentity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
 }
@@ -5011,7 +4990,7 @@ func (o GroupIdentityOutput) TenantId() pulumi.StringPtrOutput {
 
 // Specifies the type of Managed Service Identity that should be configured on this Container Group. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
 //
-// > **NOTE:** When `type` is set to `SystemAssigned`, the identity of the Principal ID can be retrieved after the container group has been created. See [documentation](https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview) for more information.
+// > **Note:** When `type` is set to `SystemAssigned`, the identity of the Principal ID can be retrieved after the container group has been created. See [documentation](https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview) for more information.
 func (o GroupIdentityOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v GroupIdentity) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -5042,9 +5021,9 @@ func (o GroupIdentityPtrOutput) Elem() GroupIdentityOutput {
 
 // Specifies a list of User Assigned Managed Identity IDs to be assigned to this Container Group.
 //
-// > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+// > **Note:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
 //
-// > **NOTE:** Currently you can't use a managed identity in a container group deployed to a virtual network.
+// > **Note:** Currently you can't use a managed identity in a container group deployed to a virtual network.
 func (o GroupIdentityPtrOutput) IdentityIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *GroupIdentity) []string {
 		if v == nil {
@@ -5076,7 +5055,7 @@ func (o GroupIdentityPtrOutput) TenantId() pulumi.StringPtrOutput {
 
 // Specifies the type of Managed Service Identity that should be configured on this Container Group. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
 //
-// > **NOTE:** When `type` is set to `SystemAssigned`, the identity of the Principal ID can be retrieved after the container group has been created. See [documentation](https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview) for more information.
+// > **Note:** When `type` is set to `SystemAssigned`, the identity of the Principal ID can be retrieved after the container group has been created. See [documentation](https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview) for more information.
 func (o GroupIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GroupIdentity) *string {
 		if v == nil {
@@ -5364,7 +5343,7 @@ func (o GroupInitContainerArrayOutput) Index(i pulumi.IntInput) GroupInitContain
 type GroupInitContainerSecurity struct {
 	// Whether the container's permission is elevated to privileged? Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** Currently, this only applies when the `osType` is `Linux` and the `sku` is `Confidential`.
+	// > **Note:** Currently, this only applies when the `osType` is `Linux` and the `sku` is `Confidential`.
 	PrivilegeEnabled bool `pulumi:"privilegeEnabled"`
 }
 
@@ -5382,7 +5361,7 @@ type GroupInitContainerSecurityInput interface {
 type GroupInitContainerSecurityArgs struct {
 	// Whether the container's permission is elevated to privileged? Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** Currently, this only applies when the `osType` is `Linux` and the `sku` is `Confidential`.
+	// > **Note:** Currently, this only applies when the `osType` is `Linux` and the `sku` is `Confidential`.
 	PrivilegeEnabled pulumi.BoolInput `pulumi:"privilegeEnabled"`
 }
 
@@ -5439,7 +5418,7 @@ func (o GroupInitContainerSecurityOutput) ToGroupInitContainerSecurityOutputWith
 
 // Whether the container's permission is elevated to privileged? Changing this forces a new resource to be created.
 //
-// > **NOTE:** Currently, this only applies when the `osType` is `Linux` and the `sku` is `Confidential`.
+// > **Note:** Currently, this only applies when the `osType` is `Linux` and the `sku` is `Confidential`.
 func (o GroupInitContainerSecurityOutput) PrivilegeEnabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v GroupInitContainerSecurity) bool { return v.PrivilegeEnabled }).(pulumi.BoolOutput)
 }
@@ -5474,15 +5453,8 @@ type GroupInitContainerVolume struct {
 	// The name of the volume mount. Changing this forces a new resource to be created.
 	Name string `pulumi:"name"`
 	// Specify if the volume is to be mounted as read only or not. The default value is `false`. Changing this forces a new resource to be created.
-	ReadOnly *bool `pulumi:"readOnly"`
-	// A map of secrets that will be mounted as files in the volume. Changing this forces a new resource to be created.
-	//
-	// > **Note:** Exactly one of `emptyDir` volume, `gitRepo` volume, `secret` volume or storage account volume (`shareName`, `storageAccountName`, and `storageAccountKey`) must be specified.
-	//
-	// > **Note** when using a storage account volume, all of `shareName`, `storageAccountName`, and `storageAccountKey` must be specified.
-	//
-	// > **Note:** The secret values must be supplied as Base64 encoded strings. The secret values are decoded to their original values when mounted in the volume on the container.
-	Secret map[string]string `pulumi:"secret"`
+	ReadOnly *bool             `pulumi:"readOnly"`
+	Secret   map[string]string `pulumi:"secret"`
 	// The Azure storage share that is to be mounted as a volume. This must be created on the storage account specified as above. Changing this forces a new resource to be created.
 	ShareName *string `pulumi:"shareName"`
 	// The access key for the Azure Storage account specified as above. Changing this forces a new resource to be created.
@@ -5512,15 +5484,8 @@ type GroupInitContainerVolumeArgs struct {
 	// The name of the volume mount. Changing this forces a new resource to be created.
 	Name pulumi.StringInput `pulumi:"name"`
 	// Specify if the volume is to be mounted as read only or not. The default value is `false`. Changing this forces a new resource to be created.
-	ReadOnly pulumi.BoolPtrInput `pulumi:"readOnly"`
-	// A map of secrets that will be mounted as files in the volume. Changing this forces a new resource to be created.
-	//
-	// > **Note:** Exactly one of `emptyDir` volume, `gitRepo` volume, `secret` volume or storage account volume (`shareName`, `storageAccountName`, and `storageAccountKey`) must be specified.
-	//
-	// > **Note** when using a storage account volume, all of `shareName`, `storageAccountName`, and `storageAccountKey` must be specified.
-	//
-	// > **Note:** The secret values must be supplied as Base64 encoded strings. The secret values are decoded to their original values when mounted in the volume on the container.
-	Secret pulumi.StringMapInput `pulumi:"secret"`
+	ReadOnly pulumi.BoolPtrInput   `pulumi:"readOnly"`
+	Secret   pulumi.StringMapInput `pulumi:"secret"`
 	// The Azure storage share that is to be mounted as a volume. This must be created on the storage account specified as above. Changing this forces a new resource to be created.
 	ShareName pulumi.StringPtrInput `pulumi:"shareName"`
 	// The access key for the Azure Storage account specified as above. Changing this forces a new resource to be created.
@@ -5605,13 +5570,6 @@ func (o GroupInitContainerVolumeOutput) ReadOnly() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v GroupInitContainerVolume) *bool { return v.ReadOnly }).(pulumi.BoolPtrOutput)
 }
 
-// A map of secrets that will be mounted as files in the volume. Changing this forces a new resource to be created.
-//
-// > **Note:** Exactly one of `emptyDir` volume, `gitRepo` volume, `secret` volume or storage account volume (`shareName`, `storageAccountName`, and `storageAccountKey`) must be specified.
-//
-// > **Note** when using a storage account volume, all of `shareName`, `storageAccountName`, and `storageAccountKey` must be specified.
-//
-// > **Note:** The secret values must be supplied as Base64 encoded strings. The secret values are decoded to their original values when mounted in the volume on the container.
 func (o GroupInitContainerVolumeOutput) Secret() pulumi.StringMapOutput {
 	return o.ApplyT(func(v GroupInitContainerVolume) map[string]string { return v.Secret }).(pulumi.StringMapOutput)
 }
@@ -7195,11 +7153,6 @@ func (o KubernetesClusterConfidentialComputingPtrOutput) SgxQuoteHelperEnabled()
 }
 
 type KubernetesClusterDefaultNodePool struct {
-	// Should [the Kubernetes Auto Scaler](https://docs.microsoft.com/azure/aks/cluster-autoscaler) be enabled for this Node Pool?
-	//
-	// > **Note:** This requires that the `type` is set to `VirtualMachineScaleSets`.
-	//
-	// > **Note:** If you're using AutoScaling, you may wish to use [`ignoreChanges` functionality](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) to ignore changes to the `nodeCount` field.
 	AutoScalingEnabled *bool `pulumi:"autoScalingEnabled"`
 	// Specifies the ID of the Capacity Reservation Group within which this AKS Cluster should be created. Changing this forces a new resource to be created.
 	CapacityReservationGroupId *string `pulumi:"capacityReservationGroupId"`
@@ -7253,11 +7206,8 @@ type KubernetesClusterDefaultNodePool struct {
 	// Specifies the autoscaling behaviour of the Kubernetes Cluster. Allowed values are `Delete` and `Deallocate`. Defaults to `Delete`.
 	ScaleDownMode *string `pulumi:"scaleDownMode"`
 	// The ID of the Snapshot which should be used to create this default Node Pool. `temporaryNameForRotation` must be specified when changing this property.
-	SnapshotId *string `pulumi:"snapshotId"`
-	// A mapping of tags to assign to the Node Pool.
-	//
-	// > At this time there's a bug in the AKS API where Tags for a Node Pool are not stored in the correct case - you may wish to use `ignoreChanges` functionality to ignore changes to the casing until this is fixed in the AKS API.
-	Tags map[string]string `pulumi:"tags"`
+	SnapshotId *string           `pulumi:"snapshotId"`
+	Tags       map[string]string `pulumi:"tags"`
 	// Specifies the name of the temporary node pool used to cycle the default node pool for VM resizing.
 	TemporaryNameForRotation *string `pulumi:"temporaryNameForRotation"`
 	// The type of Node Pool which should be created. Possible values are `VirtualMachineScaleSets`. Defaults to `VirtualMachineScaleSets`. Changing this forces a new resource to be created.
@@ -7294,11 +7244,6 @@ type KubernetesClusterDefaultNodePoolInput interface {
 }
 
 type KubernetesClusterDefaultNodePoolArgs struct {
-	// Should [the Kubernetes Auto Scaler](https://docs.microsoft.com/azure/aks/cluster-autoscaler) be enabled for this Node Pool?
-	//
-	// > **Note:** This requires that the `type` is set to `VirtualMachineScaleSets`.
-	//
-	// > **Note:** If you're using AutoScaling, you may wish to use [`ignoreChanges` functionality](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) to ignore changes to the `nodeCount` field.
 	AutoScalingEnabled pulumi.BoolPtrInput `pulumi:"autoScalingEnabled"`
 	// Specifies the ID of the Capacity Reservation Group within which this AKS Cluster should be created. Changing this forces a new resource to be created.
 	CapacityReservationGroupId pulumi.StringPtrInput `pulumi:"capacityReservationGroupId"`
@@ -7353,10 +7298,7 @@ type KubernetesClusterDefaultNodePoolArgs struct {
 	ScaleDownMode pulumi.StringPtrInput `pulumi:"scaleDownMode"`
 	// The ID of the Snapshot which should be used to create this default Node Pool. `temporaryNameForRotation` must be specified when changing this property.
 	SnapshotId pulumi.StringPtrInput `pulumi:"snapshotId"`
-	// A mapping of tags to assign to the Node Pool.
-	//
-	// > At this time there's a bug in the AKS API where Tags for a Node Pool are not stored in the correct case - you may wish to use `ignoreChanges` functionality to ignore changes to the casing until this is fixed in the AKS API.
-	Tags pulumi.StringMapInput `pulumi:"tags"`
+	Tags       pulumi.StringMapInput `pulumi:"tags"`
 	// Specifies the name of the temporary node pool used to cycle the default node pool for VM resizing.
 	TemporaryNameForRotation pulumi.StringPtrInput `pulumi:"temporaryNameForRotation"`
 	// The type of Node Pool which should be created. Possible values are `VirtualMachineScaleSets`. Defaults to `VirtualMachineScaleSets`. Changing this forces a new resource to be created.
@@ -7458,11 +7400,6 @@ func (o KubernetesClusterDefaultNodePoolOutput) ToKubernetesClusterDefaultNodePo
 	}).(KubernetesClusterDefaultNodePoolPtrOutput)
 }
 
-// Should [the Kubernetes Auto Scaler](https://docs.microsoft.com/azure/aks/cluster-autoscaler) be enabled for this Node Pool?
-//
-// > **Note:** This requires that the `type` is set to `VirtualMachineScaleSets`.
-//
-// > **Note:** If you're using AutoScaling, you may wish to use [`ignoreChanges` functionality](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) to ignore changes to the `nodeCount` field.
 func (o KubernetesClusterDefaultNodePoolOutput) AutoScalingEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v KubernetesClusterDefaultNodePool) *bool { return v.AutoScalingEnabled }).(pulumi.BoolPtrOutput)
 }
@@ -7604,9 +7541,6 @@ func (o KubernetesClusterDefaultNodePoolOutput) SnapshotId() pulumi.StringPtrOut
 	return o.ApplyT(func(v KubernetesClusterDefaultNodePool) *string { return v.SnapshotId }).(pulumi.StringPtrOutput)
 }
 
-// A mapping of tags to assign to the Node Pool.
-//
-// > At this time there's a bug in the AKS API where Tags for a Node Pool are not stored in the correct case - you may wish to use `ignoreChanges` functionality to ignore changes to the casing until this is fixed in the AKS API.
 func (o KubernetesClusterDefaultNodePoolOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v KubernetesClusterDefaultNodePool) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
@@ -7683,11 +7617,6 @@ func (o KubernetesClusterDefaultNodePoolPtrOutput) Elem() KubernetesClusterDefau
 	}).(KubernetesClusterDefaultNodePoolOutput)
 }
 
-// Should [the Kubernetes Auto Scaler](https://docs.microsoft.com/azure/aks/cluster-autoscaler) be enabled for this Node Pool?
-//
-// > **Note:** This requires that the `type` is set to `VirtualMachineScaleSets`.
-//
-// > **Note:** If you're using AutoScaling, you may wish to use [`ignoreChanges` functionality](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) to ignore changes to the `nodeCount` field.
 func (o KubernetesClusterDefaultNodePoolPtrOutput) AutoScalingEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *KubernetesClusterDefaultNodePool) *bool {
 		if v == nil {
@@ -7958,9 +7887,6 @@ func (o KubernetesClusterDefaultNodePoolPtrOutput) SnapshotId() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
-// A mapping of tags to assign to the Node Pool.
-//
-// > At this time there's a bug in the AKS API where Tags for a Node Pool are not stored in the correct case - you may wish to use `ignoreChanges` functionality to ignore changes to the casing until this is fixed in the AKS API.
 func (o KubernetesClusterDefaultNodePoolPtrOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *KubernetesClusterDefaultNodePool) map[string]string {
 		if v == nil {
@@ -9862,7 +9788,7 @@ type KubernetesClusterExtensionPlan struct {
 	Publisher string `pulumi:"publisher"`
 	// Specifies the version of the plan from the marketplace. Changing this forces a new Kubernetes Cluster Extension to be created.
 	//
-	// > **NOTE:** When `plan` is specified, legal terms must be accepted for this item on this subscription before creating the Kubernetes Cluster Extension. The `marketplace.Agreement` resource or AZ CLI tool can be used to do this.
+	// > **Note:** When `plan` is specified, legal terms must be accepted for this item on this subscription before creating the Kubernetes Cluster Extension. The `marketplace.Agreement` resource or AZ CLI tool can be used to do this.
 	Version *string `pulumi:"version"`
 }
 
@@ -9888,7 +9814,7 @@ type KubernetesClusterExtensionPlanArgs struct {
 	Publisher pulumi.StringInput `pulumi:"publisher"`
 	// Specifies the version of the plan from the marketplace. Changing this forces a new Kubernetes Cluster Extension to be created.
 	//
-	// > **NOTE:** When `plan` is specified, legal terms must be accepted for this item on this subscription before creating the Kubernetes Cluster Extension. The `marketplace.Agreement` resource or AZ CLI tool can be used to do this.
+	// > **Note:** When `plan` is specified, legal terms must be accepted for this item on this subscription before creating the Kubernetes Cluster Extension. The `marketplace.Agreement` resource or AZ CLI tool can be used to do this.
 	Version pulumi.StringPtrInput `pulumi:"version"`
 }
 
@@ -9991,7 +9917,7 @@ func (o KubernetesClusterExtensionPlanOutput) Publisher() pulumi.StringOutput {
 
 // Specifies the version of the plan from the marketplace. Changing this forces a new Kubernetes Cluster Extension to be created.
 //
-// > **NOTE:** When `plan` is specified, legal terms must be accepted for this item on this subscription before creating the Kubernetes Cluster Extension. The `marketplace.Agreement` resource or AZ CLI tool can be used to do this.
+// > **Note:** When `plan` is specified, legal terms must be accepted for this item on this subscription before creating the Kubernetes Cluster Extension. The `marketplace.Agreement` resource or AZ CLI tool can be used to do this.
 func (o KubernetesClusterExtensionPlanOutput) Version() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KubernetesClusterExtensionPlan) *string { return v.Version }).(pulumi.StringPtrOutput)
 }
@@ -10062,7 +9988,7 @@ func (o KubernetesClusterExtensionPlanPtrOutput) Publisher() pulumi.StringPtrOut
 
 // Specifies the version of the plan from the marketplace. Changing this forces a new Kubernetes Cluster Extension to be created.
 //
-// > **NOTE:** When `plan` is specified, legal terms must be accepted for this item on this subscription before creating the Kubernetes Cluster Extension. The `marketplace.Agreement` resource or AZ CLI tool can be used to do this.
+// > **Note:** When `plan` is specified, legal terms must be accepted for this item on this subscription before creating the Kubernetes Cluster Extension. The `marketplace.Agreement` resource or AZ CLI tool can be used to do this.
 func (o KubernetesClusterExtensionPlanPtrOutput) Version() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KubernetesClusterExtensionPlan) *string {
 		if v == nil {
@@ -10477,7 +10403,7 @@ type KubernetesClusterIngressApplicationGateway struct {
 	SubnetCidr *string `pulumi:"subnetCidr"`
 	// The ID of the subnet on which to create an Application Gateway, which in turn will be integrated with the ingress controller of this Kubernetes Cluster. See [this](https://docs.microsoft.com/azure/application-gateway/tutorial-ingress-controller-add-on-new) page for further details.
 	//
-	// > **Note:** Exactly one of `gatewayId`, `subnetId` or `subnetCidr` must be specified.
+	// > **Note:** Exactly one of `gatewayId`, `gatewayName`, `subnetId`, or `subnetCidr` must be specified.
 	//
 	// > **Note:** If specifying `ingressApplicationGateway` in conjunction with `onlyCriticalAddonsEnabled`, the AGIC pod will fail to start. A separate `containerservice.KubernetesClusterNodePool` is required to run the AGIC pod successfully. This is because AGIC is classed as a "non-critical addon".
 	SubnetId *string `pulumi:"subnetId"`
@@ -10507,7 +10433,7 @@ type KubernetesClusterIngressApplicationGatewayArgs struct {
 	SubnetCidr pulumi.StringPtrInput `pulumi:"subnetCidr"`
 	// The ID of the subnet on which to create an Application Gateway, which in turn will be integrated with the ingress controller of this Kubernetes Cluster. See [this](https://docs.microsoft.com/azure/application-gateway/tutorial-ingress-controller-add-on-new) page for further details.
 	//
-	// > **Note:** Exactly one of `gatewayId`, `subnetId` or `subnetCidr` must be specified.
+	// > **Note:** Exactly one of `gatewayId`, `gatewayName`, `subnetId`, or `subnetCidr` must be specified.
 	//
 	// > **Note:** If specifying `ingressApplicationGateway` in conjunction with `onlyCriticalAddonsEnabled`, the AGIC pod will fail to start. A separate `containerservice.KubernetesClusterNodePool` is required to run the AGIC pod successfully. This is because AGIC is classed as a "non-critical addon".
 	SubnetId pulumi.StringPtrInput `pulumi:"subnetId"`
@@ -10619,7 +10545,7 @@ func (o KubernetesClusterIngressApplicationGatewayOutput) SubnetCidr() pulumi.St
 
 // The ID of the subnet on which to create an Application Gateway, which in turn will be integrated with the ingress controller of this Kubernetes Cluster. See [this](https://docs.microsoft.com/azure/application-gateway/tutorial-ingress-controller-add-on-new) page for further details.
 //
-// > **Note:** Exactly one of `gatewayId`, `subnetId` or `subnetCidr` must be specified.
+// > **Note:** Exactly one of `gatewayId`, `gatewayName`, `subnetId`, or `subnetCidr` must be specified.
 //
 // > **Note:** If specifying `ingressApplicationGateway` in conjunction with `onlyCriticalAddonsEnabled`, the AGIC pod will fail to start. A separate `containerservice.KubernetesClusterNodePool` is required to run the AGIC pod successfully. This is because AGIC is classed as a "non-critical addon".
 func (o KubernetesClusterIngressApplicationGatewayOutput) SubnetId() pulumi.StringPtrOutput {
@@ -10702,7 +10628,7 @@ func (o KubernetesClusterIngressApplicationGatewayPtrOutput) SubnetCidr() pulumi
 
 // The ID of the subnet on which to create an Application Gateway, which in turn will be integrated with the ingress controller of this Kubernetes Cluster. See [this](https://docs.microsoft.com/azure/application-gateway/tutorial-ingress-controller-add-on-new) page for further details.
 //
-// > **Note:** Exactly one of `gatewayId`, `subnetId` or `subnetCidr` must be specified.
+// > **Note:** Exactly one of `gatewayId`, `gatewayName`, `subnetId`, or `subnetCidr` must be specified.
 //
 // > **Note:** If specifying `ingressApplicationGateway` in conjunction with `onlyCriticalAddonsEnabled`, the AGIC pod will fail to start. A separate `containerservice.KubernetesClusterNodePool` is required to run the AGIC pod successfully. This is because AGIC is classed as a "non-critical addon".
 func (o KubernetesClusterIngressApplicationGatewayPtrOutput) SubnetId() pulumi.StringPtrOutput {
@@ -13559,9 +13485,9 @@ type KubernetesClusterNetworkProfile struct {
 	DnsServiceIp *string `pulumi:"dnsServiceIp"`
 	// Specifies a list of IP versions the Kubernetes Cluster will use to assign IP addresses to its nodes and pods. Possible values are `IPv4` and/or `IPv6`. `IPv4` must always be specified. Changing this forces a new resource to be created.
 	//
-	// ->**Note:** To configure dual-stack networking `ipVersions` should be set to `["IPv4", "IPv6"]`.
+	// > **Note:** To configure dual-stack networking `ipVersions` should be set to `["IPv4", "IPv6"]`.
 	//
-	// ->**Note:** Dual-stack networking requires that the Preview Feature `Microsoft.ContainerService/AKS-EnableDualStack` is enabled and the Resource Provider is re-registered, see [the documentation](https://docs.microsoft.com/azure/aks/configure-kubenet-dual-stack?tabs=azure-cli%2Ckubectl#register-the-aks-enabledualstack-preview-feature) for more information.
+	// > **Note:** Dual-stack networking requires that the Preview Feature `Microsoft.ContainerService/AKS-EnableDualStack` is enabled and the Resource Provider is re-registered, see [the documentation](https://docs.microsoft.com/azure/aks/configure-kubenet-dual-stack?tabs=azure-cli%2Ckubectl#register-the-aks-enabledualstack-preview-feature) for more information.
 	IpVersions []string `pulumi:"ipVersions"`
 	// A `loadBalancerProfile` block as defined below. This can only be specified when `loadBalancerSku` is set to `standard`. Changing this forces a new resource to be created.
 	LoadBalancerProfile *KubernetesClusterNetworkProfileLoadBalancerProfile `pulumi:"loadBalancerProfile"`
@@ -13606,6 +13532,8 @@ type KubernetesClusterNetworkProfile struct {
 	// A list of CIDRs to use for Kubernetes services. For single-stack networking a single IPv4 CIDR is expected. For dual-stack networking an IPv4 and IPv6 CIDR are expected. Changing this forces a new resource to be created.
 	//
 	// > **Note:** This range should not be used by any network element on or connected to this VNet. Service address CIDR must be smaller than /12. `dockerBridgeCidr`, `dnsServiceIp` and `serviceCidr` should all be empty or all should be set.
+	//
+	// Examples of how to use [AKS with Advanced Networking](https://docs.microsoft.com/azure/aks/networking-overview#advanced-networking) can be found in the `./examples/kubernetes/` directory in the GitHub repository.
 	ServiceCidrs []string `pulumi:"serviceCidrs"`
 }
 
@@ -13625,9 +13553,9 @@ type KubernetesClusterNetworkProfileArgs struct {
 	DnsServiceIp pulumi.StringPtrInput `pulumi:"dnsServiceIp"`
 	// Specifies a list of IP versions the Kubernetes Cluster will use to assign IP addresses to its nodes and pods. Possible values are `IPv4` and/or `IPv6`. `IPv4` must always be specified. Changing this forces a new resource to be created.
 	//
-	// ->**Note:** To configure dual-stack networking `ipVersions` should be set to `["IPv4", "IPv6"]`.
+	// > **Note:** To configure dual-stack networking `ipVersions` should be set to `["IPv4", "IPv6"]`.
 	//
-	// ->**Note:** Dual-stack networking requires that the Preview Feature `Microsoft.ContainerService/AKS-EnableDualStack` is enabled and the Resource Provider is re-registered, see [the documentation](https://docs.microsoft.com/azure/aks/configure-kubenet-dual-stack?tabs=azure-cli%2Ckubectl#register-the-aks-enabledualstack-preview-feature) for more information.
+	// > **Note:** Dual-stack networking requires that the Preview Feature `Microsoft.ContainerService/AKS-EnableDualStack` is enabled and the Resource Provider is re-registered, see [the documentation](https://docs.microsoft.com/azure/aks/configure-kubenet-dual-stack?tabs=azure-cli%2Ckubectl#register-the-aks-enabledualstack-preview-feature) for more information.
 	IpVersions pulumi.StringArrayInput `pulumi:"ipVersions"`
 	// A `loadBalancerProfile` block as defined below. This can only be specified when `loadBalancerSku` is set to `standard`. Changing this forces a new resource to be created.
 	LoadBalancerProfile KubernetesClusterNetworkProfileLoadBalancerProfilePtrInput `pulumi:"loadBalancerProfile"`
@@ -13672,6 +13600,8 @@ type KubernetesClusterNetworkProfileArgs struct {
 	// A list of CIDRs to use for Kubernetes services. For single-stack networking a single IPv4 CIDR is expected. For dual-stack networking an IPv4 and IPv6 CIDR are expected. Changing this forces a new resource to be created.
 	//
 	// > **Note:** This range should not be used by any network element on or connected to this VNet. Service address CIDR must be smaller than /12. `dockerBridgeCidr`, `dnsServiceIp` and `serviceCidr` should all be empty or all should be set.
+	//
+	// Examples of how to use [AKS with Advanced Networking](https://docs.microsoft.com/azure/aks/networking-overview#advanced-networking) can be found in the `./examples/kubernetes/` directory in the GitHub repository.
 	ServiceCidrs pulumi.StringArrayInput `pulumi:"serviceCidrs"`
 }
 
@@ -13759,9 +13689,9 @@ func (o KubernetesClusterNetworkProfileOutput) DnsServiceIp() pulumi.StringPtrOu
 
 // Specifies a list of IP versions the Kubernetes Cluster will use to assign IP addresses to its nodes and pods. Possible values are `IPv4` and/or `IPv6`. `IPv4` must always be specified. Changing this forces a new resource to be created.
 //
-// ->**Note:** To configure dual-stack networking `ipVersions` should be set to `["IPv4", "IPv6"]`.
+// > **Note:** To configure dual-stack networking `ipVersions` should be set to `["IPv4", "IPv6"]`.
 //
-// ->**Note:** Dual-stack networking requires that the Preview Feature `Microsoft.ContainerService/AKS-EnableDualStack` is enabled and the Resource Provider is re-registered, see [the documentation](https://docs.microsoft.com/azure/aks/configure-kubenet-dual-stack?tabs=azure-cli%2Ckubectl#register-the-aks-enabledualstack-preview-feature) for more information.
+// > **Note:** Dual-stack networking requires that the Preview Feature `Microsoft.ContainerService/AKS-EnableDualStack` is enabled and the Resource Provider is re-registered, see [the documentation](https://docs.microsoft.com/azure/aks/configure-kubenet-dual-stack?tabs=azure-cli%2Ckubectl#register-the-aks-enabledualstack-preview-feature) for more information.
 func (o KubernetesClusterNetworkProfileOutput) IpVersions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v KubernetesClusterNetworkProfile) []string { return v.IpVersions }).(pulumi.StringArrayOutput)
 }
@@ -13849,6 +13779,8 @@ func (o KubernetesClusterNetworkProfileOutput) ServiceCidr() pulumi.StringPtrOut
 // A list of CIDRs to use for Kubernetes services. For single-stack networking a single IPv4 CIDR is expected. For dual-stack networking an IPv4 and IPv6 CIDR are expected. Changing this forces a new resource to be created.
 //
 // > **Note:** This range should not be used by any network element on or connected to this VNet. Service address CIDR must be smaller than /12. `dockerBridgeCidr`, `dnsServiceIp` and `serviceCidr` should all be empty or all should be set.
+//
+// Examples of how to use [AKS with Advanced Networking](https://docs.microsoft.com/azure/aks/networking-overview#advanced-networking) can be found in the `./examples/kubernetes/` directory in the GitHub repository.
 func (o KubernetesClusterNetworkProfileOutput) ServiceCidrs() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v KubernetesClusterNetworkProfile) []string { return v.ServiceCidrs }).(pulumi.StringArrayOutput)
 }
@@ -13889,9 +13821,9 @@ func (o KubernetesClusterNetworkProfilePtrOutput) DnsServiceIp() pulumi.StringPt
 
 // Specifies a list of IP versions the Kubernetes Cluster will use to assign IP addresses to its nodes and pods. Possible values are `IPv4` and/or `IPv6`. `IPv4` must always be specified. Changing this forces a new resource to be created.
 //
-// ->**Note:** To configure dual-stack networking `ipVersions` should be set to `["IPv4", "IPv6"]`.
+// > **Note:** To configure dual-stack networking `ipVersions` should be set to `["IPv4", "IPv6"]`.
 //
-// ->**Note:** Dual-stack networking requires that the Preview Feature `Microsoft.ContainerService/AKS-EnableDualStack` is enabled and the Resource Provider is re-registered, see [the documentation](https://docs.microsoft.com/azure/aks/configure-kubenet-dual-stack?tabs=azure-cli%2Ckubectl#register-the-aks-enabledualstack-preview-feature) for more information.
+// > **Note:** Dual-stack networking requires that the Preview Feature `Microsoft.ContainerService/AKS-EnableDualStack` is enabled and the Resource Provider is re-registered, see [the documentation](https://docs.microsoft.com/azure/aks/configure-kubenet-dual-stack?tabs=azure-cli%2Ckubectl#register-the-aks-enabledualstack-preview-feature) for more information.
 func (o KubernetesClusterNetworkProfilePtrOutput) IpVersions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *KubernetesClusterNetworkProfile) []string {
 		if v == nil {
@@ -14040,6 +13972,8 @@ func (o KubernetesClusterNetworkProfilePtrOutput) ServiceCidr() pulumi.StringPtr
 // A list of CIDRs to use for Kubernetes services. For single-stack networking a single IPv4 CIDR is expected. For dual-stack networking an IPv4 and IPv6 CIDR are expected. Changing this forces a new resource to be created.
 //
 // > **Note:** This range should not be used by any network element on or connected to this VNet. Service address CIDR must be smaller than /12. `dockerBridgeCidr`, `dnsServiceIp` and `serviceCidr` should all be empty or all should be set.
+//
+// Examples of how to use [AKS with Advanced Networking](https://docs.microsoft.com/azure/aks/networking-overview#advanced-networking) can be found in the `./examples/kubernetes/` directory in the GitHub repository.
 func (o KubernetesClusterNetworkProfilePtrOutput) ServiceCidrs() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *KubernetesClusterNetworkProfile) []string {
 		if v == nil {
@@ -16610,7 +16544,7 @@ type KubernetesClusterServiceMeshProfile struct {
 	CertificateAuthority *KubernetesClusterServiceMeshProfileCertificateAuthority `pulumi:"certificateAuthority"`
 	// Is Istio External Ingress Gateway enabled?
 	//
-	// > **NOTE:** Currently only one Internal Ingress Gateway and one External Ingress Gateway are allowed per cluster
+	// > **Note:** Currently only one Internal Ingress Gateway and one External Ingress Gateway are allowed per cluster
 	ExternalIngressGatewayEnabled *bool `pulumi:"externalIngressGatewayEnabled"`
 	// Is Istio Internal Ingress Gateway enabled?
 	InternalIngressGatewayEnabled *bool `pulumi:"internalIngressGatewayEnabled"`
@@ -16618,7 +16552,7 @@ type KubernetesClusterServiceMeshProfile struct {
 	Mode string `pulumi:"mode"`
 	// Specify 1 or 2 Istio control plane revisions for managing minor upgrades using the canary upgrade process. For example, create the resource with `revisions` set to `["asm-1-20"]`, or leave it empty (the `revisions` will only be known after apply). To start the canary upgrade, change `revisions` to `["asm-1-20", "asm-1-21"]`. To roll back the canary upgrade, revert to `["asm-1-20"]`. To confirm the upgrade, change to `["asm-1-21"]`.
 	//
-	// > **NOTE:** Upgrading to a new (canary) revision does not affect existing sidecar proxies. You need to apply the canary revision label to selected namespaces and restart pods with kubectl to inject the new sidecar proxy. [Learn more](https://istio.io/latest/docs/setup/upgrade/canary/#data-plane).
+	// > **Note:** Upgrading to a new (canary) revision does not affect existing sidecar proxies. You need to apply the canary revision label to selected namespaces and restart pods with kubectl to inject the new sidecar proxy. [Learn more](https://istio.io/latest/docs/setup/upgrade/canary/#data-plane).
 	Revisions []string `pulumi:"revisions"`
 }
 
@@ -16638,7 +16572,7 @@ type KubernetesClusterServiceMeshProfileArgs struct {
 	CertificateAuthority KubernetesClusterServiceMeshProfileCertificateAuthorityPtrInput `pulumi:"certificateAuthority"`
 	// Is Istio External Ingress Gateway enabled?
 	//
-	// > **NOTE:** Currently only one Internal Ingress Gateway and one External Ingress Gateway are allowed per cluster
+	// > **Note:** Currently only one Internal Ingress Gateway and one External Ingress Gateway are allowed per cluster
 	ExternalIngressGatewayEnabled pulumi.BoolPtrInput `pulumi:"externalIngressGatewayEnabled"`
 	// Is Istio Internal Ingress Gateway enabled?
 	InternalIngressGatewayEnabled pulumi.BoolPtrInput `pulumi:"internalIngressGatewayEnabled"`
@@ -16646,7 +16580,7 @@ type KubernetesClusterServiceMeshProfileArgs struct {
 	Mode pulumi.StringInput `pulumi:"mode"`
 	// Specify 1 or 2 Istio control plane revisions for managing minor upgrades using the canary upgrade process. For example, create the resource with `revisions` set to `["asm-1-20"]`, or leave it empty (the `revisions` will only be known after apply). To start the canary upgrade, change `revisions` to `["asm-1-20", "asm-1-21"]`. To roll back the canary upgrade, revert to `["asm-1-20"]`. To confirm the upgrade, change to `["asm-1-21"]`.
 	//
-	// > **NOTE:** Upgrading to a new (canary) revision does not affect existing sidecar proxies. You need to apply the canary revision label to selected namespaces and restart pods with kubectl to inject the new sidecar proxy. [Learn more](https://istio.io/latest/docs/setup/upgrade/canary/#data-plane).
+	// > **Note:** Upgrading to a new (canary) revision does not affect existing sidecar proxies. You need to apply the canary revision label to selected namespaces and restart pods with kubectl to inject the new sidecar proxy. [Learn more](https://istio.io/latest/docs/setup/upgrade/canary/#data-plane).
 	Revisions pulumi.StringArrayInput `pulumi:"revisions"`
 }
 
@@ -16736,7 +16670,7 @@ func (o KubernetesClusterServiceMeshProfileOutput) CertificateAuthority() Kubern
 
 // Is Istio External Ingress Gateway enabled?
 //
-// > **NOTE:** Currently only one Internal Ingress Gateway and one External Ingress Gateway are allowed per cluster
+// > **Note:** Currently only one Internal Ingress Gateway and one External Ingress Gateway are allowed per cluster
 func (o KubernetesClusterServiceMeshProfileOutput) ExternalIngressGatewayEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v KubernetesClusterServiceMeshProfile) *bool { return v.ExternalIngressGatewayEnabled }).(pulumi.BoolPtrOutput)
 }
@@ -16753,7 +16687,7 @@ func (o KubernetesClusterServiceMeshProfileOutput) Mode() pulumi.StringOutput {
 
 // Specify 1 or 2 Istio control plane revisions for managing minor upgrades using the canary upgrade process. For example, create the resource with `revisions` set to `["asm-1-20"]`, or leave it empty (the `revisions` will only be known after apply). To start the canary upgrade, change `revisions` to `["asm-1-20", "asm-1-21"]`. To roll back the canary upgrade, revert to `["asm-1-20"]`. To confirm the upgrade, change to `["asm-1-21"]`.
 //
-// > **NOTE:** Upgrading to a new (canary) revision does not affect existing sidecar proxies. You need to apply the canary revision label to selected namespaces and restart pods with kubectl to inject the new sidecar proxy. [Learn more](https://istio.io/latest/docs/setup/upgrade/canary/#data-plane).
+// > **Note:** Upgrading to a new (canary) revision does not affect existing sidecar proxies. You need to apply the canary revision label to selected namespaces and restart pods with kubectl to inject the new sidecar proxy. [Learn more](https://istio.io/latest/docs/setup/upgrade/canary/#data-plane).
 func (o KubernetesClusterServiceMeshProfileOutput) Revisions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v KubernetesClusterServiceMeshProfile) []string { return v.Revisions }).(pulumi.StringArrayOutput)
 }
@@ -16794,7 +16728,7 @@ func (o KubernetesClusterServiceMeshProfilePtrOutput) CertificateAuthority() Kub
 
 // Is Istio External Ingress Gateway enabled?
 //
-// > **NOTE:** Currently only one Internal Ingress Gateway and one External Ingress Gateway are allowed per cluster
+// > **Note:** Currently only one Internal Ingress Gateway and one External Ingress Gateway are allowed per cluster
 func (o KubernetesClusterServiceMeshProfilePtrOutput) ExternalIngressGatewayEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *KubernetesClusterServiceMeshProfile) *bool {
 		if v == nil {
@@ -16826,7 +16760,7 @@ func (o KubernetesClusterServiceMeshProfilePtrOutput) Mode() pulumi.StringPtrOut
 
 // Specify 1 or 2 Istio control plane revisions for managing minor upgrades using the canary upgrade process. For example, create the resource with `revisions` set to `["asm-1-20"]`, or leave it empty (the `revisions` will only be known after apply). To start the canary upgrade, change `revisions` to `["asm-1-20", "asm-1-21"]`. To roll back the canary upgrade, revert to `["asm-1-20"]`. To confirm the upgrade, change to `["asm-1-21"]`.
 //
-// > **NOTE:** Upgrading to a new (canary) revision does not affect existing sidecar proxies. You need to apply the canary revision label to selected namespaces and restart pods with kubectl to inject the new sidecar proxy. [Learn more](https://istio.io/latest/docs/setup/upgrade/canary/#data-plane).
+// > **Note:** Upgrading to a new (canary) revision does not affect existing sidecar proxies. You need to apply the canary revision label to selected namespaces and restart pods with kubectl to inject the new sidecar proxy. [Learn more](https://istio.io/latest/docs/setup/upgrade/canary/#data-plane).
 func (o KubernetesClusterServiceMeshProfilePtrOutput) Revisions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *KubernetesClusterServiceMeshProfile) []string {
 		if v == nil {
@@ -18540,7 +18474,7 @@ func (o KubernetesFleetManagerHubProfilePtrOutput) KubernetesVersion() pulumi.St
 type RegistryCredentialSetAuthenticationCredentials struct {
 	// The URI of the secret containing the password in a Key Vault.
 	//
-	// > NOTE: Be aware that you will need to permit the Identity that is created for the Container Registry to have `get` on secrets to the Key Vault, e.g. using the `keyvault.AccessPolicy` resource.
+	// > **Note:** Be aware that you will need to permit the Identity that is created for the Container Registry to have `get` on secrets to the Key Vault, e.g. using the `keyvault.AccessPolicy` resource.
 	PasswordSecretId string `pulumi:"passwordSecretId"`
 	// The URI of the secret containing the username in a Key Vault.
 	UsernameSecretId string `pulumi:"usernameSecretId"`
@@ -18560,7 +18494,7 @@ type RegistryCredentialSetAuthenticationCredentialsInput interface {
 type RegistryCredentialSetAuthenticationCredentialsArgs struct {
 	// The URI of the secret containing the password in a Key Vault.
 	//
-	// > NOTE: Be aware that you will need to permit the Identity that is created for the Container Registry to have `get` on secrets to the Key Vault, e.g. using the `keyvault.AccessPolicy` resource.
+	// > **Note:** Be aware that you will need to permit the Identity that is created for the Container Registry to have `get` on secrets to the Key Vault, e.g. using the `keyvault.AccessPolicy` resource.
 	PasswordSecretId pulumi.StringInput `pulumi:"passwordSecretId"`
 	// The URI of the secret containing the username in a Key Vault.
 	UsernameSecretId pulumi.StringInput `pulumi:"usernameSecretId"`
@@ -18645,7 +18579,7 @@ func (o RegistryCredentialSetAuthenticationCredentialsOutput) ToRegistryCredenti
 
 // The URI of the secret containing the password in a Key Vault.
 //
-// > NOTE: Be aware that you will need to permit the Identity that is created for the Container Registry to have `get` on secrets to the Key Vault, e.g. using the `keyvault.AccessPolicy` resource.
+// > **Note:** Be aware that you will need to permit the Identity that is created for the Container Registry to have `get` on secrets to the Key Vault, e.g. using the `keyvault.AccessPolicy` resource.
 func (o RegistryCredentialSetAuthenticationCredentialsOutput) PasswordSecretId() pulumi.StringOutput {
 	return o.ApplyT(func(v RegistryCredentialSetAuthenticationCredentials) string { return v.PasswordSecretId }).(pulumi.StringOutput)
 }
@@ -18681,7 +18615,7 @@ func (o RegistryCredentialSetAuthenticationCredentialsPtrOutput) Elem() Registry
 
 // The URI of the secret containing the password in a Key Vault.
 //
-// > NOTE: Be aware that you will need to permit the Identity that is created for the Container Registry to have `get` on secrets to the Key Vault, e.g. using the `keyvault.AccessPolicy` resource.
+// > **Note:** Be aware that you will need to permit the Identity that is created for the Container Registry to have `get` on secrets to the Key Vault, e.g. using the `keyvault.AccessPolicy` resource.
 func (o RegistryCredentialSetAuthenticationCredentialsPtrOutput) PasswordSecretId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RegistryCredentialSetAuthenticationCredentials) *string {
 		if v == nil {
@@ -19041,7 +18975,7 @@ type RegistryGeoreplication struct {
 	Tags map[string]string `pulumi:"tags"`
 	// Whether zone redundancy is enabled for this replication location? Defaults to `false`.
 	//
-	// > **NOTE:** Changing the `zoneRedundancyEnabled` forces the a underlying replication to be created.
+	// > **Note:** Changing the `zoneRedundancyEnabled` forces the a underlying replication to be created.
 	ZoneRedundancyEnabled *bool `pulumi:"zoneRedundancyEnabled"`
 }
 
@@ -19065,7 +18999,7 @@ type RegistryGeoreplicationArgs struct {
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 	// Whether zone redundancy is enabled for this replication location? Defaults to `false`.
 	//
-	// > **NOTE:** Changing the `zoneRedundancyEnabled` forces the a underlying replication to be created.
+	// > **Note:** Changing the `zoneRedundancyEnabled` forces the a underlying replication to be created.
 	ZoneRedundancyEnabled pulumi.BoolPtrInput `pulumi:"zoneRedundancyEnabled"`
 }
 
@@ -19137,7 +19071,7 @@ func (o RegistryGeoreplicationOutput) Tags() pulumi.StringMapOutput {
 
 // Whether zone redundancy is enabled for this replication location? Defaults to `false`.
 //
-// > **NOTE:** Changing the `zoneRedundancyEnabled` forces the a underlying replication to be created.
+// > **Note:** Changing the `zoneRedundancyEnabled` forces the a underlying replication to be created.
 func (o RegistryGeoreplicationOutput) ZoneRedundancyEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v RegistryGeoreplication) *bool { return v.ZoneRedundancyEnabled }).(pulumi.BoolPtrOutput)
 }
@@ -19165,7 +19099,7 @@ func (o RegistryGeoreplicationArrayOutput) Index(i pulumi.IntInput) RegistryGeor
 type RegistryIdentity struct {
 	// Specifies a list of User Assigned Managed Identity IDs to be assigned to this Container Registry.
 	//
-	// > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+	// > **Note:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
 	IdentityIds []string `pulumi:"identityIds"`
 	// The Principal ID associated with this Managed Service Identity.
 	PrincipalId *string `pulumi:"principalId"`
@@ -19189,7 +19123,7 @@ type RegistryIdentityInput interface {
 type RegistryIdentityArgs struct {
 	// Specifies a list of User Assigned Managed Identity IDs to be assigned to this Container Registry.
 	//
-	// > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+	// > **Note:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
 	IdentityIds pulumi.StringArrayInput `pulumi:"identityIds"`
 	// The Principal ID associated with this Managed Service Identity.
 	PrincipalId pulumi.StringPtrInput `pulumi:"principalId"`
@@ -19278,7 +19212,7 @@ func (o RegistryIdentityOutput) ToRegistryIdentityPtrOutputWithContext(ctx conte
 
 // Specifies a list of User Assigned Managed Identity IDs to be assigned to this Container Registry.
 //
-// > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+// > **Note:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
 func (o RegistryIdentityOutput) IdentityIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v RegistryIdentity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
 }
@@ -19324,7 +19258,7 @@ func (o RegistryIdentityPtrOutput) Elem() RegistryIdentityOutput {
 
 // Specifies a list of User Assigned Managed Identity IDs to be assigned to this Container Registry.
 //
-// > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+// > **Note:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
 func (o RegistryIdentityPtrOutput) IdentityIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *RegistryIdentity) []string {
 		if v == nil {
@@ -19369,9 +19303,9 @@ type RegistryNetworkRuleSet struct {
 	DefaultAction *string `pulumi:"defaultAction"`
 	// One or more `ipRule` blocks as defined below.
 	//
-	// > **NOTE:** `networkRuleSet` is only supported with the `Premium` SKU at this time.
+	// > **Note:** `networkRuleSet` is only supported with the `Premium` SKU at this time.
 	//
-	// > **NOTE:** Azure automatically configures Network Rules - to remove these you'll need to specify an `networkRuleSet` block with `defaultAction` set to `Deny`.
+	// > **Note:** Azure automatically configures Network Rules - to remove these you'll need to specify an `networkRuleSet` block with `defaultAction` set to `Deny`.
 	IpRules []RegistryNetworkRuleSetIpRule `pulumi:"ipRules"`
 }
 
@@ -19391,9 +19325,9 @@ type RegistryNetworkRuleSetArgs struct {
 	DefaultAction pulumi.StringPtrInput `pulumi:"defaultAction"`
 	// One or more `ipRule` blocks as defined below.
 	//
-	// > **NOTE:** `networkRuleSet` is only supported with the `Premium` SKU at this time.
+	// > **Note:** `networkRuleSet` is only supported with the `Premium` SKU at this time.
 	//
-	// > **NOTE:** Azure automatically configures Network Rules - to remove these you'll need to specify an `networkRuleSet` block with `defaultAction` set to `Deny`.
+	// > **Note:** Azure automatically configures Network Rules - to remove these you'll need to specify an `networkRuleSet` block with `defaultAction` set to `Deny`.
 	IpRules RegistryNetworkRuleSetIpRuleArrayInput `pulumi:"ipRules"`
 }
 
@@ -19481,9 +19415,9 @@ func (o RegistryNetworkRuleSetOutput) DefaultAction() pulumi.StringPtrOutput {
 
 // One or more `ipRule` blocks as defined below.
 //
-// > **NOTE:** `networkRuleSet` is only supported with the `Premium` SKU at this time.
+// > **Note:** `networkRuleSet` is only supported with the `Premium` SKU at this time.
 //
-// > **NOTE:** Azure automatically configures Network Rules - to remove these you'll need to specify an `networkRuleSet` block with `defaultAction` set to `Deny`.
+// > **Note:** Azure automatically configures Network Rules - to remove these you'll need to specify an `networkRuleSet` block with `defaultAction` set to `Deny`.
 func (o RegistryNetworkRuleSetOutput) IpRules() RegistryNetworkRuleSetIpRuleArrayOutput {
 	return o.ApplyT(func(v RegistryNetworkRuleSet) []RegistryNetworkRuleSetIpRule { return v.IpRules }).(RegistryNetworkRuleSetIpRuleArrayOutput)
 }
@@ -19524,9 +19458,9 @@ func (o RegistryNetworkRuleSetPtrOutput) DefaultAction() pulumi.StringPtrOutput 
 
 // One or more `ipRule` blocks as defined below.
 //
-// > **NOTE:** `networkRuleSet` is only supported with the `Premium` SKU at this time.
+// > **Note:** `networkRuleSet` is only supported with the `Premium` SKU at this time.
 //
-// > **NOTE:** Azure automatically configures Network Rules - to remove these you'll need to specify an `networkRuleSet` block with `defaultAction` set to `Deny`.
+// > **Note:** Azure automatically configures Network Rules - to remove these you'll need to specify an `networkRuleSet` block with `defaultAction` set to `Deny`.
 func (o RegistryNetworkRuleSetPtrOutput) IpRules() RegistryNetworkRuleSetIpRuleArrayOutput {
 	return o.ApplyT(func(v *RegistryNetworkRuleSet) []RegistryNetworkRuleSetIpRule {
 		if v == nil {
@@ -20748,7 +20682,7 @@ func (o RegistryTaskFileStepPtrOutput) Values() pulumi.StringMapOutput {
 type RegistryTaskIdentity struct {
 	// Specifies a list of User Assigned Managed Identity IDs to be assigned to this Container Registry Task.
 	//
-	// > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+	// > **Note:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
 	IdentityIds []string `pulumi:"identityIds"`
 	// The Principal ID associated with this Managed Service Identity.
 	PrincipalId *string `pulumi:"principalId"`
@@ -20772,7 +20706,7 @@ type RegistryTaskIdentityInput interface {
 type RegistryTaskIdentityArgs struct {
 	// Specifies a list of User Assigned Managed Identity IDs to be assigned to this Container Registry Task.
 	//
-	// > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+	// > **Note:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
 	IdentityIds pulumi.StringArrayInput `pulumi:"identityIds"`
 	// The Principal ID associated with this Managed Service Identity.
 	PrincipalId pulumi.StringPtrInput `pulumi:"principalId"`
@@ -20861,7 +20795,7 @@ func (o RegistryTaskIdentityOutput) ToRegistryTaskIdentityPtrOutputWithContext(c
 
 // Specifies a list of User Assigned Managed Identity IDs to be assigned to this Container Registry Task.
 //
-// > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+// > **Note:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
 func (o RegistryTaskIdentityOutput) IdentityIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v RegistryTaskIdentity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
 }
@@ -20907,7 +20841,7 @@ func (o RegistryTaskIdentityPtrOutput) Elem() RegistryTaskIdentityOutput {
 
 // Specifies a list of User Assigned Managed Identity IDs to be assigned to this Container Registry Task.
 //
-// > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+// > **Note:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
 func (o RegistryTaskIdentityPtrOutput) IdentityIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *RegistryTaskIdentity) []string {
 		if v == nil {

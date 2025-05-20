@@ -14,7 +14,7 @@ namespace Pulumi.Azure.Compute
     /// 
     /// ## Disclaimers
     /// 
-    /// &gt; **Note:** The `azure.compute.VirtualMachine` resource has been superseded by the `azure.compute.LinuxVirtualMachine` and `azure.compute.WindowsVirtualMachine` resources. The existing `azure.compute.VirtualMachine` resource will continue to be available throughout the 2.x releases however is in a feature-frozen state to maintain compatibility - new functionality will instead be added to the `azure.compute.LinuxVirtualMachine` and `azure.compute.WindowsVirtualMachine` resources.
+    /// &gt; **Note:** The `azure.compute.VirtualMachine` resource has been superseded by the `azure.compute.LinuxVirtualMachine` and `azure.compute.WindowsVirtualMachine` resources. The existing `azure.compute.VirtualMachine` resource will continue to be available throughout the 3.x releases however is in a feature-frozen state to maintain compatibility - new functionality will instead be added to the `azure.compute.LinuxVirtualMachine` and `azure.compute.WindowsVirtualMachine` resources.
     /// 
     /// &gt; **Note:** Data Disks can be attached either directly on the `azure.compute.VirtualMachine` resource, or using the `azure.compute.DataDiskAttachment` resource - but the two cannot be used together. If both are used against the same Virtual Machine, spurious changes will occur.
     /// 
@@ -22,7 +22,7 @@ namespace Pulumi.Azure.Compute
     /// 
     /// ### From An Azure Platform Image)
     /// 
-    /// This example provisions a Virtual Machine with Managed Disks.
+    /// This example provisions a Virtual Machine with Managed Disks. Other examples of the `azure.compute.VirtualMachine` resource can be found in the `./examples/virtual-machines` directory within the GitHub Repository
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
@@ -150,19 +150,9 @@ namespace Pulumi.Azure.Compute
         [Output("bootDiagnostics")]
         public Output<Outputs.VirtualMachineBootDiagnostics?> BootDiagnostics { get; private set; } = null!;
 
-        /// <summary>
-        /// Should the Data Disks (either the Managed Disks / VHD Blobs) be deleted when the Virtual Machine is destroyed? Defaults to `false`.
-        /// 
-        /// &gt; **Note:** This setting works when instance is deleted via the provider only and don't forget to delete disks manually if you deleted VM manually. It can increase spending.
-        /// </summary>
         [Output("deleteDataDisksOnTermination")]
         public Output<bool?> DeleteDataDisksOnTermination { get; private set; } = null!;
 
-        /// <summary>
-        /// Should the OS Disk (either the Managed Disk / VHD Blob) be deleted when the Virtual Machine is destroyed? Defaults to `false`.
-        /// 
-        /// &gt; **Note:** This setting works when instance is deleted via the provider only and don't forget to delete disks manually if you deleted VM manually. It can increase spending.
-        /// </summary>
         [Output("deleteOsDiskOnTermination")]
         public Output<bool?> DeleteOsDiskOnTermination { get; private set; } = null!;
 
@@ -247,7 +237,7 @@ namespace Pulumi.Azure.Compute
         /// <summary>
         /// One or more `storage_data_disk` blocks as defined below.
         /// 
-        /// &gt; **Please Note:** Data Disks can also be attached either using this block or the `azure.compute.DataDiskAttachment` resource - but not both.
+        /// &gt; **Note:** Data Disks can also be attached either using this block or the `azure.compute.DataDiskAttachment` resource - but not both.
         /// </summary>
         [Output("storageDataDisks")]
         public Output<ImmutableArray<Outputs.VirtualMachineStorageDataDisk>> StorageDataDisks { get; private set; } = null!;
@@ -279,7 +269,7 @@ namespace Pulumi.Azure.Compute
         /// <summary>
         /// A list of a single item of the Availability Zone which the Virtual Machine should be allocated in. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **Please Note:** Availability Zones are [only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview).
+        /// &gt; **Note:** Availability Zones are [only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview).
         /// 
         /// For more information on the different example configurations, please check out the [Azure documentation](https://docs.microsoft.com/en-gb/rest/api/compute/virtualmachines/createorupdate#examples)
         /// </summary>
@@ -350,19 +340,9 @@ namespace Pulumi.Azure.Compute
         [Input("bootDiagnostics")]
         public Input<Inputs.VirtualMachineBootDiagnosticsArgs>? BootDiagnostics { get; set; }
 
-        /// <summary>
-        /// Should the Data Disks (either the Managed Disks / VHD Blobs) be deleted when the Virtual Machine is destroyed? Defaults to `false`.
-        /// 
-        /// &gt; **Note:** This setting works when instance is deleted via the provider only and don't forget to delete disks manually if you deleted VM manually. It can increase spending.
-        /// </summary>
         [Input("deleteDataDisksOnTermination")]
         public Input<bool>? DeleteDataDisksOnTermination { get; set; }
 
-        /// <summary>
-        /// Should the OS Disk (either the Managed Disk / VHD Blob) be deleted when the Virtual Machine is destroyed? Defaults to `false`.
-        /// 
-        /// &gt; **Note:** This setting works when instance is deleted via the provider only and don't forget to delete disks manually if you deleted VM manually. It can increase spending.
-        /// </summary>
         [Input("deleteOsDiskOnTermination")]
         public Input<bool>? DeleteOsDiskOnTermination { get; set; }
 
@@ -462,7 +442,7 @@ namespace Pulumi.Azure.Compute
         /// <summary>
         /// One or more `storage_data_disk` blocks as defined below.
         /// 
-        /// &gt; **Please Note:** Data Disks can also be attached either using this block or the `azure.compute.DataDiskAttachment` resource - but not both.
+        /// &gt; **Note:** Data Disks can also be attached either using this block or the `azure.compute.DataDiskAttachment` resource - but not both.
         /// </summary>
         public InputList<Inputs.VirtualMachineStorageDataDiskArgs> StorageDataDisks
         {
@@ -503,7 +483,7 @@ namespace Pulumi.Azure.Compute
         /// <summary>
         /// A list of a single item of the Availability Zone which the Virtual Machine should be allocated in. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **Please Note:** Availability Zones are [only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview).
+        /// &gt; **Note:** Availability Zones are [only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview).
         /// 
         /// For more information on the different example configurations, please check out the [Azure documentation](https://docs.microsoft.com/en-gb/rest/api/compute/virtualmachines/createorupdate#examples)
         /// </summary>
@@ -536,19 +516,9 @@ namespace Pulumi.Azure.Compute
         [Input("bootDiagnostics")]
         public Input<Inputs.VirtualMachineBootDiagnosticsGetArgs>? BootDiagnostics { get; set; }
 
-        /// <summary>
-        /// Should the Data Disks (either the Managed Disks / VHD Blobs) be deleted when the Virtual Machine is destroyed? Defaults to `false`.
-        /// 
-        /// &gt; **Note:** This setting works when instance is deleted via the provider only and don't forget to delete disks manually if you deleted VM manually. It can increase spending.
-        /// </summary>
         [Input("deleteDataDisksOnTermination")]
         public Input<bool>? DeleteDataDisksOnTermination { get; set; }
 
-        /// <summary>
-        /// Should the OS Disk (either the Managed Disk / VHD Blob) be deleted when the Virtual Machine is destroyed? Defaults to `false`.
-        /// 
-        /// &gt; **Note:** This setting works when instance is deleted via the provider only and don't forget to delete disks manually if you deleted VM manually. It can increase spending.
-        /// </summary>
         [Input("deleteOsDiskOnTermination")]
         public Input<bool>? DeleteOsDiskOnTermination { get; set; }
 
@@ -648,7 +618,7 @@ namespace Pulumi.Azure.Compute
         /// <summary>
         /// One or more `storage_data_disk` blocks as defined below.
         /// 
-        /// &gt; **Please Note:** Data Disks can also be attached either using this block or the `azure.compute.DataDiskAttachment` resource - but not both.
+        /// &gt; **Note:** Data Disks can also be attached either using this block or the `azure.compute.DataDiskAttachment` resource - but not both.
         /// </summary>
         public InputList<Inputs.VirtualMachineStorageDataDiskGetArgs> StorageDataDisks
         {
@@ -689,7 +659,7 @@ namespace Pulumi.Azure.Compute
         /// <summary>
         /// A list of a single item of the Availability Zone which the Virtual Machine should be allocated in. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **Please Note:** Availability Zones are [only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview).
+        /// &gt; **Note:** Availability Zones are [only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview).
         /// 
         /// For more information on the different example configurations, please check out the [Azure documentation](https://docs.microsoft.com/en-gb/rest/api/compute/virtualmachines/createorupdate#examples)
         /// </summary>

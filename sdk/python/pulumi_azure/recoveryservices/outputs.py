@@ -138,7 +138,7 @@ class VaultIdentity(dict):
         :param builtins.str type: Specifies the type of Managed Service Identity that should be configured on this Recovery Services Vault. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
         :param Sequence[builtins.str] identity_ids: A list of User Assigned Managed Identity IDs to be assigned to this App Configuration.
                
-               > **NOTE:** `identity_ids` is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+               > **Note:** `identity_ids` is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
         :param builtins.str principal_id: The Principal ID associated with this Managed Service Identity.
         :param builtins.str tenant_id: The Tenant ID associated with this Managed Service Identity.
         """
@@ -164,7 +164,7 @@ class VaultIdentity(dict):
         """
         A list of User Assigned Managed Identity IDs to be assigned to this App Configuration.
 
-        > **NOTE:** `identity_ids` is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+        > **Note:** `identity_ids` is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
         """
         return pulumi.get(self, "identity_ids")
 

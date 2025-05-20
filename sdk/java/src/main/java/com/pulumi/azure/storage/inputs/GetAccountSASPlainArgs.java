@@ -19,17 +19,9 @@ public final class GetAccountSASPlainArgs extends com.pulumi.resources.InvokeArg
 
     public static final GetAccountSASPlainArgs Empty = new GetAccountSASPlainArgs();
 
-    /**
-     * The connection string for the storage account to which this SAS applies. Typically directly from the `primary_connection_string` attribute of a `azure.storage.Account` resource.
-     * 
-     */
     @Import(name="connectionString", required=true)
     private String connectionString;
 
-    /**
-     * @return The connection string for the storage account to which this SAS applies. Typically directly from the `primary_connection_string` attribute of a `azure.storage.Account` resource.
-     * 
-     */
     public String connectionString() {
         return this.connectionString;
     }
@@ -37,7 +29,7 @@ public final class GetAccountSASPlainArgs extends com.pulumi.resources.InvokeArg
     /**
      * The expiration time and date of this SAS. Must be a valid ISO-8601 format time/date string.
      * 
-     * &gt; **NOTE:** The [ISO-8601 Time offset from UTC](https://en.wikipedia.org/wiki/ISO_8601#Time_offsets_from_UTC) is currently not supported by the service, which will result into 409 error.
+     * &gt; **Note:** The [ISO-8601 Time offset from UTC](https://en.wikipedia.org/wiki/ISO_8601#Time_offsets_from_UTC) is currently not supported by the service, which will result into 409 error.
      * 
      */
     @Import(name="expiry", required=true)
@@ -46,7 +38,7 @@ public final class GetAccountSASPlainArgs extends com.pulumi.resources.InvokeArg
     /**
      * @return The expiration time and date of this SAS. Must be a valid ISO-8601 format time/date string.
      * 
-     * &gt; **NOTE:** The [ISO-8601 Time offset from UTC](https://en.wikipedia.org/wiki/ISO_8601#Time_offsets_from_UTC) is currently not supported by the service, which will result into 409 error.
+     * &gt; **Note:** The [ISO-8601 Time offset from UTC](https://en.wikipedia.org/wiki/ISO_8601#Time_offsets_from_UTC) is currently not supported by the service, which will result into 409 error.
      * 
      */
     public String expiry() {
@@ -190,12 +182,6 @@ public final class GetAccountSASPlainArgs extends com.pulumi.resources.InvokeArg
             $ = new GetAccountSASPlainArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param connectionString The connection string for the storage account to which this SAS applies. Typically directly from the `primary_connection_string` attribute of a `azure.storage.Account` resource.
-         * 
-         * @return builder
-         * 
-         */
         public Builder connectionString(String connectionString) {
             $.connectionString = connectionString;
             return this;
@@ -204,7 +190,7 @@ public final class GetAccountSASPlainArgs extends com.pulumi.resources.InvokeArg
         /**
          * @param expiry The expiration time and date of this SAS. Must be a valid ISO-8601 format time/date string.
          * 
-         * &gt; **NOTE:** The [ISO-8601 Time offset from UTC](https://en.wikipedia.org/wiki/ISO_8601#Time_offsets_from_UTC) is currently not supported by the service, which will result into 409 error.
+         * &gt; **Note:** The [ISO-8601 Time offset from UTC](https://en.wikipedia.org/wiki/ISO_8601#Time_offsets_from_UTC) is currently not supported by the service, which will result into 409 error.
          * 
          * @return builder
          * 

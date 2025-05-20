@@ -64,6 +64,13 @@ import (
 //
 // ```
 //
+// ## API Providers
+//
+// <!-- This section is generated, changes will be overwritten -->
+// This resource uses the following Azure API Providers:
+//
+// * `Microsoft.MobileNetwork`: 2022-11-01
+//
 // ## Import
 //
 // Mobile Network Data Network can be imported using the `resource id`, e.g.

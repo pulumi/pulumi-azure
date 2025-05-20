@@ -14,7 +14,7 @@ namespace Pulumi.Azure.DomainServices
         /// <summary>
         /// Gets information about an Active Directory Domain Service.
         /// 
-        /// &gt; **Supported Modes:** At present this data source only supports **User Forest** mode and _not_ **Resource Forest** mode. [Read more](https://docs.microsoft.com/azure/active-directory-domain-services/concepts-resource-forest) about the different operation modes for this service.
+        /// &gt; **Note:** At present this data source only supports **User Forest** mode and _not_ **Resource Forest** mode. [Read more](https://docs.microsoft.com/azure/active-directory-domain-services/concepts-resource-forest) about the different operation modes for this service.
         /// 
         /// ## Example Usage
         /// 
@@ -34,6 +34,13 @@ namespace Pulumi.Azure.DomainServices
         /// 
         /// });
         /// ```
+        /// 
+        /// ## API Providers
+        /// 
+        /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+        /// This data source uses the following Azure API Providers:
+        /// 
+        /// * `Microsoft.AAD`: 2021-05-01
         /// </summary>
         public static Task<GetServiceResult> InvokeAsync(GetServiceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetServiceResult>("azure:domainservices/getService:getService", args ?? new GetServiceArgs(), options.WithDefaults());
@@ -41,7 +48,7 @@ namespace Pulumi.Azure.DomainServices
         /// <summary>
         /// Gets information about an Active Directory Domain Service.
         /// 
-        /// &gt; **Supported Modes:** At present this data source only supports **User Forest** mode and _not_ **Resource Forest** mode. [Read more](https://docs.microsoft.com/azure/active-directory-domain-services/concepts-resource-forest) about the different operation modes for this service.
+        /// &gt; **Note:** At present this data source only supports **User Forest** mode and _not_ **Resource Forest** mode. [Read more](https://docs.microsoft.com/azure/active-directory-domain-services/concepts-resource-forest) about the different operation modes for this service.
         /// 
         /// ## Example Usage
         /// 
@@ -61,6 +68,13 @@ namespace Pulumi.Azure.DomainServices
         /// 
         /// });
         /// ```
+        /// 
+        /// ## API Providers
+        /// 
+        /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+        /// This data source uses the following Azure API Providers:
+        /// 
+        /// * `Microsoft.AAD`: 2021-05-01
         /// </summary>
         public static Output<GetServiceResult> Invoke(GetServiceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetServiceResult>("azure:domainservices/getService:getService", args ?? new GetServiceInvokeArgs(), options.WithDefaults());
@@ -68,7 +82,7 @@ namespace Pulumi.Azure.DomainServices
         /// <summary>
         /// Gets information about an Active Directory Domain Service.
         /// 
-        /// &gt; **Supported Modes:** At present this data source only supports **User Forest** mode and _not_ **Resource Forest** mode. [Read more](https://docs.microsoft.com/azure/active-directory-domain-services/concepts-resource-forest) about the different operation modes for this service.
+        /// &gt; **Note:** At present this data source only supports **User Forest** mode and _not_ **Resource Forest** mode. [Read more](https://docs.microsoft.com/azure/active-directory-domain-services/concepts-resource-forest) about the different operation modes for this service.
         /// 
         /// ## Example Usage
         /// 
@@ -88,6 +102,13 @@ namespace Pulumi.Azure.DomainServices
         /// 
         /// });
         /// ```
+        /// 
+        /// ## API Providers
+        /// 
+        /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+        /// This data source uses the following Azure API Providers:
+        /// 
+        /// * `Microsoft.AAD`: 2021-05-01
         /// </summary>
         public static Output<GetServiceResult> Invoke(GetServiceInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetServiceResult>("azure:domainservices/getService:getService", args ?? new GetServiceInvokeArgs(), options.WithDefaults());

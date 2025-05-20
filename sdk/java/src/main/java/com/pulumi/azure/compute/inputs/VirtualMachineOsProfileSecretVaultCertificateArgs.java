@@ -34,7 +34,7 @@ public final class VirtualMachineOsProfileSecretVaultCertificateArgs extends com
     /**
      * The ID of the Key Vault Secret. Stored secret is the Base64 encoding of a JSON Object that which is encoded in UTF-8 of which the contents need to be:
      * 
-     * &gt; **NOTE:** If your certificate is stored in Azure Key Vault - this can be sourced from the `secret_id` property on the `azure.keyvault.Certificate` resource.
+     * &gt; **Note:** If your certificate is stored in Azure Key Vault - this can be sourced from the `secret_id` property on the `azure.keyvault.Certificate` resource.
      * 
      */
     @Import(name="certificateUrl", required=true)
@@ -43,7 +43,7 @@ public final class VirtualMachineOsProfileSecretVaultCertificateArgs extends com
     /**
      * @return The ID of the Key Vault Secret. Stored secret is the Base64 encoding of a JSON Object that which is encoded in UTF-8 of which the contents need to be:
      * 
-     * &gt; **NOTE:** If your certificate is stored in Azure Key Vault - this can be sourced from the `secret_id` property on the `azure.keyvault.Certificate` resource.
+     * &gt; **Note:** If your certificate is stored in Azure Key Vault - this can be sourced from the `secret_id` property on the `azure.keyvault.Certificate` resource.
      * 
      */
     public Output<String> certificateUrl() {
@@ -99,7 +99,7 @@ public final class VirtualMachineOsProfileSecretVaultCertificateArgs extends com
         /**
          * @param certificateUrl The ID of the Key Vault Secret. Stored secret is the Base64 encoding of a JSON Object that which is encoded in UTF-8 of which the contents need to be:
          * 
-         * &gt; **NOTE:** If your certificate is stored in Azure Key Vault - this can be sourced from the `secret_id` property on the `azure.keyvault.Certificate` resource.
+         * &gt; **Note:** If your certificate is stored in Azure Key Vault - this can be sourced from the `secret_id` property on the `azure.keyvault.Certificate` resource.
          * 
          * @return builder
          * 
@@ -112,7 +112,7 @@ public final class VirtualMachineOsProfileSecretVaultCertificateArgs extends com
         /**
          * @param certificateUrl The ID of the Key Vault Secret. Stored secret is the Base64 encoding of a JSON Object that which is encoded in UTF-8 of which the contents need to be:
          * 
-         * &gt; **NOTE:** If your certificate is stored in Azure Key Vault - this can be sourced from the `secret_id` property on the `azure.keyvault.Certificate` resource.
+         * &gt; **Note:** If your certificate is stored in Azure Key Vault - this can be sourced from the `secret_id` property on the `azure.keyvault.Certificate` resource.
          * 
          * @return builder
          * 

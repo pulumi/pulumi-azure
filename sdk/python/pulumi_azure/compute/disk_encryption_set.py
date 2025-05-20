@@ -40,9 +40,9 @@ class DiskEncryptionSetArgs:
         :param pulumi.Input[builtins.str] federated_client_id: Multi-tenant application client id to access key vault in a different tenant.
         :param pulumi.Input[builtins.str] key_vault_key_id: Specifies the URL to a Key Vault Key (either from a Key Vault Key, or the Key URL for the Key Vault Secret). Exactly one of `managed_hsm_key_id`, `key_vault_key_id` must be specified.
                
-               > **NOTE** Access to the KeyVault must be granted for this Disk Encryption Set, if you want to further use this Disk Encryption Set in a Managed Disk or Virtual Machine, or Virtual Machine Scale Set. For instructions, please refer to the doc of [Server side encryption of Azure managed disks](https://docs.microsoft.com/azure/virtual-machines/linux/disk-encryption).
+               > **Note:** Access to the KeyVault must be granted for this Disk Encryption Set, if you want to further use this Disk Encryption Set in a Managed Disk or Virtual Machine, or Virtual Machine Scale Set. For instructions, please refer to the doc of [Server side encryption of Azure managed disks](https://docs.microsoft.com/azure/virtual-machines/linux/disk-encryption).
                
-               > **NOTE** A KeyVault or Managed HSM using enable_rbac_authorization requires to use `authorization.Assignment` to assign the role `Key Vault Crypto Service Encryption User` to this Disk Encryption Set.
+               > **Note:** A KeyVault or Managed HSM using enable_rbac_authorization requires to use `authorization.Assignment` to assign the role `Key Vault Crypto Service Encryption User` to this Disk Encryption Set.
                In this case, `keyvault.AccessPolicy` is not needed.
         :param pulumi.Input[builtins.str] location: Specifies the Azure Region where the Disk Encryption Set exists. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] managed_hsm_key_id: Key ID of a key in a managed HSM.  Exactly one of `managed_hsm_key_id`, `key_vault_key_id` must be specified.
@@ -131,9 +131,9 @@ class DiskEncryptionSetArgs:
         """
         Specifies the URL to a Key Vault Key (either from a Key Vault Key, or the Key URL for the Key Vault Secret). Exactly one of `managed_hsm_key_id`, `key_vault_key_id` must be specified.
 
-        > **NOTE** Access to the KeyVault must be granted for this Disk Encryption Set, if you want to further use this Disk Encryption Set in a Managed Disk or Virtual Machine, or Virtual Machine Scale Set. For instructions, please refer to the doc of [Server side encryption of Azure managed disks](https://docs.microsoft.com/azure/virtual-machines/linux/disk-encryption).
+        > **Note:** Access to the KeyVault must be granted for this Disk Encryption Set, if you want to further use this Disk Encryption Set in a Managed Disk or Virtual Machine, or Virtual Machine Scale Set. For instructions, please refer to the doc of [Server side encryption of Azure managed disks](https://docs.microsoft.com/azure/virtual-machines/linux/disk-encryption).
 
-        > **NOTE** A KeyVault or Managed HSM using enable_rbac_authorization requires to use `authorization.Assignment` to assign the role `Key Vault Crypto Service Encryption User` to this Disk Encryption Set.
+        > **Note:** A KeyVault or Managed HSM using enable_rbac_authorization requires to use `authorization.Assignment` to assign the role `Key Vault Crypto Service Encryption User` to this Disk Encryption Set.
         In this case, `keyvault.AccessPolicy` is not needed.
         """
         return pulumi.get(self, "key_vault_key_id")
@@ -212,9 +212,9 @@ class _DiskEncryptionSetState:
         :param pulumi.Input['DiskEncryptionSetIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[builtins.str] key_vault_key_id: Specifies the URL to a Key Vault Key (either from a Key Vault Key, or the Key URL for the Key Vault Secret). Exactly one of `managed_hsm_key_id`, `key_vault_key_id` must be specified.
                
-               > **NOTE** Access to the KeyVault must be granted for this Disk Encryption Set, if you want to further use this Disk Encryption Set in a Managed Disk or Virtual Machine, or Virtual Machine Scale Set. For instructions, please refer to the doc of [Server side encryption of Azure managed disks](https://docs.microsoft.com/azure/virtual-machines/linux/disk-encryption).
+               > **Note:** Access to the KeyVault must be granted for this Disk Encryption Set, if you want to further use this Disk Encryption Set in a Managed Disk or Virtual Machine, or Virtual Machine Scale Set. For instructions, please refer to the doc of [Server side encryption of Azure managed disks](https://docs.microsoft.com/azure/virtual-machines/linux/disk-encryption).
                
-               > **NOTE** A KeyVault or Managed HSM using enable_rbac_authorization requires to use `authorization.Assignment` to assign the role `Key Vault Crypto Service Encryption User` to this Disk Encryption Set.
+               > **Note:** A KeyVault or Managed HSM using enable_rbac_authorization requires to use `authorization.Assignment` to assign the role `Key Vault Crypto Service Encryption User` to this Disk Encryption Set.
                In this case, `keyvault.AccessPolicy` is not needed.
         :param pulumi.Input[builtins.str] key_vault_key_url: The URL for the Key Vault Key or Key Vault Secret that is currently being used by the service.
         :param pulumi.Input[builtins.str] location: Specifies the Azure Region where the Disk Encryption Set exists. Changing this forces a new resource to be created.
@@ -297,9 +297,9 @@ class _DiskEncryptionSetState:
         """
         Specifies the URL to a Key Vault Key (either from a Key Vault Key, or the Key URL for the Key Vault Secret). Exactly one of `managed_hsm_key_id`, `key_vault_key_id` must be specified.
 
-        > **NOTE** Access to the KeyVault must be granted for this Disk Encryption Set, if you want to further use this Disk Encryption Set in a Managed Disk or Virtual Machine, or Virtual Machine Scale Set. For instructions, please refer to the doc of [Server side encryption of Azure managed disks](https://docs.microsoft.com/azure/virtual-machines/linux/disk-encryption).
+        > **Note:** Access to the KeyVault must be granted for this Disk Encryption Set, if you want to further use this Disk Encryption Set in a Managed Disk or Virtual Machine, or Virtual Machine Scale Set. For instructions, please refer to the doc of [Server side encryption of Azure managed disks](https://docs.microsoft.com/azure/virtual-machines/linux/disk-encryption).
 
-        > **NOTE** A KeyVault or Managed HSM using enable_rbac_authorization requires to use `authorization.Assignment` to assign the role `Key Vault Crypto Service Encryption User` to this Disk Encryption Set.
+        > **Note:** A KeyVault or Managed HSM using enable_rbac_authorization requires to use `authorization.Assignment` to assign the role `Key Vault Crypto Service Encryption User` to this Disk Encryption Set.
         In this case, `keyvault.AccessPolicy` is not needed.
         """
         return pulumi.get(self, "key_vault_key_id")
@@ -400,8 +400,6 @@ class DiskEncryptionSet(pulumi.CustomResource):
                  __props__=None):
         """
         Manages a Disk Encryption Set.
-
-        > **NOTE:** At this time the Key Vault used to store the Active Key for this Disk Encryption Set must have both Soft Delete & Purge Protection enabled - which are not yet supported by this provider.
 
         ## Example Usage
 
@@ -573,9 +571,9 @@ class DiskEncryptionSet(pulumi.CustomResource):
         :param pulumi.Input[Union['DiskEncryptionSetIdentityArgs', 'DiskEncryptionSetIdentityArgsDict']] identity: An `identity` block as defined below.
         :param pulumi.Input[builtins.str] key_vault_key_id: Specifies the URL to a Key Vault Key (either from a Key Vault Key, or the Key URL for the Key Vault Secret). Exactly one of `managed_hsm_key_id`, `key_vault_key_id` must be specified.
                
-               > **NOTE** Access to the KeyVault must be granted for this Disk Encryption Set, if you want to further use this Disk Encryption Set in a Managed Disk or Virtual Machine, or Virtual Machine Scale Set. For instructions, please refer to the doc of [Server side encryption of Azure managed disks](https://docs.microsoft.com/azure/virtual-machines/linux/disk-encryption).
+               > **Note:** Access to the KeyVault must be granted for this Disk Encryption Set, if you want to further use this Disk Encryption Set in a Managed Disk or Virtual Machine, or Virtual Machine Scale Set. For instructions, please refer to the doc of [Server side encryption of Azure managed disks](https://docs.microsoft.com/azure/virtual-machines/linux/disk-encryption).
                
-               > **NOTE** A KeyVault or Managed HSM using enable_rbac_authorization requires to use `authorization.Assignment` to assign the role `Key Vault Crypto Service Encryption User` to this Disk Encryption Set.
+               > **Note:** A KeyVault or Managed HSM using enable_rbac_authorization requires to use `authorization.Assignment` to assign the role `Key Vault Crypto Service Encryption User` to this Disk Encryption Set.
                In this case, `keyvault.AccessPolicy` is not needed.
         :param pulumi.Input[builtins.str] location: Specifies the Azure Region where the Disk Encryption Set exists. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] managed_hsm_key_id: Key ID of a key in a managed HSM.  Exactly one of `managed_hsm_key_id`, `key_vault_key_id` must be specified.
@@ -591,8 +589,6 @@ class DiskEncryptionSet(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Disk Encryption Set.
-
-        > **NOTE:** At this time the Key Vault used to store the Active Key for this Disk Encryption Set must have both Soft Delete & Purge Protection enabled - which are not yet supported by this provider.
 
         ## Example Usage
 
@@ -839,9 +835,9 @@ class DiskEncryptionSet(pulumi.CustomResource):
         :param pulumi.Input[Union['DiskEncryptionSetIdentityArgs', 'DiskEncryptionSetIdentityArgsDict']] identity: An `identity` block as defined below.
         :param pulumi.Input[builtins.str] key_vault_key_id: Specifies the URL to a Key Vault Key (either from a Key Vault Key, or the Key URL for the Key Vault Secret). Exactly one of `managed_hsm_key_id`, `key_vault_key_id` must be specified.
                
-               > **NOTE** Access to the KeyVault must be granted for this Disk Encryption Set, if you want to further use this Disk Encryption Set in a Managed Disk or Virtual Machine, or Virtual Machine Scale Set. For instructions, please refer to the doc of [Server side encryption of Azure managed disks](https://docs.microsoft.com/azure/virtual-machines/linux/disk-encryption).
+               > **Note:** Access to the KeyVault must be granted for this Disk Encryption Set, if you want to further use this Disk Encryption Set in a Managed Disk or Virtual Machine, or Virtual Machine Scale Set. For instructions, please refer to the doc of [Server side encryption of Azure managed disks](https://docs.microsoft.com/azure/virtual-machines/linux/disk-encryption).
                
-               > **NOTE** A KeyVault or Managed HSM using enable_rbac_authorization requires to use `authorization.Assignment` to assign the role `Key Vault Crypto Service Encryption User` to this Disk Encryption Set.
+               > **Note:** A KeyVault or Managed HSM using enable_rbac_authorization requires to use `authorization.Assignment` to assign the role `Key Vault Crypto Service Encryption User` to this Disk Encryption Set.
                In this case, `keyvault.AccessPolicy` is not needed.
         :param pulumi.Input[builtins.str] key_vault_key_url: The URL for the Key Vault Key or Key Vault Secret that is currently being used by the service.
         :param pulumi.Input[builtins.str] location: Specifies the Azure Region where the Disk Encryption Set exists. Changing this forces a new resource to be created.
@@ -902,9 +898,9 @@ class DiskEncryptionSet(pulumi.CustomResource):
         """
         Specifies the URL to a Key Vault Key (either from a Key Vault Key, or the Key URL for the Key Vault Secret). Exactly one of `managed_hsm_key_id`, `key_vault_key_id` must be specified.
 
-        > **NOTE** Access to the KeyVault must be granted for this Disk Encryption Set, if you want to further use this Disk Encryption Set in a Managed Disk or Virtual Machine, or Virtual Machine Scale Set. For instructions, please refer to the doc of [Server side encryption of Azure managed disks](https://docs.microsoft.com/azure/virtual-machines/linux/disk-encryption).
+        > **Note:** Access to the KeyVault must be granted for this Disk Encryption Set, if you want to further use this Disk Encryption Set in a Managed Disk or Virtual Machine, or Virtual Machine Scale Set. For instructions, please refer to the doc of [Server side encryption of Azure managed disks](https://docs.microsoft.com/azure/virtual-machines/linux/disk-encryption).
 
-        > **NOTE** A KeyVault or Managed HSM using enable_rbac_authorization requires to use `authorization.Assignment` to assign the role `Key Vault Crypto Service Encryption User` to this Disk Encryption Set.
+        > **Note:** A KeyVault or Managed HSM using enable_rbac_authorization requires to use `authorization.Assignment` to assign the role `Key Vault Crypto Service Encryption User` to this Disk Encryption Set.
         In this case, `keyvault.AccessPolicy` is not needed.
         """
         return pulumi.get(self, "key_vault_key_id")

@@ -46,6 +46,13 @@ namespace Pulumi.Azure.StreamAnalytics
     /// });
     /// ```
     /// 
+    /// ## API Providers
+    /// 
+    /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+    /// This resource uses the following Azure API Providers:
+    /// 
+    /// * `Microsoft.StreamAnalytics`: 2021-10-01-preview
+    /// 
     /// ## Import
     /// 
     /// Stream Analytics Output to Power BI can be imported using the `resource id`, e.g.

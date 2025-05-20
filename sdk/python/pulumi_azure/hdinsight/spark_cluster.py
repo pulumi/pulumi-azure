@@ -68,7 +68,7 @@ class SparkClusterArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of Tags which should be assigned to this HDInsight Spark Cluster.
         :param pulumi.Input[builtins.str] tls_min_version: The minimal supported TLS version. Possible values are 1.0, 1.1 or 1.2. Changing this forces a new resource to be created.
                
-               > **NOTE:** Starting on June 30, 2020, Azure HDInsight will enforce TLS 1.2 or later versions for all HTTPS connections. For more information, see [Azure HDInsight TLS 1.2 Enforcement](https://azure.microsoft.com/en-us/updates/azure-hdinsight-tls-12-enforcement/).
+               > **Note:** Starting on June 30, 2020, Azure HDInsight will enforce TLS 1.2 or later versions for all HTTPS connections. For more information, see [Azure HDInsight TLS 1.2 Enforcement](https://azure.microsoft.com/en-us/updates/azure-hdinsight-tls-12-enforcement/).
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] zones: A list of Availability Zones which should be used for this HDInsight Spark Cluster. Chaning this forces a new resource to be created.
         """
         pulumi.set(__self__, "cluster_version", cluster_version)
@@ -356,7 +356,7 @@ class SparkClusterArgs:
         """
         The minimal supported TLS version. Possible values are 1.0, 1.1 or 1.2. Changing this forces a new resource to be created.
 
-        > **NOTE:** Starting on June 30, 2020, Azure HDInsight will enforce TLS 1.2 or later versions for all HTTPS connections. For more information, see [Azure HDInsight TLS 1.2 Enforcement](https://azure.microsoft.com/en-us/updates/azure-hdinsight-tls-12-enforcement/).
+        > **Note:** Starting on June 30, 2020, Azure HDInsight will enforce TLS 1.2 or later versions for all HTTPS connections. For more information, see [Azure HDInsight TLS 1.2 Enforcement](https://azure.microsoft.com/en-us/updates/azure-hdinsight-tls-12-enforcement/).
         """
         return pulumi.get(self, "tls_min_version")
 
@@ -430,7 +430,7 @@ class _SparkClusterState:
         :param pulumi.Input[builtins.str] tier: Specifies the Tier which should be used for this HDInsight Spark Cluster. Possible values are `Standard` or `Premium`. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] tls_min_version: The minimal supported TLS version. Possible values are 1.0, 1.1 or 1.2. Changing this forces a new resource to be created.
                
-               > **NOTE:** Starting on June 30, 2020, Azure HDInsight will enforce TLS 1.2 or later versions for all HTTPS connections. For more information, see [Azure HDInsight TLS 1.2 Enforcement](https://azure.microsoft.com/en-us/updates/azure-hdinsight-tls-12-enforcement/).
+               > **Note:** Starting on June 30, 2020, Azure HDInsight will enforce TLS 1.2 or later versions for all HTTPS connections. For more information, see [Azure HDInsight TLS 1.2 Enforcement](https://azure.microsoft.com/en-us/updates/azure-hdinsight-tls-12-enforcement/).
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] zones: A list of Availability Zones which should be used for this HDInsight Spark Cluster. Chaning this forces a new resource to be created.
         """
         if cluster_version is not None:
@@ -752,7 +752,7 @@ class _SparkClusterState:
         """
         The minimal supported TLS version. Possible values are 1.0, 1.1 or 1.2. Changing this forces a new resource to be created.
 
-        > **NOTE:** Starting on June 30, 2020, Azure HDInsight will enforce TLS 1.2 or later versions for all HTTPS connections. For more information, see [Azure HDInsight TLS 1.2 Enforcement](https://azure.microsoft.com/en-us/updates/azure-hdinsight-tls-12-enforcement/).
+        > **Note:** Starting on June 30, 2020, Azure HDInsight will enforce TLS 1.2 or later versions for all HTTPS connections. For more information, see [Azure HDInsight TLS 1.2 Enforcement](https://azure.microsoft.com/en-us/updates/azure-hdinsight-tls-12-enforcement/).
         """
         return pulumi.get(self, "tls_min_version")
 
@@ -835,7 +835,7 @@ class SparkCluster(pulumi.CustomResource):
             },
             gateway={
                 "username": "acctestusrgw",
-                "password": "Password123!",
+                "password": "TerrAform123!",
             },
             storage_accounts=[{
                 "storage_container_id": example_container.id,
@@ -861,6 +861,13 @@ class SparkCluster(pulumi.CustomResource):
                 },
             })
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.HDInsight`: 2021-06-01
 
         ## Import
 
@@ -894,7 +901,7 @@ class SparkCluster(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] tier: Specifies the Tier which should be used for this HDInsight Spark Cluster. Possible values are `Standard` or `Premium`. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] tls_min_version: The minimal supported TLS version. Possible values are 1.0, 1.1 or 1.2. Changing this forces a new resource to be created.
                
-               > **NOTE:** Starting on June 30, 2020, Azure HDInsight will enforce TLS 1.2 or later versions for all HTTPS connections. For more information, see [Azure HDInsight TLS 1.2 Enforcement](https://azure.microsoft.com/en-us/updates/azure-hdinsight-tls-12-enforcement/).
+               > **Note:** Starting on June 30, 2020, Azure HDInsight will enforce TLS 1.2 or later versions for all HTTPS connections. For more information, see [Azure HDInsight TLS 1.2 Enforcement](https://azure.microsoft.com/en-us/updates/azure-hdinsight-tls-12-enforcement/).
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] zones: A list of Availability Zones which should be used for this HDInsight Spark Cluster. Chaning this forces a new resource to be created.
         """
         ...
@@ -936,7 +943,7 @@ class SparkCluster(pulumi.CustomResource):
             },
             gateway={
                 "username": "acctestusrgw",
-                "password": "Password123!",
+                "password": "TerrAform123!",
             },
             storage_accounts=[{
                 "storage_container_id": example_container.id,
@@ -962,6 +969,13 @@ class SparkCluster(pulumi.CustomResource):
                 },
             })
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.HDInsight`: 2021-06-01
 
         ## Import
 
@@ -1118,7 +1132,7 @@ class SparkCluster(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] tier: Specifies the Tier which should be used for this HDInsight Spark Cluster. Possible values are `Standard` or `Premium`. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] tls_min_version: The minimal supported TLS version. Possible values are 1.0, 1.1 or 1.2. Changing this forces a new resource to be created.
                
-               > **NOTE:** Starting on June 30, 2020, Azure HDInsight will enforce TLS 1.2 or later versions for all HTTPS connections. For more information, see [Azure HDInsight TLS 1.2 Enforcement](https://azure.microsoft.com/en-us/updates/azure-hdinsight-tls-12-enforcement/).
+               > **Note:** Starting on June 30, 2020, Azure HDInsight will enforce TLS 1.2 or later versions for all HTTPS connections. For more information, see [Azure HDInsight TLS 1.2 Enforcement](https://azure.microsoft.com/en-us/updates/azure-hdinsight-tls-12-enforcement/).
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] zones: A list of Availability Zones which should be used for this HDInsight Spark Cluster. Chaning this forces a new resource to be created.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -1333,7 +1347,7 @@ class SparkCluster(pulumi.CustomResource):
         """
         The minimal supported TLS version. Possible values are 1.0, 1.1 or 1.2. Changing this forces a new resource to be created.
 
-        > **NOTE:** Starting on June 30, 2020, Azure HDInsight will enforce TLS 1.2 or later versions for all HTTPS connections. For more information, see [Azure HDInsight TLS 1.2 Enforcement](https://azure.microsoft.com/en-us/updates/azure-hdinsight-tls-12-enforcement/).
+        > **Note:** Starting on June 30, 2020, Azure HDInsight will enforce TLS 1.2 or later versions for all HTTPS connections. For more information, see [Azure HDInsight TLS 1.2 Enforcement](https://azure.microsoft.com/en-us/updates/azure-hdinsight-tls-12-enforcement/).
         """
         return pulumi.get(self, "tls_min_version")
 

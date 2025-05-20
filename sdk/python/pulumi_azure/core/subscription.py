@@ -29,13 +29,13 @@ class SubscriptionArgs:
         """
         The set of arguments for constructing a Subscription resource.
         :param pulumi.Input[builtins.str] subscription_name: The Name of the Subscription. This is the Display Name in the portal.
-        :param pulumi.Input[builtins.str] alias: The Alias name for the subscription. This provider will generate a new GUID if this is not supplied. Changing this forces a new Subscription to be created.
+        :param pulumi.Input[builtins.str] alias: The Alias Name of the subscription. If omitted a new UUID will be generated for this property.
         :param pulumi.Input[builtins.str] billing_scope_id: The Azure Billing Scope ID. Can be a Microsoft Customer Account Billing Scope ID, a Microsoft Partner Account Billing Scope ID or an Enrollment Billing Scope ID.
         :param pulumi.Input[builtins.str] subscription_id: The ID of the Subscription. Changing this forces a new Subscription to be created.
                
-               > **NOTE:** This value can be specified only for adopting control of an existing Subscription, it cannot be used to provide a custom Subscription ID.
+               > **Note:** This value can be specified only for adopting control of an existing Subscription, it cannot be used to provide a custom Subscription ID.
                
-               > **NOTE:** Either `billing_scope_id` or `subscription_id` has to be specified.
+               > **Note:** Either `billing_scope_id` or `subscription_id` has to be specified.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A mapping of tags to assign to the Subscription.
         :param pulumi.Input[builtins.str] workload: The workload type of the Subscription. Possible values are `Production` (default) and `DevTest`. Changing this forces a new Subscription to be created.
         """
@@ -67,7 +67,7 @@ class SubscriptionArgs:
     @pulumi.getter
     def alias(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The Alias name for the subscription. This provider will generate a new GUID if this is not supplied. Changing this forces a new Subscription to be created.
+        The Alias Name of the subscription. If omitted a new UUID will be generated for this property.
         """
         return pulumi.get(self, "alias")
 
@@ -93,9 +93,9 @@ class SubscriptionArgs:
         """
         The ID of the Subscription. Changing this forces a new Subscription to be created.
 
-        > **NOTE:** This value can be specified only for adopting control of an existing Subscription, it cannot be used to provide a custom Subscription ID.
+        > **Note:** This value can be specified only for adopting control of an existing Subscription, it cannot be used to provide a custom Subscription ID.
 
-        > **NOTE:** Either `billing_scope_id` or `subscription_id` has to be specified.
+        > **Note:** Either `billing_scope_id` or `subscription_id` has to be specified.
         """
         return pulumi.get(self, "subscription_id")
 
@@ -140,13 +140,13 @@ class _SubscriptionState:
                  workload: Optional[pulumi.Input[builtins.str]] = None):
         """
         Input properties used for looking up and filtering Subscription resources.
-        :param pulumi.Input[builtins.str] alias: The Alias name for the subscription. This provider will generate a new GUID if this is not supplied. Changing this forces a new Subscription to be created.
+        :param pulumi.Input[builtins.str] alias: The Alias Name of the subscription. If omitted a new UUID will be generated for this property.
         :param pulumi.Input[builtins.str] billing_scope_id: The Azure Billing Scope ID. Can be a Microsoft Customer Account Billing Scope ID, a Microsoft Partner Account Billing Scope ID or an Enrollment Billing Scope ID.
         :param pulumi.Input[builtins.str] subscription_id: The ID of the Subscription. Changing this forces a new Subscription to be created.
                
-               > **NOTE:** This value can be specified only for adopting control of an existing Subscription, it cannot be used to provide a custom Subscription ID.
+               > **Note:** This value can be specified only for adopting control of an existing Subscription, it cannot be used to provide a custom Subscription ID.
                
-               > **NOTE:** Either `billing_scope_id` or `subscription_id` has to be specified.
+               > **Note:** Either `billing_scope_id` or `subscription_id` has to be specified.
         :param pulumi.Input[builtins.str] subscription_name: The Name of the Subscription. This is the Display Name in the portal.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A mapping of tags to assign to the Subscription.
         :param pulumi.Input[builtins.str] tenant_id: The ID of the Tenant to which the subscription belongs.
@@ -171,7 +171,7 @@ class _SubscriptionState:
     @pulumi.getter
     def alias(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The Alias name for the subscription. This provider will generate a new GUID if this is not supplied. Changing this forces a new Subscription to be created.
+        The Alias Name of the subscription. If omitted a new UUID will be generated for this property.
         """
         return pulumi.get(self, "alias")
 
@@ -197,9 +197,9 @@ class _SubscriptionState:
         """
         The ID of the Subscription. Changing this forces a new Subscription to be created.
 
-        > **NOTE:** This value can be specified only for adopting control of an existing Subscription, it cannot be used to provide a custom Subscription ID.
+        > **Note:** This value can be specified only for adopting control of an existing Subscription, it cannot be used to provide a custom Subscription ID.
 
-        > **NOTE:** Either `billing_scope_id` or `subscription_id` has to be specified.
+        > **Note:** Either `billing_scope_id` or `subscription_id` has to be specified.
         """
         return pulumi.get(self, "subscription_id")
 
@@ -324,6 +324,13 @@ class Subscription(pulumi.CustomResource):
             subscription_id="12345678-12234-5678-9012-123456789012")
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Resources`: 2023-07-01
+
         ## Import
 
         Subscriptions can be imported using the `resource id`, e.g.
@@ -332,17 +339,17 @@ class Subscription(pulumi.CustomResource):
         $ pulumi import azure:core/subscription:Subscription example "/providers/Microsoft.Subscription/aliases/subscription1"
         ```
 
-        In this scenario, the `subscription_id` property can be completed and the provider will assume control of the existing subscription by creating an Alias. See the `adding an Alias to an existing Subscription` above. This provider requires an alias to correctly manage Subscription resources due to Azure Subscription API design.
+        In this scenario, the `subscription_id` property can be completed and Terraform will assume control of the existing subscription by creating an Alias. See the `adding an Alias to an existing Subscription` above. Terrafom requires an alias to correctly manage Subscription resources due to Azure Subscription API design.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[builtins.str] alias: The Alias name for the subscription. This provider will generate a new GUID if this is not supplied. Changing this forces a new Subscription to be created.
+        :param pulumi.Input[builtins.str] alias: The Alias Name of the subscription. If omitted a new UUID will be generated for this property.
         :param pulumi.Input[builtins.str] billing_scope_id: The Azure Billing Scope ID. Can be a Microsoft Customer Account Billing Scope ID, a Microsoft Partner Account Billing Scope ID or an Enrollment Billing Scope ID.
         :param pulumi.Input[builtins.str] subscription_id: The ID of the Subscription. Changing this forces a new Subscription to be created.
                
-               > **NOTE:** This value can be specified only for adopting control of an existing Subscription, it cannot be used to provide a custom Subscription ID.
+               > **Note:** This value can be specified only for adopting control of an existing Subscription, it cannot be used to provide a custom Subscription ID.
                
-               > **NOTE:** Either `billing_scope_id` or `subscription_id` has to be specified.
+               > **Note:** Either `billing_scope_id` or `subscription_id` has to be specified.
         :param pulumi.Input[builtins.str] subscription_name: The Name of the Subscription. This is the Display Name in the portal.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A mapping of tags to assign to the Subscription.
         :param pulumi.Input[builtins.str] workload: The workload type of the Subscription. Possible values are `Production` (default) and `DevTest`. Changing this forces a new Subscription to be created.
@@ -408,6 +415,13 @@ class Subscription(pulumi.CustomResource):
             subscription_id="12345678-12234-5678-9012-123456789012")
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Resources`: 2023-07-01
+
         ## Import
 
         Subscriptions can be imported using the `resource id`, e.g.
@@ -416,7 +430,7 @@ class Subscription(pulumi.CustomResource):
         $ pulumi import azure:core/subscription:Subscription example "/providers/Microsoft.Subscription/aliases/subscription1"
         ```
 
-        In this scenario, the `subscription_id` property can be completed and the provider will assume control of the existing subscription by creating an Alias. See the `adding an Alias to an existing Subscription` above. This provider requires an alias to correctly manage Subscription resources due to Azure Subscription API design.
+        In this scenario, the `subscription_id` property can be completed and Terraform will assume control of the existing subscription by creating an Alias. See the `adding an Alias to an existing Subscription` above. Terrafom requires an alias to correctly manage Subscription resources due to Azure Subscription API design.
 
         :param str resource_name: The name of the resource.
         :param SubscriptionArgs args: The arguments to use to populate this resource's properties.
@@ -481,13 +495,13 @@ class Subscription(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[builtins.str] alias: The Alias name for the subscription. This provider will generate a new GUID if this is not supplied. Changing this forces a new Subscription to be created.
+        :param pulumi.Input[builtins.str] alias: The Alias Name of the subscription. If omitted a new UUID will be generated for this property.
         :param pulumi.Input[builtins.str] billing_scope_id: The Azure Billing Scope ID. Can be a Microsoft Customer Account Billing Scope ID, a Microsoft Partner Account Billing Scope ID or an Enrollment Billing Scope ID.
         :param pulumi.Input[builtins.str] subscription_id: The ID of the Subscription. Changing this forces a new Subscription to be created.
                
-               > **NOTE:** This value can be specified only for adopting control of an existing Subscription, it cannot be used to provide a custom Subscription ID.
+               > **Note:** This value can be specified only for adopting control of an existing Subscription, it cannot be used to provide a custom Subscription ID.
                
-               > **NOTE:** Either `billing_scope_id` or `subscription_id` has to be specified.
+               > **Note:** Either `billing_scope_id` or `subscription_id` has to be specified.
         :param pulumi.Input[builtins.str] subscription_name: The Name of the Subscription. This is the Display Name in the portal.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A mapping of tags to assign to the Subscription.
         :param pulumi.Input[builtins.str] tenant_id: The ID of the Tenant to which the subscription belongs.
@@ -510,7 +524,7 @@ class Subscription(pulumi.CustomResource):
     @pulumi.getter
     def alias(self) -> pulumi.Output[builtins.str]:
         """
-        The Alias name for the subscription. This provider will generate a new GUID if this is not supplied. Changing this forces a new Subscription to be created.
+        The Alias Name of the subscription. If omitted a new UUID will be generated for this property.
         """
         return pulumi.get(self, "alias")
 
@@ -528,9 +542,9 @@ class Subscription(pulumi.CustomResource):
         """
         The ID of the Subscription. Changing this forces a new Subscription to be created.
 
-        > **NOTE:** This value can be specified only for adopting control of an existing Subscription, it cannot be used to provide a custom Subscription ID.
+        > **Note:** This value can be specified only for adopting control of an existing Subscription, it cannot be used to provide a custom Subscription ID.
 
-        > **NOTE:** Either `billing_scope_id` or `subscription_id` has to be specified.
+        > **Note:** Either `billing_scope_id` or `subscription_id` has to be specified.
         """
         return pulumi.get(self, "subscription_id")
 

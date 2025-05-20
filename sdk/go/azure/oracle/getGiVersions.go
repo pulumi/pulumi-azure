@@ -41,6 +41,13 @@ import (
 //	}
 //
 // ```
+//
+// ## API Providers
+//
+// <!-- This section is generated, changes will be overwritten -->
+// This data source uses the following Azure API Providers:
+//
+// * `Oracle.Database`: 2024-06-01
 func GetGiVersions(ctx *pulumi.Context, args *GetGiVersionsArgs, opts ...pulumi.InvokeOption) (*GetGiVersionsResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetGiVersionsResult

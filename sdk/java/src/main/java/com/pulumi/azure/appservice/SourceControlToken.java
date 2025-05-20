@@ -52,6 +52,13 @@ import javax.annotation.Nullable;
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
+ * ## API Providers
+ * 
+ * &lt;!-- This section is generated, changes will be overwritten --&gt;
+ * This resource uses the following Azure API Providers:
+ * 
+ * * `Microsoft.Web`: 2023-01-01
+ * 
  * ## Import
  * 
  * App Service Source GitHub Tokens can be imported using the `resource id`, e.g.
@@ -80,7 +87,7 @@ public class SourceControlToken extends com.pulumi.resources.CustomResource {
     /**
      * The Access Token Secret.
      * 
-     * &gt; **NOTE:** The token used for deploying App Service needs the following permissions: `repo` and `workflow`.
+     * &gt; **Note:** The token used for deploying App Service needs the following permissions: `repo` and `workflow`.
      * 
      */
     @Export(name="tokenSecret", refs={String.class}, tree="[0]")
@@ -89,7 +96,7 @@ public class SourceControlToken extends com.pulumi.resources.CustomResource {
     /**
      * @return The Access Token Secret.
      * 
-     * &gt; **NOTE:** The token used for deploying App Service needs the following permissions: `repo` and `workflow`.
+     * &gt; **Note:** The token used for deploying App Service needs the following permissions: `repo` and `workflow`.
      * 
      */
     public Output<Optional<String>> tokenSecret() {

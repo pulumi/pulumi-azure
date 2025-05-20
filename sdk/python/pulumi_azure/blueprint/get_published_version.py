@@ -150,7 +150,7 @@ def get_published_version(blueprint_name: Optional[builtins.str] = None,
     """
     Use this data source to access information about an existing Blueprint Published Version
 
-    > **NOTE:** Azure Blueprints are in Preview and potentially subject to breaking change without notice.
+    > **Note:** Azure Blueprints are in Preview and potentially subject to breaking change without notice.
 
     ## Example Usage
 
@@ -163,6 +163,13 @@ def get_published_version(blueprint_name: Optional[builtins.str] = None,
         blueprint_name="exampleBluePrint",
         version="dev_v2.3")
     ```
+
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.Blueprint`: 2018-11-01-preview
 
 
     :param builtins.str blueprint_name: The name of the Blueprint Definition
@@ -194,7 +201,7 @@ def get_published_version_output(blueprint_name: Optional[pulumi.Input[builtins.
     """
     Use this data source to access information about an existing Blueprint Published Version
 
-    > **NOTE:** Azure Blueprints are in Preview and potentially subject to breaking change without notice.
+    > **Note:** Azure Blueprints are in Preview and potentially subject to breaking change without notice.
 
     ## Example Usage
 
@@ -207,6 +214,13 @@ def get_published_version_output(blueprint_name: Optional[pulumi.Input[builtins.
         blueprint_name="exampleBluePrint",
         version="dev_v2.3")
     ```
+
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.Blueprint`: 2018-11-01-preview
 
 
     :param builtins.str blueprint_name: The name of the Blueprint Definition

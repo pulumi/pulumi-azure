@@ -545,6 +545,13 @@ def get_windows_function_app(name: Optional[builtins.str] = None,
     pulumi.export("id", example.id)
     ```
 
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.Web`: 2023-12-01
+
 
     :param builtins.str name: The name of this Windows Function App.
     :param builtins.str resource_group_name: The name of the Resource Group where the Windows Function App exists.
@@ -613,6 +620,13 @@ def get_windows_function_app_output(name: Optional[pulumi.Input[builtins.str]] =
         resource_group_name="existing")
     pulumi.export("id", example.id)
     ```
+
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.Web`: 2023-12-01
 
 
     :param builtins.str name: The name of this Windows Function App.

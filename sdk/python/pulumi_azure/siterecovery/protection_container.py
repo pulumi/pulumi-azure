@@ -201,6 +201,13 @@ class ProtectionContainer(pulumi.CustomResource):
             recovery_fabric_name=fabric.name)
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.RecoveryServices`: 2024-04-01
+
         ## Import
 
         Site Recovery Protection Containers can be imported using the `resource id`, e.g.
@@ -253,6 +260,13 @@ class ProtectionContainer(pulumi.CustomResource):
             recovery_vault_name=vault.name,
             recovery_fabric_name=fabric.name)
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.RecoveryServices`: 2024-04-01
 
         ## Import
 

@@ -57,7 +57,7 @@ import javax.annotation.Nullable;
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .skuName("Standard")
- *             .tags(Map.of("source", "managed"))
+ *             .tags(Map.of("source", "terraform"))
  *             .build());
  * 
  *         var exampleHybridConnection = new HybridConnection("exampleHybridConnection", HybridConnectionArgs.builder()
@@ -73,6 +73,13 @@ import javax.annotation.Nullable;
  * }
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
+ * 
+ * ## API Providers
+ * 
+ * &lt;!-- This section is generated, changes will be overwritten --&gt;
+ * This resource uses the following Azure API Providers:
+ * 
+ * * `Microsoft.Relay`: 2021-11-01
  * 
  * ## Import
  * 

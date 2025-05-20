@@ -36,6 +36,13 @@ namespace Pulumi.Azure.ExtendedLocation
         ///     };
         /// });
         /// ```
+        /// 
+        /// ## API Providers
+        /// 
+        /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+        /// This data source uses the following Azure API Providers:
+        /// 
+        /// * `Microsoft.ExtendedLocation`: 2021-08-15
         /// </summary>
         public static Task<GetCustomLocationResult> InvokeAsync(GetCustomLocationArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetCustomLocationResult>("azure:extendedlocation/getCustomLocation:getCustomLocation", args ?? new GetCustomLocationArgs(), options.WithDefaults());
@@ -65,6 +72,13 @@ namespace Pulumi.Azure.ExtendedLocation
         ///     };
         /// });
         /// ```
+        /// 
+        /// ## API Providers
+        /// 
+        /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+        /// This data source uses the following Azure API Providers:
+        /// 
+        /// * `Microsoft.ExtendedLocation`: 2021-08-15
         /// </summary>
         public static Output<GetCustomLocationResult> Invoke(GetCustomLocationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetCustomLocationResult>("azure:extendedlocation/getCustomLocation:getCustomLocation", args ?? new GetCustomLocationInvokeArgs(), options.WithDefaults());
@@ -94,6 +108,13 @@ namespace Pulumi.Azure.ExtendedLocation
         ///     };
         /// });
         /// ```
+        /// 
+        /// ## API Providers
+        /// 
+        /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+        /// This data source uses the following Azure API Providers:
+        /// 
+        /// * `Microsoft.ExtendedLocation`: 2021-08-15
         /// </summary>
         public static Output<GetCustomLocationResult> Invoke(GetCustomLocationInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetCustomLocationResult>("azure:extendedlocation/getCustomLocation:getCustomLocation", args ?? new GetCustomLocationInvokeArgs(), options.WithDefaults());

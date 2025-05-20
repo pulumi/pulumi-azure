@@ -69,7 +69,7 @@ class CacheAccessPolicyAccessRule(dict):
         :param builtins.str access: The access level for this rule. Possible values are: `rw`, `ro`, `no`.
         :param builtins.str scope: The scope of this rule. The `scope` and (potentially) the `filter` determine which clients match the rule. Possible values are: `default`, `network`, `host`.
                
-               > **NOTE:** Each `access_rule` should set a unique `scope`.
+               > **Note:** Each `access_rule` should set a unique `scope`.
         :param builtins.int anonymous_gid: The anonymous GID used when `root_squash_enabled` is `true`.
         :param builtins.int anonymous_uid: The anonymous UID used when `root_squash_enabled` is `true`.
         :param builtins.str filter: The filter applied to the `scope` for this rule. The filter's format depends on its scope: `default` scope matches all clients and has no filter value; `network` scope takes a CIDR format; `host` takes an IP address or fully qualified domain name. If a client does not match any filter rule and there is no default rule, access is denied.
@@ -106,7 +106,7 @@ class CacheAccessPolicyAccessRule(dict):
         """
         The scope of this rule. The `scope` and (potentially) the `filter` determine which clients match the rule. Possible values are: `default`, `network`, `host`.
 
-        > **NOTE:** Each `access_rule` should set a unique `scope`.
+        > **Note:** Each `access_rule` should set a unique `scope`.
         """
         return pulumi.get(self, "scope")
 
@@ -688,7 +688,7 @@ class CacheIdentity(dict):
         :param builtins.str type: Specifies the type of Managed Service Identity that should be configured on this HPC Cache. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both). Changing this forces a new resource to be created.
         :param Sequence[builtins.str] identity_ids: Specifies a list of User Assigned Managed Identity IDs to be assigned to this HPC Cache. Changing this forces a new resource to be created.
                
-               > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+               > **Note:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
         :param builtins.str principal_id: The Principal ID associated with this Managed Service Identity.
         :param builtins.str tenant_id: The Tenant ID associated with this Managed Service Identity.
         """
@@ -714,7 +714,7 @@ class CacheIdentity(dict):
         """
         Specifies a list of User Assigned Managed Identity IDs to be assigned to this HPC Cache. Changing this forces a new resource to be created.
 
-        > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+        > **Note:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
         """
         return pulumi.get(self, "identity_ids")
 

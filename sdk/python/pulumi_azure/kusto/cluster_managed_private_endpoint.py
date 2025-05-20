@@ -304,6 +304,13 @@ class ClusterManagedPrivateEndpoint(pulumi.CustomResource):
             request_message="Please Approve")
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Kusto`: 2024-04-13
+
         ## Import
 
         Managed Private Endpoint for a Kusto Cluster can be imported using the `resource id`, e.g.
@@ -364,6 +371,13 @@ class ClusterManagedPrivateEndpoint(pulumi.CustomResource):
             group_id="blob",
             request_message="Please Approve")
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Kusto`: 2024-04-13
 
         ## Import
 

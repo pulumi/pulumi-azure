@@ -167,6 +167,13 @@ def get_virtual_machine(name: Optional[builtins.str] = None,
     pulumi.export("virtualMachineId", example.id)
     ```
 
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.Compute`: 2024-03-01
+
 
     :param builtins.str name: Specifies the name of the Virtual Machine.
     :param builtins.str resource_group_name: Specifies the name of the resource group the Virtual Machine is located in.
@@ -204,6 +211,13 @@ def get_virtual_machine_output(name: Optional[pulumi.Input[builtins.str]] = None
         resource_group_name="networking")
     pulumi.export("virtualMachineId", example.id)
     ```
+
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.Compute`: 2024-03-01
 
 
     :param builtins.str name: Specifies the name of the Virtual Machine.

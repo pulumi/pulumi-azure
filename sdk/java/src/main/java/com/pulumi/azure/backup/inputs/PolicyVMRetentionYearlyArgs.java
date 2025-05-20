@@ -52,7 +52,7 @@ public final class PolicyVMRetentionYearlyArgs extends com.pulumi.resources.Reso
     /**
      * Including the last day of the month, default to `false`.
      * 
-     * &gt; **NOTE:**: Either `weekdays` and `weeks` or `days` and `include_last_days` must be specified.
+     * &gt; **Note:** Either `weekdays` and `weeks` or `days` and `include_last_days` must be specified.
      * 
      */
     @Import(name="includeLastDays")
@@ -61,7 +61,7 @@ public final class PolicyVMRetentionYearlyArgs extends com.pulumi.resources.Reso
     /**
      * @return Including the last day of the month, default to `false`.
      * 
-     * &gt; **NOTE:**: Either `weekdays` and `weeks` or `days` and `include_last_days` must be specified.
+     * &gt; **Note:** Either `weekdays` and `weeks` or `days` and `include_last_days` must be specified.
      * 
      */
     public Optional<Output<Boolean>> includeLastDays() {
@@ -197,7 +197,7 @@ public final class PolicyVMRetentionYearlyArgs extends com.pulumi.resources.Reso
         /**
          * @param includeLastDays Including the last day of the month, default to `false`.
          * 
-         * &gt; **NOTE:**: Either `weekdays` and `weeks` or `days` and `include_last_days` must be specified.
+         * &gt; **Note:** Either `weekdays` and `weeks` or `days` and `include_last_days` must be specified.
          * 
          * @return builder
          * 
@@ -210,7 +210,7 @@ public final class PolicyVMRetentionYearlyArgs extends com.pulumi.resources.Reso
         /**
          * @param includeLastDays Including the last day of the month, default to `false`.
          * 
-         * &gt; **NOTE:**: Either `weekdays` and `weeks` or `days` and `include_last_days` must be specified.
+         * &gt; **Note:** Either `weekdays` and `weeks` or `days` and `include_last_days` must be specified.
          * 
          * @return builder
          * 

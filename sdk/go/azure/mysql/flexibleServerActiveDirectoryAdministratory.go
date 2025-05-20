@@ -55,7 +55,7 @@ import (
 //				Location:              example.Location,
 //				AdministratorLogin:    pulumi.String("_admin_Terraform_892123456789312"),
 //				AdministratorPassword: pulumi.String("QAZwsx123"),
-//				SkuName:               pulumi.String("B_Standard_B1s"),
+//				SkuName:               pulumi.String("B_Standard_B1ms"),
 //				Zone:                  pulumi.String("2"),
 //				Identity: &mysql.FlexibleServerIdentityArgs{
 //					Type: pulumi.String("UserAssigned"),
@@ -82,6 +82,13 @@ import (
 //	}
 //
 // ```
+//
+// ## API Providers
+//
+// <!-- This section is generated, changes will be overwritten -->
+// This resource uses the following Azure API Providers:
+//
+// * `Microsoft.DBforMySQL`: 2023-12-30
 //
 // ## Import
 //

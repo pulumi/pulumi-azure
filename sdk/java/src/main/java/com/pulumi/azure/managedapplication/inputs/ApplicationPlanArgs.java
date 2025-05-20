@@ -49,7 +49,7 @@ public final class ApplicationPlanArgs extends com.pulumi.resources.ResourceArgs
     /**
      * Specifies the promotion code to use with the plan. Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE:** When `plan` is specified, legal terms must be accepted for this item on this subscription before creating the Managed Application. The `azure.marketplace.Agreement` resource or AZ CLI tool can be used to do this.
+     * &gt; **Note:** When `plan` is specified, legal terms must be accepted for this item on this subscription before creating the Managed Application. The `azure.marketplace.Agreement` resource or AZ CLI tool can be used to do this.
      * 
      */
     @Import(name="promotionCode")
@@ -58,7 +58,7 @@ public final class ApplicationPlanArgs extends com.pulumi.resources.ResourceArgs
     /**
      * @return Specifies the promotion code to use with the plan. Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE:** When `plan` is specified, legal terms must be accepted for this item on this subscription before creating the Managed Application. The `azure.marketplace.Agreement` resource or AZ CLI tool can be used to do this.
+     * &gt; **Note:** When `plan` is specified, legal terms must be accepted for this item on this subscription before creating the Managed Application. The `azure.marketplace.Agreement` resource or AZ CLI tool can be used to do this.
      * 
      */
     public Optional<Output<String>> promotionCode() {
@@ -168,7 +168,7 @@ public final class ApplicationPlanArgs extends com.pulumi.resources.ResourceArgs
         /**
          * @param promotionCode Specifies the promotion code to use with the plan. Changing this forces a new resource to be created.
          * 
-         * &gt; **NOTE:** When `plan` is specified, legal terms must be accepted for this item on this subscription before creating the Managed Application. The `azure.marketplace.Agreement` resource or AZ CLI tool can be used to do this.
+         * &gt; **Note:** When `plan` is specified, legal terms must be accepted for this item on this subscription before creating the Managed Application. The `azure.marketplace.Agreement` resource or AZ CLI tool can be used to do this.
          * 
          * @return builder
          * 
@@ -181,7 +181,7 @@ public final class ApplicationPlanArgs extends com.pulumi.resources.ResourceArgs
         /**
          * @param promotionCode Specifies the promotion code to use with the plan. Changing this forces a new resource to be created.
          * 
-         * &gt; **NOTE:** When `plan` is specified, legal terms must be accepted for this item on this subscription before creating the Managed Application. The `azure.marketplace.Agreement` resource or AZ CLI tool can be used to do this.
+         * &gt; **Note:** When `plan` is specified, legal terms must be accepted for this item on this subscription before creating the Managed Application. The `azure.marketplace.Agreement` resource or AZ CLI tool can be used to do this.
          * 
          * @return builder
          * 

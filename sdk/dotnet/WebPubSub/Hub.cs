@@ -129,6 +129,13 @@ namespace Pulumi.Azure.WebPubSub
     /// });
     /// ```
     /// 
+    /// ## API Providers
+    /// 
+    /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+    /// This resource uses the following Azure API Providers:
+    /// 
+    /// * `Microsoft.SignalRService`: 2024-03-01
+    /// 
     /// ## Import
     /// 
     /// Web Pubsub Hub can be imported using the `resource id`, e.g.
@@ -150,7 +157,7 @@ namespace Pulumi.Azure.WebPubSub
         /// <summary>
         /// An `event_handler` block as defined below.
         /// 
-        /// &gt; **NOTE:** User can change the order of `event_handler` to change the priority accordingly.
+        /// &gt; **Note:** User can change the order of `event_handler` to change the priority accordingly.
         /// </summary>
         [Output("eventHandlers")]
         public Output<ImmutableArray<Outputs.HubEventHandler>> EventHandlers { get; private set; } = null!;
@@ -158,7 +165,7 @@ namespace Pulumi.Azure.WebPubSub
         /// <summary>
         /// An `event_listener` block as defined below.
         /// 
-        /// &gt; **NOTE:**  The managed identity of Web PubSub service must be enabled and the identity must have the "Azure Event Hubs Data sender" role to access the Event Hub.
+        /// &gt; **Note:** The managed identity of Web PubSub service must be enabled and the identity must have the "Azure Event Hubs Data sender" role to access the Event Hub.
         /// </summary>
         [Output("eventListeners")]
         public Output<ImmutableArray<Outputs.HubEventListener>> EventListeners { get; private set; } = null!;
@@ -234,7 +241,7 @@ namespace Pulumi.Azure.WebPubSub
         /// <summary>
         /// An `event_handler` block as defined below.
         /// 
-        /// &gt; **NOTE:** User can change the order of `event_handler` to change the priority accordingly.
+        /// &gt; **Note:** User can change the order of `event_handler` to change the priority accordingly.
         /// </summary>
         public InputList<Inputs.HubEventHandlerArgs> EventHandlers
         {
@@ -248,7 +255,7 @@ namespace Pulumi.Azure.WebPubSub
         /// <summary>
         /// An `event_listener` block as defined below.
         /// 
-        /// &gt; **NOTE:**  The managed identity of Web PubSub service must be enabled and the identity must have the "Azure Event Hubs Data sender" role to access the Event Hub.
+        /// &gt; **Note:** The managed identity of Web PubSub service must be enabled and the identity must have the "Azure Event Hubs Data sender" role to access the Event Hub.
         /// </summary>
         public InputList<Inputs.HubEventListenerArgs> EventListeners
         {
@@ -289,7 +296,7 @@ namespace Pulumi.Azure.WebPubSub
         /// <summary>
         /// An `event_handler` block as defined below.
         /// 
-        /// &gt; **NOTE:** User can change the order of `event_handler` to change the priority accordingly.
+        /// &gt; **Note:** User can change the order of `event_handler` to change the priority accordingly.
         /// </summary>
         public InputList<Inputs.HubEventHandlerGetArgs> EventHandlers
         {
@@ -303,7 +310,7 @@ namespace Pulumi.Azure.WebPubSub
         /// <summary>
         /// An `event_listener` block as defined below.
         /// 
-        /// &gt; **NOTE:**  The managed identity of Web PubSub service must be enabled and the identity must have the "Azure Event Hubs Data sender" role to access the Event Hub.
+        /// &gt; **Note:** The managed identity of Web PubSub service must be enabled and the identity must have the "Azure Event Hubs Data sender" role to access the Event Hub.
         /// </summary>
         public InputList<Inputs.HubEventListenerGetArgs> EventListeners
         {

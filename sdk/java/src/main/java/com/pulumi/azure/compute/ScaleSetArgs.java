@@ -66,7 +66,7 @@ public final class ScaleSetArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * Specifies the eviction policy for Virtual Machines in this Scale Set. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE:** `eviction_policy` can only be set when `priority` is set to `Low`.
+     * &gt; **Note:** `eviction_policy` can only be set when `priority` is set to `Low`.
      * 
      */
     @Import(name="evictionPolicy")
@@ -75,7 +75,7 @@ public final class ScaleSetArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * @return Specifies the eviction policy for Virtual Machines in this Scale Set. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE:** `eviction_policy` can only be set when `priority` is set to `Low`.
+     * &gt; **Note:** `eviction_policy` can only be set when `priority` is set to `Low`.
      * 
      */
     public Optional<Output<String>> evictionPolicy() {
@@ -445,7 +445,7 @@ public final class ScaleSetArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * A collection of availability zones to spread the Virtual Machines over. Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE:** Availability Zones are [only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview).
+     * &gt; **Note:** Availability Zones are [only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview).
      * 
      */
     @Import(name="zones")
@@ -454,7 +454,7 @@ public final class ScaleSetArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * @return A collection of availability zones to spread the Virtual Machines over. Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE:** Availability Zones are [only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview).
+     * &gt; **Note:** Availability Zones are [only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview).
      * 
      */
     public Optional<Output<List<String>>> zones() {
@@ -557,7 +557,7 @@ public final class ScaleSetArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param evictionPolicy Specifies the eviction policy for Virtual Machines in this Scale Set. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
          * 
-         * &gt; **NOTE:** `eviction_policy` can only be set when `priority` is set to `Low`.
+         * &gt; **Note:** `eviction_policy` can only be set when `priority` is set to `Low`.
          * 
          * @return builder
          * 
@@ -570,7 +570,7 @@ public final class ScaleSetArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param evictionPolicy Specifies the eviction policy for Virtual Machines in this Scale Set. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
          * 
-         * &gt; **NOTE:** `eviction_policy` can only be set when `priority` is set to `Low`.
+         * &gt; **Note:** `eviction_policy` can only be set when `priority` is set to `Low`.
          * 
          * @return builder
          * 
@@ -1126,7 +1126,7 @@ public final class ScaleSetArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param zones A collection of availability zones to spread the Virtual Machines over. Changing this forces a new resource to be created.
          * 
-         * &gt; **NOTE:** Availability Zones are [only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview).
+         * &gt; **Note:** Availability Zones are [only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview).
          * 
          * @return builder
          * 
@@ -1139,7 +1139,7 @@ public final class ScaleSetArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param zones A collection of availability zones to spread the Virtual Machines over. Changing this forces a new resource to be created.
          * 
-         * &gt; **NOTE:** Availability Zones are [only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview).
+         * &gt; **Note:** Availability Zones are [only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview).
          * 
          * @return builder
          * 
@@ -1151,7 +1151,7 @@ public final class ScaleSetArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param zones A collection of availability zones to spread the Virtual Machines over. Changing this forces a new resource to be created.
          * 
-         * &gt; **NOTE:** Availability Zones are [only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview).
+         * &gt; **Note:** Availability Zones are [only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview).
          * 
          * @return builder
          * 

@@ -32,6 +32,13 @@ namespace Pulumi.Azure.Network
         /// 
         /// });
         /// ```
+        /// 
+        /// ## API Providers
+        /// 
+        /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+        /// This data source uses the following Azure API Providers:
+        /// 
+        /// * `Microsoft.Network`: 2024-05-01
         /// </summary>
         public static Task<GetPublicIPsResult> InvokeAsync(GetPublicIPsArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPublicIPsResult>("azure:network/getPublicIPs:getPublicIPs", args ?? new GetPublicIPsArgs(), options.WithDefaults());
@@ -57,6 +64,13 @@ namespace Pulumi.Azure.Network
         /// 
         /// });
         /// ```
+        /// 
+        /// ## API Providers
+        /// 
+        /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+        /// This data source uses the following Azure API Providers:
+        /// 
+        /// * `Microsoft.Network`: 2024-05-01
         /// </summary>
         public static Output<GetPublicIPsResult> Invoke(GetPublicIPsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPublicIPsResult>("azure:network/getPublicIPs:getPublicIPs", args ?? new GetPublicIPsInvokeArgs(), options.WithDefaults());
@@ -82,6 +96,13 @@ namespace Pulumi.Azure.Network
         /// 
         /// });
         /// ```
+        /// 
+        /// ## API Providers
+        /// 
+        /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+        /// This data source uses the following Azure API Providers:
+        /// 
+        /// * `Microsoft.Network`: 2024-05-01
         /// </summary>
         public static Output<GetPublicIPsResult> Invoke(GetPublicIPsInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetPublicIPsResult>("azure:network/getPublicIPs:getPublicIPs", args ?? new GetPublicIPsInvokeArgs(), options.WithDefaults());

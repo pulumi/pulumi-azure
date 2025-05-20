@@ -26,7 +26,7 @@ namespace Pulumi.Azure.Monitoring
         /// {
         ///     var example = Azure.Monitoring.GetActionGroup.Invoke(new()
         ///     {
-        ///         ResourceGroupName = "example-rg",
+        ///         ResourceGroupName = "terraform-example-rg",
         ///         Name = "tfex-actiongroup",
         ///     });
         /// 
@@ -55,7 +55,7 @@ namespace Pulumi.Azure.Monitoring
         /// {
         ///     var example = Azure.Monitoring.GetActionGroup.Invoke(new()
         ///     {
-        ///         ResourceGroupName = "example-rg",
+        ///         ResourceGroupName = "terraform-example-rg",
         ///         Name = "tfex-actiongroup",
         ///     });
         /// 
@@ -84,7 +84,7 @@ namespace Pulumi.Azure.Monitoring
         /// {
         ///     var example = Azure.Monitoring.GetActionGroup.Invoke(new()
         ///     {
-        ///         ResourceGroupName = "example-rg",
+        ///         ResourceGroupName = "terraform-example-rg",
         ///         Name = "tfex-actiongroup",
         ///     });
         /// 

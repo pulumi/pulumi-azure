@@ -42,6 +42,13 @@ namespace Pulumi.Azure.Purview
     /// });
     /// ```
     /// 
+    /// ## API Providers
+    /// 
+    /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+    /// This resource uses the following Azure API Providers:
+    /// 
+    /// * `Microsoft.Purview`: 2021-07-01
+    /// 
     /// ## Import
     /// 
     /// Purview Accounts can be imported using the `resource id`, e.g.
@@ -92,7 +99,7 @@ namespace Pulumi.Azure.Purview
         /// <summary>
         /// The name which should be used for the new Resource Group where Purview Account creates the managed resources. Changing this forces a new Purview Account to be created.
         /// 
-        /// &gt; **Note:** `managed_resource_group_name` must be a new Resource Group
+        /// &gt; **Note:** `managed_resource_group_name` must be a new Resource Group.
         /// </summary>
         [Output("managedResourceGroupName")]
         public Output<string> ManagedResourceGroupName { get; private set; } = null!;
@@ -199,7 +206,7 @@ namespace Pulumi.Azure.Purview
         /// <summary>
         /// The name which should be used for the new Resource Group where Purview Account creates the managed resources. Changing this forces a new Purview Account to be created.
         /// 
-        /// &gt; **Note:** `managed_resource_group_name` must be a new Resource Group
+        /// &gt; **Note:** `managed_resource_group_name` must be a new Resource Group.
         /// </summary>
         [Input("managedResourceGroupName")]
         public Input<string>? ManagedResourceGroupName { get; set; }
@@ -301,7 +308,7 @@ namespace Pulumi.Azure.Purview
         /// <summary>
         /// The name which should be used for the new Resource Group where Purview Account creates the managed resources. Changing this forces a new Purview Account to be created.
         /// 
-        /// &gt; **Note:** `managed_resource_group_name` must be a new Resource Group
+        /// &gt; **Note:** `managed_resource_group_name` must be a new Resource Group.
         /// </summary>
         [Input("managedResourceGroupName")]
         public Input<string>? ManagedResourceGroupName { get; set; }

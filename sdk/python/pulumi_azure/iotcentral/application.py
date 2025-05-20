@@ -38,7 +38,7 @@ class ApplicationArgs:
         :param pulumi.Input[builtins.str] sub_domain: A `sub_domain` name. Subdomain for the IoT Central URL. Each application must have a unique subdomain.
         :param pulumi.Input[builtins.str] display_name: A `display_name` name. Custom display name for the IoT Central application. Default is resource name.
                
-               > **NOTE:** Due to a bug in the provider, the default value of `display_name` of a newly created IoT Central App will be the Resource Group Name, it will be fixed and use resource name in 4.0. For an existing IoT Central App, this could be fixed by specifying the `display_name` explicitly.
+               > **Note:** Due to a bug in the provider, the default value of `display_name` of a newly created IoT Central App will be the Resource Group Name, it will be fixed and use resource name in 4.0. For an existing IoT Central App, this could be fixed by specifying the `display_name` explicitly.
         :param pulumi.Input['ApplicationIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[builtins.str] location: Specifies the supported Azure location where the resource has to be create. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] name: Specifies the name of the IotHub resource. Changing this forces a new resource to be created.
@@ -96,7 +96,7 @@ class ApplicationArgs:
         """
         A `display_name` name. Custom display name for the IoT Central application. Default is resource name.
 
-        > **NOTE:** Due to a bug in the provider, the default value of `display_name` of a newly created IoT Central App will be the Resource Group Name, it will be fixed and use resource name in 4.0. For an existing IoT Central App, this could be fixed by specifying the `display_name` explicitly.
+        > **Note:** Due to a bug in the provider, the default value of `display_name` of a newly created IoT Central App will be the Resource Group Name, it will be fixed and use resource name in 4.0. For an existing IoT Central App, this could be fixed by specifying the `display_name` explicitly.
         """
         return pulumi.get(self, "display_name")
 
@@ -206,7 +206,7 @@ class _ApplicationState:
         Input properties used for looking up and filtering Application resources.
         :param pulumi.Input[builtins.str] display_name: A `display_name` name. Custom display name for the IoT Central application. Default is resource name.
                
-               > **NOTE:** Due to a bug in the provider, the default value of `display_name` of a newly created IoT Central App will be the Resource Group Name, it will be fixed and use resource name in 4.0. For an existing IoT Central App, this could be fixed by specifying the `display_name` explicitly.
+               > **Note:** Due to a bug in the provider, the default value of `display_name` of a newly created IoT Central App will be the Resource Group Name, it will be fixed and use resource name in 4.0. For an existing IoT Central App, this could be fixed by specifying the `display_name` explicitly.
         :param pulumi.Input['ApplicationIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[builtins.str] location: Specifies the supported Azure location where the resource has to be create. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] name: Specifies the name of the IotHub resource. Changing this forces a new resource to be created.
@@ -244,7 +244,7 @@ class _ApplicationState:
         """
         A `display_name` name. Custom display name for the IoT Central application. Default is resource name.
 
-        > **NOTE:** Due to a bug in the provider, the default value of `display_name` of a newly created IoT Central App will be the Resource Group Name, it will be fixed and use resource name in 4.0. For an existing IoT Central App, this could be fixed by specifying the `display_name` explicitly.
+        > **Note:** Due to a bug in the provider, the default value of `display_name` of a newly created IoT Central App will be the Resource Group Name, it will be fixed and use resource name in 4.0. For an existing IoT Central App, this could be fixed by specifying the `display_name` explicitly.
         """
         return pulumi.get(self, "display_name")
 
@@ -403,6 +403,13 @@ class Application(pulumi.CustomResource):
             })
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.IoTCentral`: 2021-11-01-preview
+
         ## Import
 
         The IoT Central Application can be imported using the `resource id`, e.g.
@@ -415,7 +422,7 @@ class Application(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] display_name: A `display_name` name. Custom display name for the IoT Central application. Default is resource name.
                
-               > **NOTE:** Due to a bug in the provider, the default value of `display_name` of a newly created IoT Central App will be the Resource Group Name, it will be fixed and use resource name in 4.0. For an existing IoT Central App, this could be fixed by specifying the `display_name` explicitly.
+               > **Note:** Due to a bug in the provider, the default value of `display_name` of a newly created IoT Central App will be the Resource Group Name, it will be fixed and use resource name in 4.0. For an existing IoT Central App, this could be fixed by specifying the `display_name` explicitly.
         :param pulumi.Input[Union['ApplicationIdentityArgs', 'ApplicationIdentityArgsDict']] identity: An `identity` block as defined below.
         :param pulumi.Input[builtins.str] location: Specifies the supported Azure location where the resource has to be create. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] name: Specifies the name of the IotHub resource. Changing this forces a new resource to be created.
@@ -456,6 +463,13 @@ class Application(pulumi.CustomResource):
                 "Foo": "Bar",
             })
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.IoTCentral`: 2021-11-01-preview
 
         ## Import
 
@@ -542,7 +556,7 @@ class Application(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] display_name: A `display_name` name. Custom display name for the IoT Central application. Default is resource name.
                
-               > **NOTE:** Due to a bug in the provider, the default value of `display_name` of a newly created IoT Central App will be the Resource Group Name, it will be fixed and use resource name in 4.0. For an existing IoT Central App, this could be fixed by specifying the `display_name` explicitly.
+               > **Note:** Due to a bug in the provider, the default value of `display_name` of a newly created IoT Central App will be the Resource Group Name, it will be fixed and use resource name in 4.0. For an existing IoT Central App, this could be fixed by specifying the `display_name` explicitly.
         :param pulumi.Input[Union['ApplicationIdentityArgs', 'ApplicationIdentityArgsDict']] identity: An `identity` block as defined below.
         :param pulumi.Input[builtins.str] location: Specifies the supported Azure location where the resource has to be create. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] name: Specifies the name of the IotHub resource. Changing this forces a new resource to be created.
@@ -575,7 +589,7 @@ class Application(pulumi.CustomResource):
         """
         A `display_name` name. Custom display name for the IoT Central application. Default is resource name.
 
-        > **NOTE:** Due to a bug in the provider, the default value of `display_name` of a newly created IoT Central App will be the Resource Group Name, it will be fixed and use resource name in 4.0. For an existing IoT Central App, this could be fixed by specifying the `display_name` explicitly.
+        > **Note:** Due to a bug in the provider, the default value of `display_name` of a newly created IoT Central App will be the Resource Group Name, it will be fixed and use resource name in 4.0. For an existing IoT Central App, this could be fixed by specifying the `display_name` explicitly.
         """
         return pulumi.get(self, "display_name")
 

@@ -37,6 +37,13 @@ namespace Pulumi.Azure.Batch
         ///     };
         /// });
         /// ```
+        /// 
+        /// ## API Providers
+        /// 
+        /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+        /// This data source uses the following Azure API Providers:
+        /// 
+        /// * `Microsoft.Batch`: 2024-07-01
         /// </summary>
         public static Task<GetApplicationResult> InvokeAsync(GetApplicationArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetApplicationResult>("azure:batch/getApplication:getApplication", args ?? new GetApplicationArgs(), options.WithDefaults());
@@ -67,6 +74,13 @@ namespace Pulumi.Azure.Batch
         ///     };
         /// });
         /// ```
+        /// 
+        /// ## API Providers
+        /// 
+        /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+        /// This data source uses the following Azure API Providers:
+        /// 
+        /// * `Microsoft.Batch`: 2024-07-01
         /// </summary>
         public static Output<GetApplicationResult> Invoke(GetApplicationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetApplicationResult>("azure:batch/getApplication:getApplication", args ?? new GetApplicationInvokeArgs(), options.WithDefaults());
@@ -97,6 +111,13 @@ namespace Pulumi.Azure.Batch
         ///     };
         /// });
         /// ```
+        /// 
+        /// ## API Providers
+        /// 
+        /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+        /// This data source uses the following Azure API Providers:
+        /// 
+        /// * `Microsoft.Batch`: 2024-07-01
         /// </summary>
         public static Output<GetApplicationResult> Invoke(GetApplicationInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetApplicationResult>("azure:batch/getApplication:getApplication", args ?? new GetApplicationInvokeArgs(), options.WithDefaults());

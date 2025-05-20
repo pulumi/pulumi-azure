@@ -17,7 +17,7 @@ public final class ExpressRouteCircuitSkuArgs extends com.pulumi.resources.Resou
     /**
      * The billing mode for bandwidth. Possible values are `MeteredData` or `UnlimitedData`.
      * 
-     * &gt; **NOTE:** You can migrate from `MeteredData` to `UnlimitedData`, but not the other way around.
+     * &gt; **Note:** You can migrate from `MeteredData` to `UnlimitedData`, but not the other way around.
      * 
      */
     @Import(name="family", required=true)
@@ -26,7 +26,7 @@ public final class ExpressRouteCircuitSkuArgs extends com.pulumi.resources.Resou
     /**
      * @return The billing mode for bandwidth. Possible values are `MeteredData` or `UnlimitedData`.
      * 
-     * &gt; **NOTE:** You can migrate from `MeteredData` to `UnlimitedData`, but not the other way around.
+     * &gt; **Note:** You can migrate from `MeteredData` to `UnlimitedData`, but not the other way around.
      * 
      */
     public Output<String> family() {
@@ -76,7 +76,7 @@ public final class ExpressRouteCircuitSkuArgs extends com.pulumi.resources.Resou
         /**
          * @param family The billing mode for bandwidth. Possible values are `MeteredData` or `UnlimitedData`.
          * 
-         * &gt; **NOTE:** You can migrate from `MeteredData` to `UnlimitedData`, but not the other way around.
+         * &gt; **Note:** You can migrate from `MeteredData` to `UnlimitedData`, but not the other way around.
          * 
          * @return builder
          * 
@@ -89,7 +89,7 @@ public final class ExpressRouteCircuitSkuArgs extends com.pulumi.resources.Resou
         /**
          * @param family The billing mode for bandwidth. Possible values are `MeteredData` or `UnlimitedData`.
          * 
-         * &gt; **NOTE:** You can migrate from `MeteredData` to `UnlimitedData`, but not the other way around.
+         * &gt; **Note:** You can migrate from `MeteredData` to `UnlimitedData`, but not the other way around.
          * 
          * @return builder
          * 

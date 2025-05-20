@@ -34,7 +34,7 @@ public final class WorkspaceNetworkOutboundRulePrivateEndpointState extends com.
     /**
      * Specifies the Service Resource ID to connect. Changing this forces a new resource to be created.
      * 
-     * &gt; **Note** Supported service resources: **Key Vault**, **Storage Account**, **Machine Learning Workspace**, **Redis**.
+     * &gt; **Note:** Supported service resources: **Key Vault**, **Storage Account**, **Machine Learning Workspace**, **Redis**.
      * 
      */
     @Import(name="serviceResourceId")
@@ -43,7 +43,7 @@ public final class WorkspaceNetworkOutboundRulePrivateEndpointState extends com.
     /**
      * @return Specifies the Service Resource ID to connect. Changing this forces a new resource to be created.
      * 
-     * &gt; **Note** Supported service resources: **Key Vault**, **Storage Account**, **Machine Learning Workspace**, **Redis**.
+     * &gt; **Note:** Supported service resources: **Key Vault**, **Storage Account**, **Machine Learning Workspace**, **Redis**.
      * 
      */
     public Optional<Output<String>> serviceResourceId() {
@@ -161,7 +161,7 @@ public final class WorkspaceNetworkOutboundRulePrivateEndpointState extends com.
         /**
          * @param serviceResourceId Specifies the Service Resource ID to connect. Changing this forces a new resource to be created.
          * 
-         * &gt; **Note** Supported service resources: **Key Vault**, **Storage Account**, **Machine Learning Workspace**, **Redis**.
+         * &gt; **Note:** Supported service resources: **Key Vault**, **Storage Account**, **Machine Learning Workspace**, **Redis**.
          * 
          * @return builder
          * 
@@ -174,7 +174,7 @@ public final class WorkspaceNetworkOutboundRulePrivateEndpointState extends com.
         /**
          * @param serviceResourceId Specifies the Service Resource ID to connect. Changing this forces a new resource to be created.
          * 
-         * &gt; **Note** Supported service resources: **Key Vault**, **Storage Account**, **Machine Learning Workspace**, **Redis**.
+         * &gt; **Note:** Supported service resources: **Key Vault**, **Storage Account**, **Machine Learning Workspace**, **Redis**.
          * 
          * @return builder
          * 

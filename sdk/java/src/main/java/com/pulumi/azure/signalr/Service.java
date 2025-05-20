@@ -57,8 +57,8 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
- *             .name("my-signalr")
- *             .location("West US")
+ *             .name("terraform-signalr")
+ *             .location("West Europe")
  *             .build());
  * 
  *         var exampleService = new Service("exampleService", ServiceArgs.builder()
@@ -91,6 +91,13 @@ import javax.annotation.Nullable;
  * }
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
+ * 
+ * ## API Providers
+ * 
+ * &lt;!-- This section is generated, changes will be overwritten --&gt;
+ * This resource uses the following Azure API Providers:
+ * 
+ * * `Microsoft.SignalRService`: 2024-03-01
  * 
  * ## Import
  * 

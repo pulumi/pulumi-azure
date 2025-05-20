@@ -94,8 +94,8 @@ public final class Config {
     public Optional<String> environment() {
         return Codegen.stringProp("environment").config(config).env("AZURE_ENVIRONMENT", "ARM_ENVIRONMENT").def("public").get();
     }
-    public Optional<Features> features() {
-        return Codegen.objectProp("features", Features.class).config(config).get();
+    public Features features() {
+        return Codegen.objectProp("features", Features.class).config(config).require();
     }
     public Optional<String> location() {
         return Codegen.stringProp("location").config(config).env("ARM_LOCATION").get();

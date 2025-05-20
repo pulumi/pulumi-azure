@@ -266,6 +266,13 @@ class BackupInstancePostgresqlFlexibleServer(pulumi.CustomResource):
             backup_policy_id=example_backup_policy_postgresql_flexible_server.id)
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.DataProtection`: 2024-04-01
+
         ## Import
 
         Backup Instance PostgreSQL Flexible Servers can be imported using the `resource id`, e.g.
@@ -351,6 +358,13 @@ class BackupInstancePostgresqlFlexibleServer(pulumi.CustomResource):
             server_id=example_flexible_server.id,
             backup_policy_id=example_backup_policy_postgresql_flexible_server.id)
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.DataProtection`: 2024-04-01
 
         ## Import
 

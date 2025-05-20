@@ -52,7 +52,7 @@ import (
 //				return err
 //			}
 //			_, err = iot.NewConsumerGroup(ctx, "example", &iot.ConsumerGroupArgs{
-//				Name:                 pulumi.String("group"),
+//				Name:                 pulumi.String("terraform"),
 //				IothubName:           exampleIoTHub.Name,
 //				EventhubEndpointName: pulumi.String("events"),
 //				ResourceGroupName:    example.Name,

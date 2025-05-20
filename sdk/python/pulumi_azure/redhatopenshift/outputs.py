@@ -279,7 +279,7 @@ class ClusterMainProfile(dict):
         :param builtins.str disk_encryption_set_id: The resource ID of an associated disk encryption set. Changing this forces a new resource to be created.
         :param builtins.bool encryption_at_host_enabled: Whether main virtual machines are encrypted at host. Defaults to `false`. Changing this forces a new resource to be created.
                
-               > **NOTE:** `encryption_at_host_enabled` is only available for certain VM sizes and the `EncryptionAtHost` feature must be enabled for your subscription. Please see the [Azure documentation](https://learn.microsoft.com/azure/virtual-machines/disks-enable-host-based-encryption-portal?tabs=azure-powershell) for more information.
+               > **Note:** `encryption_at_host_enabled` is only available for certain VM sizes and the `EncryptionAtHost` feature must be enabled for your subscription. Please see the [Azure documentation](https://learn.microsoft.com/azure/virtual-machines/disks-enable-host-based-encryption-portal?tabs=azure-powershell) for more information.
         """
         pulumi.set(__self__, "subnet_id", subnet_id)
         pulumi.set(__self__, "vm_size", vm_size)
@@ -318,7 +318,7 @@ class ClusterMainProfile(dict):
         """
         Whether main virtual machines are encrypted at host. Defaults to `false`. Changing this forces a new resource to be created.
 
-        > **NOTE:** `encryption_at_host_enabled` is only available for certain VM sizes and the `EncryptionAtHost` feature must be enabled for your subscription. Please see the [Azure documentation](https://learn.microsoft.com/azure/virtual-machines/disks-enable-host-based-encryption-portal?tabs=azure-powershell) for more information.
+        > **Note:** `encryption_at_host_enabled` is only available for certain VM sizes and the `EncryptionAtHost` feature must be enabled for your subscription. Please see the [Azure documentation](https://learn.microsoft.com/azure/virtual-machines/disks-enable-host-based-encryption-portal?tabs=azure-powershell) for more information.
         """
         return pulumi.get(self, "encryption_at_host_enabled")
 
@@ -495,7 +495,7 @@ class ClusterWorkerProfile(dict):
         :param builtins.str disk_encryption_set_id: The resource ID of an associated disk encryption set. Changing this forces a new resource to be created.
         :param builtins.bool encryption_at_host_enabled: Whether worker virtual machines are encrypted at host. Defaults to `false`. Changing this forces a new resource to be created.
                
-               > **NOTE:** `encryption_at_host_enabled` is only available for certain VM sizes and the `EncryptionAtHost` feature must be enabled for your subscription. Please see the [Azure documentation](https://learn.microsoft.com/azure/virtual-machines/disks-enable-host-based-encryption-portal?tabs=azure-powershell) for more information.
+               > **Note:** `encryption_at_host_enabled` is only available for certain VM sizes and the `EncryptionAtHost` feature must be enabled for your subscription. Please see the [Azure documentation](https://learn.microsoft.com/azure/virtual-machines/disks-enable-host-based-encryption-portal?tabs=azure-powershell) for more information.
         """
         pulumi.set(__self__, "disk_size_gb", disk_size_gb)
         pulumi.set(__self__, "node_count", node_count)
@@ -552,7 +552,7 @@ class ClusterWorkerProfile(dict):
         """
         Whether worker virtual machines are encrypted at host. Defaults to `false`. Changing this forces a new resource to be created.
 
-        > **NOTE:** `encryption_at_host_enabled` is only available for certain VM sizes and the `EncryptionAtHost` feature must be enabled for your subscription. Please see the [Azure documentation](https://learn.microsoft.com/azure/virtual-machines/disks-enable-host-based-encryption-portal?tabs=azure-powershell) for more information.
+        > **Note:** `encryption_at_host_enabled` is only available for certain VM sizes and the `EncryptionAtHost` feature must be enabled for your subscription. Please see the [Azure documentation](https://learn.microsoft.com/azure/virtual-machines/disks-enable-host-based-encryption-portal?tabs=azure-powershell) for more information.
         """
         return pulumi.get(self, "encryption_at_host_enabled")
 

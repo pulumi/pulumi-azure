@@ -124,17 +124,9 @@ public class Blob extends com.pulumi.resources.CustomResource {
     public Output<Optional<String>> cacheControl() {
         return Codegen.optional(this.cacheControl);
     }
-    /**
-     * The MD5 sum of the blob contents. Cannot be defined if `source_uri` is defined, or if blob type is Append or Page. Changing this forces a new resource to be created.
-     * 
-     */
     @Export(name="contentMd5", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> contentMd5;
 
-    /**
-     * @return The MD5 sum of the blob contents. Cannot be defined if `source_uri` is defined, or if blob type is Append or Page. Changing this forces a new resource to be created.
-     * 
-     */
     public Output<Optional<String>> contentMd5() {
         return Codegen.optional(this.contentMd5);
     }
@@ -197,7 +189,7 @@ public class Blob extends com.pulumi.resources.CustomResource {
     /**
      * The number of workers per CPU core to run for concurrent uploads. Defaults to `8`. Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE:** `parallelism` is only applicable for Page blobs - support for [Block Blobs is blocked on the upstream issue](https://github.com/jackofallops/giovanni/issues/15).
+     * &gt; **Note:** `parallelism` is only applicable for Page blobs - support for [Block Blobs is blocked on the upstream issue](https://github.com/jackofallops/giovanni/issues/15).
      * 
      */
     @Export(name="parallelism", refs={Integer.class}, tree="[0]")
@@ -206,7 +198,7 @@ public class Blob extends com.pulumi.resources.CustomResource {
     /**
      * @return The number of workers per CPU core to run for concurrent uploads. Defaults to `8`. Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE:** `parallelism` is only applicable for Page blobs - support for [Block Blobs is blocked on the upstream issue](https://github.com/jackofallops/giovanni/issues/15).
+     * &gt; **Note:** `parallelism` is only applicable for Page blobs - support for [Block Blobs is blocked on the upstream issue](https://github.com/jackofallops/giovanni/issues/15).
      * 
      */
     public Output<Optional<Integer>> parallelism() {

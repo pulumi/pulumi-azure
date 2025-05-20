@@ -40,7 +40,7 @@ if not MYPY:
         """
         The geo backup user managed identity id for a Customer Managed Key. Should be added with `identity_ids`. It can't cross region and need identity in same region as geo backup.
 
-        > **NOTE:** `primary_user_assigned_identity_id` or `geo_backup_user_assigned_identity_id` is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+        > **Note:** `primary_user_assigned_identity_id` or `geo_backup_user_assigned_identity_id` is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
         """
         key_vault_key_id: NotRequired[pulumi.Input[builtins.str]]
         """
@@ -64,7 +64,7 @@ class FlexibleServerCustomerManagedKeyArgs:
         :param pulumi.Input[builtins.str] geo_backup_key_vault_key_id: The ID of the geo backup Key Vault Key. It can't cross region and need Customer Managed Key in same region as geo backup.
         :param pulumi.Input[builtins.str] geo_backup_user_assigned_identity_id: The geo backup user managed identity id for a Customer Managed Key. Should be added with `identity_ids`. It can't cross region and need identity in same region as geo backup.
                
-               > **NOTE:** `primary_user_assigned_identity_id` or `geo_backup_user_assigned_identity_id` is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+               > **Note:** `primary_user_assigned_identity_id` or `geo_backup_user_assigned_identity_id` is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
         :param pulumi.Input[builtins.str] key_vault_key_id: The ID of the Key Vault Key.
         :param pulumi.Input[builtins.str] primary_user_assigned_identity_id: Specifies the primary user managed identity id for a Customer Managed Key. Should be added with `identity_ids`.
         """
@@ -95,7 +95,7 @@ class FlexibleServerCustomerManagedKeyArgs:
         """
         The geo backup user managed identity id for a Customer Managed Key. Should be added with `identity_ids`. It can't cross region and need identity in same region as geo backup.
 
-        > **NOTE:** `primary_user_assigned_identity_id` or `geo_backup_user_assigned_identity_id` is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+        > **Note:** `primary_user_assigned_identity_id` or `geo_backup_user_assigned_identity_id` is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
         """
         return pulumi.get(self, "geo_backup_user_assigned_identity_id")
 
@@ -134,7 +134,7 @@ if not MYPY:
         """
         The high availability mode for the MySQL Flexible Server. Possibles values are `SameZone` and `ZoneRedundant`.
 
-        > **NOTE:** `storage[0].auto_grow_enabled` must be enabled when `high_availability` is enabled. To change the `high_availability` for a MySQL Flexible Server created with `high_availability` disabled during creation, the resource has to be recreated.
+        > **Note:** `storage[0].auto_grow_enabled` must be enabled when `high_availability` is enabled. To change the `high_availability` for a MySQL Flexible Server created with `high_availability` disabled during creation, the resource has to be recreated.
         """
         standby_availability_zone: NotRequired[pulumi.Input[builtins.str]]
 elif False:
@@ -148,7 +148,7 @@ class FlexibleServerHighAvailabilityArgs:
         """
         :param pulumi.Input[builtins.str] mode: The high availability mode for the MySQL Flexible Server. Possibles values are `SameZone` and `ZoneRedundant`.
                
-               > **NOTE:** `storage[0].auto_grow_enabled` must be enabled when `high_availability` is enabled. To change the `high_availability` for a MySQL Flexible Server created with `high_availability` disabled during creation, the resource has to be recreated.
+               > **Note:** `storage[0].auto_grow_enabled` must be enabled when `high_availability` is enabled. To change the `high_availability` for a MySQL Flexible Server created with `high_availability` disabled during creation, the resource has to be recreated.
         """
         pulumi.set(__self__, "mode", mode)
         if standby_availability_zone is not None:
@@ -160,7 +160,7 @@ class FlexibleServerHighAvailabilityArgs:
         """
         The high availability mode for the MySQL Flexible Server. Possibles values are `SameZone` and `ZoneRedundant`.
 
-        > **NOTE:** `storage[0].auto_grow_enabled` must be enabled when `high_availability` is enabled. To change the `high_availability` for a MySQL Flexible Server created with `high_availability` disabled during creation, the resource has to be recreated.
+        > **Note:** `storage[0].auto_grow_enabled` must be enabled when `high_availability` is enabled. To change the `high_availability` for a MySQL Flexible Server created with `high_availability` disabled during creation, the resource has to be recreated.
         """
         return pulumi.get(self, "mode")
 
@@ -314,6 +314,10 @@ if not MYPY:
         """
         The storage IOPS for the MySQL Flexible Server. Possible values are between `360` and `20000`.
         """
+        log_on_disk_enabled: NotRequired[pulumi.Input[builtins.bool]]
+        """
+        Should Storage Log On Disk be enabled? Defaults to `false`.
+        """
         size_gb: NotRequired[pulumi.Input[builtins.int]]
         """
         The max storage allowed for the MySQL Flexible Server. Possible values are between `20` and `16384`.
@@ -329,11 +333,13 @@ class FlexibleServerStorageArgs:
                  auto_grow_enabled: Optional[pulumi.Input[builtins.bool]] = None,
                  io_scaling_enabled: Optional[pulumi.Input[builtins.bool]] = None,
                  iops: Optional[pulumi.Input[builtins.int]] = None,
+                 log_on_disk_enabled: Optional[pulumi.Input[builtins.bool]] = None,
                  size_gb: Optional[pulumi.Input[builtins.int]] = None):
         """
         :param pulumi.Input[builtins.bool] auto_grow_enabled: Should Storage Auto Grow be enabled? Defaults to `true`.
         :param pulumi.Input[builtins.bool] io_scaling_enabled: Should IOPS be scaled automatically? If `true`, `iops` can not be set. Defaults to `false`.
         :param pulumi.Input[builtins.int] iops: The storage IOPS for the MySQL Flexible Server. Possible values are between `360` and `20000`.
+        :param pulumi.Input[builtins.bool] log_on_disk_enabled: Should Storage Log On Disk be enabled? Defaults to `false`.
         :param pulumi.Input[builtins.int] size_gb: The max storage allowed for the MySQL Flexible Server. Possible values are between `20` and `16384`.
                
                > **Note:** Decreasing `size_gb` forces a new resource to be created.
@@ -344,6 +350,8 @@ class FlexibleServerStorageArgs:
             pulumi.set(__self__, "io_scaling_enabled", io_scaling_enabled)
         if iops is not None:
             pulumi.set(__self__, "iops", iops)
+        if log_on_disk_enabled is not None:
+            pulumi.set(__self__, "log_on_disk_enabled", log_on_disk_enabled)
         if size_gb is not None:
             pulumi.set(__self__, "size_gb", size_gb)
 
@@ -382,6 +390,18 @@ class FlexibleServerStorageArgs:
     @iops.setter
     def iops(self, value: Optional[pulumi.Input[builtins.int]]):
         pulumi.set(self, "iops", value)
+
+    @property
+    @pulumi.getter(name="logOnDiskEnabled")
+    def log_on_disk_enabled(self) -> Optional[pulumi.Input[builtins.bool]]:
+        """
+        Should Storage Log On Disk be enabled? Defaults to `false`.
+        """
+        return pulumi.get(self, "log_on_disk_enabled")
+
+    @log_on_disk_enabled.setter
+    def log_on_disk_enabled(self, value: Optional[pulumi.Input[builtins.bool]]):
+        pulumi.set(self, "log_on_disk_enabled", value)
 
     @property
     @pulumi.getter(name="sizeGb")

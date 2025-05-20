@@ -78,6 +78,13 @@ public final class OracleFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Oracle.Database`: 2024-06-01
+     * 
      */
     public static Output<GetAdbsCharacterSetsResult> getAdbsCharacterSets(GetAdbsCharacterSetsArgs args) {
         return getAdbsCharacterSets(args, InvokeOptions.Empty);
@@ -120,6 +127,13 @@ public final class OracleFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Oracle.Database`: 2024-06-01
      * 
      */
     public static CompletableFuture<GetAdbsCharacterSetsResult> getAdbsCharacterSetsPlain(GetAdbsCharacterSetsPlainArgs args) {
@@ -164,6 +178,13 @@ public final class OracleFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Oracle.Database`: 2024-06-01
+     * 
      */
     public static Output<GetAdbsCharacterSetsResult> getAdbsCharacterSets(GetAdbsCharacterSetsArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:oracle/getAdbsCharacterSets:getAdbsCharacterSets", TypeShape.of(GetAdbsCharacterSetsResult.class), args, Utilities.withVersion(options));
@@ -206,6 +227,13 @@ public final class OracleFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Oracle.Database`: 2024-06-01
      * 
      */
     public static Output<GetAdbsCharacterSetsResult> getAdbsCharacterSets(GetAdbsCharacterSetsArgs args, InvokeOutputOptions options) {
@@ -250,6 +278,13 @@ public final class OracleFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Oracle.Database`: 2024-06-01
+     * 
      */
     public static CompletableFuture<GetAdbsCharacterSetsResult> getAdbsCharacterSetsPlain(GetAdbsCharacterSetsPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("azure:oracle/getAdbsCharacterSets:getAdbsCharacterSets", TypeShape.of(GetAdbsCharacterSetsResult.class), args, Utilities.withVersion(options));
@@ -292,6 +327,13 @@ public final class OracleFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Oracle.Database`: 2024-06-01
      * 
      */
     public static Output<GetAdbsNationalCharacterSetsResult> getAdbsNationalCharacterSets(GetAdbsNationalCharacterSetsArgs args) {
@@ -336,6 +378,13 @@ public final class OracleFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Oracle.Database`: 2024-06-01
+     * 
      */
     public static CompletableFuture<GetAdbsNationalCharacterSetsResult> getAdbsNationalCharacterSetsPlain(GetAdbsNationalCharacterSetsPlainArgs args) {
         return getAdbsNationalCharacterSetsPlain(args, InvokeOptions.Empty);
@@ -378,6 +427,13 @@ public final class OracleFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Oracle.Database`: 2024-06-01
      * 
      */
     public static Output<GetAdbsNationalCharacterSetsResult> getAdbsNationalCharacterSets(GetAdbsNationalCharacterSetsArgs args, InvokeOptions options) {
@@ -422,6 +478,13 @@ public final class OracleFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Oracle.Database`: 2024-06-01
+     * 
      */
     public static Output<GetAdbsNationalCharacterSetsResult> getAdbsNationalCharacterSets(GetAdbsNationalCharacterSetsArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("azure:oracle/getAdbsNationalCharacterSets:getAdbsNationalCharacterSets", TypeShape.of(GetAdbsNationalCharacterSetsResult.class), args, Utilities.withVersion(options));
@@ -464,6 +527,13 @@ public final class OracleFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Oracle.Database`: 2024-06-01
      * 
      */
     public static CompletableFuture<GetAdbsNationalCharacterSetsResult> getAdbsNationalCharacterSetsPlain(GetAdbsNationalCharacterSetsPlainArgs args, InvokeOptions options) {
@@ -509,6 +579,13 @@ public final class OracleFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Oracle.Database`: 2024-06-01
+     * 
      */
     public static Output<GetAutonomousDatabaseResult> getAutonomousDatabase(GetAutonomousDatabaseArgs args) {
         return getAutonomousDatabase(args, InvokeOptions.Empty);
@@ -552,6 +629,13 @@ public final class OracleFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Oracle.Database`: 2024-06-01
      * 
      */
     public static CompletableFuture<GetAutonomousDatabaseResult> getAutonomousDatabasePlain(GetAutonomousDatabasePlainArgs args) {
@@ -597,6 +681,13 @@ public final class OracleFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Oracle.Database`: 2024-06-01
+     * 
      */
     public static Output<GetAutonomousDatabaseResult> getAutonomousDatabase(GetAutonomousDatabaseArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:oracle/getAutonomousDatabase:getAutonomousDatabase", TypeShape.of(GetAutonomousDatabaseResult.class), args, Utilities.withVersion(options));
@@ -640,6 +731,13 @@ public final class OracleFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Oracle.Database`: 2024-06-01
      * 
      */
     public static Output<GetAutonomousDatabaseResult> getAutonomousDatabase(GetAutonomousDatabaseArgs args, InvokeOutputOptions options) {
@@ -685,6 +783,13 @@ public final class OracleFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Oracle.Database`: 2024-06-01
+     * 
      */
     public static CompletableFuture<GetAutonomousDatabaseResult> getAutonomousDatabasePlain(GetAutonomousDatabasePlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("azure:oracle/getAutonomousDatabase:getAutonomousDatabase", TypeShape.of(GetAutonomousDatabaseResult.class), args, Utilities.withVersion(options));
@@ -728,6 +833,13 @@ public final class OracleFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Oracle.Database`: 2024-06-01
      * 
      */
     public static Output<GetCloudVmClusterResult> getCloudVmCluster(GetCloudVmClusterArgs args) {
@@ -773,6 +885,13 @@ public final class OracleFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Oracle.Database`: 2024-06-01
+     * 
      */
     public static CompletableFuture<GetCloudVmClusterResult> getCloudVmClusterPlain(GetCloudVmClusterPlainArgs args) {
         return getCloudVmClusterPlain(args, InvokeOptions.Empty);
@@ -816,6 +935,13 @@ public final class OracleFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Oracle.Database`: 2024-06-01
      * 
      */
     public static Output<GetCloudVmClusterResult> getCloudVmCluster(GetCloudVmClusterArgs args, InvokeOptions options) {
@@ -861,6 +987,13 @@ public final class OracleFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Oracle.Database`: 2024-06-01
+     * 
      */
     public static Output<GetCloudVmClusterResult> getCloudVmCluster(GetCloudVmClusterArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("azure:oracle/getCloudVmCluster:getCloudVmCluster", TypeShape.of(GetCloudVmClusterResult.class), args, Utilities.withVersion(options));
@@ -905,6 +1038,13 @@ public final class OracleFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Oracle.Database`: 2024-06-01
+     * 
      */
     public static CompletableFuture<GetCloudVmClusterResult> getCloudVmClusterPlain(GetCloudVmClusterPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("azure:oracle/getCloudVmCluster:getCloudVmCluster", TypeShape.of(GetCloudVmClusterResult.class), args, Utilities.withVersion(options));
@@ -947,6 +1087,13 @@ public final class OracleFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Oracle.Database`: 2024-06-01
      * 
      */
     public static Output<GetDbNodesResult> getDbNodes(GetDbNodesArgs args) {
@@ -991,6 +1138,13 @@ public final class OracleFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Oracle.Database`: 2024-06-01
+     * 
      */
     public static CompletableFuture<GetDbNodesResult> getDbNodesPlain(GetDbNodesPlainArgs args) {
         return getDbNodesPlain(args, InvokeOptions.Empty);
@@ -1033,6 +1187,13 @@ public final class OracleFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Oracle.Database`: 2024-06-01
      * 
      */
     public static Output<GetDbNodesResult> getDbNodes(GetDbNodesArgs args, InvokeOptions options) {
@@ -1077,6 +1238,13 @@ public final class OracleFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Oracle.Database`: 2024-06-01
+     * 
      */
     public static Output<GetDbNodesResult> getDbNodes(GetDbNodesArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("azure:oracle/getDbNodes:getDbNodes", TypeShape.of(GetDbNodesResult.class), args, Utilities.withVersion(options));
@@ -1119,6 +1287,13 @@ public final class OracleFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Oracle.Database`: 2024-06-01
      * 
      */
     public static CompletableFuture<GetDbNodesResult> getDbNodesPlain(GetDbNodesPlainArgs args, InvokeOptions options) {
@@ -1164,6 +1339,13 @@ public final class OracleFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Oracle.Database`: 2024-06-01
+     * 
      */
     public static Output<GetDbServersResult> getDbServers(GetDbServersArgs args) {
         return getDbServers(args, InvokeOptions.Empty);
@@ -1207,6 +1389,13 @@ public final class OracleFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Oracle.Database`: 2024-06-01
      * 
      */
     public static CompletableFuture<GetDbServersResult> getDbServersPlain(GetDbServersPlainArgs args) {
@@ -1252,6 +1441,13 @@ public final class OracleFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Oracle.Database`: 2024-06-01
+     * 
      */
     public static Output<GetDbServersResult> getDbServers(GetDbServersArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:oracle/getDbServers:getDbServers", TypeShape.of(GetDbServersResult.class), args, Utilities.withVersion(options));
@@ -1296,6 +1492,13 @@ public final class OracleFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Oracle.Database`: 2024-06-01
+     * 
      */
     public static Output<GetDbServersResult> getDbServers(GetDbServersArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("azure:oracle/getDbServers:getDbServers", TypeShape.of(GetDbServersResult.class), args, Utilities.withVersion(options));
@@ -1339,6 +1542,13 @@ public final class OracleFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Oracle.Database`: 2024-06-01
      * 
      */
     public static CompletableFuture<GetDbServersResult> getDbServersPlain(GetDbServersPlainArgs args, InvokeOptions options) {
@@ -1385,6 +1595,13 @@ public final class OracleFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Oracle.Database`: 2024-06-01
+     * 
      */
     public static Output<GetDbSystemShapesResult> getDbSystemShapes(GetDbSystemShapesArgs args) {
         return getDbSystemShapes(args, InvokeOptions.Empty);
@@ -1429,6 +1646,13 @@ public final class OracleFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Oracle.Database`: 2024-06-01
      * 
      */
     public static CompletableFuture<GetDbSystemShapesResult> getDbSystemShapesPlain(GetDbSystemShapesPlainArgs args) {
@@ -1475,6 +1699,13 @@ public final class OracleFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Oracle.Database`: 2024-06-01
+     * 
      */
     public static Output<GetDbSystemShapesResult> getDbSystemShapes(GetDbSystemShapesArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:oracle/getDbSystemShapes:getDbSystemShapes", TypeShape.of(GetDbSystemShapesResult.class), args, Utilities.withVersion(options));
@@ -1519,6 +1750,13 @@ public final class OracleFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Oracle.Database`: 2024-06-01
      * 
      */
     public static Output<GetDbSystemShapesResult> getDbSystemShapes(GetDbSystemShapesArgs args, InvokeOutputOptions options) {
@@ -1565,6 +1803,13 @@ public final class OracleFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Oracle.Database`: 2024-06-01
+     * 
      */
     public static CompletableFuture<GetDbSystemShapesResult> getDbSystemShapesPlain(GetDbSystemShapesPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("azure:oracle/getDbSystemShapes:getDbSystemShapes", TypeShape.of(GetDbSystemShapesResult.class), args, Utilities.withVersion(options));
@@ -1608,6 +1853,13 @@ public final class OracleFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Oracle.Database`: 2024-06-01
      * 
      */
     public static Output<GetExadataInfrastructureResult> getExadataInfrastructure(GetExadataInfrastructureArgs args) {
@@ -1653,6 +1905,13 @@ public final class OracleFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Oracle.Database`: 2024-06-01
+     * 
      */
     public static CompletableFuture<GetExadataInfrastructureResult> getExadataInfrastructurePlain(GetExadataInfrastructurePlainArgs args) {
         return getExadataInfrastructurePlain(args, InvokeOptions.Empty);
@@ -1696,6 +1955,13 @@ public final class OracleFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Oracle.Database`: 2024-06-01
      * 
      */
     public static Output<GetExadataInfrastructureResult> getExadataInfrastructure(GetExadataInfrastructureArgs args, InvokeOptions options) {
@@ -1741,6 +2007,13 @@ public final class OracleFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Oracle.Database`: 2024-06-01
+     * 
      */
     public static Output<GetExadataInfrastructureResult> getExadataInfrastructure(GetExadataInfrastructureArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("azure:oracle/getExadataInfrastructure:getExadataInfrastructure", TypeShape.of(GetExadataInfrastructureResult.class), args, Utilities.withVersion(options));
@@ -1784,6 +2057,13 @@ public final class OracleFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Oracle.Database`: 2024-06-01
      * 
      */
     public static CompletableFuture<GetExadataInfrastructureResult> getExadataInfrastructurePlain(GetExadataInfrastructurePlainArgs args, InvokeOptions options) {
@@ -1830,6 +2110,13 @@ public final class OracleFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Oracle.Database`: 2024-06-01
+     * 
      */
     public static Output<GetGiVersionsResult> getGiVersions(GetGiVersionsArgs args) {
         return getGiVersions(args, InvokeOptions.Empty);
@@ -1874,6 +2161,13 @@ public final class OracleFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Oracle.Database`: 2024-06-01
      * 
      */
     public static CompletableFuture<GetGiVersionsResult> getGiVersionsPlain(GetGiVersionsPlainArgs args) {
@@ -1920,6 +2214,13 @@ public final class OracleFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Oracle.Database`: 2024-06-01
+     * 
      */
     public static Output<GetGiVersionsResult> getGiVersions(GetGiVersionsArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:oracle/getGiVersions:getGiVersions", TypeShape.of(GetGiVersionsResult.class), args, Utilities.withVersion(options));
@@ -1965,6 +2266,13 @@ public final class OracleFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Oracle.Database`: 2024-06-01
+     * 
      */
     public static Output<GetGiVersionsResult> getGiVersions(GetGiVersionsArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("azure:oracle/getGiVersions:getGiVersions", TypeShape.of(GetGiVersionsResult.class), args, Utilities.withVersion(options));
@@ -2009,6 +2317,13 @@ public final class OracleFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Oracle.Database`: 2024-06-01
      * 
      */
     public static CompletableFuture<GetGiVersionsResult> getGiVersionsPlain(GetGiVersionsPlainArgs args, InvokeOptions options) {

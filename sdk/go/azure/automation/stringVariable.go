@@ -49,7 +49,7 @@ import (
 //				Name:                  pulumi.String("tfex-example-var"),
 //				ResourceGroupName:     example.Name,
 //				AutomationAccountName: exampleAccount.Name,
-//				Value:                 pulumi.String("Hello, Basic Test."),
+//				Value:                 pulumi.String("Hello, Terraform Basic Test."),
 //			})
 //			if err != nil {
 //				return err

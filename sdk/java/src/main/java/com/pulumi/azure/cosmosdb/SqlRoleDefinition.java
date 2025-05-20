@@ -119,7 +119,7 @@ public class SqlRoleDefinition extends com.pulumi.resources.CustomResource {
     /**
      * A list of fully qualified scopes at or below which Role Assignments may be created using this Cosmos DB SQL Role Definition. It will allow application of this Cosmos DB SQL Role Definition on the entire Database Account or any underlying Database/Collection. Scopes higher than Database Account are not enforceable as assignable scopes.
      * 
-     * &gt; **NOTE:** The resources referenced in assignable scopes need not exist.
+     * &gt; **Note:** The resources referenced in assignable scopes need not exist.
      * 
      */
     @Export(name="assignableScopes", refs={List.class,String.class}, tree="[0,1]")
@@ -128,7 +128,7 @@ public class SqlRoleDefinition extends com.pulumi.resources.CustomResource {
     /**
      * @return A list of fully qualified scopes at or below which Role Assignments may be created using this Cosmos DB SQL Role Definition. It will allow application of this Cosmos DB SQL Role Definition on the entire Database Account or any underlying Database/Collection. Scopes higher than Database Account are not enforceable as assignable scopes.
      * 
-     * &gt; **NOTE:** The resources referenced in assignable scopes need not exist.
+     * &gt; **Note:** The resources referenced in assignable scopes need not exist.
      * 
      */
     public Output<List<String>> assignableScopes() {

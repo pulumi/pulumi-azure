@@ -439,6 +439,13 @@ class AutomationRule(pulumi.CustomResource):
             }])
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.OperationalInsights`: 2024-09-01
+
         ## Import
 
         Sentinel Automation Rules can be imported using the `resource id`, e.g.
@@ -497,6 +504,13 @@ class AutomationRule(pulumi.CustomResource):
                 "status": "Active",
             }])
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.OperationalInsights`: 2024-09-01
 
         ## Import
 

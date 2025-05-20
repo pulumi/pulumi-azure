@@ -75,7 +75,7 @@ namespace Pulumi.Azure.Monitoring
     ///                 ActionGroupId = main.Id,
     ///                 WebhookProperties = 
     ///                 {
-    ///                     { "from", "source" },
+    ///                     { "from", "terraform" },
     ///                 },
     ///             },
     ///         },

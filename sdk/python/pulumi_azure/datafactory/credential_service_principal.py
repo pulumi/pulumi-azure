@@ -334,6 +334,13 @@ class CredentialServicePrincipal(pulumi.CustomResource):
             ])
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.DataFactory`: 2018-06-01
+
         ## Import
 
         Data Factory Credentials can be imported using the `resource id`, e.g.
@@ -421,6 +428,13 @@ class CredentialServicePrincipal(pulumi.CustomResource):
                 "2",
             ])
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.DataFactory`: 2018-06-01
 
         ## Import
 

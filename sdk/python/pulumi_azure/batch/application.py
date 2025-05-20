@@ -267,6 +267,13 @@ class Application(pulumi.CustomResource):
             account_name=example_account2.name)
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Batch`: 2024-07-01
+
         ## Import
 
         Batch Applications can be imported using the `resource id`, e.g.
@@ -320,6 +327,13 @@ class Application(pulumi.CustomResource):
             resource_group_name=example.name,
             account_name=example_account2.name)
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Batch`: 2024-07-01
 
         ## Import
 

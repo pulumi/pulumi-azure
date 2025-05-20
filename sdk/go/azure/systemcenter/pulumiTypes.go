@@ -586,7 +586,7 @@ type VirtualMachineManagerVirtualMachineInstanceOperatingSystem struct {
 	// The admin password of the Virtual Machine. Changing this forces a new resource to be created.
 	AdminPassword *string `pulumi:"adminPassword"`
 	// The computer name of the Virtual Machine. Changing this forces a new resource to be created.
-	ComputerName string `pulumi:"computerName"`
+	ComputerName *string `pulumi:"computerName"`
 }
 
 // VirtualMachineManagerVirtualMachineInstanceOperatingSystemInput is an input type that accepts VirtualMachineManagerVirtualMachineInstanceOperatingSystemArgs and VirtualMachineManagerVirtualMachineInstanceOperatingSystemOutput values.
@@ -604,7 +604,7 @@ type VirtualMachineManagerVirtualMachineInstanceOperatingSystemArgs struct {
 	// The admin password of the Virtual Machine. Changing this forces a new resource to be created.
 	AdminPassword pulumi.StringPtrInput `pulumi:"adminPassword"`
 	// The computer name of the Virtual Machine. Changing this forces a new resource to be created.
-	ComputerName pulumi.StringInput `pulumi:"computerName"`
+	ComputerName pulumi.StringPtrInput `pulumi:"computerName"`
 }
 
 func (VirtualMachineManagerVirtualMachineInstanceOperatingSystemArgs) ElementType() reflect.Type {
@@ -690,8 +690,8 @@ func (o VirtualMachineManagerVirtualMachineInstanceOperatingSystemOutput) AdminP
 }
 
 // The computer name of the Virtual Machine. Changing this forces a new resource to be created.
-func (o VirtualMachineManagerVirtualMachineInstanceOperatingSystemOutput) ComputerName() pulumi.StringOutput {
-	return o.ApplyT(func(v VirtualMachineManagerVirtualMachineInstanceOperatingSystem) string { return v.ComputerName }).(pulumi.StringOutput)
+func (o VirtualMachineManagerVirtualMachineInstanceOperatingSystemOutput) ComputerName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VirtualMachineManagerVirtualMachineInstanceOperatingSystem) *string { return v.ComputerName }).(pulumi.StringPtrOutput)
 }
 
 type VirtualMachineManagerVirtualMachineInstanceOperatingSystemPtrOutput struct{ *pulumi.OutputState }
@@ -734,7 +734,7 @@ func (o VirtualMachineManagerVirtualMachineInstanceOperatingSystemPtrOutput) Com
 		if v == nil {
 			return nil
 		}
-		return &v.ComputerName
+		return v.ComputerName
 	}).(pulumi.StringPtrOutput)
 }
 

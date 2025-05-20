@@ -39,7 +39,7 @@ public final class VirtualNetworkState extends com.pulumi.resources.ResourceArgs
     /**
      * The BGP community attribute in format `&lt;as-number&gt;:&lt;community-value&gt;`.
      * 
-     * &gt; **NOTE** The `as-number` segment is the Microsoft ASN, which is always `12076` for now.
+     * &gt; **Note:** The `as-number` segment is the Microsoft ASN, which is always `12076` for now.
      * 
      */
     @Import(name="bgpCommunity")
@@ -48,7 +48,7 @@ public final class VirtualNetworkState extends com.pulumi.resources.ResourceArgs
     /**
      * @return The BGP community attribute in format `&lt;as-number&gt;:&lt;community-value&gt;`.
      * 
-     * &gt; **NOTE** The `as-number` segment is the Microsoft ASN, which is always `12076` for now.
+     * &gt; **Note:** The `as-number` segment is the Microsoft ASN, which is always `12076` for now.
      * 
      */
     public Optional<Output<String>> bgpCommunity() {
@@ -73,7 +73,7 @@ public final class VirtualNetworkState extends com.pulumi.resources.ResourceArgs
     /**
      * List of IP addresses of DNS servers
      * 
-     * &gt; **NOTE** Since `dns_servers` can be configured both inline and via the separate `azure.network.VirtualNetworkDnsServers` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
+     * &gt; **Note:** Since `dns_servers` can be configured both inline and via the separate `azure.network.VirtualNetworkDnsServers` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
      * 
      */
     @Import(name="dnsServers")
@@ -82,7 +82,7 @@ public final class VirtualNetworkState extends com.pulumi.resources.ResourceArgs
     /**
      * @return List of IP addresses of DNS servers
      * 
-     * &gt; **NOTE** Since `dns_servers` can be configured both inline and via the separate `azure.network.VirtualNetworkDnsServers` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
+     * &gt; **Note:** Since `dns_servers` can be configured both inline and via the separate `azure.network.VirtualNetworkDnsServers` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
      * 
      */
     public Optional<Output<List<String>>> dnsServers() {
@@ -212,7 +212,7 @@ public final class VirtualNetworkState extends com.pulumi.resources.ResourceArgs
     /**
      * Can be specified multiple times to define multiple subnets. Each `subnet` block supports fields documented below.
      * 
-     * &gt; **NOTE** Since `subnet` can be configured both inline and via the separate `azure.network.Subnet` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
+     * &gt; **Note:** Since `subnet` can be configured both inline and via the separate `azure.network.Subnet` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
      * 
      */
     @Import(name="subnets")
@@ -221,7 +221,7 @@ public final class VirtualNetworkState extends com.pulumi.resources.ResourceArgs
     /**
      * @return Can be specified multiple times to define multiple subnets. Each `subnet` block supports fields documented below.
      * 
-     * &gt; **NOTE** Since `subnet` can be configured both inline and via the separate `azure.network.Subnet` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
+     * &gt; **Note:** Since `subnet` can be configured both inline and via the separate `azure.network.Subnet` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
      * 
      */
     public Optional<Output<List<VirtualNetworkSubnetArgs>>> subnets() {
@@ -314,7 +314,7 @@ public final class VirtualNetworkState extends com.pulumi.resources.ResourceArgs
         /**
          * @param bgpCommunity The BGP community attribute in format `&lt;as-number&gt;:&lt;community-value&gt;`.
          * 
-         * &gt; **NOTE** The `as-number` segment is the Microsoft ASN, which is always `12076` for now.
+         * &gt; **Note:** The `as-number` segment is the Microsoft ASN, which is always `12076` for now.
          * 
          * @return builder
          * 
@@ -327,7 +327,7 @@ public final class VirtualNetworkState extends com.pulumi.resources.ResourceArgs
         /**
          * @param bgpCommunity The BGP community attribute in format `&lt;as-number&gt;:&lt;community-value&gt;`.
          * 
-         * &gt; **NOTE** The `as-number` segment is the Microsoft ASN, which is always `12076` for now.
+         * &gt; **Note:** The `as-number` segment is the Microsoft ASN, which is always `12076` for now.
          * 
          * @return builder
          * 
@@ -360,7 +360,7 @@ public final class VirtualNetworkState extends com.pulumi.resources.ResourceArgs
         /**
          * @param dnsServers List of IP addresses of DNS servers
          * 
-         * &gt; **NOTE** Since `dns_servers` can be configured both inline and via the separate `azure.network.VirtualNetworkDnsServers` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
+         * &gt; **Note:** Since `dns_servers` can be configured both inline and via the separate `azure.network.VirtualNetworkDnsServers` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
          * 
          * @return builder
          * 
@@ -373,7 +373,7 @@ public final class VirtualNetworkState extends com.pulumi.resources.ResourceArgs
         /**
          * @param dnsServers List of IP addresses of DNS servers
          * 
-         * &gt; **NOTE** Since `dns_servers` can be configured both inline and via the separate `azure.network.VirtualNetworkDnsServers` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
+         * &gt; **Note:** Since `dns_servers` can be configured both inline and via the separate `azure.network.VirtualNetworkDnsServers` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
          * 
          * @return builder
          * 
@@ -385,7 +385,7 @@ public final class VirtualNetworkState extends com.pulumi.resources.ResourceArgs
         /**
          * @param dnsServers List of IP addresses of DNS servers
          * 
-         * &gt; **NOTE** Since `dns_servers` can be configured both inline and via the separate `azure.network.VirtualNetworkDnsServers` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
+         * &gt; **Note:** Since `dns_servers` can be configured both inline and via the separate `azure.network.VirtualNetworkDnsServers` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
          * 
          * @return builder
          * 
@@ -565,7 +565,7 @@ public final class VirtualNetworkState extends com.pulumi.resources.ResourceArgs
         /**
          * @param subnets Can be specified multiple times to define multiple subnets. Each `subnet` block supports fields documented below.
          * 
-         * &gt; **NOTE** Since `subnet` can be configured both inline and via the separate `azure.network.Subnet` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
+         * &gt; **Note:** Since `subnet` can be configured both inline and via the separate `azure.network.Subnet` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
          * 
          * @return builder
          * 
@@ -578,7 +578,7 @@ public final class VirtualNetworkState extends com.pulumi.resources.ResourceArgs
         /**
          * @param subnets Can be specified multiple times to define multiple subnets. Each `subnet` block supports fields documented below.
          * 
-         * &gt; **NOTE** Since `subnet` can be configured both inline and via the separate `azure.network.Subnet` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
+         * &gt; **Note:** Since `subnet` can be configured both inline and via the separate `azure.network.Subnet` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
          * 
          * @return builder
          * 
@@ -590,7 +590,7 @@ public final class VirtualNetworkState extends com.pulumi.resources.ResourceArgs
         /**
          * @param subnets Can be specified multiple times to define multiple subnets. Each `subnet` block supports fields documented below.
          * 
-         * &gt; **NOTE** Since `subnet` can be configured both inline and via the separate `azure.network.Subnet` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
+         * &gt; **Note:** Since `subnet` can be configured both inline and via the separate `azure.network.Subnet` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
          * 
          * @return builder
          * 

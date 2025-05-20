@@ -34,7 +34,7 @@ public final class CustomDomainArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * The ID of the Container App Environment Certificate to use. Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE:** Omit this value if you wish to use an Azure Managed certificate. You must create the relevant DNS verification steps before this process will be successful.
+     * &gt; **Note:** Omit this value if you wish to use an Azure Managed certificate. You must create the relevant DNS verification steps before this process will be successful.
      * 
      */
     @Import(name="containerAppEnvironmentCertificateId")
@@ -43,7 +43,7 @@ public final class CustomDomainArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * @return The ID of the Container App Environment Certificate to use. Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE:** Omit this value if you wish to use an Azure Managed certificate. You must create the relevant DNS verification steps before this process will be successful.
+     * &gt; **Note:** Omit this value if you wish to use an Azure Managed certificate. You must create the relevant DNS verification steps before this process will be successful.
      * 
      */
     public Optional<Output<String>> containerAppEnvironmentCertificateId() {
@@ -135,7 +135,7 @@ public final class CustomDomainArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param containerAppEnvironmentCertificateId The ID of the Container App Environment Certificate to use. Changing this forces a new resource to be created.
          * 
-         * &gt; **NOTE:** Omit this value if you wish to use an Azure Managed certificate. You must create the relevant DNS verification steps before this process will be successful.
+         * &gt; **Note:** Omit this value if you wish to use an Azure Managed certificate. You must create the relevant DNS verification steps before this process will be successful.
          * 
          * @return builder
          * 
@@ -148,7 +148,7 @@ public final class CustomDomainArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param containerAppEnvironmentCertificateId The ID of the Container App Environment Certificate to use. Changing this forces a new resource to be created.
          * 
-         * &gt; **NOTE:** Omit this value if you wish to use an Azure Managed certificate. You must create the relevant DNS verification steps before this process will be successful.
+         * &gt; **Note:** Omit this value if you wish to use an Azure Managed certificate. You must create the relevant DNS verification steps before this process will be successful.
          * 
          * @return builder
          * 

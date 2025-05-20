@@ -216,6 +216,13 @@ def get_soa_record(name: Optional[builtins.str] = None,
     pulumi.export("dnsSoaRecordId", example.id)
     ```
 
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.Network`: 2018-05-01
+
 
     :param builtins.str name: The name of the DNS SOA Record.
     :param builtins.str resource_group_name: Specifies the resource group where the DNS Zone (parent resource) exists.
@@ -258,6 +265,13 @@ def get_soa_record_output(name: Optional[pulumi.Input[Optional[builtins.str]]] =
         resource_group_name="test-rg")
     pulumi.export("dnsSoaRecordId", example.id)
     ```
+
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.Network`: 2018-05-01
 
 
     :param builtins.str name: The name of the DNS SOA Record.

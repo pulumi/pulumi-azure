@@ -98,7 +98,7 @@ public final class NextGenerationFirewallVirtualNetworkLocalRulestackState exten
     /**
      * The billing plan ID as published by Liftr.PAN. Defaults to `panw-cloud-ngfw-payg`.
      * 
-     * &gt; **NOTE:** The former `plan_id` `panw-cloud-ngfw-payg` is defined as stop sell, but has been set as the default to not break any existing resources that were originally provisioned with it. Users need to explicitly set `plan_id` to `panw-cngfw-payg` when creating new resources.
+     * &gt; **Note:** The former `plan_id` `panw-cloud-ngfw-payg` is defined as stop sell, but has been set as the default to not break any existing resources that were originally provisioned with it. Users need to explicitly set `plan_id` to `panw-cngfw-payg` when creating new resources.
      * 
      */
     @Import(name="planId")
@@ -107,7 +107,7 @@ public final class NextGenerationFirewallVirtualNetworkLocalRulestackState exten
     /**
      * @return The billing plan ID as published by Liftr.PAN. Defaults to `panw-cloud-ngfw-payg`.
      * 
-     * &gt; **NOTE:** The former `plan_id` `panw-cloud-ngfw-payg` is defined as stop sell, but has been set as the default to not break any existing resources that were originally provisioned with it. Users need to explicitly set `plan_id` to `panw-cngfw-payg` when creating new resources.
+     * &gt; **Note:** The former `plan_id` `panw-cloud-ngfw-payg` is defined as stop sell, but has been set as the default to not break any existing resources that were originally provisioned with it. Users need to explicitly set `plan_id` to `panw-cngfw-payg` when creating new resources.
      * 
      */
     public Optional<Output<String>> planId() {
@@ -309,7 +309,7 @@ public final class NextGenerationFirewallVirtualNetworkLocalRulestackState exten
         /**
          * @param planId The billing plan ID as published by Liftr.PAN. Defaults to `panw-cloud-ngfw-payg`.
          * 
-         * &gt; **NOTE:** The former `plan_id` `panw-cloud-ngfw-payg` is defined as stop sell, but has been set as the default to not break any existing resources that were originally provisioned with it. Users need to explicitly set `plan_id` to `panw-cngfw-payg` when creating new resources.
+         * &gt; **Note:** The former `plan_id` `panw-cloud-ngfw-payg` is defined as stop sell, but has been set as the default to not break any existing resources that were originally provisioned with it. Users need to explicitly set `plan_id` to `panw-cngfw-payg` when creating new resources.
          * 
          * @return builder
          * 
@@ -322,7 +322,7 @@ public final class NextGenerationFirewallVirtualNetworkLocalRulestackState exten
         /**
          * @param planId The billing plan ID as published by Liftr.PAN. Defaults to `panw-cloud-ngfw-payg`.
          * 
-         * &gt; **NOTE:** The former `plan_id` `panw-cloud-ngfw-payg` is defined as stop sell, but has been set as the default to not break any existing resources that were originally provisioned with it. Users need to explicitly set `plan_id` to `panw-cngfw-payg` when creating new resources.
+         * &gt; **Note:** The former `plan_id` `panw-cloud-ngfw-payg` is defined as stop sell, but has been set as the default to not break any existing resources that were originally provisioned with it. Users need to explicitly set `plan_id` to `panw-cngfw-payg` when creating new resources.
          * 
          * @return builder
          * 

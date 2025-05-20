@@ -117,6 +117,13 @@ import javax.annotation.Nullable;
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
+ * ## API Providers
+ * 
+ * &lt;!-- This section is generated, changes will be overwritten --&gt;
+ * This resource uses the following Azure API Providers:
+ * 
+ * * `Microsoft.Network`: 2022-04-01
+ * 
  * ## Import
  * 
  * Nested Endpoints can be imported using the `resource id`, e.g.
@@ -187,7 +194,7 @@ public class TrafficManagerNestedEndpoint extends com.pulumi.resources.CustomRes
     /**
      * This argument specifies the minimum number of endpoints that must be ‘online’ in the child profile in order for the parent profile to direct traffic to any of the endpoints in that child profile. This value must be larger than `0`.
      * 
-     * ~&gt;**NOTE:** If `min_child_endpoints` is less than either `minimum_required_child_endpoints_ipv4` or `minimum_required_child_endpoints_ipv6`, then it won&#39;t have any effect.
+     * &gt; **Note:** If `min_child_endpoints` is less than either `minimum_required_child_endpoints_ipv4` or `minimum_required_child_endpoints_ipv6`, then it won&#39;t have any effect.
      * 
      */
     @Export(name="minimumChildEndpoints", refs={Integer.class}, tree="[0]")
@@ -196,7 +203,7 @@ public class TrafficManagerNestedEndpoint extends com.pulumi.resources.CustomRes
     /**
      * @return This argument specifies the minimum number of endpoints that must be ‘online’ in the child profile in order for the parent profile to direct traffic to any of the endpoints in that child profile. This value must be larger than `0`.
      * 
-     * ~&gt;**NOTE:** If `min_child_endpoints` is less than either `minimum_required_child_endpoints_ipv4` or `minimum_required_child_endpoints_ipv6`, then it won&#39;t have any effect.
+     * &gt; **Note:** If `min_child_endpoints` is less than either `minimum_required_child_endpoints_ipv4` or `minimum_required_child_endpoints_ipv6`, then it won&#39;t have any effect.
      * 
      */
     public Output<Integer> minimumChildEndpoints() {
@@ -245,18 +252,18 @@ public class TrafficManagerNestedEndpoint extends com.pulumi.resources.CustomRes
         return this.name;
     }
     /**
-     * Specifies the priority of this Endpoint, this must be specified for Profiles using the `Priority` traffic routing method. Supports values between 1 and 1000, with no Endpoints sharing the same value. If omitted the value will be computed in order of creation. Defaults to `1`.
+     * Specifies the priority of this Endpoint, this must be specified for Profiles using the `Priority` traffic routing method. Supports values between 1 and 1000, with no Endpoints sharing the same value. If omitted the value will be computed in order of creation.
      * 
      */
     @Export(name="priority", refs={Integer.class}, tree="[0]")
-    private Output</* @Nullable */ Integer> priority;
+    private Output<Integer> priority;
 
     /**
-     * @return Specifies the priority of this Endpoint, this must be specified for Profiles using the `Priority` traffic routing method. Supports values between 1 and 1000, with no Endpoints sharing the same value. If omitted the value will be computed in order of creation. Defaults to `1`.
+     * @return Specifies the priority of this Endpoint, this must be specified for Profiles using the `Priority` traffic routing method. Supports values between 1 and 1000, with no Endpoints sharing the same value. If omitted the value will be computed in order of creation.
      * 
      */
-    public Output<Optional<Integer>> priority() {
-        return Codegen.optional(this.priority);
+    public Output<Integer> priority() {
+        return this.priority;
     }
     /**
      * The ID of the Traffic Manager Profile that this External Endpoint should be created within. Changing this forces a new resource to be created.

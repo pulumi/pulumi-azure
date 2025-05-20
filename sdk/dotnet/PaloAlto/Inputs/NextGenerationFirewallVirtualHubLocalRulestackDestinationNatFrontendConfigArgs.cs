@@ -12,9 +12,15 @@ namespace Pulumi.Azure.PaloAlto.Inputs
 
     public sealed class NextGenerationFirewallVirtualHubLocalRulestackDestinationNatFrontendConfigArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The port on which traffic will be receiveed.
+        /// </summary>
         [Input("port", required: true)]
         public Input<int> Port { get; set; } = null!;
 
+        /// <summary>
+        /// The ID of the Public IP Address resource the traffic will be received on.
+        /// </summary>
         [Input("publicIpAddressId", required: true)]
         public Input<string> PublicIpAddressId { get; set; } = null!;
 

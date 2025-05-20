@@ -48,6 +48,13 @@ namespace Pulumi.Azure.MSSql
     /// });
     /// ```
     /// 
+    /// ## API Providers
+    /// 
+    /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+    /// This resource uses the following Azure API Providers:
+    /// 
+    /// * `Microsoft.Sql`: 2023-08-01-preview
+    /// 
     /// ## Import
     /// 
     /// SQL Outbound Firewall Rules can be imported using the `resource id`, e.g.

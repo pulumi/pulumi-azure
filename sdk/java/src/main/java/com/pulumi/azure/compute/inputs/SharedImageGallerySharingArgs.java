@@ -20,7 +20,7 @@ public final class SharedImageGallerySharingArgs extends com.pulumi.resources.Re
     /**
      * A `community_gallery` block as defined below. Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE:** `community_gallery` must be set when `permission` is set to `Community`.
+     * &gt; **Note:** `community_gallery` must be set when `permission` is set to `Community`.
      * 
      */
     @Import(name="communityGallery")
@@ -29,7 +29,7 @@ public final class SharedImageGallerySharingArgs extends com.pulumi.resources.Re
     /**
      * @return A `community_gallery` block as defined below. Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE:** `community_gallery` must be set when `permission` is set to `Community`.
+     * &gt; **Note:** `community_gallery` must be set when `permission` is set to `Community`.
      * 
      */
     public Optional<Output<SharedImageGallerySharingCommunityGalleryArgs>> communityGallery() {
@@ -83,7 +83,7 @@ public final class SharedImageGallerySharingArgs extends com.pulumi.resources.Re
         /**
          * @param communityGallery A `community_gallery` block as defined below. Changing this forces a new resource to be created.
          * 
-         * &gt; **NOTE:** `community_gallery` must be set when `permission` is set to `Community`.
+         * &gt; **Note:** `community_gallery` must be set when `permission` is set to `Community`.
          * 
          * @return builder
          * 
@@ -96,7 +96,7 @@ public final class SharedImageGallerySharingArgs extends com.pulumi.resources.Re
         /**
          * @param communityGallery A `community_gallery` block as defined below. Changing this forces a new resource to be created.
          * 
-         * &gt; **NOTE:** `community_gallery` must be set when `permission` is set to `Community`.
+         * &gt; **Note:** `community_gallery` must be set when `permission` is set to `Community`.
          * 
          * @return builder
          * 

@@ -29,7 +29,7 @@ class DataConnectorAzureAdvancedThreadProtectionArgs:
         :param pulumi.Input[builtins.str] name: The name which should be used for this Azure Advanced Threat Protection Data Connector. Changing this forces a new Azure Advanced Threat Protection Data Connector to be created.
         :param pulumi.Input[builtins.str] tenant_id: The ID of the tenant that this Azure Advanced Threat Protection Data Connector connects to. Changing this forces a new Azure Advanced Threat Protection Data Connector to be created.
                
-               > **NOTE** Currently, only the same tenant as the running account is allowed. Cross-tenant scenario is not supported yet.
+               > **Note:** Currently, only the same tenant as the running account is allowed. Cross-tenant scenario is not supported yet.
         """
         pulumi.set(__self__, "log_analytics_workspace_id", log_analytics_workspace_id)
         if name is not None:
@@ -67,7 +67,7 @@ class DataConnectorAzureAdvancedThreadProtectionArgs:
         """
         The ID of the tenant that this Azure Advanced Threat Protection Data Connector connects to. Changing this forces a new Azure Advanced Threat Protection Data Connector to be created.
 
-        > **NOTE** Currently, only the same tenant as the running account is allowed. Cross-tenant scenario is not supported yet.
+        > **Note:** Currently, only the same tenant as the running account is allowed. Cross-tenant scenario is not supported yet.
         """
         return pulumi.get(self, "tenant_id")
 
@@ -88,7 +88,7 @@ class _DataConnectorAzureAdvancedThreadProtectionState:
         :param pulumi.Input[builtins.str] name: The name which should be used for this Azure Advanced Threat Protection Data Connector. Changing this forces a new Azure Advanced Threat Protection Data Connector to be created.
         :param pulumi.Input[builtins.str] tenant_id: The ID of the tenant that this Azure Advanced Threat Protection Data Connector connects to. Changing this forces a new Azure Advanced Threat Protection Data Connector to be created.
                
-               > **NOTE** Currently, only the same tenant as the running account is allowed. Cross-tenant scenario is not supported yet.
+               > **Note:** Currently, only the same tenant as the running account is allowed. Cross-tenant scenario is not supported yet.
         """
         if log_analytics_workspace_id is not None:
             pulumi.set(__self__, "log_analytics_workspace_id", log_analytics_workspace_id)
@@ -127,7 +127,7 @@ class _DataConnectorAzureAdvancedThreadProtectionState:
         """
         The ID of the tenant that this Azure Advanced Threat Protection Data Connector connects to. Changing this forces a new Azure Advanced Threat Protection Data Connector to be created.
 
-        > **NOTE** Currently, only the same tenant as the running account is allowed. Cross-tenant scenario is not supported yet.
+        > **Note:** Currently, only the same tenant as the running account is allowed. Cross-tenant scenario is not supported yet.
         """
         return pulumi.get(self, "tenant_id")
 
@@ -149,7 +149,7 @@ class DataConnectorAzureAdvancedThreadProtection(pulumi.CustomResource):
         """
         Manages a Azure Advanced Threat Protection Data Connector.
 
-        !> **NOTE:** This resource requires that [Enterprise Mobility + Security E5](https://www.microsoft.com/en-us/microsoft-365/enterprise-mobility-security) is enabled on the tenant being connected to.
+        !> **Note:** This resource requires that [Enterprise Mobility + Security E5](https://www.microsoft.com/en-us/microsoft-365/enterprise-mobility-security) is enabled on the tenant being connected to.
 
         ## Example Usage
 
@@ -185,7 +185,7 @@ class DataConnectorAzureAdvancedThreadProtection(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] name: The name which should be used for this Azure Advanced Threat Protection Data Connector. Changing this forces a new Azure Advanced Threat Protection Data Connector to be created.
         :param pulumi.Input[builtins.str] tenant_id: The ID of the tenant that this Azure Advanced Threat Protection Data Connector connects to. Changing this forces a new Azure Advanced Threat Protection Data Connector to be created.
                
-               > **NOTE** Currently, only the same tenant as the running account is allowed. Cross-tenant scenario is not supported yet.
+               > **Note:** Currently, only the same tenant as the running account is allowed. Cross-tenant scenario is not supported yet.
         """
         ...
     @overload
@@ -196,7 +196,7 @@ class DataConnectorAzureAdvancedThreadProtection(pulumi.CustomResource):
         """
         Manages a Azure Advanced Threat Protection Data Connector.
 
-        !> **NOTE:** This resource requires that [Enterprise Mobility + Security E5](https://www.microsoft.com/en-us/microsoft-365/enterprise-mobility-security) is enabled on the tenant being connected to.
+        !> **Note:** This resource requires that [Enterprise Mobility + Security E5](https://www.microsoft.com/en-us/microsoft-365/enterprise-mobility-security) is enabled on the tenant being connected to.
 
         ## Example Usage
 
@@ -282,7 +282,7 @@ class DataConnectorAzureAdvancedThreadProtection(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] name: The name which should be used for this Azure Advanced Threat Protection Data Connector. Changing this forces a new Azure Advanced Threat Protection Data Connector to be created.
         :param pulumi.Input[builtins.str] tenant_id: The ID of the tenant that this Azure Advanced Threat Protection Data Connector connects to. Changing this forces a new Azure Advanced Threat Protection Data Connector to be created.
                
-               > **NOTE** Currently, only the same tenant as the running account is allowed. Cross-tenant scenario is not supported yet.
+               > **Note:** Currently, only the same tenant as the running account is allowed. Cross-tenant scenario is not supported yet.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -315,7 +315,7 @@ class DataConnectorAzureAdvancedThreadProtection(pulumi.CustomResource):
         """
         The ID of the tenant that this Azure Advanced Threat Protection Data Connector connects to. Changing this forces a new Azure Advanced Threat Protection Data Connector to be created.
 
-        > **NOTE** Currently, only the same tenant as the running account is allowed. Cross-tenant scenario is not supported yet.
+        > **Note:** Currently, only the same tenant as the running account is allowed. Cross-tenant scenario is not supported yet.
         """
         return pulumi.get(self, "tenant_id")
 

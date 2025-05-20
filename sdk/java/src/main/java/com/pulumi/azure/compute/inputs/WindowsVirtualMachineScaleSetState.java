@@ -408,21 +408,9 @@ public final class WindowsVirtualMachineScaleSetState extends com.pulumi.resourc
         return Optional.ofNullable(this.identity);
     }
 
-    /**
-     * The number of Virtual Machines in the Scale Set.
-     * 
-     * &gt; **NOTE:** If you&#39;re using AutoScaling, you may wish to use [`Ignore Changes` functionality](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) to ignore changes to this field.
-     * 
-     */
     @Import(name="instances")
     private @Nullable Output<Integer> instances;
 
-    /**
-     * @return The number of Virtual Machines in the Scale Set.
-     * 
-     * &gt; **NOTE:** If you&#39;re using AutoScaling, you may wish to use [`Ignore Changes` functionality](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) to ignore changes to this field.
-     * 
-     */
     public Optional<Output<Integer>> instances() {
         return Optional.ofNullable(this.instances);
     }
@@ -1553,27 +1541,11 @@ public final class WindowsVirtualMachineScaleSetState extends com.pulumi.resourc
             return identity(Output.of(identity));
         }
 
-        /**
-         * @param instances The number of Virtual Machines in the Scale Set.
-         * 
-         * &gt; **NOTE:** If you&#39;re using AutoScaling, you may wish to use [`Ignore Changes` functionality](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) to ignore changes to this field.
-         * 
-         * @return builder
-         * 
-         */
         public Builder instances(@Nullable Output<Integer> instances) {
             $.instances = instances;
             return this;
         }
 
-        /**
-         * @param instances The number of Virtual Machines in the Scale Set.
-         * 
-         * &gt; **NOTE:** If you&#39;re using AutoScaling, you may wish to use [`Ignore Changes` functionality](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) to ignore changes to this field.
-         * 
-         * @return builder
-         * 
-         */
         public Builder instances(Integer instances) {
             return instances(Output.of(instances));
         }

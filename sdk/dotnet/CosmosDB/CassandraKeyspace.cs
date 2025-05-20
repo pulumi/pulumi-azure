@@ -83,11 +83,6 @@ namespace Pulumi.Azure.CosmosDB
         [Output("accountName")]
         public Output<string> AccountName { get; private set; } = null!;
 
-        /// <summary>
-        /// An `autoscale_settings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual destroy-apply.
-        /// 
-        /// &gt; **Note:** Switching between autoscale and manual throughput is not supported via this provider and must be completed via the Azure Portal and refreshed.
-        /// </summary>
         [Output("autoscaleSettings")]
         public Output<Outputs.CassandraKeyspaceAutoscaleSettings?> AutoscaleSettings { get; private set; } = null!;
 
@@ -103,9 +98,6 @@ namespace Pulumi.Azure.CosmosDB
         [Output("resourceGroupName")]
         public Output<string> ResourceGroupName { get; private set; } = null!;
 
-        /// <summary>
-        /// The throughput of Cassandra KeySpace (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon database creation otherwise it cannot be updated without a manual resource destroy-apply.
-        /// </summary>
         [Output("throughput")]
         public Output<int> Throughput { get; private set; } = null!;
 
@@ -161,11 +153,6 @@ namespace Pulumi.Azure.CosmosDB
         [Input("accountName", required: true)]
         public Input<string> AccountName { get; set; } = null!;
 
-        /// <summary>
-        /// An `autoscale_settings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual destroy-apply.
-        /// 
-        /// &gt; **Note:** Switching between autoscale and manual throughput is not supported via this provider and must be completed via the Azure Portal and refreshed.
-        /// </summary>
         [Input("autoscaleSettings")]
         public Input<Inputs.CassandraKeyspaceAutoscaleSettingsArgs>? AutoscaleSettings { get; set; }
 
@@ -181,9 +168,6 @@ namespace Pulumi.Azure.CosmosDB
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
 
-        /// <summary>
-        /// The throughput of Cassandra KeySpace (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon database creation otherwise it cannot be updated without a manual resource destroy-apply.
-        /// </summary>
         [Input("throughput")]
         public Input<int>? Throughput { get; set; }
 
@@ -201,11 +185,6 @@ namespace Pulumi.Azure.CosmosDB
         [Input("accountName")]
         public Input<string>? AccountName { get; set; }
 
-        /// <summary>
-        /// An `autoscale_settings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual destroy-apply.
-        /// 
-        /// &gt; **Note:** Switching between autoscale and manual throughput is not supported via this provider and must be completed via the Azure Portal and refreshed.
-        /// </summary>
         [Input("autoscaleSettings")]
         public Input<Inputs.CassandraKeyspaceAutoscaleSettingsGetArgs>? AutoscaleSettings { get; set; }
 
@@ -221,9 +200,6 @@ namespace Pulumi.Azure.CosmosDB
         [Input("resourceGroupName")]
         public Input<string>? ResourceGroupName { get; set; }
 
-        /// <summary>
-        /// The throughput of Cassandra KeySpace (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon database creation otherwise it cannot be updated without a manual resource destroy-apply.
-        /// </summary>
         [Input("throughput")]
         public Input<int>? Throughput { get; set; }
 

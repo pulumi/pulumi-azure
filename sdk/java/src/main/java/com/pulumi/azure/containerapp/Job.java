@@ -128,6 +128,13 @@ import javax.annotation.Nullable;
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
+ * ## API Providers
+ * 
+ * &lt;!-- This section is generated, changes will be overwritten --&gt;
+ * This resource uses the following Azure API Providers:
+ * 
+ * * `Microsoft.App`: 2025-01-01
+ * 
  * ## Import
  * 
  * A Container App Job can be imported using the resource id, e.g.
@@ -310,7 +317,7 @@ public class Job extends com.pulumi.resources.CustomResource {
     /**
      * A `schedule_trigger_config` block as defined below.
      * 
-     * &gt; ** NOTE **: Only one of `manual_trigger_config`, `event_trigger_config` or `schedule_trigger_config` can be specified.
+     * &gt; **Note:** Only one of `manual_trigger_config`, `event_trigger_config` or `schedule_trigger_config` can be specified.
      * 
      */
     @Export(name="scheduleTriggerConfig", refs={JobScheduleTriggerConfig.class}, tree="[0]")
@@ -319,7 +326,7 @@ public class Job extends com.pulumi.resources.CustomResource {
     /**
      * @return A `schedule_trigger_config` block as defined below.
      * 
-     * &gt; ** NOTE **: Only one of `manual_trigger_config`, `event_trigger_config` or `schedule_trigger_config` can be specified.
+     * &gt; **Note:** Only one of `manual_trigger_config`, `event_trigger_config` or `schedule_trigger_config` can be specified.
      * 
      */
     public Output<Optional<JobScheduleTriggerConfig>> scheduleTriggerConfig() {

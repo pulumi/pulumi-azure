@@ -28,10 +28,13 @@ class GetServerResult:
     """
     A collection of values returned by getServer.
     """
-    def __init__(__self__, administrator_login=None, fully_qualified_domain_name=None, id=None, identities=None, location=None, name=None, resource_group_name=None, restorable_dropped_database_ids=None, tags=None, transparent_data_encryption_key_vault_key_id=None, version=None):
+    def __init__(__self__, administrator_login=None, express_vulnerability_assessment_enabled=None, fully_qualified_domain_name=None, id=None, identities=None, location=None, name=None, resource_group_name=None, restorable_dropped_database_ids=None, tags=None, transparent_data_encryption_key_vault_key_id=None, version=None):
         if administrator_login and not isinstance(administrator_login, str):
             raise TypeError("Expected argument 'administrator_login' to be a str")
         pulumi.set(__self__, "administrator_login", administrator_login)
+        if express_vulnerability_assessment_enabled and not isinstance(express_vulnerability_assessment_enabled, bool):
+            raise TypeError("Expected argument 'express_vulnerability_assessment_enabled' to be a bool")
+        pulumi.set(__self__, "express_vulnerability_assessment_enabled", express_vulnerability_assessment_enabled)
         if fully_qualified_domain_name and not isinstance(fully_qualified_domain_name, str):
             raise TypeError("Expected argument 'fully_qualified_domain_name' to be a str")
         pulumi.set(__self__, "fully_qualified_domain_name", fully_qualified_domain_name)
@@ -67,15 +70,23 @@ class GetServerResult:
     @pulumi.getter(name="administratorLogin")
     def administrator_login(self) -> builtins.str:
         """
-        The server's administrator login name.
+        The administrator login name of the Microsoft SQL Server.
         """
         return pulumi.get(self, "administrator_login")
+
+    @property
+    @pulumi.getter(name="expressVulnerabilityAssessmentEnabled")
+    def express_vulnerability_assessment_enabled(self) -> builtins.bool:
+        """
+        Whether the Express Vulnerability Assessment Configuration is enabled.
+        """
+        return pulumi.get(self, "express_vulnerability_assessment_enabled")
 
     @property
     @pulumi.getter(name="fullyQualifiedDomainName")
     def fully_qualified_domain_name(self) -> builtins.str:
         """
-        The fully qualified domain name of the Azure SQL Server.
+        The fully qualified domain name of the Microsoft SQL Server.
         """
         return pulumi.get(self, "fully_qualified_domain_name")
 
@@ -91,7 +102,7 @@ class GetServerResult:
     @pulumi.getter
     def identities(self) -> Sequence['outputs.GetServerIdentityResult']:
         """
-        A `identity` block as defined below.
+        An `identity` block as defined below.
         """
         return pulumi.get(self, "identities")
 
@@ -117,7 +128,7 @@ class GetServerResult:
     @pulumi.getter(name="restorableDroppedDatabaseIds")
     def restorable_dropped_database_ids(self) -> Sequence[builtins.str]:
         """
-        A list of dropped restorable database IDs on the server.
+        A list of dropped restorable database IDs on the Microsoft SQL Server.
         """
         return pulumi.get(self, "restorable_dropped_database_ids")
 
@@ -133,7 +144,7 @@ class GetServerResult:
     @pulumi.getter(name="transparentDataEncryptionKeyVaultKeyId")
     def transparent_data_encryption_key_vault_key_id(self) -> builtins.str:
         """
-        The Key Vault key URI to be used as the `Customer Managed Key`(CMK/BYOK) for the `Transparent Data Encryption`(TDE) layer.
+        The Key Vault Key URI to be used as the `Customer Managed Key` (CMK/BYOK) for the `Transparent Data Encryption` (TDE) layer.
         """
         return pulumi.get(self, "transparent_data_encryption_key_vault_key_id")
 
@@ -141,7 +152,7 @@ class GetServerResult:
     @pulumi.getter
     def version(self) -> builtins.str:
         """
-        This servers MS SQL version.
+        The version of the Microsoft SQL Server.
         """
         return pulumi.get(self, "version")
 
@@ -153,6 +164,7 @@ class AwaitableGetServerResult(GetServerResult):
             yield self
         return GetServerResult(
             administrator_login=self.administrator_login,
+            express_vulnerability_assessment_enabled=self.express_vulnerability_assessment_enabled,
             fully_qualified_domain_name=self.fully_qualified_domain_name,
             id=self.id,
             identities=self.identities,
@@ -182,6 +194,13 @@ def get_server(name: Optional[builtins.str] = None,
     pulumi.export("id", example.id)
     ```
 
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.Sql`: 2023-08-01-preview
+
 
     :param builtins.str name: The name of this Microsoft SQL Server.
     :param builtins.str resource_group_name: The name of the Resource Group where the Microsoft SQL Server exists.
@@ -194,6 +213,7 @@ def get_server(name: Optional[builtins.str] = None,
 
     return AwaitableGetServerResult(
         administrator_login=pulumi.get(__ret__, 'administrator_login'),
+        express_vulnerability_assessment_enabled=pulumi.get(__ret__, 'express_vulnerability_assessment_enabled'),
         fully_qualified_domain_name=pulumi.get(__ret__, 'fully_qualified_domain_name'),
         id=pulumi.get(__ret__, 'id'),
         identities=pulumi.get(__ret__, 'identities'),
@@ -221,6 +241,13 @@ def get_server_output(name: Optional[pulumi.Input[builtins.str]] = None,
     pulumi.export("id", example.id)
     ```
 
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.Sql`: 2023-08-01-preview
+
 
     :param builtins.str name: The name of this Microsoft SQL Server.
     :param builtins.str resource_group_name: The name of the Resource Group where the Microsoft SQL Server exists.
@@ -232,6 +259,7 @@ def get_server_output(name: Optional[pulumi.Input[builtins.str]] = None,
     __ret__ = pulumi.runtime.invoke_output('azure:mssql/getServer:getServer', __args__, opts=opts, typ=GetServerResult)
     return __ret__.apply(lambda __response__: GetServerResult(
         administrator_login=pulumi.get(__response__, 'administrator_login'),
+        express_vulnerability_assessment_enabled=pulumi.get(__response__, 'express_vulnerability_assessment_enabled'),
         fully_qualified_domain_name=pulumi.get(__response__, 'fully_qualified_domain_name'),
         id=pulumi.get(__response__, 'id'),
         identities=pulumi.get(__response__, 'identities'),

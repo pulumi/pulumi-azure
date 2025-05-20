@@ -13,6 +13,12 @@ import javax.annotation.Nullable;
 public final class FeaturesVirtualMachine {
     private @Nullable Boolean deleteOsDiskOnDeletion;
     private @Nullable Boolean detachImplicitDataDiskOnDeletion;
+    /**
+     * @deprecated
+     * &#39;graceful_shutdown&#39; has been deprecated and will be removed from v5.0 of the AzureRM provider.
+     * 
+     */
+    @Deprecated /* 'graceful_shutdown' has been deprecated and will be removed from v5.0 of the AzureRM provider. */
     private @Nullable Boolean gracefulShutdown;
     private @Nullable Boolean skipShutdownAndForceDelete;
 
@@ -23,6 +29,12 @@ public final class FeaturesVirtualMachine {
     public Optional<Boolean> detachImplicitDataDiskOnDeletion() {
         return Optional.ofNullable(this.detachImplicitDataDiskOnDeletion);
     }
+    /**
+     * @deprecated
+     * &#39;graceful_shutdown&#39; has been deprecated and will be removed from v5.0 of the AzureRM provider.
+     * 
+     */
+    @Deprecated /* 'graceful_shutdown' has been deprecated and will be removed from v5.0 of the AzureRM provider. */
     public Optional<Boolean> gracefulShutdown() {
         return Optional.ofNullable(this.gracefulShutdown);
     }

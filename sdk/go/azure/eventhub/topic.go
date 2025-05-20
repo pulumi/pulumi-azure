@@ -14,7 +14,7 @@ import (
 
 // Manages a ServiceBus Topic.
 //
-// **Note** Topics can only be created in Namespaces with an SKU of `standard` or higher.
+// > **Note:** Topics can only be created in Namespaces with an SKU of `Standard` or higher.
 //
 // ## Example Usage
 //
@@ -44,7 +44,7 @@ import (
 //				ResourceGroupName: example.Name,
 //				Sku:               pulumi.String("Standard"),
 //				Tags: pulumi.StringMap{
-//					"source": pulumi.String("example"),
+//					"source": pulumi.String("terraform"),
 //				},
 //			})
 //			if err != nil {
@@ -93,15 +93,13 @@ type Topic struct {
 	// Specifies the name of the ServiceBus Topic resource. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The ID of the ServiceBus Namespace to create this topic in. Changing this forces a new resource to be created.
-	NamespaceId   pulumi.StringOutput `pulumi:"namespaceId"`
-	NamespaceName pulumi.StringOutput `pulumi:"namespaceName"`
+	NamespaceId pulumi.StringOutput `pulumi:"namespaceId"`
 	// Boolean flag which controls whether to enable the topic to be partitioned across multiple message brokers. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** Partitioning is available at entity creation for all queues and topics in Basic or Standard SKUs. It is not available for the Premium messaging SKU, but any previously existing partitioned entities in Premium namespaces continue to work as expected. For premium namespaces, partitioning is available at namespace creation and all queues and topics in the partitioned namespace will be partitioned. Premium namespaces that have `premiumMessagingPartitions` set to `1` are not partitioned. Please [see the documentation](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-partitioning) for more information.
+	// > **Note:** Partitioning is available at entity creation for all queues and topics in Basic or Standard SKUs. It is not available for the Premium messaging SKU, but any previously existing partitioned entities in Premium namespaces continue to work as expected. For premium namespaces, partitioning is available at namespace creation and all queues and topics in the partitioned namespace will be partitioned. Premium namespaces that have `premiumMessagingPartitions` set to `1` are not partitioned. Please [see the documentation](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-partitioning) for more information.
 	PartitioningEnabled pulumi.BoolPtrOutput `pulumi:"partitioningEnabled"`
 	// Boolean flag which controls whether the Topic requires duplicate detection. Defaults to `false`. Changing this forces a new resource to be created.
 	RequiresDuplicateDetection pulumi.BoolPtrOutput `pulumi:"requiresDuplicateDetection"`
-	ResourceGroupName          pulumi.StringOutput  `pulumi:"resourceGroupName"`
 	// The Status of the Service Bus Topic. Acceptable values are `Active` or `Disabled`. Defaults to `Active`.
 	Status pulumi.StringPtrOutput `pulumi:"status"`
 	// Boolean flag which controls whether the Topic supports ordering.
@@ -158,15 +156,13 @@ type topicState struct {
 	// Specifies the name of the ServiceBus Topic resource. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// The ID of the ServiceBus Namespace to create this topic in. Changing this forces a new resource to be created.
-	NamespaceId   *string `pulumi:"namespaceId"`
-	NamespaceName *string `pulumi:"namespaceName"`
+	NamespaceId *string `pulumi:"namespaceId"`
 	// Boolean flag which controls whether to enable the topic to be partitioned across multiple message brokers. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** Partitioning is available at entity creation for all queues and topics in Basic or Standard SKUs. It is not available for the Premium messaging SKU, but any previously existing partitioned entities in Premium namespaces continue to work as expected. For premium namespaces, partitioning is available at namespace creation and all queues and topics in the partitioned namespace will be partitioned. Premium namespaces that have `premiumMessagingPartitions` set to `1` are not partitioned. Please [see the documentation](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-partitioning) for more information.
+	// > **Note:** Partitioning is available at entity creation for all queues and topics in Basic or Standard SKUs. It is not available for the Premium messaging SKU, but any previously existing partitioned entities in Premium namespaces continue to work as expected. For premium namespaces, partitioning is available at namespace creation and all queues and topics in the partitioned namespace will be partitioned. Premium namespaces that have `premiumMessagingPartitions` set to `1` are not partitioned. Please [see the documentation](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-partitioning) for more information.
 	PartitioningEnabled *bool `pulumi:"partitioningEnabled"`
 	// Boolean flag which controls whether the Topic requires duplicate detection. Defaults to `false`. Changing this forces a new resource to be created.
-	RequiresDuplicateDetection *bool   `pulumi:"requiresDuplicateDetection"`
-	ResourceGroupName          *string `pulumi:"resourceGroupName"`
+	RequiresDuplicateDetection *bool `pulumi:"requiresDuplicateDetection"`
 	// The Status of the Service Bus Topic. Acceptable values are `Active` or `Disabled`. Defaults to `Active`.
 	Status *string `pulumi:"status"`
 	// Boolean flag which controls whether the Topic supports ordering.
@@ -191,15 +187,13 @@ type TopicState struct {
 	// Specifies the name of the ServiceBus Topic resource. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// The ID of the ServiceBus Namespace to create this topic in. Changing this forces a new resource to be created.
-	NamespaceId   pulumi.StringPtrInput
-	NamespaceName pulumi.StringPtrInput
+	NamespaceId pulumi.StringPtrInput
 	// Boolean flag which controls whether to enable the topic to be partitioned across multiple message brokers. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** Partitioning is available at entity creation for all queues and topics in Basic or Standard SKUs. It is not available for the Premium messaging SKU, but any previously existing partitioned entities in Premium namespaces continue to work as expected. For premium namespaces, partitioning is available at namespace creation and all queues and topics in the partitioned namespace will be partitioned. Premium namespaces that have `premiumMessagingPartitions` set to `1` are not partitioned. Please [see the documentation](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-partitioning) for more information.
+	// > **Note:** Partitioning is available at entity creation for all queues and topics in Basic or Standard SKUs. It is not available for the Premium messaging SKU, but any previously existing partitioned entities in Premium namespaces continue to work as expected. For premium namespaces, partitioning is available at namespace creation and all queues and topics in the partitioned namespace will be partitioned. Premium namespaces that have `premiumMessagingPartitions` set to `1` are not partitioned. Please [see the documentation](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-partitioning) for more information.
 	PartitioningEnabled pulumi.BoolPtrInput
 	// Boolean flag which controls whether the Topic requires duplicate detection. Defaults to `false`. Changing this forces a new resource to be created.
 	RequiresDuplicateDetection pulumi.BoolPtrInput
-	ResourceGroupName          pulumi.StringPtrInput
 	// The Status of the Service Bus Topic. Acceptable values are `Active` or `Disabled`. Defaults to `Active`.
 	Status pulumi.StringPtrInput
 	// Boolean flag which controls whether the Topic supports ordering.
@@ -231,7 +225,7 @@ type topicArgs struct {
 	NamespaceId string `pulumi:"namespaceId"`
 	// Boolean flag which controls whether to enable the topic to be partitioned across multiple message brokers. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** Partitioning is available at entity creation for all queues and topics in Basic or Standard SKUs. It is not available for the Premium messaging SKU, but any previously existing partitioned entities in Premium namespaces continue to work as expected. For premium namespaces, partitioning is available at namespace creation and all queues and topics in the partitioned namespace will be partitioned. Premium namespaces that have `premiumMessagingPartitions` set to `1` are not partitioned. Please [see the documentation](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-partitioning) for more information.
+	// > **Note:** Partitioning is available at entity creation for all queues and topics in Basic or Standard SKUs. It is not available for the Premium messaging SKU, but any previously existing partitioned entities in Premium namespaces continue to work as expected. For premium namespaces, partitioning is available at namespace creation and all queues and topics in the partitioned namespace will be partitioned. Premium namespaces that have `premiumMessagingPartitions` set to `1` are not partitioned. Please [see the documentation](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-partitioning) for more information.
 	PartitioningEnabled *bool `pulumi:"partitioningEnabled"`
 	// Boolean flag which controls whether the Topic requires duplicate detection. Defaults to `false`. Changing this forces a new resource to be created.
 	RequiresDuplicateDetection *bool `pulumi:"requiresDuplicateDetection"`
@@ -263,7 +257,7 @@ type TopicArgs struct {
 	NamespaceId pulumi.StringInput
 	// Boolean flag which controls whether to enable the topic to be partitioned across multiple message brokers. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** Partitioning is available at entity creation for all queues and topics in Basic or Standard SKUs. It is not available for the Premium messaging SKU, but any previously existing partitioned entities in Premium namespaces continue to work as expected. For premium namespaces, partitioning is available at namespace creation and all queues and topics in the partitioned namespace will be partitioned. Premium namespaces that have `premiumMessagingPartitions` set to `1` are not partitioned. Please [see the documentation](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-partitioning) for more information.
+	// > **Note:** Partitioning is available at entity creation for all queues and topics in Basic or Standard SKUs. It is not available for the Premium messaging SKU, but any previously existing partitioned entities in Premium namespaces continue to work as expected. For premium namespaces, partitioning is available at namespace creation and all queues and topics in the partitioned namespace will be partitioned. Premium namespaces that have `premiumMessagingPartitions` set to `1` are not partitioned. Please [see the documentation](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-partitioning) for more information.
 	PartitioningEnabled pulumi.BoolPtrInput
 	// Boolean flag which controls whether the Topic requires duplicate detection. Defaults to `false`. Changing this forces a new resource to be created.
 	RequiresDuplicateDetection pulumi.BoolPtrInput
@@ -405,13 +399,9 @@ func (o TopicOutput) NamespaceId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Topic) pulumi.StringOutput { return v.NamespaceId }).(pulumi.StringOutput)
 }
 
-func (o TopicOutput) NamespaceName() pulumi.StringOutput {
-	return o.ApplyT(func(v *Topic) pulumi.StringOutput { return v.NamespaceName }).(pulumi.StringOutput)
-}
-
 // Boolean flag which controls whether to enable the topic to be partitioned across multiple message brokers. Changing this forces a new resource to be created.
 //
-// > **NOTE:** Partitioning is available at entity creation for all queues and topics in Basic or Standard SKUs. It is not available for the Premium messaging SKU, but any previously existing partitioned entities in Premium namespaces continue to work as expected. For premium namespaces, partitioning is available at namespace creation and all queues and topics in the partitioned namespace will be partitioned. Premium namespaces that have `premiumMessagingPartitions` set to `1` are not partitioned. Please [see the documentation](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-partitioning) for more information.
+// > **Note:** Partitioning is available at entity creation for all queues and topics in Basic or Standard SKUs. It is not available for the Premium messaging SKU, but any previously existing partitioned entities in Premium namespaces continue to work as expected. For premium namespaces, partitioning is available at namespace creation and all queues and topics in the partitioned namespace will be partitioned. Premium namespaces that have `premiumMessagingPartitions` set to `1` are not partitioned. Please [see the documentation](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-partitioning) for more information.
 func (o TopicOutput) PartitioningEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Topic) pulumi.BoolPtrOutput { return v.PartitioningEnabled }).(pulumi.BoolPtrOutput)
 }
@@ -419,10 +409,6 @@ func (o TopicOutput) PartitioningEnabled() pulumi.BoolPtrOutput {
 // Boolean flag which controls whether the Topic requires duplicate detection. Defaults to `false`. Changing this forces a new resource to be created.
 func (o TopicOutput) RequiresDuplicateDetection() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Topic) pulumi.BoolPtrOutput { return v.RequiresDuplicateDetection }).(pulumi.BoolPtrOutput)
-}
-
-func (o TopicOutput) ResourceGroupName() pulumi.StringOutput {
-	return o.ApplyT(func(v *Topic) pulumi.StringOutput { return v.ResourceGroupName }).(pulumi.StringOutput)
 }
 
 // The Status of the Service Bus Topic. Acceptable values are `Active` or `Disabled`. Defaults to `Active`.

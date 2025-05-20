@@ -96,6 +96,13 @@ import javax.annotation.Nullable;
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
+ * ## API Providers
+ * 
+ * &lt;!-- This section is generated, changes will be overwritten --&gt;
+ * This resource uses the following Azure API Providers:
+ * 
+ * * `Microsoft.EventGrid`: 2022-06-15
+ * 
  * ## Import
  * 
  * EventGrid Event Subscription&#39;s can be imported using the `resource id`, e.g.
@@ -394,7 +401,7 @@ public class EventSubscription extends com.pulumi.resources.CustomResource {
     /**
      * A `webhook_endpoint` block as defined below.
      * 
-     * &gt; **NOTE:** One of `eventhub_endpoint_id`, `hybrid_connection_endpoint_id`, `service_bus_queue_endpoint_id`, `service_bus_topic_endpoint_id`, `storage_queue_endpoint`, `webhook_endpoint` or `azure_function_endpoint` must be specified.
+     * &gt; **Note:** One of `eventhub_endpoint_id`, `hybrid_connection_endpoint_id`, `service_bus_queue_endpoint_id`, `service_bus_topic_endpoint_id`, `storage_queue_endpoint`, `webhook_endpoint` or `azure_function_endpoint` must be specified.
      * 
      */
     @Export(name="webhookEndpoint", refs={EventSubscriptionWebhookEndpoint.class}, tree="[0]")
@@ -403,7 +410,7 @@ public class EventSubscription extends com.pulumi.resources.CustomResource {
     /**
      * @return A `webhook_endpoint` block as defined below.
      * 
-     * &gt; **NOTE:** One of `eventhub_endpoint_id`, `hybrid_connection_endpoint_id`, `service_bus_queue_endpoint_id`, `service_bus_topic_endpoint_id`, `storage_queue_endpoint`, `webhook_endpoint` or `azure_function_endpoint` must be specified.
+     * &gt; **Note:** One of `eventhub_endpoint_id`, `hybrid_connection_endpoint_id`, `service_bus_queue_endpoint_id`, `service_bus_topic_endpoint_id`, `storage_queue_endpoint`, `webhook_endpoint` or `azure_function_endpoint` must be specified.
      * 
      */
     public Output<Optional<EventSubscriptionWebhookEndpoint>> webhookEndpoint() {

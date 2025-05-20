@@ -92,7 +92,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .actions(ActivityLogAlertActionArgs.builder()
  *                 .actionGroupId(main.id())
- *                 .webhookProperties(Map.of("from", "source"))
+ *                 .webhookProperties(Map.of("from", "terraform"))
  *                 .build())
  *             .build());
  * 

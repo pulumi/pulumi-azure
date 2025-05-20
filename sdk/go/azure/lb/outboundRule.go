@@ -14,7 +14,7 @@ import (
 
 // Manages a Load Balancer Outbound Rule.
 //
-// > **NOTE** When using this resource, the Load Balancer needs to have a FrontEnd IP Configuration and a Backend Address Pool Attached.
+// > **Note:** When using this resource, the Load Balancer needs to have a FrontEnd IP Configuration and a Backend Address Pool Attached.
 //
 // ## Example Usage
 //
@@ -88,6 +88,13 @@ import (
 //	}
 //
 // ```
+//
+// ## API Providers
+//
+// <!-- This section is generated, changes will be overwritten -->
+// This resource uses the following Azure API Providers:
+//
+// * `Microsoft.Network`: 2023-09-01
 //
 // ## Import
 //

@@ -26,7 +26,6 @@ class PolicyArgs:
         """
         The set of arguments for constructing a Policy resource.
         :param pulumi.Input[builtins.str] api_management_id: The ID of the API Management service. Changing this forces a new API Management service Policy to be created.
-        :param pulumi.Input[builtins.str] xml_content: The XML Content for this Policy as a string. To integrate frontend and backend services in Azure API Management, utilize the [`set-backend-service`](https://learn.microsoft.com/azure/api-management/set-backend-service-policy) policy, specifying the `base-url` value. Typically, this value corresponds to the `url` property defined in the `Backend` resource configuration.
         :param pulumi.Input[builtins.str] xml_link: A link to a Policy XML Document, which must be publicly available.
         """
         pulumi.set(__self__, "api_management_id", api_management_id)
@@ -50,9 +49,6 @@ class PolicyArgs:
     @property
     @pulumi.getter(name="xmlContent")
     def xml_content(self) -> Optional[pulumi.Input[builtins.str]]:
-        """
-        The XML Content for this Policy as a string. To integrate frontend and backend services in Azure API Management, utilize the [`set-backend-service`](https://learn.microsoft.com/azure/api-management/set-backend-service-policy) policy, specifying the `base-url` value. Typically, this value corresponds to the `url` property defined in the `Backend` resource configuration.
-        """
         return pulumi.get(self, "xml_content")
 
     @xml_content.setter
@@ -81,7 +77,6 @@ class _PolicyState:
         """
         Input properties used for looking up and filtering Policy resources.
         :param pulumi.Input[builtins.str] api_management_id: The ID of the API Management service. Changing this forces a new API Management service Policy to be created.
-        :param pulumi.Input[builtins.str] xml_content: The XML Content for this Policy as a string. To integrate frontend and backend services in Azure API Management, utilize the [`set-backend-service`](https://learn.microsoft.com/azure/api-management/set-backend-service-policy) policy, specifying the `base-url` value. Typically, this value corresponds to the `url` property defined in the `Backend` resource configuration.
         :param pulumi.Input[builtins.str] xml_link: A link to a Policy XML Document, which must be publicly available.
         """
         if api_management_id is not None:
@@ -106,9 +101,6 @@ class _PolicyState:
     @property
     @pulumi.getter(name="xmlContent")
     def xml_content(self) -> Optional[pulumi.Input[builtins.str]]:
-        """
-        The XML Content for this Policy as a string. To integrate frontend and backend services in Azure API Management, utilize the [`set-backend-service`](https://learn.microsoft.com/azure/api-management/set-backend-service-policy) policy, specifying the `base-url` value. Typically, this value corresponds to the `url` property defined in the `Backend` resource configuration.
-        """
         return pulumi.get(self, "xml_content")
 
     @xml_content.setter
@@ -141,7 +133,7 @@ class Policy(pulumi.CustomResource):
         """
         Manages a API Management service Policy.
 
-        > **NOTE:** This resource will, upon creation, **overwrite any existing policy in the API Management service**, as there is no feasible way to test whether the policy has been modified from the default. Similarly, when this resource is destroyed, the API Management service will revert to its default policy.
+        > **Note:** This resource will, upon creation, **overwrite any existing policy in the API Management service**, as there is no feasible way to test whether the policy has been modified from the default. Similarly, when this resource is destroyed, the API Management service will revert to its default policy.
 
         ## Example Usage
 
@@ -170,6 +162,13 @@ class Policy(pulumi.CustomResource):
             api_management_id=example_service.id,
             xml_content=std.file(input="example.xml").result)
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.ApiManagement`: 2022-08-01
 
         ## Import
 
@@ -182,7 +181,6 @@ class Policy(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] api_management_id: The ID of the API Management service. Changing this forces a new API Management service Policy to be created.
-        :param pulumi.Input[builtins.str] xml_content: The XML Content for this Policy as a string. To integrate frontend and backend services in Azure API Management, utilize the [`set-backend-service`](https://learn.microsoft.com/azure/api-management/set-backend-service-policy) policy, specifying the `base-url` value. Typically, this value corresponds to the `url` property defined in the `Backend` resource configuration.
         :param pulumi.Input[builtins.str] xml_link: A link to a Policy XML Document, which must be publicly available.
         """
         ...
@@ -194,7 +192,7 @@ class Policy(pulumi.CustomResource):
         """
         Manages a API Management service Policy.
 
-        > **NOTE:** This resource will, upon creation, **overwrite any existing policy in the API Management service**, as there is no feasible way to test whether the policy has been modified from the default. Similarly, when this resource is destroyed, the API Management service will revert to its default policy.
+        > **Note:** This resource will, upon creation, **overwrite any existing policy in the API Management service**, as there is no feasible way to test whether the policy has been modified from the default. Similarly, when this resource is destroyed, the API Management service will revert to its default policy.
 
         ## Example Usage
 
@@ -223,6 +221,13 @@ class Policy(pulumi.CustomResource):
             api_management_id=example_service.id,
             xml_content=std.file(input="example.xml").result)
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.ApiManagement`: 2022-08-01
 
         ## Import
 
@@ -285,7 +290,6 @@ class Policy(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] api_management_id: The ID of the API Management service. Changing this forces a new API Management service Policy to be created.
-        :param pulumi.Input[builtins.str] xml_content: The XML Content for this Policy as a string. To integrate frontend and backend services in Azure API Management, utilize the [`set-backend-service`](https://learn.microsoft.com/azure/api-management/set-backend-service-policy) policy, specifying the `base-url` value. Typically, this value corresponds to the `url` property defined in the `Backend` resource configuration.
         :param pulumi.Input[builtins.str] xml_link: A link to a Policy XML Document, which must be publicly available.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -308,9 +312,6 @@ class Policy(pulumi.CustomResource):
     @property
     @pulumi.getter(name="xmlContent")
     def xml_content(self) -> pulumi.Output[builtins.str]:
-        """
-        The XML Content for this Policy as a string. To integrate frontend and backend services in Azure API Management, utilize the [`set-backend-service`](https://learn.microsoft.com/azure/api-management/set-backend-service-policy) policy, specifying the `base-url` value. Typically, this value corresponds to the `url` property defined in the `Backend` resource configuration.
-        """
         return pulumi.get(self, "xml_content")
 
     @property

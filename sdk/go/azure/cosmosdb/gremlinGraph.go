@@ -82,7 +82,7 @@ import (
 //
 // ```
 //
-// > **NOTE:** The CosmosDB Account needs to have the `EnableGremlin` capability enabled to use this resource - which can be done by adding this to the `capabilities` list within the `cosmosdb.Account` resource.
+// > **Note:** The CosmosDB Account needs to have the `EnableGremlin` capability enabled to use this resource - which can be done by adding this to the `capabilities` list within the `cosmosdb.Account` resource.
 //
 // ## Import
 //
@@ -117,8 +117,7 @@ type GremlinGraph struct {
 	PartitionKeyVersion pulumi.IntPtrOutput `pulumi:"partitionKeyVersion"`
 	// The name of the resource group in which the Cosmos DB Gremlin Graph is created. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
-	// The throughput of the Gremlin graph (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon database creation otherwise it cannot be updated without a manual destroy-apply.
-	Throughput pulumi.IntOutput `pulumi:"throughput"`
+	Throughput        pulumi.IntOutput    `pulumi:"throughput"`
 	// One or more `uniqueKey` blocks as defined below. Changing this forces a new resource to be created.
 	UniqueKeys GremlinGraphUniqueKeyArrayOutput `pulumi:"uniqueKeys"`
 }
@@ -188,8 +187,7 @@ type gremlinGraphState struct {
 	PartitionKeyVersion *int `pulumi:"partitionKeyVersion"`
 	// The name of the resource group in which the Cosmos DB Gremlin Graph is created. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
-	// The throughput of the Gremlin graph (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon database creation otherwise it cannot be updated without a manual destroy-apply.
-	Throughput *int `pulumi:"throughput"`
+	Throughput        *int    `pulumi:"throughput"`
 	// One or more `uniqueKey` blocks as defined below. Changing this forces a new resource to be created.
 	UniqueKeys []GremlinGraphUniqueKey `pulumi:"uniqueKeys"`
 }
@@ -218,8 +216,7 @@ type GremlinGraphState struct {
 	PartitionKeyVersion pulumi.IntPtrInput
 	// The name of the resource group in which the Cosmos DB Gremlin Graph is created. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
-	// The throughput of the Gremlin graph (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon database creation otherwise it cannot be updated without a manual destroy-apply.
-	Throughput pulumi.IntPtrInput
+	Throughput        pulumi.IntPtrInput
 	// One or more `uniqueKey` blocks as defined below. Changing this forces a new resource to be created.
 	UniqueKeys GremlinGraphUniqueKeyArrayInput
 }
@@ -252,8 +249,7 @@ type gremlinGraphArgs struct {
 	PartitionKeyVersion *int `pulumi:"partitionKeyVersion"`
 	// The name of the resource group in which the Cosmos DB Gremlin Graph is created. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The throughput of the Gremlin graph (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon database creation otherwise it cannot be updated without a manual destroy-apply.
-	Throughput *int `pulumi:"throughput"`
+	Throughput        *int   `pulumi:"throughput"`
 	// One or more `uniqueKey` blocks as defined below. Changing this forces a new resource to be created.
 	UniqueKeys []GremlinGraphUniqueKey `pulumi:"uniqueKeys"`
 }
@@ -283,8 +279,7 @@ type GremlinGraphArgs struct {
 	PartitionKeyVersion pulumi.IntPtrInput
 	// The name of the resource group in which the Cosmos DB Gremlin Graph is created. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
-	// The throughput of the Gremlin graph (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon database creation otherwise it cannot be updated without a manual destroy-apply.
-	Throughput pulumi.IntPtrInput
+	Throughput        pulumi.IntPtrInput
 	// One or more `uniqueKey` blocks as defined below. Changing this forces a new resource to be created.
 	UniqueKeys GremlinGraphUniqueKeyArrayInput
 }
@@ -432,7 +427,6 @@ func (o GremlinGraphOutput) ResourceGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v *GremlinGraph) pulumi.StringOutput { return v.ResourceGroupName }).(pulumi.StringOutput)
 }
 
-// The throughput of the Gremlin graph (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon database creation otherwise it cannot be updated without a manual destroy-apply.
 func (o GremlinGraphOutput) Throughput() pulumi.IntOutput {
 	return o.ApplyT(func(v *GremlinGraph) pulumi.IntOutput { return v.Throughput }).(pulumi.IntOutput)
 }

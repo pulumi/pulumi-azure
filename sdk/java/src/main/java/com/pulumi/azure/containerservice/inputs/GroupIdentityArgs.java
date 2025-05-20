@@ -20,9 +20,9 @@ public final class GroupIdentityArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * Specifies a list of User Assigned Managed Identity IDs to be assigned to this Container Group.
      * 
-     * &gt; **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+     * &gt; **Note:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
      * 
-     * &gt; **NOTE:** Currently you can&#39;t use a managed identity in a container group deployed to a virtual network.
+     * &gt; **Note:** Currently you can&#39;t use a managed identity in a container group deployed to a virtual network.
      * 
      */
     @Import(name="identityIds")
@@ -31,9 +31,9 @@ public final class GroupIdentityArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * @return Specifies a list of User Assigned Managed Identity IDs to be assigned to this Container Group.
      * 
-     * &gt; **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+     * &gt; **Note:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
      * 
-     * &gt; **NOTE:** Currently you can&#39;t use a managed identity in a container group deployed to a virtual network.
+     * &gt; **Note:** Currently you can&#39;t use a managed identity in a container group deployed to a virtual network.
      * 
      */
     public Optional<Output<List<String>>> identityIds() {
@@ -73,7 +73,7 @@ public final class GroupIdentityArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * Specifies the type of Managed Service Identity that should be configured on this Container Group. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
      * 
-     * &gt; **NOTE:** When `type` is set to `SystemAssigned`, the identity of the Principal ID can be retrieved after the container group has been created. See [documentation](https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview) for more information.
+     * &gt; **Note:** When `type` is set to `SystemAssigned`, the identity of the Principal ID can be retrieved after the container group has been created. See [documentation](https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview) for more information.
      * 
      */
     @Import(name="type", required=true)
@@ -82,7 +82,7 @@ public final class GroupIdentityArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * @return Specifies the type of Managed Service Identity that should be configured on this Container Group. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
      * 
-     * &gt; **NOTE:** When `type` is set to `SystemAssigned`, the identity of the Principal ID can be retrieved after the container group has been created. See [documentation](https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview) for more information.
+     * &gt; **Note:** When `type` is set to `SystemAssigned`, the identity of the Principal ID can be retrieved after the container group has been created. See [documentation](https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview) for more information.
      * 
      */
     public Output<String> type() {
@@ -119,9 +119,9 @@ public final class GroupIdentityArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param identityIds Specifies a list of User Assigned Managed Identity IDs to be assigned to this Container Group.
          * 
-         * &gt; **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+         * &gt; **Note:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
          * 
-         * &gt; **NOTE:** Currently you can&#39;t use a managed identity in a container group deployed to a virtual network.
+         * &gt; **Note:** Currently you can&#39;t use a managed identity in a container group deployed to a virtual network.
          * 
          * @return builder
          * 
@@ -134,9 +134,9 @@ public final class GroupIdentityArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param identityIds Specifies a list of User Assigned Managed Identity IDs to be assigned to this Container Group.
          * 
-         * &gt; **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+         * &gt; **Note:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
          * 
-         * &gt; **NOTE:** Currently you can&#39;t use a managed identity in a container group deployed to a virtual network.
+         * &gt; **Note:** Currently you can&#39;t use a managed identity in a container group deployed to a virtual network.
          * 
          * @return builder
          * 
@@ -148,9 +148,9 @@ public final class GroupIdentityArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param identityIds Specifies a list of User Assigned Managed Identity IDs to be assigned to this Container Group.
          * 
-         * &gt; **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+         * &gt; **Note:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
          * 
-         * &gt; **NOTE:** Currently you can&#39;t use a managed identity in a container group deployed to a virtual network.
+         * &gt; **Note:** Currently you can&#39;t use a managed identity in a container group deployed to a virtual network.
          * 
          * @return builder
          * 
@@ -204,7 +204,7 @@ public final class GroupIdentityArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param type Specifies the type of Managed Service Identity that should be configured on this Container Group. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
          * 
-         * &gt; **NOTE:** When `type` is set to `SystemAssigned`, the identity of the Principal ID can be retrieved after the container group has been created. See [documentation](https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview) for more information.
+         * &gt; **Note:** When `type` is set to `SystemAssigned`, the identity of the Principal ID can be retrieved after the container group has been created. See [documentation](https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview) for more information.
          * 
          * @return builder
          * 
@@ -217,7 +217,7 @@ public final class GroupIdentityArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param type Specifies the type of Managed Service Identity that should be configured on this Container Group. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
          * 
-         * &gt; **NOTE:** When `type` is set to `SystemAssigned`, the identity of the Principal ID can be retrieved after the container group has been created. See [documentation](https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview) for more information.
+         * &gt; **Note:** When `type` is set to `SystemAssigned`, the identity of the Principal ID can be retrieved after the container group has been created. See [documentation](https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview) for more information.
          * 
          * @return builder
          * 

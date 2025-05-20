@@ -369,6 +369,13 @@ def get_pool(account_name: Optional[builtins.str] = None,
         resource_group_name="test")
     ```
 
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.Batch`: 2024-07-01
+
 
     :param builtins.str account_name: The Azure Storage Account name.
     :param builtins.str name: The name of the user account.
@@ -425,6 +432,13 @@ def get_pool_output(account_name: Optional[pulumi.Input[builtins.str]] = None,
         account_name="testbatchaccount",
         resource_group_name="test")
     ```
+
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.Batch`: 2024-07-01
 
 
     :param builtins.str account_name: The Azure Storage Account name.

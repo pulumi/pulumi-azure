@@ -65,7 +65,7 @@ public final class SubnetServiceEndpointStoragePolicyDefinitionArgs extends com.
     /**
      * Specifies a list of resources or aliases that this Subnet Service Endpoint Storage Policy Definition applies to.
      * 
-     * &gt; **NOTE** The `service_resources` property must contain either Aliases or Resource IDs, but not both.
+     * &gt; **Note:** The `service_resources` property must contain either Aliases or Resource IDs, but not both.
      * 
      */
     @Import(name="serviceResources", required=true)
@@ -74,7 +74,7 @@ public final class SubnetServiceEndpointStoragePolicyDefinitionArgs extends com.
     /**
      * @return Specifies a list of resources or aliases that this Subnet Service Endpoint Storage Policy Definition applies to.
      * 
-     * &gt; **NOTE** The `service_resources` property must contain either Aliases or Resource IDs, but not both.
+     * &gt; **Note:** The `service_resources` property must contain either Aliases or Resource IDs, but not both.
      * 
      */
     public Output<List<String>> serviceResources() {
@@ -174,7 +174,7 @@ public final class SubnetServiceEndpointStoragePolicyDefinitionArgs extends com.
         /**
          * @param serviceResources Specifies a list of resources or aliases that this Subnet Service Endpoint Storage Policy Definition applies to.
          * 
-         * &gt; **NOTE** The `service_resources` property must contain either Aliases or Resource IDs, but not both.
+         * &gt; **Note:** The `service_resources` property must contain either Aliases or Resource IDs, but not both.
          * 
          * @return builder
          * 
@@ -187,7 +187,7 @@ public final class SubnetServiceEndpointStoragePolicyDefinitionArgs extends com.
         /**
          * @param serviceResources Specifies a list of resources or aliases that this Subnet Service Endpoint Storage Policy Definition applies to.
          * 
-         * &gt; **NOTE** The `service_resources` property must contain either Aliases or Resource IDs, but not both.
+         * &gt; **Note:** The `service_resources` property must contain either Aliases or Resource IDs, but not both.
          * 
          * @return builder
          * 
@@ -199,7 +199,7 @@ public final class SubnetServiceEndpointStoragePolicyDefinitionArgs extends com.
         /**
          * @param serviceResources Specifies a list of resources or aliases that this Subnet Service Endpoint Storage Policy Definition applies to.
          * 
-         * &gt; **NOTE** The `service_resources` property must contain either Aliases or Resource IDs, but not both.
+         * &gt; **Note:** The `service_resources` property must contain either Aliases or Resource IDs, but not both.
          * 
          * @return builder
          * 

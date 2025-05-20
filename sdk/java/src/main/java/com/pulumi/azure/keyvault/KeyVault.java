@@ -22,14 +22,6 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * Manages a Key Vault.
- * 
- * ## Disclaimers
- * 
- * &gt; **Note:** It&#39;s possible to define Key Vault Access Policies both within the `azure.keyvault.KeyVault` resource via the `access_policy` block and by using the `azure.keyvault.AccessPolicy` resource. However it&#39;s not possible to use both methods to manage Access Policies within a KeyVault, since there&#39;ll be conflicts.
- * 
- * &gt; **Note:** It&#39;s possible to define Key Vault Certificate Contacts both within the `azure.keyvault.KeyVault` resource via the `contact` block and by using the `azure.keyvault.CertificateContacts` resource. However it&#39;s not possible to use both methods to manage Certificate Contacts within a KeyVault, since there&#39;ll be conflicts.
- * 
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
@@ -102,18 +94,18 @@ import javax.annotation.Nullable;
 @ResourceType(type="azure:keyvault/keyVault:KeyVault")
 public class KeyVault extends com.pulumi.resources.CustomResource {
     /**
-     * A list of up to 1024 objects describing access policies, as described below.
+     * [A list](https://www.terraform.io/docs/configuration/attr-as-blocks.html) of `access_policy` objects (up to 1024) describing access policies, as described below.
      * 
-     * &gt; **NOTE** Since `access_policy` can be configured both inline and via the separate `azure.keyvault.AccessPolicy` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
+     * &gt; **Note:** Since `access_policy` can be configured both inline and via the separate `azure.keyvault.AccessPolicy` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
      * 
      */
     @Export(name="accessPolicies", refs={List.class,KeyVaultAccessPolicy.class}, tree="[0,1]")
     private Output<List<KeyVaultAccessPolicy>> accessPolicies;
 
     /**
-     * @return A list of up to 1024 objects describing access policies, as described below.
+     * @return [A list](https://www.terraform.io/docs/configuration/attr-as-blocks.html) of `access_policy` objects (up to 1024) describing access policies, as described below.
      * 
-     * &gt; **NOTE** Since `access_policy` can be configured both inline and via the separate `azure.keyvault.AccessPolicy` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
+     * &gt; **Note:** Since `access_policy` can be configured both inline and via the separate `azure.keyvault.AccessPolicy` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
      * 
      */
     public Output<List<KeyVaultAccessPolicy>> accessPolicies() {
@@ -243,21 +235,9 @@ public class KeyVault extends com.pulumi.resources.CustomResource {
     public Output<Optional<Boolean>> publicNetworkAccessEnabled() {
         return Codegen.optional(this.publicNetworkAccessEnabled);
     }
-    /**
-     * Is Purge Protection enabled for this Key Vault?
-     * 
-     * !&gt; **Note:** Once Purge Protection has been Enabled it&#39;s not possible to Disable it. Support for [disabling purge protection is being tracked in this Azure API issue](https://github.com/Azure/azure-rest-api-specs/issues/8075). Deleting the Key Vault with Purge Protection Enabled will schedule the Key Vault to be deleted (which will happen by Azure in the configured number of days, currently 90 days).
-     * 
-     */
     @Export(name="purgeProtectionEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> purgeProtectionEnabled;
 
-    /**
-     * @return Is Purge Protection enabled for this Key Vault?
-     * 
-     * !&gt; **Note:** Once Purge Protection has been Enabled it&#39;s not possible to Disable it. Support for [disabling purge protection is being tracked in this Azure API issue](https://github.com/Azure/azure-rest-api-specs/issues/8075). Deleting the Key Vault with Purge Protection Enabled will schedule the Key Vault to be deleted (which will happen by Azure in the configured number of days, currently 90 days).
-     * 
-     */
     public Output<Optional<Boolean>> purgeProtectionEnabled() {
         return Codegen.optional(this.purgeProtectionEnabled);
     }

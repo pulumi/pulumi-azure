@@ -17,14 +17,14 @@ public final class DeploymentModelArgs extends com.pulumi.resources.ResourceArgs
     public static final DeploymentModelArgs Empty = new DeploymentModelArgs();
 
     /**
-     * The format of the Cognitive Services Account Deployment model. Changing this forces a new resource to be created. Possible value is `OpenAI`.
+     * The format of the Cognitive Services Account Deployment model. Possible values are `OpenAI` and `Cohere`. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="format", required=true)
     private Output<String> format;
 
     /**
-     * @return The format of the Cognitive Services Account Deployment model. Changing this forces a new resource to be created. Possible value is `OpenAI`.
+     * @return The format of the Cognitive Services Account Deployment model. Possible values are `OpenAI` and `Cohere`. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> format() {
@@ -88,7 +88,7 @@ public final class DeploymentModelArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param format The format of the Cognitive Services Account Deployment model. Changing this forces a new resource to be created. Possible value is `OpenAI`.
+         * @param format The format of the Cognitive Services Account Deployment model. Possible values are `OpenAI` and `Cohere`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -99,7 +99,7 @@ public final class DeploymentModelArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param format The format of the Cognitive Services Account Deployment model. Changing this forces a new resource to be created. Possible value is `OpenAI`.
+         * @param format The format of the Cognitive Services Account Deployment model. Possible values are `OpenAI` and `Cohere`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

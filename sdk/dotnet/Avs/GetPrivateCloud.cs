@@ -16,7 +16,7 @@ namespace Pulumi.Azure.Avs
         /// 
         /// ## Example Usage
         /// 
-        /// &gt; **NOTE :**  Normal `pulumi up` could ignore this note. Please disable correlation request id for continuous operations in one build (like acctest). The continuous operations like `update` or `delete` could not be triggered when it shares the same `correlation-id` with its previous operation.
+        /// &gt; **Note:** Normal `pulumi up` could ignore this note. Please disable correlation request id for continuous operations in one build (like acctest). The continuous operations like `update` or `delete` could not be triggered when it shares the same `correlation-id` with its previous operation.
         /// 
         /// ```csharp
         /// using System.Collections.Generic;
@@ -38,6 +38,13 @@ namespace Pulumi.Azure.Avs
         ///     };
         /// });
         /// ```
+        /// 
+        /// ## API Providers
+        /// 
+        /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+        /// This data source uses the following Azure API Providers:
+        /// 
+        /// * `Microsoft.AVS`: 2022-05-01
         /// </summary>
         public static Task<GetPrivateCloudResult> InvokeAsync(GetPrivateCloudArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPrivateCloudResult>("azure:avs/getPrivateCloud:getPrivateCloud", args ?? new GetPrivateCloudArgs(), options.WithDefaults());
@@ -47,7 +54,7 @@ namespace Pulumi.Azure.Avs
         /// 
         /// ## Example Usage
         /// 
-        /// &gt; **NOTE :**  Normal `pulumi up` could ignore this note. Please disable correlation request id for continuous operations in one build (like acctest). The continuous operations like `update` or `delete` could not be triggered when it shares the same `correlation-id` with its previous operation.
+        /// &gt; **Note:** Normal `pulumi up` could ignore this note. Please disable correlation request id for continuous operations in one build (like acctest). The continuous operations like `update` or `delete` could not be triggered when it shares the same `correlation-id` with its previous operation.
         /// 
         /// ```csharp
         /// using System.Collections.Generic;
@@ -69,6 +76,13 @@ namespace Pulumi.Azure.Avs
         ///     };
         /// });
         /// ```
+        /// 
+        /// ## API Providers
+        /// 
+        /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+        /// This data source uses the following Azure API Providers:
+        /// 
+        /// * `Microsoft.AVS`: 2022-05-01
         /// </summary>
         public static Output<GetPrivateCloudResult> Invoke(GetPrivateCloudInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPrivateCloudResult>("azure:avs/getPrivateCloud:getPrivateCloud", args ?? new GetPrivateCloudInvokeArgs(), options.WithDefaults());
@@ -78,7 +92,7 @@ namespace Pulumi.Azure.Avs
         /// 
         /// ## Example Usage
         /// 
-        /// &gt; **NOTE :**  Normal `pulumi up` could ignore this note. Please disable correlation request id for continuous operations in one build (like acctest). The continuous operations like `update` or `delete` could not be triggered when it shares the same `correlation-id` with its previous operation.
+        /// &gt; **Note:** Normal `pulumi up` could ignore this note. Please disable correlation request id for continuous operations in one build (like acctest). The continuous operations like `update` or `delete` could not be triggered when it shares the same `correlation-id` with its previous operation.
         /// 
         /// ```csharp
         /// using System.Collections.Generic;
@@ -100,6 +114,13 @@ namespace Pulumi.Azure.Avs
         ///     };
         /// });
         /// ```
+        /// 
+        /// ## API Providers
+        /// 
+        /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+        /// This data source uses the following Azure API Providers:
+        /// 
+        /// * `Microsoft.AVS`: 2022-05-01
         /// </summary>
         public static Output<GetPrivateCloudResult> Invoke(GetPrivateCloudInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetPrivateCloudResult>("azure:avs/getPrivateCloud:getPrivateCloud", args ?? new GetPrivateCloudInvokeArgs(), options.WithDefaults());

@@ -48,13 +48,6 @@ class FunctionAppSlotArgs:
         :param pulumi.Input[builtins.str] resource_group_name: The name of the resource group in which to create the Function App Slot. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] storage_account_access_key: The access key which will be used to access the backend storage account for the Function App.
         :param pulumi.Input[builtins.str] storage_account_name: The backend storage account name which will be used by the Function App (such as the dashboard, logs). Changing this forces a new resource to be created.
-        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] app_settings: A key-value pair of App Settings.
-               
-               > **Note:** When integrating a `CI/CD pipeline` and expecting to run from a deployed package in `Azure` you must seed your `app settings` as part of the application code for function app to be successfully deployed. `Important Default key pairs`: (`"WEBSITE_RUN_FROM_PACKAGE" = ""`, `"FUNCTIONS_WORKER_RUNTIME" = "node"` (or python, etc), `"WEBSITE_NODE_DEFAULT_VERSION" = "10.14.1"`, `"APPINSIGHTS_INSTRUMENTATIONKEY" = ""`).
-               
-               > **NOTE:** The values for `AzureWebJobsStorage` and `FUNCTIONS_EXTENSION_VERSION` will be filled by other input arguments and shouldn't be configured separately. `AzureWebJobsStorage` is filled based on `storage_account_name` and `storage_account_access_key`. `FUNCTIONS_EXTENSION_VERSION` is filled based on `version`.
-               
-               > **Note:**  When using an App Service Plan in the `Free` or `Shared` Tiers `use_32_bit_worker_process` must be set to `true`.
         :param pulumi.Input['FunctionAppSlotAuthSettingsArgs'] auth_settings: An `auth_settings` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['FunctionAppSlotConnectionStringArgs']]] connection_strings: A `connection_string` block as defined below.
         :param pulumi.Input[builtins.int] daily_memory_time_quota: The amount of memory in gigabyte-seconds that your application is allowed to consume per day. Setting this value only affects function apps under the consumption plan.
@@ -66,7 +59,7 @@ class FunctionAppSlotArgs:
         :param pulumi.Input[builtins.str] name: Specifies the name of the Function App. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] os_type: A string indicating the Operating System type for this function app. The only possible value is `linux`. Changing this forces a new resource to be created.
                
-               > **NOTE:** This value will be `linux` for Linux Derivatives or an empty string for Windows (default).
+               > **Note:** This value will be `linux` for Linux Derivatives or an empty string for Windows (default).
         :param pulumi.Input['FunctionAppSlotSiteConfigArgs'] site_config: A `site_config` object as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[builtins.str] version: The runtime version associated with the Function App. Defaults to `~1`.
@@ -168,15 +161,6 @@ class FunctionAppSlotArgs:
     @property
     @pulumi.getter(name="appSettings")
     def app_settings(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
-        """
-        A key-value pair of App Settings.
-
-        > **Note:** When integrating a `CI/CD pipeline` and expecting to run from a deployed package in `Azure` you must seed your `app settings` as part of the application code for function app to be successfully deployed. `Important Default key pairs`: (`"WEBSITE_RUN_FROM_PACKAGE" = ""`, `"FUNCTIONS_WORKER_RUNTIME" = "node"` (or python, etc), `"WEBSITE_NODE_DEFAULT_VERSION" = "10.14.1"`, `"APPINSIGHTS_INSTRUMENTATIONKEY" = ""`).
-
-        > **NOTE:** The values for `AzureWebJobsStorage` and `FUNCTIONS_EXTENSION_VERSION` will be filled by other input arguments and shouldn't be configured separately. `AzureWebJobsStorage` is filled based on `storage_account_name` and `storage_account_access_key`. `FUNCTIONS_EXTENSION_VERSION` is filled based on `version`.
-
-        > **Note:**  When using an App Service Plan in the `Free` or `Shared` Tiers `use_32_bit_worker_process` must be set to `true`.
-        """
         return pulumi.get(self, "app_settings")
 
     @app_settings.setter
@@ -297,7 +281,7 @@ class FunctionAppSlotArgs:
         """
         A string indicating the Operating System type for this function app. The only possible value is `linux`. Changing this forces a new resource to be created.
 
-        > **NOTE:** This value will be `linux` for Linux Derivatives or an empty string for Windows (default).
+        > **Note:** This value will be `linux` for Linux Derivatives or an empty string for Windows (default).
         """
         return pulumi.get(self, "os_type")
 
@@ -372,13 +356,6 @@ class _FunctionAppSlotState:
         """
         Input properties used for looking up and filtering FunctionAppSlot resources.
         :param pulumi.Input[builtins.str] app_service_plan_id: The ID of the App Service Plan within which to create this Function App Slot. Changing this forces a new resource to be created.
-        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] app_settings: A key-value pair of App Settings.
-               
-               > **Note:** When integrating a `CI/CD pipeline` and expecting to run from a deployed package in `Azure` you must seed your `app settings` as part of the application code for function app to be successfully deployed. `Important Default key pairs`: (`"WEBSITE_RUN_FROM_PACKAGE" = ""`, `"FUNCTIONS_WORKER_RUNTIME" = "node"` (or python, etc), `"WEBSITE_NODE_DEFAULT_VERSION" = "10.14.1"`, `"APPINSIGHTS_INSTRUMENTATIONKEY" = ""`).
-               
-               > **NOTE:** The values for `AzureWebJobsStorage` and `FUNCTIONS_EXTENSION_VERSION` will be filled by other input arguments and shouldn't be configured separately. `AzureWebJobsStorage` is filled based on `storage_account_name` and `storage_account_access_key`. `FUNCTIONS_EXTENSION_VERSION` is filled based on `version`.
-               
-               > **Note:**  When using an App Service Plan in the `Free` or `Shared` Tiers `use_32_bit_worker_process` must be set to `true`.
         :param pulumi.Input['FunctionAppSlotAuthSettingsArgs'] auth_settings: An `auth_settings` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['FunctionAppSlotConnectionStringArgs']]] connection_strings: A `connection_string` block as defined below.
         :param pulumi.Input[builtins.int] daily_memory_time_quota: The amount of memory in gigabyte-seconds that your application is allowed to consume per day. Setting this value only affects function apps under the consumption plan.
@@ -393,7 +370,7 @@ class _FunctionAppSlotState:
         :param pulumi.Input[builtins.str] name: Specifies the name of the Function App. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] os_type: A string indicating the Operating System type for this function app. The only possible value is `linux`. Changing this forces a new resource to be created.
                
-               > **NOTE:** This value will be `linux` for Linux Derivatives or an empty string for Windows (default).
+               > **Note:** This value will be `linux` for Linux Derivatives or an empty string for Windows (default).
         :param pulumi.Input[builtins.str] outbound_ip_addresses: A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12`
         :param pulumi.Input[builtins.str] possible_outbound_ip_addresses: A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `outbound_ip_addresses`.
         :param pulumi.Input[builtins.str] resource_group_name: The name of the resource group in which to create the Function App Slot. Changing this forces a new resource to be created.
@@ -468,15 +445,6 @@ class _FunctionAppSlotState:
     @property
     @pulumi.getter(name="appSettings")
     def app_settings(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
-        """
-        A key-value pair of App Settings.
-
-        > **Note:** When integrating a `CI/CD pipeline` and expecting to run from a deployed package in `Azure` you must seed your `app settings` as part of the application code for function app to be successfully deployed. `Important Default key pairs`: (`"WEBSITE_RUN_FROM_PACKAGE" = ""`, `"FUNCTIONS_WORKER_RUNTIME" = "node"` (or python, etc), `"WEBSITE_NODE_DEFAULT_VERSION" = "10.14.1"`, `"APPINSIGHTS_INSTRUMENTATIONKEY" = ""`).
-
-        > **NOTE:** The values for `AzureWebJobsStorage` and `FUNCTIONS_EXTENSION_VERSION` will be filled by other input arguments and shouldn't be configured separately. `AzureWebJobsStorage` is filled based on `storage_account_name` and `storage_account_access_key`. `FUNCTIONS_EXTENSION_VERSION` is filled based on `version`.
-
-        > **Note:**  When using an App Service Plan in the `Free` or `Shared` Tiers `use_32_bit_worker_process` must be set to `true`.
-        """
         return pulumi.get(self, "app_settings")
 
     @app_settings.setter
@@ -633,7 +601,7 @@ class _FunctionAppSlotState:
         """
         A string indicating the Operating System type for this function app. The only possible value is `linux`. Changing this forces a new resource to be created.
 
-        > **NOTE:** This value will be `linux` for Linux Derivatives or an empty string for Windows (default).
+        > **Note:** This value will be `linux` for Linux Derivatives or an empty string for Windows (default).
         """
         return pulumi.get(self, "os_type")
 
@@ -834,13 +802,6 @@ class FunctionAppSlot(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] app_service_plan_id: The ID of the App Service Plan within which to create this Function App Slot. Changing this forces a new resource to be created.
-        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] app_settings: A key-value pair of App Settings.
-               
-               > **Note:** When integrating a `CI/CD pipeline` and expecting to run from a deployed package in `Azure` you must seed your `app settings` as part of the application code for function app to be successfully deployed. `Important Default key pairs`: (`"WEBSITE_RUN_FROM_PACKAGE" = ""`, `"FUNCTIONS_WORKER_RUNTIME" = "node"` (or python, etc), `"WEBSITE_NODE_DEFAULT_VERSION" = "10.14.1"`, `"APPINSIGHTS_INSTRUMENTATIONKEY" = ""`).
-               
-               > **NOTE:** The values for `AzureWebJobsStorage` and `FUNCTIONS_EXTENSION_VERSION` will be filled by other input arguments and shouldn't be configured separately. `AzureWebJobsStorage` is filled based on `storage_account_name` and `storage_account_access_key`. `FUNCTIONS_EXTENSION_VERSION` is filled based on `version`.
-               
-               > **Note:**  When using an App Service Plan in the `Free` or `Shared` Tiers `use_32_bit_worker_process` must be set to `true`.
         :param pulumi.Input[Union['FunctionAppSlotAuthSettingsArgs', 'FunctionAppSlotAuthSettingsArgsDict']] auth_settings: An `auth_settings` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[Union['FunctionAppSlotConnectionStringArgs', 'FunctionAppSlotConnectionStringArgsDict']]]] connection_strings: A `connection_string` block as defined below.
         :param pulumi.Input[builtins.int] daily_memory_time_quota: The amount of memory in gigabyte-seconds that your application is allowed to consume per day. Setting this value only affects function apps under the consumption plan.
@@ -853,7 +814,7 @@ class FunctionAppSlot(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] name: Specifies the name of the Function App. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] os_type: A string indicating the Operating System type for this function app. The only possible value is `linux`. Changing this forces a new resource to be created.
                
-               > **NOTE:** This value will be `linux` for Linux Derivatives or an empty string for Windows (default).
+               > **Note:** This value will be `linux` for Linux Derivatives or an empty string for Windows (default).
         :param pulumi.Input[builtins.str] resource_group_name: The name of the resource group in which to create the Function App Slot. Changing this forces a new resource to be created.
         :param pulumi.Input[Union['FunctionAppSlotSiteConfigArgs', 'FunctionAppSlotSiteConfigArgsDict']] site_config: A `site_config` object as defined below.
         :param pulumi.Input[builtins.str] storage_account_access_key: The access key which will be used to access the backend storage account for the Function App.
@@ -1043,13 +1004,6 @@ class FunctionAppSlot(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] app_service_plan_id: The ID of the App Service Plan within which to create this Function App Slot. Changing this forces a new resource to be created.
-        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] app_settings: A key-value pair of App Settings.
-               
-               > **Note:** When integrating a `CI/CD pipeline` and expecting to run from a deployed package in `Azure` you must seed your `app settings` as part of the application code for function app to be successfully deployed. `Important Default key pairs`: (`"WEBSITE_RUN_FROM_PACKAGE" = ""`, `"FUNCTIONS_WORKER_RUNTIME" = "node"` (or python, etc), `"WEBSITE_NODE_DEFAULT_VERSION" = "10.14.1"`, `"APPINSIGHTS_INSTRUMENTATIONKEY" = ""`).
-               
-               > **NOTE:** The values for `AzureWebJobsStorage` and `FUNCTIONS_EXTENSION_VERSION` will be filled by other input arguments and shouldn't be configured separately. `AzureWebJobsStorage` is filled based on `storage_account_name` and `storage_account_access_key`. `FUNCTIONS_EXTENSION_VERSION` is filled based on `version`.
-               
-               > **Note:**  When using an App Service Plan in the `Free` or `Shared` Tiers `use_32_bit_worker_process` must be set to `true`.
         :param pulumi.Input[Union['FunctionAppSlotAuthSettingsArgs', 'FunctionAppSlotAuthSettingsArgsDict']] auth_settings: An `auth_settings` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[Union['FunctionAppSlotConnectionStringArgs', 'FunctionAppSlotConnectionStringArgsDict']]]] connection_strings: A `connection_string` block as defined below.
         :param pulumi.Input[builtins.int] daily_memory_time_quota: The amount of memory in gigabyte-seconds that your application is allowed to consume per day. Setting this value only affects function apps under the consumption plan.
@@ -1064,7 +1018,7 @@ class FunctionAppSlot(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] name: Specifies the name of the Function App. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] os_type: A string indicating the Operating System type for this function app. The only possible value is `linux`. Changing this forces a new resource to be created.
                
-               > **NOTE:** This value will be `linux` for Linux Derivatives or an empty string for Windows (default).
+               > **Note:** This value will be `linux` for Linux Derivatives or an empty string for Windows (default).
         :param pulumi.Input[builtins.str] outbound_ip_addresses: A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12`
         :param pulumi.Input[builtins.str] possible_outbound_ip_addresses: A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `outbound_ip_addresses`.
         :param pulumi.Input[builtins.str] resource_group_name: The name of the resource group in which to create the Function App Slot. Changing this forces a new resource to be created.
@@ -1116,15 +1070,6 @@ class FunctionAppSlot(pulumi.CustomResource):
     @property
     @pulumi.getter(name="appSettings")
     def app_settings(self) -> pulumi.Output[Mapping[str, builtins.str]]:
-        """
-        A key-value pair of App Settings.
-
-        > **Note:** When integrating a `CI/CD pipeline` and expecting to run from a deployed package in `Azure` you must seed your `app settings` as part of the application code for function app to be successfully deployed. `Important Default key pairs`: (`"WEBSITE_RUN_FROM_PACKAGE" = ""`, `"FUNCTIONS_WORKER_RUNTIME" = "node"` (or python, etc), `"WEBSITE_NODE_DEFAULT_VERSION" = "10.14.1"`, `"APPINSIGHTS_INSTRUMENTATIONKEY" = ""`).
-
-        > **NOTE:** The values for `AzureWebJobsStorage` and `FUNCTIONS_EXTENSION_VERSION` will be filled by other input arguments and shouldn't be configured separately. `AzureWebJobsStorage` is filled based on `storage_account_name` and `storage_account_access_key`. `FUNCTIONS_EXTENSION_VERSION` is filled based on `version`.
-
-        > **Note:**  When using an App Service Plan in the `Free` or `Shared` Tiers `use_32_bit_worker_process` must be set to `true`.
-        """
         return pulumi.get(self, "app_settings")
 
     @property
@@ -1229,7 +1174,7 @@ class FunctionAppSlot(pulumi.CustomResource):
         """
         A string indicating the Operating System type for this function app. The only possible value is `linux`. Changing this forces a new resource to be created.
 
-        > **NOTE:** This value will be `linux` for Linux Derivatives or an empty string for Windows (default).
+        > **Note:** This value will be `linux` for Linux Derivatives or an empty string for Windows (default).
         """
         return pulumi.get(self, "os_type")
 

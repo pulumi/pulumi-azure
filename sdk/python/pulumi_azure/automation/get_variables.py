@@ -158,6 +158,13 @@ def get_variables(automation_account_id: Optional[builtins.str] = None,
     pulumi.export("stringVars", example_azurerm_automation_variable_string["string"])
     ```
 
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.Automation`: 2023-11-01
+
 
     :param builtins.str automation_account_id: The resource ID of the automation account.
     """
@@ -192,6 +199,13 @@ def get_variables_output(automation_account_id: Optional[pulumi.Input[builtins.s
     example_get_variables = azure.automation.get_variables(automation_account_id=example.id)
     pulumi.export("stringVars", example_azurerm_automation_variable_string["string"])
     ```
+
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.Automation`: 2023-11-01
 
 
     :param builtins.str automation_account_id: The resource ID of the automation account.

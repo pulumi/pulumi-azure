@@ -14,7 +14,7 @@ import (
 var _ = internal.GetEnvOrDefault
 
 type PolicyCustomRule struct {
-	// Type of action. Possible values are `Allow`, `Block` and `Log`.
+	// Type of action. Possible values are `Allow`, `Block`, `JSChallenge` and `Log`.
 	//
 	// > **Note:** If the `ruleType` is specified as `RateLimitRule`, the `Allow` is not supported.
 	Action string `pulumi:"action"`
@@ -48,7 +48,7 @@ type PolicyCustomRuleInput interface {
 }
 
 type PolicyCustomRuleArgs struct {
-	// Type of action. Possible values are `Allow`, `Block` and `Log`.
+	// Type of action. Possible values are `Allow`, `Block`, `JSChallenge` and `Log`.
 	//
 	// > **Note:** If the `ruleType` is specified as `RateLimitRule`, the `Allow` is not supported.
 	Action pulumi.StringInput `pulumi:"action"`
@@ -121,7 +121,7 @@ func (o PolicyCustomRuleOutput) ToPolicyCustomRuleOutputWithContext(ctx context.
 	return o
 }
 
-// Type of action. Possible values are `Allow`, `Block` and `Log`.
+// Type of action. Possible values are `Allow`, `Block`, `JSChallenge` and `Log`.
 //
 // > **Note:** If the `ruleType` is specified as `RateLimitRule`, the `Allow` is not supported.
 func (o PolicyCustomRuleOutput) Action() pulumi.StringOutput {

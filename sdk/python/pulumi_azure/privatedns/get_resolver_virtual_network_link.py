@@ -108,6 +108,13 @@ def get_resolver_virtual_network_link(dns_forwarding_ruleset_id: Optional[builti
         dns_forwarding_ruleset_id="example-dns-forwarding-ruleset-id")
     ```
 
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.Network`: 2022-07-01
+
 
     :param builtins.str dns_forwarding_ruleset_id: ID of the Private DNS Resolver DNS Forwarding Ruleset.
     :param builtins.str name: Name of the Private DNS Resolver Virtual Network Link.
@@ -139,6 +146,13 @@ def get_resolver_virtual_network_link_output(dns_forwarding_ruleset_id: Optional
     example = azure.privatedns.get_resolver_virtual_network_link(name="example-link",
         dns_forwarding_ruleset_id="example-dns-forwarding-ruleset-id")
     ```
+
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.Network`: 2022-07-01
 
 
     :param builtins.str dns_forwarding_ruleset_id: ID of the Private DNS Resolver DNS Forwarding Ruleset.

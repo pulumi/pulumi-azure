@@ -45,7 +45,7 @@ namespace Pulumi.Azure.AppService.Inputs
         /// <summary>
         /// The default provider to use when multiple providers have been set up. Possible values are `AzureActiveDirectory`, `Facebook`, `Google`, `MicrosoftAccount` and `Twitter`.
         /// 
-        /// &gt; **NOTE:** When using multiple providers, the default provider must be set for settings like `unauthenticated_client_action` to work.
+        /// &gt; **Note:** When using multiple providers, the default provider must be set for settings like `unauthenticated_client_action` to work.
         /// </summary>
         [Input("defaultProvider")]
         public Input<string>? DefaultProvider { get; set; }

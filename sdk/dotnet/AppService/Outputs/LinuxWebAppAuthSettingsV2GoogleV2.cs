@@ -24,7 +24,7 @@ namespace Pulumi.Azure.AppService.Outputs
         /// <summary>
         /// The app setting name that contains the `client_secret` value used for Google Login.
         /// 
-        /// !&gt; **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+        /// !&gt; **Note:** A setting with this name must exist in `app_settings` to function correctly.
         /// </summary>
         public readonly string ClientSecretSettingName;
         /// <summary>

@@ -23,9 +23,9 @@ public final class SharedImageVersionArgs extends com.pulumi.resources.ResourceA
     /**
      * URI of the Azure Storage Blob used to create the Image Version. Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE:** You must specify exact one of `blob_uri`, `managed_image_id` and `os_disk_snapshot_id`.
+     * &gt; **Note:** You must specify exact one of `blob_uri`, `managed_image_id` and `os_disk_snapshot_id`.
      * 
-     * &gt; **NOTE:** `blob_uri` and `storage_account_id` must be specified together
+     * &gt; **Note:** `blob_uri` and `storage_account_id` must be specified together
      * 
      */
     @Import(name="blobUri")
@@ -34,9 +34,9 @@ public final class SharedImageVersionArgs extends com.pulumi.resources.ResourceA
     /**
      * @return URI of the Azure Storage Blob used to create the Image Version. Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE:** You must specify exact one of `blob_uri`, `managed_image_id` and `os_disk_snapshot_id`.
+     * &gt; **Note:** You must specify exact one of `blob_uri`, `managed_image_id` and `os_disk_snapshot_id`.
      * 
-     * &gt; **NOTE:** `blob_uri` and `storage_account_id` must be specified together
+     * &gt; **Note:** `blob_uri` and `storage_account_id` must be specified together
      * 
      */
     public Optional<Output<String>> blobUri() {
@@ -136,9 +136,9 @@ public final class SharedImageVersionArgs extends com.pulumi.resources.ResourceA
     /**
      * The ID of the Managed Image or Virtual Machine ID which should be used for this Shared Image Version. Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE:** The ID can be sourced from the `azure.compute.Image` data source or resource
+     * &gt; **Note:** The ID can be sourced from the `azure.compute.Image` Data Source or Resource.
      * 
-     * &gt; **NOTE:** You must specify exact one of `blob_uri`, `managed_image_id` and `os_disk_snapshot_id`.
+     * &gt; **Note:** You must specify exact one of `blob_uri`, `managed_image_id` and `os_disk_snapshot_id`.
      * 
      */
     @Import(name="managedImageId")
@@ -147,9 +147,9 @@ public final class SharedImageVersionArgs extends com.pulumi.resources.ResourceA
     /**
      * @return The ID of the Managed Image or Virtual Machine ID which should be used for this Shared Image Version. Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE:** The ID can be sourced from the `azure.compute.Image` data source or resource
+     * &gt; **Note:** The ID can be sourced from the `azure.compute.Image` Data Source or Resource.
      * 
-     * &gt; **NOTE:** You must specify exact one of `blob_uri`, `managed_image_id` and `os_disk_snapshot_id`.
+     * &gt; **Note:** You must specify exact one of `blob_uri`, `managed_image_id` and `os_disk_snapshot_id`.
      * 
      */
     public Optional<Output<String>> managedImageId() {
@@ -174,7 +174,7 @@ public final class SharedImageVersionArgs extends com.pulumi.resources.ResourceA
     /**
      * The ID of the OS disk snapshot which should be used for this Shared Image Version. Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE:** You must specify exact one of `blob_uri`, `managed_image_id` and `os_disk_snapshot_id`.
+     * &gt; **Note:** You must specify exact one of `blob_uri`, `managed_image_id` and `os_disk_snapshot_id`.
      * 
      */
     @Import(name="osDiskSnapshotId")
@@ -183,7 +183,7 @@ public final class SharedImageVersionArgs extends com.pulumi.resources.ResourceA
     /**
      * @return The ID of the OS disk snapshot which should be used for this Shared Image Version. Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE:** You must specify exact one of `blob_uri`, `managed_image_id` and `os_disk_snapshot_id`.
+     * &gt; **Note:** You must specify exact one of `blob_uri`, `managed_image_id` and `os_disk_snapshot_id`.
      * 
      */
     public Optional<Output<String>> osDiskSnapshotId() {
@@ -223,7 +223,7 @@ public final class SharedImageVersionArgs extends com.pulumi.resources.ResourceA
     /**
      * The ID of the Storage Account where the Blob exists. Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE:** `blob_uri` and `storage_account_id` must be specified together
+     * &gt; **Note:** `blob_uri` and `storage_account_id` must be specified together
      * 
      */
     @Import(name="storageAccountId")
@@ -232,7 +232,7 @@ public final class SharedImageVersionArgs extends com.pulumi.resources.ResourceA
     /**
      * @return The ID of the Storage Account where the Blob exists. Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE:** `blob_uri` and `storage_account_id` must be specified together
+     * &gt; **Note:** `blob_uri` and `storage_account_id` must be specified together
      * 
      */
     public Optional<Output<String>> storageAccountId() {
@@ -310,9 +310,9 @@ public final class SharedImageVersionArgs extends com.pulumi.resources.ResourceA
         /**
          * @param blobUri URI of the Azure Storage Blob used to create the Image Version. Changing this forces a new resource to be created.
          * 
-         * &gt; **NOTE:** You must specify exact one of `blob_uri`, `managed_image_id` and `os_disk_snapshot_id`.
+         * &gt; **Note:** You must specify exact one of `blob_uri`, `managed_image_id` and `os_disk_snapshot_id`.
          * 
-         * &gt; **NOTE:** `blob_uri` and `storage_account_id` must be specified together
+         * &gt; **Note:** `blob_uri` and `storage_account_id` must be specified together
          * 
          * @return builder
          * 
@@ -325,9 +325,9 @@ public final class SharedImageVersionArgs extends com.pulumi.resources.ResourceA
         /**
          * @param blobUri URI of the Azure Storage Blob used to create the Image Version. Changing this forces a new resource to be created.
          * 
-         * &gt; **NOTE:** You must specify exact one of `blob_uri`, `managed_image_id` and `os_disk_snapshot_id`.
+         * &gt; **Note:** You must specify exact one of `blob_uri`, `managed_image_id` and `os_disk_snapshot_id`.
          * 
-         * &gt; **NOTE:** `blob_uri` and `storage_account_id` must be specified together
+         * &gt; **Note:** `blob_uri` and `storage_account_id` must be specified together
          * 
          * @return builder
          * 
@@ -465,9 +465,9 @@ public final class SharedImageVersionArgs extends com.pulumi.resources.ResourceA
         /**
          * @param managedImageId The ID of the Managed Image or Virtual Machine ID which should be used for this Shared Image Version. Changing this forces a new resource to be created.
          * 
-         * &gt; **NOTE:** The ID can be sourced from the `azure.compute.Image` data source or resource
+         * &gt; **Note:** The ID can be sourced from the `azure.compute.Image` Data Source or Resource.
          * 
-         * &gt; **NOTE:** You must specify exact one of `blob_uri`, `managed_image_id` and `os_disk_snapshot_id`.
+         * &gt; **Note:** You must specify exact one of `blob_uri`, `managed_image_id` and `os_disk_snapshot_id`.
          * 
          * @return builder
          * 
@@ -480,9 +480,9 @@ public final class SharedImageVersionArgs extends com.pulumi.resources.ResourceA
         /**
          * @param managedImageId The ID of the Managed Image or Virtual Machine ID which should be used for this Shared Image Version. Changing this forces a new resource to be created.
          * 
-         * &gt; **NOTE:** The ID can be sourced from the `azure.compute.Image` data source or resource
+         * &gt; **Note:** The ID can be sourced from the `azure.compute.Image` Data Source or Resource.
          * 
-         * &gt; **NOTE:** You must specify exact one of `blob_uri`, `managed_image_id` and `os_disk_snapshot_id`.
+         * &gt; **Note:** You must specify exact one of `blob_uri`, `managed_image_id` and `os_disk_snapshot_id`.
          * 
          * @return builder
          * 
@@ -515,7 +515,7 @@ public final class SharedImageVersionArgs extends com.pulumi.resources.ResourceA
         /**
          * @param osDiskSnapshotId The ID of the OS disk snapshot which should be used for this Shared Image Version. Changing this forces a new resource to be created.
          * 
-         * &gt; **NOTE:** You must specify exact one of `blob_uri`, `managed_image_id` and `os_disk_snapshot_id`.
+         * &gt; **Note:** You must specify exact one of `blob_uri`, `managed_image_id` and `os_disk_snapshot_id`.
          * 
          * @return builder
          * 
@@ -528,7 +528,7 @@ public final class SharedImageVersionArgs extends com.pulumi.resources.ResourceA
         /**
          * @param osDiskSnapshotId The ID of the OS disk snapshot which should be used for this Shared Image Version. Changing this forces a new resource to be created.
          * 
-         * &gt; **NOTE:** You must specify exact one of `blob_uri`, `managed_image_id` and `os_disk_snapshot_id`.
+         * &gt; **Note:** You must specify exact one of `blob_uri`, `managed_image_id` and `os_disk_snapshot_id`.
          * 
          * @return builder
          * 
@@ -582,7 +582,7 @@ public final class SharedImageVersionArgs extends com.pulumi.resources.ResourceA
         /**
          * @param storageAccountId The ID of the Storage Account where the Blob exists. Changing this forces a new resource to be created.
          * 
-         * &gt; **NOTE:** `blob_uri` and `storage_account_id` must be specified together
+         * &gt; **Note:** `blob_uri` and `storage_account_id` must be specified together
          * 
          * @return builder
          * 
@@ -595,7 +595,7 @@ public final class SharedImageVersionArgs extends com.pulumi.resources.ResourceA
         /**
          * @param storageAccountId The ID of the Storage Account where the Blob exists. Changing this forces a new resource to be created.
          * 
-         * &gt; **NOTE:** `blob_uri` and `storage_account_id` must be specified together
+         * &gt; **Note:** `blob_uri` and `storage_account_id` must be specified together
          * 
          * @return builder
          * 

@@ -48,7 +48,7 @@ public final class GetServiceResult {
      */
     private String id;
     /**
-     * @return (Optional) An `identity` block as defined below.
+     * @return An `identity` block as defined below.
      * 
      */
     private List<GetServiceIdentity> identities;
@@ -164,7 +164,7 @@ public final class GetServiceResult {
         return this.id;
     }
     /**
-     * @return (Optional) An `identity` block as defined below.
+     * @return An `identity` block as defined below.
      * 
      */
     public List<GetServiceIdentity> identities() {

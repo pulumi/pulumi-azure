@@ -26,7 +26,7 @@ import javax.annotation.Nullable;
 /**
  * Manages a NetApp Volume.
  * 
- * !&gt;**IMPORTANT:** This resource uses a feature to prevent deletion called `prevent_volume_destruction`, defaulting to `true`. It is intentionally set to `true` to prevent the possibility of accidental data loss. The example in this page shows all possible protection options you can apply, it is using same values as the defaults.
+ * !&gt; **Note:** This resource uses a feature to prevent deletion called `prevent_volume_destruction`, defaulting to `true`. It is intentionally set to `true` to prevent the possibility of accidental data loss. The example in this page shows all possible protection options you can apply, it is using same values as the defaults.
  * 
  * ## Import
  * 
@@ -238,14 +238,14 @@ public class Volume extends com.pulumi.resources.CustomResource {
         return this.networkFeatures;
     }
     /**
-     * The name of the NetApp pool in which the NetApp Volume should be created. Changing this forces a new resource to be created.
+     * The name of the NetApp pool in which the NetApp Volume should be created.
      * 
      */
     @Export(name="poolName", refs={String.class}, tree="[0]")
     private Output<String> poolName;
 
     /**
-     * @return The name of the NetApp pool in which the NetApp Volume should be created. Changing this forces a new resource to be created.
+     * @return The name of the NetApp pool in which the NetApp Volume should be created.
      * 
      */
     public Output<String> poolName() {
@@ -293,17 +293,9 @@ public class Volume extends com.pulumi.resources.CustomResource {
     public Output<String> securityStyle() {
         return this.securityStyle;
     }
-    /**
-     * The target performance of the file system. Valid values include `Premium`, `Standard`, or `Ultra`. Changing this forces a new resource to be created.
-     * 
-     */
     @Export(name="serviceLevel", refs={String.class}, tree="[0]")
     private Output<String> serviceLevel;
 
-    /**
-     * @return The target performance of the file system. Valid values include `Premium`, `Standard`, or `Ultra`. Changing this forces a new resource to be created.
-     * 
-     */
     public Output<String> serviceLevel() {
         return this.serviceLevel;
     }

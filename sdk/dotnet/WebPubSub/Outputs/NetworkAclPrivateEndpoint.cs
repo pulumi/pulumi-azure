@@ -20,7 +20,7 @@ namespace Pulumi.Azure.WebPubSub.Outputs
         /// <summary>
         /// The denied request types for the Private Endpoint Connection. Possible values are `ClientConnection`, `ServerConnection`, `RESTAPI` and `Trace`.
         /// 
-        /// &gt; **NOTE:** When `default_action` is `Allow`, `allowed_request_types`cannot be set. When `default_action` is `Deny`, `denied_request_types`cannot be set.
+        /// &gt; **Note:** When `default_action` is `Allow`, `allowed_request_types`cannot be set. When `default_action` is `Deny`, `denied_request_types`cannot be set.
         /// </summary>
         public readonly ImmutableArray<string> DeniedRequestTypes;
         /// <summary>

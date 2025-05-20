@@ -244,7 +244,7 @@ def get_service(name: Optional[builtins.str] = None,
     """
     Gets information about an Active Directory Domain Service.
 
-    > **Supported Modes:** At present this data source only supports **User Forest** mode and _not_ **Resource Forest** mode. [Read more](https://docs.microsoft.com/azure/active-directory-domain-services/concepts-resource-forest) about the different operation modes for this service.
+    > **Note:** At present this data source only supports **User Forest** mode and _not_ **Resource Forest** mode. [Read more](https://docs.microsoft.com/azure/active-directory-domain-services/concepts-resource-forest) about the different operation modes for this service.
 
     ## Example Usage
 
@@ -255,6 +255,13 @@ def get_service(name: Optional[builtins.str] = None,
     example = azure.domainservices.get_service(name="example-aadds",
         resource_group_name="example-aadds-rg")
     ```
+
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.AAD`: 2021-05-01
 
 
     :param builtins.str name: The display name for your managed Active Directory Domain Service resource. Changing this forces a new resource to be created.
@@ -294,7 +301,7 @@ def get_service_output(name: Optional[pulumi.Input[builtins.str]] = None,
     """
     Gets information about an Active Directory Domain Service.
 
-    > **Supported Modes:** At present this data source only supports **User Forest** mode and _not_ **Resource Forest** mode. [Read more](https://docs.microsoft.com/azure/active-directory-domain-services/concepts-resource-forest) about the different operation modes for this service.
+    > **Note:** At present this data source only supports **User Forest** mode and _not_ **Resource Forest** mode. [Read more](https://docs.microsoft.com/azure/active-directory-domain-services/concepts-resource-forest) about the different operation modes for this service.
 
     ## Example Usage
 
@@ -305,6 +312,13 @@ def get_service_output(name: Optional[pulumi.Input[builtins.str]] = None,
     example = azure.domainservices.get_service(name="example-aadds",
         resource_group_name="example-aadds-rg")
     ```
+
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.AAD`: 2021-05-01
 
 
     :param builtins.str name: The display name for your managed Active Directory Domain Service resource. Changing this forces a new resource to be created.

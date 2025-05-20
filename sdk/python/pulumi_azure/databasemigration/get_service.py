@@ -133,6 +133,13 @@ def get_service(name: Optional[builtins.str] = None,
     pulumi.export("azurermDmsId", example.id)
     ```
 
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.DataMigration`: 2021-06-30
+
 
     :param builtins.str name: Specify the name of the database migration service.
     :param builtins.str resource_group_name: Specifies the Name of the Resource Group within which the database migration service exists
@@ -167,6 +174,13 @@ def get_service_output(name: Optional[pulumi.Input[builtins.str]] = None,
         resource_group_name="example-rg")
     pulumi.export("azurermDmsId", example.id)
     ```
+
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.DataMigration`: 2021-06-30
 
 
     :param builtins.str name: Specify the name of the database migration service.

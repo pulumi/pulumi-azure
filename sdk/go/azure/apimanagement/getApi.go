@@ -42,6 +42,13 @@ import (
 //	}
 //
 // ```
+//
+// ## API Providers
+//
+// <!-- This section is generated, changes will be overwritten -->
+// This data source uses the following Azure API Providers:
+//
+// * `Microsoft.ApiManagement`: 2022-08-01
 func LookupApi(ctx *pulumi.Context, args *LookupApiArgs, opts ...pulumi.InvokeOption) (*LookupApiResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupApiResult

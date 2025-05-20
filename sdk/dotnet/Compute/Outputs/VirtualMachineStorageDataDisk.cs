@@ -20,7 +20,7 @@ namespace Pulumi.Azure.Compute.Outputs
         /// <summary>
         /// Specifies how the data disk should be created. Possible values are `Attach`, `FromImage` and `Empty`.
         /// 
-        /// &gt; **NOTE:** If using an image that does not have data to be written to the Data Disk, use `Empty` as the create option in order to create the desired disk without any data.
+        /// &gt; **Note:** If using an image that does not have data to be written to the Data Disk, use `Empty` as the create option in order to create the desired disk without any data.
         /// </summary>
         public readonly string CreateOption;
         /// <summary>

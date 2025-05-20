@@ -258,6 +258,13 @@ class StorageDefender(pulumi.CustomResource):
         example_storage_defender = azure.securitycenter.StorageDefender("example", storage_account_id=example_account.id)
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Security`: 2022-12-01-preview
+
         ## Import
 
         The setting can be imported using the `resource id`, e.g.
@@ -301,6 +308,13 @@ class StorageDefender(pulumi.CustomResource):
             account_replication_type="LRS")
         example_storage_defender = azure.securitycenter.StorageDefender("example", storage_account_id=example_account.id)
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Security`: 2022-12-01-preview
 
         ## Import
 

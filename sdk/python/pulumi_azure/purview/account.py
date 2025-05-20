@@ -36,7 +36,7 @@ class AccountArgs:
         :param pulumi.Input[builtins.str] location: The Azure Region where the Purview Account should exist. Changing this forces a new Purview Account to be created.
         :param pulumi.Input[builtins.str] managed_resource_group_name: The name which should be used for the new Resource Group where Purview Account creates the managed resources. Changing this forces a new Purview Account to be created.
                
-               > **Note:** `managed_resource_group_name` must be a new Resource Group
+               > **Note:** `managed_resource_group_name` must be a new Resource Group.
         :param pulumi.Input[builtins.str] name: The name which should be used for this Purview Account. Changing this forces a new Purview Account to be created.
         :param pulumi.Input[builtins.bool] public_network_enabled: Should the Purview Account be visible to the public network? Defaults to `true`.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A mapping of tags which should be assigned to the Purview Account.
@@ -96,7 +96,7 @@ class AccountArgs:
         """
         The name which should be used for the new Resource Group where Purview Account creates the managed resources. Changing this forces a new Purview Account to be created.
 
-        > **Note:** `managed_resource_group_name` must be a new Resource Group
+        > **Note:** `managed_resource_group_name` must be a new Resource Group.
         """
         return pulumi.get(self, "managed_resource_group_name")
 
@@ -167,7 +167,7 @@ class _AccountState:
         :param pulumi.Input[builtins.str] location: The Azure Region where the Purview Account should exist. Changing this forces a new Purview Account to be created.
         :param pulumi.Input[builtins.str] managed_resource_group_name: The name which should be used for the new Resource Group where Purview Account creates the managed resources. Changing this forces a new Purview Account to be created.
                
-               > **Note:** `managed_resource_group_name` must be a new Resource Group
+               > **Note:** `managed_resource_group_name` must be a new Resource Group.
         :param pulumi.Input[Sequence[pulumi.Input['AccountManagedResourceArgs']]] managed_resources: A `managed_resources` block as defined below.
         :param pulumi.Input[builtins.str] name: The name which should be used for this Purview Account. Changing this forces a new Purview Account to be created.
         :param pulumi.Input[builtins.bool] public_network_enabled: Should the Purview Account be visible to the public network? Defaults to `true`.
@@ -280,7 +280,7 @@ class _AccountState:
         """
         The name which should be used for the new Resource Group where Purview Account creates the managed resources. Changing this forces a new Purview Account to be created.
 
-        > **Note:** `managed_resource_group_name` must be a new Resource Group
+        > **Note:** `managed_resource_group_name` must be a new Resource Group.
         """
         return pulumi.get(self, "managed_resource_group_name")
 
@@ -396,6 +396,13 @@ class Account(pulumi.CustomResource):
             })
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Purview`: 2021-07-01
+
         ## Import
 
         Purview Accounts can be imported using the `resource id`, e.g.
@@ -410,7 +417,7 @@ class Account(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] location: The Azure Region where the Purview Account should exist. Changing this forces a new Purview Account to be created.
         :param pulumi.Input[builtins.str] managed_resource_group_name: The name which should be used for the new Resource Group where Purview Account creates the managed resources. Changing this forces a new Purview Account to be created.
                
-               > **Note:** `managed_resource_group_name` must be a new Resource Group
+               > **Note:** `managed_resource_group_name` must be a new Resource Group.
         :param pulumi.Input[builtins.str] name: The name which should be used for this Purview Account. Changing this forces a new Purview Account to be created.
         :param pulumi.Input[builtins.bool] public_network_enabled: Should the Purview Account be visible to the public network? Defaults to `true`.
         :param pulumi.Input[builtins.str] resource_group_name: The name of the Resource Group where the Purview Account should exist. Changing this forces a new Purview Account to be created.
@@ -442,6 +449,13 @@ class Account(pulumi.CustomResource):
                 "type": "SystemAssigned",
             })
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Purview`: 2021-07-01
 
         ## Import
 
@@ -539,7 +553,7 @@ class Account(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] location: The Azure Region where the Purview Account should exist. Changing this forces a new Purview Account to be created.
         :param pulumi.Input[builtins.str] managed_resource_group_name: The name which should be used for the new Resource Group where Purview Account creates the managed resources. Changing this forces a new Purview Account to be created.
                
-               > **Note:** `managed_resource_group_name` must be a new Resource Group
+               > **Note:** `managed_resource_group_name` must be a new Resource Group.
         :param pulumi.Input[Sequence[pulumi.Input[Union['AccountManagedResourceArgs', 'AccountManagedResourceArgsDict']]]] managed_resources: A `managed_resources` block as defined below.
         :param pulumi.Input[builtins.str] name: The name which should be used for this Purview Account. Changing this forces a new Purview Account to be created.
         :param pulumi.Input[builtins.bool] public_network_enabled: Should the Purview Account be visible to the public network? Defaults to `true`.
@@ -620,7 +634,7 @@ class Account(pulumi.CustomResource):
         """
         The name which should be used for the new Resource Group where Purview Account creates the managed resources. Changing this forces a new Purview Account to be created.
 
-        > **Note:** `managed_resource_group_name` must be a new Resource Group
+        > **Note:** `managed_resource_group_name` must be a new Resource Group.
         """
         return pulumi.get(self, "managed_resource_group_name")
 

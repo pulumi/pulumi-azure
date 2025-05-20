@@ -94,6 +94,13 @@ import javax.annotation.Nullable;
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
+ * ## API Providers
+ * 
+ * &lt;!-- This section is generated, changes will be overwritten --&gt;
+ * This resource uses the following Azure API Providers:
+ * 
+ * * `Microsoft.Sql`: 2023-08-01-preview
+ * 
  * ## Import
  * 
  * SQL Virtual Network Rules can be imported using the `resource id`, e.g.
@@ -108,7 +115,7 @@ public class VirtualNetworkRule extends com.pulumi.resources.CustomResource {
     /**
      * Create the virtual network rule before the subnet has the virtual network service endpoint enabled. Defaults to `false`.
      * 
-     * &gt; **NOTE:** If `ignore_missing_vnet_service_endpoint` is false, and the target subnet does not contain the `Microsoft.SQL` endpoint in the `service_endpoints` array, the deployment will fail when it tries to create the SQL virtual network rule.
+     * &gt; **Note:** If `ignore_missing_vnet_service_endpoint` is false, and the target subnet does not contain the `Microsoft.SQL` endpoint in the `service_endpoints` array, the deployment will fail when it tries to create the SQL virtual network rule.
      * 
      */
     @Export(name="ignoreMissingVnetServiceEndpoint", refs={Boolean.class}, tree="[0]")
@@ -117,7 +124,7 @@ public class VirtualNetworkRule extends com.pulumi.resources.CustomResource {
     /**
      * @return Create the virtual network rule before the subnet has the virtual network service endpoint enabled. Defaults to `false`.
      * 
-     * &gt; **NOTE:** If `ignore_missing_vnet_service_endpoint` is false, and the target subnet does not contain the `Microsoft.SQL` endpoint in the `service_endpoints` array, the deployment will fail when it tries to create the SQL virtual network rule.
+     * &gt; **Note:** If `ignore_missing_vnet_service_endpoint` is false, and the target subnet does not contain the `Microsoft.SQL` endpoint in the `service_endpoints` array, the deployment will fail when it tries to create the SQL virtual network rule.
      * 
      */
     public Output<Optional<Boolean>> ignoreMissingVnetServiceEndpoint() {

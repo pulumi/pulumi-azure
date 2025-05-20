@@ -16,7 +16,7 @@ namespace Pulumi.Azure.EventHub.Outputs
         /// <summary>
         /// Specifies the Client ID of the application that created the client-scoped subscription. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **NOTE:** Client ID can be null or empty, but it must match the client ID set on the JMS client application. From the Azure Service Bus perspective, a null client ID and an empty client id have the same behavior. If the client ID is set to null or empty, it is only accessible to client applications whose client ID is also set to null or empty.
+        /// &gt; **Note:** Client ID can be null or empty, but it must match the client ID set on the JMS client application. From the Azure Service Bus perspective, a null client ID and an empty client id have the same behavior. If the client ID is set to null or empty, it is only accessible to client applications whose client ID is also set to null or empty.
         /// </summary>
         public readonly string? ClientId;
         /// <summary>

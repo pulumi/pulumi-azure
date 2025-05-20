@@ -147,7 +147,7 @@ namespace Pulumi.Azure
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public Provider(string name, ProviderArgs? args = null, CustomResourceOptions? options = null)
+        public Provider(string name, ProviderArgs args, CustomResourceOptions? options = null)
             : base("azure", name, args ?? new ProviderArgs(), MakeResourceOptions(options, ""))
         {
         }
@@ -337,8 +337,8 @@ namespace Pulumi.Azure
         [Input("environment")]
         public Input<string>? Environment { get; set; }
 
-        [Input("features", json: true)]
-        public Input<Inputs.ProviderFeaturesArgs>? Features { get; set; }
+        [Input("features", required: true, json: true)]
+        public Input<Inputs.ProviderFeaturesArgs> Features { get; set; } = null!;
 
         /// <summary>
         /// The Hostname which should be used for the Azure Metadata Service.

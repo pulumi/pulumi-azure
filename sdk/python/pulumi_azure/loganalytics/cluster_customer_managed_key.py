@@ -172,6 +172,13 @@ class ClusterCustomerManagedKey(pulumi.CustomResource):
             key_vault_key_id=example_key.id)
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.OperationalInsights`: 2022-10-01
+
         ## Import
 
         Log Analytics Cluster Customer Managed Keys can be imported using the `resource id`, e.g.
@@ -258,6 +265,13 @@ class ClusterCustomerManagedKey(pulumi.CustomResource):
             log_analytics_cluster_id=example_cluster.id,
             key_vault_key_id=example_key.id)
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.OperationalInsights`: 2022-10-01
 
         ## Import
 

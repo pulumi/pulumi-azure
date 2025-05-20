@@ -10,21 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Compute
 {
     /// <summary>
-    /// Manages a Windows Virtual Machine Scale Set.
-    /// 
-    /// ## Disclaimers
-    /// 
-    /// &gt; **Note:** This resource will only create Virtual Machine Scale Sets with the **Uniform** Orchestration Mode. For Virtual Machine Scale Sets with **Flexible** orchestration mode, use `azure.compute.OrchestratedVirtualMachineScaleSet`. Flexible orchestration mode is recommended for workloads on Azure.
-    /// 
-    /// &gt; **Note:** All arguments including the administrator login and password will be stored in the raw state as plain-text. [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
-    /// 
-    /// &gt; **Note:** This provider will automatically update &amp; reimage the nodes in the Scale Set (if Required) during an Update - this behaviour can be configured using the `features` setting within the Provider block.
-    /// 
-    /// &gt; **Note:** This resource does not support Unmanaged Disks. If you need to use Unmanaged Disks you can continue to use the `azure.compute.ScaleSet` resource instead
-    /// 
     /// ## Example Usage
     /// 
-    /// This example provisions a basic Windows Virtual Machine Scale Set on an internal network.
+    /// This example provisions a basic Windows Virtual Machine Scale Set on an internal network. Additional examples of how to use the `azure.compute.WindowsVirtualMachineScaleSet` resource can be found in the ./examples/vm-scale-set/windows` directory within the Github Repository.
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
@@ -267,11 +255,6 @@ namespace Pulumi.Azure.Compute
         [Output("identity")]
         public Output<Outputs.WindowsVirtualMachineScaleSetIdentity?> Identity { get; private set; } = null!;
 
-        /// <summary>
-        /// The number of Virtual Machines in the Scale Set.
-        /// 
-        /// &gt; **NOTE:** If you're using AutoScaling, you may wish to use [`Ignore Changes` functionality](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) to ignore changes to this field.
-        /// </summary>
         [Output("instances")]
         public Output<int> Instances { get; private set; } = null!;
 
@@ -723,11 +706,6 @@ namespace Pulumi.Azure.Compute
         [Input("identity")]
         public Input<Inputs.WindowsVirtualMachineScaleSetIdentityArgs>? Identity { get; set; }
 
-        /// <summary>
-        /// The number of Virtual Machines in the Scale Set.
-        /// 
-        /// &gt; **NOTE:** If you're using AutoScaling, you may wish to use [`Ignore Changes` functionality](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) to ignore changes to this field.
-        /// </summary>
         [Input("instances", required: true)]
         public Input<int> Instances { get; set; } = null!;
 
@@ -1160,11 +1138,6 @@ namespace Pulumi.Azure.Compute
         [Input("identity")]
         public Input<Inputs.WindowsVirtualMachineScaleSetIdentityGetArgs>? Identity { get; set; }
 
-        /// <summary>
-        /// The number of Virtual Machines in the Scale Set.
-        /// 
-        /// &gt; **NOTE:** If you're using AutoScaling, you may wish to use [`Ignore Changes` functionality](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) to ignore changes to this field.
-        /// </summary>
         [Input("instances")]
         public Input<int>? Instances { get; set; }
 

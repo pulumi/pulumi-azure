@@ -55,7 +55,7 @@ class HostPoolArgs:
         :param pulumi.Input[builtins.str] name: The name of the Virtual Desktop Host Pool. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] personal_desktop_assignment_type: `Automatic` assignment – The service will select an available host and assign it to an user. Possible values are `Automatic` and `Direct`. `Direct` Assignment – Admin selects a specific host to assign to an user. Changing this forces a new resource to be created.
                
-               > **NOTE:** `personal_desktop_assignment_type` is required if the `type` of your Virtual Desktop Host Pool is `Personal`
+               > **Note:** `personal_desktop_assignment_type` is required if the `type` of your Virtual Desktop Host Pool is `Personal`
         :param pulumi.Input[builtins.str] preferred_app_group_type: Option to specify the preferred Application Group type for the Virtual Desktop Host Pool. Valid options are `None`, `Desktop` or `RailApplications`. Default is `Desktop`.
         :param pulumi.Input[builtins.str] public_network_access: Whether public network access is allowed for the Virtual Desktop Host Pool. Possible values are `Enabled`, `Disabled`, `EnabledForClientsOnly` and `EnabledForSessionHostsOnly`. Defaults to `Enabled`.
         :param pulumi.Input['HostPoolScheduledAgentUpdatesArgs'] scheduled_agent_updates: A `scheduled_agent_updates` block as defined below. This enables control of when Agent Updates will be applied to Session Hosts.
@@ -213,7 +213,7 @@ class HostPoolArgs:
         """
         `Automatic` assignment – The service will select an available host and assign it to an user. Possible values are `Automatic` and `Direct`. `Direct` Assignment – Admin selects a specific host to assign to an user. Changing this forces a new resource to be created.
 
-        > **NOTE:** `personal_desktop_assignment_type` is required if the `type` of your Virtual Desktop Host Pool is `Personal`
+        > **Note:** `personal_desktop_assignment_type` is required if the `type` of your Virtual Desktop Host Pool is `Personal`
         """
         return pulumi.get(self, "personal_desktop_assignment_type")
 
@@ -340,7 +340,7 @@ class _HostPoolState:
         :param pulumi.Input[builtins.str] name: The name of the Virtual Desktop Host Pool. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] personal_desktop_assignment_type: `Automatic` assignment – The service will select an available host and assign it to an user. Possible values are `Automatic` and `Direct`. `Direct` Assignment – Admin selects a specific host to assign to an user. Changing this forces a new resource to be created.
                
-               > **NOTE:** `personal_desktop_assignment_type` is required if the `type` of your Virtual Desktop Host Pool is `Personal`
+               > **Note:** `personal_desktop_assignment_type` is required if the `type` of your Virtual Desktop Host Pool is `Personal`
         :param pulumi.Input[builtins.str] preferred_app_group_type: Option to specify the preferred Application Group type for the Virtual Desktop Host Pool. Valid options are `None`, `Desktop` or `RailApplications`. Default is `Desktop`.
         :param pulumi.Input[builtins.str] public_network_access: Whether public network access is allowed for the Virtual Desktop Host Pool. Possible values are `Enabled`, `Disabled`, `EnabledForClientsOnly` and `EnabledForSessionHostsOnly`. Defaults to `Enabled`.
         :param pulumi.Input[builtins.str] resource_group_name: The name of the resource group in which to create the Virtual Desktop Host Pool. Changing this forces a new resource to be created.
@@ -479,7 +479,7 @@ class _HostPoolState:
         """
         `Automatic` assignment – The service will select an available host and assign it to an user. Possible values are `Automatic` and `Direct`. `Direct` Assignment – Admin selects a specific host to assign to an user. Changing this forces a new resource to be created.
 
-        > **NOTE:** `personal_desktop_assignment_type` is required if the `type` of your Virtual Desktop Host Pool is `Personal`
+        > **Note:** `personal_desktop_assignment_type` is required if the `type` of your Virtual Desktop Host Pool is `Personal`
         """
         return pulumi.get(self, "personal_desktop_assignment_type")
 
@@ -653,6 +653,13 @@ class HostPool(pulumi.CustomResource):
             })
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.DesktopVirtualization`: 2024-04-03
+
         ## Import
 
         Virtual Desktop Host Pools can be imported using the `resource id`, e.g.
@@ -677,7 +684,7 @@ class HostPool(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] name: The name of the Virtual Desktop Host Pool. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] personal_desktop_assignment_type: `Automatic` assignment – The service will select an available host and assign it to an user. Possible values are `Automatic` and `Direct`. `Direct` Assignment – Admin selects a specific host to assign to an user. Changing this forces a new resource to be created.
                
-               > **NOTE:** `personal_desktop_assignment_type` is required if the `type` of your Virtual Desktop Host Pool is `Personal`
+               > **Note:** `personal_desktop_assignment_type` is required if the `type` of your Virtual Desktop Host Pool is `Personal`
         :param pulumi.Input[builtins.str] preferred_app_group_type: Option to specify the preferred Application Group type for the Virtual Desktop Host Pool. Valid options are `None`, `Desktop` or `RailApplications`. Default is `Desktop`.
         :param pulumi.Input[builtins.str] public_network_access: Whether public network access is allowed for the Virtual Desktop Host Pool. Possible values are `Enabled`, `Disabled`, `EnabledForClientsOnly` and `EnabledForSessionHostsOnly`. Defaults to `Enabled`.
         :param pulumi.Input[builtins.str] resource_group_name: The name of the resource group in which to create the Virtual Desktop Host Pool. Changing this forces a new resource to be created.
@@ -726,6 +733,13 @@ class HostPool(pulumi.CustomResource):
                 }],
             })
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.DesktopVirtualization`: 2024-04-03
 
         ## Import
 
@@ -847,7 +861,7 @@ class HostPool(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] name: The name of the Virtual Desktop Host Pool. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] personal_desktop_assignment_type: `Automatic` assignment – The service will select an available host and assign it to an user. Possible values are `Automatic` and `Direct`. `Direct` Assignment – Admin selects a specific host to assign to an user. Changing this forces a new resource to be created.
                
-               > **NOTE:** `personal_desktop_assignment_type` is required if the `type` of your Virtual Desktop Host Pool is `Personal`
+               > **Note:** `personal_desktop_assignment_type` is required if the `type` of your Virtual Desktop Host Pool is `Personal`
         :param pulumi.Input[builtins.str] preferred_app_group_type: Option to specify the preferred Application Group type for the Virtual Desktop Host Pool. Valid options are `None`, `Desktop` or `RailApplications`. Default is `Desktop`.
         :param pulumi.Input[builtins.str] public_network_access: Whether public network access is allowed for the Virtual Desktop Host Pool. Possible values are `Enabled`, `Disabled`, `EnabledForClientsOnly` and `EnabledForSessionHostsOnly`. Defaults to `Enabled`.
         :param pulumi.Input[builtins.str] resource_group_name: The name of the resource group in which to create the Virtual Desktop Host Pool. Changing this forces a new resource to be created.
@@ -946,7 +960,7 @@ class HostPool(pulumi.CustomResource):
         """
         `Automatic` assignment – The service will select an available host and assign it to an user. Possible values are `Automatic` and `Direct`. `Direct` Assignment – Admin selects a specific host to assign to an user. Changing this forces a new resource to be created.
 
-        > **NOTE:** `personal_desktop_assignment_type` is required if the `type` of your Virtual Desktop Host Pool is `Personal`
+        > **Note:** `personal_desktop_assignment_type` is required if the `type` of your Virtual Desktop Host Pool is `Personal`
         """
         return pulumi.get(self, "personal_desktop_assignment_type")
 

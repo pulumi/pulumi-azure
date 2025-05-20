@@ -1135,7 +1135,7 @@ class ApplicationGatewayHttpListener(dict):
         :param builtins.str host_name: The Hostname which should be used for this HTTP Listener. Setting this value changes Listener Type to 'Multi site'.
         :param Sequence[builtins.str] host_names: A list of Hostname(s) should be used for this HTTP Listener. It allows special wildcard characters.
                
-               > **NOTE** The `host_names` and `host_name` are mutually exclusive and cannot both be set.
+               > **Note:** The `host_names` and `host_name` are mutually exclusive and cannot both be set.
         :param builtins.str id: The ID of the Rewrite Rule Set
         :param builtins.bool require_sni: Should Server Name Indication be Required? Defaults to `false`.
         :param builtins.str ssl_certificate_id: The ID of the associated SSL Certificate.
@@ -1250,7 +1250,7 @@ class ApplicationGatewayHttpListener(dict):
         """
         A list of Hostname(s) should be used for this HTTP Listener. It allows special wildcard characters.
 
-        > **NOTE** The `host_names` and `host_name` are mutually exclusive and cannot both be set.
+        > **Note:** The `host_names` and `host_name` are mutually exclusive and cannot both be set.
         """
         return pulumi.get(self, "host_names")
 
@@ -1487,7 +1487,7 @@ class ApplicationGatewayPrivateLinkConfiguration(dict):
         """
         :param Sequence['ApplicationGatewayPrivateLinkConfigurationIpConfigurationArgs'] ip_configurations: One or more `ip_configuration` blocks as defined below.
                
-               > **Please Note:** The `AllowApplicationGatewayPrivateLink` feature must be registered on the subscription before enabling private link
+               > **Note:** The `AllowApplicationGatewayPrivateLink` feature must be registered on the subscription before enabling private link
                
                ```bash
                az feature register --name AllowApplicationGatewayPrivateLink --namespace Microsoft.Network
@@ -1506,7 +1506,7 @@ class ApplicationGatewayPrivateLinkConfiguration(dict):
         """
         One or more `ip_configuration` blocks as defined below.
 
-        > **Please Note:** The `AllowApplicationGatewayPrivateLink` feature must be registered on the subscription before enabling private link
+        > **Note:** The `AllowApplicationGatewayPrivateLink` feature must be registered on the subscription before enabling private link
 
         ```bash
         az feature register --name AllowApplicationGatewayPrivateLink --namespace Microsoft.Network
@@ -2024,13 +2024,13 @@ class ApplicationGatewayRequestRoutingRule(dict):
         :param builtins.str id: The ID of the Rewrite Rule Set
         :param builtins.int priority: Rule evaluation order can be dictated by specifying an integer value from `1` to `20000` with `1` being the highest priority and `20000` being the lowest priority.
                
-               > **NOTE:** `priority` is required when `sku[0].tier` is set to `*_v2`.
+               > **Note:** `priority` is required when `sku[0].tier` is set to `*_v2`.
         :param builtins.str redirect_configuration_id: The ID of the associated Redirect Configuration.
         :param builtins.str redirect_configuration_name: The Name of the Redirect Configuration which should be used for this Routing Rule. Cannot be set if either `backend_address_pool_name` or `backend_http_settings_name` is set.
         :param builtins.str rewrite_rule_set_id: The ID of the associated Rewrite Rule Set.
         :param builtins.str rewrite_rule_set_name: The Name of the Rewrite Rule Set which should be used for this Routing Rule. Only valid for v2 SKUs.
                
-               > **NOTE:** `backend_address_pool_name`, `backend_http_settings_name`, `redirect_configuration_name`, and `rewrite_rule_set_name` are applicable only when `rule_type` is `Basic`.
+               > **Note:** `backend_address_pool_name`, `backend_http_settings_name`, `redirect_configuration_name`, and `rewrite_rule_set_name` are applicable only when `rule_type` is `Basic`.
         :param builtins.str url_path_map_id: The ID of the associated URL Path Map.
         :param builtins.str url_path_map_name: The Name of the URL Path Map which should be associated with this Routing Rule.
         """
@@ -2142,7 +2142,7 @@ class ApplicationGatewayRequestRoutingRule(dict):
         """
         Rule evaluation order can be dictated by specifying an integer value from `1` to `20000` with `1` being the highest priority and `20000` being the lowest priority.
 
-        > **NOTE:** `priority` is required when `sku[0].tier` is set to `*_v2`.
+        > **Note:** `priority` is required when `sku[0].tier` is set to `*_v2`.
         """
         return pulumi.get(self, "priority")
 
@@ -2176,7 +2176,7 @@ class ApplicationGatewayRequestRoutingRule(dict):
         """
         The Name of the Rewrite Rule Set which should be used for this Routing Rule. Only valid for v2 SKUs.
 
-        > **NOTE:** `backend_address_pool_name`, `backend_http_settings_name`, `redirect_configuration_name`, and `rewrite_rule_set_name` are applicable only when `rule_type` is `Basic`.
+        > **Note:** `backend_address_pool_name`, `backend_http_settings_name`, `redirect_configuration_name`, and `rewrite_rule_set_name` are applicable only when `rule_type` is `Basic`.
         """
         return pulumi.get(self, "rewrite_rule_set_name")
 
@@ -2669,15 +2669,15 @@ class ApplicationGatewaySslCertificate(dict):
         :param builtins.str name: The Name of the SSL certificate that is unique within this Application Gateway
         :param builtins.str data: The base64-encoded PFX certificate data. Required if `key_vault_secret_id` is not set.
                
-               > **NOTE:** When specifying a file, use `data = filebase64("path/to/file")` to encode the contents of that file.
+               > **Note:** When specifying a file, use `data = filebase64("path/to/file")` to encode the contents of that file.
         :param builtins.str id: The ID of the Rewrite Rule Set
         :param builtins.str key_vault_secret_id: The Secret ID of the (base-64 encoded unencrypted pfx) `Secret` or `Certificate` object stored in Azure KeyVault. You need to enable soft delete for Key Vault to use this feature. Required if `data` is not set.
                
-               > **NOTE:** To implement certificate rotation, `versionless_secret_id` should be used, although `secret_id` is also supported.
+               > **Note:** To implement certificate rotation, `versionless_secret_id` should be used, although `secret_id` is also supported.
                
-               > **NOTE:** TLS termination with Key Vault certificates is limited to the [v2 SKUs](https://docs.microsoft.com/azure/application-gateway/key-vault-certs).
+               > **Note:** TLS termination with Key Vault certificates is limited to the [v2 SKUs](https://docs.microsoft.com/azure/application-gateway/key-vault-certs).
                
-               > **NOTE:** For TLS termination with Key Vault certificates to work properly, an existing user-assigned managed identity, which Application Gateway uses to retrieve certificates from Key Vault, should be defined via `identity` block. Additionally, access policies in the Key Vault to allow the identity to be granted *get* access to the secret should be defined.
+               > **Note:** For TLS termination with Key Vault certificates to work properly, an existing user-assigned managed identity, which Application Gateway uses to retrieve certificates from Key Vault, should be defined via `identity` block. Additionally, access policies in the Key Vault to allow the identity to be granted *get* access to the secret should be defined.
         :param builtins.str password: Password for the pfx file specified in data. Required if `data` is set.
         :param builtins.str public_cert_data: The Public Certificate Data associated with the SSL Certificate.
         """
@@ -2707,7 +2707,7 @@ class ApplicationGatewaySslCertificate(dict):
         """
         The base64-encoded PFX certificate data. Required if `key_vault_secret_id` is not set.
 
-        > **NOTE:** When specifying a file, use `data = filebase64("path/to/file")` to encode the contents of that file.
+        > **Note:** When specifying a file, use `data = filebase64("path/to/file")` to encode the contents of that file.
         """
         return pulumi.get(self, "data")
 
@@ -2725,11 +2725,11 @@ class ApplicationGatewaySslCertificate(dict):
         """
         The Secret ID of the (base-64 encoded unencrypted pfx) `Secret` or `Certificate` object stored in Azure KeyVault. You need to enable soft delete for Key Vault to use this feature. Required if `data` is not set.
 
-        > **NOTE:** To implement certificate rotation, `versionless_secret_id` should be used, although `secret_id` is also supported.
+        > **Note:** To implement certificate rotation, `versionless_secret_id` should be used, although `secret_id` is also supported.
 
-        > **NOTE:** TLS termination with Key Vault certificates is limited to the [v2 SKUs](https://docs.microsoft.com/azure/application-gateway/key-vault-certs).
+        > **Note:** TLS termination with Key Vault certificates is limited to the [v2 SKUs](https://docs.microsoft.com/azure/application-gateway/key-vault-certs).
 
-        > **NOTE:** For TLS termination with Key Vault certificates to work properly, an existing user-assigned managed identity, which Application Gateway uses to retrieve certificates from Key Vault, should be defined via `identity` block. Additionally, access policies in the Key Vault to allow the identity to be granted *get* access to the secret should be defined.
+        > **Note:** For TLS termination with Key Vault certificates to work properly, an existing user-assigned managed identity, which Application Gateway uses to retrieve certificates from Key Vault, should be defined via `identity` block. Additionally, access policies in the Key Vault to allow the identity to be granted *get* access to the secret should be defined.
         """
         return pulumi.get(self, "key_vault_secret_id")
 
@@ -2786,10 +2786,10 @@ class ApplicationGatewaySslPolicy(dict):
         """
         :param Sequence[builtins.str] disabled_protocols: A list of SSL Protocols which should be disabled on this Application Gateway. Possible values are `TLSv1_0`, `TLSv1_1`, `TLSv1_2` and `TLSv1_3`.
                
-               > **NOTE:** `disabled_protocols` cannot be set when `policy_name` or `policy_type` are set.
+               > **Note:** `disabled_protocols` cannot be set when `policy_name` or `policy_type` are set.
         :param builtins.str policy_type: The Type of the Policy. Possible values are `Predefined`, `Custom` and `CustomV2`.
                
-               > **NOTE:** `policy_type` is Required when `policy_name` is set - cannot be set if `disabled_protocols` is set.
+               > **Note:** `policy_type` is Required when `policy_name` is set - cannot be set if `disabled_protocols` is set.
         """
         if cipher_suites is not None:
             pulumi.set(__self__, "cipher_suites", cipher_suites)
@@ -2813,7 +2813,7 @@ class ApplicationGatewaySslPolicy(dict):
         """
         A list of SSL Protocols which should be disabled on this Application Gateway. Possible values are `TLSv1_0`, `TLSv1_1`, `TLSv1_2` and `TLSv1_3`.
 
-        > **NOTE:** `disabled_protocols` cannot be set when `policy_name` or `policy_type` are set.
+        > **Note:** `disabled_protocols` cannot be set when `policy_name` or `policy_type` are set.
         """
         return pulumi.get(self, "disabled_protocols")
 
@@ -2833,7 +2833,7 @@ class ApplicationGatewaySslPolicy(dict):
         """
         The Type of the Policy. Possible values are `Predefined`, `Custom` and `CustomV2`.
 
-        > **NOTE:** `policy_type` is Required when `policy_name` is set - cannot be set if `disabled_protocols` is set.
+        > **Note:** `policy_type` is Required when `policy_name` is set - cannot be set if `disabled_protocols` is set.
         """
         return pulumi.get(self, "policy_type")
 
@@ -2975,10 +2975,10 @@ class ApplicationGatewaySslProfileSslPolicy(dict):
         """
         :param Sequence[builtins.str] disabled_protocols: A list of SSL Protocols which should be disabled on this Application Gateway. Possible values are `TLSv1_0`, `TLSv1_1`, `TLSv1_2` and `TLSv1_3`.
                
-               > **NOTE:** `disabled_protocols` cannot be set when `policy_name` or `policy_type` are set.
+               > **Note:** `disabled_protocols` cannot be set when `policy_name` or `policy_type` are set.
         :param builtins.str policy_type: The Type of the Policy. Possible values are `Predefined`, `Custom` and `CustomV2`.
                
-               > **NOTE:** `policy_type` is Required when `policy_name` is set - cannot be set if `disabled_protocols` is set.
+               > **Note:** `policy_type` is Required when `policy_name` is set - cannot be set if `disabled_protocols` is set.
         """
         if cipher_suites is not None:
             pulumi.set(__self__, "cipher_suites", cipher_suites)
@@ -3002,7 +3002,7 @@ class ApplicationGatewaySslProfileSslPolicy(dict):
         """
         A list of SSL Protocols which should be disabled on this Application Gateway. Possible values are `TLSv1_0`, `TLSv1_1`, `TLSv1_2` and `TLSv1_3`.
 
-        > **NOTE:** `disabled_protocols` cannot be set when `policy_name` or `policy_type` are set.
+        > **Note:** `disabled_protocols` cannot be set when `policy_name` or `policy_type` are set.
         """
         return pulumi.get(self, "disabled_protocols")
 
@@ -3022,7 +3022,7 @@ class ApplicationGatewaySslProfileSslPolicy(dict):
         """
         The Type of the Policy. Possible values are `Predefined`, `Custom` and `CustomV2`.
 
-        > **NOTE:** `policy_type` is Required when `policy_name` is set - cannot be set if `disabled_protocols` is set.
+        > **Note:** `policy_type` is Required when `policy_name` is set - cannot be set if `disabled_protocols` is set.
         """
         return pulumi.get(self, "policy_type")
 
@@ -3098,11 +3098,11 @@ class ApplicationGatewayTrustedRootCertificate(dict):
         :param builtins.str id: The ID of the Rewrite Rule Set
         :param builtins.str key_vault_secret_id: The Secret ID of the (base-64 encoded unencrypted pfx) `Secret` or `Certificate` object stored in Azure KeyVault. You need to enable soft delete for the Key Vault to use this feature. Required if `data` is not set.
                
-               > **NOTE:** To implement certificate rotation, `versionless_secret_id` should be used, although `secret_id` is also supported.
+               > **Note:** To implement certificate rotation, `versionless_secret_id` should be used, although `secret_id` is also supported.
                
-               > **NOTE:** TLS termination with Key Vault certificates is limited to the [v2 SKUs](https://docs.microsoft.com/azure/application-gateway/key-vault-certs).
+               > **Note:** TLS termination with Key Vault certificates is limited to the [v2 SKUs](https://docs.microsoft.com/azure/application-gateway/key-vault-certs).
                
-               > **NOTE:** For TLS termination with Key Vault certificates to work properly, an existing user-assigned managed identity, which Application Gateway uses to retrieve certificates from Key Vault, should be defined via `identity` block. Additionally, access policies in the Key Vault to allow the identity to be granted *get* access to the secret should be defined.
+               > **Note:** For TLS termination with Key Vault certificates to work properly, an existing user-assigned managed identity, which Application Gateway uses to retrieve certificates from Key Vault, should be defined via `identity` block. Additionally, access policies in the Key Vault to allow the identity to be granted *get* access to the secret should be defined.
         """
         pulumi.set(__self__, "name", name)
         if data is not None:
@@ -3142,11 +3142,11 @@ class ApplicationGatewayTrustedRootCertificate(dict):
         """
         The Secret ID of the (base-64 encoded unencrypted pfx) `Secret` or `Certificate` object stored in Azure KeyVault. You need to enable soft delete for the Key Vault to use this feature. Required if `data` is not set.
 
-        > **NOTE:** To implement certificate rotation, `versionless_secret_id` should be used, although `secret_id` is also supported.
+        > **Note:** To implement certificate rotation, `versionless_secret_id` should be used, although `secret_id` is also supported.
 
-        > **NOTE:** TLS termination with Key Vault certificates is limited to the [v2 SKUs](https://docs.microsoft.com/azure/application-gateway/key-vault-certs).
+        > **Note:** TLS termination with Key Vault certificates is limited to the [v2 SKUs](https://docs.microsoft.com/azure/application-gateway/key-vault-certs).
 
-        > **NOTE:** For TLS termination with Key Vault certificates to work properly, an existing user-assigned managed identity, which Application Gateway uses to retrieve certificates from Key Vault, should be defined via `identity` block. Additionally, access policies in the Key Vault to allow the identity to be granted *get* access to the secret should be defined.
+        > **Note:** For TLS termination with Key Vault certificates to work properly, an existing user-assigned managed identity, which Application Gateway uses to retrieve certificates from Key Vault, should be defined via `identity` block. Additionally, access policies in the Key Vault to allow the identity to be granted *get* access to the secret should be defined.
         """
         return pulumi.get(self, "key_vault_secret_id")
 
@@ -3208,7 +3208,7 @@ class ApplicationGatewayUrlPathMap(dict):
         :param builtins.str default_redirect_configuration_id: The ID of the Default Redirect Configuration.
         :param builtins.str default_redirect_configuration_name: The Name of the Default Redirect Configuration which should be used for this URL Path Map. Cannot be set if either `default_backend_address_pool_name` or `default_backend_http_settings_name` is set.
                
-               > **NOTE:** Both `default_backend_address_pool_name` and `default_backend_http_settings_name` or `default_redirect_configuration_name` should be specified.
+               > **Note:** Both `default_backend_address_pool_name` and `default_backend_http_settings_name` or `default_redirect_configuration_name` should be specified.
         :param builtins.str default_rewrite_rule_set_name: The Name of the Default Rewrite Rule Set which should be used for this URL Path Map. Only valid for v2 SKUs.
         :param builtins.str id: The ID of the Rewrite Rule Set
         """
@@ -3295,7 +3295,7 @@ class ApplicationGatewayUrlPathMap(dict):
         """
         The Name of the Default Redirect Configuration which should be used for this URL Path Map. Cannot be set if either `default_backend_address_pool_name` or `default_backend_http_settings_name` is set.
 
-        > **NOTE:** Both `default_backend_address_pool_name` and `default_backend_http_settings_name` or `default_redirect_configuration_name` should be specified.
+        > **Note:** Both `default_backend_address_pool_name` and `default_backend_http_settings_name` or `default_redirect_configuration_name` should be specified.
         """
         return pulumi.get(self, "default_redirect_configuration_name")
 
@@ -3790,7 +3790,7 @@ class ExpressRouteCircuitPeeringIpv6(dict):
         :param 'ExpressRouteCircuitPeeringIpv6MicrosoftPeeringArgs' microsoft_peering: A `microsoft_peering` block as defined below.
         :param builtins.str route_filter_id: The ID of the Route Filter. Only available when `peering_type` is set to `MicrosoftPeering`.
                
-               > **NOTE:** `ipv6` can be specified when `peering_type` is `MicrosoftPeering` or `AzurePrivatePeering`
+               > **Note:** `ipv6` can be specified when `peering_type` is `MicrosoftPeering` or `AzurePrivatePeering`
         """
         pulumi.set(__self__, "primary_peer_address_prefix", primary_peer_address_prefix)
         pulumi.set(__self__, "secondary_peer_address_prefix", secondary_peer_address_prefix)
@@ -3839,7 +3839,7 @@ class ExpressRouteCircuitPeeringIpv6(dict):
         """
         The ID of the Route Filter. Only available when `peering_type` is set to `MicrosoftPeering`.
 
-        > **NOTE:** `ipv6` can be specified when `peering_type` is `MicrosoftPeering` or `AzurePrivatePeering`
+        > **Note:** `ipv6` can be specified when `peering_type` is `MicrosoftPeering` or `AzurePrivatePeering`
         """
         return pulumi.get(self, "route_filter_id")
 
@@ -4007,7 +4007,7 @@ class ExpressRouteCircuitSku(dict):
         """
         :param builtins.str family: The billing mode for bandwidth. Possible values are `MeteredData` or `UnlimitedData`.
                
-               > **NOTE:** You can migrate from `MeteredData` to `UnlimitedData`, but not the other way around.
+               > **Note:** You can migrate from `MeteredData` to `UnlimitedData`, but not the other way around.
         :param builtins.str tier: The service tier. Possible values are `Basic`, `Local`, `Standard` or `Premium`.
         """
         pulumi.set(__self__, "family", family)
@@ -4019,7 +4019,7 @@ class ExpressRouteCircuitSku(dict):
         """
         The billing mode for bandwidth. Possible values are `MeteredData` or `UnlimitedData`.
 
-        > **NOTE:** You can migrate from `MeteredData` to `UnlimitedData`, but not the other way around.
+        > **Note:** You can migrate from `MeteredData` to `UnlimitedData`, but not the other way around.
         """
         return pulumi.get(self, "family")
 
@@ -4284,7 +4284,7 @@ class ExpressRoutePortLink1(dict):
         :param builtins.str macsec_ckn_keyvault_secret_id: The ID of the Key Vault Secret that contains the MACSec CKN key for this Express Route Port Link.
         :param builtins.bool macsec_sci_enabled: Should Secure Channel Identifier on the Express Route Port Link be enabled? Defaults to `false`.
                
-               > **NOTE** `macsec_ckn_keyvault_secret_id` and `macsec_cak_keyvault_secret_id` should be used together with `identity`, so that the Express Route Port instance have the right permission to access the Key Vault.
+               > **Note:** `macsec_ckn_keyvault_secret_id` and `macsec_cak_keyvault_secret_id` should be used together with `identity`, so that the Express Route Port instance have the right permission to access the Key Vault.
         :param builtins.str patch_panel_id: The ID that maps from the Express Route Port Link to the patch panel port.
         :param builtins.str rack_id: The ID that maps from the patch panel port to the rack.
         :param builtins.str router_name: The name of the Azure router associated with the Express Route Port Link.
@@ -4374,7 +4374,7 @@ class ExpressRoutePortLink1(dict):
         """
         Should Secure Channel Identifier on the Express Route Port Link be enabled? Defaults to `false`.
 
-        > **NOTE** `macsec_ckn_keyvault_secret_id` and `macsec_cak_keyvault_secret_id` should be used together with `identity`, so that the Express Route Port instance have the right permission to access the Key Vault.
+        > **Note:** `macsec_ckn_keyvault_secret_id` and `macsec_cak_keyvault_secret_id` should be used together with `identity`, so that the Express Route Port instance have the right permission to access the Key Vault.
         """
         return pulumi.get(self, "macsec_sci_enabled")
 
@@ -4462,7 +4462,7 @@ class ExpressRoutePortLink2(dict):
         :param builtins.str macsec_ckn_keyvault_secret_id: The ID of the Key Vault Secret that contains the MACSec CKN key for this Express Route Port Link.
         :param builtins.bool macsec_sci_enabled: Should Secure Channel Identifier on the Express Route Port Link be enabled? Defaults to `false`.
                
-               > **NOTE** `macsec_ckn_keyvault_secret_id` and `macsec_cak_keyvault_secret_id` should be used together with `identity`, so that the Express Route Port instance have the right permission to access the Key Vault.
+               > **Note:** `macsec_ckn_keyvault_secret_id` and `macsec_cak_keyvault_secret_id` should be used together with `identity`, so that the Express Route Port instance have the right permission to access the Key Vault.
         :param builtins.str patch_panel_id: The ID that maps from the Express Route Port Link to the patch panel port.
         :param builtins.str rack_id: The ID that maps from the patch panel port to the rack.
         :param builtins.str router_name: The name of the Azure router associated with the Express Route Port Link.
@@ -4552,7 +4552,7 @@ class ExpressRoutePortLink2(dict):
         """
         Should Secure Channel Identifier on the Express Route Port Link be enabled? Defaults to `false`.
 
-        > **NOTE** `macsec_ckn_keyvault_secret_id` and `macsec_cak_keyvault_secret_id` should be used together with `identity`, so that the Express Route Port instance have the right permission to access the Key Vault.
+        > **Note:** `macsec_ckn_keyvault_secret_id` and `macsec_cak_keyvault_secret_id` should be used together with `identity`, so that the Express Route Port instance have the right permission to access the Key Vault.
         """
         return pulumi.get(self, "macsec_sci_enabled")
 
@@ -4622,7 +4622,7 @@ class FirewallApplicationRuleCollectionRule(dict):
         :param Sequence[builtins.str] source_addresses: A list of source IP addresses and/or IP ranges.
         :param Sequence[builtins.str] source_ip_groups: A list of source IP Group IDs for the rule.
                
-               > **NOTE** At least one of `source_addresses` and `source_ip_groups` must be specified for a rule.
+               > **Note:** At least one of `source_addresses` and `source_ip_groups` must be specified for a rule.
         :param Sequence[builtins.str] target_fqdns: A list of FQDNs.
         """
         pulumi.set(__self__, "name", name)
@@ -4685,7 +4685,7 @@ class FirewallApplicationRuleCollectionRule(dict):
         """
         A list of source IP Group IDs for the rule.
 
-        > **NOTE** At least one of `source_addresses` and `source_ip_groups` must be specified for a rule.
+        > **Note:** At least one of `source_addresses` and `source_ip_groups` must be specified for a rule.
         """
         return pulumi.get(self, "source_ip_groups")
 
@@ -4760,16 +4760,16 @@ class FirewallIpConfiguration(dict):
         :param builtins.str private_ip_address: The private IP address associated with the Firewall.
         :param builtins.str public_ip_address_id: The ID of the Public IP Address associated with the firewall.
                
-               > **NOTE** A public ip address is required unless a `management_ip_configuration` block is specified.
+               > **Note:** A public ip address is required unless a `management_ip_configuration` block is specified.
                
-               > **NOTE** When multiple `ip_configuration` blocks with `public_ip_address_id` are configured, `pulumi up` will raise an error when one or some of these `ip_configuration` blocks are removed. because the `public_ip_address_id` is still used by the `firewall` resource until the `firewall` resource is updated. and the destruction of `network.PublicIp` happens before the update of firewall by default. to destroy of `network.PublicIp` will cause the error. The workaround is to set `create_before_destroy=true` to the `network.PublicIp` resource `lifecycle` block. See more detail: destroying.md#create-before-destroy
+               > **Note:** When multiple `ip_configuration` blocks with `public_ip_address_id` are configured, `pulumi up` will raise an error when one or some of these `ip_configuration` blocks are removed. because the `public_ip_address_id` is still used by the `firewall` resource until the `firewall` resource is updated. and the destruction of `network.PublicIp` happens before the update of firewall by default. to destroy of `network.PublicIp` will cause the error. The workaround is to set `create_before_destroy=true` to the `network.PublicIp` resource `lifecycle` block. See more detail: destroying.md#create-before-destroy
                
-               > **NOTE** The Public IP must have a `Static` allocation and `Standard` SKU.
+               > **Note:** The Public IP must have a `Static` allocation and `Standard` SKU.
         :param builtins.str subnet_id: Reference to the subnet associated with the IP Configuration. Changing this forces a new resource to be created.
                
-               > **NOTE** The Subnet used for the Firewall must have the name `AzureFirewallSubnet` and the subnet mask must be at least a `/26`.
+               > **Note:** The Subnet used for the Firewall must have the name `AzureFirewallSubnet` and the subnet mask must be at least a `/26`.
                
-               > **NOTE** At least one and only one `ip_configuration` block may contain a `subnet_id`.
+               > **Note:** At least one and only one `ip_configuration` block may contain a `subnet_id`.
         """
         pulumi.set(__self__, "name", name)
         if private_ip_address is not None:
@@ -4801,11 +4801,11 @@ class FirewallIpConfiguration(dict):
         """
         The ID of the Public IP Address associated with the firewall.
 
-        > **NOTE** A public ip address is required unless a `management_ip_configuration` block is specified.
+        > **Note:** A public ip address is required unless a `management_ip_configuration` block is specified.
 
-        > **NOTE** When multiple `ip_configuration` blocks with `public_ip_address_id` are configured, `pulumi up` will raise an error when one or some of these `ip_configuration` blocks are removed. because the `public_ip_address_id` is still used by the `firewall` resource until the `firewall` resource is updated. and the destruction of `network.PublicIp` happens before the update of firewall by default. to destroy of `network.PublicIp` will cause the error. The workaround is to set `create_before_destroy=true` to the `network.PublicIp` resource `lifecycle` block. See more detail: destroying.md#create-before-destroy
+        > **Note:** When multiple `ip_configuration` blocks with `public_ip_address_id` are configured, `pulumi up` will raise an error when one or some of these `ip_configuration` blocks are removed. because the `public_ip_address_id` is still used by the `firewall` resource until the `firewall` resource is updated. and the destruction of `network.PublicIp` happens before the update of firewall by default. to destroy of `network.PublicIp` will cause the error. The workaround is to set `create_before_destroy=true` to the `network.PublicIp` resource `lifecycle` block. See more detail: destroying.md#create-before-destroy
 
-        > **NOTE** The Public IP must have a `Static` allocation and `Standard` SKU.
+        > **Note:** The Public IP must have a `Static` allocation and `Standard` SKU.
         """
         return pulumi.get(self, "public_ip_address_id")
 
@@ -4815,9 +4815,9 @@ class FirewallIpConfiguration(dict):
         """
         Reference to the subnet associated with the IP Configuration. Changing this forces a new resource to be created.
 
-        > **NOTE** The Subnet used for the Firewall must have the name `AzureFirewallSubnet` and the subnet mask must be at least a `/26`.
+        > **Note:** The Subnet used for the Firewall must have the name `AzureFirewallSubnet` and the subnet mask must be at least a `/26`.
 
-        > **NOTE** At least one and only one `ip_configuration` block may contain a `subnet_id`.
+        > **Note:** At least one and only one `ip_configuration` block may contain a `subnet_id`.
         """
         return pulumi.get(self, "subnet_id")
 
@@ -4854,10 +4854,10 @@ class FirewallManagementIpConfiguration(dict):
         :param builtins.str name: Specifies the name of the IP Configuration.
         :param builtins.str public_ip_address_id: The ID of the Public IP Address associated with the firewall.
                
-               > **NOTE** The Public IP must have a `Static` allocation and `Standard` SKU.
+               > **Note:** The Public IP must have a `Static` allocation and `Standard` SKU.
         :param builtins.str subnet_id: Reference to the subnet associated with the IP Configuration. Changing this forces a new resource to be created.
                
-               > **NOTE** The Management Subnet used for the Firewall must have the name `AzureFirewallManagementSubnet` and the subnet mask must be at least a `/26`.
+               > **Note:** The Management Subnet used for the Firewall must have the name `AzureFirewallManagementSubnet` and the subnet mask must be at least a `/26`.
         :param builtins.str private_ip_address: The private IP address associated with the Firewall.
         """
         pulumi.set(__self__, "name", name)
@@ -4880,7 +4880,7 @@ class FirewallManagementIpConfiguration(dict):
         """
         The ID of the Public IP Address associated with the firewall.
 
-        > **NOTE** The Public IP must have a `Static` allocation and `Standard` SKU.
+        > **Note:** The Public IP must have a `Static` allocation and `Standard` SKU.
         """
         return pulumi.get(self, "public_ip_address_id")
 
@@ -4890,7 +4890,7 @@ class FirewallManagementIpConfiguration(dict):
         """
         Reference to the subnet associated with the IP Configuration. Changing this forces a new resource to be created.
 
-        > **NOTE** The Management Subnet used for the Firewall must have the name `AzureFirewallManagementSubnet` and the subnet mask must be at least a `/26`.
+        > **Note:** The Management Subnet used for the Firewall must have the name `AzureFirewallManagementSubnet` and the subnet mask must be at least a `/26`.
         """
         return pulumi.get(self, "subnet_id")
 
@@ -4953,7 +4953,7 @@ class FirewallNatRuleCollectionRule(dict):
         :param Sequence[builtins.str] source_addresses: A list of source IP addresses and/or IP ranges.
         :param Sequence[builtins.str] source_ip_groups: A list of source IP Group IDs for the rule.
                
-               > **NOTE** At least one of `source_addresses` and `source_ip_groups` must be specified for a rule.
+               > **Note:** At least one of `source_addresses` and `source_ip_groups` must be specified for a rule.
         """
         pulumi.set(__self__, "destination_addresses", destination_addresses)
         pulumi.set(__self__, "destination_ports", destination_ports)
@@ -5038,7 +5038,7 @@ class FirewallNatRuleCollectionRule(dict):
         """
         A list of source IP Group IDs for the rule.
 
-        > **NOTE** At least one of `source_addresses` and `source_ip_groups` must be specified for a rule.
+        > **Note:** At least one of `source_addresses` and `source_ip_groups` must be specified for a rule.
         """
         return pulumi.get(self, "source_ip_groups")
 
@@ -5090,14 +5090,14 @@ class FirewallNetworkRuleCollectionRule(dict):
         :param Sequence[builtins.str] destination_addresses: Either a list of destination IP addresses and/or IP ranges, or a list of destination [Service Tags](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#available-service-tags).
         :param Sequence[builtins.str] destination_fqdns: A list of destination FQDNS for the rule.
                
-               > **NOTE** [You must enable DNS Proxy to use FQDNs in your network rules](https://docs.microsoft.com/azure/firewall/fqdn-filtering-network-rules).
+               > **Note:** [You must enable DNS Proxy to use FQDNs in your network rules](https://docs.microsoft.com/azure/firewall/fqdn-filtering-network-rules).
                
-               > **NOTE** At least one of `destination_addresses`, `destination_ip_groups` and `destination_fqdns` must be specified for a rule.
+               > **Note:** At least one of `destination_addresses`, `destination_ip_groups` and `destination_fqdns` must be specified for a rule.
         :param Sequence[builtins.str] destination_ip_groups: A list of destination IP Group IDs for the rule.
         :param Sequence[builtins.str] source_addresses: A list of source IP addresses and/or IP ranges.
         :param Sequence[builtins.str] source_ip_groups: A list of IP Group IDs for the rule.
                
-               > **NOTE** At least one of `source_addresses` and `source_ip_groups` must be specified for a rule.
+               > **Note:** At least one of `source_addresses` and `source_ip_groups` must be specified for a rule.
         """
         pulumi.set(__self__, "destination_ports", destination_ports)
         pulumi.set(__self__, "name", name)
@@ -5161,9 +5161,9 @@ class FirewallNetworkRuleCollectionRule(dict):
         """
         A list of destination FQDNS for the rule.
 
-        > **NOTE** [You must enable DNS Proxy to use FQDNs in your network rules](https://docs.microsoft.com/azure/firewall/fqdn-filtering-network-rules).
+        > **Note:** [You must enable DNS Proxy to use FQDNs in your network rules](https://docs.microsoft.com/azure/firewall/fqdn-filtering-network-rules).
 
-        > **NOTE** At least one of `destination_addresses`, `destination_ip_groups` and `destination_fqdns` must be specified for a rule.
+        > **Note:** At least one of `destination_addresses`, `destination_ip_groups` and `destination_fqdns` must be specified for a rule.
         """
         return pulumi.get(self, "destination_fqdns")
 
@@ -5189,7 +5189,7 @@ class FirewallNetworkRuleCollectionRule(dict):
         """
         A list of IP Group IDs for the rule.
 
-        > **NOTE** At least one of `source_addresses` and `source_ip_groups` must be specified for a rule.
+        > **Note:** At least one of `source_addresses` and `source_ip_groups` must be specified for a rule.
         """
         return pulumi.get(self, "source_ip_groups")
 
@@ -6134,7 +6134,7 @@ class FirewallPolicyRuleCollectionGroupNatRuleCollectionRule(dict):
         :param builtins.str translated_address: Specifies the translated address.
         :param builtins.str translated_fqdn: Specifies the translated FQDN.
                
-               > **NOTE:** Exactly one of `translated_address` and `translated_fqdn` should be set.
+               > **Note:** Exactly one of `translated_address` and `translated_fqdn` should be set.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "protocols", protocols)
@@ -6217,7 +6217,7 @@ class FirewallPolicyRuleCollectionGroupNatRuleCollectionRule(dict):
         """
         Specifies the translated FQDN.
 
-        > **NOTE:** Exactly one of `translated_address` and `translated_fqdn` should be set.
+        > **Note:** Exactly one of `translated_address` and `translated_fqdn` should be set.
         """
         return pulumi.get(self, "translated_fqdn")
 
@@ -7559,7 +7559,7 @@ class NetworkManagerConnectivityConfigurationAppliesToGroup(dict):
         :param builtins.str network_group_id: Specifies the resource ID of Network Group which the configuration applies to.
         :param builtins.bool global_mesh_enabled: Indicates whether to global mesh is supported for this group. Possible values are `true` and `false`.
                
-               > **NOTE:** A group can be global only if the `group_connectivity` is `DirectlyConnected`.
+               > **Note:** A group can be global only if the `group_connectivity` is `DirectlyConnected`.
         :param builtins.bool use_hub_gateway: Indicates whether the hub gateway is used. Possible values are `true` and `false`.
         """
         pulumi.set(__self__, "group_connectivity", group_connectivity)
@@ -7591,7 +7591,7 @@ class NetworkManagerConnectivityConfigurationAppliesToGroup(dict):
         """
         Indicates whether to global mesh is supported for this group. Possible values are `true` and `false`.
 
-        > **NOTE:** A group can be global only if the `group_connectivity` is `DirectlyConnected`.
+        > **Note:** A group can be global only if the `group_connectivity` is `DirectlyConnected`.
         """
         return pulumi.get(self, "global_mesh_enabled")
 
@@ -7741,7 +7741,7 @@ class NetworkManagerScope(dict):
         """
         :param Sequence[builtins.str] management_group_ids: A list of management group IDs.
                
-               > **NOTE:** When specifying a scope at the management group level, you need to register the `Microsoft.Network` at the management group scope before deploying a Network Manager, more information can be found in the [Azure document](https://learn.microsoft.com/en-us/azure/virtual-network-manager/concept-network-manager-scope#scope).
+               > **Note:** When specifying a scope at the management group level, you need to register the `Microsoft.Network` at the management group scope before deploying a Network Manager, more information can be found in the [Azure document](https://learn.microsoft.com/en-us/azure/virtual-network-manager/concept-network-manager-scope#scope).
         :param Sequence[builtins.str] subscription_ids: A list of subscription IDs.
         """
         if management_group_ids is not None:
@@ -7755,7 +7755,7 @@ class NetworkManagerScope(dict):
         """
         A list of management group IDs.
 
-        > **NOTE:** When specifying a scope at the management group level, you need to register the `Microsoft.Network` at the management group scope before deploying a Network Manager, more information can be found in the [Azure document](https://learn.microsoft.com/en-us/azure/virtual-network-manager/concept-network-manager-scope#scope).
+        > **Note:** When specifying a scope at the management group level, you need to register the `Microsoft.Network` at the management group scope before deploying a Network Manager, more information can be found in the [Azure document](https://learn.microsoft.com/en-us/azure/virtual-network-manager/concept-network-manager-scope#scope).
         """
         return pulumi.get(self, "management_group_ids")
 
@@ -8908,10 +8908,10 @@ class SubnetDelegationServiceDelegation(dict):
                  name: builtins.str,
                  actions: Optional[Sequence[builtins.str]] = None):
         """
-        :param builtins.str name: The name of service to delegate to. Possible values are `GitHub.Network/networkSettings`, `Informatica.DataManagement/organizations`, `Microsoft.ApiManagement/service`, `Microsoft.Apollo/npu`, `Microsoft.App/environments`, `Microsoft.App/testClients`, `Microsoft.AVS/PrivateClouds`, `Microsoft.AzureCosmosDB/clusters`, `Microsoft.BareMetal/AzureHostedService`, `Microsoft.BareMetal/AzureHPC`, `Microsoft.BareMetal/AzurePaymentHSM`, `Microsoft.BareMetal/AzureVMware`, `Microsoft.BareMetal/CrayServers`, `Microsoft.BareMetal/MonitoringServers`, `Microsoft.Batch/batchAccounts`, `Microsoft.CloudTest/hostedpools`, `Microsoft.CloudTest/images`, `Microsoft.CloudTest/pools`, `Microsoft.Codespaces/plans`, `Microsoft.ContainerInstance/containerGroups`, `Microsoft.ContainerService/managedClusters`, `Microsoft.ContainerService/TestClients`, `Microsoft.Databricks/workspaces`, `Microsoft.DBforMySQL/flexibleServers`, `Microsoft.DBforMySQL/servers`, `Microsoft.DBforMySQL/serversv2`, `Microsoft.DBforPostgreSQL/flexibleServers`, `Microsoft.DBforPostgreSQL/serversv2`, `Microsoft.DBforPostgreSQL/singleServers`, `Microsoft.DelegatedNetwork/controller`, `Microsoft.DevCenter/networkConnection`, `Microsoft.DevOpsInfrastructure/pools`, `Microsoft.DocumentDB/cassandraClusters`, `Microsoft.Fidalgo/networkSettings`, `Microsoft.HardwareSecurityModules/dedicatedHSMs`, `Microsoft.Kusto/clusters`, `Microsoft.LabServices/labplans`, `Microsoft.Logic/integrationServiceEnvironments`, `Microsoft.MachineLearningServices/workspaces`, `Microsoft.Netapp/volumes`, `Microsoft.Network/dnsResolvers`, `Microsoft.Network/managedResolvers`, `Microsoft.Network/fpgaNetworkInterfaces`, `Microsoft.Network/networkWatchers.`, `Microsoft.Network/virtualNetworkGateways`, `Microsoft.Orbital/orbitalGateways`, `Microsoft.PowerPlatform/enterprisePolicies`, `Microsoft.PowerPlatform/vnetaccesslinks`, `Microsoft.ServiceFabricMesh/networks`, `Microsoft.ServiceNetworking/trafficControllers`, `Microsoft.Singularity/accounts/networks`, `Microsoft.Singularity/accounts/npu`, `Microsoft.Sql/managedInstances`, `Microsoft.Sql/managedInstancesOnebox`, `Microsoft.Sql/managedInstancesStage`, `Microsoft.Sql/managedInstancesTest`, `Microsoft.Sql/servers`, `Microsoft.StoragePool/diskPools`, `Microsoft.StreamAnalytics/streamingJobs`, `Microsoft.Synapse/workspaces`, `Microsoft.Web/hostingEnvironments`, `Microsoft.Web/serverFarms`, `NGINX.NGINXPLUS/nginxDeployments`, `PaloAltoNetworks.Cloudngfw/firewalls`, `Qumulo.Storage/fileSystems`, and `Oracle.Database/networkAttachments`.
+        :param builtins.str name: The name of service to delegate to. Possible values are `GitHub.Network/networkSettings`, `Informatica.DataManagement/organizations`, `Microsoft.ApiManagement/service`, `Microsoft.Apollo/npu`, `Microsoft.App/environments`, `Microsoft.App/testClients`, `Microsoft.AVS/PrivateClouds`, `Microsoft.AzureCosmosDB/clusters`, `Microsoft.BareMetal/AzureHostedService`, `Microsoft.BareMetal/AzureHPC`, `Microsoft.BareMetal/AzurePaymentHSM`, `Microsoft.BareMetal/AzureVMware`, `Microsoft.BareMetal/CrayServers`, `Microsoft.BareMetal/MonitoringServers`, `Microsoft.Batch/batchAccounts`, `Microsoft.CloudTest/hostedpools`, `Microsoft.CloudTest/images`, `Microsoft.CloudTest/pools`, `Microsoft.Codespaces/plans`, `Microsoft.ContainerInstance/containerGroups`, `Microsoft.ContainerService/managedClusters`, `Microsoft.ContainerService/TestClients`, `Microsoft.Databricks/workspaces`, `Microsoft.DBforMySQL/flexibleServers`, `Microsoft.DBforMySQL/servers`, `Microsoft.DBforMySQL/serversv2`, `Microsoft.DBforPostgreSQL/flexibleServers`, `Microsoft.DBforPostgreSQL/serversv2`, `Microsoft.DBforPostgreSQL/singleServers`, `Microsoft.DelegatedNetwork/controller`, `Microsoft.DevCenter/networkConnection`, `Microsoft.DevOpsInfrastructure/pools`, `Microsoft.DocumentDB/cassandraClusters`, `Microsoft.Fidalgo/networkSettings`, `Microsoft.HardwareSecurityModules/dedicatedHSMs`, `Microsoft.Kusto/clusters`, `Microsoft.LabServices/labplans`, `Microsoft.Logic/integrationServiceEnvironments`, `Microsoft.MachineLearningServices/workspaces`, `Microsoft.Netapp/volumes`, `Microsoft.Network/applicationGateways`, `Microsoft.Network/dnsResolvers`, `Microsoft.Network/managedResolvers`, `Microsoft.Network/fpgaNetworkInterfaces`, `Microsoft.Network/networkWatchers.`, `Microsoft.Network/virtualNetworkGateways`, `Microsoft.Orbital/orbitalGateways`, `Microsoft.PowerAutomate/hostedRpa`, `Microsoft.PowerPlatform/enterprisePolicies`, `Microsoft.PowerPlatform/vnetaccesslinks`, `Microsoft.ServiceFabricMesh/networks`, `Microsoft.ServiceNetworking/trafficControllers`, `Microsoft.Singularity/accounts/networks`, `Microsoft.Singularity/accounts/npu`, `Microsoft.Sql/managedInstances`, `Microsoft.Sql/managedInstancesOnebox`, `Microsoft.Sql/managedInstancesStage`, `Microsoft.Sql/managedInstancesTest`, `Microsoft.Sql/servers`, `Microsoft.StoragePool/diskPools`, `Microsoft.StreamAnalytics/streamingJobs`, `Microsoft.Synapse/workspaces`, `Microsoft.Web/hostingEnvironments`, `Microsoft.Web/serverFarms`, `NGINX.NGINXPLUS/nginxDeployments`, `PaloAltoNetworks.Cloudngfw/firewalls`, `Qumulo.Storage/fileSystems`, and `Oracle.Database/networkAttachments`.
         :param Sequence[builtins.str] actions: A list of Actions which should be delegated. This list is specific to the service to delegate to. Possible values are `Microsoft.Network/networkinterfaces/*`, `Microsoft.Network/publicIPAddresses/join/action`, `Microsoft.Network/publicIPAddresses/read`, `Microsoft.Network/virtualNetworks/read`, `Microsoft.Network/virtualNetworks/subnets/action`, `Microsoft.Network/virtualNetworks/subnets/join/action`, `Microsoft.Network/virtualNetworks/subnets/prepareNetworkPolicies/action`, and `Microsoft.Network/virtualNetworks/subnets/unprepareNetworkPolicies/action`.
                
-               > **NOTE:** Azure may add default actions depending on the service delegation name and they can't be changed.
+               > **Note:** Azure may add default actions depending on the service delegation name and they can't be changed.
         """
         pulumi.set(__self__, "name", name)
         if actions is not None:
@@ -8921,7 +8921,7 @@ class SubnetDelegationServiceDelegation(dict):
     @pulumi.getter
     def name(self) -> builtins.str:
         """
-        The name of service to delegate to. Possible values are `GitHub.Network/networkSettings`, `Informatica.DataManagement/organizations`, `Microsoft.ApiManagement/service`, `Microsoft.Apollo/npu`, `Microsoft.App/environments`, `Microsoft.App/testClients`, `Microsoft.AVS/PrivateClouds`, `Microsoft.AzureCosmosDB/clusters`, `Microsoft.BareMetal/AzureHostedService`, `Microsoft.BareMetal/AzureHPC`, `Microsoft.BareMetal/AzurePaymentHSM`, `Microsoft.BareMetal/AzureVMware`, `Microsoft.BareMetal/CrayServers`, `Microsoft.BareMetal/MonitoringServers`, `Microsoft.Batch/batchAccounts`, `Microsoft.CloudTest/hostedpools`, `Microsoft.CloudTest/images`, `Microsoft.CloudTest/pools`, `Microsoft.Codespaces/plans`, `Microsoft.ContainerInstance/containerGroups`, `Microsoft.ContainerService/managedClusters`, `Microsoft.ContainerService/TestClients`, `Microsoft.Databricks/workspaces`, `Microsoft.DBforMySQL/flexibleServers`, `Microsoft.DBforMySQL/servers`, `Microsoft.DBforMySQL/serversv2`, `Microsoft.DBforPostgreSQL/flexibleServers`, `Microsoft.DBforPostgreSQL/serversv2`, `Microsoft.DBforPostgreSQL/singleServers`, `Microsoft.DelegatedNetwork/controller`, `Microsoft.DevCenter/networkConnection`, `Microsoft.DevOpsInfrastructure/pools`, `Microsoft.DocumentDB/cassandraClusters`, `Microsoft.Fidalgo/networkSettings`, `Microsoft.HardwareSecurityModules/dedicatedHSMs`, `Microsoft.Kusto/clusters`, `Microsoft.LabServices/labplans`, `Microsoft.Logic/integrationServiceEnvironments`, `Microsoft.MachineLearningServices/workspaces`, `Microsoft.Netapp/volumes`, `Microsoft.Network/dnsResolvers`, `Microsoft.Network/managedResolvers`, `Microsoft.Network/fpgaNetworkInterfaces`, `Microsoft.Network/networkWatchers.`, `Microsoft.Network/virtualNetworkGateways`, `Microsoft.Orbital/orbitalGateways`, `Microsoft.PowerPlatform/enterprisePolicies`, `Microsoft.PowerPlatform/vnetaccesslinks`, `Microsoft.ServiceFabricMesh/networks`, `Microsoft.ServiceNetworking/trafficControllers`, `Microsoft.Singularity/accounts/networks`, `Microsoft.Singularity/accounts/npu`, `Microsoft.Sql/managedInstances`, `Microsoft.Sql/managedInstancesOnebox`, `Microsoft.Sql/managedInstancesStage`, `Microsoft.Sql/managedInstancesTest`, `Microsoft.Sql/servers`, `Microsoft.StoragePool/diskPools`, `Microsoft.StreamAnalytics/streamingJobs`, `Microsoft.Synapse/workspaces`, `Microsoft.Web/hostingEnvironments`, `Microsoft.Web/serverFarms`, `NGINX.NGINXPLUS/nginxDeployments`, `PaloAltoNetworks.Cloudngfw/firewalls`, `Qumulo.Storage/fileSystems`, and `Oracle.Database/networkAttachments`.
+        The name of service to delegate to. Possible values are `GitHub.Network/networkSettings`, `Informatica.DataManagement/organizations`, `Microsoft.ApiManagement/service`, `Microsoft.Apollo/npu`, `Microsoft.App/environments`, `Microsoft.App/testClients`, `Microsoft.AVS/PrivateClouds`, `Microsoft.AzureCosmosDB/clusters`, `Microsoft.BareMetal/AzureHostedService`, `Microsoft.BareMetal/AzureHPC`, `Microsoft.BareMetal/AzurePaymentHSM`, `Microsoft.BareMetal/AzureVMware`, `Microsoft.BareMetal/CrayServers`, `Microsoft.BareMetal/MonitoringServers`, `Microsoft.Batch/batchAccounts`, `Microsoft.CloudTest/hostedpools`, `Microsoft.CloudTest/images`, `Microsoft.CloudTest/pools`, `Microsoft.Codespaces/plans`, `Microsoft.ContainerInstance/containerGroups`, `Microsoft.ContainerService/managedClusters`, `Microsoft.ContainerService/TestClients`, `Microsoft.Databricks/workspaces`, `Microsoft.DBforMySQL/flexibleServers`, `Microsoft.DBforMySQL/servers`, `Microsoft.DBforMySQL/serversv2`, `Microsoft.DBforPostgreSQL/flexibleServers`, `Microsoft.DBforPostgreSQL/serversv2`, `Microsoft.DBforPostgreSQL/singleServers`, `Microsoft.DelegatedNetwork/controller`, `Microsoft.DevCenter/networkConnection`, `Microsoft.DevOpsInfrastructure/pools`, `Microsoft.DocumentDB/cassandraClusters`, `Microsoft.Fidalgo/networkSettings`, `Microsoft.HardwareSecurityModules/dedicatedHSMs`, `Microsoft.Kusto/clusters`, `Microsoft.LabServices/labplans`, `Microsoft.Logic/integrationServiceEnvironments`, `Microsoft.MachineLearningServices/workspaces`, `Microsoft.Netapp/volumes`, `Microsoft.Network/applicationGateways`, `Microsoft.Network/dnsResolvers`, `Microsoft.Network/managedResolvers`, `Microsoft.Network/fpgaNetworkInterfaces`, `Microsoft.Network/networkWatchers.`, `Microsoft.Network/virtualNetworkGateways`, `Microsoft.Orbital/orbitalGateways`, `Microsoft.PowerAutomate/hostedRpa`, `Microsoft.PowerPlatform/enterprisePolicies`, `Microsoft.PowerPlatform/vnetaccesslinks`, `Microsoft.ServiceFabricMesh/networks`, `Microsoft.ServiceNetworking/trafficControllers`, `Microsoft.Singularity/accounts/networks`, `Microsoft.Singularity/accounts/npu`, `Microsoft.Sql/managedInstances`, `Microsoft.Sql/managedInstancesOnebox`, `Microsoft.Sql/managedInstancesStage`, `Microsoft.Sql/managedInstancesTest`, `Microsoft.Sql/servers`, `Microsoft.StoragePool/diskPools`, `Microsoft.StreamAnalytics/streamingJobs`, `Microsoft.Synapse/workspaces`, `Microsoft.Web/hostingEnvironments`, `Microsoft.Web/serverFarms`, `NGINX.NGINXPLUS/nginxDeployments`, `PaloAltoNetworks.Cloudngfw/firewalls`, `Qumulo.Storage/fileSystems`, and `Oracle.Database/networkAttachments`.
         """
         return pulumi.get(self, "name")
 
@@ -8931,7 +8931,7 @@ class SubnetDelegationServiceDelegation(dict):
         """
         A list of Actions which should be delegated. This list is specific to the service to delegate to. Possible values are `Microsoft.Network/networkinterfaces/*`, `Microsoft.Network/publicIPAddresses/join/action`, `Microsoft.Network/publicIPAddresses/read`, `Microsoft.Network/virtualNetworks/read`, `Microsoft.Network/virtualNetworks/subnets/action`, `Microsoft.Network/virtualNetworks/subnets/join/action`, `Microsoft.Network/virtualNetworks/subnets/prepareNetworkPolicies/action`, and `Microsoft.Network/virtualNetworks/subnets/unprepareNetworkPolicies/action`.
 
-        > **NOTE:** Azure may add default actions depending on the service delegation name and they can't be changed.
+        > **Note:** Azure may add default actions depending on the service delegation name and they can't be changed.
         """
         return pulumi.get(self, "actions")
 
@@ -8964,7 +8964,7 @@ class SubnetServiceEndpointStoragePolicyDefinition(dict):
         :param builtins.str name: The name which should be used for this Subnet Service Endpoint Storage Policy Definition.
         :param Sequence[builtins.str] service_resources: Specifies a list of resources or aliases that this Subnet Service Endpoint Storage Policy Definition applies to.
                
-               > **NOTE** The `service_resources` property must contain either Aliases or Resource IDs, but not both.
+               > **Note:** The `service_resources` property must contain either Aliases or Resource IDs, but not both.
         :param builtins.str description: The description of this Subnet Service Endpoint Storage Policy Definition.
         :param builtins.str service: The type of service resources. Valid values are `Microsoft.Storage` or `Global`. When the `service_resources` property contains resource IDs, this property must be `Microsoft.Storage`. When the `service_resources` property contains Aliases, this property must be `Global`. Defaults to `Microsoft.Storage`.
         """
@@ -8989,7 +8989,7 @@ class SubnetServiceEndpointStoragePolicyDefinition(dict):
         """
         Specifies a list of resources or aliases that this Subnet Service Endpoint Storage Policy Definition applies to.
 
-        > **NOTE** The `service_resources` property must contain either Aliases or Resource IDs, but not both.
+        > **Note:** The `service_resources` property must contain either Aliases or Resource IDs, but not both.
         """
         return pulumi.get(self, "service_resources")
 
@@ -9826,7 +9826,7 @@ class VirtualNetworkEncryption(dict):
         """
         :param builtins.str enforcement: Specifies if the encrypted Virtual Network allows VM that does not support encryption. Possible values are `DropUnencrypted` and `AllowUnencrypted`.
                
-               > **NOTE:** Currently `AllowUnencrypted` is the only supported value for the `enforcement` property as `DropUnencrypted` is not yet in public preview or general availability. Please see the [official documentation](https://learn.microsoft.com/en-us/azure/virtual-network/virtual-network-encryption-overview#limitations) for more information.
+               > **Note:** Currently `AllowUnencrypted` is the only supported value for the `enforcement` property as `DropUnencrypted` is not yet in public preview or general availability. Please see the [official documentation](https://learn.microsoft.com/en-us/azure/virtual-network/virtual-network-encryption-overview#limitations) for more information.
         """
         pulumi.set(__self__, "enforcement", enforcement)
 
@@ -9836,7 +9836,7 @@ class VirtualNetworkEncryption(dict):
         """
         Specifies if the encrypted Virtual Network allows VM that does not support encryption. Possible values are `DropUnencrypted` and `AllowUnencrypted`.
 
-        > **NOTE:** Currently `AllowUnencrypted` is the only supported value for the `enforcement` property as `DropUnencrypted` is not yet in public preview or general availability. Please see the [official documentation](https://learn.microsoft.com/en-us/azure/virtual-network/virtual-network-encryption-overview#limitations) for more information.
+        > **Note:** Currently `AllowUnencrypted` is the only supported value for the `enforcement` property as `DropUnencrypted` is not yet in public preview or general availability. Please see the [official documentation](https://learn.microsoft.com/en-us/azure/virtual-network/virtual-network-encryption-overview#limitations) for more information.
         """
         return pulumi.get(self, "enforcement")
 
@@ -10588,7 +10588,7 @@ class VirtualNetworkGatewayVpnClientConfiguration(dict):
         :param Sequence[builtins.str] vpn_auth_types: List of the vpn authentication types for the virtual network gateway.
                The supported values are `AAD`, `Radius` and `Certificate`.
                
-               > **NOTE:** `vpn_auth_types` must be set when using multiple vpn authentication types.
+               > **Note:** `vpn_auth_types` must be set when using multiple vpn authentication types.
         :param Sequence[builtins.str] vpn_client_protocols: List of the protocols supported by the vpn client.
                The supported values are `SSTP`, `IkeV2` and `OpenVPN`.
                Values `SSTP` and `IkeV2` are incompatible with the use of
@@ -10716,7 +10716,7 @@ class VirtualNetworkGatewayVpnClientConfiguration(dict):
         List of the vpn authentication types for the virtual network gateway.
         The supported values are `AAD`, `Radius` and `Certificate`.
 
-        > **NOTE:** `vpn_auth_types` must be set when using multiple vpn authentication types.
+        > **Note:** `vpn_auth_types` must be set when using multiple vpn authentication types.
         """
         return pulumi.get(self, "vpn_auth_types")
 
@@ -11085,16 +11085,16 @@ class VirtualNetworkSubnet(dict):
         :param builtins.str id: The ID of this subnet.
         :param builtins.str private_endpoint_network_policies: Enable or Disable network policies for the private endpoint on the subnet. Possible values are `Disabled`, `Enabled`, `NetworkSecurityGroupEnabled` and `RouteTableEnabled`. Defaults to `Disabled`.
                
-               > **NOTE:** If you don't want to use network policies like user-defined Routes and Network Security Groups, you need to set `private_endpoint_network_policies` in the subnet to `Disabled`. This setting only applies to Private Endpoints in the Subnet and affects all Private Endpoints in the Subnet.
+               > **Note:** If you don't want to use network policies like user-defined Routes and Network Security Groups, you need to set `private_endpoint_network_policies` in the subnet to `Disabled`. This setting only applies to Private Endpoints in the Subnet and affects all Private Endpoints in the Subnet.
                
-               > **NOTE:** If you want to use network policies like user-defined Routes and Network Security Groups, you need to set the `private_endpoint_network_policies` in the Subnet to `Enabled`/`NetworkSecurityGroupEnabled`/`RouteTableEnabled`. This setting only applies to Private Endpoints in the Subnet and affects all Private Endpoints in the Subnet.
+               > **Note:** If you want to use network policies like user-defined Routes and Network Security Groups, you need to set the `private_endpoint_network_policies` in the Subnet to `Enabled`/`NetworkSecurityGroupEnabled`/`RouteTableEnabled`. This setting only applies to Private Endpoints in the Subnet and affects all Private Endpoints in the Subnet.
                
-               > **NOTE:** See more details from [Manage network policies for Private Endpoints](https://learn.microsoft.com/en-gb/azure/private-link/disable-private-endpoint-network-policy?tabs=network-policy-portal).
+               > **Note:** See more details from [Manage network policies for Private Endpoints](https://learn.microsoft.com/en-gb/azure/private-link/disable-private-endpoint-network-policy?tabs=network-policy-portal).
         :param builtins.bool private_link_service_network_policies_enabled: Enable or Disable network policies for the private link service on the subnet. Defaults to `true`.
                
-               > **NOTE:** When configuring Azure Private Link service, the explicit setting `private_link_service_network_policies_enabled` must be set to `false` in the subnet since Private Link Service does not support network policies like user-defined Routes and Network Security Groups. This setting only affects the Private Link service. For other resources in the subnet, access is controlled based on the Network Security Group which can be configured using the `network.SubnetNetworkSecurityGroupAssociation` resource. See more details from [Manage network policies for Private Link Services](https://learn.microsoft.com/en-gb/azure/private-link/disable-private-link-service-network-policy?tabs=private-link-network-policy-powershell).
+               > **Note:** When configuring Azure Private Link service, the explicit setting `private_link_service_network_policies_enabled` must be set to `false` in the subnet since Private Link Service does not support network policies like user-defined Routes and Network Security Groups. This setting only affects the Private Link service. For other resources in the subnet, access is controlled based on the Network Security Group which can be configured using the `network.SubnetNetworkSecurityGroupAssociation` resource. See more details from [Manage network policies for Private Link Services](https://learn.microsoft.com/en-gb/azure/private-link/disable-private-link-service-network-policy?tabs=private-link-network-policy-powershell).
         :param builtins.str route_table_id: The ID of the Route Table that should be associated with this subnet.
-        :param builtins.str security_group: The Network Security Group to associate with the subnet. (Referenced by `id`, ie. `azurerm_network_security_group.example.id`)
+        :param builtins.str security_group: The Network Security Group to associate with the subnet. (Referenced by `id`, i.e. `azurerm_network_security_group.example.id`)
         :param Sequence[builtins.str] service_endpoint_policy_ids: The list of IDs of Service Endpoint Policies to associate with the subnet.
         :param Sequence[builtins.str] service_endpoints: The list of Service endpoints to associate with the subnet. Possible values include: `Microsoft.AzureActiveDirectory`, `Microsoft.AzureCosmosDB`, `Microsoft.ContainerRegistry`, `Microsoft.EventHub`, `Microsoft.KeyVault`, `Microsoft.ServiceBus`, `Microsoft.Sql`, `Microsoft.Storage`, `Microsoft.Storage.Global` and `Microsoft.Web`.
         """
@@ -11165,11 +11165,11 @@ class VirtualNetworkSubnet(dict):
         """
         Enable or Disable network policies for the private endpoint on the subnet. Possible values are `Disabled`, `Enabled`, `NetworkSecurityGroupEnabled` and `RouteTableEnabled`. Defaults to `Disabled`.
 
-        > **NOTE:** If you don't want to use network policies like user-defined Routes and Network Security Groups, you need to set `private_endpoint_network_policies` in the subnet to `Disabled`. This setting only applies to Private Endpoints in the Subnet and affects all Private Endpoints in the Subnet.
+        > **Note:** If you don't want to use network policies like user-defined Routes and Network Security Groups, you need to set `private_endpoint_network_policies` in the subnet to `Disabled`. This setting only applies to Private Endpoints in the Subnet and affects all Private Endpoints in the Subnet.
 
-        > **NOTE:** If you want to use network policies like user-defined Routes and Network Security Groups, you need to set the `private_endpoint_network_policies` in the Subnet to `Enabled`/`NetworkSecurityGroupEnabled`/`RouteTableEnabled`. This setting only applies to Private Endpoints in the Subnet and affects all Private Endpoints in the Subnet.
+        > **Note:** If you want to use network policies like user-defined Routes and Network Security Groups, you need to set the `private_endpoint_network_policies` in the Subnet to `Enabled`/`NetworkSecurityGroupEnabled`/`RouteTableEnabled`. This setting only applies to Private Endpoints in the Subnet and affects all Private Endpoints in the Subnet.
 
-        > **NOTE:** See more details from [Manage network policies for Private Endpoints](https://learn.microsoft.com/en-gb/azure/private-link/disable-private-endpoint-network-policy?tabs=network-policy-portal).
+        > **Note:** See more details from [Manage network policies for Private Endpoints](https://learn.microsoft.com/en-gb/azure/private-link/disable-private-endpoint-network-policy?tabs=network-policy-portal).
         """
         return pulumi.get(self, "private_endpoint_network_policies")
 
@@ -11179,7 +11179,7 @@ class VirtualNetworkSubnet(dict):
         """
         Enable or Disable network policies for the private link service on the subnet. Defaults to `true`.
 
-        > **NOTE:** When configuring Azure Private Link service, the explicit setting `private_link_service_network_policies_enabled` must be set to `false` in the subnet since Private Link Service does not support network policies like user-defined Routes and Network Security Groups. This setting only affects the Private Link service. For other resources in the subnet, access is controlled based on the Network Security Group which can be configured using the `network.SubnetNetworkSecurityGroupAssociation` resource. See more details from [Manage network policies for Private Link Services](https://learn.microsoft.com/en-gb/azure/private-link/disable-private-link-service-network-policy?tabs=private-link-network-policy-powershell).
+        > **Note:** When configuring Azure Private Link service, the explicit setting `private_link_service_network_policies_enabled` must be set to `false` in the subnet since Private Link Service does not support network policies like user-defined Routes and Network Security Groups. This setting only affects the Private Link service. For other resources in the subnet, access is controlled based on the Network Security Group which can be configured using the `network.SubnetNetworkSecurityGroupAssociation` resource. See more details from [Manage network policies for Private Link Services](https://learn.microsoft.com/en-gb/azure/private-link/disable-private-link-service-network-policy?tabs=private-link-network-policy-powershell).
         """
         return pulumi.get(self, "private_link_service_network_policies_enabled")
 
@@ -11195,7 +11195,7 @@ class VirtualNetworkSubnet(dict):
     @pulumi.getter(name="securityGroup")
     def security_group(self) -> Optional[builtins.str]:
         """
-        The Network Security Group to associate with the subnet. (Referenced by `id`, ie. `azurerm_network_security_group.example.id`)
+        The Network Security Group to associate with the subnet. (Referenced by `id`, i.e. `azurerm_network_security_group.example.id`)
         """
         return pulumi.get(self, "security_group")
 
@@ -11268,10 +11268,10 @@ class VirtualNetworkSubnetDelegationServiceDelegation(dict):
                  name: builtins.str,
                  actions: Optional[Sequence[builtins.str]] = None):
         """
-        :param builtins.str name: The name of service to delegate to. Possible values are `GitHub.Network/networkSettings`, `Informatica.DataManagement/organizations`, `Microsoft.ApiManagement/service`, `Microsoft.Apollo/npu`, `Microsoft.App/environments`, `Microsoft.App/testClients`, `Microsoft.AVS/PrivateClouds`, `Microsoft.AzureCosmosDB/clusters`, `Microsoft.BareMetal/AzureHostedService`, `Microsoft.BareMetal/AzureHPC`, `Microsoft.BareMetal/AzurePaymentHSM`, `Microsoft.BareMetal/AzureVMware`, `Microsoft.BareMetal/CrayServers`, `Microsoft.BareMetal/MonitoringServers`, `Microsoft.Batch/batchAccounts`, `Microsoft.CloudTest/hostedpools`, `Microsoft.CloudTest/images`, `Microsoft.CloudTest/pools`, `Microsoft.Codespaces/plans`, `Microsoft.ContainerInstance/containerGroups`, `Microsoft.ContainerService/managedClusters`, `Microsoft.ContainerService/TestClients`, `Microsoft.Databricks/workspaces`, `Microsoft.DBforMySQL/flexibleServers`, `Microsoft.DBforMySQL/servers`, `Microsoft.DBforMySQL/serversv2`, `Microsoft.DBforPostgreSQL/flexibleServers`, `Microsoft.DBforPostgreSQL/serversv2`, `Microsoft.DBforPostgreSQL/singleServers`, `Microsoft.DelegatedNetwork/controller`, `Microsoft.DevCenter/networkConnection`, `Microsoft.DevOpsInfrastructure/pools`, `Microsoft.DocumentDB/cassandraClusters`, `Microsoft.Fidalgo/networkSettings`, `Microsoft.HardwareSecurityModules/dedicatedHSMs`, `Microsoft.Kusto/clusters`, `Microsoft.LabServices/labplans`, `Microsoft.Logic/integrationServiceEnvironments`, `Microsoft.MachineLearningServices/workspaces`, `Microsoft.Netapp/volumes`, `Microsoft.Network/dnsResolvers`, `Microsoft.Network/managedResolvers`, `Microsoft.Network/fpgaNetworkInterfaces`, `Microsoft.Network/networkWatchers.`, `Microsoft.Network/virtualNetworkGateways`, `Microsoft.Orbital/orbitalGateways`, `Microsoft.PowerPlatform/enterprisePolicies`, `Microsoft.PowerPlatform/vnetaccesslinks`, `Microsoft.ServiceFabricMesh/networks`, `Microsoft.ServiceNetworking/trafficControllers`, `Microsoft.Singularity/accounts/networks`, `Microsoft.Singularity/accounts/npu`, `Microsoft.Sql/managedInstances`, `Microsoft.Sql/managedInstancesOnebox`, `Microsoft.Sql/managedInstancesStage`, `Microsoft.Sql/managedInstancesTest`, `Microsoft.Sql/servers`, `Microsoft.StoragePool/diskPools`, `Microsoft.StreamAnalytics/streamingJobs`, `Microsoft.Synapse/workspaces`, `Microsoft.Web/hostingEnvironments`, `Microsoft.Web/serverFarms`, `NGINX.NGINXPLUS/nginxDeployments`, `PaloAltoNetworks.Cloudngfw/firewalls`, `Qumulo.Storage/fileSystems`, and `Oracle.Database/networkAttachments`.
+        :param builtins.str name: The name of service to delegate to. Possible values are `GitHub.Network/networkSettings`, `Informatica.DataManagement/organizations`, `Microsoft.ApiManagement/service`, `Microsoft.Apollo/npu`, `Microsoft.App/environments`, `Microsoft.App/testClients`, `Microsoft.AVS/PrivateClouds`, `Microsoft.AzureCosmosDB/clusters`, `Microsoft.BareMetal/AzureHostedService`, `Microsoft.BareMetal/AzureHPC`, `Microsoft.BareMetal/AzurePaymentHSM`, `Microsoft.BareMetal/AzureVMware`, `Microsoft.BareMetal/CrayServers`, `Microsoft.BareMetal/MonitoringServers`, `Microsoft.Batch/batchAccounts`, `Microsoft.CloudTest/hostedpools`, `Microsoft.CloudTest/images`, `Microsoft.CloudTest/pools`, `Microsoft.Codespaces/plans`, `Microsoft.ContainerInstance/containerGroups`, `Microsoft.ContainerService/managedClusters`, `Microsoft.ContainerService/TestClients`, `Microsoft.Databricks/workspaces`, `Microsoft.DBforMySQL/flexibleServers`, `Microsoft.DBforMySQL/servers`, `Microsoft.DBforMySQL/serversv2`, `Microsoft.DBforPostgreSQL/flexibleServers`, `Microsoft.DBforPostgreSQL/serversv2`, `Microsoft.DBforPostgreSQL/singleServers`, `Microsoft.DelegatedNetwork/controller`, `Microsoft.DevCenter/networkConnection`, `Microsoft.DevOpsInfrastructure/pools`, `Microsoft.DocumentDB/cassandraClusters`, `Microsoft.Fidalgo/networkSettings`, `Microsoft.HardwareSecurityModules/dedicatedHSMs`, `Microsoft.Kusto/clusters`, `Microsoft.LabServices/labplans`, `Microsoft.Logic/integrationServiceEnvironments`, `Microsoft.MachineLearningServices/workspaces`, `Microsoft.Netapp/volumes`, `Microsoft.Network/applicationGateways`, `Microsoft.Network/dnsResolvers`, `Microsoft.Network/managedResolvers`, `Microsoft.Network/fpgaNetworkInterfaces`, `Microsoft.Network/networkWatchers.`, `Microsoft.Network/virtualNetworkGateways`, `Microsoft.Orbital/orbitalGateways`, `Microsoft.PowerAutomate/hostedRpa`, `Microsoft.PowerPlatform/enterprisePolicies`, `Microsoft.PowerPlatform/vnetaccesslinks`, `Microsoft.ServiceFabricMesh/networks`, `Microsoft.ServiceNetworking/trafficControllers`, `Microsoft.Singularity/accounts/networks`, `Microsoft.Singularity/accounts/npu`, `Microsoft.Sql/managedInstances`, `Microsoft.Sql/managedInstancesOnebox`, `Microsoft.Sql/managedInstancesStage`, `Microsoft.Sql/managedInstancesTest`, `Microsoft.Sql/servers`, `Microsoft.StoragePool/diskPools`, `Microsoft.StreamAnalytics/streamingJobs`, `Microsoft.Synapse/workspaces`, `Microsoft.Web/hostingEnvironments`, `Microsoft.Web/serverFarms`, `NGINX.NGINXPLUS/nginxDeployments`, `PaloAltoNetworks.Cloudngfw/firewalls`, `Qumulo.Storage/fileSystems`, and `Oracle.Database/networkAttachments`.
         :param Sequence[builtins.str] actions: A list of Actions which should be delegated. This list is specific to the service to delegate to. Possible values are `Microsoft.Network/networkinterfaces/*`, `Microsoft.Network/publicIPAddresses/join/action`, `Microsoft.Network/publicIPAddresses/read`, `Microsoft.Network/virtualNetworks/read`, `Microsoft.Network/virtualNetworks/subnets/action`, `Microsoft.Network/virtualNetworks/subnets/join/action`, `Microsoft.Network/virtualNetworks/subnets/prepareNetworkPolicies/action`, and `Microsoft.Network/virtualNetworks/subnets/unprepareNetworkPolicies/action`.
                
-               > **NOTE:** Azure may add default actions depending on the service delegation name and they can't be changed.
+               > **Note:** Azure may add default actions depending on the service delegation name and they can't be changed.
         """
         pulumi.set(__self__, "name", name)
         if actions is not None:
@@ -11281,7 +11281,7 @@ class VirtualNetworkSubnetDelegationServiceDelegation(dict):
     @pulumi.getter
     def name(self) -> builtins.str:
         """
-        The name of service to delegate to. Possible values are `GitHub.Network/networkSettings`, `Informatica.DataManagement/organizations`, `Microsoft.ApiManagement/service`, `Microsoft.Apollo/npu`, `Microsoft.App/environments`, `Microsoft.App/testClients`, `Microsoft.AVS/PrivateClouds`, `Microsoft.AzureCosmosDB/clusters`, `Microsoft.BareMetal/AzureHostedService`, `Microsoft.BareMetal/AzureHPC`, `Microsoft.BareMetal/AzurePaymentHSM`, `Microsoft.BareMetal/AzureVMware`, `Microsoft.BareMetal/CrayServers`, `Microsoft.BareMetal/MonitoringServers`, `Microsoft.Batch/batchAccounts`, `Microsoft.CloudTest/hostedpools`, `Microsoft.CloudTest/images`, `Microsoft.CloudTest/pools`, `Microsoft.Codespaces/plans`, `Microsoft.ContainerInstance/containerGroups`, `Microsoft.ContainerService/managedClusters`, `Microsoft.ContainerService/TestClients`, `Microsoft.Databricks/workspaces`, `Microsoft.DBforMySQL/flexibleServers`, `Microsoft.DBforMySQL/servers`, `Microsoft.DBforMySQL/serversv2`, `Microsoft.DBforPostgreSQL/flexibleServers`, `Microsoft.DBforPostgreSQL/serversv2`, `Microsoft.DBforPostgreSQL/singleServers`, `Microsoft.DelegatedNetwork/controller`, `Microsoft.DevCenter/networkConnection`, `Microsoft.DevOpsInfrastructure/pools`, `Microsoft.DocumentDB/cassandraClusters`, `Microsoft.Fidalgo/networkSettings`, `Microsoft.HardwareSecurityModules/dedicatedHSMs`, `Microsoft.Kusto/clusters`, `Microsoft.LabServices/labplans`, `Microsoft.Logic/integrationServiceEnvironments`, `Microsoft.MachineLearningServices/workspaces`, `Microsoft.Netapp/volumes`, `Microsoft.Network/dnsResolvers`, `Microsoft.Network/managedResolvers`, `Microsoft.Network/fpgaNetworkInterfaces`, `Microsoft.Network/networkWatchers.`, `Microsoft.Network/virtualNetworkGateways`, `Microsoft.Orbital/orbitalGateways`, `Microsoft.PowerPlatform/enterprisePolicies`, `Microsoft.PowerPlatform/vnetaccesslinks`, `Microsoft.ServiceFabricMesh/networks`, `Microsoft.ServiceNetworking/trafficControllers`, `Microsoft.Singularity/accounts/networks`, `Microsoft.Singularity/accounts/npu`, `Microsoft.Sql/managedInstances`, `Microsoft.Sql/managedInstancesOnebox`, `Microsoft.Sql/managedInstancesStage`, `Microsoft.Sql/managedInstancesTest`, `Microsoft.Sql/servers`, `Microsoft.StoragePool/diskPools`, `Microsoft.StreamAnalytics/streamingJobs`, `Microsoft.Synapse/workspaces`, `Microsoft.Web/hostingEnvironments`, `Microsoft.Web/serverFarms`, `NGINX.NGINXPLUS/nginxDeployments`, `PaloAltoNetworks.Cloudngfw/firewalls`, `Qumulo.Storage/fileSystems`, and `Oracle.Database/networkAttachments`.
+        The name of service to delegate to. Possible values are `GitHub.Network/networkSettings`, `Informatica.DataManagement/organizations`, `Microsoft.ApiManagement/service`, `Microsoft.Apollo/npu`, `Microsoft.App/environments`, `Microsoft.App/testClients`, `Microsoft.AVS/PrivateClouds`, `Microsoft.AzureCosmosDB/clusters`, `Microsoft.BareMetal/AzureHostedService`, `Microsoft.BareMetal/AzureHPC`, `Microsoft.BareMetal/AzurePaymentHSM`, `Microsoft.BareMetal/AzureVMware`, `Microsoft.BareMetal/CrayServers`, `Microsoft.BareMetal/MonitoringServers`, `Microsoft.Batch/batchAccounts`, `Microsoft.CloudTest/hostedpools`, `Microsoft.CloudTest/images`, `Microsoft.CloudTest/pools`, `Microsoft.Codespaces/plans`, `Microsoft.ContainerInstance/containerGroups`, `Microsoft.ContainerService/managedClusters`, `Microsoft.ContainerService/TestClients`, `Microsoft.Databricks/workspaces`, `Microsoft.DBforMySQL/flexibleServers`, `Microsoft.DBforMySQL/servers`, `Microsoft.DBforMySQL/serversv2`, `Microsoft.DBforPostgreSQL/flexibleServers`, `Microsoft.DBforPostgreSQL/serversv2`, `Microsoft.DBforPostgreSQL/singleServers`, `Microsoft.DelegatedNetwork/controller`, `Microsoft.DevCenter/networkConnection`, `Microsoft.DevOpsInfrastructure/pools`, `Microsoft.DocumentDB/cassandraClusters`, `Microsoft.Fidalgo/networkSettings`, `Microsoft.HardwareSecurityModules/dedicatedHSMs`, `Microsoft.Kusto/clusters`, `Microsoft.LabServices/labplans`, `Microsoft.Logic/integrationServiceEnvironments`, `Microsoft.MachineLearningServices/workspaces`, `Microsoft.Netapp/volumes`, `Microsoft.Network/applicationGateways`, `Microsoft.Network/dnsResolvers`, `Microsoft.Network/managedResolvers`, `Microsoft.Network/fpgaNetworkInterfaces`, `Microsoft.Network/networkWatchers.`, `Microsoft.Network/virtualNetworkGateways`, `Microsoft.Orbital/orbitalGateways`, `Microsoft.PowerAutomate/hostedRpa`, `Microsoft.PowerPlatform/enterprisePolicies`, `Microsoft.PowerPlatform/vnetaccesslinks`, `Microsoft.ServiceFabricMesh/networks`, `Microsoft.ServiceNetworking/trafficControllers`, `Microsoft.Singularity/accounts/networks`, `Microsoft.Singularity/accounts/npu`, `Microsoft.Sql/managedInstances`, `Microsoft.Sql/managedInstancesOnebox`, `Microsoft.Sql/managedInstancesStage`, `Microsoft.Sql/managedInstancesTest`, `Microsoft.Sql/servers`, `Microsoft.StoragePool/diskPools`, `Microsoft.StreamAnalytics/streamingJobs`, `Microsoft.Synapse/workspaces`, `Microsoft.Web/hostingEnvironments`, `Microsoft.Web/serverFarms`, `NGINX.NGINXPLUS/nginxDeployments`, `PaloAltoNetworks.Cloudngfw/firewalls`, `Qumulo.Storage/fileSystems`, and `Oracle.Database/networkAttachments`.
         """
         return pulumi.get(self, "name")
 
@@ -11291,7 +11291,7 @@ class VirtualNetworkSubnetDelegationServiceDelegation(dict):
         """
         A list of Actions which should be delegated. This list is specific to the service to delegate to. Possible values are `Microsoft.Network/networkinterfaces/*`, `Microsoft.Network/publicIPAddresses/join/action`, `Microsoft.Network/publicIPAddresses/read`, `Microsoft.Network/virtualNetworks/read`, `Microsoft.Network/virtualNetworks/subnets/action`, `Microsoft.Network/virtualNetworks/subnets/join/action`, `Microsoft.Network/virtualNetworks/subnets/prepareNetworkPolicies/action`, and `Microsoft.Network/virtualNetworks/subnets/unprepareNetworkPolicies/action`.
 
-        > **NOTE:** Azure may add default actions depending on the service delegation name and they can't be changed.
+        > **Note:** Azure may add default actions depending on the service delegation name and they can't be changed.
         """
         return pulumi.get(self, "actions")
 
@@ -12701,12 +12701,12 @@ class VpnSiteLink(dict):
         :param builtins.str name: The name which should be used for this VPN Site Link.
         :param 'VpnSiteLinkBgpArgs' bgp: A `bgp` block as defined above.
                
-               > **NOTE:** The `link.bgp` has to be set when the `address_cidrs` isn't specified.
+               > **Note:** The `link.bgp` has to be set when the `address_cidrs` isn't specified.
         :param builtins.str fqdn: The FQDN of this VPN Site Link.
         :param builtins.str id: The ID of the VPN Site Link.
         :param builtins.str ip_address: The IP address of this VPN Site Link.
                
-               > **NOTE:** Either `fqdn` or `ip_address` should be specified.
+               > **Note:** Either `fqdn` or `ip_address` should be specified.
         :param builtins.str provider_name: The name of the physical link at the VPN Site. Example: `ATT`, `Verizon`.
         :param builtins.int speed_in_mbps: The speed of the VPN device at the branch location in unit of mbps. Defaults to `0`.
         """
@@ -12738,7 +12738,7 @@ class VpnSiteLink(dict):
         """
         A `bgp` block as defined above.
 
-        > **NOTE:** The `link.bgp` has to be set when the `address_cidrs` isn't specified.
+        > **Note:** The `link.bgp` has to be set when the `address_cidrs` isn't specified.
         """
         return pulumi.get(self, "bgp")
 
@@ -12764,7 +12764,7 @@ class VpnSiteLink(dict):
         """
         The IP address of this VPN Site Link.
 
-        > **NOTE:** Either `fqdn` or `ip_address` should be specified.
+        > **Note:** Either `fqdn` or `ip_address` should be specified.
         """
         return pulumi.get(self, "ip_address")
 

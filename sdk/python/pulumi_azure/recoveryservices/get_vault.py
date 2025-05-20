@@ -133,6 +133,13 @@ def get_vault(name: Optional[builtins.str] = None,
         resource_group_name="tfex-resource_group")
     ```
 
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.RecoveryServices`: 2024-01-01
+
 
     :param builtins.str name: Specifies the name of the Recovery Services Vault.
     :param builtins.str resource_group_name: The name of the resource group in which the Recovery Services Vault resides.
@@ -166,6 +173,13 @@ def get_vault_output(name: Optional[pulumi.Input[builtins.str]] = None,
     vault = azure.recoveryservices.get_vault(name="tfex-recovery_vault",
         resource_group_name="tfex-resource_group")
     ```
+
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.RecoveryServices`: 2024-01-01
 
 
     :param builtins.str name: Specifies the name of the Recovery Services Vault.

@@ -36,6 +36,13 @@ namespace Pulumi.Azure.Compute
         ///     };
         /// });
         /// ```
+        /// 
+        /// ## API Providers
+        /// 
+        /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+        /// This data source uses the following Azure API Providers:
+        /// 
+        /// * `Microsoft.ConfidentialLedger`: 2022-05-13
         /// </summary>
         public static Task<GetConfidentialLedgerResult> InvokeAsync(GetConfidentialLedgerArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetConfidentialLedgerResult>("azure:compute/getConfidentialLedger:getConfidentialLedger", args ?? new GetConfidentialLedgerArgs(), options.WithDefaults());
@@ -65,6 +72,13 @@ namespace Pulumi.Azure.Compute
         ///     };
         /// });
         /// ```
+        /// 
+        /// ## API Providers
+        /// 
+        /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+        /// This data source uses the following Azure API Providers:
+        /// 
+        /// * `Microsoft.ConfidentialLedger`: 2022-05-13
         /// </summary>
         public static Output<GetConfidentialLedgerResult> Invoke(GetConfidentialLedgerInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetConfidentialLedgerResult>("azure:compute/getConfidentialLedger:getConfidentialLedger", args ?? new GetConfidentialLedgerInvokeArgs(), options.WithDefaults());
@@ -94,6 +108,13 @@ namespace Pulumi.Azure.Compute
         ///     };
         /// });
         /// ```
+        /// 
+        /// ## API Providers
+        /// 
+        /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+        /// This data source uses the following Azure API Providers:
+        /// 
+        /// * `Microsoft.ConfidentialLedger`: 2022-05-13
         /// </summary>
         public static Output<GetConfidentialLedgerResult> Invoke(GetConfidentialLedgerInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetConfidentialLedgerResult>("azure:compute/getConfidentialLedger:getConfidentialLedger", args ?? new GetConfidentialLedgerInvokeArgs(), options.WithDefaults());

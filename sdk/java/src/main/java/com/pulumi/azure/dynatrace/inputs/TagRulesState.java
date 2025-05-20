@@ -18,14 +18,14 @@ public final class TagRulesState extends com.pulumi.resources.ResourceArgs {
     public static final TagRulesState Empty = new TagRulesState();
 
     /**
-     * Set of rules for sending logs for the Monitor resource. Changing this forces a new resource to be created. A `log_rule` block as defined below.
+     * Set of rules for sending logs for the Monitor resource. A `log_rule` block as defined below.
      * 
      */
     @Import(name="logRule")
     private @Nullable Output<TagRulesLogRuleArgs> logRule;
 
     /**
-     * @return Set of rules for sending logs for the Monitor resource. Changing this forces a new resource to be created. A `log_rule` block as defined below.
+     * @return Set of rules for sending logs for the Monitor resource. A `log_rule` block as defined below.
      * 
      */
     public Optional<Output<TagRulesLogRuleArgs>> logRule() {
@@ -33,14 +33,14 @@ public final class TagRulesState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Set of rules for sending metrics for the Monitor resource. Changing this forces a new resource to be created. A `metric_rule` block as defined below.
+     * Set of rules for sending metrics for the Monitor resource. A `metric_rule` block as defined below.
      * 
      */
     @Import(name="metricRule")
     private @Nullable Output<TagRulesMetricRuleArgs> metricRule;
 
     /**
-     * @return Set of rules for sending metrics for the Monitor resource. Changing this forces a new resource to be created. A `metric_rule` block as defined below.
+     * @return Set of rules for sending metrics for the Monitor resource. A `metric_rule` block as defined below.
      * 
      */
     public Optional<Output<TagRulesMetricRuleArgs>> metricRule() {
@@ -105,7 +105,7 @@ public final class TagRulesState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param logRule Set of rules for sending logs for the Monitor resource. Changing this forces a new resource to be created. A `log_rule` block as defined below.
+         * @param logRule Set of rules for sending logs for the Monitor resource. A `log_rule` block as defined below.
          * 
          * @return builder
          * 
@@ -116,7 +116,7 @@ public final class TagRulesState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param logRule Set of rules for sending logs for the Monitor resource. Changing this forces a new resource to be created. A `log_rule` block as defined below.
+         * @param logRule Set of rules for sending logs for the Monitor resource. A `log_rule` block as defined below.
          * 
          * @return builder
          * 
@@ -126,7 +126,7 @@ public final class TagRulesState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param metricRule Set of rules for sending metrics for the Monitor resource. Changing this forces a new resource to be created. A `metric_rule` block as defined below.
+         * @param metricRule Set of rules for sending metrics for the Monitor resource. A `metric_rule` block as defined below.
          * 
          * @return builder
          * 
@@ -137,7 +137,7 @@ public final class TagRulesState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param metricRule Set of rules for sending metrics for the Monitor resource. Changing this forces a new resource to be created. A `metric_rule` block as defined below.
+         * @param metricRule Set of rules for sending metrics for the Monitor resource. A `metric_rule` block as defined below.
          * 
          * @return builder
          * 

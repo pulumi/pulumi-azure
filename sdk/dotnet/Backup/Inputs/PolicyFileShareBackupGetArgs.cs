@@ -15,7 +15,7 @@ namespace Pulumi.Azure.Backup.Inputs
         /// <summary>
         /// Sets the backup frequency. Possible values are `Daily` and `Hourly`. 
         /// 
-        /// &gt; **NOTE:** This argument is made available for consistency with VM backup policies and to allow for potential future support of weekly backups
+        /// &gt; **Note:** This argument is made available for consistency with VM backup policies and to allow for potential future support of weekly backups
         /// </summary>
         [Input("frequency", required: true)]
         public Input<string> Frequency { get; set; } = null!;
@@ -29,7 +29,7 @@ namespace Pulumi.Azure.Backup.Inputs
         /// <summary>
         /// The time of day to perform the backup in 24-hour format. Times must be either on the hour or half hour (e.g. 12:00, 12:30, 13:00, etc.)
         /// 
-        /// &gt; **NOTE:** `time` is required when `frequency` is set to `Daily`.
+        /// &gt; **Note:** `time` is required when `frequency` is set to `Daily`.
         /// </summary>
         [Input("time")]
         public Input<string>? Time { get; set; }

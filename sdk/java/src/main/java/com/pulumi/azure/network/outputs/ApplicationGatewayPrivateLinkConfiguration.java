@@ -22,7 +22,7 @@ public final class ApplicationGatewayPrivateLinkConfiguration {
     /**
      * @return One or more `ip_configuration` blocks as defined below.
      * 
-     * &gt; **Please Note:** The `AllowApplicationGatewayPrivateLink` feature must be registered on the subscription before enabling private link
+     * &gt; **Note:** The `AllowApplicationGatewayPrivateLink` feature must be registered on the subscription before enabling private link
      * 
      */
     private List<ApplicationGatewayPrivateLinkConfigurationIpConfiguration> ipConfigurations;
@@ -43,7 +43,7 @@ public final class ApplicationGatewayPrivateLinkConfiguration {
     /**
      * @return One or more `ip_configuration` blocks as defined below.
      * 
-     * &gt; **Please Note:** The `AllowApplicationGatewayPrivateLink` feature must be registered on the subscription before enabling private link
+     * &gt; **Note:** The `AllowApplicationGatewayPrivateLink` feature must be registered on the subscription before enabling private link
      * 
      */
     public List<ApplicationGatewayPrivateLinkConfigurationIpConfiguration> ipConfigurations() {

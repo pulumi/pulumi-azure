@@ -40,6 +40,13 @@ import (
 //	}
 //
 // ```
+//
+// ## API Providers
+//
+// <!-- This section is generated, changes will be overwritten -->
+// This data source uses the following Azure API Providers:
+//
+// * `Microsoft.Sql`: 2023-08-01-preview
 func LookupServer(ctx *pulumi.Context, args *LookupServerArgs, opts ...pulumi.InvokeOption) (*LookupServerResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupServerResult
@@ -60,25 +67,27 @@ type LookupServerArgs struct {
 
 // A collection of values returned by getServer.
 type LookupServerResult struct {
-	// The server's administrator login name.
+	// The administrator login name of the Microsoft SQL Server.
 	AdministratorLogin string `pulumi:"administratorLogin"`
-	// The fully qualified domain name of the Azure SQL Server.
+	// Whether the Express Vulnerability Assessment Configuration is enabled.
+	ExpressVulnerabilityAssessmentEnabled bool `pulumi:"expressVulnerabilityAssessmentEnabled"`
+	// The fully qualified domain name of the Microsoft SQL Server.
 	FullyQualifiedDomainName string `pulumi:"fullyQualifiedDomainName"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
-	// A `identity` block as defined below.
+	// An `identity` block as defined below.
 	Identities []GetServerIdentity `pulumi:"identities"`
 	// The Azure Region where the Microsoft SQL Server exists.
 	Location          string `pulumi:"location"`
 	Name              string `pulumi:"name"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// A list of dropped restorable database IDs on the server.
+	// A list of dropped restorable database IDs on the Microsoft SQL Server.
 	RestorableDroppedDatabaseIds []string `pulumi:"restorableDroppedDatabaseIds"`
 	// A mapping of tags assigned to this Microsoft SQL Server.
 	Tags map[string]string `pulumi:"tags"`
-	// The Key Vault key URI to be used as the `Customer Managed Key`(CMK/BYOK) for the `Transparent Data Encryption`(TDE) layer.
+	// The Key Vault Key URI to be used as the `Customer Managed Key` (CMK/BYOK) for the `Transparent Data Encryption` (TDE) layer.
 	TransparentDataEncryptionKeyVaultKeyId string `pulumi:"transparentDataEncryptionKeyVaultKeyId"`
-	// This servers MS SQL version.
+	// The version of the Microsoft SQL Server.
 	Version string `pulumi:"version"`
 }
 
@@ -118,12 +127,17 @@ func (o LookupServerResultOutput) ToLookupServerResultOutputWithContext(ctx cont
 	return o
 }
 
-// The server's administrator login name.
+// The administrator login name of the Microsoft SQL Server.
 func (o LookupServerResultOutput) AdministratorLogin() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupServerResult) string { return v.AdministratorLogin }).(pulumi.StringOutput)
 }
 
-// The fully qualified domain name of the Azure SQL Server.
+// Whether the Express Vulnerability Assessment Configuration is enabled.
+func (o LookupServerResultOutput) ExpressVulnerabilityAssessmentEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v LookupServerResult) bool { return v.ExpressVulnerabilityAssessmentEnabled }).(pulumi.BoolOutput)
+}
+
+// The fully qualified domain name of the Microsoft SQL Server.
 func (o LookupServerResultOutput) FullyQualifiedDomainName() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupServerResult) string { return v.FullyQualifiedDomainName }).(pulumi.StringOutput)
 }
@@ -133,7 +147,7 @@ func (o LookupServerResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupServerResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// A `identity` block as defined below.
+// An `identity` block as defined below.
 func (o LookupServerResultOutput) Identities() GetServerIdentityArrayOutput {
 	return o.ApplyT(func(v LookupServerResult) []GetServerIdentity { return v.Identities }).(GetServerIdentityArrayOutput)
 }
@@ -151,7 +165,7 @@ func (o LookupServerResultOutput) ResourceGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupServerResult) string { return v.ResourceGroupName }).(pulumi.StringOutput)
 }
 
-// A list of dropped restorable database IDs on the server.
+// A list of dropped restorable database IDs on the Microsoft SQL Server.
 func (o LookupServerResultOutput) RestorableDroppedDatabaseIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupServerResult) []string { return v.RestorableDroppedDatabaseIds }).(pulumi.StringArrayOutput)
 }
@@ -161,12 +175,12 @@ func (o LookupServerResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupServerResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// The Key Vault key URI to be used as the `Customer Managed Key`(CMK/BYOK) for the `Transparent Data Encryption`(TDE) layer.
+// The Key Vault Key URI to be used as the `Customer Managed Key` (CMK/BYOK) for the `Transparent Data Encryption` (TDE) layer.
 func (o LookupServerResultOutput) TransparentDataEncryptionKeyVaultKeyId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupServerResult) string { return v.TransparentDataEncryptionKeyVaultKeyId }).(pulumi.StringOutput)
 }
 
-// This servers MS SQL version.
+// The version of the Microsoft SQL Server.
 func (o LookupServerResultOutput) Version() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupServerResult) string { return v.Version }).(pulumi.StringOutput)
 }

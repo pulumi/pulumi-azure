@@ -233,6 +233,13 @@ class DscNodeConfiguration(pulumi.CustomResource):
             opts = pulumi.ResourceOptions(depends_on=[example_dsc_configuration]))
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Automation`: 2023-11-01
+
         ## Import
 
         Automation DSC Node Configuration's can be imported using the `resource id`, e.g.
@@ -305,6 +312,13 @@ class DscNodeConfiguration(pulumi.CustomResource):
         \"\"\",
             opts = pulumi.ResourceOptions(depends_on=[example_dsc_configuration]))
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Automation`: 2023-11-01
 
         ## Import
 

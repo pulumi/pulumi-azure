@@ -13,7 +13,7 @@ import (
 
 // Use this data source to access information about an existing Azure Blueprint Definition
 //
-// > **NOTE:** Azure Blueprints are in Preview and potentially subject to breaking change without notice.
+// > **Note:** Azure Blueprints are in Preview and potentially subject to breaking change without notice.
 //
 // ## Example Usage
 //
@@ -53,6 +53,13 @@ import (
 //	}
 //
 // ```
+//
+// ## API Providers
+//
+// <!-- This section is generated, changes will be overwritten -->
+// This data source uses the following Azure API Providers:
+//
+// * `Microsoft.Blueprint`: 2018-11-01-preview
 func GetDefinition(ctx *pulumi.Context, args *GetDefinitionArgs, opts ...pulumi.InvokeOption) (*GetDefinitionResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetDefinitionResult

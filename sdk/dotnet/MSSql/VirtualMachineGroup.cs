@@ -45,6 +45,13 @@ namespace Pulumi.Azure.MSSql
     /// });
     /// ```
     /// 
+    /// ## API Providers
+    /// 
+    /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+    /// This resource uses the following Azure API Providers:
+    /// 
+    /// * `Microsoft.SqlVirtualMachine`: 2023-10-01
+    /// 
     /// ## Import
     /// 
     /// Microsoft SQL Virtual Machine Groups can be imported using the `resource id`, e.g.

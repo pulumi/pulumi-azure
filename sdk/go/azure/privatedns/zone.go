@@ -49,6 +49,13 @@ import (
 //
 // ```
 //
+// ## API Providers
+//
+// <!-- This section is generated, changes will be overwritten -->
+// This resource uses the following Azure API Providers:
+//
+// * `Microsoft.Network`: 2024-06-01
+//
 // ## Import
 //
 // Private DNS Zones can be imported using the `resource id`, e.g.
@@ -67,7 +74,7 @@ type Zone struct {
 	MaxNumberOfVirtualNetworkLinksWithRegistration pulumi.IntOutput `pulumi:"maxNumberOfVirtualNetworkLinksWithRegistration"`
 	// The name of the Private DNS Zone. Must be a valid domain name. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** If you are going to be using the Private DNS Zone with a Private Endpoint the name of the Private DNS Zone must follow the **Private DNS Zone name** schema in the [product documentation](https://docs.microsoft.com/azure/private-link/private-endpoint-dns#virtual-network-and-on-premises-workloads-using-a-dns-forwarder) in order for the two resources to be connected successfully.
+	// > **Note:** If you are going to be using the Private DNS Zone with a Private Endpoint the name of the Private DNS Zone must follow the **Private DNS Zone name** schema in the [product documentation](https://docs.microsoft.com/azure/private-link/private-endpoint-dns#virtual-network-and-on-premises-workloads-using-a-dns-forwarder) in order for the two resources to be connected successfully.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The current number of record sets in this Private DNS zone.
 	NumberOfRecordSets pulumi.IntOutput `pulumi:"numberOfRecordSets"`
@@ -120,7 +127,7 @@ type zoneState struct {
 	MaxNumberOfVirtualNetworkLinksWithRegistration *int `pulumi:"maxNumberOfVirtualNetworkLinksWithRegistration"`
 	// The name of the Private DNS Zone. Must be a valid domain name. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** If you are going to be using the Private DNS Zone with a Private Endpoint the name of the Private DNS Zone must follow the **Private DNS Zone name** schema in the [product documentation](https://docs.microsoft.com/azure/private-link/private-endpoint-dns#virtual-network-and-on-premises-workloads-using-a-dns-forwarder) in order for the two resources to be connected successfully.
+	// > **Note:** If you are going to be using the Private DNS Zone with a Private Endpoint the name of the Private DNS Zone must follow the **Private DNS Zone name** schema in the [product documentation](https://docs.microsoft.com/azure/private-link/private-endpoint-dns#virtual-network-and-on-premises-workloads-using-a-dns-forwarder) in order for the two resources to be connected successfully.
 	Name *string `pulumi:"name"`
 	// The current number of record sets in this Private DNS zone.
 	NumberOfRecordSets *int `pulumi:"numberOfRecordSets"`
@@ -141,7 +148,7 @@ type ZoneState struct {
 	MaxNumberOfVirtualNetworkLinksWithRegistration pulumi.IntPtrInput
 	// The name of the Private DNS Zone. Must be a valid domain name. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** If you are going to be using the Private DNS Zone with a Private Endpoint the name of the Private DNS Zone must follow the **Private DNS Zone name** schema in the [product documentation](https://docs.microsoft.com/azure/private-link/private-endpoint-dns#virtual-network-and-on-premises-workloads-using-a-dns-forwarder) in order for the two resources to be connected successfully.
+	// > **Note:** If you are going to be using the Private DNS Zone with a Private Endpoint the name of the Private DNS Zone must follow the **Private DNS Zone name** schema in the [product documentation](https://docs.microsoft.com/azure/private-link/private-endpoint-dns#virtual-network-and-on-premises-workloads-using-a-dns-forwarder) in order for the two resources to be connected successfully.
 	Name pulumi.StringPtrInput
 	// The current number of record sets in this Private DNS zone.
 	NumberOfRecordSets pulumi.IntPtrInput
@@ -160,7 +167,7 @@ func (ZoneState) ElementType() reflect.Type {
 type zoneArgs struct {
 	// The name of the Private DNS Zone. Must be a valid domain name. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** If you are going to be using the Private DNS Zone with a Private Endpoint the name of the Private DNS Zone must follow the **Private DNS Zone name** schema in the [product documentation](https://docs.microsoft.com/azure/private-link/private-endpoint-dns#virtual-network-and-on-premises-workloads-using-a-dns-forwarder) in order for the two resources to be connected successfully.
+	// > **Note:** If you are going to be using the Private DNS Zone with a Private Endpoint the name of the Private DNS Zone must follow the **Private DNS Zone name** schema in the [product documentation](https://docs.microsoft.com/azure/private-link/private-endpoint-dns#virtual-network-and-on-premises-workloads-using-a-dns-forwarder) in order for the two resources to be connected successfully.
 	Name *string `pulumi:"name"`
 	// Specifies the resource group where the resource exists. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
@@ -174,7 +181,7 @@ type zoneArgs struct {
 type ZoneArgs struct {
 	// The name of the Private DNS Zone. Must be a valid domain name. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** If you are going to be using the Private DNS Zone with a Private Endpoint the name of the Private DNS Zone must follow the **Private DNS Zone name** schema in the [product documentation](https://docs.microsoft.com/azure/private-link/private-endpoint-dns#virtual-network-and-on-premises-workloads-using-a-dns-forwarder) in order for the two resources to be connected successfully.
+	// > **Note:** If you are going to be using the Private DNS Zone with a Private Endpoint the name of the Private DNS Zone must follow the **Private DNS Zone name** schema in the [product documentation](https://docs.microsoft.com/azure/private-link/private-endpoint-dns#virtual-network-and-on-premises-workloads-using-a-dns-forwarder) in order for the two resources to be connected successfully.
 	Name pulumi.StringPtrInput
 	// Specifies the resource group where the resource exists. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
@@ -288,7 +295,7 @@ func (o ZoneOutput) MaxNumberOfVirtualNetworkLinksWithRegistration() pulumi.IntO
 
 // The name of the Private DNS Zone. Must be a valid domain name. Changing this forces a new resource to be created.
 //
-// > **NOTE:** If you are going to be using the Private DNS Zone with a Private Endpoint the name of the Private DNS Zone must follow the **Private DNS Zone name** schema in the [product documentation](https://docs.microsoft.com/azure/private-link/private-endpoint-dns#virtual-network-and-on-premises-workloads-using-a-dns-forwarder) in order for the two resources to be connected successfully.
+// > **Note:** If you are going to be using the Private DNS Zone with a Private Endpoint the name of the Private DNS Zone must follow the **Private DNS Zone name** schema in the [product documentation](https://docs.microsoft.com/azure/private-link/private-endpoint-dns#virtual-network-and-on-premises-workloads-using-a-dns-forwarder) in order for the two resources to be connected successfully.
 func (o ZoneOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Zone) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }

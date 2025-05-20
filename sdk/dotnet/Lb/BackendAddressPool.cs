@@ -12,7 +12,7 @@ namespace Pulumi.Azure.Lb
     /// <summary>
     /// Manages a Load Balancer Backend Address Pool.
     /// 
-    /// &gt; **NOTE:** When using this resource, the Load Balancer needs to have a FrontEnd IP Configuration Attached
+    /// &gt; **Note:** When using this resource, the Load Balancer needs to have a FrontEnd IP Configuration Attached
     /// 
     /// ## Example Usage
     /// 
@@ -61,6 +61,13 @@ namespace Pulumi.Azure.Lb
     /// 
     /// });
     /// ```
+    /// 
+    /// ## API Providers
+    /// 
+    /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+    /// This resource uses the following Azure API Providers:
+    /// 
+    /// * `Microsoft.Network`: 2023-09-01
     /// 
     /// ## Import
     /// 
@@ -112,7 +119,7 @@ namespace Pulumi.Azure.Lb
         /// <summary>
         /// The backend address synchronous mode for the Backend Address Pool. Possible values are `Automatic` and `Manual`. This is required with `virtual_network_id`. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **NOTE:** The `synchronous_mode` can set only for Load Balancer with `Standard` SKU.
+        /// &gt; **Note:** The `synchronous_mode` can set only for Load Balancer with `Standard` SKU.
         /// </summary>
         [Output("synchronousMode")]
         public Output<string?> SynchronousMode { get; private set; } = null!;
@@ -190,7 +197,7 @@ namespace Pulumi.Azure.Lb
         /// <summary>
         /// The backend address synchronous mode for the Backend Address Pool. Possible values are `Automatic` and `Manual`. This is required with `virtual_network_id`. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **NOTE:** The `synchronous_mode` can set only for Load Balancer with `Standard` SKU.
+        /// &gt; **Note:** The `synchronous_mode` can set only for Load Balancer with `Standard` SKU.
         /// </summary>
         [Input("synchronousMode")]
         public Input<string>? SynchronousMode { get; set; }
@@ -284,7 +291,7 @@ namespace Pulumi.Azure.Lb
         /// <summary>
         /// The backend address synchronous mode for the Backend Address Pool. Possible values are `Automatic` and `Manual`. This is required with `virtual_network_id`. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **NOTE:** The `synchronous_mode` can set only for Load Balancer with `Standard` SKU.
+        /// &gt; **Note:** The `synchronous_mode` can set only for Load Balancer with `Standard` SKU.
         /// </summary>
         [Input("synchronousMode")]
         public Input<string>? SynchronousMode { get; set; }

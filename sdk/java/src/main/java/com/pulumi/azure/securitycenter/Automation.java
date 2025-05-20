@@ -190,7 +190,7 @@ public class Automation extends com.pulumi.resources.CustomResource {
     /**
      * The name which should be used for this Security Center Automation. Changing this forces a new Security Center Automation to be created.
      * 
-     * &gt; **NOTE:** For the automation to appear in Azure Portal correctly under Microsoft Defender for Cloud &gt; Environment Settings &gt; Account &gt; Continuous Export, either `ExportToWorkspace` or `ExportToEventHub` must be used.
+     * &gt; **Note:** For the automation to appear in Azure Portal correctly under Microsoft Defender for Cloud &gt; Environment Settings &gt; Account &gt; Continuous Export, either `ExportToWorkspace` or `ExportToEventHub` must be used.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
@@ -199,7 +199,7 @@ public class Automation extends com.pulumi.resources.CustomResource {
     /**
      * @return The name which should be used for this Security Center Automation. Changing this forces a new Security Center Automation to be created.
      * 
-     * &gt; **NOTE:** For the automation to appear in Azure Portal correctly under Microsoft Defender for Cloud &gt; Environment Settings &gt; Account &gt; Continuous Export, either `ExportToWorkspace` or `ExportToEventHub` must be used.
+     * &gt; **Note:** For the automation to appear in Azure Portal correctly under Microsoft Defender for Cloud &gt; Environment Settings &gt; Account &gt; Continuous Export, either `ExportToWorkspace` or `ExportToEventHub` must be used.
      * 
      */
     public Output<String> name() {

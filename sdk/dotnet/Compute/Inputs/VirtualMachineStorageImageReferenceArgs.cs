@@ -14,6 +14,8 @@ namespace Pulumi.Azure.Compute.Inputs
     {
         /// <summary>
         /// Specifies the ID of the Custom Image which the Virtual Machine should be created from. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **Note:** An example of how to use this is available within the `./examples/virtual-machines/virtual_machine/managed-disks/from-custom-image` directory within the GitHub Repository
         /// </summary>
         [Input("id")]
         public Input<string>? Id { get; set; }

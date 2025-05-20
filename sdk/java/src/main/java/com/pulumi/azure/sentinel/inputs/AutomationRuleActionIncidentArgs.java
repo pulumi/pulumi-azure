@@ -104,7 +104,7 @@ public final class AutomationRuleActionIncidentArgs extends com.pulumi.resources
     /**
      * The severity to add to the incident. Possible values are `High`, `Informational`, `Low` and `Medium`.
      * 
-     * &gt; **Note:**: At least one of `status`, `labels`, `owner_id` and `severity` has to be set.
+     * &gt; **Note:** At least one of `status`, `labels`, `owner_id` and `severity` has to be set.
      * 
      */
     @Import(name="severity")
@@ -113,7 +113,7 @@ public final class AutomationRuleActionIncidentArgs extends com.pulumi.resources
     /**
      * @return The severity to add to the incident. Possible values are `High`, `Informational`, `Low` and `Medium`.
      * 
-     * &gt; **Note:**: At least one of `status`, `labels`, `owner_id` and `severity` has to be set.
+     * &gt; **Note:** At least one of `status`, `labels`, `owner_id` and `severity` has to be set.
      * 
      */
     public Optional<Output<String>> severity() {
@@ -291,7 +291,7 @@ public final class AutomationRuleActionIncidentArgs extends com.pulumi.resources
         /**
          * @param severity The severity to add to the incident. Possible values are `High`, `Informational`, `Low` and `Medium`.
          * 
-         * &gt; **Note:**: At least one of `status`, `labels`, `owner_id` and `severity` has to be set.
+         * &gt; **Note:** At least one of `status`, `labels`, `owner_id` and `severity` has to be set.
          * 
          * @return builder
          * 
@@ -304,7 +304,7 @@ public final class AutomationRuleActionIncidentArgs extends com.pulumi.resources
         /**
          * @param severity The severity to add to the incident. Possible values are `High`, `Informational`, `Low` and `Medium`.
          * 
-         * &gt; **Note:**: At least one of `status`, `labels`, `owner_id` and `severity` has to be set.
+         * &gt; **Note:** At least one of `status`, `labels`, `owner_id` and `severity` has to be set.
          * 
          * @return builder
          * 

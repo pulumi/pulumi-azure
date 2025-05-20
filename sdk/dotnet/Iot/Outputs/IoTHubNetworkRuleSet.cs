@@ -18,7 +18,7 @@ namespace Pulumi.Azure.Iot.Outputs
         /// </summary>
         public readonly bool? ApplyToBuiltinEventhubEndpoint;
         /// <summary>
-        /// Default Action for Network Rule Set. Possible values are `DefaultActionDeny`, `DefaultActionAllow`. Defaults to `DefaultActionDeny`.
+        /// Default Action for Network Rule Set. Possible values are `Deny`, `Allow`. Defaults to `Deny`.
         /// </summary>
         public readonly string? DefaultAction;
         /// <summary>

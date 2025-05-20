@@ -37,6 +37,13 @@ namespace Pulumi.Azure.NetApp
         ///     };
         /// });
         /// ```
+        /// 
+        /// ## API Providers
+        /// 
+        /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+        /// This data source uses the following Azure API Providers:
+        /// 
+        /// * `Microsoft.NetApp`: 2025-01-01
         /// </summary>
         public static Task<GetPoolResult> InvokeAsync(GetPoolArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPoolResult>("azure:netapp/getPool:getPool", args ?? new GetPoolArgs(), options.WithDefaults());
@@ -67,6 +74,13 @@ namespace Pulumi.Azure.NetApp
         ///     };
         /// });
         /// ```
+        /// 
+        /// ## API Providers
+        /// 
+        /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+        /// This data source uses the following Azure API Providers:
+        /// 
+        /// * `Microsoft.NetApp`: 2025-01-01
         /// </summary>
         public static Output<GetPoolResult> Invoke(GetPoolInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPoolResult>("azure:netapp/getPool:getPool", args ?? new GetPoolInvokeArgs(), options.WithDefaults());
@@ -97,6 +111,13 @@ namespace Pulumi.Azure.NetApp
         ///     };
         /// });
         /// ```
+        /// 
+        /// ## API Providers
+        /// 
+        /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+        /// This data source uses the following Azure API Providers:
+        /// 
+        /// * `Microsoft.NetApp`: 2025-01-01
         /// </summary>
         public static Output<GetPoolResult> Invoke(GetPoolInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetPoolResult>("azure:netapp/getPool:getPool", args ?? new GetPoolInvokeArgs(), options.WithDefaults());
@@ -161,6 +182,10 @@ namespace Pulumi.Azure.NetApp
     {
         public readonly string AccountName;
         /// <summary>
+        /// Whether the NetApp Pool can hold cool access enabled volumes.
+        /// </summary>
+        public readonly bool CoolAccessEnabled;
+        /// <summary>
         /// The encryption type of the pool.
         /// </summary>
         public readonly string EncryptionType;
@@ -187,6 +212,8 @@ namespace Pulumi.Azure.NetApp
         private GetPoolResult(
             string accountName,
 
+            bool coolAccessEnabled,
+
             string encryptionType,
 
             string id,
@@ -202,6 +229,7 @@ namespace Pulumi.Azure.NetApp
             int sizeInTb)
         {
             AccountName = accountName;
+            CoolAccessEnabled = coolAccessEnabled;
             EncryptionType = encryptionType;
             Id = id;
             Location = location;

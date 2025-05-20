@@ -31,11 +31,7 @@ class CassandraKeyspaceArgs:
         The set of arguments for constructing a CassandraKeyspace resource.
         :param pulumi.Input[builtins.str] account_name: The name of the Cosmos DB Cassandra KeySpace to create the table within. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] resource_group_name: The name of the resource group in which the Cosmos DB Cassandra KeySpace is created. Changing this forces a new resource to be created.
-        :param pulumi.Input['CassandraKeyspaceAutoscaleSettingsArgs'] autoscale_settings: An `autoscale_settings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual destroy-apply.
-               
-               > **Note:** Switching between autoscale and manual throughput is not supported via this provider and must be completed via the Azure Portal and refreshed.
         :param pulumi.Input[builtins.str] name: Specifies the name of the Cosmos DB Cassandra KeySpace. Changing this forces a new resource to be created.
-        :param pulumi.Input[builtins.int] throughput: The throughput of Cassandra KeySpace (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon database creation otherwise it cannot be updated without a manual resource destroy-apply.
         """
         pulumi.set(__self__, "account_name", account_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
@@ -73,11 +69,6 @@ class CassandraKeyspaceArgs:
     @property
     @pulumi.getter(name="autoscaleSettings")
     def autoscale_settings(self) -> Optional[pulumi.Input['CassandraKeyspaceAutoscaleSettingsArgs']]:
-        """
-        An `autoscale_settings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual destroy-apply.
-
-        > **Note:** Switching between autoscale and manual throughput is not supported via this provider and must be completed via the Azure Portal and refreshed.
-        """
         return pulumi.get(self, "autoscale_settings")
 
     @autoscale_settings.setter
@@ -99,9 +90,6 @@ class CassandraKeyspaceArgs:
     @property
     @pulumi.getter
     def throughput(self) -> Optional[pulumi.Input[builtins.int]]:
-        """
-        The throughput of Cassandra KeySpace (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon database creation otherwise it cannot be updated without a manual resource destroy-apply.
-        """
         return pulumi.get(self, "throughput")
 
     @throughput.setter
@@ -120,12 +108,8 @@ class _CassandraKeyspaceState:
         """
         Input properties used for looking up and filtering CassandraKeyspace resources.
         :param pulumi.Input[builtins.str] account_name: The name of the Cosmos DB Cassandra KeySpace to create the table within. Changing this forces a new resource to be created.
-        :param pulumi.Input['CassandraKeyspaceAutoscaleSettingsArgs'] autoscale_settings: An `autoscale_settings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual destroy-apply.
-               
-               > **Note:** Switching between autoscale and manual throughput is not supported via this provider and must be completed via the Azure Portal and refreshed.
         :param pulumi.Input[builtins.str] name: Specifies the name of the Cosmos DB Cassandra KeySpace. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] resource_group_name: The name of the resource group in which the Cosmos DB Cassandra KeySpace is created. Changing this forces a new resource to be created.
-        :param pulumi.Input[builtins.int] throughput: The throughput of Cassandra KeySpace (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon database creation otherwise it cannot be updated without a manual resource destroy-apply.
         """
         if account_name is not None:
             pulumi.set(__self__, "account_name", account_name)
@@ -153,11 +137,6 @@ class _CassandraKeyspaceState:
     @property
     @pulumi.getter(name="autoscaleSettings")
     def autoscale_settings(self) -> Optional[pulumi.Input['CassandraKeyspaceAutoscaleSettingsArgs']]:
-        """
-        An `autoscale_settings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual destroy-apply.
-
-        > **Note:** Switching between autoscale and manual throughput is not supported via this provider and must be completed via the Azure Portal and refreshed.
-        """
         return pulumi.get(self, "autoscale_settings")
 
     @autoscale_settings.setter
@@ -191,9 +170,6 @@ class _CassandraKeyspaceState:
     @property
     @pulumi.getter
     def throughput(self) -> Optional[pulumi.Input[builtins.int]]:
-        """
-        The throughput of Cassandra KeySpace (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon database creation otherwise it cannot be updated without a manual resource destroy-apply.
-        """
         return pulumi.get(self, "throughput")
 
     @throughput.setter
@@ -258,12 +234,8 @@ class CassandraKeyspace(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] account_name: The name of the Cosmos DB Cassandra KeySpace to create the table within. Changing this forces a new resource to be created.
-        :param pulumi.Input[Union['CassandraKeyspaceAutoscaleSettingsArgs', 'CassandraKeyspaceAutoscaleSettingsArgsDict']] autoscale_settings: An `autoscale_settings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual destroy-apply.
-               
-               > **Note:** Switching between autoscale and manual throughput is not supported via this provider and must be completed via the Azure Portal and refreshed.
         :param pulumi.Input[builtins.str] name: Specifies the name of the Cosmos DB Cassandra KeySpace. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] resource_group_name: The name of the resource group in which the Cosmos DB Cassandra KeySpace is created. Changing this forces a new resource to be created.
-        :param pulumi.Input[builtins.int] throughput: The throughput of Cassandra KeySpace (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon database creation otherwise it cannot be updated without a manual resource destroy-apply.
         """
         ...
     @overload
@@ -374,12 +346,8 @@ class CassandraKeyspace(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] account_name: The name of the Cosmos DB Cassandra KeySpace to create the table within. Changing this forces a new resource to be created.
-        :param pulumi.Input[Union['CassandraKeyspaceAutoscaleSettingsArgs', 'CassandraKeyspaceAutoscaleSettingsArgsDict']] autoscale_settings: An `autoscale_settings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual destroy-apply.
-               
-               > **Note:** Switching between autoscale and manual throughput is not supported via this provider and must be completed via the Azure Portal and refreshed.
         :param pulumi.Input[builtins.str] name: Specifies the name of the Cosmos DB Cassandra KeySpace. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] resource_group_name: The name of the resource group in which the Cosmos DB Cassandra KeySpace is created. Changing this forces a new resource to be created.
-        :param pulumi.Input[builtins.int] throughput: The throughput of Cassandra KeySpace (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon database creation otherwise it cannot be updated without a manual resource destroy-apply.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -403,11 +371,6 @@ class CassandraKeyspace(pulumi.CustomResource):
     @property
     @pulumi.getter(name="autoscaleSettings")
     def autoscale_settings(self) -> pulumi.Output[Optional['outputs.CassandraKeyspaceAutoscaleSettings']]:
-        """
-        An `autoscale_settings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual destroy-apply.
-
-        > **Note:** Switching between autoscale and manual throughput is not supported via this provider and must be completed via the Azure Portal and refreshed.
-        """
         return pulumi.get(self, "autoscale_settings")
 
     @property
@@ -429,8 +392,5 @@ class CassandraKeyspace(pulumi.CustomResource):
     @property
     @pulumi.getter
     def throughput(self) -> pulumi.Output[builtins.int]:
-        """
-        The throughput of Cassandra KeySpace (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon database creation otherwise it cannot be updated without a manual resource destroy-apply.
-        """
         return pulumi.get(self, "throughput")
 

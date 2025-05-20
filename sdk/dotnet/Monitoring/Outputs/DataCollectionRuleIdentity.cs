@@ -16,7 +16,7 @@ namespace Pulumi.Azure.Monitoring.Outputs
         /// <summary>
         /// A list of User Assigned Managed Identity IDs to be assigned to this Data Collection Rule. Currently, up to 1 identity is supported.
         /// 
-        /// &gt; **NOTE:** This is required when `type` is set to `UserAssigned`.
+        /// &gt; **Note:** This is required when `type` is set to `UserAssigned`.
         /// </summary>
         public readonly ImmutableArray<string> IdentityIds;
         /// <summary>

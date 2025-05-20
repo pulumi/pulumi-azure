@@ -922,7 +922,7 @@ if not MYPY:
 
         > **Note:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
 
-        > The assigned `principal_id` and `tenant_id` can be retrieved after the identity `type` has been set to `SystemAssigned`  and Storage Account has been created. More details are available below.
+        > **Note:** The assigned `principal_id` and `tenant_id` can be retrieved after the identity `type` has been set to `SystemAssigned`  and Storage Account has been created. More details are available below.
         """
         principal_id: NotRequired[pulumi.Input[builtins.str]]
         """
@@ -948,7 +948,7 @@ class AccountIdentityArgs:
                
                > **Note:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
                
-               > The assigned `principal_id` and `tenant_id` can be retrieved after the identity `type` has been set to `SystemAssigned`  and Storage Account has been created. More details are available below.
+               > **Note:** The assigned `principal_id` and `tenant_id` can be retrieved after the identity `type` has been set to `SystemAssigned`  and Storage Account has been created. More details are available below.
         :param pulumi.Input[builtins.str] principal_id: The Principal ID for the Service Principal associated with the Identity of this Storage Account.
         :param pulumi.Input[builtins.str] tenant_id: The Tenant ID for the Service Principal associated with the Identity of this Storage Account.
         """
@@ -980,7 +980,7 @@ class AccountIdentityArgs:
 
         > **Note:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
 
-        > The assigned `principal_id` and `tenant_id` can be retrieved after the identity `type` has been set to `SystemAssigned`  and Storage Account has been created. More details are available below.
+        > **Note:** The assigned `principal_id` and `tenant_id` can be retrieved after the identity `type` has been set to `SystemAssigned`  and Storage Account has been created. More details are available below.
         """
         return pulumi.get(self, "identity_ids")
 
@@ -2424,7 +2424,7 @@ if not MYPY:
         """
         A set of blob types. Possible values are `blockBlob`, `appendBlob`, and `pageBlob`. The storage account with `is_hns_enabled` is `true` doesn't support `pageBlob`.
 
-        > **NOTE:** The `rules.*.schema_fields` for this rule has to include `BlobType` so that you can specify the `blob_types`.
+        > **Note:** The `rules.*.schema_fields` for this rule has to include `BlobType` so that you can specify the `blob_types`.
         """
         exclude_prefixes: NotRequired[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]
         """
@@ -2434,19 +2434,19 @@ if not MYPY:
         """
         Includes blob versions in blob inventory or not? Defaults to `false`.
 
-        > **NOTE:** The `rules.*.schema_fields` for this rule has to include `IsCurrentVersion` and `VersionId` so that you can specify the `include_blob_versions`.
+        > **Note:** The `rules.*.schema_fields` for this rule has to include `IsCurrentVersion` and `VersionId` so that you can specify the `include_blob_versions`.
         """
         include_deleted: NotRequired[pulumi.Input[builtins.bool]]
         """
         Includes deleted blobs in blob inventory or not? Defaults to `false`.
 
-        > **NOTE:** If `rules.*.scope` is `Container`, the `rules.*.schema_fields` for this rule must include `Deleted`, `Version`, `DeletedTime`, and `RemainingRetentionDays` so that you can specify the `include_deleted`. If `rules.*.scope` is `Blob`, the `rules.*.schema_fields` must include `Deleted` and `RemainingRetentionDays` so that you can specify the `include_deleted`. If `rules.*.scope` is `Blob` and the storage account specified by `storage_account_id` has hierarchical namespaces enabled (`is_hns_enabled` is `true` on the storage account), the `rules.*.schema_fields` for this rule must include `Deleted`, `Version`, `DeletedTime`, and `RemainingRetentionDays` so that you can specify the `include_deleted`.
+        > **Note:** If `rules.*.scope` is `Container`, the `rules.*.schema_fields` for this rule must include `Deleted`, `Version`, `DeletedTime`, and `RemainingRetentionDays` so that you can specify the `include_deleted`. If `rules.*.scope` is `Blob`, the `rules.*.schema_fields` must include `Deleted` and `RemainingRetentionDays` so that you can specify the `include_deleted`. If `rules.*.scope` is `Blob` and the storage account specified by `storage_account_id` has hierarchical namespaces enabled (`is_hns_enabled` is `true` on the storage account), the `rules.*.schema_fields` for this rule must include `Deleted`, `Version`, `DeletedTime`, and `RemainingRetentionDays` so that you can specify the `include_deleted`.
         """
         include_snapshots: NotRequired[pulumi.Input[builtins.bool]]
         """
         Includes blob snapshots in blob inventory or not? Defaults to `false`.
 
-        > **NOTE:** The `rules.*.schema_fields` for this rule has to include `Snapshot` so that you can specify the `include_snapshots`.
+        > **Note:** The `rules.*.schema_fields` for this rule has to include `Snapshot` so that you can specify the `include_snapshots`.
         """
         prefix_matches: NotRequired[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]
         """
@@ -2467,17 +2467,17 @@ class BlobInventoryPolicyRuleFilterArgs:
         """
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] blob_types: A set of blob types. Possible values are `blockBlob`, `appendBlob`, and `pageBlob`. The storage account with `is_hns_enabled` is `true` doesn't support `pageBlob`.
                
-               > **NOTE:** The `rules.*.schema_fields` for this rule has to include `BlobType` so that you can specify the `blob_types`.
+               > **Note:** The `rules.*.schema_fields` for this rule has to include `BlobType` so that you can specify the `blob_types`.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] exclude_prefixes: A set of strings for blob prefixes to be excluded. Maximum of 10 blob prefixes.
         :param pulumi.Input[builtins.bool] include_blob_versions: Includes blob versions in blob inventory or not? Defaults to `false`.
                
-               > **NOTE:** The `rules.*.schema_fields` for this rule has to include `IsCurrentVersion` and `VersionId` so that you can specify the `include_blob_versions`.
+               > **Note:** The `rules.*.schema_fields` for this rule has to include `IsCurrentVersion` and `VersionId` so that you can specify the `include_blob_versions`.
         :param pulumi.Input[builtins.bool] include_deleted: Includes deleted blobs in blob inventory or not? Defaults to `false`.
                
-               > **NOTE:** If `rules.*.scope` is `Container`, the `rules.*.schema_fields` for this rule must include `Deleted`, `Version`, `DeletedTime`, and `RemainingRetentionDays` so that you can specify the `include_deleted`. If `rules.*.scope` is `Blob`, the `rules.*.schema_fields` must include `Deleted` and `RemainingRetentionDays` so that you can specify the `include_deleted`. If `rules.*.scope` is `Blob` and the storage account specified by `storage_account_id` has hierarchical namespaces enabled (`is_hns_enabled` is `true` on the storage account), the `rules.*.schema_fields` for this rule must include `Deleted`, `Version`, `DeletedTime`, and `RemainingRetentionDays` so that you can specify the `include_deleted`.
+               > **Note:** If `rules.*.scope` is `Container`, the `rules.*.schema_fields` for this rule must include `Deleted`, `Version`, `DeletedTime`, and `RemainingRetentionDays` so that you can specify the `include_deleted`. If `rules.*.scope` is `Blob`, the `rules.*.schema_fields` must include `Deleted` and `RemainingRetentionDays` so that you can specify the `include_deleted`. If `rules.*.scope` is `Blob` and the storage account specified by `storage_account_id` has hierarchical namespaces enabled (`is_hns_enabled` is `true` on the storage account), the `rules.*.schema_fields` for this rule must include `Deleted`, `Version`, `DeletedTime`, and `RemainingRetentionDays` so that you can specify the `include_deleted`.
         :param pulumi.Input[builtins.bool] include_snapshots: Includes blob snapshots in blob inventory or not? Defaults to `false`.
                
-               > **NOTE:** The `rules.*.schema_fields` for this rule has to include `Snapshot` so that you can specify the `include_snapshots`.
+               > **Note:** The `rules.*.schema_fields` for this rule has to include `Snapshot` so that you can specify the `include_snapshots`.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] prefix_matches: A set of strings for blob prefixes to be matched. Maximum of 10 blob prefixes.
         """
         pulumi.set(__self__, "blob_types", blob_types)
@@ -2498,7 +2498,7 @@ class BlobInventoryPolicyRuleFilterArgs:
         """
         A set of blob types. Possible values are `blockBlob`, `appendBlob`, and `pageBlob`. The storage account with `is_hns_enabled` is `true` doesn't support `pageBlob`.
 
-        > **NOTE:** The `rules.*.schema_fields` for this rule has to include `BlobType` so that you can specify the `blob_types`.
+        > **Note:** The `rules.*.schema_fields` for this rule has to include `BlobType` so that you can specify the `blob_types`.
         """
         return pulumi.get(self, "blob_types")
 
@@ -2524,7 +2524,7 @@ class BlobInventoryPolicyRuleFilterArgs:
         """
         Includes blob versions in blob inventory or not? Defaults to `false`.
 
-        > **NOTE:** The `rules.*.schema_fields` for this rule has to include `IsCurrentVersion` and `VersionId` so that you can specify the `include_blob_versions`.
+        > **Note:** The `rules.*.schema_fields` for this rule has to include `IsCurrentVersion` and `VersionId` so that you can specify the `include_blob_versions`.
         """
         return pulumi.get(self, "include_blob_versions")
 
@@ -2538,7 +2538,7 @@ class BlobInventoryPolicyRuleFilterArgs:
         """
         Includes deleted blobs in blob inventory or not? Defaults to `false`.
 
-        > **NOTE:** If `rules.*.scope` is `Container`, the `rules.*.schema_fields` for this rule must include `Deleted`, `Version`, `DeletedTime`, and `RemainingRetentionDays` so that you can specify the `include_deleted`. If `rules.*.scope` is `Blob`, the `rules.*.schema_fields` must include `Deleted` and `RemainingRetentionDays` so that you can specify the `include_deleted`. If `rules.*.scope` is `Blob` and the storage account specified by `storage_account_id` has hierarchical namespaces enabled (`is_hns_enabled` is `true` on the storage account), the `rules.*.schema_fields` for this rule must include `Deleted`, `Version`, `DeletedTime`, and `RemainingRetentionDays` so that you can specify the `include_deleted`.
+        > **Note:** If `rules.*.scope` is `Container`, the `rules.*.schema_fields` for this rule must include `Deleted`, `Version`, `DeletedTime`, and `RemainingRetentionDays` so that you can specify the `include_deleted`. If `rules.*.scope` is `Blob`, the `rules.*.schema_fields` must include `Deleted` and `RemainingRetentionDays` so that you can specify the `include_deleted`. If `rules.*.scope` is `Blob` and the storage account specified by `storage_account_id` has hierarchical namespaces enabled (`is_hns_enabled` is `true` on the storage account), the `rules.*.schema_fields` for this rule must include `Deleted`, `Version`, `DeletedTime`, and `RemainingRetentionDays` so that you can specify the `include_deleted`.
         """
         return pulumi.get(self, "include_deleted")
 
@@ -2552,7 +2552,7 @@ class BlobInventoryPolicyRuleFilterArgs:
         """
         Includes blob snapshots in blob inventory or not? Defaults to `false`.
 
-        > **NOTE:** The `rules.*.schema_fields` for this rule has to include `Snapshot` so that you can specify the `include_snapshots`.
+        > **Note:** The `rules.*.schema_fields` for this rule has to include `Snapshot` so that you can specify the `include_snapshots`.
         """
         return pulumi.get(self, "include_snapshots")
 
@@ -3706,7 +3706,7 @@ if not MYPY:
         """
         A `match_blob_index_tag` block as defined below. The block defines the blob index tag based filtering for blob objects.
 
-        > **NOTE:** The `match_blob_index_tag` property requires enabling the `blobIndex` feature with [PSH or CLI commands](https://azure.microsoft.com/en-us/blog/manage-and-find-data-with-blob-index-for-azure-storage-now-in-preview/).
+        > **Note:** The `match_blob_index_tag` property requires enabling the `blobIndex` feature with [PSH or CLI commands](https://azure.microsoft.com/en-us/blog/manage-and-find-data-with-blob-index-for-azure-storage-now-in-preview/).
         """
         prefix_matches: NotRequired[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]
         """
@@ -3725,7 +3725,7 @@ class ManagementPolicyRuleFiltersArgs:
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] blob_types: An array of predefined values. Valid options are `blockBlob` and `appendBlob`.
         :param pulumi.Input[Sequence[pulumi.Input['ManagementPolicyRuleFiltersMatchBlobIndexTagArgs']]] match_blob_index_tags: A `match_blob_index_tag` block as defined below. The block defines the blob index tag based filtering for blob objects.
                
-               > **NOTE:** The `match_blob_index_tag` property requires enabling the `blobIndex` feature with [PSH or CLI commands](https://azure.microsoft.com/en-us/blog/manage-and-find-data-with-blob-index-for-azure-storage-now-in-preview/).
+               > **Note:** The `match_blob_index_tag` property requires enabling the `blobIndex` feature with [PSH or CLI commands](https://azure.microsoft.com/en-us/blog/manage-and-find-data-with-blob-index-for-azure-storage-now-in-preview/).
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] prefix_matches: An array of strings for prefixes to be matched.
         """
         pulumi.set(__self__, "blob_types", blob_types)
@@ -3752,7 +3752,7 @@ class ManagementPolicyRuleFiltersArgs:
         """
         A `match_blob_index_tag` block as defined below. The block defines the blob index tag based filtering for blob objects.
 
-        > **NOTE:** The `match_blob_index_tag` property requires enabling the `blobIndex` feature with [PSH or CLI commands](https://azure.microsoft.com/en-us/blog/manage-and-find-data-with-blob-index-for-azure-storage-now-in-preview/).
+        > **Note:** The `match_blob_index_tag` property requires enabling the `blobIndex` feature with [PSH or CLI commands](https://azure.microsoft.com/en-us/blog/manage-and-find-data-with-blob-index-for-azure-storage-now-in-preview/).
         """
         return pulumi.get(self, "match_blob_index_tags")
 

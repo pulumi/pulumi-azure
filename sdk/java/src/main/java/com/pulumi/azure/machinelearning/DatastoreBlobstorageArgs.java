@@ -100,7 +100,7 @@ public final class DatastoreBlobstorageArgs extends com.pulumi.resources.Resourc
     /**
      * The Shared Access Signature of the Storage Account. Conflicts with `account_key`.
      * 
-     * &gt; **Note:**  One of `account_key` or `shared_access_signature` must be specified.
+     * &gt; **Note:** One of `account_key` or `shared_access_signature` must be specified.
      * 
      */
     @Import(name="sharedAccessSignature")
@@ -109,7 +109,7 @@ public final class DatastoreBlobstorageArgs extends com.pulumi.resources.Resourc
     /**
      * @return The Shared Access Signature of the Storage Account. Conflicts with `account_key`.
      * 
-     * &gt; **Note:**  One of `account_key` or `shared_access_signature` must be specified.
+     * &gt; **Note:** One of `account_key` or `shared_access_signature` must be specified.
      * 
      */
     public Optional<Output<String>> sharedAccessSignature() {
@@ -305,7 +305,7 @@ public final class DatastoreBlobstorageArgs extends com.pulumi.resources.Resourc
         /**
          * @param sharedAccessSignature The Shared Access Signature of the Storage Account. Conflicts with `account_key`.
          * 
-         * &gt; **Note:**  One of `account_key` or `shared_access_signature` must be specified.
+         * &gt; **Note:** One of `account_key` or `shared_access_signature` must be specified.
          * 
          * @return builder
          * 
@@ -318,7 +318,7 @@ public final class DatastoreBlobstorageArgs extends com.pulumi.resources.Resourc
         /**
          * @param sharedAccessSignature The Shared Access Signature of the Storage Account. Conflicts with `account_key`.
          * 
-         * &gt; **Note:**  One of `account_key` or `shared_access_signature` must be specified.
+         * &gt; **Note:** One of `account_key` or `shared_access_signature` must be specified.
          * 
          * @return builder
          * 

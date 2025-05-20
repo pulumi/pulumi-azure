@@ -200,7 +200,7 @@ import javax.annotation.Nullable;
  * 
  * ## Example HCL Configurations
  * 
- * * How to conneca `Private Endpoint` to a Application Gateway
+ * * How to connect a `Private Endpoint` to a Application Gateway
  * * How to connect a `Private Endpoint` to a Cosmos MongoDB
  * * How to connect a `Private Endpoint` to a Cosmos PostgreSQL
  * * How to connect a `Private Endpoint` to a PostgreSQL Server

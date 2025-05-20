@@ -57,7 +57,6 @@ class HubApnsCredential(dict):
                  token: builtins.str):
         """
         :param builtins.str application_mode: The Application Mode which defines which server the APNS Messages should be sent to. Possible values are `Production` and `Sandbox`.
-        :param builtins.str bundle_id: The Bundle ID of the iOS/macOS application to send push notifications for, such as `com.org.example`.
         :param builtins.str key_id: The Apple Push Notifications Service (APNS) Key.
         :param builtins.str team_id: The ID of the team the Token.
         :param builtins.str token: The Push Token associated with the Apple Developer Account. This is the contents of the `key` downloaded from [the Apple Developer Portal](https://developer.apple.com/account/ios/authkey/) between the `-----BEGIN PRIVATE KEY-----` and `-----END PRIVATE KEY-----` blocks.
@@ -79,9 +78,6 @@ class HubApnsCredential(dict):
     @property
     @pulumi.getter(name="bundleId")
     def bundle_id(self) -> builtins.str:
-        """
-        The Bundle ID of the iOS/macOS application to send push notifications for, such as `com.org.example`.
-        """
         return pulumi.get(self, "bundle_id")
 
     @property
@@ -213,7 +209,6 @@ class GetHubApnsCredentialResult(dict):
                  token: builtins.str):
         """
         :param builtins.str application_mode: The Application Mode which defines which server the APNS Messages should be sent to. Possible values are `Production` and `Sandbox`.
-        :param builtins.str bundle_id: The Bundle ID of the iOS/macOS application to send push notifications for, such as `com.org.example`.
         :param builtins.str key_id: The Apple Push Notifications Service (APNS) Key.
         :param builtins.str team_id: The ID of the team the Token.
         :param builtins.str token: The Push Token associated with the Apple Developer Account.
@@ -235,9 +230,6 @@ class GetHubApnsCredentialResult(dict):
     @property
     @pulumi.getter(name="bundleId")
     def bundle_id(self) -> builtins.str:
-        """
-        The Bundle ID of the iOS/macOS application to send push notifications for, such as `com.org.example`.
-        """
         return pulumi.get(self, "bundle_id")
 
     @property

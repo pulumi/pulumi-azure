@@ -76,7 +76,7 @@ public final class LoadBalancerFrontendIpConfiguration {
     /**
      * @return Specifies a list of Availability Zones in which the IP Address for this Load Balancer should be located.
      * 
-     * &gt; **NOTE:** Availability Zones are only supported with a [Standard SKU](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-availability-zones) and [in select regions](https://docs.microsoft.com/azure/availability-zones/az-overview) at this time.
+     * &gt; **Note:** Availability Zones are only supported with a [Standard SKU](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-availability-zones) and [in select regions](https://docs.microsoft.com/azure/availability-zones/az-overview) at this time.
      * 
      */
     private @Nullable List<String> zones;
@@ -169,7 +169,7 @@ public final class LoadBalancerFrontendIpConfiguration {
     /**
      * @return Specifies a list of Availability Zones in which the IP Address for this Load Balancer should be located.
      * 
-     * &gt; **NOTE:** Availability Zones are only supported with a [Standard SKU](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-availability-zones) and [in select regions](https://docs.microsoft.com/azure/availability-zones/az-overview) at this time.
+     * &gt; **Note:** Availability Zones are only supported with a [Standard SKU](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-availability-zones) and [in select regions](https://docs.microsoft.com/azure/availability-zones/az-overview) at this time.
      * 
      */
     public List<String> zones() {

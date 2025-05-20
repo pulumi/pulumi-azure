@@ -236,10 +236,6 @@ class Service(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  __props__=None):
         """
-        Manages a Azure Database Migration Service.
-
-        > **NOTE:** Destroying a Database Migration Service will leave any outstanding tasks untouched. This is to avoid unexpectedly deleting any tasks managed outside of this provide.
-
         ## Example Usage
 
         ```python
@@ -291,10 +287,6 @@ class Service(pulumi.CustomResource):
                  args: ServiceArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Manages a Azure Database Migration Service.
-
-        > **NOTE:** Destroying a Database Migration Service will leave any outstanding tasks untouched. This is to avoid unexpectedly deleting any tasks managed outside of this provide.
-
         ## Example Usage
 
         ```python

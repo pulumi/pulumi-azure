@@ -88,6 +88,13 @@ def get_gi_versions(location: Optional[builtins.str] = None,
     pulumi.export("example", example)
     ```
 
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Oracle.Database`: 2024-06-01
+
 
     :param builtins.str location: The Azure Region to query for the GI Versions in.
     """
@@ -116,6 +123,13 @@ def get_gi_versions_output(location: Optional[pulumi.Input[builtins.str]] = None
     example = azure.oracle.get_gi_versions(location="West Europe")
     pulumi.export("example", example)
     ```
+
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Oracle.Database`: 2024-06-01
 
 
     :param builtins.str location: The Azure Region to query for the GI Versions in.

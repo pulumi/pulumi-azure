@@ -21,7 +21,7 @@ public final class DefinitionArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * One or more assignable scopes for this Role Definition, such as `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333`, `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup`, `/providers/Microsoft.Management/managementGroups/0b1f6471-1bf0-4dda-aec3-111122223333` , or `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup/providers/Microsoft.Compute/virtualMachines/myVM`.
      * 
-     * &gt; **NOTE:** The value for `scope` is automatically included in this list if no other values supplied.
+     * &gt; **Note:** The value for `scope` is automatically included in this list if no other values supplied.
      * 
      */
     @Import(name="assignableScopes")
@@ -30,7 +30,7 @@ public final class DefinitionArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * @return One or more assignable scopes for this Role Definition, such as `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333`, `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup`, `/providers/Microsoft.Management/managementGroups/0b1f6471-1bf0-4dda-aec3-111122223333` , or `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup/providers/Microsoft.Compute/virtualMachines/myVM`.
      * 
-     * &gt; **NOTE:** The value for `scope` is automatically included in this list if no other values supplied.
+     * &gt; **Note:** The value for `scope` is automatically included in this list if no other values supplied.
      * 
      */
     public Optional<Output<List<String>>> assignableScopes() {
@@ -144,7 +144,7 @@ public final class DefinitionArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param assignableScopes One or more assignable scopes for this Role Definition, such as `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333`, `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup`, `/providers/Microsoft.Management/managementGroups/0b1f6471-1bf0-4dda-aec3-111122223333` , or `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup/providers/Microsoft.Compute/virtualMachines/myVM`.
          * 
-         * &gt; **NOTE:** The value for `scope` is automatically included in this list if no other values supplied.
+         * &gt; **Note:** The value for `scope` is automatically included in this list if no other values supplied.
          * 
          * @return builder
          * 
@@ -157,7 +157,7 @@ public final class DefinitionArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param assignableScopes One or more assignable scopes for this Role Definition, such as `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333`, `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup`, `/providers/Microsoft.Management/managementGroups/0b1f6471-1bf0-4dda-aec3-111122223333` , or `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup/providers/Microsoft.Compute/virtualMachines/myVM`.
          * 
-         * &gt; **NOTE:** The value for `scope` is automatically included in this list if no other values supplied.
+         * &gt; **Note:** The value for `scope` is automatically included in this list if no other values supplied.
          * 
          * @return builder
          * 
@@ -169,7 +169,7 @@ public final class DefinitionArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param assignableScopes One or more assignable scopes for this Role Definition, such as `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333`, `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup`, `/providers/Microsoft.Management/managementGroups/0b1f6471-1bf0-4dda-aec3-111122223333` , or `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup/providers/Microsoft.Compute/virtualMachines/myVM`.
          * 
-         * &gt; **NOTE:** The value for `scope` is automatically included in this list if no other values supplied.
+         * &gt; **Note:** The value for `scope` is automatically included in this list if no other values supplied.
          * 
          * @return builder
          * 

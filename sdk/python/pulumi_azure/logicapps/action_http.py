@@ -39,7 +39,7 @@ class ActionHttpArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] headers: Specifies a Map of Key-Value Pairs that should be sent to the `uri` when this HTTP Action is triggered.
         :param pulumi.Input[builtins.str] name: Specifies the name of the HTTP Action to be created within the Logic App Workflow. Changing this forces a new resource to be created.
                
-               > **NOTE:** This name must be unique across all Actions within the Logic App Workflow.
+               > **Note:** This name must be unique across all Actions within the Logic App Workflow.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] queries: Specifies a Map of Key-Value Pairs that should be sent to the `uri` when this HTTP Action is triggered.
         :param pulumi.Input[Sequence[pulumi.Input['ActionHttpRunAfterArgs']]] run_afters: Specifies the place of the HTTP Action in the Logic App Workflow. If not specified, the HTTP Action is right after the Trigger. A `run_after` block is as defined below.
         """
@@ -123,7 +123,7 @@ class ActionHttpArgs:
         """
         Specifies the name of the HTTP Action to be created within the Logic App Workflow. Changing this forces a new resource to be created.
 
-        > **NOTE:** This name must be unique across all Actions within the Logic App Workflow.
+        > **Note:** This name must be unique across all Actions within the Logic App Workflow.
         """
         return pulumi.get(self, "name")
 
@@ -175,7 +175,7 @@ class _ActionHttpState:
         :param pulumi.Input[builtins.str] method: Specifies the HTTP Method which should be used for this HTTP Action. Possible values include `DELETE`, `GET`, `PATCH`, `POST` and `PUT`.
         :param pulumi.Input[builtins.str] name: Specifies the name of the HTTP Action to be created within the Logic App Workflow. Changing this forces a new resource to be created.
                
-               > **NOTE:** This name must be unique across all Actions within the Logic App Workflow.
+               > **Note:** This name must be unique across all Actions within the Logic App Workflow.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] queries: Specifies a Map of Key-Value Pairs that should be sent to the `uri` when this HTTP Action is triggered.
         :param pulumi.Input[Sequence[pulumi.Input['ActionHttpRunAfterArgs']]] run_afters: Specifies the place of the HTTP Action in the Logic App Workflow. If not specified, the HTTP Action is right after the Trigger. A `run_after` block is as defined below.
         :param pulumi.Input[builtins.str] uri: Specifies the URI which will be called when this HTTP Action is triggered.
@@ -251,7 +251,7 @@ class _ActionHttpState:
         """
         Specifies the name of the HTTP Action to be created within the Logic App Workflow. Changing this forces a new resource to be created.
 
-        > **NOTE:** This name must be unique across all Actions within the Logic App Workflow.
+        > **Note:** This name must be unique across all Actions within the Logic App Workflow.
         """
         return pulumi.get(self, "name")
 
@@ -350,7 +350,7 @@ class ActionHttp(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] method: Specifies the HTTP Method which should be used for this HTTP Action. Possible values include `DELETE`, `GET`, `PATCH`, `POST` and `PUT`.
         :param pulumi.Input[builtins.str] name: Specifies the name of the HTTP Action to be created within the Logic App Workflow. Changing this forces a new resource to be created.
                
-               > **NOTE:** This name must be unique across all Actions within the Logic App Workflow.
+               > **Note:** This name must be unique across all Actions within the Logic App Workflow.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] queries: Specifies a Map of Key-Value Pairs that should be sent to the `uri` when this HTTP Action is triggered.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ActionHttpRunAfterArgs', 'ActionHttpRunAfterArgsDict']]]] run_afters: Specifies the place of the HTTP Action in the Logic App Workflow. If not specified, the HTTP Action is right after the Trigger. A `run_after` block is as defined below.
         :param pulumi.Input[builtins.str] uri: Specifies the URI which will be called when this HTTP Action is triggered.
@@ -469,7 +469,7 @@ class ActionHttp(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] method: Specifies the HTTP Method which should be used for this HTTP Action. Possible values include `DELETE`, `GET`, `PATCH`, `POST` and `PUT`.
         :param pulumi.Input[builtins.str] name: Specifies the name of the HTTP Action to be created within the Logic App Workflow. Changing this forces a new resource to be created.
                
-               > **NOTE:** This name must be unique across all Actions within the Logic App Workflow.
+               > **Note:** This name must be unique across all Actions within the Logic App Workflow.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] queries: Specifies a Map of Key-Value Pairs that should be sent to the `uri` when this HTTP Action is triggered.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ActionHttpRunAfterArgs', 'ActionHttpRunAfterArgsDict']]]] run_afters: Specifies the place of the HTTP Action in the Logic App Workflow. If not specified, the HTTP Action is right after the Trigger. A `run_after` block is as defined below.
         :param pulumi.Input[builtins.str] uri: Specifies the URI which will be called when this HTTP Action is triggered.
@@ -526,7 +526,7 @@ class ActionHttp(pulumi.CustomResource):
         """
         Specifies the name of the HTTP Action to be created within the Logic App Workflow. Changing this forces a new resource to be created.
 
-        > **NOTE:** This name must be unique across all Actions within the Logic App Workflow.
+        > **Note:** This name must be unique across all Actions within the Logic App Workflow.
         """
         return pulumi.get(self, "name")
 

@@ -337,6 +337,13 @@ class Spacecraft(pulumi.CustomResource):
             })
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Orbital`: 2022-11-01
+
         ## Import
 
         Spacecraft can be imported using the `resource id`, e.g.
@@ -397,6 +404,13 @@ class Spacecraft(pulumi.CustomResource):
                 "aks-managed-cluster-name": "9a57225d-a405-4d40-aa46-f13d2342abef",
             })
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Orbital`: 2022-11-01
 
         ## Import
 

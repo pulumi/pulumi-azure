@@ -175,7 +175,7 @@ public final class LinkedServiceDataLakeStorageGen2State extends com.pulumi.reso
     /**
      * The tenant id or name in which the service principal exists to authenticate against the Azure Data Lake Storage Gen2 account.
      * 
-     * &gt; **NOTE** If `service_principal_id` is used, `service_principal_key` and `tenant` are also required.
+     * &gt; **Note:** If `service_principal_id` is used, `service_principal_key` and `tenant` are also required.
      * 
      */
     @Import(name="tenant")
@@ -184,7 +184,7 @@ public final class LinkedServiceDataLakeStorageGen2State extends com.pulumi.reso
     /**
      * @return The tenant id or name in which the service principal exists to authenticate against the Azure Data Lake Storage Gen2 account.
      * 
-     * &gt; **NOTE** If `service_principal_id` is used, `service_principal_key` and `tenant` are also required.
+     * &gt; **Note:** If `service_principal_id` is used, `service_principal_key` and `tenant` are also required.
      * 
      */
     public Optional<Output<String>> tenant() {
@@ -194,7 +194,7 @@ public final class LinkedServiceDataLakeStorageGen2State extends com.pulumi.reso
     /**
      * The endpoint for the Azure Data Lake Storage Gen2 service.
      * 
-     * &gt; **NOTE** Users should specify only one of the following three authentication strategies: storage account key, managed identity, service principal.
+     * &gt; **Note:** Users should specify only one of the following three authentication strategies: storage account key, managed identity, service principal.
      * 
      */
     @Import(name="url")
@@ -203,7 +203,7 @@ public final class LinkedServiceDataLakeStorageGen2State extends com.pulumi.reso
     /**
      * @return The endpoint for the Azure Data Lake Storage Gen2 service.
      * 
-     * &gt; **NOTE** Users should specify only one of the following three authentication strategies: storage account key, managed identity, service principal.
+     * &gt; **Note:** Users should specify only one of the following three authentication strategies: storage account key, managed identity, service principal.
      * 
      */
     public Optional<Output<String>> url() {
@@ -488,7 +488,7 @@ public final class LinkedServiceDataLakeStorageGen2State extends com.pulumi.reso
         /**
          * @param tenant The tenant id or name in which the service principal exists to authenticate against the Azure Data Lake Storage Gen2 account.
          * 
-         * &gt; **NOTE** If `service_principal_id` is used, `service_principal_key` and `tenant` are also required.
+         * &gt; **Note:** If `service_principal_id` is used, `service_principal_key` and `tenant` are also required.
          * 
          * @return builder
          * 
@@ -501,7 +501,7 @@ public final class LinkedServiceDataLakeStorageGen2State extends com.pulumi.reso
         /**
          * @param tenant The tenant id or name in which the service principal exists to authenticate against the Azure Data Lake Storage Gen2 account.
          * 
-         * &gt; **NOTE** If `service_principal_id` is used, `service_principal_key` and `tenant` are also required.
+         * &gt; **Note:** If `service_principal_id` is used, `service_principal_key` and `tenant` are also required.
          * 
          * @return builder
          * 
@@ -513,7 +513,7 @@ public final class LinkedServiceDataLakeStorageGen2State extends com.pulumi.reso
         /**
          * @param url The endpoint for the Azure Data Lake Storage Gen2 service.
          * 
-         * &gt; **NOTE** Users should specify only one of the following three authentication strategies: storage account key, managed identity, service principal.
+         * &gt; **Note:** Users should specify only one of the following three authentication strategies: storage account key, managed identity, service principal.
          * 
          * @return builder
          * 
@@ -526,7 +526,7 @@ public final class LinkedServiceDataLakeStorageGen2State extends com.pulumi.reso
         /**
          * @param url The endpoint for the Azure Data Lake Storage Gen2 service.
          * 
-         * &gt; **NOTE** Users should specify only one of the following three authentication strategies: storage account key, managed identity, service principal.
+         * &gt; **Note:** Users should specify only one of the following three authentication strategies: storage account key, managed identity, service principal.
          * 
          * @return builder
          * 

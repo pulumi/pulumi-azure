@@ -252,6 +252,13 @@ def get_api(api_management_name: Optional[builtins.str] = None,
     pulumi.export("apiManagementApiId", example.id)
     ```
 
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.ApiManagement`: 2022-08-01
+
 
     :param builtins.str api_management_name: The name of the API Management Service in which the API Management API exists.
     :param builtins.str name: The name of the API Management API.
@@ -304,6 +311,13 @@ def get_api_output(api_management_name: Optional[pulumi.Input[builtins.str]] = N
         revision="2")
     pulumi.export("apiManagementApiId", example.id)
     ```
+
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.ApiManagement`: 2022-08-01
 
 
     :param builtins.str api_management_name: The name of the API Management Service in which the API Management API exists.

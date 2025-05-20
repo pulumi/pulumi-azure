@@ -166,6 +166,13 @@ import javax.annotation.Nullable;
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
+ * ## API Providers
+ * 
+ * &lt;!-- This section is generated, changes will be overwritten --&gt;
+ * This resource uses the following Azure API Providers:
+ * 
+ * * `Microsoft.Batch`: 2024-07-01
+ * 
  * ## Import
  * 
  * Batch Pools can be imported using the `resource id`, e.g.
@@ -586,9 +593,9 @@ public class Pool extends com.pulumi.resources.CustomResource {
     /**
      * A `windows` block that describes the Windows configuration in the pool as defined below.
      * 
-     * &gt; **NOTE:** For Windows compute nodes, the Batch service installs the certificates to the specified certificate store and location. For Linux compute nodes, the certificates are stored in a directory inside the task working directory and an environment variable `AZ_BATCH_CERTIFICATES_DIR` is supplied to the task to query for this location. For certificates with visibility of `remoteUser`, a `certs` directory is created in the user&#39;s home directory (e.g., `/home/{user-name}/certs`) and certificates are placed in that directory.
+     * &gt; **Note:** For Windows compute nodes, the Batch service installs the certificates to the specified certificate store and location. For Linux compute nodes, the certificates are stored in a directory inside the task working directory and an environment variable `AZ_BATCH_CERTIFICATES_DIR` is supplied to the task to query for this location. For certificates with visibility of `remoteUser`, a `certs` directory is created in the user&#39;s home directory (e.g., `/home/{user-name}/certs`) and certificates are placed in that directory.
      * 
-     * &gt; **Please Note:** `fixed_scale` and `auto_scale` blocks cannot be used both at the same time.
+     * &gt; **Note:** `fixed_scale` and `auto_scale` blocks cannot be used both at the same time.
      * 
      */
     @Export(name="windows", refs={List.class,PoolWindow.class}, tree="[0,1]")
@@ -597,9 +604,9 @@ public class Pool extends com.pulumi.resources.CustomResource {
     /**
      * @return A `windows` block that describes the Windows configuration in the pool as defined below.
      * 
-     * &gt; **NOTE:** For Windows compute nodes, the Batch service installs the certificates to the specified certificate store and location. For Linux compute nodes, the certificates are stored in a directory inside the task working directory and an environment variable `AZ_BATCH_CERTIFICATES_DIR` is supplied to the task to query for this location. For certificates with visibility of `remoteUser`, a `certs` directory is created in the user&#39;s home directory (e.g., `/home/{user-name}/certs`) and certificates are placed in that directory.
+     * &gt; **Note:** For Windows compute nodes, the Batch service installs the certificates to the specified certificate store and location. For Linux compute nodes, the certificates are stored in a directory inside the task working directory and an environment variable `AZ_BATCH_CERTIFICATES_DIR` is supplied to the task to query for this location. For certificates with visibility of `remoteUser`, a `certs` directory is created in the user&#39;s home directory (e.g., `/home/{user-name}/certs`) and certificates are placed in that directory.
      * 
-     * &gt; **Please Note:** `fixed_scale` and `auto_scale` blocks cannot be used both at the same time.
+     * &gt; **Note:** `fixed_scale` and `auto_scale` blocks cannot be used both at the same time.
      * 
      */
     public Output<Optional<List<PoolWindow>>> windows() {

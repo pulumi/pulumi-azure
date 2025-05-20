@@ -268,10 +268,6 @@ class Project(pulumi.CustomResource):
                  target_platform: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         """
-        Manage a Azure Database Migration Project.
-
-        > **NOTE:** Destroying a Database Migration Project will leave any outstanding tasks untouched. This is to avoid unexpectedly deleting any tasks managed outside of this provider.
-
         ## Example Usage
 
         ```python
@@ -331,10 +327,6 @@ class Project(pulumi.CustomResource):
                  args: ProjectArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Manage a Azure Database Migration Project.
-
-        > **NOTE:** Destroying a Database Migration Project will leave any outstanding tasks untouched. This is to avoid unexpectedly deleting any tasks managed outside of this provider.
-
         ## Example Usage
 
         ```python

@@ -110,7 +110,7 @@ public final class VirtualMachineSqlInstanceArgs extends com.pulumi.resources.Re
     /**
      * Minimum amount memory that SQL Server Memory Manager can allocate to the SQL Server process. Possible values are between `0` and `2147483647` Defaults to `0`.
      * 
-     * &gt; **NOTE:** `max_server_memory_mb` must be greater than or equal to `min_server_memory_mb`
+     * &gt; **Note:** `max_server_memory_mb` must be greater than or equal to `min_server_memory_mb`
      * 
      */
     @Import(name="minServerMemoryMb")
@@ -119,7 +119,7 @@ public final class VirtualMachineSqlInstanceArgs extends com.pulumi.resources.Re
     /**
      * @return Minimum amount memory that SQL Server Memory Manager can allocate to the SQL Server process. Possible values are between `0` and `2147483647` Defaults to `0`.
      * 
-     * &gt; **NOTE:** `max_server_memory_mb` must be greater than or equal to `min_server_memory_mb`
+     * &gt; **Note:** `max_server_memory_mb` must be greater than or equal to `min_server_memory_mb`
      * 
      */
     public Optional<Output<Integer>> minServerMemoryMb() {
@@ -285,7 +285,7 @@ public final class VirtualMachineSqlInstanceArgs extends com.pulumi.resources.Re
         /**
          * @param minServerMemoryMb Minimum amount memory that SQL Server Memory Manager can allocate to the SQL Server process. Possible values are between `0` and `2147483647` Defaults to `0`.
          * 
-         * &gt; **NOTE:** `max_server_memory_mb` must be greater than or equal to `min_server_memory_mb`
+         * &gt; **Note:** `max_server_memory_mb` must be greater than or equal to `min_server_memory_mb`
          * 
          * @return builder
          * 
@@ -298,7 +298,7 @@ public final class VirtualMachineSqlInstanceArgs extends com.pulumi.resources.Re
         /**
          * @param minServerMemoryMb Minimum amount memory that SQL Server Memory Manager can allocate to the SQL Server process. Possible values are between `0` and `2147483647` Defaults to `0`.
          * 
-         * &gt; **NOTE:** `max_server_memory_mb` must be greater than or equal to `min_server_memory_mb`
+         * &gt; **Note:** `max_server_memory_mb` must be greater than or equal to `min_server_memory_mb`
          * 
          * @return builder
          * 

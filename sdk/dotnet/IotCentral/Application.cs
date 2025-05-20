@@ -46,6 +46,13 @@ namespace Pulumi.Azure.IotCentral
     /// });
     /// ```
     /// 
+    /// ## API Providers
+    /// 
+    /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+    /// This resource uses the following Azure API Providers:
+    /// 
+    /// * `Microsoft.IoTCentral`: 2021-11-01-preview
+    /// 
     /// ## Import
     /// 
     /// The IoT Central Application can be imported using the `resource id`, e.g.
@@ -60,7 +67,7 @@ namespace Pulumi.Azure.IotCentral
         /// <summary>
         /// A `display_name` name. Custom display name for the IoT Central application. Default is resource name.
         /// 
-        /// &gt; **NOTE:** Due to a bug in the provider, the default value of `display_name` of a newly created IoT Central App will be the Resource Group Name, it will be fixed and use resource name in 4.0. For an existing IoT Central App, this could be fixed by specifying the `display_name` explicitly.
+        /// &gt; **Note:** Due to a bug in the provider, the default value of `display_name` of a newly created IoT Central App will be the Resource Group Name, it will be fixed and use resource name in 4.0. For an existing IoT Central App, this could be fixed by specifying the `display_name` explicitly.
         /// </summary>
         [Output("displayName")]
         public Output<string> DisplayName { get; private set; } = null!;
@@ -168,7 +175,7 @@ namespace Pulumi.Azure.IotCentral
         /// <summary>
         /// A `display_name` name. Custom display name for the IoT Central application. Default is resource name.
         /// 
-        /// &gt; **NOTE:** Due to a bug in the provider, the default value of `display_name` of a newly created IoT Central App will be the Resource Group Name, it will be fixed and use resource name in 4.0. For an existing IoT Central App, this could be fixed by specifying the `display_name` explicitly.
+        /// &gt; **Note:** Due to a bug in the provider, the default value of `display_name` of a newly created IoT Central App will be the Resource Group Name, it will be fixed and use resource name in 4.0. For an existing IoT Central App, this could be fixed by specifying the `display_name` explicitly.
         /// </summary>
         [Input("displayName")]
         public Input<string>? DisplayName { get; set; }
@@ -244,7 +251,7 @@ namespace Pulumi.Azure.IotCentral
         /// <summary>
         /// A `display_name` name. Custom display name for the IoT Central application. Default is resource name.
         /// 
-        /// &gt; **NOTE:** Due to a bug in the provider, the default value of `display_name` of a newly created IoT Central App will be the Resource Group Name, it will be fixed and use resource name in 4.0. For an existing IoT Central App, this could be fixed by specifying the `display_name` explicitly.
+        /// &gt; **Note:** Due to a bug in the provider, the default value of `display_name` of a newly created IoT Central App will be the Resource Group Name, it will be fixed and use resource name in 4.0. For an existing IoT Central App, this could be fixed by specifying the `display_name` explicitly.
         /// </summary>
         [Input("displayName")]
         public Input<string>? DisplayName { get; set; }

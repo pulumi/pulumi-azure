@@ -16,7 +16,7 @@ public final class DeploymentIdentity {
     /**
      * @return Specifies a list of user managed identity ids to be assigned.
      * 
-     * &gt; **NOTE:** This is required when `type` is set to `UserAssigned`.
+     * &gt; **Note:** This is required when `type` is set to `UserAssigned`.
      * 
      */
     private @Nullable List<String> identityIds;
@@ -32,7 +32,7 @@ public final class DeploymentIdentity {
     /**
      * @return Specifies a list of user managed identity ids to be assigned.
      * 
-     * &gt; **NOTE:** This is required when `type` is set to `UserAssigned`.
+     * &gt; **Note:** This is required when `type` is set to `UserAssigned`.
      * 
      */
     public List<String> identityIds() {

@@ -37,7 +37,7 @@ import (
 //			}
 //			_, err = lighthouse.NewDefinition(ctx, "example", &lighthouse.DefinitionArgs{
 //				Name:             pulumi.String("Sample definition"),
-//				Description:      pulumi.String("This is a lighthouse definition created IaC"),
+//				Description:      pulumi.String("This is a lighthouse definition created via Terraform"),
 //				ManagingTenantId: pulumi.String("00000000-0000-0000-0000-000000000000"),
 //				Scope:            pulumi.String("/subscriptions/00000000-0000-0000-0000-000000000000"),
 //				Authorizations: lighthouse.DefinitionAuthorizationArray{
@@ -56,6 +56,13 @@ import (
 //	}
 //
 // ```
+//
+// ## API Providers
+//
+// <!-- This section is generated, changes will be overwritten -->
+// This resource uses the following Azure API Providers:
+//
+// * `Microsoft.ManagedServices`: 2022-10-01
 //
 // ## Import
 //

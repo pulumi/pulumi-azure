@@ -193,7 +193,7 @@ class ConsumerGroup(pulumi.CustomResource):
                 "purpose": "testing",
             })
         example_consumer_group = azure.iot.ConsumerGroup("example",
-            name="group",
+            name="terraform",
             iothub_name=example_io_t_hub.name,
             eventhub_endpoint_name="events",
             resource_group_name=example.name)
@@ -244,7 +244,7 @@ class ConsumerGroup(pulumi.CustomResource):
                 "purpose": "testing",
             })
         example_consumer_group = azure.iot.ConsumerGroup("example",
-            name="group",
+            name="terraform",
             iothub_name=example_io_t_hub.name,
             eventhub_endpoint_name="events",
             resource_group_name=example.name)

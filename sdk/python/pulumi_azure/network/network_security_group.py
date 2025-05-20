@@ -32,9 +32,9 @@ class NetworkSecurityGroupArgs:
         :param pulumi.Input[builtins.str] resource_group_name: The name of the resource group in which to create the network security group. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] name: The name of the security rule.
-        :param pulumi.Input[Sequence[pulumi.Input['NetworkSecurityGroupSecurityRuleArgs']]] security_rules: A list of objects representing security rules, as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['NetworkSecurityGroupSecurityRuleArgs']]] security_rules: List of `security_rule` objects representing security rules, as defined below.
                
-               > **NOTE** Since `security_rule` can be configured both inline and via the separate `network.NetworkSecurityRule` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
+               > **Note:** Since `security_rule` can be configured both inline and via the separate `network.NetworkSecurityRule` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A mapping of tags to assign to the resource.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
@@ -87,9 +87,9 @@ class NetworkSecurityGroupArgs:
     @pulumi.getter(name="securityRules")
     def security_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkSecurityGroupSecurityRuleArgs']]]]:
         """
-        A list of objects representing security rules, as defined below.
+        List of `security_rule` objects representing security rules, as defined below.
 
-        > **NOTE** Since `security_rule` can be configured both inline and via the separate `network.NetworkSecurityRule` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
+        > **Note:** Since `security_rule` can be configured both inline and via the separate `network.NetworkSecurityRule` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
         """
         return pulumi.get(self, "security_rules")
 
@@ -123,9 +123,9 @@ class _NetworkSecurityGroupState:
         :param pulumi.Input[builtins.str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] name: The name of the security rule.
         :param pulumi.Input[builtins.str] resource_group_name: The name of the resource group in which to create the network security group. Changing this forces a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input['NetworkSecurityGroupSecurityRuleArgs']]] security_rules: A list of objects representing security rules, as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['NetworkSecurityGroupSecurityRuleArgs']]] security_rules: List of `security_rule` objects representing security rules, as defined below.
                
-               > **NOTE** Since `security_rule` can be configured both inline and via the separate `network.NetworkSecurityRule` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
+               > **Note:** Since `security_rule` can be configured both inline and via the separate `network.NetworkSecurityRule` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A mapping of tags to assign to the resource.
         """
         if location is not None:
@@ -179,9 +179,9 @@ class _NetworkSecurityGroupState:
     @pulumi.getter(name="securityRules")
     def security_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkSecurityGroupSecurityRuleArgs']]]]:
         """
-        A list of objects representing security rules, as defined below.
+        List of `security_rule` objects representing security rules, as defined below.
 
-        > **NOTE** Since `security_rule` can be configured both inline and via the separate `network.NetworkSecurityRule` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
+        > **Note:** Since `security_rule` can be configured both inline and via the separate `network.NetworkSecurityRule` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
         """
         return pulumi.get(self, "security_rules")
 
@@ -215,12 +215,6 @@ class NetworkSecurityGroup(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  __props__=None):
         """
-        Manages a network security group that contains a list of network security rules.  Network security groups enable inbound or outbound traffic to be enabled or denied.
-
-        > **NOTE on Network Security Groups and Network Security Rules:** This provider currently
-        provides both a standalone Network Security Rule resource, and allows for Network Security Rules to be defined in-line within the Network Security Group resource.
-        At this time you cannot use a Network Security Group with in-line Network Security Rules in conjunction with any Network Security Rule resources. Doing so will cause a conflict of rule settings and will overwrite rules.
-
         ## Example Usage
 
         ```python
@@ -263,9 +257,9 @@ class NetworkSecurityGroup(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] name: The name of the security rule.
         :param pulumi.Input[builtins.str] resource_group_name: The name of the resource group in which to create the network security group. Changing this forces a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['NetworkSecurityGroupSecurityRuleArgs', 'NetworkSecurityGroupSecurityRuleArgsDict']]]] security_rules: A list of objects representing security rules, as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['NetworkSecurityGroupSecurityRuleArgs', 'NetworkSecurityGroupSecurityRuleArgsDict']]]] security_rules: List of `security_rule` objects representing security rules, as defined below.
                
-               > **NOTE** Since `security_rule` can be configured both inline and via the separate `network.NetworkSecurityRule` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
+               > **Note:** Since `security_rule` can be configured both inline and via the separate `network.NetworkSecurityRule` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A mapping of tags to assign to the resource.
         """
         ...
@@ -275,12 +269,6 @@ class NetworkSecurityGroup(pulumi.CustomResource):
                  args: NetworkSecurityGroupArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Manages a network security group that contains a list of network security rules.  Network security groups enable inbound or outbound traffic to be enabled or denied.
-
-        > **NOTE on Network Security Groups and Network Security Rules:** This provider currently
-        provides both a standalone Network Security Rule resource, and allows for Network Security Rules to be defined in-line within the Network Security Group resource.
-        At this time you cannot use a Network Security Group with in-line Network Security Rules in conjunction with any Network Security Rule resources. Doing so will cause a conflict of rule settings and will overwrite rules.
-
         ## Example Usage
 
         ```python
@@ -379,9 +367,9 @@ class NetworkSecurityGroup(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] name: The name of the security rule.
         :param pulumi.Input[builtins.str] resource_group_name: The name of the resource group in which to create the network security group. Changing this forces a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['NetworkSecurityGroupSecurityRuleArgs', 'NetworkSecurityGroupSecurityRuleArgsDict']]]] security_rules: A list of objects representing security rules, as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['NetworkSecurityGroupSecurityRuleArgs', 'NetworkSecurityGroupSecurityRuleArgsDict']]]] security_rules: List of `security_rule` objects representing security rules, as defined below.
                
-               > **NOTE** Since `security_rule` can be configured both inline and via the separate `network.NetworkSecurityRule` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
+               > **Note:** Since `security_rule` can be configured both inline and via the separate `network.NetworkSecurityRule` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A mapping of tags to assign to the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -423,9 +411,9 @@ class NetworkSecurityGroup(pulumi.CustomResource):
     @pulumi.getter(name="securityRules")
     def security_rules(self) -> pulumi.Output[Sequence['outputs.NetworkSecurityGroupSecurityRule']]:
         """
-        A list of objects representing security rules, as defined below.
+        List of `security_rule` objects representing security rules, as defined below.
 
-        > **NOTE** Since `security_rule` can be configured both inline and via the separate `network.NetworkSecurityRule` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
+        > **Note:** Since `security_rule` can be configured both inline and via the separate `network.NetworkSecurityRule` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
         """
         return pulumi.get(self, "security_rules")
 

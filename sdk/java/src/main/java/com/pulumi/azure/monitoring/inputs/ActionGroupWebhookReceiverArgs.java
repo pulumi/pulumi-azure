@@ -21,7 +21,7 @@ public final class ActionGroupWebhookReceiverArgs extends com.pulumi.resources.R
     /**
      * The `aad_auth` block as defined below.
      * 
-     * &gt; **NOTE:** Before adding a secure webhook receiver by setting `aad_auth`, please read [the configuration instruction of the AAD application](https://docs.microsoft.com/azure/azure-monitor/platform/action-groups#secure-webhook).
+     * &gt; **Note:** Before adding a secure webhook receiver by setting `aad_auth`, please read [the configuration instruction of the AAD application](https://docs.microsoft.com/azure/azure-monitor/platform/action-groups#secure-webhook).
      * 
      */
     @Import(name="aadAuth")
@@ -30,7 +30,7 @@ public final class ActionGroupWebhookReceiverArgs extends com.pulumi.resources.R
     /**
      * @return The `aad_auth` block as defined below.
      * 
-     * &gt; **NOTE:** Before adding a secure webhook receiver by setting `aad_auth`, please read [the configuration instruction of the AAD application](https://docs.microsoft.com/azure/azure-monitor/platform/action-groups#secure-webhook).
+     * &gt; **Note:** Before adding a secure webhook receiver by setting `aad_auth`, please read [the configuration instruction of the AAD application](https://docs.microsoft.com/azure/azure-monitor/platform/action-groups#secure-webhook).
      * 
      */
     public Optional<Output<ActionGroupWebhookReceiverAadAuthArgs>> aadAuth() {
@@ -112,7 +112,7 @@ public final class ActionGroupWebhookReceiverArgs extends com.pulumi.resources.R
         /**
          * @param aadAuth The `aad_auth` block as defined below.
          * 
-         * &gt; **NOTE:** Before adding a secure webhook receiver by setting `aad_auth`, please read [the configuration instruction of the AAD application](https://docs.microsoft.com/azure/azure-monitor/platform/action-groups#secure-webhook).
+         * &gt; **Note:** Before adding a secure webhook receiver by setting `aad_auth`, please read [the configuration instruction of the AAD application](https://docs.microsoft.com/azure/azure-monitor/platform/action-groups#secure-webhook).
          * 
          * @return builder
          * 
@@ -125,7 +125,7 @@ public final class ActionGroupWebhookReceiverArgs extends com.pulumi.resources.R
         /**
          * @param aadAuth The `aad_auth` block as defined below.
          * 
-         * &gt; **NOTE:** Before adding a secure webhook receiver by setting `aad_auth`, please read [the configuration instruction of the AAD application](https://docs.microsoft.com/azure/azure-monitor/platform/action-groups#secure-webhook).
+         * &gt; **Note:** Before adding a secure webhook receiver by setting `aad_auth`, please read [the configuration instruction of the AAD application](https://docs.microsoft.com/azure/azure-monitor/platform/action-groups#secure-webhook).
          * 
          * @return builder
          * 

@@ -36,6 +36,13 @@ namespace Pulumi.Azure.ServiceBus
         ///     };
         /// });
         /// ```
+        /// 
+        /// ## API Providers
+        /// 
+        /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+        /// This data source uses the following Azure API Providers:
+        /// 
+        /// * `Microsoft.ServiceBus`: 2022-10-01-preview, 2021-06-01-preview
         /// </summary>
         public static Task<GetTopicResult> InvokeAsync(GetTopicArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetTopicResult>("azure:servicebus/getTopic:getTopic", args ?? new GetTopicArgs(), options.WithDefaults());
@@ -65,6 +72,13 @@ namespace Pulumi.Azure.ServiceBus
         ///     };
         /// });
         /// ```
+        /// 
+        /// ## API Providers
+        /// 
+        /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+        /// This data source uses the following Azure API Providers:
+        /// 
+        /// * `Microsoft.ServiceBus`: 2022-10-01-preview, 2021-06-01-preview
         /// </summary>
         public static Output<GetTopicResult> Invoke(GetTopicInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetTopicResult>("azure:servicebus/getTopic:getTopic", args ?? new GetTopicInvokeArgs(), options.WithDefaults());
@@ -94,6 +108,13 @@ namespace Pulumi.Azure.ServiceBus
         ///     };
         /// });
         /// ```
+        /// 
+        /// ## API Providers
+        /// 
+        /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+        /// This data source uses the following Azure API Providers:
+        /// 
+        /// * `Microsoft.ServiceBus`: 2022-10-01-preview, 2021-06-01-preview
         /// </summary>
         public static Output<GetTopicResult> Invoke(GetTopicInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetTopicResult>("azure:servicebus/getTopic:getTopic", args ?? new GetTopicInvokeArgs(), options.WithDefaults());
@@ -161,6 +182,10 @@ namespace Pulumi.Azure.ServiceBus
         /// </summary>
         public readonly string AutoDeleteOnIdle;
         /// <summary>
+        /// Boolean flag which controls if server-side batched operations are enabled.
+        /// </summary>
+        public readonly bool BatchedOperationsEnabled;
+        /// <summary>
         /// The ISO 8601 timespan duration of TTL of messages sent to this topic if no TTL value is set on the message itself.
         /// </summary>
         public readonly string DefaultMessageTtl;
@@ -168,18 +193,13 @@ namespace Pulumi.Azure.ServiceBus
         /// The ISO 8601 timespan duration during which duplicates can be detected.
         /// </summary>
         public readonly string DuplicateDetectionHistoryTimeWindow;
-        /// <summary>
-        /// Boolean flag which controls if server-side batched operations are enabled.
-        /// </summary>
         public readonly bool EnableBatchedOperations;
+        public readonly bool EnableExpress;
+        public readonly bool EnablePartitioning;
         /// <summary>
         /// Boolean flag which controls whether Express Entities are enabled. An express topic holds a message in memory temporarily before writing it to persistent storage.
         /// </summary>
-        public readonly bool EnableExpress;
-        /// <summary>
-        /// Boolean flag which controls whether to enable the topic to be partitioned across multiple message brokers.
-        /// </summary>
-        public readonly bool EnablePartitioning;
+        public readonly bool ExpressEnabled;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
@@ -191,6 +211,10 @@ namespace Pulumi.Azure.ServiceBus
         public readonly string Name;
         public readonly string? NamespaceId;
         public readonly string? NamespaceName;
+        /// <summary>
+        /// Boolean flag which controls whether to enable the topic to be partitioned across multiple message brokers.
+        /// </summary>
+        public readonly bool PartitioningEnabled;
         /// <summary>
         /// Boolean flag which controls whether the Topic requires duplicate detection.
         /// </summary>
@@ -209,6 +233,8 @@ namespace Pulumi.Azure.ServiceBus
         private GetTopicResult(
             string autoDeleteOnIdle,
 
+            bool batchedOperationsEnabled,
+
             string defaultMessageTtl,
 
             string duplicateDetectionHistoryTimeWindow,
@@ -218,6 +244,8 @@ namespace Pulumi.Azure.ServiceBus
             bool enableExpress,
 
             bool enablePartitioning,
+
+            bool expressEnabled,
 
             string id,
 
@@ -229,6 +257,8 @@ namespace Pulumi.Azure.ServiceBus
 
             string? namespaceName,
 
+            bool partitioningEnabled,
+
             bool requiresDuplicateDetection,
 
             string? resourceGroupName,
@@ -238,16 +268,19 @@ namespace Pulumi.Azure.ServiceBus
             bool supportOrdering)
         {
             AutoDeleteOnIdle = autoDeleteOnIdle;
+            BatchedOperationsEnabled = batchedOperationsEnabled;
             DefaultMessageTtl = defaultMessageTtl;
             DuplicateDetectionHistoryTimeWindow = duplicateDetectionHistoryTimeWindow;
             EnableBatchedOperations = enableBatchedOperations;
             EnableExpress = enableExpress;
             EnablePartitioning = enablePartitioning;
+            ExpressEnabled = expressEnabled;
             Id = id;
             MaxSizeInMegabytes = maxSizeInMegabytes;
             Name = name;
             NamespaceId = namespaceId;
             NamespaceName = namespaceName;
+            PartitioningEnabled = partitioningEnabled;
             RequiresDuplicateDetection = requiresDuplicateDetection;
             ResourceGroupName = resourceGroupName;
             Status = status;

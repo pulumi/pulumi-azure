@@ -34,6 +34,18 @@ class NextGenerationFirewallVirtualHubPanoramaArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
         """
         The set of arguments for constructing a NextGenerationFirewallVirtualHubPanorama resource.
+        :param pulumi.Input['NextGenerationFirewallVirtualHubPanoramaNetworkProfileArgs'] network_profile: A `network_profile` block as defined below.
+        :param pulumi.Input[builtins.str] panorama_base64_config: The Base64 Encoded configuration value for connecting to the Panorama Configuration server.
+        :param pulumi.Input[builtins.str] resource_group_name: The name of the Resource Group where the Palo Alto Next Generation Firewall VHub Panorama should exist. Changing this forces a new Palo Alto Next Generation Firewall VHub Panorama to be created.
+        :param pulumi.Input[Sequence[pulumi.Input['NextGenerationFirewallVirtualHubPanoramaDestinationNatArgs']]] destination_nats: One or more `destination_nat` blocks as defined below.
+        :param pulumi.Input['NextGenerationFirewallVirtualHubPanoramaDnsSettingsArgs'] dns_settings: A `dns_settings` block as defined below.
+        :param pulumi.Input[builtins.str] location: The Azure Region where the Palo Alto Next Generation Firewall VHub Panorama should exist. Changing this forces a new Palo Alto Next Generation Firewall VHub Panorama to be created.
+        :param pulumi.Input[builtins.str] marketplace_offer_id: The marketplace offer ID. Defaults to `pan_swfw_cloud_ngfw`. Changing this forces a new resource to be created.
+        :param pulumi.Input[builtins.str] name: The name which should be used for this Palo Alto Next Generation Firewall VHub Panorama. Changing this forces a new Palo Alto Next Generation Firewall VHub Panorama to be created.
+        :param pulumi.Input[builtins.str] plan_id: The billing plan ID as published by Liftr.PAN. Defaults to `panw-cloud-ngfw-payg`.
+               
+               > **Note:** The former `plan_id` `panw-cloud-ngfw-payg` is defined as stop sell, but has been set as the default to not break any existing resources that were originally provisioned with it. Users need to explicitly set `plan_id` to `panw-cngfw-payg` when creating new resources.
+        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A mapping of tags which should be assigned to the Palo Alto Next Generation Firewall VHub Panorama.
         """
         pulumi.set(__self__, "network_profile", network_profile)
         pulumi.set(__self__, "panorama_base64_config", panorama_base64_config)
@@ -56,6 +68,9 @@ class NextGenerationFirewallVirtualHubPanoramaArgs:
     @property
     @pulumi.getter(name="networkProfile")
     def network_profile(self) -> pulumi.Input['NextGenerationFirewallVirtualHubPanoramaNetworkProfileArgs']:
+        """
+        A `network_profile` block as defined below.
+        """
         return pulumi.get(self, "network_profile")
 
     @network_profile.setter
@@ -65,6 +80,9 @@ class NextGenerationFirewallVirtualHubPanoramaArgs:
     @property
     @pulumi.getter(name="panoramaBase64Config")
     def panorama_base64_config(self) -> pulumi.Input[builtins.str]:
+        """
+        The Base64 Encoded configuration value for connecting to the Panorama Configuration server.
+        """
         return pulumi.get(self, "panorama_base64_config")
 
     @panorama_base64_config.setter
@@ -74,6 +92,9 @@ class NextGenerationFirewallVirtualHubPanoramaArgs:
     @property
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[builtins.str]:
+        """
+        The name of the Resource Group where the Palo Alto Next Generation Firewall VHub Panorama should exist. Changing this forces a new Palo Alto Next Generation Firewall VHub Panorama to be created.
+        """
         return pulumi.get(self, "resource_group_name")
 
     @resource_group_name.setter
@@ -83,6 +104,9 @@ class NextGenerationFirewallVirtualHubPanoramaArgs:
     @property
     @pulumi.getter(name="destinationNats")
     def destination_nats(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NextGenerationFirewallVirtualHubPanoramaDestinationNatArgs']]]]:
+        """
+        One or more `destination_nat` blocks as defined below.
+        """
         return pulumi.get(self, "destination_nats")
 
     @destination_nats.setter
@@ -92,6 +116,9 @@ class NextGenerationFirewallVirtualHubPanoramaArgs:
     @property
     @pulumi.getter(name="dnsSettings")
     def dns_settings(self) -> Optional[pulumi.Input['NextGenerationFirewallVirtualHubPanoramaDnsSettingsArgs']]:
+        """
+        A `dns_settings` block as defined below.
+        """
         return pulumi.get(self, "dns_settings")
 
     @dns_settings.setter
@@ -101,6 +128,9 @@ class NextGenerationFirewallVirtualHubPanoramaArgs:
     @property
     @pulumi.getter
     def location(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The Azure Region where the Palo Alto Next Generation Firewall VHub Panorama should exist. Changing this forces a new Palo Alto Next Generation Firewall VHub Panorama to be created.
+        """
         return pulumi.get(self, "location")
 
     @location.setter
@@ -110,6 +140,9 @@ class NextGenerationFirewallVirtualHubPanoramaArgs:
     @property
     @pulumi.getter(name="marketplaceOfferId")
     def marketplace_offer_id(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The marketplace offer ID. Defaults to `pan_swfw_cloud_ngfw`. Changing this forces a new resource to be created.
+        """
         return pulumi.get(self, "marketplace_offer_id")
 
     @marketplace_offer_id.setter
@@ -119,6 +152,9 @@ class NextGenerationFirewallVirtualHubPanoramaArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The name which should be used for this Palo Alto Next Generation Firewall VHub Panorama. Changing this forces a new Palo Alto Next Generation Firewall VHub Panorama to be created.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -128,6 +164,11 @@ class NextGenerationFirewallVirtualHubPanoramaArgs:
     @property
     @pulumi.getter(name="planId")
     def plan_id(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The billing plan ID as published by Liftr.PAN. Defaults to `panw-cloud-ngfw-payg`.
+
+        > **Note:** The former `plan_id` `panw-cloud-ngfw-payg` is defined as stop sell, but has been set as the default to not break any existing resources that were originally provisioned with it. Users need to explicitly set `plan_id` to `panw-cngfw-payg` when creating new resources.
+        """
         return pulumi.get(self, "plan_id")
 
     @plan_id.setter
@@ -137,6 +178,9 @@ class NextGenerationFirewallVirtualHubPanoramaArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
+        """
+        A mapping of tags which should be assigned to the Palo Alto Next Generation Firewall VHub Panorama.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -160,6 +204,18 @@ class _NextGenerationFirewallVirtualHubPanoramaState:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering NextGenerationFirewallVirtualHubPanorama resources.
+        :param pulumi.Input[Sequence[pulumi.Input['NextGenerationFirewallVirtualHubPanoramaDestinationNatArgs']]] destination_nats: One or more `destination_nat` blocks as defined below.
+        :param pulumi.Input['NextGenerationFirewallVirtualHubPanoramaDnsSettingsArgs'] dns_settings: A `dns_settings` block as defined below.
+        :param pulumi.Input[builtins.str] location: The Azure Region where the Palo Alto Next Generation Firewall VHub Panorama should exist. Changing this forces a new Palo Alto Next Generation Firewall VHub Panorama to be created.
+        :param pulumi.Input[builtins.str] marketplace_offer_id: The marketplace offer ID. Defaults to `pan_swfw_cloud_ngfw`. Changing this forces a new resource to be created.
+        :param pulumi.Input[builtins.str] name: The name which should be used for this Palo Alto Next Generation Firewall VHub Panorama. Changing this forces a new Palo Alto Next Generation Firewall VHub Panorama to be created.
+        :param pulumi.Input['NextGenerationFirewallVirtualHubPanoramaNetworkProfileArgs'] network_profile: A `network_profile` block as defined below.
+        :param pulumi.Input[builtins.str] panorama_base64_config: The Base64 Encoded configuration value for connecting to the Panorama Configuration server.
+        :param pulumi.Input[builtins.str] plan_id: The billing plan ID as published by Liftr.PAN. Defaults to `panw-cloud-ngfw-payg`.
+               
+               > **Note:** The former `plan_id` `panw-cloud-ngfw-payg` is defined as stop sell, but has been set as the default to not break any existing resources that were originally provisioned with it. Users need to explicitly set `plan_id` to `panw-cngfw-payg` when creating new resources.
+        :param pulumi.Input[builtins.str] resource_group_name: The name of the Resource Group where the Palo Alto Next Generation Firewall VHub Panorama should exist. Changing this forces a new Palo Alto Next Generation Firewall VHub Panorama to be created.
+        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A mapping of tags which should be assigned to the Palo Alto Next Generation Firewall VHub Panorama.
         """
         if destination_nats is not None:
             pulumi.set(__self__, "destination_nats", destination_nats)
@@ -187,6 +243,9 @@ class _NextGenerationFirewallVirtualHubPanoramaState:
     @property
     @pulumi.getter(name="destinationNats")
     def destination_nats(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NextGenerationFirewallVirtualHubPanoramaDestinationNatArgs']]]]:
+        """
+        One or more `destination_nat` blocks as defined below.
+        """
         return pulumi.get(self, "destination_nats")
 
     @destination_nats.setter
@@ -196,6 +255,9 @@ class _NextGenerationFirewallVirtualHubPanoramaState:
     @property
     @pulumi.getter(name="dnsSettings")
     def dns_settings(self) -> Optional[pulumi.Input['NextGenerationFirewallVirtualHubPanoramaDnsSettingsArgs']]:
+        """
+        A `dns_settings` block as defined below.
+        """
         return pulumi.get(self, "dns_settings")
 
     @dns_settings.setter
@@ -205,6 +267,9 @@ class _NextGenerationFirewallVirtualHubPanoramaState:
     @property
     @pulumi.getter
     def location(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The Azure Region where the Palo Alto Next Generation Firewall VHub Panorama should exist. Changing this forces a new Palo Alto Next Generation Firewall VHub Panorama to be created.
+        """
         return pulumi.get(self, "location")
 
     @location.setter
@@ -214,6 +279,9 @@ class _NextGenerationFirewallVirtualHubPanoramaState:
     @property
     @pulumi.getter(name="marketplaceOfferId")
     def marketplace_offer_id(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The marketplace offer ID. Defaults to `pan_swfw_cloud_ngfw`. Changing this forces a new resource to be created.
+        """
         return pulumi.get(self, "marketplace_offer_id")
 
     @marketplace_offer_id.setter
@@ -223,6 +291,9 @@ class _NextGenerationFirewallVirtualHubPanoramaState:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The name which should be used for this Palo Alto Next Generation Firewall VHub Panorama. Changing this forces a new Palo Alto Next Generation Firewall VHub Panorama to be created.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -232,6 +303,9 @@ class _NextGenerationFirewallVirtualHubPanoramaState:
     @property
     @pulumi.getter(name="networkProfile")
     def network_profile(self) -> Optional[pulumi.Input['NextGenerationFirewallVirtualHubPanoramaNetworkProfileArgs']]:
+        """
+        A `network_profile` block as defined below.
+        """
         return pulumi.get(self, "network_profile")
 
     @network_profile.setter
@@ -241,6 +315,9 @@ class _NextGenerationFirewallVirtualHubPanoramaState:
     @property
     @pulumi.getter(name="panoramaBase64Config")
     def panorama_base64_config(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The Base64 Encoded configuration value for connecting to the Panorama Configuration server.
+        """
         return pulumi.get(self, "panorama_base64_config")
 
     @panorama_base64_config.setter
@@ -259,6 +336,11 @@ class _NextGenerationFirewallVirtualHubPanoramaState:
     @property
     @pulumi.getter(name="planId")
     def plan_id(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The billing plan ID as published by Liftr.PAN. Defaults to `panw-cloud-ngfw-payg`.
+
+        > **Note:** The former `plan_id` `panw-cloud-ngfw-payg` is defined as stop sell, but has been set as the default to not break any existing resources that were originally provisioned with it. Users need to explicitly set `plan_id` to `panw-cngfw-payg` when creating new resources.
+        """
         return pulumi.get(self, "plan_id")
 
     @plan_id.setter
@@ -268,6 +350,9 @@ class _NextGenerationFirewallVirtualHubPanoramaState:
     @property
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The name of the Resource Group where the Palo Alto Next Generation Firewall VHub Panorama should exist. Changing this forces a new Palo Alto Next Generation Firewall VHub Panorama to be created.
+        """
         return pulumi.get(self, "resource_group_name")
 
     @resource_group_name.setter
@@ -277,6 +362,9 @@ class _NextGenerationFirewallVirtualHubPanoramaState:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
+        """
+        A mapping of tags which should be assigned to the Palo Alto Next Generation Firewall VHub Panorama.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -302,9 +390,82 @@ class NextGenerationFirewallVirtualHubPanorama(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  __props__=None):
         """
-        Create a NextGenerationFirewallVirtualHubPanorama resource with the given unique name, props, and options.
+        Manages a Palo Alto Next Generation Firewall VHub Panorama.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_public_ip = azure.network.PublicIp("example",
+            name="acceptanceTestPublicIp1",
+            resource_group_name=example.name,
+            location=example.location,
+            allocation_method="Static",
+            tags={
+                "environment": "Production",
+            })
+        example_virtual_wan = azure.network.VirtualWan("example",
+            name="example-virtualwan",
+            resource_group_name=example.name,
+            location=example.location)
+        example_virtual_hub = azure.network.VirtualHub("example",
+            name="example-virtualhub",
+            resource_group_name=example.name,
+            location=example.location,
+            virtual_wan_id=example_virtual_wan.id,
+            address_prefix="10.0.0.0/23",
+            tags={
+                "hubSaaSPreview": "true",
+            })
+        example_virtual_network_appliance = azure.paloalto.VirtualNetworkAppliance("example",
+            name="example-appliance",
+            virtual_hub_id=example_virtual_hub.id)
+        example_next_generation_firewall_virtual_hub_panorama = azure.paloalto.NextGenerationFirewallVirtualHubPanorama("example",
+            name="example",
+            resource_group_name=example.name,
+            location=example.location,
+            network_profile={
+                "public_ip_address_ids": [example_public_ip.id],
+                "virtual_hub_id": example_virtual_hub.id,
+                "network_virtual_appliance_id": example_virtual_network_appliance.id,
+            },
+            panorama_base64_config="VGhpcyBpcyBub3QgYSByZWFsIGNvbmZpZywgcGxlYXNlIHVzZSB5b3VyIFBhbm9yYW1hIHNlcnZlciB0byBnZW5lcmF0ZSBhIHJlYWwgdmFsdWUgZm9yIHRoaXMgcHJvcGVydHkhCg==")
+        ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `PaloAltoNetworks.Cloudngfw`: 2023-09-01
+
+        ## Import
+
+        Palo Alto Next Generation Firewall VHub Panoramas can be imported using the `resource id`, e.g.
+
+        ```sh
+        $ pulumi import azure:paloalto/nextGenerationFirewallVirtualHubPanorama:NextGenerationFirewallVirtualHubPanorama example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/PaloAltoNetworks.Cloudngfw/firewalls/myVhubPanoramaFW
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['NextGenerationFirewallVirtualHubPanoramaDestinationNatArgs', 'NextGenerationFirewallVirtualHubPanoramaDestinationNatArgsDict']]]] destination_nats: One or more `destination_nat` blocks as defined below.
+        :param pulumi.Input[Union['NextGenerationFirewallVirtualHubPanoramaDnsSettingsArgs', 'NextGenerationFirewallVirtualHubPanoramaDnsSettingsArgsDict']] dns_settings: A `dns_settings` block as defined below.
+        :param pulumi.Input[builtins.str] location: The Azure Region where the Palo Alto Next Generation Firewall VHub Panorama should exist. Changing this forces a new Palo Alto Next Generation Firewall VHub Panorama to be created.
+        :param pulumi.Input[builtins.str] marketplace_offer_id: The marketplace offer ID. Defaults to `pan_swfw_cloud_ngfw`. Changing this forces a new resource to be created.
+        :param pulumi.Input[builtins.str] name: The name which should be used for this Palo Alto Next Generation Firewall VHub Panorama. Changing this forces a new Palo Alto Next Generation Firewall VHub Panorama to be created.
+        :param pulumi.Input[Union['NextGenerationFirewallVirtualHubPanoramaNetworkProfileArgs', 'NextGenerationFirewallVirtualHubPanoramaNetworkProfileArgsDict']] network_profile: A `network_profile` block as defined below.
+        :param pulumi.Input[builtins.str] panorama_base64_config: The Base64 Encoded configuration value for connecting to the Panorama Configuration server.
+        :param pulumi.Input[builtins.str] plan_id: The billing plan ID as published by Liftr.PAN. Defaults to `panw-cloud-ngfw-payg`.
+               
+               > **Note:** The former `plan_id` `panw-cloud-ngfw-payg` is defined as stop sell, but has been set as the default to not break any existing resources that were originally provisioned with it. Users need to explicitly set `plan_id` to `panw-cngfw-payg` when creating new resources.
+        :param pulumi.Input[builtins.str] resource_group_name: The name of the Resource Group where the Palo Alto Next Generation Firewall VHub Panorama should exist. Changing this forces a new Palo Alto Next Generation Firewall VHub Panorama to be created.
+        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A mapping of tags which should be assigned to the Palo Alto Next Generation Firewall VHub Panorama.
         """
         ...
     @overload
@@ -313,7 +474,68 @@ class NextGenerationFirewallVirtualHubPanorama(pulumi.CustomResource):
                  args: NextGenerationFirewallVirtualHubPanoramaArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a NextGenerationFirewallVirtualHubPanorama resource with the given unique name, props, and options.
+        Manages a Palo Alto Next Generation Firewall VHub Panorama.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_public_ip = azure.network.PublicIp("example",
+            name="acceptanceTestPublicIp1",
+            resource_group_name=example.name,
+            location=example.location,
+            allocation_method="Static",
+            tags={
+                "environment": "Production",
+            })
+        example_virtual_wan = azure.network.VirtualWan("example",
+            name="example-virtualwan",
+            resource_group_name=example.name,
+            location=example.location)
+        example_virtual_hub = azure.network.VirtualHub("example",
+            name="example-virtualhub",
+            resource_group_name=example.name,
+            location=example.location,
+            virtual_wan_id=example_virtual_wan.id,
+            address_prefix="10.0.0.0/23",
+            tags={
+                "hubSaaSPreview": "true",
+            })
+        example_virtual_network_appliance = azure.paloalto.VirtualNetworkAppliance("example",
+            name="example-appliance",
+            virtual_hub_id=example_virtual_hub.id)
+        example_next_generation_firewall_virtual_hub_panorama = azure.paloalto.NextGenerationFirewallVirtualHubPanorama("example",
+            name="example",
+            resource_group_name=example.name,
+            location=example.location,
+            network_profile={
+                "public_ip_address_ids": [example_public_ip.id],
+                "virtual_hub_id": example_virtual_hub.id,
+                "network_virtual_appliance_id": example_virtual_network_appliance.id,
+            },
+            panorama_base64_config="VGhpcyBpcyBub3QgYSByZWFsIGNvbmZpZywgcGxlYXNlIHVzZSB5b3VyIFBhbm9yYW1hIHNlcnZlciB0byBnZW5lcmF0ZSBhIHJlYWwgdmFsdWUgZm9yIHRoaXMgcHJvcGVydHkhCg==")
+        ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `PaloAltoNetworks.Cloudngfw`: 2023-09-01
+
+        ## Import
+
+        Palo Alto Next Generation Firewall VHub Panoramas can be imported using the `resource id`, e.g.
+
+        ```sh
+        $ pulumi import azure:paloalto/nextGenerationFirewallVirtualHubPanorama:NextGenerationFirewallVirtualHubPanorama example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/PaloAltoNetworks.Cloudngfw/firewalls/myVhubPanoramaFW
+        ```
+
         :param str resource_name: The name of the resource.
         :param NextGenerationFirewallVirtualHubPanoramaArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -393,6 +615,18 @@ class NextGenerationFirewallVirtualHubPanorama(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['NextGenerationFirewallVirtualHubPanoramaDestinationNatArgs', 'NextGenerationFirewallVirtualHubPanoramaDestinationNatArgsDict']]]] destination_nats: One or more `destination_nat` blocks as defined below.
+        :param pulumi.Input[Union['NextGenerationFirewallVirtualHubPanoramaDnsSettingsArgs', 'NextGenerationFirewallVirtualHubPanoramaDnsSettingsArgsDict']] dns_settings: A `dns_settings` block as defined below.
+        :param pulumi.Input[builtins.str] location: The Azure Region where the Palo Alto Next Generation Firewall VHub Panorama should exist. Changing this forces a new Palo Alto Next Generation Firewall VHub Panorama to be created.
+        :param pulumi.Input[builtins.str] marketplace_offer_id: The marketplace offer ID. Defaults to `pan_swfw_cloud_ngfw`. Changing this forces a new resource to be created.
+        :param pulumi.Input[builtins.str] name: The name which should be used for this Palo Alto Next Generation Firewall VHub Panorama. Changing this forces a new Palo Alto Next Generation Firewall VHub Panorama to be created.
+        :param pulumi.Input[Union['NextGenerationFirewallVirtualHubPanoramaNetworkProfileArgs', 'NextGenerationFirewallVirtualHubPanoramaNetworkProfileArgsDict']] network_profile: A `network_profile` block as defined below.
+        :param pulumi.Input[builtins.str] panorama_base64_config: The Base64 Encoded configuration value for connecting to the Panorama Configuration server.
+        :param pulumi.Input[builtins.str] plan_id: The billing plan ID as published by Liftr.PAN. Defaults to `panw-cloud-ngfw-payg`.
+               
+               > **Note:** The former `plan_id` `panw-cloud-ngfw-payg` is defined as stop sell, but has been set as the default to not break any existing resources that were originally provisioned with it. Users need to explicitly set `plan_id` to `panw-cngfw-payg` when creating new resources.
+        :param pulumi.Input[builtins.str] resource_group_name: The name of the Resource Group where the Palo Alto Next Generation Firewall VHub Panorama should exist. Changing this forces a new Palo Alto Next Generation Firewall VHub Panorama to be created.
+        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A mapping of tags which should be assigned to the Palo Alto Next Generation Firewall VHub Panorama.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -414,36 +648,57 @@ class NextGenerationFirewallVirtualHubPanorama(pulumi.CustomResource):
     @property
     @pulumi.getter(name="destinationNats")
     def destination_nats(self) -> pulumi.Output[Optional[Sequence['outputs.NextGenerationFirewallVirtualHubPanoramaDestinationNat']]]:
+        """
+        One or more `destination_nat` blocks as defined below.
+        """
         return pulumi.get(self, "destination_nats")
 
     @property
     @pulumi.getter(name="dnsSettings")
     def dns_settings(self) -> pulumi.Output[Optional['outputs.NextGenerationFirewallVirtualHubPanoramaDnsSettings']]:
+        """
+        A `dns_settings` block as defined below.
+        """
         return pulumi.get(self, "dns_settings")
 
     @property
     @pulumi.getter
     def location(self) -> pulumi.Output[builtins.str]:
+        """
+        The Azure Region where the Palo Alto Next Generation Firewall VHub Panorama should exist. Changing this forces a new Palo Alto Next Generation Firewall VHub Panorama to be created.
+        """
         return pulumi.get(self, "location")
 
     @property
     @pulumi.getter(name="marketplaceOfferId")
     def marketplace_offer_id(self) -> pulumi.Output[Optional[builtins.str]]:
+        """
+        The marketplace offer ID. Defaults to `pan_swfw_cloud_ngfw`. Changing this forces a new resource to be created.
+        """
         return pulumi.get(self, "marketplace_offer_id")
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[builtins.str]:
+        """
+        The name which should be used for this Palo Alto Next Generation Firewall VHub Panorama. Changing this forces a new Palo Alto Next Generation Firewall VHub Panorama to be created.
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter(name="networkProfile")
     def network_profile(self) -> pulumi.Output['outputs.NextGenerationFirewallVirtualHubPanoramaNetworkProfile']:
+        """
+        A `network_profile` block as defined below.
+        """
         return pulumi.get(self, "network_profile")
 
     @property
     @pulumi.getter(name="panoramaBase64Config")
     def panorama_base64_config(self) -> pulumi.Output[builtins.str]:
+        """
+        The Base64 Encoded configuration value for connecting to the Panorama Configuration server.
+        """
         return pulumi.get(self, "panorama_base64_config")
 
     @property
@@ -454,15 +709,26 @@ class NextGenerationFirewallVirtualHubPanorama(pulumi.CustomResource):
     @property
     @pulumi.getter(name="planId")
     def plan_id(self) -> pulumi.Output[Optional[builtins.str]]:
+        """
+        The billing plan ID as published by Liftr.PAN. Defaults to `panw-cloud-ngfw-payg`.
+
+        > **Note:** The former `plan_id` `panw-cloud-ngfw-payg` is defined as stop sell, but has been set as the default to not break any existing resources that were originally provisioned with it. Users need to explicitly set `plan_id` to `panw-cngfw-payg` when creating new resources.
+        """
         return pulumi.get(self, "plan_id")
 
     @property
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Output[builtins.str]:
+        """
+        The name of the Resource Group where the Palo Alto Next Generation Firewall VHub Panorama should exist. Changing this forces a new Palo Alto Next Generation Firewall VHub Panorama to be created.
+        """
         return pulumi.get(self, "resource_group_name")
 
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, builtins.str]]]:
+        """
+        A mapping of tags which should be assigned to the Palo Alto Next Generation Firewall VHub Panorama.
+        """
         return pulumi.get(self, "tags")
 

@@ -24,6 +24,7 @@ class PoolArgs:
                  resource_group_name: pulumi.Input[builtins.str],
                  service_level: pulumi.Input[builtins.str],
                  size_in_tb: pulumi.Input[builtins.int],
+                 cool_access_enabled: Optional[pulumi.Input[builtins.bool]] = None,
                  encryption_type: Optional[pulumi.Input[builtins.str]] = None,
                  location: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
@@ -36,9 +37,12 @@ class PoolArgs:
         :param pulumi.Input[builtins.str] service_level: The service level of the file system. Valid values include `Premium`, `Standard`, and `Ultra`. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.int] size_in_tb: Provisioned size of the pool in TB. Value must be between `1` and `2048`.
                
-               > **NOTE** `2` TB capacity pool sizing is currently in preview. You can only take advantage of the `2` TB minimum if all the volumes in the capacity pool are using `Standard` network features. If any volume is using `Basic` network features, the minimum size is `4` TB. Please see the product [documentation](https://learn.microsoft.com/azure/azure-netapp-files/azure-netapp-files-set-up-capacity-pool) for more information.
+               > **Note:** `2` TB capacity pool sizing is currently in preview. You can only take advantage of the `2` TB minimum if all the volumes in the capacity pool are using `Standard` network features. If any volume is using `Basic` network features, the minimum size is `4` TB. Please see the product [documentation](https://learn.microsoft.com/azure/azure-netapp-files/azure-netapp-files-set-up-capacity-pool) for more information.
                
-               > **NOTE** The maximum `size_in_tb` is goverened by regional quotas. You may request additional capacity from Azure, currently up to `2048`.
+               > **Note:** The maximum `size_in_tb` is goverened by regional quotas. You may request additional capacity from Azure, currently up to `2048`.
+        :param pulumi.Input[builtins.bool] cool_access_enabled: Whether the NetApp Pool can hold cool access enabled volumes. Defaults to `false`.
+               
+               > **Note:** Disabling `cool_access_enabled` is not allowed and forces a new resource to be created.
         :param pulumi.Input[builtins.str] encryption_type: The encryption type of the pool. Valid values include `Single`, and `Double`. Defaults to `Single`. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] name: The name of the NetApp Pool. Changing this forces a new resource to be created.
@@ -49,6 +53,8 @@ class PoolArgs:
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "service_level", service_level)
         pulumi.set(__self__, "size_in_tb", size_in_tb)
+        if cool_access_enabled is not None:
+            pulumi.set(__self__, "cool_access_enabled", cool_access_enabled)
         if encryption_type is not None:
             pulumi.set(__self__, "encryption_type", encryption_type)
         if location is not None:
@@ -102,15 +108,29 @@ class PoolArgs:
         """
         Provisioned size of the pool in TB. Value must be between `1` and `2048`.
 
-        > **NOTE** `2` TB capacity pool sizing is currently in preview. You can only take advantage of the `2` TB minimum if all the volumes in the capacity pool are using `Standard` network features. If any volume is using `Basic` network features, the minimum size is `4` TB. Please see the product [documentation](https://learn.microsoft.com/azure/azure-netapp-files/azure-netapp-files-set-up-capacity-pool) for more information.
+        > **Note:** `2` TB capacity pool sizing is currently in preview. You can only take advantage of the `2` TB minimum if all the volumes in the capacity pool are using `Standard` network features. If any volume is using `Basic` network features, the minimum size is `4` TB. Please see the product [documentation](https://learn.microsoft.com/azure/azure-netapp-files/azure-netapp-files-set-up-capacity-pool) for more information.
 
-        > **NOTE** The maximum `size_in_tb` is goverened by regional quotas. You may request additional capacity from Azure, currently up to `2048`.
+        > **Note:** The maximum `size_in_tb` is goverened by regional quotas. You may request additional capacity from Azure, currently up to `2048`.
         """
         return pulumi.get(self, "size_in_tb")
 
     @size_in_tb.setter
     def size_in_tb(self, value: pulumi.Input[builtins.int]):
         pulumi.set(self, "size_in_tb", value)
+
+    @property
+    @pulumi.getter(name="coolAccessEnabled")
+    def cool_access_enabled(self) -> Optional[pulumi.Input[builtins.bool]]:
+        """
+        Whether the NetApp Pool can hold cool access enabled volumes. Defaults to `false`.
+
+        > **Note:** Disabling `cool_access_enabled` is not allowed and forces a new resource to be created.
+        """
+        return pulumi.get(self, "cool_access_enabled")
+
+    @cool_access_enabled.setter
+    def cool_access_enabled(self, value: Optional[pulumi.Input[builtins.bool]]):
+        pulumi.set(self, "cool_access_enabled", value)
 
     @property
     @pulumi.getter(name="encryptionType")
@@ -177,6 +197,7 @@ class PoolArgs:
 class _PoolState:
     def __init__(__self__, *,
                  account_name: Optional[pulumi.Input[builtins.str]] = None,
+                 cool_access_enabled: Optional[pulumi.Input[builtins.bool]] = None,
                  encryption_type: Optional[pulumi.Input[builtins.str]] = None,
                  location: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
@@ -188,6 +209,9 @@ class _PoolState:
         """
         Input properties used for looking up and filtering Pool resources.
         :param pulumi.Input[builtins.str] account_name: The name of the NetApp account in which the NetApp Pool should be created. Changing this forces a new resource to be created.
+        :param pulumi.Input[builtins.bool] cool_access_enabled: Whether the NetApp Pool can hold cool access enabled volumes. Defaults to `false`.
+               
+               > **Note:** Disabling `cool_access_enabled` is not allowed and forces a new resource to be created.
         :param pulumi.Input[builtins.str] encryption_type: The encryption type of the pool. Valid values include `Single`, and `Double`. Defaults to `Single`. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] name: The name of the NetApp Pool. Changing this forces a new resource to be created.
@@ -196,13 +220,15 @@ class _PoolState:
         :param pulumi.Input[builtins.str] service_level: The service level of the file system. Valid values include `Premium`, `Standard`, and `Ultra`. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.int] size_in_tb: Provisioned size of the pool in TB. Value must be between `1` and `2048`.
                
-               > **NOTE** `2` TB capacity pool sizing is currently in preview. You can only take advantage of the `2` TB minimum if all the volumes in the capacity pool are using `Standard` network features. If any volume is using `Basic` network features, the minimum size is `4` TB. Please see the product [documentation](https://learn.microsoft.com/azure/azure-netapp-files/azure-netapp-files-set-up-capacity-pool) for more information.
+               > **Note:** `2` TB capacity pool sizing is currently in preview. You can only take advantage of the `2` TB minimum if all the volumes in the capacity pool are using `Standard` network features. If any volume is using `Basic` network features, the minimum size is `4` TB. Please see the product [documentation](https://learn.microsoft.com/azure/azure-netapp-files/azure-netapp-files-set-up-capacity-pool) for more information.
                
-               > **NOTE** The maximum `size_in_tb` is goverened by regional quotas. You may request additional capacity from Azure, currently up to `2048`.
+               > **Note:** The maximum `size_in_tb` is goverened by regional quotas. You may request additional capacity from Azure, currently up to `2048`.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A mapping of tags to assign to the resource.
         """
         if account_name is not None:
             pulumi.set(__self__, "account_name", account_name)
+        if cool_access_enabled is not None:
+            pulumi.set(__self__, "cool_access_enabled", cool_access_enabled)
         if encryption_type is not None:
             pulumi.set(__self__, "encryption_type", encryption_type)
         if location is not None:
@@ -231,6 +257,20 @@ class _PoolState:
     @account_name.setter
     def account_name(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "account_name", value)
+
+    @property
+    @pulumi.getter(name="coolAccessEnabled")
+    def cool_access_enabled(self) -> Optional[pulumi.Input[builtins.bool]]:
+        """
+        Whether the NetApp Pool can hold cool access enabled volumes. Defaults to `false`.
+
+        > **Note:** Disabling `cool_access_enabled` is not allowed and forces a new resource to be created.
+        """
+        return pulumi.get(self, "cool_access_enabled")
+
+    @cool_access_enabled.setter
+    def cool_access_enabled(self, value: Optional[pulumi.Input[builtins.bool]]):
+        pulumi.set(self, "cool_access_enabled", value)
 
     @property
     @pulumi.getter(name="encryptionType")
@@ -310,9 +350,9 @@ class _PoolState:
         """
         Provisioned size of the pool in TB. Value must be between `1` and `2048`.
 
-        > **NOTE** `2` TB capacity pool sizing is currently in preview. You can only take advantage of the `2` TB minimum if all the volumes in the capacity pool are using `Standard` network features. If any volume is using `Basic` network features, the minimum size is `4` TB. Please see the product [documentation](https://learn.microsoft.com/azure/azure-netapp-files/azure-netapp-files-set-up-capacity-pool) for more information.
+        > **Note:** `2` TB capacity pool sizing is currently in preview. You can only take advantage of the `2` TB minimum if all the volumes in the capacity pool are using `Standard` network features. If any volume is using `Basic` network features, the minimum size is `4` TB. Please see the product [documentation](https://learn.microsoft.com/azure/azure-netapp-files/azure-netapp-files-set-up-capacity-pool) for more information.
 
-        > **NOTE** The maximum `size_in_tb` is goverened by regional quotas. You may request additional capacity from Azure, currently up to `2048`.
+        > **Note:** The maximum `size_in_tb` is goverened by regional quotas. You may request additional capacity from Azure, currently up to `2048`.
         """
         return pulumi.get(self, "size_in_tb")
 
@@ -340,6 +380,7 @@ class Pool(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_name: Optional[pulumi.Input[builtins.str]] = None,
+                 cool_access_enabled: Optional[pulumi.Input[builtins.bool]] = None,
                  encryption_type: Optional[pulumi.Input[builtins.str]] = None,
                  location: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
@@ -374,6 +415,13 @@ class Pool(pulumi.CustomResource):
             size_in_tb=4)
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.NetApp`: 2025-01-01
+
         ## Import
 
         NetApp Pool can be imported using the `resource id`, e.g.
@@ -385,6 +433,9 @@ class Pool(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] account_name: The name of the NetApp account in which the NetApp Pool should be created. Changing this forces a new resource to be created.
+        :param pulumi.Input[builtins.bool] cool_access_enabled: Whether the NetApp Pool can hold cool access enabled volumes. Defaults to `false`.
+               
+               > **Note:** Disabling `cool_access_enabled` is not allowed and forces a new resource to be created.
         :param pulumi.Input[builtins.str] encryption_type: The encryption type of the pool. Valid values include `Single`, and `Double`. Defaults to `Single`. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] name: The name of the NetApp Pool. Changing this forces a new resource to be created.
@@ -393,9 +444,9 @@ class Pool(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] service_level: The service level of the file system. Valid values include `Premium`, `Standard`, and `Ultra`. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.int] size_in_tb: Provisioned size of the pool in TB. Value must be between `1` and `2048`.
                
-               > **NOTE** `2` TB capacity pool sizing is currently in preview. You can only take advantage of the `2` TB minimum if all the volumes in the capacity pool are using `Standard` network features. If any volume is using `Basic` network features, the minimum size is `4` TB. Please see the product [documentation](https://learn.microsoft.com/azure/azure-netapp-files/azure-netapp-files-set-up-capacity-pool) for more information.
+               > **Note:** `2` TB capacity pool sizing is currently in preview. You can only take advantage of the `2` TB minimum if all the volumes in the capacity pool are using `Standard` network features. If any volume is using `Basic` network features, the minimum size is `4` TB. Please see the product [documentation](https://learn.microsoft.com/azure/azure-netapp-files/azure-netapp-files-set-up-capacity-pool) for more information.
                
-               > **NOTE** The maximum `size_in_tb` is goverened by regional quotas. You may request additional capacity from Azure, currently up to `2048`.
+               > **Note:** The maximum `size_in_tb` is goverened by regional quotas. You may request additional capacity from Azure, currently up to `2048`.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A mapping of tags to assign to the resource.
         """
         ...
@@ -429,6 +480,13 @@ class Pool(pulumi.CustomResource):
             size_in_tb=4)
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.NetApp`: 2025-01-01
+
         ## Import
 
         NetApp Pool can be imported using the `resource id`, e.g.
@@ -453,6 +511,7 @@ class Pool(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_name: Optional[pulumi.Input[builtins.str]] = None,
+                 cool_access_enabled: Optional[pulumi.Input[builtins.bool]] = None,
                  encryption_type: Optional[pulumi.Input[builtins.str]] = None,
                  location: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
@@ -473,6 +532,7 @@ class Pool(pulumi.CustomResource):
             if account_name is None and not opts.urn:
                 raise TypeError("Missing required property 'account_name'")
             __props__.__dict__["account_name"] = account_name
+            __props__.__dict__["cool_access_enabled"] = cool_access_enabled
             __props__.__dict__["encryption_type"] = encryption_type
             __props__.__dict__["location"] = location
             __props__.__dict__["name"] = name
@@ -498,6 +558,7 @@ class Pool(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             account_name: Optional[pulumi.Input[builtins.str]] = None,
+            cool_access_enabled: Optional[pulumi.Input[builtins.bool]] = None,
             encryption_type: Optional[pulumi.Input[builtins.str]] = None,
             location: Optional[pulumi.Input[builtins.str]] = None,
             name: Optional[pulumi.Input[builtins.str]] = None,
@@ -514,6 +575,9 @@ class Pool(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] account_name: The name of the NetApp account in which the NetApp Pool should be created. Changing this forces a new resource to be created.
+        :param pulumi.Input[builtins.bool] cool_access_enabled: Whether the NetApp Pool can hold cool access enabled volumes. Defaults to `false`.
+               
+               > **Note:** Disabling `cool_access_enabled` is not allowed and forces a new resource to be created.
         :param pulumi.Input[builtins.str] encryption_type: The encryption type of the pool. Valid values include `Single`, and `Double`. Defaults to `Single`. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] name: The name of the NetApp Pool. Changing this forces a new resource to be created.
@@ -522,9 +586,9 @@ class Pool(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] service_level: The service level of the file system. Valid values include `Premium`, `Standard`, and `Ultra`. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.int] size_in_tb: Provisioned size of the pool in TB. Value must be between `1` and `2048`.
                
-               > **NOTE** `2` TB capacity pool sizing is currently in preview. You can only take advantage of the `2` TB minimum if all the volumes in the capacity pool are using `Standard` network features. If any volume is using `Basic` network features, the minimum size is `4` TB. Please see the product [documentation](https://learn.microsoft.com/azure/azure-netapp-files/azure-netapp-files-set-up-capacity-pool) for more information.
+               > **Note:** `2` TB capacity pool sizing is currently in preview. You can only take advantage of the `2` TB minimum if all the volumes in the capacity pool are using `Standard` network features. If any volume is using `Basic` network features, the minimum size is `4` TB. Please see the product [documentation](https://learn.microsoft.com/azure/azure-netapp-files/azure-netapp-files-set-up-capacity-pool) for more information.
                
-               > **NOTE** The maximum `size_in_tb` is goverened by regional quotas. You may request additional capacity from Azure, currently up to `2048`.
+               > **Note:** The maximum `size_in_tb` is goverened by regional quotas. You may request additional capacity from Azure, currently up to `2048`.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A mapping of tags to assign to the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -532,6 +596,7 @@ class Pool(pulumi.CustomResource):
         __props__ = _PoolState.__new__(_PoolState)
 
         __props__.__dict__["account_name"] = account_name
+        __props__.__dict__["cool_access_enabled"] = cool_access_enabled
         __props__.__dict__["encryption_type"] = encryption_type
         __props__.__dict__["location"] = location
         __props__.__dict__["name"] = name
@@ -549,6 +614,16 @@ class Pool(pulumi.CustomResource):
         The name of the NetApp account in which the NetApp Pool should be created. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "account_name")
+
+    @property
+    @pulumi.getter(name="coolAccessEnabled")
+    def cool_access_enabled(self) -> pulumi.Output[Optional[builtins.bool]]:
+        """
+        Whether the NetApp Pool can hold cool access enabled volumes. Defaults to `false`.
+
+        > **Note:** Disabling `cool_access_enabled` is not allowed and forces a new resource to be created.
+        """
+        return pulumi.get(self, "cool_access_enabled")
 
     @property
     @pulumi.getter(name="encryptionType")
@@ -604,9 +679,9 @@ class Pool(pulumi.CustomResource):
         """
         Provisioned size of the pool in TB. Value must be between `1` and `2048`.
 
-        > **NOTE** `2` TB capacity pool sizing is currently in preview. You can only take advantage of the `2` TB minimum if all the volumes in the capacity pool are using `Standard` network features. If any volume is using `Basic` network features, the minimum size is `4` TB. Please see the product [documentation](https://learn.microsoft.com/azure/azure-netapp-files/azure-netapp-files-set-up-capacity-pool) for more information.
+        > **Note:** `2` TB capacity pool sizing is currently in preview. You can only take advantage of the `2` TB minimum if all the volumes in the capacity pool are using `Standard` network features. If any volume is using `Basic` network features, the minimum size is `4` TB. Please see the product [documentation](https://learn.microsoft.com/azure/azure-netapp-files/azure-netapp-files-set-up-capacity-pool) for more information.
 
-        > **NOTE** The maximum `size_in_tb` is goverened by regional quotas. You may request additional capacity from Azure, currently up to `2048`.
+        > **Note:** The maximum `size_in_tb` is goverened by regional quotas. You may request additional capacity from Azure, currently up to `2048`.
         """
         return pulumi.get(self, "size_in_tb")
 

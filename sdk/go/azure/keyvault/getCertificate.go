@@ -13,6 +13,9 @@ import (
 
 // Use this data source to access information about an existing Key Vault Certificate.
 //
+// > **Note:** All arguments including the secret value will be stored in the raw state as plain-text.
+// [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
+//
 // ## Example Usage
 //
 // ```go

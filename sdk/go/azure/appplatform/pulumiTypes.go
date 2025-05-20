@@ -343,7 +343,7 @@ func (o SpringCloudAppCustomPersistentDiskArrayOutput) Index(i pulumi.IntInput) 
 type SpringCloudAppIdentity struct {
 	// A list of User Assigned Managed Identity IDs to be assigned to this Spring Cloud Application.
 	//
-	// > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+	// > **Note:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
 	IdentityIds []string `pulumi:"identityIds"`
 	// The Principal ID for the Service Principal associated with the Managed Service Identity of this Spring Cloud Application.
 	PrincipalId *string `pulumi:"principalId"`
@@ -367,7 +367,7 @@ type SpringCloudAppIdentityInput interface {
 type SpringCloudAppIdentityArgs struct {
 	// A list of User Assigned Managed Identity IDs to be assigned to this Spring Cloud Application.
 	//
-	// > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+	// > **Note:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
 	IdentityIds pulumi.StringArrayInput `pulumi:"identityIds"`
 	// The Principal ID for the Service Principal associated with the Managed Service Identity of this Spring Cloud Application.
 	PrincipalId pulumi.StringPtrInput `pulumi:"principalId"`
@@ -456,7 +456,7 @@ func (o SpringCloudAppIdentityOutput) ToSpringCloudAppIdentityPtrOutputWithConte
 
 // A list of User Assigned Managed Identity IDs to be assigned to this Spring Cloud Application.
 //
-// > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+// > **Note:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
 func (o SpringCloudAppIdentityOutput) IdentityIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v SpringCloudAppIdentity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
 }
@@ -502,7 +502,7 @@ func (o SpringCloudAppIdentityPtrOutput) Elem() SpringCloudAppIdentityOutput {
 
 // A list of User Assigned Managed Identity IDs to be assigned to this Spring Cloud Application.
 //
-// > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+// > **Note:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
 func (o SpringCloudAppIdentityPtrOutput) IdentityIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *SpringCloudAppIdentity) []string {
 		if v == nil {

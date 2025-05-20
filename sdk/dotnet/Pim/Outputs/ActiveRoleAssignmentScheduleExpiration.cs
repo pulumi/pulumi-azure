@@ -24,7 +24,7 @@ namespace Pulumi.Azure.Pim.Outputs
         /// <summary>
         /// The end date/time of the role assignment. Changing this forces a new resource to be created.
         /// 
-        /// &gt; Note: Only one of `duration_days`, `duration_hours` or `end_date_time` should be specified.
+        /// &gt; **Note:** Only one of `duration_days`, `duration_hours` or `end_date_time` should be specified.
         /// </summary>
         public readonly string? EndDateTime;
 

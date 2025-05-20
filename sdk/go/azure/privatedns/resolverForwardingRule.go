@@ -126,6 +126,13 @@ import (
 //
 // ```
 //
+// ## API Providers
+//
+// <!-- This section is generated, changes will be overwritten -->
+// This resource uses the following Azure API Providers:
+//
+// * `Microsoft.Network`: 2022-07-01
+//
 // ## Import
 //
 // Private DNS Resolver Forwarding Rules can be imported using the `resource id`, e.g.

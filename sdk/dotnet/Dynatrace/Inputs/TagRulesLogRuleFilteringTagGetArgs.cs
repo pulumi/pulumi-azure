@@ -13,19 +13,19 @@ namespace Pulumi.Azure.Dynatrace.Inputs
     public sealed class TagRulesLogRuleFilteringTagGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Action of the filtering tag. Possible values are `Include` and `Exclude`. Changing this forces a new resource to be created.
+        /// Action of the filtering tag. Possible values are `Include` and `Exclude`.
         /// </summary>
         [Input("action", required: true)]
         public Input<string> Action { get; set; } = null!;
 
         /// <summary>
-        /// Name of the filtering tag. Changing this forces a new resource to be created.
+        /// Name of the filtering tag.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// Value of the filtering tag. Changing this forces a new resource to be created.
+        /// Value of the filtering tag.
         /// </summary>
         [Input("value", required: true)]
         public Input<string> Value { get; set; } = null!;

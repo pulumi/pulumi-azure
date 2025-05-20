@@ -93,7 +93,7 @@ public final class ApiVersionSetState extends com.pulumi.resources.ResourceArgs 
     /**
      * The name of the Header which should be read from Inbound Requests which defines the API Version.
      * 
-     * &gt; **NOTE:** This must be specified when `versioning_scheme` is set to `Header`.
+     * &gt; **Note:** This must be specified when `versioning_scheme` is set to `Header`.
      * 
      */
     @Import(name="versionHeaderName")
@@ -102,7 +102,7 @@ public final class ApiVersionSetState extends com.pulumi.resources.ResourceArgs 
     /**
      * @return The name of the Header which should be read from Inbound Requests which defines the API Version.
      * 
-     * &gt; **NOTE:** This must be specified when `versioning_scheme` is set to `Header`.
+     * &gt; **Note:** This must be specified when `versioning_scheme` is set to `Header`.
      * 
      */
     public Optional<Output<String>> versionHeaderName() {
@@ -112,7 +112,7 @@ public final class ApiVersionSetState extends com.pulumi.resources.ResourceArgs 
     /**
      * The name of the Query String which should be read from Inbound Requests which defines the API Version.
      * 
-     * &gt; **NOTE:** This must be specified when `versioning_scheme` is set to `Query`.
+     * &gt; **Note:** This must be specified when `versioning_scheme` is set to `Query`.
      * 
      */
     @Import(name="versionQueryName")
@@ -121,7 +121,7 @@ public final class ApiVersionSetState extends com.pulumi.resources.ResourceArgs 
     /**
      * @return The name of the Query String which should be read from Inbound Requests which defines the API Version.
      * 
-     * &gt; **NOTE:** This must be specified when `versioning_scheme` is set to `Query`.
+     * &gt; **Note:** This must be specified when `versioning_scheme` is set to `Query`.
      * 
      */
     public Optional<Output<String>> versionQueryName() {
@@ -282,7 +282,7 @@ public final class ApiVersionSetState extends com.pulumi.resources.ResourceArgs 
         /**
          * @param versionHeaderName The name of the Header which should be read from Inbound Requests which defines the API Version.
          * 
-         * &gt; **NOTE:** This must be specified when `versioning_scheme` is set to `Header`.
+         * &gt; **Note:** This must be specified when `versioning_scheme` is set to `Header`.
          * 
          * @return builder
          * 
@@ -295,7 +295,7 @@ public final class ApiVersionSetState extends com.pulumi.resources.ResourceArgs 
         /**
          * @param versionHeaderName The name of the Header which should be read from Inbound Requests which defines the API Version.
          * 
-         * &gt; **NOTE:** This must be specified when `versioning_scheme` is set to `Header`.
+         * &gt; **Note:** This must be specified when `versioning_scheme` is set to `Header`.
          * 
          * @return builder
          * 
@@ -307,7 +307,7 @@ public final class ApiVersionSetState extends com.pulumi.resources.ResourceArgs 
         /**
          * @param versionQueryName The name of the Query String which should be read from Inbound Requests which defines the API Version.
          * 
-         * &gt; **NOTE:** This must be specified when `versioning_scheme` is set to `Query`.
+         * &gt; **Note:** This must be specified when `versioning_scheme` is set to `Query`.
          * 
          * @return builder
          * 
@@ -320,7 +320,7 @@ public final class ApiVersionSetState extends com.pulumi.resources.ResourceArgs 
         /**
          * @param versionQueryName The name of the Query String which should be read from Inbound Requests which defines the API Version.
          * 
-         * &gt; **NOTE:** This must be specified when `versioning_scheme` is set to `Query`.
+         * &gt; **Note:** This must be specified when `versioning_scheme` is set to `Query`.
          * 
          * @return builder
          * 

@@ -16,7 +16,7 @@ namespace Pulumi.Azure.Redis
     /// 
     /// ## Example Usage
     /// 
-    /// This example provisions a Standard Redis Cache.
+    /// This example provisions a Standard Redis Cache. Other examples of the `azure.redis.Cache` resource can be found in the `./examples/redis-cache` directory within the GitHub Repository
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
@@ -53,6 +53,13 @@ namespace Pulumi.Azure.Redis
     /// 
     /// * [Azure Cache for Redis planning](https://docs.microsoft.com/azure/azure-cache-for-redis/cache-planning-faq)
     /// * [Redis: Available Configuration Settings](https://redis.io/topics/config)
+    /// 
+    /// ## API Providers
+    /// 
+    /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+    /// This resource uses the following Azure API Providers:
+    /// 
+    /// * `Microsoft.Cache`: 2024-11-01
     /// 
     /// ## Import
     /// 
@@ -104,7 +111,7 @@ namespace Pulumi.Azure.Redis
         /// <summary>
         /// The minimum TLS version. Possible values are `1.0`, `1.1` and `1.2`. Defaults to `1.0`.
         /// 
-        /// &gt; **NOTE:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
+        /// &gt; **Note:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
         /// </summary>
         [Output("minimumTlsVersion")]
         public Output<string?> MinimumTlsVersion { get; private set; } = null!;
@@ -210,7 +217,7 @@ namespace Pulumi.Azure.Redis
         /// <summary>
         /// The SKU of Redis to use. Possible values are `Basic`, `Standard` and `Premium`.
         /// 
-        /// &gt; **Note** Downgrading the SKU will force a new resource to be created.
+        /// &gt; **Note:** Downgrading the SKU will force a new resource to be created.
         /// </summary>
         [Output("skuName")]
         public Output<string> SkuName { get; private set; } = null!;
@@ -242,7 +249,7 @@ namespace Pulumi.Azure.Redis
         /// <summary>
         /// Specifies a list of Availability Zones in which this Redis Cache should be located. Changing this forces a new Redis Cache to be created.
         /// 
-        /// &gt; **Please Note:** Availability Zones are [in Preview and only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview) - as such you must be opted into the Preview to use this functionality. You can [opt into the Availability Zones Preview in the Azure Portal](https://aka.ms/azenroll).
+        /// &gt; **Note:** Availability Zones are [in Preview and only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview) - as such you must be opted into the Preview to use this functionality. You can [opt into the Availability Zones Preview in the Azure Portal](https://aka.ms/azenroll).
         /// </summary>
         [Output("zones")]
         public Output<ImmutableArray<string>> Zones { get; private set; } = null!;
@@ -333,7 +340,7 @@ namespace Pulumi.Azure.Redis
         /// <summary>
         /// The minimum TLS version. Possible values are `1.0`, `1.1` and `1.2`. Defaults to `1.0`.
         /// 
-        /// &gt; **NOTE:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
+        /// &gt; **Note:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
         /// </summary>
         [Input("minimumTlsVersion")]
         public Input<string>? MinimumTlsVersion { get; set; }
@@ -415,7 +422,7 @@ namespace Pulumi.Azure.Redis
         /// <summary>
         /// The SKU of Redis to use. Possible values are `Basic`, `Standard` and `Premium`.
         /// 
-        /// &gt; **Note** Downgrading the SKU will force a new resource to be created.
+        /// &gt; **Note:** Downgrading the SKU will force a new resource to be created.
         /// </summary>
         [Input("skuName", required: true)]
         public Input<string> SkuName { get; set; } = null!;
@@ -456,7 +463,7 @@ namespace Pulumi.Azure.Redis
         /// <summary>
         /// Specifies a list of Availability Zones in which this Redis Cache should be located. Changing this forces a new Redis Cache to be created.
         /// 
-        /// &gt; **Please Note:** Availability Zones are [in Preview and only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview) - as such you must be opted into the Preview to use this functionality. You can [opt into the Availability Zones Preview in the Azure Portal](https://aka.ms/azenroll).
+        /// &gt; **Note:** Availability Zones are [in Preview and only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview) - as such you must be opted into the Preview to use this functionality. You can [opt into the Availability Zones Preview in the Azure Portal](https://aka.ms/azenroll).
         /// </summary>
         public InputList<string> Zones
         {
@@ -511,7 +518,7 @@ namespace Pulumi.Azure.Redis
         /// <summary>
         /// The minimum TLS version. Possible values are `1.0`, `1.1` and `1.2`. Defaults to `1.0`.
         /// 
-        /// &gt; **NOTE:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
+        /// &gt; **Note:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
         /// </summary>
         [Input("minimumTlsVersion")]
         public Input<string>? MinimumTlsVersion { get; set; }
@@ -663,7 +670,7 @@ namespace Pulumi.Azure.Redis
         /// <summary>
         /// The SKU of Redis to use. Possible values are `Basic`, `Standard` and `Premium`.
         /// 
-        /// &gt; **Note** Downgrading the SKU will force a new resource to be created.
+        /// &gt; **Note:** Downgrading the SKU will force a new resource to be created.
         /// </summary>
         [Input("skuName")]
         public Input<string>? SkuName { get; set; }
@@ -710,7 +717,7 @@ namespace Pulumi.Azure.Redis
         /// <summary>
         /// Specifies a list of Availability Zones in which this Redis Cache should be located. Changing this forces a new Redis Cache to be created.
         /// 
-        /// &gt; **Please Note:** Availability Zones are [in Preview and only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview) - as such you must be opted into the Preview to use this functionality. You can [opt into the Availability Zones Preview in the Azure Portal](https://aka.ms/azenroll).
+        /// &gt; **Note:** Availability Zones are [in Preview and only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview) - as such you must be opted into the Preview to use this functionality. You can [opt into the Availability Zones Preview in the Azure Portal](https://aka.ms/azenroll).
         /// </summary>
         public InputList<string> Zones
         {

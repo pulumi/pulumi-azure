@@ -367,13 +367,13 @@ class VirtualMachineManagerVirtualMachineInstanceNetworkInterfaceArgs:
 
 if not MYPY:
     class VirtualMachineManagerVirtualMachineInstanceOperatingSystemArgsDict(TypedDict):
-        computer_name: pulumi.Input[builtins.str]
-        """
-        The computer name of the Virtual Machine. Changing this forces a new resource to be created.
-        """
         admin_password: NotRequired[pulumi.Input[builtins.str]]
         """
         The admin password of the Virtual Machine. Changing this forces a new resource to be created.
+        """
+        computer_name: NotRequired[pulumi.Input[builtins.str]]
+        """
+        The computer name of the Virtual Machine. Changing this forces a new resource to be created.
         """
 elif False:
     VirtualMachineManagerVirtualMachineInstanceOperatingSystemArgsDict: TypeAlias = Mapping[str, Any]
@@ -381,27 +381,16 @@ elif False:
 @pulumi.input_type
 class VirtualMachineManagerVirtualMachineInstanceOperatingSystemArgs:
     def __init__(__self__, *,
-                 computer_name: pulumi.Input[builtins.str],
-                 admin_password: Optional[pulumi.Input[builtins.str]] = None):
+                 admin_password: Optional[pulumi.Input[builtins.str]] = None,
+                 computer_name: Optional[pulumi.Input[builtins.str]] = None):
         """
-        :param pulumi.Input[builtins.str] computer_name: The computer name of the Virtual Machine. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] admin_password: The admin password of the Virtual Machine. Changing this forces a new resource to be created.
+        :param pulumi.Input[builtins.str] computer_name: The computer name of the Virtual Machine. Changing this forces a new resource to be created.
         """
-        pulumi.set(__self__, "computer_name", computer_name)
         if admin_password is not None:
             pulumi.set(__self__, "admin_password", admin_password)
-
-    @property
-    @pulumi.getter(name="computerName")
-    def computer_name(self) -> pulumi.Input[builtins.str]:
-        """
-        The computer name of the Virtual Machine. Changing this forces a new resource to be created.
-        """
-        return pulumi.get(self, "computer_name")
-
-    @computer_name.setter
-    def computer_name(self, value: pulumi.Input[builtins.str]):
-        pulumi.set(self, "computer_name", value)
+        if computer_name is not None:
+            pulumi.set(__self__, "computer_name", computer_name)
 
     @property
     @pulumi.getter(name="adminPassword")
@@ -414,6 +403,18 @@ class VirtualMachineManagerVirtualMachineInstanceOperatingSystemArgs:
     @admin_password.setter
     def admin_password(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "admin_password", value)
+
+    @property
+    @pulumi.getter(name="computerName")
+    def computer_name(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The computer name of the Virtual Machine. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "computer_name")
+
+    @computer_name.setter
+    def computer_name(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "computer_name", value)
 
 
 if not MYPY:

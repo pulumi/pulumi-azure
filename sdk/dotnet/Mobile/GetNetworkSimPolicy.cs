@@ -38,6 +38,13 @@ namespace Pulumi.Azure.Mobile
         /// 
         /// });
         /// ```
+        /// 
+        /// ## API Providers
+        /// 
+        /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+        /// This data source uses the following Azure API Providers:
+        /// 
+        /// * `Microsoft.MobileNetwork`: 2022-11-01
         /// </summary>
         public static Task<GetNetworkSimPolicyResult> InvokeAsync(GetNetworkSimPolicyArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetNetworkSimPolicyResult>("azure:mobile/getNetworkSimPolicy:getNetworkSimPolicy", args ?? new GetNetworkSimPolicyArgs(), options.WithDefaults());
@@ -69,6 +76,13 @@ namespace Pulumi.Azure.Mobile
         /// 
         /// });
         /// ```
+        /// 
+        /// ## API Providers
+        /// 
+        /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+        /// This data source uses the following Azure API Providers:
+        /// 
+        /// * `Microsoft.MobileNetwork`: 2022-11-01
         /// </summary>
         public static Output<GetNetworkSimPolicyResult> Invoke(GetNetworkSimPolicyInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetNetworkSimPolicyResult>("azure:mobile/getNetworkSimPolicy:getNetworkSimPolicy", args ?? new GetNetworkSimPolicyInvokeArgs(), options.WithDefaults());
@@ -100,6 +114,13 @@ namespace Pulumi.Azure.Mobile
         /// 
         /// });
         /// ```
+        /// 
+        /// ## API Providers
+        /// 
+        /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+        /// This data source uses the following Azure API Providers:
+        /// 
+        /// * `Microsoft.MobileNetwork`: 2022-11-01
         /// </summary>
         public static Output<GetNetworkSimPolicyResult> Invoke(GetNetworkSimPolicyInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetNetworkSimPolicyResult>("azure:mobile/getNetworkSimPolicy:getNetworkSimPolicy", args ?? new GetNetworkSimPolicyInvokeArgs(), options.WithDefaults());

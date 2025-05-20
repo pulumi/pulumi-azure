@@ -191,7 +191,7 @@ func (o AIServicesCustomerManagedKeyPtrOutput) ManagedHsmKeyId() pulumi.StringPt
 type AIServicesIdentity struct {
 	// Specifies a list of User Assigned Managed Identity IDs to be assigned to this AI Services Account.
 	//
-	// > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+	// > **Note:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
 	IdentityIds []string `pulumi:"identityIds"`
 	// The Principal ID associated with this Managed Service Identity.
 	PrincipalId *string `pulumi:"principalId"`
@@ -215,7 +215,7 @@ type AIServicesIdentityInput interface {
 type AIServicesIdentityArgs struct {
 	// Specifies a list of User Assigned Managed Identity IDs to be assigned to this AI Services Account.
 	//
-	// > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+	// > **Note:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
 	IdentityIds pulumi.StringArrayInput `pulumi:"identityIds"`
 	// The Principal ID associated with this Managed Service Identity.
 	PrincipalId pulumi.StringPtrInput `pulumi:"principalId"`
@@ -304,7 +304,7 @@ func (o AIServicesIdentityOutput) ToAIServicesIdentityPtrOutputWithContext(ctx c
 
 // Specifies a list of User Assigned Managed Identity IDs to be assigned to this AI Services Account.
 //
-// > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+// > **Note:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
 func (o AIServicesIdentityOutput) IdentityIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AIServicesIdentity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
 }
@@ -350,7 +350,7 @@ func (o AIServicesIdentityPtrOutput) Elem() AIServicesIdentityOutput {
 
 // Specifies a list of User Assigned Managed Identity IDs to be assigned to this AI Services Account.
 //
-// > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+// > **Note:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
 func (o AIServicesIdentityPtrOutput) IdentityIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *AIServicesIdentity) []string {
 		if v == nil {
@@ -959,7 +959,7 @@ func (o AccountCustomerManagedKeyTypePtrOutput) KeyVaultKeyId() pulumi.StringPtr
 type AccountIdentity struct {
 	// Specifies a list of User Assigned Managed Identity IDs to be assigned to this Cognitive Account.
 	//
-	// > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+	// > **Note:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
 	IdentityIds []string `pulumi:"identityIds"`
 	// The Principal ID associated with this Managed Service Identity.
 	PrincipalId *string `pulumi:"principalId"`
@@ -983,7 +983,7 @@ type AccountIdentityInput interface {
 type AccountIdentityArgs struct {
 	// Specifies a list of User Assigned Managed Identity IDs to be assigned to this Cognitive Account.
 	//
-	// > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+	// > **Note:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
 	IdentityIds pulumi.StringArrayInput `pulumi:"identityIds"`
 	// The Principal ID associated with this Managed Service Identity.
 	PrincipalId pulumi.StringPtrInput `pulumi:"principalId"`
@@ -1072,7 +1072,7 @@ func (o AccountIdentityOutput) ToAccountIdentityPtrOutputWithContext(ctx context
 
 // Specifies a list of User Assigned Managed Identity IDs to be assigned to this Cognitive Account.
 //
-// > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+// > **Note:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
 func (o AccountIdentityOutput) IdentityIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AccountIdentity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
 }
@@ -1118,7 +1118,7 @@ func (o AccountIdentityPtrOutput) Elem() AccountIdentityOutput {
 
 // Specifies a list of User Assigned Managed Identity IDs to be assigned to this Cognitive Account.
 //
-// > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+// > **Note:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
 func (o AccountIdentityPtrOutput) IdentityIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *AccountIdentity) []string {
 		if v == nil {
@@ -1161,7 +1161,7 @@ func (o AccountIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 type AccountNetworkAcls struct {
 	// Whether to allow trusted Azure Services to access the service. Possible values are `None` and `AzureServices`.
 	//
-	// > **NOTE:** `bypass` can only be set when `kind` is set to `OpenAI`
+	// > **Note:** `bypass` can only be set when `kind` is set to `OpenAI`
 	Bypass *string `pulumi:"bypass"`
 	// The Default Action to use when no rules match from `ipRules` / `virtualNetworkRules`. Possible values are `Allow` and `Deny`.
 	DefaultAction string `pulumi:"defaultAction"`
@@ -1185,7 +1185,7 @@ type AccountNetworkAclsInput interface {
 type AccountNetworkAclsArgs struct {
 	// Whether to allow trusted Azure Services to access the service. Possible values are `None` and `AzureServices`.
 	//
-	// > **NOTE:** `bypass` can only be set when `kind` is set to `OpenAI`
+	// > **Note:** `bypass` can only be set when `kind` is set to `OpenAI`
 	Bypass pulumi.StringPtrInput `pulumi:"bypass"`
 	// The Default Action to use when no rules match from `ipRules` / `virtualNetworkRules`. Possible values are `Allow` and `Deny`.
 	DefaultAction pulumi.StringInput `pulumi:"defaultAction"`
@@ -1274,7 +1274,7 @@ func (o AccountNetworkAclsOutput) ToAccountNetworkAclsPtrOutputWithContext(ctx c
 
 // Whether to allow trusted Azure Services to access the service. Possible values are `None` and `AzureServices`.
 //
-// > **NOTE:** `bypass` can only be set when `kind` is set to `OpenAI`
+// > **Note:** `bypass` can only be set when `kind` is set to `OpenAI`
 func (o AccountNetworkAclsOutput) Bypass() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AccountNetworkAcls) *string { return v.Bypass }).(pulumi.StringPtrOutput)
 }
@@ -1320,7 +1320,7 @@ func (o AccountNetworkAclsPtrOutput) Elem() AccountNetworkAclsOutput {
 
 // Whether to allow trusted Azure Services to access the service. Possible values are `None` and `AzureServices`.
 //
-// > **NOTE:** `bypass` can only be set when `kind` is set to `OpenAI`
+// > **Note:** `bypass` can only be set when `kind` is set to `OpenAI`
 func (o AccountNetworkAclsPtrOutput) Bypass() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AccountNetworkAcls) *string {
 		if v == nil {
@@ -1602,7 +1602,7 @@ func (o AccountRaiPolicyContentFilterArrayOutput) Index(i pulumi.IntInput) Accou
 type AccountStorage struct {
 	// The client ID of the managed identity associated with the storage resource.
 	//
-	// > **NOTE:** Not all `kind` support a `storage` block. For example the `kind` `OpenAI` does not support it.
+	// > **Note:** Not all `kind` support a `storage` block. For example the `kind` `OpenAI` does not support it.
 	IdentityClientId *string `pulumi:"identityClientId"`
 	// Full resource id of a Microsoft.Storage resource.
 	StorageAccountId string `pulumi:"storageAccountId"`
@@ -1622,7 +1622,7 @@ type AccountStorageInput interface {
 type AccountStorageArgs struct {
 	// The client ID of the managed identity associated with the storage resource.
 	//
-	// > **NOTE:** Not all `kind` support a `storage` block. For example the `kind` `OpenAI` does not support it.
+	// > **Note:** Not all `kind` support a `storage` block. For example the `kind` `OpenAI` does not support it.
 	IdentityClientId pulumi.StringPtrInput `pulumi:"identityClientId"`
 	// Full resource id of a Microsoft.Storage resource.
 	StorageAccountId pulumi.StringInput `pulumi:"storageAccountId"`
@@ -1681,7 +1681,7 @@ func (o AccountStorageOutput) ToAccountStorageOutputWithContext(ctx context.Cont
 
 // The client ID of the managed identity associated with the storage resource.
 //
-// > **NOTE:** Not all `kind` support a `storage` block. For example the `kind` `OpenAI` does not support it.
+// > **Note:** Not all `kind` support a `storage` block. For example the `kind` `OpenAI` does not support it.
 func (o AccountStorageOutput) IdentityClientId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AccountStorage) *string { return v.IdentityClientId }).(pulumi.StringPtrOutput)
 }
@@ -1712,7 +1712,7 @@ func (o AccountStorageArrayOutput) Index(i pulumi.IntInput) AccountStorageOutput
 }
 
 type DeploymentModel struct {
-	// The format of the Cognitive Services Account Deployment model. Changing this forces a new resource to be created. Possible value is `OpenAI`.
+	// The format of the Cognitive Services Account Deployment model. Possible values are `OpenAI` and `Cohere`. Changing this forces a new resource to be created.
 	Format string `pulumi:"format"`
 	// The name of the Cognitive Services Account Deployment model. Changing this forces a new resource to be created.
 	Name string `pulumi:"name"`
@@ -1732,7 +1732,7 @@ type DeploymentModelInput interface {
 }
 
 type DeploymentModelArgs struct {
-	// The format of the Cognitive Services Account Deployment model. Changing this forces a new resource to be created. Possible value is `OpenAI`.
+	// The format of the Cognitive Services Account Deployment model. Possible values are `OpenAI` and `Cohere`. Changing this forces a new resource to be created.
 	Format pulumi.StringInput `pulumi:"format"`
 	// The name of the Cognitive Services Account Deployment model. Changing this forces a new resource to be created.
 	Name pulumi.StringInput `pulumi:"name"`
@@ -1817,7 +1817,7 @@ func (o DeploymentModelOutput) ToDeploymentModelPtrOutputWithContext(ctx context
 	}).(DeploymentModelPtrOutput)
 }
 
-// The format of the Cognitive Services Account Deployment model. Changing this forces a new resource to be created. Possible value is `OpenAI`.
+// The format of the Cognitive Services Account Deployment model. Possible values are `OpenAI` and `Cohere`. Changing this forces a new resource to be created.
 func (o DeploymentModelOutput) Format() pulumi.StringOutput {
 	return o.ApplyT(func(v DeploymentModel) string { return v.Format }).(pulumi.StringOutput)
 }
@@ -1856,7 +1856,7 @@ func (o DeploymentModelPtrOutput) Elem() DeploymentModelOutput {
 	}).(DeploymentModelOutput)
 }
 
-// The format of the Cognitive Services Account Deployment model. Changing this forces a new resource to be created. Possible value is `OpenAI`.
+// The format of the Cognitive Services Account Deployment model. Possible values are `OpenAI` and `Cohere`. Changing this forces a new resource to be created.
 func (o DeploymentModelPtrOutput) Format() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DeploymentModel) *string {
 		if v == nil {

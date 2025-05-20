@@ -236,6 +236,13 @@ def get_elasticsearch(logs: Optional[Sequence[Union['GetElasticsearchLogArgs', '
     pulumi.export("kibanaEndpoint", example.kibana_service_url)
     ```
 
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.Elastic`: 2023-06-01
+
 
     :param Sequence[Union['GetElasticsearchLogArgs', 'GetElasticsearchLogArgsDict']] logs: A `logs` block as defined below.
     :param builtins.str name: The name of the Elasticsearch resource.
@@ -282,6 +289,13 @@ def get_elasticsearch_output(logs: Optional[pulumi.Input[Optional[Sequence[Union
     pulumi.export("elasticsearchEndpoint", example.elasticsearch_service_url)
     pulumi.export("kibanaEndpoint", example.kibana_service_url)
     ```
+
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.Elastic`: 2023-06-01
 
 
     :param Sequence[Union['GetElasticsearchLogArgs', 'GetElasticsearchLogArgsDict']] logs: A `logs` block as defined below.

@@ -315,7 +315,7 @@ class Definition(pulumi.CustomResource):
         contributor = azure.authorization.get_role_definition(role_definition_id="b24988ac-6180-42a0-ab88-20f7382dd24c")
         example = azure.lighthouse.Definition("example",
             name="Sample definition",
-            description="This is a lighthouse definition created IaC",
+            description="This is a lighthouse definition created via Terraform",
             managing_tenant_id="00000000-0000-0000-0000-000000000000",
             scope="/subscriptions/00000000-0000-0000-0000-000000000000",
             authorizations=[{
@@ -324,6 +324,13 @@ class Definition(pulumi.CustomResource):
                 "principal_display_name": "Tier 1 Support",
             }])
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.ManagedServices`: 2022-10-01
 
         ## Import
 
@@ -362,7 +369,7 @@ class Definition(pulumi.CustomResource):
         contributor = azure.authorization.get_role_definition(role_definition_id="b24988ac-6180-42a0-ab88-20f7382dd24c")
         example = azure.lighthouse.Definition("example",
             name="Sample definition",
-            description="This is a lighthouse definition created IaC",
+            description="This is a lighthouse definition created via Terraform",
             managing_tenant_id="00000000-0000-0000-0000-000000000000",
             scope="/subscriptions/00000000-0000-0000-0000-000000000000",
             authorizations=[{
@@ -371,6 +378,13 @@ class Definition(pulumi.CustomResource):
                 "principal_display_name": "Tier 1 Support",
             }])
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.ManagedServices`: 2022-10-01
 
         ## Import
 

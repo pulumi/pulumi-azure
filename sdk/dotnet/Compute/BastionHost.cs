@@ -175,7 +175,7 @@ namespace Pulumi.Azure.Compute
         /// <summary>
         /// The SKU of the Bastion Host. Accepted values are `Developer`, `Basic`, `Standard` and `Premium`. Defaults to `Basic`.
         /// 
-        /// &gt; **Note** Downgrading the SKU will force a new resource to be created.
+        /// &gt; **Note:** Downgrading the SKU will force a new resource to be created.
         /// </summary>
         [Output("sku")]
         public Output<string?> Sku { get; private set; } = null!;
@@ -333,7 +333,7 @@ namespace Pulumi.Azure.Compute
         /// <summary>
         /// The SKU of the Bastion Host. Accepted values are `Developer`, `Basic`, `Standard` and `Premium`. Defaults to `Basic`.
         /// 
-        /// &gt; **Note** Downgrading the SKU will force a new resource to be created.
+        /// &gt; **Note:** Downgrading the SKU will force a new resource to be created.
         /// </summary>
         [Input("sku")]
         public Input<string>? Sku { get; set; }
@@ -471,7 +471,7 @@ namespace Pulumi.Azure.Compute
         /// <summary>
         /// The SKU of the Bastion Host. Accepted values are `Developer`, `Basic`, `Standard` and `Premium`. Defaults to `Basic`.
         /// 
-        /// &gt; **Note** Downgrading the SKU will force a new resource to be created.
+        /// &gt; **Note:** Downgrading the SKU will force a new resource to be created.
         /// </summary>
         [Input("sku")]
         public Input<string>? Sku { get; set; }

@@ -40,6 +40,13 @@ import (
 //	}
 //
 // ```
+//
+// ## API Providers
+//
+// <!-- This section is generated, changes will be overwritten -->
+// This data source uses the following Azure API Providers:
+//
+// * `Microsoft.Portal`: 2019-01-01-preview
 func Azurerm_portal_dashboard(ctx *pulumi.Context, args *Azurerm_portal_dashboardArgs, opts ...pulumi.InvokeOption) (*Azurerm_portal_dashboardResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv Azurerm_portal_dashboardResult

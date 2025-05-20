@@ -419,6 +419,13 @@ class Account(pulumi.CustomResource):
             })
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Automation`: 2023-11-01, 2019-06-01
+
         ## Import
 
         Automation Accounts can be imported using the `resource id`, e.g.
@@ -464,6 +471,13 @@ class Account(pulumi.CustomResource):
                 "environment": "development",
             })
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Automation`: 2023-11-01, 2019-06-01
 
         ## Import
 

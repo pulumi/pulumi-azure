@@ -28,7 +28,7 @@ import javax.annotation.Nullable;
  * 
  * ## Example Usage
  * 
- * This example provisions a Standard Redis Cache.
+ * This example provisions a Standard Redis Cache. Other examples of the `azure.redis.Cache` resource can be found in the `./examples/redis-cache` directory within the GitHub Repository
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
  * <pre>
@@ -85,6 +85,13 @@ import javax.annotation.Nullable;
  * 
  * * [Azure Cache for Redis planning](https://docs.microsoft.com/azure/azure-cache-for-redis/cache-planning-faq)
  * * [Redis: Available Configuration Settings](https://redis.io/topics/config)
+ * 
+ * ## API Providers
+ * 
+ * &lt;!-- This section is generated, changes will be overwritten --&gt;
+ * This resource uses the following Azure API Providers:
+ * 
+ * * `Microsoft.Cache`: 2024-11-01
  * 
  * ## Import
  * 
@@ -184,7 +191,7 @@ public class Cache extends com.pulumi.resources.CustomResource {
     /**
      * The minimum TLS version. Possible values are `1.0`, `1.1` and `1.2`. Defaults to `1.0`.
      * 
-     * &gt; **NOTE:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
+     * &gt; **Note:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
      * 
      */
     @Export(name="minimumTlsVersion", refs={String.class}, tree="[0]")
@@ -193,7 +200,7 @@ public class Cache extends com.pulumi.resources.CustomResource {
     /**
      * @return The minimum TLS version. Possible values are `1.0`, `1.1` and `1.2`. Defaults to `1.0`.
      * 
-     * &gt; **NOTE:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
+     * &gt; **Note:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
      * 
      */
     public Output<Optional<String>> minimumTlsVersion() {
@@ -430,7 +437,7 @@ public class Cache extends com.pulumi.resources.CustomResource {
     /**
      * The SKU of Redis to use. Possible values are `Basic`, `Standard` and `Premium`.
      * 
-     * &gt; **Note** Downgrading the SKU will force a new resource to be created.
+     * &gt; **Note:** Downgrading the SKU will force a new resource to be created.
      * 
      */
     @Export(name="skuName", refs={String.class}, tree="[0]")
@@ -439,7 +446,7 @@ public class Cache extends com.pulumi.resources.CustomResource {
     /**
      * @return The SKU of Redis to use. Possible values are `Basic`, `Standard` and `Premium`.
      * 
-     * &gt; **Note** Downgrading the SKU will force a new resource to be created.
+     * &gt; **Note:** Downgrading the SKU will force a new resource to be created.
      * 
      */
     public Output<String> skuName() {
@@ -504,7 +511,7 @@ public class Cache extends com.pulumi.resources.CustomResource {
     /**
      * Specifies a list of Availability Zones in which this Redis Cache should be located. Changing this forces a new Redis Cache to be created.
      * 
-     * &gt; **Please Note:** Availability Zones are [in Preview and only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview) - as such you must be opted into the Preview to use this functionality. You can [opt into the Availability Zones Preview in the Azure Portal](https://aka.ms/azenroll).
+     * &gt; **Note:** Availability Zones are [in Preview and only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview) - as such you must be opted into the Preview to use this functionality. You can [opt into the Availability Zones Preview in the Azure Portal](https://aka.ms/azenroll).
      * 
      */
     @Export(name="zones", refs={List.class,String.class}, tree="[0,1]")
@@ -513,7 +520,7 @@ public class Cache extends com.pulumi.resources.CustomResource {
     /**
      * @return Specifies a list of Availability Zones in which this Redis Cache should be located. Changing this forces a new Redis Cache to be created.
      * 
-     * &gt; **Please Note:** Availability Zones are [in Preview and only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview) - as such you must be opted into the Preview to use this functionality. You can [opt into the Availability Zones Preview in the Azure Portal](https://aka.ms/azenroll).
+     * &gt; **Note:** Availability Zones are [in Preview and only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview) - as such you must be opted into the Preview to use this functionality. You can [opt into the Availability Zones Preview in the Azure Portal](https://aka.ms/azenroll).
      * 
      */
     public Output<Optional<List<String>>> zones() {

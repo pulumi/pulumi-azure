@@ -133,6 +133,13 @@ namespace Pulumi.Azure.Network
         ///     };
         /// });
         /// ```
+        /// 
+        /// ## API Providers
+        /// 
+        /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+        /// This data source uses the following Azure API Providers:
+        /// 
+        /// * `Microsoft.Network`: 2024-05-01
         /// </summary>
         public static Task<GetPublicIPResult> InvokeAsync(GetPublicIPArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPublicIPResult>("azure:network/getPublicIP:getPublicIP", args ?? new GetPublicIPArgs(), options.WithDefaults());
@@ -259,6 +266,13 @@ namespace Pulumi.Azure.Network
         ///     };
         /// });
         /// ```
+        /// 
+        /// ## API Providers
+        /// 
+        /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+        /// This data source uses the following Azure API Providers:
+        /// 
+        /// * `Microsoft.Network`: 2024-05-01
         /// </summary>
         public static Output<GetPublicIPResult> Invoke(GetPublicIPInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPublicIPResult>("azure:network/getPublicIP:getPublicIP", args ?? new GetPublicIPInvokeArgs(), options.WithDefaults());
@@ -385,6 +399,13 @@ namespace Pulumi.Azure.Network
         ///     };
         /// });
         /// ```
+        /// 
+        /// ## API Providers
+        /// 
+        /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+        /// This data source uses the following Azure API Providers:
+        /// 
+        /// * `Microsoft.Network`: 2024-05-01
         /// </summary>
         public static Output<GetPublicIPResult> Invoke(GetPublicIPInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetPublicIPResult>("azure:network/getPublicIP:getPublicIP", args ?? new GetPublicIPInvokeArgs(), options.WithDefaults());

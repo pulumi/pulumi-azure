@@ -29,7 +29,7 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			example, err := storage.LookupAccount(ctx, &storage.LookupAccountArgs{
 //				Name:              "exampleaccount",
-//				ResourceGroupName: pulumi.StringRef("examples"),
+//				ResourceGroupName: "examples",
 //			}, nil)
 //			if err != nil {
 //				return err
@@ -46,6 +46,13 @@ import (
 //	}
 //
 // ```
+//
+// ## API Providers
+//
+// <!-- This section is generated, changes will be overwritten -->
+// This data source uses the following Azure API Providers:
+//
+// * `Microsoft.Storage`: 2023-05-01
 func GetStorageContainer(ctx *pulumi.Context, args *GetStorageContainerArgs, opts ...pulumi.InvokeOption) (*GetStorageContainerResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetStorageContainerResult
@@ -64,7 +71,7 @@ type GetStorageContainerArgs struct {
 	Name string `pulumi:"name"`
 	// The id of the Storage Account where the Container exists. This property will become Required in version 5.0 of the Provider.
 	//
-	// > **NOTE:** One of `storageAccountName` or `storageAccountId` must be specified. When specifying `storageAccountId` the resource will use the Resource Manager API, rather than the Data Plane API.
+	// > **Note:** One of `storageAccountName` or `storageAccountId` must be specified. When specifying `storageAccountId` the resource will use the Resource Manager API, rather than the Data Plane API.
 	StorageAccountId *string `pulumi:"storageAccountId"`
 	// The name of the Storage Account where the Container exists. This property is deprecated in favour of `storageAccountId`.
 	StorageAccountName *string `pulumi:"storageAccountName"`
@@ -110,7 +117,7 @@ type GetStorageContainerOutputArgs struct {
 	Name pulumi.StringInput `pulumi:"name"`
 	// The id of the Storage Account where the Container exists. This property will become Required in version 5.0 of the Provider.
 	//
-	// > **NOTE:** One of `storageAccountName` or `storageAccountId` must be specified. When specifying `storageAccountId` the resource will use the Resource Manager API, rather than the Data Plane API.
+	// > **Note:** One of `storageAccountName` or `storageAccountId` must be specified. When specifying `storageAccountId` the resource will use the Resource Manager API, rather than the Data Plane API.
 	StorageAccountId pulumi.StringPtrInput `pulumi:"storageAccountId"`
 	// The name of the Storage Account where the Container exists. This property is deprecated in favour of `storageAccountId`.
 	StorageAccountName pulumi.StringPtrInput `pulumi:"storageAccountName"`

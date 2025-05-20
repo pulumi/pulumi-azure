@@ -14,6 +14,8 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
+from . import outputs
+from ._inputs import *
 
 __all__ = ['ProjectArgs', 'Project']
 
@@ -23,6 +25,7 @@ class ProjectArgs:
                  dev_center_id: pulumi.Input[builtins.str],
                  resource_group_name: pulumi.Input[builtins.str],
                  description: Optional[pulumi.Input[builtins.str]] = None,
+                 identity: Optional[pulumi.Input['ProjectIdentityArgs']] = None,
                  location: Optional[pulumi.Input[builtins.str]] = None,
                  maximum_dev_boxes_per_user: Optional[pulumi.Input[builtins.int]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
@@ -32,6 +35,7 @@ class ProjectArgs:
         :param pulumi.Input[builtins.str] dev_center_id: Resource Id of an associated DevCenter. Changing this forces a new Dev Center Project to be created.
         :param pulumi.Input[builtins.str] resource_group_name: Specifies the name of the Resource Group within which this Dev Center Project should exist. Changing this forces a new Dev Center Project to be created.
         :param pulumi.Input[builtins.str] description: Description of the project. Changing this forces a new Dev Center Project to be created.
+        :param pulumi.Input['ProjectIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[builtins.str] location: The Azure Region where the Dev Center Project should exist. Changing this forces a new Dev Center Project to be created.
         :param pulumi.Input[builtins.int] maximum_dev_boxes_per_user: When specified, limits the maximum number of Dev Boxes a single user can create across all pools in the project.
         :param pulumi.Input[builtins.str] name: Specifies the name of this Dev Center Project. Changing this forces a new Dev Center Project to be created.
@@ -41,6 +45,8 @@ class ProjectArgs:
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if identity is not None:
+            pulumi.set(__self__, "identity", identity)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if maximum_dev_boxes_per_user is not None:
@@ -85,6 +91,18 @@ class ProjectArgs:
     @description.setter
     def description(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
+    def identity(self) -> Optional[pulumi.Input['ProjectIdentityArgs']]:
+        """
+        An `identity` block as defined below.
+        """
+        return pulumi.get(self, "identity")
+
+    @identity.setter
+    def identity(self, value: Optional[pulumi.Input['ProjectIdentityArgs']]):
+        pulumi.set(self, "identity", value)
 
     @property
     @pulumi.getter
@@ -141,6 +159,7 @@ class _ProjectState:
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  dev_center_id: Optional[pulumi.Input[builtins.str]] = None,
                  dev_center_uri: Optional[pulumi.Input[builtins.str]] = None,
+                 identity: Optional[pulumi.Input['ProjectIdentityArgs']] = None,
                  location: Optional[pulumi.Input[builtins.str]] = None,
                  maximum_dev_boxes_per_user: Optional[pulumi.Input[builtins.int]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
@@ -151,6 +170,7 @@ class _ProjectState:
         :param pulumi.Input[builtins.str] description: Description of the project. Changing this forces a new Dev Center Project to be created.
         :param pulumi.Input[builtins.str] dev_center_id: Resource Id of an associated DevCenter. Changing this forces a new Dev Center Project to be created.
         :param pulumi.Input[builtins.str] dev_center_uri: The URI of the Dev Center resource this project is associated with.
+        :param pulumi.Input['ProjectIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[builtins.str] location: The Azure Region where the Dev Center Project should exist. Changing this forces a new Dev Center Project to be created.
         :param pulumi.Input[builtins.int] maximum_dev_boxes_per_user: When specified, limits the maximum number of Dev Boxes a single user can create across all pools in the project.
         :param pulumi.Input[builtins.str] name: Specifies the name of this Dev Center Project. Changing this forces a new Dev Center Project to be created.
@@ -163,6 +183,8 @@ class _ProjectState:
             pulumi.set(__self__, "dev_center_id", dev_center_id)
         if dev_center_uri is not None:
             pulumi.set(__self__, "dev_center_uri", dev_center_uri)
+        if identity is not None:
+            pulumi.set(__self__, "identity", identity)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if maximum_dev_boxes_per_user is not None:
@@ -209,6 +231,18 @@ class _ProjectState:
     @dev_center_uri.setter
     def dev_center_uri(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "dev_center_uri", value)
+
+    @property
+    @pulumi.getter
+    def identity(self) -> Optional[pulumi.Input['ProjectIdentityArgs']]:
+        """
+        An `identity` block as defined below.
+        """
+        return pulumi.get(self, "identity")
+
+    @identity.setter
+    def identity(self, value: Optional[pulumi.Input['ProjectIdentityArgs']]):
+        pulumi.set(self, "identity", value)
 
     @property
     @pulumi.getter
@@ -279,6 +313,7 @@ class Project(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  dev_center_id: Optional[pulumi.Input[builtins.str]] = None,
+                 identity: Optional[pulumi.Input[Union['ProjectIdentityArgs', 'ProjectIdentityArgsDict']]] = None,
                  location: Optional[pulumi.Input[builtins.str]] = None,
                  maximum_dev_boxes_per_user: Optional[pulumi.Input[builtins.int]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
@@ -286,8 +321,6 @@ class Project(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  __props__=None):
         """
-        <!-- Note: This documentation is generated. Any manual changes will be overwritten -->
-
         Manages a Dev Center Project.
 
         ## Example Usage
@@ -312,6 +345,13 @@ class Project(pulumi.CustomResource):
             name="example",
             resource_group_name=example_resource_group.name)
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.DevCenter`: 2025-02-01
 
         ## Import
 
@@ -331,6 +371,7 @@ class Project(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] description: Description of the project. Changing this forces a new Dev Center Project to be created.
         :param pulumi.Input[builtins.str] dev_center_id: Resource Id of an associated DevCenter. Changing this forces a new Dev Center Project to be created.
+        :param pulumi.Input[Union['ProjectIdentityArgs', 'ProjectIdentityArgsDict']] identity: An `identity` block as defined below.
         :param pulumi.Input[builtins.str] location: The Azure Region where the Dev Center Project should exist. Changing this forces a new Dev Center Project to be created.
         :param pulumi.Input[builtins.int] maximum_dev_boxes_per_user: When specified, limits the maximum number of Dev Boxes a single user can create across all pools in the project.
         :param pulumi.Input[builtins.str] name: Specifies the name of this Dev Center Project. Changing this forces a new Dev Center Project to be created.
@@ -344,8 +385,6 @@ class Project(pulumi.CustomResource):
                  args: ProjectArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        <!-- Note: This documentation is generated. Any manual changes will be overwritten -->
-
         Manages a Dev Center Project.
 
         ## Example Usage
@@ -370,6 +409,13 @@ class Project(pulumi.CustomResource):
             name="example",
             resource_group_name=example_resource_group.name)
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.DevCenter`: 2025-02-01
 
         ## Import
 
@@ -402,6 +448,7 @@ class Project(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  dev_center_id: Optional[pulumi.Input[builtins.str]] = None,
+                 identity: Optional[pulumi.Input[Union['ProjectIdentityArgs', 'ProjectIdentityArgsDict']]] = None,
                  location: Optional[pulumi.Input[builtins.str]] = None,
                  maximum_dev_boxes_per_user: Optional[pulumi.Input[builtins.int]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
@@ -420,6 +467,7 @@ class Project(pulumi.CustomResource):
             if dev_center_id is None and not opts.urn:
                 raise TypeError("Missing required property 'dev_center_id'")
             __props__.__dict__["dev_center_id"] = dev_center_id
+            __props__.__dict__["identity"] = identity
             __props__.__dict__["location"] = location
             __props__.__dict__["maximum_dev_boxes_per_user"] = maximum_dev_boxes_per_user
             __props__.__dict__["name"] = name
@@ -441,6 +489,7 @@ class Project(pulumi.CustomResource):
             description: Optional[pulumi.Input[builtins.str]] = None,
             dev_center_id: Optional[pulumi.Input[builtins.str]] = None,
             dev_center_uri: Optional[pulumi.Input[builtins.str]] = None,
+            identity: Optional[pulumi.Input[Union['ProjectIdentityArgs', 'ProjectIdentityArgsDict']]] = None,
             location: Optional[pulumi.Input[builtins.str]] = None,
             maximum_dev_boxes_per_user: Optional[pulumi.Input[builtins.int]] = None,
             name: Optional[pulumi.Input[builtins.str]] = None,
@@ -456,6 +505,7 @@ class Project(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] description: Description of the project. Changing this forces a new Dev Center Project to be created.
         :param pulumi.Input[builtins.str] dev_center_id: Resource Id of an associated DevCenter. Changing this forces a new Dev Center Project to be created.
         :param pulumi.Input[builtins.str] dev_center_uri: The URI of the Dev Center resource this project is associated with.
+        :param pulumi.Input[Union['ProjectIdentityArgs', 'ProjectIdentityArgsDict']] identity: An `identity` block as defined below.
         :param pulumi.Input[builtins.str] location: The Azure Region where the Dev Center Project should exist. Changing this forces a new Dev Center Project to be created.
         :param pulumi.Input[builtins.int] maximum_dev_boxes_per_user: When specified, limits the maximum number of Dev Boxes a single user can create across all pools in the project.
         :param pulumi.Input[builtins.str] name: Specifies the name of this Dev Center Project. Changing this forces a new Dev Center Project to be created.
@@ -469,6 +519,7 @@ class Project(pulumi.CustomResource):
         __props__.__dict__["description"] = description
         __props__.__dict__["dev_center_id"] = dev_center_id
         __props__.__dict__["dev_center_uri"] = dev_center_uri
+        __props__.__dict__["identity"] = identity
         __props__.__dict__["location"] = location
         __props__.__dict__["maximum_dev_boxes_per_user"] = maximum_dev_boxes_per_user
         __props__.__dict__["name"] = name
@@ -499,6 +550,14 @@ class Project(pulumi.CustomResource):
         The URI of the Dev Center resource this project is associated with.
         """
         return pulumi.get(self, "dev_center_uri")
+
+    @property
+    @pulumi.getter
+    def identity(self) -> pulumi.Output[Optional['outputs.ProjectIdentity']]:
+        """
+        An `identity` block as defined below.
+        """
+        return pulumi.get(self, "identity")
 
     @property
     @pulumi.getter

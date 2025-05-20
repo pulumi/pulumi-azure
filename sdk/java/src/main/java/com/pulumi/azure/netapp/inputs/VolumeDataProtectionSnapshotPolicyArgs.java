@@ -19,7 +19,7 @@ public final class VolumeDataProtectionSnapshotPolicyArgs extends com.pulumi.res
      * 
      * A full example of the `data_protection_snapshot_policy` attribute usage can be found in the `./examples/netapp/nfsv3_volume_with_snapshot_policy` directory within the GitHub Repository
      * 
-     * &gt; **NOTE:** `data_protection_snapshot_policy` block can be used alone or with data_protection_replication in the primary volume only, if enabling it in the secondary, an error will be thrown.
+     * &gt; **Note:** `data_protection_snapshot_policy` block can be used alone or with data_protection_replication in the primary volume only, if enabling it in the secondary, an error will be thrown.
      * 
      */
     @Import(name="snapshotPolicyId", required=true)
@@ -30,7 +30,7 @@ public final class VolumeDataProtectionSnapshotPolicyArgs extends com.pulumi.res
      * 
      * A full example of the `data_protection_snapshot_policy` attribute usage can be found in the `./examples/netapp/nfsv3_volume_with_snapshot_policy` directory within the GitHub Repository
      * 
-     * &gt; **NOTE:** `data_protection_snapshot_policy` block can be used alone or with data_protection_replication in the primary volume only, if enabling it in the secondary, an error will be thrown.
+     * &gt; **Note:** `data_protection_snapshot_policy` block can be used alone or with data_protection_replication in the primary volume only, if enabling it in the secondary, an error will be thrown.
      * 
      */
     public Output<String> snapshotPolicyId() {
@@ -66,7 +66,7 @@ public final class VolumeDataProtectionSnapshotPolicyArgs extends com.pulumi.res
          * 
          * A full example of the `data_protection_snapshot_policy` attribute usage can be found in the `./examples/netapp/nfsv3_volume_with_snapshot_policy` directory within the GitHub Repository
          * 
-         * &gt; **NOTE:** `data_protection_snapshot_policy` block can be used alone or with data_protection_replication in the primary volume only, if enabling it in the secondary, an error will be thrown.
+         * &gt; **Note:** `data_protection_snapshot_policy` block can be used alone or with data_protection_replication in the primary volume only, if enabling it in the secondary, an error will be thrown.
          * 
          * @return builder
          * 
@@ -81,7 +81,7 @@ public final class VolumeDataProtectionSnapshotPolicyArgs extends com.pulumi.res
          * 
          * A full example of the `data_protection_snapshot_policy` attribute usage can be found in the `./examples/netapp/nfsv3_volume_with_snapshot_policy` directory within the GitHub Repository
          * 
-         * &gt; **NOTE:** `data_protection_snapshot_policy` block can be used alone or with data_protection_replication in the primary volume only, if enabling it in the secondary, an error will be thrown.
+         * &gt; **Note:** `data_protection_snapshot_policy` block can be used alone or with data_protection_replication in the primary volume only, if enabling it in the secondary, an error will be thrown.
          * 
          * @return builder
          * 

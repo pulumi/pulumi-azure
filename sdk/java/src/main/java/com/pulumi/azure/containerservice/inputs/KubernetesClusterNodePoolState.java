@@ -111,7 +111,7 @@ public final class KubernetesClusterNodePoolState extends com.pulumi.resources.R
     /**
      * Should the nodes in this Node Pool have host encryption enabled? Changing this property requires specifying `temporary_name_for_rotation`.
      * 
-     * &gt; **NOTE:** Additional fields must be configured depending on the value of this field - see below.
+     * &gt; **Note:** Additional fields must be configured depending on the value of this field - see below.
      * 
      */
     @Import(name="hostEncryptionEnabled")
@@ -120,7 +120,7 @@ public final class KubernetesClusterNodePoolState extends com.pulumi.resources.R
     /**
      * @return Should the nodes in this Node Pool have host encryption enabled? Changing this property requires specifying `temporary_name_for_rotation`.
      * 
-     * &gt; **NOTE:** Additional fields must be configured depending on the value of this field - see below.
+     * &gt; **Note:** Additional fields must be configured depending on the value of this field - see below.
      * 
      */
     public Optional<Output<Boolean>> hostEncryptionEnabled() {
@@ -175,7 +175,7 @@ public final class KubernetesClusterNodePoolState extends com.pulumi.resources.R
     /**
      * The ID of the Kubernetes Cluster where this Node Pool should exist. Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE:** The type of Default Node Pool for the Kubernetes Cluster must be `VirtualMachineScaleSets` to attach multiple node pools.
+     * &gt; **Note:** The type of Default Node Pool for the Kubernetes Cluster must be `VirtualMachineScaleSets` to attach multiple node pools.
      * 
      */
     @Import(name="kubernetesClusterId")
@@ -184,7 +184,7 @@ public final class KubernetesClusterNodePoolState extends com.pulumi.resources.R
     /**
      * @return The ID of the Kubernetes Cluster where this Node Pool should exist. Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE:** The type of Default Node Pool for the Kubernetes Cluster must be `VirtualMachineScaleSets` to attach multiple node pools.
+     * &gt; **Note:** The type of Default Node Pool for the Kubernetes Cluster must be `VirtualMachineScaleSets` to attach multiple node pools.
      * 
      */
     public Optional<Output<String>> kubernetesClusterId() {
@@ -253,7 +253,7 @@ public final class KubernetesClusterNodePoolState extends com.pulumi.resources.R
     /**
      * The name of the Node Pool which should be created within the Kubernetes Cluster. Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE:** A Windows Node Pool cannot have a `name` longer than 6 characters.
+     * &gt; **Note:** A Windows Node Pool cannot have a `name` longer than 6 characters.
      * 
      */
     @Import(name="name")
@@ -262,7 +262,7 @@ public final class KubernetesClusterNodePoolState extends com.pulumi.resources.R
     /**
      * @return The name of the Node Pool which should be created within the Kubernetes Cluster. Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE:** A Windows Node Pool cannot have a `name` longer than 6 characters.
+     * &gt; **Note:** A Windows Node Pool cannot have a `name` longer than 6 characters.
      * 
      */
     public Optional<Output<String>> name() {
@@ -528,21 +528,9 @@ public final class KubernetesClusterNodePoolState extends com.pulumi.resources.R
         return Optional.ofNullable(this.spotMaxPrice);
     }
 
-    /**
-     * A mapping of tags to assign to the resource.
-     * 
-     * &gt; At this time there&#39;s a bug in the AKS API where Tags for a Node Pool are not stored in the correct case - you may wish to use [`ignoreChanges`](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) functionality to ignore changes to the casing until this is fixed in the AKS API.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
-    /**
-     * @return A mapping of tags to assign to the resource.
-     * 
-     * &gt; At this time there&#39;s a bug in the AKS API where Tags for a Node Pool are not stored in the correct case - you may wish to use [`ignoreChanges`](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) functionality to ignore changes to the casing until this is fixed in the AKS API.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -610,7 +598,7 @@ public final class KubernetesClusterNodePoolState extends com.pulumi.resources.R
     /**
      * The ID of the Subnet where this Node Pool should exist. Changing this property requires specifying `temporary_name_for_rotation`.
      * 
-     * &gt; **NOTE:** A route table must be configured on this Subnet.
+     * &gt; **Note:** A route table must be configured on this Subnet.
      * 
      */
     @Import(name="vnetSubnetId")
@@ -619,7 +607,7 @@ public final class KubernetesClusterNodePoolState extends com.pulumi.resources.R
     /**
      * @return The ID of the Subnet where this Node Pool should exist. Changing this property requires specifying `temporary_name_for_rotation`.
      * 
-     * &gt; **NOTE:** A route table must be configured on this Subnet.
+     * &gt; **Note:** A route table must be configured on this Subnet.
      * 
      */
     public Optional<Output<String>> vnetSubnetId() {
@@ -856,7 +844,7 @@ public final class KubernetesClusterNodePoolState extends com.pulumi.resources.R
         /**
          * @param hostEncryptionEnabled Should the nodes in this Node Pool have host encryption enabled? Changing this property requires specifying `temporary_name_for_rotation`.
          * 
-         * &gt; **NOTE:** Additional fields must be configured depending on the value of this field - see below.
+         * &gt; **Note:** Additional fields must be configured depending on the value of this field - see below.
          * 
          * @return builder
          * 
@@ -869,7 +857,7 @@ public final class KubernetesClusterNodePoolState extends com.pulumi.resources.R
         /**
          * @param hostEncryptionEnabled Should the nodes in this Node Pool have host encryption enabled? Changing this property requires specifying `temporary_name_for_rotation`.
          * 
-         * &gt; **NOTE:** Additional fields must be configured depending on the value of this field - see below.
+         * &gt; **Note:** Additional fields must be configured depending on the value of this field - see below.
          * 
          * @return builder
          * 
@@ -944,7 +932,7 @@ public final class KubernetesClusterNodePoolState extends com.pulumi.resources.R
         /**
          * @param kubernetesClusterId The ID of the Kubernetes Cluster where this Node Pool should exist. Changing this forces a new resource to be created.
          * 
-         * &gt; **NOTE:** The type of Default Node Pool for the Kubernetes Cluster must be `VirtualMachineScaleSets` to attach multiple node pools.
+         * &gt; **Note:** The type of Default Node Pool for the Kubernetes Cluster must be `VirtualMachineScaleSets` to attach multiple node pools.
          * 
          * @return builder
          * 
@@ -957,7 +945,7 @@ public final class KubernetesClusterNodePoolState extends com.pulumi.resources.R
         /**
          * @param kubernetesClusterId The ID of the Kubernetes Cluster where this Node Pool should exist. Changing this forces a new resource to be created.
          * 
-         * &gt; **NOTE:** The type of Default Node Pool for the Kubernetes Cluster must be `VirtualMachineScaleSets` to attach multiple node pools.
+         * &gt; **Note:** The type of Default Node Pool for the Kubernetes Cluster must be `VirtualMachineScaleSets` to attach multiple node pools.
          * 
          * @return builder
          * 
@@ -1050,7 +1038,7 @@ public final class KubernetesClusterNodePoolState extends com.pulumi.resources.R
         /**
          * @param name The name of the Node Pool which should be created within the Kubernetes Cluster. Changing this forces a new resource to be created.
          * 
-         * &gt; **NOTE:** A Windows Node Pool cannot have a `name` longer than 6 characters.
+         * &gt; **Note:** A Windows Node Pool cannot have a `name` longer than 6 characters.
          * 
          * @return builder
          * 
@@ -1063,7 +1051,7 @@ public final class KubernetesClusterNodePoolState extends com.pulumi.resources.R
         /**
          * @param name The name of the Node Pool which should be created within the Kubernetes Cluster. Changing this forces a new resource to be created.
          * 
-         * &gt; **NOTE:** A Windows Node Pool cannot have a `name` longer than 6 characters.
+         * &gt; **Note:** A Windows Node Pool cannot have a `name` longer than 6 characters.
          * 
          * @return builder
          * 
@@ -1439,27 +1427,11 @@ public final class KubernetesClusterNodePoolState extends com.pulumi.resources.R
             return spotMaxPrice(Output.of(spotMaxPrice));
         }
 
-        /**
-         * @param tags A mapping of tags to assign to the resource.
-         * 
-         * &gt; At this time there&#39;s a bug in the AKS API where Tags for a Node Pool are not stored in the correct case - you may wish to use [`ignoreChanges`](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) functionality to ignore changes to the casing until this is fixed in the AKS API.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
-        /**
-         * @param tags A mapping of tags to assign to the resource.
-         * 
-         * &gt; At this time there&#39;s a bug in the AKS API where Tags for a Node Pool are not stored in the correct case - you may wish to use [`ignoreChanges`](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) functionality to ignore changes to the casing until this is fixed in the AKS API.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }
@@ -1551,7 +1523,7 @@ public final class KubernetesClusterNodePoolState extends com.pulumi.resources.R
         /**
          * @param vnetSubnetId The ID of the Subnet where this Node Pool should exist. Changing this property requires specifying `temporary_name_for_rotation`.
          * 
-         * &gt; **NOTE:** A route table must be configured on this Subnet.
+         * &gt; **Note:** A route table must be configured on this Subnet.
          * 
          * @return builder
          * 
@@ -1564,7 +1536,7 @@ public final class KubernetesClusterNodePoolState extends com.pulumi.resources.R
         /**
          * @param vnetSubnetId The ID of the Subnet where this Node Pool should exist. Changing this property requires specifying `temporary_name_for_rotation`.
          * 
-         * &gt; **NOTE:** A route table must be configured on this Subnet.
+         * &gt; **Note:** A route table must be configured on this Subnet.
          * 
          * @return builder
          * 

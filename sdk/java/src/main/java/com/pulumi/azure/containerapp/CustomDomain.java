@@ -67,6 +67,13 @@ import javax.annotation.Nullable;
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
+ * ## API Providers
+ * 
+ * &lt;!-- This section is generated, changes will be overwritten --&gt;
+ * This resource uses the following Azure API Providers:
+ * 
+ * * `Microsoft.App`: 2025-01-01
+ * 
  * ## Import
  * 
  * A Container App Custom Domain can be imported using the `resource id`, e.g.
@@ -95,7 +102,7 @@ public class CustomDomain extends com.pulumi.resources.CustomResource {
     /**
      * The ID of the Container App Environment Certificate to use. Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE:** Omit this value if you wish to use an Azure Managed certificate. You must create the relevant DNS verification steps before this process will be successful.
+     * &gt; **Note:** Omit this value if you wish to use an Azure Managed certificate. You must create the relevant DNS verification steps before this process will be successful.
      * 
      */
     @Export(name="containerAppEnvironmentCertificateId", refs={String.class}, tree="[0]")
@@ -104,7 +111,7 @@ public class CustomDomain extends com.pulumi.resources.CustomResource {
     /**
      * @return The ID of the Container App Environment Certificate to use. Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE:** Omit this value if you wish to use an Azure Managed certificate. You must create the relevant DNS verification steps before this process will be successful.
+     * &gt; **Note:** Omit this value if you wish to use an Azure Managed certificate. You must create the relevant DNS verification steps before this process will be successful.
      * 
      */
     public Output<Optional<String>> containerAppEnvironmentCertificateId() {

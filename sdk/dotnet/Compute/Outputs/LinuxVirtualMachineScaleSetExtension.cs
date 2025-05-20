@@ -33,6 +33,8 @@ namespace Pulumi.Azure.Compute.Outputs
         /// A JSON String which specifies Sensitive Settings (such as Passwords) for the Extension.
         /// 
         /// &gt; **Note:** Keys within the `protected_settings` block are notoriously case-sensitive, where the casing required (e.g. TitleCase vs snakeCase) depends on the Extension being used. Please refer to the documentation for the specific Virtual Machine Extension you're looking to use for more information.
+        /// 
+        /// &gt; **Note:** Rather than defining JSON inline you can use the `jsonencode` interpolation function to define this in a cleaner way.
         /// </summary>
         public readonly string? ProtectedSettings;
         /// <summary>
@@ -53,6 +55,8 @@ namespace Pulumi.Azure.Compute.Outputs
         /// A JSON String which specifies Settings for the Extension.
         /// 
         /// &gt; **Note:** Keys within the `settings` block are notoriously case-sensitive, where the casing required (e.g. TitleCase vs snakeCase) depends on the Extension being used. Please refer to the documentation for the specific Virtual Machine Extension you're looking to use for more information.
+        /// 
+        /// &gt; **Note:** Rather than defining JSON inline you can use the `jsonencode` interpolation function to define this in a cleaner way.
         /// </summary>
         public readonly string? Settings;
         /// <summary>

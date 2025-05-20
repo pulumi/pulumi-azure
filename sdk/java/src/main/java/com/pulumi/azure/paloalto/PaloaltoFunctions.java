@@ -15,18 +15,258 @@ import com.pulumi.deployment.InvokeOutputOptions;
 import java.util.concurrent.CompletableFuture;
 
 public final class PaloaltoFunctions {
+    /**
+     * Use this data source to access information about an existing Palo Alto Networks Rulestack.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.paloalto.PaloaltoFunctions;
+     * import com.pulumi.azure.paloalto.inputs.GetLocalRulestackArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = PaloaltoFunctions.getLocalRulestack(GetLocalRulestackArgs.builder()
+     *             .name("existing")
+     *             .resourceGroupName("existing")
+     *             .build());
+     * 
+     *         ctx.export("id", example.id());
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `PaloAltoNetworks.Cloudngfw`: 2022-08-29
+     * 
+     */
     public static Output<GetLocalRulestackResult> getLocalRulestack(GetLocalRulestackArgs args) {
         return getLocalRulestack(args, InvokeOptions.Empty);
     }
+    /**
+     * Use this data source to access information about an existing Palo Alto Networks Rulestack.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.paloalto.PaloaltoFunctions;
+     * import com.pulumi.azure.paloalto.inputs.GetLocalRulestackArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = PaloaltoFunctions.getLocalRulestack(GetLocalRulestackArgs.builder()
+     *             .name("existing")
+     *             .resourceGroupName("existing")
+     *             .build());
+     * 
+     *         ctx.export("id", example.id());
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `PaloAltoNetworks.Cloudngfw`: 2022-08-29
+     * 
+     */
     public static CompletableFuture<GetLocalRulestackResult> getLocalRulestackPlain(GetLocalRulestackPlainArgs args) {
         return getLocalRulestackPlain(args, InvokeOptions.Empty);
     }
+    /**
+     * Use this data source to access information about an existing Palo Alto Networks Rulestack.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.paloalto.PaloaltoFunctions;
+     * import com.pulumi.azure.paloalto.inputs.GetLocalRulestackArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = PaloaltoFunctions.getLocalRulestack(GetLocalRulestackArgs.builder()
+     *             .name("existing")
+     *             .resourceGroupName("existing")
+     *             .build());
+     * 
+     *         ctx.export("id", example.id());
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `PaloAltoNetworks.Cloudngfw`: 2022-08-29
+     * 
+     */
     public static Output<GetLocalRulestackResult> getLocalRulestack(GetLocalRulestackArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:paloalto/getLocalRulestack:getLocalRulestack", TypeShape.of(GetLocalRulestackResult.class), args, Utilities.withVersion(options));
     }
+    /**
+     * Use this data source to access information about an existing Palo Alto Networks Rulestack.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.paloalto.PaloaltoFunctions;
+     * import com.pulumi.azure.paloalto.inputs.GetLocalRulestackArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = PaloaltoFunctions.getLocalRulestack(GetLocalRulestackArgs.builder()
+     *             .name("existing")
+     *             .resourceGroupName("existing")
+     *             .build());
+     * 
+     *         ctx.export("id", example.id());
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `PaloAltoNetworks.Cloudngfw`: 2022-08-29
+     * 
+     */
     public static Output<GetLocalRulestackResult> getLocalRulestack(GetLocalRulestackArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("azure:paloalto/getLocalRulestack:getLocalRulestack", TypeShape.of(GetLocalRulestackResult.class), args, Utilities.withVersion(options));
     }
+    /**
+     * Use this data source to access information about an existing Palo Alto Networks Rulestack.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.paloalto.PaloaltoFunctions;
+     * import com.pulumi.azure.paloalto.inputs.GetLocalRulestackArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = PaloaltoFunctions.getLocalRulestack(GetLocalRulestackArgs.builder()
+     *             .name("existing")
+     *             .resourceGroupName("existing")
+     *             .build());
+     * 
+     *         ctx.export("id", example.id());
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `PaloAltoNetworks.Cloudngfw`: 2022-08-29
+     * 
+     */
     public static CompletableFuture<GetLocalRulestackResult> getLocalRulestackPlain(GetLocalRulestackPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("azure:paloalto/getLocalRulestack:getLocalRulestack", TypeShape.of(GetLocalRulestackResult.class), args, Utilities.withVersion(options));
     }

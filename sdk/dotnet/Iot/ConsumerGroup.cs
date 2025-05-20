@@ -46,7 +46,7 @@ namespace Pulumi.Azure.Iot
     /// 
     ///     var exampleConsumerGroup = new Azure.Iot.ConsumerGroup("example", new()
     ///     {
-    ///         Name = "group",
+    ///         Name = "terraform",
     ///         IothubName = exampleIoTHub.Name,
     ///         EventhubEndpointName = "events",
     ///         ResourceGroupName = example.Name,

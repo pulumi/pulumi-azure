@@ -19,7 +19,7 @@ public final class OutputServicebusTopicSerializationArgs extends com.pulumi.res
     /**
      * The encoding of the incoming data in the case of input and the encoding of outgoing data in the case of output. It currently can only be set to `UTF8`.
      * 
-     * &gt; **NOTE:** This is required when `type` is set to `Csv` or `Json`.
+     * &gt; **Note:** This is required when `type` is set to `Csv` or `Json`.
      * 
      */
     @Import(name="encoding")
@@ -28,7 +28,7 @@ public final class OutputServicebusTopicSerializationArgs extends com.pulumi.res
     /**
      * @return The encoding of the incoming data in the case of input and the encoding of outgoing data in the case of output. It currently can only be set to `UTF8`.
      * 
-     * &gt; **NOTE:** This is required when `type` is set to `Csv` or `Json`.
+     * &gt; **Note:** This is required when `type` is set to `Csv` or `Json`.
      * 
      */
     public Optional<Output<String>> encoding() {
@@ -38,7 +38,7 @@ public final class OutputServicebusTopicSerializationArgs extends com.pulumi.res
     /**
      * The delimiter that will be used to separate comma-separated value (CSV) records. Possible values are ` ` (space), `,` (comma), `	` (tab), `|` (pipe) and `;`.
      * 
-     * &gt; **NOTE:** This is required when `type` is set to `Csv`.
+     * &gt; **Note:** This is required when `type` is set to `Csv`.
      * 
      */
     @Import(name="fieldDelimiter")
@@ -47,7 +47,7 @@ public final class OutputServicebusTopicSerializationArgs extends com.pulumi.res
     /**
      * @return The delimiter that will be used to separate comma-separated value (CSV) records. Possible values are ` ` (space), `,` (comma), `	` (tab), `|` (pipe) and `;`.
      * 
-     * &gt; **NOTE:** This is required when `type` is set to `Csv`.
+     * &gt; **Note:** This is required when `type` is set to `Csv`.
      * 
      */
     public Optional<Output<String>> fieldDelimiter() {
@@ -57,7 +57,7 @@ public final class OutputServicebusTopicSerializationArgs extends com.pulumi.res
     /**
      * Specifies the format of the JSON the output will be written in. Possible values are `Array` and `LineSeparated`.
      * 
-     * &gt; **NOTE:** This is Required and can only be specified when `type` is set to `Json`.
+     * &gt; **Note:** This is Required and can only be specified when `type` is set to `Json`.
      * 
      */
     @Import(name="format")
@@ -66,7 +66,7 @@ public final class OutputServicebusTopicSerializationArgs extends com.pulumi.res
     /**
      * @return Specifies the format of the JSON the output will be written in. Possible values are `Array` and `LineSeparated`.
      * 
-     * &gt; **NOTE:** This is Required and can only be specified when `type` is set to `Json`.
+     * &gt; **Note:** This is Required and can only be specified when `type` is set to `Json`.
      * 
      */
     public Optional<Output<String>> format() {
@@ -118,7 +118,7 @@ public final class OutputServicebusTopicSerializationArgs extends com.pulumi.res
         /**
          * @param encoding The encoding of the incoming data in the case of input and the encoding of outgoing data in the case of output. It currently can only be set to `UTF8`.
          * 
-         * &gt; **NOTE:** This is required when `type` is set to `Csv` or `Json`.
+         * &gt; **Note:** This is required when `type` is set to `Csv` or `Json`.
          * 
          * @return builder
          * 
@@ -131,7 +131,7 @@ public final class OutputServicebusTopicSerializationArgs extends com.pulumi.res
         /**
          * @param encoding The encoding of the incoming data in the case of input and the encoding of outgoing data in the case of output. It currently can only be set to `UTF8`.
          * 
-         * &gt; **NOTE:** This is required when `type` is set to `Csv` or `Json`.
+         * &gt; **Note:** This is required when `type` is set to `Csv` or `Json`.
          * 
          * @return builder
          * 
@@ -143,7 +143,7 @@ public final class OutputServicebusTopicSerializationArgs extends com.pulumi.res
         /**
          * @param fieldDelimiter The delimiter that will be used to separate comma-separated value (CSV) records. Possible values are ` ` (space), `,` (comma), `	` (tab), `|` (pipe) and `;`.
          * 
-         * &gt; **NOTE:** This is required when `type` is set to `Csv`.
+         * &gt; **Note:** This is required when `type` is set to `Csv`.
          * 
          * @return builder
          * 
@@ -156,7 +156,7 @@ public final class OutputServicebusTopicSerializationArgs extends com.pulumi.res
         /**
          * @param fieldDelimiter The delimiter that will be used to separate comma-separated value (CSV) records. Possible values are ` ` (space), `,` (comma), `	` (tab), `|` (pipe) and `;`.
          * 
-         * &gt; **NOTE:** This is required when `type` is set to `Csv`.
+         * &gt; **Note:** This is required when `type` is set to `Csv`.
          * 
          * @return builder
          * 
@@ -168,7 +168,7 @@ public final class OutputServicebusTopicSerializationArgs extends com.pulumi.res
         /**
          * @param format Specifies the format of the JSON the output will be written in. Possible values are `Array` and `LineSeparated`.
          * 
-         * &gt; **NOTE:** This is Required and can only be specified when `type` is set to `Json`.
+         * &gt; **Note:** This is Required and can only be specified when `type` is set to `Json`.
          * 
          * @return builder
          * 
@@ -181,7 +181,7 @@ public final class OutputServicebusTopicSerializationArgs extends com.pulumi.res
         /**
          * @param format Specifies the format of the JSON the output will be written in. Possible values are `Array` and `LineSeparated`.
          * 
-         * &gt; **NOTE:** This is Required and can only be specified when `type` is set to `Json`.
+         * &gt; **Note:** This is Required and can only be specified when `type` is set to `Json`.
          * 
          * @return builder
          * 

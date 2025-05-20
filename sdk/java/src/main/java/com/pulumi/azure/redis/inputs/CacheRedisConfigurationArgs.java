@@ -35,7 +35,7 @@ public final class CacheRedisConfigurationArgs extends com.pulumi.resources.Reso
     /**
      * Enable or disable AOF persistence for this Redis Cache. Defaults to `false`.
      * 
-     * &gt; **NOTE:** `aof_backup_enabled` can only be set when SKU is `Premium`.
+     * &gt; **Note:** `aof_backup_enabled` can only be set when SKU is `Premium`.
      * 
      */
     @Import(name="aofBackupEnabled")
@@ -44,7 +44,7 @@ public final class CacheRedisConfigurationArgs extends com.pulumi.resources.Reso
     /**
      * @return Enable or disable AOF persistence for this Redis Cache. Defaults to `false`.
      * 
-     * &gt; **NOTE:** `aof_backup_enabled` can only be set when SKU is `Premium`.
+     * &gt; **Note:** `aof_backup_enabled` can only be set when SKU is `Premium`.
      * 
      */
     public Optional<Output<Boolean>> aofBackupEnabled() {
@@ -88,7 +88,7 @@ public final class CacheRedisConfigurationArgs extends com.pulumi.resources.Reso
     /**
      * If set to `false`, the Redis instance will be accessible without authentication. Defaults to `true`.
      * 
-     * &gt; **NOTE:** `authentication_enabled` can only be set to `false` if a `subnet_id` is specified; and only works if there aren&#39;t existing instances within the subnet with `authentication_enabled` set to `true`.
+     * &gt; **Note:** `authentication_enabled` can only be set to `false` if a `subnet_id` is specified; and only works if there aren&#39;t existing instances within the subnet with `authentication_enabled` set to `true`.
      * 
      */
     @Import(name="authenticationEnabled")
@@ -97,7 +97,7 @@ public final class CacheRedisConfigurationArgs extends com.pulumi.resources.Reso
     /**
      * @return If set to `false`, the Redis instance will be accessible without authentication. Defaults to `true`.
      * 
-     * &gt; **NOTE:** `authentication_enabled` can only be set to `false` if a `subnet_id` is specified; and only works if there aren&#39;t existing instances within the subnet with `authentication_enabled` set to `true`.
+     * &gt; **Note:** `authentication_enabled` can only be set to `false` if a `subnet_id` is specified; and only works if there aren&#39;t existing instances within the subnet with `authentication_enabled` set to `true`.
      * 
      */
     public Optional<Output<Boolean>> authenticationEnabled() {
@@ -212,7 +212,7 @@ public final class CacheRedisConfigurationArgs extends com.pulumi.resources.Reso
     /**
      * Is Backup Enabled? Only supported on Premium SKUs. Defaults to `false`.
      * 
-     * &gt; **NOTE:** If `rdb_backup_enabled` set to `true`, `rdb_storage_connection_string` must also be set.
+     * &gt; **Note:** If `rdb_backup_enabled` set to `true`, `rdb_storage_connection_string` must also be set.
      * 
      */
     @Import(name="rdbBackupEnabled")
@@ -221,7 +221,7 @@ public final class CacheRedisConfigurationArgs extends com.pulumi.resources.Reso
     /**
      * @return Is Backup Enabled? Only supported on Premium SKUs. Defaults to `false`.
      * 
-     * &gt; **NOTE:** If `rdb_backup_enabled` set to `true`, `rdb_storage_connection_string` must also be set.
+     * &gt; **Note:** If `rdb_backup_enabled` set to `true`, `rdb_storage_connection_string` must also be set.
      * 
      */
     public Optional<Output<Boolean>> rdbBackupEnabled() {
@@ -261,7 +261,7 @@ public final class CacheRedisConfigurationArgs extends com.pulumi.resources.Reso
     /**
      * The Connection String to the Storage Account. Only supported for Premium SKUs. In the format: `DefaultEndpointsProtocol=https;BlobEndpoint=${azurerm_storage_account.example.primary_blob_endpoint};AccountName=${azurerm_storage_account.example.name};AccountKey=${azurerm_storage_account.example.primary_access_key}`.
      * 
-     * &gt; **NOTE:** There&#39;s a bug in the Redis API where the original storage connection string isn&#39;t being returned, which [is being tracked in this issue](https://github.com/Azure/azure-rest-api-specs/issues/3037). In the interim you can use [the `ignoreChanges` attribute to ignore changes to this field](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) e.g.:
+     * &gt; **Note:** There&#39;s a bug in the Redis API where the original storage connection string isn&#39;t being returned, which [is being tracked in this issue](https://github.com/Azure/azure-rest-api-specs/issues/3037). In the interim you can use the `ignore_changes` attribute to ignore changes to this field e.g.:
      * 
      */
     @Import(name="rdbStorageConnectionString")
@@ -270,7 +270,7 @@ public final class CacheRedisConfigurationArgs extends com.pulumi.resources.Reso
     /**
      * @return The Connection String to the Storage Account. Only supported for Premium SKUs. In the format: `DefaultEndpointsProtocol=https;BlobEndpoint=${azurerm_storage_account.example.primary_blob_endpoint};AccountName=${azurerm_storage_account.example.name};AccountKey=${azurerm_storage_account.example.primary_access_key}`.
      * 
-     * &gt; **NOTE:** There&#39;s a bug in the Redis API where the original storage connection string isn&#39;t being returned, which [is being tracked in this issue](https://github.com/Azure/azure-rest-api-specs/issues/3037). In the interim you can use [the `ignoreChanges` attribute to ignore changes to this field](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) e.g.:
+     * &gt; **Note:** There&#39;s a bug in the Redis API where the original storage connection string isn&#39;t being returned, which [is being tracked in this issue](https://github.com/Azure/azure-rest-api-specs/issues/3037). In the interim you can use the `ignore_changes` attribute to ignore changes to this field e.g.:
      * 
      */
     public Optional<Output<String>> rdbStorageConnectionString() {
@@ -362,7 +362,7 @@ public final class CacheRedisConfigurationArgs extends com.pulumi.resources.Reso
         /**
          * @param aofBackupEnabled Enable or disable AOF persistence for this Redis Cache. Defaults to `false`.
          * 
-         * &gt; **NOTE:** `aof_backup_enabled` can only be set when SKU is `Premium`.
+         * &gt; **Note:** `aof_backup_enabled` can only be set when SKU is `Premium`.
          * 
          * @return builder
          * 
@@ -375,7 +375,7 @@ public final class CacheRedisConfigurationArgs extends com.pulumi.resources.Reso
         /**
          * @param aofBackupEnabled Enable or disable AOF persistence for this Redis Cache. Defaults to `false`.
          * 
-         * &gt; **NOTE:** `aof_backup_enabled` can only be set when SKU is `Premium`.
+         * &gt; **Note:** `aof_backup_enabled` can only be set when SKU is `Premium`.
          * 
          * @return builder
          * 
@@ -433,7 +433,7 @@ public final class CacheRedisConfigurationArgs extends com.pulumi.resources.Reso
         /**
          * @param authenticationEnabled If set to `false`, the Redis instance will be accessible without authentication. Defaults to `true`.
          * 
-         * &gt; **NOTE:** `authentication_enabled` can only be set to `false` if a `subnet_id` is specified; and only works if there aren&#39;t existing instances within the subnet with `authentication_enabled` set to `true`.
+         * &gt; **Note:** `authentication_enabled` can only be set to `false` if a `subnet_id` is specified; and only works if there aren&#39;t existing instances within the subnet with `authentication_enabled` set to `true`.
          * 
          * @return builder
          * 
@@ -446,7 +446,7 @@ public final class CacheRedisConfigurationArgs extends com.pulumi.resources.Reso
         /**
          * @param authenticationEnabled If set to `false`, the Redis instance will be accessible without authentication. Defaults to `true`.
          * 
-         * &gt; **NOTE:** `authentication_enabled` can only be set to `false` if a `subnet_id` is specified; and only works if there aren&#39;t existing instances within the subnet with `authentication_enabled` set to `true`.
+         * &gt; **Note:** `authentication_enabled` can only be set to `false` if a `subnet_id` is specified; and only works if there aren&#39;t existing instances within the subnet with `authentication_enabled` set to `true`.
          * 
          * @return builder
          * 
@@ -605,7 +605,7 @@ public final class CacheRedisConfigurationArgs extends com.pulumi.resources.Reso
         /**
          * @param rdbBackupEnabled Is Backup Enabled? Only supported on Premium SKUs. Defaults to `false`.
          * 
-         * &gt; **NOTE:** If `rdb_backup_enabled` set to `true`, `rdb_storage_connection_string` must also be set.
+         * &gt; **Note:** If `rdb_backup_enabled` set to `true`, `rdb_storage_connection_string` must also be set.
          * 
          * @return builder
          * 
@@ -618,7 +618,7 @@ public final class CacheRedisConfigurationArgs extends com.pulumi.resources.Reso
         /**
          * @param rdbBackupEnabled Is Backup Enabled? Only supported on Premium SKUs. Defaults to `false`.
          * 
-         * &gt; **NOTE:** If `rdb_backup_enabled` set to `true`, `rdb_storage_connection_string` must also be set.
+         * &gt; **Note:** If `rdb_backup_enabled` set to `true`, `rdb_storage_connection_string` must also be set.
          * 
          * @return builder
          * 
@@ -672,7 +672,7 @@ public final class CacheRedisConfigurationArgs extends com.pulumi.resources.Reso
         /**
          * @param rdbStorageConnectionString The Connection String to the Storage Account. Only supported for Premium SKUs. In the format: `DefaultEndpointsProtocol=https;BlobEndpoint=${azurerm_storage_account.example.primary_blob_endpoint};AccountName=${azurerm_storage_account.example.name};AccountKey=${azurerm_storage_account.example.primary_access_key}`.
          * 
-         * &gt; **NOTE:** There&#39;s a bug in the Redis API where the original storage connection string isn&#39;t being returned, which [is being tracked in this issue](https://github.com/Azure/azure-rest-api-specs/issues/3037). In the interim you can use [the `ignoreChanges` attribute to ignore changes to this field](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) e.g.:
+         * &gt; **Note:** There&#39;s a bug in the Redis API where the original storage connection string isn&#39;t being returned, which [is being tracked in this issue](https://github.com/Azure/azure-rest-api-specs/issues/3037). In the interim you can use the `ignore_changes` attribute to ignore changes to this field e.g.:
          * 
          * @return builder
          * 
@@ -685,7 +685,7 @@ public final class CacheRedisConfigurationArgs extends com.pulumi.resources.Reso
         /**
          * @param rdbStorageConnectionString The Connection String to the Storage Account. Only supported for Premium SKUs. In the format: `DefaultEndpointsProtocol=https;BlobEndpoint=${azurerm_storage_account.example.primary_blob_endpoint};AccountName=${azurerm_storage_account.example.name};AccountKey=${azurerm_storage_account.example.primary_access_key}`.
          * 
-         * &gt; **NOTE:** There&#39;s a bug in the Redis API where the original storage connection string isn&#39;t being returned, which [is being tracked in this issue](https://github.com/Azure/azure-rest-api-specs/issues/3037). In the interim you can use [the `ignoreChanges` attribute to ignore changes to this field](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) e.g.:
+         * &gt; **Note:** There&#39;s a bug in the Redis API where the original storage connection string isn&#39;t being returned, which [is being tracked in this issue](https://github.com/Azure/azure-rest-api-specs/issues/3037). In the interim you can use the `ignore_changes` attribute to ignore changes to this field e.g.:
          * 
          * @return builder
          * 

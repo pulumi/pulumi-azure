@@ -3982,15 +3982,15 @@ type ApiOperationRequestRepresentation struct {
 	Examples []ApiOperationRequestRepresentationExample `pulumi:"examples"`
 	// One or more `formParameter` block as defined above.
 	//
-	// > **NOTE:** This is Required when `contentType` is set to `application/x-www-form-urlencoded` or `multipart/form-data`.
+	// > **Note:** This is Required when `contentType` is set to `application/x-www-form-urlencoded` or `multipart/form-data`.
 	FormParameters []ApiOperationRequestRepresentationFormParameter `pulumi:"formParameters"`
 	// The ID of an API Management Schema which represents this Response.
 	//
-	// > **NOTE:** This can only be specified when `contentType` is not set to `application/x-www-form-urlencoded` or `multipart/form-data`.
+	// > **Note:** This can only be specified when `contentType` is not set to `application/x-www-form-urlencoded` or `multipart/form-data`.
 	SchemaId *string `pulumi:"schemaId"`
 	// The Type Name defined by the Schema.
 	//
-	// > **NOTE:** This can only be specified when `contentType` is not set to `application/x-www-form-urlencoded` or `multipart/form-data`.
+	// > **Note:** This can only be specified when `contentType` is not set to `application/x-www-form-urlencoded` or `multipart/form-data`.
 	TypeName *string `pulumi:"typeName"`
 }
 
@@ -4012,15 +4012,15 @@ type ApiOperationRequestRepresentationArgs struct {
 	Examples ApiOperationRequestRepresentationExampleArrayInput `pulumi:"examples"`
 	// One or more `formParameter` block as defined above.
 	//
-	// > **NOTE:** This is Required when `contentType` is set to `application/x-www-form-urlencoded` or `multipart/form-data`.
+	// > **Note:** This is Required when `contentType` is set to `application/x-www-form-urlencoded` or `multipart/form-data`.
 	FormParameters ApiOperationRequestRepresentationFormParameterArrayInput `pulumi:"formParameters"`
 	// The ID of an API Management Schema which represents this Response.
 	//
-	// > **NOTE:** This can only be specified when `contentType` is not set to `application/x-www-form-urlencoded` or `multipart/form-data`.
+	// > **Note:** This can only be specified when `contentType` is not set to `application/x-www-form-urlencoded` or `multipart/form-data`.
 	SchemaId pulumi.StringPtrInput `pulumi:"schemaId"`
 	// The Type Name defined by the Schema.
 	//
-	// > **NOTE:** This can only be specified when `contentType` is not set to `application/x-www-form-urlencoded` or `multipart/form-data`.
+	// > **Note:** This can only be specified when `contentType` is not set to `application/x-www-form-urlencoded` or `multipart/form-data`.
 	TypeName pulumi.StringPtrInput `pulumi:"typeName"`
 }
 
@@ -4089,7 +4089,7 @@ func (o ApiOperationRequestRepresentationOutput) Examples() ApiOperationRequestR
 
 // One or more `formParameter` block as defined above.
 //
-// > **NOTE:** This is Required when `contentType` is set to `application/x-www-form-urlencoded` or `multipart/form-data`.
+// > **Note:** This is Required when `contentType` is set to `application/x-www-form-urlencoded` or `multipart/form-data`.
 func (o ApiOperationRequestRepresentationOutput) FormParameters() ApiOperationRequestRepresentationFormParameterArrayOutput {
 	return o.ApplyT(func(v ApiOperationRequestRepresentation) []ApiOperationRequestRepresentationFormParameter {
 		return v.FormParameters
@@ -4098,14 +4098,14 @@ func (o ApiOperationRequestRepresentationOutput) FormParameters() ApiOperationRe
 
 // The ID of an API Management Schema which represents this Response.
 //
-// > **NOTE:** This can only be specified when `contentType` is not set to `application/x-www-form-urlencoded` or `multipart/form-data`.
+// > **Note:** This can only be specified when `contentType` is not set to `application/x-www-form-urlencoded` or `multipart/form-data`.
 func (o ApiOperationRequestRepresentationOutput) SchemaId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApiOperationRequestRepresentation) *string { return v.SchemaId }).(pulumi.StringPtrOutput)
 }
 
 // The Type Name defined by the Schema.
 //
-// > **NOTE:** This can only be specified when `contentType` is not set to `application/x-www-form-urlencoded` or `multipart/form-data`.
+// > **Note:** This can only be specified when `contentType` is not set to `application/x-www-form-urlencoded` or `multipart/form-data`.
 func (o ApiOperationRequestRepresentationOutput) TypeName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApiOperationRequestRepresentation) *string { return v.TypeName }).(pulumi.StringPtrOutput)
 }
@@ -5000,15 +5000,15 @@ type ApiOperationResponseRepresentation struct {
 	Examples []ApiOperationResponseRepresentationExample `pulumi:"examples"`
 	// One or more `formParameter` block as defined above.
 	//
-	// > **NOTE:** This is Required when `contentType` is set to `application/x-www-form-urlencoded` or `multipart/form-data`.
+	// > **Note:** This is Required when `contentType` is set to `application/x-www-form-urlencoded` or `multipart/form-data`.
 	FormParameters []ApiOperationResponseRepresentationFormParameter `pulumi:"formParameters"`
 	// The ID of an API Management Schema which represents this Response.
 	//
-	// > **NOTE:** This can only be specified when `contentType` is not set to `application/x-www-form-urlencoded` or `multipart/form-data`.
+	// > **Note:** This can only be specified when `contentType` is not set to `application/x-www-form-urlencoded` or `multipart/form-data`.
 	SchemaId *string `pulumi:"schemaId"`
 	// The Type Name defined by the Schema.
 	//
-	// > **NOTE:** This can only be specified when `contentType` is not set to `application/x-www-form-urlencoded` or `multipart/form-data`.
+	// > **Note:** This can only be specified when `contentType` is not set to `application/x-www-form-urlencoded` or `multipart/form-data`.
 	TypeName *string `pulumi:"typeName"`
 }
 
@@ -5030,15 +5030,15 @@ type ApiOperationResponseRepresentationArgs struct {
 	Examples ApiOperationResponseRepresentationExampleArrayInput `pulumi:"examples"`
 	// One or more `formParameter` block as defined above.
 	//
-	// > **NOTE:** This is Required when `contentType` is set to `application/x-www-form-urlencoded` or `multipart/form-data`.
+	// > **Note:** This is Required when `contentType` is set to `application/x-www-form-urlencoded` or `multipart/form-data`.
 	FormParameters ApiOperationResponseRepresentationFormParameterArrayInput `pulumi:"formParameters"`
 	// The ID of an API Management Schema which represents this Response.
 	//
-	// > **NOTE:** This can only be specified when `contentType` is not set to `application/x-www-form-urlencoded` or `multipart/form-data`.
+	// > **Note:** This can only be specified when `contentType` is not set to `application/x-www-form-urlencoded` or `multipart/form-data`.
 	SchemaId pulumi.StringPtrInput `pulumi:"schemaId"`
 	// The Type Name defined by the Schema.
 	//
-	// > **NOTE:** This can only be specified when `contentType` is not set to `application/x-www-form-urlencoded` or `multipart/form-data`.
+	// > **Note:** This can only be specified when `contentType` is not set to `application/x-www-form-urlencoded` or `multipart/form-data`.
 	TypeName pulumi.StringPtrInput `pulumi:"typeName"`
 }
 
@@ -5107,7 +5107,7 @@ func (o ApiOperationResponseRepresentationOutput) Examples() ApiOperationRespons
 
 // One or more `formParameter` block as defined above.
 //
-// > **NOTE:** This is Required when `contentType` is set to `application/x-www-form-urlencoded` or `multipart/form-data`.
+// > **Note:** This is Required when `contentType` is set to `application/x-www-form-urlencoded` or `multipart/form-data`.
 func (o ApiOperationResponseRepresentationOutput) FormParameters() ApiOperationResponseRepresentationFormParameterArrayOutput {
 	return o.ApplyT(func(v ApiOperationResponseRepresentation) []ApiOperationResponseRepresentationFormParameter {
 		return v.FormParameters
@@ -5116,14 +5116,14 @@ func (o ApiOperationResponseRepresentationOutput) FormParameters() ApiOperationR
 
 // The ID of an API Management Schema which represents this Response.
 //
-// > **NOTE:** This can only be specified when `contentType` is not set to `application/x-www-form-urlencoded` or `multipart/form-data`.
+// > **Note:** This can only be specified when `contentType` is not set to `application/x-www-form-urlencoded` or `multipart/form-data`.
 func (o ApiOperationResponseRepresentationOutput) SchemaId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApiOperationResponseRepresentation) *string { return v.SchemaId }).(pulumi.StringPtrOutput)
 }
 
 // The Type Name defined by the Schema.
 //
-// > **NOTE:** This can only be specified when `contentType` is not set to `application/x-www-form-urlencoded` or `multipart/form-data`.
+// > **Note:** This can only be specified when `contentType` is not set to `application/x-www-form-urlencoded` or `multipart/form-data`.
 func (o ApiOperationResponseRepresentationOutput) TypeName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApiOperationResponseRepresentation) *string { return v.TypeName }).(pulumi.StringPtrOutput)
 }
@@ -7179,7 +7179,7 @@ func (o BackendTlsPtrOutput) ValidateCertificateName() pulumi.BoolPtrOutput {
 }
 
 type CustomDomainDeveloperPortal struct {
-	// The Base64 Encoded Certificate. (Mutually exclusive with `keyVaultId`.)
+	// The Base64 Encoded Certificate. (Mutually exclusive with `keyVaultCertificateId`.)
 	Certificate *string `pulumi:"certificate"`
 	// The password associated with the certificate provided above.
 	CertificatePassword *string `pulumi:"certificatePassword"`
@@ -7188,13 +7188,15 @@ type CustomDomainDeveloperPortal struct {
 	Expiry              *string `pulumi:"expiry"`
 	// The Hostname to use for the corresponding endpoint.
 	HostName string `pulumi:"hostName"`
-	// The ID of the Key Vault Secret containing the SSL Certificate, which must be should be of the type application/x-pkcs12.
+	// The ID of the Key Vault Secret containing the SSL Certificate, which must be of the type `application/x-pkcs12`.
+	KeyVaultCertificateId *string `pulumi:"keyVaultCertificateId"`
+	// Deprecated: `keyVaultId` has been deprecated in favour of `keyVaultCertificateId` and will be removed in v5.0 of the AzureRM provider
 	KeyVaultId *string `pulumi:"keyVaultId"`
 	// Should Client Certificate Negotiation be enabled for this Hostname? Defaults to `false`.
 	NegotiateClientCertificate *bool `pulumi:"negotiateClientCertificate"`
-	// System or User Assigned Managed identity clientId as generated by Azure AD, which has `GET` access to the keyVault containing the SSL certificate.
+	// System or User Assigned Managed identity clientId as generated by Azure AD, which has `GET` access to the key vault containing the SSL certificate.
 	//
-	// > **NOTE:** If a User Assigned Managed identity is specified for `sslKeyvaultIdentityClientId` then this identity must be associated to the `apimanagement.Service` within an `identity` block.
+	// > **Note:** If a User Assigned Managed identity is specified for `sslKeyvaultIdentityClientId` then this identity must be associated to the `apimanagement.Service` within an `identity` block.
 	SslKeyvaultIdentityClientId *string `pulumi:"sslKeyvaultIdentityClientId"`
 	Subject                     *string `pulumi:"subject"`
 	Thumbprint                  *string `pulumi:"thumbprint"`
@@ -7212,7 +7214,7 @@ type CustomDomainDeveloperPortalInput interface {
 }
 
 type CustomDomainDeveloperPortalArgs struct {
-	// The Base64 Encoded Certificate. (Mutually exclusive with `keyVaultId`.)
+	// The Base64 Encoded Certificate. (Mutually exclusive with `keyVaultCertificateId`.)
 	Certificate pulumi.StringPtrInput `pulumi:"certificate"`
 	// The password associated with the certificate provided above.
 	CertificatePassword pulumi.StringPtrInput `pulumi:"certificatePassword"`
@@ -7221,13 +7223,15 @@ type CustomDomainDeveloperPortalArgs struct {
 	Expiry              pulumi.StringPtrInput `pulumi:"expiry"`
 	// The Hostname to use for the corresponding endpoint.
 	HostName pulumi.StringInput `pulumi:"hostName"`
-	// The ID of the Key Vault Secret containing the SSL Certificate, which must be should be of the type application/x-pkcs12.
+	// The ID of the Key Vault Secret containing the SSL Certificate, which must be of the type `application/x-pkcs12`.
+	KeyVaultCertificateId pulumi.StringPtrInput `pulumi:"keyVaultCertificateId"`
+	// Deprecated: `keyVaultId` has been deprecated in favour of `keyVaultCertificateId` and will be removed in v5.0 of the AzureRM provider
 	KeyVaultId pulumi.StringPtrInput `pulumi:"keyVaultId"`
 	// Should Client Certificate Negotiation be enabled for this Hostname? Defaults to `false`.
 	NegotiateClientCertificate pulumi.BoolPtrInput `pulumi:"negotiateClientCertificate"`
-	// System or User Assigned Managed identity clientId as generated by Azure AD, which has `GET` access to the keyVault containing the SSL certificate.
+	// System or User Assigned Managed identity clientId as generated by Azure AD, which has `GET` access to the key vault containing the SSL certificate.
 	//
-	// > **NOTE:** If a User Assigned Managed identity is specified for `sslKeyvaultIdentityClientId` then this identity must be associated to the `apimanagement.Service` within an `identity` block.
+	// > **Note:** If a User Assigned Managed identity is specified for `sslKeyvaultIdentityClientId` then this identity must be associated to the `apimanagement.Service` within an `identity` block.
 	SslKeyvaultIdentityClientId pulumi.StringPtrInput `pulumi:"sslKeyvaultIdentityClientId"`
 	Subject                     pulumi.StringPtrInput `pulumi:"subject"`
 	Thumbprint                  pulumi.StringPtrInput `pulumi:"thumbprint"`
@@ -7284,7 +7288,7 @@ func (o CustomDomainDeveloperPortalOutput) ToCustomDomainDeveloperPortalOutputWi
 	return o
 }
 
-// The Base64 Encoded Certificate. (Mutually exclusive with `keyVaultId`.)
+// The Base64 Encoded Certificate. (Mutually exclusive with `keyVaultCertificateId`.)
 func (o CustomDomainDeveloperPortalOutput) Certificate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CustomDomainDeveloperPortal) *string { return v.Certificate }).(pulumi.StringPtrOutput)
 }
@@ -7311,7 +7315,12 @@ func (o CustomDomainDeveloperPortalOutput) HostName() pulumi.StringOutput {
 	return o.ApplyT(func(v CustomDomainDeveloperPortal) string { return v.HostName }).(pulumi.StringOutput)
 }
 
-// The ID of the Key Vault Secret containing the SSL Certificate, which must be should be of the type application/x-pkcs12.
+// The ID of the Key Vault Secret containing the SSL Certificate, which must be of the type `application/x-pkcs12`.
+func (o CustomDomainDeveloperPortalOutput) KeyVaultCertificateId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CustomDomainDeveloperPortal) *string { return v.KeyVaultCertificateId }).(pulumi.StringPtrOutput)
+}
+
+// Deprecated: `keyVaultId` has been deprecated in favour of `keyVaultCertificateId` and will be removed in v5.0 of the AzureRM provider
 func (o CustomDomainDeveloperPortalOutput) KeyVaultId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CustomDomainDeveloperPortal) *string { return v.KeyVaultId }).(pulumi.StringPtrOutput)
 }
@@ -7321,9 +7330,9 @@ func (o CustomDomainDeveloperPortalOutput) NegotiateClientCertificate() pulumi.B
 	return o.ApplyT(func(v CustomDomainDeveloperPortal) *bool { return v.NegotiateClientCertificate }).(pulumi.BoolPtrOutput)
 }
 
-// System or User Assigned Managed identity clientId as generated by Azure AD, which has `GET` access to the keyVault containing the SSL certificate.
+// System or User Assigned Managed identity clientId as generated by Azure AD, which has `GET` access to the key vault containing the SSL certificate.
 //
-// > **NOTE:** If a User Assigned Managed identity is specified for `sslKeyvaultIdentityClientId` then this identity must be associated to the `apimanagement.Service` within an `identity` block.
+// > **Note:** If a User Assigned Managed identity is specified for `sslKeyvaultIdentityClientId` then this identity must be associated to the `apimanagement.Service` within an `identity` block.
 func (o CustomDomainDeveloperPortalOutput) SslKeyvaultIdentityClientId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CustomDomainDeveloperPortal) *string { return v.SslKeyvaultIdentityClientId }).(pulumi.StringPtrOutput)
 }
@@ -7357,7 +7366,7 @@ func (o CustomDomainDeveloperPortalArrayOutput) Index(i pulumi.IntInput) CustomD
 }
 
 type CustomDomainGateway struct {
-	// The Base64 Encoded Certificate. (Mutually exclusive with `keyVaultId`.)
+	// The Base64 Encoded Certificate. (Mutually exclusive with `keyVaultCertificateId`.)
 	Certificate *string `pulumi:"certificate"`
 	// The password associated with the certificate provided above.
 	CertificatePassword *string `pulumi:"certificatePassword"`
@@ -7368,13 +7377,15 @@ type CustomDomainGateway struct {
 	Expiry            *string `pulumi:"expiry"`
 	// The Hostname to use for the API Proxy Endpoint.
 	HostName string `pulumi:"hostName"`
-	// The ID of the Key Vault Secret containing the SSL Certificate, which must be should be of the type application/x-pkcs12.
+	// The ID of the Key Vault Secret containing the SSL Certificate, which must be of the type `application/x-pkcs12`.
+	KeyVaultCertificateId *string `pulumi:"keyVaultCertificateId"`
+	// Deprecated: `keyVaultId` has been deprecated in favour of `keyVaultCertificateId` and will be removed in v5.0 of the AzureRM provider
 	KeyVaultId *string `pulumi:"keyVaultId"`
 	// Should Client Certificate Negotiation be enabled for this Hostname? Defaults to `false`.
 	NegotiateClientCertificate *bool `pulumi:"negotiateClientCertificate"`
-	// System or User Assigned Managed identity clientId as generated by Azure AD, which has `GET` access to the keyVault containing the SSL certificate.
+	// System or User Assigned Managed identity clientId as generated by Azure AD, which has `GET` access to the key vault containing the SSL certificate.
 	//
-	// > **NOTE:** If a User Assigned Managed identity is specified for `sslKeyvaultIdentityClientId` then this identity must be associated to the `apimanagement.Service` within an `identity` block.
+	// > **Note:** If a User Assigned Managed identity is specified for `sslKeyvaultIdentityClientId` then this identity must be associated to the `apimanagement.Service` within an `identity` block.
 	SslKeyvaultIdentityClientId *string `pulumi:"sslKeyvaultIdentityClientId"`
 	Subject                     *string `pulumi:"subject"`
 	Thumbprint                  *string `pulumi:"thumbprint"`
@@ -7392,7 +7403,7 @@ type CustomDomainGatewayInput interface {
 }
 
 type CustomDomainGatewayArgs struct {
-	// The Base64 Encoded Certificate. (Mutually exclusive with `keyVaultId`.)
+	// The Base64 Encoded Certificate. (Mutually exclusive with `keyVaultCertificateId`.)
 	Certificate pulumi.StringPtrInput `pulumi:"certificate"`
 	// The password associated with the certificate provided above.
 	CertificatePassword pulumi.StringPtrInput `pulumi:"certificatePassword"`
@@ -7403,13 +7414,15 @@ type CustomDomainGatewayArgs struct {
 	Expiry            pulumi.StringPtrInput `pulumi:"expiry"`
 	// The Hostname to use for the API Proxy Endpoint.
 	HostName pulumi.StringInput `pulumi:"hostName"`
-	// The ID of the Key Vault Secret containing the SSL Certificate, which must be should be of the type application/x-pkcs12.
+	// The ID of the Key Vault Secret containing the SSL Certificate, which must be of the type `application/x-pkcs12`.
+	KeyVaultCertificateId pulumi.StringPtrInput `pulumi:"keyVaultCertificateId"`
+	// Deprecated: `keyVaultId` has been deprecated in favour of `keyVaultCertificateId` and will be removed in v5.0 of the AzureRM provider
 	KeyVaultId pulumi.StringPtrInput `pulumi:"keyVaultId"`
 	// Should Client Certificate Negotiation be enabled for this Hostname? Defaults to `false`.
 	NegotiateClientCertificate pulumi.BoolPtrInput `pulumi:"negotiateClientCertificate"`
-	// System or User Assigned Managed identity clientId as generated by Azure AD, which has `GET` access to the keyVault containing the SSL certificate.
+	// System or User Assigned Managed identity clientId as generated by Azure AD, which has `GET` access to the key vault containing the SSL certificate.
 	//
-	// > **NOTE:** If a User Assigned Managed identity is specified for `sslKeyvaultIdentityClientId` then this identity must be associated to the `apimanagement.Service` within an `identity` block.
+	// > **Note:** If a User Assigned Managed identity is specified for `sslKeyvaultIdentityClientId` then this identity must be associated to the `apimanagement.Service` within an `identity` block.
 	SslKeyvaultIdentityClientId pulumi.StringPtrInput `pulumi:"sslKeyvaultIdentityClientId"`
 	Subject                     pulumi.StringPtrInput `pulumi:"subject"`
 	Thumbprint                  pulumi.StringPtrInput `pulumi:"thumbprint"`
@@ -7466,7 +7479,7 @@ func (o CustomDomainGatewayOutput) ToCustomDomainGatewayOutputWithContext(ctx co
 	return o
 }
 
-// The Base64 Encoded Certificate. (Mutually exclusive with `keyVaultId`.)
+// The Base64 Encoded Certificate. (Mutually exclusive with `keyVaultCertificateId`.)
 func (o CustomDomainGatewayOutput) Certificate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CustomDomainGateway) *string { return v.Certificate }).(pulumi.StringPtrOutput)
 }
@@ -7498,7 +7511,12 @@ func (o CustomDomainGatewayOutput) HostName() pulumi.StringOutput {
 	return o.ApplyT(func(v CustomDomainGateway) string { return v.HostName }).(pulumi.StringOutput)
 }
 
-// The ID of the Key Vault Secret containing the SSL Certificate, which must be should be of the type application/x-pkcs12.
+// The ID of the Key Vault Secret containing the SSL Certificate, which must be of the type `application/x-pkcs12`.
+func (o CustomDomainGatewayOutput) KeyVaultCertificateId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CustomDomainGateway) *string { return v.KeyVaultCertificateId }).(pulumi.StringPtrOutput)
+}
+
+// Deprecated: `keyVaultId` has been deprecated in favour of `keyVaultCertificateId` and will be removed in v5.0 of the AzureRM provider
 func (o CustomDomainGatewayOutput) KeyVaultId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CustomDomainGateway) *string { return v.KeyVaultId }).(pulumi.StringPtrOutput)
 }
@@ -7508,9 +7526,9 @@ func (o CustomDomainGatewayOutput) NegotiateClientCertificate() pulumi.BoolPtrOu
 	return o.ApplyT(func(v CustomDomainGateway) *bool { return v.NegotiateClientCertificate }).(pulumi.BoolPtrOutput)
 }
 
-// System or User Assigned Managed identity clientId as generated by Azure AD, which has `GET` access to the keyVault containing the SSL certificate.
+// System or User Assigned Managed identity clientId as generated by Azure AD, which has `GET` access to the key vault containing the SSL certificate.
 //
-// > **NOTE:** If a User Assigned Managed identity is specified for `sslKeyvaultIdentityClientId` then this identity must be associated to the `apimanagement.Service` within an `identity` block.
+// > **Note:** If a User Assigned Managed identity is specified for `sslKeyvaultIdentityClientId` then this identity must be associated to the `apimanagement.Service` within an `identity` block.
 func (o CustomDomainGatewayOutput) SslKeyvaultIdentityClientId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CustomDomainGateway) *string { return v.SslKeyvaultIdentityClientId }).(pulumi.StringPtrOutput)
 }
@@ -7544,7 +7562,7 @@ func (o CustomDomainGatewayArrayOutput) Index(i pulumi.IntInput) CustomDomainGat
 }
 
 type CustomDomainManagement struct {
-	// The Base64 Encoded Certificate. (Mutually exclusive with `keyVaultId`.)
+	// The Base64 Encoded Certificate. (Mutually exclusive with `keyVaultCertificateId`.)
 	Certificate *string `pulumi:"certificate"`
 	// The password associated with the certificate provided above.
 	CertificatePassword *string `pulumi:"certificatePassword"`
@@ -7553,13 +7571,15 @@ type CustomDomainManagement struct {
 	Expiry              *string `pulumi:"expiry"`
 	// The Hostname to use for the corresponding endpoint.
 	HostName string `pulumi:"hostName"`
-	// The ID of the Key Vault Secret containing the SSL Certificate, which must be should be of the type application/x-pkcs12.
+	// The ID of the Key Vault Secret containing the SSL Certificate, which must be of the type `application/x-pkcs12`.
+	KeyVaultCertificateId *string `pulumi:"keyVaultCertificateId"`
+	// Deprecated: `keyVaultId` has been deprecated in favour of `keyVaultCertificateId` and will be removed in v5.0 of the AzureRM provider
 	KeyVaultId *string `pulumi:"keyVaultId"`
 	// Should Client Certificate Negotiation be enabled for this Hostname? Defaults to `false`.
 	NegotiateClientCertificate *bool `pulumi:"negotiateClientCertificate"`
-	// System or User Assigned Managed identity clientId as generated by Azure AD, which has `GET` access to the keyVault containing the SSL certificate.
+	// System or User Assigned Managed identity clientId as generated by Azure AD, which has `GET` access to the key vault containing the SSL certificate.
 	//
-	// > **NOTE:** If a User Assigned Managed identity is specified for `sslKeyvaultIdentityClientId` then this identity must be associated to the `apimanagement.Service` within an `identity` block.
+	// > **Note:** If a User Assigned Managed identity is specified for `sslKeyvaultIdentityClientId` then this identity must be associated to the `apimanagement.Service` within an `identity` block.
 	SslKeyvaultIdentityClientId *string `pulumi:"sslKeyvaultIdentityClientId"`
 	Subject                     *string `pulumi:"subject"`
 	Thumbprint                  *string `pulumi:"thumbprint"`
@@ -7577,7 +7597,7 @@ type CustomDomainManagementInput interface {
 }
 
 type CustomDomainManagementArgs struct {
-	// The Base64 Encoded Certificate. (Mutually exclusive with `keyVaultId`.)
+	// The Base64 Encoded Certificate. (Mutually exclusive with `keyVaultCertificateId`.)
 	Certificate pulumi.StringPtrInput `pulumi:"certificate"`
 	// The password associated with the certificate provided above.
 	CertificatePassword pulumi.StringPtrInput `pulumi:"certificatePassword"`
@@ -7586,13 +7606,15 @@ type CustomDomainManagementArgs struct {
 	Expiry              pulumi.StringPtrInput `pulumi:"expiry"`
 	// The Hostname to use for the corresponding endpoint.
 	HostName pulumi.StringInput `pulumi:"hostName"`
-	// The ID of the Key Vault Secret containing the SSL Certificate, which must be should be of the type application/x-pkcs12.
+	// The ID of the Key Vault Secret containing the SSL Certificate, which must be of the type `application/x-pkcs12`.
+	KeyVaultCertificateId pulumi.StringPtrInput `pulumi:"keyVaultCertificateId"`
+	// Deprecated: `keyVaultId` has been deprecated in favour of `keyVaultCertificateId` and will be removed in v5.0 of the AzureRM provider
 	KeyVaultId pulumi.StringPtrInput `pulumi:"keyVaultId"`
 	// Should Client Certificate Negotiation be enabled for this Hostname? Defaults to `false`.
 	NegotiateClientCertificate pulumi.BoolPtrInput `pulumi:"negotiateClientCertificate"`
-	// System or User Assigned Managed identity clientId as generated by Azure AD, which has `GET` access to the keyVault containing the SSL certificate.
+	// System or User Assigned Managed identity clientId as generated by Azure AD, which has `GET` access to the key vault containing the SSL certificate.
 	//
-	// > **NOTE:** If a User Assigned Managed identity is specified for `sslKeyvaultIdentityClientId` then this identity must be associated to the `apimanagement.Service` within an `identity` block.
+	// > **Note:** If a User Assigned Managed identity is specified for `sslKeyvaultIdentityClientId` then this identity must be associated to the `apimanagement.Service` within an `identity` block.
 	SslKeyvaultIdentityClientId pulumi.StringPtrInput `pulumi:"sslKeyvaultIdentityClientId"`
 	Subject                     pulumi.StringPtrInput `pulumi:"subject"`
 	Thumbprint                  pulumi.StringPtrInput `pulumi:"thumbprint"`
@@ -7649,7 +7671,7 @@ func (o CustomDomainManagementOutput) ToCustomDomainManagementOutputWithContext(
 	return o
 }
 
-// The Base64 Encoded Certificate. (Mutually exclusive with `keyVaultId`.)
+// The Base64 Encoded Certificate. (Mutually exclusive with `keyVaultCertificateId`.)
 func (o CustomDomainManagementOutput) Certificate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CustomDomainManagement) *string { return v.Certificate }).(pulumi.StringPtrOutput)
 }
@@ -7676,7 +7698,12 @@ func (o CustomDomainManagementOutput) HostName() pulumi.StringOutput {
 	return o.ApplyT(func(v CustomDomainManagement) string { return v.HostName }).(pulumi.StringOutput)
 }
 
-// The ID of the Key Vault Secret containing the SSL Certificate, which must be should be of the type application/x-pkcs12.
+// The ID of the Key Vault Secret containing the SSL Certificate, which must be of the type `application/x-pkcs12`.
+func (o CustomDomainManagementOutput) KeyVaultCertificateId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CustomDomainManagement) *string { return v.KeyVaultCertificateId }).(pulumi.StringPtrOutput)
+}
+
+// Deprecated: `keyVaultId` has been deprecated in favour of `keyVaultCertificateId` and will be removed in v5.0 of the AzureRM provider
 func (o CustomDomainManagementOutput) KeyVaultId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CustomDomainManagement) *string { return v.KeyVaultId }).(pulumi.StringPtrOutput)
 }
@@ -7686,9 +7713,9 @@ func (o CustomDomainManagementOutput) NegotiateClientCertificate() pulumi.BoolPt
 	return o.ApplyT(func(v CustomDomainManagement) *bool { return v.NegotiateClientCertificate }).(pulumi.BoolPtrOutput)
 }
 
-// System or User Assigned Managed identity clientId as generated by Azure AD, which has `GET` access to the keyVault containing the SSL certificate.
+// System or User Assigned Managed identity clientId as generated by Azure AD, which has `GET` access to the key vault containing the SSL certificate.
 //
-// > **NOTE:** If a User Assigned Managed identity is specified for `sslKeyvaultIdentityClientId` then this identity must be associated to the `apimanagement.Service` within an `identity` block.
+// > **Note:** If a User Assigned Managed identity is specified for `sslKeyvaultIdentityClientId` then this identity must be associated to the `apimanagement.Service` within an `identity` block.
 func (o CustomDomainManagementOutput) SslKeyvaultIdentityClientId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CustomDomainManagement) *string { return v.SslKeyvaultIdentityClientId }).(pulumi.StringPtrOutput)
 }
@@ -7722,7 +7749,7 @@ func (o CustomDomainManagementArrayOutput) Index(i pulumi.IntInput) CustomDomain
 }
 
 type CustomDomainPortal struct {
-	// The Base64 Encoded Certificate. (Mutually exclusive with `keyVaultId`.)
+	// The Base64 Encoded Certificate. (Mutually exclusive with `keyVaultCertificateId`.)
 	Certificate *string `pulumi:"certificate"`
 	// The password associated with the certificate provided above.
 	CertificatePassword *string `pulumi:"certificatePassword"`
@@ -7731,13 +7758,15 @@ type CustomDomainPortal struct {
 	Expiry              *string `pulumi:"expiry"`
 	// The Hostname to use for the corresponding endpoint.
 	HostName string `pulumi:"hostName"`
-	// The ID of the Key Vault Secret containing the SSL Certificate, which must be should be of the type application/x-pkcs12.
+	// The ID of the Key Vault Secret containing the SSL Certificate, which must be of the type `application/x-pkcs12`.
+	KeyVaultCertificateId *string `pulumi:"keyVaultCertificateId"`
+	// Deprecated: `keyVaultId` has been deprecated in favour of `keyVaultCertificateId` and will be removed in v5.0 of the AzureRM provider
 	KeyVaultId *string `pulumi:"keyVaultId"`
 	// Should Client Certificate Negotiation be enabled for this Hostname? Defaults to `false`.
 	NegotiateClientCertificate *bool `pulumi:"negotiateClientCertificate"`
-	// System or User Assigned Managed identity clientId as generated by Azure AD, which has `GET` access to the keyVault containing the SSL certificate.
+	// System or User Assigned Managed identity clientId as generated by Azure AD, which has `GET` access to the key vault containing the SSL certificate.
 	//
-	// > **NOTE:** If a User Assigned Managed identity is specified for `sslKeyvaultIdentityClientId` then this identity must be associated to the `apimanagement.Service` within an `identity` block.
+	// > **Note:** If a User Assigned Managed identity is specified for `sslKeyvaultIdentityClientId` then this identity must be associated to the `apimanagement.Service` within an `identity` block.
 	SslKeyvaultIdentityClientId *string `pulumi:"sslKeyvaultIdentityClientId"`
 	Subject                     *string `pulumi:"subject"`
 	Thumbprint                  *string `pulumi:"thumbprint"`
@@ -7755,7 +7784,7 @@ type CustomDomainPortalInput interface {
 }
 
 type CustomDomainPortalArgs struct {
-	// The Base64 Encoded Certificate. (Mutually exclusive with `keyVaultId`.)
+	// The Base64 Encoded Certificate. (Mutually exclusive with `keyVaultCertificateId`.)
 	Certificate pulumi.StringPtrInput `pulumi:"certificate"`
 	// The password associated with the certificate provided above.
 	CertificatePassword pulumi.StringPtrInput `pulumi:"certificatePassword"`
@@ -7764,13 +7793,15 @@ type CustomDomainPortalArgs struct {
 	Expiry              pulumi.StringPtrInput `pulumi:"expiry"`
 	// The Hostname to use for the corresponding endpoint.
 	HostName pulumi.StringInput `pulumi:"hostName"`
-	// The ID of the Key Vault Secret containing the SSL Certificate, which must be should be of the type application/x-pkcs12.
+	// The ID of the Key Vault Secret containing the SSL Certificate, which must be of the type `application/x-pkcs12`.
+	KeyVaultCertificateId pulumi.StringPtrInput `pulumi:"keyVaultCertificateId"`
+	// Deprecated: `keyVaultId` has been deprecated in favour of `keyVaultCertificateId` and will be removed in v5.0 of the AzureRM provider
 	KeyVaultId pulumi.StringPtrInput `pulumi:"keyVaultId"`
 	// Should Client Certificate Negotiation be enabled for this Hostname? Defaults to `false`.
 	NegotiateClientCertificate pulumi.BoolPtrInput `pulumi:"negotiateClientCertificate"`
-	// System or User Assigned Managed identity clientId as generated by Azure AD, which has `GET` access to the keyVault containing the SSL certificate.
+	// System or User Assigned Managed identity clientId as generated by Azure AD, which has `GET` access to the key vault containing the SSL certificate.
 	//
-	// > **NOTE:** If a User Assigned Managed identity is specified for `sslKeyvaultIdentityClientId` then this identity must be associated to the `apimanagement.Service` within an `identity` block.
+	// > **Note:** If a User Assigned Managed identity is specified for `sslKeyvaultIdentityClientId` then this identity must be associated to the `apimanagement.Service` within an `identity` block.
 	SslKeyvaultIdentityClientId pulumi.StringPtrInput `pulumi:"sslKeyvaultIdentityClientId"`
 	Subject                     pulumi.StringPtrInput `pulumi:"subject"`
 	Thumbprint                  pulumi.StringPtrInput `pulumi:"thumbprint"`
@@ -7827,7 +7858,7 @@ func (o CustomDomainPortalOutput) ToCustomDomainPortalOutputWithContext(ctx cont
 	return o
 }
 
-// The Base64 Encoded Certificate. (Mutually exclusive with `keyVaultId`.)
+// The Base64 Encoded Certificate. (Mutually exclusive with `keyVaultCertificateId`.)
 func (o CustomDomainPortalOutput) Certificate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CustomDomainPortal) *string { return v.Certificate }).(pulumi.StringPtrOutput)
 }
@@ -7854,7 +7885,12 @@ func (o CustomDomainPortalOutput) HostName() pulumi.StringOutput {
 	return o.ApplyT(func(v CustomDomainPortal) string { return v.HostName }).(pulumi.StringOutput)
 }
 
-// The ID of the Key Vault Secret containing the SSL Certificate, which must be should be of the type application/x-pkcs12.
+// The ID of the Key Vault Secret containing the SSL Certificate, which must be of the type `application/x-pkcs12`.
+func (o CustomDomainPortalOutput) KeyVaultCertificateId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CustomDomainPortal) *string { return v.KeyVaultCertificateId }).(pulumi.StringPtrOutput)
+}
+
+// Deprecated: `keyVaultId` has been deprecated in favour of `keyVaultCertificateId` and will be removed in v5.0 of the AzureRM provider
 func (o CustomDomainPortalOutput) KeyVaultId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CustomDomainPortal) *string { return v.KeyVaultId }).(pulumi.StringPtrOutput)
 }
@@ -7864,9 +7900,9 @@ func (o CustomDomainPortalOutput) NegotiateClientCertificate() pulumi.BoolPtrOut
 	return o.ApplyT(func(v CustomDomainPortal) *bool { return v.NegotiateClientCertificate }).(pulumi.BoolPtrOutput)
 }
 
-// System or User Assigned Managed identity clientId as generated by Azure AD, which has `GET` access to the keyVault containing the SSL certificate.
+// System or User Assigned Managed identity clientId as generated by Azure AD, which has `GET` access to the key vault containing the SSL certificate.
 //
-// > **NOTE:** If a User Assigned Managed identity is specified for `sslKeyvaultIdentityClientId` then this identity must be associated to the `apimanagement.Service` within an `identity` block.
+// > **Note:** If a User Assigned Managed identity is specified for `sslKeyvaultIdentityClientId` then this identity must be associated to the `apimanagement.Service` within an `identity` block.
 func (o CustomDomainPortalOutput) SslKeyvaultIdentityClientId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CustomDomainPortal) *string { return v.SslKeyvaultIdentityClientId }).(pulumi.StringPtrOutput)
 }
@@ -7900,7 +7936,7 @@ func (o CustomDomainPortalArrayOutput) Index(i pulumi.IntInput) CustomDomainPort
 }
 
 type CustomDomainScm struct {
-	// The Base64 Encoded Certificate. (Mutually exclusive with `keyVaultId`.)
+	// The Base64 Encoded Certificate. (Mutually exclusive with `keyVaultCertificateId`.)
 	Certificate *string `pulumi:"certificate"`
 	// The password associated with the certificate provided above.
 	CertificatePassword *string `pulumi:"certificatePassword"`
@@ -7909,13 +7945,15 @@ type CustomDomainScm struct {
 	Expiry              *string `pulumi:"expiry"`
 	// The Hostname to use for the corresponding endpoint.
 	HostName string `pulumi:"hostName"`
-	// The ID of the Key Vault Secret containing the SSL Certificate, which must be should be of the type application/x-pkcs12.
+	// The ID of the Key Vault Secret containing the SSL Certificate, which must be of the type `application/x-pkcs12`.
+	KeyVaultCertificateId *string `pulumi:"keyVaultCertificateId"`
+	// Deprecated: `keyVaultId` has been deprecated in favour of `keyVaultCertificateId` and will be removed in v5.0 of the AzureRM provider
 	KeyVaultId *string `pulumi:"keyVaultId"`
 	// Should Client Certificate Negotiation be enabled for this Hostname? Defaults to `false`.
 	NegotiateClientCertificate *bool `pulumi:"negotiateClientCertificate"`
-	// System or User Assigned Managed identity clientId as generated by Azure AD, which has `GET` access to the keyVault containing the SSL certificate.
+	// System or User Assigned Managed identity clientId as generated by Azure AD, which has `GET` access to the key vault containing the SSL certificate.
 	//
-	// > **NOTE:** If a User Assigned Managed identity is specified for `sslKeyvaultIdentityClientId` then this identity must be associated to the `apimanagement.Service` within an `identity` block.
+	// > **Note:** If a User Assigned Managed identity is specified for `sslKeyvaultIdentityClientId` then this identity must be associated to the `apimanagement.Service` within an `identity` block.
 	SslKeyvaultIdentityClientId *string `pulumi:"sslKeyvaultIdentityClientId"`
 	Subject                     *string `pulumi:"subject"`
 	Thumbprint                  *string `pulumi:"thumbprint"`
@@ -7933,7 +7971,7 @@ type CustomDomainScmInput interface {
 }
 
 type CustomDomainScmArgs struct {
-	// The Base64 Encoded Certificate. (Mutually exclusive with `keyVaultId`.)
+	// The Base64 Encoded Certificate. (Mutually exclusive with `keyVaultCertificateId`.)
 	Certificate pulumi.StringPtrInput `pulumi:"certificate"`
 	// The password associated with the certificate provided above.
 	CertificatePassword pulumi.StringPtrInput `pulumi:"certificatePassword"`
@@ -7942,13 +7980,15 @@ type CustomDomainScmArgs struct {
 	Expiry              pulumi.StringPtrInput `pulumi:"expiry"`
 	// The Hostname to use for the corresponding endpoint.
 	HostName pulumi.StringInput `pulumi:"hostName"`
-	// The ID of the Key Vault Secret containing the SSL Certificate, which must be should be of the type application/x-pkcs12.
+	// The ID of the Key Vault Secret containing the SSL Certificate, which must be of the type `application/x-pkcs12`.
+	KeyVaultCertificateId pulumi.StringPtrInput `pulumi:"keyVaultCertificateId"`
+	// Deprecated: `keyVaultId` has been deprecated in favour of `keyVaultCertificateId` and will be removed in v5.0 of the AzureRM provider
 	KeyVaultId pulumi.StringPtrInput `pulumi:"keyVaultId"`
 	// Should Client Certificate Negotiation be enabled for this Hostname? Defaults to `false`.
 	NegotiateClientCertificate pulumi.BoolPtrInput `pulumi:"negotiateClientCertificate"`
-	// System or User Assigned Managed identity clientId as generated by Azure AD, which has `GET` access to the keyVault containing the SSL certificate.
+	// System or User Assigned Managed identity clientId as generated by Azure AD, which has `GET` access to the key vault containing the SSL certificate.
 	//
-	// > **NOTE:** If a User Assigned Managed identity is specified for `sslKeyvaultIdentityClientId` then this identity must be associated to the `apimanagement.Service` within an `identity` block.
+	// > **Note:** If a User Assigned Managed identity is specified for `sslKeyvaultIdentityClientId` then this identity must be associated to the `apimanagement.Service` within an `identity` block.
 	SslKeyvaultIdentityClientId pulumi.StringPtrInput `pulumi:"sslKeyvaultIdentityClientId"`
 	Subject                     pulumi.StringPtrInput `pulumi:"subject"`
 	Thumbprint                  pulumi.StringPtrInput `pulumi:"thumbprint"`
@@ -8005,7 +8045,7 @@ func (o CustomDomainScmOutput) ToCustomDomainScmOutputWithContext(ctx context.Co
 	return o
 }
 
-// The Base64 Encoded Certificate. (Mutually exclusive with `keyVaultId`.)
+// The Base64 Encoded Certificate. (Mutually exclusive with `keyVaultCertificateId`.)
 func (o CustomDomainScmOutput) Certificate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CustomDomainScm) *string { return v.Certificate }).(pulumi.StringPtrOutput)
 }
@@ -8032,7 +8072,12 @@ func (o CustomDomainScmOutput) HostName() pulumi.StringOutput {
 	return o.ApplyT(func(v CustomDomainScm) string { return v.HostName }).(pulumi.StringOutput)
 }
 
-// The ID of the Key Vault Secret containing the SSL Certificate, which must be should be of the type application/x-pkcs12.
+// The ID of the Key Vault Secret containing the SSL Certificate, which must be of the type `application/x-pkcs12`.
+func (o CustomDomainScmOutput) KeyVaultCertificateId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CustomDomainScm) *string { return v.KeyVaultCertificateId }).(pulumi.StringPtrOutput)
+}
+
+// Deprecated: `keyVaultId` has been deprecated in favour of `keyVaultCertificateId` and will be removed in v5.0 of the AzureRM provider
 func (o CustomDomainScmOutput) KeyVaultId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CustomDomainScm) *string { return v.KeyVaultId }).(pulumi.StringPtrOutput)
 }
@@ -8042,9 +8087,9 @@ func (o CustomDomainScmOutput) NegotiateClientCertificate() pulumi.BoolPtrOutput
 	return o.ApplyT(func(v CustomDomainScm) *bool { return v.NegotiateClientCertificate }).(pulumi.BoolPtrOutput)
 }
 
-// System or User Assigned Managed identity clientId as generated by Azure AD, which has `GET` access to the keyVault containing the SSL certificate.
+// System or User Assigned Managed identity clientId as generated by Azure AD, which has `GET` access to the key vault containing the SSL certificate.
 //
-// > **NOTE:** If a User Assigned Managed identity is specified for `sslKeyvaultIdentityClientId` then this identity must be associated to the `apimanagement.Service` within an `identity` block.
+// > **Note:** If a User Assigned Managed identity is specified for `sslKeyvaultIdentityClientId` then this identity must be associated to the `apimanagement.Service` within an `identity` block.
 func (o CustomDomainScmOutput) SslKeyvaultIdentityClientId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CustomDomainScm) *string { return v.SslKeyvaultIdentityClientId }).(pulumi.StringPtrOutput)
 }
@@ -10994,7 +11039,7 @@ type ServiceAdditionalLocation struct {
 	PrivateIpAddresses []string `pulumi:"privateIpAddresses"`
 	// ID of a standard SKU IPv4 Public IP.
 	//
-	// > **NOTE:** Availability zones and custom public IPs are only supported in the Premium tier.
+	// > **Note:** Availability zones and custom public IPs are only supported in the Premium tier.
 	PublicIpAddressId *string `pulumi:"publicIpAddressId"`
 	// Public Static Load Balanced IP addresses of the API Management service in the additional location. Available only for Basic, Standard and Premium SKU.
 	PublicIpAddresses []string `pulumi:"publicIpAddresses"`
@@ -11028,7 +11073,7 @@ type ServiceAdditionalLocationArgs struct {
 	PrivateIpAddresses pulumi.StringArrayInput `pulumi:"privateIpAddresses"`
 	// ID of a standard SKU IPv4 Public IP.
 	//
-	// > **NOTE:** Availability zones and custom public IPs are only supported in the Premium tier.
+	// > **Note:** Availability zones and custom public IPs are only supported in the Premium tier.
 	PublicIpAddressId pulumi.StringPtrInput `pulumi:"publicIpAddressId"`
 	// Public Static Load Balanced IP addresses of the API Management service in the additional location. Available only for Basic, Standard and Premium SKU.
 	PublicIpAddresses pulumi.StringArrayInput `pulumi:"publicIpAddresses"`
@@ -11116,7 +11161,7 @@ func (o ServiceAdditionalLocationOutput) PrivateIpAddresses() pulumi.StringArray
 
 // ID of a standard SKU IPv4 Public IP.
 //
-// > **NOTE:** Availability zones and custom public IPs are only supported in the Premium tier.
+// > **Note:** Availability zones and custom public IPs are only supported in the Premium tier.
 func (o ServiceAdditionalLocationOutput) PublicIpAddressId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServiceAdditionalLocation) *string { return v.PublicIpAddressId }).(pulumi.StringPtrOutput)
 }
@@ -11851,7 +11896,7 @@ type ServiceHostnameConfigurationDeveloperPortal struct {
 	Certificate *string `pulumi:"certificate"`
 	// The password associated with the certificate provided above.
 	//
-	// > **NOTE:** Either `keyVaultId` or `certificate` and `certificatePassword` must be specified.
+	// > **Note:** Either `keyVaultCertificateId` or `certificate` and `certificatePassword` must be specified.
 	CertificatePassword *string `pulumi:"certificatePassword"`
 	// The source of the certificate.
 	CertificateSource *string `pulumi:"certificateSource"`
@@ -11861,15 +11906,17 @@ type ServiceHostnameConfigurationDeveloperPortal struct {
 	Expiry *string `pulumi:"expiry"`
 	// The Hostname to use for the Management API.
 	HostName string `pulumi:"hostName"`
-	// The ID of the Key Vault Secret containing the SSL Certificate, which must be should be of the type `application/x-pkcs12`.
+	// The ID of the Key Vault Secret containing the SSL Certificate, which must be of the type `application/x-pkcs12`.
 	//
-	// > **NOTE:** Setting this field requires the `identity` block to be specified, since this identity is used for to retrieve the Key Vault Certificate. Possible values are versioned or versionless secret ID. Auto-updating the Certificate from the Key Vault requires the Secret version isn't specified.
+	// > **Note:** Setting this field requires the `identity` block to be specified, since this identity is used for to retrieve the Key Vault Certificate. Possible values are versioned or versionless secret ID. Auto-updating the Certificate from the Key Vault requires the Secret version isn't specified.
+	KeyVaultCertificateId *string `pulumi:"keyVaultCertificateId"`
+	// Deprecated: `keyVaultId` has been deprecated in favour of `keyVaultCertificateId` and will be removed in v5.0 of the AzureRM provider
 	KeyVaultId *string `pulumi:"keyVaultId"`
 	// Should Client Certificate Negotiation be enabled for this Hostname? Defaults to `false`.
 	NegotiateClientCertificate *bool `pulumi:"negotiateClientCertificate"`
 	// System or User Assigned Managed identity clientId as generated by Azure AD, which has `GET` access to the keyVault containing the SSL certificate.
 	//
-	// > **NOTE:** If a User Assigned Managed identity is specified for `sslKeyvaultIdentityClientId` then this identity must be associated to the `apimanagement.Service` within an `identity` block.
+	// > **Note:** If a User Assigned Managed identity is specified for `sslKeyvaultIdentityClientId` then this identity must be associated to the `apimanagement.Service` within an `identity` block.
 	SslKeyvaultIdentityClientId *string `pulumi:"sslKeyvaultIdentityClientId"`
 	// The subject of the certificate.
 	Subject *string `pulumi:"subject"`
@@ -11893,7 +11940,7 @@ type ServiceHostnameConfigurationDeveloperPortalArgs struct {
 	Certificate pulumi.StringPtrInput `pulumi:"certificate"`
 	// The password associated with the certificate provided above.
 	//
-	// > **NOTE:** Either `keyVaultId` or `certificate` and `certificatePassword` must be specified.
+	// > **Note:** Either `keyVaultCertificateId` or `certificate` and `certificatePassword` must be specified.
 	CertificatePassword pulumi.StringPtrInput `pulumi:"certificatePassword"`
 	// The source of the certificate.
 	CertificateSource pulumi.StringPtrInput `pulumi:"certificateSource"`
@@ -11903,15 +11950,17 @@ type ServiceHostnameConfigurationDeveloperPortalArgs struct {
 	Expiry pulumi.StringPtrInput `pulumi:"expiry"`
 	// The Hostname to use for the Management API.
 	HostName pulumi.StringInput `pulumi:"hostName"`
-	// The ID of the Key Vault Secret containing the SSL Certificate, which must be should be of the type `application/x-pkcs12`.
+	// The ID of the Key Vault Secret containing the SSL Certificate, which must be of the type `application/x-pkcs12`.
 	//
-	// > **NOTE:** Setting this field requires the `identity` block to be specified, since this identity is used for to retrieve the Key Vault Certificate. Possible values are versioned or versionless secret ID. Auto-updating the Certificate from the Key Vault requires the Secret version isn't specified.
+	// > **Note:** Setting this field requires the `identity` block to be specified, since this identity is used for to retrieve the Key Vault Certificate. Possible values are versioned or versionless secret ID. Auto-updating the Certificate from the Key Vault requires the Secret version isn't specified.
+	KeyVaultCertificateId pulumi.StringPtrInput `pulumi:"keyVaultCertificateId"`
+	// Deprecated: `keyVaultId` has been deprecated in favour of `keyVaultCertificateId` and will be removed in v5.0 of the AzureRM provider
 	KeyVaultId pulumi.StringPtrInput `pulumi:"keyVaultId"`
 	// Should Client Certificate Negotiation be enabled for this Hostname? Defaults to `false`.
 	NegotiateClientCertificate pulumi.BoolPtrInput `pulumi:"negotiateClientCertificate"`
 	// System or User Assigned Managed identity clientId as generated by Azure AD, which has `GET` access to the keyVault containing the SSL certificate.
 	//
-	// > **NOTE:** If a User Assigned Managed identity is specified for `sslKeyvaultIdentityClientId` then this identity must be associated to the `apimanagement.Service` within an `identity` block.
+	// > **Note:** If a User Assigned Managed identity is specified for `sslKeyvaultIdentityClientId` then this identity must be associated to the `apimanagement.Service` within an `identity` block.
 	SslKeyvaultIdentityClientId pulumi.StringPtrInput `pulumi:"sslKeyvaultIdentityClientId"`
 	// The subject of the certificate.
 	Subject pulumi.StringPtrInput `pulumi:"subject"`
@@ -11977,7 +12026,7 @@ func (o ServiceHostnameConfigurationDeveloperPortalOutput) Certificate() pulumi.
 
 // The password associated with the certificate provided above.
 //
-// > **NOTE:** Either `keyVaultId` or `certificate` and `certificatePassword` must be specified.
+// > **Note:** Either `keyVaultCertificateId` or `certificate` and `certificatePassword` must be specified.
 func (o ServiceHostnameConfigurationDeveloperPortalOutput) CertificatePassword() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServiceHostnameConfigurationDeveloperPortal) *string { return v.CertificatePassword }).(pulumi.StringPtrOutput)
 }
@@ -12002,9 +12051,14 @@ func (o ServiceHostnameConfigurationDeveloperPortalOutput) HostName() pulumi.Str
 	return o.ApplyT(func(v ServiceHostnameConfigurationDeveloperPortal) string { return v.HostName }).(pulumi.StringOutput)
 }
 
-// The ID of the Key Vault Secret containing the SSL Certificate, which must be should be of the type `application/x-pkcs12`.
+// The ID of the Key Vault Secret containing the SSL Certificate, which must be of the type `application/x-pkcs12`.
 //
-// > **NOTE:** Setting this field requires the `identity` block to be specified, since this identity is used for to retrieve the Key Vault Certificate. Possible values are versioned or versionless secret ID. Auto-updating the Certificate from the Key Vault requires the Secret version isn't specified.
+// > **Note:** Setting this field requires the `identity` block to be specified, since this identity is used for to retrieve the Key Vault Certificate. Possible values are versioned or versionless secret ID. Auto-updating the Certificate from the Key Vault requires the Secret version isn't specified.
+func (o ServiceHostnameConfigurationDeveloperPortalOutput) KeyVaultCertificateId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceHostnameConfigurationDeveloperPortal) *string { return v.KeyVaultCertificateId }).(pulumi.StringPtrOutput)
+}
+
+// Deprecated: `keyVaultId` has been deprecated in favour of `keyVaultCertificateId` and will be removed in v5.0 of the AzureRM provider
 func (o ServiceHostnameConfigurationDeveloperPortalOutput) KeyVaultId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServiceHostnameConfigurationDeveloperPortal) *string { return v.KeyVaultId }).(pulumi.StringPtrOutput)
 }
@@ -12016,7 +12070,7 @@ func (o ServiceHostnameConfigurationDeveloperPortalOutput) NegotiateClientCertif
 
 // System or User Assigned Managed identity clientId as generated by Azure AD, which has `GET` access to the keyVault containing the SSL certificate.
 //
-// > **NOTE:** If a User Assigned Managed identity is specified for `sslKeyvaultIdentityClientId` then this identity must be associated to the `apimanagement.Service` within an `identity` block.
+// > **Note:** If a User Assigned Managed identity is specified for `sslKeyvaultIdentityClientId` then this identity must be associated to the `apimanagement.Service` within an `identity` block.
 func (o ServiceHostnameConfigurationDeveloperPortalOutput) SslKeyvaultIdentityClientId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServiceHostnameConfigurationDeveloperPortal) *string { return v.SslKeyvaultIdentityClientId }).(pulumi.StringPtrOutput)
 }
@@ -12056,7 +12110,7 @@ type ServiceHostnameConfigurationManagement struct {
 	Certificate *string `pulumi:"certificate"`
 	// The password associated with the certificate provided above.
 	//
-	// > **NOTE:** Either `keyVaultId` or `certificate` and `certificatePassword` must be specified.
+	// > **Note:** Either `keyVaultCertificateId` or `certificate` and `certificatePassword` must be specified.
 	CertificatePassword *string `pulumi:"certificatePassword"`
 	// The source of the certificate.
 	CertificateSource *string `pulumi:"certificateSource"`
@@ -12066,15 +12120,17 @@ type ServiceHostnameConfigurationManagement struct {
 	Expiry *string `pulumi:"expiry"`
 	// The Hostname to use for the Management API.
 	HostName string `pulumi:"hostName"`
-	// The ID of the Key Vault Secret containing the SSL Certificate, which must be should be of the type `application/x-pkcs12`.
+	// The ID of the Key Vault Secret containing the SSL Certificate, which must be of the type `application/x-pkcs12`.
 	//
-	// > **NOTE:** Setting this field requires the `identity` block to be specified, since this identity is used for to retrieve the Key Vault Certificate. Possible values are versioned or versionless secret ID. Auto-updating the Certificate from the Key Vault requires the Secret version isn't specified.
+	// > **Note:** Setting this field requires the `identity` block to be specified, since this identity is used for to retrieve the Key Vault Certificate. Possible values are versioned or versionless secret ID. Auto-updating the Certificate from the Key Vault requires the Secret version isn't specified.
+	KeyVaultCertificateId *string `pulumi:"keyVaultCertificateId"`
+	// Deprecated: `keyVaultId` has been deprecated in favour of `keyVaultCertificateId` and will be removed in v5.0 of the AzureRM provider
 	KeyVaultId *string `pulumi:"keyVaultId"`
 	// Should Client Certificate Negotiation be enabled for this Hostname? Defaults to `false`.
 	NegotiateClientCertificate *bool `pulumi:"negotiateClientCertificate"`
 	// System or User Assigned Managed identity clientId as generated by Azure AD, which has `GET` access to the keyVault containing the SSL certificate.
 	//
-	// > **NOTE:** If a User Assigned Managed identity is specified for `sslKeyvaultIdentityClientId` then this identity must be associated to the `apimanagement.Service` within an `identity` block.
+	// > **Note:** If a User Assigned Managed identity is specified for `sslKeyvaultIdentityClientId` then this identity must be associated to the `apimanagement.Service` within an `identity` block.
 	SslKeyvaultIdentityClientId *string `pulumi:"sslKeyvaultIdentityClientId"`
 	// The subject of the certificate.
 	Subject *string `pulumi:"subject"`
@@ -12098,7 +12154,7 @@ type ServiceHostnameConfigurationManagementArgs struct {
 	Certificate pulumi.StringPtrInput `pulumi:"certificate"`
 	// The password associated with the certificate provided above.
 	//
-	// > **NOTE:** Either `keyVaultId` or `certificate` and `certificatePassword` must be specified.
+	// > **Note:** Either `keyVaultCertificateId` or `certificate` and `certificatePassword` must be specified.
 	CertificatePassword pulumi.StringPtrInput `pulumi:"certificatePassword"`
 	// The source of the certificate.
 	CertificateSource pulumi.StringPtrInput `pulumi:"certificateSource"`
@@ -12108,15 +12164,17 @@ type ServiceHostnameConfigurationManagementArgs struct {
 	Expiry pulumi.StringPtrInput `pulumi:"expiry"`
 	// The Hostname to use for the Management API.
 	HostName pulumi.StringInput `pulumi:"hostName"`
-	// The ID of the Key Vault Secret containing the SSL Certificate, which must be should be of the type `application/x-pkcs12`.
+	// The ID of the Key Vault Secret containing the SSL Certificate, which must be of the type `application/x-pkcs12`.
 	//
-	// > **NOTE:** Setting this field requires the `identity` block to be specified, since this identity is used for to retrieve the Key Vault Certificate. Possible values are versioned or versionless secret ID. Auto-updating the Certificate from the Key Vault requires the Secret version isn't specified.
+	// > **Note:** Setting this field requires the `identity` block to be specified, since this identity is used for to retrieve the Key Vault Certificate. Possible values are versioned or versionless secret ID. Auto-updating the Certificate from the Key Vault requires the Secret version isn't specified.
+	KeyVaultCertificateId pulumi.StringPtrInput `pulumi:"keyVaultCertificateId"`
+	// Deprecated: `keyVaultId` has been deprecated in favour of `keyVaultCertificateId` and will be removed in v5.0 of the AzureRM provider
 	KeyVaultId pulumi.StringPtrInput `pulumi:"keyVaultId"`
 	// Should Client Certificate Negotiation be enabled for this Hostname? Defaults to `false`.
 	NegotiateClientCertificate pulumi.BoolPtrInput `pulumi:"negotiateClientCertificate"`
 	// System or User Assigned Managed identity clientId as generated by Azure AD, which has `GET` access to the keyVault containing the SSL certificate.
 	//
-	// > **NOTE:** If a User Assigned Managed identity is specified for `sslKeyvaultIdentityClientId` then this identity must be associated to the `apimanagement.Service` within an `identity` block.
+	// > **Note:** If a User Assigned Managed identity is specified for `sslKeyvaultIdentityClientId` then this identity must be associated to the `apimanagement.Service` within an `identity` block.
 	SslKeyvaultIdentityClientId pulumi.StringPtrInput `pulumi:"sslKeyvaultIdentityClientId"`
 	// The subject of the certificate.
 	Subject pulumi.StringPtrInput `pulumi:"subject"`
@@ -12182,7 +12240,7 @@ func (o ServiceHostnameConfigurationManagementOutput) Certificate() pulumi.Strin
 
 // The password associated with the certificate provided above.
 //
-// > **NOTE:** Either `keyVaultId` or `certificate` and `certificatePassword` must be specified.
+// > **Note:** Either `keyVaultCertificateId` or `certificate` and `certificatePassword` must be specified.
 func (o ServiceHostnameConfigurationManagementOutput) CertificatePassword() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServiceHostnameConfigurationManagement) *string { return v.CertificatePassword }).(pulumi.StringPtrOutput)
 }
@@ -12207,9 +12265,14 @@ func (o ServiceHostnameConfigurationManagementOutput) HostName() pulumi.StringOu
 	return o.ApplyT(func(v ServiceHostnameConfigurationManagement) string { return v.HostName }).(pulumi.StringOutput)
 }
 
-// The ID of the Key Vault Secret containing the SSL Certificate, which must be should be of the type `application/x-pkcs12`.
+// The ID of the Key Vault Secret containing the SSL Certificate, which must be of the type `application/x-pkcs12`.
 //
-// > **NOTE:** Setting this field requires the `identity` block to be specified, since this identity is used for to retrieve the Key Vault Certificate. Possible values are versioned or versionless secret ID. Auto-updating the Certificate from the Key Vault requires the Secret version isn't specified.
+// > **Note:** Setting this field requires the `identity` block to be specified, since this identity is used for to retrieve the Key Vault Certificate. Possible values are versioned or versionless secret ID. Auto-updating the Certificate from the Key Vault requires the Secret version isn't specified.
+func (o ServiceHostnameConfigurationManagementOutput) KeyVaultCertificateId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceHostnameConfigurationManagement) *string { return v.KeyVaultCertificateId }).(pulumi.StringPtrOutput)
+}
+
+// Deprecated: `keyVaultId` has been deprecated in favour of `keyVaultCertificateId` and will be removed in v5.0 of the AzureRM provider
 func (o ServiceHostnameConfigurationManagementOutput) KeyVaultId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServiceHostnameConfigurationManagement) *string { return v.KeyVaultId }).(pulumi.StringPtrOutput)
 }
@@ -12221,7 +12284,7 @@ func (o ServiceHostnameConfigurationManagementOutput) NegotiateClientCertificate
 
 // System or User Assigned Managed identity clientId as generated by Azure AD, which has `GET` access to the keyVault containing the SSL certificate.
 //
-// > **NOTE:** If a User Assigned Managed identity is specified for `sslKeyvaultIdentityClientId` then this identity must be associated to the `apimanagement.Service` within an `identity` block.
+// > **Note:** If a User Assigned Managed identity is specified for `sslKeyvaultIdentityClientId` then this identity must be associated to the `apimanagement.Service` within an `identity` block.
 func (o ServiceHostnameConfigurationManagementOutput) SslKeyvaultIdentityClientId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServiceHostnameConfigurationManagement) *string { return v.SslKeyvaultIdentityClientId }).(pulumi.StringPtrOutput)
 }
@@ -12261,7 +12324,7 @@ type ServiceHostnameConfigurationPortal struct {
 	Certificate *string `pulumi:"certificate"`
 	// The password associated with the certificate provided above.
 	//
-	// > **NOTE:** Either `keyVaultId` or `certificate` and `certificatePassword` must be specified.
+	// > **Note:** Either `keyVaultCertificateId` or `certificate` and `certificatePassword` must be specified.
 	CertificatePassword *string `pulumi:"certificatePassword"`
 	// The source of the certificate.
 	CertificateSource *string `pulumi:"certificateSource"`
@@ -12271,15 +12334,17 @@ type ServiceHostnameConfigurationPortal struct {
 	Expiry *string `pulumi:"expiry"`
 	// The Hostname to use for the Management API.
 	HostName string `pulumi:"hostName"`
-	// The ID of the Key Vault Secret containing the SSL Certificate, which must be should be of the type `application/x-pkcs12`.
+	// The ID of the Key Vault Secret containing the SSL Certificate, which must be of the type `application/x-pkcs12`.
 	//
-	// > **NOTE:** Setting this field requires the `identity` block to be specified, since this identity is used for to retrieve the Key Vault Certificate. Possible values are versioned or versionless secret ID. Auto-updating the Certificate from the Key Vault requires the Secret version isn't specified.
+	// > **Note:** Setting this field requires the `identity` block to be specified, since this identity is used for to retrieve the Key Vault Certificate. Possible values are versioned or versionless secret ID. Auto-updating the Certificate from the Key Vault requires the Secret version isn't specified.
+	KeyVaultCertificateId *string `pulumi:"keyVaultCertificateId"`
+	// Deprecated: `keyVaultId` has been deprecated in favour of `keyVaultCertificateId` and will be removed in v5.0 of the AzureRM provider
 	KeyVaultId *string `pulumi:"keyVaultId"`
 	// Should Client Certificate Negotiation be enabled for this Hostname? Defaults to `false`.
 	NegotiateClientCertificate *bool `pulumi:"negotiateClientCertificate"`
 	// System or User Assigned Managed identity clientId as generated by Azure AD, which has `GET` access to the keyVault containing the SSL certificate.
 	//
-	// > **NOTE:** If a User Assigned Managed identity is specified for `sslKeyvaultIdentityClientId` then this identity must be associated to the `apimanagement.Service` within an `identity` block.
+	// > **Note:** If a User Assigned Managed identity is specified for `sslKeyvaultIdentityClientId` then this identity must be associated to the `apimanagement.Service` within an `identity` block.
 	SslKeyvaultIdentityClientId *string `pulumi:"sslKeyvaultIdentityClientId"`
 	// The subject of the certificate.
 	Subject *string `pulumi:"subject"`
@@ -12303,7 +12368,7 @@ type ServiceHostnameConfigurationPortalArgs struct {
 	Certificate pulumi.StringPtrInput `pulumi:"certificate"`
 	// The password associated with the certificate provided above.
 	//
-	// > **NOTE:** Either `keyVaultId` or `certificate` and `certificatePassword` must be specified.
+	// > **Note:** Either `keyVaultCertificateId` or `certificate` and `certificatePassword` must be specified.
 	CertificatePassword pulumi.StringPtrInput `pulumi:"certificatePassword"`
 	// The source of the certificate.
 	CertificateSource pulumi.StringPtrInput `pulumi:"certificateSource"`
@@ -12313,15 +12378,17 @@ type ServiceHostnameConfigurationPortalArgs struct {
 	Expiry pulumi.StringPtrInput `pulumi:"expiry"`
 	// The Hostname to use for the Management API.
 	HostName pulumi.StringInput `pulumi:"hostName"`
-	// The ID of the Key Vault Secret containing the SSL Certificate, which must be should be of the type `application/x-pkcs12`.
+	// The ID of the Key Vault Secret containing the SSL Certificate, which must be of the type `application/x-pkcs12`.
 	//
-	// > **NOTE:** Setting this field requires the `identity` block to be specified, since this identity is used for to retrieve the Key Vault Certificate. Possible values are versioned or versionless secret ID. Auto-updating the Certificate from the Key Vault requires the Secret version isn't specified.
+	// > **Note:** Setting this field requires the `identity` block to be specified, since this identity is used for to retrieve the Key Vault Certificate. Possible values are versioned or versionless secret ID. Auto-updating the Certificate from the Key Vault requires the Secret version isn't specified.
+	KeyVaultCertificateId pulumi.StringPtrInput `pulumi:"keyVaultCertificateId"`
+	// Deprecated: `keyVaultId` has been deprecated in favour of `keyVaultCertificateId` and will be removed in v5.0 of the AzureRM provider
 	KeyVaultId pulumi.StringPtrInput `pulumi:"keyVaultId"`
 	// Should Client Certificate Negotiation be enabled for this Hostname? Defaults to `false`.
 	NegotiateClientCertificate pulumi.BoolPtrInput `pulumi:"negotiateClientCertificate"`
 	// System or User Assigned Managed identity clientId as generated by Azure AD, which has `GET` access to the keyVault containing the SSL certificate.
 	//
-	// > **NOTE:** If a User Assigned Managed identity is specified for `sslKeyvaultIdentityClientId` then this identity must be associated to the `apimanagement.Service` within an `identity` block.
+	// > **Note:** If a User Assigned Managed identity is specified for `sslKeyvaultIdentityClientId` then this identity must be associated to the `apimanagement.Service` within an `identity` block.
 	SslKeyvaultIdentityClientId pulumi.StringPtrInput `pulumi:"sslKeyvaultIdentityClientId"`
 	// The subject of the certificate.
 	Subject pulumi.StringPtrInput `pulumi:"subject"`
@@ -12387,7 +12454,7 @@ func (o ServiceHostnameConfigurationPortalOutput) Certificate() pulumi.StringPtr
 
 // The password associated with the certificate provided above.
 //
-// > **NOTE:** Either `keyVaultId` or `certificate` and `certificatePassword` must be specified.
+// > **Note:** Either `keyVaultCertificateId` or `certificate` and `certificatePassword` must be specified.
 func (o ServiceHostnameConfigurationPortalOutput) CertificatePassword() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServiceHostnameConfigurationPortal) *string { return v.CertificatePassword }).(pulumi.StringPtrOutput)
 }
@@ -12412,9 +12479,14 @@ func (o ServiceHostnameConfigurationPortalOutput) HostName() pulumi.StringOutput
 	return o.ApplyT(func(v ServiceHostnameConfigurationPortal) string { return v.HostName }).(pulumi.StringOutput)
 }
 
-// The ID of the Key Vault Secret containing the SSL Certificate, which must be should be of the type `application/x-pkcs12`.
+// The ID of the Key Vault Secret containing the SSL Certificate, which must be of the type `application/x-pkcs12`.
 //
-// > **NOTE:** Setting this field requires the `identity` block to be specified, since this identity is used for to retrieve the Key Vault Certificate. Possible values are versioned or versionless secret ID. Auto-updating the Certificate from the Key Vault requires the Secret version isn't specified.
+// > **Note:** Setting this field requires the `identity` block to be specified, since this identity is used for to retrieve the Key Vault Certificate. Possible values are versioned or versionless secret ID. Auto-updating the Certificate from the Key Vault requires the Secret version isn't specified.
+func (o ServiceHostnameConfigurationPortalOutput) KeyVaultCertificateId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceHostnameConfigurationPortal) *string { return v.KeyVaultCertificateId }).(pulumi.StringPtrOutput)
+}
+
+// Deprecated: `keyVaultId` has been deprecated in favour of `keyVaultCertificateId` and will be removed in v5.0 of the AzureRM provider
 func (o ServiceHostnameConfigurationPortalOutput) KeyVaultId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServiceHostnameConfigurationPortal) *string { return v.KeyVaultId }).(pulumi.StringPtrOutput)
 }
@@ -12426,7 +12498,7 @@ func (o ServiceHostnameConfigurationPortalOutput) NegotiateClientCertificate() p
 
 // System or User Assigned Managed identity clientId as generated by Azure AD, which has `GET` access to the keyVault containing the SSL certificate.
 //
-// > **NOTE:** If a User Assigned Managed identity is specified for `sslKeyvaultIdentityClientId` then this identity must be associated to the `apimanagement.Service` within an `identity` block.
+// > **Note:** If a User Assigned Managed identity is specified for `sslKeyvaultIdentityClientId` then this identity must be associated to the `apimanagement.Service` within an `identity` block.
 func (o ServiceHostnameConfigurationPortalOutput) SslKeyvaultIdentityClientId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServiceHostnameConfigurationPortal) *string { return v.SslKeyvaultIdentityClientId }).(pulumi.StringPtrOutput)
 }
@@ -12466,7 +12538,7 @@ type ServiceHostnameConfigurationProxy struct {
 	Certificate *string `pulumi:"certificate"`
 	// The password associated with the certificate provided above.
 	//
-	// > **NOTE:** Either `keyVaultId` or `certificate` and `certificatePassword` must be specified.
+	// > **Note:** Either `keyVaultCertificateId` or `certificate` and `certificatePassword` must be specified.
 	CertificatePassword *string `pulumi:"certificatePassword"`
 	// The source of the certificate.
 	CertificateSource *string `pulumi:"certificateSource"`
@@ -12478,9 +12550,11 @@ type ServiceHostnameConfigurationProxy struct {
 	Expiry *string `pulumi:"expiry"`
 	// The Hostname to use for the Management API.
 	HostName string `pulumi:"hostName"`
-	// The ID of the Key Vault Secret containing the SSL Certificate, which must be should be of the type `application/x-pkcs12`.
+	// The ID of the Key Vault Secret containing the SSL Certificate, which must be of the type `application/x-pkcs12`.
 	//
-	// > **NOTE:** Setting this field requires the `identity` block to be specified, since this identity is used for to retrieve the Key Vault Certificate. Auto-updating the Certificate from the Key Vault requires the Secret version isn't specified.
+	// > **Note:** Setting this field requires the `identity` block to be specified, since this identity is used for to retrieve the Key Vault Certificate. Auto-updating the Certificate from the Key Vault requires the Secret version isn't specified.
+	KeyVaultCertificateId *string `pulumi:"keyVaultCertificateId"`
+	// Deprecated: `keyVaultId` has been deprecated in favour of `keyVaultCertificateId` and will be removed in v5.0 of the AzureRM provider
 	KeyVaultId *string `pulumi:"keyVaultId"`
 	// Should Client Certificate Negotiation be enabled for this Hostname? Defaults to `false`.
 	NegotiateClientCertificate *bool `pulumi:"negotiateClientCertificate"`
@@ -12508,7 +12582,7 @@ type ServiceHostnameConfigurationProxyArgs struct {
 	Certificate pulumi.StringPtrInput `pulumi:"certificate"`
 	// The password associated with the certificate provided above.
 	//
-	// > **NOTE:** Either `keyVaultId` or `certificate` and `certificatePassword` must be specified.
+	// > **Note:** Either `keyVaultCertificateId` or `certificate` and `certificatePassword` must be specified.
 	CertificatePassword pulumi.StringPtrInput `pulumi:"certificatePassword"`
 	// The source of the certificate.
 	CertificateSource pulumi.StringPtrInput `pulumi:"certificateSource"`
@@ -12520,9 +12594,11 @@ type ServiceHostnameConfigurationProxyArgs struct {
 	Expiry pulumi.StringPtrInput `pulumi:"expiry"`
 	// The Hostname to use for the Management API.
 	HostName pulumi.StringInput `pulumi:"hostName"`
-	// The ID of the Key Vault Secret containing the SSL Certificate, which must be should be of the type `application/x-pkcs12`.
+	// The ID of the Key Vault Secret containing the SSL Certificate, which must be of the type `application/x-pkcs12`.
 	//
-	// > **NOTE:** Setting this field requires the `identity` block to be specified, since this identity is used for to retrieve the Key Vault Certificate. Auto-updating the Certificate from the Key Vault requires the Secret version isn't specified.
+	// > **Note:** Setting this field requires the `identity` block to be specified, since this identity is used for to retrieve the Key Vault Certificate. Auto-updating the Certificate from the Key Vault requires the Secret version isn't specified.
+	KeyVaultCertificateId pulumi.StringPtrInput `pulumi:"keyVaultCertificateId"`
+	// Deprecated: `keyVaultId` has been deprecated in favour of `keyVaultCertificateId` and will be removed in v5.0 of the AzureRM provider
 	KeyVaultId pulumi.StringPtrInput `pulumi:"keyVaultId"`
 	// Should Client Certificate Negotiation be enabled for this Hostname? Defaults to `false`.
 	NegotiateClientCertificate pulumi.BoolPtrInput `pulumi:"negotiateClientCertificate"`
@@ -12592,7 +12668,7 @@ func (o ServiceHostnameConfigurationProxyOutput) Certificate() pulumi.StringPtrO
 
 // The password associated with the certificate provided above.
 //
-// > **NOTE:** Either `keyVaultId` or `certificate` and `certificatePassword` must be specified.
+// > **Note:** Either `keyVaultCertificateId` or `certificate` and `certificatePassword` must be specified.
 func (o ServiceHostnameConfigurationProxyOutput) CertificatePassword() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServiceHostnameConfigurationProxy) *string { return v.CertificatePassword }).(pulumi.StringPtrOutput)
 }
@@ -12622,9 +12698,14 @@ func (o ServiceHostnameConfigurationProxyOutput) HostName() pulumi.StringOutput 
 	return o.ApplyT(func(v ServiceHostnameConfigurationProxy) string { return v.HostName }).(pulumi.StringOutput)
 }
 
-// The ID of the Key Vault Secret containing the SSL Certificate, which must be should be of the type `application/x-pkcs12`.
+// The ID of the Key Vault Secret containing the SSL Certificate, which must be of the type `application/x-pkcs12`.
 //
-// > **NOTE:** Setting this field requires the `identity` block to be specified, since this identity is used for to retrieve the Key Vault Certificate. Auto-updating the Certificate from the Key Vault requires the Secret version isn't specified.
+// > **Note:** Setting this field requires the `identity` block to be specified, since this identity is used for to retrieve the Key Vault Certificate. Auto-updating the Certificate from the Key Vault requires the Secret version isn't specified.
+func (o ServiceHostnameConfigurationProxyOutput) KeyVaultCertificateId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceHostnameConfigurationProxy) *string { return v.KeyVaultCertificateId }).(pulumi.StringPtrOutput)
+}
+
+// Deprecated: `keyVaultId` has been deprecated in favour of `keyVaultCertificateId` and will be removed in v5.0 of the AzureRM provider
 func (o ServiceHostnameConfigurationProxyOutput) KeyVaultId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServiceHostnameConfigurationProxy) *string { return v.KeyVaultId }).(pulumi.StringPtrOutput)
 }
@@ -12674,7 +12755,7 @@ type ServiceHostnameConfigurationScm struct {
 	Certificate *string `pulumi:"certificate"`
 	// The password associated with the certificate provided above.
 	//
-	// > **NOTE:** Either `keyVaultId` or `certificate` and `certificatePassword` must be specified.
+	// > **Note:** Either `keyVaultCertificateId` or `certificate` and `certificatePassword` must be specified.
 	CertificatePassword *string `pulumi:"certificatePassword"`
 	// The source of the certificate.
 	CertificateSource *string `pulumi:"certificateSource"`
@@ -12684,15 +12765,17 @@ type ServiceHostnameConfigurationScm struct {
 	Expiry *string `pulumi:"expiry"`
 	// The Hostname to use for the Management API.
 	HostName string `pulumi:"hostName"`
-	// The ID of the Key Vault Secret containing the SSL Certificate, which must be should be of the type `application/x-pkcs12`.
+	// The ID of the Key Vault Secret containing the SSL Certificate, which must be of the type `application/x-pkcs12`.
 	//
-	// > **NOTE:** Setting this field requires the `identity` block to be specified, since this identity is used for to retrieve the Key Vault Certificate. Possible values are versioned or versionless secret ID. Auto-updating the Certificate from the Key Vault requires the Secret version isn't specified.
+	// > **Note:** Setting this field requires the `identity` block to be specified, since this identity is used for to retrieve the Key Vault Certificate. Possible values are versioned or versionless secret ID. Auto-updating the Certificate from the Key Vault requires the Secret version isn't specified.
+	KeyVaultCertificateId *string `pulumi:"keyVaultCertificateId"`
+	// Deprecated: `keyVaultId` has been deprecated in favour of `keyVaultCertificateId` and will be removed in v5.0 of the AzureRM provider
 	KeyVaultId *string `pulumi:"keyVaultId"`
 	// Should Client Certificate Negotiation be enabled for this Hostname? Defaults to `false`.
 	NegotiateClientCertificate *bool `pulumi:"negotiateClientCertificate"`
 	// System or User Assigned Managed identity clientId as generated by Azure AD, which has `GET` access to the keyVault containing the SSL certificate.
 	//
-	// > **NOTE:** If a User Assigned Managed identity is specified for `sslKeyvaultIdentityClientId` then this identity must be associated to the `apimanagement.Service` within an `identity` block.
+	// > **Note:** If a User Assigned Managed identity is specified for `sslKeyvaultIdentityClientId` then this identity must be associated to the `apimanagement.Service` within an `identity` block.
 	SslKeyvaultIdentityClientId *string `pulumi:"sslKeyvaultIdentityClientId"`
 	// The subject of the certificate.
 	Subject *string `pulumi:"subject"`
@@ -12716,7 +12799,7 @@ type ServiceHostnameConfigurationScmArgs struct {
 	Certificate pulumi.StringPtrInput `pulumi:"certificate"`
 	// The password associated with the certificate provided above.
 	//
-	// > **NOTE:** Either `keyVaultId` or `certificate` and `certificatePassword` must be specified.
+	// > **Note:** Either `keyVaultCertificateId` or `certificate` and `certificatePassword` must be specified.
 	CertificatePassword pulumi.StringPtrInput `pulumi:"certificatePassword"`
 	// The source of the certificate.
 	CertificateSource pulumi.StringPtrInput `pulumi:"certificateSource"`
@@ -12726,15 +12809,17 @@ type ServiceHostnameConfigurationScmArgs struct {
 	Expiry pulumi.StringPtrInput `pulumi:"expiry"`
 	// The Hostname to use for the Management API.
 	HostName pulumi.StringInput `pulumi:"hostName"`
-	// The ID of the Key Vault Secret containing the SSL Certificate, which must be should be of the type `application/x-pkcs12`.
+	// The ID of the Key Vault Secret containing the SSL Certificate, which must be of the type `application/x-pkcs12`.
 	//
-	// > **NOTE:** Setting this field requires the `identity` block to be specified, since this identity is used for to retrieve the Key Vault Certificate. Possible values are versioned or versionless secret ID. Auto-updating the Certificate from the Key Vault requires the Secret version isn't specified.
+	// > **Note:** Setting this field requires the `identity` block to be specified, since this identity is used for to retrieve the Key Vault Certificate. Possible values are versioned or versionless secret ID. Auto-updating the Certificate from the Key Vault requires the Secret version isn't specified.
+	KeyVaultCertificateId pulumi.StringPtrInput `pulumi:"keyVaultCertificateId"`
+	// Deprecated: `keyVaultId` has been deprecated in favour of `keyVaultCertificateId` and will be removed in v5.0 of the AzureRM provider
 	KeyVaultId pulumi.StringPtrInput `pulumi:"keyVaultId"`
 	// Should Client Certificate Negotiation be enabled for this Hostname? Defaults to `false`.
 	NegotiateClientCertificate pulumi.BoolPtrInput `pulumi:"negotiateClientCertificate"`
 	// System or User Assigned Managed identity clientId as generated by Azure AD, which has `GET` access to the keyVault containing the SSL certificate.
 	//
-	// > **NOTE:** If a User Assigned Managed identity is specified for `sslKeyvaultIdentityClientId` then this identity must be associated to the `apimanagement.Service` within an `identity` block.
+	// > **Note:** If a User Assigned Managed identity is specified for `sslKeyvaultIdentityClientId` then this identity must be associated to the `apimanagement.Service` within an `identity` block.
 	SslKeyvaultIdentityClientId pulumi.StringPtrInput `pulumi:"sslKeyvaultIdentityClientId"`
 	// The subject of the certificate.
 	Subject pulumi.StringPtrInput `pulumi:"subject"`
@@ -12800,7 +12885,7 @@ func (o ServiceHostnameConfigurationScmOutput) Certificate() pulumi.StringPtrOut
 
 // The password associated with the certificate provided above.
 //
-// > **NOTE:** Either `keyVaultId` or `certificate` and `certificatePassword` must be specified.
+// > **Note:** Either `keyVaultCertificateId` or `certificate` and `certificatePassword` must be specified.
 func (o ServiceHostnameConfigurationScmOutput) CertificatePassword() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServiceHostnameConfigurationScm) *string { return v.CertificatePassword }).(pulumi.StringPtrOutput)
 }
@@ -12825,9 +12910,14 @@ func (o ServiceHostnameConfigurationScmOutput) HostName() pulumi.StringOutput {
 	return o.ApplyT(func(v ServiceHostnameConfigurationScm) string { return v.HostName }).(pulumi.StringOutput)
 }
 
-// The ID of the Key Vault Secret containing the SSL Certificate, which must be should be of the type `application/x-pkcs12`.
+// The ID of the Key Vault Secret containing the SSL Certificate, which must be of the type `application/x-pkcs12`.
 //
-// > **NOTE:** Setting this field requires the `identity` block to be specified, since this identity is used for to retrieve the Key Vault Certificate. Possible values are versioned or versionless secret ID. Auto-updating the Certificate from the Key Vault requires the Secret version isn't specified.
+// > **Note:** Setting this field requires the `identity` block to be specified, since this identity is used for to retrieve the Key Vault Certificate. Possible values are versioned or versionless secret ID. Auto-updating the Certificate from the Key Vault requires the Secret version isn't specified.
+func (o ServiceHostnameConfigurationScmOutput) KeyVaultCertificateId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceHostnameConfigurationScm) *string { return v.KeyVaultCertificateId }).(pulumi.StringPtrOutput)
+}
+
+// Deprecated: `keyVaultId` has been deprecated in favour of `keyVaultCertificateId` and will be removed in v5.0 of the AzureRM provider
 func (o ServiceHostnameConfigurationScmOutput) KeyVaultId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServiceHostnameConfigurationScm) *string { return v.KeyVaultId }).(pulumi.StringPtrOutput)
 }
@@ -12839,7 +12929,7 @@ func (o ServiceHostnameConfigurationScmOutput) NegotiateClientCertificate() pulu
 
 // System or User Assigned Managed identity clientId as generated by Azure AD, which has `GET` access to the keyVault containing the SSL certificate.
 //
-// > **NOTE:** If a User Assigned Managed identity is specified for `sslKeyvaultIdentityClientId` then this identity must be associated to the `apimanagement.Service` within an `identity` block.
+// > **Note:** If a User Assigned Managed identity is specified for `sslKeyvaultIdentityClientId` then this identity must be associated to the `apimanagement.Service` within an `identity` block.
 func (o ServiceHostnameConfigurationScmOutput) SslKeyvaultIdentityClientId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServiceHostnameConfigurationScm) *string { return v.SslKeyvaultIdentityClientId }).(pulumi.StringPtrOutput)
 }
@@ -12877,7 +12967,7 @@ func (o ServiceHostnameConfigurationScmArrayOutput) Index(i pulumi.IntInput) Ser
 type ServiceIdentity struct {
 	// A list of User Assigned Managed Identity IDs to be assigned to this API Management Service.
 	//
-	// > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+	// > **Note:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
 	IdentityIds []string `pulumi:"identityIds"`
 	// The Principal ID associated with this Managed Service Identity.
 	PrincipalId *string `pulumi:"principalId"`
@@ -12901,7 +12991,7 @@ type ServiceIdentityInput interface {
 type ServiceIdentityArgs struct {
 	// A list of User Assigned Managed Identity IDs to be assigned to this API Management Service.
 	//
-	// > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+	// > **Note:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
 	IdentityIds pulumi.StringArrayInput `pulumi:"identityIds"`
 	// The Principal ID associated with this Managed Service Identity.
 	PrincipalId pulumi.StringPtrInput `pulumi:"principalId"`
@@ -12990,7 +13080,7 @@ func (o ServiceIdentityOutput) ToServiceIdentityPtrOutputWithContext(ctx context
 
 // A list of User Assigned Managed Identity IDs to be assigned to this API Management Service.
 //
-// > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+// > **Note:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
 func (o ServiceIdentityOutput) IdentityIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ServiceIdentity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
 }
@@ -13036,7 +13126,7 @@ func (o ServiceIdentityPtrOutput) Elem() ServiceIdentityOutput {
 
 // A list of User Assigned Managed Identity IDs to be assigned to this API Management Service.
 //
-// > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+// > **Note:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
 func (o ServiceIdentityPtrOutput) IdentityIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ServiceIdentity) []string {
 		if v == nil {
@@ -13077,8 +13167,10 @@ func (o ServiceIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 }
 
 type ServiceProtocols struct {
-	// Should HTTP/2 be supported by the API Management Service? Defaults to `false`.
+	// Deprecated: `protocols.enable_http2` has been deprecated in favour of the `protocols.http2_enabled` property and will be removed in v5.0 of the AzureRM Provider
 	EnableHttp2 *bool `pulumi:"enableHttp2"`
+	// Should HTTP/2 be supported by the API Management Service? Defaults to `false`.
+	Http2Enabled *bool `pulumi:"http2Enabled"`
 }
 
 // ServiceProtocolsInput is an input type that accepts ServiceProtocolsArgs and ServiceProtocolsOutput values.
@@ -13093,8 +13185,10 @@ type ServiceProtocolsInput interface {
 }
 
 type ServiceProtocolsArgs struct {
-	// Should HTTP/2 be supported by the API Management Service? Defaults to `false`.
+	// Deprecated: `protocols.enable_http2` has been deprecated in favour of the `protocols.http2_enabled` property and will be removed in v5.0 of the AzureRM Provider
 	EnableHttp2 pulumi.BoolPtrInput `pulumi:"enableHttp2"`
+	// Should HTTP/2 be supported by the API Management Service? Defaults to `false`.
+	Http2Enabled pulumi.BoolPtrInput `pulumi:"http2Enabled"`
 }
 
 func (ServiceProtocolsArgs) ElementType() reflect.Type {
@@ -13174,9 +13268,14 @@ func (o ServiceProtocolsOutput) ToServiceProtocolsPtrOutputWithContext(ctx conte
 	}).(ServiceProtocolsPtrOutput)
 }
 
-// Should HTTP/2 be supported by the API Management Service? Defaults to `false`.
+// Deprecated: `protocols.enable_http2` has been deprecated in favour of the `protocols.http2_enabled` property and will be removed in v5.0 of the AzureRM Provider
 func (o ServiceProtocolsOutput) EnableHttp2() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ServiceProtocols) *bool { return v.EnableHttp2 }).(pulumi.BoolPtrOutput)
+}
+
+// Should HTTP/2 be supported by the API Management Service? Defaults to `false`.
+func (o ServiceProtocolsOutput) Http2Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ServiceProtocols) *bool { return v.Http2Enabled }).(pulumi.BoolPtrOutput)
 }
 
 type ServiceProtocolsPtrOutput struct{ *pulumi.OutputState }
@@ -13203,7 +13302,7 @@ func (o ServiceProtocolsPtrOutput) Elem() ServiceProtocolsOutput {
 	}).(ServiceProtocolsOutput)
 }
 
-// Should HTTP/2 be supported by the API Management Service? Defaults to `false`.
+// Deprecated: `protocols.enable_http2` has been deprecated in favour of the `protocols.http2_enabled` property and will be removed in v5.0 of the AzureRM Provider
 func (o ServiceProtocolsPtrOutput) EnableHttp2() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ServiceProtocols) *bool {
 		if v == nil {
@@ -13213,74 +13312,96 @@ func (o ServiceProtocolsPtrOutput) EnableHttp2() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
+// Should HTTP/2 be supported by the API Management Service? Defaults to `false`.
+func (o ServiceProtocolsPtrOutput) Http2Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ServiceProtocols) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Http2Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
 type ServiceSecurity struct {
 	// Should SSL 3.0 be enabled on the backend of the gateway? Defaults to `false`.
 	//
-	// > **info:** This maps to the `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Backend.Protocols.Ssl30` field
-	EnableBackendSsl30 *bool `pulumi:"enableBackendSsl30"`
+	// > **Note:** This maps to the `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Backend.Protocols.Ssl30` field
+	BackendSsl30Enabled *bool `pulumi:"backendSsl30Enabled"`
 	// Should TLS 1.0 be enabled on the backend of the gateway? Defaults to `false`.
 	//
-	// > **info:** This maps to the `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Backend.Protocols.Tls10` field
-	EnableBackendTls10 *bool `pulumi:"enableBackendTls10"`
+	// > **Note:** This maps to the `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Backend.Protocols.Tls10` field
+	BackendTls10Enabled *bool `pulumi:"backendTls10Enabled"`
 	// Should TLS 1.1 be enabled on the backend of the gateway? Defaults to `false`.
 	//
-	// > **info:** This maps to the `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Backend.Protocols.Tls11` field
+	// > **Note:** This maps to the `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Backend.Protocols.Tls11` field
+	BackendTls11Enabled *bool `pulumi:"backendTls11Enabled"`
+	// Deprecated: `security.enable_backend_ssl30` has been deprecated in favour of the `security.backend_ssl30_enabled` property and will be removed in v5.0 of the AzureRM Provider
+	EnableBackendSsl30 *bool `pulumi:"enableBackendSsl30"`
+	// Deprecated: `security.enable_backend_tls10` has been deprecated in favour of the `security.backend_tls10_enabled` property and will be removed in v5.0 of the AzureRM Provider
+	EnableBackendTls10 *bool `pulumi:"enableBackendTls10"`
+	// Deprecated: `security.enable_backend_tls11` has been deprecated in favour of the `security.backend_tls11_enabled` property and will be removed in v5.0 of the AzureRM Provider
 	EnableBackendTls11 *bool `pulumi:"enableBackendTls11"`
+	// Deprecated: `security.enable_frontend_ssl30` has been deprecated in favour of the `security.frontend_ssl30_enabled` property and will be removed in v5.0 of the AzureRM Provider
+	EnableFrontendSsl30 *bool `pulumi:"enableFrontendSsl30"`
+	// Deprecated: `security.enable_frontend_tls10` has been deprecated in favour of the `security.frontend_tls10_enabled` property and will be removed in v5.0 of the AzureRM Provider
+	EnableFrontendTls10 *bool `pulumi:"enableFrontendTls10"`
+	// Deprecated: `security.enable_frontend_tls11` has been deprecated in favour of the `security.frontend_tls11_enabled` property and will be removed in v5.0 of the AzureRM Provider
+	EnableFrontendTls11 *bool `pulumi:"enableFrontendTls11"`
 	// Should SSL 3.0 be enabled on the frontend of the gateway? Defaults to `false`.
 	//
-	// > **info:** This maps to the `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Protocols.Ssl30` field
-	EnableFrontendSsl30 *bool `pulumi:"enableFrontendSsl30"`
+	// > **Note:** This maps to the `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Protocols.Ssl30` field
+	FrontendSsl30Enabled *bool `pulumi:"frontendSsl30Enabled"`
 	// Should TLS 1.0 be enabled on the frontend of the gateway? Defaults to `false`.
 	//
-	// > **info:** This maps to the `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Protocols.Tls10` field
-	EnableFrontendTls10 *bool `pulumi:"enableFrontendTls10"`
+	// > **Note:** This maps to the `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Protocols.Tls10` field
+	FrontendTls10Enabled *bool `pulumi:"frontendTls10Enabled"`
 	// Should TLS 1.1 be enabled on the frontend of the gateway? Defaults to `false`.
 	//
-	// > **info:** This maps to the `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Protocols.Tls11` field
-	EnableFrontendTls11 *bool `pulumi:"enableFrontendTls11"`
+	// > **Note:** This maps to the `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Protocols.Tls11` field
+	FrontendTls11Enabled *bool `pulumi:"frontendTls11Enabled"`
 	// Should the `TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA` cipher be enabled? Defaults to `false`.
 	//
-	// > **info:** This maps to the `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Ciphers.TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA` field
+	// > **Note:** This maps to the `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Ciphers.TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA` field
 	TlsEcdheEcdsaWithAes128CbcShaCiphersEnabled *bool `pulumi:"tlsEcdheEcdsaWithAes128CbcShaCiphersEnabled"`
 	// Should the `TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA` cipher be enabled? Defaults to `false`.
 	//
-	// > **info:** This maps to the `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Ciphers.TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA` field
+	// > **Note:** This maps to the `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Ciphers.TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA` field
 	TlsEcdheEcdsaWithAes256CbcShaCiphersEnabled *bool `pulumi:"tlsEcdheEcdsaWithAes256CbcShaCiphersEnabled"`
 	// Should the `TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA` cipher be enabled? Defaults to `false`.
 	//
-	// > **info:** This maps to the `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Ciphers.TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA` field
+	// > **Note:** This maps to the `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Ciphers.TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA` field
 	TlsEcdheRsaWithAes128CbcShaCiphersEnabled *bool `pulumi:"tlsEcdheRsaWithAes128CbcShaCiphersEnabled"`
 	// Should the `TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA` cipher be enabled? Defaults to `false`.
 	//
-	// > **info:** This maps to the `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Ciphers.TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA` field
+	// > **Note:** This maps to the `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Ciphers.TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA` field
 	TlsEcdheRsaWithAes256CbcShaCiphersEnabled *bool `pulumi:"tlsEcdheRsaWithAes256CbcShaCiphersEnabled"`
 	// Should the `TLS_RSA_WITH_AES_128_CBC_SHA256` cipher be enabled? Defaults to `false`.
 	//
-	// > **info:** This maps to the `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Ciphers.TLS_RSA_WITH_AES_128_CBC_SHA256` field
+	// > **Note:** This maps to the `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Ciphers.TLS_RSA_WITH_AES_128_CBC_SHA256` field
 	TlsRsaWithAes128CbcSha256CiphersEnabled *bool `pulumi:"tlsRsaWithAes128CbcSha256CiphersEnabled"`
 	// Should the `TLS_RSA_WITH_AES_128_CBC_SHA` cipher be enabled? Defaults to `false`.
 	//
-	// > **info:** This maps to the `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Ciphers.TLS_RSA_WITH_AES_128_CBC_SHA` field
+	// > **Note:** This maps to the `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Ciphers.TLS_RSA_WITH_AES_128_CBC_SHA` field
 	TlsRsaWithAes128CbcShaCiphersEnabled *bool `pulumi:"tlsRsaWithAes128CbcShaCiphersEnabled"`
 	// Should the `TLS_RSA_WITH_AES_128_GCM_SHA256` cipher be enabled? Defaults to `false`.
 	//
-	// > **info:** This maps to the `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Ciphers.TLS_RSA_WITH_AES_128_GCM_SHA256` field
+	// > **Note:** This maps to the `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Ciphers.TLS_RSA_WITH_AES_128_GCM_SHA256` field
 	TlsRsaWithAes128GcmSha256CiphersEnabled *bool `pulumi:"tlsRsaWithAes128GcmSha256CiphersEnabled"`
 	// Should the `TLS_RSA_WITH_AES_256_CBC_SHA256` cipher be enabled? Defaults to `false`.
 	//
-	// > **info:** This maps to the `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Ciphers.TLS_RSA_WITH_AES_256_CBC_SHA256` field
+	// > **Note:** This maps to the `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Ciphers.TLS_RSA_WITH_AES_256_CBC_SHA256` field
 	TlsRsaWithAes256CbcSha256CiphersEnabled *bool `pulumi:"tlsRsaWithAes256CbcSha256CiphersEnabled"`
 	// Should the `TLS_RSA_WITH_AES_256_CBC_SHA` cipher be enabled? Defaults to `false`.
 	//
-	// > **info:** This maps to the `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Ciphers.TLS_RSA_WITH_AES_256_CBC_SHA` field
+	// > **Note:** This maps to the `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Ciphers.TLS_RSA_WITH_AES_256_CBC_SHA` field
 	TlsRsaWithAes256CbcShaCiphersEnabled *bool `pulumi:"tlsRsaWithAes256CbcShaCiphersEnabled"`
 	// Should the `TLS_RSA_WITH_AES_256_GCM_SHA384` cipher be enabled? Defaults to `false`.
 	//
-	// > **info:** This maps to the `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Ciphers.TLS_RSA_WITH_AES_256_GCM_SHA384` field
+	// > **Note:** This maps to the `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Ciphers.TLS_RSA_WITH_AES_256_GCM_SHA384` field
 	TlsRsaWithAes256GcmSha384CiphersEnabled *bool `pulumi:"tlsRsaWithAes256GcmSha384CiphersEnabled"`
 	// Should the `TLS_RSA_WITH_3DES_EDE_CBC_SHA` cipher be enabled for alL TLS versions (1.0, 1.1 and 1.2)?
 	//
-	// > **info:** This maps to the `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Ciphers.TripleDes168` field
+	// > **Note:** This maps to the `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Ciphers.TripleDes168` field
 	TripleDesCiphersEnabled *bool `pulumi:"tripleDesCiphersEnabled"`
 }
 
@@ -13298,71 +13419,83 @@ type ServiceSecurityInput interface {
 type ServiceSecurityArgs struct {
 	// Should SSL 3.0 be enabled on the backend of the gateway? Defaults to `false`.
 	//
-	// > **info:** This maps to the `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Backend.Protocols.Ssl30` field
-	EnableBackendSsl30 pulumi.BoolPtrInput `pulumi:"enableBackendSsl30"`
+	// > **Note:** This maps to the `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Backend.Protocols.Ssl30` field
+	BackendSsl30Enabled pulumi.BoolPtrInput `pulumi:"backendSsl30Enabled"`
 	// Should TLS 1.0 be enabled on the backend of the gateway? Defaults to `false`.
 	//
-	// > **info:** This maps to the `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Backend.Protocols.Tls10` field
-	EnableBackendTls10 pulumi.BoolPtrInput `pulumi:"enableBackendTls10"`
+	// > **Note:** This maps to the `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Backend.Protocols.Tls10` field
+	BackendTls10Enabled pulumi.BoolPtrInput `pulumi:"backendTls10Enabled"`
 	// Should TLS 1.1 be enabled on the backend of the gateway? Defaults to `false`.
 	//
-	// > **info:** This maps to the `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Backend.Protocols.Tls11` field
+	// > **Note:** This maps to the `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Backend.Protocols.Tls11` field
+	BackendTls11Enabled pulumi.BoolPtrInput `pulumi:"backendTls11Enabled"`
+	// Deprecated: `security.enable_backend_ssl30` has been deprecated in favour of the `security.backend_ssl30_enabled` property and will be removed in v5.0 of the AzureRM Provider
+	EnableBackendSsl30 pulumi.BoolPtrInput `pulumi:"enableBackendSsl30"`
+	// Deprecated: `security.enable_backend_tls10` has been deprecated in favour of the `security.backend_tls10_enabled` property and will be removed in v5.0 of the AzureRM Provider
+	EnableBackendTls10 pulumi.BoolPtrInput `pulumi:"enableBackendTls10"`
+	// Deprecated: `security.enable_backend_tls11` has been deprecated in favour of the `security.backend_tls11_enabled` property and will be removed in v5.0 of the AzureRM Provider
 	EnableBackendTls11 pulumi.BoolPtrInput `pulumi:"enableBackendTls11"`
+	// Deprecated: `security.enable_frontend_ssl30` has been deprecated in favour of the `security.frontend_ssl30_enabled` property and will be removed in v5.0 of the AzureRM Provider
+	EnableFrontendSsl30 pulumi.BoolPtrInput `pulumi:"enableFrontendSsl30"`
+	// Deprecated: `security.enable_frontend_tls10` has been deprecated in favour of the `security.frontend_tls10_enabled` property and will be removed in v5.0 of the AzureRM Provider
+	EnableFrontendTls10 pulumi.BoolPtrInput `pulumi:"enableFrontendTls10"`
+	// Deprecated: `security.enable_frontend_tls11` has been deprecated in favour of the `security.frontend_tls11_enabled` property and will be removed in v5.0 of the AzureRM Provider
+	EnableFrontendTls11 pulumi.BoolPtrInput `pulumi:"enableFrontendTls11"`
 	// Should SSL 3.0 be enabled on the frontend of the gateway? Defaults to `false`.
 	//
-	// > **info:** This maps to the `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Protocols.Ssl30` field
-	EnableFrontendSsl30 pulumi.BoolPtrInput `pulumi:"enableFrontendSsl30"`
+	// > **Note:** This maps to the `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Protocols.Ssl30` field
+	FrontendSsl30Enabled pulumi.BoolPtrInput `pulumi:"frontendSsl30Enabled"`
 	// Should TLS 1.0 be enabled on the frontend of the gateway? Defaults to `false`.
 	//
-	// > **info:** This maps to the `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Protocols.Tls10` field
-	EnableFrontendTls10 pulumi.BoolPtrInput `pulumi:"enableFrontendTls10"`
+	// > **Note:** This maps to the `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Protocols.Tls10` field
+	FrontendTls10Enabled pulumi.BoolPtrInput `pulumi:"frontendTls10Enabled"`
 	// Should TLS 1.1 be enabled on the frontend of the gateway? Defaults to `false`.
 	//
-	// > **info:** This maps to the `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Protocols.Tls11` field
-	EnableFrontendTls11 pulumi.BoolPtrInput `pulumi:"enableFrontendTls11"`
+	// > **Note:** This maps to the `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Protocols.Tls11` field
+	FrontendTls11Enabled pulumi.BoolPtrInput `pulumi:"frontendTls11Enabled"`
 	// Should the `TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA` cipher be enabled? Defaults to `false`.
 	//
-	// > **info:** This maps to the `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Ciphers.TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA` field
+	// > **Note:** This maps to the `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Ciphers.TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA` field
 	TlsEcdheEcdsaWithAes128CbcShaCiphersEnabled pulumi.BoolPtrInput `pulumi:"tlsEcdheEcdsaWithAes128CbcShaCiphersEnabled"`
 	// Should the `TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA` cipher be enabled? Defaults to `false`.
 	//
-	// > **info:** This maps to the `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Ciphers.TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA` field
+	// > **Note:** This maps to the `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Ciphers.TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA` field
 	TlsEcdheEcdsaWithAes256CbcShaCiphersEnabled pulumi.BoolPtrInput `pulumi:"tlsEcdheEcdsaWithAes256CbcShaCiphersEnabled"`
 	// Should the `TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA` cipher be enabled? Defaults to `false`.
 	//
-	// > **info:** This maps to the `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Ciphers.TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA` field
+	// > **Note:** This maps to the `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Ciphers.TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA` field
 	TlsEcdheRsaWithAes128CbcShaCiphersEnabled pulumi.BoolPtrInput `pulumi:"tlsEcdheRsaWithAes128CbcShaCiphersEnabled"`
 	// Should the `TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA` cipher be enabled? Defaults to `false`.
 	//
-	// > **info:** This maps to the `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Ciphers.TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA` field
+	// > **Note:** This maps to the `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Ciphers.TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA` field
 	TlsEcdheRsaWithAes256CbcShaCiphersEnabled pulumi.BoolPtrInput `pulumi:"tlsEcdheRsaWithAes256CbcShaCiphersEnabled"`
 	// Should the `TLS_RSA_WITH_AES_128_CBC_SHA256` cipher be enabled? Defaults to `false`.
 	//
-	// > **info:** This maps to the `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Ciphers.TLS_RSA_WITH_AES_128_CBC_SHA256` field
+	// > **Note:** This maps to the `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Ciphers.TLS_RSA_WITH_AES_128_CBC_SHA256` field
 	TlsRsaWithAes128CbcSha256CiphersEnabled pulumi.BoolPtrInput `pulumi:"tlsRsaWithAes128CbcSha256CiphersEnabled"`
 	// Should the `TLS_RSA_WITH_AES_128_CBC_SHA` cipher be enabled? Defaults to `false`.
 	//
-	// > **info:** This maps to the `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Ciphers.TLS_RSA_WITH_AES_128_CBC_SHA` field
+	// > **Note:** This maps to the `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Ciphers.TLS_RSA_WITH_AES_128_CBC_SHA` field
 	TlsRsaWithAes128CbcShaCiphersEnabled pulumi.BoolPtrInput `pulumi:"tlsRsaWithAes128CbcShaCiphersEnabled"`
 	// Should the `TLS_RSA_WITH_AES_128_GCM_SHA256` cipher be enabled? Defaults to `false`.
 	//
-	// > **info:** This maps to the `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Ciphers.TLS_RSA_WITH_AES_128_GCM_SHA256` field
+	// > **Note:** This maps to the `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Ciphers.TLS_RSA_WITH_AES_128_GCM_SHA256` field
 	TlsRsaWithAes128GcmSha256CiphersEnabled pulumi.BoolPtrInput `pulumi:"tlsRsaWithAes128GcmSha256CiphersEnabled"`
 	// Should the `TLS_RSA_WITH_AES_256_CBC_SHA256` cipher be enabled? Defaults to `false`.
 	//
-	// > **info:** This maps to the `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Ciphers.TLS_RSA_WITH_AES_256_CBC_SHA256` field
+	// > **Note:** This maps to the `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Ciphers.TLS_RSA_WITH_AES_256_CBC_SHA256` field
 	TlsRsaWithAes256CbcSha256CiphersEnabled pulumi.BoolPtrInput `pulumi:"tlsRsaWithAes256CbcSha256CiphersEnabled"`
 	// Should the `TLS_RSA_WITH_AES_256_CBC_SHA` cipher be enabled? Defaults to `false`.
 	//
-	// > **info:** This maps to the `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Ciphers.TLS_RSA_WITH_AES_256_CBC_SHA` field
+	// > **Note:** This maps to the `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Ciphers.TLS_RSA_WITH_AES_256_CBC_SHA` field
 	TlsRsaWithAes256CbcShaCiphersEnabled pulumi.BoolPtrInput `pulumi:"tlsRsaWithAes256CbcShaCiphersEnabled"`
 	// Should the `TLS_RSA_WITH_AES_256_GCM_SHA384` cipher be enabled? Defaults to `false`.
 	//
-	// > **info:** This maps to the `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Ciphers.TLS_RSA_WITH_AES_256_GCM_SHA384` field
+	// > **Note:** This maps to the `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Ciphers.TLS_RSA_WITH_AES_256_GCM_SHA384` field
 	TlsRsaWithAes256GcmSha384CiphersEnabled pulumi.BoolPtrInput `pulumi:"tlsRsaWithAes256GcmSha384CiphersEnabled"`
 	// Should the `TLS_RSA_WITH_3DES_EDE_CBC_SHA` cipher be enabled for alL TLS versions (1.0, 1.1 and 1.2)?
 	//
-	// > **info:** This maps to the `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Ciphers.TripleDes168` field
+	// > **Note:** This maps to the `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Ciphers.TripleDes168` field
 	TripleDesCiphersEnabled pulumi.BoolPtrInput `pulumi:"tripleDesCiphersEnabled"`
 }
 
@@ -13445,119 +13578,149 @@ func (o ServiceSecurityOutput) ToServiceSecurityPtrOutputWithContext(ctx context
 
 // Should SSL 3.0 be enabled on the backend of the gateway? Defaults to `false`.
 //
-// > **info:** This maps to the `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Backend.Protocols.Ssl30` field
-func (o ServiceSecurityOutput) EnableBackendSsl30() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v ServiceSecurity) *bool { return v.EnableBackendSsl30 }).(pulumi.BoolPtrOutput)
+// > **Note:** This maps to the `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Backend.Protocols.Ssl30` field
+func (o ServiceSecurityOutput) BackendSsl30Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ServiceSecurity) *bool { return v.BackendSsl30Enabled }).(pulumi.BoolPtrOutput)
 }
 
 // Should TLS 1.0 be enabled on the backend of the gateway? Defaults to `false`.
 //
-// > **info:** This maps to the `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Backend.Protocols.Tls10` field
-func (o ServiceSecurityOutput) EnableBackendTls10() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v ServiceSecurity) *bool { return v.EnableBackendTls10 }).(pulumi.BoolPtrOutput)
+// > **Note:** This maps to the `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Backend.Protocols.Tls10` field
+func (o ServiceSecurityOutput) BackendTls10Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ServiceSecurity) *bool { return v.BackendTls10Enabled }).(pulumi.BoolPtrOutput)
 }
 
 // Should TLS 1.1 be enabled on the backend of the gateway? Defaults to `false`.
 //
-// > **info:** This maps to the `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Backend.Protocols.Tls11` field
+// > **Note:** This maps to the `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Backend.Protocols.Tls11` field
+func (o ServiceSecurityOutput) BackendTls11Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ServiceSecurity) *bool { return v.BackendTls11Enabled }).(pulumi.BoolPtrOutput)
+}
+
+// Deprecated: `security.enable_backend_ssl30` has been deprecated in favour of the `security.backend_ssl30_enabled` property and will be removed in v5.0 of the AzureRM Provider
+func (o ServiceSecurityOutput) EnableBackendSsl30() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ServiceSecurity) *bool { return v.EnableBackendSsl30 }).(pulumi.BoolPtrOutput)
+}
+
+// Deprecated: `security.enable_backend_tls10` has been deprecated in favour of the `security.backend_tls10_enabled` property and will be removed in v5.0 of the AzureRM Provider
+func (o ServiceSecurityOutput) EnableBackendTls10() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ServiceSecurity) *bool { return v.EnableBackendTls10 }).(pulumi.BoolPtrOutput)
+}
+
+// Deprecated: `security.enable_backend_tls11` has been deprecated in favour of the `security.backend_tls11_enabled` property and will be removed in v5.0 of the AzureRM Provider
 func (o ServiceSecurityOutput) EnableBackendTls11() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ServiceSecurity) *bool { return v.EnableBackendTls11 }).(pulumi.BoolPtrOutput)
 }
 
-// Should SSL 3.0 be enabled on the frontend of the gateway? Defaults to `false`.
-//
-// > **info:** This maps to the `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Protocols.Ssl30` field
+// Deprecated: `security.enable_frontend_ssl30` has been deprecated in favour of the `security.frontend_ssl30_enabled` property and will be removed in v5.0 of the AzureRM Provider
 func (o ServiceSecurityOutput) EnableFrontendSsl30() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ServiceSecurity) *bool { return v.EnableFrontendSsl30 }).(pulumi.BoolPtrOutput)
 }
 
-// Should TLS 1.0 be enabled on the frontend of the gateway? Defaults to `false`.
-//
-// > **info:** This maps to the `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Protocols.Tls10` field
+// Deprecated: `security.enable_frontend_tls10` has been deprecated in favour of the `security.frontend_tls10_enabled` property and will be removed in v5.0 of the AzureRM Provider
 func (o ServiceSecurityOutput) EnableFrontendTls10() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ServiceSecurity) *bool { return v.EnableFrontendTls10 }).(pulumi.BoolPtrOutput)
 }
 
-// Should TLS 1.1 be enabled on the frontend of the gateway? Defaults to `false`.
-//
-// > **info:** This maps to the `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Protocols.Tls11` field
+// Deprecated: `security.enable_frontend_tls11` has been deprecated in favour of the `security.frontend_tls11_enabled` property and will be removed in v5.0 of the AzureRM Provider
 func (o ServiceSecurityOutput) EnableFrontendTls11() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ServiceSecurity) *bool { return v.EnableFrontendTls11 }).(pulumi.BoolPtrOutput)
 }
 
+// Should SSL 3.0 be enabled on the frontend of the gateway? Defaults to `false`.
+//
+// > **Note:** This maps to the `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Protocols.Ssl30` field
+func (o ServiceSecurityOutput) FrontendSsl30Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ServiceSecurity) *bool { return v.FrontendSsl30Enabled }).(pulumi.BoolPtrOutput)
+}
+
+// Should TLS 1.0 be enabled on the frontend of the gateway? Defaults to `false`.
+//
+// > **Note:** This maps to the `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Protocols.Tls10` field
+func (o ServiceSecurityOutput) FrontendTls10Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ServiceSecurity) *bool { return v.FrontendTls10Enabled }).(pulumi.BoolPtrOutput)
+}
+
+// Should TLS 1.1 be enabled on the frontend of the gateway? Defaults to `false`.
+//
+// > **Note:** This maps to the `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Protocols.Tls11` field
+func (o ServiceSecurityOutput) FrontendTls11Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ServiceSecurity) *bool { return v.FrontendTls11Enabled }).(pulumi.BoolPtrOutput)
+}
+
 // Should the `TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA` cipher be enabled? Defaults to `false`.
 //
-// > **info:** This maps to the `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Ciphers.TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA` field
+// > **Note:** This maps to the `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Ciphers.TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA` field
 func (o ServiceSecurityOutput) TlsEcdheEcdsaWithAes128CbcShaCiphersEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ServiceSecurity) *bool { return v.TlsEcdheEcdsaWithAes128CbcShaCiphersEnabled }).(pulumi.BoolPtrOutput)
 }
 
 // Should the `TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA` cipher be enabled? Defaults to `false`.
 //
-// > **info:** This maps to the `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Ciphers.TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA` field
+// > **Note:** This maps to the `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Ciphers.TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA` field
 func (o ServiceSecurityOutput) TlsEcdheEcdsaWithAes256CbcShaCiphersEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ServiceSecurity) *bool { return v.TlsEcdheEcdsaWithAes256CbcShaCiphersEnabled }).(pulumi.BoolPtrOutput)
 }
 
 // Should the `TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA` cipher be enabled? Defaults to `false`.
 //
-// > **info:** This maps to the `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Ciphers.TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA` field
+// > **Note:** This maps to the `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Ciphers.TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA` field
 func (o ServiceSecurityOutput) TlsEcdheRsaWithAes128CbcShaCiphersEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ServiceSecurity) *bool { return v.TlsEcdheRsaWithAes128CbcShaCiphersEnabled }).(pulumi.BoolPtrOutput)
 }
 
 // Should the `TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA` cipher be enabled? Defaults to `false`.
 //
-// > **info:** This maps to the `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Ciphers.TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA` field
+// > **Note:** This maps to the `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Ciphers.TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA` field
 func (o ServiceSecurityOutput) TlsEcdheRsaWithAes256CbcShaCiphersEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ServiceSecurity) *bool { return v.TlsEcdheRsaWithAes256CbcShaCiphersEnabled }).(pulumi.BoolPtrOutput)
 }
 
 // Should the `TLS_RSA_WITH_AES_128_CBC_SHA256` cipher be enabled? Defaults to `false`.
 //
-// > **info:** This maps to the `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Ciphers.TLS_RSA_WITH_AES_128_CBC_SHA256` field
+// > **Note:** This maps to the `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Ciphers.TLS_RSA_WITH_AES_128_CBC_SHA256` field
 func (o ServiceSecurityOutput) TlsRsaWithAes128CbcSha256CiphersEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ServiceSecurity) *bool { return v.TlsRsaWithAes128CbcSha256CiphersEnabled }).(pulumi.BoolPtrOutput)
 }
 
 // Should the `TLS_RSA_WITH_AES_128_CBC_SHA` cipher be enabled? Defaults to `false`.
 //
-// > **info:** This maps to the `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Ciphers.TLS_RSA_WITH_AES_128_CBC_SHA` field
+// > **Note:** This maps to the `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Ciphers.TLS_RSA_WITH_AES_128_CBC_SHA` field
 func (o ServiceSecurityOutput) TlsRsaWithAes128CbcShaCiphersEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ServiceSecurity) *bool { return v.TlsRsaWithAes128CbcShaCiphersEnabled }).(pulumi.BoolPtrOutput)
 }
 
 // Should the `TLS_RSA_WITH_AES_128_GCM_SHA256` cipher be enabled? Defaults to `false`.
 //
-// > **info:** This maps to the `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Ciphers.TLS_RSA_WITH_AES_128_GCM_SHA256` field
+// > **Note:** This maps to the `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Ciphers.TLS_RSA_WITH_AES_128_GCM_SHA256` field
 func (o ServiceSecurityOutput) TlsRsaWithAes128GcmSha256CiphersEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ServiceSecurity) *bool { return v.TlsRsaWithAes128GcmSha256CiphersEnabled }).(pulumi.BoolPtrOutput)
 }
 
 // Should the `TLS_RSA_WITH_AES_256_CBC_SHA256` cipher be enabled? Defaults to `false`.
 //
-// > **info:** This maps to the `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Ciphers.TLS_RSA_WITH_AES_256_CBC_SHA256` field
+// > **Note:** This maps to the `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Ciphers.TLS_RSA_WITH_AES_256_CBC_SHA256` field
 func (o ServiceSecurityOutput) TlsRsaWithAes256CbcSha256CiphersEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ServiceSecurity) *bool { return v.TlsRsaWithAes256CbcSha256CiphersEnabled }).(pulumi.BoolPtrOutput)
 }
 
 // Should the `TLS_RSA_WITH_AES_256_CBC_SHA` cipher be enabled? Defaults to `false`.
 //
-// > **info:** This maps to the `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Ciphers.TLS_RSA_WITH_AES_256_CBC_SHA` field
+// > **Note:** This maps to the `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Ciphers.TLS_RSA_WITH_AES_256_CBC_SHA` field
 func (o ServiceSecurityOutput) TlsRsaWithAes256CbcShaCiphersEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ServiceSecurity) *bool { return v.TlsRsaWithAes256CbcShaCiphersEnabled }).(pulumi.BoolPtrOutput)
 }
 
 // Should the `TLS_RSA_WITH_AES_256_GCM_SHA384` cipher be enabled? Defaults to `false`.
 //
-// > **info:** This maps to the `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Ciphers.TLS_RSA_WITH_AES_256_GCM_SHA384` field
+// > **Note:** This maps to the `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Ciphers.TLS_RSA_WITH_AES_256_GCM_SHA384` field
 func (o ServiceSecurityOutput) TlsRsaWithAes256GcmSha384CiphersEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ServiceSecurity) *bool { return v.TlsRsaWithAes256GcmSha384CiphersEnabled }).(pulumi.BoolPtrOutput)
 }
 
 // Should the `TLS_RSA_WITH_3DES_EDE_CBC_SHA` cipher be enabled for alL TLS versions (1.0, 1.1 and 1.2)?
 //
-// > **info:** This maps to the `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Ciphers.TripleDes168` field
+// > **Note:** This maps to the `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Ciphers.TripleDes168` field
 func (o ServiceSecurityOutput) TripleDesCiphersEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ServiceSecurity) *bool { return v.TripleDesCiphersEnabled }).(pulumi.BoolPtrOutput)
 }
@@ -13588,7 +13751,41 @@ func (o ServiceSecurityPtrOutput) Elem() ServiceSecurityOutput {
 
 // Should SSL 3.0 be enabled on the backend of the gateway? Defaults to `false`.
 //
-// > **info:** This maps to the `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Backend.Protocols.Ssl30` field
+// > **Note:** This maps to the `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Backend.Protocols.Ssl30` field
+func (o ServiceSecurityPtrOutput) BackendSsl30Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ServiceSecurity) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.BackendSsl30Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Should TLS 1.0 be enabled on the backend of the gateway? Defaults to `false`.
+//
+// > **Note:** This maps to the `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Backend.Protocols.Tls10` field
+func (o ServiceSecurityPtrOutput) BackendTls10Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ServiceSecurity) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.BackendTls10Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Should TLS 1.1 be enabled on the backend of the gateway? Defaults to `false`.
+//
+// > **Note:** This maps to the `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Backend.Protocols.Tls11` field
+func (o ServiceSecurityPtrOutput) BackendTls11Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ServiceSecurity) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.BackendTls11Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Deprecated: `security.enable_backend_ssl30` has been deprecated in favour of the `security.backend_ssl30_enabled` property and will be removed in v5.0 of the AzureRM Provider
 func (o ServiceSecurityPtrOutput) EnableBackendSsl30() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ServiceSecurity) *bool {
 		if v == nil {
@@ -13598,9 +13795,7 @@ func (o ServiceSecurityPtrOutput) EnableBackendSsl30() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Should TLS 1.0 be enabled on the backend of the gateway? Defaults to `false`.
-//
-// > **info:** This maps to the `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Backend.Protocols.Tls10` field
+// Deprecated: `security.enable_backend_tls10` has been deprecated in favour of the `security.backend_tls10_enabled` property and will be removed in v5.0 of the AzureRM Provider
 func (o ServiceSecurityPtrOutput) EnableBackendTls10() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ServiceSecurity) *bool {
 		if v == nil {
@@ -13610,9 +13805,7 @@ func (o ServiceSecurityPtrOutput) EnableBackendTls10() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Should TLS 1.1 be enabled on the backend of the gateway? Defaults to `false`.
-//
-// > **info:** This maps to the `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Backend.Protocols.Tls11` field
+// Deprecated: `security.enable_backend_tls11` has been deprecated in favour of the `security.backend_tls11_enabled` property and will be removed in v5.0 of the AzureRM Provider
 func (o ServiceSecurityPtrOutput) EnableBackendTls11() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ServiceSecurity) *bool {
 		if v == nil {
@@ -13622,9 +13815,7 @@ func (o ServiceSecurityPtrOutput) EnableBackendTls11() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Should SSL 3.0 be enabled on the frontend of the gateway? Defaults to `false`.
-//
-// > **info:** This maps to the `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Protocols.Ssl30` field
+// Deprecated: `security.enable_frontend_ssl30` has been deprecated in favour of the `security.frontend_ssl30_enabled` property and will be removed in v5.0 of the AzureRM Provider
 func (o ServiceSecurityPtrOutput) EnableFrontendSsl30() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ServiceSecurity) *bool {
 		if v == nil {
@@ -13634,9 +13825,7 @@ func (o ServiceSecurityPtrOutput) EnableFrontendSsl30() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Should TLS 1.0 be enabled on the frontend of the gateway? Defaults to `false`.
-//
-// > **info:** This maps to the `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Protocols.Tls10` field
+// Deprecated: `security.enable_frontend_tls10` has been deprecated in favour of the `security.frontend_tls10_enabled` property and will be removed in v5.0 of the AzureRM Provider
 func (o ServiceSecurityPtrOutput) EnableFrontendTls10() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ServiceSecurity) *bool {
 		if v == nil {
@@ -13646,9 +13835,7 @@ func (o ServiceSecurityPtrOutput) EnableFrontendTls10() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Should TLS 1.1 be enabled on the frontend of the gateway? Defaults to `false`.
-//
-// > **info:** This maps to the `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Protocols.Tls11` field
+// Deprecated: `security.enable_frontend_tls11` has been deprecated in favour of the `security.frontend_tls11_enabled` property and will be removed in v5.0 of the AzureRM Provider
 func (o ServiceSecurityPtrOutput) EnableFrontendTls11() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ServiceSecurity) *bool {
 		if v == nil {
@@ -13658,9 +13845,45 @@ func (o ServiceSecurityPtrOutput) EnableFrontendTls11() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
+// Should SSL 3.0 be enabled on the frontend of the gateway? Defaults to `false`.
+//
+// > **Note:** This maps to the `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Protocols.Ssl30` field
+func (o ServiceSecurityPtrOutput) FrontendSsl30Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ServiceSecurity) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.FrontendSsl30Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Should TLS 1.0 be enabled on the frontend of the gateway? Defaults to `false`.
+//
+// > **Note:** This maps to the `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Protocols.Tls10` field
+func (o ServiceSecurityPtrOutput) FrontendTls10Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ServiceSecurity) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.FrontendTls10Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Should TLS 1.1 be enabled on the frontend of the gateway? Defaults to `false`.
+//
+// > **Note:** This maps to the `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Protocols.Tls11` field
+func (o ServiceSecurityPtrOutput) FrontendTls11Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ServiceSecurity) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.FrontendTls11Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
 // Should the `TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA` cipher be enabled? Defaults to `false`.
 //
-// > **info:** This maps to the `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Ciphers.TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA` field
+// > **Note:** This maps to the `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Ciphers.TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA` field
 func (o ServiceSecurityPtrOutput) TlsEcdheEcdsaWithAes128CbcShaCiphersEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ServiceSecurity) *bool {
 		if v == nil {
@@ -13672,7 +13895,7 @@ func (o ServiceSecurityPtrOutput) TlsEcdheEcdsaWithAes128CbcShaCiphersEnabled() 
 
 // Should the `TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA` cipher be enabled? Defaults to `false`.
 //
-// > **info:** This maps to the `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Ciphers.TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA` field
+// > **Note:** This maps to the `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Ciphers.TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA` field
 func (o ServiceSecurityPtrOutput) TlsEcdheEcdsaWithAes256CbcShaCiphersEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ServiceSecurity) *bool {
 		if v == nil {
@@ -13684,7 +13907,7 @@ func (o ServiceSecurityPtrOutput) TlsEcdheEcdsaWithAes256CbcShaCiphersEnabled() 
 
 // Should the `TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA` cipher be enabled? Defaults to `false`.
 //
-// > **info:** This maps to the `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Ciphers.TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA` field
+// > **Note:** This maps to the `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Ciphers.TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA` field
 func (o ServiceSecurityPtrOutput) TlsEcdheRsaWithAes128CbcShaCiphersEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ServiceSecurity) *bool {
 		if v == nil {
@@ -13696,7 +13919,7 @@ func (o ServiceSecurityPtrOutput) TlsEcdheRsaWithAes128CbcShaCiphersEnabled() pu
 
 // Should the `TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA` cipher be enabled? Defaults to `false`.
 //
-// > **info:** This maps to the `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Ciphers.TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA` field
+// > **Note:** This maps to the `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Ciphers.TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA` field
 func (o ServiceSecurityPtrOutput) TlsEcdheRsaWithAes256CbcShaCiphersEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ServiceSecurity) *bool {
 		if v == nil {
@@ -13708,7 +13931,7 @@ func (o ServiceSecurityPtrOutput) TlsEcdheRsaWithAes256CbcShaCiphersEnabled() pu
 
 // Should the `TLS_RSA_WITH_AES_128_CBC_SHA256` cipher be enabled? Defaults to `false`.
 //
-// > **info:** This maps to the `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Ciphers.TLS_RSA_WITH_AES_128_CBC_SHA256` field
+// > **Note:** This maps to the `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Ciphers.TLS_RSA_WITH_AES_128_CBC_SHA256` field
 func (o ServiceSecurityPtrOutput) TlsRsaWithAes128CbcSha256CiphersEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ServiceSecurity) *bool {
 		if v == nil {
@@ -13720,7 +13943,7 @@ func (o ServiceSecurityPtrOutput) TlsRsaWithAes128CbcSha256CiphersEnabled() pulu
 
 // Should the `TLS_RSA_WITH_AES_128_CBC_SHA` cipher be enabled? Defaults to `false`.
 //
-// > **info:** This maps to the `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Ciphers.TLS_RSA_WITH_AES_128_CBC_SHA` field
+// > **Note:** This maps to the `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Ciphers.TLS_RSA_WITH_AES_128_CBC_SHA` field
 func (o ServiceSecurityPtrOutput) TlsRsaWithAes128CbcShaCiphersEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ServiceSecurity) *bool {
 		if v == nil {
@@ -13732,7 +13955,7 @@ func (o ServiceSecurityPtrOutput) TlsRsaWithAes128CbcShaCiphersEnabled() pulumi.
 
 // Should the `TLS_RSA_WITH_AES_128_GCM_SHA256` cipher be enabled? Defaults to `false`.
 //
-// > **info:** This maps to the `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Ciphers.TLS_RSA_WITH_AES_128_GCM_SHA256` field
+// > **Note:** This maps to the `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Ciphers.TLS_RSA_WITH_AES_128_GCM_SHA256` field
 func (o ServiceSecurityPtrOutput) TlsRsaWithAes128GcmSha256CiphersEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ServiceSecurity) *bool {
 		if v == nil {
@@ -13744,7 +13967,7 @@ func (o ServiceSecurityPtrOutput) TlsRsaWithAes128GcmSha256CiphersEnabled() pulu
 
 // Should the `TLS_RSA_WITH_AES_256_CBC_SHA256` cipher be enabled? Defaults to `false`.
 //
-// > **info:** This maps to the `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Ciphers.TLS_RSA_WITH_AES_256_CBC_SHA256` field
+// > **Note:** This maps to the `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Ciphers.TLS_RSA_WITH_AES_256_CBC_SHA256` field
 func (o ServiceSecurityPtrOutput) TlsRsaWithAes256CbcSha256CiphersEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ServiceSecurity) *bool {
 		if v == nil {
@@ -13756,7 +13979,7 @@ func (o ServiceSecurityPtrOutput) TlsRsaWithAes256CbcSha256CiphersEnabled() pulu
 
 // Should the `TLS_RSA_WITH_AES_256_CBC_SHA` cipher be enabled? Defaults to `false`.
 //
-// > **info:** This maps to the `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Ciphers.TLS_RSA_WITH_AES_256_CBC_SHA` field
+// > **Note:** This maps to the `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Ciphers.TLS_RSA_WITH_AES_256_CBC_SHA` field
 func (o ServiceSecurityPtrOutput) TlsRsaWithAes256CbcShaCiphersEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ServiceSecurity) *bool {
 		if v == nil {
@@ -13768,7 +13991,7 @@ func (o ServiceSecurityPtrOutput) TlsRsaWithAes256CbcShaCiphersEnabled() pulumi.
 
 // Should the `TLS_RSA_WITH_AES_256_GCM_SHA384` cipher be enabled? Defaults to `false`.
 //
-// > **info:** This maps to the `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Ciphers.TLS_RSA_WITH_AES_256_GCM_SHA384` field
+// > **Note:** This maps to the `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Ciphers.TLS_RSA_WITH_AES_256_GCM_SHA384` field
 func (o ServiceSecurityPtrOutput) TlsRsaWithAes256GcmSha384CiphersEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ServiceSecurity) *bool {
 		if v == nil {
@@ -13780,7 +14003,7 @@ func (o ServiceSecurityPtrOutput) TlsRsaWithAes256GcmSha384CiphersEnabled() pulu
 
 // Should the `TLS_RSA_WITH_3DES_EDE_CBC_SHA` cipher be enabled for alL TLS versions (1.0, 1.1 and 1.2)?
 //
-// > **info:** This maps to the `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Ciphers.TripleDes168` field
+// > **Note:** This maps to the `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Ciphers.TripleDes168` field
 func (o ServiceSecurityPtrOutput) TripleDesCiphersEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ServiceSecurity) *bool {
 		if v == nil {
@@ -15108,7 +15331,8 @@ type GetServiceHostnameConfigurationDeveloperPortal struct {
 	// The Hostname used for the SCM URL.
 	HostName string `pulumi:"hostName"`
 	// The ID of the Key Vault Secret which contains the SSL Certificate.
-	KeyVaultId string `pulumi:"keyVaultId"`
+	KeyVaultCertificateId string `pulumi:"keyVaultCertificateId"`
+	KeyVaultId            string `pulumi:"keyVaultId"`
 	// Is Client Certificate Negotiation enabled?
 	NegotiateClientCertificate bool `pulumi:"negotiateClientCertificate"`
 }
@@ -15128,7 +15352,8 @@ type GetServiceHostnameConfigurationDeveloperPortalArgs struct {
 	// The Hostname used for the SCM URL.
 	HostName pulumi.StringInput `pulumi:"hostName"`
 	// The ID of the Key Vault Secret which contains the SSL Certificate.
-	KeyVaultId pulumi.StringInput `pulumi:"keyVaultId"`
+	KeyVaultCertificateId pulumi.StringInput `pulumi:"keyVaultCertificateId"`
+	KeyVaultId            pulumi.StringInput `pulumi:"keyVaultId"`
 	// Is Client Certificate Negotiation enabled?
 	NegotiateClientCertificate pulumi.BoolInput `pulumi:"negotiateClientCertificate"`
 }
@@ -15190,6 +15415,10 @@ func (o GetServiceHostnameConfigurationDeveloperPortalOutput) HostName() pulumi.
 }
 
 // The ID of the Key Vault Secret which contains the SSL Certificate.
+func (o GetServiceHostnameConfigurationDeveloperPortalOutput) KeyVaultCertificateId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetServiceHostnameConfigurationDeveloperPortal) string { return v.KeyVaultCertificateId }).(pulumi.StringOutput)
+}
+
 func (o GetServiceHostnameConfigurationDeveloperPortalOutput) KeyVaultId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetServiceHostnameConfigurationDeveloperPortal) string { return v.KeyVaultId }).(pulumi.StringOutput)
 }
@@ -15223,7 +15452,8 @@ type GetServiceHostnameConfigurationManagement struct {
 	// The Hostname used for the SCM URL.
 	HostName string `pulumi:"hostName"`
 	// The ID of the Key Vault Secret which contains the SSL Certificate.
-	KeyVaultId string `pulumi:"keyVaultId"`
+	KeyVaultCertificateId string `pulumi:"keyVaultCertificateId"`
+	KeyVaultId            string `pulumi:"keyVaultId"`
 	// Is Client Certificate Negotiation enabled?
 	NegotiateClientCertificate bool `pulumi:"negotiateClientCertificate"`
 }
@@ -15243,7 +15473,8 @@ type GetServiceHostnameConfigurationManagementArgs struct {
 	// The Hostname used for the SCM URL.
 	HostName pulumi.StringInput `pulumi:"hostName"`
 	// The ID of the Key Vault Secret which contains the SSL Certificate.
-	KeyVaultId pulumi.StringInput `pulumi:"keyVaultId"`
+	KeyVaultCertificateId pulumi.StringInput `pulumi:"keyVaultCertificateId"`
+	KeyVaultId            pulumi.StringInput `pulumi:"keyVaultId"`
 	// Is Client Certificate Negotiation enabled?
 	NegotiateClientCertificate pulumi.BoolInput `pulumi:"negotiateClientCertificate"`
 }
@@ -15305,6 +15536,10 @@ func (o GetServiceHostnameConfigurationManagementOutput) HostName() pulumi.Strin
 }
 
 // The ID of the Key Vault Secret which contains the SSL Certificate.
+func (o GetServiceHostnameConfigurationManagementOutput) KeyVaultCertificateId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetServiceHostnameConfigurationManagement) string { return v.KeyVaultCertificateId }).(pulumi.StringOutput)
+}
+
 func (o GetServiceHostnameConfigurationManagementOutput) KeyVaultId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetServiceHostnameConfigurationManagement) string { return v.KeyVaultId }).(pulumi.StringOutput)
 }
@@ -15338,7 +15573,8 @@ type GetServiceHostnameConfigurationPortal struct {
 	// The Hostname used for the SCM URL.
 	HostName string `pulumi:"hostName"`
 	// The ID of the Key Vault Secret which contains the SSL Certificate.
-	KeyVaultId string `pulumi:"keyVaultId"`
+	KeyVaultCertificateId string `pulumi:"keyVaultCertificateId"`
+	KeyVaultId            string `pulumi:"keyVaultId"`
 	// Is Client Certificate Negotiation enabled?
 	NegotiateClientCertificate bool `pulumi:"negotiateClientCertificate"`
 }
@@ -15358,7 +15594,8 @@ type GetServiceHostnameConfigurationPortalArgs struct {
 	// The Hostname used for the SCM URL.
 	HostName pulumi.StringInput `pulumi:"hostName"`
 	// The ID of the Key Vault Secret which contains the SSL Certificate.
-	KeyVaultId pulumi.StringInput `pulumi:"keyVaultId"`
+	KeyVaultCertificateId pulumi.StringInput `pulumi:"keyVaultCertificateId"`
+	KeyVaultId            pulumi.StringInput `pulumi:"keyVaultId"`
 	// Is Client Certificate Negotiation enabled?
 	NegotiateClientCertificate pulumi.BoolInput `pulumi:"negotiateClientCertificate"`
 }
@@ -15420,6 +15657,10 @@ func (o GetServiceHostnameConfigurationPortalOutput) HostName() pulumi.StringOut
 }
 
 // The ID of the Key Vault Secret which contains the SSL Certificate.
+func (o GetServiceHostnameConfigurationPortalOutput) KeyVaultCertificateId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetServiceHostnameConfigurationPortal) string { return v.KeyVaultCertificateId }).(pulumi.StringOutput)
+}
+
 func (o GetServiceHostnameConfigurationPortalOutput) KeyVaultId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetServiceHostnameConfigurationPortal) string { return v.KeyVaultId }).(pulumi.StringOutput)
 }
@@ -15455,7 +15696,8 @@ type GetServiceHostnameConfigurationProxy struct {
 	// The Hostname used for the SCM URL.
 	HostName string `pulumi:"hostName"`
 	// The ID of the Key Vault Secret which contains the SSL Certificate.
-	KeyVaultId string `pulumi:"keyVaultId"`
+	KeyVaultCertificateId string `pulumi:"keyVaultCertificateId"`
+	KeyVaultId            string `pulumi:"keyVaultId"`
 	// Is Client Certificate Negotiation enabled?
 	NegotiateClientCertificate bool `pulumi:"negotiateClientCertificate"`
 }
@@ -15477,7 +15719,8 @@ type GetServiceHostnameConfigurationProxyArgs struct {
 	// The Hostname used for the SCM URL.
 	HostName pulumi.StringInput `pulumi:"hostName"`
 	// The ID of the Key Vault Secret which contains the SSL Certificate.
-	KeyVaultId pulumi.StringInput `pulumi:"keyVaultId"`
+	KeyVaultCertificateId pulumi.StringInput `pulumi:"keyVaultCertificateId"`
+	KeyVaultId            pulumi.StringInput `pulumi:"keyVaultId"`
 	// Is Client Certificate Negotiation enabled?
 	NegotiateClientCertificate pulumi.BoolInput `pulumi:"negotiateClientCertificate"`
 }
@@ -15544,6 +15787,10 @@ func (o GetServiceHostnameConfigurationProxyOutput) HostName() pulumi.StringOutp
 }
 
 // The ID of the Key Vault Secret which contains the SSL Certificate.
+func (o GetServiceHostnameConfigurationProxyOutput) KeyVaultCertificateId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetServiceHostnameConfigurationProxy) string { return v.KeyVaultCertificateId }).(pulumi.StringOutput)
+}
+
 func (o GetServiceHostnameConfigurationProxyOutput) KeyVaultId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetServiceHostnameConfigurationProxy) string { return v.KeyVaultId }).(pulumi.StringOutput)
 }
@@ -15577,7 +15824,8 @@ type GetServiceHostnameConfigurationScm struct {
 	// The Hostname used for the SCM URL.
 	HostName string `pulumi:"hostName"`
 	// The ID of the Key Vault Secret which contains the SSL Certificate.
-	KeyVaultId string `pulumi:"keyVaultId"`
+	KeyVaultCertificateId string `pulumi:"keyVaultCertificateId"`
+	KeyVaultId            string `pulumi:"keyVaultId"`
 	// Is Client Certificate Negotiation enabled?
 	NegotiateClientCertificate bool `pulumi:"negotiateClientCertificate"`
 }
@@ -15597,7 +15845,8 @@ type GetServiceHostnameConfigurationScmArgs struct {
 	// The Hostname used for the SCM URL.
 	HostName pulumi.StringInput `pulumi:"hostName"`
 	// The ID of the Key Vault Secret which contains the SSL Certificate.
-	KeyVaultId pulumi.StringInput `pulumi:"keyVaultId"`
+	KeyVaultCertificateId pulumi.StringInput `pulumi:"keyVaultCertificateId"`
+	KeyVaultId            pulumi.StringInput `pulumi:"keyVaultId"`
 	// Is Client Certificate Negotiation enabled?
 	NegotiateClientCertificate pulumi.BoolInput `pulumi:"negotiateClientCertificate"`
 }
@@ -15659,6 +15908,10 @@ func (o GetServiceHostnameConfigurationScmOutput) HostName() pulumi.StringOutput
 }
 
 // The ID of the Key Vault Secret which contains the SSL Certificate.
+func (o GetServiceHostnameConfigurationScmOutput) KeyVaultCertificateId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetServiceHostnameConfigurationScm) string { return v.KeyVaultCertificateId }).(pulumi.StringOutput)
+}
+
 func (o GetServiceHostnameConfigurationScmOutput) KeyVaultId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetServiceHostnameConfigurationScm) string { return v.KeyVaultId }).(pulumi.StringOutput)
 }

@@ -60,6 +60,13 @@ public final class ContainerappFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.App`: 2025-01-01
+     * 
      */
     public static Output<GetAppResult> getApp(GetAppArgs args) {
         return getApp(args, InvokeOptions.Empty);
@@ -102,6 +109,13 @@ public final class ContainerappFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.App`: 2025-01-01
      * 
      */
     public static CompletableFuture<GetAppResult> getAppPlain(GetAppPlainArgs args) {
@@ -146,6 +160,13 @@ public final class ContainerappFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.App`: 2025-01-01
+     * 
      */
     public static Output<GetAppResult> getApp(GetAppArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:containerapp/getApp:getApp", TypeShape.of(GetAppResult.class), args, Utilities.withVersion(options));
@@ -188,6 +209,13 @@ public final class ContainerappFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.App`: 2025-01-01
      * 
      */
     public static Output<GetAppResult> getApp(GetAppArgs args, InvokeOutputOptions options) {
@@ -232,6 +260,13 @@ public final class ContainerappFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.App`: 2025-01-01
+     * 
      */
     public static CompletableFuture<GetAppResult> getAppPlain(GetAppPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("azure:containerapp/getApp:getApp", TypeShape.of(GetAppResult.class), args, Utilities.withVersion(options));
@@ -274,6 +309,15 @@ public final class ContainerappFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.App`: 2025-01-01
+     * 
+     * * `Microsoft.OperationalInsights`: 2020-08-01
      * 
      */
     public static Output<GetEnvironmentResult> getEnvironment(GetEnvironmentArgs args) {
@@ -318,6 +362,15 @@ public final class ContainerappFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.App`: 2025-01-01
+     * 
+     * * `Microsoft.OperationalInsights`: 2020-08-01
+     * 
      */
     public static CompletableFuture<GetEnvironmentResult> getEnvironmentPlain(GetEnvironmentPlainArgs args) {
         return getEnvironmentPlain(args, InvokeOptions.Empty);
@@ -360,6 +413,15 @@ public final class ContainerappFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.App`: 2025-01-01
+     * 
+     * * `Microsoft.OperationalInsights`: 2020-08-01
      * 
      */
     public static Output<GetEnvironmentResult> getEnvironment(GetEnvironmentArgs args, InvokeOptions options) {
@@ -404,6 +466,15 @@ public final class ContainerappFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.App`: 2025-01-01
+     * 
+     * * `Microsoft.OperationalInsights`: 2020-08-01
+     * 
      */
     public static Output<GetEnvironmentResult> getEnvironment(GetEnvironmentArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("azure:containerapp/getEnvironment:getEnvironment", TypeShape.of(GetEnvironmentResult.class), args, Utilities.withVersion(options));
@@ -446,6 +517,15 @@ public final class ContainerappFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.App`: 2025-01-01
+     * 
+     * * `Microsoft.OperationalInsights`: 2020-08-01
      * 
      */
     public static CompletableFuture<GetEnvironmentResult> getEnvironmentPlain(GetEnvironmentPlainArgs args, InvokeOptions options) {
@@ -496,6 +576,13 @@ public final class ContainerappFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.App`: 2025-01-01
+     * 
      */
     public static Output<GetEnvironmentCertificateResult> getEnvironmentCertificate(GetEnvironmentCertificateArgs args) {
         return getEnvironmentCertificate(args, InvokeOptions.Empty);
@@ -544,6 +631,13 @@ public final class ContainerappFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.App`: 2025-01-01
      * 
      */
     public static CompletableFuture<GetEnvironmentCertificateResult> getEnvironmentCertificatePlain(GetEnvironmentCertificatePlainArgs args) {
@@ -594,6 +688,13 @@ public final class ContainerappFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.App`: 2025-01-01
+     * 
      */
     public static Output<GetEnvironmentCertificateResult> getEnvironmentCertificate(GetEnvironmentCertificateArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:containerapp/getEnvironmentCertificate:getEnvironmentCertificate", TypeShape.of(GetEnvironmentCertificateResult.class), args, Utilities.withVersion(options));
@@ -643,6 +744,13 @@ public final class ContainerappFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.App`: 2025-01-01
+     * 
      */
     public static Output<GetEnvironmentCertificateResult> getEnvironmentCertificate(GetEnvironmentCertificateArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("azure:containerapp/getEnvironmentCertificate:getEnvironmentCertificate", TypeShape.of(GetEnvironmentCertificateResult.class), args, Utilities.withVersion(options));
@@ -691,6 +799,13 @@ public final class ContainerappFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.App`: 2025-01-01
      * 
      */
     public static CompletableFuture<GetEnvironmentCertificateResult> getEnvironmentCertificatePlain(GetEnvironmentCertificatePlainArgs args, InvokeOptions options) {

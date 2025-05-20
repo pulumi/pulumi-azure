@@ -28,7 +28,7 @@ namespace Pulumi.Azure.Authorization
     ///     {
     ///         Name = "my-custom-role",
     ///         Scope = primary.Apply(getSubscriptionResult =&gt; getSubscriptionResult.Id),
-    ///         Description = "This is a custom role created",
+    ///         Description = "This is a custom role created via Terraform",
     ///         Permissions = new[]
     ///         {
     ///             new Azure.Authorization.Inputs.RoleDefinitionPermissionArgs
@@ -94,6 +94,13 @@ namespace Pulumi.Azure.Authorization
     /// });
     /// ```
     /// 
+    /// ## API Providers
+    /// 
+    /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+    /// This resource uses the following Azure API Providers:
+    /// 
+    /// * `Microsoft.Authorization`: 2022-05-01-preview
+    /// 
     /// ## Import
     /// 
     /// Role Definitions can be imported using the `resource id`, e.g.
@@ -108,7 +115,7 @@ namespace Pulumi.Azure.Authorization
         /// <summary>
         /// One or more assignable scopes for this Role Definition, such as `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333`, `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup`, `/providers/Microsoft.Management/managementGroups/0b1f6471-1bf0-4dda-aec3-111122223333` , or `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup/providers/Microsoft.Compute/virtualMachines/myVM`.
         /// 
-        /// &gt; **NOTE:** The value for `scope` is automatically included in this list if no other values supplied.
+        /// &gt; **Note:** The value for `scope` is automatically included in this list if no other values supplied.
         /// </summary>
         [Output("assignableScopes")]
         public Output<ImmutableArray<string>> AssignableScopes { get; private set; } = null!;
@@ -205,7 +212,7 @@ namespace Pulumi.Azure.Authorization
         /// <summary>
         /// One or more assignable scopes for this Role Definition, such as `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333`, `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup`, `/providers/Microsoft.Management/managementGroups/0b1f6471-1bf0-4dda-aec3-111122223333` , or `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup/providers/Microsoft.Compute/virtualMachines/myVM`.
         /// 
-        /// &gt; **NOTE:** The value for `scope` is automatically included in this list if no other values supplied.
+        /// &gt; **Note:** The value for `scope` is automatically included in this list if no other values supplied.
         /// </summary>
         public InputList<string> AssignableScopes
         {
@@ -263,7 +270,7 @@ namespace Pulumi.Azure.Authorization
         /// <summary>
         /// One or more assignable scopes for this Role Definition, such as `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333`, `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup`, `/providers/Microsoft.Management/managementGroups/0b1f6471-1bf0-4dda-aec3-111122223333` , or `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup/providers/Microsoft.Compute/virtualMachines/myVM`.
         /// 
-        /// &gt; **NOTE:** The value for `scope` is automatically included in this list if no other values supplied.
+        /// &gt; **Note:** The value for `scope` is automatically included in this list if no other values supplied.
         /// </summary>
         public InputList<string> AssignableScopes
         {

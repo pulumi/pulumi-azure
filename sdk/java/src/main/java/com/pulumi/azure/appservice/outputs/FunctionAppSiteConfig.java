@@ -30,7 +30,7 @@ public final class FunctionAppSiteConfig {
     /**
      * @return The name of the slot to automatically swap to during deployment
      * 
-     * &gt; **NOTE:** This attribute is only used for slots.
+     * &gt; **Note:** This attribute is only used for slots.
      * 
      */
     private @Nullable String autoSwapSlotName;
@@ -67,7 +67,7 @@ public final class FunctionAppSiteConfig {
     /**
      * @return A list of `ip_restriction` objects representing IP restrictions as defined below.
      * 
-     * &gt; **NOTE** User has to explicitly set `ip_restriction` to empty slice (`[]`) to remove it.
+     * &gt; **Note:** User has to explicitly set `ip_restriction` to empty slice (`[]`) to remove it.
      * 
      */
     private @Nullable List<FunctionAppSiteConfigIpRestriction> ipRestrictions;
@@ -99,21 +99,21 @@ public final class FunctionAppSiteConfig {
     /**
      * @return A list of `scm_ip_restriction` objects representing IP restrictions as defined below.
      * 
-     * &gt; **NOTE** User has to explicitly set `scm_ip_restriction` to empty slice (`[]`) to remove it.
+     * &gt; **Note:** User has to explicitly set `scm_ip_restriction` to empty slice (`[]`) to remove it.
      * 
      */
     private @Nullable List<FunctionAppSiteConfigScmIpRestriction> scmIpRestrictions;
     /**
      * @return The type of Source Control used by the Function App. Valid values include: `BitBucketGit`, `BitBucketHg`, `CodePlexGit`, `CodePlexHg`, `Dropbox`, `ExternalGit`, `ExternalHg`, `GitHub`, `LocalGit`, `None` (default), `OneDrive`, `Tfs`, `VSO`, and `VSTSRM`.
      * 
-     * &gt; **NOTE:** This setting is incompatible with the `source_control` block which updates this value based on the setting provided.
+     * &gt; **Note:** This setting is incompatible with the `source_control` block which updates this value based on the setting provided.
      * 
      */
     private @Nullable String scmType;
     /**
      * @return IP security restrictions for scm to use main. Defaults to `false`.
      * 
-     * &gt; **NOTE** Any `scm_ip_restriction` blocks configured are ignored by the service when `scm_use_main_ip_restriction` is set to `true`. Any scm restrictions will become active if this is subsequently set to `false` or removed.
+     * &gt; **Note:** Any `scm_ip_restriction` blocks configured are ignored by the service when `scm_use_main_ip_restriction` is set to `true`. Any scm restrictions will become active if this is subsequently set to `false` or removed.
      * 
      */
     private @Nullable Boolean scmUseMainIpRestriction;
@@ -149,7 +149,7 @@ public final class FunctionAppSiteConfig {
     /**
      * @return The name of the slot to automatically swap to during deployment
      * 
-     * &gt; **NOTE:** This attribute is only used for slots.
+     * &gt; **Note:** This attribute is only used for slots.
      * 
      */
     public Optional<String> autoSwapSlotName() {
@@ -200,7 +200,7 @@ public final class FunctionAppSiteConfig {
     /**
      * @return A list of `ip_restriction` objects representing IP restrictions as defined below.
      * 
-     * &gt; **NOTE** User has to explicitly set `ip_restriction` to empty slice (`[]`) to remove it.
+     * &gt; **Note:** User has to explicitly set `ip_restriction` to empty slice (`[]`) to remove it.
      * 
      */
     public List<FunctionAppSiteConfigIpRestriction> ipRestrictions() {
@@ -244,7 +244,7 @@ public final class FunctionAppSiteConfig {
     /**
      * @return A list of `scm_ip_restriction` objects representing IP restrictions as defined below.
      * 
-     * &gt; **NOTE** User has to explicitly set `scm_ip_restriction` to empty slice (`[]`) to remove it.
+     * &gt; **Note:** User has to explicitly set `scm_ip_restriction` to empty slice (`[]`) to remove it.
      * 
      */
     public List<FunctionAppSiteConfigScmIpRestriction> scmIpRestrictions() {
@@ -253,7 +253,7 @@ public final class FunctionAppSiteConfig {
     /**
      * @return The type of Source Control used by the Function App. Valid values include: `BitBucketGit`, `BitBucketHg`, `CodePlexGit`, `CodePlexHg`, `Dropbox`, `ExternalGit`, `ExternalHg`, `GitHub`, `LocalGit`, `None` (default), `OneDrive`, `Tfs`, `VSO`, and `VSTSRM`.
      * 
-     * &gt; **NOTE:** This setting is incompatible with the `source_control` block which updates this value based on the setting provided.
+     * &gt; **Note:** This setting is incompatible with the `source_control` block which updates this value based on the setting provided.
      * 
      */
     public Optional<String> scmType() {
@@ -262,7 +262,7 @@ public final class FunctionAppSiteConfig {
     /**
      * @return IP security restrictions for scm to use main. Defaults to `false`.
      * 
-     * &gt; **NOTE** Any `scm_ip_restriction` blocks configured are ignored by the service when `scm_use_main_ip_restriction` is set to `true`. Any scm restrictions will become active if this is subsequently set to `false` or removed.
+     * &gt; **Note:** Any `scm_ip_restriction` blocks configured are ignored by the service when `scm_use_main_ip_restriction` is set to `true`. Any scm restrictions will become active if this is subsequently set to `false` or removed.
      * 
      */
     public Optional<Boolean> scmUseMainIpRestriction() {

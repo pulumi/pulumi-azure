@@ -167,7 +167,7 @@ public final class LinuxFunctionAppSlotSiteConfig {
     /**
      * @return Should Functions Runtime Scale Monitoring be enabled.
      * 
-     * &gt; **NOTE:** Functions runtime scale monitoring can only be enabled for Elastic Premium Function Apps or Workflow Standard Logic Apps and requires a minimum prewarmed instance count of 1.
+     * &gt; **Note:** Functions runtime scale monitoring can only be enabled for Elastic Premium Function Apps or Workflow Standard Logic Apps and requires a minimum prewarmed instance count of 1.
      * 
      */
     private @Nullable Boolean runtimeScaleMonitoringEnabled;
@@ -424,7 +424,7 @@ public final class LinuxFunctionAppSlotSiteConfig {
     /**
      * @return Should Functions Runtime Scale Monitoring be enabled.
      * 
-     * &gt; **NOTE:** Functions runtime scale monitoring can only be enabled for Elastic Premium Function Apps or Workflow Standard Logic Apps and requires a minimum prewarmed instance count of 1.
+     * &gt; **Note:** Functions runtime scale monitoring can only be enabled for Elastic Premium Function Apps or Workflow Standard Logic Apps and requires a minimum prewarmed instance count of 1.
      * 
      */
     public Optional<Boolean> runtimeScaleMonitoringEnabled() {

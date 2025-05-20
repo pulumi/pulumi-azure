@@ -73,6 +73,13 @@ import javax.annotation.Nullable;
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
+ * ## API Providers
+ * 
+ * &lt;!-- This section is generated, changes will be overwritten --&gt;
+ * This resource uses the following Azure API Providers:
+ * 
+ * * `Microsoft.Devices`: 2022-02-05
+ * 
  * ## Import
  * 
  * IoT Device Provisioning Service can be imported using the `resource id`, e.g.
@@ -99,14 +106,14 @@ public class IotHubDps extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.allocationPolicy);
     }
     /**
-     * Specifies if the IoT Device Provisioning Service has data residency and disaster recovery enabled. Defaults to `false`. Changing this forces a new resource to be created.
+     * Specifies if the IoT Device Provisioning Service has data residency enabled, removing the cross geo-pair disaster recovery. Defaults to `false`. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="dataResidencyEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> dataResidencyEnabled;
 
     /**
-     * @return Specifies if the IoT Device Provisioning Service has data residency and disaster recovery enabled. Defaults to `false`. Changing this forces a new resource to be created.
+     * @return Specifies if the IoT Device Provisioning Service has data residency enabled, removing the cross geo-pair disaster recovery. Defaults to `false`. Changing this forces a new resource to be created.
      * 
      */
     public Output<Optional<Boolean>> dataResidencyEnabled() {

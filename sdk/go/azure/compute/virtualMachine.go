@@ -16,7 +16,7 @@ import (
 //
 // ## Disclaimers
 //
-// > **Note:** The `compute.VirtualMachine` resource has been superseded by the `compute.LinuxVirtualMachine` and `compute.WindowsVirtualMachine` resources. The existing `compute.VirtualMachine` resource will continue to be available throughout the 2.x releases however is in a feature-frozen state to maintain compatibility - new functionality will instead be added to the `compute.LinuxVirtualMachine` and `compute.WindowsVirtualMachine` resources.
+// > **Note:** The `compute.VirtualMachine` resource has been superseded by the `compute.LinuxVirtualMachine` and `compute.WindowsVirtualMachine` resources. The existing `compute.VirtualMachine` resource will continue to be available throughout the 3.x releases however is in a feature-frozen state to maintain compatibility - new functionality will instead be added to the `compute.LinuxVirtualMachine` and `compute.WindowsVirtualMachine` resources.
 //
 // > **Note:** Data Disks can be attached either directly on the `compute.VirtualMachine` resource, or using the `compute.DataDiskAttachment` resource - but the two cannot be used together. If both are used against the same Virtual Machine, spurious changes will occur.
 //
@@ -24,7 +24,7 @@ import (
 //
 // ### From An Azure Platform Image)
 //
-// This example provisions a Virtual Machine with Managed Disks.
+// This example provisions a Virtual Machine with Managed Disks. Other examples of the `compute.VirtualMachine` resource can be found in the `./examples/virtual-machines` directory within the GitHub Repository
 //
 // ```go
 // package main
@@ -148,15 +148,9 @@ type VirtualMachine struct {
 	// The ID of the Availability Set in which the Virtual Machine should exist. Changing this forces a new resource to be created.
 	AvailabilitySetId pulumi.StringOutput `pulumi:"availabilitySetId"`
 	// A `bootDiagnostics` block as defined below.
-	BootDiagnostics VirtualMachineBootDiagnosticsPtrOutput `pulumi:"bootDiagnostics"`
-	// Should the Data Disks (either the Managed Disks / VHD Blobs) be deleted when the Virtual Machine is destroyed? Defaults to `false`.
-	//
-	// > **Note:** This setting works when instance is deleted via the provider only and don't forget to delete disks manually if you deleted VM manually. It can increase spending.
-	DeleteDataDisksOnTermination pulumi.BoolPtrOutput `pulumi:"deleteDataDisksOnTermination"`
-	// Should the OS Disk (either the Managed Disk / VHD Blob) be deleted when the Virtual Machine is destroyed? Defaults to `false`.
-	//
-	// > **Note:** This setting works when instance is deleted via the provider only and don't forget to delete disks manually if you deleted VM manually. It can increase spending.
-	DeleteOsDiskOnTermination pulumi.BoolPtrOutput `pulumi:"deleteOsDiskOnTermination"`
+	BootDiagnostics              VirtualMachineBootDiagnosticsPtrOutput `pulumi:"bootDiagnostics"`
+	DeleteDataDisksOnTermination pulumi.BoolPtrOutput                   `pulumi:"deleteDataDisksOnTermination"`
+	DeleteOsDiskOnTermination    pulumi.BoolPtrOutput                   `pulumi:"deleteOsDiskOnTermination"`
 	// An `identity` block as defined below.
 	Identity VirtualMachineIdentityPtrOutput `pulumi:"identity"`
 	// Specifies the BYOL Type for this Virtual Machine. This is only applicable to Windows Virtual Machines. Possible values are `Windows_Client` and `Windows_Server`.
@@ -185,7 +179,7 @@ type VirtualMachine struct {
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// One or more `storageDataDisk` blocks as defined below.
 	//
-	// > **Please Note:** Data Disks can also be attached either using this block or the `compute.DataDiskAttachment` resource - but not both.
+	// > **Note:** Data Disks can also be attached either using this block or the `compute.DataDiskAttachment` resource - but not both.
 	StorageDataDisks VirtualMachineStorageDataDiskArrayOutput `pulumi:"storageDataDisks"`
 	// A `storageImageReference` block as defined below. Changing this forces a new resource to be created.
 	StorageImageReference VirtualMachineStorageImageReferenceOutput `pulumi:"storageImageReference"`
@@ -197,7 +191,7 @@ type VirtualMachine struct {
 	VmSize pulumi.StringOutput `pulumi:"vmSize"`
 	// A list of a single item of the Availability Zone which the Virtual Machine should be allocated in. Changing this forces a new resource to be created.
 	//
-	// > **Please Note:** Availability Zones are [only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview).
+	// > **Note:** Availability Zones are [only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview).
 	//
 	// For more information on the different example configurations, please check out the [Azure documentation](https://docs.microsoft.com/en-gb/rest/api/compute/virtualmachines/createorupdate#examples)
 	Zones pulumi.StringPtrOutput `pulumi:"zones"`
@@ -250,15 +244,9 @@ type virtualMachineState struct {
 	// The ID of the Availability Set in which the Virtual Machine should exist. Changing this forces a new resource to be created.
 	AvailabilitySetId *string `pulumi:"availabilitySetId"`
 	// A `bootDiagnostics` block as defined below.
-	BootDiagnostics *VirtualMachineBootDiagnostics `pulumi:"bootDiagnostics"`
-	// Should the Data Disks (either the Managed Disks / VHD Blobs) be deleted when the Virtual Machine is destroyed? Defaults to `false`.
-	//
-	// > **Note:** This setting works when instance is deleted via the provider only and don't forget to delete disks manually if you deleted VM manually. It can increase spending.
-	DeleteDataDisksOnTermination *bool `pulumi:"deleteDataDisksOnTermination"`
-	// Should the OS Disk (either the Managed Disk / VHD Blob) be deleted when the Virtual Machine is destroyed? Defaults to `false`.
-	//
-	// > **Note:** This setting works when instance is deleted via the provider only and don't forget to delete disks manually if you deleted VM manually. It can increase spending.
-	DeleteOsDiskOnTermination *bool `pulumi:"deleteOsDiskOnTermination"`
+	BootDiagnostics              *VirtualMachineBootDiagnostics `pulumi:"bootDiagnostics"`
+	DeleteDataDisksOnTermination *bool                          `pulumi:"deleteDataDisksOnTermination"`
+	DeleteOsDiskOnTermination    *bool                          `pulumi:"deleteOsDiskOnTermination"`
 	// An `identity` block as defined below.
 	Identity *VirtualMachineIdentity `pulumi:"identity"`
 	// Specifies the BYOL Type for this Virtual Machine. This is only applicable to Windows Virtual Machines. Possible values are `Windows_Client` and `Windows_Server`.
@@ -287,7 +275,7 @@ type virtualMachineState struct {
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// One or more `storageDataDisk` blocks as defined below.
 	//
-	// > **Please Note:** Data Disks can also be attached either using this block or the `compute.DataDiskAttachment` resource - but not both.
+	// > **Note:** Data Disks can also be attached either using this block or the `compute.DataDiskAttachment` resource - but not both.
 	StorageDataDisks []VirtualMachineStorageDataDisk `pulumi:"storageDataDisks"`
 	// A `storageImageReference` block as defined below. Changing this forces a new resource to be created.
 	StorageImageReference *VirtualMachineStorageImageReference `pulumi:"storageImageReference"`
@@ -299,7 +287,7 @@ type virtualMachineState struct {
 	VmSize *string `pulumi:"vmSize"`
 	// A list of a single item of the Availability Zone which the Virtual Machine should be allocated in. Changing this forces a new resource to be created.
 	//
-	// > **Please Note:** Availability Zones are [only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview).
+	// > **Note:** Availability Zones are [only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview).
 	//
 	// For more information on the different example configurations, please check out the [Azure documentation](https://docs.microsoft.com/en-gb/rest/api/compute/virtualmachines/createorupdate#examples)
 	Zones *string `pulumi:"zones"`
@@ -311,15 +299,9 @@ type VirtualMachineState struct {
 	// The ID of the Availability Set in which the Virtual Machine should exist. Changing this forces a new resource to be created.
 	AvailabilitySetId pulumi.StringPtrInput
 	// A `bootDiagnostics` block as defined below.
-	BootDiagnostics VirtualMachineBootDiagnosticsPtrInput
-	// Should the Data Disks (either the Managed Disks / VHD Blobs) be deleted when the Virtual Machine is destroyed? Defaults to `false`.
-	//
-	// > **Note:** This setting works when instance is deleted via the provider only and don't forget to delete disks manually if you deleted VM manually. It can increase spending.
+	BootDiagnostics              VirtualMachineBootDiagnosticsPtrInput
 	DeleteDataDisksOnTermination pulumi.BoolPtrInput
-	// Should the OS Disk (either the Managed Disk / VHD Blob) be deleted when the Virtual Machine is destroyed? Defaults to `false`.
-	//
-	// > **Note:** This setting works when instance is deleted via the provider only and don't forget to delete disks manually if you deleted VM manually. It can increase spending.
-	DeleteOsDiskOnTermination pulumi.BoolPtrInput
+	DeleteOsDiskOnTermination    pulumi.BoolPtrInput
 	// An `identity` block as defined below.
 	Identity VirtualMachineIdentityPtrInput
 	// Specifies the BYOL Type for this Virtual Machine. This is only applicable to Windows Virtual Machines. Possible values are `Windows_Client` and `Windows_Server`.
@@ -348,7 +330,7 @@ type VirtualMachineState struct {
 	ResourceGroupName pulumi.StringPtrInput
 	// One or more `storageDataDisk` blocks as defined below.
 	//
-	// > **Please Note:** Data Disks can also be attached either using this block or the `compute.DataDiskAttachment` resource - but not both.
+	// > **Note:** Data Disks can also be attached either using this block or the `compute.DataDiskAttachment` resource - but not both.
 	StorageDataDisks VirtualMachineStorageDataDiskArrayInput
 	// A `storageImageReference` block as defined below. Changing this forces a new resource to be created.
 	StorageImageReference VirtualMachineStorageImageReferencePtrInput
@@ -360,7 +342,7 @@ type VirtualMachineState struct {
 	VmSize pulumi.StringPtrInput
 	// A list of a single item of the Availability Zone which the Virtual Machine should be allocated in. Changing this forces a new resource to be created.
 	//
-	// > **Please Note:** Availability Zones are [only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview).
+	// > **Note:** Availability Zones are [only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview).
 	//
 	// For more information on the different example configurations, please check out the [Azure documentation](https://docs.microsoft.com/en-gb/rest/api/compute/virtualmachines/createorupdate#examples)
 	Zones pulumi.StringPtrInput
@@ -376,15 +358,9 @@ type virtualMachineArgs struct {
 	// The ID of the Availability Set in which the Virtual Machine should exist. Changing this forces a new resource to be created.
 	AvailabilitySetId *string `pulumi:"availabilitySetId"`
 	// A `bootDiagnostics` block as defined below.
-	BootDiagnostics *VirtualMachineBootDiagnostics `pulumi:"bootDiagnostics"`
-	// Should the Data Disks (either the Managed Disks / VHD Blobs) be deleted when the Virtual Machine is destroyed? Defaults to `false`.
-	//
-	// > **Note:** This setting works when instance is deleted via the provider only and don't forget to delete disks manually if you deleted VM manually. It can increase spending.
-	DeleteDataDisksOnTermination *bool `pulumi:"deleteDataDisksOnTermination"`
-	// Should the OS Disk (either the Managed Disk / VHD Blob) be deleted when the Virtual Machine is destroyed? Defaults to `false`.
-	//
-	// > **Note:** This setting works when instance is deleted via the provider only and don't forget to delete disks manually if you deleted VM manually. It can increase spending.
-	DeleteOsDiskOnTermination *bool `pulumi:"deleteOsDiskOnTermination"`
+	BootDiagnostics              *VirtualMachineBootDiagnostics `pulumi:"bootDiagnostics"`
+	DeleteDataDisksOnTermination *bool                          `pulumi:"deleteDataDisksOnTermination"`
+	DeleteOsDiskOnTermination    *bool                          `pulumi:"deleteOsDiskOnTermination"`
 	// An `identity` block as defined below.
 	Identity *VirtualMachineIdentity `pulumi:"identity"`
 	// Specifies the BYOL Type for this Virtual Machine. This is only applicable to Windows Virtual Machines. Possible values are `Windows_Client` and `Windows_Server`.
@@ -413,7 +389,7 @@ type virtualMachineArgs struct {
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// One or more `storageDataDisk` blocks as defined below.
 	//
-	// > **Please Note:** Data Disks can also be attached either using this block or the `compute.DataDiskAttachment` resource - but not both.
+	// > **Note:** Data Disks can also be attached either using this block or the `compute.DataDiskAttachment` resource - but not both.
 	StorageDataDisks []VirtualMachineStorageDataDisk `pulumi:"storageDataDisks"`
 	// A `storageImageReference` block as defined below. Changing this forces a new resource to be created.
 	StorageImageReference *VirtualMachineStorageImageReference `pulumi:"storageImageReference"`
@@ -425,7 +401,7 @@ type virtualMachineArgs struct {
 	VmSize string `pulumi:"vmSize"`
 	// A list of a single item of the Availability Zone which the Virtual Machine should be allocated in. Changing this forces a new resource to be created.
 	//
-	// > **Please Note:** Availability Zones are [only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview).
+	// > **Note:** Availability Zones are [only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview).
 	//
 	// For more information on the different example configurations, please check out the [Azure documentation](https://docs.microsoft.com/en-gb/rest/api/compute/virtualmachines/createorupdate#examples)
 	Zones *string `pulumi:"zones"`
@@ -438,15 +414,9 @@ type VirtualMachineArgs struct {
 	// The ID of the Availability Set in which the Virtual Machine should exist. Changing this forces a new resource to be created.
 	AvailabilitySetId pulumi.StringPtrInput
 	// A `bootDiagnostics` block as defined below.
-	BootDiagnostics VirtualMachineBootDiagnosticsPtrInput
-	// Should the Data Disks (either the Managed Disks / VHD Blobs) be deleted when the Virtual Machine is destroyed? Defaults to `false`.
-	//
-	// > **Note:** This setting works when instance is deleted via the provider only and don't forget to delete disks manually if you deleted VM manually. It can increase spending.
+	BootDiagnostics              VirtualMachineBootDiagnosticsPtrInput
 	DeleteDataDisksOnTermination pulumi.BoolPtrInput
-	// Should the OS Disk (either the Managed Disk / VHD Blob) be deleted when the Virtual Machine is destroyed? Defaults to `false`.
-	//
-	// > **Note:** This setting works when instance is deleted via the provider only and don't forget to delete disks manually if you deleted VM manually. It can increase spending.
-	DeleteOsDiskOnTermination pulumi.BoolPtrInput
+	DeleteOsDiskOnTermination    pulumi.BoolPtrInput
 	// An `identity` block as defined below.
 	Identity VirtualMachineIdentityPtrInput
 	// Specifies the BYOL Type for this Virtual Machine. This is only applicable to Windows Virtual Machines. Possible values are `Windows_Client` and `Windows_Server`.
@@ -475,7 +445,7 @@ type VirtualMachineArgs struct {
 	ResourceGroupName pulumi.StringInput
 	// One or more `storageDataDisk` blocks as defined below.
 	//
-	// > **Please Note:** Data Disks can also be attached either using this block or the `compute.DataDiskAttachment` resource - but not both.
+	// > **Note:** Data Disks can also be attached either using this block or the `compute.DataDiskAttachment` resource - but not both.
 	StorageDataDisks VirtualMachineStorageDataDiskArrayInput
 	// A `storageImageReference` block as defined below. Changing this forces a new resource to be created.
 	StorageImageReference VirtualMachineStorageImageReferencePtrInput
@@ -487,7 +457,7 @@ type VirtualMachineArgs struct {
 	VmSize pulumi.StringInput
 	// A list of a single item of the Availability Zone which the Virtual Machine should be allocated in. Changing this forces a new resource to be created.
 	//
-	// > **Please Note:** Availability Zones are [only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview).
+	// > **Note:** Availability Zones are [only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview).
 	//
 	// For more information on the different example configurations, please check out the [Azure documentation](https://docs.microsoft.com/en-gb/rest/api/compute/virtualmachines/createorupdate#examples)
 	Zones pulumi.StringPtrInput
@@ -595,16 +565,10 @@ func (o VirtualMachineOutput) BootDiagnostics() VirtualMachineBootDiagnosticsPtr
 	return o.ApplyT(func(v *VirtualMachine) VirtualMachineBootDiagnosticsPtrOutput { return v.BootDiagnostics }).(VirtualMachineBootDiagnosticsPtrOutput)
 }
 
-// Should the Data Disks (either the Managed Disks / VHD Blobs) be deleted when the Virtual Machine is destroyed? Defaults to `false`.
-//
-// > **Note:** This setting works when instance is deleted via the provider only and don't forget to delete disks manually if you deleted VM manually. It can increase spending.
 func (o VirtualMachineOutput) DeleteDataDisksOnTermination() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *VirtualMachine) pulumi.BoolPtrOutput { return v.DeleteDataDisksOnTermination }).(pulumi.BoolPtrOutput)
 }
 
-// Should the OS Disk (either the Managed Disk / VHD Blob) be deleted when the Virtual Machine is destroyed? Defaults to `false`.
-//
-// > **Note:** This setting works when instance is deleted via the provider only and don't forget to delete disks manually if you deleted VM manually. It can increase spending.
 func (o VirtualMachineOutput) DeleteOsDiskOnTermination() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *VirtualMachine) pulumi.BoolPtrOutput { return v.DeleteOsDiskOnTermination }).(pulumi.BoolPtrOutput)
 }
@@ -676,7 +640,7 @@ func (o VirtualMachineOutput) ResourceGroupName() pulumi.StringOutput {
 
 // One or more `storageDataDisk` blocks as defined below.
 //
-// > **Please Note:** Data Disks can also be attached either using this block or the `compute.DataDiskAttachment` resource - but not both.
+// > **Note:** Data Disks can also be attached either using this block or the `compute.DataDiskAttachment` resource - but not both.
 func (o VirtualMachineOutput) StorageDataDisks() VirtualMachineStorageDataDiskArrayOutput {
 	return o.ApplyT(func(v *VirtualMachine) VirtualMachineStorageDataDiskArrayOutput { return v.StorageDataDisks }).(VirtualMachineStorageDataDiskArrayOutput)
 }
@@ -703,7 +667,7 @@ func (o VirtualMachineOutput) VmSize() pulumi.StringOutput {
 
 // A list of a single item of the Availability Zone which the Virtual Machine should be allocated in. Changing this forces a new resource to be created.
 //
-// > **Please Note:** Availability Zones are [only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview).
+// > **Note:** Availability Zones are [only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview).
 //
 // For more information on the different example configurations, please check out the [Azure documentation](https://docs.microsoft.com/en-gb/rest/api/compute/virtualmachines/createorupdate#examples)
 func (o VirtualMachineOutput) Zones() pulumi.StringPtrOutput {

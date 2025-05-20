@@ -283,6 +283,13 @@ class TxtRecord(pulumi.CustomResource):
             })
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Network`: 2018-05-01
+
         ## Import
 
         TXT records can be imported using the `resource id`, e.g.
@@ -336,6 +343,13 @@ class TxtRecord(pulumi.CustomResource):
                 "Environment": "Production",
             })
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Network`: 2018-05-01
 
         ## Import
 

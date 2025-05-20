@@ -158,6 +158,13 @@ def get_resource_bridge_appliance(name: Optional[builtins.str] = None,
     pulumi.export("id", example.id)
     ```
 
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.ResourceConnector`: 2022-10-27
+
 
     :param builtins.str name: The name of this Arc Resource Bridge Appliance.
     :param builtins.str resource_group_name: The name of the Resource Group where the Arc Resource Bridge Appliance exists.
@@ -194,6 +201,13 @@ def get_resource_bridge_appliance_output(name: Optional[pulumi.Input[builtins.st
         resource_group_name="existing")
     pulumi.export("id", example.id)
     ```
+
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.ResourceConnector`: 2022-10-27
 
 
     :param builtins.str name: The name of this Arc Resource Bridge Appliance.

@@ -181,6 +181,13 @@ def get_certificate(name: Optional[builtins.str] = None,
     pulumi.export("id", example.id)
     ```
 
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Nginx.NginxPlus`: 2024-11-01-preview
+
 
     :param builtins.str name: The name of the NGINX Certificate.
     :param builtins.str nginx_deployment_id: The ID of the NGINX Deployment that the certificate is associated with.
@@ -219,6 +226,13 @@ def get_certificate_output(name: Optional[pulumi.Input[builtins.str]] = None,
         nginx_deployment_id=example_azurerm_nginx_deployment["id"])
     pulumi.export("id", example.id)
     ```
+
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Nginx.NginxPlus`: 2024-11-01-preview
 
 
     :param builtins.str name: The name of the NGINX Certificate.

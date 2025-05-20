@@ -24,7 +24,7 @@ type AccountActiveDirectory struct {
 	KerberosAdName *string `pulumi:"kerberosAdName"`
 	// kdc server IP addresses for the active directory machine.
 	//
-	// > **IMPORTANT:** If you plan on using **Kerberos** volumes, both `adName` and `kdcIp` are required in order to create the volume.
+	// > **Note:** If you plan on using **Kerberos** volumes, both `adName` and `kdcIp` are required in order to create the volume.
 	KerberosKdcIp *string `pulumi:"kerberosKdcIp"`
 	// Specifies whether or not the LDAP traffic needs to be secured via TLS. Defaults to `false`.
 	LdapOverTlsEnabled *bool `pulumi:"ldapOverTlsEnabled"`
@@ -68,7 +68,7 @@ type AccountActiveDirectoryArgs struct {
 	KerberosAdName pulumi.StringPtrInput `pulumi:"kerberosAdName"`
 	// kdc server IP addresses for the active directory machine.
 	//
-	// > **IMPORTANT:** If you plan on using **Kerberos** volumes, both `adName` and `kdcIp` are required in order to create the volume.
+	// > **Note:** If you plan on using **Kerberos** volumes, both `adName` and `kdcIp` are required in order to create the volume.
 	KerberosKdcIp pulumi.StringPtrInput `pulumi:"kerberosKdcIp"`
 	// Specifies whether or not the LDAP traffic needs to be secured via TLS. Defaults to `false`.
 	LdapOverTlsEnabled pulumi.BoolPtrInput `pulumi:"ldapOverTlsEnabled"`
@@ -189,7 +189,7 @@ func (o AccountActiveDirectoryOutput) KerberosAdName() pulumi.StringPtrOutput {
 
 // kdc server IP addresses for the active directory machine.
 //
-// > **IMPORTANT:** If you plan on using **Kerberos** volumes, both `adName` and `kdcIp` are required in order to create the volume.
+// > **Note:** If you plan on using **Kerberos** volumes, both `adName` and `kdcIp` are required in order to create the volume.
 func (o AccountActiveDirectoryOutput) KerberosKdcIp() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AccountActiveDirectory) *string { return v.KerberosKdcIp }).(pulumi.StringPtrOutput)
 }
@@ -305,7 +305,7 @@ func (o AccountActiveDirectoryPtrOutput) KerberosAdName() pulumi.StringPtrOutput
 
 // kdc server IP addresses for the active directory machine.
 //
-// > **IMPORTANT:** If you plan on using **Kerberos** volumes, both `adName` and `kdcIp` are required in order to create the volume.
+// > **Note:** If you plan on using **Kerberos** volumes, both `adName` and `kdcIp` are required in order to create the volume.
 func (o AccountActiveDirectoryPtrOutput) KerberosKdcIp() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AccountActiveDirectory) *string {
 		if v == nil {
@@ -1504,7 +1504,7 @@ type VolumeDataProtectionReplication struct {
 	//
 	// A full example of the `dataProtectionReplication` attribute can be found in the `./examples/netapp/volume_crr` directory within the GitHub Repository
 	//
-	// > **NOTE:** `dataProtectionReplication` can be defined only once per secondary volume, adding a second instance of it is not supported.
+	// > **Note:** `dataProtectionReplication` can be defined only once per secondary volume, adding a second instance of it is not supported.
 	ReplicationFrequency string `pulumi:"replicationFrequency"`
 }
 
@@ -1530,7 +1530,7 @@ type VolumeDataProtectionReplicationArgs struct {
 	//
 	// A full example of the `dataProtectionReplication` attribute can be found in the `./examples/netapp/volume_crr` directory within the GitHub Repository
 	//
-	// > **NOTE:** `dataProtectionReplication` can be defined only once per secondary volume, adding a second instance of it is not supported.
+	// > **Note:** `dataProtectionReplication` can be defined only once per secondary volume, adding a second instance of it is not supported.
 	ReplicationFrequency pulumi.StringInput `pulumi:"replicationFrequency"`
 }
 
@@ -1630,7 +1630,7 @@ func (o VolumeDataProtectionReplicationOutput) RemoteVolumeResourceId() pulumi.S
 //
 // A full example of the `dataProtectionReplication` attribute can be found in the `./examples/netapp/volume_crr` directory within the GitHub Repository
 //
-// > **NOTE:** `dataProtectionReplication` can be defined only once per secondary volume, adding a second instance of it is not supported.
+// > **Note:** `dataProtectionReplication` can be defined only once per secondary volume, adding a second instance of it is not supported.
 func (o VolumeDataProtectionReplicationOutput) ReplicationFrequency() pulumi.StringOutput {
 	return o.ApplyT(func(v VolumeDataProtectionReplication) string { return v.ReplicationFrequency }).(pulumi.StringOutput)
 }
@@ -1693,7 +1693,7 @@ func (o VolumeDataProtectionReplicationPtrOutput) RemoteVolumeResourceId() pulum
 //
 // A full example of the `dataProtectionReplication` attribute can be found in the `./examples/netapp/volume_crr` directory within the GitHub Repository
 //
-// > **NOTE:** `dataProtectionReplication` can be defined only once per secondary volume, adding a second instance of it is not supported.
+// > **Note:** `dataProtectionReplication` can be defined only once per secondary volume, adding a second instance of it is not supported.
 func (o VolumeDataProtectionReplicationPtrOutput) ReplicationFrequency() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VolumeDataProtectionReplication) *string {
 		if v == nil {
@@ -1708,7 +1708,7 @@ type VolumeDataProtectionSnapshotPolicy struct {
 	//
 	// A full example of the `dataProtectionSnapshotPolicy` attribute usage can be found in the `./examples/netapp/nfsv3_volume_with_snapshot_policy` directory within the GitHub Repository
 	//
-	// > **NOTE:** `dataProtectionSnapshotPolicy` block can be used alone or with dataProtectionReplication in the primary volume only, if enabling it in the secondary, an error will be thrown.
+	// > **Note:** `dataProtectionSnapshotPolicy` block can be used alone or with dataProtectionReplication in the primary volume only, if enabling it in the secondary, an error will be thrown.
 	SnapshotPolicyId string `pulumi:"snapshotPolicyId"`
 }
 
@@ -1728,7 +1728,7 @@ type VolumeDataProtectionSnapshotPolicyArgs struct {
 	//
 	// A full example of the `dataProtectionSnapshotPolicy` attribute usage can be found in the `./examples/netapp/nfsv3_volume_with_snapshot_policy` directory within the GitHub Repository
 	//
-	// > **NOTE:** `dataProtectionSnapshotPolicy` block can be used alone or with dataProtectionReplication in the primary volume only, if enabling it in the secondary, an error will be thrown.
+	// > **Note:** `dataProtectionSnapshotPolicy` block can be used alone or with dataProtectionReplication in the primary volume only, if enabling it in the secondary, an error will be thrown.
 	SnapshotPolicyId pulumi.StringInput `pulumi:"snapshotPolicyId"`
 }
 
@@ -1813,7 +1813,7 @@ func (o VolumeDataProtectionSnapshotPolicyOutput) ToVolumeDataProtectionSnapshot
 //
 // A full example of the `dataProtectionSnapshotPolicy` attribute usage can be found in the `./examples/netapp/nfsv3_volume_with_snapshot_policy` directory within the GitHub Repository
 //
-// > **NOTE:** `dataProtectionSnapshotPolicy` block can be used alone or with dataProtectionReplication in the primary volume only, if enabling it in the secondary, an error will be thrown.
+// > **Note:** `dataProtectionSnapshotPolicy` block can be used alone or with dataProtectionReplication in the primary volume only, if enabling it in the secondary, an error will be thrown.
 func (o VolumeDataProtectionSnapshotPolicyOutput) SnapshotPolicyId() pulumi.StringOutput {
 	return o.ApplyT(func(v VolumeDataProtectionSnapshotPolicy) string { return v.SnapshotPolicyId }).(pulumi.StringOutput)
 }
@@ -1846,7 +1846,7 @@ func (o VolumeDataProtectionSnapshotPolicyPtrOutput) Elem() VolumeDataProtection
 //
 // A full example of the `dataProtectionSnapshotPolicy` attribute usage can be found in the `./examples/netapp/nfsv3_volume_with_snapshot_policy` directory within the GitHub Repository
 //
-// > **NOTE:** `dataProtectionSnapshotPolicy` block can be used alone or with dataProtectionReplication in the primary volume only, if enabling it in the secondary, an error will be thrown.
+// > **Note:** `dataProtectionSnapshotPolicy` block can be used alone or with dataProtectionReplication in the primary volume only, if enabling it in the secondary, an error will be thrown.
 func (o VolumeDataProtectionSnapshotPolicyPtrOutput) SnapshotPolicyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VolumeDataProtectionSnapshotPolicy) *string {
 		if v == nil {
@@ -2074,7 +2074,7 @@ type VolumeGroupOracleVolume struct {
 	Protocols string `pulumi:"protocols"`
 	// The ID of the proximity placement group (PPG). Changing this forces a new Application Volume Group to be created and data will be lost.
 	//
-	// > **NOTE**: For Oracle application, it is required to have PPG enabled so Azure NetApp Files can pin the volumes next to your compute resources, please check [Requirements and considerations for application volume group for Oracle](https://learn.microsoft.com/en-us/azure/azure-netapp-files/application-volume-group-oracle-considerations) for details and other requirements. Note that this cannot be used together with `zone`.
+	// > **Note:** For Oracle application, it is required to have PPG enabled so Azure NetApp Files can pin the volumes next to your compute resources, please check [Requirements and considerations for application volume group for Oracle](https://learn.microsoft.com/en-us/azure/azure-netapp-files/application-volume-group-oracle-considerations) for details and other requirements. Note that this cannot be used together with `zone`.
 	ProximityPlacementGroupId *string `pulumi:"proximityPlacementGroupId"`
 	// Volume security style. Possible values are `ntfs` and `unix`. Changing this forces a new Application Volume Group to be created and data will be lost.
 	SecurityStyle string `pulumi:"securityStyle"`
@@ -2131,7 +2131,7 @@ type VolumeGroupOracleVolumeArgs struct {
 	Protocols pulumi.StringInput `pulumi:"protocols"`
 	// The ID of the proximity placement group (PPG). Changing this forces a new Application Volume Group to be created and data will be lost.
 	//
-	// > **NOTE**: For Oracle application, it is required to have PPG enabled so Azure NetApp Files can pin the volumes next to your compute resources, please check [Requirements and considerations for application volume group for Oracle](https://learn.microsoft.com/en-us/azure/azure-netapp-files/application-volume-group-oracle-considerations) for details and other requirements. Note that this cannot be used together with `zone`.
+	// > **Note:** For Oracle application, it is required to have PPG enabled so Azure NetApp Files can pin the volumes next to your compute resources, please check [Requirements and considerations for application volume group for Oracle](https://learn.microsoft.com/en-us/azure/azure-netapp-files/application-volume-group-oracle-considerations) for details and other requirements. Note that this cannot be used together with `zone`.
 	ProximityPlacementGroupId pulumi.StringPtrInput `pulumi:"proximityPlacementGroupId"`
 	// Volume security style. Possible values are `ntfs` and `unix`. Changing this forces a new Application Volume Group to be created and data will be lost.
 	SecurityStyle pulumi.StringInput `pulumi:"securityStyle"`
@@ -2259,7 +2259,7 @@ func (o VolumeGroupOracleVolumeOutput) Protocols() pulumi.StringOutput {
 
 // The ID of the proximity placement group (PPG). Changing this forces a new Application Volume Group to be created and data will be lost.
 //
-// > **NOTE**: For Oracle application, it is required to have PPG enabled so Azure NetApp Files can pin the volumes next to your compute resources, please check [Requirements and considerations for application volume group for Oracle](https://learn.microsoft.com/en-us/azure/azure-netapp-files/application-volume-group-oracle-considerations) for details and other requirements. Note that this cannot be used together with `zone`.
+// > **Note:** For Oracle application, it is required to have PPG enabled so Azure NetApp Files can pin the volumes next to your compute resources, please check [Requirements and considerations for application volume group for Oracle](https://learn.microsoft.com/en-us/azure/azure-netapp-files/application-volume-group-oracle-considerations) for details and other requirements. Note that this cannot be used together with `zone`.
 func (o VolumeGroupOracleVolumeOutput) ProximityPlacementGroupId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VolumeGroupOracleVolume) *string { return v.ProximityPlacementGroupId }).(pulumi.StringPtrOutput)
 }

@@ -131,7 +131,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
     /**
      * An list of `language_extensions` to enable. Valid values are: `PYTHON`, `PYTHON_3.10.8` and `R`. `PYTHON` is used to specify Python 3.6.5 image and `PYTHON_3.10.8` is used to specify Python 3.10.8 image. Note that `PYTHON_3.10.8` is only available in skus which support nested virtualization.
      * 
-     * &gt; **NOTE:** In `v4.0.0` and later version of the AzureRM Provider, `language_extensions` will be changed to a list of `language_extension` block. In each block, `name` and `image` are required. `name` is the name of the language extension, possible values are `PYTHON`, `R`. `image` is the image of the language extension, possible values are `Python3_6_5`, `Python3_10_8` and `R`.
+     * &gt; **Note:** In `v4.0.0` and later version of the AzureRM Provider, `language_extensions` will be changed to a list of `language_extension` block. In each block, `name` and `image` are required. `name` is the name of the language extension, possible values are `PYTHON`, `R`. `image` is the image of the language extension, possible values are `Python3_6_5`, `Python3_10_8` and `R`.
      * 
      */
     @Import(name="languageExtensions")
@@ -140,7 +140,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
     /**
      * @return An list of `language_extensions` to enable. Valid values are: `PYTHON`, `PYTHON_3.10.8` and `R`. `PYTHON` is used to specify Python 3.6.5 image and `PYTHON_3.10.8` is used to specify Python 3.10.8 image. Note that `PYTHON_3.10.8` is only available in skus which support nested virtualization.
      * 
-     * &gt; **NOTE:** In `v4.0.0` and later version of the AzureRM Provider, `language_extensions` will be changed to a list of `language_extension` block. In each block, `name` and `image` are required. `name` is the name of the language extension, possible values are `PYTHON`, `R`. `image` is the image of the language extension, possible values are `Python3_6_5`, `Python3_10_8` and `R`.
+     * &gt; **Note:** In `v4.0.0` and later version of the AzureRM Provider, `language_extensions` will be changed to a list of `language_extension` block. In each block, `name` and `image` are required. `name` is the name of the language extension, possible values are `PYTHON`, `R`. `image` is the image of the language extension, possible values are `Python3_6_5`, `Python3_10_8` and `R`.
      * 
      */
     public Optional<Output<List<ClusterLanguageExtensionArgs>>> languageExtensions() {
@@ -315,7 +315,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
     /**
      * Specifies a list of tenant IDs that are trusted by the cluster. Default setting trusts all other tenants. Use `trusted_external_tenants = [&#34;*&#34;]` to explicitly allow all other tenants, `trusted_external_tenants = [&#34;MyTenantOnly&#34;]` for only your tenant or `trusted_external_tenants = [&#34;&lt;tenantId1&gt;&#34;, &#34;&lt;tenantIdx&gt;&#34;]` to allow specific other tenants.
      * 
-     * &gt; **NOTE:** In v3.0 of `azurerm` a new or updated Kusto Cluster will only allow your own tenant by default. Explicit configuration of this setting will change from `trusted_external_tenants = [&#34;MyTenantOnly&#34;]` to `trusted_external_tenants = []`.
+     * &gt; **Note:** In v3.0 of `azurerm` a new or updated Kusto Cluster will only allow your own tenant by default. Explicit configuration of this setting will change from `trusted_external_tenants = [&#34;MyTenantOnly&#34;]` to `trusted_external_tenants = []`.
      * 
      */
     @Import(name="trustedExternalTenants")
@@ -324,7 +324,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
     /**
      * @return Specifies a list of tenant IDs that are trusted by the cluster. Default setting trusts all other tenants. Use `trusted_external_tenants = [&#34;*&#34;]` to explicitly allow all other tenants, `trusted_external_tenants = [&#34;MyTenantOnly&#34;]` for only your tenant or `trusted_external_tenants = [&#34;&lt;tenantId1&gt;&#34;, &#34;&lt;tenantIdx&gt;&#34;]` to allow specific other tenants.
      * 
-     * &gt; **NOTE:** In v3.0 of `azurerm` a new or updated Kusto Cluster will only allow your own tenant by default. Explicit configuration of this setting will change from `trusted_external_tenants = [&#34;MyTenantOnly&#34;]` to `trusted_external_tenants = []`.
+     * &gt; **Note:** In v3.0 of `azurerm` a new or updated Kusto Cluster will only allow your own tenant by default. Explicit configuration of this setting will change from `trusted_external_tenants = [&#34;MyTenantOnly&#34;]` to `trusted_external_tenants = []`.
      * 
      */
     public Optional<Output<List<String>>> trustedExternalTenants() {
@@ -349,7 +349,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
     /**
      * A `virtual_network_configuration` block as defined below.
      * 
-     * &gt; **NOTE:** Currently removing `virtual_network_configuration` sets the `virtual_network_configuration` to `Disabled` state. But any changes to `virtual_network_configuration` in `Disabled` state forces a new resource to be created.
+     * &gt; **Note:** Currently removing `virtual_network_configuration` sets the `virtual_network_configuration` to `Disabled` state. But any changes to `virtual_network_configuration` in `Disabled` state forces a new resource to be created.
      * 
      */
     @Import(name="virtualNetworkConfiguration")
@@ -358,7 +358,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
     /**
      * @return A `virtual_network_configuration` block as defined below.
      * 
-     * &gt; **NOTE:** Currently removing `virtual_network_configuration` sets the `virtual_network_configuration` to `Disabled` state. But any changes to `virtual_network_configuration` in `Disabled` state forces a new resource to be created.
+     * &gt; **Note:** Currently removing `virtual_network_configuration` sets the `virtual_network_configuration` to `Disabled` state. But any changes to `virtual_network_configuration` in `Disabled` state forces a new resource to be created.
      * 
      */
     public Optional<Output<ClusterVirtualNetworkConfigurationArgs>> virtualNetworkConfiguration() {
@@ -596,7 +596,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param languageExtensions An list of `language_extensions` to enable. Valid values are: `PYTHON`, `PYTHON_3.10.8` and `R`. `PYTHON` is used to specify Python 3.6.5 image and `PYTHON_3.10.8` is used to specify Python 3.10.8 image. Note that `PYTHON_3.10.8` is only available in skus which support nested virtualization.
          * 
-         * &gt; **NOTE:** In `v4.0.0` and later version of the AzureRM Provider, `language_extensions` will be changed to a list of `language_extension` block. In each block, `name` and `image` are required. `name` is the name of the language extension, possible values are `PYTHON`, `R`. `image` is the image of the language extension, possible values are `Python3_6_5`, `Python3_10_8` and `R`.
+         * &gt; **Note:** In `v4.0.0` and later version of the AzureRM Provider, `language_extensions` will be changed to a list of `language_extension` block. In each block, `name` and `image` are required. `name` is the name of the language extension, possible values are `PYTHON`, `R`. `image` is the image of the language extension, possible values are `Python3_6_5`, `Python3_10_8` and `R`.
          * 
          * @return builder
          * 
@@ -609,7 +609,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param languageExtensions An list of `language_extensions` to enable. Valid values are: `PYTHON`, `PYTHON_3.10.8` and `R`. `PYTHON` is used to specify Python 3.6.5 image and `PYTHON_3.10.8` is used to specify Python 3.10.8 image. Note that `PYTHON_3.10.8` is only available in skus which support nested virtualization.
          * 
-         * &gt; **NOTE:** In `v4.0.0` and later version of the AzureRM Provider, `language_extensions` will be changed to a list of `language_extension` block. In each block, `name` and `image` are required. `name` is the name of the language extension, possible values are `PYTHON`, `R`. `image` is the image of the language extension, possible values are `Python3_6_5`, `Python3_10_8` and `R`.
+         * &gt; **Note:** In `v4.0.0` and later version of the AzureRM Provider, `language_extensions` will be changed to a list of `language_extension` block. In each block, `name` and `image` are required. `name` is the name of the language extension, possible values are `PYTHON`, `R`. `image` is the image of the language extension, possible values are `Python3_6_5`, `Python3_10_8` and `R`.
          * 
          * @return builder
          * 
@@ -621,7 +621,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param languageExtensions An list of `language_extensions` to enable. Valid values are: `PYTHON`, `PYTHON_3.10.8` and `R`. `PYTHON` is used to specify Python 3.6.5 image and `PYTHON_3.10.8` is used to specify Python 3.10.8 image. Note that `PYTHON_3.10.8` is only available in skus which support nested virtualization.
          * 
-         * &gt; **NOTE:** In `v4.0.0` and later version of the AzureRM Provider, `language_extensions` will be changed to a list of `language_extension` block. In each block, `name` and `image` are required. `name` is the name of the language extension, possible values are `PYTHON`, `R`. `image` is the image of the language extension, possible values are `Python3_6_5`, `Python3_10_8` and `R`.
+         * &gt; **Note:** In `v4.0.0` and later version of the AzureRM Provider, `language_extensions` will be changed to a list of `language_extension` block. In each block, `name` and `image` are required. `name` is the name of the language extension, possible values are `PYTHON`, `R`. `image` is the image of the language extension, possible values are `Python3_6_5`, `Python3_10_8` and `R`.
          * 
          * @return builder
          * 
@@ -864,7 +864,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param trustedExternalTenants Specifies a list of tenant IDs that are trusted by the cluster. Default setting trusts all other tenants. Use `trusted_external_tenants = [&#34;*&#34;]` to explicitly allow all other tenants, `trusted_external_tenants = [&#34;MyTenantOnly&#34;]` for only your tenant or `trusted_external_tenants = [&#34;&lt;tenantId1&gt;&#34;, &#34;&lt;tenantIdx&gt;&#34;]` to allow specific other tenants.
          * 
-         * &gt; **NOTE:** In v3.0 of `azurerm` a new or updated Kusto Cluster will only allow your own tenant by default. Explicit configuration of this setting will change from `trusted_external_tenants = [&#34;MyTenantOnly&#34;]` to `trusted_external_tenants = []`.
+         * &gt; **Note:** In v3.0 of `azurerm` a new or updated Kusto Cluster will only allow your own tenant by default. Explicit configuration of this setting will change from `trusted_external_tenants = [&#34;MyTenantOnly&#34;]` to `trusted_external_tenants = []`.
          * 
          * @return builder
          * 
@@ -877,7 +877,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param trustedExternalTenants Specifies a list of tenant IDs that are trusted by the cluster. Default setting trusts all other tenants. Use `trusted_external_tenants = [&#34;*&#34;]` to explicitly allow all other tenants, `trusted_external_tenants = [&#34;MyTenantOnly&#34;]` for only your tenant or `trusted_external_tenants = [&#34;&lt;tenantId1&gt;&#34;, &#34;&lt;tenantIdx&gt;&#34;]` to allow specific other tenants.
          * 
-         * &gt; **NOTE:** In v3.0 of `azurerm` a new or updated Kusto Cluster will only allow your own tenant by default. Explicit configuration of this setting will change from `trusted_external_tenants = [&#34;MyTenantOnly&#34;]` to `trusted_external_tenants = []`.
+         * &gt; **Note:** In v3.0 of `azurerm` a new or updated Kusto Cluster will only allow your own tenant by default. Explicit configuration of this setting will change from `trusted_external_tenants = [&#34;MyTenantOnly&#34;]` to `trusted_external_tenants = []`.
          * 
          * @return builder
          * 
@@ -889,7 +889,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param trustedExternalTenants Specifies a list of tenant IDs that are trusted by the cluster. Default setting trusts all other tenants. Use `trusted_external_tenants = [&#34;*&#34;]` to explicitly allow all other tenants, `trusted_external_tenants = [&#34;MyTenantOnly&#34;]` for only your tenant or `trusted_external_tenants = [&#34;&lt;tenantId1&gt;&#34;, &#34;&lt;tenantIdx&gt;&#34;]` to allow specific other tenants.
          * 
-         * &gt; **NOTE:** In v3.0 of `azurerm` a new or updated Kusto Cluster will only allow your own tenant by default. Explicit configuration of this setting will change from `trusted_external_tenants = [&#34;MyTenantOnly&#34;]` to `trusted_external_tenants = []`.
+         * &gt; **Note:** In v3.0 of `azurerm` a new or updated Kusto Cluster will only allow your own tenant by default. Explicit configuration of this setting will change from `trusted_external_tenants = [&#34;MyTenantOnly&#34;]` to `trusted_external_tenants = []`.
          * 
          * @return builder
          * 
@@ -922,7 +922,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param virtualNetworkConfiguration A `virtual_network_configuration` block as defined below.
          * 
-         * &gt; **NOTE:** Currently removing `virtual_network_configuration` sets the `virtual_network_configuration` to `Disabled` state. But any changes to `virtual_network_configuration` in `Disabled` state forces a new resource to be created.
+         * &gt; **Note:** Currently removing `virtual_network_configuration` sets the `virtual_network_configuration` to `Disabled` state. But any changes to `virtual_network_configuration` in `Disabled` state forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -935,7 +935,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param virtualNetworkConfiguration A `virtual_network_configuration` block as defined below.
          * 
-         * &gt; **NOTE:** Currently removing `virtual_network_configuration` sets the `virtual_network_configuration` to `Disabled` state. But any changes to `virtual_network_configuration` in `Disabled` state forces a new resource to be created.
+         * &gt; **Note:** Currently removing `virtual_network_configuration` sets the `virtual_network_configuration` to `Disabled` state. But any changes to `virtual_network_configuration` in `Disabled` state forces a new resource to be created.
          * 
          * @return builder
          * 

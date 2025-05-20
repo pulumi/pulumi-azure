@@ -254,14 +254,14 @@ public final class AppFlexConsumptionArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * The Runtime of the Linux Function App. Possible values are `node`, `dotnet-isolated`, `powershell`, `python`, `java`.
+     * The Runtime of the Linux Function App. Possible values are `node`, `dotnet-isolated`, `powershell`, `python`, `java` and `custom`.
      * 
      */
     @Import(name="runtimeName", required=true)
     private Output<String> runtimeName;
 
     /**
-     * @return The Runtime of the Linux Function App. Possible values are `node`, `dotnet-isolated`, `powershell`, `python`, `java`.
+     * @return The Runtime of the Linux Function App. Possible values are `node`, `dotnet-isolated`, `powershell`, `python`, `java` and `custom`.
      * 
      */
     public Output<String> runtimeName() {
@@ -284,14 +284,14 @@ public final class AppFlexConsumptionArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * The ID of the App Service Plan within which to create this Function App.
+     * The ID of the App Service Plan within which to create this Function App. Changing this forces a new Linux Function App to be created.
      * 
      */
     @Import(name="servicePlanId", required=true)
     private Output<String> servicePlanId;
 
     /**
-     * @return The ID of the App Service Plan within which to create this Function App.
+     * @return The ID of the App Service Plan within which to create this Function App. Changing this forces a new Linux Function App to be created.
      * 
      */
     public Output<String> servicePlanId() {
@@ -393,7 +393,7 @@ public final class AppFlexConsumptionArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * The user assigned Managed Identity to access the storage account. Conflicts with `storage_account_access_key`.
+     * The user assigned Managed Identity to access the storage account. Conflicts with `storage_access_key`.
      * 
      * &gt; **Note:** The `storage_user_assigned_identity_id` must be specified when `storage_authentication_type` is set to `UserAssignedIdentity`.
      * 
@@ -402,7 +402,7 @@ public final class AppFlexConsumptionArgs extends com.pulumi.resources.ResourceA
     private @Nullable Output<String> storageUserAssignedIdentityId;
 
     /**
-     * @return The user assigned Managed Identity to access the storage account. Conflicts with `storage_account_access_key`.
+     * @return The user assigned Managed Identity to access the storage account. Conflicts with `storage_access_key`.
      * 
      * &gt; **Note:** The `storage_user_assigned_identity_id` must be specified when `storage_authentication_type` is set to `UserAssignedIdentity`.
      * 
@@ -851,7 +851,7 @@ public final class AppFlexConsumptionArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param runtimeName The Runtime of the Linux Function App. Possible values are `node`, `dotnet-isolated`, `powershell`, `python`, `java`.
+         * @param runtimeName The Runtime of the Linux Function App. Possible values are `node`, `dotnet-isolated`, `powershell`, `python`, `java` and `custom`.
          * 
          * @return builder
          * 
@@ -862,7 +862,7 @@ public final class AppFlexConsumptionArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param runtimeName The Runtime of the Linux Function App. Possible values are `node`, `dotnet-isolated`, `powershell`, `python`, `java`.
+         * @param runtimeName The Runtime of the Linux Function App. Possible values are `node`, `dotnet-isolated`, `powershell`, `python`, `java` and `custom`.
          * 
          * @return builder
          * 
@@ -893,7 +893,7 @@ public final class AppFlexConsumptionArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param servicePlanId The ID of the App Service Plan within which to create this Function App.
+         * @param servicePlanId The ID of the App Service Plan within which to create this Function App. Changing this forces a new Linux Function App to be created.
          * 
          * @return builder
          * 
@@ -904,7 +904,7 @@ public final class AppFlexConsumptionArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param servicePlanId The ID of the App Service Plan within which to create this Function App.
+         * @param servicePlanId The ID of the App Service Plan within which to create this Function App. Changing this forces a new Linux Function App to be created.
          * 
          * @return builder
          * 
@@ -1044,7 +1044,7 @@ public final class AppFlexConsumptionArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param storageUserAssignedIdentityId The user assigned Managed Identity to access the storage account. Conflicts with `storage_account_access_key`.
+         * @param storageUserAssignedIdentityId The user assigned Managed Identity to access the storage account. Conflicts with `storage_access_key`.
          * 
          * &gt; **Note:** The `storage_user_assigned_identity_id` must be specified when `storage_authentication_type` is set to `UserAssignedIdentity`.
          * 
@@ -1057,7 +1057,7 @@ public final class AppFlexConsumptionArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param storageUserAssignedIdentityId The user assigned Managed Identity to access the storage account. Conflicts with `storage_account_access_key`.
+         * @param storageUserAssignedIdentityId The user assigned Managed Identity to access the storage account. Conflicts with `storage_access_key`.
          * 
          * &gt; **Note:** The `storage_user_assigned_identity_id` must be specified when `storage_authentication_type` is set to `UserAssignedIdentity`.
          * 

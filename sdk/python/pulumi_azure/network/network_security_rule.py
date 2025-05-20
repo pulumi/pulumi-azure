@@ -629,12 +629,6 @@ class NetworkSecurityRule(pulumi.CustomResource):
                  source_port_ranges: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  __props__=None):
         """
-        Manages a Network Security Rule.
-
-        > **NOTE on Network Security Groups and Network Security Rules:** This provider currently
-        provides both a standalone Network Security Rule resource, and allows for Network Security Rules to be defined in-line within the Network Security Group resource.
-        At this time you cannot use a Network Security Group with in-line Network Security Rules in conjunction with any Network Security Rule resources. Doing so will cause a conflict of rule settings and will overwrite rules.
-
         ## Example Usage
 
         ```python
@@ -698,12 +692,6 @@ class NetworkSecurityRule(pulumi.CustomResource):
                  args: NetworkSecurityRuleArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Manages a Network Security Rule.
-
-        > **NOTE on Network Security Groups and Network Security Rules:** This provider currently
-        provides both a standalone Network Security Rule resource, and allows for Network Security Rules to be defined in-line within the Network Security Group resource.
-        At this time you cannot use a Network Security Group with in-line Network Security Rules in conjunction with any Network Security Rule resources. Doing so will cause a conflict of rule settings and will overwrite rules.
-
         ## Example Usage
 
         ```python

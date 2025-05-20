@@ -994,6 +994,13 @@ public final class AppserviceFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Web`: 2023-01-01
+     * 
      */
     public static Output<GetEnvironmentV3Result> getEnvironmentV3(GetEnvironmentV3Args args) {
         return getEnvironmentV3(args, InvokeOptions.Empty);
@@ -1037,6 +1044,13 @@ public final class AppserviceFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Web`: 2023-01-01
      * 
      */
     public static CompletableFuture<GetEnvironmentV3Result> getEnvironmentV3Plain(GetEnvironmentV3PlainArgs args) {
@@ -1082,6 +1096,13 @@ public final class AppserviceFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Web`: 2023-01-01
+     * 
      */
     public static Output<GetEnvironmentV3Result> getEnvironmentV3(GetEnvironmentV3Args args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:appservice/getEnvironmentV3:getEnvironmentV3", TypeShape.of(GetEnvironmentV3Result.class), args, Utilities.withVersion(options));
@@ -1126,6 +1147,13 @@ public final class AppserviceFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Web`: 2023-01-01
+     * 
      */
     public static Output<GetEnvironmentV3Result> getEnvironmentV3(GetEnvironmentV3Args args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("azure:appservice/getEnvironmentV3:getEnvironmentV3", TypeShape.of(GetEnvironmentV3Result.class), args, Utilities.withVersion(options));
@@ -1169,6 +1197,13 @@ public final class AppserviceFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Web`: 2023-01-01
      * 
      */
     public static CompletableFuture<GetEnvironmentV3Result> getEnvironmentV3Plain(GetEnvironmentV3PlainArgs args, InvokeOptions options) {
@@ -1438,6 +1473,8 @@ public final class AppserviceFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * &gt; **Note:** All arguments including the secret value will be stored in the raw state as plain-text, including `default_function_key` and `primary_key`. [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
+     * 
      */
     public static Output<GetFunctionAppHostKeysResult> getFunctionAppHostKeys(GetFunctionAppHostKeysArgs args) {
         return getFunctionAppHostKeys(args, InvokeOptions.Empty);
@@ -1480,6 +1517,8 @@ public final class AppserviceFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * &gt; **Note:** All arguments including the secret value will be stored in the raw state as plain-text, including `default_function_key` and `primary_key`. [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
      * 
      */
     public static CompletableFuture<GetFunctionAppHostKeysResult> getFunctionAppHostKeysPlain(GetFunctionAppHostKeysPlainArgs args) {
@@ -1524,6 +1563,8 @@ public final class AppserviceFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * &gt; **Note:** All arguments including the secret value will be stored in the raw state as plain-text, including `default_function_key` and `primary_key`. [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
+     * 
      */
     public static Output<GetFunctionAppHostKeysResult> getFunctionAppHostKeys(GetFunctionAppHostKeysArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:appservice/getFunctionAppHostKeys:getFunctionAppHostKeys", TypeShape.of(GetFunctionAppHostKeysResult.class), args, Utilities.withVersion(options));
@@ -1567,6 +1608,8 @@ public final class AppserviceFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * &gt; **Note:** All arguments including the secret value will be stored in the raw state as plain-text, including `default_function_key` and `primary_key`. [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
+     * 
      */
     public static Output<GetFunctionAppHostKeysResult> getFunctionAppHostKeys(GetFunctionAppHostKeysArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("azure:appservice/getFunctionAppHostKeys:getFunctionAppHostKeys", TypeShape.of(GetFunctionAppHostKeysResult.class), args, Utilities.withVersion(options));
@@ -1609,6 +1652,8 @@ public final class AppserviceFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * &gt; **Note:** All arguments including the secret value will be stored in the raw state as plain-text, including `default_function_key` and `primary_key`. [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
      * 
      */
     public static CompletableFuture<GetFunctionAppHostKeysResult> getFunctionAppHostKeysPlain(GetFunctionAppHostKeysPlainArgs args, InvokeOptions options) {
@@ -1654,6 +1699,13 @@ public final class AppserviceFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Web`: 2023-12-01
+     * 
      */
     public static Output<GetLinuxFunctionAppResult> getLinuxFunctionApp(GetLinuxFunctionAppArgs args) {
         return getLinuxFunctionApp(args, InvokeOptions.Empty);
@@ -1697,6 +1749,13 @@ public final class AppserviceFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Web`: 2023-12-01
      * 
      */
     public static CompletableFuture<GetLinuxFunctionAppResult> getLinuxFunctionAppPlain(GetLinuxFunctionAppPlainArgs args) {
@@ -1742,6 +1801,13 @@ public final class AppserviceFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Web`: 2023-12-01
+     * 
      */
     public static Output<GetLinuxFunctionAppResult> getLinuxFunctionApp(GetLinuxFunctionAppArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:appservice/getLinuxFunctionApp:getLinuxFunctionApp", TypeShape.of(GetLinuxFunctionAppResult.class), args, Utilities.withVersion(options));
@@ -1785,6 +1851,13 @@ public final class AppserviceFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Web`: 2023-12-01
      * 
      */
     public static Output<GetLinuxFunctionAppResult> getLinuxFunctionApp(GetLinuxFunctionAppArgs args, InvokeOutputOptions options) {
@@ -1830,6 +1903,13 @@ public final class AppserviceFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Web`: 2023-12-01
+     * 
      */
     public static CompletableFuture<GetLinuxFunctionAppResult> getLinuxFunctionAppPlain(GetLinuxFunctionAppPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("azure:appservice/getLinuxFunctionApp:getLinuxFunctionApp", TypeShape.of(GetLinuxFunctionAppResult.class), args, Utilities.withVersion(options));
@@ -1873,6 +1953,13 @@ public final class AppserviceFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Web`: 2023-12-01
      * 
      */
     public static Output<GetLinuxWebAppResult> getLinuxWebApp(GetLinuxWebAppArgs args) {
@@ -1918,6 +2005,13 @@ public final class AppserviceFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Web`: 2023-12-01
+     * 
      */
     public static CompletableFuture<GetLinuxWebAppResult> getLinuxWebAppPlain(GetLinuxWebAppPlainArgs args) {
         return getLinuxWebAppPlain(args, InvokeOptions.Empty);
@@ -1961,6 +2055,13 @@ public final class AppserviceFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Web`: 2023-12-01
      * 
      */
     public static Output<GetLinuxWebAppResult> getLinuxWebApp(GetLinuxWebAppArgs args, InvokeOptions options) {
@@ -2006,6 +2107,13 @@ public final class AppserviceFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Web`: 2023-12-01
+     * 
      */
     public static Output<GetLinuxWebAppResult> getLinuxWebApp(GetLinuxWebAppArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("azure:appservice/getLinuxWebApp:getLinuxWebApp", TypeShape.of(GetLinuxWebAppResult.class), args, Utilities.withVersion(options));
@@ -2049,6 +2157,13 @@ public final class AppserviceFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Web`: 2023-12-01
      * 
      */
     public static CompletableFuture<GetLinuxWebAppResult> getLinuxWebAppPlain(GetLinuxWebAppPlainArgs args, InvokeOptions options) {
@@ -2094,6 +2209,13 @@ public final class AppserviceFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Web`: 2023-12-01
+     * 
      */
     public static Output<GetServicePlanResult> getServicePlan(GetServicePlanArgs args) {
         return getServicePlan(args, InvokeOptions.Empty);
@@ -2137,6 +2259,13 @@ public final class AppserviceFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Web`: 2023-12-01
      * 
      */
     public static CompletableFuture<GetServicePlanResult> getServicePlanPlain(GetServicePlanPlainArgs args) {
@@ -2182,6 +2311,13 @@ public final class AppserviceFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Web`: 2023-12-01
+     * 
      */
     public static Output<GetServicePlanResult> getServicePlan(GetServicePlanArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:appservice/getServicePlan:getServicePlan", TypeShape.of(GetServicePlanResult.class), args, Utilities.withVersion(options));
@@ -2225,6 +2361,13 @@ public final class AppserviceFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Web`: 2023-12-01
      * 
      */
     public static Output<GetServicePlanResult> getServicePlan(GetServicePlanArgs args, InvokeOutputOptions options) {
@@ -2270,6 +2413,13 @@ public final class AppserviceFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Web`: 2023-12-01
+     * 
      */
     public static CompletableFuture<GetServicePlanResult> getServicePlanPlain(GetServicePlanPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("azure:appservice/getServicePlan:getServicePlan", TypeShape.of(GetServicePlanResult.class), args, Utilities.withVersion(options));
@@ -2310,6 +2460,13 @@ public final class AppserviceFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Web`: 2023-01-01
      * 
      */
     public static Output<GetSourceControlTokenResult> getSourceControlToken(GetSourceControlTokenArgs args) {
@@ -2352,6 +2509,13 @@ public final class AppserviceFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Web`: 2023-01-01
+     * 
      */
     public static CompletableFuture<GetSourceControlTokenResult> getSourceControlTokenPlain(GetSourceControlTokenPlainArgs args) {
         return getSourceControlTokenPlain(args, InvokeOptions.Empty);
@@ -2392,6 +2556,13 @@ public final class AppserviceFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Web`: 2023-01-01
      * 
      */
     public static Output<GetSourceControlTokenResult> getSourceControlToken(GetSourceControlTokenArgs args, InvokeOptions options) {
@@ -2434,6 +2605,13 @@ public final class AppserviceFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Web`: 2023-01-01
+     * 
      */
     public static Output<GetSourceControlTokenResult> getSourceControlToken(GetSourceControlTokenArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("azure:appservice/getSourceControlToken:getSourceControlToken", TypeShape.of(GetSourceControlTokenResult.class), args, Utilities.withVersion(options));
@@ -2474,6 +2652,13 @@ public final class AppserviceFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Web`: 2023-01-01
      * 
      */
     public static CompletableFuture<GetSourceControlTokenResult> getSourceControlTokenPlain(GetSourceControlTokenPlainArgs args, InvokeOptions options) {
@@ -2518,6 +2703,13 @@ public final class AppserviceFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Web`: 2023-01-01
+     * 
      */
     public static Output<GetStaticWebAppResult> getStaticWebApp(GetStaticWebAppArgs args) {
         return getStaticWebApp(args, InvokeOptions.Empty);
@@ -2560,6 +2752,13 @@ public final class AppserviceFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Web`: 2023-01-01
      * 
      */
     public static CompletableFuture<GetStaticWebAppResult> getStaticWebAppPlain(GetStaticWebAppPlainArgs args) {
@@ -2604,6 +2803,13 @@ public final class AppserviceFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Web`: 2023-01-01
+     * 
      */
     public static Output<GetStaticWebAppResult> getStaticWebApp(GetStaticWebAppArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:appservice/getStaticWebApp:getStaticWebApp", TypeShape.of(GetStaticWebAppResult.class), args, Utilities.withVersion(options));
@@ -2647,6 +2853,13 @@ public final class AppserviceFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Web`: 2023-01-01
+     * 
      */
     public static Output<GetStaticWebAppResult> getStaticWebApp(GetStaticWebAppArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("azure:appservice/getStaticWebApp:getStaticWebApp", TypeShape.of(GetStaticWebAppResult.class), args, Utilities.withVersion(options));
@@ -2689,6 +2902,13 @@ public final class AppserviceFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Web`: 2023-01-01
      * 
      */
     public static CompletableFuture<GetStaticWebAppResult> getStaticWebAppPlain(GetStaticWebAppPlainArgs args, InvokeOptions options) {
@@ -2734,6 +2954,13 @@ public final class AppserviceFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Web`: 2023-12-01
+     * 
      */
     public static Output<GetWindowsFunctionAppResult> getWindowsFunctionApp(GetWindowsFunctionAppArgs args) {
         return getWindowsFunctionApp(args, InvokeOptions.Empty);
@@ -2777,6 +3004,13 @@ public final class AppserviceFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Web`: 2023-12-01
      * 
      */
     public static CompletableFuture<GetWindowsFunctionAppResult> getWindowsFunctionAppPlain(GetWindowsFunctionAppPlainArgs args) {
@@ -2822,6 +3056,13 @@ public final class AppserviceFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Web`: 2023-12-01
+     * 
      */
     public static Output<GetWindowsFunctionAppResult> getWindowsFunctionApp(GetWindowsFunctionAppArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:appservice/getWindowsFunctionApp:getWindowsFunctionApp", TypeShape.of(GetWindowsFunctionAppResult.class), args, Utilities.withVersion(options));
@@ -2865,6 +3106,13 @@ public final class AppserviceFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Web`: 2023-12-01
      * 
      */
     public static Output<GetWindowsFunctionAppResult> getWindowsFunctionApp(GetWindowsFunctionAppArgs args, InvokeOutputOptions options) {
@@ -2910,6 +3158,13 @@ public final class AppserviceFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Web`: 2023-12-01
+     * 
      */
     public static CompletableFuture<GetWindowsFunctionAppResult> getWindowsFunctionAppPlain(GetWindowsFunctionAppPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("azure:appservice/getWindowsFunctionApp:getWindowsFunctionApp", TypeShape.of(GetWindowsFunctionAppResult.class), args, Utilities.withVersion(options));
@@ -2953,6 +3208,13 @@ public final class AppserviceFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Web`: 2023-12-01
      * 
      */
     public static Output<GetWindowsWebAppResult> getWindowsWebApp(GetWindowsWebAppArgs args) {
@@ -2998,6 +3260,13 @@ public final class AppserviceFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Web`: 2023-12-01
+     * 
      */
     public static CompletableFuture<GetWindowsWebAppResult> getWindowsWebAppPlain(GetWindowsWebAppPlainArgs args) {
         return getWindowsWebAppPlain(args, InvokeOptions.Empty);
@@ -3041,6 +3310,13 @@ public final class AppserviceFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Web`: 2023-12-01
      * 
      */
     public static Output<GetWindowsWebAppResult> getWindowsWebApp(GetWindowsWebAppArgs args, InvokeOptions options) {
@@ -3086,6 +3362,13 @@ public final class AppserviceFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Web`: 2023-12-01
+     * 
      */
     public static Output<GetWindowsWebAppResult> getWindowsWebApp(GetWindowsWebAppArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("azure:appservice/getWindowsWebApp:getWindowsWebApp", TypeShape.of(GetWindowsWebAppResult.class), args, Utilities.withVersion(options));
@@ -3129,6 +3412,13 @@ public final class AppserviceFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Web`: 2023-12-01
      * 
      */
     public static CompletableFuture<GetWindowsWebAppResult> getWindowsWebAppPlain(GetWindowsWebAppPlainArgs args, InvokeOptions options) {

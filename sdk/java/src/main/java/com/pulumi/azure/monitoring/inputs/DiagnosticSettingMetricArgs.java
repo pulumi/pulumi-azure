@@ -21,7 +21,7 @@ public final class DiagnosticSettingMetricArgs extends com.pulumi.resources.Reso
     /**
      * The name of a Diagnostic Metric Category for this Resource.
      * 
-     * &gt; **NOTE:** The Metric Categories available vary depending on the Resource being used. You may wish to use the `azure.monitoring.getDiagnosticCategories` Data Source to identify which categories are available for a given Resource.
+     * &gt; **Note:** The Metric Categories available vary depending on the Resource being used. You may wish to use the `azure.monitoring.getDiagnosticCategories` Data Source to identify which categories are available for a given Resource.
      * 
      */
     @Import(name="category", required=true)
@@ -30,7 +30,7 @@ public final class DiagnosticSettingMetricArgs extends com.pulumi.resources.Reso
     /**
      * @return The name of a Diagnostic Metric Category for this Resource.
      * 
-     * &gt; **NOTE:** The Metric Categories available vary depending on the Resource being used. You may wish to use the `azure.monitoring.getDiagnosticCategories` Data Source to identify which categories are available for a given Resource.
+     * &gt; **Note:** The Metric Categories available vary depending on the Resource being used. You may wish to use the `azure.monitoring.getDiagnosticCategories` Data Source to identify which categories are available for a given Resource.
      * 
      */
     public Output<String> category() {
@@ -100,7 +100,7 @@ public final class DiagnosticSettingMetricArgs extends com.pulumi.resources.Reso
         /**
          * @param category The name of a Diagnostic Metric Category for this Resource.
          * 
-         * &gt; **NOTE:** The Metric Categories available vary depending on the Resource being used. You may wish to use the `azure.monitoring.getDiagnosticCategories` Data Source to identify which categories are available for a given Resource.
+         * &gt; **Note:** The Metric Categories available vary depending on the Resource being used. You may wish to use the `azure.monitoring.getDiagnosticCategories` Data Source to identify which categories are available for a given Resource.
          * 
          * @return builder
          * 
@@ -113,7 +113,7 @@ public final class DiagnosticSettingMetricArgs extends com.pulumi.resources.Reso
         /**
          * @param category The name of a Diagnostic Metric Category for this Resource.
          * 
-         * &gt; **NOTE:** The Metric Categories available vary depending on the Resource being used. You may wish to use the `azure.monitoring.getDiagnosticCategories` Data Source to identify which categories are available for a given Resource.
+         * &gt; **Note:** The Metric Categories available vary depending on the Resource being used. You may wish to use the `azure.monitoring.getDiagnosticCategories` Data Source to identify which categories are available for a given Resource.
          * 
          * @return builder
          * 

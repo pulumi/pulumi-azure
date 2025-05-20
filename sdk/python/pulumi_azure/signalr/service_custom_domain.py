@@ -28,7 +28,7 @@ class ServiceCustomDomainArgs:
         The set of arguments for constructing a ServiceCustomDomain resource.
         :param pulumi.Input[builtins.str] domain_name: Specifies the custom domain name of the SignalR Custom Domain. Changing this forces a new resource to be created.
                
-               > **NOTE:** Please ensure the custom domain name is included in the Subject Alternative Names of the selected SignalR Custom Certificate.
+               > **Note:** Please ensure the custom domain name is included in the Subject Alternative Names of the selected SignalR Custom Certificate.
         :param pulumi.Input[builtins.str] signalr_custom_certificate_id: Specifies the SignalR Custom Certificate ID of the SignalR Custom Domain. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] signalr_service_id: Specifies the SignalR ID of the SignalR Custom Domain. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] name: Specifies the name of the SignalR Custom Domain. Changing this forces a new resource to be created.
@@ -45,7 +45,7 @@ class ServiceCustomDomainArgs:
         """
         Specifies the custom domain name of the SignalR Custom Domain. Changing this forces a new resource to be created.
 
-        > **NOTE:** Please ensure the custom domain name is included in the Subject Alternative Names of the selected SignalR Custom Certificate.
+        > **Note:** Please ensure the custom domain name is included in the Subject Alternative Names of the selected SignalR Custom Certificate.
         """
         return pulumi.get(self, "domain_name")
 
@@ -101,7 +101,7 @@ class _ServiceCustomDomainState:
         Input properties used for looking up and filtering ServiceCustomDomain resources.
         :param pulumi.Input[builtins.str] domain_name: Specifies the custom domain name of the SignalR Custom Domain. Changing this forces a new resource to be created.
                
-               > **NOTE:** Please ensure the custom domain name is included in the Subject Alternative Names of the selected SignalR Custom Certificate.
+               > **Note:** Please ensure the custom domain name is included in the Subject Alternative Names of the selected SignalR Custom Certificate.
         :param pulumi.Input[builtins.str] name: Specifies the name of the SignalR Custom Domain. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] signalr_custom_certificate_id: Specifies the SignalR Custom Certificate ID of the SignalR Custom Domain. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] signalr_service_id: Specifies the SignalR ID of the SignalR Custom Domain. Changing this forces a new resource to be created.
@@ -121,7 +121,7 @@ class _ServiceCustomDomainState:
         """
         Specifies the custom domain name of the SignalR Custom Domain. Changing this forces a new resource to be created.
 
-        > **NOTE:** Please ensure the custom domain name is included in the Subject Alternative Names of the selected SignalR Custom Certificate.
+        > **Note:** Please ensure the custom domain name is included in the Subject Alternative Names of the selected SignalR Custom Certificate.
         """
         return pulumi.get(self, "domain_name")
 
@@ -255,6 +255,13 @@ class ServiceCustomDomain(pulumi.CustomResource):
             signalr_custom_certificate_id=test.id)
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.SignalRService`: 2024-03-01
+
         ## Import
 
         Custom Domain for a SignalR service can be imported using the `resource id`, e.g.
@@ -267,7 +274,7 @@ class ServiceCustomDomain(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] domain_name: Specifies the custom domain name of the SignalR Custom Domain. Changing this forces a new resource to be created.
                
-               > **NOTE:** Please ensure the custom domain name is included in the Subject Alternative Names of the selected SignalR Custom Certificate.
+               > **Note:** Please ensure the custom domain name is included in the Subject Alternative Names of the selected SignalR Custom Certificate.
         :param pulumi.Input[builtins.str] name: Specifies the name of the SignalR Custom Domain. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] signalr_custom_certificate_id: Specifies the SignalR Custom Certificate ID of the SignalR Custom Domain. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] signalr_service_id: Specifies the SignalR ID of the SignalR Custom Domain. Changing this forces a new resource to be created.
@@ -356,6 +363,13 @@ class ServiceCustomDomain(pulumi.CustomResource):
             signalr_custom_certificate_id=test.id)
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.SignalRService`: 2024-03-01
+
         ## Import
 
         Custom Domain for a SignalR service can be imported using the `resource id`, e.g.
@@ -425,7 +439,7 @@ class ServiceCustomDomain(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] domain_name: Specifies the custom domain name of the SignalR Custom Domain. Changing this forces a new resource to be created.
                
-               > **NOTE:** Please ensure the custom domain name is included in the Subject Alternative Names of the selected SignalR Custom Certificate.
+               > **Note:** Please ensure the custom domain name is included in the Subject Alternative Names of the selected SignalR Custom Certificate.
         :param pulumi.Input[builtins.str] name: Specifies the name of the SignalR Custom Domain. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] signalr_custom_certificate_id: Specifies the SignalR Custom Certificate ID of the SignalR Custom Domain. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] signalr_service_id: Specifies the SignalR ID of the SignalR Custom Domain. Changing this forces a new resource to be created.
@@ -446,7 +460,7 @@ class ServiceCustomDomain(pulumi.CustomResource):
         """
         Specifies the custom domain name of the SignalR Custom Domain. Changing this forces a new resource to be created.
 
-        > **NOTE:** Please ensure the custom domain name is included in the Subject Alternative Names of the selected SignalR Custom Certificate.
+        > **Note:** Please ensure the custom domain name is included in the Subject Alternative Names of the selected SignalR Custom Certificate.
         """
         return pulumi.get(self, "domain_name")
 

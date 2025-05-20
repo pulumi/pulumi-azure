@@ -39,6 +39,13 @@ import (
 //	}
 //
 // ```
+//
+// ## API Providers
+//
+// <!-- This section is generated, changes will be overwritten -->
+// This data source uses the following Azure API Providers:
+//
+// * `Microsoft.ScVmm`: 2023-10-07
 func GetVirtualMachineManagerInventoryItems(ctx *pulumi.Context, args *GetVirtualMachineManagerInventoryItemsArgs, opts ...pulumi.InvokeOption) (*GetVirtualMachineManagerInventoryItemsResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetVirtualMachineManagerInventoryItemsResult

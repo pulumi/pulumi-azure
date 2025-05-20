@@ -71,6 +71,13 @@ namespace Pulumi.Azure.EventGrid
     /// });
     /// ```
     /// 
+    /// ## API Providers
+    /// 
+    /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+    /// This resource uses the following Azure API Providers:
+    /// 
+    /// * `Microsoft.EventGrid`: 2022-06-15
+    /// 
     /// ## Import
     /// 
     /// EventGrid System Topic Event Subscriptions can be imported using the `resource id`, e.g.
@@ -213,7 +220,7 @@ namespace Pulumi.Azure.EventGrid
         /// <summary>
         /// A `webhook_endpoint` block as defined below.
         /// 
-        /// &gt; **NOTE:** One of `azure_function_endpoint`, `eventhub_endpoint_id`, `hybrid_connection_endpoint`, `hybrid_connection_endpoint_id`, `service_bus_queue_endpoint_id`, `service_bus_topic_endpoint_id`, `storage_queue_endpoint` or `webhook_endpoint` must be specified.
+        /// &gt; **Note:** One of `azure_function_endpoint`, `eventhub_endpoint_id`, `hybrid_connection_endpoint`, `hybrid_connection_endpoint_id`, `service_bus_queue_endpoint_id`, `service_bus_topic_endpoint_id`, `storage_queue_endpoint` or `webhook_endpoint` must be specified.
         /// </summary>
         [Output("webhookEndpoint")]
         public Output<Outputs.SystemTopicEventSubscriptionWebhookEndpoint?> WebhookEndpoint { get; private set; } = null!;
@@ -413,7 +420,7 @@ namespace Pulumi.Azure.EventGrid
         /// <summary>
         /// A `webhook_endpoint` block as defined below.
         /// 
-        /// &gt; **NOTE:** One of `azure_function_endpoint`, `eventhub_endpoint_id`, `hybrid_connection_endpoint`, `hybrid_connection_endpoint_id`, `service_bus_queue_endpoint_id`, `service_bus_topic_endpoint_id`, `storage_queue_endpoint` or `webhook_endpoint` must be specified.
+        /// &gt; **Note:** One of `azure_function_endpoint`, `eventhub_endpoint_id`, `hybrid_connection_endpoint`, `hybrid_connection_endpoint_id`, `service_bus_queue_endpoint_id`, `service_bus_topic_endpoint_id`, `storage_queue_endpoint` or `webhook_endpoint` must be specified.
         /// </summary>
         [Input("webhookEndpoint")]
         public Input<Inputs.SystemTopicEventSubscriptionWebhookEndpointArgs>? WebhookEndpoint { get; set; }
@@ -575,7 +582,7 @@ namespace Pulumi.Azure.EventGrid
         /// <summary>
         /// A `webhook_endpoint` block as defined below.
         /// 
-        /// &gt; **NOTE:** One of `azure_function_endpoint`, `eventhub_endpoint_id`, `hybrid_connection_endpoint`, `hybrid_connection_endpoint_id`, `service_bus_queue_endpoint_id`, `service_bus_topic_endpoint_id`, `storage_queue_endpoint` or `webhook_endpoint` must be specified.
+        /// &gt; **Note:** One of `azure_function_endpoint`, `eventhub_endpoint_id`, `hybrid_connection_endpoint`, `hybrid_connection_endpoint_id`, `service_bus_queue_endpoint_id`, `service_bus_topic_endpoint_id`, `storage_queue_endpoint` or `webhook_endpoint` must be specified.
         /// </summary>
         [Input("webhookEndpoint")]
         public Input<Inputs.SystemTopicEventSubscriptionWebhookEndpointGetArgs>? WebhookEndpoint { get; set; }

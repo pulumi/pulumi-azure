@@ -52,6 +52,13 @@ namespace Pulumi.Azure.ManagedApplication
     /// });
     /// ```
     /// 
+    /// ## API Providers
+    /// 
+    /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+    /// This resource uses the following Azure API Providers:
+    /// 
+    /// * `Microsoft.Solutions`: 2021-07-01
+    /// 
     /// ## Import
     /// 
     /// Managed Application Definition can be imported using the `resource id`, e.g.
@@ -132,7 +139,7 @@ namespace Pulumi.Azure.ManagedApplication
         /// <summary>
         /// A mapping of tags to assign to the resource.
         /// 
-        /// &gt; **NOTE:** If either `create_ui_definition` or `main_template` is set they both must be set.
+        /// &gt; **Note:** If either `create_ui_definition` or `main_template` is set they both must be set.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
@@ -261,7 +268,7 @@ namespace Pulumi.Azure.ManagedApplication
         /// <summary>
         /// A mapping of tags to assign to the resource.
         /// 
-        /// &gt; **NOTE:** If either `create_ui_definition` or `main_template` is set they both must be set.
+        /// &gt; **Note:** If either `create_ui_definition` or `main_template` is set they both must be set.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -355,7 +362,7 @@ namespace Pulumi.Azure.ManagedApplication
         /// <summary>
         /// A mapping of tags to assign to the resource.
         /// 
-        /// &gt; **NOTE:** If either `create_ui_definition` or `main_template` is set they both must be set.
+        /// &gt; **Note:** If either `create_ui_definition` or `main_template` is set they both must be set.
         /// </summary>
         public InputMap<string> Tags
         {

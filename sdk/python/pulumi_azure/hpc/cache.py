@@ -43,11 +43,11 @@ class CacheArgs:
         The set of arguments for constructing a Cache resource.
         :param pulumi.Input[builtins.int] cache_size_in_gb: The size of the HPC Cache, in GB. Possible values are `3072`, `6144`, `12288`, `21623`, `24576`, `43246`, `49152` and `86491`. Changing this forces a new resource to be created.
                
-               > **NOTE:** The `21623`, `43246` and `86491` sizes are restricted to read only resources.
+               > **Note:** The `21623`, `43246` and `86491` sizes are restricted to read only resources.
         :param pulumi.Input[builtins.str] resource_group_name: The name of the Resource Group in which to create the HPC Cache. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] sku_name: The SKU of HPC Cache to use. Possible values are (ReadWrite) - `Standard_2G`, `Standard_4G` `Standard_8G` or (ReadOnly) - `Standard_L4_5G`, `Standard_L9G`, and `Standard_L16G`. Changing this forces a new resource to be created.
                
-               > **NOTE:** The read-only SKUs have restricted cache sizes. `Standard_L4_5G` must be set to `21623`. `Standard_L9G` to `43246` and `Standard_L16G` to `86491`.
+               > **Note:** The read-only SKUs have restricted cache sizes. `Standard_L4_5G` must be set to `21623`. `Standard_L9G` to `43246` and `Standard_L16G` to `86491`.
         :param pulumi.Input[builtins.str] subnet_id: The ID of the Subnet for the HPC Cache. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.bool] automatically_rotate_key_to_latest_enabled: Specifies whether the HPC Cache automatically rotates Encryption Key to the latest version.
         :param pulumi.Input['CacheDefaultAccessPolicyArgs'] default_access_policy: A `default_access_policy` block as defined below.
@@ -102,7 +102,7 @@ class CacheArgs:
         """
         The size of the HPC Cache, in GB. Possible values are `3072`, `6144`, `12288`, `21623`, `24576`, `43246`, `49152` and `86491`. Changing this forces a new resource to be created.
 
-        > **NOTE:** The `21623`, `43246` and `86491` sizes are restricted to read only resources.
+        > **Note:** The `21623`, `43246` and `86491` sizes are restricted to read only resources.
         """
         return pulumi.get(self, "cache_size_in_gb")
 
@@ -128,7 +128,7 @@ class CacheArgs:
         """
         The SKU of HPC Cache to use. Possible values are (ReadWrite) - `Standard_2G`, `Standard_4G` `Standard_8G` or (ReadOnly) - `Standard_L4_5G`, `Standard_L9G`, and `Standard_L16G`. Changing this forces a new resource to be created.
 
-        > **NOTE:** The read-only SKUs have restricted cache sizes. `Standard_L4_5G` must be set to `21623`. `Standard_L9G` to `43246` and `Standard_L16G` to `86491`.
+        > **Note:** The read-only SKUs have restricted cache sizes. `Standard_L4_5G` must be set to `21623`. `Standard_L9G` to `43246` and `Standard_L16G` to `86491`.
         """
         return pulumi.get(self, "sku_name")
 
@@ -333,7 +333,7 @@ class _CacheState:
         :param pulumi.Input[builtins.bool] automatically_rotate_key_to_latest_enabled: Specifies whether the HPC Cache automatically rotates Encryption Key to the latest version.
         :param pulumi.Input[builtins.int] cache_size_in_gb: The size of the HPC Cache, in GB. Possible values are `3072`, `6144`, `12288`, `21623`, `24576`, `43246`, `49152` and `86491`. Changing this forces a new resource to be created.
                
-               > **NOTE:** The `21623`, `43246` and `86491` sizes are restricted to read only resources.
+               > **Note:** The `21623`, `43246` and `86491` sizes are restricted to read only resources.
         :param pulumi.Input['CacheDefaultAccessPolicyArgs'] default_access_policy: A `default_access_policy` block as defined below.
         :param pulumi.Input['CacheDirectoryActiveDirectoryArgs'] directory_active_directory: A `directory_active_directory` block as defined below.
         :param pulumi.Input['CacheDirectoryFlatFileArgs'] directory_flat_file: A `directory_flat_file` block as defined below.
@@ -351,7 +351,7 @@ class _CacheState:
         :param pulumi.Input[builtins.str] resource_group_name: The name of the Resource Group in which to create the HPC Cache. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] sku_name: The SKU of HPC Cache to use. Possible values are (ReadWrite) - `Standard_2G`, `Standard_4G` `Standard_8G` or (ReadOnly) - `Standard_L4_5G`, `Standard_L9G`, and `Standard_L16G`. Changing this forces a new resource to be created.
                
-               > **NOTE:** The read-only SKUs have restricted cache sizes. `Standard_L4_5G` must be set to `21623`. `Standard_L9G` to `43246` and `Standard_L16G` to `86491`.
+               > **Note:** The read-only SKUs have restricted cache sizes. `Standard_L4_5G` must be set to `21623`. `Standard_L9G` to `43246` and `Standard_L16G` to `86491`.
         :param pulumi.Input[builtins.str] subnet_id: The ID of the Subnet for the HPC Cache. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A mapping of tags to assign to the HPC Cache.
         """
@@ -410,7 +410,7 @@ class _CacheState:
         """
         The size of the HPC Cache, in GB. Possible values are `3072`, `6144`, `12288`, `21623`, `24576`, `43246`, `49152` and `86491`. Changing this forces a new resource to be created.
 
-        > **NOTE:** The `21623`, `43246` and `86491` sizes are restricted to read only resources.
+        > **Note:** The `21623`, `43246` and `86491` sizes are restricted to read only resources.
         """
         return pulumi.get(self, "cache_size_in_gb")
 
@@ -582,7 +582,7 @@ class _CacheState:
         """
         The SKU of HPC Cache to use. Possible values are (ReadWrite) - `Standard_2G`, `Standard_4G` `Standard_8G` or (ReadOnly) - `Standard_L4_5G`, `Standard_L9G`, and `Standard_L16G`. Changing this forces a new resource to be created.
 
-        > **NOTE:** The read-only SKUs have restricted cache sizes. `Standard_L4_5G` must be set to `21623`. `Standard_L9G` to `43246` and `Standard_L16G` to `86491`.
+        > **Note:** The read-only SKUs have restricted cache sizes. `Standard_L4_5G` must be set to `21623`. `Standard_L9G` to `43246` and `Standard_L16G` to `86491`.
         """
         return pulumi.get(self, "sku_name")
 
@@ -672,6 +672,13 @@ class Cache(pulumi.CustomResource):
             sku_name="Standard_2G")
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.StorageCache`: 2023-05-01
+
         ## Import
 
         HPC Caches can be imported using the `resource id`, e.g.
@@ -685,7 +692,7 @@ class Cache(pulumi.CustomResource):
         :param pulumi.Input[builtins.bool] automatically_rotate_key_to_latest_enabled: Specifies whether the HPC Cache automatically rotates Encryption Key to the latest version.
         :param pulumi.Input[builtins.int] cache_size_in_gb: The size of the HPC Cache, in GB. Possible values are `3072`, `6144`, `12288`, `21623`, `24576`, `43246`, `49152` and `86491`. Changing this forces a new resource to be created.
                
-               > **NOTE:** The `21623`, `43246` and `86491` sizes are restricted to read only resources.
+               > **Note:** The `21623`, `43246` and `86491` sizes are restricted to read only resources.
         :param pulumi.Input[Union['CacheDefaultAccessPolicyArgs', 'CacheDefaultAccessPolicyArgsDict']] default_access_policy: A `default_access_policy` block as defined below.
         :param pulumi.Input[Union['CacheDirectoryActiveDirectoryArgs', 'CacheDirectoryActiveDirectoryArgsDict']] directory_active_directory: A `directory_active_directory` block as defined below.
         :param pulumi.Input[Union['CacheDirectoryFlatFileArgs', 'CacheDirectoryFlatFileArgsDict']] directory_flat_file: A `directory_flat_file` block as defined below.
@@ -702,7 +709,7 @@ class Cache(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] resource_group_name: The name of the Resource Group in which to create the HPC Cache. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] sku_name: The SKU of HPC Cache to use. Possible values are (ReadWrite) - `Standard_2G`, `Standard_4G` `Standard_8G` or (ReadOnly) - `Standard_L4_5G`, `Standard_L9G`, and `Standard_L16G`. Changing this forces a new resource to be created.
                
-               > **NOTE:** The read-only SKUs have restricted cache sizes. `Standard_L4_5G` must be set to `21623`. `Standard_L9G` to `43246` and `Standard_L16G` to `86491`.
+               > **Note:** The read-only SKUs have restricted cache sizes. `Standard_L4_5G` must be set to `21623`. `Standard_L9G` to `43246` and `Standard_L16G` to `86491`.
         :param pulumi.Input[builtins.str] subnet_id: The ID of the Subnet for the HPC Cache. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A mapping of tags to assign to the HPC Cache.
         """
@@ -744,6 +751,13 @@ class Cache(pulumi.CustomResource):
             subnet_id=example_subnet.id,
             sku_name="Standard_2G")
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.StorageCache`: 2023-05-01
 
         ## Import
 
@@ -858,7 +872,7 @@ class Cache(pulumi.CustomResource):
         :param pulumi.Input[builtins.bool] automatically_rotate_key_to_latest_enabled: Specifies whether the HPC Cache automatically rotates Encryption Key to the latest version.
         :param pulumi.Input[builtins.int] cache_size_in_gb: The size of the HPC Cache, in GB. Possible values are `3072`, `6144`, `12288`, `21623`, `24576`, `43246`, `49152` and `86491`. Changing this forces a new resource to be created.
                
-               > **NOTE:** The `21623`, `43246` and `86491` sizes are restricted to read only resources.
+               > **Note:** The `21623`, `43246` and `86491` sizes are restricted to read only resources.
         :param pulumi.Input[Union['CacheDefaultAccessPolicyArgs', 'CacheDefaultAccessPolicyArgsDict']] default_access_policy: A `default_access_policy` block as defined below.
         :param pulumi.Input[Union['CacheDirectoryActiveDirectoryArgs', 'CacheDirectoryActiveDirectoryArgsDict']] directory_active_directory: A `directory_active_directory` block as defined below.
         :param pulumi.Input[Union['CacheDirectoryFlatFileArgs', 'CacheDirectoryFlatFileArgsDict']] directory_flat_file: A `directory_flat_file` block as defined below.
@@ -876,7 +890,7 @@ class Cache(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] resource_group_name: The name of the Resource Group in which to create the HPC Cache. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] sku_name: The SKU of HPC Cache to use. Possible values are (ReadWrite) - `Standard_2G`, `Standard_4G` `Standard_8G` or (ReadOnly) - `Standard_L4_5G`, `Standard_L9G`, and `Standard_L16G`. Changing this forces a new resource to be created.
                
-               > **NOTE:** The read-only SKUs have restricted cache sizes. `Standard_L4_5G` must be set to `21623`. `Standard_L9G` to `43246` and `Standard_L16G` to `86491`.
+               > **Note:** The read-only SKUs have restricted cache sizes. `Standard_L4_5G` must be set to `21623`. `Standard_L9G` to `43246` and `Standard_L16G` to `86491`.
         :param pulumi.Input[builtins.str] subnet_id: The ID of the Subnet for the HPC Cache. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A mapping of tags to assign to the HPC Cache.
         """
@@ -918,7 +932,7 @@ class Cache(pulumi.CustomResource):
         """
         The size of the HPC Cache, in GB. Possible values are `3072`, `6144`, `12288`, `21623`, `24576`, `43246`, `49152` and `86491`. Changing this forces a new resource to be created.
 
-        > **NOTE:** The `21623`, `43246` and `86491` sizes are restricted to read only resources.
+        > **Note:** The `21623`, `43246` and `86491` sizes are restricted to read only resources.
         """
         return pulumi.get(self, "cache_size_in_gb")
 
@@ -1034,7 +1048,7 @@ class Cache(pulumi.CustomResource):
         """
         The SKU of HPC Cache to use. Possible values are (ReadWrite) - `Standard_2G`, `Standard_4G` `Standard_8G` or (ReadOnly) - `Standard_L4_5G`, `Standard_L9G`, and `Standard_L16G`. Changing this forces a new resource to be created.
 
-        > **NOTE:** The read-only SKUs have restricted cache sizes. `Standard_L4_5G` must be set to `21623`. `Standard_L9G` to `43246` and `Standard_L16G` to `86491`.
+        > **Note:** The read-only SKUs have restricted cache sizes. `Standard_L4_5G` must be set to `21623`. `Standard_L9G` to `43246` and `Standard_L16G` to `86491`.
         """
         return pulumi.get(self, "sku_name")
 

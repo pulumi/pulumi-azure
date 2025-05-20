@@ -20,7 +20,7 @@ public final class EventHubNamespaceIdentityArgs extends com.pulumi.resources.Re
     /**
      * Specifies a list of User Assigned Managed Identity IDs to be assigned to this EventHub namespace.
      * 
-     * &gt; **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+     * &gt; **Note:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
      * 
      * &gt; **Note:** Due to the limitation of the current Azure API, once an EventHub Namespace has been assigned an identity, it cannot be removed.
      * 
@@ -31,7 +31,7 @@ public final class EventHubNamespaceIdentityArgs extends com.pulumi.resources.Re
     /**
      * @return Specifies a list of User Assigned Managed Identity IDs to be assigned to this EventHub namespace.
      * 
-     * &gt; **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+     * &gt; **Note:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
      * 
      * &gt; **Note:** Due to the limitation of the current Azure API, once an EventHub Namespace has been assigned an identity, it cannot be removed.
      * 
@@ -115,7 +115,7 @@ public final class EventHubNamespaceIdentityArgs extends com.pulumi.resources.Re
         /**
          * @param identityIds Specifies a list of User Assigned Managed Identity IDs to be assigned to this EventHub namespace.
          * 
-         * &gt; **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+         * &gt; **Note:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
          * 
          * &gt; **Note:** Due to the limitation of the current Azure API, once an EventHub Namespace has been assigned an identity, it cannot be removed.
          * 
@@ -130,7 +130,7 @@ public final class EventHubNamespaceIdentityArgs extends com.pulumi.resources.Re
         /**
          * @param identityIds Specifies a list of User Assigned Managed Identity IDs to be assigned to this EventHub namespace.
          * 
-         * &gt; **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+         * &gt; **Note:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
          * 
          * &gt; **Note:** Due to the limitation of the current Azure API, once an EventHub Namespace has been assigned an identity, it cannot be removed.
          * 
@@ -144,7 +144,7 @@ public final class EventHubNamespaceIdentityArgs extends com.pulumi.resources.Re
         /**
          * @param identityIds Specifies a list of User Assigned Managed Identity IDs to be assigned to this EventHub namespace.
          * 
-         * &gt; **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+         * &gt; **Note:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
          * 
          * &gt; **Note:** Due to the limitation of the current Azure API, once an EventHub Namespace has been assigned an identity, it cannot be removed.
          * 

@@ -374,7 +374,7 @@ class _WorkspaceState:
         :param pulumi.Input['WorkspaceAzureDevopsRepoArgs'] azure_devops_repo: An `azure_devops_repo` block as defined below.
         :param pulumi.Input[builtins.bool] azuread_authentication_only: Is Azure Active Directory Authentication the only way to authenticate with resources inside this synapse Workspace. Defaults to `false`.
         :param pulumi.Input[builtins.str] compute_subnet_id: Subnet ID used for computes in workspace Changing this forces a new resource to be created.
-        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] connectivity_endpoints: A list of Connectivity endpoints for this Synapse Workspace.
+        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] connectivity_endpoints: A map of Connectivity endpoints for this Synapse Workspace. Possible key values are `dev`, `sql`, `sqlOnDemand`, and `web`.
         :param pulumi.Input['WorkspaceCustomerManagedKeyArgs'] customer_managed_key: A `customer_managed_key` block as defined below.
         :param pulumi.Input[builtins.bool] data_exfiltration_protection_enabled: Is data exfiltration protection enabled in this workspace? If set to `true`, `managed_virtual_network_enabled` must also be set to `true`. Changing this forces a new resource to be created.
         :param pulumi.Input['WorkspaceGithubRepoArgs'] github_repo: A `github_repo` block as defined below.
@@ -476,7 +476,7 @@ class _WorkspaceState:
     @pulumi.getter(name="connectivityEndpoints")
     def connectivity_endpoints(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
-        A list of Connectivity endpoints for this Synapse Workspace.
+        A map of Connectivity endpoints for this Synapse Workspace. Possible key values are `dev`, `sql`, `sqlOnDemand`, and `web`.
         """
         return pulumi.get(self, "connectivity_endpoints")
 
@@ -1127,7 +1127,7 @@ class Workspace(pulumi.CustomResource):
         :param pulumi.Input[Union['WorkspaceAzureDevopsRepoArgs', 'WorkspaceAzureDevopsRepoArgsDict']] azure_devops_repo: An `azure_devops_repo` block as defined below.
         :param pulumi.Input[builtins.bool] azuread_authentication_only: Is Azure Active Directory Authentication the only way to authenticate with resources inside this synapse Workspace. Defaults to `false`.
         :param pulumi.Input[builtins.str] compute_subnet_id: Subnet ID used for computes in workspace Changing this forces a new resource to be created.
-        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] connectivity_endpoints: A list of Connectivity endpoints for this Synapse Workspace.
+        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] connectivity_endpoints: A map of Connectivity endpoints for this Synapse Workspace. Possible key values are `dev`, `sql`, `sqlOnDemand`, and `web`.
         :param pulumi.Input[Union['WorkspaceCustomerManagedKeyArgs', 'WorkspaceCustomerManagedKeyArgsDict']] customer_managed_key: A `customer_managed_key` block as defined below.
         :param pulumi.Input[builtins.bool] data_exfiltration_protection_enabled: Is data exfiltration protection enabled in this workspace? If set to `true`, `managed_virtual_network_enabled` must also be set to `true`. Changing this forces a new resource to be created.
         :param pulumi.Input[Union['WorkspaceGithubRepoArgs', 'WorkspaceGithubRepoArgsDict']] github_repo: A `github_repo` block as defined below.
@@ -1201,7 +1201,7 @@ class Workspace(pulumi.CustomResource):
     @pulumi.getter(name="connectivityEndpoints")
     def connectivity_endpoints(self) -> pulumi.Output[Mapping[str, builtins.str]]:
         """
-        A list of Connectivity endpoints for this Synapse Workspace.
+        A map of Connectivity endpoints for this Synapse Workspace. Possible key values are `dev`, `sql`, `sqlOnDemand`, and `web`.
         """
         return pulumi.get(self, "connectivity_endpoints")
 

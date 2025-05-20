@@ -98,7 +98,7 @@ public final class ServiceAdditionalLocationArgs extends com.pulumi.resources.Re
     /**
      * ID of a standard SKU IPv4 Public IP.
      * 
-     * &gt; **NOTE:** Availability zones and custom public IPs are only supported in the Premium tier.
+     * &gt; **Note:** Availability zones and custom public IPs are only supported in the Premium tier.
      * 
      */
     @Import(name="publicIpAddressId")
@@ -107,7 +107,7 @@ public final class ServiceAdditionalLocationArgs extends com.pulumi.resources.Re
     /**
      * @return ID of a standard SKU IPv4 Public IP.
      * 
-     * &gt; **NOTE:** Availability zones and custom public IPs are only supported in the Premium tier.
+     * &gt; **Note:** Availability zones and custom public IPs are only supported in the Premium tier.
      * 
      */
     public Optional<Output<String>> publicIpAddressId() {
@@ -309,7 +309,7 @@ public final class ServiceAdditionalLocationArgs extends com.pulumi.resources.Re
         /**
          * @param publicIpAddressId ID of a standard SKU IPv4 Public IP.
          * 
-         * &gt; **NOTE:** Availability zones and custom public IPs are only supported in the Premium tier.
+         * &gt; **Note:** Availability zones and custom public IPs are only supported in the Premium tier.
          * 
          * @return builder
          * 
@@ -322,7 +322,7 @@ public final class ServiceAdditionalLocationArgs extends com.pulumi.resources.Re
         /**
          * @param publicIpAddressId ID of a standard SKU IPv4 Public IP.
          * 
-         * &gt; **NOTE:** Availability zones and custom public IPs are only supported in the Premium tier.
+         * &gt; **Note:** Availability zones and custom public IPs are only supported in the Premium tier.
          * 
          * @return builder
          * 

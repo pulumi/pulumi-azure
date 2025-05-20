@@ -16,8 +16,7 @@ var _ = internal.GetEnvOrDefault
 type HubApnsCredential struct {
 	// The Application Mode which defines which server the APNS Messages should be sent to. Possible values are `Production` and `Sandbox`.
 	ApplicationMode string `pulumi:"applicationMode"`
-	// The Bundle ID of the iOS/macOS application to send push notifications for, such as `com.org.example`.
-	BundleId string `pulumi:"bundleId"`
+	BundleId        string `pulumi:"bundleId"`
 	// The Apple Push Notifications Service (APNS) Key.
 	KeyId string `pulumi:"keyId"`
 	// The ID of the team the Token.
@@ -40,8 +39,7 @@ type HubApnsCredentialInput interface {
 type HubApnsCredentialArgs struct {
 	// The Application Mode which defines which server the APNS Messages should be sent to. Possible values are `Production` and `Sandbox`.
 	ApplicationMode pulumi.StringInput `pulumi:"applicationMode"`
-	// The Bundle ID of the iOS/macOS application to send push notifications for, such as `com.org.example`.
-	BundleId pulumi.StringInput `pulumi:"bundleId"`
+	BundleId        pulumi.StringInput `pulumi:"bundleId"`
 	// The Apple Push Notifications Service (APNS) Key.
 	KeyId pulumi.StringInput `pulumi:"keyId"`
 	// The ID of the team the Token.
@@ -132,7 +130,6 @@ func (o HubApnsCredentialOutput) ApplicationMode() pulumi.StringOutput {
 	return o.ApplyT(func(v HubApnsCredential) string { return v.ApplicationMode }).(pulumi.StringOutput)
 }
 
-// The Bundle ID of the iOS/macOS application to send push notifications for, such as `com.org.example`.
 func (o HubApnsCredentialOutput) BundleId() pulumi.StringOutput {
 	return o.ApplyT(func(v HubApnsCredential) string { return v.BundleId }).(pulumi.StringOutput)
 }
@@ -186,7 +183,6 @@ func (o HubApnsCredentialPtrOutput) ApplicationMode() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The Bundle ID of the iOS/macOS application to send push notifications for, such as `com.org.example`.
 func (o HubApnsCredentialPtrOutput) BundleId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *HubApnsCredential) *string {
 		if v == nil {
@@ -541,8 +537,7 @@ func (o HubGcmCredentialPtrOutput) ApiKey() pulumi.StringPtrOutput {
 type GetHubApnsCredential struct {
 	// The Application Mode which defines which server the APNS Messages should be sent to. Possible values are `Production` and `Sandbox`.
 	ApplicationMode string `pulumi:"applicationMode"`
-	// The Bundle ID of the iOS/macOS application to send push notifications for, such as `com.org.example`.
-	BundleId string `pulumi:"bundleId"`
+	BundleId        string `pulumi:"bundleId"`
 	// The Apple Push Notifications Service (APNS) Key.
 	KeyId string `pulumi:"keyId"`
 	// The ID of the team the Token.
@@ -565,8 +560,7 @@ type GetHubApnsCredentialInput interface {
 type GetHubApnsCredentialArgs struct {
 	// The Application Mode which defines which server the APNS Messages should be sent to. Possible values are `Production` and `Sandbox`.
 	ApplicationMode pulumi.StringInput `pulumi:"applicationMode"`
-	// The Bundle ID of the iOS/macOS application to send push notifications for, such as `com.org.example`.
-	BundleId pulumi.StringInput `pulumi:"bundleId"`
+	BundleId        pulumi.StringInput `pulumi:"bundleId"`
 	// The Apple Push Notifications Service (APNS) Key.
 	KeyId pulumi.StringInput `pulumi:"keyId"`
 	// The ID of the team the Token.
@@ -631,7 +625,6 @@ func (o GetHubApnsCredentialOutput) ApplicationMode() pulumi.StringOutput {
 	return o.ApplyT(func(v GetHubApnsCredential) string { return v.ApplicationMode }).(pulumi.StringOutput)
 }
 
-// The Bundle ID of the iOS/macOS application to send push notifications for, such as `com.org.example`.
 func (o GetHubApnsCredentialOutput) BundleId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetHubApnsCredential) string { return v.BundleId }).(pulumi.StringOutput)
 }

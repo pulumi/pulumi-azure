@@ -47,7 +47,7 @@ class OutputServiceBusQueueArgs:
         :param pulumi.Input[builtins.str] shared_access_policy_name: The shared access policy name for the Event Hub, Service Bus Queue, Service Bus Topic, etc. Required if `authentication_mode` is `ConnectionString`.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] system_property_columns: A key-value pair of system property columns that will be attached to the outgoing messages for the Service Bus Queue Output.
                
-               > **NOTE:** The acceptable keys are `ContentType`, `CorrelationId`, `Label`, `MessageId`, `PartitionKey`, `ReplyTo`, `ReplyToSessionId`, `ScheduledEnqueueTimeUtc`, `SessionId`, `TimeToLive` and `To`.
+               > **Note:** The acceptable keys are `ContentType`, `CorrelationId`, `Label`, `MessageId`, `PartitionKey`, `ReplyTo`, `ReplyToSessionId`, `ScheduledEnqueueTimeUtc`, `SessionId`, `TimeToLive` and `To`.
         """
         pulumi.set(__self__, "queue_name", queue_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
@@ -193,7 +193,7 @@ class OutputServiceBusQueueArgs:
         """
         A key-value pair of system property columns that will be attached to the outgoing messages for the Service Bus Queue Output.
 
-        > **NOTE:** The acceptable keys are `ContentType`, `CorrelationId`, `Label`, `MessageId`, `PartitionKey`, `ReplyTo`, `ReplyToSessionId`, `ScheduledEnqueueTimeUtc`, `SessionId`, `TimeToLive` and `To`.
+        > **Note:** The acceptable keys are `ContentType`, `CorrelationId`, `Label`, `MessageId`, `PartitionKey`, `ReplyTo`, `ReplyToSessionId`, `ScheduledEnqueueTimeUtc`, `SessionId`, `TimeToLive` and `To`.
         """
         return pulumi.get(self, "system_property_columns")
 
@@ -230,7 +230,7 @@ class _OutputServiceBusQueueState:
         :param pulumi.Input[builtins.str] stream_analytics_job_name: The name of the Stream Analytics Job. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] system_property_columns: A key-value pair of system property columns that will be attached to the outgoing messages for the Service Bus Queue Output.
                
-               > **NOTE:** The acceptable keys are `ContentType`, `CorrelationId`, `Label`, `MessageId`, `PartitionKey`, `ReplyTo`, `ReplyToSessionId`, `ScheduledEnqueueTimeUtc`, `SessionId`, `TimeToLive` and `To`.
+               > **Note:** The acceptable keys are `ContentType`, `CorrelationId`, `Label`, `MessageId`, `PartitionKey`, `ReplyTo`, `ReplyToSessionId`, `ScheduledEnqueueTimeUtc`, `SessionId`, `TimeToLive` and `To`.
         """
         if authentication_mode is not None:
             pulumi.set(__self__, "authentication_mode", authentication_mode)
@@ -381,7 +381,7 @@ class _OutputServiceBusQueueState:
         """
         A key-value pair of system property columns that will be attached to the outgoing messages for the Service Bus Queue Output.
 
-        > **NOTE:** The acceptable keys are `ContentType`, `CorrelationId`, `Label`, `MessageId`, `PartitionKey`, `ReplyTo`, `ReplyToSessionId`, `ScheduledEnqueueTimeUtc`, `SessionId`, `TimeToLive` and `To`.
+        > **Note:** The acceptable keys are `ContentType`, `CorrelationId`, `Label`, `MessageId`, `PartitionKey`, `ReplyTo`, `ReplyToSessionId`, `ScheduledEnqueueTimeUtc`, `SessionId`, `TimeToLive` and `To`.
         """
         return pulumi.get(self, "system_property_columns")
 
@@ -433,7 +433,7 @@ class OutputServiceBusQueue(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] stream_analytics_job_name: The name of the Stream Analytics Job. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] system_property_columns: A key-value pair of system property columns that will be attached to the outgoing messages for the Service Bus Queue Output.
                
-               > **NOTE:** The acceptable keys are `ContentType`, `CorrelationId`, `Label`, `MessageId`, `PartitionKey`, `ReplyTo`, `ReplyToSessionId`, `ScheduledEnqueueTimeUtc`, `SessionId`, `TimeToLive` and `To`.
+               > **Note:** The acceptable keys are `ContentType`, `CorrelationId`, `Label`, `MessageId`, `PartitionKey`, `ReplyTo`, `ReplyToSessionId`, `ScheduledEnqueueTimeUtc`, `SessionId`, `TimeToLive` and `To`.
         """
         ...
     @overload
@@ -550,7 +550,7 @@ class OutputServiceBusQueue(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] stream_analytics_job_name: The name of the Stream Analytics Job. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] system_property_columns: A key-value pair of system property columns that will be attached to the outgoing messages for the Service Bus Queue Output.
                
-               > **NOTE:** The acceptable keys are `ContentType`, `CorrelationId`, `Label`, `MessageId`, `PartitionKey`, `ReplyTo`, `ReplyToSessionId`, `ScheduledEnqueueTimeUtc`, `SessionId`, `TimeToLive` and `To`.
+               > **Note:** The acceptable keys are `ContentType`, `CorrelationId`, `Label`, `MessageId`, `PartitionKey`, `ReplyTo`, `ReplyToSessionId`, `ScheduledEnqueueTimeUtc`, `SessionId`, `TimeToLive` and `To`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -655,7 +655,7 @@ class OutputServiceBusQueue(pulumi.CustomResource):
         """
         A key-value pair of system property columns that will be attached to the outgoing messages for the Service Bus Queue Output.
 
-        > **NOTE:** The acceptable keys are `ContentType`, `CorrelationId`, `Label`, `MessageId`, `PartitionKey`, `ReplyTo`, `ReplyToSessionId`, `ScheduledEnqueueTimeUtc`, `SessionId`, `TimeToLive` and `To`.
+        > **Note:** The acceptable keys are `ContentType`, `CorrelationId`, `Label`, `MessageId`, `PartitionKey`, `ReplyTo`, `ReplyToSessionId`, `ScheduledEnqueueTimeUtc`, `SessionId`, `TimeToLive` and `To`.
         """
         return pulumi.get(self, "system_property_columns")
 

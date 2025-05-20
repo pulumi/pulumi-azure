@@ -211,6 +211,13 @@ class DatasetKustoCluster(pulumi.CustomResource):
             opts = pulumi.ResourceOptions(depends_on=[example_assignment]))
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.DataShare`: 2019-11-01
+
         ## Import
 
         Data Share Kusto Cluster Datasets can be imported using the `resource id`, e.g.
@@ -272,6 +279,13 @@ class DatasetKustoCluster(pulumi.CustomResource):
             kusto_cluster_id=example_cluster.id,
             opts = pulumi.ResourceOptions(depends_on=[example_assignment]))
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.DataShare`: 2019-11-01
 
         ## Import
 

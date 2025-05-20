@@ -93,14 +93,14 @@ public final class IotHubDataConnectionArgs extends com.pulumi.resources.Resourc
     }
 
     /**
-     * Specifies the System Properties that each IoT Hub message should contain. Changing this forces a new resource to be created. Possible values are `message-id`, `sequence-number`, `to`, `absolute-expiry-time`, `iothub-enqueuedtime`, `correlation-id`, `user-id`, `iothub-ack`, `iothub-connection-device-id`, `iothub-connection-auth-generation-id` and `iothub-connection-auth-method`.
+     * Specifies the System Properties that each IoT Hub message should contain. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="eventSystemProperties")
     private @Nullable Output<List<String>> eventSystemProperties;
 
     /**
-     * @return Specifies the System Properties that each IoT Hub message should contain. Changing this forces a new resource to be created. Possible values are `message-id`, `sequence-number`, `to`, `absolute-expiry-time`, `iothub-enqueuedtime`, `correlation-id`, `user-id`, `iothub-ack`, `iothub-connection-device-id`, `iothub-connection-auth-generation-id` and `iothub-connection-auth-method`.
+     * @return Specifies the System Properties that each IoT Hub message should contain. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<List<String>>> eventSystemProperties() {
@@ -354,7 +354,7 @@ public final class IotHubDataConnectionArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param eventSystemProperties Specifies the System Properties that each IoT Hub message should contain. Changing this forces a new resource to be created. Possible values are `message-id`, `sequence-number`, `to`, `absolute-expiry-time`, `iothub-enqueuedtime`, `correlation-id`, `user-id`, `iothub-ack`, `iothub-connection-device-id`, `iothub-connection-auth-generation-id` and `iothub-connection-auth-method`.
+         * @param eventSystemProperties Specifies the System Properties that each IoT Hub message should contain. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -365,7 +365,7 @@ public final class IotHubDataConnectionArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param eventSystemProperties Specifies the System Properties that each IoT Hub message should contain. Changing this forces a new resource to be created. Possible values are `message-id`, `sequence-number`, `to`, `absolute-expiry-time`, `iothub-enqueuedtime`, `correlation-id`, `user-id`, `iothub-ack`, `iothub-connection-device-id`, `iothub-connection-auth-generation-id` and `iothub-connection-auth-method`.
+         * @param eventSystemProperties Specifies the System Properties that each IoT Hub message should contain. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -375,7 +375,7 @@ public final class IotHubDataConnectionArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param eventSystemProperties Specifies the System Properties that each IoT Hub message should contain. Changing this forces a new resource to be created. Possible values are `message-id`, `sequence-number`, `to`, `absolute-expiry-time`, `iothub-enqueuedtime`, `correlation-id`, `user-id`, `iothub-ack`, `iothub-connection-device-id`, `iothub-connection-auth-generation-id` and `iothub-connection-auth-method`.
+         * @param eventSystemProperties Specifies the System Properties that each IoT Hub message should contain. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

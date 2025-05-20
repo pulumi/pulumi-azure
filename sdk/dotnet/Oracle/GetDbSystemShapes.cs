@@ -37,6 +37,13 @@ namespace Pulumi.Azure.Oracle
         ///     };
         /// });
         /// ```
+        /// 
+        /// ## API Providers
+        /// 
+        /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+        /// This data source uses the following Azure API Providers:
+        /// 
+        /// * `Oracle.Database`: 2024-06-01
         /// </summary>
         public static Task<GetDbSystemShapesResult> InvokeAsync(GetDbSystemShapesArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDbSystemShapesResult>("azure:oracle/getDbSystemShapes:getDbSystemShapes", args ?? new GetDbSystemShapesArgs(), options.WithDefaults());
@@ -67,6 +74,13 @@ namespace Pulumi.Azure.Oracle
         ///     };
         /// });
         /// ```
+        /// 
+        /// ## API Providers
+        /// 
+        /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+        /// This data source uses the following Azure API Providers:
+        /// 
+        /// * `Oracle.Database`: 2024-06-01
         /// </summary>
         public static Output<GetDbSystemShapesResult> Invoke(GetDbSystemShapesInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDbSystemShapesResult>("azure:oracle/getDbSystemShapes:getDbSystemShapes", args ?? new GetDbSystemShapesInvokeArgs(), options.WithDefaults());
@@ -97,6 +111,13 @@ namespace Pulumi.Azure.Oracle
         ///     };
         /// });
         /// ```
+        /// 
+        /// ## API Providers
+        /// 
+        /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+        /// This data source uses the following Azure API Providers:
+        /// 
+        /// * `Oracle.Database`: 2024-06-01
         /// </summary>
         public static Output<GetDbSystemShapesResult> Invoke(GetDbSystemShapesInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetDbSystemShapesResult>("azure:oracle/getDbSystemShapes:getDbSystemShapes", args ?? new GetDbSystemShapesInvokeArgs(), options.WithDefaults());

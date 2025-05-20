@@ -158,6 +158,13 @@ def get_network_manager_connectivity_configuration(name: Optional[builtins.str] 
     pulumi.export("id", example.id)
     ```
 
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.Network`: 2024-05-01
+
 
     :param builtins.str name: The name of this Network Manager Connectivity Configuration.
     :param builtins.str network_manager_id: The ID of the Network Manager.
@@ -194,6 +201,13 @@ def get_network_manager_connectivity_configuration_output(name: Optional[pulumi.
         network_manager_id="TODO")
     pulumi.export("id", example.id)
     ```
+
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.Network`: 2024-05-01
 
 
     :param builtins.str name: The name of this Network Manager Connectivity Configuration.

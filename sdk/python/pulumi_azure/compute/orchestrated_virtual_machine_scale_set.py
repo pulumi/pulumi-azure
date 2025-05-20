@@ -47,6 +47,7 @@ class OrchestratedVirtualMachineScaleSetArgs:
                  priority: Optional[pulumi.Input[builtins.str]] = None,
                  priority_mix: Optional[pulumi.Input['OrchestratedVirtualMachineScaleSetPriorityMixArgs']] = None,
                  proximity_placement_group_id: Optional[pulumi.Input[builtins.str]] = None,
+                 rolling_upgrade_policy: Optional[pulumi.Input['OrchestratedVirtualMachineScaleSetRollingUpgradePolicyArgs']] = None,
                  single_placement_group: Optional[pulumi.Input[builtins.bool]] = None,
                  sku_name: Optional[pulumi.Input[builtins.str]] = None,
                  sku_profile: Optional[pulumi.Input['OrchestratedVirtualMachineScaleSetSkuProfileArgs']] = None,
@@ -54,6 +55,7 @@ class OrchestratedVirtualMachineScaleSetArgs:
                  source_image_reference: Optional[pulumi.Input['OrchestratedVirtualMachineScaleSetSourceImageReferenceArgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  termination_notification: Optional[pulumi.Input['OrchestratedVirtualMachineScaleSetTerminationNotificationArgs']] = None,
+                 upgrade_mode: Optional[pulumi.Input[builtins.str]] = None,
                  user_data_base64: Optional[pulumi.Input[builtins.str]] = None,
                  zone_balance: Optional[pulumi.Input[builtins.bool]] = None,
                  zones: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None):
@@ -94,6 +96,7 @@ class OrchestratedVirtualMachineScaleSetArgs:
         :param pulumi.Input[builtins.str] priority: The Priority of this Virtual Machine Scale Set. Possible values are `Regular` and `Spot`. Defaults to `Regular`. Changing this value forces a new resource.
         :param pulumi.Input['OrchestratedVirtualMachineScaleSetPriorityMixArgs'] priority_mix: a `priority_mix` block as defined below
         :param pulumi.Input[builtins.str] proximity_placement_group_id: The ID of the Proximity Placement Group which the Virtual Machine should be assigned to. Changing this forces a new resource to be created.
+        :param pulumi.Input['OrchestratedVirtualMachineScaleSetRollingUpgradePolicyArgs'] rolling_upgrade_policy: A `rolling_upgrade_policy` block as defined below. This is Required when `upgrade_mode` is set to `Rolling` and cannot be specified when `upgrade_mode` is set to `Manual`. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.bool] single_placement_group: Should this Virtual Machine Scale Set be limited to a Single Placement Group, which means the number of instances will be capped at 100 Virtual Machines. Possible values are `true` or `false`.
                
                > **Note:** `single_placement_group` behaves differently for Flexible orchestration Virtual Machine Scale Sets than it does for Uniform orchestration Virtual Machine Scale Sets. It is recommended that you do not define the `single_placement_group` field in your configuration file as the service will determine what this value should be based off of the value contained within the `sku_name` field of your configuration file. You may set the `single_placement_group` field to `true`, however once you set it to `false` you will not be able to revert it back to `true`.
@@ -105,6 +108,7 @@ class OrchestratedVirtualMachineScaleSetArgs:
         :param pulumi.Input['OrchestratedVirtualMachineScaleSetSourceImageReferenceArgs'] source_image_reference: A `source_image_reference` block as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A mapping of tags which should be assigned to this Virtual Machine Scale Set.
         :param pulumi.Input['OrchestratedVirtualMachineScaleSetTerminationNotificationArgs'] termination_notification: A `termination_notification` block as defined below.
+        :param pulumi.Input[builtins.str] upgrade_mode: Specifies how upgrades (e.g. changing the Image/SKU) should be performed to Virtual Machine Instances. Possible values are `Automatic`, `Manual` and `Rolling`. Defaults to `Manual`. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] user_data_base64: The Base64-Encoded User Data which should be used for this Virtual Machine Scale Set.
         :param pulumi.Input[builtins.bool] zone_balance: Should the Virtual Machines in this Scale Set be strictly evenly distributed across Availability Zones? Defaults to `false`. Changing this forces a new resource to be created.
                
@@ -163,6 +167,8 @@ class OrchestratedVirtualMachineScaleSetArgs:
             pulumi.set(__self__, "priority_mix", priority_mix)
         if proximity_placement_group_id is not None:
             pulumi.set(__self__, "proximity_placement_group_id", proximity_placement_group_id)
+        if rolling_upgrade_policy is not None:
+            pulumi.set(__self__, "rolling_upgrade_policy", rolling_upgrade_policy)
         if single_placement_group is not None:
             pulumi.set(__self__, "single_placement_group", single_placement_group)
         if sku_name is not None:
@@ -177,6 +183,8 @@ class OrchestratedVirtualMachineScaleSetArgs:
             pulumi.set(__self__, "tags", tags)
         if termination_notification is not None:
             pulumi.set(__self__, "termination_notification", termination_notification)
+        if upgrade_mode is not None:
+            pulumi.set(__self__, "upgrade_mode", upgrade_mode)
         if user_data_base64 is not None:
             pulumi.set(__self__, "user_data_base64", user_data_base64)
         if zone_balance is not None:
@@ -495,6 +503,18 @@ class OrchestratedVirtualMachineScaleSetArgs:
         pulumi.set(self, "proximity_placement_group_id", value)
 
     @property
+    @pulumi.getter(name="rollingUpgradePolicy")
+    def rolling_upgrade_policy(self) -> Optional[pulumi.Input['OrchestratedVirtualMachineScaleSetRollingUpgradePolicyArgs']]:
+        """
+        A `rolling_upgrade_policy` block as defined below. This is Required when `upgrade_mode` is set to `Rolling` and cannot be specified when `upgrade_mode` is set to `Manual`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "rolling_upgrade_policy")
+
+    @rolling_upgrade_policy.setter
+    def rolling_upgrade_policy(self, value: Optional[pulumi.Input['OrchestratedVirtualMachineScaleSetRollingUpgradePolicyArgs']]):
+        pulumi.set(self, "rolling_upgrade_policy", value)
+
+    @property
     @pulumi.getter(name="singlePlacementGroup")
     def single_placement_group(self) -> Optional[pulumi.Input[builtins.bool]]:
         """
@@ -583,6 +603,18 @@ class OrchestratedVirtualMachineScaleSetArgs:
         pulumi.set(self, "termination_notification", value)
 
     @property
+    @pulumi.getter(name="upgradeMode")
+    def upgrade_mode(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Specifies how upgrades (e.g. changing the Image/SKU) should be performed to Virtual Machine Instances. Possible values are `Automatic`, `Manual` and `Rolling`. Defaults to `Manual`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "upgrade_mode")
+
+    @upgrade_mode.setter
+    def upgrade_mode(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "upgrade_mode", value)
+
+    @property
     @pulumi.getter(name="userDataBase64")
     def user_data_base64(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -653,6 +685,7 @@ class _OrchestratedVirtualMachineScaleSetState:
                  priority_mix: Optional[pulumi.Input['OrchestratedVirtualMachineScaleSetPriorityMixArgs']] = None,
                  proximity_placement_group_id: Optional[pulumi.Input[builtins.str]] = None,
                  resource_group_name: Optional[pulumi.Input[builtins.str]] = None,
+                 rolling_upgrade_policy: Optional[pulumi.Input['OrchestratedVirtualMachineScaleSetRollingUpgradePolicyArgs']] = None,
                  single_placement_group: Optional[pulumi.Input[builtins.bool]] = None,
                  sku_name: Optional[pulumi.Input[builtins.str]] = None,
                  sku_profile: Optional[pulumi.Input['OrchestratedVirtualMachineScaleSetSkuProfileArgs']] = None,
@@ -661,6 +694,7 @@ class _OrchestratedVirtualMachineScaleSetState:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  termination_notification: Optional[pulumi.Input['OrchestratedVirtualMachineScaleSetTerminationNotificationArgs']] = None,
                  unique_id: Optional[pulumi.Input[builtins.str]] = None,
+                 upgrade_mode: Optional[pulumi.Input[builtins.str]] = None,
                  user_data_base64: Optional[pulumi.Input[builtins.str]] = None,
                  zone_balance: Optional[pulumi.Input[builtins.bool]] = None,
                  zones: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None):
@@ -701,6 +735,7 @@ class _OrchestratedVirtualMachineScaleSetState:
         :param pulumi.Input['OrchestratedVirtualMachineScaleSetPriorityMixArgs'] priority_mix: a `priority_mix` block as defined below
         :param pulumi.Input[builtins.str] proximity_placement_group_id: The ID of the Proximity Placement Group which the Virtual Machine should be assigned to. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] resource_group_name: The name of the Resource Group in which the Virtual Machine Scale Set should exist. Changing this forces a new resource to be created.
+        :param pulumi.Input['OrchestratedVirtualMachineScaleSetRollingUpgradePolicyArgs'] rolling_upgrade_policy: A `rolling_upgrade_policy` block as defined below. This is Required when `upgrade_mode` is set to `Rolling` and cannot be specified when `upgrade_mode` is set to `Manual`. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.bool] single_placement_group: Should this Virtual Machine Scale Set be limited to a Single Placement Group, which means the number of instances will be capped at 100 Virtual Machines. Possible values are `true` or `false`.
                
                > **Note:** `single_placement_group` behaves differently for Flexible orchestration Virtual Machine Scale Sets than it does for Uniform orchestration Virtual Machine Scale Sets. It is recommended that you do not define the `single_placement_group` field in your configuration file as the service will determine what this value should be based off of the value contained within the `sku_name` field of your configuration file. You may set the `single_placement_group` field to `true`, however once you set it to `false` you will not be able to revert it back to `true`.
@@ -713,6 +748,7 @@ class _OrchestratedVirtualMachineScaleSetState:
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A mapping of tags which should be assigned to this Virtual Machine Scale Set.
         :param pulumi.Input['OrchestratedVirtualMachineScaleSetTerminationNotificationArgs'] termination_notification: A `termination_notification` block as defined below.
         :param pulumi.Input[builtins.str] unique_id: The Unique ID for the Virtual Machine Scale Set.
+        :param pulumi.Input[builtins.str] upgrade_mode: Specifies how upgrades (e.g. changing the Image/SKU) should be performed to Virtual Machine Instances. Possible values are `Automatic`, `Manual` and `Rolling`. Defaults to `Manual`. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] user_data_base64: The Base64-Encoded User Data which should be used for this Virtual Machine Scale Set.
         :param pulumi.Input[builtins.bool] zone_balance: Should the Virtual Machines in this Scale Set be strictly evenly distributed across Availability Zones? Defaults to `false`. Changing this forces a new resource to be created.
                
@@ -773,6 +809,8 @@ class _OrchestratedVirtualMachineScaleSetState:
             pulumi.set(__self__, "proximity_placement_group_id", proximity_placement_group_id)
         if resource_group_name is not None:
             pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if rolling_upgrade_policy is not None:
+            pulumi.set(__self__, "rolling_upgrade_policy", rolling_upgrade_policy)
         if single_placement_group is not None:
             pulumi.set(__self__, "single_placement_group", single_placement_group)
         if sku_name is not None:
@@ -789,6 +827,8 @@ class _OrchestratedVirtualMachineScaleSetState:
             pulumi.set(__self__, "termination_notification", termination_notification)
         if unique_id is not None:
             pulumi.set(__self__, "unique_id", unique_id)
+        if upgrade_mode is not None:
+            pulumi.set(__self__, "upgrade_mode", upgrade_mode)
         if user_data_base64 is not None:
             pulumi.set(__self__, "user_data_base64", user_data_base64)
         if zone_balance is not None:
@@ -1107,6 +1147,18 @@ class _OrchestratedVirtualMachineScaleSetState:
         pulumi.set(self, "resource_group_name", value)
 
     @property
+    @pulumi.getter(name="rollingUpgradePolicy")
+    def rolling_upgrade_policy(self) -> Optional[pulumi.Input['OrchestratedVirtualMachineScaleSetRollingUpgradePolicyArgs']]:
+        """
+        A `rolling_upgrade_policy` block as defined below. This is Required when `upgrade_mode` is set to `Rolling` and cannot be specified when `upgrade_mode` is set to `Manual`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "rolling_upgrade_policy")
+
+    @rolling_upgrade_policy.setter
+    def rolling_upgrade_policy(self, value: Optional[pulumi.Input['OrchestratedVirtualMachineScaleSetRollingUpgradePolicyArgs']]):
+        pulumi.set(self, "rolling_upgrade_policy", value)
+
+    @property
     @pulumi.getter(name="singlePlacementGroup")
     def single_placement_group(self) -> Optional[pulumi.Input[builtins.bool]]:
         """
@@ -1207,6 +1259,18 @@ class _OrchestratedVirtualMachineScaleSetState:
         pulumi.set(self, "unique_id", value)
 
     @property
+    @pulumi.getter(name="upgradeMode")
+    def upgrade_mode(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Specifies how upgrades (e.g. changing the Image/SKU) should be performed to Virtual Machine Instances. Possible values are `Automatic`, `Manual` and `Rolling`. Defaults to `Manual`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "upgrade_mode")
+
+    @upgrade_mode.setter
+    def upgrade_mode(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "upgrade_mode", value)
+
+    @property
     @pulumi.getter(name="userDataBase64")
     def user_data_base64(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -1280,6 +1344,7 @@ class OrchestratedVirtualMachineScaleSet(pulumi.CustomResource):
                  priority_mix: Optional[pulumi.Input[Union['OrchestratedVirtualMachineScaleSetPriorityMixArgs', 'OrchestratedVirtualMachineScaleSetPriorityMixArgsDict']]] = None,
                  proximity_placement_group_id: Optional[pulumi.Input[builtins.str]] = None,
                  resource_group_name: Optional[pulumi.Input[builtins.str]] = None,
+                 rolling_upgrade_policy: Optional[pulumi.Input[Union['OrchestratedVirtualMachineScaleSetRollingUpgradePolicyArgs', 'OrchestratedVirtualMachineScaleSetRollingUpgradePolicyArgsDict']]] = None,
                  single_placement_group: Optional[pulumi.Input[builtins.bool]] = None,
                  sku_name: Optional[pulumi.Input[builtins.str]] = None,
                  sku_profile: Optional[pulumi.Input[Union['OrchestratedVirtualMachineScaleSetSkuProfileArgs', 'OrchestratedVirtualMachineScaleSetSkuProfileArgsDict']]] = None,
@@ -1287,6 +1352,7 @@ class OrchestratedVirtualMachineScaleSet(pulumi.CustomResource):
                  source_image_reference: Optional[pulumi.Input[Union['OrchestratedVirtualMachineScaleSetSourceImageReferenceArgs', 'OrchestratedVirtualMachineScaleSetSourceImageReferenceArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  termination_notification: Optional[pulumi.Input[Union['OrchestratedVirtualMachineScaleSetTerminationNotificationArgs', 'OrchestratedVirtualMachineScaleSetTerminationNotificationArgsDict']]] = None,
+                 upgrade_mode: Optional[pulumi.Input[builtins.str]] = None,
                  user_data_base64: Optional[pulumi.Input[builtins.str]] = None,
                  zone_balance: Optional[pulumi.Input[builtins.bool]] = None,
                  zones: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
@@ -1362,6 +1428,7 @@ class OrchestratedVirtualMachineScaleSet(pulumi.CustomResource):
         :param pulumi.Input[Union['OrchestratedVirtualMachineScaleSetPriorityMixArgs', 'OrchestratedVirtualMachineScaleSetPriorityMixArgsDict']] priority_mix: a `priority_mix` block as defined below
         :param pulumi.Input[builtins.str] proximity_placement_group_id: The ID of the Proximity Placement Group which the Virtual Machine should be assigned to. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] resource_group_name: The name of the Resource Group in which the Virtual Machine Scale Set should exist. Changing this forces a new resource to be created.
+        :param pulumi.Input[Union['OrchestratedVirtualMachineScaleSetRollingUpgradePolicyArgs', 'OrchestratedVirtualMachineScaleSetRollingUpgradePolicyArgsDict']] rolling_upgrade_policy: A `rolling_upgrade_policy` block as defined below. This is Required when `upgrade_mode` is set to `Rolling` and cannot be specified when `upgrade_mode` is set to `Manual`. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.bool] single_placement_group: Should this Virtual Machine Scale Set be limited to a Single Placement Group, which means the number of instances will be capped at 100 Virtual Machines. Possible values are `true` or `false`.
                
                > **Note:** `single_placement_group` behaves differently for Flexible orchestration Virtual Machine Scale Sets than it does for Uniform orchestration Virtual Machine Scale Sets. It is recommended that you do not define the `single_placement_group` field in your configuration file as the service will determine what this value should be based off of the value contained within the `sku_name` field of your configuration file. You may set the `single_placement_group` field to `true`, however once you set it to `false` you will not be able to revert it back to `true`.
@@ -1373,6 +1440,7 @@ class OrchestratedVirtualMachineScaleSet(pulumi.CustomResource):
         :param pulumi.Input[Union['OrchestratedVirtualMachineScaleSetSourceImageReferenceArgs', 'OrchestratedVirtualMachineScaleSetSourceImageReferenceArgsDict']] source_image_reference: A `source_image_reference` block as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A mapping of tags which should be assigned to this Virtual Machine Scale Set.
         :param pulumi.Input[Union['OrchestratedVirtualMachineScaleSetTerminationNotificationArgs', 'OrchestratedVirtualMachineScaleSetTerminationNotificationArgsDict']] termination_notification: A `termination_notification` block as defined below.
+        :param pulumi.Input[builtins.str] upgrade_mode: Specifies how upgrades (e.g. changing the Image/SKU) should be performed to Virtual Machine Instances. Possible values are `Automatic`, `Manual` and `Rolling`. Defaults to `Manual`. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] user_data_base64: The Base64-Encoded User Data which should be used for this Virtual Machine Scale Set.
         :param pulumi.Input[builtins.bool] zone_balance: Should the Virtual Machines in this Scale Set be strictly evenly distributed across Availability Zones? Defaults to `false`. Changing this forces a new resource to be created.
                
@@ -1463,6 +1531,7 @@ class OrchestratedVirtualMachineScaleSet(pulumi.CustomResource):
                  priority_mix: Optional[pulumi.Input[Union['OrchestratedVirtualMachineScaleSetPriorityMixArgs', 'OrchestratedVirtualMachineScaleSetPriorityMixArgsDict']]] = None,
                  proximity_placement_group_id: Optional[pulumi.Input[builtins.str]] = None,
                  resource_group_name: Optional[pulumi.Input[builtins.str]] = None,
+                 rolling_upgrade_policy: Optional[pulumi.Input[Union['OrchestratedVirtualMachineScaleSetRollingUpgradePolicyArgs', 'OrchestratedVirtualMachineScaleSetRollingUpgradePolicyArgsDict']]] = None,
                  single_placement_group: Optional[pulumi.Input[builtins.bool]] = None,
                  sku_name: Optional[pulumi.Input[builtins.str]] = None,
                  sku_profile: Optional[pulumi.Input[Union['OrchestratedVirtualMachineScaleSetSkuProfileArgs', 'OrchestratedVirtualMachineScaleSetSkuProfileArgsDict']]] = None,
@@ -1470,6 +1539,7 @@ class OrchestratedVirtualMachineScaleSet(pulumi.CustomResource):
                  source_image_reference: Optional[pulumi.Input[Union['OrchestratedVirtualMachineScaleSetSourceImageReferenceArgs', 'OrchestratedVirtualMachineScaleSetSourceImageReferenceArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  termination_notification: Optional[pulumi.Input[Union['OrchestratedVirtualMachineScaleSetTerminationNotificationArgs', 'OrchestratedVirtualMachineScaleSetTerminationNotificationArgsDict']]] = None,
+                 upgrade_mode: Optional[pulumi.Input[builtins.str]] = None,
                  user_data_base64: Optional[pulumi.Input[builtins.str]] = None,
                  zone_balance: Optional[pulumi.Input[builtins.bool]] = None,
                  zones: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
@@ -1511,6 +1581,7 @@ class OrchestratedVirtualMachineScaleSet(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["rolling_upgrade_policy"] = rolling_upgrade_policy
             __props__.__dict__["single_placement_group"] = single_placement_group
             __props__.__dict__["sku_name"] = sku_name
             __props__.__dict__["sku_profile"] = sku_profile
@@ -1518,6 +1589,7 @@ class OrchestratedVirtualMachineScaleSet(pulumi.CustomResource):
             __props__.__dict__["source_image_reference"] = source_image_reference
             __props__.__dict__["tags"] = tags
             __props__.__dict__["termination_notification"] = termination_notification
+            __props__.__dict__["upgrade_mode"] = upgrade_mode
             __props__.__dict__["user_data_base64"] = None if user_data_base64 is None else pulumi.Output.secret(user_data_base64)
             __props__.__dict__["zone_balance"] = zone_balance
             __props__.__dict__["zones"] = zones
@@ -1559,6 +1631,7 @@ class OrchestratedVirtualMachineScaleSet(pulumi.CustomResource):
             priority_mix: Optional[pulumi.Input[Union['OrchestratedVirtualMachineScaleSetPriorityMixArgs', 'OrchestratedVirtualMachineScaleSetPriorityMixArgsDict']]] = None,
             proximity_placement_group_id: Optional[pulumi.Input[builtins.str]] = None,
             resource_group_name: Optional[pulumi.Input[builtins.str]] = None,
+            rolling_upgrade_policy: Optional[pulumi.Input[Union['OrchestratedVirtualMachineScaleSetRollingUpgradePolicyArgs', 'OrchestratedVirtualMachineScaleSetRollingUpgradePolicyArgsDict']]] = None,
             single_placement_group: Optional[pulumi.Input[builtins.bool]] = None,
             sku_name: Optional[pulumi.Input[builtins.str]] = None,
             sku_profile: Optional[pulumi.Input[Union['OrchestratedVirtualMachineScaleSetSkuProfileArgs', 'OrchestratedVirtualMachineScaleSetSkuProfileArgsDict']]] = None,
@@ -1567,6 +1640,7 @@ class OrchestratedVirtualMachineScaleSet(pulumi.CustomResource):
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
             termination_notification: Optional[pulumi.Input[Union['OrchestratedVirtualMachineScaleSetTerminationNotificationArgs', 'OrchestratedVirtualMachineScaleSetTerminationNotificationArgsDict']]] = None,
             unique_id: Optional[pulumi.Input[builtins.str]] = None,
+            upgrade_mode: Optional[pulumi.Input[builtins.str]] = None,
             user_data_base64: Optional[pulumi.Input[builtins.str]] = None,
             zone_balance: Optional[pulumi.Input[builtins.bool]] = None,
             zones: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None) -> 'OrchestratedVirtualMachineScaleSet':
@@ -1612,6 +1686,7 @@ class OrchestratedVirtualMachineScaleSet(pulumi.CustomResource):
         :param pulumi.Input[Union['OrchestratedVirtualMachineScaleSetPriorityMixArgs', 'OrchestratedVirtualMachineScaleSetPriorityMixArgsDict']] priority_mix: a `priority_mix` block as defined below
         :param pulumi.Input[builtins.str] proximity_placement_group_id: The ID of the Proximity Placement Group which the Virtual Machine should be assigned to. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] resource_group_name: The name of the Resource Group in which the Virtual Machine Scale Set should exist. Changing this forces a new resource to be created.
+        :param pulumi.Input[Union['OrchestratedVirtualMachineScaleSetRollingUpgradePolicyArgs', 'OrchestratedVirtualMachineScaleSetRollingUpgradePolicyArgsDict']] rolling_upgrade_policy: A `rolling_upgrade_policy` block as defined below. This is Required when `upgrade_mode` is set to `Rolling` and cannot be specified when `upgrade_mode` is set to `Manual`. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.bool] single_placement_group: Should this Virtual Machine Scale Set be limited to a Single Placement Group, which means the number of instances will be capped at 100 Virtual Machines. Possible values are `true` or `false`.
                
                > **Note:** `single_placement_group` behaves differently for Flexible orchestration Virtual Machine Scale Sets than it does for Uniform orchestration Virtual Machine Scale Sets. It is recommended that you do not define the `single_placement_group` field in your configuration file as the service will determine what this value should be based off of the value contained within the `sku_name` field of your configuration file. You may set the `single_placement_group` field to `true`, however once you set it to `false` you will not be able to revert it back to `true`.
@@ -1624,6 +1699,7 @@ class OrchestratedVirtualMachineScaleSet(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A mapping of tags which should be assigned to this Virtual Machine Scale Set.
         :param pulumi.Input[Union['OrchestratedVirtualMachineScaleSetTerminationNotificationArgs', 'OrchestratedVirtualMachineScaleSetTerminationNotificationArgsDict']] termination_notification: A `termination_notification` block as defined below.
         :param pulumi.Input[builtins.str] unique_id: The Unique ID for the Virtual Machine Scale Set.
+        :param pulumi.Input[builtins.str] upgrade_mode: Specifies how upgrades (e.g. changing the Image/SKU) should be performed to Virtual Machine Instances. Possible values are `Automatic`, `Manual` and `Rolling`. Defaults to `Manual`. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] user_data_base64: The Base64-Encoded User Data which should be used for this Virtual Machine Scale Set.
         :param pulumi.Input[builtins.bool] zone_balance: Should the Virtual Machines in this Scale Set be strictly evenly distributed across Availability Zones? Defaults to `false`. Changing this forces a new resource to be created.
                
@@ -1663,6 +1739,7 @@ class OrchestratedVirtualMachineScaleSet(pulumi.CustomResource):
         __props__.__dict__["priority_mix"] = priority_mix
         __props__.__dict__["proximity_placement_group_id"] = proximity_placement_group_id
         __props__.__dict__["resource_group_name"] = resource_group_name
+        __props__.__dict__["rolling_upgrade_policy"] = rolling_upgrade_policy
         __props__.__dict__["single_placement_group"] = single_placement_group
         __props__.__dict__["sku_name"] = sku_name
         __props__.__dict__["sku_profile"] = sku_profile
@@ -1671,6 +1748,7 @@ class OrchestratedVirtualMachineScaleSet(pulumi.CustomResource):
         __props__.__dict__["tags"] = tags
         __props__.__dict__["termination_notification"] = termination_notification
         __props__.__dict__["unique_id"] = unique_id
+        __props__.__dict__["upgrade_mode"] = upgrade_mode
         __props__.__dict__["user_data_base64"] = user_data_base64
         __props__.__dict__["zone_balance"] = zone_balance
         __props__.__dict__["zones"] = zones
@@ -1887,6 +1965,14 @@ class OrchestratedVirtualMachineScaleSet(pulumi.CustomResource):
         return pulumi.get(self, "resource_group_name")
 
     @property
+    @pulumi.getter(name="rollingUpgradePolicy")
+    def rolling_upgrade_policy(self) -> pulumi.Output[Optional['outputs.OrchestratedVirtualMachineScaleSetRollingUpgradePolicy']]:
+        """
+        A `rolling_upgrade_policy` block as defined below. This is Required when `upgrade_mode` is set to `Rolling` and cannot be specified when `upgrade_mode` is set to `Manual`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "rolling_upgrade_policy")
+
+    @property
     @pulumi.getter(name="singlePlacementGroup")
     def single_placement_group(self) -> pulumi.Output[builtins.bool]:
         """
@@ -1953,6 +2039,14 @@ class OrchestratedVirtualMachineScaleSet(pulumi.CustomResource):
         The Unique ID for the Virtual Machine Scale Set.
         """
         return pulumi.get(self, "unique_id")
+
+    @property
+    @pulumi.getter(name="upgradeMode")
+    def upgrade_mode(self) -> pulumi.Output[Optional[builtins.str]]:
+        """
+        Specifies how upgrades (e.g. changing the Image/SKU) should be performed to Virtual Machine Instances. Possible values are `Automatic`, `Manual` and `Rolling`. Defaults to `Manual`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "upgrade_mode")
 
     @property
     @pulumi.getter(name="userDataBase64")

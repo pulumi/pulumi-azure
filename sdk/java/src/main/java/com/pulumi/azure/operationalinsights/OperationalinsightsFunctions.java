@@ -55,6 +55,13 @@ public final class OperationalinsightsFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.OperationalInsights`: 2020-08-01
+     * 
      */
     public static Output<GetAnalyticsWorkspaceResult> getAnalyticsWorkspace(GetAnalyticsWorkspaceArgs args) {
         return getAnalyticsWorkspace(args, InvokeOptions.Empty);
@@ -98,6 +105,13 @@ public final class OperationalinsightsFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.OperationalInsights`: 2020-08-01
      * 
      */
     public static CompletableFuture<GetAnalyticsWorkspaceResult> getAnalyticsWorkspacePlain(GetAnalyticsWorkspacePlainArgs args) {
@@ -143,6 +157,13 @@ public final class OperationalinsightsFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.OperationalInsights`: 2020-08-01
+     * 
      */
     public static Output<GetAnalyticsWorkspaceResult> getAnalyticsWorkspace(GetAnalyticsWorkspaceArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:operationalinsights/getAnalyticsWorkspace:getAnalyticsWorkspace", TypeShape.of(GetAnalyticsWorkspaceResult.class), args, Utilities.withVersion(options));
@@ -187,6 +208,13 @@ public final class OperationalinsightsFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.OperationalInsights`: 2020-08-01
+     * 
      */
     public static Output<GetAnalyticsWorkspaceResult> getAnalyticsWorkspace(GetAnalyticsWorkspaceArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("azure:operationalinsights/getAnalyticsWorkspace:getAnalyticsWorkspace", TypeShape.of(GetAnalyticsWorkspaceResult.class), args, Utilities.withVersion(options));
@@ -230,6 +258,13 @@ public final class OperationalinsightsFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.OperationalInsights`: 2020-08-01
      * 
      */
     public static CompletableFuture<GetAnalyticsWorkspaceResult> getAnalyticsWorkspacePlain(GetAnalyticsWorkspacePlainArgs args, InvokeOptions options) {

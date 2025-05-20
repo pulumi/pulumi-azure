@@ -18,7 +18,7 @@ public final class WindowsVirtualMachineBootDiagnosticsArgs extends com.pulumi.r
     /**
      * The Primary/Secondary Endpoint for the Azure Storage Account which should be used to store Boot Diagnostics, including Console Output and Screenshots from the Hypervisor.
      * 
-     * &gt; **NOTE:** Passing a null value will utilize a Managed Storage Account to store Boot Diagnostics.
+     * &gt; **Note:** Passing a null value will utilize a Managed Storage Account to store Boot Diagnostics.
      * 
      */
     @Import(name="storageAccountUri")
@@ -27,7 +27,7 @@ public final class WindowsVirtualMachineBootDiagnosticsArgs extends com.pulumi.r
     /**
      * @return The Primary/Secondary Endpoint for the Azure Storage Account which should be used to store Boot Diagnostics, including Console Output and Screenshots from the Hypervisor.
      * 
-     * &gt; **NOTE:** Passing a null value will utilize a Managed Storage Account to store Boot Diagnostics.
+     * &gt; **Note:** Passing a null value will utilize a Managed Storage Account to store Boot Diagnostics.
      * 
      */
     public Optional<Output<String>> storageAccountUri() {
@@ -61,7 +61,7 @@ public final class WindowsVirtualMachineBootDiagnosticsArgs extends com.pulumi.r
         /**
          * @param storageAccountUri The Primary/Secondary Endpoint for the Azure Storage Account which should be used to store Boot Diagnostics, including Console Output and Screenshots from the Hypervisor.
          * 
-         * &gt; **NOTE:** Passing a null value will utilize a Managed Storage Account to store Boot Diagnostics.
+         * &gt; **Note:** Passing a null value will utilize a Managed Storage Account to store Boot Diagnostics.
          * 
          * @return builder
          * 
@@ -74,7 +74,7 @@ public final class WindowsVirtualMachineBootDiagnosticsArgs extends com.pulumi.r
         /**
          * @param storageAccountUri The Primary/Secondary Endpoint for the Azure Storage Account which should be used to store Boot Diagnostics, including Console Output and Screenshots from the Hypervisor.
          * 
-         * &gt; **NOTE:** Passing a null value will utilize a Managed Storage Account to store Boot Diagnostics.
+         * &gt; **Note:** Passing a null value will utilize a Managed Storage Account to store Boot Diagnostics.
          * 
          * @return builder
          * 

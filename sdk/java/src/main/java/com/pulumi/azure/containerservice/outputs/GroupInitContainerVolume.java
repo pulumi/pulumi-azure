@@ -40,16 +40,6 @@ public final class GroupInitContainerVolume {
      * 
      */
     private @Nullable Boolean readOnly;
-    /**
-     * @return A map of secrets that will be mounted as files in the volume. Changing this forces a new resource to be created.
-     * 
-     * &gt; **Note:** Exactly one of `empty_dir` volume, `git_repo` volume, `secret` volume or storage account volume (`share_name`, `storage_account_name`, and `storage_account_key`) must be specified.
-     * 
-     * &gt; **Note** when using a storage account volume, all of `share_name`, `storage_account_name`, and `storage_account_key` must be specified.
-     * 
-     * &gt; **Note:** The secret values must be supplied as Base64 encoded strings. The secret values are decoded to their original values when mounted in the volume on the container.
-     * 
-     */
     private @Nullable Map<String,String> secret;
     /**
      * @return The Azure storage share that is to be mounted as a volume. This must be created on the storage account specified as above. Changing this forces a new resource to be created.
@@ -103,16 +93,6 @@ public final class GroupInitContainerVolume {
     public Optional<Boolean> readOnly() {
         return Optional.ofNullable(this.readOnly);
     }
-    /**
-     * @return A map of secrets that will be mounted as files in the volume. Changing this forces a new resource to be created.
-     * 
-     * &gt; **Note:** Exactly one of `empty_dir` volume, `git_repo` volume, `secret` volume or storage account volume (`share_name`, `storage_account_name`, and `storage_account_key`) must be specified.
-     * 
-     * &gt; **Note** when using a storage account volume, all of `share_name`, `storage_account_name`, and `storage_account_key` must be specified.
-     * 
-     * &gt; **Note:** The secret values must be supplied as Base64 encoded strings. The secret values are decoded to their original values when mounted in the volume on the container.
-     * 
-     */
     public Map<String,String> secret() {
         return this.secret == null ? Map.of() : this.secret;
     }

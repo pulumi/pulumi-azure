@@ -12,9 +12,9 @@ namespace Pulumi.Azure.SecurityCenter
     /// <summary>
     /// Manages the Data Access Settings for Azure Security Center.
     /// 
-    /// &gt; **NOTE:** This resource requires the `Owner` permission on the Subscription.
+    /// &gt; **Note:** This resource requires the `Owner` permission on the Subscription.
     /// 
-    /// &gt; **NOTE:** Deletion of this resource disables the setting.
+    /// &gt; **Note:** Deletion of this resource disables the setting.
     /// 
     /// ## Example Usage
     /// 

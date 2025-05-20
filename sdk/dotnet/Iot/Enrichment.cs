@@ -12,7 +12,7 @@ namespace Pulumi.Azure.Iot
     /// <summary>
     /// Manages an IotHub Enrichment
     /// 
-    /// &gt; **NOTE:** Enrichment can be defined either directly on the `azure.iot.IoTHub` resource, or using the `azure.iot.Enrichment` resources - but the two cannot be used together. If both are used against the same IoTHub, spurious changes will occur.
+    /// &gt; **Note:** Enrichment can be defined either directly on the `azure.iot.IoTHub` resource, or using the `azure.iot.Enrichment` resources - but the two cannot be used together. If both are used against the same IoTHub, spurious changes will occur.
     /// 
     /// ## Example Usage
     /// 

@@ -220,6 +220,13 @@ def get_elastic_pool(name: Optional[builtins.str] = None,
     pulumi.export("elasticpoolId", example.id)
     ```
 
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.Sql`: 2023-08-01-preview
+
 
     :param builtins.str name: The name of the elastic pool.
     :param builtins.str resource_group_name: The name of the resource group which contains the elastic pool.
@@ -265,6 +272,13 @@ def get_elastic_pool_output(name: Optional[pulumi.Input[builtins.str]] = None,
         server_name="example-sql-server")
     pulumi.export("elasticpoolId", example.id)
     ```
+
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.Sql`: 2023-08-01-preview
 
 
     :param builtins.str name: The name of the elastic pool.

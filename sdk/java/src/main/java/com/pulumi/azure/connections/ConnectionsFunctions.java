@@ -55,6 +55,13 @@ public final class ConnectionsFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Web`: 2016-06-01
+     * 
      */
     public static Output<GetManagedApiResult> getManagedApi(GetManagedApiArgs args) {
         return getManagedApi(args, InvokeOptions.Empty);
@@ -98,6 +105,13 @@ public final class ConnectionsFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Web`: 2016-06-01
      * 
      */
     public static CompletableFuture<GetManagedApiResult> getManagedApiPlain(GetManagedApiPlainArgs args) {
@@ -143,6 +157,13 @@ public final class ConnectionsFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Web`: 2016-06-01
+     * 
      */
     public static Output<GetManagedApiResult> getManagedApi(GetManagedApiArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:connections/getManagedApi:getManagedApi", TypeShape.of(GetManagedApiResult.class), args, Utilities.withVersion(options));
@@ -187,6 +208,13 @@ public final class ConnectionsFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Web`: 2016-06-01
+     * 
      */
     public static Output<GetManagedApiResult> getManagedApi(GetManagedApiArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("azure:connections/getManagedApi:getManagedApi", TypeShape.of(GetManagedApiResult.class), args, Utilities.withVersion(options));
@@ -230,6 +258,13 @@ public final class ConnectionsFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Web`: 2016-06-01
      * 
      */
     public static CompletableFuture<GetManagedApiResult> getManagedApiPlain(GetManagedApiPlainArgs args, InvokeOptions options) {

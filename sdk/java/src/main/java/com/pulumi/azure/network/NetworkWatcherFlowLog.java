@@ -22,11 +22,103 @@ import javax.annotation.Nullable;
 /**
  * Manages a Network Watcher Flow Log.
  * 
- * &gt; **Note** The `azure.network.NetworkWatcherFlowLog` creates a new storage lifecyle management rule that overwrites existing rules. Please make sure to use a `storage_account` with no existing management rules, until the issue is fixed.
+ * &gt; **Note:** The `azure.network.NetworkWatcherFlowLog` creates a new storage lifecyle management rule that overwrites existing rules. Please make sure to use a `storage_account` with no existing management rules, until the issue is fixed.
  * 
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.azure.core.ResourceGroup;
+ * import com.pulumi.azure.core.ResourceGroupArgs;
+ * import com.pulumi.azure.network.NetworkSecurityGroup;
+ * import com.pulumi.azure.network.NetworkSecurityGroupArgs;
+ * import com.pulumi.azure.network.NetworkWatcher;
+ * import com.pulumi.azure.network.NetworkWatcherArgs;
+ * import com.pulumi.azure.storage.Account;
+ * import com.pulumi.azure.storage.AccountArgs;
+ * import com.pulumi.azure.operationalinsights.AnalyticsWorkspace;
+ * import com.pulumi.azure.operationalinsights.AnalyticsWorkspaceArgs;
+ * import com.pulumi.azure.network.NetworkWatcherFlowLog;
+ * import com.pulumi.azure.network.NetworkWatcherFlowLogArgs;
+ * import com.pulumi.azure.network.inputs.NetworkWatcherFlowLogRetentionPolicyArgs;
+ * import com.pulumi.azure.network.inputs.NetworkWatcherFlowLogTrafficAnalyticsArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
+ *             .name("example-resources")
+ *             .location("West Europe")
+ *             .build());
+ * 
+ *         var test = new NetworkSecurityGroup("test", NetworkSecurityGroupArgs.builder()
+ *             .name("acctestnsg")
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
+ *             .build());
+ * 
+ *         var testNetworkWatcher = new NetworkWatcher("testNetworkWatcher", NetworkWatcherArgs.builder()
+ *             .name("acctestnw")
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
+ *             .build());
+ * 
+ *         var testAccount = new Account("testAccount", AccountArgs.builder()
+ *             .name("acctestsa")
+ *             .resourceGroupName(example.name())
+ *             .location(example.location())
+ *             .accountTier("Standard")
+ *             .accountKind("StorageV2")
+ *             .accountReplicationType("LRS")
+ *             .httpsTrafficOnlyEnabled(true)
+ *             .build());
+ * 
+ *         var testAnalyticsWorkspace = new AnalyticsWorkspace("testAnalyticsWorkspace", AnalyticsWorkspaceArgs.builder()
+ *             .name("acctestlaw")
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
+ *             .sku("PerGB2018")
+ *             .build());
+ * 
+ *         var testNetworkWatcherFlowLog = new NetworkWatcherFlowLog("testNetworkWatcherFlowLog", NetworkWatcherFlowLogArgs.builder()
+ *             .networkWatcherName(testNetworkWatcher.name())
+ *             .resourceGroupName(example.name())
+ *             .name("example-log")
+ *             .targetResourceId(test.id())
+ *             .storageAccountId(testAccount.id())
+ *             .enabled(true)
+ *             .retentionPolicy(NetworkWatcherFlowLogRetentionPolicyArgs.builder()
+ *                 .enabled(true)
+ *                 .days(7)
+ *                 .build())
+ *             .trafficAnalytics(NetworkWatcherFlowLogTrafficAnalyticsArgs.builder()
+ *                 .enabled(true)
+ *                 .workspaceId(testAnalyticsWorkspace.workspaceId())
+ *                 .workspaceRegion(testAnalyticsWorkspace.location())
+ *                 .workspaceResourceId(testAnalyticsWorkspace.id())
+ *                 .intervalInMinutes(10)
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

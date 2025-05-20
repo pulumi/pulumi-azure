@@ -61,19 +61,13 @@ type GremlinDatabase struct {
 	pulumi.CustomResourceState
 
 	// The name of the CosmosDB Account to create the Gremlin Database within. Changing this forces a new resource to be created.
-	AccountName pulumi.StringOutput `pulumi:"accountName"`
-	// An `autoscaleSettings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual destroy-apply.
-	//
-	// > **Note:** Switching between autoscale and manual throughput is not supported via this provider and must be completed via the Azure Portal and refreshed.
+	AccountName       pulumi.StringOutput                       `pulumi:"accountName"`
 	AutoscaleSettings GremlinDatabaseAutoscaleSettingsPtrOutput `pulumi:"autoscaleSettings"`
 	// Specifies the name of the Cosmos DB Gremlin Database. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The name of the resource group in which the Cosmos DB Gremlin Database is created. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
-	// The throughput of the Gremlin database (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon database creation otherwise it cannot be updated without a manual resource destroy-apply.
-	//
-	// > **Note:** throughput has a maximum value of `1000000` unless a higher limit is requested via Azure Support
-	Throughput pulumi.IntOutput `pulumi:"throughput"`
+	Throughput        pulumi.IntOutput    `pulumi:"throughput"`
 }
 
 // NewGremlinDatabase registers a new resource with the given unique name, arguments, and options.
@@ -113,36 +107,24 @@ func GetGremlinDatabase(ctx *pulumi.Context,
 // Input properties used for looking up and filtering GremlinDatabase resources.
 type gremlinDatabaseState struct {
 	// The name of the CosmosDB Account to create the Gremlin Database within. Changing this forces a new resource to be created.
-	AccountName *string `pulumi:"accountName"`
-	// An `autoscaleSettings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual destroy-apply.
-	//
-	// > **Note:** Switching between autoscale and manual throughput is not supported via this provider and must be completed via the Azure Portal and refreshed.
+	AccountName       *string                           `pulumi:"accountName"`
 	AutoscaleSettings *GremlinDatabaseAutoscaleSettings `pulumi:"autoscaleSettings"`
 	// Specifies the name of the Cosmos DB Gremlin Database. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// The name of the resource group in which the Cosmos DB Gremlin Database is created. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
-	// The throughput of the Gremlin database (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon database creation otherwise it cannot be updated without a manual resource destroy-apply.
-	//
-	// > **Note:** throughput has a maximum value of `1000000` unless a higher limit is requested via Azure Support
-	Throughput *int `pulumi:"throughput"`
+	Throughput        *int    `pulumi:"throughput"`
 }
 
 type GremlinDatabaseState struct {
 	// The name of the CosmosDB Account to create the Gremlin Database within. Changing this forces a new resource to be created.
-	AccountName pulumi.StringPtrInput
-	// An `autoscaleSettings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual destroy-apply.
-	//
-	// > **Note:** Switching between autoscale and manual throughput is not supported via this provider and must be completed via the Azure Portal and refreshed.
+	AccountName       pulumi.StringPtrInput
 	AutoscaleSettings GremlinDatabaseAutoscaleSettingsPtrInput
 	// Specifies the name of the Cosmos DB Gremlin Database. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// The name of the resource group in which the Cosmos DB Gremlin Database is created. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
-	// The throughput of the Gremlin database (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon database creation otherwise it cannot be updated without a manual resource destroy-apply.
-	//
-	// > **Note:** throughput has a maximum value of `1000000` unless a higher limit is requested via Azure Support
-	Throughput pulumi.IntPtrInput
+	Throughput        pulumi.IntPtrInput
 }
 
 func (GremlinDatabaseState) ElementType() reflect.Type {
@@ -151,37 +133,25 @@ func (GremlinDatabaseState) ElementType() reflect.Type {
 
 type gremlinDatabaseArgs struct {
 	// The name of the CosmosDB Account to create the Gremlin Database within. Changing this forces a new resource to be created.
-	AccountName string `pulumi:"accountName"`
-	// An `autoscaleSettings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual destroy-apply.
-	//
-	// > **Note:** Switching between autoscale and manual throughput is not supported via this provider and must be completed via the Azure Portal and refreshed.
+	AccountName       string                            `pulumi:"accountName"`
 	AutoscaleSettings *GremlinDatabaseAutoscaleSettings `pulumi:"autoscaleSettings"`
 	// Specifies the name of the Cosmos DB Gremlin Database. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// The name of the resource group in which the Cosmos DB Gremlin Database is created. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The throughput of the Gremlin database (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon database creation otherwise it cannot be updated without a manual resource destroy-apply.
-	//
-	// > **Note:** throughput has a maximum value of `1000000` unless a higher limit is requested via Azure Support
-	Throughput *int `pulumi:"throughput"`
+	Throughput        *int   `pulumi:"throughput"`
 }
 
 // The set of arguments for constructing a GremlinDatabase resource.
 type GremlinDatabaseArgs struct {
 	// The name of the CosmosDB Account to create the Gremlin Database within. Changing this forces a new resource to be created.
-	AccountName pulumi.StringInput
-	// An `autoscaleSettings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual destroy-apply.
-	//
-	// > **Note:** Switching between autoscale and manual throughput is not supported via this provider and must be completed via the Azure Portal and refreshed.
+	AccountName       pulumi.StringInput
 	AutoscaleSettings GremlinDatabaseAutoscaleSettingsPtrInput
 	// Specifies the name of the Cosmos DB Gremlin Database. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// The name of the resource group in which the Cosmos DB Gremlin Database is created. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
-	// The throughput of the Gremlin database (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon database creation otherwise it cannot be updated without a manual resource destroy-apply.
-	//
-	// > **Note:** throughput has a maximum value of `1000000` unless a higher limit is requested via Azure Support
-	Throughput pulumi.IntPtrInput
+	Throughput        pulumi.IntPtrInput
 }
 
 func (GremlinDatabaseArgs) ElementType() reflect.Type {
@@ -276,9 +246,6 @@ func (o GremlinDatabaseOutput) AccountName() pulumi.StringOutput {
 	return o.ApplyT(func(v *GremlinDatabase) pulumi.StringOutput { return v.AccountName }).(pulumi.StringOutput)
 }
 
-// An `autoscaleSettings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual destroy-apply.
-//
-// > **Note:** Switching between autoscale and manual throughput is not supported via this provider and must be completed via the Azure Portal and refreshed.
 func (o GremlinDatabaseOutput) AutoscaleSettings() GremlinDatabaseAutoscaleSettingsPtrOutput {
 	return o.ApplyT(func(v *GremlinDatabase) GremlinDatabaseAutoscaleSettingsPtrOutput { return v.AutoscaleSettings }).(GremlinDatabaseAutoscaleSettingsPtrOutput)
 }
@@ -293,9 +260,6 @@ func (o GremlinDatabaseOutput) ResourceGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v *GremlinDatabase) pulumi.StringOutput { return v.ResourceGroupName }).(pulumi.StringOutput)
 }
 
-// The throughput of the Gremlin database (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon database creation otherwise it cannot be updated without a manual resource destroy-apply.
-//
-// > **Note:** throughput has a maximum value of `1000000` unless a higher limit is requested via Azure Support
 func (o GremlinDatabaseOutput) Throughput() pulumi.IntOutput {
 	return o.ApplyT(func(v *GremlinDatabase) pulumi.IntOutput { return v.Throughput }).(pulumi.IntOutput)
 }

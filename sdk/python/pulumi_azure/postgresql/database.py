@@ -232,6 +232,13 @@ class Database(pulumi.CustomResource):
             collation="English_United States.1252")
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.DBforPostgreSQL`: 2017-12-01
+
         ## Import
 
         PostgreSQL Database's can be imported using the `resource id`, e.g.
@@ -284,6 +291,13 @@ class Database(pulumi.CustomResource):
             charset="UTF8",
             collation="English_United States.1252")
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.DBforPostgreSQL`: 2017-12-01
 
         ## Import
 

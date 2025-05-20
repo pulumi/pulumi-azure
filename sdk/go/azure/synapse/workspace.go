@@ -249,7 +249,7 @@ type Workspace struct {
 	AzureadAuthenticationOnly pulumi.BoolPtrOutput `pulumi:"azureadAuthenticationOnly"`
 	// Subnet ID used for computes in workspace Changing this forces a new resource to be created.
 	ComputeSubnetId pulumi.StringPtrOutput `pulumi:"computeSubnetId"`
-	// A list of Connectivity endpoints for this Synapse Workspace.
+	// A map of Connectivity endpoints for this Synapse Workspace. Possible key values are `dev`, `sql`, `sqlOnDemand`, and `web`.
 	ConnectivityEndpoints pulumi.StringMapOutput `pulumi:"connectivityEndpoints"`
 	// A `customerManagedKey` block as defined below.
 	CustomerManagedKey WorkspaceCustomerManagedKeyPtrOutput `pulumi:"customerManagedKey"`
@@ -336,7 +336,7 @@ type workspaceState struct {
 	AzureadAuthenticationOnly *bool `pulumi:"azureadAuthenticationOnly"`
 	// Subnet ID used for computes in workspace Changing this forces a new resource to be created.
 	ComputeSubnetId *string `pulumi:"computeSubnetId"`
-	// A list of Connectivity endpoints for this Synapse Workspace.
+	// A map of Connectivity endpoints for this Synapse Workspace. Possible key values are `dev`, `sql`, `sqlOnDemand`, and `web`.
 	ConnectivityEndpoints map[string]string `pulumi:"connectivityEndpoints"`
 	// A `customerManagedKey` block as defined below.
 	CustomerManagedKey *WorkspaceCustomerManagedKey `pulumi:"customerManagedKey"`
@@ -381,7 +381,7 @@ type WorkspaceState struct {
 	AzureadAuthenticationOnly pulumi.BoolPtrInput
 	// Subnet ID used for computes in workspace Changing this forces a new resource to be created.
 	ComputeSubnetId pulumi.StringPtrInput
-	// A list of Connectivity endpoints for this Synapse Workspace.
+	// A map of Connectivity endpoints for this Synapse Workspace. Possible key values are `dev`, `sql`, `sqlOnDemand`, and `web`.
 	ConnectivityEndpoints pulumi.StringMapInput
 	// A `customerManagedKey` block as defined below.
 	CustomerManagedKey WorkspaceCustomerManagedKeyPtrInput
@@ -612,7 +612,7 @@ func (o WorkspaceOutput) ComputeSubnetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Workspace) pulumi.StringPtrOutput { return v.ComputeSubnetId }).(pulumi.StringPtrOutput)
 }
 
-// A list of Connectivity endpoints for this Synapse Workspace.
+// A map of Connectivity endpoints for this Synapse Workspace. Possible key values are `dev`, `sql`, `sqlOnDemand`, and `web`.
 func (o WorkspaceOutput) ConnectivityEndpoints() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Workspace) pulumi.StringMapOutput { return v.ConnectivityEndpoints }).(pulumi.StringMapOutput)
 }

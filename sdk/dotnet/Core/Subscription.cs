@@ -108,6 +108,13 @@ namespace Pulumi.Azure.Core
     /// });
     /// ```
     /// 
+    /// ## API Providers
+    /// 
+    /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+    /// This resource uses the following Azure API Providers:
+    /// 
+    /// * `Microsoft.Resources`: 2023-07-01
+    /// 
     /// ## Import
     /// 
     /// Subscriptions can be imported using the `resource id`, e.g.
@@ -116,13 +123,13 @@ namespace Pulumi.Azure.Core
     /// $ pulumi import azure:core/subscription:Subscription example "/providers/Microsoft.Subscription/aliases/subscription1"
     /// ```
     /// 
-    /// In this scenario, the `subscription_id` property can be completed and the provider will assume control of the existing subscription by creating an Alias. See the `adding an Alias to an existing Subscription` above. This provider requires an alias to correctly manage Subscription resources due to Azure Subscription API design.
+    /// In this scenario, the `subscription_id` property can be completed and Terraform will assume control of the existing subscription by creating an Alias. See the `adding an Alias to an existing Subscription` above. Terrafom requires an alias to correctly manage Subscription resources due to Azure Subscription API design.
     /// </summary>
     [AzureResourceType("azure:core/subscription:Subscription")]
     public partial class Subscription : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The Alias name for the subscription. This provider will generate a new GUID if this is not supplied. Changing this forces a new Subscription to be created.
+        /// The Alias Name of the subscription. If omitted a new UUID will be generated for this property.
         /// </summary>
         [Output("alias")]
         public Output<string> Alias { get; private set; } = null!;
@@ -136,9 +143,9 @@ namespace Pulumi.Azure.Core
         /// <summary>
         /// The ID of the Subscription. Changing this forces a new Subscription to be created.
         /// 
-        /// &gt; **NOTE:** This value can be specified only for adopting control of an existing Subscription, it cannot be used to provide a custom Subscription ID.
+        /// &gt; **Note:** This value can be specified only for adopting control of an existing Subscription, it cannot be used to provide a custom Subscription ID.
         /// 
-        /// &gt; **NOTE:** Either `billing_scope_id` or `subscription_id` has to be specified.
+        /// &gt; **Note:** Either `billing_scope_id` or `subscription_id` has to be specified.
         /// </summary>
         [Output("subscriptionId")]
         public Output<string> SubscriptionId { get; private set; } = null!;
@@ -214,7 +221,7 @@ namespace Pulumi.Azure.Core
     public sealed class SubscriptionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Alias name for the subscription. This provider will generate a new GUID if this is not supplied. Changing this forces a new Subscription to be created.
+        /// The Alias Name of the subscription. If omitted a new UUID will be generated for this property.
         /// </summary>
         [Input("alias")]
         public Input<string>? Alias { get; set; }
@@ -228,9 +235,9 @@ namespace Pulumi.Azure.Core
         /// <summary>
         /// The ID of the Subscription. Changing this forces a new Subscription to be created.
         /// 
-        /// &gt; **NOTE:** This value can be specified only for adopting control of an existing Subscription, it cannot be used to provide a custom Subscription ID.
+        /// &gt; **Note:** This value can be specified only for adopting control of an existing Subscription, it cannot be used to provide a custom Subscription ID.
         /// 
-        /// &gt; **NOTE:** Either `billing_scope_id` or `subscription_id` has to be specified.
+        /// &gt; **Note:** Either `billing_scope_id` or `subscription_id` has to be specified.
         /// </summary>
         [Input("subscriptionId")]
         public Input<string>? SubscriptionId { get; set; }
@@ -268,7 +275,7 @@ namespace Pulumi.Azure.Core
     public sealed class SubscriptionState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Alias name for the subscription. This provider will generate a new GUID if this is not supplied. Changing this forces a new Subscription to be created.
+        /// The Alias Name of the subscription. If omitted a new UUID will be generated for this property.
         /// </summary>
         [Input("alias")]
         public Input<string>? Alias { get; set; }
@@ -282,9 +289,9 @@ namespace Pulumi.Azure.Core
         /// <summary>
         /// The ID of the Subscription. Changing this forces a new Subscription to be created.
         /// 
-        /// &gt; **NOTE:** This value can be specified only for adopting control of an existing Subscription, it cannot be used to provide a custom Subscription ID.
+        /// &gt; **Note:** This value can be specified only for adopting control of an existing Subscription, it cannot be used to provide a custom Subscription ID.
         /// 
-        /// &gt; **NOTE:** Either `billing_scope_id` or `subscription_id` has to be specified.
+        /// &gt; **Note:** Either `billing_scope_id` or `subscription_id` has to be specified.
         /// </summary>
         [Input("subscriptionId")]
         public Input<string>? SubscriptionId { get; set; }

@@ -190,9 +190,9 @@ public final class LinkedServiceKustoState extends com.pulumi.resources.Resource
     /**
      * The service principal tenant id or name in which to authenticate against the Kusto Database.
      * 
-     * &gt; **NOTE** If `service_principal_id` is used, `service_principal_key` and `tenant` is also required.
+     * &gt; **Note:** If `service_principal_id` is used, `service_principal_key` and `tenant` is also required.
      * 
-     * &gt; **NOTE** One of Managed Identity authentication and Service Principal authentication must be set.
+     * &gt; **Note:** One of Managed Identity authentication and Service Principal authentication must be set.
      * 
      */
     @Import(name="tenant")
@@ -201,9 +201,9 @@ public final class LinkedServiceKustoState extends com.pulumi.resources.Resource
     /**
      * @return The service principal tenant id or name in which to authenticate against the Kusto Database.
      * 
-     * &gt; **NOTE** If `service_principal_id` is used, `service_principal_key` and `tenant` is also required.
+     * &gt; **Note:** If `service_principal_id` is used, `service_principal_key` and `tenant` is also required.
      * 
-     * &gt; **NOTE** One of Managed Identity authentication and Service Principal authentication must be set.
+     * &gt; **Note:** One of Managed Identity authentication and Service Principal authentication must be set.
      * 
      */
     public Optional<Output<String>> tenant() {
@@ -509,9 +509,9 @@ public final class LinkedServiceKustoState extends com.pulumi.resources.Resource
         /**
          * @param tenant The service principal tenant id or name in which to authenticate against the Kusto Database.
          * 
-         * &gt; **NOTE** If `service_principal_id` is used, `service_principal_key` and `tenant` is also required.
+         * &gt; **Note:** If `service_principal_id` is used, `service_principal_key` and `tenant` is also required.
          * 
-         * &gt; **NOTE** One of Managed Identity authentication and Service Principal authentication must be set.
+         * &gt; **Note:** One of Managed Identity authentication and Service Principal authentication must be set.
          * 
          * @return builder
          * 
@@ -524,9 +524,9 @@ public final class LinkedServiceKustoState extends com.pulumi.resources.Resource
         /**
          * @param tenant The service principal tenant id or name in which to authenticate against the Kusto Database.
          * 
-         * &gt; **NOTE** If `service_principal_id` is used, `service_principal_key` and `tenant` is also required.
+         * &gt; **Note:** If `service_principal_id` is used, `service_principal_key` and `tenant` is also required.
          * 
-         * &gt; **NOTE** One of Managed Identity authentication and Service Principal authentication must be set.
+         * &gt; **Note:** One of Managed Identity authentication and Service Principal authentication must be set.
          * 
          * @return builder
          * 

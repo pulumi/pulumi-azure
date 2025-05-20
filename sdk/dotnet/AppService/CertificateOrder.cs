@@ -78,7 +78,7 @@ namespace Pulumi.Azure.AppService
         /// <summary>
         /// The Distinguished Name for the App Service Certificate Order.
         /// 
-        /// &gt; **NOTE:** Either `csr` or `distinguished_name` must be set - but not both.
+        /// &gt; **Note:** Either `csr` or `distinguished_name` must be set - but not both.
         /// </summary>
         [Output("distinguishedName")]
         public Output<string> DistinguishedName { get; private set; } = null!;
@@ -228,7 +228,7 @@ namespace Pulumi.Azure.AppService
         /// <summary>
         /// The Distinguished Name for the App Service Certificate Order.
         /// 
-        /// &gt; **NOTE:** Either `csr` or `distinguished_name` must be set - but not both.
+        /// &gt; **Note:** Either `csr` or `distinguished_name` must be set - but not both.
         /// </summary>
         [Input("distinguishedName")]
         public Input<string>? DistinguishedName { get; set; }
@@ -328,7 +328,7 @@ namespace Pulumi.Azure.AppService
         /// <summary>
         /// The Distinguished Name for the App Service Certificate Order.
         /// 
-        /// &gt; **NOTE:** Either `csr` or `distinguished_name` must be set - but not both.
+        /// &gt; **Note:** Either `csr` or `distinguished_name` must be set - but not both.
         /// </summary>
         [Input("distinguishedName")]
         public Input<string>? DistinguishedName { get; set; }

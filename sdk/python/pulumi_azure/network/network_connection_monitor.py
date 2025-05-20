@@ -336,10 +336,6 @@ class NetworkConnectionMonitor(pulumi.CustomResource):
                  test_groups: Optional[pulumi.Input[Sequence[pulumi.Input[Union['NetworkConnectionMonitorTestGroupArgs', 'NetworkConnectionMonitorTestGroupArgsDict']]]]] = None,
                  __props__=None):
         """
-        Manages a Network Connection Monitor.
-
-        > **NOTE:** Any Network Connection Monitor resource created with API versions 2019-06-01 or earlier (v1) are now incompatible with this provider, which now only supports v2.
-
         ## Example Usage
 
         ```python
@@ -428,7 +424,7 @@ class NetworkConnectionMonitor(pulumi.CustomResource):
                 },
                 {
                     "name": "destination",
-                    "address": "mycompany.io",
+                    "address": "terraform.io",
                 },
             ],
             test_configurations=[{
@@ -477,10 +473,6 @@ class NetworkConnectionMonitor(pulumi.CustomResource):
                  args: NetworkConnectionMonitorArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Manages a Network Connection Monitor.
-
-        > **NOTE:** Any Network Connection Monitor resource created with API versions 2019-06-01 or earlier (v1) are now incompatible with this provider, which now only supports v2.
-
         ## Example Usage
 
         ```python
@@ -569,7 +561,7 @@ class NetworkConnectionMonitor(pulumi.CustomResource):
                 },
                 {
                     "name": "destination",
-                    "address": "mycompany.io",
+                    "address": "terraform.io",
                 },
             ],
             test_configurations=[{

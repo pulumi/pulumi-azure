@@ -78,21 +78,9 @@ public final class NamedValueState extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.resourceGroupName);
     }
 
-    /**
-     * Specifies whether the API Management Named Value is secret. Valid values are `true` or `false`. The default value is `false`.
-     * 
-     * &gt; **NOTE:** setting the field `secret` to `true` doesn&#39;t make this field sensitive in the provider, instead it marks the value as secret and encrypts the value in Azure.
-     * 
-     */
     @Import(name="secret")
     private @Nullable Output<Boolean> secret;
 
-    /**
-     * @return Specifies whether the API Management Named Value is secret. Valid values are `true` or `false`. The default value is `false`.
-     * 
-     * &gt; **NOTE:** setting the field `secret` to `true` doesn&#39;t make this field sensitive in the provider, instead it marks the value as secret and encrypts the value in Azure.
-     * 
-     */
     public Optional<Output<Boolean>> secret() {
         return Optional.ofNullable(this.secret);
     }
@@ -257,27 +245,11 @@ public final class NamedValueState extends com.pulumi.resources.ResourceArgs {
             return resourceGroupName(Output.of(resourceGroupName));
         }
 
-        /**
-         * @param secret Specifies whether the API Management Named Value is secret. Valid values are `true` or `false`. The default value is `false`.
-         * 
-         * &gt; **NOTE:** setting the field `secret` to `true` doesn&#39;t make this field sensitive in the provider, instead it marks the value as secret and encrypts the value in Azure.
-         * 
-         * @return builder
-         * 
-         */
         public Builder secret(@Nullable Output<Boolean> secret) {
             $.secret = secret;
             return this;
         }
 
-        /**
-         * @param secret Specifies whether the API Management Named Value is secret. Valid values are `true` or `false`. The default value is `false`.
-         * 
-         * &gt; **NOTE:** setting the field `secret` to `true` doesn&#39;t make this field sensitive in the provider, instead it marks the value as secret and encrypts the value in Azure.
-         * 
-         * @return builder
-         * 
-         */
         public Builder secret(Boolean secret) {
             return secret(Output.of(secret));
         }

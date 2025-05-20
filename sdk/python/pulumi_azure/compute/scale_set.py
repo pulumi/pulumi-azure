@@ -62,7 +62,7 @@ class ScaleSetArgs:
         :param pulumi.Input['ScaleSetBootDiagnosticsArgs'] boot_diagnostics: A `boot_diagnostics` block as referenced below.
         :param pulumi.Input[builtins.str] eviction_policy: Specifies the eviction policy for Virtual Machines in this Scale Set. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
                
-               > **NOTE:** `eviction_policy` can only be set when `priority` is set to `Low`.
+               > **Note:** `eviction_policy` can only be set when `priority` is set to `Low`.
         :param pulumi.Input[Sequence[pulumi.Input['ScaleSetExtensionArgs']]] extensions: Can be specified multiple times to add extension profiles to the scale set. Each `extension` block supports the fields documented below.
         :param pulumi.Input[builtins.str] health_probe_id: Specifies the identifier for the load balancer health probe. Required when using `Rolling` as your `upgrade_policy_mode`.
         :param pulumi.Input['ScaleSetIdentityArgs'] identity: An `identity` block as defined below.
@@ -83,7 +83,7 @@ class ScaleSetArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] zones: A collection of availability zones to spread the Virtual Machines over. Changing this forces a new resource to be created.
                
-               > **NOTE:** Availability Zones are [only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview).
+               > **Note:** Availability Zones are [only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview).
         """
         pulumi.set(__self__, "network_profiles", network_profiles)
         pulumi.set(__self__, "os_profile", os_profile)
@@ -238,7 +238,7 @@ class ScaleSetArgs:
         """
         Specifies the eviction policy for Virtual Machines in this Scale Set. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
 
-        > **NOTE:** `eviction_policy` can only be set when `priority` is set to `Low`.
+        > **Note:** `eviction_policy` can only be set when `priority` is set to `Low`.
         """
         return pulumi.get(self, "eviction_policy")
 
@@ -468,7 +468,7 @@ class ScaleSetArgs:
         """
         A collection of availability zones to spread the Virtual Machines over. Changing this forces a new resource to be created.
 
-        > **NOTE:** Availability Zones are [only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview).
+        > **Note:** Availability Zones are [only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview).
         """
         return pulumi.get(self, "zones")
 
@@ -514,7 +514,7 @@ class _ScaleSetState:
         :param pulumi.Input['ScaleSetBootDiagnosticsArgs'] boot_diagnostics: A `boot_diagnostics` block as referenced below.
         :param pulumi.Input[builtins.str] eviction_policy: Specifies the eviction policy for Virtual Machines in this Scale Set. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
                
-               > **NOTE:** `eviction_policy` can only be set when `priority` is set to `Low`.
+               > **Note:** `eviction_policy` can only be set when `priority` is set to `Low`.
         :param pulumi.Input[Sequence[pulumi.Input['ScaleSetExtensionArgs']]] extensions: Can be specified multiple times to add extension profiles to the scale set. Each `extension` block supports the fields documented below.
         :param pulumi.Input[builtins.str] health_probe_id: Specifies the identifier for the load balancer health probe. Required when using `Rolling` as your `upgrade_policy_mode`.
         :param pulumi.Input['ScaleSetIdentityArgs'] identity: An `identity` block as defined below.
@@ -541,7 +541,7 @@ class _ScaleSetState:
         :param pulumi.Input[builtins.str] upgrade_policy_mode: Specifies the mode of an upgrade to virtual machines in the scale set. Possible values, `Rolling`, `Manual`, or `Automatic`. When choosing `Rolling`, you will need to set a health probe.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] zones: A collection of availability zones to spread the Virtual Machines over. Changing this forces a new resource to be created.
                
-               > **NOTE:** Availability Zones are [only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview).
+               > **Note:** Availability Zones are [only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview).
         """
         if automatic_os_upgrade is not None:
             pulumi.set(__self__, "automatic_os_upgrade", automatic_os_upgrade)
@@ -630,7 +630,7 @@ class _ScaleSetState:
         """
         Specifies the eviction policy for Virtual Machines in this Scale Set. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
 
-        > **NOTE:** `eviction_policy` can only be set when `priority` is set to `Low`.
+        > **Note:** `eviction_policy` can only be set when `priority` is set to `Low`.
         """
         return pulumi.get(self, "eviction_policy")
 
@@ -932,7 +932,7 @@ class _ScaleSetState:
         """
         A collection of availability zones to spread the Virtual Machines over. Changing this forces a new resource to be created.
 
-        > **NOTE:** Availability Zones are [only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview).
+        > **Note:** Availability Zones are [only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview).
         """
         return pulumi.get(self, "zones")
 
@@ -978,6 +978,12 @@ class ScaleSet(pulumi.CustomResource):
                  __props__=None):
         """
         Manages a virtual machine scale set.
+
+        ## Disclaimers
+
+        !> **Note:** The `compute.ScaleSet` resource has been deprecated in favour of the `compute.LinuxVirtualMachineScaleSet` and `compute.WindowsVirtualMachineScaleSet` resources. Whilst this will continue to be available throughout the 2.x and 3.x releases however is in a feature-frozen state to maintain compatibility - new functionality will instead be added to the `compute.LinuxVirtualMachineScaleSet` and `compute.WindowsVirtualMachineScaleSet` resources and the `compute.ScaleSet` resource will be removed in the future.
+
+        > **Note:** All arguments including the administrator login and password will be stored in the raw state as plain-text. [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
 
         ## Example Usage
 
@@ -1084,7 +1090,7 @@ class ScaleSet(pulumi.CustomResource):
                 }],
             },
             network_profiles=[{
-                "name": "mynetworkprofile",
+                "name": "terraformnetworkprofile",
                 "primary": True,
                 "ip_configurations": [{
                     "name": "TestIPConfiguration",
@@ -1208,7 +1214,7 @@ class ScaleSet(pulumi.CustomResource):
         :param pulumi.Input[Union['ScaleSetBootDiagnosticsArgs', 'ScaleSetBootDiagnosticsArgsDict']] boot_diagnostics: A `boot_diagnostics` block as referenced below.
         :param pulumi.Input[builtins.str] eviction_policy: Specifies the eviction policy for Virtual Machines in this Scale Set. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
                
-               > **NOTE:** `eviction_policy` can only be set when `priority` is set to `Low`.
+               > **Note:** `eviction_policy` can only be set when `priority` is set to `Low`.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ScaleSetExtensionArgs', 'ScaleSetExtensionArgsDict']]]] extensions: Can be specified multiple times to add extension profiles to the scale set. Each `extension` block supports the fields documented below.
         :param pulumi.Input[builtins.str] health_probe_id: Specifies the identifier for the load balancer health probe. Required when using `Rolling` as your `upgrade_policy_mode`.
         :param pulumi.Input[Union['ScaleSetIdentityArgs', 'ScaleSetIdentityArgsDict']] identity: An `identity` block as defined below.
@@ -1235,7 +1241,7 @@ class ScaleSet(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] upgrade_policy_mode: Specifies the mode of an upgrade to virtual machines in the scale set. Possible values, `Rolling`, `Manual`, or `Automatic`. When choosing `Rolling`, you will need to set a health probe.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] zones: A collection of availability zones to spread the Virtual Machines over. Changing this forces a new resource to be created.
                
-               > **NOTE:** Availability Zones are [only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview).
+               > **Note:** Availability Zones are [only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview).
         """
         ...
     @overload
@@ -1245,6 +1251,12 @@ class ScaleSet(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a virtual machine scale set.
+
+        ## Disclaimers
+
+        !> **Note:** The `compute.ScaleSet` resource has been deprecated in favour of the `compute.LinuxVirtualMachineScaleSet` and `compute.WindowsVirtualMachineScaleSet` resources. Whilst this will continue to be available throughout the 2.x and 3.x releases however is in a feature-frozen state to maintain compatibility - new functionality will instead be added to the `compute.LinuxVirtualMachineScaleSet` and `compute.WindowsVirtualMachineScaleSet` resources and the `compute.ScaleSet` resource will be removed in the future.
+
+        > **Note:** All arguments including the administrator login and password will be stored in the raw state as plain-text. [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
 
         ## Example Usage
 
@@ -1351,7 +1363,7 @@ class ScaleSet(pulumi.CustomResource):
                 }],
             },
             network_profiles=[{
-                "name": "mynetworkprofile",
+                "name": "terraformnetworkprofile",
                 "primary": True,
                 "ip_configurations": [{
                     "name": "TestIPConfiguration",
@@ -1610,7 +1622,7 @@ class ScaleSet(pulumi.CustomResource):
         :param pulumi.Input[Union['ScaleSetBootDiagnosticsArgs', 'ScaleSetBootDiagnosticsArgsDict']] boot_diagnostics: A `boot_diagnostics` block as referenced below.
         :param pulumi.Input[builtins.str] eviction_policy: Specifies the eviction policy for Virtual Machines in this Scale Set. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
                
-               > **NOTE:** `eviction_policy` can only be set when `priority` is set to `Low`.
+               > **Note:** `eviction_policy` can only be set when `priority` is set to `Low`.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ScaleSetExtensionArgs', 'ScaleSetExtensionArgsDict']]]] extensions: Can be specified multiple times to add extension profiles to the scale set. Each `extension` block supports the fields documented below.
         :param pulumi.Input[builtins.str] health_probe_id: Specifies the identifier for the load balancer health probe. Required when using `Rolling` as your `upgrade_policy_mode`.
         :param pulumi.Input[Union['ScaleSetIdentityArgs', 'ScaleSetIdentityArgsDict']] identity: An `identity` block as defined below.
@@ -1637,7 +1649,7 @@ class ScaleSet(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] upgrade_policy_mode: Specifies the mode of an upgrade to virtual machines in the scale set. Possible values, `Rolling`, `Manual`, or `Automatic`. When choosing `Rolling`, you will need to set a health probe.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] zones: A collection of availability zones to spread the Virtual Machines over. Changing this forces a new resource to be created.
                
-               > **NOTE:** Availability Zones are [only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview).
+               > **Note:** Availability Zones are [only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview).
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -1695,7 +1707,7 @@ class ScaleSet(pulumi.CustomResource):
         """
         Specifies the eviction policy for Virtual Machines in this Scale Set. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
 
-        > **NOTE:** `eviction_policy` can only be set when `priority` is set to `Low`.
+        > **Note:** `eviction_policy` can only be set when `priority` is set to `Low`.
         """
         return pulumi.get(self, "eviction_policy")
 
@@ -1897,7 +1909,7 @@ class ScaleSet(pulumi.CustomResource):
         """
         A collection of availability zones to spread the Virtual Machines over. Changing this forces a new resource to be created.
 
-        > **NOTE:** Availability Zones are [only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview).
+        > **Note:** Availability Zones are [only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview).
         """
         return pulumi.get(self, "zones")
 

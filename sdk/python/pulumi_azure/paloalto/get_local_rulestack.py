@@ -71,26 +71,41 @@ class GetLocalRulestackResult:
     @property
     @pulumi.getter(name="antiSpywareProfile")
     def anti_spyware_profile(self) -> builtins.str:
+        """
+        The Anti-Spyware setting used by the Palo Alto Networks Rulestack.
+        """
         return pulumi.get(self, "anti_spyware_profile")
 
     @property
     @pulumi.getter(name="antiVirusProfile")
     def anti_virus_profile(self) -> builtins.str:
+        """
+        The Anti-Virus setting used by the Palo Alto Networks Rulestack.
+        """
         return pulumi.get(self, "anti_virus_profile")
 
     @property
     @pulumi.getter
     def description(self) -> builtins.str:
+        """
+        The description of the Palo Alto Networks Rulestack.
+        """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter(name="dnsSubscription")
     def dns_subscription(self) -> builtins.str:
+        """
+        The DNS Subscription setting used by the Palo Alto Networks Rulestack.
+        """
         return pulumi.get(self, "dns_subscription")
 
     @property
     @pulumi.getter(name="fileBlockingProfile")
     def file_blocking_profile(self) -> builtins.str:
+        """
+        The File Blocking Profile used by the Palo Alto Networks Rulestack.
+        """
         return pulumi.get(self, "file_blocking_profile")
 
     @property
@@ -104,6 +119,9 @@ class GetLocalRulestackResult:
     @property
     @pulumi.getter
     def location(self) -> builtins.str:
+        """
+        The Azure Region where the Palo Alto Networks Rulestack exists.
+        """
         return pulumi.get(self, "location")
 
     @property
@@ -114,11 +132,17 @@ class GetLocalRulestackResult:
     @property
     @pulumi.getter(name="outboundTrustCertificate")
     def outbound_trust_certificate(self) -> builtins.str:
+        """
+        The trusted egress decryption profile data for the Palo Alto Networks Rulestack.
+        """
         return pulumi.get(self, "outbound_trust_certificate")
 
     @property
     @pulumi.getter(name="outboundUntrustCertificate")
     def outbound_untrust_certificate(self) -> builtins.str:
+        """
+        The untrusted egress decryption profile data for the Palo Alto Networks Rulestack.
+        """
         return pulumi.get(self, "outbound_untrust_certificate")
 
     @property
@@ -129,11 +153,17 @@ class GetLocalRulestackResult:
     @property
     @pulumi.getter(name="urlFilteringProfile")
     def url_filtering_profile(self) -> builtins.str:
+        """
+        The URL Filtering Profile used by the Palo Alto Networks Rulestack.
+        """
         return pulumi.get(self, "url_filtering_profile")
 
     @property
     @pulumi.getter(name="vulnerabilityProfile")
     def vulnerability_profile(self) -> builtins.str:
+        """
+        The Vulnerability Profile used by the Palo Alto Networks Rulestack.
+        """
         return pulumi.get(self, "vulnerability_profile")
 
 
@@ -162,7 +192,29 @@ def get_local_rulestack(name: Optional[builtins.str] = None,
                         resource_group_name: Optional[builtins.str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetLocalRulestackResult:
     """
-    Use this data source to access information about an existing resource.
+    Use this data source to access information about an existing Palo Alto Networks Rulestack.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    example = azure.paloalto.get_local_rulestack(name="existing",
+        resource_group_name="existing")
+    pulumi.export("id", example.id)
+    ```
+
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `PaloAltoNetworks.Cloudngfw`: 2022-08-29
+
+
+    :param builtins.str name: The name of this Palo Alto Networks Rulestack.
+    :param builtins.str resource_group_name: The name of the Resource Group where the Palo Alto Networks Rulestack exists.
     """
     __args__ = dict()
     __args__['name'] = name
@@ -188,7 +240,29 @@ def get_local_rulestack_output(name: Optional[pulumi.Input[builtins.str]] = None
                                resource_group_name: Optional[pulumi.Input[builtins.str]] = None,
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetLocalRulestackResult]:
     """
-    Use this data source to access information about an existing resource.
+    Use this data source to access information about an existing Palo Alto Networks Rulestack.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    example = azure.paloalto.get_local_rulestack(name="existing",
+        resource_group_name="existing")
+    pulumi.export("id", example.id)
+    ```
+
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `PaloAltoNetworks.Cloudngfw`: 2022-08-29
+
+
+    :param builtins.str name: The name of this Palo Alto Networks Rulestack.
+    :param builtins.str resource_group_name: The name of the Resource Group where the Palo Alto Networks Rulestack exists.
     """
     __args__ = dict()
     __args__['name'] = name

@@ -55,9 +55,9 @@ class ConfigurationStoreArgs:
                
                !> **Note:** Once Purge Protection has been enabled it's not possible to disable it. Deleting the App Configuration with Purge Protection enabled will schedule the App Configuration to be deleted (which will happen by Azure in the configured number of days).
         :param pulumi.Input[Sequence[pulumi.Input['ConfigurationStoreReplicaArgs']]] replicas: One or more `replica` blocks as defined below.
-        :param pulumi.Input[builtins.str] sku: The SKU name of the App Configuration. Possible values are `free`, `standard` and `premium`. Defaults to `free`.
+        :param pulumi.Input[builtins.str] sku: The SKU name of the App Configuration. Possible values are `free`, `developer`, `standard` and `premium`. Defaults to `free`.
                
-               > **Note:** Azure does not support downgrading `sku`. Downgrading from `premium` tier to `standard` or `free`, or from `standard` to `free`, forces a new resource to be created.
+               > **Note:** Azure does not support downgrading `sku` to a lower tier, except from `premium` to `standard`. Downgrading will force a new resource to be created.
         :param pulumi.Input[builtins.int] soft_delete_retention_days: The number of days that items should be retained for once soft-deleted. This field only works for `standard` sku. This value can be between `1` and `7` days. Defaults to `7`. Changing this forces a new resource to be created.
                
                > **Note:** If Purge Protection is enabled, this field can only be configured one time and cannot be updated.
@@ -233,9 +233,9 @@ class ConfigurationStoreArgs:
     @pulumi.getter
     def sku(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The SKU name of the App Configuration. Possible values are `free`, `standard` and `premium`. Defaults to `free`.
+        The SKU name of the App Configuration. Possible values are `free`, `developer`, `standard` and `premium`. Defaults to `free`.
 
-        > **Note:** Azure does not support downgrading `sku`. Downgrading from `premium` tier to `standard` or `free`, or from `standard` to `free`, forces a new resource to be created.
+        > **Note:** Azure does not support downgrading `sku` to a lower tier, except from `premium` to `standard`. Downgrading will force a new resource to be created.
         """
         return pulumi.get(self, "sku")
 
@@ -316,9 +316,9 @@ class _ConfigurationStoreState:
         :param pulumi.Input[builtins.str] resource_group_name: The name of the resource group in which to create the App Configuration. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input['ConfigurationStoreSecondaryReadKeyArgs']]] secondary_read_keys: A `secondary_read_key` block as defined below containing the secondary read access key.
         :param pulumi.Input[Sequence[pulumi.Input['ConfigurationStoreSecondaryWriteKeyArgs']]] secondary_write_keys: A `secondary_write_key` block as defined below containing the secondary write access key.
-        :param pulumi.Input[builtins.str] sku: The SKU name of the App Configuration. Possible values are `free`, `standard` and `premium`. Defaults to `free`.
+        :param pulumi.Input[builtins.str] sku: The SKU name of the App Configuration. Possible values are `free`, `developer`, `standard` and `premium`. Defaults to `free`.
                
-               > **Note:** Azure does not support downgrading `sku`. Downgrading from `premium` tier to `standard` or `free`, or from `standard` to `free`, forces a new resource to be created.
+               > **Note:** Azure does not support downgrading `sku` to a lower tier, except from `premium` to `standard`. Downgrading will force a new resource to be created.
         :param pulumi.Input[builtins.int] soft_delete_retention_days: The number of days that items should be retained for once soft-deleted. This field only works for `standard` sku. This value can be between `1` and `7` days. Defaults to `7`. Changing this forces a new resource to be created.
                
                > **Note:** If Purge Protection is enabled, this field can only be configured one time and cannot be updated.
@@ -565,9 +565,9 @@ class _ConfigurationStoreState:
     @pulumi.getter
     def sku(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The SKU name of the App Configuration. Possible values are `free`, `standard` and `premium`. Defaults to `free`.
+        The SKU name of the App Configuration. Possible values are `free`, `developer`, `standard` and `premium`. Defaults to `free`.
 
-        > **Note:** Azure does not support downgrading `sku`. Downgrading from `premium` tier to `standard` or `free`, or from `standard` to `free`, forces a new resource to be created.
+        > **Note:** Azure does not support downgrading `sku` to a lower tier, except from `premium` to `standard`. Downgrading will force a new resource to be created.
         """
         return pulumi.get(self, "sku")
 
@@ -739,6 +739,13 @@ class ConfigurationStore(pulumi.CustomResource):
                 ]))
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.AppConfiguration`: 2024-05-01
+
         ## Import
 
         App Configurations can be imported using the `resource id`, e.g.
@@ -766,9 +773,9 @@ class ConfigurationStore(pulumi.CustomResource):
                !> **Note:** Once Purge Protection has been enabled it's not possible to disable it. Deleting the App Configuration with Purge Protection enabled will schedule the App Configuration to be deleted (which will happen by Azure in the configured number of days).
         :param pulumi.Input[Sequence[pulumi.Input[Union['ConfigurationStoreReplicaArgs', 'ConfigurationStoreReplicaArgsDict']]]] replicas: One or more `replica` blocks as defined below.
         :param pulumi.Input[builtins.str] resource_group_name: The name of the resource group in which to create the App Configuration. Changing this forces a new resource to be created.
-        :param pulumi.Input[builtins.str] sku: The SKU name of the App Configuration. Possible values are `free`, `standard` and `premium`. Defaults to `free`.
+        :param pulumi.Input[builtins.str] sku: The SKU name of the App Configuration. Possible values are `free`, `developer`, `standard` and `premium`. Defaults to `free`.
                
-               > **Note:** Azure does not support downgrading `sku`. Downgrading from `premium` tier to `standard` or `free`, or from `standard` to `free`, forces a new resource to be created.
+               > **Note:** Azure does not support downgrading `sku` to a lower tier, except from `premium` to `standard`. Downgrading will force a new resource to be created.
         :param pulumi.Input[builtins.int] soft_delete_retention_days: The number of days that items should be retained for once soft-deleted. This field only works for `standard` sku. This value can be between `1` and `7` days. Defaults to `7`. Changing this forces a new resource to be created.
                
                > **Note:** If Purge Protection is enabled, this field can only be configured one time and cannot be updated.
@@ -896,6 +903,13 @@ class ConfigurationStore(pulumi.CustomResource):
                 ]))
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.AppConfiguration`: 2024-05-01
+
         ## Import
 
         App Configurations can be imported using the `resource id`, e.g.
@@ -1021,9 +1035,9 @@ class ConfigurationStore(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] resource_group_name: The name of the resource group in which to create the App Configuration. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ConfigurationStoreSecondaryReadKeyArgs', 'ConfigurationStoreSecondaryReadKeyArgsDict']]]] secondary_read_keys: A `secondary_read_key` block as defined below containing the secondary read access key.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ConfigurationStoreSecondaryWriteKeyArgs', 'ConfigurationStoreSecondaryWriteKeyArgsDict']]]] secondary_write_keys: A `secondary_write_key` block as defined below containing the secondary write access key.
-        :param pulumi.Input[builtins.str] sku: The SKU name of the App Configuration. Possible values are `free`, `standard` and `premium`. Defaults to `free`.
+        :param pulumi.Input[builtins.str] sku: The SKU name of the App Configuration. Possible values are `free`, `developer`, `standard` and `premium`. Defaults to `free`.
                
-               > **Note:** Azure does not support downgrading `sku`. Downgrading from `premium` tier to `standard` or `free`, or from `standard` to `free`, forces a new resource to be created.
+               > **Note:** Azure does not support downgrading `sku` to a lower tier, except from `premium` to `standard`. Downgrading will force a new resource to be created.
         :param pulumi.Input[builtins.int] soft_delete_retention_days: The number of days that items should be retained for once soft-deleted. This field only works for `standard` sku. This value can be between `1` and `7` days. Defaults to `7`. Changing this forces a new resource to be created.
                
                > **Note:** If Purge Protection is enabled, this field can only be configured one time and cannot be updated.
@@ -1192,9 +1206,9 @@ class ConfigurationStore(pulumi.CustomResource):
     @pulumi.getter
     def sku(self) -> pulumi.Output[Optional[builtins.str]]:
         """
-        The SKU name of the App Configuration. Possible values are `free`, `standard` and `premium`. Defaults to `free`.
+        The SKU name of the App Configuration. Possible values are `free`, `developer`, `standard` and `premium`. Defaults to `free`.
 
-        > **Note:** Azure does not support downgrading `sku`. Downgrading from `premium` tier to `standard` or `free`, or from `standard` to `free`, forces a new resource to be created.
+        > **Note:** Azure does not support downgrading `sku` to a lower tier, except from `premium` to `standard`. Downgrading will force a new resource to be created.
         """
         return pulumi.get(self, "sku")
 

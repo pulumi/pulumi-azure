@@ -32,6 +32,13 @@ namespace Pulumi.Azure.AppService
         /// 
         /// });
         /// ```
+        /// 
+        /// ## API Providers
+        /// 
+        /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+        /// This data source uses the following Azure API Providers:
+        /// 
+        /// * `Microsoft.Web`: 2023-01-01
         /// </summary>
         public static Task<GetStaticWebAppResult> InvokeAsync(GetStaticWebAppArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetStaticWebAppResult>("azure:appservice/getStaticWebApp:getStaticWebApp", args ?? new GetStaticWebAppArgs(), options.WithDefaults());
@@ -57,6 +64,13 @@ namespace Pulumi.Azure.AppService
         /// 
         /// });
         /// ```
+        /// 
+        /// ## API Providers
+        /// 
+        /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+        /// This data source uses the following Azure API Providers:
+        /// 
+        /// * `Microsoft.Web`: 2023-01-01
         /// </summary>
         public static Output<GetStaticWebAppResult> Invoke(GetStaticWebAppInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetStaticWebAppResult>("azure:appservice/getStaticWebApp:getStaticWebApp", args ?? new GetStaticWebAppInvokeArgs(), options.WithDefaults());
@@ -82,6 +96,13 @@ namespace Pulumi.Azure.AppService
         /// 
         /// });
         /// ```
+        /// 
+        /// ## API Providers
+        /// 
+        /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+        /// This data source uses the following Azure API Providers:
+        /// 
+        /// * `Microsoft.Web`: 2023-01-01
         /// </summary>
         public static Output<GetStaticWebAppResult> Invoke(GetStaticWebAppInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetStaticWebAppResult>("azure:appservice/getStaticWebApp:getStaticWebApp", args ?? new GetStaticWebAppInvokeArgs(), options.WithDefaults());

@@ -31,15 +31,15 @@ import javax.annotation.Nullable;
 /**
  * Manages an IotHub
  * 
- * &gt; **NOTE:** Endpoints can be defined either directly on the `azure.iot.IoTHub` resource, or using the `azurerm_iothub_endpoint_*` resources - but the two ways of defining the endpoints cannot be used together. If both are used against the same IoTHub, spurious changes will occur. Also, defining a `azurerm_iothub_endpoint_*` resource and another endpoint of a different type directly on the `azure.iot.IoTHub` resource is not supported.
+ * &gt; **Note:** Endpoints can be defined either directly on the `azure.iot.IoTHub` resource, or using the `azurerm_iothub_endpoint_*` resources - but the two ways of defining the endpoints cannot be used together. If both are used against the same IoTHub, spurious changes will occur. Also, defining a `azurerm_iothub_endpoint_*` resource and another endpoint of a different type directly on the `azure.iot.IoTHub` resource is not supported.
  * 
- * &gt; **NOTE:** Routes can be defined either directly on the `azure.iot.IoTHub` resource, or using the `azure.iot.Route` resource - but the two cannot be used together. If both are used against the same IoTHub, spurious changes will occur.
+ * &gt; **Note:** Routes can be defined either directly on the `azure.iot.IoTHub` resource, or using the `azure.iot.Route` resource - but the two cannot be used together. If both are used against the same IoTHub, spurious changes will occur.
  * 
- * &gt; **NOTE:** Enrichments can be defined either directly on the `azure.iot.IoTHub` resource, or using the `azure.iot.Enrichment` resource - but the two cannot be used together. If both are used against the same IoTHub, spurious changes will occur.
+ * &gt; **Note:** Enrichments can be defined either directly on the `azure.iot.IoTHub` resource, or using the `azure.iot.Enrichment` resource - but the two cannot be used together. If both are used against the same IoTHub, spurious changes will occur.
  * 
- * &gt; **NOTE:** Fallback route can be defined either directly on the `azure.iot.IoTHub` resource, or using the `azure.iot.FallbackRoute` resource - but the two cannot be used together. If both are used against the same IoTHub, spurious changes will occur.
+ * &gt; **Note:** Fallback route can be defined either directly on the `azure.iot.IoTHub` resource, or using the `azure.iot.FallbackRoute` resource - but the two cannot be used together. If both are used against the same IoTHub, spurious changes will occur.
  * 
- * &gt; **NOTE:** File upload can be defined either directly on the `azure.iot.IoTHub` resource, or using the `azure.iot.FileUpload` resource - but the two cannot be used together. If both are used against the same IoTHub, spurious changes will occur.
+ * &gt; **Note:** File upload can be defined either directly on the `azure.iot.IoTHub` resource, or using the `azure.iot.FileUpload` resource - but the two cannot be used together. If both are used against the same IoTHub, spurious changes will occur.
  * 
  * ## Example Usage
  * 
@@ -201,9 +201,17 @@ import javax.annotation.Nullable;
  */
 @ResourceType(type="azure:iot/ioTHub:IoTHub")
 public class IoTHub extends com.pulumi.resources.CustomResource {
+    /**
+     * A `cloud_to_device` block as defined below.
+     * 
+     */
     @Export(name="cloudToDevice", refs={IoTHubCloudToDevice.class}, tree="[0]")
     private Output<IoTHubCloudToDevice> cloudToDevice;
 
+    /**
+     * @return A `cloud_to_device` block as defined below.
+     * 
+     */
     public Output<IoTHubCloudToDevice> cloudToDevice() {
         return this.cloudToDevice;
     }
@@ -221,9 +229,17 @@ public class IoTHub extends com.pulumi.resources.CustomResource {
     public Output<List<IoTHubEndpoint>> endpoints() {
         return this.endpoints;
     }
+    /**
+     * A `enrichment` block as defined below.
+     * 
+     */
     @Export(name="enrichments", refs={List.class,IoTHubEnrichment.class}, tree="[0,1]")
     private Output<List<IoTHubEnrichment>> enrichments;
 
+    /**
+     * @return A `enrichment` block as defined below.
+     * 
+     */
     public Output<List<IoTHubEnrichment>> enrichments() {
         return this.enrichments;
     }
@@ -328,7 +344,7 @@ public class IoTHub extends com.pulumi.resources.CustomResource {
     /**
      * A `fallback_route` block as defined below. If the fallback route is enabled, messages that don&#39;t match any of the supplied routes are automatically sent to this route. Defaults to messages/events.
      * 
-     * &gt; **NOTE:** If `fallback_route` isn&#39;t explicitly specified, the fallback route wouldn&#39;t be enabled by default.
+     * &gt; **Note:** If `fallback_route` isn&#39;t explicitly specified, the fallback route wouldn&#39;t be enabled by default.
      * 
      */
     @Export(name="fallbackRoute", refs={IoTHubFallbackRoute.class}, tree="[0]")
@@ -337,7 +353,7 @@ public class IoTHub extends com.pulumi.resources.CustomResource {
     /**
      * @return A `fallback_route` block as defined below. If the fallback route is enabled, messages that don&#39;t match any of the supplied routes are automatically sent to this route. Defaults to messages/events.
      * 
-     * &gt; **NOTE:** If `fallback_route` isn&#39;t explicitly specified, the fallback route wouldn&#39;t be enabled by default.
+     * &gt; **Note:** If `fallback_route` isn&#39;t explicitly specified, the fallback route wouldn&#39;t be enabled by default.
      * 
      */
     public Output<IoTHubFallbackRoute> fallbackRoute() {
@@ -413,9 +429,17 @@ public class IoTHub extends com.pulumi.resources.CustomResource {
     public Output<String> location() {
         return this.location;
     }
+    /**
+     * Specifies the minimum TLS version to support for this hub. The only valid value is `1.2`. Changing this forces a new resource to be created.
+     * 
+     */
     @Export(name="minTlsVersion", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> minTlsVersion;
 
+    /**
+     * @return Specifies the minimum TLS version to support for this hub. The only valid value is `1.2`. Changing this forces a new resource to be created.
+     * 
+     */
     public Output<Optional<String>> minTlsVersion() {
         return Codegen.optional(this.minTlsVersion);
     }
@@ -447,9 +471,17 @@ public class IoTHub extends com.pulumi.resources.CustomResource {
     public Output<Optional<List<IoTHubNetworkRuleSet>>> networkRuleSets() {
         return Codegen.optional(this.networkRuleSets);
     }
+    /**
+     * Is the IotHub resource accessible from a public network?
+     * 
+     */
     @Export(name="publicNetworkAccessEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> publicNetworkAccessEnabled;
 
+    /**
+     * @return Is the IotHub resource accessible from a public network?
+     * 
+     */
     public Output<Optional<Boolean>> publicNetworkAccessEnabled() {
         return Codegen.optional(this.publicNetworkAccessEnabled);
     }
@@ -467,9 +499,17 @@ public class IoTHub extends com.pulumi.resources.CustomResource {
     public Output<String> resourceGroupName() {
         return this.resourceGroupName;
     }
+    /**
+     * A `route` block as defined below.
+     * 
+     */
     @Export(name="routes", refs={List.class,IoTHubRoute.class}, tree="[0,1]")
     private Output<List<IoTHubRoute>> routes;
 
+    /**
+     * @return A `route` block as defined below.
+     * 
+     */
     public Output<List<IoTHubRoute>> routes() {
         return this.routes;
     }
@@ -501,9 +541,17 @@ public class IoTHub extends com.pulumi.resources.CustomResource {
     public Output<IoTHubSku> sku() {
         return this.sku;
     }
+    /**
+     * A mapping of tags to assign to the resource.
+     * 
+     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
+    /**
+     * @return A mapping of tags to assign to the resource.
+     * 
+     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }

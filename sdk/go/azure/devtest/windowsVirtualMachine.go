@@ -89,6 +89,13 @@ import (
 //
 // ```
 //
+// ## API Providers
+//
+// <!-- This section is generated, changes will be overwritten -->
+// This resource uses the following Azure API Providers:
+//
+// * `Microsoft.DevTestLab`: 2018-09-15
+//
 // ## Import
 //
 // DevTest Windows Virtual Machines can be imported using the `resource id`, e.g.
@@ -109,7 +116,7 @@ type WindowsVirtualMachine struct {
 	GalleryImageReference WindowsVirtualMachineGalleryImageReferenceOutput `pulumi:"galleryImageReference"`
 	// One or more `inboundNatRule` blocks as defined below. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** If any `inboundNatRule` blocks are specified then `disallowPublicIpAddress` must be set to `true`.
+	// > **Note:** If any `inboundNatRule` blocks are specified then `disallowPublicIpAddress` must be set to `true`.
 	InboundNatRules WindowsVirtualMachineInboundNatRuleArrayOutput `pulumi:"inboundNatRules"`
 	// Specifies the name of the Dev Test Lab in which the Virtual Machine should be created. Changing this forces a new resource to be created.
 	LabName pulumi.StringOutput `pulumi:"labName"`
@@ -121,7 +128,7 @@ type WindowsVirtualMachine struct {
 	Location pulumi.StringOutput `pulumi:"location"`
 	// Specifies the name of the Dev Test Machine. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** The validation requirements for the Name change based on the `osType` used in this Virtual Machine. For a Linux VM the name must be between 1-62 characters, and for a Windows VM the name must be between 1-15 characters. It must begin and end with a letter or number, and cannot be all numbers.
+	// > **Note:** The validation requirements for the Name change based on the `osType` used in this Virtual Machine. For a Linux VM the name must be between 1-62 characters, and for a Windows VM the name must be between 1-15 characters. It must begin and end with a letter or number, and cannot be all numbers.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Any notes about the Virtual Machine.
 	Notes pulumi.StringPtrOutput `pulumi:"notes"`
@@ -215,7 +222,7 @@ type windowsVirtualMachineState struct {
 	GalleryImageReference *WindowsVirtualMachineGalleryImageReference `pulumi:"galleryImageReference"`
 	// One or more `inboundNatRule` blocks as defined below. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** If any `inboundNatRule` blocks are specified then `disallowPublicIpAddress` must be set to `true`.
+	// > **Note:** If any `inboundNatRule` blocks are specified then `disallowPublicIpAddress` must be set to `true`.
 	InboundNatRules []WindowsVirtualMachineInboundNatRule `pulumi:"inboundNatRules"`
 	// Specifies the name of the Dev Test Lab in which the Virtual Machine should be created. Changing this forces a new resource to be created.
 	LabName *string `pulumi:"labName"`
@@ -227,7 +234,7 @@ type windowsVirtualMachineState struct {
 	Location *string `pulumi:"location"`
 	// Specifies the name of the Dev Test Machine. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** The validation requirements for the Name change based on the `osType` used in this Virtual Machine. For a Linux VM the name must be between 1-62 characters, and for a Windows VM the name must be between 1-15 characters. It must begin and end with a letter or number, and cannot be all numbers.
+	// > **Note:** The validation requirements for the Name change based on the `osType` used in this Virtual Machine. For a Linux VM the name must be between 1-62 characters, and for a Windows VM the name must be between 1-15 characters. It must begin and end with a letter or number, and cannot be all numbers.
 	Name *string `pulumi:"name"`
 	// Any notes about the Virtual Machine.
 	Notes *string `pulumi:"notes"`
@@ -258,7 +265,7 @@ type WindowsVirtualMachineState struct {
 	GalleryImageReference WindowsVirtualMachineGalleryImageReferencePtrInput
 	// One or more `inboundNatRule` blocks as defined below. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** If any `inboundNatRule` blocks are specified then `disallowPublicIpAddress` must be set to `true`.
+	// > **Note:** If any `inboundNatRule` blocks are specified then `disallowPublicIpAddress` must be set to `true`.
 	InboundNatRules WindowsVirtualMachineInboundNatRuleArrayInput
 	// Specifies the name of the Dev Test Lab in which the Virtual Machine should be created. Changing this forces a new resource to be created.
 	LabName pulumi.StringPtrInput
@@ -270,7 +277,7 @@ type WindowsVirtualMachineState struct {
 	Location pulumi.StringPtrInput
 	// Specifies the name of the Dev Test Machine. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** The validation requirements for the Name change based on the `osType` used in this Virtual Machine. For a Linux VM the name must be between 1-62 characters, and for a Windows VM the name must be between 1-15 characters. It must begin and end with a letter or number, and cannot be all numbers.
+	// > **Note:** The validation requirements for the Name change based on the `osType` used in this Virtual Machine. For a Linux VM the name must be between 1-62 characters, and for a Windows VM the name must be between 1-15 characters. It must begin and end with a letter or number, and cannot be all numbers.
 	Name pulumi.StringPtrInput
 	// Any notes about the Virtual Machine.
 	Notes pulumi.StringPtrInput
@@ -303,7 +310,7 @@ type windowsVirtualMachineArgs struct {
 	GalleryImageReference WindowsVirtualMachineGalleryImageReference `pulumi:"galleryImageReference"`
 	// One or more `inboundNatRule` blocks as defined below. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** If any `inboundNatRule` blocks are specified then `disallowPublicIpAddress` must be set to `true`.
+	// > **Note:** If any `inboundNatRule` blocks are specified then `disallowPublicIpAddress` must be set to `true`.
 	InboundNatRules []WindowsVirtualMachineInboundNatRule `pulumi:"inboundNatRules"`
 	// Specifies the name of the Dev Test Lab in which the Virtual Machine should be created. Changing this forces a new resource to be created.
 	LabName string `pulumi:"labName"`
@@ -315,7 +322,7 @@ type windowsVirtualMachineArgs struct {
 	Location *string `pulumi:"location"`
 	// Specifies the name of the Dev Test Machine. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** The validation requirements for the Name change based on the `osType` used in this Virtual Machine. For a Linux VM the name must be between 1-62 characters, and for a Windows VM the name must be between 1-15 characters. It must begin and end with a letter or number, and cannot be all numbers.
+	// > **Note:** The validation requirements for the Name change based on the `osType` used in this Virtual Machine. For a Linux VM the name must be between 1-62 characters, and for a Windows VM the name must be between 1-15 characters. It must begin and end with a letter or number, and cannot be all numbers.
 	Name *string `pulumi:"name"`
 	// Any notes about the Virtual Machine.
 	Notes *string `pulumi:"notes"`
@@ -343,7 +350,7 @@ type WindowsVirtualMachineArgs struct {
 	GalleryImageReference WindowsVirtualMachineGalleryImageReferenceInput
 	// One or more `inboundNatRule` blocks as defined below. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** If any `inboundNatRule` blocks are specified then `disallowPublicIpAddress` must be set to `true`.
+	// > **Note:** If any `inboundNatRule` blocks are specified then `disallowPublicIpAddress` must be set to `true`.
 	InboundNatRules WindowsVirtualMachineInboundNatRuleArrayInput
 	// Specifies the name of the Dev Test Lab in which the Virtual Machine should be created. Changing this forces a new resource to be created.
 	LabName pulumi.StringInput
@@ -355,7 +362,7 @@ type WindowsVirtualMachineArgs struct {
 	Location pulumi.StringPtrInput
 	// Specifies the name of the Dev Test Machine. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** The validation requirements for the Name change based on the `osType` used in this Virtual Machine. For a Linux VM the name must be between 1-62 characters, and for a Windows VM the name must be between 1-15 characters. It must begin and end with a letter or number, and cannot be all numbers.
+	// > **Note:** The validation requirements for the Name change based on the `osType` used in this Virtual Machine. For a Linux VM the name must be between 1-62 characters, and for a Windows VM the name must be between 1-15 characters. It must begin and end with a letter or number, and cannot be all numbers.
 	Name pulumi.StringPtrInput
 	// Any notes about the Virtual Machine.
 	Notes pulumi.StringPtrInput
@@ -484,7 +491,7 @@ func (o WindowsVirtualMachineOutput) GalleryImageReference() WindowsVirtualMachi
 
 // One or more `inboundNatRule` blocks as defined below. Changing this forces a new resource to be created.
 //
-// > **NOTE:** If any `inboundNatRule` blocks are specified then `disallowPublicIpAddress` must be set to `true`.
+// > **Note:** If any `inboundNatRule` blocks are specified then `disallowPublicIpAddress` must be set to `true`.
 func (o WindowsVirtualMachineOutput) InboundNatRules() WindowsVirtualMachineInboundNatRuleArrayOutput {
 	return o.ApplyT(func(v *WindowsVirtualMachine) WindowsVirtualMachineInboundNatRuleArrayOutput {
 		return v.InboundNatRules
@@ -513,7 +520,7 @@ func (o WindowsVirtualMachineOutput) Location() pulumi.StringOutput {
 
 // Specifies the name of the Dev Test Machine. Changing this forces a new resource to be created.
 //
-// > **NOTE:** The validation requirements for the Name change based on the `osType` used in this Virtual Machine. For a Linux VM the name must be between 1-62 characters, and for a Windows VM the name must be between 1-15 characters. It must begin and end with a letter or number, and cannot be all numbers.
+// > **Note:** The validation requirements for the Name change based on the `osType` used in this Virtual Machine. For a Linux VM the name must be between 1-62 characters, and for a Windows VM the name must be between 1-15 characters. It must begin and end with a letter or number, and cannot be all numbers.
 func (o WindowsVirtualMachineOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *WindowsVirtualMachine) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }

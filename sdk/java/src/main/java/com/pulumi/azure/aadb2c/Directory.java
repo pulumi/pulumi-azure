@@ -58,6 +58,13 @@ import javax.annotation.Nullable;
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
+ * ## API Providers
+ * 
+ * &lt;!-- This section is generated, changes will be overwritten --&gt;
+ * This resource uses the following Azure API Providers:
+ * 
+ * * `Microsoft.AzureActiveDirectory`: 2021-04-01-preview
+ * 
  * ## Import
  * 
  * AAD B2C Directories can be imported using the `resource id`, e.g.

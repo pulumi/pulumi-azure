@@ -109,7 +109,7 @@ public final class QueueAuthorizationRuleState extends com.pulumi.resources.Reso
     /**
      * Specifies the ID of the ServiceBus Queue. Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE** At least one of the 3 permissions below needs to be set.
+     * &gt; **Note:** At least one of the 3 permissions below needs to be set.
      * 
      */
     @Import(name="queueId")
@@ -118,7 +118,7 @@ public final class QueueAuthorizationRuleState extends com.pulumi.resources.Reso
     /**
      * @return Specifies the ID of the ServiceBus Queue. Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE** At least one of the 3 permissions below needs to be set.
+     * &gt; **Note:** At least one of the 3 permissions below needs to be set.
      * 
      */
     public Optional<Output<String>> queueId() {
@@ -348,7 +348,7 @@ public final class QueueAuthorizationRuleState extends com.pulumi.resources.Reso
         /**
          * @param queueId Specifies the ID of the ServiceBus Queue. Changing this forces a new resource to be created.
          * 
-         * &gt; **NOTE** At least one of the 3 permissions below needs to be set.
+         * &gt; **Note:** At least one of the 3 permissions below needs to be set.
          * 
          * @return builder
          * 
@@ -361,7 +361,7 @@ public final class QueueAuthorizationRuleState extends com.pulumi.resources.Reso
         /**
          * @param queueId Specifies the ID of the ServiceBus Queue. Changing this forces a new resource to be created.
          * 
-         * &gt; **NOTE** At least one of the 3 permissions below needs to be set.
+         * &gt; **Note:** At least one of the 3 permissions below needs to be set.
          * 
          * @return builder
          * 

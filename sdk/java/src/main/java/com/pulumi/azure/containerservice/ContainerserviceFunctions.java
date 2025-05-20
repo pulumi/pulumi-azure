@@ -83,6 +83,13 @@ public final class ContainerserviceFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.ContainerService`: 2024-09-01
+     * 
      */
     public static Output<GetClusterNodePoolResult> getClusterNodePool(GetClusterNodePoolArgs args) {
         return getClusterNodePool(args, InvokeOptions.Empty);
@@ -127,6 +134,13 @@ public final class ContainerserviceFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.ContainerService`: 2024-09-01
      * 
      */
     public static CompletableFuture<GetClusterNodePoolResult> getClusterNodePoolPlain(GetClusterNodePoolPlainArgs args) {
@@ -173,6 +187,13 @@ public final class ContainerserviceFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.ContainerService`: 2024-09-01
+     * 
      */
     public static Output<GetClusterNodePoolResult> getClusterNodePool(GetClusterNodePoolArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:containerservice/getClusterNodePool:getClusterNodePool", TypeShape.of(GetClusterNodePoolResult.class), args, Utilities.withVersion(options));
@@ -217,6 +238,13 @@ public final class ContainerserviceFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.ContainerService`: 2024-09-01
      * 
      */
     public static Output<GetClusterNodePoolResult> getClusterNodePool(GetClusterNodePoolArgs args, InvokeOutputOptions options) {
@@ -263,6 +291,13 @@ public final class ContainerserviceFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.ContainerService`: 2024-09-01
+     * 
      */
     public static CompletableFuture<GetClusterNodePoolResult> getClusterNodePoolPlain(GetClusterNodePoolPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("azure:containerservice/getClusterNodePool:getClusterNodePool", TypeShape.of(GetClusterNodePoolResult.class), args, Utilities.withVersion(options));
@@ -306,6 +341,13 @@ public final class ContainerserviceFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.ContainerService`: 2024-04-01
      * 
      */
     public static Output<GetFleetManagerResult> getFleetManager(GetFleetManagerArgs args) {
@@ -351,6 +393,13 @@ public final class ContainerserviceFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.ContainerService`: 2024-04-01
+     * 
      */
     public static CompletableFuture<GetFleetManagerResult> getFleetManagerPlain(GetFleetManagerPlainArgs args) {
         return getFleetManagerPlain(args, InvokeOptions.Empty);
@@ -394,6 +443,13 @@ public final class ContainerserviceFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.ContainerService`: 2024-04-01
      * 
      */
     public static Output<GetFleetManagerResult> getFleetManager(GetFleetManagerArgs args, InvokeOptions options) {
@@ -439,6 +495,13 @@ public final class ContainerserviceFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.ContainerService`: 2024-04-01
+     * 
      */
     public static Output<GetFleetManagerResult> getFleetManager(GetFleetManagerArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("azure:containerservice/getFleetManager:getFleetManager", TypeShape.of(GetFleetManagerResult.class), args, Utilities.withVersion(options));
@@ -482,6 +545,13 @@ public final class ContainerserviceFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.ContainerService`: 2024-04-01
      * 
      */
     public static CompletableFuture<GetFleetManagerResult> getFleetManagerPlain(GetFleetManagerPlainArgs args, InvokeOptions options) {
@@ -529,6 +599,13 @@ public final class ContainerserviceFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.ContainerInstance`: 2023-05-01
+     * 
      */
     public static Output<GetGroupResult> getGroup(GetGroupArgs args) {
         return getGroup(args, InvokeOptions.Empty);
@@ -574,6 +651,13 @@ public final class ContainerserviceFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.ContainerInstance`: 2023-05-01
      * 
      */
     public static CompletableFuture<GetGroupResult> getGroupPlain(GetGroupPlainArgs args) {
@@ -621,6 +705,13 @@ public final class ContainerserviceFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.ContainerInstance`: 2023-05-01
+     * 
      */
     public static Output<GetGroupResult> getGroup(GetGroupArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:containerservice/getGroup:getGroup", TypeShape.of(GetGroupResult.class), args, Utilities.withVersion(options));
@@ -666,6 +757,13 @@ public final class ContainerserviceFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.ContainerInstance`: 2023-05-01
      * 
      */
     public static Output<GetGroupResult> getGroup(GetGroupArgs args, InvokeOutputOptions options) {
@@ -713,12 +811,22 @@ public final class ContainerserviceFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.ContainerInstance`: 2023-05-01
+     * 
      */
     public static CompletableFuture<GetGroupResult> getGroupPlain(GetGroupPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("azure:containerservice/getGroup:getGroup", TypeShape.of(GetGroupResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Use this data source to access information about an existing Managed Kubernetes Cluster (AKS).
+     * 
+     * &gt; **Note:** All arguments including the client secret will be stored in the raw state as plain text.
+     * [Read more about sensitive data in the state](https://www.terraform.io/docs/state/sensitive-data.html).
      * 
      * ## Example Usage
      * 
@@ -755,6 +863,13 @@ public final class ContainerserviceFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.ContainerService`: 2024-09-01
      * 
      */
     public static Output<GetKubernetesClusterResult> getKubernetesCluster(GetKubernetesClusterArgs args) {
@@ -763,6 +878,9 @@ public final class ContainerserviceFunctions {
     /**
      * Use this data source to access information about an existing Managed Kubernetes Cluster (AKS).
      * 
+     * &gt; **Note:** All arguments including the client secret will be stored in the raw state as plain text.
+     * [Read more about sensitive data in the state](https://www.terraform.io/docs/state/sensitive-data.html).
+     * 
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
@@ -798,6 +916,13 @@ public final class ContainerserviceFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.ContainerService`: 2024-09-01
      * 
      */
     public static CompletableFuture<GetKubernetesClusterResult> getKubernetesClusterPlain(GetKubernetesClusterPlainArgs args) {
@@ -806,6 +931,9 @@ public final class ContainerserviceFunctions {
     /**
      * Use this data source to access information about an existing Managed Kubernetes Cluster (AKS).
      * 
+     * &gt; **Note:** All arguments including the client secret will be stored in the raw state as plain text.
+     * [Read more about sensitive data in the state](https://www.terraform.io/docs/state/sensitive-data.html).
+     * 
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
@@ -841,6 +969,13 @@ public final class ContainerserviceFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.ContainerService`: 2024-09-01
      * 
      */
     public static Output<GetKubernetesClusterResult> getKubernetesCluster(GetKubernetesClusterArgs args, InvokeOptions options) {
@@ -849,6 +984,9 @@ public final class ContainerserviceFunctions {
     /**
      * Use this data source to access information about an existing Managed Kubernetes Cluster (AKS).
      * 
+     * &gt; **Note:** All arguments including the client secret will be stored in the raw state as plain text.
+     * [Read more about sensitive data in the state](https://www.terraform.io/docs/state/sensitive-data.html).
+     * 
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
@@ -884,6 +1022,13 @@ public final class ContainerserviceFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.ContainerService`: 2024-09-01
      * 
      */
     public static Output<GetKubernetesClusterResult> getKubernetesCluster(GetKubernetesClusterArgs args, InvokeOutputOptions options) {
@@ -892,6 +1037,9 @@ public final class ContainerserviceFunctions {
     /**
      * Use this data source to access information about an existing Managed Kubernetes Cluster (AKS).
      * 
+     * &gt; **Note:** All arguments including the client secret will be stored in the raw state as plain text.
+     * [Read more about sensitive data in the state](https://www.terraform.io/docs/state/sensitive-data.html).
+     * 
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
@@ -927,6 +1075,13 @@ public final class ContainerserviceFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.ContainerService`: 2024-09-01
      * 
      */
     public static CompletableFuture<GetKubernetesClusterResult> getKubernetesClusterPlain(GetKubernetesClusterPlainArgs args, InvokeOptions options) {
@@ -971,6 +1126,13 @@ public final class ContainerserviceFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.ContainerService`: 2024-09-01
+     * 
      */
     public static Output<GetKubernetesNodePoolSnapshotResult> getKubernetesNodePoolSnapshot(GetKubernetesNodePoolSnapshotArgs args) {
         return getKubernetesNodePoolSnapshot(args, InvokeOptions.Empty);
@@ -1013,6 +1175,13 @@ public final class ContainerserviceFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.ContainerService`: 2024-09-01
      * 
      */
     public static CompletableFuture<GetKubernetesNodePoolSnapshotResult> getKubernetesNodePoolSnapshotPlain(GetKubernetesNodePoolSnapshotPlainArgs args) {
@@ -1057,6 +1226,13 @@ public final class ContainerserviceFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.ContainerService`: 2024-09-01
+     * 
      */
     public static Output<GetKubernetesNodePoolSnapshotResult> getKubernetesNodePoolSnapshot(GetKubernetesNodePoolSnapshotArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:containerservice/getKubernetesNodePoolSnapshot:getKubernetesNodePoolSnapshot", TypeShape.of(GetKubernetesNodePoolSnapshotResult.class), args, Utilities.withVersion(options));
@@ -1100,6 +1276,13 @@ public final class ContainerserviceFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.ContainerService`: 2024-09-01
+     * 
      */
     public static Output<GetKubernetesNodePoolSnapshotResult> getKubernetesNodePoolSnapshot(GetKubernetesNodePoolSnapshotArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("azure:containerservice/getKubernetesNodePoolSnapshot:getKubernetesNodePoolSnapshot", TypeShape.of(GetKubernetesNodePoolSnapshotResult.class), args, Utilities.withVersion(options));
@@ -1142,6 +1325,13 @@ public final class ContainerserviceFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.ContainerService`: 2024-09-01
      * 
      */
     public static CompletableFuture<GetKubernetesNodePoolSnapshotResult> getKubernetesNodePoolSnapshotPlain(GetKubernetesNodePoolSnapshotPlainArgs args, InvokeOptions options) {
@@ -1187,6 +1377,13 @@ public final class ContainerserviceFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.ContainerService`: 2019-08-01
+     * 
      */
     public static Output<GetKubernetesServiceVersionsResult> getKubernetesServiceVersions(GetKubernetesServiceVersionsArgs args) {
         return getKubernetesServiceVersions(args, InvokeOptions.Empty);
@@ -1230,6 +1427,13 @@ public final class ContainerserviceFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.ContainerService`: 2019-08-01
      * 
      */
     public static CompletableFuture<GetKubernetesServiceVersionsResult> getKubernetesServiceVersionsPlain(GetKubernetesServiceVersionsPlainArgs args) {
@@ -1275,6 +1479,13 @@ public final class ContainerserviceFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.ContainerService`: 2019-08-01
+     * 
      */
     public static Output<GetKubernetesServiceVersionsResult> getKubernetesServiceVersions(GetKubernetesServiceVersionsArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:containerservice/getKubernetesServiceVersions:getKubernetesServiceVersions", TypeShape.of(GetKubernetesServiceVersionsResult.class), args, Utilities.withVersion(options));
@@ -1318,6 +1529,13 @@ public final class ContainerserviceFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.ContainerService`: 2019-08-01
      * 
      */
     public static Output<GetKubernetesServiceVersionsResult> getKubernetesServiceVersions(GetKubernetesServiceVersionsArgs args, InvokeOutputOptions options) {
@@ -1363,6 +1581,13 @@ public final class ContainerserviceFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.ContainerService`: 2019-08-01
+     * 
      */
     public static CompletableFuture<GetKubernetesServiceVersionsResult> getKubernetesServiceVersionsPlain(GetKubernetesServiceVersionsPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("azure:containerservice/getKubernetesServiceVersions:getKubernetesServiceVersions", TypeShape.of(GetKubernetesServiceVersionsResult.class), args, Utilities.withVersion(options));
@@ -1406,6 +1631,13 @@ public final class ContainerserviceFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.ContainerRegistry`: 2023-11-01-preview
      * 
      */
     public static Output<GetRegistryResult> getRegistry(GetRegistryArgs args) {
@@ -1451,6 +1683,13 @@ public final class ContainerserviceFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.ContainerRegistry`: 2023-11-01-preview
+     * 
      */
     public static CompletableFuture<GetRegistryResult> getRegistryPlain(GetRegistryPlainArgs args) {
         return getRegistryPlain(args, InvokeOptions.Empty);
@@ -1494,6 +1733,13 @@ public final class ContainerserviceFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.ContainerRegistry`: 2023-11-01-preview
      * 
      */
     public static Output<GetRegistryResult> getRegistry(GetRegistryArgs args, InvokeOptions options) {
@@ -1539,6 +1785,13 @@ public final class ContainerserviceFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.ContainerRegistry`: 2023-11-01-preview
+     * 
      */
     public static Output<GetRegistryResult> getRegistry(GetRegistryArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("azure:containerservice/getRegistry:getRegistry", TypeShape.of(GetRegistryResult.class), args, Utilities.withVersion(options));
@@ -1583,6 +1836,13 @@ public final class ContainerserviceFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.ContainerRegistry`: 2023-11-01-preview
+     * 
      */
     public static CompletableFuture<GetRegistryResult> getRegistryPlain(GetRegistryPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("azure:containerservice/getRegistry:getRegistry", TypeShape.of(GetRegistryResult.class), args, Utilities.withVersion(options));
@@ -1594,6 +1854,13 @@ public final class ContainerserviceFunctions {
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.ContainerRegistry`: 2023-07-01
      * 
      */
     public static Output<GetRegistryCacheRuleResult> getRegistryCacheRule(GetRegistryCacheRuleArgs args) {
@@ -1607,6 +1874,13 @@ public final class ContainerserviceFunctions {
      * &lt;!--Start PulumiCodeChooser --&gt;
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.ContainerRegistry`: 2023-07-01
+     * 
      */
     public static CompletableFuture<GetRegistryCacheRuleResult> getRegistryCacheRulePlain(GetRegistryCacheRulePlainArgs args) {
         return getRegistryCacheRulePlain(args, InvokeOptions.Empty);
@@ -1618,6 +1892,13 @@ public final class ContainerserviceFunctions {
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.ContainerRegistry`: 2023-07-01
      * 
      */
     public static Output<GetRegistryCacheRuleResult> getRegistryCacheRule(GetRegistryCacheRuleArgs args, InvokeOptions options) {
@@ -1631,6 +1912,13 @@ public final class ContainerserviceFunctions {
      * &lt;!--Start PulumiCodeChooser --&gt;
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.ContainerRegistry`: 2023-07-01
+     * 
      */
     public static Output<GetRegistryCacheRuleResult> getRegistryCacheRule(GetRegistryCacheRuleArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("azure:containerservice/getRegistryCacheRule:getRegistryCacheRule", TypeShape.of(GetRegistryCacheRuleResult.class), args, Utilities.withVersion(options));
@@ -1642,6 +1930,13 @@ public final class ContainerserviceFunctions {
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.ContainerRegistry`: 2023-07-01
      * 
      */
     public static CompletableFuture<GetRegistryCacheRuleResult> getRegistryCacheRulePlain(GetRegistryCacheRulePlainArgs args, InvokeOptions options) {
@@ -1688,6 +1983,13 @@ public final class ContainerserviceFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.ContainerRegistry`: 2023-11-01-preview
+     * 
      */
     public static Output<GetRegistryScopeMapResult> getRegistryScopeMap(GetRegistryScopeMapArgs args) {
         return getRegistryScopeMap(args, InvokeOptions.Empty);
@@ -1732,6 +2034,13 @@ public final class ContainerserviceFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.ContainerRegistry`: 2023-11-01-preview
      * 
      */
     public static CompletableFuture<GetRegistryScopeMapResult> getRegistryScopeMapPlain(GetRegistryScopeMapPlainArgs args) {
@@ -1778,6 +2087,13 @@ public final class ContainerserviceFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.ContainerRegistry`: 2023-11-01-preview
+     * 
      */
     public static Output<GetRegistryScopeMapResult> getRegistryScopeMap(GetRegistryScopeMapArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:containerservice/getRegistryScopeMap:getRegistryScopeMap", TypeShape.of(GetRegistryScopeMapResult.class), args, Utilities.withVersion(options));
@@ -1822,6 +2138,13 @@ public final class ContainerserviceFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.ContainerRegistry`: 2023-11-01-preview
      * 
      */
     public static Output<GetRegistryScopeMapResult> getRegistryScopeMap(GetRegistryScopeMapArgs args, InvokeOutputOptions options) {
@@ -1868,6 +2191,13 @@ public final class ContainerserviceFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.ContainerRegistry`: 2023-11-01-preview
+     * 
      */
     public static CompletableFuture<GetRegistryScopeMapResult> getRegistryScopeMapPlain(GetRegistryScopeMapPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("azure:containerservice/getRegistryScopeMap:getRegistryScopeMap", TypeShape.of(GetRegistryScopeMapResult.class), args, Utilities.withVersion(options));
@@ -1912,6 +2242,13 @@ public final class ContainerserviceFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.ContainerRegistry`: 2023-11-01-preview
      * 
      */
     public static Output<GetRegistryTokenResult> getRegistryToken(GetRegistryTokenArgs args) {
@@ -1958,6 +2295,13 @@ public final class ContainerserviceFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.ContainerRegistry`: 2023-11-01-preview
+     * 
      */
     public static CompletableFuture<GetRegistryTokenResult> getRegistryTokenPlain(GetRegistryTokenPlainArgs args) {
         return getRegistryTokenPlain(args, InvokeOptions.Empty);
@@ -2002,6 +2346,13 @@ public final class ContainerserviceFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.ContainerRegistry`: 2023-11-01-preview
      * 
      */
     public static Output<GetRegistryTokenResult> getRegistryToken(GetRegistryTokenArgs args, InvokeOptions options) {
@@ -2048,6 +2399,13 @@ public final class ContainerserviceFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.ContainerRegistry`: 2023-11-01-preview
+     * 
      */
     public static Output<GetRegistryTokenResult> getRegistryToken(GetRegistryTokenArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("azure:containerservice/getRegistryToken:getRegistryToken", TypeShape.of(GetRegistryTokenResult.class), args, Utilities.withVersion(options));
@@ -2092,6 +2450,13 @@ public final class ContainerserviceFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.ContainerRegistry`: 2023-11-01-preview
      * 
      */
     public static CompletableFuture<GetRegistryTokenResult> getRegistryTokenPlain(GetRegistryTokenPlainArgs args, InvokeOptions options) {

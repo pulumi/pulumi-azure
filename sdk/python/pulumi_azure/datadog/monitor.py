@@ -401,6 +401,13 @@ class Monitor(pulumi.CustomResource):
             principal_id=example_azurerm_datadog_monitor["identity"][0]["principalId"])
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Datadog`: 2021-03-01
+
         ## Import
 
         Datadog Monitors can be imported using the `resource id`, e.g.
@@ -476,6 +483,13 @@ class Monitor(pulumi.CustomResource):
             role_definition_id=monitoring_reader.role_definition_id,
             principal_id=example_azurerm_datadog_monitor["identity"][0]["principalId"])
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Datadog`: 2021-03-01
 
         ## Import
 

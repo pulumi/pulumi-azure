@@ -41,6 +41,13 @@ import (
 //	}
 //
 // ```
+//
+// ## API Providers
+//
+// <!-- This section is generated, changes will be overwritten -->
+// This data source uses the following Azure API Providers:
+//
+// * `Microsoft.NetApp`: 2025-01-01
 func LookupVolumeGroupOracle(ctx *pulumi.Context, args *LookupVolumeGroupOracleArgs, opts ...pulumi.InvokeOption) (*LookupVolumeGroupOracleResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupVolumeGroupOracleResult

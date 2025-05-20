@@ -38,7 +38,7 @@ namespace Pulumi.Azure.KeyVault
         public Output<string?> ExpirationDate { get; private set; } = null!;
 
         /// <summary>
-        /// A list of JSON web key operations. Possible values include: `decrypt`, `encrypt`, `sign`, `unwrapKey`, `verify` and `wrapKey`. Please note these values are case-sensitive.
+        /// A list of JSON web key operations. Possible values include: `decrypt`, `encrypt`, `sign`, `unwrapKey`, `verify`, `wrapKey` and `import`. Please note these values are case-sensitive.
         /// </summary>
         [Output("keyOpts")]
         public Output<ImmutableArray<string>> KeyOpts { get; private set; } = null!;
@@ -149,7 +149,7 @@ namespace Pulumi.Azure.KeyVault
         private InputList<string>? _keyOpts;
 
         /// <summary>
-        /// A list of JSON web key operations. Possible values include: `decrypt`, `encrypt`, `sign`, `unwrapKey`, `verify` and `wrapKey`. Please note these values are case-sensitive.
+        /// A list of JSON web key operations. Possible values include: `decrypt`, `encrypt`, `sign`, `unwrapKey`, `verify`, `wrapKey` and `import`. Please note these values are case-sensitive.
         /// </summary>
         public InputList<string> KeyOpts
         {
@@ -225,7 +225,7 @@ namespace Pulumi.Azure.KeyVault
         private InputList<string>? _keyOpts;
 
         /// <summary>
-        /// A list of JSON web key operations. Possible values include: `decrypt`, `encrypt`, `sign`, `unwrapKey`, `verify` and `wrapKey`. Please note these values are case-sensitive.
+        /// A list of JSON web key operations. Possible values include: `decrypt`, `encrypt`, `sign`, `unwrapKey`, `verify`, `wrapKey` and `import`. Please note these values are case-sensitive.
         /// </summary>
         public InputList<string> KeyOpts
         {

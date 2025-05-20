@@ -156,10 +156,14 @@ def get_group(display_name: Optional[builtins.str] = None,
     pulumi.export("displayName", example.display_name)
     ```
 
+    ## API Providers
 
-    :param builtins.str display_name: Specifies the display name of this Management Group.
-           
-           > **NOTE** Whilst multiple management groups may share the same display name, when filtering, the provider expects a single management group to be found with this name.
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.Management`: 2020-05-01
+
+
     :param builtins.str name: Specifies the name or UUID of this Management Group.
     """
     __args__ = dict()
@@ -194,10 +198,14 @@ def get_group_output(display_name: Optional[pulumi.Input[Optional[builtins.str]]
     pulumi.export("displayName", example.display_name)
     ```
 
+    ## API Providers
 
-    :param builtins.str display_name: Specifies the display name of this Management Group.
-           
-           > **NOTE** Whilst multiple management groups may share the same display name, when filtering, the provider expects a single management group to be found with this name.
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.Management`: 2020-05-01
+
+
     :param builtins.str name: Specifies the name or UUID of this Management Group.
     """
     __args__ = dict()

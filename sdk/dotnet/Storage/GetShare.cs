@@ -14,7 +14,7 @@ namespace Pulumi.Azure.Storage
         /// <summary>
         /// Use this data source to access information about an existing File Share.
         /// 
-        /// &gt; **Note on Authentication** Shared Key authentication will always be used for this data source, as AzureAD authentication is not supported by the Storage API for files.
+        /// &gt; **Note:** Shared Key authentication will always be used for this data source, as AzureAD authentication is not supported by the Storage API for files.
         /// 
         /// ## Example Usage
         /// 
@@ -40,6 +40,13 @@ namespace Pulumi.Azure.Storage
         /// 
         /// });
         /// ```
+        /// 
+        /// ## API Providers
+        /// 
+        /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+        /// This data source uses the following Azure API Providers:
+        /// 
+        /// * `Microsoft.Storage`: 2023-05-01
         /// </summary>
         public static Task<GetShareResult> InvokeAsync(GetShareArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetShareResult>("azure:storage/getShare:getShare", args ?? new GetShareArgs(), options.WithDefaults());
@@ -47,7 +54,7 @@ namespace Pulumi.Azure.Storage
         /// <summary>
         /// Use this data source to access information about an existing File Share.
         /// 
-        /// &gt; **Note on Authentication** Shared Key authentication will always be used for this data source, as AzureAD authentication is not supported by the Storage API for files.
+        /// &gt; **Note:** Shared Key authentication will always be used for this data source, as AzureAD authentication is not supported by the Storage API for files.
         /// 
         /// ## Example Usage
         /// 
@@ -73,6 +80,13 @@ namespace Pulumi.Azure.Storage
         /// 
         /// });
         /// ```
+        /// 
+        /// ## API Providers
+        /// 
+        /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+        /// This data source uses the following Azure API Providers:
+        /// 
+        /// * `Microsoft.Storage`: 2023-05-01
         /// </summary>
         public static Output<GetShareResult> Invoke(GetShareInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetShareResult>("azure:storage/getShare:getShare", args ?? new GetShareInvokeArgs(), options.WithDefaults());
@@ -80,7 +94,7 @@ namespace Pulumi.Azure.Storage
         /// <summary>
         /// Use this data source to access information about an existing File Share.
         /// 
-        /// &gt; **Note on Authentication** Shared Key authentication will always be used for this data source, as AzureAD authentication is not supported by the Storage API for files.
+        /// &gt; **Note:** Shared Key authentication will always be used for this data source, as AzureAD authentication is not supported by the Storage API for files.
         /// 
         /// ## Example Usage
         /// 
@@ -106,6 +120,13 @@ namespace Pulumi.Azure.Storage
         /// 
         /// });
         /// ```
+        /// 
+        /// ## API Providers
+        /// 
+        /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+        /// This data source uses the following Azure API Providers:
+        /// 
+        /// * `Microsoft.Storage`: 2023-05-01
         /// </summary>
         public static Output<GetShareResult> Invoke(GetShareInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetShareResult>("azure:storage/getShare:getShare", args ?? new GetShareInvokeArgs(), options.WithDefaults());
@@ -147,7 +168,7 @@ namespace Pulumi.Azure.Storage
         /// <summary>
         /// The ID of the storage account in which the share exists.
         /// 
-        /// &gt; **NOTE:** One of `storage_account_name` or `storage_account_id` must be specified. When specifying `storage_account_id` the resource will use the Resource Manager API, rather than the Data Plane API.
+        /// &gt; **Note:** One of `storage_account_name` or `storage_account_id` must be specified. When specifying `storage_account_id` the resource will use the Resource Manager API, rather than the Data Plane API.
         /// </summary>
         [Input("storageAccountId")]
         public string? StorageAccountId { get; set; }
@@ -199,7 +220,7 @@ namespace Pulumi.Azure.Storage
         /// <summary>
         /// The ID of the storage account in which the share exists.
         /// 
-        /// &gt; **NOTE:** One of `storage_account_name` or `storage_account_id` must be specified. When specifying `storage_account_id` the resource will use the Resource Manager API, rather than the Data Plane API.
+        /// &gt; **Note:** One of `storage_account_name` or `storage_account_id` must be specified. When specifying `storage_account_id` the resource will use the Resource Manager API, rather than the Data Plane API.
         /// </summary>
         [Input("storageAccountId")]
         public Input<string>? StorageAccountId { get; set; }

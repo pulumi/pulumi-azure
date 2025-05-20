@@ -51,6 +51,13 @@ namespace Pulumi.Azure.Storage
     /// });
     /// ```
     /// 
+    /// ## API Providers
+    /// 
+    /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+    /// This resource uses the following Azure API Providers:
+    /// 
+    /// * `Microsoft.Storage`: 2023-05-01
+    /// 
     /// ## Import
     /// 
     /// Storage Containers can be imported using the `resource manager id`, e.g.
@@ -65,7 +72,7 @@ namespace Pulumi.Azure.Storage
         /// <summary>
         /// The Access Level configured for this Container. Possible values are `blob`, `container` or `private`. Defaults to `private`.
         /// 
-        /// &gt; **Note** When updating `container_access_type` for an existing storage container resource, Shared Key authentication will always be used, as AzureAD authentication is not supported.
+        /// &gt; **Note:** When updating `container_access_type` for an existing storage container resource, Shared Key authentication will always be used, as AzureAD authentication is not supported.
         /// </summary>
         [Output("containerAccessType")]
         public Output<string?> ContainerAccessType { get; private set; } = null!;
@@ -115,7 +122,7 @@ namespace Pulumi.Azure.Storage
         /// <summary>
         /// The name of the Storage Account where the Container should be created. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **NOTE:** One of `storage_account_name` or `storage_account_id` must be specified. When specifying `storage_account_id` the resource will use the Resource Manager API, rather than the Data Plane API.
+        /// &gt; **Note:** One of `storage_account_name` or `storage_account_id` must be specified. When specifying `storage_account_id` the resource will use the Resource Manager API, rather than the Data Plane API.
         /// </summary>
         [Output("storageAccountId")]
         public Output<string?> StorageAccountId { get; private set; } = null!;
@@ -177,7 +184,7 @@ namespace Pulumi.Azure.Storage
         /// <summary>
         /// The Access Level configured for this Container. Possible values are `blob`, `container` or `private`. Defaults to `private`.
         /// 
-        /// &gt; **Note** When updating `container_access_type` for an existing storage container resource, Shared Key authentication will always be used, as AzureAD authentication is not supported.
+        /// &gt; **Note:** When updating `container_access_type` for an existing storage container resource, Shared Key authentication will always be used, as AzureAD authentication is not supported.
         /// </summary>
         [Input("containerAccessType")]
         public Input<string>? ContainerAccessType { get; set; }
@@ -215,7 +222,7 @@ namespace Pulumi.Azure.Storage
         /// <summary>
         /// The name of the Storage Account where the Container should be created. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **NOTE:** One of `storage_account_name` or `storage_account_id` must be specified. When specifying `storage_account_id` the resource will use the Resource Manager API, rather than the Data Plane API.
+        /// &gt; **Note:** One of `storage_account_name` or `storage_account_id` must be specified. When specifying `storage_account_id` the resource will use the Resource Manager API, rather than the Data Plane API.
         /// </summary>
         [Input("storageAccountId")]
         public Input<string>? StorageAccountId { get; set; }
@@ -239,7 +246,7 @@ namespace Pulumi.Azure.Storage
         /// <summary>
         /// The Access Level configured for this Container. Possible values are `blob`, `container` or `private`. Defaults to `private`.
         /// 
-        /// &gt; **Note** When updating `container_access_type` for an existing storage container resource, Shared Key authentication will always be used, as AzureAD authentication is not supported.
+        /// &gt; **Note:** When updating `container_access_type` for an existing storage container resource, Shared Key authentication will always be used, as AzureAD authentication is not supported.
         /// </summary>
         [Input("containerAccessType")]
         public Input<string>? ContainerAccessType { get; set; }
@@ -295,7 +302,7 @@ namespace Pulumi.Azure.Storage
         /// <summary>
         /// The name of the Storage Account where the Container should be created. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **NOTE:** One of `storage_account_name` or `storage_account_id` must be specified. When specifying `storage_account_id` the resource will use the Resource Manager API, rather than the Data Plane API.
+        /// &gt; **Note:** One of `storage_account_name` or `storage_account_id` must be specified. When specifying `storage_account_id` the resource will use the Resource Manager API, rather than the Data Plane API.
         /// </summary>
         [Input("storageAccountId")]
         public Input<string>? StorageAccountId { get; set; }

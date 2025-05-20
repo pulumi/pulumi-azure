@@ -50,7 +50,7 @@ public final class ClusterClientCertificateCommonNameArgs extends com.pulumi.res
     /**
      * The Issuer Thumbprint of the Certificate.
      * 
-     * &gt; **NOTE:** Certificate Issuer Thumbprint may become required in the future, `https://docs.microsoft.com/azure/service-fabric/service-fabric-create-cluster-using-cert-cn#download-and-update-a-sample-template`.
+     * &gt; **Note:** Certificate Issuer Thumbprint may become required in the future, `https://docs.microsoft.com/azure/service-fabric/service-fabric-create-cluster-using-cert-cn#download-and-update-a-sample-template`.
      * 
      */
     @Import(name="issuerThumbprint")
@@ -59,7 +59,7 @@ public final class ClusterClientCertificateCommonNameArgs extends com.pulumi.res
     /**
      * @return The Issuer Thumbprint of the Certificate.
      * 
-     * &gt; **NOTE:** Certificate Issuer Thumbprint may become required in the future, `https://docs.microsoft.com/azure/service-fabric/service-fabric-create-cluster-using-cert-cn#download-and-update-a-sample-template`.
+     * &gt; **Note:** Certificate Issuer Thumbprint may become required in the future, `https://docs.microsoft.com/azure/service-fabric/service-fabric-create-cluster-using-cert-cn#download-and-update-a-sample-template`.
      * 
      */
     public Optional<Output<String>> issuerThumbprint() {
@@ -137,7 +137,7 @@ public final class ClusterClientCertificateCommonNameArgs extends com.pulumi.res
         /**
          * @param issuerThumbprint The Issuer Thumbprint of the Certificate.
          * 
-         * &gt; **NOTE:** Certificate Issuer Thumbprint may become required in the future, `https://docs.microsoft.com/azure/service-fabric/service-fabric-create-cluster-using-cert-cn#download-and-update-a-sample-template`.
+         * &gt; **Note:** Certificate Issuer Thumbprint may become required in the future, `https://docs.microsoft.com/azure/service-fabric/service-fabric-create-cluster-using-cert-cn#download-and-update-a-sample-template`.
          * 
          * @return builder
          * 
@@ -150,7 +150,7 @@ public final class ClusterClientCertificateCommonNameArgs extends com.pulumi.res
         /**
          * @param issuerThumbprint The Issuer Thumbprint of the Certificate.
          * 
-         * &gt; **NOTE:** Certificate Issuer Thumbprint may become required in the future, `https://docs.microsoft.com/azure/service-fabric/service-fabric-create-cluster-using-cert-cn#download-and-update-a-sample-template`.
+         * &gt; **Note:** Certificate Issuer Thumbprint may become required in the future, `https://docs.microsoft.com/azure/service-fabric/service-fabric-create-cluster-using-cert-cn#download-and-update-a-sample-template`.
          * 
          * @return builder
          * 

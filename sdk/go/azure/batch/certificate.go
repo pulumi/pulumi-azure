@@ -73,7 +73,7 @@ import (
 //				AccountName:         exampleAccount2.Name,
 //				Certificate:         pulumi.String(invokeFilebase64.Result),
 //				Format:              pulumi.String("Pfx"),
-//				Password:            pulumi.String("password"),
+//				Password:            pulumi.String("terraform"),
 //				Thumbprint:          pulumi.String("42C107874FD0E4A9583292A2F1098E8FE4B2EDDA"),
 //				ThumbprintAlgorithm: pulumi.String("SHA1"),
 //			})
@@ -85,6 +85,13 @@ import (
 //	}
 //
 // ```
+//
+// ## API Providers
+//
+// <!-- This section is generated, changes will be overwritten -->
+// This resource uses the following Azure API Providers:
+//
+// * `Microsoft.Batch`: 2024-07-01
 //
 // ## Import
 //

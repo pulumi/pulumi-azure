@@ -24,7 +24,7 @@ namespace Pulumi.Azure.Compute.Outputs
         /// <summary>
         /// Should the Azure Virtual Machine Guest Agent be installed on this Virtual Machine? Defaults to `false`.
         /// 
-        /// &gt; **NOTE:** This is different from the Default value used for this field within Azure.
+        /// &gt; **Note:** This is different from the Default value used for this field within Azure.
         /// </summary>
         public readonly bool? ProvisionVmAgent;
         /// <summary>

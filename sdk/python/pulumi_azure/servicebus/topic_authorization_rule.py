@@ -29,7 +29,7 @@ class TopicAuthorizationRuleArgs:
         The set of arguments for constructing a TopicAuthorizationRule resource.
         :param pulumi.Input[builtins.str] topic_id: Specifies the ID of the ServiceBus Topic. Changing this forces a new resource to be created.
                
-               > **NOTE** At least one of the 3 permissions below needs to be set.
+               > **Note:** At least one of the 3 permissions below needs to be set.
         :param pulumi.Input[builtins.bool] listen: Grants listen access to this this Authorization Rule. Defaults to `false`.
         :param pulumi.Input[builtins.bool] manage: Grants manage access to this this Authorization Rule. When this property is `true` - both `listen` and `send` must be too. Defaults to `false`.
         :param pulumi.Input[builtins.str] name: Specifies the name of the ServiceBus Topic Authorization Rule resource. Changing this forces a new resource to be created.
@@ -51,7 +51,7 @@ class TopicAuthorizationRuleArgs:
         """
         Specifies the ID of the ServiceBus Topic. Changing this forces a new resource to be created.
 
-        > **NOTE** At least one of the 3 permissions below needs to be set.
+        > **Note:** At least one of the 3 permissions below needs to be set.
         """
         return pulumi.get(self, "topic_id")
 
@@ -136,7 +136,7 @@ class _TopicAuthorizationRuleState:
         :param pulumi.Input[builtins.bool] send: Grants send access to this this Authorization Rule. Defaults to `false`.
         :param pulumi.Input[builtins.str] topic_id: Specifies the ID of the ServiceBus Topic. Changing this forces a new resource to be created.
                
-               > **NOTE** At least one of the 3 permissions below needs to be set.
+               > **Note:** At least one of the 3 permissions below needs to be set.
         """
         if listen is not None:
             pulumi.set(__self__, "listen", listen)
@@ -287,7 +287,7 @@ class _TopicAuthorizationRuleState:
         """
         Specifies the ID of the ServiceBus Topic. Changing this forces a new resource to be created.
 
-        > **NOTE** At least one of the 3 permissions below needs to be set.
+        > **Note:** At least one of the 3 permissions below needs to be set.
         """
         return pulumi.get(self, "topic_id")
 
@@ -326,7 +326,7 @@ class TopicAuthorizationRule(pulumi.CustomResource):
             resource_group_name=example.name,
             sku="Standard",
             tags={
-                "source": "example",
+                "source": "terraform",
             })
         example_topic = azure.servicebus.Topic("example",
             name="tfex_servicebus_topic",
@@ -355,7 +355,7 @@ class TopicAuthorizationRule(pulumi.CustomResource):
         :param pulumi.Input[builtins.bool] send: Grants send access to this this Authorization Rule. Defaults to `false`.
         :param pulumi.Input[builtins.str] topic_id: Specifies the ID of the ServiceBus Topic. Changing this forces a new resource to be created.
                
-               > **NOTE** At least one of the 3 permissions below needs to be set.
+               > **Note:** At least one of the 3 permissions below needs to be set.
         """
         ...
     @overload
@@ -381,7 +381,7 @@ class TopicAuthorizationRule(pulumi.CustomResource):
             resource_group_name=example.name,
             sku="Standard",
             tags={
-                "source": "example",
+                "source": "terraform",
             })
         example_topic = azure.servicebus.Topic("example",
             name="tfex_servicebus_topic",
@@ -488,7 +488,7 @@ class TopicAuthorizationRule(pulumi.CustomResource):
         :param pulumi.Input[builtins.bool] send: Grants send access to this this Authorization Rule. Defaults to `false`.
         :param pulumi.Input[builtins.str] topic_id: Specifies the ID of the ServiceBus Topic. Changing this forces a new resource to be created.
                
-               > **NOTE** At least one of the 3 permissions below needs to be set.
+               > **Note:** At least one of the 3 permissions below needs to be set.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -593,7 +593,7 @@ class TopicAuthorizationRule(pulumi.CustomResource):
         """
         Specifies the ID of the ServiceBus Topic. Changing this forces a new resource to be created.
 
-        > **NOTE** At least one of the 3 permissions below needs to be set.
+        > **Note:** At least one of the 3 permissions below needs to be set.
         """
         return pulumi.get(self, "topic_id")
 

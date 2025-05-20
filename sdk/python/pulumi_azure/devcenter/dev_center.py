@@ -223,8 +223,6 @@ class DevCenter(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  __props__=None):
         """
-        <!-- Note: This documentation is generated. Any manual changes will be overwritten -->
-
         Manages a Dev Center.
 
         ## Example Usage
@@ -259,6 +257,13 @@ class DevCenter(pulumi.CustomResource):
 
         * `principal_id` - The Principal ID for the System-Assigned Managed Identity assigned to this Dev Center.
         * `tenant_id` - The Tenant ID for the System-Assigned Managed Identity assigned to this Dev Center.
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.DevCenter`: 2025-02-01
 
         ## Import
 
@@ -289,8 +294,6 @@ class DevCenter(pulumi.CustomResource):
                  args: DevCenterArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        <!-- Note: This documentation is generated. Any manual changes will be overwritten -->
-
         Manages a Dev Center.
 
         ## Example Usage
@@ -325,6 +328,13 @@ class DevCenter(pulumi.CustomResource):
 
         * `principal_id` - The Principal ID for the System-Assigned Managed Identity assigned to this Dev Center.
         * `tenant_id` - The Tenant ID for the System-Assigned Managed Identity assigned to this Dev Center.
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.DevCenter`: 2025-02-01
 
         ## Import
 

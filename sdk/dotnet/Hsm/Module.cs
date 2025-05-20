@@ -157,6 +157,13 @@ namespace Pulumi.Azure.Hsm
     /// });
     /// ```
     /// 
+    /// ## API Providers
+    /// 
+    /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+    /// This resource uses the following Azure API Providers:
+    /// 
+    /// * `Microsoft.HardwareSecurityModules`: 2021-11-30
+    /// 
     /// ## Import
     /// 
     /// Dedicated Hardware Security Module can be imported using the `resource id`, e.g.
@@ -177,7 +184,7 @@ namespace Pulumi.Azure.Hsm
         /// <summary>
         /// A `management_network_profile` block as defined below.
         /// 
-        /// -&gt;**NOTE:**  The `management_network_profile` should not be specified when `sku_name` is `SafeNet Luna Network HSM A790`.
+        /// &gt; **Note:** The `management_network_profile` should not be specified when `sku_name` is `SafeNet Luna Network HSM A790`.
         /// </summary>
         [Output("managementNetworkProfile")]
         public Output<Outputs.ModuleManagementNetworkProfile?> ManagementNetworkProfile { get; private set; } = null!;
@@ -279,7 +286,7 @@ namespace Pulumi.Azure.Hsm
         /// <summary>
         /// A `management_network_profile` block as defined below.
         /// 
-        /// -&gt;**NOTE:**  The `management_network_profile` should not be specified when `sku_name` is `SafeNet Luna Network HSM A790`.
+        /// &gt; **Note:** The `management_network_profile` should not be specified when `sku_name` is `SafeNet Luna Network HSM A790`.
         /// </summary>
         [Input("managementNetworkProfile")]
         public Input<Inputs.ModuleManagementNetworkProfileArgs>? ManagementNetworkProfile { get; set; }
@@ -355,7 +362,7 @@ namespace Pulumi.Azure.Hsm
         /// <summary>
         /// A `management_network_profile` block as defined below.
         /// 
-        /// -&gt;**NOTE:**  The `management_network_profile` should not be specified when `sku_name` is `SafeNet Luna Network HSM A790`.
+        /// &gt; **Note:** The `management_network_profile` should not be specified when `sku_name` is `SafeNet Luna Network HSM A790`.
         /// </summary>
         [Input("managementNetworkProfile")]
         public Input<Inputs.ModuleManagementNetworkProfileGetArgs>? ManagementNetworkProfile { get; set; }

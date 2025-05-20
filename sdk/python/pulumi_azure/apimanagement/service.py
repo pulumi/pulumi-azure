@@ -52,12 +52,12 @@ class ServiceArgs:
         The set of arguments for constructing a Service resource.
         :param pulumi.Input[builtins.str] publisher_email: The email of publisher/company.
         :param pulumi.Input[builtins.str] publisher_name: The name of publisher/company.
-        :param pulumi.Input[builtins.str] resource_group_name: The name of the Resource Group in which the API Management Service should be exist. Changing this forces a new resource to be created.
+        :param pulumi.Input[builtins.str] resource_group_name: The name of the Resource Group in which the API Management Service should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] sku_name: `sku_name` is a string consisting of two parts separated by an underscore(\\_). The first part is the `name`, valid values include: `Consumption`, `Developer`, `Basic`, `Standard` and `Premium`. The second part is the `capacity` (e.g. the number of deployed units of the `sku`), which must be a positive `integer` (e.g. `Developer_1`).
                
-               > **NOTE:** Premium SKU's are limited to a default maximum of 12 (i.e. `Premium_12`), this can, however, be increased via support request.
+               > **Note:** Premium SKUs are limited to a default maximum of 12 (i.e. `Premium_12`), this can, however, be increased via support request.
                
-               > **NOTE:** Consumption SKU capacity should be 0 (e.g. `Consumption_0`) as this tier includes automatic scaling.
+               > **Note:** Consumption SKU capacity should be 0 (e.g. `Consumption_0`) as this tier includes automatic scaling.
         :param pulumi.Input[Sequence[pulumi.Input['ServiceAdditionalLocationArgs']]] additional_locations: One or more `additional_location` blocks as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['ServiceCertificateArgs']]] certificates: One or more `certificate` blocks (up to 10) as defined below.
         :param pulumi.Input[builtins.bool] client_certificate_enabled: Enforce a client certificate to be presented on each request to the gateway? This is only supported when SKU type is `Consumption`.
@@ -72,10 +72,10 @@ class ServiceArgs:
         :param pulumi.Input['ServiceProtocolsArgs'] protocols: A `protocols` block as defined below.
         :param pulumi.Input[builtins.str] public_ip_address_id: ID of a standard SKU IPv4 Public IP.
                
-               > **NOTE:** Custom public IPs are only supported on the `Premium` and `Developer` tiers when deployed in a virtual network.
+               > **Note:** Custom public IPs are only supported on the `Premium` and `Developer` tiers when deployed in a virtual network.
         :param pulumi.Input[builtins.bool] public_network_access_enabled: Is public access to the service allowed? Defaults to `true`.
                
-               > **NOTE:** This option is applicable only to the Management plane, not the API gateway or Developer portal. It is required to be `true` on the creation.
+               > **Note:** This option is applicable only to the Management plane, not the API gateway or Developer portal. It is required to be `true` on the creation.
         :param pulumi.Input['ServiceSecurityArgs'] security: A `security` block as defined below.
         :param pulumi.Input['ServiceSignInArgs'] sign_in: A `sign_in` block as defined below.
         :param pulumi.Input['ServiceSignUpArgs'] sign_up: A `sign_up` block as defined below.
@@ -84,10 +84,10 @@ class ServiceArgs:
         :param pulumi.Input['ServiceVirtualNetworkConfigurationArgs'] virtual_network_configuration: A `virtual_network_configuration` block as defined below. Required when `virtual_network_type` is `External` or `Internal`.
         :param pulumi.Input[builtins.str] virtual_network_type: The type of virtual network you want to use, valid values include: `None`, `External`, `Internal`. Defaults to `None`.
                
-               > **NOTE:** Please ensure that in the subnet, inbound port 3443 is open when `virtual_network_type` is `Internal` or `External`. And please ensure other necessary ports are open according to [api management network configuration](https://learn.microsoft.com/azure/api-management/virtual-network-reference).
+               > **Note:** Please ensure that in the subnet, inbound port 3443 is open when `virtual_network_type` is `Internal` or `External`. Additionally, please ensure other necessary ports are open according to [api management network configuration](https://learn.microsoft.com/azure/api-management/virtual-network-reference).
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] zones: Specifies a list of Availability Zones in which this API Management service should be located.
                
-               > **NOTE:** Availability zones are only supported in the Premium tier.
+               > **Note:** Availability zones are only supported in the Premium tier.
         """
         pulumi.set(__self__, "publisher_email", publisher_email)
         pulumi.set(__self__, "publisher_name", publisher_name)
@@ -166,7 +166,7 @@ class ServiceArgs:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[builtins.str]:
         """
-        The name of the Resource Group in which the API Management Service should be exist. Changing this forces a new resource to be created.
+        The name of the Resource Group in which the API Management Service should exist. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -180,9 +180,9 @@ class ServiceArgs:
         """
         `sku_name` is a string consisting of two parts separated by an underscore(\\_). The first part is the `name`, valid values include: `Consumption`, `Developer`, `Basic`, `Standard` and `Premium`. The second part is the `capacity` (e.g. the number of deployed units of the `sku`), which must be a positive `integer` (e.g. `Developer_1`).
 
-        > **NOTE:** Premium SKU's are limited to a default maximum of 12 (i.e. `Premium_12`), this can, however, be increased via support request.
+        > **Note:** Premium SKUs are limited to a default maximum of 12 (i.e. `Premium_12`), this can, however, be increased via support request.
 
-        > **NOTE:** Consumption SKU capacity should be 0 (e.g. `Consumption_0`) as this tier includes automatic scaling.
+        > **Note:** Consumption SKU capacity should be 0 (e.g. `Consumption_0`) as this tier includes automatic scaling.
         """
         return pulumi.get(self, "sku_name")
 
@@ -340,7 +340,7 @@ class ServiceArgs:
         """
         ID of a standard SKU IPv4 Public IP.
 
-        > **NOTE:** Custom public IPs are only supported on the `Premium` and `Developer` tiers when deployed in a virtual network.
+        > **Note:** Custom public IPs are only supported on the `Premium` and `Developer` tiers when deployed in a virtual network.
         """
         return pulumi.get(self, "public_ip_address_id")
 
@@ -354,7 +354,7 @@ class ServiceArgs:
         """
         Is public access to the service allowed? Defaults to `true`.
 
-        > **NOTE:** This option is applicable only to the Management plane, not the API gateway or Developer portal. It is required to be `true` on the creation.
+        > **Note:** This option is applicable only to the Management plane, not the API gateway or Developer portal. It is required to be `true` on the creation.
         """
         return pulumi.get(self, "public_network_access_enabled")
 
@@ -440,7 +440,7 @@ class ServiceArgs:
         """
         The type of virtual network you want to use, valid values include: `None`, `External`, `Internal`. Defaults to `None`.
 
-        > **NOTE:** Please ensure that in the subnet, inbound port 3443 is open when `virtual_network_type` is `Internal` or `External`. And please ensure other necessary ports are open according to [api management network configuration](https://learn.microsoft.com/azure/api-management/virtual-network-reference).
+        > **Note:** Please ensure that in the subnet, inbound port 3443 is open when `virtual_network_type` is `Internal` or `External`. Additionally, please ensure other necessary ports are open according to [api management network configuration](https://learn.microsoft.com/azure/api-management/virtual-network-reference).
         """
         return pulumi.get(self, "virtual_network_type")
 
@@ -454,7 +454,7 @@ class ServiceArgs:
         """
         Specifies a list of Availability Zones in which this API Management service should be located.
 
-        > **NOTE:** Availability zones are only supported in the Premium tier.
+        > **Note:** Availability zones are only supported in the Premium tier.
         """
         return pulumi.get(self, "zones")
 
@@ -522,32 +522,32 @@ class _ServiceState:
         :param pulumi.Input['ServiceProtocolsArgs'] protocols: A `protocols` block as defined below.
         :param pulumi.Input[builtins.str] public_ip_address_id: ID of a standard SKU IPv4 Public IP.
                
-               > **NOTE:** Custom public IPs are only supported on the `Premium` and `Developer` tiers when deployed in a virtual network.
+               > **Note:** Custom public IPs are only supported on the `Premium` and `Developer` tiers when deployed in a virtual network.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] public_ip_addresses: Public Static Load Balanced IP addresses of the API Management service in the additional location. Available only for Basic, Standard and Premium SKU.
         :param pulumi.Input[builtins.bool] public_network_access_enabled: Is public access to the service allowed? Defaults to `true`.
                
-               > **NOTE:** This option is applicable only to the Management plane, not the API gateway or Developer portal. It is required to be `true` on the creation.
+               > **Note:** This option is applicable only to the Management plane, not the API gateway or Developer portal. It is required to be `true` on the creation.
         :param pulumi.Input[builtins.str] publisher_email: The email of publisher/company.
         :param pulumi.Input[builtins.str] publisher_name: The name of publisher/company.
-        :param pulumi.Input[builtins.str] resource_group_name: The name of the Resource Group in which the API Management Service should be exist. Changing this forces a new resource to be created.
+        :param pulumi.Input[builtins.str] resource_group_name: The name of the Resource Group in which the API Management Service should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] scm_url: The URL for the SCM (Source Code Management) Endpoint associated with this API Management service.
         :param pulumi.Input['ServiceSecurityArgs'] security: A `security` block as defined below.
         :param pulumi.Input['ServiceSignInArgs'] sign_in: A `sign_in` block as defined below.
         :param pulumi.Input['ServiceSignUpArgs'] sign_up: A `sign_up` block as defined below.
         :param pulumi.Input[builtins.str] sku_name: `sku_name` is a string consisting of two parts separated by an underscore(\\_). The first part is the `name`, valid values include: `Consumption`, `Developer`, `Basic`, `Standard` and `Premium`. The second part is the `capacity` (e.g. the number of deployed units of the `sku`), which must be a positive `integer` (e.g. `Developer_1`).
                
-               > **NOTE:** Premium SKU's are limited to a default maximum of 12 (i.e. `Premium_12`), this can, however, be increased via support request.
+               > **Note:** Premium SKUs are limited to a default maximum of 12 (i.e. `Premium_12`), this can, however, be increased via support request.
                
-               > **NOTE:** Consumption SKU capacity should be 0 (e.g. `Consumption_0`) as this tier includes automatic scaling.
+               > **Note:** Consumption SKU capacity should be 0 (e.g. `Consumption_0`) as this tier includes automatic scaling.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A mapping of tags assigned to the resource.
         :param pulumi.Input['ServiceTenantAccessArgs'] tenant_access: A `tenant_access` block as defined below.
         :param pulumi.Input['ServiceVirtualNetworkConfigurationArgs'] virtual_network_configuration: A `virtual_network_configuration` block as defined below. Required when `virtual_network_type` is `External` or `Internal`.
         :param pulumi.Input[builtins.str] virtual_network_type: The type of virtual network you want to use, valid values include: `None`, `External`, `Internal`. Defaults to `None`.
                
-               > **NOTE:** Please ensure that in the subnet, inbound port 3443 is open when `virtual_network_type` is `Internal` or `External`. And please ensure other necessary ports are open according to [api management network configuration](https://learn.microsoft.com/azure/api-management/virtual-network-reference).
+               > **Note:** Please ensure that in the subnet, inbound port 3443 is open when `virtual_network_type` is `Internal` or `External`. Additionally, please ensure other necessary ports are open according to [api management network configuration](https://learn.microsoft.com/azure/api-management/virtual-network-reference).
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] zones: Specifies a list of Availability Zones in which this API Management service should be located.
                
-               > **NOTE:** Availability zones are only supported in the Premium tier.
+               > **Note:** Availability zones are only supported in the Premium tier.
         """
         if additional_locations is not None:
             pulumi.set(__self__, "additional_locations", additional_locations)
@@ -840,7 +840,7 @@ class _ServiceState:
         """
         ID of a standard SKU IPv4 Public IP.
 
-        > **NOTE:** Custom public IPs are only supported on the `Premium` and `Developer` tiers when deployed in a virtual network.
+        > **Note:** Custom public IPs are only supported on the `Premium` and `Developer` tiers when deployed in a virtual network.
         """
         return pulumi.get(self, "public_ip_address_id")
 
@@ -866,7 +866,7 @@ class _ServiceState:
         """
         Is public access to the service allowed? Defaults to `true`.
 
-        > **NOTE:** This option is applicable only to the Management plane, not the API gateway or Developer portal. It is required to be `true` on the creation.
+        > **Note:** This option is applicable only to the Management plane, not the API gateway or Developer portal. It is required to be `true` on the creation.
         """
         return pulumi.get(self, "public_network_access_enabled")
 
@@ -902,7 +902,7 @@ class _ServiceState:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The name of the Resource Group in which the API Management Service should be exist. Changing this forces a new resource to be created.
+        The name of the Resource Group in which the API Management Service should exist. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -964,9 +964,9 @@ class _ServiceState:
         """
         `sku_name` is a string consisting of two parts separated by an underscore(\\_). The first part is the `name`, valid values include: `Consumption`, `Developer`, `Basic`, `Standard` and `Premium`. The second part is the `capacity` (e.g. the number of deployed units of the `sku`), which must be a positive `integer` (e.g. `Developer_1`).
 
-        > **NOTE:** Premium SKU's are limited to a default maximum of 12 (i.e. `Premium_12`), this can, however, be increased via support request.
+        > **Note:** Premium SKUs are limited to a default maximum of 12 (i.e. `Premium_12`), this can, however, be increased via support request.
 
-        > **NOTE:** Consumption SKU capacity should be 0 (e.g. `Consumption_0`) as this tier includes automatic scaling.
+        > **Note:** Consumption SKU capacity should be 0 (e.g. `Consumption_0`) as this tier includes automatic scaling.
         """
         return pulumi.get(self, "sku_name")
 
@@ -1016,7 +1016,7 @@ class _ServiceState:
         """
         The type of virtual network you want to use, valid values include: `None`, `External`, `Internal`. Defaults to `None`.
 
-        > **NOTE:** Please ensure that in the subnet, inbound port 3443 is open when `virtual_network_type` is `Internal` or `External`. And please ensure other necessary ports are open according to [api management network configuration](https://learn.microsoft.com/azure/api-management/virtual-network-reference).
+        > **Note:** Please ensure that in the subnet, inbound port 3443 is open when `virtual_network_type` is `Internal` or `External`. Additionally, please ensure other necessary ports are open according to [api management network configuration](https://learn.microsoft.com/azure/api-management/virtual-network-reference).
         """
         return pulumi.get(self, "virtual_network_type")
 
@@ -1030,7 +1030,7 @@ class _ServiceState:
         """
         Specifies a list of Availability Zones in which this API Management service should be located.
 
-        > **NOTE:** Availability zones are only supported in the Premium tier.
+        > **Note:** Availability zones are only supported in the Premium tier.
         """
         return pulumi.get(self, "zones")
 
@@ -1087,9 +1087,16 @@ class Service(pulumi.CustomResource):
             location=example.location,
             resource_group_name=example.name,
             publisher_name="My Company",
-            publisher_email="company@exmaple.com",
+            publisher_email="company@terraform.io",
             sku_name="Developer_1")
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.ApiManagement`: 2022-08-01
 
         ## Import
 
@@ -1115,30 +1122,30 @@ class Service(pulumi.CustomResource):
         :param pulumi.Input[Union['ServiceProtocolsArgs', 'ServiceProtocolsArgsDict']] protocols: A `protocols` block as defined below.
         :param pulumi.Input[builtins.str] public_ip_address_id: ID of a standard SKU IPv4 Public IP.
                
-               > **NOTE:** Custom public IPs are only supported on the `Premium` and `Developer` tiers when deployed in a virtual network.
+               > **Note:** Custom public IPs are only supported on the `Premium` and `Developer` tiers when deployed in a virtual network.
         :param pulumi.Input[builtins.bool] public_network_access_enabled: Is public access to the service allowed? Defaults to `true`.
                
-               > **NOTE:** This option is applicable only to the Management plane, not the API gateway or Developer portal. It is required to be `true` on the creation.
+               > **Note:** This option is applicable only to the Management plane, not the API gateway or Developer portal. It is required to be `true` on the creation.
         :param pulumi.Input[builtins.str] publisher_email: The email of publisher/company.
         :param pulumi.Input[builtins.str] publisher_name: The name of publisher/company.
-        :param pulumi.Input[builtins.str] resource_group_name: The name of the Resource Group in which the API Management Service should be exist. Changing this forces a new resource to be created.
+        :param pulumi.Input[builtins.str] resource_group_name: The name of the Resource Group in which the API Management Service should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[Union['ServiceSecurityArgs', 'ServiceSecurityArgsDict']] security: A `security` block as defined below.
         :param pulumi.Input[Union['ServiceSignInArgs', 'ServiceSignInArgsDict']] sign_in: A `sign_in` block as defined below.
         :param pulumi.Input[Union['ServiceSignUpArgs', 'ServiceSignUpArgsDict']] sign_up: A `sign_up` block as defined below.
         :param pulumi.Input[builtins.str] sku_name: `sku_name` is a string consisting of two parts separated by an underscore(\\_). The first part is the `name`, valid values include: `Consumption`, `Developer`, `Basic`, `Standard` and `Premium`. The second part is the `capacity` (e.g. the number of deployed units of the `sku`), which must be a positive `integer` (e.g. `Developer_1`).
                
-               > **NOTE:** Premium SKU's are limited to a default maximum of 12 (i.e. `Premium_12`), this can, however, be increased via support request.
+               > **Note:** Premium SKUs are limited to a default maximum of 12 (i.e. `Premium_12`), this can, however, be increased via support request.
                
-               > **NOTE:** Consumption SKU capacity should be 0 (e.g. `Consumption_0`) as this tier includes automatic scaling.
+               > **Note:** Consumption SKU capacity should be 0 (e.g. `Consumption_0`) as this tier includes automatic scaling.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A mapping of tags assigned to the resource.
         :param pulumi.Input[Union['ServiceTenantAccessArgs', 'ServiceTenantAccessArgsDict']] tenant_access: A `tenant_access` block as defined below.
         :param pulumi.Input[Union['ServiceVirtualNetworkConfigurationArgs', 'ServiceVirtualNetworkConfigurationArgsDict']] virtual_network_configuration: A `virtual_network_configuration` block as defined below. Required when `virtual_network_type` is `External` or `Internal`.
         :param pulumi.Input[builtins.str] virtual_network_type: The type of virtual network you want to use, valid values include: `None`, `External`, `Internal`. Defaults to `None`.
                
-               > **NOTE:** Please ensure that in the subnet, inbound port 3443 is open when `virtual_network_type` is `Internal` or `External`. And please ensure other necessary ports are open according to [api management network configuration](https://learn.microsoft.com/azure/api-management/virtual-network-reference).
+               > **Note:** Please ensure that in the subnet, inbound port 3443 is open when `virtual_network_type` is `Internal` or `External`. Additionally, please ensure other necessary ports are open according to [api management network configuration](https://learn.microsoft.com/azure/api-management/virtual-network-reference).
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] zones: Specifies a list of Availability Zones in which this API Management service should be located.
                
-               > **NOTE:** Availability zones are only supported in the Premium tier.
+               > **Note:** Availability zones are only supported in the Premium tier.
         """
         ...
     @overload
@@ -1161,9 +1168,16 @@ class Service(pulumi.CustomResource):
             location=example.location,
             resource_group_name=example.name,
             publisher_name="My Company",
-            publisher_email="company@exmaple.com",
+            publisher_email="company@terraform.io",
             sku_name="Developer_1")
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.ApiManagement`: 2022-08-01
 
         ## Import
 
@@ -1336,32 +1350,32 @@ class Service(pulumi.CustomResource):
         :param pulumi.Input[Union['ServiceProtocolsArgs', 'ServiceProtocolsArgsDict']] protocols: A `protocols` block as defined below.
         :param pulumi.Input[builtins.str] public_ip_address_id: ID of a standard SKU IPv4 Public IP.
                
-               > **NOTE:** Custom public IPs are only supported on the `Premium` and `Developer` tiers when deployed in a virtual network.
+               > **Note:** Custom public IPs are only supported on the `Premium` and `Developer` tiers when deployed in a virtual network.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] public_ip_addresses: Public Static Load Balanced IP addresses of the API Management service in the additional location. Available only for Basic, Standard and Premium SKU.
         :param pulumi.Input[builtins.bool] public_network_access_enabled: Is public access to the service allowed? Defaults to `true`.
                
-               > **NOTE:** This option is applicable only to the Management plane, not the API gateway or Developer portal. It is required to be `true` on the creation.
+               > **Note:** This option is applicable only to the Management plane, not the API gateway or Developer portal. It is required to be `true` on the creation.
         :param pulumi.Input[builtins.str] publisher_email: The email of publisher/company.
         :param pulumi.Input[builtins.str] publisher_name: The name of publisher/company.
-        :param pulumi.Input[builtins.str] resource_group_name: The name of the Resource Group in which the API Management Service should be exist. Changing this forces a new resource to be created.
+        :param pulumi.Input[builtins.str] resource_group_name: The name of the Resource Group in which the API Management Service should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] scm_url: The URL for the SCM (Source Code Management) Endpoint associated with this API Management service.
         :param pulumi.Input[Union['ServiceSecurityArgs', 'ServiceSecurityArgsDict']] security: A `security` block as defined below.
         :param pulumi.Input[Union['ServiceSignInArgs', 'ServiceSignInArgsDict']] sign_in: A `sign_in` block as defined below.
         :param pulumi.Input[Union['ServiceSignUpArgs', 'ServiceSignUpArgsDict']] sign_up: A `sign_up` block as defined below.
         :param pulumi.Input[builtins.str] sku_name: `sku_name` is a string consisting of two parts separated by an underscore(\\_). The first part is the `name`, valid values include: `Consumption`, `Developer`, `Basic`, `Standard` and `Premium`. The second part is the `capacity` (e.g. the number of deployed units of the `sku`), which must be a positive `integer` (e.g. `Developer_1`).
                
-               > **NOTE:** Premium SKU's are limited to a default maximum of 12 (i.e. `Premium_12`), this can, however, be increased via support request.
+               > **Note:** Premium SKUs are limited to a default maximum of 12 (i.e. `Premium_12`), this can, however, be increased via support request.
                
-               > **NOTE:** Consumption SKU capacity should be 0 (e.g. `Consumption_0`) as this tier includes automatic scaling.
+               > **Note:** Consumption SKU capacity should be 0 (e.g. `Consumption_0`) as this tier includes automatic scaling.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A mapping of tags assigned to the resource.
         :param pulumi.Input[Union['ServiceTenantAccessArgs', 'ServiceTenantAccessArgsDict']] tenant_access: A `tenant_access` block as defined below.
         :param pulumi.Input[Union['ServiceVirtualNetworkConfigurationArgs', 'ServiceVirtualNetworkConfigurationArgsDict']] virtual_network_configuration: A `virtual_network_configuration` block as defined below. Required when `virtual_network_type` is `External` or `Internal`.
         :param pulumi.Input[builtins.str] virtual_network_type: The type of virtual network you want to use, valid values include: `None`, `External`, `Internal`. Defaults to `None`.
                
-               > **NOTE:** Please ensure that in the subnet, inbound port 3443 is open when `virtual_network_type` is `Internal` or `External`. And please ensure other necessary ports are open according to [api management network configuration](https://learn.microsoft.com/azure/api-management/virtual-network-reference).
+               > **Note:** Please ensure that in the subnet, inbound port 3443 is open when `virtual_network_type` is `Internal` or `External`. Additionally, please ensure other necessary ports are open according to [api management network configuration](https://learn.microsoft.com/azure/api-management/virtual-network-reference).
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] zones: Specifies a list of Availability Zones in which this API Management service should be located.
                
-               > **NOTE:** Availability zones are only supported in the Premium tier.
+               > **Note:** Availability zones are only supported in the Premium tier.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -1553,7 +1567,7 @@ class Service(pulumi.CustomResource):
         """
         ID of a standard SKU IPv4 Public IP.
 
-        > **NOTE:** Custom public IPs are only supported on the `Premium` and `Developer` tiers when deployed in a virtual network.
+        > **Note:** Custom public IPs are only supported on the `Premium` and `Developer` tiers when deployed in a virtual network.
         """
         return pulumi.get(self, "public_ip_address_id")
 
@@ -1571,7 +1585,7 @@ class Service(pulumi.CustomResource):
         """
         Is public access to the service allowed? Defaults to `true`.
 
-        > **NOTE:** This option is applicable only to the Management plane, not the API gateway or Developer portal. It is required to be `true` on the creation.
+        > **Note:** This option is applicable only to the Management plane, not the API gateway or Developer portal. It is required to be `true` on the creation.
         """
         return pulumi.get(self, "public_network_access_enabled")
 
@@ -1595,7 +1609,7 @@ class Service(pulumi.CustomResource):
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Output[builtins.str]:
         """
-        The name of the Resource Group in which the API Management Service should be exist. Changing this forces a new resource to be created.
+        The name of the Resource Group in which the API Management Service should exist. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -1637,9 +1651,9 @@ class Service(pulumi.CustomResource):
         """
         `sku_name` is a string consisting of two parts separated by an underscore(\\_). The first part is the `name`, valid values include: `Consumption`, `Developer`, `Basic`, `Standard` and `Premium`. The second part is the `capacity` (e.g. the number of deployed units of the `sku`), which must be a positive `integer` (e.g. `Developer_1`).
 
-        > **NOTE:** Premium SKU's are limited to a default maximum of 12 (i.e. `Premium_12`), this can, however, be increased via support request.
+        > **Note:** Premium SKUs are limited to a default maximum of 12 (i.e. `Premium_12`), this can, however, be increased via support request.
 
-        > **NOTE:** Consumption SKU capacity should be 0 (e.g. `Consumption_0`) as this tier includes automatic scaling.
+        > **Note:** Consumption SKU capacity should be 0 (e.g. `Consumption_0`) as this tier includes automatic scaling.
         """
         return pulumi.get(self, "sku_name")
 
@@ -1673,7 +1687,7 @@ class Service(pulumi.CustomResource):
         """
         The type of virtual network you want to use, valid values include: `None`, `External`, `Internal`. Defaults to `None`.
 
-        > **NOTE:** Please ensure that in the subnet, inbound port 3443 is open when `virtual_network_type` is `Internal` or `External`. And please ensure other necessary ports are open according to [api management network configuration](https://learn.microsoft.com/azure/api-management/virtual-network-reference).
+        > **Note:** Please ensure that in the subnet, inbound port 3443 is open when `virtual_network_type` is `Internal` or `External`. Additionally, please ensure other necessary ports are open according to [api management network configuration](https://learn.microsoft.com/azure/api-management/virtual-network-reference).
         """
         return pulumi.get(self, "virtual_network_type")
 
@@ -1683,7 +1697,7 @@ class Service(pulumi.CustomResource):
         """
         Specifies a list of Availability Zones in which this API Management service should be located.
 
-        > **NOTE:** Availability zones are only supported in the Premium tier.
+        > **Note:** Availability zones are only supported in the Premium tier.
         """
         return pulumi.get(self, "zones")
 

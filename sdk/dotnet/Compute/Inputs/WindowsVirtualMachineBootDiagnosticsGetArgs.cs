@@ -15,7 +15,7 @@ namespace Pulumi.Azure.Compute.Inputs
         /// <summary>
         /// The Primary/Secondary Endpoint for the Azure Storage Account which should be used to store Boot Diagnostics, including Console Output and Screenshots from the Hypervisor.
         /// 
-        /// &gt; **NOTE:** Passing a null value will utilize a Managed Storage Account to store Boot Diagnostics.
+        /// &gt; **Note:** Passing a null value will utilize a Managed Storage Account to store Boot Diagnostics.
         /// </summary>
         [Input("storageAccountUri")]
         public Input<string>? StorageAccountUri { get; set; }

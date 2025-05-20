@@ -200,6 +200,13 @@ import (
 //
 // ```
 //
+// ## API Providers
+//
+// <!-- This section is generated, changes will be overwritten -->
+// This resource uses the following Azure API Providers:
+//
+// * `Microsoft.AppConfiguration`: 2024-05-01
+//
 // ## Import
 //
 // App Configurations can be imported using the `resource id`, e.g.
@@ -248,9 +255,9 @@ type ConfigurationStore struct {
 	SecondaryReadKeys ConfigurationStoreSecondaryReadKeyArrayOutput `pulumi:"secondaryReadKeys"`
 	// A `secondaryWriteKey` block as defined below containing the secondary write access key.
 	SecondaryWriteKeys ConfigurationStoreSecondaryWriteKeyArrayOutput `pulumi:"secondaryWriteKeys"`
-	// The SKU name of the App Configuration. Possible values are `free`, `standard` and `premium`. Defaults to `free`.
+	// The SKU name of the App Configuration. Possible values are `free`, `developer`, `standard` and `premium`. Defaults to `free`.
 	//
-	// > **Note:** Azure does not support downgrading `sku`. Downgrading from `premium` tier to `standard` or `free`, or from `standard` to `free`, forces a new resource to be created.
+	// > **Note:** Azure does not support downgrading `sku` to a lower tier, except from `premium` to `standard`. Downgrading will force a new resource to be created.
 	Sku pulumi.StringPtrOutput `pulumi:"sku"`
 	// The number of days that items should be retained for once soft-deleted. This field only works for `standard` sku. This value can be between `1` and `7` days. Defaults to `7`. Changing this forces a new resource to be created.
 	//
@@ -331,9 +338,9 @@ type configurationStoreState struct {
 	SecondaryReadKeys []ConfigurationStoreSecondaryReadKey `pulumi:"secondaryReadKeys"`
 	// A `secondaryWriteKey` block as defined below containing the secondary write access key.
 	SecondaryWriteKeys []ConfigurationStoreSecondaryWriteKey `pulumi:"secondaryWriteKeys"`
-	// The SKU name of the App Configuration. Possible values are `free`, `standard` and `premium`. Defaults to `free`.
+	// The SKU name of the App Configuration. Possible values are `free`, `developer`, `standard` and `premium`. Defaults to `free`.
 	//
-	// > **Note:** Azure does not support downgrading `sku`. Downgrading from `premium` tier to `standard` or `free`, or from `standard` to `free`, forces a new resource to be created.
+	// > **Note:** Azure does not support downgrading `sku` to a lower tier, except from `premium` to `standard`. Downgrading will force a new resource to be created.
 	Sku *string `pulumi:"sku"`
 	// The number of days that items should be retained for once soft-deleted. This field only works for `standard` sku. This value can be between `1` and `7` days. Defaults to `7`. Changing this forces a new resource to be created.
 	//
@@ -382,9 +389,9 @@ type ConfigurationStoreState struct {
 	SecondaryReadKeys ConfigurationStoreSecondaryReadKeyArrayInput
 	// A `secondaryWriteKey` block as defined below containing the secondary write access key.
 	SecondaryWriteKeys ConfigurationStoreSecondaryWriteKeyArrayInput
-	// The SKU name of the App Configuration. Possible values are `free`, `standard` and `premium`. Defaults to `free`.
+	// The SKU name of the App Configuration. Possible values are `free`, `developer`, `standard` and `premium`. Defaults to `free`.
 	//
-	// > **Note:** Azure does not support downgrading `sku`. Downgrading from `premium` tier to `standard` or `free`, or from `standard` to `free`, forces a new resource to be created.
+	// > **Note:** Azure does not support downgrading `sku` to a lower tier, except from `premium` to `standard`. Downgrading will force a new resource to be created.
 	Sku pulumi.StringPtrInput
 	// The number of days that items should be retained for once soft-deleted. This field only works for `standard` sku. This value can be between `1` and `7` days. Defaults to `7`. Changing this forces a new resource to be created.
 	//
@@ -427,9 +434,9 @@ type configurationStoreArgs struct {
 	Replicas []ConfigurationStoreReplica `pulumi:"replicas"`
 	// The name of the resource group in which to create the App Configuration. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The SKU name of the App Configuration. Possible values are `free`, `standard` and `premium`. Defaults to `free`.
+	// The SKU name of the App Configuration. Possible values are `free`, `developer`, `standard` and `premium`. Defaults to `free`.
 	//
-	// > **Note:** Azure does not support downgrading `sku`. Downgrading from `premium` tier to `standard` or `free`, or from `standard` to `free`, forces a new resource to be created.
+	// > **Note:** Azure does not support downgrading `sku` to a lower tier, except from `premium` to `standard`. Downgrading will force a new resource to be created.
 	Sku *string `pulumi:"sku"`
 	// The number of days that items should be retained for once soft-deleted. This field only works for `standard` sku. This value can be between `1` and `7` days. Defaults to `7`. Changing this forces a new resource to be created.
 	//
@@ -469,9 +476,9 @@ type ConfigurationStoreArgs struct {
 	Replicas ConfigurationStoreReplicaArrayInput
 	// The name of the resource group in which to create the App Configuration. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
-	// The SKU name of the App Configuration. Possible values are `free`, `standard` and `premium`. Defaults to `free`.
+	// The SKU name of the App Configuration. Possible values are `free`, `developer`, `standard` and `premium`. Defaults to `free`.
 	//
-	// > **Note:** Azure does not support downgrading `sku`. Downgrading from `premium` tier to `standard` or `free`, or from `standard` to `free`, forces a new resource to be created.
+	// > **Note:** Azure does not support downgrading `sku` to a lower tier, except from `premium` to `standard`. Downgrading will force a new resource to be created.
 	Sku pulumi.StringPtrInput
 	// The number of days that items should be retained for once soft-deleted. This field only works for `standard` sku. This value can be between `1` and `7` days. Defaults to `7`. Changing this forces a new resource to be created.
 	//
@@ -656,9 +663,9 @@ func (o ConfigurationStoreOutput) SecondaryWriteKeys() ConfigurationStoreSeconda
 	}).(ConfigurationStoreSecondaryWriteKeyArrayOutput)
 }
 
-// The SKU name of the App Configuration. Possible values are `free`, `standard` and `premium`. Defaults to `free`.
+// The SKU name of the App Configuration. Possible values are `free`, `developer`, `standard` and `premium`. Defaults to `free`.
 //
-// > **Note:** Azure does not support downgrading `sku`. Downgrading from `premium` tier to `standard` or `free`, or from `standard` to `free`, forces a new resource to be created.
+// > **Note:** Azure does not support downgrading `sku` to a lower tier, except from `premium` to `standard`. Downgrading will force a new resource to be created.
 func (o ConfigurationStoreOutput) Sku() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConfigurationStore) pulumi.StringPtrOutput { return v.Sku }).(pulumi.StringPtrOutput)
 }

@@ -14,13 +14,15 @@ import (
 
 // Manages a Node Pool within a Kubernetes Cluster
 //
-// > **NOTE:** Multiple Node Pools are only supported when the Kubernetes Cluster is using Virtual Machine Scale Sets.
+// > **Note:** Due to the fast-moving nature of AKS, we recommend using the latest version of the Azure Provider when using AKS - you can find the latest version of the Azure Provider here.
+//
+// > **Note:** Multiple Node Pools are only supported when the Kubernetes Cluster is using Virtual Machine Scale Sets.
 //
 // > **Note:** Changing certain properties is done by cycling the node pool. When cycling it, it doesn’t perform cordon and drain, and it will disrupt rescheduling pods currently running on the previous node pool. `temporaryNameForRotation` must be specified when changing any of the following properties: `fipsEnabled`, `hostEncryptionEnabled`, `kubeletConfig`, `kubeletDiskType`, `linuxOsConfig`, `maxPods`, `nodePublicIpEnabled`, `osDiskSizeGb`, `osDiskType`, `podSubnetId`, `snapshotId`, `ultraSsdEnabled`, `vmSize`, `vnetSubnetId`, `zones`.
 //
 // ## Example Usage
 //
-// This example provisions a basic Kubernetes Node Pool.
+// This example provisions a basic Kubernetes Node Pool. Other examples of the `containerservice.KubernetesClusterNodePool` resource can be found in the `./examples/kubernetes` directory within the GitHub Repository
 //
 // ```go
 // package main
@@ -78,6 +80,13 @@ import (
 //
 // ```
 //
+// ## API Providers
+//
+// <!-- This section is generated, changes will be overwritten -->
+// This resource uses the following Azure API Providers:
+//
+// * `Microsoft.ContainerService`: 2024-09-01
+//
 // ## Import
 //
 // Kubernetes Cluster Node Pools can be imported using the `resource id`, e.g.
@@ -104,7 +113,7 @@ type KubernetesClusterNodePool struct {
 	GpuInstance pulumi.StringPtrOutput `pulumi:"gpuInstance"`
 	// Should the nodes in this Node Pool have host encryption enabled? Changing this property requires specifying `temporaryNameForRotation`.
 	//
-	// > **NOTE:** Additional fields must be configured depending on the value of this field - see below.
+	// > **Note:** Additional fields must be configured depending on the value of this field - see below.
 	HostEncryptionEnabled pulumi.BoolPtrOutput `pulumi:"hostEncryptionEnabled"`
 	// The fully qualified resource ID of the Dedicated Host Group to provision virtual machines from. Changing this forces a new resource to be created.
 	HostGroupId pulumi.StringPtrOutput `pulumi:"hostGroupId"`
@@ -114,7 +123,7 @@ type KubernetesClusterNodePool struct {
 	KubeletDiskType pulumi.StringOutput `pulumi:"kubeletDiskType"`
 	// The ID of the Kubernetes Cluster where this Node Pool should exist. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** The type of Default Node Pool for the Kubernetes Cluster must be `VirtualMachineScaleSets` to attach multiple node pools.
+	// > **Note:** The type of Default Node Pool for the Kubernetes Cluster must be `VirtualMachineScaleSets` to attach multiple node pools.
 	KubernetesClusterId pulumi.StringOutput `pulumi:"kubernetesClusterId"`
 	// A `linuxOsConfig` block as defined below. Changing this requires specifying `temporaryNameForRotation`.
 	LinuxOsConfig KubernetesClusterNodePoolLinuxOsConfigPtrOutput `pulumi:"linuxOsConfig"`
@@ -126,7 +135,7 @@ type KubernetesClusterNodePool struct {
 	Mode pulumi.StringPtrOutput `pulumi:"mode"`
 	// The name of the Node Pool which should be created within the Kubernetes Cluster. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** A Windows Node Pool cannot have a `name` longer than 6 characters.
+	// > **Note:** A Windows Node Pool cannot have a `name` longer than 6 characters.
 	Name      pulumi.StringOutput `pulumi:"name"`
 	NodeCount pulumi.IntOutput    `pulumi:"nodeCount"`
 	// A map of Kubernetes labels which should be applied to nodes in this Node Pool.
@@ -167,10 +176,7 @@ type KubernetesClusterNodePool struct {
 	//
 	// > **Note:** This field can only be configured when `priority` is set to `Spot`.
 	SpotMaxPrice pulumi.Float64PtrOutput `pulumi:"spotMaxPrice"`
-	// A mapping of tags to assign to the resource.
-	//
-	// > At this time there's a bug in the AKS API where Tags for a Node Pool are not stored in the correct case - you may wish to use [`ignoreChanges`](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) functionality to ignore changes to the casing until this is fixed in the AKS API.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	Tags         pulumi.StringMapOutput  `pulumi:"tags"`
 	// Specifies the name of the temporary node pool used to cycle the node pool when one of the relevant properties are updated.
 	TemporaryNameForRotation pulumi.StringPtrOutput `pulumi:"temporaryNameForRotation"`
 	// Used to specify whether the UltraSSD is enabled in the Node Pool. Defaults to `false`. See [the documentation](https://docs.microsoft.com/azure/aks/use-ultra-disks) for more information. Changing this property requires specifying `temporaryNameForRotation`.
@@ -181,7 +187,7 @@ type KubernetesClusterNodePool struct {
 	VmSize pulumi.StringOutput `pulumi:"vmSize"`
 	// The ID of the Subnet where this Node Pool should exist. Changing this property requires specifying `temporaryNameForRotation`.
 	//
-	// > **NOTE:** A route table must be configured on this Subnet.
+	// > **Note:** A route table must be configured on this Subnet.
 	VnetSubnetId pulumi.StringPtrOutput `pulumi:"vnetSubnetId"`
 	// A `windowsProfile` block as documented below. Changing this forces a new resource to be created.
 	WindowsProfile KubernetesClusterNodePoolWindowsProfilePtrOutput `pulumi:"windowsProfile"`
@@ -245,7 +251,7 @@ type kubernetesClusterNodePoolState struct {
 	GpuInstance *string `pulumi:"gpuInstance"`
 	// Should the nodes in this Node Pool have host encryption enabled? Changing this property requires specifying `temporaryNameForRotation`.
 	//
-	// > **NOTE:** Additional fields must be configured depending on the value of this field - see below.
+	// > **Note:** Additional fields must be configured depending on the value of this field - see below.
 	HostEncryptionEnabled *bool `pulumi:"hostEncryptionEnabled"`
 	// The fully qualified resource ID of the Dedicated Host Group to provision virtual machines from. Changing this forces a new resource to be created.
 	HostGroupId *string `pulumi:"hostGroupId"`
@@ -255,7 +261,7 @@ type kubernetesClusterNodePoolState struct {
 	KubeletDiskType *string `pulumi:"kubeletDiskType"`
 	// The ID of the Kubernetes Cluster where this Node Pool should exist. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** The type of Default Node Pool for the Kubernetes Cluster must be `VirtualMachineScaleSets` to attach multiple node pools.
+	// > **Note:** The type of Default Node Pool for the Kubernetes Cluster must be `VirtualMachineScaleSets` to attach multiple node pools.
 	KubernetesClusterId *string `pulumi:"kubernetesClusterId"`
 	// A `linuxOsConfig` block as defined below. Changing this requires specifying `temporaryNameForRotation`.
 	LinuxOsConfig *KubernetesClusterNodePoolLinuxOsConfig `pulumi:"linuxOsConfig"`
@@ -267,7 +273,7 @@ type kubernetesClusterNodePoolState struct {
 	Mode *string `pulumi:"mode"`
 	// The name of the Node Pool which should be created within the Kubernetes Cluster. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** A Windows Node Pool cannot have a `name` longer than 6 characters.
+	// > **Note:** A Windows Node Pool cannot have a `name` longer than 6 characters.
 	Name      *string `pulumi:"name"`
 	NodeCount *int    `pulumi:"nodeCount"`
 	// A map of Kubernetes labels which should be applied to nodes in this Node Pool.
@@ -307,11 +313,8 @@ type kubernetesClusterNodePoolState struct {
 	// The maximum price you're willing to pay in USD per Virtual Machine. Valid values are `-1` (the current on-demand price for a Virtual Machine) or a positive value with up to five decimal places. Changing this forces a new resource to be created.
 	//
 	// > **Note:** This field can only be configured when `priority` is set to `Spot`.
-	SpotMaxPrice *float64 `pulumi:"spotMaxPrice"`
-	// A mapping of tags to assign to the resource.
-	//
-	// > At this time there's a bug in the AKS API where Tags for a Node Pool are not stored in the correct case - you may wish to use [`ignoreChanges`](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) functionality to ignore changes to the casing until this is fixed in the AKS API.
-	Tags map[string]string `pulumi:"tags"`
+	SpotMaxPrice *float64          `pulumi:"spotMaxPrice"`
+	Tags         map[string]string `pulumi:"tags"`
 	// Specifies the name of the temporary node pool used to cycle the node pool when one of the relevant properties are updated.
 	TemporaryNameForRotation *string `pulumi:"temporaryNameForRotation"`
 	// Used to specify whether the UltraSSD is enabled in the Node Pool. Defaults to `false`. See [the documentation](https://docs.microsoft.com/azure/aks/use-ultra-disks) for more information. Changing this property requires specifying `temporaryNameForRotation`.
@@ -322,7 +325,7 @@ type kubernetesClusterNodePoolState struct {
 	VmSize *string `pulumi:"vmSize"`
 	// The ID of the Subnet where this Node Pool should exist. Changing this property requires specifying `temporaryNameForRotation`.
 	//
-	// > **NOTE:** A route table must be configured on this Subnet.
+	// > **Note:** A route table must be configured on this Subnet.
 	VnetSubnetId *string `pulumi:"vnetSubnetId"`
 	// A `windowsProfile` block as documented below. Changing this forces a new resource to be created.
 	WindowsProfile *KubernetesClusterNodePoolWindowsProfile `pulumi:"windowsProfile"`
@@ -351,7 +354,7 @@ type KubernetesClusterNodePoolState struct {
 	GpuInstance pulumi.StringPtrInput
 	// Should the nodes in this Node Pool have host encryption enabled? Changing this property requires specifying `temporaryNameForRotation`.
 	//
-	// > **NOTE:** Additional fields must be configured depending on the value of this field - see below.
+	// > **Note:** Additional fields must be configured depending on the value of this field - see below.
 	HostEncryptionEnabled pulumi.BoolPtrInput
 	// The fully qualified resource ID of the Dedicated Host Group to provision virtual machines from. Changing this forces a new resource to be created.
 	HostGroupId pulumi.StringPtrInput
@@ -361,7 +364,7 @@ type KubernetesClusterNodePoolState struct {
 	KubeletDiskType pulumi.StringPtrInput
 	// The ID of the Kubernetes Cluster where this Node Pool should exist. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** The type of Default Node Pool for the Kubernetes Cluster must be `VirtualMachineScaleSets` to attach multiple node pools.
+	// > **Note:** The type of Default Node Pool for the Kubernetes Cluster must be `VirtualMachineScaleSets` to attach multiple node pools.
 	KubernetesClusterId pulumi.StringPtrInput
 	// A `linuxOsConfig` block as defined below. Changing this requires specifying `temporaryNameForRotation`.
 	LinuxOsConfig KubernetesClusterNodePoolLinuxOsConfigPtrInput
@@ -373,7 +376,7 @@ type KubernetesClusterNodePoolState struct {
 	Mode pulumi.StringPtrInput
 	// The name of the Node Pool which should be created within the Kubernetes Cluster. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** A Windows Node Pool cannot have a `name` longer than 6 characters.
+	// > **Note:** A Windows Node Pool cannot have a `name` longer than 6 characters.
 	Name      pulumi.StringPtrInput
 	NodeCount pulumi.IntPtrInput
 	// A map of Kubernetes labels which should be applied to nodes in this Node Pool.
@@ -414,10 +417,7 @@ type KubernetesClusterNodePoolState struct {
 	//
 	// > **Note:** This field can only be configured when `priority` is set to `Spot`.
 	SpotMaxPrice pulumi.Float64PtrInput
-	// A mapping of tags to assign to the resource.
-	//
-	// > At this time there's a bug in the AKS API where Tags for a Node Pool are not stored in the correct case - you may wish to use [`ignoreChanges`](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) functionality to ignore changes to the casing until this is fixed in the AKS API.
-	Tags pulumi.StringMapInput
+	Tags         pulumi.StringMapInput
 	// Specifies the name of the temporary node pool used to cycle the node pool when one of the relevant properties are updated.
 	TemporaryNameForRotation pulumi.StringPtrInput
 	// Used to specify whether the UltraSSD is enabled in the Node Pool. Defaults to `false`. See [the documentation](https://docs.microsoft.com/azure/aks/use-ultra-disks) for more information. Changing this property requires specifying `temporaryNameForRotation`.
@@ -428,7 +428,7 @@ type KubernetesClusterNodePoolState struct {
 	VmSize pulumi.StringPtrInput
 	// The ID of the Subnet where this Node Pool should exist. Changing this property requires specifying `temporaryNameForRotation`.
 	//
-	// > **NOTE:** A route table must be configured on this Subnet.
+	// > **Note:** A route table must be configured on this Subnet.
 	VnetSubnetId pulumi.StringPtrInput
 	// A `windowsProfile` block as documented below. Changing this forces a new resource to be created.
 	WindowsProfile KubernetesClusterNodePoolWindowsProfilePtrInput
@@ -461,7 +461,7 @@ type kubernetesClusterNodePoolArgs struct {
 	GpuInstance *string `pulumi:"gpuInstance"`
 	// Should the nodes in this Node Pool have host encryption enabled? Changing this property requires specifying `temporaryNameForRotation`.
 	//
-	// > **NOTE:** Additional fields must be configured depending on the value of this field - see below.
+	// > **Note:** Additional fields must be configured depending on the value of this field - see below.
 	HostEncryptionEnabled *bool `pulumi:"hostEncryptionEnabled"`
 	// The fully qualified resource ID of the Dedicated Host Group to provision virtual machines from. Changing this forces a new resource to be created.
 	HostGroupId *string `pulumi:"hostGroupId"`
@@ -471,7 +471,7 @@ type kubernetesClusterNodePoolArgs struct {
 	KubeletDiskType *string `pulumi:"kubeletDiskType"`
 	// The ID of the Kubernetes Cluster where this Node Pool should exist. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** The type of Default Node Pool for the Kubernetes Cluster must be `VirtualMachineScaleSets` to attach multiple node pools.
+	// > **Note:** The type of Default Node Pool for the Kubernetes Cluster must be `VirtualMachineScaleSets` to attach multiple node pools.
 	KubernetesClusterId string `pulumi:"kubernetesClusterId"`
 	// A `linuxOsConfig` block as defined below. Changing this requires specifying `temporaryNameForRotation`.
 	LinuxOsConfig *KubernetesClusterNodePoolLinuxOsConfig `pulumi:"linuxOsConfig"`
@@ -483,7 +483,7 @@ type kubernetesClusterNodePoolArgs struct {
 	Mode *string `pulumi:"mode"`
 	// The name of the Node Pool which should be created within the Kubernetes Cluster. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** A Windows Node Pool cannot have a `name` longer than 6 characters.
+	// > **Note:** A Windows Node Pool cannot have a `name` longer than 6 characters.
 	Name      *string `pulumi:"name"`
 	NodeCount *int    `pulumi:"nodeCount"`
 	// A map of Kubernetes labels which should be applied to nodes in this Node Pool.
@@ -523,11 +523,8 @@ type kubernetesClusterNodePoolArgs struct {
 	// The maximum price you're willing to pay in USD per Virtual Machine. Valid values are `-1` (the current on-demand price for a Virtual Machine) or a positive value with up to five decimal places. Changing this forces a new resource to be created.
 	//
 	// > **Note:** This field can only be configured when `priority` is set to `Spot`.
-	SpotMaxPrice *float64 `pulumi:"spotMaxPrice"`
-	// A mapping of tags to assign to the resource.
-	//
-	// > At this time there's a bug in the AKS API where Tags for a Node Pool are not stored in the correct case - you may wish to use [`ignoreChanges`](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) functionality to ignore changes to the casing until this is fixed in the AKS API.
-	Tags map[string]string `pulumi:"tags"`
+	SpotMaxPrice *float64          `pulumi:"spotMaxPrice"`
+	Tags         map[string]string `pulumi:"tags"`
 	// Specifies the name of the temporary node pool used to cycle the node pool when one of the relevant properties are updated.
 	TemporaryNameForRotation *string `pulumi:"temporaryNameForRotation"`
 	// Used to specify whether the UltraSSD is enabled in the Node Pool. Defaults to `false`. See [the documentation](https://docs.microsoft.com/azure/aks/use-ultra-disks) for more information. Changing this property requires specifying `temporaryNameForRotation`.
@@ -538,7 +535,7 @@ type kubernetesClusterNodePoolArgs struct {
 	VmSize string `pulumi:"vmSize"`
 	// The ID of the Subnet where this Node Pool should exist. Changing this property requires specifying `temporaryNameForRotation`.
 	//
-	// > **NOTE:** A route table must be configured on this Subnet.
+	// > **Note:** A route table must be configured on this Subnet.
 	VnetSubnetId *string `pulumi:"vnetSubnetId"`
 	// A `windowsProfile` block as documented below. Changing this forces a new resource to be created.
 	WindowsProfile *KubernetesClusterNodePoolWindowsProfile `pulumi:"windowsProfile"`
@@ -568,7 +565,7 @@ type KubernetesClusterNodePoolArgs struct {
 	GpuInstance pulumi.StringPtrInput
 	// Should the nodes in this Node Pool have host encryption enabled? Changing this property requires specifying `temporaryNameForRotation`.
 	//
-	// > **NOTE:** Additional fields must be configured depending on the value of this field - see below.
+	// > **Note:** Additional fields must be configured depending on the value of this field - see below.
 	HostEncryptionEnabled pulumi.BoolPtrInput
 	// The fully qualified resource ID of the Dedicated Host Group to provision virtual machines from. Changing this forces a new resource to be created.
 	HostGroupId pulumi.StringPtrInput
@@ -578,7 +575,7 @@ type KubernetesClusterNodePoolArgs struct {
 	KubeletDiskType pulumi.StringPtrInput
 	// The ID of the Kubernetes Cluster where this Node Pool should exist. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** The type of Default Node Pool for the Kubernetes Cluster must be `VirtualMachineScaleSets` to attach multiple node pools.
+	// > **Note:** The type of Default Node Pool for the Kubernetes Cluster must be `VirtualMachineScaleSets` to attach multiple node pools.
 	KubernetesClusterId pulumi.StringInput
 	// A `linuxOsConfig` block as defined below. Changing this requires specifying `temporaryNameForRotation`.
 	LinuxOsConfig KubernetesClusterNodePoolLinuxOsConfigPtrInput
@@ -590,7 +587,7 @@ type KubernetesClusterNodePoolArgs struct {
 	Mode pulumi.StringPtrInput
 	// The name of the Node Pool which should be created within the Kubernetes Cluster. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** A Windows Node Pool cannot have a `name` longer than 6 characters.
+	// > **Note:** A Windows Node Pool cannot have a `name` longer than 6 characters.
 	Name      pulumi.StringPtrInput
 	NodeCount pulumi.IntPtrInput
 	// A map of Kubernetes labels which should be applied to nodes in this Node Pool.
@@ -631,10 +628,7 @@ type KubernetesClusterNodePoolArgs struct {
 	//
 	// > **Note:** This field can only be configured when `priority` is set to `Spot`.
 	SpotMaxPrice pulumi.Float64PtrInput
-	// A mapping of tags to assign to the resource.
-	//
-	// > At this time there's a bug in the AKS API where Tags for a Node Pool are not stored in the correct case - you may wish to use [`ignoreChanges`](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) functionality to ignore changes to the casing until this is fixed in the AKS API.
-	Tags pulumi.StringMapInput
+	Tags         pulumi.StringMapInput
 	// Specifies the name of the temporary node pool used to cycle the node pool when one of the relevant properties are updated.
 	TemporaryNameForRotation pulumi.StringPtrInput
 	// Used to specify whether the UltraSSD is enabled in the Node Pool. Defaults to `false`. See [the documentation](https://docs.microsoft.com/azure/aks/use-ultra-disks) for more information. Changing this property requires specifying `temporaryNameForRotation`.
@@ -645,7 +639,7 @@ type KubernetesClusterNodePoolArgs struct {
 	VmSize pulumi.StringInput
 	// The ID of the Subnet where this Node Pool should exist. Changing this property requires specifying `temporaryNameForRotation`.
 	//
-	// > **NOTE:** A route table must be configured on this Subnet.
+	// > **Note:** A route table must be configured on this Subnet.
 	VnetSubnetId pulumi.StringPtrInput
 	// A `windowsProfile` block as documented below. Changing this forces a new resource to be created.
 	WindowsProfile KubernetesClusterNodePoolWindowsProfilePtrInput
@@ -775,7 +769,7 @@ func (o KubernetesClusterNodePoolOutput) GpuInstance() pulumi.StringPtrOutput {
 
 // Should the nodes in this Node Pool have host encryption enabled? Changing this property requires specifying `temporaryNameForRotation`.
 //
-// > **NOTE:** Additional fields must be configured depending on the value of this field - see below.
+// > **Note:** Additional fields must be configured depending on the value of this field - see below.
 func (o KubernetesClusterNodePoolOutput) HostEncryptionEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *KubernetesClusterNodePool) pulumi.BoolPtrOutput { return v.HostEncryptionEnabled }).(pulumi.BoolPtrOutput)
 }
@@ -799,7 +793,7 @@ func (o KubernetesClusterNodePoolOutput) KubeletDiskType() pulumi.StringOutput {
 
 // The ID of the Kubernetes Cluster where this Node Pool should exist. Changing this forces a new resource to be created.
 //
-// > **NOTE:** The type of Default Node Pool for the Kubernetes Cluster must be `VirtualMachineScaleSets` to attach multiple node pools.
+// > **Note:** The type of Default Node Pool for the Kubernetes Cluster must be `VirtualMachineScaleSets` to attach multiple node pools.
 func (o KubernetesClusterNodePoolOutput) KubernetesClusterId() pulumi.StringOutput {
 	return o.ApplyT(func(v *KubernetesClusterNodePool) pulumi.StringOutput { return v.KubernetesClusterId }).(pulumi.StringOutput)
 }
@@ -831,7 +825,7 @@ func (o KubernetesClusterNodePoolOutput) Mode() pulumi.StringPtrOutput {
 
 // The name of the Node Pool which should be created within the Kubernetes Cluster. Changing this forces a new resource to be created.
 //
-// > **NOTE:** A Windows Node Pool cannot have a `name` longer than 6 characters.
+// > **Note:** A Windows Node Pool cannot have a `name` longer than 6 characters.
 func (o KubernetesClusterNodePoolOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *KubernetesClusterNodePool) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
@@ -928,9 +922,6 @@ func (o KubernetesClusterNodePoolOutput) SpotMaxPrice() pulumi.Float64PtrOutput 
 	return o.ApplyT(func(v *KubernetesClusterNodePool) pulumi.Float64PtrOutput { return v.SpotMaxPrice }).(pulumi.Float64PtrOutput)
 }
 
-// A mapping of tags to assign to the resource.
-//
-// > At this time there's a bug in the AKS API where Tags for a Node Pool are not stored in the correct case - you may wish to use [`ignoreChanges`](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) functionality to ignore changes to the casing until this is fixed in the AKS API.
 func (o KubernetesClusterNodePoolOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *KubernetesClusterNodePool) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
@@ -959,7 +950,7 @@ func (o KubernetesClusterNodePoolOutput) VmSize() pulumi.StringOutput {
 
 // The ID of the Subnet where this Node Pool should exist. Changing this property requires specifying `temporaryNameForRotation`.
 //
-// > **NOTE:** A route table must be configured on this Subnet.
+// > **Note:** A route table must be configured on this Subnet.
 func (o KubernetesClusterNodePoolOutput) VnetSubnetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KubernetesClusterNodePool) pulumi.StringPtrOutput { return v.VnetSubnetId }).(pulumi.StringPtrOutput)
 }

@@ -43,7 +43,7 @@ public final class FunctionAppArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * A map of key-value pairs for [App Settings](https://docs.microsoft.com/azure/azure-functions/functions-app-settings) and custom values.
      * 
-     * &gt; **NOTE:** The values for `AzureWebJobsStorage` and `FUNCTIONS_EXTENSION_VERSION` will be filled by other input arguments and shouldn&#39;t be configured separately. `AzureWebJobsStorage` is filled based on `storage_account_name` and `storage_account_access_key`. `FUNCTIONS_EXTENSION_VERSION` is filled based on `version`.
+     * &gt; **Note:** The values for `AzureWebJobsStorage` and `FUNCTIONS_EXTENSION_VERSION` will be filled by other input arguments and shouldn&#39;t be configured separately. `AzureWebJobsStorage` is filled based on `storage_account_name` and `storage_account_access_key`. `FUNCTIONS_EXTENSION_VERSION` is filled based on `version`.
      * 
      */
     @Import(name="appSettings")
@@ -52,7 +52,7 @@ public final class FunctionAppArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * @return A map of key-value pairs for [App Settings](https://docs.microsoft.com/azure/azure-functions/functions-app-settings) and custom values.
      * 
-     * &gt; **NOTE:** The values for `AzureWebJobsStorage` and `FUNCTIONS_EXTENSION_VERSION` will be filled by other input arguments and shouldn&#39;t be configured separately. `AzureWebJobsStorage` is filled based on `storage_account_name` and `storage_account_access_key`. `FUNCTIONS_EXTENSION_VERSION` is filled based on `version`.
+     * &gt; **Note:** The values for `AzureWebJobsStorage` and `FUNCTIONS_EXTENSION_VERSION` will be filled by other input arguments and shouldn&#39;t be configured separately. `AzureWebJobsStorage` is filled based on `storage_account_name` and `storage_account_access_key`. `FUNCTIONS_EXTENSION_VERSION` is filled based on `version`.
      * 
      */
     public Optional<Output<Map<String,String>>> appSettings() {
@@ -227,7 +227,7 @@ public final class FunctionAppArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * A string indicating the Operating System type for this function app. Possible values are `linux` and ``(empty string). Changing this forces a new resource to be created. Defaults to `&#34;&#34;`.
      * 
-     * &gt; **NOTE:** This value will be `linux` for Linux derivatives, or an empty string for Windows (default). When set to `linux` you must also set `azure.appservice.Plan` arguments as `kind = &#34;Linux&#34;` and `reserved = true`
+     * &gt; **Note:** This value will be `linux` for Linux derivatives, or an empty string for Windows (default). When set to `linux` you must also set `azure.appservice.Plan` arguments as `kind = &#34;Linux&#34;` and `reserved = true`
      * 
      */
     @Import(name="osType")
@@ -236,7 +236,7 @@ public final class FunctionAppArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * @return A string indicating the Operating System type for this function app. Possible values are `linux` and ``(empty string). Changing this forces a new resource to be created. Defaults to `&#34;&#34;`.
      * 
-     * &gt; **NOTE:** This value will be `linux` for Linux derivatives, or an empty string for Windows (default). When set to `linux` you must also set `azure.appservice.Plan` arguments as `kind = &#34;Linux&#34;` and `reserved = true`
+     * &gt; **Note:** This value will be `linux` for Linux derivatives, or an empty string for Windows (default). When set to `linux` you must also set `azure.appservice.Plan` arguments as `kind = &#34;Linux&#34;` and `reserved = true`
      * 
      */
     public Optional<Output<String>> osType() {
@@ -288,25 +288,9 @@ public final class FunctionAppArgs extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.sourceControl);
     }
 
-    /**
-     * The access key which will be used to access the backend storage account for the Function App.
-     * 
-     * &gt; **Note:** When integrating a `CI/CD pipeline` and expecting to run from a deployed package in `Azure` you must seed your `app settings` as part of the application code for function app to be successfully deployed. `Important Default key pairs`: (`&#34;WEBSITE_RUN_FROM_PACKAGE&#34; = &#34;&#34;`, `&#34;FUNCTIONS_WORKER_RUNTIME&#34; = &#34;node&#34;` (or python, etc), `&#34;WEBSITE_NODE_DEFAULT_VERSION&#34; = &#34;10.14.1&#34;`, `&#34;APPINSIGHTS_INSTRUMENTATIONKEY&#34; = &#34;&#34;`).
-     * 
-     * &gt; **Note:**  When using an App Service Plan in the `Free` or `Shared` Tiers `use_32_bit_worker_process` must be set to `true`.
-     * 
-     */
     @Import(name="storageAccountAccessKey", required=true)
     private Output<String> storageAccountAccessKey;
 
-    /**
-     * @return The access key which will be used to access the backend storage account for the Function App.
-     * 
-     * &gt; **Note:** When integrating a `CI/CD pipeline` and expecting to run from a deployed package in `Azure` you must seed your `app settings` as part of the application code for function app to be successfully deployed. `Important Default key pairs`: (`&#34;WEBSITE_RUN_FROM_PACKAGE&#34; = &#34;&#34;`, `&#34;FUNCTIONS_WORKER_RUNTIME&#34; = &#34;node&#34;` (or python, etc), `&#34;WEBSITE_NODE_DEFAULT_VERSION&#34; = &#34;10.14.1&#34;`, `&#34;APPINSIGHTS_INSTRUMENTATIONKEY&#34; = &#34;&#34;`).
-     * 
-     * &gt; **Note:**  When using an App Service Plan in the `Free` or `Shared` Tiers `use_32_bit_worker_process` must be set to `true`.
-     * 
-     */
     public Output<String> storageAccountAccessKey() {
         return this.storageAccountAccessKey;
     }
@@ -424,7 +408,7 @@ public final class FunctionAppArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param appSettings A map of key-value pairs for [App Settings](https://docs.microsoft.com/azure/azure-functions/functions-app-settings) and custom values.
          * 
-         * &gt; **NOTE:** The values for `AzureWebJobsStorage` and `FUNCTIONS_EXTENSION_VERSION` will be filled by other input arguments and shouldn&#39;t be configured separately. `AzureWebJobsStorage` is filled based on `storage_account_name` and `storage_account_access_key`. `FUNCTIONS_EXTENSION_VERSION` is filled based on `version`.
+         * &gt; **Note:** The values for `AzureWebJobsStorage` and `FUNCTIONS_EXTENSION_VERSION` will be filled by other input arguments and shouldn&#39;t be configured separately. `AzureWebJobsStorage` is filled based on `storage_account_name` and `storage_account_access_key`. `FUNCTIONS_EXTENSION_VERSION` is filled based on `version`.
          * 
          * @return builder
          * 
@@ -437,7 +421,7 @@ public final class FunctionAppArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param appSettings A map of key-value pairs for [App Settings](https://docs.microsoft.com/azure/azure-functions/functions-app-settings) and custom values.
          * 
-         * &gt; **NOTE:** The values for `AzureWebJobsStorage` and `FUNCTIONS_EXTENSION_VERSION` will be filled by other input arguments and shouldn&#39;t be configured separately. `AzureWebJobsStorage` is filled based on `storage_account_name` and `storage_account_access_key`. `FUNCTIONS_EXTENSION_VERSION` is filled based on `version`.
+         * &gt; **Note:** The values for `AzureWebJobsStorage` and `FUNCTIONS_EXTENSION_VERSION` will be filled by other input arguments and shouldn&#39;t be configured separately. `AzureWebJobsStorage` is filled based on `storage_account_name` and `storage_account_access_key`. `FUNCTIONS_EXTENSION_VERSION` is filled based on `version`.
          * 
          * @return builder
          * 
@@ -690,7 +674,7 @@ public final class FunctionAppArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param osType A string indicating the Operating System type for this function app. Possible values are `linux` and ``(empty string). Changing this forces a new resource to be created. Defaults to `&#34;&#34;`.
          * 
-         * &gt; **NOTE:** This value will be `linux` for Linux derivatives, or an empty string for Windows (default). When set to `linux` you must also set `azure.appservice.Plan` arguments as `kind = &#34;Linux&#34;` and `reserved = true`
+         * &gt; **Note:** This value will be `linux` for Linux derivatives, or an empty string for Windows (default). When set to `linux` you must also set `azure.appservice.Plan` arguments as `kind = &#34;Linux&#34;` and `reserved = true`
          * 
          * @return builder
          * 
@@ -703,7 +687,7 @@ public final class FunctionAppArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param osType A string indicating the Operating System type for this function app. Possible values are `linux` and ``(empty string). Changing this forces a new resource to be created. Defaults to `&#34;&#34;`.
          * 
-         * &gt; **NOTE:** This value will be `linux` for Linux derivatives, or an empty string for Windows (default). When set to `linux` you must also set `azure.appservice.Plan` arguments as `kind = &#34;Linux&#34;` and `reserved = true`
+         * &gt; **Note:** This value will be `linux` for Linux derivatives, or an empty string for Windows (default). When set to `linux` you must also set `azure.appservice.Plan` arguments as `kind = &#34;Linux&#34;` and `reserved = true`
          * 
          * @return builder
          * 
@@ -775,31 +759,11 @@ public final class FunctionAppArgs extends com.pulumi.resources.ResourceArgs {
             return sourceControl(Output.of(sourceControl));
         }
 
-        /**
-         * @param storageAccountAccessKey The access key which will be used to access the backend storage account for the Function App.
-         * 
-         * &gt; **Note:** When integrating a `CI/CD pipeline` and expecting to run from a deployed package in `Azure` you must seed your `app settings` as part of the application code for function app to be successfully deployed. `Important Default key pairs`: (`&#34;WEBSITE_RUN_FROM_PACKAGE&#34; = &#34;&#34;`, `&#34;FUNCTIONS_WORKER_RUNTIME&#34; = &#34;node&#34;` (or python, etc), `&#34;WEBSITE_NODE_DEFAULT_VERSION&#34; = &#34;10.14.1&#34;`, `&#34;APPINSIGHTS_INSTRUMENTATIONKEY&#34; = &#34;&#34;`).
-         * 
-         * &gt; **Note:**  When using an App Service Plan in the `Free` or `Shared` Tiers `use_32_bit_worker_process` must be set to `true`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder storageAccountAccessKey(Output<String> storageAccountAccessKey) {
             $.storageAccountAccessKey = storageAccountAccessKey;
             return this;
         }
 
-        /**
-         * @param storageAccountAccessKey The access key which will be used to access the backend storage account for the Function App.
-         * 
-         * &gt; **Note:** When integrating a `CI/CD pipeline` and expecting to run from a deployed package in `Azure` you must seed your `app settings` as part of the application code for function app to be successfully deployed. `Important Default key pairs`: (`&#34;WEBSITE_RUN_FROM_PACKAGE&#34; = &#34;&#34;`, `&#34;FUNCTIONS_WORKER_RUNTIME&#34; = &#34;node&#34;` (or python, etc), `&#34;WEBSITE_NODE_DEFAULT_VERSION&#34; = &#34;10.14.1&#34;`, `&#34;APPINSIGHTS_INSTRUMENTATIONKEY&#34; = &#34;&#34;`).
-         * 
-         * &gt; **Note:**  When using an App Service Plan in the `Free` or `Shared` Tiers `use_32_bit_worker_process` must be set to `true`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder storageAccountAccessKey(String storageAccountAccessKey) {
             return storageAccountAccessKey(Output.of(storageAccountAccessKey));
         }

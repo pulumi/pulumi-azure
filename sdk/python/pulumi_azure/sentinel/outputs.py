@@ -1749,7 +1749,7 @@ class AuthomationRuleActionIncident(dict):
         :param builtins.str owner_id: The object ID of the entity this incident is assigned to.
         :param builtins.str severity: The severity to add to the incident. Possible values are `High`, `Informational`, `Low` and `Medium`.
                
-               > **Note:**: At least one of `status`, `labels`, `owner_id` and `severity` has to be set.
+               > **Note:** At least one of `status`, `labels`, `owner_id` and `severity` has to be set.
         :param builtins.str status: The status to set to the incident. Possible values are: `Active`, `Closed`, `New`.
         """
         pulumi.set(__self__, "order", order)
@@ -1816,7 +1816,7 @@ class AuthomationRuleActionIncident(dict):
         """
         The severity to add to the incident. Possible values are `High`, `Informational`, `Low` and `Medium`.
 
-        > **Note:**: At least one of `status`, `labels`, `owner_id` and `severity` has to be set.
+        > **Note:** At least one of `status`, `labels`, `owner_id` and `severity` has to be set.
         """
         return pulumi.get(self, "severity")
 
@@ -1930,7 +1930,7 @@ class AutomationRuleActionIncident(dict):
         :param builtins.str owner_id: The object ID of the entity this incident is assigned to.
         :param builtins.str severity: The severity to add to the incident. Possible values are `High`, `Informational`, `Low` and `Medium`.
                
-               > **Note:**: At least one of `status`, `labels`, `owner_id` and `severity` has to be set.
+               > **Note:** At least one of `status`, `labels`, `owner_id` and `severity` has to be set.
         :param builtins.str status: The status to set to the incident. Possible values are: `Active`, `Closed`, `New`.
         """
         pulumi.set(__self__, "order", order)
@@ -1997,7 +1997,7 @@ class AutomationRuleActionIncident(dict):
         """
         The severity to add to the incident. Possible values are `High`, `Informational`, `Low` and `Medium`.
 
-        > **Note:**: At least one of `status`, `labels`, `owner_id` and `severity` has to be set.
+        > **Note:** At least one of `status`, `labels`, `owner_id` and `severity` has to be set.
         """
         return pulumi.get(self, "severity")
 

@@ -57,6 +57,13 @@ public final class AdvisorFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Advisor`: 2023-01-01
+     * 
      */
     public static Output<GetRecommendationsResult> getRecommendations() {
         return getRecommendations(GetRecommendationsArgs.Empty, InvokeOptions.Empty);
@@ -102,6 +109,13 @@ public final class AdvisorFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Advisor`: 2023-01-01
      * 
      */
     public static CompletableFuture<GetRecommendationsResult> getRecommendationsPlain() {
@@ -149,6 +163,13 @@ public final class AdvisorFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Advisor`: 2023-01-01
+     * 
      */
     public static Output<GetRecommendationsResult> getRecommendations(GetRecommendationsArgs args) {
         return getRecommendations(args, InvokeOptions.Empty);
@@ -194,6 +215,13 @@ public final class AdvisorFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Advisor`: 2023-01-01
      * 
      */
     public static CompletableFuture<GetRecommendationsResult> getRecommendationsPlain(GetRecommendationsPlainArgs args) {
@@ -241,6 +269,13 @@ public final class AdvisorFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Advisor`: 2023-01-01
+     * 
      */
     public static Output<GetRecommendationsResult> getRecommendations(GetRecommendationsArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:advisor/getRecommendations:getRecommendations", TypeShape.of(GetRecommendationsResult.class), args, Utilities.withVersion(options));
@@ -287,6 +322,13 @@ public final class AdvisorFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Advisor`: 2023-01-01
+     * 
      */
     public static Output<GetRecommendationsResult> getRecommendations(GetRecommendationsArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("azure:advisor/getRecommendations:getRecommendations", TypeShape.of(GetRecommendationsResult.class), args, Utilities.withVersion(options));
@@ -332,6 +374,13 @@ public final class AdvisorFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Advisor`: 2023-01-01
      * 
      */
     public static CompletableFuture<GetRecommendationsResult> getRecommendationsPlain(GetRecommendationsPlainArgs args, InvokeOptions options) {

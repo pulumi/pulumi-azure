@@ -70,7 +70,7 @@ class AccountArgs:
         :param pulumi.Input[builtins.str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] minimal_tls_version: Specifies the minimal TLS version for the CosmosDB account. Possible values are: `Tls`, `Tls11`, and `Tls12`. Defaults to `Tls12`.
                
-               > **Note** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more details.
+               > **Note:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more details.
         :param pulumi.Input[builtins.str] name: Specifies the name of the CosmosDB Account. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A mapping of tags to assign to the resource.
         """
@@ -386,7 +386,7 @@ class AccountArgs:
         """
         Specifies the minimal TLS version for the CosmosDB account. Possible values are: `Tls`, `Tls11`, and `Tls12`. Defaults to `Tls12`.
 
-        > **Note** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more details.
+        > **Note:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more details.
         """
         return pulumi.get(self, "minimal_tls_version")
 
@@ -556,7 +556,7 @@ class _AccountState:
         :param pulumi.Input[builtins.str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] minimal_tls_version: Specifies the minimal TLS version for the CosmosDB account. Possible values are: `Tls`, `Tls11`, and `Tls12`. Defaults to `Tls12`.
                
-               > **Note** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more details.
+               > **Note:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more details.
         :param pulumi.Input[builtins.str] name: Specifies the name of the CosmosDB Account. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] offer_type: Specifies the Offer Type to use for this CosmosDB Account; currently, this can only be set to `Standard`.
         :param pulumi.Input[builtins.str] primary_key: The Primary key for the CosmosDB Account.
@@ -910,7 +910,7 @@ class _AccountState:
         """
         Specifies the minimal TLS version for the CosmosDB account. Possible values are: `Tls`, `Tls11`, and `Tls12`. Defaults to `Tls12`.
 
-        > **Note** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more details.
+        > **Note:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more details.
         """
         return pulumi.get(self, "minimal_tls_version")
 
@@ -1259,16 +1259,16 @@ class Account(pulumi.CustomResource):
         import pulumi_azure as azure
         import pulumi_random as random
 
-        rg = azure.core.ResourceGroup("rg",
-            name="sample-rg",
-            location="westus")
+        example = azure.core.ResourceGroup("example",
+            name="example-resource-group",
+            location="West Europe")
         ri = random.RandomInteger("ri",
             min=10000,
             max=99999)
         db = azure.cosmosdb.Account("db",
             name=ri.result.apply(lambda result: f"tfex-cosmos-db-{result}"),
-            location=example["location"],
-            resource_group_name=example["name"],
+            location=example.location,
+            resource_group_name=example.name,
             offer_type="Standard",
             kind="MongoDB",
             automatic_failover_enabled=True,
@@ -1360,7 +1360,7 @@ class Account(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] minimal_tls_version: Specifies the minimal TLS version for the CosmosDB account. Possible values are: `Tls`, `Tls11`, and `Tls12`. Defaults to `Tls12`.
                
-               > **Note** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more details.
+               > **Note:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more details.
         :param pulumi.Input[builtins.str] name: Specifies the name of the CosmosDB Account. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] offer_type: Specifies the Offer Type to use for this CosmosDB Account; currently, this can only be set to `Standard`.
         :param pulumi.Input[builtins.str] resource_group_name: The name of the resource group in which the CosmosDB Account is created. Changing this forces a new resource to be created.
@@ -1382,16 +1382,16 @@ class Account(pulumi.CustomResource):
         import pulumi_azure as azure
         import pulumi_random as random
 
-        rg = azure.core.ResourceGroup("rg",
-            name="sample-rg",
-            location="westus")
+        example = azure.core.ResourceGroup("example",
+            name="example-resource-group",
+            location="West Europe")
         ri = random.RandomInteger("ri",
             min=10000,
             max=99999)
         db = azure.cosmosdb.Account("db",
             name=ri.result.apply(lambda result: f"tfex-cosmos-db-{result}"),
-            location=example["location"],
-            resource_group_name=example["name"],
+            location=example.location,
+            resource_group_name=example.name,
             offer_type="Standard",
             kind="MongoDB",
             automatic_failover_enabled=True,
@@ -1668,7 +1668,7 @@ class Account(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] minimal_tls_version: Specifies the minimal TLS version for the CosmosDB account. Possible values are: `Tls`, `Tls11`, and `Tls12`. Defaults to `Tls12`.
                
-               > **Note** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more details.
+               > **Note:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more details.
         :param pulumi.Input[builtins.str] name: Specifies the name of the CosmosDB Account. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] offer_type: Specifies the Offer Type to use for this CosmosDB Account; currently, this can only be set to `Standard`.
         :param pulumi.Input[builtins.str] primary_key: The Primary key for the CosmosDB Account.
@@ -1885,7 +1885,7 @@ class Account(pulumi.CustomResource):
         """
         Specifies the minimal TLS version for the CosmosDB account. Possible values are: `Tls`, `Tls11`, and `Tls12`. Defaults to `Tls12`.
 
-        > **Note** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more details.
+        > **Note:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more details.
         """
         return pulumi.get(self, "minimal_tls_version")
 

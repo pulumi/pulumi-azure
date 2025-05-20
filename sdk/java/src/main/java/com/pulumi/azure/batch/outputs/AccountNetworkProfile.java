@@ -20,7 +20,7 @@ public final class AccountNetworkProfile {
     /**
      * @return A `node_management_access` block as defined below.
      * 
-     * &gt; **NOTE:** At least one of `account_access` or `node_management_access` must be specified.
+     * &gt; **Note:** At least one of `account_access` or `node_management_access` must be specified.
      * 
      */
     private @Nullable AccountNetworkProfileNodeManagementAccess nodeManagementAccess;
@@ -36,7 +36,7 @@ public final class AccountNetworkProfile {
     /**
      * @return A `node_management_access` block as defined below.
      * 
-     * &gt; **NOTE:** At least one of `account_access` or `node_management_access` must be specified.
+     * &gt; **Note:** At least one of `account_access` or `node_management_access` must be specified.
      * 
      */
     public Optional<AccountNetworkProfileNodeManagementAccess> nodeManagementAccess() {

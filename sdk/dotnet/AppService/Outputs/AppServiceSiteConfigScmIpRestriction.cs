@@ -40,7 +40,7 @@ namespace Pulumi.Azure.AppService.Outputs
         /// <summary>
         /// The Virtual Network Subnet ID used for this IP Restriction.
         /// 
-        /// &gt; **NOTE:** One of either `ip_address`, `service_tag` or `virtual_network_subnet_id` must be specified
+        /// &gt; **Note:** One of either `ip_address`, `service_tag` or `virtual_network_subnet_id` must be specified
         /// </summary>
         public readonly string? VirtualNetworkSubnetId;
 

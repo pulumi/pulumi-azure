@@ -244,6 +244,13 @@ class EndpointEventHub(pulumi.CustomResource):
             eventhub_secondary_connection_string=example_authorization_rule.secondary_connection_string)
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.DigitalTwins`: 2023-01-31
+
         ## Import
 
         Digital Twins Eventhub Endpoints can be imported using the `resource id`, e.g.
@@ -307,6 +314,13 @@ class EndpointEventHub(pulumi.CustomResource):
             eventhub_primary_connection_string=example_authorization_rule.primary_connection_string,
             eventhub_secondary_connection_string=example_authorization_rule.secondary_connection_string)
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.DigitalTwins`: 2023-01-31
 
         ## Import
 

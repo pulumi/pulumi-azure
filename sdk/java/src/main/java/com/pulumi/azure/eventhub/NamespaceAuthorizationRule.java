@@ -49,8 +49,8 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
- *             .name("my-servicebus")
- *             .location("West US")
+ *             .name("terraform-servicebus")
+ *             .location("West Europe")
  *             .build());
  * 
  *         var exampleNamespace = new Namespace("exampleNamespace", NamespaceArgs.builder()
@@ -58,7 +58,7 @@ import javax.annotation.Nullable;
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .sku("Standard")
- *             .tags(Map.of("source", "example"))
+ *             .tags(Map.of("source", "terraform"))
  *             .build());
  * 
  *         var exampleNamespaceAuthorizationRule = new NamespaceAuthorizationRule("exampleNamespaceAuthorizationRule", NamespaceAuthorizationRuleArgs.builder()
@@ -91,28 +91,28 @@ import javax.annotation.Nullable;
 @ResourceType(type="azure:eventhub/namespaceAuthorizationRule:NamespaceAuthorizationRule")
 public class NamespaceAuthorizationRule extends com.pulumi.resources.CustomResource {
     /**
-     * Grants listen access to this this Authorization Rule. Defaults to `false`.
+     * Grants listen access to this Authorization Rule. Defaults to `false`.
      * 
      */
     @Export(name="listen", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> listen;
 
     /**
-     * @return Grants listen access to this this Authorization Rule. Defaults to `false`.
+     * @return Grants listen access to this Authorization Rule. Defaults to `false`.
      * 
      */
     public Output<Optional<Boolean>> listen() {
         return Codegen.optional(this.listen);
     }
     /**
-     * Grants manage access to this this Authorization Rule. When this property is `true` - both `listen` and `send` must be too. Defaults to `false`.
+     * Grants manage access to this Authorization Rule. When this property is `true` - both `listen` and `send` must be too. Defaults to `false`.
      * 
      */
     @Export(name="manage", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> manage;
 
     /**
-     * @return Grants manage access to this this Authorization Rule. When this property is `true` - both `listen` and `send` must be too. Defaults to `false`.
+     * @return Grants manage access to this Authorization Rule. When this property is `true` - both `listen` and `send` must be too. Defaults to `false`.
      * 
      */
     public Output<Optional<Boolean>> manage() {
@@ -135,7 +135,7 @@ public class NamespaceAuthorizationRule extends com.pulumi.resources.CustomResou
     /**
      * Specifies the ID of the ServiceBus Namespace. Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE** At least one of the 3 permissions below needs to be set.
+     * &gt; **Note:** At least one of the 3 permissions below needs to be set.
      * 
      */
     @Export(name="namespaceId", refs={String.class}, tree="[0]")
@@ -144,7 +144,7 @@ public class NamespaceAuthorizationRule extends com.pulumi.resources.CustomResou
     /**
      * @return Specifies the ID of the ServiceBus Namespace. Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE** At least one of the 3 permissions below needs to be set.
+     * &gt; **Note:** At least one of the 3 permissions below needs to be set.
      * 
      */
     public Output<String> namespaceId() {
@@ -235,14 +235,14 @@ public class NamespaceAuthorizationRule extends com.pulumi.resources.CustomResou
         return this.secondaryKey;
     }
     /**
-     * Grants send access to this this Authorization Rule. Defaults to `false`.
+     * Grants send access to this Authorization Rule. Defaults to `false`.
      * 
      */
     @Export(name="send", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> send;
 
     /**
-     * @return Grants send access to this this Authorization Rule. Defaults to `false`.
+     * @return Grants send access to this Authorization Rule. Defaults to `false`.
      * 
      */
     public Output<Optional<Boolean>> send() {

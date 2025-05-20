@@ -174,6 +174,13 @@ import javax.annotation.Nullable;
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
+ * ## API Providers
+ * 
+ * &lt;!-- This section is generated, changes will be overwritten --&gt;
+ * This resource uses the following Azure API Providers:
+ * 
+ * * `Microsoft.ElasticSan`: 2023-01-01
+ * 
  * ## Import
  * 
  * An existing Elastic SAN Volume can be imported into Pulumi using the `resource id`, e.g.
@@ -216,7 +223,7 @@ public class Volume extends com.pulumi.resources.CustomResource {
     /**
      * Specifies the size of the Elastic SAN Volume in GiB. The size should be within the remaining capacity of the parent Elastic SAN. Possible values are between `1` and `65536` (16 TiB).
      * 
-     * &gt; **NOTE:** The size can only be increased. If `create_source` is specified, then the size must be equal to or greater than the source&#39;s size.
+     * &gt; **Note:** The size can only be increased. If `create_source` is specified, then the size must be equal to or greater than the source&#39;s size.
      * 
      */
     @Export(name="sizeInGib", refs={Integer.class}, tree="[0]")
@@ -225,7 +232,7 @@ public class Volume extends com.pulumi.resources.CustomResource {
     /**
      * @return Specifies the size of the Elastic SAN Volume in GiB. The size should be within the remaining capacity of the parent Elastic SAN. Possible values are between `1` and `65536` (16 TiB).
      * 
-     * &gt; **NOTE:** The size can only be increased. If `create_source` is specified, then the size must be equal to or greater than the source&#39;s size.
+     * &gt; **Note:** The size can only be increased. If `create_source` is specified, then the size must be equal to or greater than the source&#39;s size.
      * 
      */
     public Output<Integer> sizeInGib() {

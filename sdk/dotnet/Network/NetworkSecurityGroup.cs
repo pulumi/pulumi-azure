@@ -10,12 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Network
 {
     /// <summary>
-    /// Manages a network security group that contains a list of network security rules.  Network security groups enable inbound or outbound traffic to be enabled or denied.
-    /// 
-    /// &gt; **NOTE on Network Security Groups and Network Security Rules:** This provider currently
-    /// provides both a standalone Network Security Rule resource, and allows for Network Security Rules to be defined in-line within the Network Security Group resource.
-    /// At this time you cannot use a Network Security Group with in-line Network Security Rules in conjunction with any Network Security Rule resources. Doing so will cause a conflict of rule settings and will overwrite rules.
-    /// 
     /// ## Example Usage
     /// 
     /// ```csharp
@@ -91,9 +85,9 @@ namespace Pulumi.Azure.Network
         public Output<string> ResourceGroupName { get; private set; } = null!;
 
         /// <summary>
-        /// A list of objects representing security rules, as defined below.
+        /// List of `security_rule` objects representing security rules, as defined below.
         /// 
-        /// &gt; **NOTE** Since `security_rule` can be configured both inline and via the separate `azure.network.NetworkSecurityRule` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
+        /// &gt; **Note:** Since `security_rule` can be configured both inline and via the separate `azure.network.NetworkSecurityRule` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
         /// </summary>
         [Output("securityRules")]
         public Output<ImmutableArray<Outputs.NetworkSecurityGroupSecurityRule>> SecurityRules { get; private set; } = null!;
@@ -172,9 +166,9 @@ namespace Pulumi.Azure.Network
         private InputList<Inputs.NetworkSecurityGroupSecurityRuleArgs>? _securityRules;
 
         /// <summary>
-        /// A list of objects representing security rules, as defined below.
+        /// List of `security_rule` objects representing security rules, as defined below.
         /// 
-        /// &gt; **NOTE** Since `security_rule` can be configured both inline and via the separate `azure.network.NetworkSecurityRule` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
+        /// &gt; **Note:** Since `security_rule` can be configured both inline and via the separate `azure.network.NetworkSecurityRule` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
         /// </summary>
         public InputList<Inputs.NetworkSecurityGroupSecurityRuleArgs> SecurityRules
         {
@@ -224,9 +218,9 @@ namespace Pulumi.Azure.Network
         private InputList<Inputs.NetworkSecurityGroupSecurityRuleGetArgs>? _securityRules;
 
         /// <summary>
-        /// A list of objects representing security rules, as defined below.
+        /// List of `security_rule` objects representing security rules, as defined below.
         /// 
-        /// &gt; **NOTE** Since `security_rule` can be configured both inline and via the separate `azure.network.NetworkSecurityRule` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
+        /// &gt; **Note:** Since `security_rule` can be configured both inline and via the separate `azure.network.NetworkSecurityRule` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
         /// </summary>
         public InputList<Inputs.NetworkSecurityGroupSecurityRuleGetArgs> SecurityRules
         {

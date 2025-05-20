@@ -83,7 +83,7 @@ type NatGateway struct {
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A list of Availability Zones in which this NAT Gateway should be located. Changing this forces a new NAT Gateway to be created.
 	//
-	// > **NOTE:** Only one Availability Zone can be defined. For more information, please check out the [Azure documentation](https://learn.microsoft.com/en-us/azure/nat-gateway/nat-overview#availability-zones)
+	// > **Note:** Only one Availability Zone can be defined. For more information, please check out the [Azure documentation](https://learn.microsoft.com/en-us/azure/nat-gateway/nat-overview#availability-zones)
 	Zones pulumi.StringArrayOutput `pulumi:"zones"`
 }
 
@@ -136,7 +136,7 @@ type natGatewayState struct {
 	Tags map[string]string `pulumi:"tags"`
 	// A list of Availability Zones in which this NAT Gateway should be located. Changing this forces a new NAT Gateway to be created.
 	//
-	// > **NOTE:** Only one Availability Zone can be defined. For more information, please check out the [Azure documentation](https://learn.microsoft.com/en-us/azure/nat-gateway/nat-overview#availability-zones)
+	// > **Note:** Only one Availability Zone can be defined. For more information, please check out the [Azure documentation](https://learn.microsoft.com/en-us/azure/nat-gateway/nat-overview#availability-zones)
 	Zones []string `pulumi:"zones"`
 }
 
@@ -157,7 +157,7 @@ type NatGatewayState struct {
 	Tags pulumi.StringMapInput
 	// A list of Availability Zones in which this NAT Gateway should be located. Changing this forces a new NAT Gateway to be created.
 	//
-	// > **NOTE:** Only one Availability Zone can be defined. For more information, please check out the [Azure documentation](https://learn.microsoft.com/en-us/azure/nat-gateway/nat-overview#availability-zones)
+	// > **Note:** Only one Availability Zone can be defined. For more information, please check out the [Azure documentation](https://learn.microsoft.com/en-us/azure/nat-gateway/nat-overview#availability-zones)
 	Zones pulumi.StringArrayInput
 }
 
@@ -180,7 +180,7 @@ type natGatewayArgs struct {
 	Tags map[string]string `pulumi:"tags"`
 	// A list of Availability Zones in which this NAT Gateway should be located. Changing this forces a new NAT Gateway to be created.
 	//
-	// > **NOTE:** Only one Availability Zone can be defined. For more information, please check out the [Azure documentation](https://learn.microsoft.com/en-us/azure/nat-gateway/nat-overview#availability-zones)
+	// > **Note:** Only one Availability Zone can be defined. For more information, please check out the [Azure documentation](https://learn.microsoft.com/en-us/azure/nat-gateway/nat-overview#availability-zones)
 	Zones []string `pulumi:"zones"`
 }
 
@@ -200,7 +200,7 @@ type NatGatewayArgs struct {
 	Tags pulumi.StringMapInput
 	// A list of Availability Zones in which this NAT Gateway should be located. Changing this forces a new NAT Gateway to be created.
 	//
-	// > **NOTE:** Only one Availability Zone can be defined. For more information, please check out the [Azure documentation](https://learn.microsoft.com/en-us/azure/nat-gateway/nat-overview#availability-zones)
+	// > **Note:** Only one Availability Zone can be defined. For more information, please check out the [Azure documentation](https://learn.microsoft.com/en-us/azure/nat-gateway/nat-overview#availability-zones)
 	Zones pulumi.StringArrayInput
 }
 
@@ -328,7 +328,7 @@ func (o NatGatewayOutput) Tags() pulumi.StringMapOutput {
 
 // A list of Availability Zones in which this NAT Gateway should be located. Changing this forces a new NAT Gateway to be created.
 //
-// > **NOTE:** Only one Availability Zone can be defined. For more information, please check out the [Azure documentation](https://learn.microsoft.com/en-us/azure/nat-gateway/nat-overview#availability-zones)
+// > **Note:** Only one Availability Zone can be defined. For more information, please check out the [Azure documentation](https://learn.microsoft.com/en-us/azure/nat-gateway/nat-overview#availability-zones)
 func (o NatGatewayOutput) Zones() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *NatGateway) pulumi.StringArrayOutput { return v.Zones }).(pulumi.StringArrayOutput)
 }

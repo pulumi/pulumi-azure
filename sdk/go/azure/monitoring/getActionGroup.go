@@ -28,7 +28,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			example, err := monitoring.LookupActionGroup(ctx, &monitoring.LookupActionGroupArgs{
-//				ResourceGroupName: "example-rg",
+//				ResourceGroupName: "terraform-example-rg",
 //				Name:              "tfex-actiongroup",
 //			}, nil)
 //			if err != nil {

@@ -31,9 +31,9 @@ class ServerTransparentDataEncryptionArgs:
         :param pulumi.Input[builtins.str] key_vault_key_id: To use customer managed keys from Azure Key Vault, provide the AKV Key ID. To use service managed keys, omit this field.
         :param pulumi.Input[builtins.str] managed_hsm_key_id: To use customer managed keys from a managed HSM, provide the Managed HSM Key ID. To use service managed keys, omit this field.
                
-               > **NOTE:** In order to use customer managed keys, the identity of the MSSQL server must have the following permissions on the key vault: 'get', 'wrapKey' and 'unwrapKey'
+               > **Note:** In order to use customer managed keys, the identity of the MSSQL server must have the following permissions on the key vault: 'get', 'wrapKey' and 'unwrapKey'
                
-               > **NOTE:** If `server_id` denotes a secondary server deployed for disaster recovery purposes, then the `key_vault_key_id` should be the same key used for the primary server's transparent data encryption. Both primary and secondary servers should be encrypted with same key material.
+               > **Note:** If `server_id` denotes a secondary server deployed for disaster recovery purposes, then the `key_vault_key_id` should be the same key used for the primary server's transparent data encryption. Both primary and secondary servers should be encrypted with same key material.
         """
         pulumi.set(__self__, "server_id", server_id)
         if auto_rotation_enabled is not None:
@@ -85,9 +85,9 @@ class ServerTransparentDataEncryptionArgs:
         """
         To use customer managed keys from a managed HSM, provide the Managed HSM Key ID. To use service managed keys, omit this field.
 
-        > **NOTE:** In order to use customer managed keys, the identity of the MSSQL server must have the following permissions on the key vault: 'get', 'wrapKey' and 'unwrapKey'
+        > **Note:** In order to use customer managed keys, the identity of the MSSQL server must have the following permissions on the key vault: 'get', 'wrapKey' and 'unwrapKey'
 
-        > **NOTE:** If `server_id` denotes a secondary server deployed for disaster recovery purposes, then the `key_vault_key_id` should be the same key used for the primary server's transparent data encryption. Both primary and secondary servers should be encrypted with same key material.
+        > **Note:** If `server_id` denotes a secondary server deployed for disaster recovery purposes, then the `key_vault_key_id` should be the same key used for the primary server's transparent data encryption. Both primary and secondary servers should be encrypted with same key material.
         """
         return pulumi.get(self, "managed_hsm_key_id")
 
@@ -109,9 +109,9 @@ class _ServerTransparentDataEncryptionState:
         :param pulumi.Input[builtins.str] key_vault_key_id: To use customer managed keys from Azure Key Vault, provide the AKV Key ID. To use service managed keys, omit this field.
         :param pulumi.Input[builtins.str] managed_hsm_key_id: To use customer managed keys from a managed HSM, provide the Managed HSM Key ID. To use service managed keys, omit this field.
                
-               > **NOTE:** In order to use customer managed keys, the identity of the MSSQL server must have the following permissions on the key vault: 'get', 'wrapKey' and 'unwrapKey'
+               > **Note:** In order to use customer managed keys, the identity of the MSSQL server must have the following permissions on the key vault: 'get', 'wrapKey' and 'unwrapKey'
                
-               > **NOTE:** If `server_id` denotes a secondary server deployed for disaster recovery purposes, then the `key_vault_key_id` should be the same key used for the primary server's transparent data encryption. Both primary and secondary servers should be encrypted with same key material.
+               > **Note:** If `server_id` denotes a secondary server deployed for disaster recovery purposes, then the `key_vault_key_id` should be the same key used for the primary server's transparent data encryption. Both primary and secondary servers should be encrypted with same key material.
         :param pulumi.Input[builtins.str] server_id: Specifies the name of the MS SQL Server. Changing this forces a new resource to be created.
         """
         if auto_rotation_enabled is not None:
@@ -153,9 +153,9 @@ class _ServerTransparentDataEncryptionState:
         """
         To use customer managed keys from a managed HSM, provide the Managed HSM Key ID. To use service managed keys, omit this field.
 
-        > **NOTE:** In order to use customer managed keys, the identity of the MSSQL server must have the following permissions on the key vault: 'get', 'wrapKey' and 'unwrapKey'
+        > **Note:** In order to use customer managed keys, the identity of the MSSQL server must have the following permissions on the key vault: 'get', 'wrapKey' and 'unwrapKey'
 
-        > **NOTE:** If `server_id` denotes a secondary server deployed for disaster recovery purposes, then the `key_vault_key_id` should be the same key used for the primary server's transparent data encryption. Both primary and secondary servers should be encrypted with same key material.
+        > **Note:** If `server_id` denotes a secondary server deployed for disaster recovery purposes, then the `key_vault_key_id` should be the same key used for the primary server's transparent data encryption. Both primary and secondary servers should be encrypted with same key material.
         """
         return pulumi.get(self, "managed_hsm_key_id")
 
@@ -190,9 +190,9 @@ class ServerTransparentDataEncryption(pulumi.CustomResource):
         """
         Manages the transparent data encryption configuration for a MSSQL Server
 
-        !> **IMPORTANT:** This resource can be used to configure Transparent Data Encryption for MS SQL instances with Customer Managed Keys. For MS SQL instances that are System Managed, it should only be used with pre-existing MS SQL Instances that are over 3 years old. For new System Managed MS SQL Instances that will be created through the use of the `mssql.Server` resource, please enable Transparent Data Encryption through `mssql.Server` resource itself by configuring an identity block. By default, all new MS SQL Instances are deployed with System Managed Transparent Data Encryption enabled.
+        !> **Note:** This resource can be used to configure Transparent Data Encryption for MS SQL instances with Customer Managed Keys. For MS SQL instances that are System Managed, it should only be used with pre-existing MS SQL Instances that are over 3 years old. For new System Managed MS SQL Instances that will be created through the use of the `mssql.Server` resource, please enable Transparent Data Encryption through `mssql.Server` resource itself by configuring an identity block. By default, all new MS SQL Instances are deployed with System Managed Transparent Data Encryption enabled.
 
-        > **NOTE:** Once transparent data encryption is enabled on a MS SQL instance, it is not possible to remove TDE. You will be able to switch between 'ServiceManaged' and 'CustomerManaged' keys, but will not be able to remove encryption. For safety when this resource is deleted, the TDE mode will automatically be set to 'ServiceManaged'. See `key_vault_uri` for more information on how to specify the key types. As SQL Server only supports a single configuration for encryption settings, this resource will replace the current encryption settings on the server.
+        > **Note:** Once transparent data encryption is enabled on a MS SQL instance, it is not possible to remove TDE. You will be able to switch between 'ServiceManaged' and 'CustomerManaged' keys, but will not be able to remove encryption. For safety when this resource is deleted, the TDE mode will automatically be set to 'ServiceManaged'. See `key_vault_uri` for more information on how to specify the key types. As SQL Server only supports a single configuration for encryption settings, this resource will replace the current encryption settings on the server.
 
         > **Note:** See [documentation](https://docs.microsoft.com/azure/azure-sql/database/transparent-data-encryption-byok-overview) for important information on how handle lifecycle management of the keys to prevent data lockout.
 
@@ -302,6 +302,13 @@ class ServerTransparentDataEncryption(pulumi.CustomResource):
             server_id=example_server.id,
             key_vault_key_id=example_key.id)
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Sql`: 2023-08-01-preview
 
         ## Import
 
@@ -317,9 +324,9 @@ class ServerTransparentDataEncryption(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] key_vault_key_id: To use customer managed keys from Azure Key Vault, provide the AKV Key ID. To use service managed keys, omit this field.
         :param pulumi.Input[builtins.str] managed_hsm_key_id: To use customer managed keys from a managed HSM, provide the Managed HSM Key ID. To use service managed keys, omit this field.
                
-               > **NOTE:** In order to use customer managed keys, the identity of the MSSQL server must have the following permissions on the key vault: 'get', 'wrapKey' and 'unwrapKey'
+               > **Note:** In order to use customer managed keys, the identity of the MSSQL server must have the following permissions on the key vault: 'get', 'wrapKey' and 'unwrapKey'
                
-               > **NOTE:** If `server_id` denotes a secondary server deployed for disaster recovery purposes, then the `key_vault_key_id` should be the same key used for the primary server's transparent data encryption. Both primary and secondary servers should be encrypted with same key material.
+               > **Note:** If `server_id` denotes a secondary server deployed for disaster recovery purposes, then the `key_vault_key_id` should be the same key used for the primary server's transparent data encryption. Both primary and secondary servers should be encrypted with same key material.
         :param pulumi.Input[builtins.str] server_id: Specifies the name of the MS SQL Server. Changing this forces a new resource to be created.
         """
         ...
@@ -331,9 +338,9 @@ class ServerTransparentDataEncryption(pulumi.CustomResource):
         """
         Manages the transparent data encryption configuration for a MSSQL Server
 
-        !> **IMPORTANT:** This resource can be used to configure Transparent Data Encryption for MS SQL instances with Customer Managed Keys. For MS SQL instances that are System Managed, it should only be used with pre-existing MS SQL Instances that are over 3 years old. For new System Managed MS SQL Instances that will be created through the use of the `mssql.Server` resource, please enable Transparent Data Encryption through `mssql.Server` resource itself by configuring an identity block. By default, all new MS SQL Instances are deployed with System Managed Transparent Data Encryption enabled.
+        !> **Note:** This resource can be used to configure Transparent Data Encryption for MS SQL instances with Customer Managed Keys. For MS SQL instances that are System Managed, it should only be used with pre-existing MS SQL Instances that are over 3 years old. For new System Managed MS SQL Instances that will be created through the use of the `mssql.Server` resource, please enable Transparent Data Encryption through `mssql.Server` resource itself by configuring an identity block. By default, all new MS SQL Instances are deployed with System Managed Transparent Data Encryption enabled.
 
-        > **NOTE:** Once transparent data encryption is enabled on a MS SQL instance, it is not possible to remove TDE. You will be able to switch between 'ServiceManaged' and 'CustomerManaged' keys, but will not be able to remove encryption. For safety when this resource is deleted, the TDE mode will automatically be set to 'ServiceManaged'. See `key_vault_uri` for more information on how to specify the key types. As SQL Server only supports a single configuration for encryption settings, this resource will replace the current encryption settings on the server.
+        > **Note:** Once transparent data encryption is enabled on a MS SQL instance, it is not possible to remove TDE. You will be able to switch between 'ServiceManaged' and 'CustomerManaged' keys, but will not be able to remove encryption. For safety when this resource is deleted, the TDE mode will automatically be set to 'ServiceManaged'. See `key_vault_uri` for more information on how to specify the key types. As SQL Server only supports a single configuration for encryption settings, this resource will replace the current encryption settings on the server.
 
         > **Note:** See [documentation](https://docs.microsoft.com/azure/azure-sql/database/transparent-data-encryption-byok-overview) for important information on how handle lifecycle management of the keys to prevent data lockout.
 
@@ -443,6 +450,13 @@ class ServerTransparentDataEncryption(pulumi.CustomResource):
             server_id=example_server.id,
             key_vault_key_id=example_key.id)
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Sql`: 2023-08-01-preview
 
         ## Import
 
@@ -511,9 +525,9 @@ class ServerTransparentDataEncryption(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] key_vault_key_id: To use customer managed keys from Azure Key Vault, provide the AKV Key ID. To use service managed keys, omit this field.
         :param pulumi.Input[builtins.str] managed_hsm_key_id: To use customer managed keys from a managed HSM, provide the Managed HSM Key ID. To use service managed keys, omit this field.
                
-               > **NOTE:** In order to use customer managed keys, the identity of the MSSQL server must have the following permissions on the key vault: 'get', 'wrapKey' and 'unwrapKey'
+               > **Note:** In order to use customer managed keys, the identity of the MSSQL server must have the following permissions on the key vault: 'get', 'wrapKey' and 'unwrapKey'
                
-               > **NOTE:** If `server_id` denotes a secondary server deployed for disaster recovery purposes, then the `key_vault_key_id` should be the same key used for the primary server's transparent data encryption. Both primary and secondary servers should be encrypted with same key material.
+               > **Note:** If `server_id` denotes a secondary server deployed for disaster recovery purposes, then the `key_vault_key_id` should be the same key used for the primary server's transparent data encryption. Both primary and secondary servers should be encrypted with same key material.
         :param pulumi.Input[builtins.str] server_id: Specifies the name of the MS SQL Server. Changing this forces a new resource to be created.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -548,9 +562,9 @@ class ServerTransparentDataEncryption(pulumi.CustomResource):
         """
         To use customer managed keys from a managed HSM, provide the Managed HSM Key ID. To use service managed keys, omit this field.
 
-        > **NOTE:** In order to use customer managed keys, the identity of the MSSQL server must have the following permissions on the key vault: 'get', 'wrapKey' and 'unwrapKey'
+        > **Note:** In order to use customer managed keys, the identity of the MSSQL server must have the following permissions on the key vault: 'get', 'wrapKey' and 'unwrapKey'
 
-        > **NOTE:** If `server_id` denotes a secondary server deployed for disaster recovery purposes, then the `key_vault_key_id` should be the same key used for the primary server's transparent data encryption. Both primary and secondary servers should be encrypted with same key material.
+        > **Note:** If `server_id` denotes a secondary server deployed for disaster recovery purposes, then the `key_vault_key_id` should be the same key used for the primary server's transparent data encryption. Both primary and secondary servers should be encrypted with same key material.
         """
         return pulumi.get(self, "managed_hsm_key_id")
 

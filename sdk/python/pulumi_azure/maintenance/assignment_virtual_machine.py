@@ -201,6 +201,13 @@ class AssignmentVirtualMachine(pulumi.CustomResource):
             virtual_machine_id=example_linux_virtual_machine.id)
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Maintenance`: 2023-04-01
+
         ## Import
 
         Maintenance Assignment can be imported using the `resource id`, e.g.
@@ -284,6 +291,13 @@ class AssignmentVirtualMachine(pulumi.CustomResource):
             maintenance_configuration_id=example_configuration.id,
             virtual_machine_id=example_linux_virtual_machine.id)
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Maintenance`: 2023-04-01
 
         ## Import
 

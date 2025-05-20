@@ -27,11 +27,15 @@ class CredentialUserManagedIdentityArgs:
                  name: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a CredentialUserManagedIdentity resource.
-        :param pulumi.Input[builtins.str] data_factory_id: The resource ID of the parent Data Factory
-        :param pulumi.Input[builtins.str] identity_id: The resource ID of the User Assigned Managed Identity
-        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] annotations: (Optional) List of string annotations.
-        :param pulumi.Input[builtins.str] description: (Optional) Short text description
-        :param pulumi.Input[builtins.str] name: The desired name of the credential resource
+        :param pulumi.Input[builtins.str] data_factory_id: The Data Factory ID in which to associate the Credential with. Changing this forces a new resource.
+        :param pulumi.Input[builtins.str] identity_id: The Resouce ID of an existing User Assigned Managed Identity. This can be changed without recreating the resource. Changing this forces a new resource to be created.
+               
+               > **Note:** Attempting to create a Credential resource without first assigning the identity to the parent Data Factory will result in an Azure API error.
+        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] annotations: List of tags that can be used for describing the Data Factory Credential.
+               
+               > **Note:** Manually altering a Credential resource will cause annotations to be lost, resulting in a change being detected on the next run.
+        :param pulumi.Input[builtins.str] description: The description for the Data Factory Credential.
+        :param pulumi.Input[builtins.str] name: Specifies the name of the Credential. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "data_factory_id", data_factory_id)
         pulumi.set(__self__, "identity_id", identity_id)
@@ -46,7 +50,7 @@ class CredentialUserManagedIdentityArgs:
     @pulumi.getter(name="dataFactoryId")
     def data_factory_id(self) -> pulumi.Input[builtins.str]:
         """
-        The resource ID of the parent Data Factory
+        The Data Factory ID in which to associate the Credential with. Changing this forces a new resource.
         """
         return pulumi.get(self, "data_factory_id")
 
@@ -58,7 +62,9 @@ class CredentialUserManagedIdentityArgs:
     @pulumi.getter(name="identityId")
     def identity_id(self) -> pulumi.Input[builtins.str]:
         """
-        The resource ID of the User Assigned Managed Identity
+        The Resouce ID of an existing User Assigned Managed Identity. This can be changed without recreating the resource. Changing this forces a new resource to be created.
+
+        > **Note:** Attempting to create a Credential resource without first assigning the identity to the parent Data Factory will result in an Azure API error.
         """
         return pulumi.get(self, "identity_id")
 
@@ -70,7 +76,9 @@ class CredentialUserManagedIdentityArgs:
     @pulumi.getter
     def annotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]:
         """
-        (Optional) List of string annotations.
+        List of tags that can be used for describing the Data Factory Credential.
+
+        > **Note:** Manually altering a Credential resource will cause annotations to be lost, resulting in a change being detected on the next run.
         """
         return pulumi.get(self, "annotations")
 
@@ -82,7 +90,7 @@ class CredentialUserManagedIdentityArgs:
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        (Optional) Short text description
+        The description for the Data Factory Credential.
         """
         return pulumi.get(self, "description")
 
@@ -94,7 +102,7 @@ class CredentialUserManagedIdentityArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The desired name of the credential resource
+        Specifies the name of the Credential. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
@@ -113,11 +121,15 @@ class _CredentialUserManagedIdentityState:
                  name: Optional[pulumi.Input[builtins.str]] = None):
         """
         Input properties used for looking up and filtering CredentialUserManagedIdentity resources.
-        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] annotations: (Optional) List of string annotations.
-        :param pulumi.Input[builtins.str] data_factory_id: The resource ID of the parent Data Factory
-        :param pulumi.Input[builtins.str] description: (Optional) Short text description
-        :param pulumi.Input[builtins.str] identity_id: The resource ID of the User Assigned Managed Identity
-        :param pulumi.Input[builtins.str] name: The desired name of the credential resource
+        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] annotations: List of tags that can be used for describing the Data Factory Credential.
+               
+               > **Note:** Manually altering a Credential resource will cause annotations to be lost, resulting in a change being detected on the next run.
+        :param pulumi.Input[builtins.str] data_factory_id: The Data Factory ID in which to associate the Credential with. Changing this forces a new resource.
+        :param pulumi.Input[builtins.str] description: The description for the Data Factory Credential.
+        :param pulumi.Input[builtins.str] identity_id: The Resouce ID of an existing User Assigned Managed Identity. This can be changed without recreating the resource. Changing this forces a new resource to be created.
+               
+               > **Note:** Attempting to create a Credential resource without first assigning the identity to the parent Data Factory will result in an Azure API error.
+        :param pulumi.Input[builtins.str] name: Specifies the name of the Credential. Changing this forces a new resource to be created.
         """
         if annotations is not None:
             pulumi.set(__self__, "annotations", annotations)
@@ -134,7 +146,9 @@ class _CredentialUserManagedIdentityState:
     @pulumi.getter
     def annotations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]:
         """
-        (Optional) List of string annotations.
+        List of tags that can be used for describing the Data Factory Credential.
+
+        > **Note:** Manually altering a Credential resource will cause annotations to be lost, resulting in a change being detected on the next run.
         """
         return pulumi.get(self, "annotations")
 
@@ -146,7 +160,7 @@ class _CredentialUserManagedIdentityState:
     @pulumi.getter(name="dataFactoryId")
     def data_factory_id(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The resource ID of the parent Data Factory
+        The Data Factory ID in which to associate the Credential with. Changing this forces a new resource.
         """
         return pulumi.get(self, "data_factory_id")
 
@@ -158,7 +172,7 @@ class _CredentialUserManagedIdentityState:
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        (Optional) Short text description
+        The description for the Data Factory Credential.
         """
         return pulumi.get(self, "description")
 
@@ -170,7 +184,9 @@ class _CredentialUserManagedIdentityState:
     @pulumi.getter(name="identityId")
     def identity_id(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The resource ID of the User Assigned Managed Identity
+        The Resouce ID of an existing User Assigned Managed Identity. This can be changed without recreating the resource. Changing this forces a new resource to be created.
+
+        > **Note:** Attempting to create a Credential resource without first assigning the identity to the parent Data Factory will result in an Azure API error.
         """
         return pulumi.get(self, "identity_id")
 
@@ -182,7 +198,7 @@ class _CredentialUserManagedIdentityState:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The desired name of the credential resource
+        Specifies the name of the Credential. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
@@ -204,14 +220,66 @@ class CredentialUserManagedIdentity(pulumi.CustomResource):
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         """
-        Create a CredentialUserManagedIdentity resource with the given unique name, props, and options.
+        Manage a Data Factory User Assigned Managed Identity credential resource. These resources are used by Data Factory to access data sources.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="westus")
+        example_user_assigned_identity = azure.authorization.UserAssignedIdentity("example",
+            location=example.location,
+            name="my-user",
+            resource_group_name=example.name)
+        example_factory = azure.datafactory.Factory("example",
+            name="example",
+            location=example.location,
+            resource_group_name=example.name,
+            identity={
+                "type": "UserAssigned",
+                "identity_ids": [example_user_assigned_identity.id],
+            })
+        test = azure.datafactory.CredentialUserManagedIdentity("test",
+            name=example_user_assigned_identity.name,
+            description="Short description of this credential",
+            data_factory_id=example_factory.id,
+            identity_id=example_user_assigned_identity.id,
+            annotations=[
+                "example",
+                "example2",
+            ])
+        ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.DataFactory`: 2018-06-01
+
+        ## Import
+
+        Data Factory Credentials can be imported using the `resource id`, e.g.
+
+        ```sh
+        $ pulumi import azure:datafactory/credentialUserManagedIdentity:CredentialUserManagedIdentity example /subscriptions/1f3d6e58-feed-4bb6-87e5-a52305ad3375/resourceGroups/example-resources/providers/Microsoft.DataFactory/factories/example/credentials/credential1
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] annotations: (Optional) List of string annotations.
-        :param pulumi.Input[builtins.str] data_factory_id: The resource ID of the parent Data Factory
-        :param pulumi.Input[builtins.str] description: (Optional) Short text description
-        :param pulumi.Input[builtins.str] identity_id: The resource ID of the User Assigned Managed Identity
-        :param pulumi.Input[builtins.str] name: The desired name of the credential resource
+        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] annotations: List of tags that can be used for describing the Data Factory Credential.
+               
+               > **Note:** Manually altering a Credential resource will cause annotations to be lost, resulting in a change being detected on the next run.
+        :param pulumi.Input[builtins.str] data_factory_id: The Data Factory ID in which to associate the Credential with. Changing this forces a new resource.
+        :param pulumi.Input[builtins.str] description: The description for the Data Factory Credential.
+        :param pulumi.Input[builtins.str] identity_id: The Resouce ID of an existing User Assigned Managed Identity. This can be changed without recreating the resource. Changing this forces a new resource to be created.
+               
+               > **Note:** Attempting to create a Credential resource without first assigning the identity to the parent Data Factory will result in an Azure API error.
+        :param pulumi.Input[builtins.str] name: Specifies the name of the Credential. Changing this forces a new resource to be created.
         """
         ...
     @overload
@@ -220,7 +288,55 @@ class CredentialUserManagedIdentity(pulumi.CustomResource):
                  args: CredentialUserManagedIdentityArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a CredentialUserManagedIdentity resource with the given unique name, props, and options.
+        Manage a Data Factory User Assigned Managed Identity credential resource. These resources are used by Data Factory to access data sources.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="westus")
+        example_user_assigned_identity = azure.authorization.UserAssignedIdentity("example",
+            location=example.location,
+            name="my-user",
+            resource_group_name=example.name)
+        example_factory = azure.datafactory.Factory("example",
+            name="example",
+            location=example.location,
+            resource_group_name=example.name,
+            identity={
+                "type": "UserAssigned",
+                "identity_ids": [example_user_assigned_identity.id],
+            })
+        test = azure.datafactory.CredentialUserManagedIdentity("test",
+            name=example_user_assigned_identity.name,
+            description="Short description of this credential",
+            data_factory_id=example_factory.id,
+            identity_id=example_user_assigned_identity.id,
+            annotations=[
+                "example",
+                "example2",
+            ])
+        ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.DataFactory`: 2018-06-01
+
+        ## Import
+
+        Data Factory Credentials can be imported using the `resource id`, e.g.
+
+        ```sh
+        $ pulumi import azure:datafactory/credentialUserManagedIdentity:CredentialUserManagedIdentity example /subscriptions/1f3d6e58-feed-4bb6-87e5-a52305ad3375/resourceGroups/example-resources/providers/Microsoft.DataFactory/factories/example/credentials/credential1
+        ```
+
         :param str resource_name: The name of the resource.
         :param CredentialUserManagedIdentityArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -281,11 +397,15 @@ class CredentialUserManagedIdentity(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] annotations: (Optional) List of string annotations.
-        :param pulumi.Input[builtins.str] data_factory_id: The resource ID of the parent Data Factory
-        :param pulumi.Input[builtins.str] description: (Optional) Short text description
-        :param pulumi.Input[builtins.str] identity_id: The resource ID of the User Assigned Managed Identity
-        :param pulumi.Input[builtins.str] name: The desired name of the credential resource
+        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] annotations: List of tags that can be used for describing the Data Factory Credential.
+               
+               > **Note:** Manually altering a Credential resource will cause annotations to be lost, resulting in a change being detected on the next run.
+        :param pulumi.Input[builtins.str] data_factory_id: The Data Factory ID in which to associate the Credential with. Changing this forces a new resource.
+        :param pulumi.Input[builtins.str] description: The description for the Data Factory Credential.
+        :param pulumi.Input[builtins.str] identity_id: The Resouce ID of an existing User Assigned Managed Identity. This can be changed without recreating the resource. Changing this forces a new resource to be created.
+               
+               > **Note:** Attempting to create a Credential resource without first assigning the identity to the parent Data Factory will result in an Azure API error.
+        :param pulumi.Input[builtins.str] name: Specifies the name of the Credential. Changing this forces a new resource to be created.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -302,7 +422,9 @@ class CredentialUserManagedIdentity(pulumi.CustomResource):
     @pulumi.getter
     def annotations(self) -> pulumi.Output[Optional[Sequence[builtins.str]]]:
         """
-        (Optional) List of string annotations.
+        List of tags that can be used for describing the Data Factory Credential.
+
+        > **Note:** Manually altering a Credential resource will cause annotations to be lost, resulting in a change being detected on the next run.
         """
         return pulumi.get(self, "annotations")
 
@@ -310,7 +432,7 @@ class CredentialUserManagedIdentity(pulumi.CustomResource):
     @pulumi.getter(name="dataFactoryId")
     def data_factory_id(self) -> pulumi.Output[builtins.str]:
         """
-        The resource ID of the parent Data Factory
+        The Data Factory ID in which to associate the Credential with. Changing this forces a new resource.
         """
         return pulumi.get(self, "data_factory_id")
 
@@ -318,7 +440,7 @@ class CredentialUserManagedIdentity(pulumi.CustomResource):
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[builtins.str]]:
         """
-        (Optional) Short text description
+        The description for the Data Factory Credential.
         """
         return pulumi.get(self, "description")
 
@@ -326,7 +448,9 @@ class CredentialUserManagedIdentity(pulumi.CustomResource):
     @pulumi.getter(name="identityId")
     def identity_id(self) -> pulumi.Output[builtins.str]:
         """
-        The resource ID of the User Assigned Managed Identity
+        The Resouce ID of an existing User Assigned Managed Identity. This can be changed without recreating the resource. Changing this forces a new resource to be created.
+
+        > **Note:** Attempting to create a Credential resource without first assigning the identity to the parent Data Factory will result in an Azure API error.
         """
         return pulumi.get(self, "identity_id")
 
@@ -334,7 +458,7 @@ class CredentialUserManagedIdentity(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[builtins.str]:
         """
-        The desired name of the credential resource
+        Specifies the name of the Credential. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 

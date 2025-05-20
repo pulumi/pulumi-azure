@@ -51,13 +51,13 @@ class CacheArgs:
         :param pulumi.Input[builtins.str] resource_group_name: The name of the resource group in which to create the Redis instance. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] sku_name: The SKU of Redis to use. Possible values are `Basic`, `Standard` and `Premium`.
                
-               > **Note** Downgrading the SKU will force a new resource to be created.
+               > **Note:** Downgrading the SKU will force a new resource to be created.
         :param pulumi.Input[builtins.bool] access_keys_authentication_enabled: Whether access key authentication is enabled? Defaults to `true`. `active_directory_authentication_enabled` must be set to `true` to disable access key authentication.
         :param pulumi.Input['CacheIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[builtins.str] location: The location of the resource group. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] minimum_tls_version: The minimum TLS version. Possible values are `1.0`, `1.1` and `1.2`. Defaults to `1.0`.
                
-               > **NOTE:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
+               > **Note:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
         :param pulumi.Input[builtins.str] name: The name of the Redis instance. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.bool] non_ssl_port_enabled: Enable the non-SSL port (6379) - disabled by default.
         :param pulumi.Input[Sequence[pulumi.Input['CachePatchScheduleArgs']]] patch_schedules: A list of `patch_schedule` blocks as defined below.
@@ -75,7 +75,7 @@ class CacheArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tenant_settings: A mapping of tenant settings to assign to the resource.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] zones: Specifies a list of Availability Zones in which this Redis Cache should be located. Changing this forces a new Redis Cache to be created.
                
-               > **Please Note:** Availability Zones are [in Preview and only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview) - as such you must be opted into the Preview to use this functionality. You can [opt into the Availability Zones Preview in the Azure Portal](https://aka.ms/azenroll).
+               > **Note:** Availability Zones are [in Preview and only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview) - as such you must be opted into the Preview to use this functionality. You can [opt into the Availability Zones Preview in the Azure Portal](https://aka.ms/azenroll).
         """
         pulumi.set(__self__, "capacity", capacity)
         pulumi.set(__self__, "family", family)
@@ -160,7 +160,7 @@ class CacheArgs:
         """
         The SKU of Redis to use. Possible values are `Basic`, `Standard` and `Premium`.
 
-        > **Note** Downgrading the SKU will force a new resource to be created.
+        > **Note:** Downgrading the SKU will force a new resource to be created.
         """
         return pulumi.get(self, "sku_name")
 
@@ -210,7 +210,7 @@ class CacheArgs:
         """
         The minimum TLS version. Possible values are `1.0`, `1.1` and `1.2`. Defaults to `1.0`.
 
-        > **NOTE:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
+        > **Note:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
         """
         return pulumi.get(self, "minimum_tls_version")
 
@@ -382,7 +382,7 @@ class CacheArgs:
         """
         Specifies a list of Availability Zones in which this Redis Cache should be located. Changing this forces a new Redis Cache to be created.
 
-        > **Please Note:** Availability Zones are [in Preview and only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview) - as such you must be opted into the Preview to use this functionality. You can [opt into the Availability Zones Preview in the Azure Portal](https://aka.ms/azenroll).
+        > **Note:** Availability Zones are [in Preview and only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview) - as such you must be opted into the Preview to use this functionality. You can [opt into the Availability Zones Preview in the Azure Portal](https://aka.ms/azenroll).
         """
         return pulumi.get(self, "zones")
 
@@ -433,7 +433,7 @@ class _CacheState:
         :param pulumi.Input[builtins.str] location: The location of the resource group. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] minimum_tls_version: The minimum TLS version. Possible values are `1.0`, `1.1` and `1.2`. Defaults to `1.0`.
                
-               > **NOTE:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
+               > **Note:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
         :param pulumi.Input[builtins.str] name: The name of the Redis instance. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.bool] non_ssl_port_enabled: Enable the non-SSL port (6379) - disabled by default.
         :param pulumi.Input[Sequence[pulumi.Input['CachePatchScheduleArgs']]] patch_schedules: A list of `patch_schedule` blocks as defined below.
@@ -454,14 +454,14 @@ class _CacheState:
         :param pulumi.Input[builtins.int] shard_count: *Only available when using the Premium SKU* The number of Shards to create on the Redis Cluster.
         :param pulumi.Input[builtins.str] sku_name: The SKU of Redis to use. Possible values are `Basic`, `Standard` and `Premium`.
                
-               > **Note** Downgrading the SKU will force a new resource to be created.
+               > **Note:** Downgrading the SKU will force a new resource to be created.
         :param pulumi.Input[builtins.int] ssl_port: The SSL Port of the Redis Instance
         :param pulumi.Input[builtins.str] subnet_id: *Only available when using the Premium SKU* The ID of the Subnet within which the Redis Cache should be deployed. This Subnet must only contain Azure Cache for Redis instances without any other type of resources. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tenant_settings: A mapping of tenant settings to assign to the resource.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] zones: Specifies a list of Availability Zones in which this Redis Cache should be located. Changing this forces a new Redis Cache to be created.
                
-               > **Please Note:** Availability Zones are [in Preview and only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview) - as such you must be opted into the Preview to use this functionality. You can [opt into the Availability Zones Preview in the Azure Portal](https://aka.ms/azenroll).
+               > **Note:** Availability Zones are [in Preview and only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview) - as such you must be opted into the Preview to use this functionality. You can [opt into the Availability Zones Preview in the Azure Portal](https://aka.ms/azenroll).
         """
         if access_keys_authentication_enabled is not None:
             pulumi.set(__self__, "access_keys_authentication_enabled", access_keys_authentication_enabled)
@@ -600,7 +600,7 @@ class _CacheState:
         """
         The minimum TLS version. Possible values are `1.0`, `1.1` and `1.2`. Defaults to `1.0`.
 
-        > **NOTE:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
+        > **Note:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
         """
         return pulumi.get(self, "minimum_tls_version")
 
@@ -808,7 +808,7 @@ class _CacheState:
         """
         The SKU of Redis to use. Possible values are `Basic`, `Standard` and `Premium`.
 
-        > **Note** Downgrading the SKU will force a new resource to be created.
+        > **Note:** Downgrading the SKU will force a new resource to be created.
         """
         return pulumi.get(self, "sku_name")
 
@@ -870,7 +870,7 @@ class _CacheState:
         """
         Specifies a list of Availability Zones in which this Redis Cache should be located. Changing this forces a new Redis Cache to be created.
 
-        > **Please Note:** Availability Zones are [in Preview and only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview) - as such you must be opted into the Preview to use this functionality. You can [opt into the Availability Zones Preview in the Azure Portal](https://aka.ms/azenroll).
+        > **Note:** Availability Zones are [in Preview and only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview) - as such you must be opted into the Preview to use this functionality. You can [opt into the Availability Zones Preview in the Azure Portal](https://aka.ms/azenroll).
         """
         return pulumi.get(self, "zones")
 
@@ -915,7 +915,7 @@ class Cache(pulumi.CustomResource):
 
         ## Example Usage
 
-        This example provisions a Standard Redis Cache.
+        This example provisions a Standard Redis Cache. Other examples of the `redis.Cache` resource can be found in the `./examples/redis-cache` directory within the GitHub Repository
 
         ```python
         import pulumi
@@ -941,6 +941,13 @@ class Cache(pulumi.CustomResource):
 
         * [Azure Cache for Redis planning](https://docs.microsoft.com/azure/azure-cache-for-redis/cache-planning-faq)
         * [Redis: Available Configuration Settings](https://redis.io/topics/config)
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Cache`: 2024-11-01
 
         ## Import
 
@@ -959,7 +966,7 @@ class Cache(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] location: The location of the resource group. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] minimum_tls_version: The minimum TLS version. Possible values are `1.0`, `1.1` and `1.2`. Defaults to `1.0`.
                
-               > **NOTE:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
+               > **Note:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
         :param pulumi.Input[builtins.str] name: The name of the Redis instance. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.bool] non_ssl_port_enabled: Enable the non-SSL port (6379) - disabled by default.
         :param pulumi.Input[Sequence[pulumi.Input[Union['CachePatchScheduleArgs', 'CachePatchScheduleArgsDict']]]] patch_schedules: A list of `patch_schedule` blocks as defined below.
@@ -975,13 +982,13 @@ class Cache(pulumi.CustomResource):
         :param pulumi.Input[builtins.int] shard_count: *Only available when using the Premium SKU* The number of Shards to create on the Redis Cluster.
         :param pulumi.Input[builtins.str] sku_name: The SKU of Redis to use. Possible values are `Basic`, `Standard` and `Premium`.
                
-               > **Note** Downgrading the SKU will force a new resource to be created.
+               > **Note:** Downgrading the SKU will force a new resource to be created.
         :param pulumi.Input[builtins.str] subnet_id: *Only available when using the Premium SKU* The ID of the Subnet within which the Redis Cache should be deployed. This Subnet must only contain Azure Cache for Redis instances without any other type of resources. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tenant_settings: A mapping of tenant settings to assign to the resource.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] zones: Specifies a list of Availability Zones in which this Redis Cache should be located. Changing this forces a new Redis Cache to be created.
                
-               > **Please Note:** Availability Zones are [in Preview and only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview) - as such you must be opted into the Preview to use this functionality. You can [opt into the Availability Zones Preview in the Azure Portal](https://aka.ms/azenroll).
+               > **Note:** Availability Zones are [in Preview and only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview) - as such you must be opted into the Preview to use this functionality. You can [opt into the Availability Zones Preview in the Azure Portal](https://aka.ms/azenroll).
         """
         ...
     @overload
@@ -996,7 +1003,7 @@ class Cache(pulumi.CustomResource):
 
         ## Example Usage
 
-        This example provisions a Standard Redis Cache.
+        This example provisions a Standard Redis Cache. Other examples of the `redis.Cache` resource can be found in the `./examples/redis-cache` directory within the GitHub Repository
 
         ```python
         import pulumi
@@ -1022,6 +1029,13 @@ class Cache(pulumi.CustomResource):
 
         * [Azure Cache for Redis planning](https://docs.microsoft.com/azure/azure-cache-for-redis/cache-planning-faq)
         * [Redis: Available Configuration Settings](https://redis.io/topics/config)
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Cache`: 2024-11-01
 
         ## Import
 
@@ -1170,7 +1184,7 @@ class Cache(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] location: The location of the resource group. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] minimum_tls_version: The minimum TLS version. Possible values are `1.0`, `1.1` and `1.2`. Defaults to `1.0`.
                
-               > **NOTE:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
+               > **Note:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
         :param pulumi.Input[builtins.str] name: The name of the Redis instance. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.bool] non_ssl_port_enabled: Enable the non-SSL port (6379) - disabled by default.
         :param pulumi.Input[Sequence[pulumi.Input[Union['CachePatchScheduleArgs', 'CachePatchScheduleArgsDict']]]] patch_schedules: A list of `patch_schedule` blocks as defined below.
@@ -1191,14 +1205,14 @@ class Cache(pulumi.CustomResource):
         :param pulumi.Input[builtins.int] shard_count: *Only available when using the Premium SKU* The number of Shards to create on the Redis Cluster.
         :param pulumi.Input[builtins.str] sku_name: The SKU of Redis to use. Possible values are `Basic`, `Standard` and `Premium`.
                
-               > **Note** Downgrading the SKU will force a new resource to be created.
+               > **Note:** Downgrading the SKU will force a new resource to be created.
         :param pulumi.Input[builtins.int] ssl_port: The SSL Port of the Redis Instance
         :param pulumi.Input[builtins.str] subnet_id: *Only available when using the Premium SKU* The ID of the Subnet within which the Redis Cache should be deployed. This Subnet must only contain Azure Cache for Redis instances without any other type of resources. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tenant_settings: A mapping of tenant settings to assign to the resource.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] zones: Specifies a list of Availability Zones in which this Redis Cache should be located. Changing this forces a new Redis Cache to be created.
                
-               > **Please Note:** Availability Zones are [in Preview and only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview) - as such you must be opted into the Preview to use this functionality. You can [opt into the Availability Zones Preview in the Azure Portal](https://aka.ms/azenroll).
+               > **Note:** Availability Zones are [in Preview and only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview) - as such you must be opted into the Preview to use this functionality. You can [opt into the Availability Zones Preview in the Azure Portal](https://aka.ms/azenroll).
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -1289,7 +1303,7 @@ class Cache(pulumi.CustomResource):
         """
         The minimum TLS version. Possible values are `1.0`, `1.1` and `1.2`. Defaults to `1.0`.
 
-        > **NOTE:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
+        > **Note:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
         """
         return pulumi.get(self, "minimum_tls_version")
 
@@ -1429,7 +1443,7 @@ class Cache(pulumi.CustomResource):
         """
         The SKU of Redis to use. Possible values are `Basic`, `Standard` and `Premium`.
 
-        > **Note** Downgrading the SKU will force a new resource to be created.
+        > **Note:** Downgrading the SKU will force a new resource to be created.
         """
         return pulumi.get(self, "sku_name")
 
@@ -1471,7 +1485,7 @@ class Cache(pulumi.CustomResource):
         """
         Specifies a list of Availability Zones in which this Redis Cache should be located. Changing this forces a new Redis Cache to be created.
 
-        > **Please Note:** Availability Zones are [in Preview and only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview) - as such you must be opted into the Preview to use this functionality. You can [opt into the Availability Zones Preview in the Azure Portal](https://aka.ms/azenroll).
+        > **Note:** Availability Zones are [in Preview and only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview) - as such you must be opted into the Preview to use this functionality. You can [opt into the Availability Zones Preview in the Azure Portal](https://aka.ms/azenroll).
         """
         return pulumi.get(self, "zones")
 

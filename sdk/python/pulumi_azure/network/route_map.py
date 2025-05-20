@@ -181,6 +181,13 @@ class RouteMap(pulumi.CustomResource):
             }])
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Network`: 2024-05-01
+
         ## Import
 
         Route Maps can be imported using the `resource id`, e.g.
@@ -241,6 +248,13 @@ class RouteMap(pulumi.CustomResource):
                 }],
             }])
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Network`: 2024-05-01
 
         ## Import
 

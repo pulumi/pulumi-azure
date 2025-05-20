@@ -67,7 +67,7 @@ class InteractiveQueryClusterArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of Tags which should be assigned to this HDInsight Interactive Query Cluster.
         :param pulumi.Input[builtins.str] tls_min_version: The minimal supported TLS version. Possible values are 1.0, 1.1 or 1.2. Changing this forces a new resource to be created.
                
-               > **NOTE:** Starting on June 30, 2020, Azure HDInsight will enforce TLS 1.2 or later versions for all HTTPS connections. For more information, see [Azure HDInsight TLS 1.2 Enforcement](https://azure.microsoft.com/en-us/updates/azure-hdinsight-tls-12-enforcement/).
+               > **Note:** Starting on June 30, 2020, Azure HDInsight will enforce TLS 1.2 or later versions for all HTTPS connections. For more information, see [Azure HDInsight TLS 1.2 Enforcement](https://azure.microsoft.com/en-us/updates/azure-hdinsight-tls-12-enforcement/).
         """
         pulumi.set(__self__, "cluster_version", cluster_version)
         pulumi.set(__self__, "component_version", component_version)
@@ -352,7 +352,7 @@ class InteractiveQueryClusterArgs:
         """
         The minimal supported TLS version. Possible values are 1.0, 1.1 or 1.2. Changing this forces a new resource to be created.
 
-        > **NOTE:** Starting on June 30, 2020, Azure HDInsight will enforce TLS 1.2 or later versions for all HTTPS connections. For more information, see [Azure HDInsight TLS 1.2 Enforcement](https://azure.microsoft.com/en-us/updates/azure-hdinsight-tls-12-enforcement/).
+        > **Note:** Starting on June 30, 2020, Azure HDInsight will enforce TLS 1.2 or later versions for all HTTPS connections. For more information, see [Azure HDInsight TLS 1.2 Enforcement](https://azure.microsoft.com/en-us/updates/azure-hdinsight-tls-12-enforcement/).
         """
         return pulumi.get(self, "tls_min_version")
 
@@ -413,7 +413,7 @@ class _InteractiveQueryClusterState:
         :param pulumi.Input[builtins.str] tier: Specifies the Tier which should be used for this HDInsight Interactive Query Cluster. Possible values are `Standard` or `Premium`. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] tls_min_version: The minimal supported TLS version. Possible values are 1.0, 1.1 or 1.2. Changing this forces a new resource to be created.
                
-               > **NOTE:** Starting on June 30, 2020, Azure HDInsight will enforce TLS 1.2 or later versions for all HTTPS connections. For more information, see [Azure HDInsight TLS 1.2 Enforcement](https://azure.microsoft.com/en-us/updates/azure-hdinsight-tls-12-enforcement/).
+               > **Note:** Starting on June 30, 2020, Azure HDInsight will enforce TLS 1.2 or later versions for all HTTPS connections. For more information, see [Azure HDInsight TLS 1.2 Enforcement](https://azure.microsoft.com/en-us/updates/azure-hdinsight-tls-12-enforcement/).
         """
         if cluster_version is not None:
             pulumi.set(__self__, "cluster_version", cluster_version)
@@ -732,7 +732,7 @@ class _InteractiveQueryClusterState:
         """
         The minimal supported TLS version. Possible values are 1.0, 1.1 or 1.2. Changing this forces a new resource to be created.
 
-        > **NOTE:** Starting on June 30, 2020, Azure HDInsight will enforce TLS 1.2 or later versions for all HTTPS connections. For more information, see [Azure HDInsight TLS 1.2 Enforcement](https://azure.microsoft.com/en-us/updates/azure-hdinsight-tls-12-enforcement/).
+        > **Note:** Starting on June 30, 2020, Azure HDInsight will enforce TLS 1.2 or later versions for all HTTPS connections. For more information, see [Azure HDInsight TLS 1.2 Enforcement](https://azure.microsoft.com/en-us/updates/azure-hdinsight-tls-12-enforcement/).
         """
         return pulumi.get(self, "tls_min_version")
 
@@ -802,7 +802,7 @@ class InteractiveQueryCluster(pulumi.CustomResource):
             },
             gateway={
                 "username": "acctestusrgw",
-                "password": "Password!",
+                "password": "TerrAform123!",
             },
             storage_accounts=[{
                 "storage_container_id": example_container.id,
@@ -828,6 +828,13 @@ class InteractiveQueryCluster(pulumi.CustomResource):
                 },
             })
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.HDInsight`: 2021-06-01
 
         ## Import
 
@@ -861,7 +868,7 @@ class InteractiveQueryCluster(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] tier: Specifies the Tier which should be used for this HDInsight Interactive Query Cluster. Possible values are `Standard` or `Premium`. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] tls_min_version: The minimal supported TLS version. Possible values are 1.0, 1.1 or 1.2. Changing this forces a new resource to be created.
                
-               > **NOTE:** Starting on June 30, 2020, Azure HDInsight will enforce TLS 1.2 or later versions for all HTTPS connections. For more information, see [Azure HDInsight TLS 1.2 Enforcement](https://azure.microsoft.com/en-us/updates/azure-hdinsight-tls-12-enforcement/).
+               > **Note:** Starting on June 30, 2020, Azure HDInsight will enforce TLS 1.2 or later versions for all HTTPS connections. For more information, see [Azure HDInsight TLS 1.2 Enforcement](https://azure.microsoft.com/en-us/updates/azure-hdinsight-tls-12-enforcement/).
         """
         ...
     @overload
@@ -902,7 +909,7 @@ class InteractiveQueryCluster(pulumi.CustomResource):
             },
             gateway={
                 "username": "acctestusrgw",
-                "password": "Password!",
+                "password": "TerrAform123!",
             },
             storage_accounts=[{
                 "storage_container_id": example_container.id,
@@ -928,6 +935,13 @@ class InteractiveQueryCluster(pulumi.CustomResource):
                 },
             })
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.HDInsight`: 2021-06-01
 
         ## Import
 
@@ -1081,7 +1095,7 @@ class InteractiveQueryCluster(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] tier: Specifies the Tier which should be used for this HDInsight Interactive Query Cluster. Possible values are `Standard` or `Premium`. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] tls_min_version: The minimal supported TLS version. Possible values are 1.0, 1.1 or 1.2. Changing this forces a new resource to be created.
                
-               > **NOTE:** Starting on June 30, 2020, Azure HDInsight will enforce TLS 1.2 or later versions for all HTTPS connections. For more information, see [Azure HDInsight TLS 1.2 Enforcement](https://azure.microsoft.com/en-us/updates/azure-hdinsight-tls-12-enforcement/).
+               > **Note:** Starting on June 30, 2020, Azure HDInsight will enforce TLS 1.2 or later versions for all HTTPS connections. For more information, see [Azure HDInsight TLS 1.2 Enforcement](https://azure.microsoft.com/en-us/updates/azure-hdinsight-tls-12-enforcement/).
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -1294,7 +1308,7 @@ class InteractiveQueryCluster(pulumi.CustomResource):
         """
         The minimal supported TLS version. Possible values are 1.0, 1.1 or 1.2. Changing this forces a new resource to be created.
 
-        > **NOTE:** Starting on June 30, 2020, Azure HDInsight will enforce TLS 1.2 or later versions for all HTTPS connections. For more information, see [Azure HDInsight TLS 1.2 Enforcement](https://azure.microsoft.com/en-us/updates/azure-hdinsight-tls-12-enforcement/).
+        > **Note:** Starting on June 30, 2020, Azure HDInsight will enforce TLS 1.2 or later versions for all HTTPS connections. For more information, see [Azure HDInsight TLS 1.2 Enforcement](https://azure.microsoft.com/en-us/updates/azure-hdinsight-tls-12-enforcement/).
         """
         return pulumi.get(self, "tls_min_version")
 

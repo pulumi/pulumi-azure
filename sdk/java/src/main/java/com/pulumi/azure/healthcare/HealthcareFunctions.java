@@ -67,6 +67,13 @@ public final class HealthcareFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.HealthcareApis`: 2024-03-31
+     * 
      */
     public static Output<GetDicomServiceResult> getDicomService(GetDicomServiceArgs args) {
         return getDicomService(args, InvokeOptions.Empty);
@@ -110,6 +117,13 @@ public final class HealthcareFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.HealthcareApis`: 2024-03-31
      * 
      */
     public static CompletableFuture<GetDicomServiceResult> getDicomServicePlain(GetDicomServicePlainArgs args) {
@@ -155,6 +169,13 @@ public final class HealthcareFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.HealthcareApis`: 2024-03-31
+     * 
      */
     public static Output<GetDicomServiceResult> getDicomService(GetDicomServiceArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:healthcare/getDicomService:getDicomService", TypeShape.of(GetDicomServiceResult.class), args, Utilities.withVersion(options));
@@ -199,6 +220,13 @@ public final class HealthcareFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.HealthcareApis`: 2024-03-31
+     * 
      */
     public static Output<GetDicomServiceResult> getDicomService(GetDicomServiceArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("azure:healthcare/getDicomService:getDicomService", TypeShape.of(GetDicomServiceResult.class), args, Utilities.withVersion(options));
@@ -242,6 +270,13 @@ public final class HealthcareFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.HealthcareApis`: 2024-03-31
      * 
      */
     public static CompletableFuture<GetDicomServiceResult> getDicomServicePlain(GetDicomServicePlainArgs args, InvokeOptions options) {
@@ -322,6 +357,13 @@ public final class HealthcareFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.HealthcareApis`: 2022-12-01
+     * 
      */
     public static Output<GetMedtechServiceResult> getMedtechService(GetMedtechServiceArgs args) {
         return getMedtechService(args, InvokeOptions.Empty);
@@ -365,6 +407,13 @@ public final class HealthcareFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.HealthcareApis`: 2022-12-01
      * 
      */
     public static CompletableFuture<GetMedtechServiceResult> getMedtechServicePlain(GetMedtechServicePlainArgs args) {
@@ -410,6 +459,13 @@ public final class HealthcareFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.HealthcareApis`: 2022-12-01
+     * 
      */
     public static Output<GetMedtechServiceResult> getMedtechService(GetMedtechServiceArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:healthcare/getMedtechService:getMedtechService", TypeShape.of(GetMedtechServiceResult.class), args, Utilities.withVersion(options));
@@ -454,6 +510,13 @@ public final class HealthcareFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.HealthcareApis`: 2022-12-01
+     * 
      */
     public static Output<GetMedtechServiceResult> getMedtechService(GetMedtechServiceArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("azure:healthcare/getMedtechService:getMedtechService", TypeShape.of(GetMedtechServiceResult.class), args, Utilities.withVersion(options));
@@ -497,6 +560,13 @@ public final class HealthcareFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.HealthcareApis`: 2022-12-01
      * 
      */
     public static CompletableFuture<GetMedtechServiceResult> getMedtechServicePlain(GetMedtechServicePlainArgs args, InvokeOptions options) {
@@ -543,6 +613,13 @@ public final class HealthcareFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.HealthcareApis`: 2022-12-01
+     * 
      */
     public static Output<GetServiceResult> getService(GetServiceArgs args) {
         return getService(args, InvokeOptions.Empty);
@@ -587,6 +664,13 @@ public final class HealthcareFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.HealthcareApis`: 2022-12-01
      * 
      */
     public static CompletableFuture<GetServiceResult> getServicePlain(GetServicePlainArgs args) {
@@ -633,6 +717,13 @@ public final class HealthcareFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.HealthcareApis`: 2022-12-01
+     * 
      */
     public static Output<GetServiceResult> getService(GetServiceArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:healthcare/getService:getService", TypeShape.of(GetServiceResult.class), args, Utilities.withVersion(options));
@@ -677,6 +768,13 @@ public final class HealthcareFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.HealthcareApis`: 2022-12-01
      * 
      */
     public static Output<GetServiceResult> getService(GetServiceArgs args, InvokeOutputOptions options) {
@@ -723,6 +821,13 @@ public final class HealthcareFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.HealthcareApis`: 2022-12-01
+     * 
      */
     public static CompletableFuture<GetServiceResult> getServicePlain(GetServicePlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("azure:healthcare/getService:getService", TypeShape.of(GetServiceResult.class), args, Utilities.withVersion(options));
@@ -766,6 +871,13 @@ public final class HealthcareFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.HealthcareApis`: 2024-03-31
      * 
      */
     public static Output<GetWorkspaceResult> getWorkspace(GetWorkspaceArgs args) {
@@ -811,6 +923,13 @@ public final class HealthcareFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.HealthcareApis`: 2024-03-31
+     * 
      */
     public static CompletableFuture<GetWorkspaceResult> getWorkspacePlain(GetWorkspacePlainArgs args) {
         return getWorkspacePlain(args, InvokeOptions.Empty);
@@ -854,6 +973,13 @@ public final class HealthcareFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.HealthcareApis`: 2024-03-31
      * 
      */
     public static Output<GetWorkspaceResult> getWorkspace(GetWorkspaceArgs args, InvokeOptions options) {
@@ -899,6 +1025,13 @@ public final class HealthcareFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.HealthcareApis`: 2024-03-31
+     * 
      */
     public static Output<GetWorkspaceResult> getWorkspace(GetWorkspaceArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("azure:healthcare/getWorkspace:getWorkspace", TypeShape.of(GetWorkspaceResult.class), args, Utilities.withVersion(options));
@@ -942,6 +1075,13 @@ public final class HealthcareFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.HealthcareApis`: 2024-03-31
      * 
      */
     public static CompletableFuture<GetWorkspaceResult> getWorkspacePlain(GetWorkspacePlainArgs args, InvokeOptions options) {

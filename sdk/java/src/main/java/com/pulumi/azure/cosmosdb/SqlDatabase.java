@@ -89,21 +89,9 @@ public class SqlDatabase extends com.pulumi.resources.CustomResource {
     public Output<String> accountName() {
         return this.accountName;
     }
-    /**
-     * An `autoscale_settings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual destroy-apply.
-     * 
-     * &gt; **Note:** Switching between autoscale and manual throughput is not supported via this provider and must be completed via the Azure Portal and refreshed.
-     * 
-     */
     @Export(name="autoscaleSettings", refs={SqlDatabaseAutoscaleSettings.class}, tree="[0]")
     private Output</* @Nullable */ SqlDatabaseAutoscaleSettings> autoscaleSettings;
 
-    /**
-     * @return An `autoscale_settings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual destroy-apply.
-     * 
-     * &gt; **Note:** Switching between autoscale and manual throughput is not supported via this provider and must be completed via the Azure Portal and refreshed.
-     * 
-     */
     public Output<Optional<SqlDatabaseAutoscaleSettings>> autoscaleSettings() {
         return Codegen.optional(this.autoscaleSettings);
     }

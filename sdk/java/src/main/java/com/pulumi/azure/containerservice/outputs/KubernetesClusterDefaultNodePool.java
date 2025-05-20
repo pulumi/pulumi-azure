@@ -20,14 +20,6 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class KubernetesClusterDefaultNodePool {
-    /**
-     * @return Should [the Kubernetes Auto Scaler](https://docs.microsoft.com/azure/aks/cluster-autoscaler) be enabled for this Node Pool?
-     * 
-     * &gt; **Note:** This requires that the `type` is set to `VirtualMachineScaleSets`.
-     * 
-     * &gt; **Note:** If you&#39;re using AutoScaling, you may wish to use [`ignoreChanges` functionality](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) to ignore changes to the `node_count` field.
-     * 
-     */
     private @Nullable Boolean autoScalingEnabled;
     /**
      * @return Specifies the ID of the Capacity Reservation Group within which this AKS Cluster should be created. Changing this forces a new resource to be created.
@@ -151,12 +143,6 @@ public final class KubernetesClusterDefaultNodePool {
      * 
      */
     private @Nullable String snapshotId;
-    /**
-     * @return A mapping of tags to assign to the Node Pool.
-     * 
-     * &gt; At this time there&#39;s a bug in the AKS API where Tags for a Node Pool are not stored in the correct case - you may wish to use `ignore_changes` functionality to ignore changes to the casing until this is fixed in the AKS API.
-     * 
-     */
     private @Nullable Map<String,String> tags;
     /**
      * @return Specifies the name of the temporary node pool used to cycle the default node pool for VM resizing.
@@ -206,14 +192,6 @@ public final class KubernetesClusterDefaultNodePool {
     private @Nullable List<String> zones;
 
     private KubernetesClusterDefaultNodePool() {}
-    /**
-     * @return Should [the Kubernetes Auto Scaler](https://docs.microsoft.com/azure/aks/cluster-autoscaler) be enabled for this Node Pool?
-     * 
-     * &gt; **Note:** This requires that the `type` is set to `VirtualMachineScaleSets`.
-     * 
-     * &gt; **Note:** If you&#39;re using AutoScaling, you may wish to use [`ignoreChanges` functionality](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) to ignore changes to the `node_count` field.
-     * 
-     */
     public Optional<Boolean> autoScalingEnabled() {
         return Optional.ofNullable(this.autoScalingEnabled);
     }
@@ -391,12 +369,6 @@ public final class KubernetesClusterDefaultNodePool {
     public Optional<String> snapshotId() {
         return Optional.ofNullable(this.snapshotId);
     }
-    /**
-     * @return A mapping of tags to assign to the Node Pool.
-     * 
-     * &gt; At this time there&#39;s a bug in the AKS API where Tags for a Node Pool are not stored in the correct case - you may wish to use `ignore_changes` functionality to ignore changes to the casing until this is fixed in the AKS API.
-     * 
-     */
     public Map<String,String> tags() {
         return this.tags == null ? Map.of() : this.tags;
     }

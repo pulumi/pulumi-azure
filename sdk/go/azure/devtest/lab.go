@@ -53,6 +53,13 @@ import (
 //
 // ```
 //
+// ## API Providers
+//
+// <!-- This section is generated, changes will be overwritten -->
+// This resource uses the following Azure API Providers:
+//
+// * `Microsoft.DevTestLab`: 2018-09-15
+//
 // ## Import
 //
 // Dev Test Labs can be imported using the `resource id`, e.g.

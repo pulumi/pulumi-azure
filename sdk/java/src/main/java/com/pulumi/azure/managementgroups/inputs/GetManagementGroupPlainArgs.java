@@ -14,21 +14,9 @@ public final class GetManagementGroupPlainArgs extends com.pulumi.resources.Invo
 
     public static final GetManagementGroupPlainArgs Empty = new GetManagementGroupPlainArgs();
 
-    /**
-     * Specifies the display name of this Management Group.
-     * 
-     * &gt; **NOTE** Whilst multiple management groups may share the same display name, when filtering, the provider expects a single management group to be found with this name.
-     * 
-     */
     @Import(name="displayName")
     private @Nullable String displayName;
 
-    /**
-     * @return Specifies the display name of this Management Group.
-     * 
-     * &gt; **NOTE** Whilst multiple management groups may share the same display name, when filtering, the provider expects a single management group to be found with this name.
-     * 
-     */
     public Optional<String> displayName() {
         return Optional.ofNullable(this.displayName);
     }
@@ -73,14 +61,6 @@ public final class GetManagementGroupPlainArgs extends com.pulumi.resources.Invo
             $ = new GetManagementGroupPlainArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param displayName Specifies the display name of this Management Group.
-         * 
-         * &gt; **NOTE** Whilst multiple management groups may share the same display name, when filtering, the provider expects a single management group to be found with this name.
-         * 
-         * @return builder
-         * 
-         */
         public Builder displayName(@Nullable String displayName) {
             $.displayName = displayName;
             return this;

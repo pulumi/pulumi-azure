@@ -110,7 +110,7 @@ public final class WindowsWebAppAuthSettingsV2CustomOidcV2Args extends com.pulum
     /**
      * The name of the Custom OIDC Authentication Provider.
      * 
-     * &gt; **NOTE:** An `app_setting` matching this value in upper case with the suffix of `_PROVIDER_AUTHENTICATION_SECRET` is required. e.g. `MYOIDC_PROVIDER_AUTHENTICATION_SECRET` for a value of `myoidc`.
+     * &gt; **Note:** An `app_setting` matching this value in upper case with the suffix of `_PROVIDER_AUTHENTICATION_SECRET` is required. e.g. `MYOIDC_PROVIDER_AUTHENTICATION_SECRET` for a value of `myoidc`.
      * 
      */
     @Import(name="name", required=true)
@@ -119,7 +119,7 @@ public final class WindowsWebAppAuthSettingsV2CustomOidcV2Args extends com.pulum
     /**
      * @return The name of the Custom OIDC Authentication Provider.
      * 
-     * &gt; **NOTE:** An `app_setting` matching this value in upper case with the suffix of `_PROVIDER_AUTHENTICATION_SECRET` is required. e.g. `MYOIDC_PROVIDER_AUTHENTICATION_SECRET` for a value of `myoidc`.
+     * &gt; **Note:** An `app_setting` matching this value in upper case with the suffix of `_PROVIDER_AUTHENTICATION_SECRET` is required. e.g. `MYOIDC_PROVIDER_AUTHENTICATION_SECRET` for a value of `myoidc`.
      * 
      */
     public Output<String> name() {
@@ -349,7 +349,7 @@ public final class WindowsWebAppAuthSettingsV2CustomOidcV2Args extends com.pulum
         /**
          * @param name The name of the Custom OIDC Authentication Provider.
          * 
-         * &gt; **NOTE:** An `app_setting` matching this value in upper case with the suffix of `_PROVIDER_AUTHENTICATION_SECRET` is required. e.g. `MYOIDC_PROVIDER_AUTHENTICATION_SECRET` for a value of `myoidc`.
+         * &gt; **Note:** An `app_setting` matching this value in upper case with the suffix of `_PROVIDER_AUTHENTICATION_SECRET` is required. e.g. `MYOIDC_PROVIDER_AUTHENTICATION_SECRET` for a value of `myoidc`.
          * 
          * @return builder
          * 
@@ -362,7 +362,7 @@ public final class WindowsWebAppAuthSettingsV2CustomOidcV2Args extends com.pulum
         /**
          * @param name The name of the Custom OIDC Authentication Provider.
          * 
-         * &gt; **NOTE:** An `app_setting` matching this value in upper case with the suffix of `_PROVIDER_AUTHENTICATION_SECRET` is required. e.g. `MYOIDC_PROVIDER_AUTHENTICATION_SECRET` for a value of `myoidc`.
+         * &gt; **Note:** An `app_setting` matching this value in upper case with the suffix of `_PROVIDER_AUTHENTICATION_SECRET` is required. e.g. `MYOIDC_PROVIDER_AUTHENTICATION_SECRET` for a value of `myoidc`.
          * 
          * @return builder
          * 

@@ -103,6 +103,13 @@ import (
 //
 // ```
 //
+// ## API Providers
+//
+// <!-- This section is generated, changes will be overwritten -->
+// This resource uses the following Azure API Providers:
+//
+// * `Microsoft.Network`: 2022-04-01
+//
 // ## Import
 //
 // Nested Endpoints can be imported using the `resource id`, e.g.
@@ -123,7 +130,7 @@ type TrafficManagerNestedEndpoint struct {
 	GeoMappings pulumi.StringArrayOutput `pulumi:"geoMappings"`
 	// This argument specifies the minimum number of endpoints that must be ‘online’ in the child profile in order for the parent profile to direct traffic to any of the endpoints in that child profile. This value must be larger than `0`.
 	//
-	// ~>**NOTE:** If `minChildEndpoints` is less than either `minimumRequiredChildEndpointsIpv4` or `minimumRequiredChildEndpointsIpv6`, then it won't have any effect.
+	// > **Note:** If `minChildEndpoints` is less than either `minimumRequiredChildEndpointsIpv4` or `minimumRequiredChildEndpointsIpv6`, then it won't have any effect.
 	MinimumChildEndpoints pulumi.IntOutput `pulumi:"minimumChildEndpoints"`
 	// This argument specifies the minimum number of IPv4 (DNS record type A) endpoints that must be ‘online’ in the child profile in order for the parent profile to direct traffic to any of the endpoints in that child profile. This argument only applies to Endpoints of type `nestedEndpoints` and
 	MinimumRequiredChildEndpointsIpv4 pulumi.IntPtrOutput `pulumi:"minimumRequiredChildEndpointsIpv4"`
@@ -131,8 +138,8 @@ type TrafficManagerNestedEndpoint struct {
 	MinimumRequiredChildEndpointsIpv6 pulumi.IntPtrOutput `pulumi:"minimumRequiredChildEndpointsIpv6"`
 	// The name of the External Endpoint. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Specifies the priority of this Endpoint, this must be specified for Profiles using the `Priority` traffic routing method. Supports values between 1 and 1000, with no Endpoints sharing the same value. If omitted the value will be computed in order of creation. Defaults to `1`.
-	Priority pulumi.IntPtrOutput `pulumi:"priority"`
+	// Specifies the priority of this Endpoint, this must be specified for Profiles using the `Priority` traffic routing method. Supports values between 1 and 1000, with no Endpoints sharing the same value. If omitted the value will be computed in order of creation.
+	Priority pulumi.IntOutput `pulumi:"priority"`
 	// The ID of the Traffic Manager Profile that this External Endpoint should be created within. Changing this forces a new resource to be created.
 	ProfileId pulumi.StringOutput `pulumi:"profileId"`
 	// One or more `subnet` blocks as defined below. Changing this forces a new resource to be created.
@@ -192,7 +199,7 @@ type trafficManagerNestedEndpointState struct {
 	GeoMappings []string `pulumi:"geoMappings"`
 	// This argument specifies the minimum number of endpoints that must be ‘online’ in the child profile in order for the parent profile to direct traffic to any of the endpoints in that child profile. This value must be larger than `0`.
 	//
-	// ~>**NOTE:** If `minChildEndpoints` is less than either `minimumRequiredChildEndpointsIpv4` or `minimumRequiredChildEndpointsIpv6`, then it won't have any effect.
+	// > **Note:** If `minChildEndpoints` is less than either `minimumRequiredChildEndpointsIpv4` or `minimumRequiredChildEndpointsIpv6`, then it won't have any effect.
 	MinimumChildEndpoints *int `pulumi:"minimumChildEndpoints"`
 	// This argument specifies the minimum number of IPv4 (DNS record type A) endpoints that must be ‘online’ in the child profile in order for the parent profile to direct traffic to any of the endpoints in that child profile. This argument only applies to Endpoints of type `nestedEndpoints` and
 	MinimumRequiredChildEndpointsIpv4 *int `pulumi:"minimumRequiredChildEndpointsIpv4"`
@@ -200,7 +207,7 @@ type trafficManagerNestedEndpointState struct {
 	MinimumRequiredChildEndpointsIpv6 *int `pulumi:"minimumRequiredChildEndpointsIpv6"`
 	// The name of the External Endpoint. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
-	// Specifies the priority of this Endpoint, this must be specified for Profiles using the `Priority` traffic routing method. Supports values between 1 and 1000, with no Endpoints sharing the same value. If omitted the value will be computed in order of creation. Defaults to `1`.
+	// Specifies the priority of this Endpoint, this must be specified for Profiles using the `Priority` traffic routing method. Supports values between 1 and 1000, with no Endpoints sharing the same value. If omitted the value will be computed in order of creation.
 	Priority *int `pulumi:"priority"`
 	// The ID of the Traffic Manager Profile that this External Endpoint should be created within. Changing this forces a new resource to be created.
 	ProfileId *string `pulumi:"profileId"`
@@ -223,7 +230,7 @@ type TrafficManagerNestedEndpointState struct {
 	GeoMappings pulumi.StringArrayInput
 	// This argument specifies the minimum number of endpoints that must be ‘online’ in the child profile in order for the parent profile to direct traffic to any of the endpoints in that child profile. This value must be larger than `0`.
 	//
-	// ~>**NOTE:** If `minChildEndpoints` is less than either `minimumRequiredChildEndpointsIpv4` or `minimumRequiredChildEndpointsIpv6`, then it won't have any effect.
+	// > **Note:** If `minChildEndpoints` is less than either `minimumRequiredChildEndpointsIpv4` or `minimumRequiredChildEndpointsIpv6`, then it won't have any effect.
 	MinimumChildEndpoints pulumi.IntPtrInput
 	// This argument specifies the minimum number of IPv4 (DNS record type A) endpoints that must be ‘online’ in the child profile in order for the parent profile to direct traffic to any of the endpoints in that child profile. This argument only applies to Endpoints of type `nestedEndpoints` and
 	MinimumRequiredChildEndpointsIpv4 pulumi.IntPtrInput
@@ -231,7 +238,7 @@ type TrafficManagerNestedEndpointState struct {
 	MinimumRequiredChildEndpointsIpv6 pulumi.IntPtrInput
 	// The name of the External Endpoint. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
-	// Specifies the priority of this Endpoint, this must be specified for Profiles using the `Priority` traffic routing method. Supports values between 1 and 1000, with no Endpoints sharing the same value. If omitted the value will be computed in order of creation. Defaults to `1`.
+	// Specifies the priority of this Endpoint, this must be specified for Profiles using the `Priority` traffic routing method. Supports values between 1 and 1000, with no Endpoints sharing the same value. If omitted the value will be computed in order of creation.
 	Priority pulumi.IntPtrInput
 	// The ID of the Traffic Manager Profile that this External Endpoint should be created within. Changing this forces a new resource to be created.
 	ProfileId pulumi.StringPtrInput
@@ -258,7 +265,7 @@ type trafficManagerNestedEndpointArgs struct {
 	GeoMappings []string `pulumi:"geoMappings"`
 	// This argument specifies the minimum number of endpoints that must be ‘online’ in the child profile in order for the parent profile to direct traffic to any of the endpoints in that child profile. This value must be larger than `0`.
 	//
-	// ~>**NOTE:** If `minChildEndpoints` is less than either `minimumRequiredChildEndpointsIpv4` or `minimumRequiredChildEndpointsIpv6`, then it won't have any effect.
+	// > **Note:** If `minChildEndpoints` is less than either `minimumRequiredChildEndpointsIpv4` or `minimumRequiredChildEndpointsIpv6`, then it won't have any effect.
 	MinimumChildEndpoints int `pulumi:"minimumChildEndpoints"`
 	// This argument specifies the minimum number of IPv4 (DNS record type A) endpoints that must be ‘online’ in the child profile in order for the parent profile to direct traffic to any of the endpoints in that child profile. This argument only applies to Endpoints of type `nestedEndpoints` and
 	MinimumRequiredChildEndpointsIpv4 *int `pulumi:"minimumRequiredChildEndpointsIpv4"`
@@ -266,7 +273,7 @@ type trafficManagerNestedEndpointArgs struct {
 	MinimumRequiredChildEndpointsIpv6 *int `pulumi:"minimumRequiredChildEndpointsIpv6"`
 	// The name of the External Endpoint. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
-	// Specifies the priority of this Endpoint, this must be specified for Profiles using the `Priority` traffic routing method. Supports values between 1 and 1000, with no Endpoints sharing the same value. If omitted the value will be computed in order of creation. Defaults to `1`.
+	// Specifies the priority of this Endpoint, this must be specified for Profiles using the `Priority` traffic routing method. Supports values between 1 and 1000, with no Endpoints sharing the same value. If omitted the value will be computed in order of creation.
 	Priority *int `pulumi:"priority"`
 	// The ID of the Traffic Manager Profile that this External Endpoint should be created within. Changing this forces a new resource to be created.
 	ProfileId string `pulumi:"profileId"`
@@ -290,7 +297,7 @@ type TrafficManagerNestedEndpointArgs struct {
 	GeoMappings pulumi.StringArrayInput
 	// This argument specifies the minimum number of endpoints that must be ‘online’ in the child profile in order for the parent profile to direct traffic to any of the endpoints in that child profile. This value must be larger than `0`.
 	//
-	// ~>**NOTE:** If `minChildEndpoints` is less than either `minimumRequiredChildEndpointsIpv4` or `minimumRequiredChildEndpointsIpv6`, then it won't have any effect.
+	// > **Note:** If `minChildEndpoints` is less than either `minimumRequiredChildEndpointsIpv4` or `minimumRequiredChildEndpointsIpv6`, then it won't have any effect.
 	MinimumChildEndpoints pulumi.IntInput
 	// This argument specifies the minimum number of IPv4 (DNS record type A) endpoints that must be ‘online’ in the child profile in order for the parent profile to direct traffic to any of the endpoints in that child profile. This argument only applies to Endpoints of type `nestedEndpoints` and
 	MinimumRequiredChildEndpointsIpv4 pulumi.IntPtrInput
@@ -298,7 +305,7 @@ type TrafficManagerNestedEndpointArgs struct {
 	MinimumRequiredChildEndpointsIpv6 pulumi.IntPtrInput
 	// The name of the External Endpoint. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
-	// Specifies the priority of this Endpoint, this must be specified for Profiles using the `Priority` traffic routing method. Supports values between 1 and 1000, with no Endpoints sharing the same value. If omitted the value will be computed in order of creation. Defaults to `1`.
+	// Specifies the priority of this Endpoint, this must be specified for Profiles using the `Priority` traffic routing method. Supports values between 1 and 1000, with no Endpoints sharing the same value. If omitted the value will be computed in order of creation.
 	Priority pulumi.IntPtrInput
 	// The ID of the Traffic Manager Profile that this External Endpoint should be created within. Changing this forces a new resource to be created.
 	ProfileId pulumi.StringInput
@@ -421,7 +428,7 @@ func (o TrafficManagerNestedEndpointOutput) GeoMappings() pulumi.StringArrayOutp
 
 // This argument specifies the minimum number of endpoints that must be ‘online’ in the child profile in order for the parent profile to direct traffic to any of the endpoints in that child profile. This value must be larger than `0`.
 //
-// ~>**NOTE:** If `minChildEndpoints` is less than either `minimumRequiredChildEndpointsIpv4` or `minimumRequiredChildEndpointsIpv6`, then it won't have any effect.
+// > **Note:** If `minChildEndpoints` is less than either `minimumRequiredChildEndpointsIpv4` or `minimumRequiredChildEndpointsIpv6`, then it won't have any effect.
 func (o TrafficManagerNestedEndpointOutput) MinimumChildEndpoints() pulumi.IntOutput {
 	return o.ApplyT(func(v *TrafficManagerNestedEndpoint) pulumi.IntOutput { return v.MinimumChildEndpoints }).(pulumi.IntOutput)
 }
@@ -441,9 +448,9 @@ func (o TrafficManagerNestedEndpointOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *TrafficManagerNestedEndpoint) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Specifies the priority of this Endpoint, this must be specified for Profiles using the `Priority` traffic routing method. Supports values between 1 and 1000, with no Endpoints sharing the same value. If omitted the value will be computed in order of creation. Defaults to `1`.
-func (o TrafficManagerNestedEndpointOutput) Priority() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *TrafficManagerNestedEndpoint) pulumi.IntPtrOutput { return v.Priority }).(pulumi.IntPtrOutput)
+// Specifies the priority of this Endpoint, this must be specified for Profiles using the `Priority` traffic routing method. Supports values between 1 and 1000, with no Endpoints sharing the same value. If omitted the value will be computed in order of creation.
+func (o TrafficManagerNestedEndpointOutput) Priority() pulumi.IntOutput {
+	return o.ApplyT(func(v *TrafficManagerNestedEndpoint) pulumi.IntOutput { return v.Priority }).(pulumi.IntOutput)
 }
 
 // The ID of the Traffic Manager Profile that this External Endpoint should be created within. Changing this forces a new resource to be created.

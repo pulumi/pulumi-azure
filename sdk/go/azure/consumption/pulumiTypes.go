@@ -1083,7 +1083,7 @@ type BudgetResourceGroupNotification struct {
 	ContactRoles []string `pulumi:"contactRoles"`
 	// Should the notification be enabled? Defaults to `true`.
 	//
-	// > **NOTE:** A `notification` block cannot have all of `contactEmails`, `contactRoles`, and `contactGroups` empty. This means that at least one of the three must be specified.
+	// > **Note:** A `notification` block cannot have all of `contactEmails`, `contactRoles`, and `contactGroups` empty. This means that at least one of the three must be specified.
 	Enabled *bool `pulumi:"enabled"`
 	// The comparison operator for the notification. Must be one of `EqualTo`, `GreaterThan`, or `GreaterThanOrEqualTo`.
 	Operator string `pulumi:"operator"`
@@ -1113,7 +1113,7 @@ type BudgetResourceGroupNotificationArgs struct {
 	ContactRoles pulumi.StringArrayInput `pulumi:"contactRoles"`
 	// Should the notification be enabled? Defaults to `true`.
 	//
-	// > **NOTE:** A `notification` block cannot have all of `contactEmails`, `contactRoles`, and `contactGroups` empty. This means that at least one of the three must be specified.
+	// > **Note:** A `notification` block cannot have all of `contactEmails`, `contactRoles`, and `contactGroups` empty. This means that at least one of the three must be specified.
 	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
 	// The comparison operator for the notification. Must be one of `EqualTo`, `GreaterThan`, or `GreaterThanOrEqualTo`.
 	Operator pulumi.StringInput `pulumi:"operator"`
@@ -1191,7 +1191,7 @@ func (o BudgetResourceGroupNotificationOutput) ContactRoles() pulumi.StringArray
 
 // Should the notification be enabled? Defaults to `true`.
 //
-// > **NOTE:** A `notification` block cannot have all of `contactEmails`, `contactRoles`, and `contactGroups` empty. This means that at least one of the three must be specified.
+// > **Note:** A `notification` block cannot have all of `contactEmails`, `contactRoles`, and `contactGroups` empty. This means that at least one of the three must be specified.
 func (o BudgetResourceGroupNotificationOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v BudgetResourceGroupNotification) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
@@ -1782,7 +1782,7 @@ type BudgetSubscriptionNotification struct {
 	ContactRoles []string `pulumi:"contactRoles"`
 	// Should the notification be enabled? Defaults to `true`.
 	//
-	// > **NOTE:** A `notification` block cannot have all of `contactEmails`, `contactRoles`, and `contactGroups` empty. This means that at least one of the three must be specified.
+	// > **Note:** A `notification` block cannot have all of `contactEmails`, `contactRoles`, and `contactGroups` empty. This means that at least one of the three must be specified.
 	Enabled *bool `pulumi:"enabled"`
 	// The comparison operator for the notification. Must be one of `EqualTo`, `GreaterThan`, or `GreaterThanOrEqualTo`.
 	Operator string `pulumi:"operator"`
@@ -1812,7 +1812,7 @@ type BudgetSubscriptionNotificationArgs struct {
 	ContactRoles pulumi.StringArrayInput `pulumi:"contactRoles"`
 	// Should the notification be enabled? Defaults to `true`.
 	//
-	// > **NOTE:** A `notification` block cannot have all of `contactEmails`, `contactRoles`, and `contactGroups` empty. This means that at least one of the three must be specified.
+	// > **Note:** A `notification` block cannot have all of `contactEmails`, `contactRoles`, and `contactGroups` empty. This means that at least one of the three must be specified.
 	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
 	// The comparison operator for the notification. Must be one of `EqualTo`, `GreaterThan`, or `GreaterThanOrEqualTo`.
 	Operator pulumi.StringInput `pulumi:"operator"`
@@ -1890,7 +1890,7 @@ func (o BudgetSubscriptionNotificationOutput) ContactRoles() pulumi.StringArrayO
 
 // Should the notification be enabled? Defaults to `true`.
 //
-// > **NOTE:** A `notification` block cannot have all of `contactEmails`, `contactRoles`, and `contactGroups` empty. This means that at least one of the three must be specified.
+// > **Note:** A `notification` block cannot have all of `contactEmails`, `contactRoles`, and `contactGroups` empty. This means that at least one of the three must be specified.
 func (o BudgetSubscriptionNotificationOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v BudgetSubscriptionNotification) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }

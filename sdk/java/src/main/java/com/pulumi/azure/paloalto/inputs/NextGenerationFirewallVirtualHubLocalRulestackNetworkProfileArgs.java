@@ -17,9 +17,17 @@ public final class NextGenerationFirewallVirtualHubLocalRulestackNetworkProfileA
 
     public static final NextGenerationFirewallVirtualHubLocalRulestackNetworkProfileArgs Empty = new NextGenerationFirewallVirtualHubLocalRulestackNetworkProfileArgs();
 
+    /**
+     * Specifies a list of Public IP IDs to use for Egress NAT.
+     * 
+     */
     @Import(name="egressNatIpAddressIds")
     private @Nullable Output<List<String>> egressNatIpAddressIds;
 
+    /**
+     * @return Specifies a list of Public IP IDs to use for Egress NAT.
+     * 
+     */
     public Optional<Output<List<String>>> egressNatIpAddressIds() {
         return Optional.ofNullable(this.egressNatIpAddressIds);
     }
@@ -38,16 +46,32 @@ public final class NextGenerationFirewallVirtualHubLocalRulestackNetworkProfileA
         return Optional.ofNullable(this.ipOfTrustForUserDefinedRoutes);
     }
 
+    /**
+     * The ID of the Palo Alto Network Virtual Appliance in the VHub. Changing this forces a new Palo Alto Next Generation Firewall VHub Local Rulestack to be created.
+     * 
+     */
     @Import(name="networkVirtualApplianceId", required=true)
     private Output<String> networkVirtualApplianceId;
 
+    /**
+     * @return The ID of the Palo Alto Network Virtual Appliance in the VHub. Changing this forces a new Palo Alto Next Generation Firewall VHub Local Rulestack to be created.
+     * 
+     */
     public Output<String> networkVirtualApplianceId() {
         return this.networkVirtualApplianceId;
     }
 
+    /**
+     * Specifies a list of Public IP IDs to use for this Next Generation Firewall.
+     * 
+     */
     @Import(name="publicIpAddressIds", required=true)
     private Output<List<String>> publicIpAddressIds;
 
+    /**
+     * @return Specifies a list of Public IP IDs to use for this Next Generation Firewall.
+     * 
+     */
     public Output<List<String>> publicIpAddressIds() {
         return this.publicIpAddressIds;
     }
@@ -59,9 +83,17 @@ public final class NextGenerationFirewallVirtualHubLocalRulestackNetworkProfileA
         return Optional.ofNullable(this.publicIpAddresses);
     }
 
+    /**
+     * Specifies a list of trusted ranges to use for the Network.
+     * 
+     */
     @Import(name="trustedAddressRanges")
     private @Nullable Output<List<String>> trustedAddressRanges;
 
+    /**
+     * @return Specifies a list of trusted ranges to use for the Network.
+     * 
+     */
     public Optional<Output<List<String>>> trustedAddressRanges() {
         return Optional.ofNullable(this.trustedAddressRanges);
     }
@@ -80,9 +112,17 @@ public final class NextGenerationFirewallVirtualHubLocalRulestackNetworkProfileA
         return Optional.ofNullable(this.untrustedSubnetId);
     }
 
+    /**
+     * The ID of the Virtual Hub this Next generation Fireall will be deployed in. Changing this forces a new Palo Alto Next Generation Firewall VHub Local Rulestack to be created.
+     * 
+     */
     @Import(name="virtualHubId", required=true)
     private Output<String> virtualHubId;
 
+    /**
+     * @return The ID of the Virtual Hub this Next generation Fireall will be deployed in. Changing this forces a new Palo Alto Next Generation Firewall VHub Local Rulestack to be created.
+     * 
+     */
     public Output<String> virtualHubId() {
         return this.virtualHubId;
     }
@@ -120,15 +160,33 @@ public final class NextGenerationFirewallVirtualHubLocalRulestackNetworkProfileA
             $ = new NextGenerationFirewallVirtualHubLocalRulestackNetworkProfileArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param egressNatIpAddressIds Specifies a list of Public IP IDs to use for Egress NAT.
+         * 
+         * @return builder
+         * 
+         */
         public Builder egressNatIpAddressIds(@Nullable Output<List<String>> egressNatIpAddressIds) {
             $.egressNatIpAddressIds = egressNatIpAddressIds;
             return this;
         }
 
+        /**
+         * @param egressNatIpAddressIds Specifies a list of Public IP IDs to use for Egress NAT.
+         * 
+         * @return builder
+         * 
+         */
         public Builder egressNatIpAddressIds(List<String> egressNatIpAddressIds) {
             return egressNatIpAddressIds(Output.of(egressNatIpAddressIds));
         }
 
+        /**
+         * @param egressNatIpAddressIds Specifies a list of Public IP IDs to use for Egress NAT.
+         * 
+         * @return builder
+         * 
+         */
         public Builder egressNatIpAddressIds(String... egressNatIpAddressIds) {
             return egressNatIpAddressIds(List.of(egressNatIpAddressIds));
         }
@@ -155,24 +213,54 @@ public final class NextGenerationFirewallVirtualHubLocalRulestackNetworkProfileA
             return ipOfTrustForUserDefinedRoutes(Output.of(ipOfTrustForUserDefinedRoutes));
         }
 
+        /**
+         * @param networkVirtualApplianceId The ID of the Palo Alto Network Virtual Appliance in the VHub. Changing this forces a new Palo Alto Next Generation Firewall VHub Local Rulestack to be created.
+         * 
+         * @return builder
+         * 
+         */
         public Builder networkVirtualApplianceId(Output<String> networkVirtualApplianceId) {
             $.networkVirtualApplianceId = networkVirtualApplianceId;
             return this;
         }
 
+        /**
+         * @param networkVirtualApplianceId The ID of the Palo Alto Network Virtual Appliance in the VHub. Changing this forces a new Palo Alto Next Generation Firewall VHub Local Rulestack to be created.
+         * 
+         * @return builder
+         * 
+         */
         public Builder networkVirtualApplianceId(String networkVirtualApplianceId) {
             return networkVirtualApplianceId(Output.of(networkVirtualApplianceId));
         }
 
+        /**
+         * @param publicIpAddressIds Specifies a list of Public IP IDs to use for this Next Generation Firewall.
+         * 
+         * @return builder
+         * 
+         */
         public Builder publicIpAddressIds(Output<List<String>> publicIpAddressIds) {
             $.publicIpAddressIds = publicIpAddressIds;
             return this;
         }
 
+        /**
+         * @param publicIpAddressIds Specifies a list of Public IP IDs to use for this Next Generation Firewall.
+         * 
+         * @return builder
+         * 
+         */
         public Builder publicIpAddressIds(List<String> publicIpAddressIds) {
             return publicIpAddressIds(Output.of(publicIpAddressIds));
         }
 
+        /**
+         * @param publicIpAddressIds Specifies a list of Public IP IDs to use for this Next Generation Firewall.
+         * 
+         * @return builder
+         * 
+         */
         public Builder publicIpAddressIds(String... publicIpAddressIds) {
             return publicIpAddressIds(List.of(publicIpAddressIds));
         }
@@ -190,15 +278,33 @@ public final class NextGenerationFirewallVirtualHubLocalRulestackNetworkProfileA
             return publicIpAddresses(List.of(publicIpAddresses));
         }
 
+        /**
+         * @param trustedAddressRanges Specifies a list of trusted ranges to use for the Network.
+         * 
+         * @return builder
+         * 
+         */
         public Builder trustedAddressRanges(@Nullable Output<List<String>> trustedAddressRanges) {
             $.trustedAddressRanges = trustedAddressRanges;
             return this;
         }
 
+        /**
+         * @param trustedAddressRanges Specifies a list of trusted ranges to use for the Network.
+         * 
+         * @return builder
+         * 
+         */
         public Builder trustedAddressRanges(List<String> trustedAddressRanges) {
             return trustedAddressRanges(Output.of(trustedAddressRanges));
         }
 
+        /**
+         * @param trustedAddressRanges Specifies a list of trusted ranges to use for the Network.
+         * 
+         * @return builder
+         * 
+         */
         public Builder trustedAddressRanges(String... trustedAddressRanges) {
             return trustedAddressRanges(List.of(trustedAddressRanges));
         }
@@ -221,11 +327,23 @@ public final class NextGenerationFirewallVirtualHubLocalRulestackNetworkProfileA
             return untrustedSubnetId(Output.of(untrustedSubnetId));
         }
 
+        /**
+         * @param virtualHubId The ID of the Virtual Hub this Next generation Fireall will be deployed in. Changing this forces a new Palo Alto Next Generation Firewall VHub Local Rulestack to be created.
+         * 
+         * @return builder
+         * 
+         */
         public Builder virtualHubId(Output<String> virtualHubId) {
             $.virtualHubId = virtualHubId;
             return this;
         }
 
+        /**
+         * @param virtualHubId The ID of the Virtual Hub this Next generation Fireall will be deployed in. Changing this forces a new Palo Alto Next Generation Firewall VHub Local Rulestack to be created.
+         * 
+         * @return builder
+         * 
+         */
         public Builder virtualHubId(String virtualHubId) {
             return virtualHubId(Output.of(virtualHubId));
         }

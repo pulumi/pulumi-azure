@@ -114,6 +114,13 @@ namespace Pulumi.Azure.Pim
     /// });
     /// ```
     /// 
+    /// ## API Providers
+    /// 
+    /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+    /// This resource uses the following Azure API Providers:
+    /// 
+    /// * `Microsoft.Authorization`: 2020-10-01
+    /// 
     /// ## Import
     /// 
     /// PIM Active Role Assignments can be imported using the following composite resource ID, e.g.

@@ -53,7 +53,7 @@ public final class TrafficManagerProfileState extends com.pulumi.resources.Resou
     /**
      * The amount of endpoints to return for DNS queries to this Profile. Possible values range from `1` to `8`.
      * 
-     * &gt; **NOTE:** `max_return` must be set when the `traffic_routing_method` is `MultiValue`.
+     * &gt; **Note:** `max_return` must be set when the `traffic_routing_method` is `MultiValue`.
      * 
      */
     @Import(name="maxReturn")
@@ -62,7 +62,7 @@ public final class TrafficManagerProfileState extends com.pulumi.resources.Resou
     /**
      * @return The amount of endpoints to return for DNS queries to this Profile. Possible values range from `1` to `8`.
      * 
-     * &gt; **NOTE:** `max_return` must be set when the `traffic_routing_method` is `MultiValue`.
+     * &gt; **Note:** `max_return` must be set when the `traffic_routing_method` is `MultiValue`.
      * 
      */
     public Optional<Output<Integer>> maxReturn() {
@@ -264,7 +264,7 @@ public final class TrafficManagerProfileState extends com.pulumi.resources.Resou
         /**
          * @param maxReturn The amount of endpoints to return for DNS queries to this Profile. Possible values range from `1` to `8`.
          * 
-         * &gt; **NOTE:** `max_return` must be set when the `traffic_routing_method` is `MultiValue`.
+         * &gt; **Note:** `max_return` must be set when the `traffic_routing_method` is `MultiValue`.
          * 
          * @return builder
          * 
@@ -277,7 +277,7 @@ public final class TrafficManagerProfileState extends com.pulumi.resources.Resou
         /**
          * @param maxReturn The amount of endpoints to return for DNS queries to this Profile. Possible values range from `1` to `8`.
          * 
-         * &gt; **NOTE:** `max_return` must be set when the `traffic_routing_method` is `MultiValue`.
+         * &gt; **Note:** `max_return` must be set when the `traffic_routing_method` is `MultiValue`.
          * 
          * @return builder
          * 

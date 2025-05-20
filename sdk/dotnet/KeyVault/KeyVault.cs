@@ -10,14 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.KeyVault
 {
     /// <summary>
-    /// Manages a Key Vault.
-    /// 
-    /// ## Disclaimers
-    /// 
-    /// &gt; **Note:** It's possible to define Key Vault Access Policies both within the `azure.keyvault.KeyVault` resource via the `access_policy` block and by using the `azure.keyvault.AccessPolicy` resource. However it's not possible to use both methods to manage Access Policies within a KeyVault, since there'll be conflicts.
-    /// 
-    /// &gt; **Note:** It's possible to define Key Vault Certificate Contacts both within the `azure.keyvault.KeyVault` resource via the `contact` block and by using the `azure.keyvault.CertificateContacts` resource. However it's not possible to use both methods to manage Certificate Contacts within a KeyVault, since there'll be conflicts.
-    /// 
     /// ## Example Usage
     /// 
     /// ```csharp
@@ -83,9 +75,9 @@ namespace Pulumi.Azure.KeyVault
     public partial class KeyVault : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// A list of up to 1024 objects describing access policies, as described below.
+        /// [A list](https://www.terraform.io/docs/configuration/attr-as-blocks.html) of `access_policy` objects (up to 1024) describing access policies, as described below.
         /// 
-        /// &gt; **NOTE** Since `access_policy` can be configured both inline and via the separate `azure.keyvault.AccessPolicy` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
+        /// &gt; **Note:** Since `access_policy` can be configured both inline and via the separate `azure.keyvault.AccessPolicy` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
         /// </summary>
         [Output("accessPolicies")]
         public Output<ImmutableArray<Outputs.KeyVaultAccessPolicy>> AccessPolicies { get; private set; } = null!;
@@ -141,11 +133,6 @@ namespace Pulumi.Azure.KeyVault
         [Output("publicNetworkAccessEnabled")]
         public Output<bool?> PublicNetworkAccessEnabled { get; private set; } = null!;
 
-        /// <summary>
-        /// Is Purge Protection enabled for this Key Vault? 
-        /// 
-        /// !&gt; **Note:** Once Purge Protection has been Enabled it's not possible to Disable it. Support for [disabling purge protection is being tracked in this Azure API issue](https://github.com/Azure/azure-rest-api-specs/issues/8075). Deleting the Key Vault with Purge Protection Enabled will schedule the Key Vault to be deleted (which will happen by Azure in the configured number of days, currently 90 days).
-        /// </summary>
         [Output("purgeProtectionEnabled")]
         public Output<bool?> PurgeProtectionEnabled { get; private set; } = null!;
 
@@ -237,9 +224,9 @@ namespace Pulumi.Azure.KeyVault
         private InputList<Inputs.KeyVaultAccessPolicyArgs>? _accessPolicies;
 
         /// <summary>
-        /// A list of up to 1024 objects describing access policies, as described below.
+        /// [A list](https://www.terraform.io/docs/configuration/attr-as-blocks.html) of `access_policy` objects (up to 1024) describing access policies, as described below.
         /// 
-        /// &gt; **NOTE** Since `access_policy` can be configured both inline and via the separate `azure.keyvault.AccessPolicy` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
+        /// &gt; **Note:** Since `access_policy` can be configured both inline and via the separate `azure.keyvault.AccessPolicy` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
         /// </summary>
         public InputList<Inputs.KeyVaultAccessPolicyArgs> AccessPolicies
         {
@@ -304,11 +291,6 @@ namespace Pulumi.Azure.KeyVault
         [Input("publicNetworkAccessEnabled")]
         public Input<bool>? PublicNetworkAccessEnabled { get; set; }
 
-        /// <summary>
-        /// Is Purge Protection enabled for this Key Vault? 
-        /// 
-        /// !&gt; **Note:** Once Purge Protection has been Enabled it's not possible to Disable it. Support for [disabling purge protection is being tracked in this Azure API issue](https://github.com/Azure/azure-rest-api-specs/issues/8075). Deleting the Key Vault with Purge Protection Enabled will schedule the Key Vault to be deleted (which will happen by Azure in the configured number of days, currently 90 days).
-        /// </summary>
         [Input("purgeProtectionEnabled")]
         public Input<bool>? PurgeProtectionEnabled { get; set; }
 
@@ -362,9 +344,9 @@ namespace Pulumi.Azure.KeyVault
         private InputList<Inputs.KeyVaultAccessPolicyGetArgs>? _accessPolicies;
 
         /// <summary>
-        /// A list of up to 1024 objects describing access policies, as described below.
+        /// [A list](https://www.terraform.io/docs/configuration/attr-as-blocks.html) of `access_policy` objects (up to 1024) describing access policies, as described below.
         /// 
-        /// &gt; **NOTE** Since `access_policy` can be configured both inline and via the separate `azure.keyvault.AccessPolicy` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
+        /// &gt; **Note:** Since `access_policy` can be configured both inline and via the separate `azure.keyvault.AccessPolicy` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
         /// </summary>
         public InputList<Inputs.KeyVaultAccessPolicyGetArgs> AccessPolicies
         {
@@ -429,11 +411,6 @@ namespace Pulumi.Azure.KeyVault
         [Input("publicNetworkAccessEnabled")]
         public Input<bool>? PublicNetworkAccessEnabled { get; set; }
 
-        /// <summary>
-        /// Is Purge Protection enabled for this Key Vault? 
-        /// 
-        /// !&gt; **Note:** Once Purge Protection has been Enabled it's not possible to Disable it. Support for [disabling purge protection is being tracked in this Azure API issue](https://github.com/Azure/azure-rest-api-specs/issues/8075). Deleting the Key Vault with Purge Protection Enabled will schedule the Key Vault to be deleted (which will happen by Azure in the configured number of days, currently 90 days).
-        /// </summary>
         [Input("purgeProtectionEnabled")]
         public Input<bool>? PurgeProtectionEnabled { get; set; }
 

@@ -225,6 +225,13 @@ class LocalRulestackFqdnList(pulumi.CustomResource):
             fully_qualified_domain_names=["contoso.com"])
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `PaloAltoNetworks.Cloudngfw`: 2022-08-29
+
         ## Import
 
         Palo Alto Local Rulestack FQDN Lists can be imported using the `resource id`, e.g.
@@ -268,6 +275,13 @@ class LocalRulestackFqdnList(pulumi.CustomResource):
             rulestack_id=example_local_rulestack.id,
             fully_qualified_domain_names=["contoso.com"])
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `PaloAltoNetworks.Cloudngfw`: 2022-08-29
 
         ## Import
 

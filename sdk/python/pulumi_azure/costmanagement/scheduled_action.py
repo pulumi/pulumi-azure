@@ -516,6 +516,13 @@ class ScheduledAction(pulumi.CustomResource):
             end_date="2023-02-02T00:00:00Z")
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.CostManagement`: 2023-08-01
+
         ## Import
 
         Azure Cost Management Scheduled Actions can be imported using the `resource id`, e.g.
@@ -568,6 +575,13 @@ class ScheduledAction(pulumi.CustomResource):
             start_date="2023-01-02T00:00:00Z",
             end_date="2023-02-02T00:00:00Z")
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.CostManagement`: 2023-08-01
 
         ## Import
 

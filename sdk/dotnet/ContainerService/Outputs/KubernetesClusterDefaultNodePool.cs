@@ -13,13 +13,6 @@ namespace Pulumi.Azure.ContainerService.Outputs
     [OutputType]
     public sealed class KubernetesClusterDefaultNodePool
     {
-        /// <summary>
-        /// Should [the Kubernetes Auto Scaler](https://docs.microsoft.com/azure/aks/cluster-autoscaler) be enabled for this Node Pool?
-        /// 
-        /// &gt; **Note:** This requires that the `type` is set to `VirtualMachineScaleSets`.
-        /// 
-        /// &gt; **Note:** If you're using AutoScaling, you may wish to use [`ignoreChanges` functionality](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) to ignore changes to the `node_count` field.
-        /// </summary>
         public readonly bool? AutoScalingEnabled;
         /// <summary>
         /// Specifies the ID of the Capacity Reservation Group within which this AKS Cluster should be created. Changing this forces a new resource to be created.
@@ -120,11 +113,6 @@ namespace Pulumi.Azure.ContainerService.Outputs
         /// The ID of the Snapshot which should be used to create this default Node Pool. `temporary_name_for_rotation` must be specified when changing this property.
         /// </summary>
         public readonly string? SnapshotId;
-        /// <summary>
-        /// A mapping of tags to assign to the Node Pool.
-        /// 
-        /// &gt; At this time there's a bug in the AKS API where Tags for a Node Pool are not stored in the correct case - you may wish to use `ignore_changes` functionality to ignore changes to the casing until this is fixed in the AKS API.
-        /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
         /// <summary>
         /// Specifies the name of the temporary node pool used to cycle the default node pool for VM resizing.

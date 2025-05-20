@@ -63,7 +63,7 @@ public final class TriggerHttpRequestState extends com.pulumi.resources.Resource
     /**
      * Specifies the name of the HTTP Request Trigger to be created within the Logic App Workflow. Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE:** This name must be unique across all Triggers within the Logic App Workflow.
+     * &gt; **Note:** This name must be unique across all Triggers within the Logic App Workflow.
      * 
      */
     @Import(name="name")
@@ -72,7 +72,7 @@ public final class TriggerHttpRequestState extends com.pulumi.resources.Resource
     /**
      * @return Specifies the name of the HTTP Request Trigger to be created within the Logic App Workflow. Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE:** This name must be unique across all Triggers within the Logic App Workflow.
+     * &gt; **Note:** This name must be unique across all Triggers within the Logic App Workflow.
      * 
      */
     public Optional<Output<String>> name() {
@@ -82,7 +82,7 @@ public final class TriggerHttpRequestState extends com.pulumi.resources.Resource
     /**
      * Specifies the Relative Path used for this Request.
      * 
-     * &gt; **NOTE:** When `relative_path` is set a `method` must also be set.
+     * &gt; **Note:** When `relative_path` is set a `method` must also be set.
      * 
      */
     @Import(name="relativePath")
@@ -91,7 +91,7 @@ public final class TriggerHttpRequestState extends com.pulumi.resources.Resource
     /**
      * @return Specifies the Relative Path used for this Request.
      * 
-     * &gt; **NOTE:** When `relative_path` is set a `method` must also be set.
+     * &gt; **Note:** When `relative_path` is set a `method` must also be set.
      * 
      */
     public Optional<Output<String>> relativePath() {
@@ -101,12 +101,16 @@ public final class TriggerHttpRequestState extends com.pulumi.resources.Resource
     /**
      * A JSON Blob defining the Schema of the incoming request. This needs to be valid JSON.
      * 
+     * &gt; **Note:** To make the Trigger more readable, you may wish to consider using HEREDOC syntax (as shown above) or the `local_file` resource to load the schema from a file on disk.
+     * 
      */
     @Import(name="schema")
     private @Nullable Output<String> schema;
 
     /**
      * @return A JSON Blob defining the Schema of the incoming request. This needs to be valid JSON.
+     * 
+     * &gt; **Note:** To make the Trigger more readable, you may wish to consider using HEREDOC syntax (as shown above) or the `local_file` resource to load the schema from a file on disk.
      * 
      */
     public Optional<Output<String>> schema() {
@@ -208,7 +212,7 @@ public final class TriggerHttpRequestState extends com.pulumi.resources.Resource
         /**
          * @param name Specifies the name of the HTTP Request Trigger to be created within the Logic App Workflow. Changing this forces a new resource to be created.
          * 
-         * &gt; **NOTE:** This name must be unique across all Triggers within the Logic App Workflow.
+         * &gt; **Note:** This name must be unique across all Triggers within the Logic App Workflow.
          * 
          * @return builder
          * 
@@ -221,7 +225,7 @@ public final class TriggerHttpRequestState extends com.pulumi.resources.Resource
         /**
          * @param name Specifies the name of the HTTP Request Trigger to be created within the Logic App Workflow. Changing this forces a new resource to be created.
          * 
-         * &gt; **NOTE:** This name must be unique across all Triggers within the Logic App Workflow.
+         * &gt; **Note:** This name must be unique across all Triggers within the Logic App Workflow.
          * 
          * @return builder
          * 
@@ -233,7 +237,7 @@ public final class TriggerHttpRequestState extends com.pulumi.resources.Resource
         /**
          * @param relativePath Specifies the Relative Path used for this Request.
          * 
-         * &gt; **NOTE:** When `relative_path` is set a `method` must also be set.
+         * &gt; **Note:** When `relative_path` is set a `method` must also be set.
          * 
          * @return builder
          * 
@@ -246,7 +250,7 @@ public final class TriggerHttpRequestState extends com.pulumi.resources.Resource
         /**
          * @param relativePath Specifies the Relative Path used for this Request.
          * 
-         * &gt; **NOTE:** When `relative_path` is set a `method` must also be set.
+         * &gt; **Note:** When `relative_path` is set a `method` must also be set.
          * 
          * @return builder
          * 
@@ -258,6 +262,8 @@ public final class TriggerHttpRequestState extends com.pulumi.resources.Resource
         /**
          * @param schema A JSON Blob defining the Schema of the incoming request. This needs to be valid JSON.
          * 
+         * &gt; **Note:** To make the Trigger more readable, you may wish to consider using HEREDOC syntax (as shown above) or the `local_file` resource to load the schema from a file on disk.
+         * 
          * @return builder
          * 
          */
@@ -268,6 +274,8 @@ public final class TriggerHttpRequestState extends com.pulumi.resources.Resource
 
         /**
          * @param schema A JSON Blob defining the Schema of the incoming request. This needs to be valid JSON.
+         * 
+         * &gt; **Note:** To make the Trigger more readable, you may wish to consider using HEREDOC syntax (as shown above) or the `local_file` resource to load the schema from a file on disk.
          * 
          * @return builder
          * 

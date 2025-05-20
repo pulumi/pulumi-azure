@@ -37,33 +37,33 @@ class DiagnosticSettingArgs:
         :param pulumi.Input[builtins.str] target_resource_id: The ID of an existing Resource on which to configure Diagnostic Settings. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input['DiagnosticSettingEnabledLogArgs']]] enabled_logs: One or more `enabled_log` blocks as defined below.
                
-               > **NOTE:** At least one `enabled_log` or `metric` block must be specified. At least one type of Log or Metric must be enabled.
+               > **Note:** At least one `enabled_log` or `metric` block must be specified. At least one type of Log or Metric must be enabled.
         :param pulumi.Input[builtins.str] eventhub_authorization_rule_id: Specifies the ID of an Event Hub Namespace Authorization Rule used to send Diagnostics Data. 
                
-               > **NOTE:** This can be sourced from the `eventhub.EventHubNamespaceAuthorizationRule` resource and is different from a `eventhub.AuthorizationRule` resource.
+               > **Note:** This can be sourced from the `eventhub.EventHubNamespaceAuthorizationRule` resource and is different from a `eventhub.AuthorizationRule` resource.
                
-               > **NOTE:** At least one of `eventhub_authorization_rule_id`, `log_analytics_workspace_id`, `partner_solution_id` and `storage_account_id` must be specified.
+               > **Note:** At least one of `eventhub_authorization_rule_id`, `log_analytics_workspace_id`, `partner_solution_id` and `storage_account_id` must be specified.
         :param pulumi.Input[builtins.str] eventhub_name: Specifies the name of the Event Hub where Diagnostics Data should be sent.
                
-               > **NOTE:** If this isn't specified then the default Event Hub will be used.
+               > **Note:** If this isn't specified then the default Event Hub will be used.
         :param pulumi.Input[builtins.str] log_analytics_destination_type: Possible values are `AzureDiagnostics` and `Dedicated`. When set to `Dedicated`, logs sent to a Log Analytics workspace will go into resource specific tables, instead of the legacy `AzureDiagnostics` table.
                
-               > **NOTE:** This setting will only have an effect if a `log_analytics_workspace_id` is provided. For some target resource type (e.g., Key Vault), this field is unconfigurable. Please see [resource types](https://learn.microsoft.com/en-us/azure/azure-monitor/reference/tables/azurediagnostics#resource-types) for services that use each method. Please [see the documentation](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-logs-stream-log-store#azure-diagnostics-vs-resource-specific) for details on the differences between destination types.
+               > **Note:** This setting will only have an effect if a `log_analytics_workspace_id` is provided. For some target resource type (e.g., Key Vault), this field is unconfigurable. Please see [resource types](https://learn.microsoft.com/en-us/azure/azure-monitor/reference/tables/azurediagnostics#resource-types) for services that use each method. Please [see the documentation](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-logs-stream-log-store#azure-diagnostics-vs-resource-specific) for details on the differences between destination types.
         :param pulumi.Input[builtins.str] log_analytics_workspace_id: Specifies the ID of a Log Analytics Workspace where Diagnostics Data should be sent.
                
-               > **NOTE:** At least one of `eventhub_authorization_rule_id`, `log_analytics_workspace_id`, `partner_solution_id` and `storage_account_id` must be specified.
+               > **Note:** At least one of `eventhub_authorization_rule_id`, `log_analytics_workspace_id`, `partner_solution_id` and `storage_account_id` must be specified.
         :param pulumi.Input[Sequence[pulumi.Input['DiagnosticSettingMetricArgs']]] metrics: One or more `metric` blocks as defined below.
                
-               > **NOTE:** At least one `enabled_log` or `metric` block must be specified.
+               > **Note:** At least one `enabled_log` or `metric` block must be specified.
         :param pulumi.Input[builtins.str] name: Specifies the name of the Diagnostic Setting. Changing this forces a new resource to be created.
                
-               > **NOTE:** If the name is set to 'service' it will not be possible to fully delete the diagnostic setting. This is due to legacy API support.
+               > **Note:** If the name is set to 'service' it will not be possible to fully delete the diagnostic setting. This is due to legacy API support.
         :param pulumi.Input[builtins.str] partner_solution_id: The ID of the market partner solution where Diagnostics Data should be sent. For potential partner integrations, [click to learn more about partner integration](https://learn.microsoft.com/en-us/azure/partner-solutions/overview).
                
-               > **NOTE:** At least one of `eventhub_authorization_rule_id`, `log_analytics_workspace_id`, `partner_solution_id` and `storage_account_id` must be specified.
+               > **Note:** At least one of `eventhub_authorization_rule_id`, `log_analytics_workspace_id`, `partner_solution_id` and `storage_account_id` must be specified.
         :param pulumi.Input[builtins.str] storage_account_id: The ID of the Storage Account where logs should be sent. 
                
-               > **NOTE:** At least one of `eventhub_authorization_rule_id`, `log_analytics_workspace_id`, `partner_solution_id` and `storage_account_id` must be specified.
+               > **Note:** At least one of `eventhub_authorization_rule_id`, `log_analytics_workspace_id`, `partner_solution_id` and `storage_account_id` must be specified.
         """
         pulumi.set(__self__, "target_resource_id", target_resource_id)
         if enabled_logs is not None:
@@ -103,7 +103,7 @@ class DiagnosticSettingArgs:
         """
         One or more `enabled_log` blocks as defined below.
 
-        > **NOTE:** At least one `enabled_log` or `metric` block must be specified. At least one type of Log or Metric must be enabled.
+        > **Note:** At least one `enabled_log` or `metric` block must be specified. At least one type of Log or Metric must be enabled.
         """
         return pulumi.get(self, "enabled_logs")
 
@@ -117,9 +117,9 @@ class DiagnosticSettingArgs:
         """
         Specifies the ID of an Event Hub Namespace Authorization Rule used to send Diagnostics Data. 
 
-        > **NOTE:** This can be sourced from the `eventhub.EventHubNamespaceAuthorizationRule` resource and is different from a `eventhub.AuthorizationRule` resource.
+        > **Note:** This can be sourced from the `eventhub.EventHubNamespaceAuthorizationRule` resource and is different from a `eventhub.AuthorizationRule` resource.
 
-        > **NOTE:** At least one of `eventhub_authorization_rule_id`, `log_analytics_workspace_id`, `partner_solution_id` and `storage_account_id` must be specified.
+        > **Note:** At least one of `eventhub_authorization_rule_id`, `log_analytics_workspace_id`, `partner_solution_id` and `storage_account_id` must be specified.
         """
         return pulumi.get(self, "eventhub_authorization_rule_id")
 
@@ -133,7 +133,7 @@ class DiagnosticSettingArgs:
         """
         Specifies the name of the Event Hub where Diagnostics Data should be sent.
 
-        > **NOTE:** If this isn't specified then the default Event Hub will be used.
+        > **Note:** If this isn't specified then the default Event Hub will be used.
         """
         return pulumi.get(self, "eventhub_name")
 
@@ -147,7 +147,7 @@ class DiagnosticSettingArgs:
         """
         Possible values are `AzureDiagnostics` and `Dedicated`. When set to `Dedicated`, logs sent to a Log Analytics workspace will go into resource specific tables, instead of the legacy `AzureDiagnostics` table.
 
-        > **NOTE:** This setting will only have an effect if a `log_analytics_workspace_id` is provided. For some target resource type (e.g., Key Vault), this field is unconfigurable. Please see [resource types](https://learn.microsoft.com/en-us/azure/azure-monitor/reference/tables/azurediagnostics#resource-types) for services that use each method. Please [see the documentation](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-logs-stream-log-store#azure-diagnostics-vs-resource-specific) for details on the differences between destination types.
+        > **Note:** This setting will only have an effect if a `log_analytics_workspace_id` is provided. For some target resource type (e.g., Key Vault), this field is unconfigurable. Please see [resource types](https://learn.microsoft.com/en-us/azure/azure-monitor/reference/tables/azurediagnostics#resource-types) for services that use each method. Please [see the documentation](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-logs-stream-log-store#azure-diagnostics-vs-resource-specific) for details on the differences between destination types.
         """
         return pulumi.get(self, "log_analytics_destination_type")
 
@@ -161,7 +161,7 @@ class DiagnosticSettingArgs:
         """
         Specifies the ID of a Log Analytics Workspace where Diagnostics Data should be sent.
 
-        > **NOTE:** At least one of `eventhub_authorization_rule_id`, `log_analytics_workspace_id`, `partner_solution_id` and `storage_account_id` must be specified.
+        > **Note:** At least one of `eventhub_authorization_rule_id`, `log_analytics_workspace_id`, `partner_solution_id` and `storage_account_id` must be specified.
         """
         return pulumi.get(self, "log_analytics_workspace_id")
 
@@ -175,7 +175,7 @@ class DiagnosticSettingArgs:
         """
         One or more `metric` blocks as defined below.
 
-        > **NOTE:** At least one `enabled_log` or `metric` block must be specified.
+        > **Note:** At least one `enabled_log` or `metric` block must be specified.
         """
         return pulumi.get(self, "metrics")
 
@@ -189,7 +189,7 @@ class DiagnosticSettingArgs:
         """
         Specifies the name of the Diagnostic Setting. Changing this forces a new resource to be created.
 
-        > **NOTE:** If the name is set to 'service' it will not be possible to fully delete the diagnostic setting. This is due to legacy API support.
+        > **Note:** If the name is set to 'service' it will not be possible to fully delete the diagnostic setting. This is due to legacy API support.
         """
         return pulumi.get(self, "name")
 
@@ -203,7 +203,7 @@ class DiagnosticSettingArgs:
         """
         The ID of the market partner solution where Diagnostics Data should be sent. For potential partner integrations, [click to learn more about partner integration](https://learn.microsoft.com/en-us/azure/partner-solutions/overview).
 
-        > **NOTE:** At least one of `eventhub_authorization_rule_id`, `log_analytics_workspace_id`, `partner_solution_id` and `storage_account_id` must be specified.
+        > **Note:** At least one of `eventhub_authorization_rule_id`, `log_analytics_workspace_id`, `partner_solution_id` and `storage_account_id` must be specified.
         """
         return pulumi.get(self, "partner_solution_id")
 
@@ -217,7 +217,7 @@ class DiagnosticSettingArgs:
         """
         The ID of the Storage Account where logs should be sent. 
 
-        > **NOTE:** At least one of `eventhub_authorization_rule_id`, `log_analytics_workspace_id`, `partner_solution_id` and `storage_account_id` must be specified.
+        > **Note:** At least one of `eventhub_authorization_rule_id`, `log_analytics_workspace_id`, `partner_solution_id` and `storage_account_id` must be specified.
         """
         return pulumi.get(self, "storage_account_id")
 
@@ -243,33 +243,33 @@ class _DiagnosticSettingState:
         Input properties used for looking up and filtering DiagnosticSetting resources.
         :param pulumi.Input[Sequence[pulumi.Input['DiagnosticSettingEnabledLogArgs']]] enabled_logs: One or more `enabled_log` blocks as defined below.
                
-               > **NOTE:** At least one `enabled_log` or `metric` block must be specified. At least one type of Log or Metric must be enabled.
+               > **Note:** At least one `enabled_log` or `metric` block must be specified. At least one type of Log or Metric must be enabled.
         :param pulumi.Input[builtins.str] eventhub_authorization_rule_id: Specifies the ID of an Event Hub Namespace Authorization Rule used to send Diagnostics Data. 
                
-               > **NOTE:** This can be sourced from the `eventhub.EventHubNamespaceAuthorizationRule` resource and is different from a `eventhub.AuthorizationRule` resource.
+               > **Note:** This can be sourced from the `eventhub.EventHubNamespaceAuthorizationRule` resource and is different from a `eventhub.AuthorizationRule` resource.
                
-               > **NOTE:** At least one of `eventhub_authorization_rule_id`, `log_analytics_workspace_id`, `partner_solution_id` and `storage_account_id` must be specified.
+               > **Note:** At least one of `eventhub_authorization_rule_id`, `log_analytics_workspace_id`, `partner_solution_id` and `storage_account_id` must be specified.
         :param pulumi.Input[builtins.str] eventhub_name: Specifies the name of the Event Hub where Diagnostics Data should be sent.
                
-               > **NOTE:** If this isn't specified then the default Event Hub will be used.
+               > **Note:** If this isn't specified then the default Event Hub will be used.
         :param pulumi.Input[builtins.str] log_analytics_destination_type: Possible values are `AzureDiagnostics` and `Dedicated`. When set to `Dedicated`, logs sent to a Log Analytics workspace will go into resource specific tables, instead of the legacy `AzureDiagnostics` table.
                
-               > **NOTE:** This setting will only have an effect if a `log_analytics_workspace_id` is provided. For some target resource type (e.g., Key Vault), this field is unconfigurable. Please see [resource types](https://learn.microsoft.com/en-us/azure/azure-monitor/reference/tables/azurediagnostics#resource-types) for services that use each method. Please [see the documentation](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-logs-stream-log-store#azure-diagnostics-vs-resource-specific) for details on the differences between destination types.
+               > **Note:** This setting will only have an effect if a `log_analytics_workspace_id` is provided. For some target resource type (e.g., Key Vault), this field is unconfigurable. Please see [resource types](https://learn.microsoft.com/en-us/azure/azure-monitor/reference/tables/azurediagnostics#resource-types) for services that use each method. Please [see the documentation](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-logs-stream-log-store#azure-diagnostics-vs-resource-specific) for details on the differences between destination types.
         :param pulumi.Input[builtins.str] log_analytics_workspace_id: Specifies the ID of a Log Analytics Workspace where Diagnostics Data should be sent.
                
-               > **NOTE:** At least one of `eventhub_authorization_rule_id`, `log_analytics_workspace_id`, `partner_solution_id` and `storage_account_id` must be specified.
+               > **Note:** At least one of `eventhub_authorization_rule_id`, `log_analytics_workspace_id`, `partner_solution_id` and `storage_account_id` must be specified.
         :param pulumi.Input[Sequence[pulumi.Input['DiagnosticSettingMetricArgs']]] metrics: One or more `metric` blocks as defined below.
                
-               > **NOTE:** At least one `enabled_log` or `metric` block must be specified.
+               > **Note:** At least one `enabled_log` or `metric` block must be specified.
         :param pulumi.Input[builtins.str] name: Specifies the name of the Diagnostic Setting. Changing this forces a new resource to be created.
                
-               > **NOTE:** If the name is set to 'service' it will not be possible to fully delete the diagnostic setting. This is due to legacy API support.
+               > **Note:** If the name is set to 'service' it will not be possible to fully delete the diagnostic setting. This is due to legacy API support.
         :param pulumi.Input[builtins.str] partner_solution_id: The ID of the market partner solution where Diagnostics Data should be sent. For potential partner integrations, [click to learn more about partner integration](https://learn.microsoft.com/en-us/azure/partner-solutions/overview).
                
-               > **NOTE:** At least one of `eventhub_authorization_rule_id`, `log_analytics_workspace_id`, `partner_solution_id` and `storage_account_id` must be specified.
+               > **Note:** At least one of `eventhub_authorization_rule_id`, `log_analytics_workspace_id`, `partner_solution_id` and `storage_account_id` must be specified.
         :param pulumi.Input[builtins.str] storage_account_id: The ID of the Storage Account where logs should be sent. 
                
-               > **NOTE:** At least one of `eventhub_authorization_rule_id`, `log_analytics_workspace_id`, `partner_solution_id` and `storage_account_id` must be specified.
+               > **Note:** At least one of `eventhub_authorization_rule_id`, `log_analytics_workspace_id`, `partner_solution_id` and `storage_account_id` must be specified.
         :param pulumi.Input[builtins.str] target_resource_id: The ID of an existing Resource on which to configure Diagnostic Settings. Changing this forces a new resource to be created.
         """
         if enabled_logs is not None:
@@ -299,7 +299,7 @@ class _DiagnosticSettingState:
         """
         One or more `enabled_log` blocks as defined below.
 
-        > **NOTE:** At least one `enabled_log` or `metric` block must be specified. At least one type of Log or Metric must be enabled.
+        > **Note:** At least one `enabled_log` or `metric` block must be specified. At least one type of Log or Metric must be enabled.
         """
         return pulumi.get(self, "enabled_logs")
 
@@ -313,9 +313,9 @@ class _DiagnosticSettingState:
         """
         Specifies the ID of an Event Hub Namespace Authorization Rule used to send Diagnostics Data. 
 
-        > **NOTE:** This can be sourced from the `eventhub.EventHubNamespaceAuthorizationRule` resource and is different from a `eventhub.AuthorizationRule` resource.
+        > **Note:** This can be sourced from the `eventhub.EventHubNamespaceAuthorizationRule` resource and is different from a `eventhub.AuthorizationRule` resource.
 
-        > **NOTE:** At least one of `eventhub_authorization_rule_id`, `log_analytics_workspace_id`, `partner_solution_id` and `storage_account_id` must be specified.
+        > **Note:** At least one of `eventhub_authorization_rule_id`, `log_analytics_workspace_id`, `partner_solution_id` and `storage_account_id` must be specified.
         """
         return pulumi.get(self, "eventhub_authorization_rule_id")
 
@@ -329,7 +329,7 @@ class _DiagnosticSettingState:
         """
         Specifies the name of the Event Hub where Diagnostics Data should be sent.
 
-        > **NOTE:** If this isn't specified then the default Event Hub will be used.
+        > **Note:** If this isn't specified then the default Event Hub will be used.
         """
         return pulumi.get(self, "eventhub_name")
 
@@ -343,7 +343,7 @@ class _DiagnosticSettingState:
         """
         Possible values are `AzureDiagnostics` and `Dedicated`. When set to `Dedicated`, logs sent to a Log Analytics workspace will go into resource specific tables, instead of the legacy `AzureDiagnostics` table.
 
-        > **NOTE:** This setting will only have an effect if a `log_analytics_workspace_id` is provided. For some target resource type (e.g., Key Vault), this field is unconfigurable. Please see [resource types](https://learn.microsoft.com/en-us/azure/azure-monitor/reference/tables/azurediagnostics#resource-types) for services that use each method. Please [see the documentation](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-logs-stream-log-store#azure-diagnostics-vs-resource-specific) for details on the differences between destination types.
+        > **Note:** This setting will only have an effect if a `log_analytics_workspace_id` is provided. For some target resource type (e.g., Key Vault), this field is unconfigurable. Please see [resource types](https://learn.microsoft.com/en-us/azure/azure-monitor/reference/tables/azurediagnostics#resource-types) for services that use each method. Please [see the documentation](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-logs-stream-log-store#azure-diagnostics-vs-resource-specific) for details on the differences between destination types.
         """
         return pulumi.get(self, "log_analytics_destination_type")
 
@@ -357,7 +357,7 @@ class _DiagnosticSettingState:
         """
         Specifies the ID of a Log Analytics Workspace where Diagnostics Data should be sent.
 
-        > **NOTE:** At least one of `eventhub_authorization_rule_id`, `log_analytics_workspace_id`, `partner_solution_id` and `storage_account_id` must be specified.
+        > **Note:** At least one of `eventhub_authorization_rule_id`, `log_analytics_workspace_id`, `partner_solution_id` and `storage_account_id` must be specified.
         """
         return pulumi.get(self, "log_analytics_workspace_id")
 
@@ -371,7 +371,7 @@ class _DiagnosticSettingState:
         """
         One or more `metric` blocks as defined below.
 
-        > **NOTE:** At least one `enabled_log` or `metric` block must be specified.
+        > **Note:** At least one `enabled_log` or `metric` block must be specified.
         """
         return pulumi.get(self, "metrics")
 
@@ -385,7 +385,7 @@ class _DiagnosticSettingState:
         """
         Specifies the name of the Diagnostic Setting. Changing this forces a new resource to be created.
 
-        > **NOTE:** If the name is set to 'service' it will not be possible to fully delete the diagnostic setting. This is due to legacy API support.
+        > **Note:** If the name is set to 'service' it will not be possible to fully delete the diagnostic setting. This is due to legacy API support.
         """
         return pulumi.get(self, "name")
 
@@ -399,7 +399,7 @@ class _DiagnosticSettingState:
         """
         The ID of the market partner solution where Diagnostics Data should be sent. For potential partner integrations, [click to learn more about partner integration](https://learn.microsoft.com/en-us/azure/partner-solutions/overview).
 
-        > **NOTE:** At least one of `eventhub_authorization_rule_id`, `log_analytics_workspace_id`, `partner_solution_id` and `storage_account_id` must be specified.
+        > **Note:** At least one of `eventhub_authorization_rule_id`, `log_analytics_workspace_id`, `partner_solution_id` and `storage_account_id` must be specified.
         """
         return pulumi.get(self, "partner_solution_id")
 
@@ -413,7 +413,7 @@ class _DiagnosticSettingState:
         """
         The ID of the Storage Account where logs should be sent. 
 
-        > **NOTE:** At least one of `eventhub_authorization_rule_id`, `log_analytics_workspace_id`, `partner_solution_id` and `storage_account_id` must be specified.
+        > **Note:** At least one of `eventhub_authorization_rule_id`, `log_analytics_workspace_id`, `partner_solution_id` and `storage_account_id` must be specified.
         """
         return pulumi.get(self, "storage_account_id")
 
@@ -502,33 +502,33 @@ class DiagnosticSetting(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['DiagnosticSettingEnabledLogArgs', 'DiagnosticSettingEnabledLogArgsDict']]]] enabled_logs: One or more `enabled_log` blocks as defined below.
                
-               > **NOTE:** At least one `enabled_log` or `metric` block must be specified. At least one type of Log or Metric must be enabled.
+               > **Note:** At least one `enabled_log` or `metric` block must be specified. At least one type of Log or Metric must be enabled.
         :param pulumi.Input[builtins.str] eventhub_authorization_rule_id: Specifies the ID of an Event Hub Namespace Authorization Rule used to send Diagnostics Data. 
                
-               > **NOTE:** This can be sourced from the `eventhub.EventHubNamespaceAuthorizationRule` resource and is different from a `eventhub.AuthorizationRule` resource.
+               > **Note:** This can be sourced from the `eventhub.EventHubNamespaceAuthorizationRule` resource and is different from a `eventhub.AuthorizationRule` resource.
                
-               > **NOTE:** At least one of `eventhub_authorization_rule_id`, `log_analytics_workspace_id`, `partner_solution_id` and `storage_account_id` must be specified.
+               > **Note:** At least one of `eventhub_authorization_rule_id`, `log_analytics_workspace_id`, `partner_solution_id` and `storage_account_id` must be specified.
         :param pulumi.Input[builtins.str] eventhub_name: Specifies the name of the Event Hub where Diagnostics Data should be sent.
                
-               > **NOTE:** If this isn't specified then the default Event Hub will be used.
+               > **Note:** If this isn't specified then the default Event Hub will be used.
         :param pulumi.Input[builtins.str] log_analytics_destination_type: Possible values are `AzureDiagnostics` and `Dedicated`. When set to `Dedicated`, logs sent to a Log Analytics workspace will go into resource specific tables, instead of the legacy `AzureDiagnostics` table.
                
-               > **NOTE:** This setting will only have an effect if a `log_analytics_workspace_id` is provided. For some target resource type (e.g., Key Vault), this field is unconfigurable. Please see [resource types](https://learn.microsoft.com/en-us/azure/azure-monitor/reference/tables/azurediagnostics#resource-types) for services that use each method. Please [see the documentation](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-logs-stream-log-store#azure-diagnostics-vs-resource-specific) for details on the differences between destination types.
+               > **Note:** This setting will only have an effect if a `log_analytics_workspace_id` is provided. For some target resource type (e.g., Key Vault), this field is unconfigurable. Please see [resource types](https://learn.microsoft.com/en-us/azure/azure-monitor/reference/tables/azurediagnostics#resource-types) for services that use each method. Please [see the documentation](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-logs-stream-log-store#azure-diagnostics-vs-resource-specific) for details on the differences between destination types.
         :param pulumi.Input[builtins.str] log_analytics_workspace_id: Specifies the ID of a Log Analytics Workspace where Diagnostics Data should be sent.
                
-               > **NOTE:** At least one of `eventhub_authorization_rule_id`, `log_analytics_workspace_id`, `partner_solution_id` and `storage_account_id` must be specified.
+               > **Note:** At least one of `eventhub_authorization_rule_id`, `log_analytics_workspace_id`, `partner_solution_id` and `storage_account_id` must be specified.
         :param pulumi.Input[Sequence[pulumi.Input[Union['DiagnosticSettingMetricArgs', 'DiagnosticSettingMetricArgsDict']]]] metrics: One or more `metric` blocks as defined below.
                
-               > **NOTE:** At least one `enabled_log` or `metric` block must be specified.
+               > **Note:** At least one `enabled_log` or `metric` block must be specified.
         :param pulumi.Input[builtins.str] name: Specifies the name of the Diagnostic Setting. Changing this forces a new resource to be created.
                
-               > **NOTE:** If the name is set to 'service' it will not be possible to fully delete the diagnostic setting. This is due to legacy API support.
+               > **Note:** If the name is set to 'service' it will not be possible to fully delete the diagnostic setting. This is due to legacy API support.
         :param pulumi.Input[builtins.str] partner_solution_id: The ID of the market partner solution where Diagnostics Data should be sent. For potential partner integrations, [click to learn more about partner integration](https://learn.microsoft.com/en-us/azure/partner-solutions/overview).
                
-               > **NOTE:** At least one of `eventhub_authorization_rule_id`, `log_analytics_workspace_id`, `partner_solution_id` and `storage_account_id` must be specified.
+               > **Note:** At least one of `eventhub_authorization_rule_id`, `log_analytics_workspace_id`, `partner_solution_id` and `storage_account_id` must be specified.
         :param pulumi.Input[builtins.str] storage_account_id: The ID of the Storage Account where logs should be sent. 
                
-               > **NOTE:** At least one of `eventhub_authorization_rule_id`, `log_analytics_workspace_id`, `partner_solution_id` and `storage_account_id` must be specified.
+               > **Note:** At least one of `eventhub_authorization_rule_id`, `log_analytics_workspace_id`, `partner_solution_id` and `storage_account_id` must be specified.
         :param pulumi.Input[builtins.str] target_resource_id: The ID of an existing Resource on which to configure Diagnostic Settings. Changing this forces a new resource to be created.
         """
         ...
@@ -659,33 +659,33 @@ class DiagnosticSetting(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['DiagnosticSettingEnabledLogArgs', 'DiagnosticSettingEnabledLogArgsDict']]]] enabled_logs: One or more `enabled_log` blocks as defined below.
                
-               > **NOTE:** At least one `enabled_log` or `metric` block must be specified. At least one type of Log or Metric must be enabled.
+               > **Note:** At least one `enabled_log` or `metric` block must be specified. At least one type of Log or Metric must be enabled.
         :param pulumi.Input[builtins.str] eventhub_authorization_rule_id: Specifies the ID of an Event Hub Namespace Authorization Rule used to send Diagnostics Data. 
                
-               > **NOTE:** This can be sourced from the `eventhub.EventHubNamespaceAuthorizationRule` resource and is different from a `eventhub.AuthorizationRule` resource.
+               > **Note:** This can be sourced from the `eventhub.EventHubNamespaceAuthorizationRule` resource and is different from a `eventhub.AuthorizationRule` resource.
                
-               > **NOTE:** At least one of `eventhub_authorization_rule_id`, `log_analytics_workspace_id`, `partner_solution_id` and `storage_account_id` must be specified.
+               > **Note:** At least one of `eventhub_authorization_rule_id`, `log_analytics_workspace_id`, `partner_solution_id` and `storage_account_id` must be specified.
         :param pulumi.Input[builtins.str] eventhub_name: Specifies the name of the Event Hub where Diagnostics Data should be sent.
                
-               > **NOTE:** If this isn't specified then the default Event Hub will be used.
+               > **Note:** If this isn't specified then the default Event Hub will be used.
         :param pulumi.Input[builtins.str] log_analytics_destination_type: Possible values are `AzureDiagnostics` and `Dedicated`. When set to `Dedicated`, logs sent to a Log Analytics workspace will go into resource specific tables, instead of the legacy `AzureDiagnostics` table.
                
-               > **NOTE:** This setting will only have an effect if a `log_analytics_workspace_id` is provided. For some target resource type (e.g., Key Vault), this field is unconfigurable. Please see [resource types](https://learn.microsoft.com/en-us/azure/azure-monitor/reference/tables/azurediagnostics#resource-types) for services that use each method. Please [see the documentation](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-logs-stream-log-store#azure-diagnostics-vs-resource-specific) for details on the differences between destination types.
+               > **Note:** This setting will only have an effect if a `log_analytics_workspace_id` is provided. For some target resource type (e.g., Key Vault), this field is unconfigurable. Please see [resource types](https://learn.microsoft.com/en-us/azure/azure-monitor/reference/tables/azurediagnostics#resource-types) for services that use each method. Please [see the documentation](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-logs-stream-log-store#azure-diagnostics-vs-resource-specific) for details on the differences between destination types.
         :param pulumi.Input[builtins.str] log_analytics_workspace_id: Specifies the ID of a Log Analytics Workspace where Diagnostics Data should be sent.
                
-               > **NOTE:** At least one of `eventhub_authorization_rule_id`, `log_analytics_workspace_id`, `partner_solution_id` and `storage_account_id` must be specified.
+               > **Note:** At least one of `eventhub_authorization_rule_id`, `log_analytics_workspace_id`, `partner_solution_id` and `storage_account_id` must be specified.
         :param pulumi.Input[Sequence[pulumi.Input[Union['DiagnosticSettingMetricArgs', 'DiagnosticSettingMetricArgsDict']]]] metrics: One or more `metric` blocks as defined below.
                
-               > **NOTE:** At least one `enabled_log` or `metric` block must be specified.
+               > **Note:** At least one `enabled_log` or `metric` block must be specified.
         :param pulumi.Input[builtins.str] name: Specifies the name of the Diagnostic Setting. Changing this forces a new resource to be created.
                
-               > **NOTE:** If the name is set to 'service' it will not be possible to fully delete the diagnostic setting. This is due to legacy API support.
+               > **Note:** If the name is set to 'service' it will not be possible to fully delete the diagnostic setting. This is due to legacy API support.
         :param pulumi.Input[builtins.str] partner_solution_id: The ID of the market partner solution where Diagnostics Data should be sent. For potential partner integrations, [click to learn more about partner integration](https://learn.microsoft.com/en-us/azure/partner-solutions/overview).
                
-               > **NOTE:** At least one of `eventhub_authorization_rule_id`, `log_analytics_workspace_id`, `partner_solution_id` and `storage_account_id` must be specified.
+               > **Note:** At least one of `eventhub_authorization_rule_id`, `log_analytics_workspace_id`, `partner_solution_id` and `storage_account_id` must be specified.
         :param pulumi.Input[builtins.str] storage_account_id: The ID of the Storage Account where logs should be sent. 
                
-               > **NOTE:** At least one of `eventhub_authorization_rule_id`, `log_analytics_workspace_id`, `partner_solution_id` and `storage_account_id` must be specified.
+               > **Note:** At least one of `eventhub_authorization_rule_id`, `log_analytics_workspace_id`, `partner_solution_id` and `storage_account_id` must be specified.
         :param pulumi.Input[builtins.str] target_resource_id: The ID of an existing Resource on which to configure Diagnostic Settings. Changing this forces a new resource to be created.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -710,7 +710,7 @@ class DiagnosticSetting(pulumi.CustomResource):
         """
         One or more `enabled_log` blocks as defined below.
 
-        > **NOTE:** At least one `enabled_log` or `metric` block must be specified. At least one type of Log or Metric must be enabled.
+        > **Note:** At least one `enabled_log` or `metric` block must be specified. At least one type of Log or Metric must be enabled.
         """
         return pulumi.get(self, "enabled_logs")
 
@@ -720,9 +720,9 @@ class DiagnosticSetting(pulumi.CustomResource):
         """
         Specifies the ID of an Event Hub Namespace Authorization Rule used to send Diagnostics Data. 
 
-        > **NOTE:** This can be sourced from the `eventhub.EventHubNamespaceAuthorizationRule` resource and is different from a `eventhub.AuthorizationRule` resource.
+        > **Note:** This can be sourced from the `eventhub.EventHubNamespaceAuthorizationRule` resource and is different from a `eventhub.AuthorizationRule` resource.
 
-        > **NOTE:** At least one of `eventhub_authorization_rule_id`, `log_analytics_workspace_id`, `partner_solution_id` and `storage_account_id` must be specified.
+        > **Note:** At least one of `eventhub_authorization_rule_id`, `log_analytics_workspace_id`, `partner_solution_id` and `storage_account_id` must be specified.
         """
         return pulumi.get(self, "eventhub_authorization_rule_id")
 
@@ -732,7 +732,7 @@ class DiagnosticSetting(pulumi.CustomResource):
         """
         Specifies the name of the Event Hub where Diagnostics Data should be sent.
 
-        > **NOTE:** If this isn't specified then the default Event Hub will be used.
+        > **Note:** If this isn't specified then the default Event Hub will be used.
         """
         return pulumi.get(self, "eventhub_name")
 
@@ -742,7 +742,7 @@ class DiagnosticSetting(pulumi.CustomResource):
         """
         Possible values are `AzureDiagnostics` and `Dedicated`. When set to `Dedicated`, logs sent to a Log Analytics workspace will go into resource specific tables, instead of the legacy `AzureDiagnostics` table.
 
-        > **NOTE:** This setting will only have an effect if a `log_analytics_workspace_id` is provided. For some target resource type (e.g., Key Vault), this field is unconfigurable. Please see [resource types](https://learn.microsoft.com/en-us/azure/azure-monitor/reference/tables/azurediagnostics#resource-types) for services that use each method. Please [see the documentation](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-logs-stream-log-store#azure-diagnostics-vs-resource-specific) for details on the differences between destination types.
+        > **Note:** This setting will only have an effect if a `log_analytics_workspace_id` is provided. For some target resource type (e.g., Key Vault), this field is unconfigurable. Please see [resource types](https://learn.microsoft.com/en-us/azure/azure-monitor/reference/tables/azurediagnostics#resource-types) for services that use each method. Please [see the documentation](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-logs-stream-log-store#azure-diagnostics-vs-resource-specific) for details on the differences between destination types.
         """
         return pulumi.get(self, "log_analytics_destination_type")
 
@@ -752,7 +752,7 @@ class DiagnosticSetting(pulumi.CustomResource):
         """
         Specifies the ID of a Log Analytics Workspace where Diagnostics Data should be sent.
 
-        > **NOTE:** At least one of `eventhub_authorization_rule_id`, `log_analytics_workspace_id`, `partner_solution_id` and `storage_account_id` must be specified.
+        > **Note:** At least one of `eventhub_authorization_rule_id`, `log_analytics_workspace_id`, `partner_solution_id` and `storage_account_id` must be specified.
         """
         return pulumi.get(self, "log_analytics_workspace_id")
 
@@ -762,7 +762,7 @@ class DiagnosticSetting(pulumi.CustomResource):
         """
         One or more `metric` blocks as defined below.
 
-        > **NOTE:** At least one `enabled_log` or `metric` block must be specified.
+        > **Note:** At least one `enabled_log` or `metric` block must be specified.
         """
         return pulumi.get(self, "metrics")
 
@@ -772,7 +772,7 @@ class DiagnosticSetting(pulumi.CustomResource):
         """
         Specifies the name of the Diagnostic Setting. Changing this forces a new resource to be created.
 
-        > **NOTE:** If the name is set to 'service' it will not be possible to fully delete the diagnostic setting. This is due to legacy API support.
+        > **Note:** If the name is set to 'service' it will not be possible to fully delete the diagnostic setting. This is due to legacy API support.
         """
         return pulumi.get(self, "name")
 
@@ -782,7 +782,7 @@ class DiagnosticSetting(pulumi.CustomResource):
         """
         The ID of the market partner solution where Diagnostics Data should be sent. For potential partner integrations, [click to learn more about partner integration](https://learn.microsoft.com/en-us/azure/partner-solutions/overview).
 
-        > **NOTE:** At least one of `eventhub_authorization_rule_id`, `log_analytics_workspace_id`, `partner_solution_id` and `storage_account_id` must be specified.
+        > **Note:** At least one of `eventhub_authorization_rule_id`, `log_analytics_workspace_id`, `partner_solution_id` and `storage_account_id` must be specified.
         """
         return pulumi.get(self, "partner_solution_id")
 
@@ -792,7 +792,7 @@ class DiagnosticSetting(pulumi.CustomResource):
         """
         The ID of the Storage Account where logs should be sent. 
 
-        > **NOTE:** At least one of `eventhub_authorization_rule_id`, `log_analytics_workspace_id`, `partner_solution_id` and `storage_account_id` must be specified.
+        > **Note:** At least one of `eventhub_authorization_rule_id`, `log_analytics_workspace_id`, `partner_solution_id` and `storage_account_id` must be specified.
         """
         return pulumi.get(self, "storage_account_id")
 

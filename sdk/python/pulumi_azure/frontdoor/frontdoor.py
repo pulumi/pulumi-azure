@@ -39,7 +39,7 @@ class FrontdoorArgs:
         :param pulumi.Input[Sequence[pulumi.Input['FrontdoorBackendPoolLoadBalancingArgs']]] backend_pool_load_balancings: A `backend_pool_load_balancing` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['FrontdoorBackendPoolArgs']]] backend_pools: A `backend_pool` block as defined below.
                
-               > Azure by default allows specifying up to 50 Backend Pools - but this quota can be increased via Microsoft Support.
+               > **Note:** Azure by default allows specifying up to 50 Backend Pools - but this quota can be increased via Microsoft Support.
         :param pulumi.Input[Sequence[pulumi.Input['FrontdoorFrontendEndpointArgs']]] frontend_endpoints: A `frontend_endpoint` block as defined below.
         :param pulumi.Input[builtins.str] resource_group_name: Specifies the name of the Resource Group in which the Front Door service should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input['FrontdoorRoutingRuleArgs']]] routing_rules: A `routing_rule` block as defined below.
@@ -96,7 +96,7 @@ class FrontdoorArgs:
         """
         A `backend_pool` block as defined below.
 
-        > Azure by default allows specifying up to 50 Backend Pools - but this quota can be increased via Microsoft Support.
+        > **Note:** Azure by default allows specifying up to 50 Backend Pools - but this quota can be increased via Microsoft Support.
         """
         return pulumi.get(self, "backend_pools")
 
@@ -232,7 +232,7 @@ class _FrontdoorState:
         :param pulumi.Input[Sequence[pulumi.Input['FrontdoorBackendPoolSettingArgs']]] backend_pool_settings: A `backend_pool_settings` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['FrontdoorBackendPoolArgs']]] backend_pools: A `backend_pool` block as defined below.
                
-               > Azure by default allows specifying up to 50 Backend Pools - but this quota can be increased via Microsoft Support.
+               > **Note:** Azure by default allows specifying up to 50 Backend Pools - but this quota can be increased via Microsoft Support.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] backend_pools_map: A map/dictionary of Backend Pool Names (key) to the Backend Pool ID (value)
         :param pulumi.Input[builtins.str] cname: The host that each frontendEndpoint must CNAME to.
         :param pulumi.Input[builtins.str] friendly_name: A friendly name for the Front Door service.
@@ -351,7 +351,7 @@ class _FrontdoorState:
         """
         A `backend_pool` block as defined below.
 
-        > Azure by default allows specifying up to 50 Backend Pools - but this quota can be increased via Microsoft Support.
+        > **Note:** Azure by default allows specifying up to 50 Backend Pools - but this quota can be increased via Microsoft Support.
         """
         return pulumi.get(self, "backend_pools")
 
@@ -532,18 +532,6 @@ class Frontdoor(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  __props__=None):
         """
-        !> **IMPORTANT** This deploys an Azure Front Door (classic) resource which has been deprecated and will receive security updates only. Please migrate your existing Azure Front Door (classic) deployments to the new Azure Front Door (standard/premium) resources. For your convenience, the service team has exposed a `Front Door Classic` to `Front Door Standard/Premium` [migration tool](https://learn.microsoft.com/azure/frontdoor/tier-migration) to allow you to migrate your existing `Front Door Classic` instances to the new `Front Door Standard/Premium` product tiers.
-
-        Manages an Azure Front Door (classic) instance.
-
-        Azure Front Door Service is Microsoft's highly available and scalable web application acceleration platform and global HTTP(S) load balancer. It provides built-in DDoS protection and application layer security and caching. Front Door enables you to build applications that maximize and automate high-availability and performance for your end-users. Use Front Door with Azure services including Web/Mobile Apps, Cloud Services and Virtual Machines – or combine it with on-premises services for hybrid deployments and smooth cloud migration.
-
-        Below are some of the key scenarios that Azure Front Door Service addresses:
-
-        * Use Front Door to improve application scale and availability with instant multi-region failover
-        * Use Front Door to improve application performance with SSL offload and routing requests to the fastest available application backend.
-        * Use Front Door for application layer security and DDoS protection for your application.
-
         ## Example Usage
 
         ```python
@@ -607,7 +595,7 @@ class Frontdoor(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[Union['FrontdoorBackendPoolSettingArgs', 'FrontdoorBackendPoolSettingArgsDict']]]] backend_pool_settings: A `backend_pool_settings` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[Union['FrontdoorBackendPoolArgs', 'FrontdoorBackendPoolArgsDict']]]] backend_pools: A `backend_pool` block as defined below.
                
-               > Azure by default allows specifying up to 50 Backend Pools - but this quota can be increased via Microsoft Support.
+               > **Note:** Azure by default allows specifying up to 50 Backend Pools - but this quota can be increased via Microsoft Support.
         :param pulumi.Input[builtins.str] friendly_name: A friendly name for the Front Door service.
         :param pulumi.Input[Sequence[pulumi.Input[Union['FrontdoorFrontendEndpointArgs', 'FrontdoorFrontendEndpointArgsDict']]]] frontend_endpoints: A `frontend_endpoint` block as defined below.
         :param pulumi.Input[builtins.bool] load_balancer_enabled: Should the Front Door Load Balancer be Enabled? Defaults to `true`.
@@ -623,18 +611,6 @@ class Frontdoor(pulumi.CustomResource):
                  args: FrontdoorArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        !> **IMPORTANT** This deploys an Azure Front Door (classic) resource which has been deprecated and will receive security updates only. Please migrate your existing Azure Front Door (classic) deployments to the new Azure Front Door (standard/premium) resources. For your convenience, the service team has exposed a `Front Door Classic` to `Front Door Standard/Premium` [migration tool](https://learn.microsoft.com/azure/frontdoor/tier-migration) to allow you to migrate your existing `Front Door Classic` instances to the new `Front Door Standard/Premium` product tiers.
-
-        Manages an Azure Front Door (classic) instance.
-
-        Azure Front Door Service is Microsoft's highly available and scalable web application acceleration platform and global HTTP(S) load balancer. It provides built-in DDoS protection and application layer security and caching. Front Door enables you to build applications that maximize and automate high-availability and performance for your end-users. Use Front Door with Azure services including Web/Mobile Apps, Cloud Services and Virtual Machines – or combine it with on-premises services for hybrid deployments and smooth cloud migration.
-
-        Below are some of the key scenarios that Azure Front Door Service addresses:
-
-        * Use Front Door to improve application scale and availability with instant multi-region failover
-        * Use Front Door to improve application performance with SSL offload and routing requests to the fastest available application backend.
-        * Use Front Door for application layer security and DDoS protection for your application.
-
         ## Example Usage
 
         ```python
@@ -800,7 +776,7 @@ class Frontdoor(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[Union['FrontdoorBackendPoolSettingArgs', 'FrontdoorBackendPoolSettingArgsDict']]]] backend_pool_settings: A `backend_pool_settings` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[Union['FrontdoorBackendPoolArgs', 'FrontdoorBackendPoolArgsDict']]]] backend_pools: A `backend_pool` block as defined below.
                
-               > Azure by default allows specifying up to 50 Backend Pools - but this quota can be increased via Microsoft Support.
+               > **Note:** Azure by default allows specifying up to 50 Backend Pools - but this quota can be increased via Microsoft Support.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] backend_pools_map: A map/dictionary of Backend Pool Names (key) to the Backend Pool ID (value)
         :param pulumi.Input[builtins.str] cname: The host that each frontendEndpoint must CNAME to.
         :param pulumi.Input[builtins.str] friendly_name: A friendly name for the Front Door service.
@@ -873,7 +849,7 @@ class Frontdoor(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="backendPoolSettings")
-    def backend_pool_settings(self) -> pulumi.Output[Sequence['outputs.FrontdoorBackendPoolSetting']]:
+    def backend_pool_settings(self) -> pulumi.Output[Optional[Sequence['outputs.FrontdoorBackendPoolSetting']]]:
         """
         A `backend_pool_settings` block as defined below.
         """
@@ -885,7 +861,7 @@ class Frontdoor(pulumi.CustomResource):
         """
         A `backend_pool` block as defined below.
 
-        > Azure by default allows specifying up to 50 Backend Pools - but this quota can be increased via Microsoft Support.
+        > **Note:** Azure by default allows specifying up to 50 Backend Pools - but this quota can be increased via Microsoft Support.
         """
         return pulumi.get(self, "backend_pools")
 

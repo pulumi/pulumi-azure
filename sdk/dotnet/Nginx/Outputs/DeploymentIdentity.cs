@@ -16,7 +16,7 @@ namespace Pulumi.Azure.Nginx.Outputs
         /// <summary>
         /// Specifies a list of user managed identity ids to be assigned.
         /// 
-        /// &gt; **NOTE:** This is required when `type` is set to `UserAssigned`.
+        /// &gt; **Note:** This is required when `type` is set to `UserAssigned`.
         /// </summary>
         public readonly ImmutableArray<string> IdentityIds;
         public readonly string? PrincipalId;

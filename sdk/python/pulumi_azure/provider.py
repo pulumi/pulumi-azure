@@ -21,6 +21,7 @@ __all__ = ['ProviderArgs', 'Provider']
 @pulumi.input_type
 class ProviderArgs:
     def __init__(__self__, *,
+                 features: pulumi.Input['ProviderFeaturesArgs'],
                  ado_pipeline_service_connection_id: Optional[pulumi.Input[builtins.str]] = None,
                  auxiliary_tenant_ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  client_certificate: Optional[pulumi.Input[builtins.str]] = None,
@@ -33,7 +34,6 @@ class ProviderArgs:
                  disable_correlation_request_id: Optional[pulumi.Input[builtins.bool]] = None,
                  disable_terraform_partner_id: Optional[pulumi.Input[builtins.bool]] = None,
                  environment: Optional[pulumi.Input[builtins.str]] = None,
-                 features: Optional[pulumi.Input['ProviderFeaturesArgs']] = None,
                  metadata_host: Optional[pulumi.Input[builtins.str]] = None,
                  msi_endpoint: Optional[pulumi.Input[builtins.str]] = None,
                  oidc_request_token: Optional[pulumi.Input[builtins.str]] = None,
@@ -90,6 +90,7 @@ class ProviderArgs:
         :param pulumi.Input[builtins.bool] use_msi: Allow Managed Service Identity to be used for Authentication.
         :param pulumi.Input[builtins.bool] use_oidc: Allow OpenID Connect to be used for authentication
         """
+        pulumi.set(__self__, "features", features)
         if ado_pipeline_service_connection_id is not None:
             pulumi.set(__self__, "ado_pipeline_service_connection_id", ado_pipeline_service_connection_id)
         if auxiliary_tenant_ids is not None:
@@ -116,8 +117,6 @@ class ProviderArgs:
             environment = (_utilities.get_env('AZURE_ENVIRONMENT', 'ARM_ENVIRONMENT') or 'public')
         if environment is not None:
             pulumi.set(__self__, "environment", environment)
-        if features is not None:
-            pulumi.set(__self__, "features", features)
         if metadata_host is None:
             metadata_host = _utilities.get_env('ARM_METADATA_HOSTNAME')
         if metadata_host is not None:
@@ -163,6 +162,15 @@ class ProviderArgs:
             pulumi.set(__self__, "use_msi", use_msi)
         if use_oidc is not None:
             pulumi.set(__self__, "use_oidc", use_oidc)
+
+    @property
+    @pulumi.getter
+    def features(self) -> pulumi.Input['ProviderFeaturesArgs']:
+        return pulumi.get(self, "features")
+
+    @features.setter
+    def features(self, value: pulumi.Input['ProviderFeaturesArgs']):
+        pulumi.set(self, "features", value)
 
     @property
     @pulumi.getter(name="adoPipelineServiceConnectionId")
@@ -305,15 +313,6 @@ class ProviderArgs:
     @environment.setter
     def environment(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "environment", value)
-
-    @property
-    @pulumi.getter
-    def features(self) -> Optional[pulumi.Input['ProviderFeaturesArgs']]:
-        return pulumi.get(self, "features")
-
-    @features.setter
-    def features(self, value: Optional[pulumi.Input['ProviderFeaturesArgs']]):
-        pulumi.set(self, "features", value)
 
     @property
     @pulumi.getter(name="metadataHost")
@@ -612,7 +611,7 @@ class Provider(pulumi.ProviderResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: Optional[ProviderArgs] = None,
+                 args: ProviderArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The provider type for the azurerm package. By default, resources use package-wide configuration
@@ -688,6 +687,8 @@ class Provider(pulumi.ProviderResource):
             if environment is None:
                 environment = (_utilities.get_env('AZURE_ENVIRONMENT', 'ARM_ENVIRONMENT') or 'public')
             __props__.__dict__["environment"] = environment
+            if features is None and not opts.urn:
+                raise TypeError("Missing required property 'features'")
             __props__.__dict__["features"] = pulumi.Output.from_input(features).apply(pulumi.runtime.to_json) if features is not None else None
             if metadata_host is None:
                 metadata_host = _utilities.get_env('ARM_METADATA_HOSTNAME')

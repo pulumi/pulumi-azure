@@ -321,6 +321,13 @@ class Contact(pulumi.CustomResource):
             contact_profile_id=example_contact_profile.id)
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Orbital`: 2022-11-01
+
         ## Import
 
         Spacecraft can be imported using the `resource id`, e.g.
@@ -431,6 +438,13 @@ class Contact(pulumi.CustomResource):
             ground_station_name="WESTUS2_0",
             contact_profile_id=example_contact_profile.id)
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Orbital`: 2022-11-01
 
         ## Import
 

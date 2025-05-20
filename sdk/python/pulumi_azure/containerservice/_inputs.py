@@ -266,7 +266,7 @@ if not MYPY:
         """
         The digest of the artifact that wants to be subscribed for the Connected Registry.
 
-        > **NOTE:** One of either `tag` or `digest` can be specified.
+        > **Note:** One of either `tag` or `digest` can be specified.
         """
         tag: NotRequired[pulumi.Input[builtins.str]]
         """
@@ -287,7 +287,7 @@ class ConnectedRegistryNotificationArgs:
         :param pulumi.Input[builtins.str] name: The name of the artifact that wants to be subscribed for the Connected Registry.
         :param pulumi.Input[builtins.str] digest: The digest of the artifact that wants to be subscribed for the Connected Registry.
                
-               > **NOTE:** One of either `tag` or `digest` can be specified.
+               > **Note:** One of either `tag` or `digest` can be specified.
         :param pulumi.Input[builtins.str] tag: The tag of the artifact that wants to be subscribed for the Connected Registry.
         """
         pulumi.set(__self__, "action", action)
@@ -327,7 +327,7 @@ class ConnectedRegistryNotificationArgs:
         """
         The digest of the artifact that wants to be subscribed for the Connected Registry.
 
-        > **NOTE:** One of either `tag` or `digest` can be specified.
+        > **Note:** One of either `tag` or `digest` can be specified.
         """
         return pulumi.get(self, "digest")
 
@@ -2587,7 +2587,7 @@ if not MYPY:
         """
         Whether the container's permission is elevated to privileged? Changing this forces a new resource to be created.
 
-        > **NOTE:** Currently, this only applies when the `os_type` is `Linux` and the `sku` is `Confidential`.
+        > **Note:** Currently, this only applies when the `os_type` is `Linux` and the `sku` is `Confidential`.
         """
 elif False:
     GroupContainerSecurityArgsDict: TypeAlias = Mapping[str, Any]
@@ -2599,7 +2599,7 @@ class GroupContainerSecurityArgs:
         """
         :param pulumi.Input[builtins.bool] privilege_enabled: Whether the container's permission is elevated to privileged? Changing this forces a new resource to be created.
                
-               > **NOTE:** Currently, this only applies when the `os_type` is `Linux` and the `sku` is `Confidential`.
+               > **Note:** Currently, this only applies when the `os_type` is `Linux` and the `sku` is `Confidential`.
         """
         pulumi.set(__self__, "privilege_enabled", privilege_enabled)
 
@@ -2609,7 +2609,7 @@ class GroupContainerSecurityArgs:
         """
         Whether the container's permission is elevated to privileged? Changing this forces a new resource to be created.
 
-        > **NOTE:** Currently, this only applies when the `os_type` is `Linux` and the `sku` is `Confidential`.
+        > **Note:** Currently, this only applies when the `os_type` is `Linux` and the `sku` is `Confidential`.
         """
         return pulumi.get(self, "privilege_enabled")
 
@@ -2641,15 +2641,6 @@ if not MYPY:
         Specify if the volume is to be mounted as read only or not. The default value is `false`. Changing this forces a new resource to be created.
         """
         secret: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]
-        """
-        A map of secrets that will be mounted as files in the volume. Changing this forces a new resource to be created.
-
-        > **Note:** Exactly one of `empty_dir` volume, `git_repo` volume, `secret` volume or storage account volume (`share_name`, `storage_account_name`, and `storage_account_key`) must be specified.
-
-        > **Note** when using a storage account volume, all of `share_name`, `storage_account_name`, and `storage_account_key` must be specified.
-
-        > **Note:** The secret values must be supplied as Base64 encoded strings. The secret values are decoded to their original values when mounted in the volume on the container.
-        """
         share_name: NotRequired[pulumi.Input[builtins.str]]
         """
         The Azure storage share that is to be mounted as a volume. This must be created on the storage account specified as above. Changing this forces a new resource to be created.
@@ -2683,13 +2674,6 @@ class GroupContainerVolumeArgs:
         :param pulumi.Input[builtins.bool] empty_dir: Boolean as to whether the mounted volume should be an empty directory. Defaults to `false`. Changing this forces a new resource to be created.
         :param pulumi.Input['GroupContainerVolumeGitRepoArgs'] git_repo: A `git_repo` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.bool] read_only: Specify if the volume is to be mounted as read only or not. The default value is `false`. Changing this forces a new resource to be created.
-        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] secret: A map of secrets that will be mounted as files in the volume. Changing this forces a new resource to be created.
-               
-               > **Note:** Exactly one of `empty_dir` volume, `git_repo` volume, `secret` volume or storage account volume (`share_name`, `storage_account_name`, and `storage_account_key`) must be specified.
-               
-               > **Note** when using a storage account volume, all of `share_name`, `storage_account_name`, and `storage_account_key` must be specified.
-               
-               > **Note:** The secret values must be supplied as Base64 encoded strings. The secret values are decoded to their original values when mounted in the volume on the container.
         :param pulumi.Input[builtins.str] share_name: The Azure storage share that is to be mounted as a volume. This must be created on the storage account specified as above. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] storage_account_key: The access key for the Azure Storage account specified as above. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] storage_account_name: The Azure storage account from which the volume is to be mounted. Changing this forces a new resource to be created.
@@ -2774,15 +2758,6 @@ class GroupContainerVolumeArgs:
     @property
     @pulumi.getter
     def secret(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
-        """
-        A map of secrets that will be mounted as files in the volume. Changing this forces a new resource to be created.
-
-        > **Note:** Exactly one of `empty_dir` volume, `git_repo` volume, `secret` volume or storage account volume (`share_name`, `storage_account_name`, and `storage_account_key`) must be specified.
-
-        > **Note** when using a storage account volume, all of `share_name`, `storage_account_name`, and `storage_account_key` must be specified.
-
-        > **Note:** The secret values must be supplied as Base64 encoded strings. The secret values are decoded to their original values when mounted in the volume on the container.
-        """
         return pulumi.get(self, "secret")
 
     @secret.setter
@@ -3153,15 +3128,15 @@ if not MYPY:
         """
         Specifies the type of Managed Service Identity that should be configured on this Container Group. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
 
-        > **NOTE:** When `type` is set to `SystemAssigned`, the identity of the Principal ID can be retrieved after the container group has been created. See [documentation](https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview) for more information.
+        > **Note:** When `type` is set to `SystemAssigned`, the identity of the Principal ID can be retrieved after the container group has been created. See [documentation](https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview) for more information.
         """
         identity_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]
         """
         Specifies a list of User Assigned Managed Identity IDs to be assigned to this Container Group.
 
-        > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+        > **Note:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
 
-        > **NOTE:** Currently you can't use a managed identity in a container group deployed to a virtual network.
+        > **Note:** Currently you can't use a managed identity in a container group deployed to a virtual network.
         """
         principal_id: NotRequired[pulumi.Input[builtins.str]]
         """
@@ -3184,12 +3159,12 @@ class GroupIdentityArgs:
         """
         :param pulumi.Input[builtins.str] type: Specifies the type of Managed Service Identity that should be configured on this Container Group. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
                
-               > **NOTE:** When `type` is set to `SystemAssigned`, the identity of the Principal ID can be retrieved after the container group has been created. See [documentation](https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview) for more information.
+               > **Note:** When `type` is set to `SystemAssigned`, the identity of the Principal ID can be retrieved after the container group has been created. See [documentation](https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview) for more information.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] identity_ids: Specifies a list of User Assigned Managed Identity IDs to be assigned to this Container Group.
                
-               > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+               > **Note:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
                
-               > **NOTE:** Currently you can't use a managed identity in a container group deployed to a virtual network.
+               > **Note:** Currently you can't use a managed identity in a container group deployed to a virtual network.
         :param pulumi.Input[builtins.str] principal_id: The Principal ID associated with this Managed Service Identity.
         :param pulumi.Input[builtins.str] tenant_id: The Tenant ID associated with this Managed Service Identity.
         """
@@ -3207,7 +3182,7 @@ class GroupIdentityArgs:
         """
         Specifies the type of Managed Service Identity that should be configured on this Container Group. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
 
-        > **NOTE:** When `type` is set to `SystemAssigned`, the identity of the Principal ID can be retrieved after the container group has been created. See [documentation](https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview) for more information.
+        > **Note:** When `type` is set to `SystemAssigned`, the identity of the Principal ID can be retrieved after the container group has been created. See [documentation](https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview) for more information.
         """
         return pulumi.get(self, "type")
 
@@ -3221,9 +3196,9 @@ class GroupIdentityArgs:
         """
         Specifies a list of User Assigned Managed Identity IDs to be assigned to this Container Group.
 
-        > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+        > **Note:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
 
-        > **NOTE:** Currently you can't use a managed identity in a container group deployed to a virtual network.
+        > **Note:** Currently you can't use a managed identity in a container group deployed to a virtual network.
         """
         return pulumi.get(self, "identity_ids")
 
@@ -3503,7 +3478,7 @@ if not MYPY:
         """
         Whether the container's permission is elevated to privileged? Changing this forces a new resource to be created.
 
-        > **NOTE:** Currently, this only applies when the `os_type` is `Linux` and the `sku` is `Confidential`.
+        > **Note:** Currently, this only applies when the `os_type` is `Linux` and the `sku` is `Confidential`.
         """
 elif False:
     GroupInitContainerSecurityArgsDict: TypeAlias = Mapping[str, Any]
@@ -3515,7 +3490,7 @@ class GroupInitContainerSecurityArgs:
         """
         :param pulumi.Input[builtins.bool] privilege_enabled: Whether the container's permission is elevated to privileged? Changing this forces a new resource to be created.
                
-               > **NOTE:** Currently, this only applies when the `os_type` is `Linux` and the `sku` is `Confidential`.
+               > **Note:** Currently, this only applies when the `os_type` is `Linux` and the `sku` is `Confidential`.
         """
         pulumi.set(__self__, "privilege_enabled", privilege_enabled)
 
@@ -3525,7 +3500,7 @@ class GroupInitContainerSecurityArgs:
         """
         Whether the container's permission is elevated to privileged? Changing this forces a new resource to be created.
 
-        > **NOTE:** Currently, this only applies when the `os_type` is `Linux` and the `sku` is `Confidential`.
+        > **Note:** Currently, this only applies when the `os_type` is `Linux` and the `sku` is `Confidential`.
         """
         return pulumi.get(self, "privilege_enabled")
 
@@ -3557,15 +3532,6 @@ if not MYPY:
         Specify if the volume is to be mounted as read only or not. The default value is `false`. Changing this forces a new resource to be created.
         """
         secret: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]
-        """
-        A map of secrets that will be mounted as files in the volume. Changing this forces a new resource to be created.
-
-        > **Note:** Exactly one of `empty_dir` volume, `git_repo` volume, `secret` volume or storage account volume (`share_name`, `storage_account_name`, and `storage_account_key`) must be specified.
-
-        > **Note** when using a storage account volume, all of `share_name`, `storage_account_name`, and `storage_account_key` must be specified.
-
-        > **Note:** The secret values must be supplied as Base64 encoded strings. The secret values are decoded to their original values when mounted in the volume on the container.
-        """
         share_name: NotRequired[pulumi.Input[builtins.str]]
         """
         The Azure storage share that is to be mounted as a volume. This must be created on the storage account specified as above. Changing this forces a new resource to be created.
@@ -3599,13 +3565,6 @@ class GroupInitContainerVolumeArgs:
         :param pulumi.Input[builtins.bool] empty_dir: Boolean as to whether the mounted volume should be an empty directory. Defaults to `false`. Changing this forces a new resource to be created.
         :param pulumi.Input['GroupInitContainerVolumeGitRepoArgs'] git_repo: A `git_repo` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.bool] read_only: Specify if the volume is to be mounted as read only or not. The default value is `false`. Changing this forces a new resource to be created.
-        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] secret: A map of secrets that will be mounted as files in the volume. Changing this forces a new resource to be created.
-               
-               > **Note:** Exactly one of `empty_dir` volume, `git_repo` volume, `secret` volume or storage account volume (`share_name`, `storage_account_name`, and `storage_account_key`) must be specified.
-               
-               > **Note** when using a storage account volume, all of `share_name`, `storage_account_name`, and `storage_account_key` must be specified.
-               
-               > **Note:** The secret values must be supplied as Base64 encoded strings. The secret values are decoded to their original values when mounted in the volume on the container.
         :param pulumi.Input[builtins.str] share_name: The Azure storage share that is to be mounted as a volume. This must be created on the storage account specified as above. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] storage_account_key: The access key for the Azure Storage account specified as above. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] storage_account_name: The Azure storage account from which the volume is to be mounted. Changing this forces a new resource to be created.
@@ -3690,15 +3649,6 @@ class GroupInitContainerVolumeArgs:
     @property
     @pulumi.getter
     def secret(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
-        """
-        A map of secrets that will be mounted as files in the volume. Changing this forces a new resource to be created.
-
-        > **Note:** Exactly one of `empty_dir` volume, `git_repo` volume, `secret` volume or storage account volume (`share_name`, `storage_account_name`, and `storage_account_key`) must be specified.
-
-        > **Note** when using a storage account volume, all of `share_name`, `storage_account_name`, and `storage_account_key` must be specified.
-
-        > **Note:** The secret values must be supplied as Base64 encoded strings. The secret values are decoded to their original values when mounted in the volume on the container.
-        """
         return pulumi.get(self, "secret")
 
     @secret.setter
@@ -4545,13 +4495,6 @@ if not MYPY:
         The size of the Virtual Machine, such as `Standard_DS2_v2`. `temporary_name_for_rotation` must be specified when attempting a resize.
         """
         auto_scaling_enabled: NotRequired[pulumi.Input[builtins.bool]]
-        """
-        Should [the Kubernetes Auto Scaler](https://docs.microsoft.com/azure/aks/cluster-autoscaler) be enabled for this Node Pool?
-
-        > **Note:** This requires that the `type` is set to `VirtualMachineScaleSets`.
-
-        > **Note:** If you're using AutoScaling, you may wish to use [`ignoreChanges` functionality](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) to ignore changes to the `node_count` field.
-        """
         capacity_reservation_group_id: NotRequired[pulumi.Input[builtins.str]]
         """
         Specifies the ID of the Capacity Reservation Group within which this AKS Cluster should be created. Changing this forces a new resource to be created.
@@ -4648,11 +4591,6 @@ if not MYPY:
         The ID of the Snapshot which should be used to create this default Node Pool. `temporary_name_for_rotation` must be specified when changing this property.
         """
         tags: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]
-        """
-        A mapping of tags to assign to the Node Pool.
-
-        > At this time there's a bug in the AKS API where Tags for a Node Pool are not stored in the correct case - you may wish to use `ignore_changes` functionality to ignore changes to the casing until this is fixed in the AKS API.
-        """
         temporary_name_for_rotation: NotRequired[pulumi.Input[builtins.str]]
         """
         Specifies the name of the temporary node pool used to cycle the default node pool for VM resizing.
@@ -4732,11 +4670,6 @@ class KubernetesClusterDefaultNodePoolArgs:
         """
         :param pulumi.Input[builtins.str] name: The name which should be used for the default Kubernetes Node Pool.
         :param pulumi.Input[builtins.str] vm_size: The size of the Virtual Machine, such as `Standard_DS2_v2`. `temporary_name_for_rotation` must be specified when attempting a resize.
-        :param pulumi.Input[builtins.bool] auto_scaling_enabled: Should [the Kubernetes Auto Scaler](https://docs.microsoft.com/azure/aks/cluster-autoscaler) be enabled for this Node Pool?
-               
-               > **Note:** This requires that the `type` is set to `VirtualMachineScaleSets`.
-               
-               > **Note:** If you're using AutoScaling, you may wish to use [`ignoreChanges` functionality](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) to ignore changes to the `node_count` field.
         :param pulumi.Input[builtins.str] capacity_reservation_group_id: Specifies the ID of the Capacity Reservation Group within which this AKS Cluster should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.bool] fips_enabled: Should the nodes in this Node Pool have Federal Information Processing Standard enabled? `temporary_name_for_rotation` must be specified when changing this block. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] gpu_instance: Specifies the GPU MIG instance profile for supported GPU VM SKU. The allowed values are `MIG1g`, `MIG2g`, `MIG3g`, `MIG4g` and `MIG7g`. Changing this forces a new resource to be created.
@@ -4763,9 +4696,6 @@ class KubernetesClusterDefaultNodePoolArgs:
         :param pulumi.Input[builtins.str] proximity_placement_group_id: The ID of the Proximity Placement Group. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] scale_down_mode: Specifies the autoscaling behaviour of the Kubernetes Cluster. Allowed values are `Delete` and `Deallocate`. Defaults to `Delete`.
         :param pulumi.Input[builtins.str] snapshot_id: The ID of the Snapshot which should be used to create this default Node Pool. `temporary_name_for_rotation` must be specified when changing this property.
-        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A mapping of tags to assign to the Node Pool.
-               
-               > At this time there's a bug in the AKS API where Tags for a Node Pool are not stored in the correct case - you may wish to use `ignore_changes` functionality to ignore changes to the casing until this is fixed in the AKS API.
         :param pulumi.Input[builtins.str] temporary_name_for_rotation: Specifies the name of the temporary node pool used to cycle the default node pool for VM resizing.
         :param pulumi.Input[builtins.str] type: The type of Node Pool which should be created. Possible values are `VirtualMachineScaleSets`. Defaults to `VirtualMachineScaleSets`. Changing this forces a new resource to be created.
                
@@ -4878,13 +4808,6 @@ class KubernetesClusterDefaultNodePoolArgs:
     @property
     @pulumi.getter(name="autoScalingEnabled")
     def auto_scaling_enabled(self) -> Optional[pulumi.Input[builtins.bool]]:
-        """
-        Should [the Kubernetes Auto Scaler](https://docs.microsoft.com/azure/aks/cluster-autoscaler) be enabled for this Node Pool?
-
-        > **Note:** This requires that the `type` is set to `VirtualMachineScaleSets`.
-
-        > **Note:** If you're using AutoScaling, you may wish to use [`ignoreChanges` functionality](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) to ignore changes to the `node_count` field.
-        """
         return pulumi.get(self, "auto_scaling_enabled")
 
     @auto_scaling_enabled.setter
@@ -5189,11 +5112,6 @@ class KubernetesClusterDefaultNodePoolArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
-        """
-        A mapping of tags to assign to the Node Pool.
-
-        > At this time there's a bug in the AKS API where Tags for a Node Pool are not stored in the correct case - you may wish to use `ignore_changes` functionality to ignore changes to the casing until this is fixed in the AKS API.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -6502,7 +6420,7 @@ if not MYPY:
         """
         Specifies the version of the plan from the marketplace. Changing this forces a new Kubernetes Cluster Extension to be created.
 
-        > **NOTE:** When `plan` is specified, legal terms must be accepted for this item on this subscription before creating the Kubernetes Cluster Extension. The `marketplace.Agreement` resource or AZ CLI tool can be used to do this.
+        > **Note:** When `plan` is specified, legal terms must be accepted for this item on this subscription before creating the Kubernetes Cluster Extension. The `marketplace.Agreement` resource or AZ CLI tool can be used to do this.
         """
 elif False:
     KubernetesClusterExtensionPlanArgsDict: TypeAlias = Mapping[str, Any]
@@ -6522,7 +6440,7 @@ class KubernetesClusterExtensionPlanArgs:
         :param pulumi.Input[builtins.str] promotion_code: Specifies the promotion code to use with the plan. Changing this forces a new Kubernetes Cluster Extension to be created.
         :param pulumi.Input[builtins.str] version: Specifies the version of the plan from the marketplace. Changing this forces a new Kubernetes Cluster Extension to be created.
                
-               > **NOTE:** When `plan` is specified, legal terms must be accepted for this item on this subscription before creating the Kubernetes Cluster Extension. The `marketplace.Agreement` resource or AZ CLI tool can be used to do this.
+               > **Note:** When `plan` is specified, legal terms must be accepted for this item on this subscription before creating the Kubernetes Cluster Extension. The `marketplace.Agreement` resource or AZ CLI tool can be used to do this.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "product", product)
@@ -6586,7 +6504,7 @@ class KubernetesClusterExtensionPlanArgs:
         """
         Specifies the version of the plan from the marketplace. Changing this forces a new Kubernetes Cluster Extension to be created.
 
-        > **NOTE:** When `plan` is specified, legal terms must be accepted for this item on this subscription before creating the Kubernetes Cluster Extension. The `marketplace.Agreement` resource or AZ CLI tool can be used to do this.
+        > **Note:** When `plan` is specified, legal terms must be accepted for this item on this subscription before creating the Kubernetes Cluster Extension. The `marketplace.Agreement` resource or AZ CLI tool can be used to do this.
         """
         return pulumi.get(self, "version")
 
@@ -6803,7 +6721,7 @@ if not MYPY:
         """
         The ID of the subnet on which to create an Application Gateway, which in turn will be integrated with the ingress controller of this Kubernetes Cluster. See [this](https://docs.microsoft.com/azure/application-gateway/tutorial-ingress-controller-add-on-new) page for further details.
 
-        > **Note:** Exactly one of `gateway_id`, `subnet_id` or `subnet_cidr` must be specified.
+        > **Note:** Exactly one of `gateway_id`, `gateway_name`, `subnet_id`, or `subnet_cidr` must be specified.
 
         > **Note:** If specifying `ingress_application_gateway` in conjunction with `only_critical_addons_enabled`, the AGIC pod will fail to start. A separate `containerservice.KubernetesClusterNodePool` is required to run the AGIC pod successfully. This is because AGIC is classed as a "non-critical addon".
         """
@@ -6827,7 +6745,7 @@ class KubernetesClusterIngressApplicationGatewayArgs:
         :param pulumi.Input[builtins.str] subnet_cidr: The subnet CIDR to be used to create an Application Gateway, which in turn will be integrated with the ingress controller of this Kubernetes Cluster. See [this](https://docs.microsoft.com/azure/application-gateway/tutorial-ingress-controller-add-on-new) page for further details.
         :param pulumi.Input[builtins.str] subnet_id: The ID of the subnet on which to create an Application Gateway, which in turn will be integrated with the ingress controller of this Kubernetes Cluster. See [this](https://docs.microsoft.com/azure/application-gateway/tutorial-ingress-controller-add-on-new) page for further details.
                
-               > **Note:** Exactly one of `gateway_id`, `subnet_id` or `subnet_cidr` must be specified.
+               > **Note:** Exactly one of `gateway_id`, `gateway_name`, `subnet_id`, or `subnet_cidr` must be specified.
                
                > **Note:** If specifying `ingress_application_gateway` in conjunction with `only_critical_addons_enabled`, the AGIC pod will fail to start. A separate `containerservice.KubernetesClusterNodePool` is required to run the AGIC pod successfully. This is because AGIC is classed as a "non-critical addon".
         """
@@ -6910,7 +6828,7 @@ class KubernetesClusterIngressApplicationGatewayArgs:
         """
         The ID of the subnet on which to create an Application Gateway, which in turn will be integrated with the ingress controller of this Kubernetes Cluster. See [this](https://docs.microsoft.com/azure/application-gateway/tutorial-ingress-controller-add-on-new) page for further details.
 
-        > **Note:** Exactly one of `gateway_id`, `subnet_id` or `subnet_cidr` must be specified.
+        > **Note:** Exactly one of `gateway_id`, `gateway_name`, `subnet_id`, or `subnet_cidr` must be specified.
 
         > **Note:** If specifying `ingress_application_gateway` in conjunction with `only_critical_addons_enabled`, the AGIC pod will fail to start. A separate `containerservice.KubernetesClusterNodePool` is required to run the AGIC pod successfully. This is because AGIC is classed as a "non-critical addon".
         """
@@ -8389,9 +8307,9 @@ if not MYPY:
         """
         Specifies a list of IP versions the Kubernetes Cluster will use to assign IP addresses to its nodes and pods. Possible values are `IPv4` and/or `IPv6`. `IPv4` must always be specified. Changing this forces a new resource to be created.
 
-        ->**Note:** To configure dual-stack networking `ip_versions` should be set to `["IPv4", "IPv6"]`.
+        > **Note:** To configure dual-stack networking `ip_versions` should be set to `["IPv4", "IPv6"]`.
 
-        ->**Note:** Dual-stack networking requires that the Preview Feature `Microsoft.ContainerService/AKS-EnableDualStack` is enabled and the Resource Provider is re-registered, see [the documentation](https://docs.microsoft.com/azure/aks/configure-kubenet-dual-stack?tabs=azure-cli%2Ckubectl#register-the-aks-enabledualstack-preview-feature) for more information.
+        > **Note:** Dual-stack networking requires that the Preview Feature `Microsoft.ContainerService/AKS-EnableDualStack` is enabled and the Resource Provider is re-registered, see [the documentation](https://docs.microsoft.com/azure/aks/configure-kubenet-dual-stack?tabs=azure-cli%2Ckubectl#register-the-aks-enabledualstack-preview-feature) for more information.
         """
         load_balancer_profile: NotRequired[pulumi.Input['KubernetesClusterNetworkProfileLoadBalancerProfileArgsDict']]
         """
@@ -8456,6 +8374,8 @@ if not MYPY:
         A list of CIDRs to use for Kubernetes services. For single-stack networking a single IPv4 CIDR is expected. For dual-stack networking an IPv4 and IPv6 CIDR are expected. Changing this forces a new resource to be created.
 
         > **Note:** This range should not be used by any network element on or connected to this VNet. Service address CIDR must be smaller than /12. `docker_bridge_cidr`, `dns_service_ip` and `service_cidr` should all be empty or all should be set.
+
+        Examples of how to use [AKS with Advanced Networking](https://docs.microsoft.com/azure/aks/networking-overview#advanced-networking) can be found in the `./examples/kubernetes/` directory in the GitHub repository.
         """
 elif False:
     KubernetesClusterNetworkProfileArgsDict: TypeAlias = Mapping[str, Any]
@@ -8485,9 +8405,9 @@ class KubernetesClusterNetworkProfileArgs:
         :param pulumi.Input[builtins.str] dns_service_ip: IP address within the Kubernetes service address range that will be used by cluster service discovery (kube-dns). Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] ip_versions: Specifies a list of IP versions the Kubernetes Cluster will use to assign IP addresses to its nodes and pods. Possible values are `IPv4` and/or `IPv6`. `IPv4` must always be specified. Changing this forces a new resource to be created.
                
-               ->**Note:** To configure dual-stack networking `ip_versions` should be set to `["IPv4", "IPv6"]`.
+               > **Note:** To configure dual-stack networking `ip_versions` should be set to `["IPv4", "IPv6"]`.
                
-               ->**Note:** Dual-stack networking requires that the Preview Feature `Microsoft.ContainerService/AKS-EnableDualStack` is enabled and the Resource Provider is re-registered, see [the documentation](https://docs.microsoft.com/azure/aks/configure-kubenet-dual-stack?tabs=azure-cli%2Ckubectl#register-the-aks-enabledualstack-preview-feature) for more information.
+               > **Note:** Dual-stack networking requires that the Preview Feature `Microsoft.ContainerService/AKS-EnableDualStack` is enabled and the Resource Provider is re-registered, see [the documentation](https://docs.microsoft.com/azure/aks/configure-kubenet-dual-stack?tabs=azure-cli%2Ckubectl#register-the-aks-enabledualstack-preview-feature) for more information.
         :param pulumi.Input['KubernetesClusterNetworkProfileLoadBalancerProfileArgs'] load_balancer_profile: A `load_balancer_profile` block as defined below. This can only be specified when `load_balancer_sku` is set to `standard`. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] load_balancer_sku: Specifies the SKU of the Load Balancer used for this Kubernetes Cluster. Possible values are `basic` and `standard`. Defaults to `standard`. Changing this forces a new resource to be created.
         :param pulumi.Input['KubernetesClusterNetworkProfileNatGatewayProfileArgs'] nat_gateway_profile: A `nat_gateway_profile` block as defined below. This can only be specified when `load_balancer_sku` is set to `standard` and `outbound_type` is set to `managedNATGateway` or `userAssignedNATGateway`. Changing this forces a new resource to be created.
@@ -8516,6 +8436,8 @@ class KubernetesClusterNetworkProfileArgs:
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] service_cidrs: A list of CIDRs to use for Kubernetes services. For single-stack networking a single IPv4 CIDR is expected. For dual-stack networking an IPv4 and IPv6 CIDR are expected. Changing this forces a new resource to be created.
                
                > **Note:** This range should not be used by any network element on or connected to this VNet. Service address CIDR must be smaller than /12. `docker_bridge_cidr`, `dns_service_ip` and `service_cidr` should all be empty or all should be set.
+               
+               Examples of how to use [AKS with Advanced Networking](https://docs.microsoft.com/azure/aks/networking-overview#advanced-networking) can be found in the `./examples/kubernetes/` directory in the GitHub repository.
         """
         pulumi.set(__self__, "network_plugin", network_plugin)
         if dns_service_ip is not None:
@@ -8579,9 +8501,9 @@ class KubernetesClusterNetworkProfileArgs:
         """
         Specifies a list of IP versions the Kubernetes Cluster will use to assign IP addresses to its nodes and pods. Possible values are `IPv4` and/or `IPv6`. `IPv4` must always be specified. Changing this forces a new resource to be created.
 
-        ->**Note:** To configure dual-stack networking `ip_versions` should be set to `["IPv4", "IPv6"]`.
+        > **Note:** To configure dual-stack networking `ip_versions` should be set to `["IPv4", "IPv6"]`.
 
-        ->**Note:** Dual-stack networking requires that the Preview Feature `Microsoft.ContainerService/AKS-EnableDualStack` is enabled and the Resource Provider is re-registered, see [the documentation](https://docs.microsoft.com/azure/aks/configure-kubenet-dual-stack?tabs=azure-cli%2Ckubectl#register-the-aks-enabledualstack-preview-feature) for more information.
+        > **Note:** Dual-stack networking requires that the Preview Feature `Microsoft.ContainerService/AKS-EnableDualStack` is enabled and the Resource Provider is re-registered, see [the documentation](https://docs.microsoft.com/azure/aks/configure-kubenet-dual-stack?tabs=azure-cli%2Ckubectl#register-the-aks-enabledualstack-preview-feature) for more information.
         """
         return pulumi.get(self, "ip_versions")
 
@@ -8742,6 +8664,8 @@ class KubernetesClusterNetworkProfileArgs:
         A list of CIDRs to use for Kubernetes services. For single-stack networking a single IPv4 CIDR is expected. For dual-stack networking an IPv4 and IPv6 CIDR are expected. Changing this forces a new resource to be created.
 
         > **Note:** This range should not be used by any network element on or connected to this VNet. Service address CIDR must be smaller than /12. `docker_bridge_cidr`, `dns_service_ip` and `service_cidr` should all be empty or all should be set.
+
+        Examples of how to use [AKS with Advanced Networking](https://docs.microsoft.com/azure/aks/networking-overview#advanced-networking) can be found in the `./examples/kubernetes/` directory in the GitHub repository.
         """
         return pulumi.get(self, "service_cidrs")
 
@@ -10320,7 +10244,7 @@ if not MYPY:
         """
         Specify 1 or 2 Istio control plane revisions for managing minor upgrades using the canary upgrade process. For example, create the resource with `revisions` set to `["asm-1-20"]`, or leave it empty (the `revisions` will only be known after apply). To start the canary upgrade, change `revisions` to `["asm-1-20", "asm-1-21"]`. To roll back the canary upgrade, revert to `["asm-1-20"]`. To confirm the upgrade, change to `["asm-1-21"]`.
 
-        > **NOTE:** Upgrading to a new (canary) revision does not affect existing sidecar proxies. You need to apply the canary revision label to selected namespaces and restart pods with kubectl to inject the new sidecar proxy. [Learn more](https://istio.io/latest/docs/setup/upgrade/canary/#data-plane).
+        > **Note:** Upgrading to a new (canary) revision does not affect existing sidecar proxies. You need to apply the canary revision label to selected namespaces and restart pods with kubectl to inject the new sidecar proxy. [Learn more](https://istio.io/latest/docs/setup/upgrade/canary/#data-plane).
         """
         certificate_authority: NotRequired[pulumi.Input['KubernetesClusterServiceMeshProfileCertificateAuthorityArgsDict']]
         """
@@ -10330,7 +10254,7 @@ if not MYPY:
         """
         Is Istio External Ingress Gateway enabled?
 
-        > **NOTE:** Currently only one Internal Ingress Gateway and one External Ingress Gateway are allowed per cluster
+        > **Note:** Currently only one Internal Ingress Gateway and one External Ingress Gateway are allowed per cluster
         """
         internal_ingress_gateway_enabled: NotRequired[pulumi.Input[builtins.bool]]
         """
@@ -10351,11 +10275,11 @@ class KubernetesClusterServiceMeshProfileArgs:
         :param pulumi.Input[builtins.str] mode: The mode of the service mesh. Possible value is `Istio`.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] revisions: Specify 1 or 2 Istio control plane revisions for managing minor upgrades using the canary upgrade process. For example, create the resource with `revisions` set to `["asm-1-20"]`, or leave it empty (the `revisions` will only be known after apply). To start the canary upgrade, change `revisions` to `["asm-1-20", "asm-1-21"]`. To roll back the canary upgrade, revert to `["asm-1-20"]`. To confirm the upgrade, change to `["asm-1-21"]`.
                
-               > **NOTE:** Upgrading to a new (canary) revision does not affect existing sidecar proxies. You need to apply the canary revision label to selected namespaces and restart pods with kubectl to inject the new sidecar proxy. [Learn more](https://istio.io/latest/docs/setup/upgrade/canary/#data-plane).
+               > **Note:** Upgrading to a new (canary) revision does not affect existing sidecar proxies. You need to apply the canary revision label to selected namespaces and restart pods with kubectl to inject the new sidecar proxy. [Learn more](https://istio.io/latest/docs/setup/upgrade/canary/#data-plane).
         :param pulumi.Input['KubernetesClusterServiceMeshProfileCertificateAuthorityArgs'] certificate_authority: A `certificate_authority` block as defined below. When this property is specified, `key_vault_secrets_provider` is also required to be set. This configuration allows you to bring your own root certificate and keys for Istio CA in the Istio-based service mesh add-on for Azure Kubernetes Service.
         :param pulumi.Input[builtins.bool] external_ingress_gateway_enabled: Is Istio External Ingress Gateway enabled?
                
-               > **NOTE:** Currently only one Internal Ingress Gateway and one External Ingress Gateway are allowed per cluster
+               > **Note:** Currently only one Internal Ingress Gateway and one External Ingress Gateway are allowed per cluster
         :param pulumi.Input[builtins.bool] internal_ingress_gateway_enabled: Is Istio Internal Ingress Gateway enabled?
         """
         pulumi.set(__self__, "mode", mode)
@@ -10385,7 +10309,7 @@ class KubernetesClusterServiceMeshProfileArgs:
         """
         Specify 1 or 2 Istio control plane revisions for managing minor upgrades using the canary upgrade process. For example, create the resource with `revisions` set to `["asm-1-20"]`, or leave it empty (the `revisions` will only be known after apply). To start the canary upgrade, change `revisions` to `["asm-1-20", "asm-1-21"]`. To roll back the canary upgrade, revert to `["asm-1-20"]`. To confirm the upgrade, change to `["asm-1-21"]`.
 
-        > **NOTE:** Upgrading to a new (canary) revision does not affect existing sidecar proxies. You need to apply the canary revision label to selected namespaces and restart pods with kubectl to inject the new sidecar proxy. [Learn more](https://istio.io/latest/docs/setup/upgrade/canary/#data-plane).
+        > **Note:** Upgrading to a new (canary) revision does not affect existing sidecar proxies. You need to apply the canary revision label to selected namespaces and restart pods with kubectl to inject the new sidecar proxy. [Learn more](https://istio.io/latest/docs/setup/upgrade/canary/#data-plane).
         """
         return pulumi.get(self, "revisions")
 
@@ -10411,7 +10335,7 @@ class KubernetesClusterServiceMeshProfileArgs:
         """
         Is Istio External Ingress Gateway enabled?
 
-        > **NOTE:** Currently only one Internal Ingress Gateway and one External Ingress Gateway are allowed per cluster
+        > **Note:** Currently only one Internal Ingress Gateway and one External Ingress Gateway are allowed per cluster
         """
         return pulumi.get(self, "external_ingress_gateway_enabled")
 
@@ -11131,7 +11055,7 @@ if not MYPY:
         """
         The URI of the secret containing the password in a Key Vault.
 
-        > NOTE: Be aware that you will need to permit the Identity that is created for the Container Registry to have `get` on secrets to the Key Vault, e.g. using the `keyvault.AccessPolicy` resource.
+        > **Note:** Be aware that you will need to permit the Identity that is created for the Container Registry to have `get` on secrets to the Key Vault, e.g. using the `keyvault.AccessPolicy` resource.
         """
         username_secret_id: pulumi.Input[builtins.str]
         """
@@ -11148,7 +11072,7 @@ class RegistryCredentialSetAuthenticationCredentialsArgs:
         """
         :param pulumi.Input[builtins.str] password_secret_id: The URI of the secret containing the password in a Key Vault.
                
-               > NOTE: Be aware that you will need to permit the Identity that is created for the Container Registry to have `get` on secrets to the Key Vault, e.g. using the `keyvault.AccessPolicy` resource.
+               > **Note:** Be aware that you will need to permit the Identity that is created for the Container Registry to have `get` on secrets to the Key Vault, e.g. using the `keyvault.AccessPolicy` resource.
         :param pulumi.Input[builtins.str] username_secret_id: The URI of the secret containing the username in a Key Vault.
         """
         pulumi.set(__self__, "password_secret_id", password_secret_id)
@@ -11160,7 +11084,7 @@ class RegistryCredentialSetAuthenticationCredentialsArgs:
         """
         The URI of the secret containing the password in a Key Vault.
 
-        > NOTE: Be aware that you will need to permit the Identity that is created for the Container Registry to have `get` on secrets to the Key Vault, e.g. using the `keyvault.AccessPolicy` resource.
+        > **Note:** Be aware that you will need to permit the Identity that is created for the Container Registry to have `get` on secrets to the Key Vault, e.g. using the `keyvault.AccessPolicy` resource.
         """
         return pulumi.get(self, "password_secret_id")
 
@@ -11320,7 +11244,7 @@ if not MYPY:
         """
         Whether zone redundancy is enabled for this replication location? Defaults to `false`.
 
-        > **NOTE:** Changing the `zone_redundancy_enabled` forces the a underlying replication to be created.
+        > **Note:** Changing the `zone_redundancy_enabled` forces the a underlying replication to be created.
         """
 elif False:
     RegistryGeoreplicationArgsDict: TypeAlias = Mapping[str, Any]
@@ -11338,7 +11262,7 @@ class RegistryGeoreplicationArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A mapping of tags to assign to this replication location.
         :param pulumi.Input[builtins.bool] zone_redundancy_enabled: Whether zone redundancy is enabled for this replication location? Defaults to `false`.
                
-               > **NOTE:** Changing the `zone_redundancy_enabled` forces the a underlying replication to be created.
+               > **Note:** Changing the `zone_redundancy_enabled` forces the a underlying replication to be created.
         """
         pulumi.set(__self__, "location", location)
         if regional_endpoint_enabled is not None:
@@ -11390,7 +11314,7 @@ class RegistryGeoreplicationArgs:
         """
         Whether zone redundancy is enabled for this replication location? Defaults to `false`.
 
-        > **NOTE:** Changing the `zone_redundancy_enabled` forces the a underlying replication to be created.
+        > **Note:** Changing the `zone_redundancy_enabled` forces the a underlying replication to be created.
         """
         return pulumi.get(self, "zone_redundancy_enabled")
 
@@ -11409,7 +11333,7 @@ if not MYPY:
         """
         Specifies a list of User Assigned Managed Identity IDs to be assigned to this Container Registry.
 
-        > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+        > **Note:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
         """
         principal_id: NotRequired[pulumi.Input[builtins.str]]
         """
@@ -11433,7 +11357,7 @@ class RegistryIdentityArgs:
         :param pulumi.Input[builtins.str] type: Specifies the type of Managed Service Identity that should be configured on this Container Registry. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] identity_ids: Specifies a list of User Assigned Managed Identity IDs to be assigned to this Container Registry.
                
-               > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+               > **Note:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
         :param pulumi.Input[builtins.str] principal_id: The Principal ID associated with this Managed Service Identity.
         :param pulumi.Input[builtins.str] tenant_id: The Tenant ID associated with this Managed Service Identity.
         """
@@ -11463,7 +11387,7 @@ class RegistryIdentityArgs:
         """
         Specifies a list of User Assigned Managed Identity IDs to be assigned to this Container Registry.
 
-        > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+        > **Note:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
         """
         return pulumi.get(self, "identity_ids")
 
@@ -11506,9 +11430,9 @@ if not MYPY:
         """
         One or more `ip_rule` blocks as defined below.
 
-        > **NOTE:** `network_rule_set` is only supported with the `Premium` SKU at this time.
+        > **Note:** `network_rule_set` is only supported with the `Premium` SKU at this time.
 
-        > **NOTE:** Azure automatically configures Network Rules - to remove these you'll need to specify an `network_rule_set` block with `default_action` set to `Deny`.
+        > **Note:** Azure automatically configures Network Rules - to remove these you'll need to specify an `network_rule_set` block with `default_action` set to `Deny`.
         """
 elif False:
     RegistryNetworkRuleSetArgsDict: TypeAlias = Mapping[str, Any]
@@ -11522,9 +11446,9 @@ class RegistryNetworkRuleSetArgs:
         :param pulumi.Input[builtins.str] default_action: The behaviour for requests matching no rules. Either `Allow` or `Deny`. Defaults to `Allow`
         :param pulumi.Input[Sequence[pulumi.Input['RegistryNetworkRuleSetIpRuleArgs']]] ip_rules: One or more `ip_rule` blocks as defined below.
                
-               > **NOTE:** `network_rule_set` is only supported with the `Premium` SKU at this time.
+               > **Note:** `network_rule_set` is only supported with the `Premium` SKU at this time.
                
-               > **NOTE:** Azure automatically configures Network Rules - to remove these you'll need to specify an `network_rule_set` block with `default_action` set to `Deny`.
+               > **Note:** Azure automatically configures Network Rules - to remove these you'll need to specify an `network_rule_set` block with `default_action` set to `Deny`.
         """
         if default_action is not None:
             pulumi.set(__self__, "default_action", default_action)
@@ -11549,9 +11473,9 @@ class RegistryNetworkRuleSetArgs:
         """
         One or more `ip_rule` blocks as defined below.
 
-        > **NOTE:** `network_rule_set` is only supported with the `Premium` SKU at this time.
+        > **Note:** `network_rule_set` is only supported with the `Premium` SKU at this time.
 
-        > **NOTE:** Azure automatically configures Network Rules - to remove these you'll need to specify an `network_rule_set` block with `default_action` set to `Deny`.
+        > **Note:** Azure automatically configures Network Rules - to remove these you'll need to specify an `network_rule_set` block with `default_action` set to `Deny`.
         """
         return pulumi.get(self, "ip_rules")
 
@@ -12212,7 +12136,7 @@ if not MYPY:
         """
         Specifies a list of User Assigned Managed Identity IDs to be assigned to this Container Registry Task.
 
-        > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+        > **Note:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
         """
         principal_id: NotRequired[pulumi.Input[builtins.str]]
         """
@@ -12236,7 +12160,7 @@ class RegistryTaskIdentityArgs:
         :param pulumi.Input[builtins.str] type: Specifies the type of Managed Service Identity that should be configured on this Container Registry Task. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] identity_ids: Specifies a list of User Assigned Managed Identity IDs to be assigned to this Container Registry Task.
                
-               > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+               > **Note:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
         :param pulumi.Input[builtins.str] principal_id: The Principal ID associated with this Managed Service Identity.
         :param pulumi.Input[builtins.str] tenant_id: The Tenant ID associated with this Managed Service Identity.
         """
@@ -12266,7 +12190,7 @@ class RegistryTaskIdentityArgs:
         """
         Specifies a list of User Assigned Managed Identity IDs to be assigned to this Container Registry Task.
 
-        > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+        > **Note:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
         """
         return pulumi.get(self, "identity_ids")
 

@@ -116,6 +116,13 @@ import (
 //
 // ```
 //
+// ## API Providers
+//
+// <!-- This section is generated, changes will be overwritten -->
+// This resource uses the following Azure API Providers:
+//
+// * `Microsoft.App`: 2025-01-01
+//
 // ## Import
 //
 // A Container App Job can be imported using the resource id, e.g.
@@ -152,7 +159,7 @@ type Job struct {
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// A `scheduleTriggerConfig` block as defined below.
 	//
-	// > ** NOTE **: Only one of `manualTriggerConfig`, `eventTriggerConfig` or `scheduleTriggerConfig` can be specified.
+	// > **Note:** Only one of `manualTriggerConfig`, `eventTriggerConfig` or `scheduleTriggerConfig` can be specified.
 	ScheduleTriggerConfig JobScheduleTriggerConfigPtrOutput `pulumi:"scheduleTriggerConfig"`
 	// One or more `secret` blocks as defined below.
 	Secrets JobSecretArrayOutput `pulumi:"secrets"`
@@ -239,7 +246,7 @@ type jobState struct {
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// A `scheduleTriggerConfig` block as defined below.
 	//
-	// > ** NOTE **: Only one of `manualTriggerConfig`, `eventTriggerConfig` or `scheduleTriggerConfig` can be specified.
+	// > **Note:** Only one of `manualTriggerConfig`, `eventTriggerConfig` or `scheduleTriggerConfig` can be specified.
 	ScheduleTriggerConfig *JobScheduleTriggerConfig `pulumi:"scheduleTriggerConfig"`
 	// One or more `secret` blocks as defined below.
 	Secrets []JobSecret `pulumi:"secrets"`
@@ -278,7 +285,7 @@ type JobState struct {
 	ResourceGroupName pulumi.StringPtrInput
 	// A `scheduleTriggerConfig` block as defined below.
 	//
-	// > ** NOTE **: Only one of `manualTriggerConfig`, `eventTriggerConfig` or `scheduleTriggerConfig` can be specified.
+	// > **Note:** Only one of `manualTriggerConfig`, `eventTriggerConfig` or `scheduleTriggerConfig` can be specified.
 	ScheduleTriggerConfig JobScheduleTriggerConfigPtrInput
 	// One or more `secret` blocks as defined below.
 	Secrets JobSecretArrayInput
@@ -317,7 +324,7 @@ type jobArgs struct {
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// A `scheduleTriggerConfig` block as defined below.
 	//
-	// > ** NOTE **: Only one of `manualTriggerConfig`, `eventTriggerConfig` or `scheduleTriggerConfig` can be specified.
+	// > **Note:** Only one of `manualTriggerConfig`, `eventTriggerConfig` or `scheduleTriggerConfig` can be specified.
 	ScheduleTriggerConfig *JobScheduleTriggerConfig `pulumi:"scheduleTriggerConfig"`
 	// One or more `secret` blocks as defined below.
 	Secrets []JobSecret `pulumi:"secrets"`
@@ -353,7 +360,7 @@ type JobArgs struct {
 	ResourceGroupName pulumi.StringInput
 	// A `scheduleTriggerConfig` block as defined below.
 	//
-	// > ** NOTE **: Only one of `manualTriggerConfig`, `eventTriggerConfig` or `scheduleTriggerConfig` can be specified.
+	// > **Note:** Only one of `manualTriggerConfig`, `eventTriggerConfig` or `scheduleTriggerConfig` can be specified.
 	ScheduleTriggerConfig JobScheduleTriggerConfigPtrInput
 	// One or more `secret` blocks as defined below.
 	Secrets JobSecretArrayInput
@@ -514,7 +521,7 @@ func (o JobOutput) ResourceGroupName() pulumi.StringOutput {
 
 // A `scheduleTriggerConfig` block as defined below.
 //
-// > ** NOTE **: Only one of `manualTriggerConfig`, `eventTriggerConfig` or `scheduleTriggerConfig` can be specified.
+// > **Note:** Only one of `manualTriggerConfig`, `eventTriggerConfig` or `scheduleTriggerConfig` can be specified.
 func (o JobOutput) ScheduleTriggerConfig() JobScheduleTriggerConfigPtrOutput {
 	return o.ApplyT(func(v *Job) JobScheduleTriggerConfigPtrOutput { return v.ScheduleTriggerConfig }).(JobScheduleTriggerConfigPtrOutput)
 }

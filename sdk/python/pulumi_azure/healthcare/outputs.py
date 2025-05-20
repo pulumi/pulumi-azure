@@ -682,9 +682,7 @@ class ServiceAuthenticationConfiguration(dict):
                  authority: Optional[builtins.str] = None,
                  smart_proxy_enabled: Optional[builtins.bool] = None):
         """
-        :param builtins.str audience: The intended audience to receive authentication tokens for the service. The default value is https://azurehealthcareapis.com
-        :param builtins.str authority: The Azure Active Directory (tenant) that serves as the authentication authority to access the service. The default authority is the Directory defined in the authentication scheme in use when running this provider.
-               Authority must be registered to Azure AD and in the following format: https://{Azure-AD-endpoint}/{tenant-id}.
+        :param builtins.str audience: The intended audience to receive authentication tokens for the service. The default value is <https://azurehealthcareapis.com>
         :param builtins.bool smart_proxy_enabled: (Boolean) Enables the 'SMART on FHIR' option for mobile and web implementations.
         """
         if audience is not None:
@@ -698,17 +696,13 @@ class ServiceAuthenticationConfiguration(dict):
     @pulumi.getter
     def audience(self) -> Optional[builtins.str]:
         """
-        The intended audience to receive authentication tokens for the service. The default value is https://azurehealthcareapis.com
+        The intended audience to receive authentication tokens for the service. The default value is <https://azurehealthcareapis.com>
         """
         return pulumi.get(self, "audience")
 
     @property
     @pulumi.getter
     def authority(self) -> Optional[builtins.str]:
-        """
-        The Azure Active Directory (tenant) that serves as the authentication authority to access the service. The default authority is the Directory defined in the authentication scheme in use when running this provider.
-        Authority must be registered to Azure AD and in the following format: https://{Azure-AD-endpoint}/{tenant-id}.
-        """
         return pulumi.get(self, "authority")
 
     @property

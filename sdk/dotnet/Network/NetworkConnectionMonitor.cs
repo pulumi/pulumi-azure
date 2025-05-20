@@ -10,10 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Network
 {
     /// <summary>
-    /// Manages a Network Connection Monitor.
-    /// 
-    /// &gt; **NOTE:** Any Network Connection Monitor resource created with API versions 2019-06-01 or earlier (v1) are now incompatible with this provider, which now only supports v2.
-    /// 
     /// ## Example Usage
     /// 
     /// ```csharp
@@ -156,7 +152,7 @@ namespace Pulumi.Azure.Network
     ///             new Azure.Network.Inputs.NetworkConnectionMonitorEndpointArgs
     ///             {
     ///                 Name = "destination",
-    ///                 Address = "mycompany.io",
+    ///                 Address = "terraform.io",
     ///             },
     ///         },
     ///         TestConfigurations = new[]

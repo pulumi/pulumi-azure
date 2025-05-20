@@ -57,6 +57,13 @@ import (
 //
 // ```
 //
+// ## API Providers
+//
+// <!-- This section is generated, changes will be overwritten -->
+// This resource uses the following Azure API Providers:
+//
+// * `Microsoft.CognitiveServices`: 2024-10-01
+//
 // ## Import
 //
 // Cognitive Service Accounts can be imported using the `resource id`, e.g.
@@ -71,7 +78,7 @@ type Account struct {
 	CustomQuestionAnsweringSearchServiceId pulumi.StringPtrOutput `pulumi:"customQuestionAnsweringSearchServiceId"`
 	// If `kind` is `TextAnalytics` this specifies the key of the Search service.
 	//
-	// > **NOTE:** `customQuestionAnsweringSearchServiceId` and `customQuestionAnsweringSearchServiceKey` are used for [Custom Question Answering, the renamed version of QnA Maker](https://docs.microsoft.com/azure/cognitive-services/qnamaker/custom-question-answering), while `qnaRuntimeEndpoint` is used for [the old version of QnA Maker](https://docs.microsoft.com/azure/cognitive-services/qnamaker/overview/overview)
+	// > **Note:** `customQuestionAnsweringSearchServiceId` and `customQuestionAnsweringSearchServiceKey` are used for [Custom Question Answering, the renamed version of QnA Maker](https://docs.microsoft.com/azure/cognitive-services/qnamaker/custom-question-answering), while `qnaRuntimeEndpoint` is used for [the old version of QnA Maker](https://docs.microsoft.com/azure/cognitive-services/qnamaker/overview/overview)
 	CustomQuestionAnsweringSearchServiceKey pulumi.StringPtrOutput `pulumi:"customQuestionAnsweringSearchServiceKey"`
 	// The subdomain name used for token-based authentication. This property is required when `networkAcls` is specified. This property is also required when using the OpenAI service with libraries which assume the Azure OpenAI endpoint is a subdomain on `https://openai.azure.com/`, eg. `https://<custom_subdomain_name>.openai.azure.com/`.  Changing this forces a new resource to be created.
 	CustomSubdomainName pulumi.StringPtrOutput `pulumi:"customSubdomainName"`
@@ -87,9 +94,9 @@ type Account struct {
 	Identity AccountIdentityPtrOutput `pulumi:"identity"`
 	// Specifies the type of Cognitive Service Account that should be created. Possible values are `Academic`, `AnomalyDetector`, `Bing.Autosuggest`, `Bing.Autosuggest.v7`, `Bing.CustomSearch`, `Bing.Search`, `Bing.Search.v7`, `Bing.Speech`, `Bing.SpellCheck`, `Bing.SpellCheck.v7`, `CognitiveServices`, `ComputerVision`, `ContentModerator`, `ContentSafety`, `CustomSpeech`, `CustomVision.Prediction`, `CustomVision.Training`, `Emotion`, `Face`, `FormRecognizer`, `ImmersiveReader`, `LUIS`, `LUIS.Authoring`, `MetricsAdvisor`, `OpenAI`, `Personalizer`, `QnAMaker`, `Recommendations`, `SpeakerRecognition`, `Speech`, `SpeechServices`, `SpeechTranslation`, `TextAnalytics`, `TextTranslation` and `WebLM`. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** New Bing Search resources cannot be created as their APIs are moving from Cognitive Services Platform to new surface area under Microsoft.com. Starting from October 30, 2020, existing instances of Bing Search APIs provisioned via Cognitive Services will be continuously supported for next 3 years or till the end of respective Enterprise Agreement, whichever happens first.
+	// > **Note:** New Bing Search resources cannot be created as their APIs are moving from Cognitive Services Platform to new surface area under Microsoft.com. Starting from October 30, 2020, existing instances of Bing Search APIs provisioned via Cognitive Services will be continuously supported for next 3 years or till the end of respective Enterprise Agreement, whichever happens first.
 	//
-	// > **NOTE:** You must create your first Face, Text Analytics, or Computer Vision resources from the Azure portal to review and acknowledge the terms and conditions. In Azure Portal, the checkbox to accept terms and conditions is only displayed when a US region is selected. More information on [Prerequisites](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account-cli?tabs=windows#prerequisites).
+	// > **Note:** You must create your first Face, Text Analytics, or Computer Vision resources from the Azure portal to review and acknowledge the terms and conditions. In Azure Portal, the checkbox to accept terms and conditions is only displayed when a US region is selected. More information on [Prerequisites](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account-cli?tabs=windows#prerequisites).
 	Kind pulumi.StringOutput `pulumi:"kind"`
 	// Whether local authentication methods is enabled for the Cognitive Account. Defaults to `true`.
 	LocalAuthEnabled pulumi.BoolPtrOutput `pulumi:"localAuthEnabled"`
@@ -103,7 +110,7 @@ type Account struct {
 	MetricsAdvisorSuperUserName pulumi.StringPtrOutput `pulumi:"metricsAdvisorSuperUserName"`
 	// The website name of Metrics Advisor. This attribute is only set when kind is `MetricsAdvisor`. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** This URL is mandatory if the `kind` is set to `QnAMaker`.
+	// > **Note:** This URL is mandatory if the `kind` is set to `QnAMaker`.
 	MetricsAdvisorWebsiteName pulumi.StringPtrOutput `pulumi:"metricsAdvisorWebsiteName"`
 	// Specifies the name of the Cognitive Service Account. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -123,7 +130,7 @@ type Account struct {
 	SecondaryAccessKey pulumi.StringOutput `pulumi:"secondaryAccessKey"`
 	// Specifies the SKU Name for this Cognitive Service Account. Possible values are `F0`, `F1`, `S0`, `S`, `S1`, `S2`, `S3`, `S4`, `S5`, `S6`, `P0`, `P1`, `P2`, `E0` and `DC0`.
 	//
-	// > **NOTE:** SKU `DC0` is the commitment tier for Cognitive Services containers running in disconnected environments. You must obtain approval from Microsoft by submitting the [request form](https://aka.ms/csdisconnectedcontainers) first, before you can use this SKU. More information on [Purchase a commitment plan to use containers in disconnected environments](https://learn.microsoft.com/en-us/azure/cognitive-services/containers/disconnected-containers?tabs=stt#purchase-a-commitment-plan-to-use-containers-in-disconnected-environments).
+	// > **Note:** SKU `DC0` is the commitment tier for Cognitive Services containers running in disconnected environments. You must obtain approval from Microsoft by submitting the [request form](https://aka.ms/csdisconnectedcontainers) first, before you can use this SKU. More information on [Purchase a commitment plan to use containers in disconnected environments](https://learn.microsoft.com/en-us/azure/cognitive-services/containers/disconnected-containers?tabs=stt#purchase-a-commitment-plan-to-use-containers-in-disconnected-environments).
 	SkuName pulumi.StringOutput `pulumi:"skuName"`
 	// A `storage` block as defined below.
 	Storages AccountStorageArrayOutput `pulumi:"storages"`
@@ -183,7 +190,7 @@ type accountState struct {
 	CustomQuestionAnsweringSearchServiceId *string `pulumi:"customQuestionAnsweringSearchServiceId"`
 	// If `kind` is `TextAnalytics` this specifies the key of the Search service.
 	//
-	// > **NOTE:** `customQuestionAnsweringSearchServiceId` and `customQuestionAnsweringSearchServiceKey` are used for [Custom Question Answering, the renamed version of QnA Maker](https://docs.microsoft.com/azure/cognitive-services/qnamaker/custom-question-answering), while `qnaRuntimeEndpoint` is used for [the old version of QnA Maker](https://docs.microsoft.com/azure/cognitive-services/qnamaker/overview/overview)
+	// > **Note:** `customQuestionAnsweringSearchServiceId` and `customQuestionAnsweringSearchServiceKey` are used for [Custom Question Answering, the renamed version of QnA Maker](https://docs.microsoft.com/azure/cognitive-services/qnamaker/custom-question-answering), while `qnaRuntimeEndpoint` is used for [the old version of QnA Maker](https://docs.microsoft.com/azure/cognitive-services/qnamaker/overview/overview)
 	CustomQuestionAnsweringSearchServiceKey *string `pulumi:"customQuestionAnsweringSearchServiceKey"`
 	// The subdomain name used for token-based authentication. This property is required when `networkAcls` is specified. This property is also required when using the OpenAI service with libraries which assume the Azure OpenAI endpoint is a subdomain on `https://openai.azure.com/`, eg. `https://<custom_subdomain_name>.openai.azure.com/`.  Changing this forces a new resource to be created.
 	CustomSubdomainName *string `pulumi:"customSubdomainName"`
@@ -199,9 +206,9 @@ type accountState struct {
 	Identity *AccountIdentity `pulumi:"identity"`
 	// Specifies the type of Cognitive Service Account that should be created. Possible values are `Academic`, `AnomalyDetector`, `Bing.Autosuggest`, `Bing.Autosuggest.v7`, `Bing.CustomSearch`, `Bing.Search`, `Bing.Search.v7`, `Bing.Speech`, `Bing.SpellCheck`, `Bing.SpellCheck.v7`, `CognitiveServices`, `ComputerVision`, `ContentModerator`, `ContentSafety`, `CustomSpeech`, `CustomVision.Prediction`, `CustomVision.Training`, `Emotion`, `Face`, `FormRecognizer`, `ImmersiveReader`, `LUIS`, `LUIS.Authoring`, `MetricsAdvisor`, `OpenAI`, `Personalizer`, `QnAMaker`, `Recommendations`, `SpeakerRecognition`, `Speech`, `SpeechServices`, `SpeechTranslation`, `TextAnalytics`, `TextTranslation` and `WebLM`. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** New Bing Search resources cannot be created as their APIs are moving from Cognitive Services Platform to new surface area under Microsoft.com. Starting from October 30, 2020, existing instances of Bing Search APIs provisioned via Cognitive Services will be continuously supported for next 3 years or till the end of respective Enterprise Agreement, whichever happens first.
+	// > **Note:** New Bing Search resources cannot be created as their APIs are moving from Cognitive Services Platform to new surface area under Microsoft.com. Starting from October 30, 2020, existing instances of Bing Search APIs provisioned via Cognitive Services will be continuously supported for next 3 years or till the end of respective Enterprise Agreement, whichever happens first.
 	//
-	// > **NOTE:** You must create your first Face, Text Analytics, or Computer Vision resources from the Azure portal to review and acknowledge the terms and conditions. In Azure Portal, the checkbox to accept terms and conditions is only displayed when a US region is selected. More information on [Prerequisites](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account-cli?tabs=windows#prerequisites).
+	// > **Note:** You must create your first Face, Text Analytics, or Computer Vision resources from the Azure portal to review and acknowledge the terms and conditions. In Azure Portal, the checkbox to accept terms and conditions is only displayed when a US region is selected. More information on [Prerequisites](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account-cli?tabs=windows#prerequisites).
 	Kind *string `pulumi:"kind"`
 	// Whether local authentication methods is enabled for the Cognitive Account. Defaults to `true`.
 	LocalAuthEnabled *bool `pulumi:"localAuthEnabled"`
@@ -215,7 +222,7 @@ type accountState struct {
 	MetricsAdvisorSuperUserName *string `pulumi:"metricsAdvisorSuperUserName"`
 	// The website name of Metrics Advisor. This attribute is only set when kind is `MetricsAdvisor`. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** This URL is mandatory if the `kind` is set to `QnAMaker`.
+	// > **Note:** This URL is mandatory if the `kind` is set to `QnAMaker`.
 	MetricsAdvisorWebsiteName *string `pulumi:"metricsAdvisorWebsiteName"`
 	// Specifies the name of the Cognitive Service Account. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
@@ -235,7 +242,7 @@ type accountState struct {
 	SecondaryAccessKey *string `pulumi:"secondaryAccessKey"`
 	// Specifies the SKU Name for this Cognitive Service Account. Possible values are `F0`, `F1`, `S0`, `S`, `S1`, `S2`, `S3`, `S4`, `S5`, `S6`, `P0`, `P1`, `P2`, `E0` and `DC0`.
 	//
-	// > **NOTE:** SKU `DC0` is the commitment tier for Cognitive Services containers running in disconnected environments. You must obtain approval from Microsoft by submitting the [request form](https://aka.ms/csdisconnectedcontainers) first, before you can use this SKU. More information on [Purchase a commitment plan to use containers in disconnected environments](https://learn.microsoft.com/en-us/azure/cognitive-services/containers/disconnected-containers?tabs=stt#purchase-a-commitment-plan-to-use-containers-in-disconnected-environments).
+	// > **Note:** SKU `DC0` is the commitment tier for Cognitive Services containers running in disconnected environments. You must obtain approval from Microsoft by submitting the [request form](https://aka.ms/csdisconnectedcontainers) first, before you can use this SKU. More information on [Purchase a commitment plan to use containers in disconnected environments](https://learn.microsoft.com/en-us/azure/cognitive-services/containers/disconnected-containers?tabs=stt#purchase-a-commitment-plan-to-use-containers-in-disconnected-environments).
 	SkuName *string `pulumi:"skuName"`
 	// A `storage` block as defined below.
 	Storages []AccountStorage `pulumi:"storages"`
@@ -248,7 +255,7 @@ type AccountState struct {
 	CustomQuestionAnsweringSearchServiceId pulumi.StringPtrInput
 	// If `kind` is `TextAnalytics` this specifies the key of the Search service.
 	//
-	// > **NOTE:** `customQuestionAnsweringSearchServiceId` and `customQuestionAnsweringSearchServiceKey` are used for [Custom Question Answering, the renamed version of QnA Maker](https://docs.microsoft.com/azure/cognitive-services/qnamaker/custom-question-answering), while `qnaRuntimeEndpoint` is used for [the old version of QnA Maker](https://docs.microsoft.com/azure/cognitive-services/qnamaker/overview/overview)
+	// > **Note:** `customQuestionAnsweringSearchServiceId` and `customQuestionAnsweringSearchServiceKey` are used for [Custom Question Answering, the renamed version of QnA Maker](https://docs.microsoft.com/azure/cognitive-services/qnamaker/custom-question-answering), while `qnaRuntimeEndpoint` is used for [the old version of QnA Maker](https://docs.microsoft.com/azure/cognitive-services/qnamaker/overview/overview)
 	CustomQuestionAnsweringSearchServiceKey pulumi.StringPtrInput
 	// The subdomain name used for token-based authentication. This property is required when `networkAcls` is specified. This property is also required when using the OpenAI service with libraries which assume the Azure OpenAI endpoint is a subdomain on `https://openai.azure.com/`, eg. `https://<custom_subdomain_name>.openai.azure.com/`.  Changing this forces a new resource to be created.
 	CustomSubdomainName pulumi.StringPtrInput
@@ -264,9 +271,9 @@ type AccountState struct {
 	Identity AccountIdentityPtrInput
 	// Specifies the type of Cognitive Service Account that should be created. Possible values are `Academic`, `AnomalyDetector`, `Bing.Autosuggest`, `Bing.Autosuggest.v7`, `Bing.CustomSearch`, `Bing.Search`, `Bing.Search.v7`, `Bing.Speech`, `Bing.SpellCheck`, `Bing.SpellCheck.v7`, `CognitiveServices`, `ComputerVision`, `ContentModerator`, `ContentSafety`, `CustomSpeech`, `CustomVision.Prediction`, `CustomVision.Training`, `Emotion`, `Face`, `FormRecognizer`, `ImmersiveReader`, `LUIS`, `LUIS.Authoring`, `MetricsAdvisor`, `OpenAI`, `Personalizer`, `QnAMaker`, `Recommendations`, `SpeakerRecognition`, `Speech`, `SpeechServices`, `SpeechTranslation`, `TextAnalytics`, `TextTranslation` and `WebLM`. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** New Bing Search resources cannot be created as their APIs are moving from Cognitive Services Platform to new surface area under Microsoft.com. Starting from October 30, 2020, existing instances of Bing Search APIs provisioned via Cognitive Services will be continuously supported for next 3 years or till the end of respective Enterprise Agreement, whichever happens first.
+	// > **Note:** New Bing Search resources cannot be created as their APIs are moving from Cognitive Services Platform to new surface area under Microsoft.com. Starting from October 30, 2020, existing instances of Bing Search APIs provisioned via Cognitive Services will be continuously supported for next 3 years or till the end of respective Enterprise Agreement, whichever happens first.
 	//
-	// > **NOTE:** You must create your first Face, Text Analytics, or Computer Vision resources from the Azure portal to review and acknowledge the terms and conditions. In Azure Portal, the checkbox to accept terms and conditions is only displayed when a US region is selected. More information on [Prerequisites](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account-cli?tabs=windows#prerequisites).
+	// > **Note:** You must create your first Face, Text Analytics, or Computer Vision resources from the Azure portal to review and acknowledge the terms and conditions. In Azure Portal, the checkbox to accept terms and conditions is only displayed when a US region is selected. More information on [Prerequisites](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account-cli?tabs=windows#prerequisites).
 	Kind pulumi.StringPtrInput
 	// Whether local authentication methods is enabled for the Cognitive Account. Defaults to `true`.
 	LocalAuthEnabled pulumi.BoolPtrInput
@@ -280,7 +287,7 @@ type AccountState struct {
 	MetricsAdvisorSuperUserName pulumi.StringPtrInput
 	// The website name of Metrics Advisor. This attribute is only set when kind is `MetricsAdvisor`. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** This URL is mandatory if the `kind` is set to `QnAMaker`.
+	// > **Note:** This URL is mandatory if the `kind` is set to `QnAMaker`.
 	MetricsAdvisorWebsiteName pulumi.StringPtrInput
 	// Specifies the name of the Cognitive Service Account. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
@@ -300,7 +307,7 @@ type AccountState struct {
 	SecondaryAccessKey pulumi.StringPtrInput
 	// Specifies the SKU Name for this Cognitive Service Account. Possible values are `F0`, `F1`, `S0`, `S`, `S1`, `S2`, `S3`, `S4`, `S5`, `S6`, `P0`, `P1`, `P2`, `E0` and `DC0`.
 	//
-	// > **NOTE:** SKU `DC0` is the commitment tier for Cognitive Services containers running in disconnected environments. You must obtain approval from Microsoft by submitting the [request form](https://aka.ms/csdisconnectedcontainers) first, before you can use this SKU. More information on [Purchase a commitment plan to use containers in disconnected environments](https://learn.microsoft.com/en-us/azure/cognitive-services/containers/disconnected-containers?tabs=stt#purchase-a-commitment-plan-to-use-containers-in-disconnected-environments).
+	// > **Note:** SKU `DC0` is the commitment tier for Cognitive Services containers running in disconnected environments. You must obtain approval from Microsoft by submitting the [request form](https://aka.ms/csdisconnectedcontainers) first, before you can use this SKU. More information on [Purchase a commitment plan to use containers in disconnected environments](https://learn.microsoft.com/en-us/azure/cognitive-services/containers/disconnected-containers?tabs=stt#purchase-a-commitment-plan-to-use-containers-in-disconnected-environments).
 	SkuName pulumi.StringPtrInput
 	// A `storage` block as defined below.
 	Storages AccountStorageArrayInput
@@ -317,7 +324,7 @@ type accountArgs struct {
 	CustomQuestionAnsweringSearchServiceId *string `pulumi:"customQuestionAnsweringSearchServiceId"`
 	// If `kind` is `TextAnalytics` this specifies the key of the Search service.
 	//
-	// > **NOTE:** `customQuestionAnsweringSearchServiceId` and `customQuestionAnsweringSearchServiceKey` are used for [Custom Question Answering, the renamed version of QnA Maker](https://docs.microsoft.com/azure/cognitive-services/qnamaker/custom-question-answering), while `qnaRuntimeEndpoint` is used for [the old version of QnA Maker](https://docs.microsoft.com/azure/cognitive-services/qnamaker/overview/overview)
+	// > **Note:** `customQuestionAnsweringSearchServiceId` and `customQuestionAnsweringSearchServiceKey` are used for [Custom Question Answering, the renamed version of QnA Maker](https://docs.microsoft.com/azure/cognitive-services/qnamaker/custom-question-answering), while `qnaRuntimeEndpoint` is used for [the old version of QnA Maker](https://docs.microsoft.com/azure/cognitive-services/qnamaker/overview/overview)
 	CustomQuestionAnsweringSearchServiceKey *string `pulumi:"customQuestionAnsweringSearchServiceKey"`
 	// The subdomain name used for token-based authentication. This property is required when `networkAcls` is specified. This property is also required when using the OpenAI service with libraries which assume the Azure OpenAI endpoint is a subdomain on `https://openai.azure.com/`, eg. `https://<custom_subdomain_name>.openai.azure.com/`.  Changing this forces a new resource to be created.
 	CustomSubdomainName *string `pulumi:"customSubdomainName"`
@@ -331,9 +338,9 @@ type accountArgs struct {
 	Identity *AccountIdentity `pulumi:"identity"`
 	// Specifies the type of Cognitive Service Account that should be created. Possible values are `Academic`, `AnomalyDetector`, `Bing.Autosuggest`, `Bing.Autosuggest.v7`, `Bing.CustomSearch`, `Bing.Search`, `Bing.Search.v7`, `Bing.Speech`, `Bing.SpellCheck`, `Bing.SpellCheck.v7`, `CognitiveServices`, `ComputerVision`, `ContentModerator`, `ContentSafety`, `CustomSpeech`, `CustomVision.Prediction`, `CustomVision.Training`, `Emotion`, `Face`, `FormRecognizer`, `ImmersiveReader`, `LUIS`, `LUIS.Authoring`, `MetricsAdvisor`, `OpenAI`, `Personalizer`, `QnAMaker`, `Recommendations`, `SpeakerRecognition`, `Speech`, `SpeechServices`, `SpeechTranslation`, `TextAnalytics`, `TextTranslation` and `WebLM`. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** New Bing Search resources cannot be created as their APIs are moving from Cognitive Services Platform to new surface area under Microsoft.com. Starting from October 30, 2020, existing instances of Bing Search APIs provisioned via Cognitive Services will be continuously supported for next 3 years or till the end of respective Enterprise Agreement, whichever happens first.
+	// > **Note:** New Bing Search resources cannot be created as their APIs are moving from Cognitive Services Platform to new surface area under Microsoft.com. Starting from October 30, 2020, existing instances of Bing Search APIs provisioned via Cognitive Services will be continuously supported for next 3 years or till the end of respective Enterprise Agreement, whichever happens first.
 	//
-	// > **NOTE:** You must create your first Face, Text Analytics, or Computer Vision resources from the Azure portal to review and acknowledge the terms and conditions. In Azure Portal, the checkbox to accept terms and conditions is only displayed when a US region is selected. More information on [Prerequisites](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account-cli?tabs=windows#prerequisites).
+	// > **Note:** You must create your first Face, Text Analytics, or Computer Vision resources from the Azure portal to review and acknowledge the terms and conditions. In Azure Portal, the checkbox to accept terms and conditions is only displayed when a US region is selected. More information on [Prerequisites](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account-cli?tabs=windows#prerequisites).
 	Kind string `pulumi:"kind"`
 	// Whether local authentication methods is enabled for the Cognitive Account. Defaults to `true`.
 	LocalAuthEnabled *bool `pulumi:"localAuthEnabled"`
@@ -347,7 +354,7 @@ type accountArgs struct {
 	MetricsAdvisorSuperUserName *string `pulumi:"metricsAdvisorSuperUserName"`
 	// The website name of Metrics Advisor. This attribute is only set when kind is `MetricsAdvisor`. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** This URL is mandatory if the `kind` is set to `QnAMaker`.
+	// > **Note:** This URL is mandatory if the `kind` is set to `QnAMaker`.
 	MetricsAdvisorWebsiteName *string `pulumi:"metricsAdvisorWebsiteName"`
 	// Specifies the name of the Cognitive Service Account. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
@@ -363,7 +370,7 @@ type accountArgs struct {
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Specifies the SKU Name for this Cognitive Service Account. Possible values are `F0`, `F1`, `S0`, `S`, `S1`, `S2`, `S3`, `S4`, `S5`, `S6`, `P0`, `P1`, `P2`, `E0` and `DC0`.
 	//
-	// > **NOTE:** SKU `DC0` is the commitment tier for Cognitive Services containers running in disconnected environments. You must obtain approval from Microsoft by submitting the [request form](https://aka.ms/csdisconnectedcontainers) first, before you can use this SKU. More information on [Purchase a commitment plan to use containers in disconnected environments](https://learn.microsoft.com/en-us/azure/cognitive-services/containers/disconnected-containers?tabs=stt#purchase-a-commitment-plan-to-use-containers-in-disconnected-environments).
+	// > **Note:** SKU `DC0` is the commitment tier for Cognitive Services containers running in disconnected environments. You must obtain approval from Microsoft by submitting the [request form](https://aka.ms/csdisconnectedcontainers) first, before you can use this SKU. More information on [Purchase a commitment plan to use containers in disconnected environments](https://learn.microsoft.com/en-us/azure/cognitive-services/containers/disconnected-containers?tabs=stt#purchase-a-commitment-plan-to-use-containers-in-disconnected-environments).
 	SkuName string `pulumi:"skuName"`
 	// A `storage` block as defined below.
 	Storages []AccountStorage `pulumi:"storages"`
@@ -377,7 +384,7 @@ type AccountArgs struct {
 	CustomQuestionAnsweringSearchServiceId pulumi.StringPtrInput
 	// If `kind` is `TextAnalytics` this specifies the key of the Search service.
 	//
-	// > **NOTE:** `customQuestionAnsweringSearchServiceId` and `customQuestionAnsweringSearchServiceKey` are used for [Custom Question Answering, the renamed version of QnA Maker](https://docs.microsoft.com/azure/cognitive-services/qnamaker/custom-question-answering), while `qnaRuntimeEndpoint` is used for [the old version of QnA Maker](https://docs.microsoft.com/azure/cognitive-services/qnamaker/overview/overview)
+	// > **Note:** `customQuestionAnsweringSearchServiceId` and `customQuestionAnsweringSearchServiceKey` are used for [Custom Question Answering, the renamed version of QnA Maker](https://docs.microsoft.com/azure/cognitive-services/qnamaker/custom-question-answering), while `qnaRuntimeEndpoint` is used for [the old version of QnA Maker](https://docs.microsoft.com/azure/cognitive-services/qnamaker/overview/overview)
 	CustomQuestionAnsweringSearchServiceKey pulumi.StringPtrInput
 	// The subdomain name used for token-based authentication. This property is required when `networkAcls` is specified. This property is also required when using the OpenAI service with libraries which assume the Azure OpenAI endpoint is a subdomain on `https://openai.azure.com/`, eg. `https://<custom_subdomain_name>.openai.azure.com/`.  Changing this forces a new resource to be created.
 	CustomSubdomainName pulumi.StringPtrInput
@@ -391,9 +398,9 @@ type AccountArgs struct {
 	Identity AccountIdentityPtrInput
 	// Specifies the type of Cognitive Service Account that should be created. Possible values are `Academic`, `AnomalyDetector`, `Bing.Autosuggest`, `Bing.Autosuggest.v7`, `Bing.CustomSearch`, `Bing.Search`, `Bing.Search.v7`, `Bing.Speech`, `Bing.SpellCheck`, `Bing.SpellCheck.v7`, `CognitiveServices`, `ComputerVision`, `ContentModerator`, `ContentSafety`, `CustomSpeech`, `CustomVision.Prediction`, `CustomVision.Training`, `Emotion`, `Face`, `FormRecognizer`, `ImmersiveReader`, `LUIS`, `LUIS.Authoring`, `MetricsAdvisor`, `OpenAI`, `Personalizer`, `QnAMaker`, `Recommendations`, `SpeakerRecognition`, `Speech`, `SpeechServices`, `SpeechTranslation`, `TextAnalytics`, `TextTranslation` and `WebLM`. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** New Bing Search resources cannot be created as their APIs are moving from Cognitive Services Platform to new surface area under Microsoft.com. Starting from October 30, 2020, existing instances of Bing Search APIs provisioned via Cognitive Services will be continuously supported for next 3 years or till the end of respective Enterprise Agreement, whichever happens first.
+	// > **Note:** New Bing Search resources cannot be created as their APIs are moving from Cognitive Services Platform to new surface area under Microsoft.com. Starting from October 30, 2020, existing instances of Bing Search APIs provisioned via Cognitive Services will be continuously supported for next 3 years or till the end of respective Enterprise Agreement, whichever happens first.
 	//
-	// > **NOTE:** You must create your first Face, Text Analytics, or Computer Vision resources from the Azure portal to review and acknowledge the terms and conditions. In Azure Portal, the checkbox to accept terms and conditions is only displayed when a US region is selected. More information on [Prerequisites](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account-cli?tabs=windows#prerequisites).
+	// > **Note:** You must create your first Face, Text Analytics, or Computer Vision resources from the Azure portal to review and acknowledge the terms and conditions. In Azure Portal, the checkbox to accept terms and conditions is only displayed when a US region is selected. More information on [Prerequisites](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account-cli?tabs=windows#prerequisites).
 	Kind pulumi.StringInput
 	// Whether local authentication methods is enabled for the Cognitive Account. Defaults to `true`.
 	LocalAuthEnabled pulumi.BoolPtrInput
@@ -407,7 +414,7 @@ type AccountArgs struct {
 	MetricsAdvisorSuperUserName pulumi.StringPtrInput
 	// The website name of Metrics Advisor. This attribute is only set when kind is `MetricsAdvisor`. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** This URL is mandatory if the `kind` is set to `QnAMaker`.
+	// > **Note:** This URL is mandatory if the `kind` is set to `QnAMaker`.
 	MetricsAdvisorWebsiteName pulumi.StringPtrInput
 	// Specifies the name of the Cognitive Service Account. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
@@ -423,7 +430,7 @@ type AccountArgs struct {
 	ResourceGroupName pulumi.StringInput
 	// Specifies the SKU Name for this Cognitive Service Account. Possible values are `F0`, `F1`, `S0`, `S`, `S1`, `S2`, `S3`, `S4`, `S5`, `S6`, `P0`, `P1`, `P2`, `E0` and `DC0`.
 	//
-	// > **NOTE:** SKU `DC0` is the commitment tier for Cognitive Services containers running in disconnected environments. You must obtain approval from Microsoft by submitting the [request form](https://aka.ms/csdisconnectedcontainers) first, before you can use this SKU. More information on [Purchase a commitment plan to use containers in disconnected environments](https://learn.microsoft.com/en-us/azure/cognitive-services/containers/disconnected-containers?tabs=stt#purchase-a-commitment-plan-to-use-containers-in-disconnected-environments).
+	// > **Note:** SKU `DC0` is the commitment tier for Cognitive Services containers running in disconnected environments. You must obtain approval from Microsoft by submitting the [request form](https://aka.ms/csdisconnectedcontainers) first, before you can use this SKU. More information on [Purchase a commitment plan to use containers in disconnected environments](https://learn.microsoft.com/en-us/azure/cognitive-services/containers/disconnected-containers?tabs=stt#purchase-a-commitment-plan-to-use-containers-in-disconnected-environments).
 	SkuName pulumi.StringInput
 	// A `storage` block as defined below.
 	Storages AccountStorageArrayInput
@@ -525,7 +532,7 @@ func (o AccountOutput) CustomQuestionAnsweringSearchServiceId() pulumi.StringPtr
 
 // If `kind` is `TextAnalytics` this specifies the key of the Search service.
 //
-// > **NOTE:** `customQuestionAnsweringSearchServiceId` and `customQuestionAnsweringSearchServiceKey` are used for [Custom Question Answering, the renamed version of QnA Maker](https://docs.microsoft.com/azure/cognitive-services/qnamaker/custom-question-answering), while `qnaRuntimeEndpoint` is used for [the old version of QnA Maker](https://docs.microsoft.com/azure/cognitive-services/qnamaker/overview/overview)
+// > **Note:** `customQuestionAnsweringSearchServiceId` and `customQuestionAnsweringSearchServiceKey` are used for [Custom Question Answering, the renamed version of QnA Maker](https://docs.microsoft.com/azure/cognitive-services/qnamaker/custom-question-answering), while `qnaRuntimeEndpoint` is used for [the old version of QnA Maker](https://docs.microsoft.com/azure/cognitive-services/qnamaker/overview/overview)
 func (o AccountOutput) CustomQuestionAnsweringSearchServiceKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Account) pulumi.StringPtrOutput { return v.CustomQuestionAnsweringSearchServiceKey }).(pulumi.StringPtrOutput)
 }
@@ -562,9 +569,9 @@ func (o AccountOutput) Identity() AccountIdentityPtrOutput {
 
 // Specifies the type of Cognitive Service Account that should be created. Possible values are `Academic`, `AnomalyDetector`, `Bing.Autosuggest`, `Bing.Autosuggest.v7`, `Bing.CustomSearch`, `Bing.Search`, `Bing.Search.v7`, `Bing.Speech`, `Bing.SpellCheck`, `Bing.SpellCheck.v7`, `CognitiveServices`, `ComputerVision`, `ContentModerator`, `ContentSafety`, `CustomSpeech`, `CustomVision.Prediction`, `CustomVision.Training`, `Emotion`, `Face`, `FormRecognizer`, `ImmersiveReader`, `LUIS`, `LUIS.Authoring`, `MetricsAdvisor`, `OpenAI`, `Personalizer`, `QnAMaker`, `Recommendations`, `SpeakerRecognition`, `Speech`, `SpeechServices`, `SpeechTranslation`, `TextAnalytics`, `TextTranslation` and `WebLM`. Changing this forces a new resource to be created.
 //
-// > **NOTE:** New Bing Search resources cannot be created as their APIs are moving from Cognitive Services Platform to new surface area under Microsoft.com. Starting from October 30, 2020, existing instances of Bing Search APIs provisioned via Cognitive Services will be continuously supported for next 3 years or till the end of respective Enterprise Agreement, whichever happens first.
+// > **Note:** New Bing Search resources cannot be created as their APIs are moving from Cognitive Services Platform to new surface area under Microsoft.com. Starting from October 30, 2020, existing instances of Bing Search APIs provisioned via Cognitive Services will be continuously supported for next 3 years or till the end of respective Enterprise Agreement, whichever happens first.
 //
-// > **NOTE:** You must create your first Face, Text Analytics, or Computer Vision resources from the Azure portal to review and acknowledge the terms and conditions. In Azure Portal, the checkbox to accept terms and conditions is only displayed when a US region is selected. More information on [Prerequisites](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account-cli?tabs=windows#prerequisites).
+// > **Note:** You must create your first Face, Text Analytics, or Computer Vision resources from the Azure portal to review and acknowledge the terms and conditions. In Azure Portal, the checkbox to accept terms and conditions is only displayed when a US region is selected. More information on [Prerequisites](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account-cli?tabs=windows#prerequisites).
 func (o AccountOutput) Kind() pulumi.StringOutput {
 	return o.ApplyT(func(v *Account) pulumi.StringOutput { return v.Kind }).(pulumi.StringOutput)
 }
@@ -596,7 +603,7 @@ func (o AccountOutput) MetricsAdvisorSuperUserName() pulumi.StringPtrOutput {
 
 // The website name of Metrics Advisor. This attribute is only set when kind is `MetricsAdvisor`. Changing this forces a new resource to be created.
 //
-// > **NOTE:** This URL is mandatory if the `kind` is set to `QnAMaker`.
+// > **Note:** This URL is mandatory if the `kind` is set to `QnAMaker`.
 func (o AccountOutput) MetricsAdvisorWebsiteName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Account) pulumi.StringPtrOutput { return v.MetricsAdvisorWebsiteName }).(pulumi.StringPtrOutput)
 }
@@ -643,7 +650,7 @@ func (o AccountOutput) SecondaryAccessKey() pulumi.StringOutput {
 
 // Specifies the SKU Name for this Cognitive Service Account. Possible values are `F0`, `F1`, `S0`, `S`, `S1`, `S2`, `S3`, `S4`, `S5`, `S6`, `P0`, `P1`, `P2`, `E0` and `DC0`.
 //
-// > **NOTE:** SKU `DC0` is the commitment tier for Cognitive Services containers running in disconnected environments. You must obtain approval from Microsoft by submitting the [request form](https://aka.ms/csdisconnectedcontainers) first, before you can use this SKU. More information on [Purchase a commitment plan to use containers in disconnected environments](https://learn.microsoft.com/en-us/azure/cognitive-services/containers/disconnected-containers?tabs=stt#purchase-a-commitment-plan-to-use-containers-in-disconnected-environments).
+// > **Note:** SKU `DC0` is the commitment tier for Cognitive Services containers running in disconnected environments. You must obtain approval from Microsoft by submitting the [request form](https://aka.ms/csdisconnectedcontainers) first, before you can use this SKU. More information on [Purchase a commitment plan to use containers in disconnected environments](https://learn.microsoft.com/en-us/azure/cognitive-services/containers/disconnected-containers?tabs=stt#purchase-a-commitment-plan-to-use-containers-in-disconnected-environments).
 func (o AccountOutput) SkuName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Account) pulumi.StringOutput { return v.SkuName }).(pulumi.StringOutput)
 }

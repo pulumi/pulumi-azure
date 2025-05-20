@@ -101,6 +101,13 @@ def get_recommendations(filter_by_categories: Optional[Sequence[builtins.str]] =
     pulumi.export("recommendations", example.recommendations)
     ```
 
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.Advisor`: 2023-01-01
+
 
     :param Sequence[builtins.str] filter_by_categories: Specifies a list of categories in which the Advisor Recommendations will be listed. Possible values are `HighAvailability`, `Security`, `Performance`, `Cost` and `OperationalExcellence`.
     :param Sequence[builtins.str] filter_by_resource_groups: Specifies a list of resource groups about which the Advisor Recommendations will be listed.
@@ -135,6 +142,13 @@ def get_recommendations_output(filter_by_categories: Optional[pulumi.Input[Optio
         filter_by_resource_groups=["example-resgroups"])
     pulumi.export("recommendations", example.recommendations)
     ```
+
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.Advisor`: 2023-01-01
 
 
     :param Sequence[builtins.str] filter_by_categories: Specifies a list of categories in which the Advisor Recommendations will be listed. Possible values are `HighAvailability`, `Security`, `Performance`, `Cost` and `OperationalExcellence`.

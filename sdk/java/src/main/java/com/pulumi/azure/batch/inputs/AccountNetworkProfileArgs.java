@@ -34,7 +34,7 @@ public final class AccountNetworkProfileArgs extends com.pulumi.resources.Resour
     /**
      * A `node_management_access` block as defined below.
      * 
-     * &gt; **NOTE:** At least one of `account_access` or `node_management_access` must be specified.
+     * &gt; **Note:** At least one of `account_access` or `node_management_access` must be specified.
      * 
      */
     @Import(name="nodeManagementAccess")
@@ -43,7 +43,7 @@ public final class AccountNetworkProfileArgs extends com.pulumi.resources.Resour
     /**
      * @return A `node_management_access` block as defined below.
      * 
-     * &gt; **NOTE:** At least one of `account_access` or `node_management_access` must be specified.
+     * &gt; **Note:** At least one of `account_access` or `node_management_access` must be specified.
      * 
      */
     public Optional<Output<AccountNetworkProfileNodeManagementAccessArgs>> nodeManagementAccess() {
@@ -99,7 +99,7 @@ public final class AccountNetworkProfileArgs extends com.pulumi.resources.Resour
         /**
          * @param nodeManagementAccess A `node_management_access` block as defined below.
          * 
-         * &gt; **NOTE:** At least one of `account_access` or `node_management_access` must be specified.
+         * &gt; **Note:** At least one of `account_access` or `node_management_access` must be specified.
          * 
          * @return builder
          * 
@@ -112,7 +112,7 @@ public final class AccountNetworkProfileArgs extends com.pulumi.resources.Resour
         /**
          * @param nodeManagementAccess A `node_management_access` block as defined below.
          * 
-         * &gt; **NOTE:** At least one of `account_access` or `node_management_access` must be specified.
+         * &gt; **Note:** At least one of `account_access` or `node_management_access` must be specified.
          * 
          * @return builder
          * 

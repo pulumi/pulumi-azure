@@ -81,9 +81,6 @@ class WindowsVirtualMachineScaleSetArgs:
         The set of arguments for constructing a WindowsVirtualMachineScaleSet resource.
         :param pulumi.Input[builtins.str] admin_password: The Password which should be used for the local-administrator on this Virtual Machine. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] admin_username: The username of the local administrator on each Virtual Machine Scale Set instance. Changing this forces a new resource to be created.
-        :param pulumi.Input[builtins.int] instances: The number of Virtual Machines in the Scale Set.
-               
-               > **NOTE:** If you're using AutoScaling, you may wish to use [`Ignore Changes` functionality](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) to ignore changes to this field.
         :param pulumi.Input[Sequence[pulumi.Input['WindowsVirtualMachineScaleSetNetworkInterfaceArgs']]] network_interfaces: One or more `network_interface` blocks as defined below.
         :param pulumi.Input['WindowsVirtualMachineScaleSetOsDiskArgs'] os_disk: An `os_disk` block as defined below.
         :param pulumi.Input[builtins.str] resource_group_name: The name of the Resource Group in which the Windows Virtual Machine Scale Set should be exist. Changing this forces a new resource to be created.
@@ -293,11 +290,6 @@ class WindowsVirtualMachineScaleSetArgs:
     @property
     @pulumi.getter
     def instances(self) -> pulumi.Input[builtins.int]:
-        """
-        The number of Virtual Machines in the Scale Set.
-
-        > **NOTE:** If you're using AutoScaling, you may wish to use [`Ignore Changes` functionality](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) to ignore changes to this field.
-        """
         return pulumi.get(self, "instances")
 
     @instances.setter
@@ -1048,9 +1040,6 @@ class _WindowsVirtualMachineScaleSetState:
         :param pulumi.Input[builtins.str] health_probe_id: The ID of a Load Balancer Probe which should be used to determine the health of an instance. This is Required and can only be specified when `upgrade_mode` is set to `Automatic` or `Rolling`.
         :param pulumi.Input[builtins.str] host_group_id: Specifies the ID of the dedicated host group that the virtual machine scale set resides in. Changing this forces a new resource to be created.
         :param pulumi.Input['WindowsVirtualMachineScaleSetIdentityArgs'] identity: An `identity` block as defined below.
-        :param pulumi.Input[builtins.int] instances: The number of Virtual Machines in the Scale Set.
-               
-               > **NOTE:** If you're using AutoScaling, you may wish to use [`Ignore Changes` functionality](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) to ignore changes to this field.
         :param pulumi.Input[builtins.str] license_type: Specifies the type of on-premise license (also known as [Azure Hybrid Use Benefit](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-hybrid-use-benefit-licensing)) which should be used for this Virtual Machine Scale Set. Possible values are `None`, `Windows_Client` and `Windows_Server`.
         :param pulumi.Input[builtins.str] location: The Azure location where the Windows Virtual Machine Scale Set should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.float] max_bid_price: The maximum price you're willing to pay for each Virtual Machine in this Scale Set, in US Dollars; which must be greater than the current spot price. If this bid price falls below the current spot price the Virtual Machines in the Scale Set will be evicted using the `eviction_policy`. Defaults to `-1`, which means that each Virtual Machine in the Scale Set should not be evicted for price reasons.
@@ -1501,11 +1490,6 @@ class _WindowsVirtualMachineScaleSetState:
     @property
     @pulumi.getter
     def instances(self) -> Optional[pulumi.Input[builtins.int]]:
-        """
-        The number of Virtual Machines in the Scale Set.
-
-        > **NOTE:** If you're using AutoScaling, you may wish to use [`Ignore Changes` functionality](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) to ignore changes to this field.
-        """
         return pulumi.get(self, "instances")
 
     @instances.setter
@@ -1971,21 +1955,9 @@ class WindowsVirtualMachineScaleSet(pulumi.CustomResource):
                  zones: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  __props__=None):
         """
-        Manages a Windows Virtual Machine Scale Set.
-
-        ## Disclaimers
-
-        > **Note:** This resource will only create Virtual Machine Scale Sets with the **Uniform** Orchestration Mode. For Virtual Machine Scale Sets with **Flexible** orchestration mode, use `compute.OrchestratedVirtualMachineScaleSet`. Flexible orchestration mode is recommended for workloads on Azure.
-
-        > **Note:** All arguments including the administrator login and password will be stored in the raw state as plain-text. [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
-
-        > **Note:** This provider will automatically update & reimage the nodes in the Scale Set (if Required) during an Update - this behaviour can be configured using the `features` setting within the Provider block.
-
-        > **Note:** This resource does not support Unmanaged Disks. If you need to use Unmanaged Disks you can continue to use the `compute.ScaleSet` resource instead
-
         ## Example Usage
 
-        This example provisions a basic Windows Virtual Machine Scale Set on an internal network.
+        This example provisions a basic Windows Virtual Machine Scale Set on an internal network. Additional examples of how to use the `compute.WindowsVirtualMachineScaleSet` resource can be found in the ./examples/vm-scale-set/windows` directory within the Github Repository.
 
         ```python
         import pulumi
@@ -2079,9 +2051,6 @@ class WindowsVirtualMachineScaleSet(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] health_probe_id: The ID of a Load Balancer Probe which should be used to determine the health of an instance. This is Required and can only be specified when `upgrade_mode` is set to `Automatic` or `Rolling`.
         :param pulumi.Input[builtins.str] host_group_id: Specifies the ID of the dedicated host group that the virtual machine scale set resides in. Changing this forces a new resource to be created.
         :param pulumi.Input[Union['WindowsVirtualMachineScaleSetIdentityArgs', 'WindowsVirtualMachineScaleSetIdentityArgsDict']] identity: An `identity` block as defined below.
-        :param pulumi.Input[builtins.int] instances: The number of Virtual Machines in the Scale Set.
-               
-               > **NOTE:** If you're using AutoScaling, you may wish to use [`Ignore Changes` functionality](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) to ignore changes to this field.
         :param pulumi.Input[builtins.str] license_type: Specifies the type of on-premise license (also known as [Azure Hybrid Use Benefit](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-hybrid-use-benefit-licensing)) which should be used for this Virtual Machine Scale Set. Possible values are `None`, `Windows_Client` and `Windows_Server`.
         :param pulumi.Input[builtins.str] location: The Azure location where the Windows Virtual Machine Scale Set should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.float] max_bid_price: The maximum price you're willing to pay for each Virtual Machine in this Scale Set, in US Dollars; which must be greater than the current spot price. If this bid price falls below the current spot price the Virtual Machines in the Scale Set will be evicted using the `eviction_policy`. Defaults to `-1`, which means that each Virtual Machine in the Scale Set should not be evicted for price reasons.
@@ -2134,21 +2103,9 @@ class WindowsVirtualMachineScaleSet(pulumi.CustomResource):
                  args: WindowsVirtualMachineScaleSetArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Manages a Windows Virtual Machine Scale Set.
-
-        ## Disclaimers
-
-        > **Note:** This resource will only create Virtual Machine Scale Sets with the **Uniform** Orchestration Mode. For Virtual Machine Scale Sets with **Flexible** orchestration mode, use `compute.OrchestratedVirtualMachineScaleSet`. Flexible orchestration mode is recommended for workloads on Azure.
-
-        > **Note:** All arguments including the administrator login and password will be stored in the raw state as plain-text. [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
-
-        > **Note:** This provider will automatically update & reimage the nodes in the Scale Set (if Required) during an Update - this behaviour can be configured using the `features` setting within the Provider block.
-
-        > **Note:** This resource does not support Unmanaged Disks. If you need to use Unmanaged Disks you can continue to use the `compute.ScaleSet` resource instead
-
         ## Example Usage
 
-        This example provisions a basic Windows Virtual Machine Scale Set on an internal network.
+        This example provisions a basic Windows Virtual Machine Scale Set on an internal network. Additional examples of how to use the `compute.WindowsVirtualMachineScaleSet` resource can be found in the ./examples/vm-scale-set/windows` directory within the Github Repository.
 
         ```python
         import pulumi
@@ -2464,9 +2421,6 @@ class WindowsVirtualMachineScaleSet(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] health_probe_id: The ID of a Load Balancer Probe which should be used to determine the health of an instance. This is Required and can only be specified when `upgrade_mode` is set to `Automatic` or `Rolling`.
         :param pulumi.Input[builtins.str] host_group_id: Specifies the ID of the dedicated host group that the virtual machine scale set resides in. Changing this forces a new resource to be created.
         :param pulumi.Input[Union['WindowsVirtualMachineScaleSetIdentityArgs', 'WindowsVirtualMachineScaleSetIdentityArgsDict']] identity: An `identity` block as defined below.
-        :param pulumi.Input[builtins.int] instances: The number of Virtual Machines in the Scale Set.
-               
-               > **NOTE:** If you're using AutoScaling, you may wish to use [`Ignore Changes` functionality](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) to ignore changes to this field.
         :param pulumi.Input[builtins.str] license_type: Specifies the type of on-premise license (also known as [Azure Hybrid Use Benefit](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-hybrid-use-benefit-licensing)) which should be used for this Virtual Machine Scale Set. Possible values are `None`, `Windows_Client` and `Windows_Server`.
         :param pulumi.Input[builtins.str] location: The Azure location where the Windows Virtual Machine Scale Set should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.float] max_bid_price: The maximum price you're willing to pay for each Virtual Machine in this Scale Set, in US Dollars; which must be greater than the current spot price. If this bid price falls below the current spot price the Virtual Machines in the Scale Set will be evicted using the `eviction_policy`. Defaults to `-1`, which means that each Virtual Machine in the Scale Set should not be evicted for price reasons.
@@ -2774,11 +2728,6 @@ class WindowsVirtualMachineScaleSet(pulumi.CustomResource):
     @property
     @pulumi.getter
     def instances(self) -> pulumi.Output[builtins.int]:
-        """
-        The number of Virtual Machines in the Scale Set.
-
-        > **NOTE:** If you're using AutoScaling, you may wish to use [`Ignore Changes` functionality](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) to ignore changes to this field.
-        """
         return pulumi.get(self, "instances")
 
     @property

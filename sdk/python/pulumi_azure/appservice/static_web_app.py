@@ -586,6 +586,13 @@ class StaticWebApp(pulumi.CustomResource):
             location=example.location)
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Web`: 2023-01-01
+
         ## Import
 
         Static Web Apps can be imported using the `resource id`, e.g.
@@ -635,6 +642,13 @@ class StaticWebApp(pulumi.CustomResource):
             resource_group_name=example.name,
             location=example.location)
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Web`: 2023-01-01
 
         ## Import
 

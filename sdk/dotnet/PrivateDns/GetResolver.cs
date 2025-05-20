@@ -32,6 +32,13 @@ namespace Pulumi.Azure.PrivateDns
         /// 
         /// });
         /// ```
+        /// 
+        /// ## API Providers
+        /// 
+        /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+        /// This data source uses the following Azure API Providers:
+        /// 
+        /// * `Microsoft.Network`: 2022-07-01
         /// </summary>
         public static Task<GetResolverResult> InvokeAsync(GetResolverArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetResolverResult>("azure:privatedns/getResolver:getResolver", args ?? new GetResolverArgs(), options.WithDefaults());
@@ -57,6 +64,13 @@ namespace Pulumi.Azure.PrivateDns
         /// 
         /// });
         /// ```
+        /// 
+        /// ## API Providers
+        /// 
+        /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+        /// This data source uses the following Azure API Providers:
+        /// 
+        /// * `Microsoft.Network`: 2022-07-01
         /// </summary>
         public static Output<GetResolverResult> Invoke(GetResolverInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetResolverResult>("azure:privatedns/getResolver:getResolver", args ?? new GetResolverInvokeArgs(), options.WithDefaults());
@@ -82,6 +96,13 @@ namespace Pulumi.Azure.PrivateDns
         /// 
         /// });
         /// ```
+        /// 
+        /// ## API Providers
+        /// 
+        /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+        /// This data source uses the following Azure API Providers:
+        /// 
+        /// * `Microsoft.Network`: 2022-07-01
         /// </summary>
         public static Output<GetResolverResult> Invoke(GetResolverInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetResolverResult>("azure:privatedns/getResolver:getResolver", args ?? new GetResolverInvokeArgs(), options.WithDefaults());

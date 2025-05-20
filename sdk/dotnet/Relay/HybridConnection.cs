@@ -36,7 +36,7 @@ namespace Pulumi.Azure.Relay
     ///         SkuName = "Standard",
     ///         Tags = 
     ///         {
-    ///             { "source", "managed" },
+    ///             { "source", "terraform" },
     ///         },
     ///     });
     /// 
@@ -51,6 +51,13 @@ namespace Pulumi.Azure.Relay
     /// 
     /// });
     /// ```
+    /// 
+    /// ## API Providers
+    /// 
+    /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+    /// This resource uses the following Azure API Providers:
+    /// 
+    /// * `Microsoft.Relay`: 2021-11-01
     /// 
     /// ## Import
     /// 

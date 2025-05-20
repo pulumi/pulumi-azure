@@ -281,6 +281,13 @@ class SrvRecord(pulumi.CustomResource):
             })
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Network`: 2018-05-01
+
         ## Import
 
         SRV records can be imported using the `resource id`, e.g.
@@ -332,6 +339,13 @@ class SrvRecord(pulumi.CustomResource):
                 "Environment": "Production",
             })
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Network`: 2018-05-01
 
         ## Import
 

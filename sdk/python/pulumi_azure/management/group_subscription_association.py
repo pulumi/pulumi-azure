@@ -122,6 +122,13 @@ class GroupSubscriptionAssociation(pulumi.CustomResource):
             subscription_id=example_get_subscription.id)
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Management`: 2020-05-01
+
         ## Import
 
         Managements can be imported using the `resource id`, e.g.
@@ -158,6 +165,13 @@ class GroupSubscriptionAssociation(pulumi.CustomResource):
             management_group_id=example.id,
             subscription_id=example_get_subscription.id)
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Management`: 2020-05-01
 
         ## Import
 

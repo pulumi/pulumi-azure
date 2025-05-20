@@ -18,14 +18,14 @@ public final class SubscriptionArgs extends com.pulumi.resources.ResourceArgs {
     public static final SubscriptionArgs Empty = new SubscriptionArgs();
 
     /**
-     * The Alias name for the subscription. This provider will generate a new GUID if this is not supplied. Changing this forces a new Subscription to be created.
+     * The Alias Name of the subscription. If omitted a new UUID will be generated for this property.
      * 
      */
     @Import(name="alias")
     private @Nullable Output<String> alias;
 
     /**
-     * @return The Alias name for the subscription. This provider will generate a new GUID if this is not supplied. Changing this forces a new Subscription to be created.
+     * @return The Alias Name of the subscription. If omitted a new UUID will be generated for this property.
      * 
      */
     public Optional<Output<String>> alias() {
@@ -50,9 +50,9 @@ public final class SubscriptionArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * The ID of the Subscription. Changing this forces a new Subscription to be created.
      * 
-     * &gt; **NOTE:** This value can be specified only for adopting control of an existing Subscription, it cannot be used to provide a custom Subscription ID.
+     * &gt; **Note:** This value can be specified only for adopting control of an existing Subscription, it cannot be used to provide a custom Subscription ID.
      * 
-     * &gt; **NOTE:** Either `billing_scope_id` or `subscription_id` has to be specified.
+     * &gt; **Note:** Either `billing_scope_id` or `subscription_id` has to be specified.
      * 
      */
     @Import(name="subscriptionId")
@@ -61,9 +61,9 @@ public final class SubscriptionArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * @return The ID of the Subscription. Changing this forces a new Subscription to be created.
      * 
-     * &gt; **NOTE:** This value can be specified only for adopting control of an existing Subscription, it cannot be used to provide a custom Subscription ID.
+     * &gt; **Note:** This value can be specified only for adopting control of an existing Subscription, it cannot be used to provide a custom Subscription ID.
      * 
-     * &gt; **NOTE:** Either `billing_scope_id` or `subscription_id` has to be specified.
+     * &gt; **Note:** Either `billing_scope_id` or `subscription_id` has to be specified.
      * 
      */
     public Optional<Output<String>> subscriptionId() {
@@ -145,7 +145,7 @@ public final class SubscriptionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param alias The Alias name for the subscription. This provider will generate a new GUID if this is not supplied. Changing this forces a new Subscription to be created.
+         * @param alias The Alias Name of the subscription. If omitted a new UUID will be generated for this property.
          * 
          * @return builder
          * 
@@ -156,7 +156,7 @@ public final class SubscriptionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param alias The Alias name for the subscription. This provider will generate a new GUID if this is not supplied. Changing this forces a new Subscription to be created.
+         * @param alias The Alias Name of the subscription. If omitted a new UUID will be generated for this property.
          * 
          * @return builder
          * 
@@ -189,9 +189,9 @@ public final class SubscriptionArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param subscriptionId The ID of the Subscription. Changing this forces a new Subscription to be created.
          * 
-         * &gt; **NOTE:** This value can be specified only for adopting control of an existing Subscription, it cannot be used to provide a custom Subscription ID.
+         * &gt; **Note:** This value can be specified only for adopting control of an existing Subscription, it cannot be used to provide a custom Subscription ID.
          * 
-         * &gt; **NOTE:** Either `billing_scope_id` or `subscription_id` has to be specified.
+         * &gt; **Note:** Either `billing_scope_id` or `subscription_id` has to be specified.
          * 
          * @return builder
          * 
@@ -204,9 +204,9 @@ public final class SubscriptionArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param subscriptionId The ID of the Subscription. Changing this forces a new Subscription to be created.
          * 
-         * &gt; **NOTE:** This value can be specified only for adopting control of an existing Subscription, it cannot be used to provide a custom Subscription ID.
+         * &gt; **Note:** This value can be specified only for adopting control of an existing Subscription, it cannot be used to provide a custom Subscription ID.
          * 
-         * &gt; **NOTE:** Either `billing_scope_id` or `subscription_id` has to be specified.
+         * &gt; **Note:** Either `billing_scope_id` or `subscription_id` has to be specified.
          * 
          * @return builder
          * 

@@ -45,7 +45,7 @@ namespace Pulumi.Azure.Hpc.Inputs
         /// <summary>
         /// The scope of this rule. The `scope` and (potentially) the `filter` determine which clients match the rule. Possible values are: `default`, `network`, `host`.
         /// 
-        /// &gt; **NOTE:** Each `access_rule` should set a unique `scope`.
+        /// &gt; **Note:** Each `access_rule` should set a unique `scope`.
         /// </summary>
         [Input("scope", required: true)]
         public Input<string> Scope { get; set; } = null!;

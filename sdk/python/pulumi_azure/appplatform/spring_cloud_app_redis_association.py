@@ -205,6 +205,8 @@ class SpringCloudAppRedisAssociation(pulumi.CustomResource):
         """
         Associates a Spring Cloud Application with a Redis Cache.
 
+        !> **Note:** Azure Spring Apps is now deprecated and will be retired on 2028-05-31 - as such the `appplatform.SpringCloudAppRedisAssociation` resource is deprecated and will be removed in a future major version of the AzureRM Provider. See https://aka.ms/asaretirement for more information.
+
         ## Import
 
         Spring Cloud Application Redis Association can be imported using the `resource id`, e.g.
@@ -229,6 +231,8 @@ class SpringCloudAppRedisAssociation(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Associates a Spring Cloud Application with a Redis Cache.
+
+        !> **Note:** Azure Spring Apps is now deprecated and will be retired on 2028-05-31 - as such the `appplatform.SpringCloudAppRedisAssociation` resource is deprecated and will be removed in a future major version of the AzureRM Provider. See https://aka.ms/asaretirement for more information.
 
         ## Import
 

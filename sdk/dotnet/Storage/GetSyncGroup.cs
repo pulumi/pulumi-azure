@@ -36,6 +36,13 @@ namespace Pulumi.Azure.Storage
         ///     };
         /// });
         /// ```
+        /// 
+        /// ## API Providers
+        /// 
+        /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+        /// This data source uses the following Azure API Providers:
+        /// 
+        /// * `Microsoft.StorageSync`: 2020-03-01
         /// </summary>
         public static Task<GetSyncGroupResult> InvokeAsync(GetSyncGroupArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSyncGroupResult>("azure:storage/getSyncGroup:getSyncGroup", args ?? new GetSyncGroupArgs(), options.WithDefaults());
@@ -65,6 +72,13 @@ namespace Pulumi.Azure.Storage
         ///     };
         /// });
         /// ```
+        /// 
+        /// ## API Providers
+        /// 
+        /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+        /// This data source uses the following Azure API Providers:
+        /// 
+        /// * `Microsoft.StorageSync`: 2020-03-01
         /// </summary>
         public static Output<GetSyncGroupResult> Invoke(GetSyncGroupInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSyncGroupResult>("azure:storage/getSyncGroup:getSyncGroup", args ?? new GetSyncGroupInvokeArgs(), options.WithDefaults());
@@ -94,6 +108,13 @@ namespace Pulumi.Azure.Storage
         ///     };
         /// });
         /// ```
+        /// 
+        /// ## API Providers
+        /// 
+        /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+        /// This data source uses the following Azure API Providers:
+        /// 
+        /// * `Microsoft.StorageSync`: 2020-03-01
         /// </summary>
         public static Output<GetSyncGroupResult> Invoke(GetSyncGroupInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetSyncGroupResult>("azure:storage/getSyncGroup:getSyncGroup", args ?? new GetSyncGroupInvokeArgs(), options.WithDefaults());

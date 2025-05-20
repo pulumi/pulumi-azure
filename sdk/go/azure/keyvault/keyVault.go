@@ -12,14 +12,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Manages a Key Vault.
-//
-// ## Disclaimers
-//
-// > **Note:** It's possible to define Key Vault Access Policies both within the `keyvault.KeyVault` resource via the `accessPolicy` block and by using the `keyvault.AccessPolicy` resource. However it's not possible to use both methods to manage Access Policies within a KeyVault, since there'll be conflicts.
-//
-// > **Note:** It's possible to define Key Vault Certificate Contacts both within the `keyvault.KeyVault` resource via the `contact` block and by using the `keyvault.CertificateContacts` resource. However it's not possible to use both methods to manage Certificate Contacts within a KeyVault, since there'll be conflicts.
-//
 // ## Example Usage
 //
 // ```go
@@ -90,9 +82,9 @@ import (
 type KeyVault struct {
 	pulumi.CustomResourceState
 
-	// A list of up to 1024 objects describing access policies, as described below.
+	// [A list](https://www.terraform.io/docs/configuration/attr-as-blocks.html) of `accessPolicy` objects (up to 1024) describing access policies, as described below.
 	//
-	// > **NOTE** Since `accessPolicy` can be configured both inline and via the separate `keyvault.AccessPolicy` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
+	// > **Note:** Since `accessPolicy` can be configured both inline and via the separate `keyvault.AccessPolicy` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
 	AccessPolicies KeyVaultAccessPolicyArrayOutput `pulumi:"accessPolicies"`
 	// Deprecated: As the `contact` property requires reaching out to the dataplane, to better support private endpoints and keyvaults with public network access disabled, new key vaults with the `contact` field defined in the configuration file will now be required to use the `keyvault.CertificateContacts` resource instead of the exposed `contact` field in the key vault resource itself.
 	Contacts KeyVaultContactArrayOutput `pulumi:"contacts"`
@@ -112,10 +104,7 @@ type KeyVault struct {
 	NetworkAcls KeyVaultNetworkAclsOutput `pulumi:"networkAcls"`
 	// Whether public network access is allowed for this Key Vault. Defaults to `true`.
 	PublicNetworkAccessEnabled pulumi.BoolPtrOutput `pulumi:"publicNetworkAccessEnabled"`
-	// Is Purge Protection enabled for this Key Vault?
-	//
-	// !> **Note:** Once Purge Protection has been Enabled it's not possible to Disable it. Support for [disabling purge protection is being tracked in this Azure API issue](https://github.com/Azure/azure-rest-api-specs/issues/8075). Deleting the Key Vault with Purge Protection Enabled will schedule the Key Vault to be deleted (which will happen by Azure in the configured number of days, currently 90 days).
-	PurgeProtectionEnabled pulumi.BoolPtrOutput `pulumi:"purgeProtectionEnabled"`
+	PurgeProtectionEnabled     pulumi.BoolPtrOutput `pulumi:"purgeProtectionEnabled"`
 	// The name of the resource group in which to create the Key Vault. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// The Name of the SKU used for this Key Vault. Possible values are `standard` and `premium`.
@@ -171,9 +160,9 @@ func GetKeyVault(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering KeyVault resources.
 type keyVaultState struct {
-	// A list of up to 1024 objects describing access policies, as described below.
+	// [A list](https://www.terraform.io/docs/configuration/attr-as-blocks.html) of `accessPolicy` objects (up to 1024) describing access policies, as described below.
 	//
-	// > **NOTE** Since `accessPolicy` can be configured both inline and via the separate `keyvault.AccessPolicy` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
+	// > **Note:** Since `accessPolicy` can be configured both inline and via the separate `keyvault.AccessPolicy` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
 	AccessPolicies []KeyVaultAccessPolicy `pulumi:"accessPolicies"`
 	// Deprecated: As the `contact` property requires reaching out to the dataplane, to better support private endpoints and keyvaults with public network access disabled, new key vaults with the `contact` field defined in the configuration file will now be required to use the `keyvault.CertificateContacts` resource instead of the exposed `contact` field in the key vault resource itself.
 	Contacts []KeyVaultContact `pulumi:"contacts"`
@@ -193,10 +182,7 @@ type keyVaultState struct {
 	NetworkAcls *KeyVaultNetworkAcls `pulumi:"networkAcls"`
 	// Whether public network access is allowed for this Key Vault. Defaults to `true`.
 	PublicNetworkAccessEnabled *bool `pulumi:"publicNetworkAccessEnabled"`
-	// Is Purge Protection enabled for this Key Vault?
-	//
-	// !> **Note:** Once Purge Protection has been Enabled it's not possible to Disable it. Support for [disabling purge protection is being tracked in this Azure API issue](https://github.com/Azure/azure-rest-api-specs/issues/8075). Deleting the Key Vault with Purge Protection Enabled will schedule the Key Vault to be deleted (which will happen by Azure in the configured number of days, currently 90 days).
-	PurgeProtectionEnabled *bool `pulumi:"purgeProtectionEnabled"`
+	PurgeProtectionEnabled     *bool `pulumi:"purgeProtectionEnabled"`
 	// The name of the resource group in which to create the Key Vault. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// The Name of the SKU used for this Key Vault. Possible values are `standard` and `premium`.
@@ -214,9 +200,9 @@ type keyVaultState struct {
 }
 
 type KeyVaultState struct {
-	// A list of up to 1024 objects describing access policies, as described below.
+	// [A list](https://www.terraform.io/docs/configuration/attr-as-blocks.html) of `accessPolicy` objects (up to 1024) describing access policies, as described below.
 	//
-	// > **NOTE** Since `accessPolicy` can be configured both inline and via the separate `keyvault.AccessPolicy` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
+	// > **Note:** Since `accessPolicy` can be configured both inline and via the separate `keyvault.AccessPolicy` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
 	AccessPolicies KeyVaultAccessPolicyArrayInput
 	// Deprecated: As the `contact` property requires reaching out to the dataplane, to better support private endpoints and keyvaults with public network access disabled, new key vaults with the `contact` field defined in the configuration file will now be required to use the `keyvault.CertificateContacts` resource instead of the exposed `contact` field in the key vault resource itself.
 	Contacts KeyVaultContactArrayInput
@@ -236,10 +222,7 @@ type KeyVaultState struct {
 	NetworkAcls KeyVaultNetworkAclsPtrInput
 	// Whether public network access is allowed for this Key Vault. Defaults to `true`.
 	PublicNetworkAccessEnabled pulumi.BoolPtrInput
-	// Is Purge Protection enabled for this Key Vault?
-	//
-	// !> **Note:** Once Purge Protection has been Enabled it's not possible to Disable it. Support for [disabling purge protection is being tracked in this Azure API issue](https://github.com/Azure/azure-rest-api-specs/issues/8075). Deleting the Key Vault with Purge Protection Enabled will schedule the Key Vault to be deleted (which will happen by Azure in the configured number of days, currently 90 days).
-	PurgeProtectionEnabled pulumi.BoolPtrInput
+	PurgeProtectionEnabled     pulumi.BoolPtrInput
 	// The name of the resource group in which to create the Key Vault. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
 	// The Name of the SKU used for this Key Vault. Possible values are `standard` and `premium`.
@@ -261,9 +244,9 @@ func (KeyVaultState) ElementType() reflect.Type {
 }
 
 type keyVaultArgs struct {
-	// A list of up to 1024 objects describing access policies, as described below.
+	// [A list](https://www.terraform.io/docs/configuration/attr-as-blocks.html) of `accessPolicy` objects (up to 1024) describing access policies, as described below.
 	//
-	// > **NOTE** Since `accessPolicy` can be configured both inline and via the separate `keyvault.AccessPolicy` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
+	// > **Note:** Since `accessPolicy` can be configured both inline and via the separate `keyvault.AccessPolicy` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
 	AccessPolicies []KeyVaultAccessPolicy `pulumi:"accessPolicies"`
 	// Deprecated: As the `contact` property requires reaching out to the dataplane, to better support private endpoints and keyvaults with public network access disabled, new key vaults with the `contact` field defined in the configuration file will now be required to use the `keyvault.CertificateContacts` resource instead of the exposed `contact` field in the key vault resource itself.
 	Contacts []KeyVaultContact `pulumi:"contacts"`
@@ -283,10 +266,7 @@ type keyVaultArgs struct {
 	NetworkAcls *KeyVaultNetworkAcls `pulumi:"networkAcls"`
 	// Whether public network access is allowed for this Key Vault. Defaults to `true`.
 	PublicNetworkAccessEnabled *bool `pulumi:"publicNetworkAccessEnabled"`
-	// Is Purge Protection enabled for this Key Vault?
-	//
-	// !> **Note:** Once Purge Protection has been Enabled it's not possible to Disable it. Support for [disabling purge protection is being tracked in this Azure API issue](https://github.com/Azure/azure-rest-api-specs/issues/8075). Deleting the Key Vault with Purge Protection Enabled will schedule the Key Vault to be deleted (which will happen by Azure in the configured number of days, currently 90 days).
-	PurgeProtectionEnabled *bool `pulumi:"purgeProtectionEnabled"`
+	PurgeProtectionEnabled     *bool `pulumi:"purgeProtectionEnabled"`
 	// The name of the resource group in which to create the Key Vault. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The Name of the SKU used for this Key Vault. Possible values are `standard` and `premium`.
@@ -303,9 +283,9 @@ type keyVaultArgs struct {
 
 // The set of arguments for constructing a KeyVault resource.
 type KeyVaultArgs struct {
-	// A list of up to 1024 objects describing access policies, as described below.
+	// [A list](https://www.terraform.io/docs/configuration/attr-as-blocks.html) of `accessPolicy` objects (up to 1024) describing access policies, as described below.
 	//
-	// > **NOTE** Since `accessPolicy` can be configured both inline and via the separate `keyvault.AccessPolicy` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
+	// > **Note:** Since `accessPolicy` can be configured both inline and via the separate `keyvault.AccessPolicy` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
 	AccessPolicies KeyVaultAccessPolicyArrayInput
 	// Deprecated: As the `contact` property requires reaching out to the dataplane, to better support private endpoints and keyvaults with public network access disabled, new key vaults with the `contact` field defined in the configuration file will now be required to use the `keyvault.CertificateContacts` resource instead of the exposed `contact` field in the key vault resource itself.
 	Contacts KeyVaultContactArrayInput
@@ -325,10 +305,7 @@ type KeyVaultArgs struct {
 	NetworkAcls KeyVaultNetworkAclsPtrInput
 	// Whether public network access is allowed for this Key Vault. Defaults to `true`.
 	PublicNetworkAccessEnabled pulumi.BoolPtrInput
-	// Is Purge Protection enabled for this Key Vault?
-	//
-	// !> **Note:** Once Purge Protection has been Enabled it's not possible to Disable it. Support for [disabling purge protection is being tracked in this Azure API issue](https://github.com/Azure/azure-rest-api-specs/issues/8075). Deleting the Key Vault with Purge Protection Enabled will schedule the Key Vault to be deleted (which will happen by Azure in the configured number of days, currently 90 days).
-	PurgeProtectionEnabled pulumi.BoolPtrInput
+	PurgeProtectionEnabled     pulumi.BoolPtrInput
 	// The name of the resource group in which to create the Key Vault. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
 	// The Name of the SKU used for this Key Vault. Possible values are `standard` and `premium`.
@@ -430,9 +407,9 @@ func (o KeyVaultOutput) ToKeyVaultOutputWithContext(ctx context.Context) KeyVaul
 	return o
 }
 
-// A list of up to 1024 objects describing access policies, as described below.
+// [A list](https://www.terraform.io/docs/configuration/attr-as-blocks.html) of `accessPolicy` objects (up to 1024) describing access policies, as described below.
 //
-// > **NOTE** Since `accessPolicy` can be configured both inline and via the separate `keyvault.AccessPolicy` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
+// > **Note:** Since `accessPolicy` can be configured both inline and via the separate `keyvault.AccessPolicy` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
 func (o KeyVaultOutput) AccessPolicies() KeyVaultAccessPolicyArrayOutput {
 	return o.ApplyT(func(v *KeyVault) KeyVaultAccessPolicyArrayOutput { return v.AccessPolicies }).(KeyVaultAccessPolicyArrayOutput)
 }
@@ -482,9 +459,6 @@ func (o KeyVaultOutput) PublicNetworkAccessEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *KeyVault) pulumi.BoolPtrOutput { return v.PublicNetworkAccessEnabled }).(pulumi.BoolPtrOutput)
 }
 
-// Is Purge Protection enabled for this Key Vault?
-//
-// !> **Note:** Once Purge Protection has been Enabled it's not possible to Disable it. Support for [disabling purge protection is being tracked in this Azure API issue](https://github.com/Azure/azure-rest-api-specs/issues/8075). Deleting the Key Vault with Purge Protection Enabled will schedule the Key Vault to be deleted (which will happen by Azure in the configured number of days, currently 90 days).
 func (o KeyVaultOutput) PurgeProtectionEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *KeyVault) pulumi.BoolPtrOutput { return v.PurgeProtectionEnabled }).(pulumi.BoolPtrOutput)
 }

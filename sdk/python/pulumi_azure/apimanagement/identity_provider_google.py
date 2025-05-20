@@ -185,7 +185,7 @@ class IdentityProviderGoogle(pulumi.CustomResource):
             location=example.location,
             resource_group_name=example.name,
             publisher_name="My Company",
-            publisher_email="company@mycompany.io",
+            publisher_email="company@terraform.io",
             sku_name="Developer_1")
         example_identity_provider_google = azure.apimanagement.IdentityProviderGoogle("example",
             resource_group_name=example.name,
@@ -193,6 +193,13 @@ class IdentityProviderGoogle(pulumi.CustomResource):
             client_id="00000000.apps.googleusercontent.com",
             client_secret="00000000000000000000000000000000")
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.ApiManagement`: 2022-08-01
 
         ## Import
 
@@ -232,7 +239,7 @@ class IdentityProviderGoogle(pulumi.CustomResource):
             location=example.location,
             resource_group_name=example.name,
             publisher_name="My Company",
-            publisher_email="company@mycompany.io",
+            publisher_email="company@terraform.io",
             sku_name="Developer_1")
         example_identity_provider_google = azure.apimanagement.IdentityProviderGoogle("example",
             resource_group_name=example.name,
@@ -240,6 +247,13 @@ class IdentityProviderGoogle(pulumi.CustomResource):
             client_id="00000000.apps.googleusercontent.com",
             client_secret="00000000000000000000000000000000")
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.ApiManagement`: 2022-08-01
 
         ## Import
 

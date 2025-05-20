@@ -28,7 +28,7 @@ class GetDeploymentResult:
     """
     A collection of values returned by getDeployment.
     """
-    def __init__(__self__, auto_scale_profiles=None, automatic_upgrade_channel=None, capacity=None, dataplane_api_endpoint=None, diagnose_support_enabled=None, email=None, frontend_privates=None, frontend_publics=None, id=None, identities=None, ip_address=None, location=None, logging_storage_accounts=None, managed_resource_group=None, name=None, network_interfaces=None, nginx_version=None, resource_group_name=None, sku=None, tags=None):
+    def __init__(__self__, auto_scale_profiles=None, automatic_upgrade_channel=None, capacity=None, dataplane_api_endpoint=None, diagnose_support_enabled=None, email=None, frontend_privates=None, frontend_publics=None, id=None, identities=None, ip_address=None, location=None, logging_storage_accounts=None, managed_resource_group=None, name=None, network_interfaces=None, nginx_version=None, resource_group_name=None, sku=None, tags=None, web_application_firewalls=None):
         if auto_scale_profiles and not isinstance(auto_scale_profiles, list):
             raise TypeError("Expected argument 'auto_scale_profiles' to be a list")
         pulumi.set(__self__, "auto_scale_profiles", auto_scale_profiles)
@@ -89,6 +89,9 @@ class GetDeploymentResult:
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
+        if web_application_firewalls and not isinstance(web_application_firewalls, list):
+            raise TypeError("Expected argument 'web_application_firewalls' to be a list")
+        pulumi.set(__self__, "web_application_firewalls", web_application_firewalls)
 
     @property
     @pulumi.getter(name="autoScaleProfiles")
@@ -243,6 +246,14 @@ class GetDeploymentResult:
         """
         return pulumi.get(self, "tags")
 
+    @property
+    @pulumi.getter(name="webApplicationFirewalls")
+    def web_application_firewalls(self) -> Sequence['outputs.GetDeploymentWebApplicationFirewallResult']:
+        """
+        A `web_application_firewall` block as defined below.
+        """
+        return pulumi.get(self, "web_application_firewalls")
+
 
 class AwaitableGetDeploymentResult(GetDeploymentResult):
     # pylint: disable=using-constant-test
@@ -269,7 +280,8 @@ class AwaitableGetDeploymentResult(GetDeploymentResult):
             nginx_version=self.nginx_version,
             resource_group_name=self.resource_group_name,
             sku=self.sku,
-            tags=self.tags)
+            tags=self.tags,
+            web_application_firewalls=self.web_application_firewalls)
 
 
 def get_deployment(name: Optional[builtins.str] = None,
@@ -288,6 +300,13 @@ def get_deployment(name: Optional[builtins.str] = None,
         resource_group_name="existing")
     pulumi.export("id", example.id)
     ```
+
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Nginx.NginxPlus`: 2024-11-01-preview
 
 
     :param builtins.str name: The name of this NGINX Deployment.
@@ -319,7 +338,8 @@ def get_deployment(name: Optional[builtins.str] = None,
         nginx_version=pulumi.get(__ret__, 'nginx_version'),
         resource_group_name=pulumi.get(__ret__, 'resource_group_name'),
         sku=pulumi.get(__ret__, 'sku'),
-        tags=pulumi.get(__ret__, 'tags'))
+        tags=pulumi.get(__ret__, 'tags'),
+        web_application_firewalls=pulumi.get(__ret__, 'web_application_firewalls'))
 def get_deployment_output(name: Optional[pulumi.Input[builtins.str]] = None,
                           resource_group_name: Optional[pulumi.Input[builtins.str]] = None,
                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDeploymentResult]:
@@ -336,6 +356,13 @@ def get_deployment_output(name: Optional[pulumi.Input[builtins.str]] = None,
         resource_group_name="existing")
     pulumi.export("id", example.id)
     ```
+
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Nginx.NginxPlus`: 2024-11-01-preview
 
 
     :param builtins.str name: The name of this NGINX Deployment.
@@ -366,4 +393,5 @@ def get_deployment_output(name: Optional[pulumi.Input[builtins.str]] = None,
         nginx_version=pulumi.get(__response__, 'nginx_version'),
         resource_group_name=pulumi.get(__response__, 'resource_group_name'),
         sku=pulumi.get(__response__, 'sku'),
-        tags=pulumi.get(__response__, 'tags')))
+        tags=pulumi.get(__response__, 'tags'),
+        web_application_firewalls=pulumi.get(__response__, 'web_application_firewalls')))

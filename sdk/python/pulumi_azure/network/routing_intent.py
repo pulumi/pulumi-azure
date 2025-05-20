@@ -181,6 +181,13 @@ class RoutingIntent(pulumi.CustomResource):
             }])
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Network`: 2024-05-01
+
         ## Import
 
         Virtual Hub Routing Intents can be imported using the `resource id`, e.g.
@@ -242,6 +249,13 @@ class RoutingIntent(pulumi.CustomResource):
                 "next_hop": example_firewall.id,
             }])
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Network`: 2024-05-01
 
         ## Import
 

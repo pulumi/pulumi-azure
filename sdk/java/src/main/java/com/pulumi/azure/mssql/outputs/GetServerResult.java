@@ -6,6 +6,7 @@ package com.pulumi.azure.mssql.outputs;
 import com.pulumi.azure.mssql.outputs.GetServerIdentity;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -14,12 +15,17 @@ import java.util.Objects;
 @CustomType
 public final class GetServerResult {
     /**
-     * @return The server&#39;s administrator login name.
+     * @return The administrator login name of the Microsoft SQL Server.
      * 
      */
     private String administratorLogin;
     /**
-     * @return The fully qualified domain name of the Azure SQL Server.
+     * @return Whether the Express Vulnerability Assessment Configuration is enabled.
+     * 
+     */
+    private Boolean expressVulnerabilityAssessmentEnabled;
+    /**
+     * @return The fully qualified domain name of the Microsoft SQL Server.
      * 
      */
     private String fullyQualifiedDomainName;
@@ -29,7 +35,7 @@ public final class GetServerResult {
      */
     private String id;
     /**
-     * @return A `identity` block as defined below.
+     * @return An `identity` block as defined below.
      * 
      */
     private List<GetServerIdentity> identities;
@@ -41,7 +47,7 @@ public final class GetServerResult {
     private String name;
     private String resourceGroupName;
     /**
-     * @return A list of dropped restorable database IDs on the server.
+     * @return A list of dropped restorable database IDs on the Microsoft SQL Server.
      * 
      */
     private List<String> restorableDroppedDatabaseIds;
@@ -51,26 +57,33 @@ public final class GetServerResult {
      */
     private Map<String,String> tags;
     /**
-     * @return The Key Vault key URI to be used as the `Customer Managed Key`(CMK/BYOK) for the `Transparent Data Encryption`(TDE) layer.
+     * @return The Key Vault Key URI to be used as the `Customer Managed Key` (CMK/BYOK) for the `Transparent Data Encryption` (TDE) layer.
      * 
      */
     private String transparentDataEncryptionKeyVaultKeyId;
     /**
-     * @return This servers MS SQL version.
+     * @return The version of the Microsoft SQL Server.
      * 
      */
     private String version;
 
     private GetServerResult() {}
     /**
-     * @return The server&#39;s administrator login name.
+     * @return The administrator login name of the Microsoft SQL Server.
      * 
      */
     public String administratorLogin() {
         return this.administratorLogin;
     }
     /**
-     * @return The fully qualified domain name of the Azure SQL Server.
+     * @return Whether the Express Vulnerability Assessment Configuration is enabled.
+     * 
+     */
+    public Boolean expressVulnerabilityAssessmentEnabled() {
+        return this.expressVulnerabilityAssessmentEnabled;
+    }
+    /**
+     * @return The fully qualified domain name of the Microsoft SQL Server.
      * 
      */
     public String fullyQualifiedDomainName() {
@@ -84,7 +97,7 @@ public final class GetServerResult {
         return this.id;
     }
     /**
-     * @return A `identity` block as defined below.
+     * @return An `identity` block as defined below.
      * 
      */
     public List<GetServerIdentity> identities() {
@@ -104,7 +117,7 @@ public final class GetServerResult {
         return this.resourceGroupName;
     }
     /**
-     * @return A list of dropped restorable database IDs on the server.
+     * @return A list of dropped restorable database IDs on the Microsoft SQL Server.
      * 
      */
     public List<String> restorableDroppedDatabaseIds() {
@@ -118,14 +131,14 @@ public final class GetServerResult {
         return this.tags;
     }
     /**
-     * @return The Key Vault key URI to be used as the `Customer Managed Key`(CMK/BYOK) for the `Transparent Data Encryption`(TDE) layer.
+     * @return The Key Vault Key URI to be used as the `Customer Managed Key` (CMK/BYOK) for the `Transparent Data Encryption` (TDE) layer.
      * 
      */
     public String transparentDataEncryptionKeyVaultKeyId() {
         return this.transparentDataEncryptionKeyVaultKeyId;
     }
     /**
-     * @return This servers MS SQL version.
+     * @return The version of the Microsoft SQL Server.
      * 
      */
     public String version() {
@@ -142,6 +155,7 @@ public final class GetServerResult {
     @CustomType.Builder
     public static final class Builder {
         private String administratorLogin;
+        private Boolean expressVulnerabilityAssessmentEnabled;
         private String fullyQualifiedDomainName;
         private String id;
         private List<GetServerIdentity> identities;
@@ -156,6 +170,7 @@ public final class GetServerResult {
         public Builder(GetServerResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.administratorLogin = defaults.administratorLogin;
+    	      this.expressVulnerabilityAssessmentEnabled = defaults.expressVulnerabilityAssessmentEnabled;
     	      this.fullyQualifiedDomainName = defaults.fullyQualifiedDomainName;
     	      this.id = defaults.id;
     	      this.identities = defaults.identities;
@@ -174,6 +189,14 @@ public final class GetServerResult {
               throw new MissingRequiredPropertyException("GetServerResult", "administratorLogin");
             }
             this.administratorLogin = administratorLogin;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder expressVulnerabilityAssessmentEnabled(Boolean expressVulnerabilityAssessmentEnabled) {
+            if (expressVulnerabilityAssessmentEnabled == null) {
+              throw new MissingRequiredPropertyException("GetServerResult", "expressVulnerabilityAssessmentEnabled");
+            }
+            this.expressVulnerabilityAssessmentEnabled = expressVulnerabilityAssessmentEnabled;
             return this;
         }
         @CustomType.Setter
@@ -265,6 +288,7 @@ public final class GetServerResult {
         public GetServerResult build() {
             final var _resultValue = new GetServerResult();
             _resultValue.administratorLogin = administratorLogin;
+            _resultValue.expressVulnerabilityAssessmentEnabled = expressVulnerabilityAssessmentEnabled;
             _resultValue.fullyQualifiedDomainName = fullyQualifiedDomainName;
             _resultValue.id = id;
             _resultValue.identities = identities;

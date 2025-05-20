@@ -18,12 +18,16 @@ public final class TriggerCustomState extends com.pulumi.resources.ResourceArgs 
     /**
      * Specifies the JSON Blob defining the Body of this Custom Trigger.
      * 
+     * &gt; **Note:** To make the Trigger more readable, you may wish to consider using HEREDOC syntax (as shown above) or the `local_file` resource to load the schema from a file on disk.
+     * 
      */
     @Import(name="body")
     private @Nullable Output<String> body;
 
     /**
      * @return Specifies the JSON Blob defining the Body of this Custom Trigger.
+     * 
+     * &gt; **Note:** To make the Trigger more readable, you may wish to consider using HEREDOC syntax (as shown above) or the `local_file` resource to load the schema from a file on disk.
      * 
      */
     public Optional<Output<String>> body() {
@@ -63,7 +67,7 @@ public final class TriggerCustomState extends com.pulumi.resources.ResourceArgs 
     /**
      * Specifies the name of the HTTP Trigger to be created within the Logic App Workflow. Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE:** This name must be unique across all Triggers within the Logic App Workflow.
+     * &gt; **Note:** This name must be unique across all Triggers within the Logic App Workflow.
      * 
      */
     @Import(name="name")
@@ -72,7 +76,7 @@ public final class TriggerCustomState extends com.pulumi.resources.ResourceArgs 
     /**
      * @return Specifies the name of the HTTP Trigger to be created within the Logic App Workflow. Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE:** This name must be unique across all Triggers within the Logic App Workflow.
+     * &gt; **Note:** This name must be unique across all Triggers within the Logic App Workflow.
      * 
      */
     public Optional<Output<String>> name() {
@@ -109,6 +113,8 @@ public final class TriggerCustomState extends com.pulumi.resources.ResourceArgs 
         /**
          * @param body Specifies the JSON Blob defining the Body of this Custom Trigger.
          * 
+         * &gt; **Note:** To make the Trigger more readable, you may wish to consider using HEREDOC syntax (as shown above) or the `local_file` resource to load the schema from a file on disk.
+         * 
          * @return builder
          * 
          */
@@ -119,6 +125,8 @@ public final class TriggerCustomState extends com.pulumi.resources.ResourceArgs 
 
         /**
          * @param body Specifies the JSON Blob defining the Body of this Custom Trigger.
+         * 
+         * &gt; **Note:** To make the Trigger more readable, you may wish to consider using HEREDOC syntax (as shown above) or the `local_file` resource to load the schema from a file on disk.
          * 
          * @return builder
          * 
@@ -172,7 +180,7 @@ public final class TriggerCustomState extends com.pulumi.resources.ResourceArgs 
         /**
          * @param name Specifies the name of the HTTP Trigger to be created within the Logic App Workflow. Changing this forces a new resource to be created.
          * 
-         * &gt; **NOTE:** This name must be unique across all Triggers within the Logic App Workflow.
+         * &gt; **Note:** This name must be unique across all Triggers within the Logic App Workflow.
          * 
          * @return builder
          * 
@@ -185,7 +193,7 @@ public final class TriggerCustomState extends com.pulumi.resources.ResourceArgs 
         /**
          * @param name Specifies the name of the HTTP Trigger to be created within the Logic App Workflow. Changing this forces a new resource to be created.
          * 
-         * &gt; **NOTE:** This name must be unique across all Triggers within the Logic App Workflow.
+         * &gt; **Note:** This name must be unique across all Triggers within the Logic App Workflow.
          * 
          * @return builder
          * 

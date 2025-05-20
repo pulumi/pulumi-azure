@@ -41,7 +41,7 @@ public final class KubernetesClusterIngressApplicationGateway {
     /**
      * @return The ID of the subnet on which to create an Application Gateway, which in turn will be integrated with the ingress controller of this Kubernetes Cluster. See [this](https://docs.microsoft.com/azure/application-gateway/tutorial-ingress-controller-add-on-new) page for further details.
      * 
-     * &gt; **Note:** Exactly one of `gateway_id`, `subnet_id` or `subnet_cidr` must be specified.
+     * &gt; **Note:** Exactly one of `gateway_id`, `gateway_name`, `subnet_id`, or `subnet_cidr` must be specified.
      * 
      * &gt; **Note:** If specifying `ingress_application_gateway` in conjunction with `only_critical_addons_enabled`, the AGIC pod will fail to start. A separate `azure.containerservice.KubernetesClusterNodePool` is required to run the AGIC pod successfully. This is because AGIC is classed as a &#34;non-critical addon&#34;.
      * 
@@ -87,7 +87,7 @@ public final class KubernetesClusterIngressApplicationGateway {
     /**
      * @return The ID of the subnet on which to create an Application Gateway, which in turn will be integrated with the ingress controller of this Kubernetes Cluster. See [this](https://docs.microsoft.com/azure/application-gateway/tutorial-ingress-controller-add-on-new) page for further details.
      * 
-     * &gt; **Note:** Exactly one of `gateway_id`, `subnet_id` or `subnet_cidr` must be specified.
+     * &gt; **Note:** Exactly one of `gateway_id`, `gateway_name`, `subnet_id`, or `subnet_cidr` must be specified.
      * 
      * &gt; **Note:** If specifying `ingress_application_gateway` in conjunction with `only_critical_addons_enabled`, the AGIC pod will fail to start. A separate `azure.containerservice.KubernetesClusterNodePool` is required to run the AGIC pod successfully. This is because AGIC is classed as a &#34;non-critical addon&#34;.
      * 

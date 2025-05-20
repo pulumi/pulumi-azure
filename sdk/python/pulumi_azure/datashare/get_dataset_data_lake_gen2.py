@@ -145,6 +145,13 @@ def get_dataset_data_lake_gen2(name: Optional[builtins.str] = None,
     pulumi.export("id", example.id)
     ```
 
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.DataShare`: 2019-11-01
+
 
     :param builtins.str name: The name of this Data Share Data Lake Gen2 Dataset.
     :param builtins.str share_id: The resource ID of the Data Share where this Data Share Data Lake Gen2 Dataset should be created.
@@ -180,6 +187,13 @@ def get_dataset_data_lake_gen2_output(name: Optional[pulumi.Input[builtins.str]]
         share_id="example-share-id")
     pulumi.export("id", example.id)
     ```
+
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.DataShare`: 2019-11-01
 
 
     :param builtins.str name: The name of this Data Share Data Lake Gen2 Dataset.

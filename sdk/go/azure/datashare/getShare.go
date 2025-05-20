@@ -47,6 +47,13 @@ import (
 //	}
 //
 // ```
+//
+// ## API Providers
+//
+// <!-- This section is generated, changes will be overwritten -->
+// This data source uses the following Azure API Providers:
+//
+// * `Microsoft.DataShare`: 2019-11-01
 func LookupShare(ctx *pulumi.Context, args *LookupShareArgs, opts ...pulumi.InvokeOption) (*LookupShareResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupShareResult

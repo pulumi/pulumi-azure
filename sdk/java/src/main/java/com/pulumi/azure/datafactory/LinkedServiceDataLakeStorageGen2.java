@@ -20,6 +20,8 @@ import javax.annotation.Nullable;
 /**
  * Manages a Linked Service (connection) between Data Lake Storage Gen2 and Azure Data Factory.
  * 
+ * &gt; **Note:** All arguments including the `service_principal_key` will be stored in the raw state as plain-text. [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
+ * 
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
@@ -236,7 +238,7 @@ public class LinkedServiceDataLakeStorageGen2 extends com.pulumi.resources.Custo
     /**
      * The tenant id or name in which the service principal exists to authenticate against the Azure Data Lake Storage Gen2 account.
      * 
-     * &gt; **NOTE** If `service_principal_id` is used, `service_principal_key` and `tenant` are also required.
+     * &gt; **Note:** If `service_principal_id` is used, `service_principal_key` and `tenant` are also required.
      * 
      */
     @Export(name="tenant", refs={String.class}, tree="[0]")
@@ -245,7 +247,7 @@ public class LinkedServiceDataLakeStorageGen2 extends com.pulumi.resources.Custo
     /**
      * @return The tenant id or name in which the service principal exists to authenticate against the Azure Data Lake Storage Gen2 account.
      * 
-     * &gt; **NOTE** If `service_principal_id` is used, `service_principal_key` and `tenant` are also required.
+     * &gt; **Note:** If `service_principal_id` is used, `service_principal_key` and `tenant` are also required.
      * 
      */
     public Output<Optional<String>> tenant() {
@@ -254,7 +256,7 @@ public class LinkedServiceDataLakeStorageGen2 extends com.pulumi.resources.Custo
     /**
      * The endpoint for the Azure Data Lake Storage Gen2 service.
      * 
-     * &gt; **NOTE** Users should specify only one of the following three authentication strategies: storage account key, managed identity, service principal.
+     * &gt; **Note:** Users should specify only one of the following three authentication strategies: storage account key, managed identity, service principal.
      * 
      */
     @Export(name="url", refs={String.class}, tree="[0]")
@@ -263,7 +265,7 @@ public class LinkedServiceDataLakeStorageGen2 extends com.pulumi.resources.Custo
     /**
      * @return The endpoint for the Azure Data Lake Storage Gen2 service.
      * 
-     * &gt; **NOTE** Users should specify only one of the following three authentication strategies: storage account key, managed identity, service principal.
+     * &gt; **Note:** Users should specify only one of the following three authentication strategies: storage account key, managed identity, service principal.
      * 
      */
     public Output<String> url() {

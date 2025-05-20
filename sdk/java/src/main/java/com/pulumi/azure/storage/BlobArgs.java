@@ -49,17 +49,9 @@ public final class BlobArgs extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.cacheControl);
     }
 
-    /**
-     * The MD5 sum of the blob contents. Cannot be defined if `source_uri` is defined, or if blob type is Append or Page. Changing this forces a new resource to be created.
-     * 
-     */
     @Import(name="contentMd5")
     private @Nullable Output<String> contentMd5;
 
-    /**
-     * @return The MD5 sum of the blob contents. Cannot be defined if `source_uri` is defined, or if blob type is Append or Page. Changing this forces a new resource to be created.
-     * 
-     */
     public Optional<Output<String>> contentMd5() {
         return Optional.ofNullable(this.contentMd5);
     }
@@ -127,7 +119,7 @@ public final class BlobArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * The number of workers per CPU core to run for concurrent uploads. Defaults to `8`. Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE:** `parallelism` is only applicable for Page blobs - support for [Block Blobs is blocked on the upstream issue](https://github.com/jackofallops/giovanni/issues/15).
+     * &gt; **Note:** `parallelism` is only applicable for Page blobs - support for [Block Blobs is blocked on the upstream issue](https://github.com/jackofallops/giovanni/issues/15).
      * 
      */
     @Import(name="parallelism")
@@ -136,7 +128,7 @@ public final class BlobArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * @return The number of workers per CPU core to run for concurrent uploads. Defaults to `8`. Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE:** `parallelism` is only applicable for Page blobs - support for [Block Blobs is blocked on the upstream issue](https://github.com/jackofallops/giovanni/issues/15).
+     * &gt; **Note:** `parallelism` is only applicable for Page blobs - support for [Block Blobs is blocked on the upstream issue](https://github.com/jackofallops/giovanni/issues/15).
      * 
      */
     public Optional<Output<Integer>> parallelism() {
@@ -332,23 +324,11 @@ public final class BlobArgs extends com.pulumi.resources.ResourceArgs {
             return cacheControl(Output.of(cacheControl));
         }
 
-        /**
-         * @param contentMd5 The MD5 sum of the blob contents. Cannot be defined if `source_uri` is defined, or if blob type is Append or Page. Changing this forces a new resource to be created.
-         * 
-         * @return builder
-         * 
-         */
         public Builder contentMd5(@Nullable Output<String> contentMd5) {
             $.contentMd5 = contentMd5;
             return this;
         }
 
-        /**
-         * @param contentMd5 The MD5 sum of the blob contents. Cannot be defined if `source_uri` is defined, or if blob type is Append or Page. Changing this forces a new resource to be created.
-         * 
-         * @return builder
-         * 
-         */
         public Builder contentMd5(String contentMd5) {
             return contentMd5(Output.of(contentMd5));
         }
@@ -440,7 +420,7 @@ public final class BlobArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param parallelism The number of workers per CPU core to run for concurrent uploads. Defaults to `8`. Changing this forces a new resource to be created.
          * 
-         * &gt; **NOTE:** `parallelism` is only applicable for Page blobs - support for [Block Blobs is blocked on the upstream issue](https://github.com/jackofallops/giovanni/issues/15).
+         * &gt; **Note:** `parallelism` is only applicable for Page blobs - support for [Block Blobs is blocked on the upstream issue](https://github.com/jackofallops/giovanni/issues/15).
          * 
          * @return builder
          * 
@@ -453,7 +433,7 @@ public final class BlobArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param parallelism The number of workers per CPU core to run for concurrent uploads. Defaults to `8`. Changing this forces a new resource to be created.
          * 
-         * &gt; **NOTE:** `parallelism` is only applicable for Page blobs - support for [Block Blobs is blocked on the upstream issue](https://github.com/jackofallops/giovanni/issues/15).
+         * &gt; **Note:** `parallelism` is only applicable for Page blobs - support for [Block Blobs is blocked on the upstream issue](https://github.com/jackofallops/giovanni/issues/15).
          * 
          * @return builder
          * 

@@ -30,7 +30,7 @@ namespace Pulumi.Azure.Lighthouse
     ///     var example = new Azure.Lighthouse.Definition("example", new()
     ///     {
     ///         Name = "Sample definition",
-    ///         Description = "This is a lighthouse definition created IaC",
+    ///         Description = "This is a lighthouse definition created via Terraform",
     ///         ManagingTenantId = "00000000-0000-0000-0000-000000000000",
     ///         Scope = "/subscriptions/00000000-0000-0000-0000-000000000000",
     ///         Authorizations = new[]
@@ -46,6 +46,13 @@ namespace Pulumi.Azure.Lighthouse
     /// 
     /// });
     /// ```
+    /// 
+    /// ## API Providers
+    /// 
+    /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+    /// This resource uses the following Azure API Providers:
+    /// 
+    /// * `Microsoft.ManagedServices`: 2022-10-01
     /// 
     /// ## Import
     /// 

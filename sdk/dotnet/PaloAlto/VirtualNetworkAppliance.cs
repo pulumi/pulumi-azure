@@ -9,12 +9,83 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Azure.PaloAlto
 {
+    /// <summary>
+    /// Manages a Palo Alto Network Virtual Appliance.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     {
+    ///         Name = "example-resources",
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleVirtualWan = new Azure.Network.VirtualWan("example", new()
+    ///     {
+    ///         Name = "example-virtualwan",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
+    ///     });
+    /// 
+    ///     var exampleVirtualHub = new Azure.Network.VirtualHub("example", new()
+    ///     {
+    ///         Name = "example-virtualhub",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
+    ///         VirtualWanId = exampleVirtualWan.Id,
+    ///         AddressPrefix = "10.0.0.0/23",
+    ///         Tags = 
+    ///         {
+    ///             { "hubSaaSPreview", "true" },
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleVirtualNetworkAppliance = new Azure.PaloAlto.VirtualNetworkAppliance("example", new()
+    ///     {
+    ///         Name = "example-appliance",
+    ///         VirtualHubId = exampleVirtualHub.Id,
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ## API Providers
+    /// 
+    /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+    /// This resource uses the following Azure API Providers:
+    /// 
+    /// * `Microsoft.Network`: 2024-05-01
+    /// 
+    /// ## Import
+    /// 
+    /// Palo Alto Local Network Virtual Appliances can be imported using the `resource id`, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure:paloalto/virtualNetworkAppliance:VirtualNetworkAppliance example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Network/networkVirtualAppliances/myPANetworkVirtualAppliance
+    /// ```
+    /// </summary>
     [AzureResourceType("azure:paloalto/virtualNetworkAppliance:VirtualNetworkAppliance")]
     public partial class VirtualNetworkAppliance : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The name which should be used for this Palo Alto Local Network Virtual Appliance. Changing this forces a new Palo Alto Local Network Virtual Appliance to be created.
+        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// The ID of the Virtual Hub to deploy this appliance onto. Changing this forces a new Palo Alto Local Network Virtual Appliance to be created.
+        /// 
+        /// &gt; **Note:** THe Virtual Hub must be created with the tag `"hubSaaSPreview" = "true"` to be compatible with this resource.
+        /// </summary>
         [Output("virtualHubId")]
         public Output<string> VirtualHubId { get; private set; } = null!;
 
@@ -64,9 +135,17 @@ namespace Pulumi.Azure.PaloAlto
 
     public sealed class VirtualNetworkApplianceArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The name which should be used for this Palo Alto Local Network Virtual Appliance. Changing this forces a new Palo Alto Local Network Virtual Appliance to be created.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// The ID of the Virtual Hub to deploy this appliance onto. Changing this forces a new Palo Alto Local Network Virtual Appliance to be created.
+        /// 
+        /// &gt; **Note:** THe Virtual Hub must be created with the tag `"hubSaaSPreview" = "true"` to be compatible with this resource.
+        /// </summary>
         [Input("virtualHubId", required: true)]
         public Input<string> VirtualHubId { get; set; } = null!;
 
@@ -78,9 +157,17 @@ namespace Pulumi.Azure.PaloAlto
 
     public sealed class VirtualNetworkApplianceState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The name which should be used for this Palo Alto Local Network Virtual Appliance. Changing this forces a new Palo Alto Local Network Virtual Appliance to be created.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// The ID of the Virtual Hub to deploy this appliance onto. Changing this forces a new Palo Alto Local Network Virtual Appliance to be created.
+        /// 
+        /// &gt; **Note:** THe Virtual Hub must be created with the tag `"hubSaaSPreview" = "true"` to be compatible with this resource.
+        /// </summary>
         [Input("virtualHubId")]
         public Input<string>? VirtualHubId { get; set; }
 

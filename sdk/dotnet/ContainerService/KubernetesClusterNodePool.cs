@@ -12,13 +12,15 @@ namespace Pulumi.Azure.ContainerService
     /// <summary>
     /// Manages a Node Pool within a Kubernetes Cluster
     /// 
-    /// &gt; **NOTE:** Multiple Node Pools are only supported when the Kubernetes Cluster is using Virtual Machine Scale Sets.
+    /// &gt; **Note:** Due to the fast-moving nature of AKS, we recommend using the latest version of the Azure Provider when using AKS - you can find the latest version of the Azure Provider here.
+    /// 
+    /// &gt; **Note:** Multiple Node Pools are only supported when the Kubernetes Cluster is using Virtual Machine Scale Sets.
     /// 
     /// &gt; **Note:** Changing certain properties is done by cycling the node pool. When cycling it, it doesn’t perform cordon and drain, and it will disrupt rescheduling pods currently running on the previous node pool. `temporary_name_for_rotation` must be specified when changing any of the following properties: `fips_enabled`, `host_encryption_enabled`, `kubelet_config`, `kubelet_disk_type`, `linux_os_config`, `max_pods`, `node_public_ip_enabled`, `os_disk_size_gb`, `os_disk_type`, `pod_subnet_id`, `snapshot_id`, `ultra_ssd_enabled`, `vm_size`, `vnet_subnet_id`, `zones`.
     /// 
     /// ## Example Usage
     /// 
-    /// This example provisions a basic Kubernetes Node Pool.
+    /// This example provisions a basic Kubernetes Node Pool. Other examples of the `azure.containerservice.KubernetesClusterNodePool` resource can be found in the `./examples/kubernetes` directory within the GitHub Repository
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
@@ -68,6 +70,13 @@ namespace Pulumi.Azure.ContainerService
     /// });
     /// ```
     /// 
+    /// ## API Providers
+    /// 
+    /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+    /// This resource uses the following Azure API Providers:
+    /// 
+    /// * `Microsoft.ContainerService`: 2024-09-01
+    /// 
     /// ## Import
     /// 
     /// Kubernetes Cluster Node Pools can be imported using the `resource id`, e.g.
@@ -116,7 +125,7 @@ namespace Pulumi.Azure.ContainerService
         /// <summary>
         /// Should the nodes in this Node Pool have host encryption enabled? Changing this property requires specifying `temporary_name_for_rotation`.
         /// 
-        /// &gt; **NOTE:** Additional fields must be configured depending on the value of this field - see below.
+        /// &gt; **Note:** Additional fields must be configured depending on the value of this field - see below.
         /// </summary>
         [Output("hostEncryptionEnabled")]
         public Output<bool?> HostEncryptionEnabled { get; private set; } = null!;
@@ -142,7 +151,7 @@ namespace Pulumi.Azure.ContainerService
         /// <summary>
         /// The ID of the Kubernetes Cluster where this Node Pool should exist. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **NOTE:** The type of Default Node Pool for the Kubernetes Cluster must be `VirtualMachineScaleSets` to attach multiple node pools.
+        /// &gt; **Note:** The type of Default Node Pool for the Kubernetes Cluster must be `VirtualMachineScaleSets` to attach multiple node pools.
         /// </summary>
         [Output("kubernetesClusterId")]
         public Output<string> KubernetesClusterId { get; private set; } = null!;
@@ -174,7 +183,7 @@ namespace Pulumi.Azure.ContainerService
         /// <summary>
         /// The name of the Node Pool which should be created within the Kubernetes Cluster. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **NOTE:** A Windows Node Pool cannot have a `name` longer than 6 characters.
+        /// &gt; **Note:** A Windows Node Pool cannot have a `name` longer than 6 characters.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -284,11 +293,6 @@ namespace Pulumi.Azure.ContainerService
         [Output("spotMaxPrice")]
         public Output<double?> SpotMaxPrice { get; private set; } = null!;
 
-        /// <summary>
-        /// A mapping of tags to assign to the resource.
-        /// 
-        /// &gt; At this time there's a bug in the AKS API where Tags for a Node Pool are not stored in the correct case - you may wish to use [`ignoreChanges`](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) functionality to ignore changes to the casing until this is fixed in the AKS API.
-        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
@@ -319,7 +323,7 @@ namespace Pulumi.Azure.ContainerService
         /// <summary>
         /// The ID of the Subnet where this Node Pool should exist. Changing this property requires specifying `temporary_name_for_rotation`.
         /// 
-        /// &gt; **NOTE:** A route table must be configured on this Subnet.
+        /// &gt; **Note:** A route table must be configured on this Subnet.
         /// </summary>
         [Output("vnetSubnetId")]
         public Output<string?> VnetSubnetId { get; private set; } = null!;
@@ -427,7 +431,7 @@ namespace Pulumi.Azure.ContainerService
         /// <summary>
         /// Should the nodes in this Node Pool have host encryption enabled? Changing this property requires specifying `temporary_name_for_rotation`.
         /// 
-        /// &gt; **NOTE:** Additional fields must be configured depending on the value of this field - see below.
+        /// &gt; **Note:** Additional fields must be configured depending on the value of this field - see below.
         /// </summary>
         [Input("hostEncryptionEnabled")]
         public Input<bool>? HostEncryptionEnabled { get; set; }
@@ -453,7 +457,7 @@ namespace Pulumi.Azure.ContainerService
         /// <summary>
         /// The ID of the Kubernetes Cluster where this Node Pool should exist. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **NOTE:** The type of Default Node Pool for the Kubernetes Cluster must be `VirtualMachineScaleSets` to attach multiple node pools.
+        /// &gt; **Note:** The type of Default Node Pool for the Kubernetes Cluster must be `VirtualMachineScaleSets` to attach multiple node pools.
         /// </summary>
         [Input("kubernetesClusterId", required: true)]
         public Input<string> KubernetesClusterId { get; set; } = null!;
@@ -485,7 +489,7 @@ namespace Pulumi.Azure.ContainerService
         /// <summary>
         /// The name of the Node Pool which should be created within the Kubernetes Cluster. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **NOTE:** A Windows Node Pool cannot have a `name` longer than 6 characters.
+        /// &gt; **Note:** A Windows Node Pool cannot have a `name` longer than 6 characters.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -609,12 +613,6 @@ namespace Pulumi.Azure.ContainerService
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// A mapping of tags to assign to the resource.
-        /// 
-        /// &gt; At this time there's a bug in the AKS API where Tags for a Node Pool are not stored in the correct case - you may wish to use [`ignoreChanges`](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) functionality to ignore changes to the casing until this is fixed in the AKS API.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -648,7 +646,7 @@ namespace Pulumi.Azure.ContainerService
         /// <summary>
         /// The ID of the Subnet where this Node Pool should exist. Changing this property requires specifying `temporary_name_for_rotation`.
         /// 
-        /// &gt; **NOTE:** A route table must be configured on this Subnet.
+        /// &gt; **Note:** A route table must be configured on this Subnet.
         /// </summary>
         [Input("vnetSubnetId")]
         public Input<string>? VnetSubnetId { get; set; }
@@ -724,7 +722,7 @@ namespace Pulumi.Azure.ContainerService
         /// <summary>
         /// Should the nodes in this Node Pool have host encryption enabled? Changing this property requires specifying `temporary_name_for_rotation`.
         /// 
-        /// &gt; **NOTE:** Additional fields must be configured depending on the value of this field - see below.
+        /// &gt; **Note:** Additional fields must be configured depending on the value of this field - see below.
         /// </summary>
         [Input("hostEncryptionEnabled")]
         public Input<bool>? HostEncryptionEnabled { get; set; }
@@ -750,7 +748,7 @@ namespace Pulumi.Azure.ContainerService
         /// <summary>
         /// The ID of the Kubernetes Cluster where this Node Pool should exist. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **NOTE:** The type of Default Node Pool for the Kubernetes Cluster must be `VirtualMachineScaleSets` to attach multiple node pools.
+        /// &gt; **Note:** The type of Default Node Pool for the Kubernetes Cluster must be `VirtualMachineScaleSets` to attach multiple node pools.
         /// </summary>
         [Input("kubernetesClusterId")]
         public Input<string>? KubernetesClusterId { get; set; }
@@ -782,7 +780,7 @@ namespace Pulumi.Azure.ContainerService
         /// <summary>
         /// The name of the Node Pool which should be created within the Kubernetes Cluster. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **NOTE:** A Windows Node Pool cannot have a `name` longer than 6 characters.
+        /// &gt; **Note:** A Windows Node Pool cannot have a `name` longer than 6 characters.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -906,12 +904,6 @@ namespace Pulumi.Azure.ContainerService
 
         [Input("tags")]
         private InputMap<string>? _tags;
-
-        /// <summary>
-        /// A mapping of tags to assign to the resource.
-        /// 
-        /// &gt; At this time there's a bug in the AKS API where Tags for a Node Pool are not stored in the correct case - you may wish to use [`ignoreChanges`](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) functionality to ignore changes to the casing until this is fixed in the AKS API.
-        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -945,7 +937,7 @@ namespace Pulumi.Azure.ContainerService
         /// <summary>
         /// The ID of the Subnet where this Node Pool should exist. Changing this property requires specifying `temporary_name_for_rotation`.
         /// 
-        /// &gt; **NOTE:** A route table must be configured on this Subnet.
+        /// &gt; **Note:** A route table must be configured on this Subnet.
         /// </summary>
         [Input("vnetSubnetId")]
         public Input<string>? VnetSubnetId { get; set; }

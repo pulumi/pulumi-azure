@@ -12,15 +12,15 @@ namespace Pulumi.Azure.Iot
     /// <summary>
     /// Manages an IotHub
     /// 
-    /// &gt; **NOTE:** Endpoints can be defined either directly on the `azure.iot.IoTHub` resource, or using the `azurerm_iothub_endpoint_*` resources - but the two ways of defining the endpoints cannot be used together. If both are used against the same IoTHub, spurious changes will occur. Also, defining a `azurerm_iothub_endpoint_*` resource and another endpoint of a different type directly on the `azure.iot.IoTHub` resource is not supported.
+    /// &gt; **Note:** Endpoints can be defined either directly on the `azure.iot.IoTHub` resource, or using the `azurerm_iothub_endpoint_*` resources - but the two ways of defining the endpoints cannot be used together. If both are used against the same IoTHub, spurious changes will occur. Also, defining a `azurerm_iothub_endpoint_*` resource and another endpoint of a different type directly on the `azure.iot.IoTHub` resource is not supported.
     /// 
-    /// &gt; **NOTE:** Routes can be defined either directly on the `azure.iot.IoTHub` resource, or using the `azure.iot.Route` resource - but the two cannot be used together. If both are used against the same IoTHub, spurious changes will occur.
+    /// &gt; **Note:** Routes can be defined either directly on the `azure.iot.IoTHub` resource, or using the `azure.iot.Route` resource - but the two cannot be used together. If both are used against the same IoTHub, spurious changes will occur.
     /// 
-    /// &gt; **NOTE:** Enrichments can be defined either directly on the `azure.iot.IoTHub` resource, or using the `azure.iot.Enrichment` resource - but the two cannot be used together. If both are used against the same IoTHub, spurious changes will occur.
+    /// &gt; **Note:** Enrichments can be defined either directly on the `azure.iot.IoTHub` resource, or using the `azure.iot.Enrichment` resource - but the two cannot be used together. If both are used against the same IoTHub, spurious changes will occur.
     /// 
-    /// &gt; **NOTE:** Fallback route can be defined either directly on the `azure.iot.IoTHub` resource, or using the `azure.iot.FallbackRoute` resource - but the two cannot be used together. If both are used against the same IoTHub, spurious changes will occur.
+    /// &gt; **Note:** Fallback route can be defined either directly on the `azure.iot.IoTHub` resource, or using the `azure.iot.FallbackRoute` resource - but the two cannot be used together. If both are used against the same IoTHub, spurious changes will occur.
     /// 
-    /// &gt; **NOTE:** File upload can be defined either directly on the `azure.iot.IoTHub` resource, or using the `azure.iot.FileUpload` resource - but the two cannot be used together. If both are used against the same IoTHub, spurious changes will occur.
+    /// &gt; **Note:** File upload can be defined either directly on the `azure.iot.IoTHub` resource, or using the `azure.iot.FileUpload` resource - but the two cannot be used together. If both are used against the same IoTHub, spurious changes will occur.
     /// 
     /// ## Example Usage
     /// 
@@ -183,6 +183,9 @@ namespace Pulumi.Azure.Iot
     [AzureResourceType("azure:iot/ioTHub:IoTHub")]
     public partial class IoTHub : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// A `cloud_to_device` block as defined below.
+        /// </summary>
         [Output("cloudToDevice")]
         public Output<Outputs.IoTHubCloudToDevice> CloudToDevice { get; private set; } = null!;
 
@@ -192,6 +195,9 @@ namespace Pulumi.Azure.Iot
         [Output("endpoints")]
         public Output<ImmutableArray<Outputs.IoTHubEndpoint>> Endpoints { get; private set; } = null!;
 
+        /// <summary>
+        /// A `enrichment` block as defined below.
+        /// </summary>
         [Output("enrichments")]
         public Output<ImmutableArray<Outputs.IoTHubEnrichment>> Enrichments { get; private set; } = null!;
 
@@ -240,7 +246,7 @@ namespace Pulumi.Azure.Iot
         /// <summary>
         /// A `fallback_route` block as defined below. If the fallback route is enabled, messages that don't match any of the supplied routes are automatically sent to this route. Defaults to messages/events.
         /// 
-        /// &gt; **NOTE:** If `fallback_route` isn't explicitly specified, the fallback route wouldn't be enabled by default.
+        /// &gt; **Note:** If `fallback_route` isn't explicitly specified, the fallback route wouldn't be enabled by default.
         /// </summary>
         [Output("fallbackRoute")]
         public Output<Outputs.IoTHubFallbackRoute> FallbackRoute { get; private set; } = null!;
@@ -275,6 +281,9 @@ namespace Pulumi.Azure.Iot
         [Output("location")]
         public Output<string> Location { get; private set; } = null!;
 
+        /// <summary>
+        /// Specifies the minimum TLS version to support for this hub. The only valid value is `1.2`. Changing this forces a new resource to be created.
+        /// </summary>
         [Output("minTlsVersion")]
         public Output<string?> MinTlsVersion { get; private set; } = null!;
 
@@ -290,6 +299,9 @@ namespace Pulumi.Azure.Iot
         [Output("networkRuleSets")]
         public Output<ImmutableArray<Outputs.IoTHubNetworkRuleSet>> NetworkRuleSets { get; private set; } = null!;
 
+        /// <summary>
+        /// Is the IotHub resource accessible from a public network?
+        /// </summary>
         [Output("publicNetworkAccessEnabled")]
         public Output<bool?> PublicNetworkAccessEnabled { get; private set; } = null!;
 
@@ -299,6 +311,9 @@ namespace Pulumi.Azure.Iot
         [Output("resourceGroupName")]
         public Output<string> ResourceGroupName { get; private set; } = null!;
 
+        /// <summary>
+        /// A `route` block as defined below.
+        /// </summary>
         [Output("routes")]
         public Output<ImmutableArray<Outputs.IoTHubRoute>> Routes { get; private set; } = null!;
 
@@ -314,6 +329,9 @@ namespace Pulumi.Azure.Iot
         [Output("sku")]
         public Output<Outputs.IoTHubSku> Sku { get; private set; } = null!;
 
+        /// <summary>
+        /// A mapping of tags to assign to the resource.
+        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
@@ -366,6 +384,9 @@ namespace Pulumi.Azure.Iot
 
     public sealed class IoTHubArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// A `cloud_to_device` block as defined below.
+        /// </summary>
         [Input("cloudToDevice")]
         public Input<Inputs.IoTHubCloudToDeviceArgs>? CloudToDevice { get; set; }
 
@@ -383,6 +404,10 @@ namespace Pulumi.Azure.Iot
 
         [Input("enrichments")]
         private InputList<Inputs.IoTHubEnrichmentArgs>? _enrichments;
+
+        /// <summary>
+        /// A `enrichment` block as defined below.
+        /// </summary>
         public InputList<Inputs.IoTHubEnrichmentArgs> Enrichments
         {
             get => _enrichments ?? (_enrichments = new InputList<Inputs.IoTHubEnrichmentArgs>());
@@ -404,7 +429,7 @@ namespace Pulumi.Azure.Iot
         /// <summary>
         /// A `fallback_route` block as defined below. If the fallback route is enabled, messages that don't match any of the supplied routes are automatically sent to this route. Defaults to messages/events.
         /// 
-        /// &gt; **NOTE:** If `fallback_route` isn't explicitly specified, the fallback route wouldn't be enabled by default.
+        /// &gt; **Note:** If `fallback_route` isn't explicitly specified, the fallback route wouldn't be enabled by default.
         /// </summary>
         [Input("fallbackRoute")]
         public Input<Inputs.IoTHubFallbackRouteArgs>? FallbackRoute { get; set; }
@@ -433,6 +458,9 @@ namespace Pulumi.Azure.Iot
         [Input("location")]
         public Input<string>? Location { get; set; }
 
+        /// <summary>
+        /// Specifies the minimum TLS version to support for this hub. The only valid value is `1.2`. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("minTlsVersion")]
         public Input<string>? MinTlsVersion { get; set; }
 
@@ -454,6 +482,9 @@ namespace Pulumi.Azure.Iot
             set => _networkRuleSets = value;
         }
 
+        /// <summary>
+        /// Is the IotHub resource accessible from a public network?
+        /// </summary>
         [Input("publicNetworkAccessEnabled")]
         public Input<bool>? PublicNetworkAccessEnabled { get; set; }
 
@@ -465,6 +496,10 @@ namespace Pulumi.Azure.Iot
 
         [Input("routes")]
         private InputList<Inputs.IoTHubRouteArgs>? _routes;
+
+        /// <summary>
+        /// A `route` block as defined below.
+        /// </summary>
         public InputList<Inputs.IoTHubRouteArgs> Routes
         {
             get => _routes ?? (_routes = new InputList<Inputs.IoTHubRouteArgs>());
@@ -479,6 +514,10 @@ namespace Pulumi.Azure.Iot
 
         [Input("tags")]
         private InputMap<string>? _tags;
+
+        /// <summary>
+        /// A mapping of tags to assign to the resource.
+        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -493,6 +532,9 @@ namespace Pulumi.Azure.Iot
 
     public sealed class IoTHubState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// A `cloud_to_device` block as defined below.
+        /// </summary>
         [Input("cloudToDevice")]
         public Input<Inputs.IoTHubCloudToDeviceGetArgs>? CloudToDevice { get; set; }
 
@@ -510,6 +552,10 @@ namespace Pulumi.Azure.Iot
 
         [Input("enrichments")]
         private InputList<Inputs.IoTHubEnrichmentGetArgs>? _enrichments;
+
+        /// <summary>
+        /// A `enrichment` block as defined below.
+        /// </summary>
         public InputList<Inputs.IoTHubEnrichmentGetArgs> Enrichments
         {
             get => _enrichments ?? (_enrichments = new InputList<Inputs.IoTHubEnrichmentGetArgs>());
@@ -561,7 +607,7 @@ namespace Pulumi.Azure.Iot
         /// <summary>
         /// A `fallback_route` block as defined below. If the fallback route is enabled, messages that don't match any of the supplied routes are automatically sent to this route. Defaults to messages/events.
         /// 
-        /// &gt; **NOTE:** If `fallback_route` isn't explicitly specified, the fallback route wouldn't be enabled by default.
+        /// &gt; **Note:** If `fallback_route` isn't explicitly specified, the fallback route wouldn't be enabled by default.
         /// </summary>
         [Input("fallbackRoute")]
         public Input<Inputs.IoTHubFallbackRouteGetArgs>? FallbackRoute { get; set; }
@@ -596,6 +642,9 @@ namespace Pulumi.Azure.Iot
         [Input("location")]
         public Input<string>? Location { get; set; }
 
+        /// <summary>
+        /// Specifies the minimum TLS version to support for this hub. The only valid value is `1.2`. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("minTlsVersion")]
         public Input<string>? MinTlsVersion { get; set; }
 
@@ -617,6 +666,9 @@ namespace Pulumi.Azure.Iot
             set => _networkRuleSets = value;
         }
 
+        /// <summary>
+        /// Is the IotHub resource accessible from a public network?
+        /// </summary>
         [Input("publicNetworkAccessEnabled")]
         public Input<bool>? PublicNetworkAccessEnabled { get; set; }
 
@@ -628,6 +680,10 @@ namespace Pulumi.Azure.Iot
 
         [Input("routes")]
         private InputList<Inputs.IoTHubRouteGetArgs>? _routes;
+
+        /// <summary>
+        /// A `route` block as defined below.
+        /// </summary>
         public InputList<Inputs.IoTHubRouteGetArgs> Routes
         {
             get => _routes ?? (_routes = new InputList<Inputs.IoTHubRouteGetArgs>());
@@ -654,6 +710,10 @@ namespace Pulumi.Azure.Iot
 
         [Input("tags")]
         private InputMap<string>? _tags;
+
+        /// <summary>
+        /// A mapping of tags to assign to the resource.
+        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());

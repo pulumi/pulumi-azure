@@ -62,6 +62,13 @@ import (
 //
 // ```
 //
+// ## API Providers
+//
+// <!-- This section is generated, changes will be overwritten -->
+// This resource uses the following Azure API Providers:
+//
+// * `Microsoft.Storage`: 2023-05-01
+//
 // ## Import
 //
 // Storage Containers can be imported using the `resource manager id`, e.g.
@@ -74,7 +81,7 @@ type Container struct {
 
 	// The Access Level configured for this Container. Possible values are `blob`, `container` or `private`. Defaults to `private`.
 	//
-	// > **Note** When updating `containerAccessType` for an existing storage container resource, Shared Key authentication will always be used, as AzureAD authentication is not supported.
+	// > **Note:** When updating `containerAccessType` for an existing storage container resource, Shared Key authentication will always be used, as AzureAD authentication is not supported.
 	ContainerAccessType pulumi.StringPtrOutput `pulumi:"containerAccessType"`
 	// The default encryption scope to use for blobs uploaded to this container. Changing this forces a new resource to be created.
 	DefaultEncryptionScope pulumi.StringOutput `pulumi:"defaultEncryptionScope"`
@@ -94,7 +101,7 @@ type Container struct {
 	ResourceManagerId pulumi.StringOutput `pulumi:"resourceManagerId"`
 	// The name of the Storage Account where the Container should be created. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** One of `storageAccountName` or `storageAccountId` must be specified. When specifying `storageAccountId` the resource will use the Resource Manager API, rather than the Data Plane API.
+	// > **Note:** One of `storageAccountName` or `storageAccountId` must be specified. When specifying `storageAccountId` the resource will use the Resource Manager API, rather than the Data Plane API.
 	StorageAccountId pulumi.StringPtrOutput `pulumi:"storageAccountId"`
 	// The name of the Storage Account where the Container should be created. Changing this forces a new resource to be created. This property is deprecated in favour of `storageAccountId`.
 	//
@@ -136,7 +143,7 @@ func GetContainer(ctx *pulumi.Context,
 type containerState struct {
 	// The Access Level configured for this Container. Possible values are `blob`, `container` or `private`. Defaults to `private`.
 	//
-	// > **Note** When updating `containerAccessType` for an existing storage container resource, Shared Key authentication will always be used, as AzureAD authentication is not supported.
+	// > **Note:** When updating `containerAccessType` for an existing storage container resource, Shared Key authentication will always be used, as AzureAD authentication is not supported.
 	ContainerAccessType *string `pulumi:"containerAccessType"`
 	// The default encryption scope to use for blobs uploaded to this container. Changing this forces a new resource to be created.
 	DefaultEncryptionScope *string `pulumi:"defaultEncryptionScope"`
@@ -156,7 +163,7 @@ type containerState struct {
 	ResourceManagerId *string `pulumi:"resourceManagerId"`
 	// The name of the Storage Account where the Container should be created. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** One of `storageAccountName` or `storageAccountId` must be specified. When specifying `storageAccountId` the resource will use the Resource Manager API, rather than the Data Plane API.
+	// > **Note:** One of `storageAccountName` or `storageAccountId` must be specified. When specifying `storageAccountId` the resource will use the Resource Manager API, rather than the Data Plane API.
 	StorageAccountId *string `pulumi:"storageAccountId"`
 	// The name of the Storage Account where the Container should be created. Changing this forces a new resource to be created. This property is deprecated in favour of `storageAccountId`.
 	//
@@ -169,7 +176,7 @@ type containerState struct {
 type ContainerState struct {
 	// The Access Level configured for this Container. Possible values are `blob`, `container` or `private`. Defaults to `private`.
 	//
-	// > **Note** When updating `containerAccessType` for an existing storage container resource, Shared Key authentication will always be used, as AzureAD authentication is not supported.
+	// > **Note:** When updating `containerAccessType` for an existing storage container resource, Shared Key authentication will always be used, as AzureAD authentication is not supported.
 	ContainerAccessType pulumi.StringPtrInput
 	// The default encryption scope to use for blobs uploaded to this container. Changing this forces a new resource to be created.
 	DefaultEncryptionScope pulumi.StringPtrInput
@@ -189,7 +196,7 @@ type ContainerState struct {
 	ResourceManagerId pulumi.StringPtrInput
 	// The name of the Storage Account where the Container should be created. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** One of `storageAccountName` or `storageAccountId` must be specified. When specifying `storageAccountId` the resource will use the Resource Manager API, rather than the Data Plane API.
+	// > **Note:** One of `storageAccountName` or `storageAccountId` must be specified. When specifying `storageAccountId` the resource will use the Resource Manager API, rather than the Data Plane API.
 	StorageAccountId pulumi.StringPtrInput
 	// The name of the Storage Account where the Container should be created. Changing this forces a new resource to be created. This property is deprecated in favour of `storageAccountId`.
 	//
@@ -206,7 +213,7 @@ func (ContainerState) ElementType() reflect.Type {
 type containerArgs struct {
 	// The Access Level configured for this Container. Possible values are `blob`, `container` or `private`. Defaults to `private`.
 	//
-	// > **Note** When updating `containerAccessType` for an existing storage container resource, Shared Key authentication will always be used, as AzureAD authentication is not supported.
+	// > **Note:** When updating `containerAccessType` for an existing storage container resource, Shared Key authentication will always be used, as AzureAD authentication is not supported.
 	ContainerAccessType *string `pulumi:"containerAccessType"`
 	// The default encryption scope to use for blobs uploaded to this container. Changing this forces a new resource to be created.
 	DefaultEncryptionScope *string `pulumi:"defaultEncryptionScope"`
@@ -218,7 +225,7 @@ type containerArgs struct {
 	Name *string `pulumi:"name"`
 	// The name of the Storage Account where the Container should be created. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** One of `storageAccountName` or `storageAccountId` must be specified. When specifying `storageAccountId` the resource will use the Resource Manager API, rather than the Data Plane API.
+	// > **Note:** One of `storageAccountName` or `storageAccountId` must be specified. When specifying `storageAccountId` the resource will use the Resource Manager API, rather than the Data Plane API.
 	StorageAccountId *string `pulumi:"storageAccountId"`
 	// The name of the Storage Account where the Container should be created. Changing this forces a new resource to be created. This property is deprecated in favour of `storageAccountId`.
 	//
@@ -232,7 +239,7 @@ type containerArgs struct {
 type ContainerArgs struct {
 	// The Access Level configured for this Container. Possible values are `blob`, `container` or `private`. Defaults to `private`.
 	//
-	// > **Note** When updating `containerAccessType` for an existing storage container resource, Shared Key authentication will always be used, as AzureAD authentication is not supported.
+	// > **Note:** When updating `containerAccessType` for an existing storage container resource, Shared Key authentication will always be used, as AzureAD authentication is not supported.
 	ContainerAccessType pulumi.StringPtrInput
 	// The default encryption scope to use for blobs uploaded to this container. Changing this forces a new resource to be created.
 	DefaultEncryptionScope pulumi.StringPtrInput
@@ -244,7 +251,7 @@ type ContainerArgs struct {
 	Name pulumi.StringPtrInput
 	// The name of the Storage Account where the Container should be created. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** One of `storageAccountName` or `storageAccountId` must be specified. When specifying `storageAccountId` the resource will use the Resource Manager API, rather than the Data Plane API.
+	// > **Note:** One of `storageAccountName` or `storageAccountId` must be specified. When specifying `storageAccountId` the resource will use the Resource Manager API, rather than the Data Plane API.
 	StorageAccountId pulumi.StringPtrInput
 	// The name of the Storage Account where the Container should be created. Changing this forces a new resource to be created. This property is deprecated in favour of `storageAccountId`.
 	//
@@ -343,7 +350,7 @@ func (o ContainerOutput) ToContainerOutputWithContext(ctx context.Context) Conta
 
 // The Access Level configured for this Container. Possible values are `blob`, `container` or `private`. Defaults to `private`.
 //
-// > **Note** When updating `containerAccessType` for an existing storage container resource, Shared Key authentication will always be used, as AzureAD authentication is not supported.
+// > **Note:** When updating `containerAccessType` for an existing storage container resource, Shared Key authentication will always be used, as AzureAD authentication is not supported.
 func (o ContainerOutput) ContainerAccessType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Container) pulumi.StringPtrOutput { return v.ContainerAccessType }).(pulumi.StringPtrOutput)
 }
@@ -387,7 +394,7 @@ func (o ContainerOutput) ResourceManagerId() pulumi.StringOutput {
 
 // The name of the Storage Account where the Container should be created. Changing this forces a new resource to be created.
 //
-// > **NOTE:** One of `storageAccountName` or `storageAccountId` must be specified. When specifying `storageAccountId` the resource will use the Resource Manager API, rather than the Data Plane API.
+// > **Note:** One of `storageAccountName` or `storageAccountId` must be specified. When specifying `storageAccountId` the resource will use the Resource Manager API, rather than the Data Plane API.
 func (o ContainerOutput) StorageAccountId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Container) pulumi.StringPtrOutput { return v.StorageAccountId }).(pulumi.StringPtrOutput)
 }

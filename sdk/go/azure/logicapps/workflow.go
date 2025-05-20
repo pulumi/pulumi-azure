@@ -82,7 +82,7 @@ type Workflow struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// A map of Key-Value pairs.
 	//
-	// > **NOTE:** Any parameters specified must exist in the Schema defined in `workflowParameters`.
+	// > **Note:** Any parameters specified must exist in the Schema defined in `workflowParameters`.
 	Parameters pulumi.StringMapOutput `pulumi:"parameters"`
 	// The name of the Resource Group in which the Logic App Workflow should be created. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
@@ -155,7 +155,7 @@ type workflowState struct {
 	Name *string `pulumi:"name"`
 	// A map of Key-Value pairs.
 	//
-	// > **NOTE:** Any parameters specified must exist in the Schema defined in `workflowParameters`.
+	// > **Note:** Any parameters specified must exist in the Schema defined in `workflowParameters`.
 	Parameters map[string]string `pulumi:"parameters"`
 	// The name of the Resource Group in which the Logic App Workflow should be created. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
@@ -196,7 +196,7 @@ type WorkflowState struct {
 	Name pulumi.StringPtrInput
 	// A map of Key-Value pairs.
 	//
-	// > **NOTE:** Any parameters specified must exist in the Schema defined in `workflowParameters`.
+	// > **Note:** Any parameters specified must exist in the Schema defined in `workflowParameters`.
 	Parameters pulumi.StringMapInput
 	// The name of the Resource Group in which the Logic App Workflow should be created. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
@@ -235,7 +235,7 @@ type workflowArgs struct {
 	Name *string `pulumi:"name"`
 	// A map of Key-Value pairs.
 	//
-	// > **NOTE:** Any parameters specified must exist in the Schema defined in `workflowParameters`.
+	// > **Note:** Any parameters specified must exist in the Schema defined in `workflowParameters`.
 	Parameters map[string]string `pulumi:"parameters"`
 	// The name of the Resource Group in which the Logic App Workflow should be created. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
@@ -267,7 +267,7 @@ type WorkflowArgs struct {
 	Name pulumi.StringPtrInput
 	// A map of Key-Value pairs.
 	//
-	// > **NOTE:** Any parameters specified must exist in the Schema defined in `workflowParameters`.
+	// > **Note:** Any parameters specified must exist in the Schema defined in `workflowParameters`.
 	Parameters pulumi.StringMapInput
 	// The name of the Resource Group in which the Logic App Workflow should be created. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
@@ -420,7 +420,7 @@ func (o WorkflowOutput) Name() pulumi.StringOutput {
 
 // A map of Key-Value pairs.
 //
-// > **NOTE:** Any parameters specified must exist in the Schema defined in `workflowParameters`.
+// > **Note:** Any parameters specified must exist in the Schema defined in `workflowParameters`.
 func (o WorkflowOutput) Parameters() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Workflow) pulumi.StringMapOutput { return v.Parameters }).(pulumi.StringMapOutput)
 }

@@ -12,6 +12,12 @@ namespace Pulumi.Azure.Compute
     /// <summary>
     /// Manages a virtual machine scale set.
     /// 
+    /// ## Disclaimers
+    /// 
+    /// !&gt; **Note:** The `azure.compute.ScaleSet` resource has been deprecated in favour of the `azure.compute.LinuxVirtualMachineScaleSet` and `azure.compute.WindowsVirtualMachineScaleSet` resources. Whilst this will continue to be available throughout the 2.x and 3.x releases however is in a feature-frozen state to maintain compatibility - new functionality will instead be added to the `azure.compute.LinuxVirtualMachineScaleSet` and `azure.compute.WindowsVirtualMachineScaleSet` resources and the `azure.compute.ScaleSet` resource will be removed in the future.
+    /// 
+    /// &gt; **Note:** All arguments including the administrator login and password will be stored in the raw state as plain-text. [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
+    /// 
     /// ## Example Usage
     /// 
     /// ### With Managed Disks (Recommended)
@@ -177,7 +183,7 @@ namespace Pulumi.Azure.Compute
     ///         {
     ///             new Azure.Compute.Inputs.ScaleSetNetworkProfileArgs
     ///             {
-    ///                 Name = "mynetworkprofile",
+    ///                 Name = "terraformnetworkprofile",
     ///                 Primary = true,
     ///                 IpConfigurations = new[]
     ///                 {
@@ -395,7 +401,7 @@ namespace Pulumi.Azure.Compute
         /// <summary>
         /// Specifies the eviction policy for Virtual Machines in this Scale Set. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **NOTE:** `eviction_policy` can only be set when `priority` is set to `Low`.
+        /// &gt; **Note:** `eviction_policy` can only be set when `priority` is set to `Low`.
         /// </summary>
         [Output("evictionPolicy")]
         public Output<string?> EvictionPolicy { get; private set; } = null!;
@@ -547,7 +553,7 @@ namespace Pulumi.Azure.Compute
         /// <summary>
         /// A collection of availability zones to spread the Virtual Machines over. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **NOTE:** Availability Zones are [only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview).
+        /// &gt; **Note:** Availability Zones are [only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview).
         /// </summary>
         [Output("zones")]
         public Output<ImmutableArray<string>> Zones { get; private set; } = null!;
@@ -613,7 +619,7 @@ namespace Pulumi.Azure.Compute
         /// <summary>
         /// Specifies the eviction policy for Virtual Machines in this Scale Set. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **NOTE:** `eviction_policy` can only be set when `priority` is set to `Low`.
+        /// &gt; **Note:** `eviction_policy` can only be set when `priority` is set to `Low`.
         /// </summary>
         [Input("evictionPolicy")]
         public Input<string>? EvictionPolicy { get; set; }
@@ -798,7 +804,7 @@ namespace Pulumi.Azure.Compute
         /// <summary>
         /// A collection of availability zones to spread the Virtual Machines over. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **NOTE:** Availability Zones are [only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview).
+        /// &gt; **Note:** Availability Zones are [only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview).
         /// </summary>
         public InputList<string> Zones
         {
@@ -829,7 +835,7 @@ namespace Pulumi.Azure.Compute
         /// <summary>
         /// Specifies the eviction policy for Virtual Machines in this Scale Set. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **NOTE:** `eviction_policy` can only be set when `priority` is set to `Low`.
+        /// &gt; **Note:** `eviction_policy` can only be set when `priority` is set to `Low`.
         /// </summary>
         [Input("evictionPolicy")]
         public Input<string>? EvictionPolicy { get; set; }
@@ -1014,7 +1020,7 @@ namespace Pulumi.Azure.Compute
         /// <summary>
         /// A collection of availability zones to spread the Virtual Machines over. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **NOTE:** Availability Zones are [only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview).
+        /// &gt; **Note:** Availability Zones are [only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview).
         /// </summary>
         public InputList<string> Zones
         {

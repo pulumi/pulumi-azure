@@ -169,6 +169,13 @@ def get_application_group(name: Optional[builtins.str] = None,
     pulumi.export("id", example.id)
     ```
 
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.DesktopVirtualization`: 2024-04-03
+
 
     :param builtins.str name: The name of this Application Group.
     :param builtins.str resource_group_name: The name of the Resource Group where the Application Group exists.
@@ -206,6 +213,13 @@ def get_application_group_output(name: Optional[pulumi.Input[builtins.str]] = No
         resource_group_name="existing")
     pulumi.export("id", example.id)
     ```
+
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.DesktopVirtualization`: 2024-04-03
 
 
     :param builtins.str name: The name of this Application Group.

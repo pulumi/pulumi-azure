@@ -188,6 +188,13 @@ namespace Pulumi.Azure.AppConfiguration
     /// });
     /// ```
     /// 
+    /// ## API Providers
+    /// 
+    /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+    /// This resource uses the following Azure API Providers:
+    /// 
+    /// * `Microsoft.AppConfiguration`: 2024-05-01
+    /// 
     /// ## Import
     /// 
     /// App Configurations can be imported using the `resource id`, e.g.
@@ -302,9 +309,9 @@ namespace Pulumi.Azure.AppConfiguration
         public Output<ImmutableArray<Outputs.ConfigurationStoreSecondaryWriteKey>> SecondaryWriteKeys { get; private set; } = null!;
 
         /// <summary>
-        /// The SKU name of the App Configuration. Possible values are `free`, `standard` and `premium`. Defaults to `free`.
+        /// The SKU name of the App Configuration. Possible values are `free`, `developer`, `standard` and `premium`. Defaults to `free`.
         /// 
-        /// &gt; **Note:** Azure does not support downgrading `sku`. Downgrading from `premium` tier to `standard` or `free`, or from `standard` to `free`, forces a new resource to be created.
+        /// &gt; **Note:** Azure does not support downgrading `sku` to a lower tier, except from `premium` to `standard`. Downgrading will force a new resource to be created.
         /// </summary>
         [Output("sku")]
         public Output<string?> Sku { get; private set; } = null!;
@@ -448,9 +455,9 @@ namespace Pulumi.Azure.AppConfiguration
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// The SKU name of the App Configuration. Possible values are `free`, `standard` and `premium`. Defaults to `free`.
+        /// The SKU name of the App Configuration. Possible values are `free`, `developer`, `standard` and `premium`. Defaults to `free`.
         /// 
-        /// &gt; **Note:** Azure does not support downgrading `sku`. Downgrading from `premium` tier to `standard` or `free`, or from `standard` to `free`, forces a new resource to be created.
+        /// &gt; **Note:** Azure does not support downgrading `sku` to a lower tier, except from `premium` to `standard`. Downgrading will force a new resource to be created.
         /// </summary>
         [Input("sku")]
         public Input<string>? Sku { get; set; }
@@ -616,9 +623,9 @@ namespace Pulumi.Azure.AppConfiguration
         }
 
         /// <summary>
-        /// The SKU name of the App Configuration. Possible values are `free`, `standard` and `premium`. Defaults to `free`.
+        /// The SKU name of the App Configuration. Possible values are `free`, `developer`, `standard` and `premium`. Defaults to `free`.
         /// 
-        /// &gt; **Note:** Azure does not support downgrading `sku`. Downgrading from `premium` tier to `standard` or `free`, or from `standard` to `free`, forces a new resource to be created.
+        /// &gt; **Note:** Azure does not support downgrading `sku` to a lower tier, except from `premium` to `standard`. Downgrading will force a new resource to be created.
         /// </summary>
         [Input("sku")]
         public Input<string>? Sku { get; set; }

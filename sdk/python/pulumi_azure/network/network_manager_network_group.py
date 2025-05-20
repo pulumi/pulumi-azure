@@ -168,6 +168,13 @@ class NetworkManagerNetworkGroup(pulumi.CustomResource):
             network_manager_id=example_network_manager.id)
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Network`: 2024-05-01
+
         ## Import
 
         Network Manager Network Group can be imported using the `resource id`, e.g.
@@ -217,6 +224,13 @@ class NetworkManagerNetworkGroup(pulumi.CustomResource):
             name="example-group",
             network_manager_id=example_network_manager.id)
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Network`: 2024-05-01
 
         ## Import
 

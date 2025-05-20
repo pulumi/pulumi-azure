@@ -543,6 +543,9 @@ def get_kubernetes_cluster(name: Optional[builtins.str] = None,
     """
     Use this data source to access information about an existing Managed Kubernetes Cluster (AKS).
 
+    > **Note:** All arguments including the client secret will be stored in the raw state as plain text.
+    [Read more about sensitive data in the state](https://www.terraform.io/docs/state/sensitive-data.html).
+
     ## Example Usage
 
     ```python
@@ -552,6 +555,13 @@ def get_kubernetes_cluster(name: Optional[builtins.str] = None,
     example = azure.containerservice.get_kubernetes_cluster(name="myakscluster",
         resource_group_name="my-example-resource-group")
     ```
+
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.ContainerService`: 2024-09-01
 
 
     :param builtins.str name: The name of the managed Kubernetes Cluster.
@@ -612,6 +622,9 @@ def get_kubernetes_cluster_output(name: Optional[pulumi.Input[builtins.str]] = N
     """
     Use this data source to access information about an existing Managed Kubernetes Cluster (AKS).
 
+    > **Note:** All arguments including the client secret will be stored in the raw state as plain text.
+    [Read more about sensitive data in the state](https://www.terraform.io/docs/state/sensitive-data.html).
+
     ## Example Usage
 
     ```python
@@ -621,6 +634,13 @@ def get_kubernetes_cluster_output(name: Optional[pulumi.Input[builtins.str]] = N
     example = azure.containerservice.get_kubernetes_cluster(name="myakscluster",
         resource_group_name="my-example-resource-group")
     ```
+
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.ContainerService`: 2024-09-01
 
 
     :param builtins.str name: The name of the managed Kubernetes Cluster.

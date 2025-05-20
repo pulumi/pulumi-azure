@@ -12,12 +12,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Manages a Blueprint Assignment resource
-//
-// > **NOTE:** Azure Blueprints are in Preview and potentially subject to breaking change without notice.
-//
-// > **NOTE:** Azure Blueprint Assignments can only be applied to Subscriptions.  Assignments to Management Groups is not currently supported by the service or by this provider.
-//
 // ## Example Usage
 //
 // ```go
@@ -135,6 +129,13 @@ import (
 //
 // ```
 //
+// ## API Providers
+//
+// <!-- This section is generated, changes will be overwritten -->
+// This resource uses the following Azure API Providers:
+//
+// * `Microsoft.Blueprint`: 2018-11-01-preview
+//
 // ## Import
 //
 // Azure Blueprint Assignments can be imported using the `resource id`, e.g.
@@ -165,11 +166,11 @@ type Assignment struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// a JSON string to supply Blueprint Assignment parameter values.
 	//
-	// > **NOTE:** Improperly formatted JSON, or missing values required by a Blueprint will cause the assignment to fail.
+	// > **Note:** Improperly formatted JSON, or missing values required by a Blueprint will cause the assignment to fail.
 	ParameterValues pulumi.StringPtrOutput `pulumi:"parameterValues"`
 	// a JSON string to supply the Blueprint Resource Group information.
 	//
-	// > **NOTE:** Improperly formatted JSON, or missing values required by a Blueprint will cause the assignment to fail.
+	// > **Note:** Improperly formatted JSON, or missing values required by a Blueprint will cause the assignment to fail.
 	ResourceGroups pulumi.StringPtrOutput `pulumi:"resourceGroups"`
 	// The Subscription ID the Blueprint Published Version is to be applied to. Changing this forces a new resource to be created.
 	TargetSubscriptionId pulumi.StringOutput `pulumi:"targetSubscriptionId"`
@@ -237,11 +238,11 @@ type assignmentState struct {
 	Name *string `pulumi:"name"`
 	// a JSON string to supply Blueprint Assignment parameter values.
 	//
-	// > **NOTE:** Improperly formatted JSON, or missing values required by a Blueprint will cause the assignment to fail.
+	// > **Note:** Improperly formatted JSON, or missing values required by a Blueprint will cause the assignment to fail.
 	ParameterValues *string `pulumi:"parameterValues"`
 	// a JSON string to supply the Blueprint Resource Group information.
 	//
-	// > **NOTE:** Improperly formatted JSON, or missing values required by a Blueprint will cause the assignment to fail.
+	// > **Note:** Improperly formatted JSON, or missing values required by a Blueprint will cause the assignment to fail.
 	ResourceGroups *string `pulumi:"resourceGroups"`
 	// The Subscription ID the Blueprint Published Version is to be applied to. Changing this forces a new resource to be created.
 	TargetSubscriptionId *string `pulumi:"targetSubscriptionId"`
@@ -271,11 +272,11 @@ type AssignmentState struct {
 	Name pulumi.StringPtrInput
 	// a JSON string to supply Blueprint Assignment parameter values.
 	//
-	// > **NOTE:** Improperly formatted JSON, or missing values required by a Blueprint will cause the assignment to fail.
+	// > **Note:** Improperly formatted JSON, or missing values required by a Blueprint will cause the assignment to fail.
 	ParameterValues pulumi.StringPtrInput
 	// a JSON string to supply the Blueprint Resource Group information.
 	//
-	// > **NOTE:** Improperly formatted JSON, or missing values required by a Blueprint will cause the assignment to fail.
+	// > **Note:** Improperly formatted JSON, or missing values required by a Blueprint will cause the assignment to fail.
 	ResourceGroups pulumi.StringPtrInput
 	// The Subscription ID the Blueprint Published Version is to be applied to. Changing this forces a new resource to be created.
 	TargetSubscriptionId pulumi.StringPtrInput
@@ -303,11 +304,11 @@ type assignmentArgs struct {
 	Name *string `pulumi:"name"`
 	// a JSON string to supply Blueprint Assignment parameter values.
 	//
-	// > **NOTE:** Improperly formatted JSON, or missing values required by a Blueprint will cause the assignment to fail.
+	// > **Note:** Improperly formatted JSON, or missing values required by a Blueprint will cause the assignment to fail.
 	ParameterValues *string `pulumi:"parameterValues"`
 	// a JSON string to supply the Blueprint Resource Group information.
 	//
-	// > **NOTE:** Improperly formatted JSON, or missing values required by a Blueprint will cause the assignment to fail.
+	// > **Note:** Improperly formatted JSON, or missing values required by a Blueprint will cause the assignment to fail.
 	ResourceGroups *string `pulumi:"resourceGroups"`
 	// The Subscription ID the Blueprint Published Version is to be applied to. Changing this forces a new resource to be created.
 	TargetSubscriptionId string `pulumi:"targetSubscriptionId"`
@@ -331,11 +332,11 @@ type AssignmentArgs struct {
 	Name pulumi.StringPtrInput
 	// a JSON string to supply Blueprint Assignment parameter values.
 	//
-	// > **NOTE:** Improperly formatted JSON, or missing values required by a Blueprint will cause the assignment to fail.
+	// > **Note:** Improperly formatted JSON, or missing values required by a Blueprint will cause the assignment to fail.
 	ParameterValues pulumi.StringPtrInput
 	// a JSON string to supply the Blueprint Resource Group information.
 	//
-	// > **NOTE:** Improperly formatted JSON, or missing values required by a Blueprint will cause the assignment to fail.
+	// > **Note:** Improperly formatted JSON, or missing values required by a Blueprint will cause the assignment to fail.
 	ResourceGroups pulumi.StringPtrInput
 	// The Subscription ID the Blueprint Published Version is to be applied to. Changing this forces a new resource to be created.
 	TargetSubscriptionId pulumi.StringInput
@@ -477,14 +478,14 @@ func (o AssignmentOutput) Name() pulumi.StringOutput {
 
 // a JSON string to supply Blueprint Assignment parameter values.
 //
-// > **NOTE:** Improperly formatted JSON, or missing values required by a Blueprint will cause the assignment to fail.
+// > **Note:** Improperly formatted JSON, or missing values required by a Blueprint will cause the assignment to fail.
 func (o AssignmentOutput) ParameterValues() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Assignment) pulumi.StringPtrOutput { return v.ParameterValues }).(pulumi.StringPtrOutput)
 }
 
 // a JSON string to supply the Blueprint Resource Group information.
 //
-// > **NOTE:** Improperly formatted JSON, or missing values required by a Blueprint will cause the assignment to fail.
+// > **Note:** Improperly formatted JSON, or missing values required by a Blueprint will cause the assignment to fail.
 func (o AssignmentOutput) ResourceGroups() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Assignment) pulumi.StringPtrOutput { return v.ResourceGroups }).(pulumi.StringPtrOutput)
 }

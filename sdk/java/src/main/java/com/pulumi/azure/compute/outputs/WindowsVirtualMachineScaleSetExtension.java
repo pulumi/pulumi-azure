@@ -40,6 +40,8 @@ public final class WindowsVirtualMachineScaleSetExtension {
      * 
      * &gt; **Note:** Keys within the `protected_settings` block are notoriously case-sensitive, where the casing required (e.g. TitleCase vs snakeCase) depends on the Extension being used. Please refer to the documentation for the specific Virtual Machine Extension you&#39;re looking to use for more information.
      * 
+     * &gt; **Note:** Rather than defining JSON inline you can use the `jsonencode` interpolation function to define this in a cleaner way.
+     * 
      */
     private @Nullable String protectedSettings;
     /**
@@ -63,6 +65,8 @@ public final class WindowsVirtualMachineScaleSetExtension {
      * @return A JSON String which specifies Settings for the Extension.
      * 
      * &gt; **Note:** Keys within the `settings` block are notoriously case-sensitive, where the casing required (e.g. TitleCase vs snakeCase) depends on the Extension being used. Please refer to the documentation for the specific Virtual Machine Extension you&#39;re looking to use for more information.
+     * 
+     * &gt; **Note:** Rather than defining JSON inline you can use the `jsonencode` interpolation function to define this in a cleaner way.
      * 
      */
     private @Nullable String settings;
@@ -111,6 +115,8 @@ public final class WindowsVirtualMachineScaleSetExtension {
      * 
      * &gt; **Note:** Keys within the `protected_settings` block are notoriously case-sensitive, where the casing required (e.g. TitleCase vs snakeCase) depends on the Extension being used. Please refer to the documentation for the specific Virtual Machine Extension you&#39;re looking to use for more information.
      * 
+     * &gt; **Note:** Rather than defining JSON inline you can use the `jsonencode` interpolation function to define this in a cleaner way.
+     * 
      */
     public Optional<String> protectedSettings() {
         return Optional.ofNullable(this.protectedSettings);
@@ -142,6 +148,8 @@ public final class WindowsVirtualMachineScaleSetExtension {
      * @return A JSON String which specifies Settings for the Extension.
      * 
      * &gt; **Note:** Keys within the `settings` block are notoriously case-sensitive, where the casing required (e.g. TitleCase vs snakeCase) depends on the Extension being used. Please refer to the documentation for the specific Virtual Machine Extension you&#39;re looking to use for more information.
+     * 
+     * &gt; **Note:** Rather than defining JSON inline you can use the `jsonencode` interpolation function to define this in a cleaner way.
      * 
      */
     public Optional<String> settings() {

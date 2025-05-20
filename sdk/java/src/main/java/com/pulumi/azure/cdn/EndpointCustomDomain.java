@@ -19,6 +19,10 @@ import javax.annotation.Nullable;
 /**
  * Manages a Custom Domain for a CDN Endpoint.
  * 
+ * !&gt; **Note:** The CDN services from Edgio(formerly Verizon) was shut down on 15 January 2025 and is no longer available .
+ * 
+ * !&gt; **Note:** Support for CDN services from Akamai was removed on 31 October 2023.
+ * 
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
@@ -74,7 +78,7 @@ import javax.annotation.Nullable;
  *             .name("example-profile")
  *             .location(exampleResourceGroup.location())
  *             .resourceGroupName(exampleResourceGroup.name())
- *             .sku("Standard_Verizon")
+ *             .sku("Standard_Microsoft")
  *             .build());
  * 
  *         var exampleEndpoint = new Endpoint("exampleEndpoint", EndpointArgs.builder()
@@ -183,7 +187,7 @@ public class EndpointCustomDomain extends com.pulumi.resources.CustomResource {
     /**
      * A `user_managed_https` block as defined below.
      * 
-     * &gt; **NOTE** Only one of `cdn_managed_https` and `user_managed_https` can be specified.
+     * &gt; **Note:** Only one of `cdn_managed_https` and `user_managed_https` can be specified.
      * 
      */
     @Export(name="userManagedHttps", refs={EndpointCustomDomainUserManagedHttps.class}, tree="[0]")
@@ -192,7 +196,7 @@ public class EndpointCustomDomain extends com.pulumi.resources.CustomResource {
     /**
      * @return A `user_managed_https` block as defined below.
      * 
-     * &gt; **NOTE** Only one of `cdn_managed_https` and `user_managed_https` can be specified.
+     * &gt; **Note:** Only one of `cdn_managed_https` and `user_managed_https` can be specified.
      * 
      */
     public Output<Optional<EndpointCustomDomainUserManagedHttps>> userManagedHttps() {

@@ -36,6 +36,13 @@ namespace Pulumi.Azure.DataShare
         ///     };
         /// });
         /// ```
+        /// 
+        /// ## API Providers
+        /// 
+        /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+        /// This data source uses the following Azure API Providers:
+        /// 
+        /// * `Microsoft.DataShare`: 2019-11-01
         /// </summary>
         public static Task<GetDatasetDataLakeGen2Result> InvokeAsync(GetDatasetDataLakeGen2Args args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDatasetDataLakeGen2Result>("azure:datashare/getDatasetDataLakeGen2:getDatasetDataLakeGen2", args ?? new GetDatasetDataLakeGen2Args(), options.WithDefaults());
@@ -65,6 +72,13 @@ namespace Pulumi.Azure.DataShare
         ///     };
         /// });
         /// ```
+        /// 
+        /// ## API Providers
+        /// 
+        /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+        /// This data source uses the following Azure API Providers:
+        /// 
+        /// * `Microsoft.DataShare`: 2019-11-01
         /// </summary>
         public static Output<GetDatasetDataLakeGen2Result> Invoke(GetDatasetDataLakeGen2InvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDatasetDataLakeGen2Result>("azure:datashare/getDatasetDataLakeGen2:getDatasetDataLakeGen2", args ?? new GetDatasetDataLakeGen2InvokeArgs(), options.WithDefaults());
@@ -94,6 +108,13 @@ namespace Pulumi.Azure.DataShare
         ///     };
         /// });
         /// ```
+        /// 
+        /// ## API Providers
+        /// 
+        /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+        /// This data source uses the following Azure API Providers:
+        /// 
+        /// * `Microsoft.DataShare`: 2019-11-01
         /// </summary>
         public static Output<GetDatasetDataLakeGen2Result> Invoke(GetDatasetDataLakeGen2InvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetDatasetDataLakeGen2Result>("azure:datashare/getDatasetDataLakeGen2:getDatasetDataLakeGen2", args ?? new GetDatasetDataLakeGen2InvokeArgs(), options.WithDefaults());

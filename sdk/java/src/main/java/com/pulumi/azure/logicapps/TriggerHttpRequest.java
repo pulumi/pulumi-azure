@@ -134,7 +134,7 @@ public class TriggerHttpRequest extends com.pulumi.resources.CustomResource {
     /**
      * Specifies the name of the HTTP Request Trigger to be created within the Logic App Workflow. Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE:** This name must be unique across all Triggers within the Logic App Workflow.
+     * &gt; **Note:** This name must be unique across all Triggers within the Logic App Workflow.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
@@ -143,7 +143,7 @@ public class TriggerHttpRequest extends com.pulumi.resources.CustomResource {
     /**
      * @return Specifies the name of the HTTP Request Trigger to be created within the Logic App Workflow. Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE:** This name must be unique across all Triggers within the Logic App Workflow.
+     * &gt; **Note:** This name must be unique across all Triggers within the Logic App Workflow.
      * 
      */
     public Output<String> name() {
@@ -152,7 +152,7 @@ public class TriggerHttpRequest extends com.pulumi.resources.CustomResource {
     /**
      * Specifies the Relative Path used for this Request.
      * 
-     * &gt; **NOTE:** When `relative_path` is set a `method` must also be set.
+     * &gt; **Note:** When `relative_path` is set a `method` must also be set.
      * 
      */
     @Export(name="relativePath", refs={String.class}, tree="[0]")
@@ -161,7 +161,7 @@ public class TriggerHttpRequest extends com.pulumi.resources.CustomResource {
     /**
      * @return Specifies the Relative Path used for this Request.
      * 
-     * &gt; **NOTE:** When `relative_path` is set a `method` must also be set.
+     * &gt; **Note:** When `relative_path` is set a `method` must also be set.
      * 
      */
     public Output<Optional<String>> relativePath() {
@@ -170,12 +170,16 @@ public class TriggerHttpRequest extends com.pulumi.resources.CustomResource {
     /**
      * A JSON Blob defining the Schema of the incoming request. This needs to be valid JSON.
      * 
+     * &gt; **Note:** To make the Trigger more readable, you may wish to consider using HEREDOC syntax (as shown above) or the `local_file` resource to load the schema from a file on disk.
+     * 
      */
     @Export(name="schema", refs={String.class}, tree="[0]")
     private Output<String> schema;
 
     /**
      * @return A JSON Blob defining the Schema of the incoming request. This needs to be valid JSON.
+     * 
+     * &gt; **Note:** To make the Trigger more readable, you may wish to consider using HEREDOC syntax (as shown above) or the `local_file` resource to load the schema from a file on disk.
      * 
      */
     public Output<String> schema() {

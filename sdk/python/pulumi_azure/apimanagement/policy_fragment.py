@@ -30,11 +30,11 @@ class PolicyFragmentArgs:
         :param pulumi.Input[builtins.str] api_management_id: The id of the API Management Service. Changing this forces a new Api Management Policy Fragment to be created.
         :param pulumi.Input[builtins.str] value: The value of the Policy Fragment.
                
-               > **NOTE:** Be aware of the two format possibilities. If the `value` is not applied and continues to cause a diff the format could be wrong.
+               > **Note:** Be aware of the two format possibilities. If the `value` is not applied and continues to cause a diff the format could be wrong.
         :param pulumi.Input[builtins.str] description: The description for the Policy Fragment.
         :param pulumi.Input[builtins.str] format: The format of the Policy Fragment. Possible values are `xml` or `rawxml`. Default is `xml`.
                
-               > **NOTE:** The `value` property will be updated to reflect the corresponding format when `format` is updated.
+               > **Note:** The `value` property will be updated to reflect the corresponding format when `format` is updated.
         :param pulumi.Input[builtins.str] name: The name which should be used for this Api Management Policy Fragment. Changing this forces a new Api Management Policy Fragment to be created.
         """
         pulumi.set(__self__, "api_management_id", api_management_id)
@@ -64,7 +64,7 @@ class PolicyFragmentArgs:
         """
         The value of the Policy Fragment.
 
-        > **NOTE:** Be aware of the two format possibilities. If the `value` is not applied and continues to cause a diff the format could be wrong.
+        > **Note:** Be aware of the two format possibilities. If the `value` is not applied and continues to cause a diff the format could be wrong.
         """
         return pulumi.get(self, "value")
 
@@ -90,7 +90,7 @@ class PolicyFragmentArgs:
         """
         The format of the Policy Fragment. Possible values are `xml` or `rawxml`. Default is `xml`.
 
-        > **NOTE:** The `value` property will be updated to reflect the corresponding format when `format` is updated.
+        > **Note:** The `value` property will be updated to reflect the corresponding format when `format` is updated.
         """
         return pulumi.get(self, "format")
 
@@ -125,11 +125,11 @@ class _PolicyFragmentState:
         :param pulumi.Input[builtins.str] description: The description for the Policy Fragment.
         :param pulumi.Input[builtins.str] format: The format of the Policy Fragment. Possible values are `xml` or `rawxml`. Default is `xml`.
                
-               > **NOTE:** The `value` property will be updated to reflect the corresponding format when `format` is updated.
+               > **Note:** The `value` property will be updated to reflect the corresponding format when `format` is updated.
         :param pulumi.Input[builtins.str] name: The name which should be used for this Api Management Policy Fragment. Changing this forces a new Api Management Policy Fragment to be created.
         :param pulumi.Input[builtins.str] value: The value of the Policy Fragment.
                
-               > **NOTE:** Be aware of the two format possibilities. If the `value` is not applied and continues to cause a diff the format could be wrong.
+               > **Note:** Be aware of the two format possibilities. If the `value` is not applied and continues to cause a diff the format could be wrong.
         """
         if api_management_id is not None:
             pulumi.set(__self__, "api_management_id", api_management_id)
@@ -172,7 +172,7 @@ class _PolicyFragmentState:
         """
         The format of the Policy Fragment. Possible values are `xml` or `rawxml`. Default is `xml`.
 
-        > **NOTE:** The `value` property will be updated to reflect the corresponding format when `format` is updated.
+        > **Note:** The `value` property will be updated to reflect the corresponding format when `format` is updated.
         """
         return pulumi.get(self, "format")
 
@@ -198,7 +198,7 @@ class _PolicyFragmentState:
         """
         The value of the Policy Fragment.
 
-        > **NOTE:** Be aware of the two format possibilities. If the `value` is not applied and continues to cause a diff the format could be wrong.
+        > **Note:** Be aware of the two format possibilities. If the `value` is not applied and continues to cause a diff the format could be wrong.
         """
         return pulumi.get(self, "value")
 
@@ -246,6 +246,13 @@ class PolicyFragment(pulumi.CustomResource):
             value=std.file(input="policy-fragment-1.xml").result)
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.ApiManagement`: 2022-08-01
+
         ## Import
 
         Api Management Policy Fragments can be imported using the `resource id`, e.g.
@@ -260,11 +267,11 @@ class PolicyFragment(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] description: The description for the Policy Fragment.
         :param pulumi.Input[builtins.str] format: The format of the Policy Fragment. Possible values are `xml` or `rawxml`. Default is `xml`.
                
-               > **NOTE:** The `value` property will be updated to reflect the corresponding format when `format` is updated.
+               > **Note:** The `value` property will be updated to reflect the corresponding format when `format` is updated.
         :param pulumi.Input[builtins.str] name: The name which should be used for this Api Management Policy Fragment. Changing this forces a new Api Management Policy Fragment to be created.
         :param pulumi.Input[builtins.str] value: The value of the Policy Fragment.
                
-               > **NOTE:** Be aware of the two format possibilities. If the `value` is not applied and continues to cause a diff the format could be wrong.
+               > **Note:** Be aware of the two format possibilities. If the `value` is not applied and continues to cause a diff the format could be wrong.
         """
         ...
     @overload
@@ -298,6 +305,13 @@ class PolicyFragment(pulumi.CustomResource):
             format="xml",
             value=std.file(input="policy-fragment-1.xml").result)
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.ApiManagement`: 2022-08-01
 
         ## Import
 
@@ -371,11 +385,11 @@ class PolicyFragment(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] description: The description for the Policy Fragment.
         :param pulumi.Input[builtins.str] format: The format of the Policy Fragment. Possible values are `xml` or `rawxml`. Default is `xml`.
                
-               > **NOTE:** The `value` property will be updated to reflect the corresponding format when `format` is updated.
+               > **Note:** The `value` property will be updated to reflect the corresponding format when `format` is updated.
         :param pulumi.Input[builtins.str] name: The name which should be used for this Api Management Policy Fragment. Changing this forces a new Api Management Policy Fragment to be created.
         :param pulumi.Input[builtins.str] value: The value of the Policy Fragment.
                
-               > **NOTE:** Be aware of the two format possibilities. If the `value` is not applied and continues to cause a diff the format could be wrong.
+               > **Note:** Be aware of the two format possibilities. If the `value` is not applied and continues to cause a diff the format could be wrong.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -410,7 +424,7 @@ class PolicyFragment(pulumi.CustomResource):
         """
         The format of the Policy Fragment. Possible values are `xml` or `rawxml`. Default is `xml`.
 
-        > **NOTE:** The `value` property will be updated to reflect the corresponding format when `format` is updated.
+        > **Note:** The `value` property will be updated to reflect the corresponding format when `format` is updated.
         """
         return pulumi.get(self, "format")
 
@@ -428,7 +442,7 @@ class PolicyFragment(pulumi.CustomResource):
         """
         The value of the Policy Fragment.
 
-        > **NOTE:** Be aware of the two format possibilities. If the `value` is not applied and continues to cause a diff the format could be wrong.
+        > **Note:** Be aware of the two format possibilities. If the `value` is not applied and continues to cause a diff the format could be wrong.
         """
         return pulumi.get(self, "value")
 

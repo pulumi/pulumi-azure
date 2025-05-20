@@ -49,6 +49,13 @@ namespace Pulumi.Azure.AppService
     /// });
     /// ```
     /// 
+    /// ## API Providers
+    /// 
+    /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+    /// This resource uses the following Azure API Providers:
+    /// 
+    /// * `Microsoft.Web`: 2023-12-01, 2023-01-01
+    /// 
     /// ## Import
     /// 
     /// Linux Web Apps can be imported using the `resource id`, e.g.
@@ -267,7 +274,7 @@ namespace Pulumi.Azure.AppService
         /// <summary>
         /// Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to `true`.
         /// 
-        /// &gt; **NOTE:** Setting this value to true will disable the ability to use `zip_deploy_file` which currently relies on the default publishing profile.
+        /// &gt; **Note:** Setting this value to true will disable the ability to use `zip_deploy_file` which currently relies on the default publishing profile.
         /// </summary>
         [Output("webdeployPublishBasicAuthenticationEnabled")]
         public Output<bool?> WebdeployPublishBasicAuthenticationEnabled { get; private set; } = null!;
@@ -508,7 +515,7 @@ namespace Pulumi.Azure.AppService
         /// <summary>
         /// Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to `true`.
         /// 
-        /// &gt; **NOTE:** Setting this value to true will disable the ability to use `zip_deploy_file` which currently relies on the default publishing profile.
+        /// &gt; **Note:** Setting this value to true will disable the ability to use `zip_deploy_file` which currently relies on the default publishing profile.
         /// </summary>
         [Input("webdeployPublishBasicAuthenticationEnabled")]
         public Input<bool>? WebdeployPublishBasicAuthenticationEnabled { get; set; }
@@ -792,7 +799,7 @@ namespace Pulumi.Azure.AppService
         /// <summary>
         /// Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to `true`.
         /// 
-        /// &gt; **NOTE:** Setting this value to true will disable the ability to use `zip_deploy_file` which currently relies on the default publishing profile.
+        /// &gt; **Note:** Setting this value to true will disable the ability to use `zip_deploy_file` which currently relies on the default publishing profile.
         /// </summary>
         [Input("webdeployPublishBasicAuthenticationEnabled")]
         public Input<bool>? WebdeployPublishBasicAuthenticationEnabled { get; set; }

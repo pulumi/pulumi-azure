@@ -36,7 +36,7 @@ namespace Pulumi.Azure.Network.Outputs
         /// <summary>
         /// The Name of the Default Redirect Configuration which should be used for this URL Path Map. Cannot be set if either `default_backend_address_pool_name` or `default_backend_http_settings_name` is set.
         /// 
-        /// &gt; **NOTE:** Both `default_backend_address_pool_name` and `default_backend_http_settings_name` or `default_redirect_configuration_name` should be specified.
+        /// &gt; **Note:** Both `default_backend_address_pool_name` and `default_backend_http_settings_name` or `default_redirect_configuration_name` should be specified.
         /// </summary>
         public readonly string? DefaultRedirectConfigurationName;
         public readonly string? DefaultRewriteRuleSetId;

@@ -3672,7 +3672,7 @@ type AuthomationRuleActionIncident struct {
 	OwnerId *string `pulumi:"ownerId"`
 	// The severity to add to the incident. Possible values are `High`, `Informational`, `Low` and `Medium`.
 	//
-	// > **Note:**: At least one of `status`, `labels`, `ownerId` and `severity` has to be set.
+	// > **Note:** At least one of `status`, `labels`, `ownerId` and `severity` has to be set.
 	Severity *string `pulumi:"severity"`
 	// The status to set to the incident. Possible values are: `Active`, `Closed`, `New`.
 	Status *string `pulumi:"status"`
@@ -3706,7 +3706,7 @@ type AuthomationRuleActionIncidentArgs struct {
 	OwnerId pulumi.StringPtrInput `pulumi:"ownerId"`
 	// The severity to add to the incident. Possible values are `High`, `Informational`, `Low` and `Medium`.
 	//
-	// > **Note:**: At least one of `status`, `labels`, `ownerId` and `severity` has to be set.
+	// > **Note:** At least one of `status`, `labels`, `ownerId` and `severity` has to be set.
 	Severity pulumi.StringPtrInput `pulumi:"severity"`
 	// The status to set to the incident. Possible values are: `Active`, `Closed`, `New`.
 	Status pulumi.StringPtrInput `pulumi:"status"`
@@ -3794,7 +3794,7 @@ func (o AuthomationRuleActionIncidentOutput) OwnerId() pulumi.StringPtrOutput {
 
 // The severity to add to the incident. Possible values are `High`, `Informational`, `Low` and `Medium`.
 //
-// > **Note:**: At least one of `status`, `labels`, `ownerId` and `severity` has to be set.
+// > **Note:** At least one of `status`, `labels`, `ownerId` and `severity` has to be set.
 func (o AuthomationRuleActionIncidentOutput) Severity() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AuthomationRuleActionIncident) *string { return v.Severity }).(pulumi.StringPtrOutput)
 }
@@ -3956,7 +3956,7 @@ type AutomationRuleActionIncident struct {
 	OwnerId *string `pulumi:"ownerId"`
 	// The severity to add to the incident. Possible values are `High`, `Informational`, `Low` and `Medium`.
 	//
-	// > **Note:**: At least one of `status`, `labels`, `ownerId` and `severity` has to be set.
+	// > **Note:** At least one of `status`, `labels`, `ownerId` and `severity` has to be set.
 	Severity *string `pulumi:"severity"`
 	// The status to set to the incident. Possible values are: `Active`, `Closed`, `New`.
 	Status *string `pulumi:"status"`
@@ -3990,7 +3990,7 @@ type AutomationRuleActionIncidentArgs struct {
 	OwnerId pulumi.StringPtrInput `pulumi:"ownerId"`
 	// The severity to add to the incident. Possible values are `High`, `Informational`, `Low` and `Medium`.
 	//
-	// > **Note:**: At least one of `status`, `labels`, `ownerId` and `severity` has to be set.
+	// > **Note:** At least one of `status`, `labels`, `ownerId` and `severity` has to be set.
 	Severity pulumi.StringPtrInput `pulumi:"severity"`
 	// The status to set to the incident. Possible values are: `Active`, `Closed`, `New`.
 	Status pulumi.StringPtrInput `pulumi:"status"`
@@ -4078,7 +4078,7 @@ func (o AutomationRuleActionIncidentOutput) OwnerId() pulumi.StringPtrOutput {
 
 // The severity to add to the incident. Possible values are `High`, `Informational`, `Low` and `Medium`.
 //
-// > **Note:**: At least one of `status`, `labels`, `ownerId` and `severity` has to be set.
+// > **Note:** At least one of `status`, `labels`, `ownerId` and `severity` has to be set.
 func (o AutomationRuleActionIncidentOutput) Severity() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AutomationRuleActionIncident) *string { return v.Severity }).(pulumi.StringPtrOutput)
 }

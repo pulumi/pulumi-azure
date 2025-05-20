@@ -148,7 +148,7 @@ class GetServiceResult:
     @pulumi.getter
     def identities(self) -> Sequence['outputs.GetServiceIdentityResult']:
         """
-        (Optional) An `identity` block as defined below.
+        An `identity` block as defined below.
         """
         return pulumi.get(self, "identities")
 
@@ -315,6 +315,13 @@ def get_service(name: Optional[builtins.str] = None,
     pulumi.export("apiManagementId", example.id)
     ```
 
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.ApiManagement`: 2022-08-01
+
 
     :param builtins.str name: The name of the API Management service.
     :param builtins.str resource_group_name: The Name of the Resource Group in which the API Management Service exists.
@@ -367,6 +374,13 @@ def get_service_output(name: Optional[pulumi.Input[builtins.str]] = None,
         resource_group_name="search-service")
     pulumi.export("apiManagementId", example.id)
     ```
+
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.ApiManagement`: 2022-08-01
 
 
     :param builtins.str name: The name of the API Management service.

@@ -14,7 +14,7 @@ import (
 
 // Manages a Microsoft Cloud App Security Data Connector.
 //
-//	!> **NOTE:** This resource requires that [Enterprise Mobility + Security E5](https://www.microsoft.com/en-us/microsoft-365/enterprise-mobility-security) is enabled on the tenant being connected to.
+// !> **Note:** This resource requires that [Enterprise Mobility + Security E5](https://www.microsoft.com/en-us/microsoft-365/enterprise-mobility-security) is enabled on the tenant being connected to.
 //
 // ## Example Usage
 //
@@ -81,7 +81,7 @@ type DataConnectorMicrosoftCloudAppSecurity struct {
 	AlertsEnabled pulumi.BoolPtrOutput `pulumi:"alertsEnabled"`
 	// Should the Discovery Logs be enabled? Defaults to `true`.
 	//
-	// > **NOTE:** One of either `alertsEnabled` or `discoveryLogsEnabled` has to be specified.
+	// > **Note:** One of either `alertsEnabled` or `discoveryLogsEnabled` has to be specified.
 	DiscoveryLogsEnabled pulumi.BoolPtrOutput `pulumi:"discoveryLogsEnabled"`
 	// The ID of the Log Analytics Workspace that this Microsoft Cloud App Security Data Connector resides in. Changing this forces a new Microsoft Cloud App Security Data Connector to be created.
 	LogAnalyticsWorkspaceId pulumi.StringOutput `pulumi:"logAnalyticsWorkspaceId"`
@@ -89,7 +89,7 @@ type DataConnectorMicrosoftCloudAppSecurity struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The ID of the Tenant that this Microsoft Cloud App Security Data Connector connects to.
 	//
-	// > **NOTE** Currently, only the same tenant as the running account is allowed. Cross-tenant scenario is not supported yet.
+	// > **Note:** Currently, only the same tenant as the running account is allowed. Cross-tenant scenario is not supported yet.
 	TenantId pulumi.StringOutput `pulumi:"tenantId"`
 }
 
@@ -130,7 +130,7 @@ type dataConnectorMicrosoftCloudAppSecurityState struct {
 	AlertsEnabled *bool `pulumi:"alertsEnabled"`
 	// Should the Discovery Logs be enabled? Defaults to `true`.
 	//
-	// > **NOTE:** One of either `alertsEnabled` or `discoveryLogsEnabled` has to be specified.
+	// > **Note:** One of either `alertsEnabled` or `discoveryLogsEnabled` has to be specified.
 	DiscoveryLogsEnabled *bool `pulumi:"discoveryLogsEnabled"`
 	// The ID of the Log Analytics Workspace that this Microsoft Cloud App Security Data Connector resides in. Changing this forces a new Microsoft Cloud App Security Data Connector to be created.
 	LogAnalyticsWorkspaceId *string `pulumi:"logAnalyticsWorkspaceId"`
@@ -138,7 +138,7 @@ type dataConnectorMicrosoftCloudAppSecurityState struct {
 	Name *string `pulumi:"name"`
 	// The ID of the Tenant that this Microsoft Cloud App Security Data Connector connects to.
 	//
-	// > **NOTE** Currently, only the same tenant as the running account is allowed. Cross-tenant scenario is not supported yet.
+	// > **Note:** Currently, only the same tenant as the running account is allowed. Cross-tenant scenario is not supported yet.
 	TenantId *string `pulumi:"tenantId"`
 }
 
@@ -147,7 +147,7 @@ type DataConnectorMicrosoftCloudAppSecurityState struct {
 	AlertsEnabled pulumi.BoolPtrInput
 	// Should the Discovery Logs be enabled? Defaults to `true`.
 	//
-	// > **NOTE:** One of either `alertsEnabled` or `discoveryLogsEnabled` has to be specified.
+	// > **Note:** One of either `alertsEnabled` or `discoveryLogsEnabled` has to be specified.
 	DiscoveryLogsEnabled pulumi.BoolPtrInput
 	// The ID of the Log Analytics Workspace that this Microsoft Cloud App Security Data Connector resides in. Changing this forces a new Microsoft Cloud App Security Data Connector to be created.
 	LogAnalyticsWorkspaceId pulumi.StringPtrInput
@@ -155,7 +155,7 @@ type DataConnectorMicrosoftCloudAppSecurityState struct {
 	Name pulumi.StringPtrInput
 	// The ID of the Tenant that this Microsoft Cloud App Security Data Connector connects to.
 	//
-	// > **NOTE** Currently, only the same tenant as the running account is allowed. Cross-tenant scenario is not supported yet.
+	// > **Note:** Currently, only the same tenant as the running account is allowed. Cross-tenant scenario is not supported yet.
 	TenantId pulumi.StringPtrInput
 }
 
@@ -168,7 +168,7 @@ type dataConnectorMicrosoftCloudAppSecurityArgs struct {
 	AlertsEnabled *bool `pulumi:"alertsEnabled"`
 	// Should the Discovery Logs be enabled? Defaults to `true`.
 	//
-	// > **NOTE:** One of either `alertsEnabled` or `discoveryLogsEnabled` has to be specified.
+	// > **Note:** One of either `alertsEnabled` or `discoveryLogsEnabled` has to be specified.
 	DiscoveryLogsEnabled *bool `pulumi:"discoveryLogsEnabled"`
 	// The ID of the Log Analytics Workspace that this Microsoft Cloud App Security Data Connector resides in. Changing this forces a new Microsoft Cloud App Security Data Connector to be created.
 	LogAnalyticsWorkspaceId string `pulumi:"logAnalyticsWorkspaceId"`
@@ -176,7 +176,7 @@ type dataConnectorMicrosoftCloudAppSecurityArgs struct {
 	Name *string `pulumi:"name"`
 	// The ID of the Tenant that this Microsoft Cloud App Security Data Connector connects to.
 	//
-	// > **NOTE** Currently, only the same tenant as the running account is allowed. Cross-tenant scenario is not supported yet.
+	// > **Note:** Currently, only the same tenant as the running account is allowed. Cross-tenant scenario is not supported yet.
 	TenantId *string `pulumi:"tenantId"`
 }
 
@@ -186,7 +186,7 @@ type DataConnectorMicrosoftCloudAppSecurityArgs struct {
 	AlertsEnabled pulumi.BoolPtrInput
 	// Should the Discovery Logs be enabled? Defaults to `true`.
 	//
-	// > **NOTE:** One of either `alertsEnabled` or `discoveryLogsEnabled` has to be specified.
+	// > **Note:** One of either `alertsEnabled` or `discoveryLogsEnabled` has to be specified.
 	DiscoveryLogsEnabled pulumi.BoolPtrInput
 	// The ID of the Log Analytics Workspace that this Microsoft Cloud App Security Data Connector resides in. Changing this forces a new Microsoft Cloud App Security Data Connector to be created.
 	LogAnalyticsWorkspaceId pulumi.StringInput
@@ -194,7 +194,7 @@ type DataConnectorMicrosoftCloudAppSecurityArgs struct {
 	Name pulumi.StringPtrInput
 	// The ID of the Tenant that this Microsoft Cloud App Security Data Connector connects to.
 	//
-	// > **NOTE** Currently, only the same tenant as the running account is allowed. Cross-tenant scenario is not supported yet.
+	// > **Note:** Currently, only the same tenant as the running account is allowed. Cross-tenant scenario is not supported yet.
 	TenantId pulumi.StringPtrInput
 }
 
@@ -292,7 +292,7 @@ func (o DataConnectorMicrosoftCloudAppSecurityOutput) AlertsEnabled() pulumi.Boo
 
 // Should the Discovery Logs be enabled? Defaults to `true`.
 //
-// > **NOTE:** One of either `alertsEnabled` or `discoveryLogsEnabled` has to be specified.
+// > **Note:** One of either `alertsEnabled` or `discoveryLogsEnabled` has to be specified.
 func (o DataConnectorMicrosoftCloudAppSecurityOutput) DiscoveryLogsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *DataConnectorMicrosoftCloudAppSecurity) pulumi.BoolPtrOutput { return v.DiscoveryLogsEnabled }).(pulumi.BoolPtrOutput)
 }
@@ -309,7 +309,7 @@ func (o DataConnectorMicrosoftCloudAppSecurityOutput) Name() pulumi.StringOutput
 
 // The ID of the Tenant that this Microsoft Cloud App Security Data Connector connects to.
 //
-// > **NOTE** Currently, only the same tenant as the running account is allowed. Cross-tenant scenario is not supported yet.
+// > **Note:** Currently, only the same tenant as the running account is allowed. Cross-tenant scenario is not supported yet.
 func (o DataConnectorMicrosoftCloudAppSecurityOutput) TenantId() pulumi.StringOutput {
 	return o.ApplyT(func(v *DataConnectorMicrosoftCloudAppSecurity) pulumi.StringOutput { return v.TenantId }).(pulumi.StringOutput)
 }

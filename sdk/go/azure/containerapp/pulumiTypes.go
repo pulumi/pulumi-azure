@@ -397,7 +397,7 @@ type AppIngress struct {
 	TrafficWeights []AppIngressTrafficWeight `pulumi:"trafficWeights"`
 	// The transport method for the Ingress. Possible values are `auto`, `http`, `http2` and `tcp`. Defaults to `auto`.
 	//
-	// > **Note:**  if `transport` is set to `tcp`, `exposedPort` and `targetPort` should be set at the same time.
+	// > **Note:** if `transport` is set to `tcp`, `exposedPort` and `targetPort` should be set at the same time.
 	Transport *string `pulumi:"transport"`
 }
 
@@ -435,7 +435,7 @@ type AppIngressArgs struct {
 	TrafficWeights AppIngressTrafficWeightArrayInput `pulumi:"trafficWeights"`
 	// The transport method for the Ingress. Possible values are `auto`, `http`, `http2` and `tcp`. Defaults to `auto`.
 	//
-	// > **Note:**  if `transport` is set to `tcp`, `exposedPort` and `targetPort` should be set at the same time.
+	// > **Note:** if `transport` is set to `tcp`, `exposedPort` and `targetPort` should be set at the same time.
 	Transport pulumi.StringPtrInput `pulumi:"transport"`
 }
 
@@ -565,7 +565,7 @@ func (o AppIngressOutput) TrafficWeights() AppIngressTrafficWeightArrayOutput {
 
 // The transport method for the Ingress. Possible values are `auto`, `http`, `http2` and `tcp`. Defaults to `auto`.
 //
-// > **Note:**  if `transport` is set to `tcp`, `exposedPort` and `targetPort` should be set at the same time.
+// > **Note:** if `transport` is set to `tcp`, `exposedPort` and `targetPort` should be set at the same time.
 func (o AppIngressOutput) Transport() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AppIngress) *string { return v.Transport }).(pulumi.StringPtrOutput)
 }
@@ -688,7 +688,7 @@ func (o AppIngressPtrOutput) TrafficWeights() AppIngressTrafficWeightArrayOutput
 
 // The transport method for the Ingress. Possible values are `auto`, `http`, `http2` and `tcp`. Defaults to `auto`.
 //
-// > **Note:**  if `transport` is set to `tcp`, `exposedPort` and `targetPort` should be set at the same time.
+// > **Note:** if `transport` is set to `tcp`, `exposedPort` and `targetPort` should be set at the same time.
 func (o AppIngressPtrOutput) Transport() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AppIngress) *string {
 		if v == nil {
@@ -816,7 +816,7 @@ func (o AppIngressCustomDomainArrayOutput) Index(i pulumi.IntInput) AppIngressCu
 type AppIngressIpSecurityRestriction struct {
 	// The IP-filter action. `Allow` or `Deny`.
 	//
-	// > **NOTE:** The `action` types in an all `ipSecurityRestriction` blocks must be the same for the `ingress`, mixing `Allow` and `Deny` rules is not currently supported by the service.
+	// > **Note:** The `action` types in an all `ipSecurityRestriction` blocks must be the same for the `ingress`, mixing `Allow` and `Deny` rules is not currently supported by the service.
 	Action string `pulumi:"action"`
 	// Describe the IP restriction rule that is being sent to the container-app.
 	Description *string `pulumi:"description"`
@@ -840,7 +840,7 @@ type AppIngressIpSecurityRestrictionInput interface {
 type AppIngressIpSecurityRestrictionArgs struct {
 	// The IP-filter action. `Allow` or `Deny`.
 	//
-	// > **NOTE:** The `action` types in an all `ipSecurityRestriction` blocks must be the same for the `ingress`, mixing `Allow` and `Deny` rules is not currently supported by the service.
+	// > **Note:** The `action` types in an all `ipSecurityRestriction` blocks must be the same for the `ingress`, mixing `Allow` and `Deny` rules is not currently supported by the service.
 	Action pulumi.StringInput `pulumi:"action"`
 	// Describe the IP restriction rule that is being sent to the container-app.
 	Description pulumi.StringPtrInput `pulumi:"description"`
@@ -903,7 +903,7 @@ func (o AppIngressIpSecurityRestrictionOutput) ToAppIngressIpSecurityRestriction
 
 // The IP-filter action. `Allow` or `Deny`.
 //
-// > **NOTE:** The `action` types in an all `ipSecurityRestriction` blocks must be the same for the `ingress`, mixing `Allow` and `Deny` rules is not currently supported by the service.
+// > **Note:** The `action` types in an all `ipSecurityRestriction` blocks must be the same for the `ingress`, mixing `Allow` and `Deny` rules is not currently supported by the service.
 func (o AppIngressIpSecurityRestrictionOutput) Action() pulumi.StringOutput {
 	return o.ApplyT(func(v AppIngressIpSecurityRestriction) string { return v.Action }).(pulumi.StringOutput)
 }
@@ -1923,13 +1923,13 @@ type AppTemplateContainer struct {
 	Commands []string `pulumi:"commands"`
 	// The amount of vCPU to allocate to the container. Possible values include `0.25`, `0.5`, `0.75`, `1.0`, `1.25`, `1.5`, `1.75`, and `2.0`. When there's a workload profile specified, there's no such constraint.
 	//
-	// > **NOTE:** `cpu` and `memory` must be specified in `0.25'/'0.5Gi` combination increments. e.g. `1.0` / `2.0` or `0.5` / `1.0`
+	// > **Note:** `cpu` and `memory` must be specified in `0.25'/'0.5Gi` combination increments. e.g. `1.0` / `2.0` or `0.5` / `1.0`
 	Cpu float64 `pulumi:"cpu"`
 	// One or more `env` blocks as detailed below.
 	Envs []AppTemplateContainerEnv `pulumi:"envs"`
 	// The amount of ephemeral storage available to the Container App.
 	//
-	// > **NOTE:** `ephemeralStorage` is currently in preview and not configurable at this time.
+	// > **Note:** `ephemeralStorage` is currently in preview and not configurable at this time.
 	EphemeralStorage *string `pulumi:"ephemeralStorage"`
 	// The image to use to create the container.
 	Image string `pulumi:"image"`
@@ -1937,7 +1937,7 @@ type AppTemplateContainer struct {
 	LivenessProbes []AppTemplateContainerLivenessProbe `pulumi:"livenessProbes"`
 	// The amount of memory to allocate to the container. Possible values are `0.5Gi`, `1Gi`, `1.5Gi`, `2Gi`, `2.5Gi`, `3Gi`, `3.5Gi` and `4Gi`. When there's a workload profile specified, there's no such constraint.
 	//
-	// > **NOTE:** `cpu` and `memory` must be specified in `0.25'/'0.5Gi` combination increments. e.g. `1.25` / `2.5Gi` or `0.75` / `1.5Gi`
+	// > **Note:** `cpu` and `memory` must be specified in `0.25'/'0.5Gi` combination increments. e.g. `1.25` / `2.5Gi` or `0.75` / `1.5Gi`
 	Memory string `pulumi:"memory"`
 	// The name of the container
 	Name string `pulumi:"name"`
@@ -1967,13 +1967,13 @@ type AppTemplateContainerArgs struct {
 	Commands pulumi.StringArrayInput `pulumi:"commands"`
 	// The amount of vCPU to allocate to the container. Possible values include `0.25`, `0.5`, `0.75`, `1.0`, `1.25`, `1.5`, `1.75`, and `2.0`. When there's a workload profile specified, there's no such constraint.
 	//
-	// > **NOTE:** `cpu` and `memory` must be specified in `0.25'/'0.5Gi` combination increments. e.g. `1.0` / `2.0` or `0.5` / `1.0`
+	// > **Note:** `cpu` and `memory` must be specified in `0.25'/'0.5Gi` combination increments. e.g. `1.0` / `2.0` or `0.5` / `1.0`
 	Cpu pulumi.Float64Input `pulumi:"cpu"`
 	// One or more `env` blocks as detailed below.
 	Envs AppTemplateContainerEnvArrayInput `pulumi:"envs"`
 	// The amount of ephemeral storage available to the Container App.
 	//
-	// > **NOTE:** `ephemeralStorage` is currently in preview and not configurable at this time.
+	// > **Note:** `ephemeralStorage` is currently in preview and not configurable at this time.
 	EphemeralStorage pulumi.StringPtrInput `pulumi:"ephemeralStorage"`
 	// The image to use to create the container.
 	Image pulumi.StringInput `pulumi:"image"`
@@ -1981,7 +1981,7 @@ type AppTemplateContainerArgs struct {
 	LivenessProbes AppTemplateContainerLivenessProbeArrayInput `pulumi:"livenessProbes"`
 	// The amount of memory to allocate to the container. Possible values are `0.5Gi`, `1Gi`, `1.5Gi`, `2Gi`, `2.5Gi`, `3Gi`, `3.5Gi` and `4Gi`. When there's a workload profile specified, there's no such constraint.
 	//
-	// > **NOTE:** `cpu` and `memory` must be specified in `0.25'/'0.5Gi` combination increments. e.g. `1.25` / `2.5Gi` or `0.75` / `1.5Gi`
+	// > **Note:** `cpu` and `memory` must be specified in `0.25'/'0.5Gi` combination increments. e.g. `1.25` / `2.5Gi` or `0.75` / `1.5Gi`
 	Memory pulumi.StringInput `pulumi:"memory"`
 	// The name of the container
 	Name pulumi.StringInput `pulumi:"name"`
@@ -2056,7 +2056,7 @@ func (o AppTemplateContainerOutput) Commands() pulumi.StringArrayOutput {
 
 // The amount of vCPU to allocate to the container. Possible values include `0.25`, `0.5`, `0.75`, `1.0`, `1.25`, `1.5`, `1.75`, and `2.0`. When there's a workload profile specified, there's no such constraint.
 //
-// > **NOTE:** `cpu` and `memory` must be specified in `0.25'/'0.5Gi` combination increments. e.g. `1.0` / `2.0` or `0.5` / `1.0`
+// > **Note:** `cpu` and `memory` must be specified in `0.25'/'0.5Gi` combination increments. e.g. `1.0` / `2.0` or `0.5` / `1.0`
 func (o AppTemplateContainerOutput) Cpu() pulumi.Float64Output {
 	return o.ApplyT(func(v AppTemplateContainer) float64 { return v.Cpu }).(pulumi.Float64Output)
 }
@@ -2068,7 +2068,7 @@ func (o AppTemplateContainerOutput) Envs() AppTemplateContainerEnvArrayOutput {
 
 // The amount of ephemeral storage available to the Container App.
 //
-// > **NOTE:** `ephemeralStorage` is currently in preview and not configurable at this time.
+// > **Note:** `ephemeralStorage` is currently in preview and not configurable at this time.
 func (o AppTemplateContainerOutput) EphemeralStorage() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AppTemplateContainer) *string { return v.EphemeralStorage }).(pulumi.StringPtrOutput)
 }
@@ -2085,7 +2085,7 @@ func (o AppTemplateContainerOutput) LivenessProbes() AppTemplateContainerLivenes
 
 // The amount of memory to allocate to the container. Possible values are `0.5Gi`, `1Gi`, `1.5Gi`, `2Gi`, `2.5Gi`, `3Gi`, `3.5Gi` and `4Gi`. When there's a workload profile specified, there's no such constraint.
 //
-// > **NOTE:** `cpu` and `memory` must be specified in `0.25'/'0.5Gi` combination increments. e.g. `1.25` / `2.5Gi` or `0.75` / `1.5Gi`
+// > **Note:** `cpu` and `memory` must be specified in `0.25'/'0.5Gi` combination increments. e.g. `1.25` / `2.5Gi` or `0.75` / `1.5Gi`
 func (o AppTemplateContainerOutput) Memory() pulumi.StringOutput {
 	return o.ApplyT(func(v AppTemplateContainer) string { return v.Memory }).(pulumi.StringOutput)
 }
@@ -2137,7 +2137,7 @@ type AppTemplateContainerEnv struct {
 	SecretName *string `pulumi:"secretName"`
 	// The value for this environment variable.
 	//
-	// > **NOTE:** This value is ignored if `secretName` is used
+	// > **Note:** This value is ignored if `secretName` is used
 	Value *string `pulumi:"value"`
 }
 
@@ -2159,7 +2159,7 @@ type AppTemplateContainerEnvArgs struct {
 	SecretName pulumi.StringPtrInput `pulumi:"secretName"`
 	// The value for this environment variable.
 	//
-	// > **NOTE:** This value is ignored if `secretName` is used
+	// > **Note:** This value is ignored if `secretName` is used
 	Value pulumi.StringPtrInput `pulumi:"value"`
 }
 
@@ -2226,7 +2226,7 @@ func (o AppTemplateContainerEnvOutput) SecretName() pulumi.StringPtrOutput {
 
 // The value for this environment variable.
 //
-// > **NOTE:** This value is ignored if `secretName` is used
+// > **Note:** This value is ignored if `secretName` is used
 func (o AppTemplateContainerEnvOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AppTemplateContainerEnv) *string { return v.Value }).(pulumi.StringPtrOutput)
 }
@@ -3680,19 +3680,19 @@ type AppTemplateInitContainer struct {
 	Commands []string `pulumi:"commands"`
 	// The amount of vCPU to allocate to the container. Possible values include `0.25`, `0.5`, `0.75`, `1.0`, `1.25`, `1.5`, `1.75`, and `2.0`. When there's a workload profile specified, there's no such constraint.
 	//
-	// > **NOTE:** `cpu` and `memory` must be specified in `0.25'/'0.5Gi` combination increments. e.g. `1.0` / `2.0` or `0.5` / `1.0`
+	// > **Note:** `cpu` and `memory` must be specified in `0.25'/'0.5Gi` combination increments. e.g. `1.0` / `2.0` or `0.5` / `1.0`
 	Cpu *float64 `pulumi:"cpu"`
 	// One or more `env` blocks as detailed below.
 	Envs []AppTemplateInitContainerEnv `pulumi:"envs"`
 	// The amount of ephemeral storage available to the Container App.
 	//
-	// > **NOTE:** `ephemeralStorage` is currently in preview and not configurable at this time.
+	// > **Note:** `ephemeralStorage` is currently in preview and not configurable at this time.
 	EphemeralStorage *string `pulumi:"ephemeralStorage"`
 	// The image to use to create the container.
 	Image string `pulumi:"image"`
 	// The amount of memory to allocate to the container. Possible values are `0.5Gi`, `1Gi`, `1.5Gi`, `2Gi`, `2.5Gi`, `3Gi`, `3.5Gi` and `4Gi`. When there's a workload profile specified, there's no such constraint.
 	//
-	// > **NOTE:** `cpu` and `memory` must be specified in `0.25'/'0.5Gi` combination increments. e.g. `1.25` / `2.5Gi` or `0.75` / `1.5Gi`
+	// > **Note:** `cpu` and `memory` must be specified in `0.25'/'0.5Gi` combination increments. e.g. `1.25` / `2.5Gi` or `0.75` / `1.5Gi`
 	Memory *string `pulumi:"memory"`
 	// The name of the container
 	Name string `pulumi:"name"`
@@ -3718,19 +3718,19 @@ type AppTemplateInitContainerArgs struct {
 	Commands pulumi.StringArrayInput `pulumi:"commands"`
 	// The amount of vCPU to allocate to the container. Possible values include `0.25`, `0.5`, `0.75`, `1.0`, `1.25`, `1.5`, `1.75`, and `2.0`. When there's a workload profile specified, there's no such constraint.
 	//
-	// > **NOTE:** `cpu` and `memory` must be specified in `0.25'/'0.5Gi` combination increments. e.g. `1.0` / `2.0` or `0.5` / `1.0`
+	// > **Note:** `cpu` and `memory` must be specified in `0.25'/'0.5Gi` combination increments. e.g. `1.0` / `2.0` or `0.5` / `1.0`
 	Cpu pulumi.Float64PtrInput `pulumi:"cpu"`
 	// One or more `env` blocks as detailed below.
 	Envs AppTemplateInitContainerEnvArrayInput `pulumi:"envs"`
 	// The amount of ephemeral storage available to the Container App.
 	//
-	// > **NOTE:** `ephemeralStorage` is currently in preview and not configurable at this time.
+	// > **Note:** `ephemeralStorage` is currently in preview and not configurable at this time.
 	EphemeralStorage pulumi.StringPtrInput `pulumi:"ephemeralStorage"`
 	// The image to use to create the container.
 	Image pulumi.StringInput `pulumi:"image"`
 	// The amount of memory to allocate to the container. Possible values are `0.5Gi`, `1Gi`, `1.5Gi`, `2Gi`, `2.5Gi`, `3Gi`, `3.5Gi` and `4Gi`. When there's a workload profile specified, there's no such constraint.
 	//
-	// > **NOTE:** `cpu` and `memory` must be specified in `0.25'/'0.5Gi` combination increments. e.g. `1.25` / `2.5Gi` or `0.75` / `1.5Gi`
+	// > **Note:** `cpu` and `memory` must be specified in `0.25'/'0.5Gi` combination increments. e.g. `1.25` / `2.5Gi` or `0.75` / `1.5Gi`
 	Memory pulumi.StringPtrInput `pulumi:"memory"`
 	// The name of the container
 	Name pulumi.StringInput `pulumi:"name"`
@@ -3801,7 +3801,7 @@ func (o AppTemplateInitContainerOutput) Commands() pulumi.StringArrayOutput {
 
 // The amount of vCPU to allocate to the container. Possible values include `0.25`, `0.5`, `0.75`, `1.0`, `1.25`, `1.5`, `1.75`, and `2.0`. When there's a workload profile specified, there's no such constraint.
 //
-// > **NOTE:** `cpu` and `memory` must be specified in `0.25'/'0.5Gi` combination increments. e.g. `1.0` / `2.0` or `0.5` / `1.0`
+// > **Note:** `cpu` and `memory` must be specified in `0.25'/'0.5Gi` combination increments. e.g. `1.0` / `2.0` or `0.5` / `1.0`
 func (o AppTemplateInitContainerOutput) Cpu() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v AppTemplateInitContainer) *float64 { return v.Cpu }).(pulumi.Float64PtrOutput)
 }
@@ -3813,7 +3813,7 @@ func (o AppTemplateInitContainerOutput) Envs() AppTemplateInitContainerEnvArrayO
 
 // The amount of ephemeral storage available to the Container App.
 //
-// > **NOTE:** `ephemeralStorage` is currently in preview and not configurable at this time.
+// > **Note:** `ephemeralStorage` is currently in preview and not configurable at this time.
 func (o AppTemplateInitContainerOutput) EphemeralStorage() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AppTemplateInitContainer) *string { return v.EphemeralStorage }).(pulumi.StringPtrOutput)
 }
@@ -3825,7 +3825,7 @@ func (o AppTemplateInitContainerOutput) Image() pulumi.StringOutput {
 
 // The amount of memory to allocate to the container. Possible values are `0.5Gi`, `1Gi`, `1.5Gi`, `2Gi`, `2.5Gi`, `3Gi`, `3.5Gi` and `4Gi`. When there's a workload profile specified, there's no such constraint.
 //
-// > **NOTE:** `cpu` and `memory` must be specified in `0.25'/'0.5Gi` combination increments. e.g. `1.25` / `2.5Gi` or `0.75` / `1.5Gi`
+// > **Note:** `cpu` and `memory` must be specified in `0.25'/'0.5Gi` combination increments. e.g. `1.25` / `2.5Gi` or `0.75` / `1.5Gi`
 func (o AppTemplateInitContainerOutput) Memory() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AppTemplateInitContainer) *string { return v.Memory }).(pulumi.StringPtrOutput)
 }
@@ -3867,7 +3867,7 @@ type AppTemplateInitContainerEnv struct {
 	SecretName *string `pulumi:"secretName"`
 	// The value for this environment variable.
 	//
-	// > **NOTE:** This value is ignored if `secretName` is used
+	// > **Note:** This value is ignored if `secretName` is used
 	Value *string `pulumi:"value"`
 }
 
@@ -3889,7 +3889,7 @@ type AppTemplateInitContainerEnvArgs struct {
 	SecretName pulumi.StringPtrInput `pulumi:"secretName"`
 	// The value for this environment variable.
 	//
-	// > **NOTE:** This value is ignored if `secretName` is used
+	// > **Note:** This value is ignored if `secretName` is used
 	Value pulumi.StringPtrInput `pulumi:"value"`
 }
 
@@ -3956,7 +3956,7 @@ func (o AppTemplateInitContainerEnvOutput) SecretName() pulumi.StringPtrOutput {
 
 // The value for this environment variable.
 //
-// > **NOTE:** This value is ignored if `secretName` is used
+// > **Note:** This value is ignored if `secretName` is used
 func (o AppTemplateInitContainerEnvOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AppTemplateInitContainerEnv) *string { return v.Value }).(pulumi.StringPtrOutput)
 }
@@ -5350,8 +5350,10 @@ func (o JobEventTriggerConfigScaleRuleAuthenticationArrayOutput) Index(i pulumi.
 type JobIdentity struct {
 	// A list of Managed Identity IDs to assign to the Container App Job.
 	IdentityIds []string `pulumi:"identityIds"`
-	PrincipalId *string  `pulumi:"principalId"`
-	TenantId    *string  `pulumi:"tenantId"`
+	// The Principal ID associated with this Managed Service Identity.
+	PrincipalId *string `pulumi:"principalId"`
+	// The Tenant ID associated with this Managed Service Identity.
+	TenantId *string `pulumi:"tenantId"`
 	// The type of identity used for the Container App Job. Possible values are `SystemAssigned`, `UserAssigned` and `None`. Defaults to `None`.
 	Type string `pulumi:"type"`
 }
@@ -5370,8 +5372,10 @@ type JobIdentityInput interface {
 type JobIdentityArgs struct {
 	// A list of Managed Identity IDs to assign to the Container App Job.
 	IdentityIds pulumi.StringArrayInput `pulumi:"identityIds"`
-	PrincipalId pulumi.StringPtrInput   `pulumi:"principalId"`
-	TenantId    pulumi.StringPtrInput   `pulumi:"tenantId"`
+	// The Principal ID associated with this Managed Service Identity.
+	PrincipalId pulumi.StringPtrInput `pulumi:"principalId"`
+	// The Tenant ID associated with this Managed Service Identity.
+	TenantId pulumi.StringPtrInput `pulumi:"tenantId"`
 	// The type of identity used for the Container App Job. Possible values are `SystemAssigned`, `UserAssigned` and `None`. Defaults to `None`.
 	Type pulumi.StringInput `pulumi:"type"`
 }
@@ -5458,10 +5462,12 @@ func (o JobIdentityOutput) IdentityIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v JobIdentity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
 }
 
+// The Principal ID associated with this Managed Service Identity.
 func (o JobIdentityOutput) PrincipalId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v JobIdentity) *string { return v.PrincipalId }).(pulumi.StringPtrOutput)
 }
 
+// The Tenant ID associated with this Managed Service Identity.
 func (o JobIdentityOutput) TenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v JobIdentity) *string { return v.TenantId }).(pulumi.StringPtrOutput)
 }
@@ -5505,6 +5511,7 @@ func (o JobIdentityPtrOutput) IdentityIds() pulumi.StringArrayOutput {
 	}).(pulumi.StringArrayOutput)
 }
 
+// The Principal ID associated with this Managed Service Identity.
 func (o JobIdentityPtrOutput) PrincipalId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *JobIdentity) *string {
 		if v == nil {
@@ -5514,6 +5521,7 @@ func (o JobIdentityPtrOutput) PrincipalId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The Tenant ID associated with this Managed Service Identity.
 func (o JobIdentityPtrOutput) TenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *JobIdentity) *string {
 		if v == nil {
@@ -6312,13 +6320,13 @@ type JobTemplateContainer struct {
 	Commands []string `pulumi:"commands"`
 	// The amount of vCPU to allocate to the container. Possible values include `0.25`, `0.5`, `0.75`, `1.0`, `1.25`, `1.5`, `1.75`, and `2.0`.
 	//
-	// > **NOTE:** `cpu` and `memory` must be specified in `0.25'/'0.5Gi` combination increments. e.g. `1.0` / `2.0` or `0.5` / `1.0`
+	// > **Note:** `cpu` and `memory` must be specified in `0.25'/'0.5Gi` combination increments. e.g. `1.0` / `2.0` or `0.5` / `1.0`
 	Cpu float64 `pulumi:"cpu"`
 	// One or more `env` blocks as detailed below.
 	Envs []JobTemplateContainerEnv `pulumi:"envs"`
 	// The amount of ephemeral storage available to the Container App.
 	//
-	// > **NOTE:** `ephemeralStorage` is currently in preview and not configurable at this time.
+	// > **Note:** `ephemeralStorage` is currently in preview and not configurable at this time.
 	EphemeralStorage *string `pulumi:"ephemeralStorage"`
 	// The image to use to create the container.
 	Image string `pulumi:"image"`
@@ -6326,7 +6334,7 @@ type JobTemplateContainer struct {
 	LivenessProbes []JobTemplateContainerLivenessProbe `pulumi:"livenessProbes"`
 	// The amount of memory to allocate to the container. Possible values are `0.5Gi`, `1Gi`, `1.5Gi`, `2Gi`, `2.5Gi`, `3Gi`, `3.5Gi` and `4Gi`.
 	//
-	// > **NOTE:** `cpu` and `memory` must be specified in `0.25'/'0.5Gi` combination increments. e.g. `1.25` / `2.5Gi` or `0.75` / `1.5Gi`
+	// > **Note:** `cpu` and `memory` must be specified in `0.25'/'0.5Gi` combination increments. e.g. `1.25` / `2.5Gi` or `0.75` / `1.5Gi`
 	Memory string `pulumi:"memory"`
 	// The name of the container.
 	Name string `pulumi:"name"`
@@ -6356,13 +6364,13 @@ type JobTemplateContainerArgs struct {
 	Commands pulumi.StringArrayInput `pulumi:"commands"`
 	// The amount of vCPU to allocate to the container. Possible values include `0.25`, `0.5`, `0.75`, `1.0`, `1.25`, `1.5`, `1.75`, and `2.0`.
 	//
-	// > **NOTE:** `cpu` and `memory` must be specified in `0.25'/'0.5Gi` combination increments. e.g. `1.0` / `2.0` or `0.5` / `1.0`
+	// > **Note:** `cpu` and `memory` must be specified in `0.25'/'0.5Gi` combination increments. e.g. `1.0` / `2.0` or `0.5` / `1.0`
 	Cpu pulumi.Float64Input `pulumi:"cpu"`
 	// One or more `env` blocks as detailed below.
 	Envs JobTemplateContainerEnvArrayInput `pulumi:"envs"`
 	// The amount of ephemeral storage available to the Container App.
 	//
-	// > **NOTE:** `ephemeralStorage` is currently in preview and not configurable at this time.
+	// > **Note:** `ephemeralStorage` is currently in preview and not configurable at this time.
 	EphemeralStorage pulumi.StringPtrInput `pulumi:"ephemeralStorage"`
 	// The image to use to create the container.
 	Image pulumi.StringInput `pulumi:"image"`
@@ -6370,7 +6378,7 @@ type JobTemplateContainerArgs struct {
 	LivenessProbes JobTemplateContainerLivenessProbeArrayInput `pulumi:"livenessProbes"`
 	// The amount of memory to allocate to the container. Possible values are `0.5Gi`, `1Gi`, `1.5Gi`, `2Gi`, `2.5Gi`, `3Gi`, `3.5Gi` and `4Gi`.
 	//
-	// > **NOTE:** `cpu` and `memory` must be specified in `0.25'/'0.5Gi` combination increments. e.g. `1.25` / `2.5Gi` or `0.75` / `1.5Gi`
+	// > **Note:** `cpu` and `memory` must be specified in `0.25'/'0.5Gi` combination increments. e.g. `1.25` / `2.5Gi` or `0.75` / `1.5Gi`
 	Memory pulumi.StringInput `pulumi:"memory"`
 	// The name of the container.
 	Name pulumi.StringInput `pulumi:"name"`
@@ -6445,7 +6453,7 @@ func (o JobTemplateContainerOutput) Commands() pulumi.StringArrayOutput {
 
 // The amount of vCPU to allocate to the container. Possible values include `0.25`, `0.5`, `0.75`, `1.0`, `1.25`, `1.5`, `1.75`, and `2.0`.
 //
-// > **NOTE:** `cpu` and `memory` must be specified in `0.25'/'0.5Gi` combination increments. e.g. `1.0` / `2.0` or `0.5` / `1.0`
+// > **Note:** `cpu` and `memory` must be specified in `0.25'/'0.5Gi` combination increments. e.g. `1.0` / `2.0` or `0.5` / `1.0`
 func (o JobTemplateContainerOutput) Cpu() pulumi.Float64Output {
 	return o.ApplyT(func(v JobTemplateContainer) float64 { return v.Cpu }).(pulumi.Float64Output)
 }
@@ -6457,7 +6465,7 @@ func (o JobTemplateContainerOutput) Envs() JobTemplateContainerEnvArrayOutput {
 
 // The amount of ephemeral storage available to the Container App.
 //
-// > **NOTE:** `ephemeralStorage` is currently in preview and not configurable at this time.
+// > **Note:** `ephemeralStorage` is currently in preview and not configurable at this time.
 func (o JobTemplateContainerOutput) EphemeralStorage() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v JobTemplateContainer) *string { return v.EphemeralStorage }).(pulumi.StringPtrOutput)
 }
@@ -6474,7 +6482,7 @@ func (o JobTemplateContainerOutput) LivenessProbes() JobTemplateContainerLivenes
 
 // The amount of memory to allocate to the container. Possible values are `0.5Gi`, `1Gi`, `1.5Gi`, `2Gi`, `2.5Gi`, `3Gi`, `3.5Gi` and `4Gi`.
 //
-// > **NOTE:** `cpu` and `memory` must be specified in `0.25'/'0.5Gi` combination increments. e.g. `1.25` / `2.5Gi` or `0.75` / `1.5Gi`
+// > **Note:** `cpu` and `memory` must be specified in `0.25'/'0.5Gi` combination increments. e.g. `1.25` / `2.5Gi` or `0.75` / `1.5Gi`
 func (o JobTemplateContainerOutput) Memory() pulumi.StringOutput {
 	return o.ApplyT(func(v JobTemplateContainer) string { return v.Memory }).(pulumi.StringOutput)
 }
@@ -7610,19 +7618,19 @@ type JobTemplateInitContainer struct {
 	Commands []string `pulumi:"commands"`
 	// The amount of vCPU to allocate to the container. Possible values include `0.25`, `0.5`, `0.75`, `1.0`, `1.25`, `1.5`, `1.75`, and `2.0`.
 	//
-	// > **NOTE:** `cpu` and `memory` must be specified in `0.25'/'0.5Gi` combination increments. e.g. `1.0` / `2.0` or `0.5` / `1.0`
+	// > **Note:** `cpu` and `memory` must be specified in `0.25'/'0.5Gi` combination increments. e.g. `1.0` / `2.0` or `0.5` / `1.0`
 	Cpu *float64 `pulumi:"cpu"`
 	// One or more `env` blocks as detailed below.
 	Envs []JobTemplateInitContainerEnv `pulumi:"envs"`
 	// The amount of ephemeral storage available to the Container App.
 	//
-	// > **NOTE:** `ephemeralStorage` is currently in preview and not configurable at this time.
+	// > **Note:** `ephemeralStorage` is currently in preview and not configurable at this time.
 	EphemeralStorage *string `pulumi:"ephemeralStorage"`
 	// The image to use to create the container.
 	Image string `pulumi:"image"`
 	// The amount of memory to allocate to the container. Possible values are `0.5Gi`, `1Gi`, `1.5Gi`, `2Gi`, `2.5Gi`, `3Gi`, `3.5Gi` and `4Gi`.
 	//
-	// > **NOTE:** `cpu` and `memory` must be specified in `0.25'/'0.5Gi` combination increments. e.g. `1.25` / `2.5Gi` or `0.75` / `1.5Gi`
+	// > **Note:** `cpu` and `memory` must be specified in `0.25'/'0.5Gi` combination increments. e.g. `1.25` / `2.5Gi` or `0.75` / `1.5Gi`
 	Memory *string `pulumi:"memory"`
 	// The name of the container.
 	Name string `pulumi:"name"`
@@ -7648,19 +7656,19 @@ type JobTemplateInitContainerArgs struct {
 	Commands pulumi.StringArrayInput `pulumi:"commands"`
 	// The amount of vCPU to allocate to the container. Possible values include `0.25`, `0.5`, `0.75`, `1.0`, `1.25`, `1.5`, `1.75`, and `2.0`.
 	//
-	// > **NOTE:** `cpu` and `memory` must be specified in `0.25'/'0.5Gi` combination increments. e.g. `1.0` / `2.0` or `0.5` / `1.0`
+	// > **Note:** `cpu` and `memory` must be specified in `0.25'/'0.5Gi` combination increments. e.g. `1.0` / `2.0` or `0.5` / `1.0`
 	Cpu pulumi.Float64PtrInput `pulumi:"cpu"`
 	// One or more `env` blocks as detailed below.
 	Envs JobTemplateInitContainerEnvArrayInput `pulumi:"envs"`
 	// The amount of ephemeral storage available to the Container App.
 	//
-	// > **NOTE:** `ephemeralStorage` is currently in preview and not configurable at this time.
+	// > **Note:** `ephemeralStorage` is currently in preview and not configurable at this time.
 	EphemeralStorage pulumi.StringPtrInput `pulumi:"ephemeralStorage"`
 	// The image to use to create the container.
 	Image pulumi.StringInput `pulumi:"image"`
 	// The amount of memory to allocate to the container. Possible values are `0.5Gi`, `1Gi`, `1.5Gi`, `2Gi`, `2.5Gi`, `3Gi`, `3.5Gi` and `4Gi`.
 	//
-	// > **NOTE:** `cpu` and `memory` must be specified in `0.25'/'0.5Gi` combination increments. e.g. `1.25` / `2.5Gi` or `0.75` / `1.5Gi`
+	// > **Note:** `cpu` and `memory` must be specified in `0.25'/'0.5Gi` combination increments. e.g. `1.25` / `2.5Gi` or `0.75` / `1.5Gi`
 	Memory pulumi.StringPtrInput `pulumi:"memory"`
 	// The name of the container.
 	Name pulumi.StringInput `pulumi:"name"`
@@ -7731,7 +7739,7 @@ func (o JobTemplateInitContainerOutput) Commands() pulumi.StringArrayOutput {
 
 // The amount of vCPU to allocate to the container. Possible values include `0.25`, `0.5`, `0.75`, `1.0`, `1.25`, `1.5`, `1.75`, and `2.0`.
 //
-// > **NOTE:** `cpu` and `memory` must be specified in `0.25'/'0.5Gi` combination increments. e.g. `1.0` / `2.0` or `0.5` / `1.0`
+// > **Note:** `cpu` and `memory` must be specified in `0.25'/'0.5Gi` combination increments. e.g. `1.0` / `2.0` or `0.5` / `1.0`
 func (o JobTemplateInitContainerOutput) Cpu() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v JobTemplateInitContainer) *float64 { return v.Cpu }).(pulumi.Float64PtrOutput)
 }
@@ -7743,7 +7751,7 @@ func (o JobTemplateInitContainerOutput) Envs() JobTemplateInitContainerEnvArrayO
 
 // The amount of ephemeral storage available to the Container App.
 //
-// > **NOTE:** `ephemeralStorage` is currently in preview and not configurable at this time.
+// > **Note:** `ephemeralStorage` is currently in preview and not configurable at this time.
 func (o JobTemplateInitContainerOutput) EphemeralStorage() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v JobTemplateInitContainer) *string { return v.EphemeralStorage }).(pulumi.StringPtrOutput)
 }
@@ -7755,7 +7763,7 @@ func (o JobTemplateInitContainerOutput) Image() pulumi.StringOutput {
 
 // The amount of memory to allocate to the container. Possible values are `0.5Gi`, `1Gi`, `1.5Gi`, `2Gi`, `2.5Gi`, `3Gi`, `3.5Gi` and `4Gi`.
 //
-// > **NOTE:** `cpu` and `memory` must be specified in `0.25'/'0.5Gi` combination increments. e.g. `1.25` / `2.5Gi` or `0.75` / `1.5Gi`
+// > **Note:** `cpu` and `memory` must be specified in `0.25'/'0.5Gi` combination increments. e.g. `1.25` / `2.5Gi` or `0.75` / `1.5Gi`
 func (o JobTemplateInitContainerOutput) Memory() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v JobTemplateInitContainer) *string { return v.Memory }).(pulumi.StringPtrOutput)
 }

@@ -47,6 +47,11 @@ public final class GetDataCollectionEndpointResult {
      * 
      */
     private String logsIngestionEndpoint;
+    /**
+     * @return The endpoint used for ingesting metrics, e.g., `https://mydce-abcd.eastus-1.metrics.ingest.monitor.azure.com`.
+     * 
+     */
+    private String metricsIngestionEndpoint;
     private String name;
     /**
      * @return Whether network access from public internet to the Data Collection Endpoint are allowed. Possible values are `true` and `false`.
@@ -110,6 +115,13 @@ public final class GetDataCollectionEndpointResult {
     public String logsIngestionEndpoint() {
         return this.logsIngestionEndpoint;
     }
+    /**
+     * @return The endpoint used for ingesting metrics, e.g., `https://mydce-abcd.eastus-1.metrics.ingest.monitor.azure.com`.
+     * 
+     */
+    public String metricsIngestionEndpoint() {
+        return this.metricsIngestionEndpoint;
+    }
     public String name() {
         return this.name;
     }
@@ -147,6 +159,7 @@ public final class GetDataCollectionEndpointResult {
         private String kind;
         private String location;
         private String logsIngestionEndpoint;
+        private String metricsIngestionEndpoint;
         private String name;
         private Boolean publicNetworkAccessEnabled;
         private String resourceGroupName;
@@ -161,6 +174,7 @@ public final class GetDataCollectionEndpointResult {
     	      this.kind = defaults.kind;
     	      this.location = defaults.location;
     	      this.logsIngestionEndpoint = defaults.logsIngestionEndpoint;
+    	      this.metricsIngestionEndpoint = defaults.metricsIngestionEndpoint;
     	      this.name = defaults.name;
     	      this.publicNetworkAccessEnabled = defaults.publicNetworkAccessEnabled;
     	      this.resourceGroupName = defaults.resourceGroupName;
@@ -224,6 +238,14 @@ public final class GetDataCollectionEndpointResult {
             return this;
         }
         @CustomType.Setter
+        public Builder metricsIngestionEndpoint(String metricsIngestionEndpoint) {
+            if (metricsIngestionEndpoint == null) {
+              throw new MissingRequiredPropertyException("GetDataCollectionEndpointResult", "metricsIngestionEndpoint");
+            }
+            this.metricsIngestionEndpoint = metricsIngestionEndpoint;
+            return this;
+        }
+        @CustomType.Setter
         public Builder name(String name) {
             if (name == null) {
               throw new MissingRequiredPropertyException("GetDataCollectionEndpointResult", "name");
@@ -264,6 +286,7 @@ public final class GetDataCollectionEndpointResult {
             _resultValue.kind = kind;
             _resultValue.location = location;
             _resultValue.logsIngestionEndpoint = logsIngestionEndpoint;
+            _resultValue.metricsIngestionEndpoint = metricsIngestionEndpoint;
             _resultValue.name = name;
             _resultValue.publicNetworkAccessEnabled = publicNetworkAccessEnabled;
             _resultValue.resourceGroupName = resourceGroupName;

@@ -48,6 +48,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.appservice.ServicePlanArgs;
  * import com.pulumi.azure.appservice.AppFlexConsumption;
  * import com.pulumi.azure.appservice.AppFlexConsumptionArgs;
+ * import com.pulumi.azure.appservice.inputs.AppFlexConsumptionSiteConfigArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -105,6 +106,8 @@ import javax.annotation.Nullable;
  *             .runtimeVersion("20")
  *             .maximumInstanceCount(50)
  *             .instanceMemoryInMb(2048)
+ *             .siteConfig(AppFlexConsumptionSiteConfigArgs.builder()
+ *                 .build())
  *             .build());
  * 
  *     }
@@ -112,6 +115,13 @@ import javax.annotation.Nullable;
  * }
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
+ * 
+ * ## API Providers
+ * 
+ * &lt;!-- This section is generated, changes will be overwritten --&gt;
+ * This resource uses the following Azure API Providers:
+ * 
+ * * `Microsoft.Web`: 2023-12-01, 2023-01-01
  * 
  * ## Import
  * 
@@ -449,14 +459,14 @@ public class AppFlexConsumption extends com.pulumi.resources.CustomResource {
         return this.resourceGroupName;
     }
     /**
-     * The Runtime of the Linux Function App. Possible values are `node`, `dotnet-isolated`, `powershell`, `python`, `java`.
+     * The Runtime of the Linux Function App. Possible values are `node`, `dotnet-isolated`, `powershell`, `python`, `java` and `custom`.
      * 
      */
     @Export(name="runtimeName", refs={String.class}, tree="[0]")
     private Output<String> runtimeName;
 
     /**
-     * @return The Runtime of the Linux Function App. Possible values are `node`, `dotnet-isolated`, `powershell`, `python`, `java`.
+     * @return The Runtime of the Linux Function App. Possible values are `node`, `dotnet-isolated`, `powershell`, `python`, `java` and `custom`.
      * 
      */
     public Output<String> runtimeName() {
@@ -477,14 +487,14 @@ public class AppFlexConsumption extends com.pulumi.resources.CustomResource {
         return this.runtimeVersion;
     }
     /**
-     * The ID of the App Service Plan within which to create this Function App.
+     * The ID of the App Service Plan within which to create this Function App. Changing this forces a new Linux Function App to be created.
      * 
      */
     @Export(name="servicePlanId", refs={String.class}, tree="[0]")
     private Output<String> servicePlanId;
 
     /**
-     * @return The ID of the App Service Plan within which to create this Function App.
+     * @return The ID of the App Service Plan within which to create this Function App. Changing this forces a new Linux Function App to be created.
      * 
      */
     public Output<String> servicePlanId() {
@@ -593,7 +603,7 @@ public class AppFlexConsumption extends com.pulumi.resources.CustomResource {
         return this.storageContainerType;
     }
     /**
-     * The user assigned Managed Identity to access the storage account. Conflicts with `storage_account_access_key`.
+     * The user assigned Managed Identity to access the storage account. Conflicts with `storage_access_key`.
      * 
      * &gt; **Note:** The `storage_user_assigned_identity_id` must be specified when `storage_authentication_type` is set to `UserAssignedIdentity`.
      * 
@@ -602,7 +612,7 @@ public class AppFlexConsumption extends com.pulumi.resources.CustomResource {
     private Output</* @Nullable */ String> storageUserAssignedIdentityId;
 
     /**
-     * @return The user assigned Managed Identity to access the storage account. Conflicts with `storage_account_access_key`.
+     * @return The user assigned Managed Identity to access the storage account. Conflicts with `storage_access_key`.
      * 
      * &gt; **Note:** The `storage_user_assigned_identity_id` must be specified when `storage_authentication_type` is set to `UserAssignedIdentity`.
      * 

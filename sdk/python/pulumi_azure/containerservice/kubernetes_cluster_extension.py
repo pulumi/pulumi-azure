@@ -433,6 +433,13 @@ class KubernetesClusterExtension(pulumi.CustomResource):
             extension_type="microsoft.flux")
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.KubernetesConfiguration`: 2022-11-01
+
         ## Import
 
         Kubernetes Cluster Extension can be imported using the `resource id` for different `cluster_resource_name`, e.g.
@@ -490,6 +497,13 @@ class KubernetesClusterExtension(pulumi.CustomResource):
             cluster_id=example_kubernetes_cluster.id,
             extension_type="microsoft.flux")
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.KubernetesConfiguration`: 2022-11-01
 
         ## Import
 

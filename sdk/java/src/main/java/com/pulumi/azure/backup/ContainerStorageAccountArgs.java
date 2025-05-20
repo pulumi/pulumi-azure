@@ -47,7 +47,7 @@ public final class ContainerStorageAccountArgs extends com.pulumi.resources.Reso
     /**
      * The ID of the Storage Account to be registered Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE** Azure Backup places a Resource Lock on the storage account that will cause deletion to fail until the account is unregistered from Azure Backup
+     * &gt; **Note:** Azure Backup places a Resource Lock on the storage account that will cause deletion to fail until the account is unregistered from Azure Backup
      * 
      */
     @Import(name="storageAccountId", required=true)
@@ -56,7 +56,7 @@ public final class ContainerStorageAccountArgs extends com.pulumi.resources.Reso
     /**
      * @return The ID of the Storage Account to be registered Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE** Azure Backup places a Resource Lock on the storage account that will cause deletion to fail until the account is unregistered from Azure Backup
+     * &gt; **Note:** Azure Backup places a Resource Lock on the storage account that will cause deletion to fail until the account is unregistered from Azure Backup
      * 
      */
     public Output<String> storageAccountId() {
@@ -134,7 +134,7 @@ public final class ContainerStorageAccountArgs extends com.pulumi.resources.Reso
         /**
          * @param storageAccountId The ID of the Storage Account to be registered Changing this forces a new resource to be created.
          * 
-         * &gt; **NOTE** Azure Backup places a Resource Lock on the storage account that will cause deletion to fail until the account is unregistered from Azure Backup
+         * &gt; **Note:** Azure Backup places a Resource Lock on the storage account that will cause deletion to fail until the account is unregistered from Azure Backup
          * 
          * @return builder
          * 
@@ -147,7 +147,7 @@ public final class ContainerStorageAccountArgs extends com.pulumi.resources.Reso
         /**
          * @param storageAccountId The ID of the Storage Account to be registered Changing this forces a new resource to be created.
          * 
-         * &gt; **NOTE** Azure Backup places a Resource Lock on the storage account that will cause deletion to fail until the account is unregistered from Azure Backup
+         * &gt; **Note:** Azure Backup places a Resource Lock on the storage account that will cause deletion to fail until the account is unregistered from Azure Backup
          * 
          * @return builder
          * 

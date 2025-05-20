@@ -14,6 +14,8 @@ import (
 
 // Manages a Linked Service (connection) between a SFTP Server and Azure Data Factory.
 //
+// > **Note:** All arguments including the client secret will be stored in the raw state as plain-text. [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
+//
 // ## Example Usage
 //
 // ```go
@@ -78,7 +80,7 @@ type LinkedServiceSftp struct {
 	AdditionalProperties pulumi.StringMapOutput `pulumi:"additionalProperties"`
 	// List of tags that can be used for describing the Data Factory Linked Service.
 	Annotations pulumi.StringArrayOutput `pulumi:"annotations"`
-	// The type of authentication used to connect to the web table source. Valid options are `Anonymous`, `Basic` and `ClientCertificate`.
+	// The type of authentication used to connect to the SFTP server. Valid options are `MultiFactor`, `Basic` and `SshPublicKey`.
 	AuthenticationType pulumi.StringOutput `pulumi:"authenticationType"`
 	// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
 	DataFactoryId pulumi.StringOutput `pulumi:"dataFactoryId"`
@@ -90,14 +92,32 @@ type LinkedServiceSftp struct {
 	HostKeyFingerprint pulumi.StringPtrOutput `pulumi:"hostKeyFingerprint"`
 	// The name of the integration runtime to associate with the Data Factory Linked Service.
 	IntegrationRuntimeName pulumi.StringPtrOutput `pulumi:"integrationRuntimeName"`
+	// A `keyVaultPassword` block as defined below.
+	//
+	// > **Note:** Either `password` or `keyVaultPassword` is required when `authenticationType` is set to `Basic`.
+	KeyVaultPasswords LinkedServiceSftpKeyVaultPasswordArrayOutput `pulumi:"keyVaultPasswords"`
+	// A `keyVaultPrivateKeyContentBase64` block as defined below.
+	KeyVaultPrivateKeyContentBase64 LinkedServiceSftpKeyVaultPrivateKeyContentBase64PtrOutput `pulumi:"keyVaultPrivateKeyContentBase64"`
+	// A `keyVaultPrivateKeyPassphrase` block as defined below.
+	//
+	// > **Note:** One of `privateKeyContentBase64` or `privateKeyPath` (or their Key Vault equivalent) is required when `authenticationType` is set to `SshPublicKey`.
+	KeyVaultPrivateKeyPassphrase LinkedServiceSftpKeyVaultPrivateKeyPassphrasePtrOutput `pulumi:"keyVaultPrivateKeyPassphrase"`
 	// Specifies the name of the Data Factory Linked Service. Changing this forces a new resource to be created. Must be unique within a data factory. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// A map of parameters to associate with the Data Factory Linked Service.
 	Parameters pulumi.StringMapOutput `pulumi:"parameters"`
-	// Password to logon to the SFTP Server for Basic Authentication.
-	Password pulumi.StringOutput `pulumi:"password"`
+	// Password to log on to the SFTP Server for Basic Authentication.
+	Password pulumi.StringPtrOutput `pulumi:"password"`
 	// The TCP port number that the SFTP server uses to listen for client connection. Default value is 22.
 	Port pulumi.IntOutput `pulumi:"port"`
+	// The Base64 encoded private key content in OpenSSH format used to log on to the SFTP server.
+	PrivateKeyContentBase64 pulumi.StringPtrOutput `pulumi:"privateKeyContentBase64"`
+	// The passphrase for the private key if the key is encrypted.
+	PrivateKeyPassphrase pulumi.StringPtrOutput `pulumi:"privateKeyPassphrase"`
+	// The absolute path to the private key file that the self-hosted integration runtime can access.
+	//
+	// > **Note:** `privateKeyPath` only applies when using a self-hosted integration runtime (instead of the default Azure provided runtime), as indicated by supplying a value for `integrationRuntimeName`.
+	PrivateKeyPath pulumi.StringPtrOutput `pulumi:"privateKeyPath"`
 	// Whether to validate host key fingerprint while connecting. If set to `false`, `hostKeyFingerprint` must also be set.
 	SkipHostKeyValidation pulumi.BoolPtrOutput `pulumi:"skipHostKeyValidation"`
 	// The username used to log on to the SFTP server.
@@ -120,9 +140,6 @@ func NewLinkedServiceSftp(ctx *pulumi.Context,
 	if args.Host == nil {
 		return nil, errors.New("invalid value for required argument 'Host'")
 	}
-	if args.Password == nil {
-		return nil, errors.New("invalid value for required argument 'Password'")
-	}
 	if args.Port == nil {
 		return nil, errors.New("invalid value for required argument 'Port'")
 	}
@@ -130,10 +147,18 @@ func NewLinkedServiceSftp(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'Username'")
 	}
 	if args.Password != nil {
-		args.Password = pulumi.ToSecret(args.Password).(pulumi.StringInput)
+		args.Password = pulumi.ToSecret(args.Password).(pulumi.StringPtrInput)
+	}
+	if args.PrivateKeyContentBase64 != nil {
+		args.PrivateKeyContentBase64 = pulumi.ToSecret(args.PrivateKeyContentBase64).(pulumi.StringPtrInput)
+	}
+	if args.PrivateKeyPassphrase != nil {
+		args.PrivateKeyPassphrase = pulumi.ToSecret(args.PrivateKeyPassphrase).(pulumi.StringPtrInput)
 	}
 	secrets := pulumi.AdditionalSecretOutputs([]string{
 		"password",
+		"privateKeyContentBase64",
+		"privateKeyPassphrase",
 	})
 	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
@@ -165,7 +190,7 @@ type linkedServiceSftpState struct {
 	AdditionalProperties map[string]string `pulumi:"additionalProperties"`
 	// List of tags that can be used for describing the Data Factory Linked Service.
 	Annotations []string `pulumi:"annotations"`
-	// The type of authentication used to connect to the web table source. Valid options are `Anonymous`, `Basic` and `ClientCertificate`.
+	// The type of authentication used to connect to the SFTP server. Valid options are `MultiFactor`, `Basic` and `SshPublicKey`.
 	AuthenticationType *string `pulumi:"authenticationType"`
 	// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
 	DataFactoryId *string `pulumi:"dataFactoryId"`
@@ -177,14 +202,32 @@ type linkedServiceSftpState struct {
 	HostKeyFingerprint *string `pulumi:"hostKeyFingerprint"`
 	// The name of the integration runtime to associate with the Data Factory Linked Service.
 	IntegrationRuntimeName *string `pulumi:"integrationRuntimeName"`
+	// A `keyVaultPassword` block as defined below.
+	//
+	// > **Note:** Either `password` or `keyVaultPassword` is required when `authenticationType` is set to `Basic`.
+	KeyVaultPasswords []LinkedServiceSftpKeyVaultPassword `pulumi:"keyVaultPasswords"`
+	// A `keyVaultPrivateKeyContentBase64` block as defined below.
+	KeyVaultPrivateKeyContentBase64 *LinkedServiceSftpKeyVaultPrivateKeyContentBase64 `pulumi:"keyVaultPrivateKeyContentBase64"`
+	// A `keyVaultPrivateKeyPassphrase` block as defined below.
+	//
+	// > **Note:** One of `privateKeyContentBase64` or `privateKeyPath` (or their Key Vault equivalent) is required when `authenticationType` is set to `SshPublicKey`.
+	KeyVaultPrivateKeyPassphrase *LinkedServiceSftpKeyVaultPrivateKeyPassphrase `pulumi:"keyVaultPrivateKeyPassphrase"`
 	// Specifies the name of the Data Factory Linked Service. Changing this forces a new resource to be created. Must be unique within a data factory. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
 	Name *string `pulumi:"name"`
 	// A map of parameters to associate with the Data Factory Linked Service.
 	Parameters map[string]string `pulumi:"parameters"`
-	// Password to logon to the SFTP Server for Basic Authentication.
+	// Password to log on to the SFTP Server for Basic Authentication.
 	Password *string `pulumi:"password"`
 	// The TCP port number that the SFTP server uses to listen for client connection. Default value is 22.
 	Port *int `pulumi:"port"`
+	// The Base64 encoded private key content in OpenSSH format used to log on to the SFTP server.
+	PrivateKeyContentBase64 *string `pulumi:"privateKeyContentBase64"`
+	// The passphrase for the private key if the key is encrypted.
+	PrivateKeyPassphrase *string `pulumi:"privateKeyPassphrase"`
+	// The absolute path to the private key file that the self-hosted integration runtime can access.
+	//
+	// > **Note:** `privateKeyPath` only applies when using a self-hosted integration runtime (instead of the default Azure provided runtime), as indicated by supplying a value for `integrationRuntimeName`.
+	PrivateKeyPath *string `pulumi:"privateKeyPath"`
 	// Whether to validate host key fingerprint while connecting. If set to `false`, `hostKeyFingerprint` must also be set.
 	SkipHostKeyValidation *bool `pulumi:"skipHostKeyValidation"`
 	// The username used to log on to the SFTP server.
@@ -198,7 +241,7 @@ type LinkedServiceSftpState struct {
 	AdditionalProperties pulumi.StringMapInput
 	// List of tags that can be used for describing the Data Factory Linked Service.
 	Annotations pulumi.StringArrayInput
-	// The type of authentication used to connect to the web table source. Valid options are `Anonymous`, `Basic` and `ClientCertificate`.
+	// The type of authentication used to connect to the SFTP server. Valid options are `MultiFactor`, `Basic` and `SshPublicKey`.
 	AuthenticationType pulumi.StringPtrInput
 	// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
 	DataFactoryId pulumi.StringPtrInput
@@ -210,14 +253,32 @@ type LinkedServiceSftpState struct {
 	HostKeyFingerprint pulumi.StringPtrInput
 	// The name of the integration runtime to associate with the Data Factory Linked Service.
 	IntegrationRuntimeName pulumi.StringPtrInput
+	// A `keyVaultPassword` block as defined below.
+	//
+	// > **Note:** Either `password` or `keyVaultPassword` is required when `authenticationType` is set to `Basic`.
+	KeyVaultPasswords LinkedServiceSftpKeyVaultPasswordArrayInput
+	// A `keyVaultPrivateKeyContentBase64` block as defined below.
+	KeyVaultPrivateKeyContentBase64 LinkedServiceSftpKeyVaultPrivateKeyContentBase64PtrInput
+	// A `keyVaultPrivateKeyPassphrase` block as defined below.
+	//
+	// > **Note:** One of `privateKeyContentBase64` or `privateKeyPath` (or their Key Vault equivalent) is required when `authenticationType` is set to `SshPublicKey`.
+	KeyVaultPrivateKeyPassphrase LinkedServiceSftpKeyVaultPrivateKeyPassphrasePtrInput
 	// Specifies the name of the Data Factory Linked Service. Changing this forces a new resource to be created. Must be unique within a data factory. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
 	Name pulumi.StringPtrInput
 	// A map of parameters to associate with the Data Factory Linked Service.
 	Parameters pulumi.StringMapInput
-	// Password to logon to the SFTP Server for Basic Authentication.
+	// Password to log on to the SFTP Server for Basic Authentication.
 	Password pulumi.StringPtrInput
 	// The TCP port number that the SFTP server uses to listen for client connection. Default value is 22.
 	Port pulumi.IntPtrInput
+	// The Base64 encoded private key content in OpenSSH format used to log on to the SFTP server.
+	PrivateKeyContentBase64 pulumi.StringPtrInput
+	// The passphrase for the private key if the key is encrypted.
+	PrivateKeyPassphrase pulumi.StringPtrInput
+	// The absolute path to the private key file that the self-hosted integration runtime can access.
+	//
+	// > **Note:** `privateKeyPath` only applies when using a self-hosted integration runtime (instead of the default Azure provided runtime), as indicated by supplying a value for `integrationRuntimeName`.
+	PrivateKeyPath pulumi.StringPtrInput
 	// Whether to validate host key fingerprint while connecting. If set to `false`, `hostKeyFingerprint` must also be set.
 	SkipHostKeyValidation pulumi.BoolPtrInput
 	// The username used to log on to the SFTP server.
@@ -235,7 +296,7 @@ type linkedServiceSftpArgs struct {
 	AdditionalProperties map[string]string `pulumi:"additionalProperties"`
 	// List of tags that can be used for describing the Data Factory Linked Service.
 	Annotations []string `pulumi:"annotations"`
-	// The type of authentication used to connect to the web table source. Valid options are `Anonymous`, `Basic` and `ClientCertificate`.
+	// The type of authentication used to connect to the SFTP server. Valid options are `MultiFactor`, `Basic` and `SshPublicKey`.
 	AuthenticationType string `pulumi:"authenticationType"`
 	// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
 	DataFactoryId string `pulumi:"dataFactoryId"`
@@ -247,14 +308,32 @@ type linkedServiceSftpArgs struct {
 	HostKeyFingerprint *string `pulumi:"hostKeyFingerprint"`
 	// The name of the integration runtime to associate with the Data Factory Linked Service.
 	IntegrationRuntimeName *string `pulumi:"integrationRuntimeName"`
+	// A `keyVaultPassword` block as defined below.
+	//
+	// > **Note:** Either `password` or `keyVaultPassword` is required when `authenticationType` is set to `Basic`.
+	KeyVaultPasswords []LinkedServiceSftpKeyVaultPassword `pulumi:"keyVaultPasswords"`
+	// A `keyVaultPrivateKeyContentBase64` block as defined below.
+	KeyVaultPrivateKeyContentBase64 *LinkedServiceSftpKeyVaultPrivateKeyContentBase64 `pulumi:"keyVaultPrivateKeyContentBase64"`
+	// A `keyVaultPrivateKeyPassphrase` block as defined below.
+	//
+	// > **Note:** One of `privateKeyContentBase64` or `privateKeyPath` (or their Key Vault equivalent) is required when `authenticationType` is set to `SshPublicKey`.
+	KeyVaultPrivateKeyPassphrase *LinkedServiceSftpKeyVaultPrivateKeyPassphrase `pulumi:"keyVaultPrivateKeyPassphrase"`
 	// Specifies the name of the Data Factory Linked Service. Changing this forces a new resource to be created. Must be unique within a data factory. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
 	Name *string `pulumi:"name"`
 	// A map of parameters to associate with the Data Factory Linked Service.
 	Parameters map[string]string `pulumi:"parameters"`
-	// Password to logon to the SFTP Server for Basic Authentication.
-	Password string `pulumi:"password"`
+	// Password to log on to the SFTP Server for Basic Authentication.
+	Password *string `pulumi:"password"`
 	// The TCP port number that the SFTP server uses to listen for client connection. Default value is 22.
 	Port int `pulumi:"port"`
+	// The Base64 encoded private key content in OpenSSH format used to log on to the SFTP server.
+	PrivateKeyContentBase64 *string `pulumi:"privateKeyContentBase64"`
+	// The passphrase for the private key if the key is encrypted.
+	PrivateKeyPassphrase *string `pulumi:"privateKeyPassphrase"`
+	// The absolute path to the private key file that the self-hosted integration runtime can access.
+	//
+	// > **Note:** `privateKeyPath` only applies when using a self-hosted integration runtime (instead of the default Azure provided runtime), as indicated by supplying a value for `integrationRuntimeName`.
+	PrivateKeyPath *string `pulumi:"privateKeyPath"`
 	// Whether to validate host key fingerprint while connecting. If set to `false`, `hostKeyFingerprint` must also be set.
 	SkipHostKeyValidation *bool `pulumi:"skipHostKeyValidation"`
 	// The username used to log on to the SFTP server.
@@ -269,7 +348,7 @@ type LinkedServiceSftpArgs struct {
 	AdditionalProperties pulumi.StringMapInput
 	// List of tags that can be used for describing the Data Factory Linked Service.
 	Annotations pulumi.StringArrayInput
-	// The type of authentication used to connect to the web table source. Valid options are `Anonymous`, `Basic` and `ClientCertificate`.
+	// The type of authentication used to connect to the SFTP server. Valid options are `MultiFactor`, `Basic` and `SshPublicKey`.
 	AuthenticationType pulumi.StringInput
 	// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
 	DataFactoryId pulumi.StringInput
@@ -281,14 +360,32 @@ type LinkedServiceSftpArgs struct {
 	HostKeyFingerprint pulumi.StringPtrInput
 	// The name of the integration runtime to associate with the Data Factory Linked Service.
 	IntegrationRuntimeName pulumi.StringPtrInput
+	// A `keyVaultPassword` block as defined below.
+	//
+	// > **Note:** Either `password` or `keyVaultPassword` is required when `authenticationType` is set to `Basic`.
+	KeyVaultPasswords LinkedServiceSftpKeyVaultPasswordArrayInput
+	// A `keyVaultPrivateKeyContentBase64` block as defined below.
+	KeyVaultPrivateKeyContentBase64 LinkedServiceSftpKeyVaultPrivateKeyContentBase64PtrInput
+	// A `keyVaultPrivateKeyPassphrase` block as defined below.
+	//
+	// > **Note:** One of `privateKeyContentBase64` or `privateKeyPath` (or their Key Vault equivalent) is required when `authenticationType` is set to `SshPublicKey`.
+	KeyVaultPrivateKeyPassphrase LinkedServiceSftpKeyVaultPrivateKeyPassphrasePtrInput
 	// Specifies the name of the Data Factory Linked Service. Changing this forces a new resource to be created. Must be unique within a data factory. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
 	Name pulumi.StringPtrInput
 	// A map of parameters to associate with the Data Factory Linked Service.
 	Parameters pulumi.StringMapInput
-	// Password to logon to the SFTP Server for Basic Authentication.
-	Password pulumi.StringInput
+	// Password to log on to the SFTP Server for Basic Authentication.
+	Password pulumi.StringPtrInput
 	// The TCP port number that the SFTP server uses to listen for client connection. Default value is 22.
 	Port pulumi.IntInput
+	// The Base64 encoded private key content in OpenSSH format used to log on to the SFTP server.
+	PrivateKeyContentBase64 pulumi.StringPtrInput
+	// The passphrase for the private key if the key is encrypted.
+	PrivateKeyPassphrase pulumi.StringPtrInput
+	// The absolute path to the private key file that the self-hosted integration runtime can access.
+	//
+	// > **Note:** `privateKeyPath` only applies when using a self-hosted integration runtime (instead of the default Azure provided runtime), as indicated by supplying a value for `integrationRuntimeName`.
+	PrivateKeyPath pulumi.StringPtrInput
 	// Whether to validate host key fingerprint while connecting. If set to `false`, `hostKeyFingerprint` must also be set.
 	SkipHostKeyValidation pulumi.BoolPtrInput
 	// The username used to log on to the SFTP server.
@@ -394,7 +491,7 @@ func (o LinkedServiceSftpOutput) Annotations() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *LinkedServiceSftp) pulumi.StringArrayOutput { return v.Annotations }).(pulumi.StringArrayOutput)
 }
 
-// The type of authentication used to connect to the web table source. Valid options are `Anonymous`, `Basic` and `ClientCertificate`.
+// The type of authentication used to connect to the SFTP server. Valid options are `MultiFactor`, `Basic` and `SshPublicKey`.
 func (o LinkedServiceSftpOutput) AuthenticationType() pulumi.StringOutput {
 	return o.ApplyT(func(v *LinkedServiceSftp) pulumi.StringOutput { return v.AuthenticationType }).(pulumi.StringOutput)
 }
@@ -424,6 +521,29 @@ func (o LinkedServiceSftpOutput) IntegrationRuntimeName() pulumi.StringPtrOutput
 	return o.ApplyT(func(v *LinkedServiceSftp) pulumi.StringPtrOutput { return v.IntegrationRuntimeName }).(pulumi.StringPtrOutput)
 }
 
+// A `keyVaultPassword` block as defined below.
+//
+// > **Note:** Either `password` or `keyVaultPassword` is required when `authenticationType` is set to `Basic`.
+func (o LinkedServiceSftpOutput) KeyVaultPasswords() LinkedServiceSftpKeyVaultPasswordArrayOutput {
+	return o.ApplyT(func(v *LinkedServiceSftp) LinkedServiceSftpKeyVaultPasswordArrayOutput { return v.KeyVaultPasswords }).(LinkedServiceSftpKeyVaultPasswordArrayOutput)
+}
+
+// A `keyVaultPrivateKeyContentBase64` block as defined below.
+func (o LinkedServiceSftpOutput) KeyVaultPrivateKeyContentBase64() LinkedServiceSftpKeyVaultPrivateKeyContentBase64PtrOutput {
+	return o.ApplyT(func(v *LinkedServiceSftp) LinkedServiceSftpKeyVaultPrivateKeyContentBase64PtrOutput {
+		return v.KeyVaultPrivateKeyContentBase64
+	}).(LinkedServiceSftpKeyVaultPrivateKeyContentBase64PtrOutput)
+}
+
+// A `keyVaultPrivateKeyPassphrase` block as defined below.
+//
+// > **Note:** One of `privateKeyContentBase64` or `privateKeyPath` (or their Key Vault equivalent) is required when `authenticationType` is set to `SshPublicKey`.
+func (o LinkedServiceSftpOutput) KeyVaultPrivateKeyPassphrase() LinkedServiceSftpKeyVaultPrivateKeyPassphrasePtrOutput {
+	return o.ApplyT(func(v *LinkedServiceSftp) LinkedServiceSftpKeyVaultPrivateKeyPassphrasePtrOutput {
+		return v.KeyVaultPrivateKeyPassphrase
+	}).(LinkedServiceSftpKeyVaultPrivateKeyPassphrasePtrOutput)
+}
+
 // Specifies the name of the Data Factory Linked Service. Changing this forces a new resource to be created. Must be unique within a data factory. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
 func (o LinkedServiceSftpOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *LinkedServiceSftp) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
@@ -434,14 +554,31 @@ func (o LinkedServiceSftpOutput) Parameters() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *LinkedServiceSftp) pulumi.StringMapOutput { return v.Parameters }).(pulumi.StringMapOutput)
 }
 
-// Password to logon to the SFTP Server for Basic Authentication.
-func (o LinkedServiceSftpOutput) Password() pulumi.StringOutput {
-	return o.ApplyT(func(v *LinkedServiceSftp) pulumi.StringOutput { return v.Password }).(pulumi.StringOutput)
+// Password to log on to the SFTP Server for Basic Authentication.
+func (o LinkedServiceSftpOutput) Password() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LinkedServiceSftp) pulumi.StringPtrOutput { return v.Password }).(pulumi.StringPtrOutput)
 }
 
 // The TCP port number that the SFTP server uses to listen for client connection. Default value is 22.
 func (o LinkedServiceSftpOutput) Port() pulumi.IntOutput {
 	return o.ApplyT(func(v *LinkedServiceSftp) pulumi.IntOutput { return v.Port }).(pulumi.IntOutput)
+}
+
+// The Base64 encoded private key content in OpenSSH format used to log on to the SFTP server.
+func (o LinkedServiceSftpOutput) PrivateKeyContentBase64() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LinkedServiceSftp) pulumi.StringPtrOutput { return v.PrivateKeyContentBase64 }).(pulumi.StringPtrOutput)
+}
+
+// The passphrase for the private key if the key is encrypted.
+func (o LinkedServiceSftpOutput) PrivateKeyPassphrase() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LinkedServiceSftp) pulumi.StringPtrOutput { return v.PrivateKeyPassphrase }).(pulumi.StringPtrOutput)
+}
+
+// The absolute path to the private key file that the self-hosted integration runtime can access.
+//
+// > **Note:** `privateKeyPath` only applies when using a self-hosted integration runtime (instead of the default Azure provided runtime), as indicated by supplying a value for `integrationRuntimeName`.
+func (o LinkedServiceSftpOutput) PrivateKeyPath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LinkedServiceSftp) pulumi.StringPtrOutput { return v.PrivateKeyPath }).(pulumi.StringPtrOutput)
 }
 
 // Whether to validate host key fingerprint while connecting. If set to `false`, `hostKeyFingerprint` must also be set.

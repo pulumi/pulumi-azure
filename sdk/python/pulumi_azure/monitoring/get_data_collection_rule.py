@@ -218,6 +218,13 @@ def get_data_collection_rule(name: Optional[builtins.str] = None,
     pulumi.export("ruleId", example.id)
     ```
 
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.Insights`: 2023-03-11
+
 
     :param builtins.str name: Specifies the name of the Data Collection Rule.
     :param builtins.str resource_group_name: Specifies the name of the resource group the Data Collection Rule is located in.
@@ -259,6 +266,13 @@ def get_data_collection_rule_output(name: Optional[pulumi.Input[builtins.str]] =
         resource_group_name=example_azurerm_resource_group["name"])
     pulumi.export("ruleId", example.id)
     ```
+
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.Insights`: 2023-03-11
 
 
     :param builtins.str name: Specifies the name of the Data Collection Rule.

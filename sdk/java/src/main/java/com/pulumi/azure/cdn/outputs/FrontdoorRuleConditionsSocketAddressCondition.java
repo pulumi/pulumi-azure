@@ -16,7 +16,7 @@ public final class FrontdoorRuleConditionsSocketAddressCondition {
     /**
      * @return Specify one or more IP address ranges. If multiple IP address ranges are specified, they&#39;re evaluated using `OR` logic.
      * 
-     * -&gt;**NOTE:** See the `Specifying IP Address Ranges` section below on how to correctly define the `match_values` field.
+     * &gt; **Note:** See the `Specifying IP Address Ranges` section below on how to correctly define the `match_values` field.
      * 
      */
     private @Nullable List<String> matchValues;
@@ -28,7 +28,7 @@ public final class FrontdoorRuleConditionsSocketAddressCondition {
     /**
      * @return The type of match. The Possible values are `IpMatch` or `Any`. Defaults to `IPMatch`.
      * 
-     * -&gt;**NOTE:** If the value of the `operator` field is set to `IpMatch` then the `match_values` field is also required.
+     * &gt; **Note:** If the value of the `operator` field is set to `IpMatch` then the `match_values` field is also required.
      * 
      */
     private @Nullable String operator;
@@ -37,7 +37,7 @@ public final class FrontdoorRuleConditionsSocketAddressCondition {
     /**
      * @return Specify one or more IP address ranges. If multiple IP address ranges are specified, they&#39;re evaluated using `OR` logic.
      * 
-     * -&gt;**NOTE:** See the `Specifying IP Address Ranges` section below on how to correctly define the `match_values` field.
+     * &gt; **Note:** See the `Specifying IP Address Ranges` section below on how to correctly define the `match_values` field.
      * 
      */
     public List<String> matchValues() {
@@ -53,7 +53,7 @@ public final class FrontdoorRuleConditionsSocketAddressCondition {
     /**
      * @return The type of match. The Possible values are `IpMatch` or `Any`. Defaults to `IPMatch`.
      * 
-     * -&gt;**NOTE:** If the value of the `operator` field is set to `IpMatch` then the `match_values` field is also required.
+     * &gt; **Note:** If the value of the `operator` field is set to `IpMatch` then the `match_values` field is also required.
      * 
      */
     public Optional<String> operator() {

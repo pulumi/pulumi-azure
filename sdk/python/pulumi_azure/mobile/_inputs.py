@@ -377,7 +377,7 @@ if not MYPY:
         """
         The ID of the Azure Arc custom location where the packet core is deployed.
 
-        > **NOTE:** At least one of `edge_device_id`, `arc_kubernetes_cluster_id`, `stack_hci_cluster_id` and `custom_location_id` should be specified. If multiple are set, they must be consistent with each other.
+        > **Note:** At least one of `edge_device_id`, `arc_kubernetes_cluster_id`, `stack_hci_cluster_id` and `custom_location_id` should be specified. If multiple are set, they must be consistent with each other.
         """
         edge_device_id: NotRequired[pulumi.Input[builtins.str]]
         """
@@ -403,7 +403,7 @@ class NetworkPacketCoreControlPlanePlatformArgs:
         :param pulumi.Input[builtins.str] arc_kubernetes_cluster_id: The ID of the Azure Arc connected cluster where the packet core is deployed.
         :param pulumi.Input[builtins.str] custom_location_id: The ID of the Azure Arc custom location where the packet core is deployed.
                
-               > **NOTE:** At least one of `edge_device_id`, `arc_kubernetes_cluster_id`, `stack_hci_cluster_id` and `custom_location_id` should be specified. If multiple are set, they must be consistent with each other.
+               > **Note:** At least one of `edge_device_id`, `arc_kubernetes_cluster_id`, `stack_hci_cluster_id` and `custom_location_id` should be specified. If multiple are set, they must be consistent with each other.
         :param pulumi.Input[builtins.str] edge_device_id: The ID of the Azure Stack Edge device where the packet core is deployed. If the device is part of a fault-tolerant pair, either device in the pair can be specified.
         :param pulumi.Input[builtins.str] stack_hci_cluster_id: The ID of the Azure Stack HCI cluster where the packet core is deployed.
         """
@@ -447,7 +447,7 @@ class NetworkPacketCoreControlPlanePlatformArgs:
         """
         The ID of the Azure Arc custom location where the packet core is deployed.
 
-        > **NOTE:** At least one of `edge_device_id`, `arc_kubernetes_cluster_id`, `stack_hci_cluster_id` and `custom_location_id` should be specified. If multiple are set, they must be consistent with each other.
+        > **Note:** At least one of `edge_device_id`, `arc_kubernetes_cluster_id`, `stack_hci_cluster_id` and `custom_location_id` should be specified. If multiple are set, they must be consistent with each other.
         """
         return pulumi.get(self, "custom_location_id")
 

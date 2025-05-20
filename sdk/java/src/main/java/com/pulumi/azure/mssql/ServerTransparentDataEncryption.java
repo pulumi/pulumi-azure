@@ -18,9 +18,9 @@ import javax.annotation.Nullable;
 /**
  * Manages the transparent data encryption configuration for a MSSQL Server
  * 
- * !&gt; **IMPORTANT:** This resource can be used to configure Transparent Data Encryption for MS SQL instances with Customer Managed Keys. For MS SQL instances that are System Managed, it should only be used with pre-existing MS SQL Instances that are over 3 years old. For new System Managed MS SQL Instances that will be created through the use of the `azure.mssql.Server` resource, please enable Transparent Data Encryption through `azure.mssql.Server` resource itself by configuring an identity block. By default, all new MS SQL Instances are deployed with System Managed Transparent Data Encryption enabled.
+ * !&gt; **Note:** This resource can be used to configure Transparent Data Encryption for MS SQL instances with Customer Managed Keys. For MS SQL instances that are System Managed, it should only be used with pre-existing MS SQL Instances that are over 3 years old. For new System Managed MS SQL Instances that will be created through the use of the `azure.mssql.Server` resource, please enable Transparent Data Encryption through `azure.mssql.Server` resource itself by configuring an identity block. By default, all new MS SQL Instances are deployed with System Managed Transparent Data Encryption enabled.
  * 
- * &gt; **NOTE:** Once transparent data encryption is enabled on a MS SQL instance, it is not possible to remove TDE. You will be able to switch between &#39;ServiceManaged&#39; and &#39;CustomerManaged&#39; keys, but will not be able to remove encryption. For safety when this resource is deleted, the TDE mode will automatically be set to &#39;ServiceManaged&#39;. See `key_vault_uri` for more information on how to specify the key types. As SQL Server only supports a single configuration for encryption settings, this resource will replace the current encryption settings on the server.
+ * &gt; **Note:** Once transparent data encryption is enabled on a MS SQL instance, it is not possible to remove TDE. You will be able to switch between &#39;ServiceManaged&#39; and &#39;CustomerManaged&#39; keys, but will not be able to remove encryption. For safety when this resource is deleted, the TDE mode will automatically be set to &#39;ServiceManaged&#39;. See `key_vault_uri` for more information on how to specify the key types. As SQL Server only supports a single configuration for encryption settings, this resource will replace the current encryption settings on the server.
  * 
  * &gt; **Note:** See [documentation](https://docs.microsoft.com/azure/azure-sql/database/transparent-data-encryption-byok-overview) for important information on how handle lifecycle management of the keys to prevent data lockout.
  * 
@@ -206,6 +206,13 @@ import javax.annotation.Nullable;
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
+ * ## API Providers
+ * 
+ * &lt;!-- This section is generated, changes will be overwritten --&gt;
+ * This resource uses the following Azure API Providers:
+ * 
+ * * `Microsoft.Sql`: 2023-08-01-preview
+ * 
  * ## Import
  * 
  * SQL Server Transparent Data Encryption can be imported using the resource id, e.g.
@@ -248,9 +255,9 @@ public class ServerTransparentDataEncryption extends com.pulumi.resources.Custom
     /**
      * To use customer managed keys from a managed HSM, provide the Managed HSM Key ID. To use service managed keys, omit this field.
      * 
-     * &gt; **NOTE:** In order to use customer managed keys, the identity of the MSSQL server must have the following permissions on the key vault: &#39;get&#39;, &#39;wrapKey&#39; and &#39;unwrapKey&#39;
+     * &gt; **Note:** In order to use customer managed keys, the identity of the MSSQL server must have the following permissions on the key vault: &#39;get&#39;, &#39;wrapKey&#39; and &#39;unwrapKey&#39;
      * 
-     * &gt; **NOTE:** If `server_id` denotes a secondary server deployed for disaster recovery purposes, then the `key_vault_key_id` should be the same key used for the primary server&#39;s transparent data encryption. Both primary and secondary servers should be encrypted with same key material.
+     * &gt; **Note:** If `server_id` denotes a secondary server deployed for disaster recovery purposes, then the `key_vault_key_id` should be the same key used for the primary server&#39;s transparent data encryption. Both primary and secondary servers should be encrypted with same key material.
      * 
      */
     @Export(name="managedHsmKeyId", refs={String.class}, tree="[0]")
@@ -259,9 +266,9 @@ public class ServerTransparentDataEncryption extends com.pulumi.resources.Custom
     /**
      * @return To use customer managed keys from a managed HSM, provide the Managed HSM Key ID. To use service managed keys, omit this field.
      * 
-     * &gt; **NOTE:** In order to use customer managed keys, the identity of the MSSQL server must have the following permissions on the key vault: &#39;get&#39;, &#39;wrapKey&#39; and &#39;unwrapKey&#39;
+     * &gt; **Note:** In order to use customer managed keys, the identity of the MSSQL server must have the following permissions on the key vault: &#39;get&#39;, &#39;wrapKey&#39; and &#39;unwrapKey&#39;
      * 
-     * &gt; **NOTE:** If `server_id` denotes a secondary server deployed for disaster recovery purposes, then the `key_vault_key_id` should be the same key used for the primary server&#39;s transparent data encryption. Both primary and secondary servers should be encrypted with same key material.
+     * &gt; **Note:** If `server_id` denotes a secondary server deployed for disaster recovery purposes, then the `key_vault_key_id` should be the same key used for the primary server&#39;s transparent data encryption. Both primary and secondary servers should be encrypted with same key material.
      * 
      */
     public Output<Optional<String>> managedHsmKeyId() {

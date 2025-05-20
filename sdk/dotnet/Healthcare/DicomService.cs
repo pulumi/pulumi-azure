@@ -47,6 +47,13 @@ namespace Pulumi.Azure.Healthcare
     /// });
     /// ```
     /// 
+    /// ## API Providers
+    /// 
+    /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+    /// This resource uses the following Azure API Providers:
+    /// 
+    /// * `Microsoft.HealthcareApis`: 2024-03-31
+    /// 
     /// ## Import
     /// 
     /// Healthcare DICOM Service can be imported using the resource`id`, e.g.

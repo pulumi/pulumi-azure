@@ -42,14 +42,13 @@ class BlobArgs:
         :param pulumi.Input[builtins.str] type: The type of the storage blob to be created. Possible values are `Append`, `Block` or `Page`. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] access_tier: The access tier of the storage blob. Possible values are `Archive`, `Cool` and `Hot`.
         :param pulumi.Input[builtins.str] cache_control: Controls the [cache control header](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cache-Control) content of the response when blob is requested .
-        :param pulumi.Input[builtins.str] content_md5: The MD5 sum of the blob contents. Cannot be defined if `source_uri` is defined, or if blob type is Append or Page. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] content_type: The content type of the storage blob. Cannot be defined if `source_uri` is defined. Defaults to `application/octet-stream`.
         :param pulumi.Input[builtins.str] encryption_scope: The encryption scope to use for this blob.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] metadata: A map of custom blob metadata.
         :param pulumi.Input[builtins.str] name: The name of the storage blob. Must be unique within the storage container the blob is located. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.int] parallelism: The number of workers per CPU core to run for concurrent uploads. Defaults to `8`. Changing this forces a new resource to be created.
                
-               > **NOTE:** `parallelism` is only applicable for Page blobs - support for [Block Blobs is blocked on the upstream issue](https://github.com/jackofallops/giovanni/issues/15).
+               > **Note:** `parallelism` is only applicable for Page blobs - support for [Block Blobs is blocked on the upstream issue](https://github.com/jackofallops/giovanni/issues/15).
         :param pulumi.Input[builtins.int] size: Used only for `page` blobs to specify the size in bytes of the blob to be created. Must be a multiple of 512. Defaults to `0`. Changing this forces a new resource to be created.
                
                > **Note:** `size` is required if `source_uri` is not set.
@@ -148,9 +147,6 @@ class BlobArgs:
     @property
     @pulumi.getter(name="contentMd5")
     def content_md5(self) -> Optional[pulumi.Input[builtins.str]]:
-        """
-        The MD5 sum of the blob contents. Cannot be defined if `source_uri` is defined, or if blob type is Append or Page. Changing this forces a new resource to be created.
-        """
         return pulumi.get(self, "content_md5")
 
     @content_md5.setter
@@ -211,7 +207,7 @@ class BlobArgs:
         """
         The number of workers per CPU core to run for concurrent uploads. Defaults to `8`. Changing this forces a new resource to be created.
 
-        > **NOTE:** `parallelism` is only applicable for Page blobs - support for [Block Blobs is blocked on the upstream issue](https://github.com/jackofallops/giovanni/issues/15).
+        > **Note:** `parallelism` is only applicable for Page blobs - support for [Block Blobs is blocked on the upstream issue](https://github.com/jackofallops/giovanni/issues/15).
         """
         return pulumi.get(self, "parallelism")
 
@@ -293,14 +289,13 @@ class _BlobState:
         Input properties used for looking up and filtering Blob resources.
         :param pulumi.Input[builtins.str] access_tier: The access tier of the storage blob. Possible values are `Archive`, `Cool` and `Hot`.
         :param pulumi.Input[builtins.str] cache_control: Controls the [cache control header](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cache-Control) content of the response when blob is requested .
-        :param pulumi.Input[builtins.str] content_md5: The MD5 sum of the blob contents. Cannot be defined if `source_uri` is defined, or if blob type is Append or Page. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] content_type: The content type of the storage blob. Cannot be defined if `source_uri` is defined. Defaults to `application/octet-stream`.
         :param pulumi.Input[builtins.str] encryption_scope: The encryption scope to use for this blob.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] metadata: A map of custom blob metadata.
         :param pulumi.Input[builtins.str] name: The name of the storage blob. Must be unique within the storage container the blob is located. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.int] parallelism: The number of workers per CPU core to run for concurrent uploads. Defaults to `8`. Changing this forces a new resource to be created.
                
-               > **NOTE:** `parallelism` is only applicable for Page blobs - support for [Block Blobs is blocked on the upstream issue](https://github.com/jackofallops/giovanni/issues/15).
+               > **Note:** `parallelism` is only applicable for Page blobs - support for [Block Blobs is blocked on the upstream issue](https://github.com/jackofallops/giovanni/issues/15).
         :param pulumi.Input[builtins.int] size: Used only for `page` blobs to specify the size in bytes of the blob to be created. Must be a multiple of 512. Defaults to `0`. Changing this forces a new resource to be created.
                
                > **Note:** `size` is required if `source_uri` is not set.
@@ -372,9 +367,6 @@ class _BlobState:
     @property
     @pulumi.getter(name="contentMd5")
     def content_md5(self) -> Optional[pulumi.Input[builtins.str]]:
-        """
-        The MD5 sum of the blob contents. Cannot be defined if `source_uri` is defined, or if blob type is Append or Page. Changing this forces a new resource to be created.
-        """
         return pulumi.get(self, "content_md5")
 
     @content_md5.setter
@@ -435,7 +427,7 @@ class _BlobState:
         """
         The number of workers per CPU core to run for concurrent uploads. Defaults to `8`. Changing this forces a new resource to be created.
 
-        > **NOTE:** `parallelism` is only applicable for Page blobs - support for [Block Blobs is blocked on the upstream issue](https://github.com/jackofallops/giovanni/issues/15).
+        > **Note:** `parallelism` is only applicable for Page blobs - support for [Block Blobs is blocked on the upstream issue](https://github.com/jackofallops/giovanni/issues/15).
         """
         return pulumi.get(self, "parallelism")
 
@@ -606,14 +598,13 @@ class Blob(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] access_tier: The access tier of the storage blob. Possible values are `Archive`, `Cool` and `Hot`.
         :param pulumi.Input[builtins.str] cache_control: Controls the [cache control header](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cache-Control) content of the response when blob is requested .
-        :param pulumi.Input[builtins.str] content_md5: The MD5 sum of the blob contents. Cannot be defined if `source_uri` is defined, or if blob type is Append or Page. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] content_type: The content type of the storage blob. Cannot be defined if `source_uri` is defined. Defaults to `application/octet-stream`.
         :param pulumi.Input[builtins.str] encryption_scope: The encryption scope to use for this blob.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] metadata: A map of custom blob metadata.
         :param pulumi.Input[builtins.str] name: The name of the storage blob. Must be unique within the storage container the blob is located. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.int] parallelism: The number of workers per CPU core to run for concurrent uploads. Defaults to `8`. Changing this forces a new resource to be created.
                
-               > **NOTE:** `parallelism` is only applicable for Page blobs - support for [Block Blobs is blocked on the upstream issue](https://github.com/jackofallops/giovanni/issues/15).
+               > **Note:** `parallelism` is only applicable for Page blobs - support for [Block Blobs is blocked on the upstream issue](https://github.com/jackofallops/giovanni/issues/15).
         :param pulumi.Input[builtins.int] size: Used only for `page` blobs to specify the size in bytes of the blob to be created. Must be a multiple of 512. Defaults to `0`. Changing this forces a new resource to be created.
                
                > **Note:** `size` is required if `source_uri` is not set.
@@ -764,14 +755,13 @@ class Blob(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] access_tier: The access tier of the storage blob. Possible values are `Archive`, `Cool` and `Hot`.
         :param pulumi.Input[builtins.str] cache_control: Controls the [cache control header](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cache-Control) content of the response when blob is requested .
-        :param pulumi.Input[builtins.str] content_md5: The MD5 sum of the blob contents. Cannot be defined if `source_uri` is defined, or if blob type is Append or Page. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] content_type: The content type of the storage blob. Cannot be defined if `source_uri` is defined. Defaults to `application/octet-stream`.
         :param pulumi.Input[builtins.str] encryption_scope: The encryption scope to use for this blob.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] metadata: A map of custom blob metadata.
         :param pulumi.Input[builtins.str] name: The name of the storage blob. Must be unique within the storage container the blob is located. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.int] parallelism: The number of workers per CPU core to run for concurrent uploads. Defaults to `8`. Changing this forces a new resource to be created.
                
-               > **NOTE:** `parallelism` is only applicable for Page blobs - support for [Block Blobs is blocked on the upstream issue](https://github.com/jackofallops/giovanni/issues/15).
+               > **Note:** `parallelism` is only applicable for Page blobs - support for [Block Blobs is blocked on the upstream issue](https://github.com/jackofallops/giovanni/issues/15).
         :param pulumi.Input[builtins.int] size: Used only for `page` blobs to specify the size in bytes of the blob to be created. Must be a multiple of 512. Defaults to `0`. Changing this forces a new resource to be created.
                
                > **Note:** `size` is required if `source_uri` is not set.
@@ -824,9 +814,6 @@ class Blob(pulumi.CustomResource):
     @property
     @pulumi.getter(name="contentMd5")
     def content_md5(self) -> pulumi.Output[Optional[builtins.str]]:
-        """
-        The MD5 sum of the blob contents. Cannot be defined if `source_uri` is defined, or if blob type is Append or Page. Changing this forces a new resource to be created.
-        """
         return pulumi.get(self, "content_md5")
 
     @property
@@ -867,7 +854,7 @@ class Blob(pulumi.CustomResource):
         """
         The number of workers per CPU core to run for concurrent uploads. Defaults to `8`. Changing this forces a new resource to be created.
 
-        > **NOTE:** `parallelism` is only applicable for Page blobs - support for [Block Blobs is blocked on the upstream issue](https://github.com/jackofallops/giovanni/issues/15).
+        > **Note:** `parallelism` is only applicable for Page blobs - support for [Block Blobs is blocked on the upstream issue](https://github.com/jackofallops/giovanni/issues/15).
         """
         return pulumi.get(self, "parallelism")
 

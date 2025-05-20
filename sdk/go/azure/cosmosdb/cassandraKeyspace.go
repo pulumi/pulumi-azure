@@ -85,17 +85,13 @@ type CassandraKeyspace struct {
 	pulumi.CustomResourceState
 
 	// The name of the Cosmos DB Cassandra KeySpace to create the table within. Changing this forces a new resource to be created.
-	AccountName pulumi.StringOutput `pulumi:"accountName"`
-	// An `autoscaleSettings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual destroy-apply.
-	//
-	// > **Note:** Switching between autoscale and manual throughput is not supported via this provider and must be completed via the Azure Portal and refreshed.
+	AccountName       pulumi.StringOutput                         `pulumi:"accountName"`
 	AutoscaleSettings CassandraKeyspaceAutoscaleSettingsPtrOutput `pulumi:"autoscaleSettings"`
 	// Specifies the name of the Cosmos DB Cassandra KeySpace. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The name of the resource group in which the Cosmos DB Cassandra KeySpace is created. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
-	// The throughput of Cassandra KeySpace (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon database creation otherwise it cannot be updated without a manual resource destroy-apply.
-	Throughput pulumi.IntOutput `pulumi:"throughput"`
+	Throughput        pulumi.IntOutput    `pulumi:"throughput"`
 }
 
 // NewCassandraKeyspace registers a new resource with the given unique name, arguments, and options.
@@ -135,32 +131,24 @@ func GetCassandraKeyspace(ctx *pulumi.Context,
 // Input properties used for looking up and filtering CassandraKeyspace resources.
 type cassandraKeyspaceState struct {
 	// The name of the Cosmos DB Cassandra KeySpace to create the table within. Changing this forces a new resource to be created.
-	AccountName *string `pulumi:"accountName"`
-	// An `autoscaleSettings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual destroy-apply.
-	//
-	// > **Note:** Switching between autoscale and manual throughput is not supported via this provider and must be completed via the Azure Portal and refreshed.
+	AccountName       *string                             `pulumi:"accountName"`
 	AutoscaleSettings *CassandraKeyspaceAutoscaleSettings `pulumi:"autoscaleSettings"`
 	// Specifies the name of the Cosmos DB Cassandra KeySpace. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// The name of the resource group in which the Cosmos DB Cassandra KeySpace is created. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
-	// The throughput of Cassandra KeySpace (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon database creation otherwise it cannot be updated without a manual resource destroy-apply.
-	Throughput *int `pulumi:"throughput"`
+	Throughput        *int    `pulumi:"throughput"`
 }
 
 type CassandraKeyspaceState struct {
 	// The name of the Cosmos DB Cassandra KeySpace to create the table within. Changing this forces a new resource to be created.
-	AccountName pulumi.StringPtrInput
-	// An `autoscaleSettings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual destroy-apply.
-	//
-	// > **Note:** Switching between autoscale and manual throughput is not supported via this provider and must be completed via the Azure Portal and refreshed.
+	AccountName       pulumi.StringPtrInput
 	AutoscaleSettings CassandraKeyspaceAutoscaleSettingsPtrInput
 	// Specifies the name of the Cosmos DB Cassandra KeySpace. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// The name of the resource group in which the Cosmos DB Cassandra KeySpace is created. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
-	// The throughput of Cassandra KeySpace (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon database creation otherwise it cannot be updated without a manual resource destroy-apply.
-	Throughput pulumi.IntPtrInput
+	Throughput        pulumi.IntPtrInput
 }
 
 func (CassandraKeyspaceState) ElementType() reflect.Type {
@@ -169,33 +157,25 @@ func (CassandraKeyspaceState) ElementType() reflect.Type {
 
 type cassandraKeyspaceArgs struct {
 	// The name of the Cosmos DB Cassandra KeySpace to create the table within. Changing this forces a new resource to be created.
-	AccountName string `pulumi:"accountName"`
-	// An `autoscaleSettings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual destroy-apply.
-	//
-	// > **Note:** Switching between autoscale and manual throughput is not supported via this provider and must be completed via the Azure Portal and refreshed.
+	AccountName       string                              `pulumi:"accountName"`
 	AutoscaleSettings *CassandraKeyspaceAutoscaleSettings `pulumi:"autoscaleSettings"`
 	// Specifies the name of the Cosmos DB Cassandra KeySpace. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// The name of the resource group in which the Cosmos DB Cassandra KeySpace is created. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The throughput of Cassandra KeySpace (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon database creation otherwise it cannot be updated without a manual resource destroy-apply.
-	Throughput *int `pulumi:"throughput"`
+	Throughput        *int   `pulumi:"throughput"`
 }
 
 // The set of arguments for constructing a CassandraKeyspace resource.
 type CassandraKeyspaceArgs struct {
 	// The name of the Cosmos DB Cassandra KeySpace to create the table within. Changing this forces a new resource to be created.
-	AccountName pulumi.StringInput
-	// An `autoscaleSettings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual destroy-apply.
-	//
-	// > **Note:** Switching between autoscale and manual throughput is not supported via this provider and must be completed via the Azure Portal and refreshed.
+	AccountName       pulumi.StringInput
 	AutoscaleSettings CassandraKeyspaceAutoscaleSettingsPtrInput
 	// Specifies the name of the Cosmos DB Cassandra KeySpace. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// The name of the resource group in which the Cosmos DB Cassandra KeySpace is created. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
-	// The throughput of Cassandra KeySpace (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon database creation otherwise it cannot be updated without a manual resource destroy-apply.
-	Throughput pulumi.IntPtrInput
+	Throughput        pulumi.IntPtrInput
 }
 
 func (CassandraKeyspaceArgs) ElementType() reflect.Type {
@@ -290,9 +270,6 @@ func (o CassandraKeyspaceOutput) AccountName() pulumi.StringOutput {
 	return o.ApplyT(func(v *CassandraKeyspace) pulumi.StringOutput { return v.AccountName }).(pulumi.StringOutput)
 }
 
-// An `autoscaleSettings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual destroy-apply.
-//
-// > **Note:** Switching between autoscale and manual throughput is not supported via this provider and must be completed via the Azure Portal and refreshed.
 func (o CassandraKeyspaceOutput) AutoscaleSettings() CassandraKeyspaceAutoscaleSettingsPtrOutput {
 	return o.ApplyT(func(v *CassandraKeyspace) CassandraKeyspaceAutoscaleSettingsPtrOutput { return v.AutoscaleSettings }).(CassandraKeyspaceAutoscaleSettingsPtrOutput)
 }
@@ -307,7 +284,6 @@ func (o CassandraKeyspaceOutput) ResourceGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v *CassandraKeyspace) pulumi.StringOutput { return v.ResourceGroupName }).(pulumi.StringOutput)
 }
 
-// The throughput of Cassandra KeySpace (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon database creation otherwise it cannot be updated without a manual resource destroy-apply.
 func (o CassandraKeyspaceOutput) Throughput() pulumi.IntOutput {
 	return o.ApplyT(func(v *CassandraKeyspace) pulumi.IntOutput { return v.Throughput }).(pulumi.IntOutput)
 }

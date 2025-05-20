@@ -34,7 +34,7 @@ public final class FileSystemHsmSettingArgs extends com.pulumi.resources.Resourc
     /**
      * The import prefix for the Azure Managed Lustre File System. Only blobs in the non-logging container that start with this path/prefix get hydrated into the cluster namespace. Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE:** The roles `Contributor` and `Storage Blob Data Contributor` must be added to the Service Principal `HPC Cache Resource Provider` for the Storage Account. See official docs for more information.
+     * &gt; **Note:** The roles `Contributor` and `Storage Blob Data Contributor` must be added to the Service Principal `HPC Cache Resource Provider` for the Storage Account. See official docs for more information.
      * 
      */
     @Import(name="importPrefix")
@@ -43,7 +43,7 @@ public final class FileSystemHsmSettingArgs extends com.pulumi.resources.Resourc
     /**
      * @return The import prefix for the Azure Managed Lustre File System. Only blobs in the non-logging container that start with this path/prefix get hydrated into the cluster namespace. Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE:** The roles `Contributor` and `Storage Blob Data Contributor` must be added to the Service Principal `HPC Cache Resource Provider` for the Storage Account. See official docs for more information.
+     * &gt; **Note:** The roles `Contributor` and `Storage Blob Data Contributor` must be added to the Service Principal `HPC Cache Resource Provider` for the Storage Account. See official docs for more information.
      * 
      */
     public Optional<Output<String>> importPrefix() {
@@ -115,7 +115,7 @@ public final class FileSystemHsmSettingArgs extends com.pulumi.resources.Resourc
         /**
          * @param importPrefix The import prefix for the Azure Managed Lustre File System. Only blobs in the non-logging container that start with this path/prefix get hydrated into the cluster namespace. Changing this forces a new resource to be created.
          * 
-         * &gt; **NOTE:** The roles `Contributor` and `Storage Blob Data Contributor` must be added to the Service Principal `HPC Cache Resource Provider` for the Storage Account. See official docs for more information.
+         * &gt; **Note:** The roles `Contributor` and `Storage Blob Data Contributor` must be added to the Service Principal `HPC Cache Resource Provider` for the Storage Account. See official docs for more information.
          * 
          * @return builder
          * 
@@ -128,7 +128,7 @@ public final class FileSystemHsmSettingArgs extends com.pulumi.resources.Resourc
         /**
          * @param importPrefix The import prefix for the Azure Managed Lustre File System. Only blobs in the non-logging container that start with this path/prefix get hydrated into the cluster namespace. Changing this forces a new resource to be created.
          * 
-         * &gt; **NOTE:** The roles `Contributor` and `Storage Blob Data Contributor` must be added to the Service Principal `HPC Cache Resource Provider` for the Storage Account. See official docs for more information.
+         * &gt; **Note:** The roles `Contributor` and `Storage Blob Data Contributor` must be added to the Service Principal `HPC Cache Resource Provider` for the Storage Account. See official docs for more information.
          * 
          * @return builder
          * 

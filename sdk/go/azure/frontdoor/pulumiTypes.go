@@ -1589,7 +1589,7 @@ type FrontdoorBackendPoolHealthProbe struct {
 	Path *string `pulumi:"path"`
 	// Specifies HTTP method the health probe uses when querying the backend pool instances. Possible values include: `GET` and `HEAD`. Defaults to `GET`.
 	//
-	// > **NOTE:** Use the `HEAD` method if you do not need to check the response body of your health probe.
+	// > **Note:** Use the `HEAD` method if you do not need to check the response body of your health probe.
 	ProbeMethod *string `pulumi:"probeMethod"`
 	// Protocol scheme to use for the Health Probe. Possible values are `Http` and `Https`. Defaults to `Http`.
 	Protocol *string `pulumi:"protocol"`
@@ -1619,7 +1619,7 @@ type FrontdoorBackendPoolHealthProbeArgs struct {
 	Path pulumi.StringPtrInput `pulumi:"path"`
 	// Specifies HTTP method the health probe uses when querying the backend pool instances. Possible values include: `GET` and `HEAD`. Defaults to `GET`.
 	//
-	// > **NOTE:** Use the `HEAD` method if you do not need to check the response body of your health probe.
+	// > **Note:** Use the `HEAD` method if you do not need to check the response body of your health probe.
 	ProbeMethod pulumi.StringPtrInput `pulumi:"probeMethod"`
 	// Protocol scheme to use for the Health Probe. Possible values are `Http` and `Https`. Defaults to `Http`.
 	Protocol pulumi.StringPtrInput `pulumi:"protocol"`
@@ -1703,7 +1703,7 @@ func (o FrontdoorBackendPoolHealthProbeOutput) Path() pulumi.StringPtrOutput {
 
 // Specifies HTTP method the health probe uses when querying the backend pool instances. Possible values include: `GET` and `HEAD`. Defaults to `GET`.
 //
-// > **NOTE:** Use the `HEAD` method if you do not need to check the response body of your health probe.
+// > **Note:** Use the `HEAD` method if you do not need to check the response body of your health probe.
 func (o FrontdoorBackendPoolHealthProbeOutput) ProbeMethod() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FrontdoorBackendPoolHealthProbe) *string { return v.ProbeMethod }).(pulumi.StringPtrOutput)
 }
@@ -1871,7 +1871,7 @@ type FrontdoorBackendPoolSetting struct {
 	BackendPoolsSendReceiveTimeoutSeconds *int `pulumi:"backendPoolsSendReceiveTimeoutSeconds"`
 	// Enforce certificate name check on `HTTPS` requests to all backend pools, this setting will have no effect on `HTTP` requests. Permitted values are `true` or `false`.
 	//
-	// > **NOTE:** `backendPoolsSendReceiveTimeoutSeconds` and `enforceBackendPoolsCertificateNameCheck` apply to all backend pools.
+	// > **Note:** `backendPoolsSendReceiveTimeoutSeconds` and `enforceBackendPoolsCertificateNameCheck` apply to all backend pools.
 	EnforceBackendPoolsCertificateNameCheck bool `pulumi:"enforceBackendPoolsCertificateNameCheck"`
 }
 
@@ -1891,7 +1891,7 @@ type FrontdoorBackendPoolSettingArgs struct {
 	BackendPoolsSendReceiveTimeoutSeconds pulumi.IntPtrInput `pulumi:"backendPoolsSendReceiveTimeoutSeconds"`
 	// Enforce certificate name check on `HTTPS` requests to all backend pools, this setting will have no effect on `HTTP` requests. Permitted values are `true` or `false`.
 	//
-	// > **NOTE:** `backendPoolsSendReceiveTimeoutSeconds` and `enforceBackendPoolsCertificateNameCheck` apply to all backend pools.
+	// > **Note:** `backendPoolsSendReceiveTimeoutSeconds` and `enforceBackendPoolsCertificateNameCheck` apply to all backend pools.
 	EnforceBackendPoolsCertificateNameCheck pulumi.BoolInput `pulumi:"enforceBackendPoolsCertificateNameCheck"`
 }
 
@@ -1953,7 +1953,7 @@ func (o FrontdoorBackendPoolSettingOutput) BackendPoolsSendReceiveTimeoutSeconds
 
 // Enforce certificate name check on `HTTPS` requests to all backend pools, this setting will have no effect on `HTTP` requests. Permitted values are `true` or `false`.
 //
-// > **NOTE:** `backendPoolsSendReceiveTimeoutSeconds` and `enforceBackendPoolsCertificateNameCheck` apply to all backend pools.
+// > **Note:** `backendPoolsSendReceiveTimeoutSeconds` and `enforceBackendPoolsCertificateNameCheck` apply to all backend pools.
 func (o FrontdoorBackendPoolSettingOutput) EnforceBackendPoolsCertificateNameCheck() pulumi.BoolOutput {
 	return o.ApplyT(func(v FrontdoorBackendPoolSetting) bool { return v.EnforceBackendPoolsCertificateNameCheck }).(pulumi.BoolOutput)
 }

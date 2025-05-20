@@ -51,7 +51,7 @@ namespace Pulumi.Azure.AppService.Inputs
         /// <summary>
         /// The name of the Custom OIDC Authentication Provider.
         /// 
-        /// &gt; **NOTE:** An `app_setting` matching this value in upper case with the suffix of `_PROVIDER_AUTHENTICATION_SECRET` is required. e.g. `MYOIDC_PROVIDER_AUTHENTICATION_SECRET` for a value of `myoidc`.
+        /// &gt; **Note:** An `app_setting` matching this value in upper case with the suffix of `_PROVIDER_AUTHENTICATION_SECRET` is required. e.g. `MYOIDC_PROVIDER_AUTHENTICATION_SECRET` for a value of `myoidc`.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;

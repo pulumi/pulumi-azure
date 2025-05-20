@@ -193,6 +193,13 @@ class NetworkManagerStaticMember(pulumi.CustomResource):
             target_virtual_network_id=example_virtual_network.id)
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Network`: 2024-05-01
+
         ## Import
 
         Network Manager Static Member can be imported using the `resource id`, e.g.
@@ -252,6 +259,13 @@ class NetworkManagerStaticMember(pulumi.CustomResource):
             network_group_id=example_network_manager_network_group.id,
             target_virtual_network_id=example_virtual_network.id)
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Network`: 2024-05-01
 
         ## Import
 

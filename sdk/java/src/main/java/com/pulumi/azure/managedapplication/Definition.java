@@ -77,6 +77,13 @@ import javax.annotation.Nullable;
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
+ * ## API Providers
+ * 
+ * &lt;!-- This section is generated, changes will be overwritten --&gt;
+ * This resource uses the following Azure API Providers:
+ * 
+ * * `Microsoft.Solutions`: 2021-07-01
+ * 
  * ## Import
  * 
  * Managed Application Definition can be imported using the `resource id`, e.g.
@@ -245,7 +252,7 @@ public class Definition extends com.pulumi.resources.CustomResource {
     /**
      * A mapping of tags to assign to the resource.
      * 
-     * &gt; **NOTE:** If either `create_ui_definition` or `main_template` is set they both must be set.
+     * &gt; **Note:** If either `create_ui_definition` or `main_template` is set they both must be set.
      * 
      */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
@@ -254,7 +261,7 @@ public class Definition extends com.pulumi.resources.CustomResource {
     /**
      * @return A mapping of tags to assign to the resource.
      * 
-     * &gt; **NOTE:** If either `create_ui_definition` or `main_template` is set they both must be set.
+     * &gt; **Note:** If either `create_ui_definition` or `main_template` is set they both must be set.
      * 
      */
     public Output<Optional<Map<String,String>>> tags() {

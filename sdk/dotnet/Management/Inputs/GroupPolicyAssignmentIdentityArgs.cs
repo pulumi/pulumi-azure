@@ -18,7 +18,7 @@ namespace Pulumi.Azure.Management.Inputs
         /// <summary>
         /// A list of User Managed Identity IDs which should be assigned to the Policy Definition.
         /// 
-        /// &gt; **NOTE:** This is required when `type` is set to `UserAssigned`.
+        /// &gt; **Note:** This is required when `type` is set to `UserAssigned`.
         /// </summary>
         public InputList<string> IdentityIds
         {

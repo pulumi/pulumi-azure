@@ -132,6 +132,13 @@ import javax.annotation.Nullable;
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
+ * ## API Providers
+ * 
+ * &lt;!-- This section is generated, changes will be overwritten --&gt;
+ * This resource uses the following Azure API Providers:
+ * 
+ * * `NewRelic.Observability`: 2024-03-01
+ * 
  * ## Import
  * 
  * Azure Native New Relic Monitor can be imported using the `resource id`, e.g.
@@ -160,7 +167,7 @@ public class Monitor extends com.pulumi.resources.CustomResource {
     /**
      * Specifies the account id. Changing this forces a new Azure Native New Relic Monitor to be created.
      * 
-     * &gt; **NOTE:** The value of `account_id` must come from an Azure Native New Relic Monitor instance of another different subscription.
+     * &gt; **Note:** The value of `account_id` must come from an Azure Native New Relic Monitor instance of another different subscription.
      * 
      */
     @Export(name="accountId", refs={String.class}, tree="[0]")
@@ -169,7 +176,7 @@ public class Monitor extends com.pulumi.resources.CustomResource {
     /**
      * @return Specifies the account id. Changing this forces a new Azure Native New Relic Monitor to be created.
      * 
-     * &gt; **NOTE:** The value of `account_id` must come from an Azure Native New Relic Monitor instance of another different subscription.
+     * &gt; **Note:** The value of `account_id` must come from an Azure Native New Relic Monitor instance of another different subscription.
      * 
      */
     public Output<String> accountId() {
@@ -248,7 +255,7 @@ public class Monitor extends com.pulumi.resources.CustomResource {
     /**
      * Specifies the organization id. Changing this forces a new Azure Native New Relic Monitor to be created.
      * 
-     * &gt; **NOTE:** The value of `organization_id` must come from an Azure Native New Relic Monitor instance of another different subscription.
+     * &gt; **Note:** The value of `organization_id` must come from an Azure Native New Relic Monitor instance of another different subscription.
      * 
      */
     @Export(name="organizationId", refs={String.class}, tree="[0]")
@@ -257,7 +264,7 @@ public class Monitor extends com.pulumi.resources.CustomResource {
     /**
      * @return Specifies the organization id. Changing this forces a new Azure Native New Relic Monitor to be created.
      * 
-     * &gt; **NOTE:** The value of `organization_id` must come from an Azure Native New Relic Monitor instance of another different subscription.
+     * &gt; **Note:** The value of `organization_id` must come from an Azure Native New Relic Monitor instance of another different subscription.
      * 
      */
     public Output<String> organizationId() {

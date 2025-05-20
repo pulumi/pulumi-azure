@@ -21,15 +21,6 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * Manages a virtual network including any configured subnets. Each subnet can
- * optionally be configured with a security group to be associated with the subnet.
- * 
- * &gt; **NOTE on Virtual Networks and Subnet&#39;s:** This provider currently
- * provides both a standalone Subnet resource, and allows for Subnets to be defined in-line within the Virtual Network resource.
- * At this time you cannot use a Virtual Network with in-line Subnets in conjunction with any Subnet resources. Doing so will cause a conflict of Subnet configurations and will overwrite Subnet&#39;s.
- * **NOTE on Virtual Networks and DNS Servers:** This provider currently provides both a standalone virtual network DNS Servers resource, and allows for DNS servers to be defined in-line within the Virtual Network resource.
- * At this time you cannot use a Virtual Network with in-line DNS servers in conjunction with any Virtual Network DNS Servers resources. Doing so will cause a conflict of Virtual Network DNS Servers configurations and will overwrite virtual networks DNS servers.
- * 
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
@@ -126,7 +117,7 @@ public class VirtualNetwork extends com.pulumi.resources.CustomResource {
     /**
      * The BGP community attribute in format `&lt;as-number&gt;:&lt;community-value&gt;`.
      * 
-     * &gt; **NOTE** The `as-number` segment is the Microsoft ASN, which is always `12076` for now.
+     * &gt; **Note:** The `as-number` segment is the Microsoft ASN, which is always `12076` for now.
      * 
      */
     @Export(name="bgpCommunity", refs={String.class}, tree="[0]")
@@ -135,7 +126,7 @@ public class VirtualNetwork extends com.pulumi.resources.CustomResource {
     /**
      * @return The BGP community attribute in format `&lt;as-number&gt;:&lt;community-value&gt;`.
      * 
-     * &gt; **NOTE** The `as-number` segment is the Microsoft ASN, which is always `12076` for now.
+     * &gt; **Note:** The `as-number` segment is the Microsoft ASN, which is always `12076` for now.
      * 
      */
     public Output<Optional<String>> bgpCommunity() {
@@ -158,7 +149,7 @@ public class VirtualNetwork extends com.pulumi.resources.CustomResource {
     /**
      * List of IP addresses of DNS servers
      * 
-     * &gt; **NOTE** Since `dns_servers` can be configured both inline and via the separate `azure.network.VirtualNetworkDnsServers` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
+     * &gt; **Note:** Since `dns_servers` can be configured both inline and via the separate `azure.network.VirtualNetworkDnsServers` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
      * 
      */
     @Export(name="dnsServers", refs={List.class,String.class}, tree="[0,1]")
@@ -167,7 +158,7 @@ public class VirtualNetwork extends com.pulumi.resources.CustomResource {
     /**
      * @return List of IP addresses of DNS servers
      * 
-     * &gt; **NOTE** Since `dns_servers` can be configured both inline and via the separate `azure.network.VirtualNetworkDnsServers` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
+     * &gt; **Note:** Since `dns_servers` can be configured both inline and via the separate `azure.network.VirtualNetworkDnsServers` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
      * 
      */
     public Output<List<String>> dnsServers() {
@@ -288,7 +279,7 @@ public class VirtualNetwork extends com.pulumi.resources.CustomResource {
     /**
      * Can be specified multiple times to define multiple subnets. Each `subnet` block supports fields documented below.
      * 
-     * &gt; **NOTE** Since `subnet` can be configured both inline and via the separate `azure.network.Subnet` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
+     * &gt; **Note:** Since `subnet` can be configured both inline and via the separate `azure.network.Subnet` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
      * 
      */
     @Export(name="subnets", refs={List.class,VirtualNetworkSubnet.class}, tree="[0,1]")
@@ -297,7 +288,7 @@ public class VirtualNetwork extends com.pulumi.resources.CustomResource {
     /**
      * @return Can be specified multiple times to define multiple subnets. Each `subnet` block supports fields documented below.
      * 
-     * &gt; **NOTE** Since `subnet` can be configured both inline and via the separate `azure.network.Subnet` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
+     * &gt; **Note:** Since `subnet` can be configured both inline and via the separate `azure.network.Subnet` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
      * 
      */
     public Output<List<VirtualNetworkSubnet>> subnets() {

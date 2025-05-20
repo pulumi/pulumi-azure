@@ -118,6 +118,13 @@ def get_consume_group(eventhub_name: Optional[builtins.str] = None,
         resource_group_name=test_azurerm_resource_group["name"])
     ```
 
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.EventHub`: 2024-01-01
+
 
     :param builtins.str eventhub_name: Specifies the name of the EventHub.
     :param builtins.str name: Specifies the name of the EventHub Consumer Group resource.
@@ -158,6 +165,13 @@ def get_consume_group_output(eventhub_name: Optional[pulumi.Input[builtins.str]]
         eventhub_name=test_azurerm_eventhub["name"],
         resource_group_name=test_azurerm_resource_group["name"])
     ```
+
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.EventHub`: 2024-01-01
 
 
     :param builtins.str eventhub_name: Specifies the name of the EventHub.

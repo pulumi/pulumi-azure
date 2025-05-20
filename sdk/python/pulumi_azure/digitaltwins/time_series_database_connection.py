@@ -446,6 +446,13 @@ class TimeSeriesDatabaseConnection(pulumi.CustomResource):
                 ]))
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.DigitalTwins`: 2023-01-31
+
         ## Import
 
         Digital Twins Time Series Database Connections can be imported using the `resource id`, e.g.
@@ -555,6 +562,13 @@ class TimeSeriesDatabaseConnection(pulumi.CustomResource):
                     example_database_principal_assignment,
                 ]))
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.DigitalTwins`: 2023-01-31
 
         ## Import
 

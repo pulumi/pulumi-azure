@@ -41,7 +41,7 @@ import (
 //				Location:          example.Location,
 //				ResourceGroupName: example.Name,
 //				PublisherName:     pulumi.String("My Company"),
-//				PublisherEmail:    pulumi.String("company@mycompany.io"),
+//				PublisherEmail:    pulumi.String("company@terraform.io"),
 //				SkuName:           pulumi.String("Developer_1"),
 //			})
 //			if err != nil {
@@ -61,6 +61,13 @@ import (
 //	}
 //
 // ```
+//
+// ## API Providers
+//
+// <!-- This section is generated, changes will be overwritten -->
+// This resource uses the following Azure API Providers:
+//
+// * `Microsoft.ApiManagement`: 2022-08-01
 //
 // ## Import
 //

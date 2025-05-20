@@ -194,6 +194,13 @@ import (
 //
 // ```
 //
+// ## API Providers
+//
+// <!-- This section is generated, changes will be overwritten -->
+// This resource uses the following Azure API Providers:
+//
+// * `Microsoft.ElasticSan`: 2023-01-01
+//
 // ## Import
 //
 // An existing Elastic SAN Volume Group can be imported into Pulumi using the `resource id`, e.g.
@@ -208,7 +215,7 @@ type VolumeGroup struct {
 	ElasticSanId pulumi.StringOutput `pulumi:"elasticSanId"`
 	// An `encryption` block as defined below.
 	//
-	// > **NOTE:** The `encryption` block can only be set when `encryptionType` is set to `EncryptionAtRestWithCustomerManagedKey`.
+	// > **Note:** The `encryption` block can only be set when `encryptionType` is set to `EncryptionAtRestWithCustomerManagedKey`.
 	Encryption VolumeGroupEncryptionPtrOutput `pulumi:"encryption"`
 	// Specifies the type of the key used to encrypt the data of the disk. Possible values are `EncryptionAtRestWithCustomerManagedKey` and `EncryptionAtRestWithPlatformKey`. Defaults to `EncryptionAtRestWithPlatformKey`.
 	EncryptionType pulumi.StringPtrOutput `pulumi:"encryptionType"`
@@ -259,7 +266,7 @@ type volumeGroupState struct {
 	ElasticSanId *string `pulumi:"elasticSanId"`
 	// An `encryption` block as defined below.
 	//
-	// > **NOTE:** The `encryption` block can only be set when `encryptionType` is set to `EncryptionAtRestWithCustomerManagedKey`.
+	// > **Note:** The `encryption` block can only be set when `encryptionType` is set to `EncryptionAtRestWithCustomerManagedKey`.
 	Encryption *VolumeGroupEncryption `pulumi:"encryption"`
 	// Specifies the type of the key used to encrypt the data of the disk. Possible values are `EncryptionAtRestWithCustomerManagedKey` and `EncryptionAtRestWithPlatformKey`. Defaults to `EncryptionAtRestWithPlatformKey`.
 	EncryptionType *string `pulumi:"encryptionType"`
@@ -278,7 +285,7 @@ type VolumeGroupState struct {
 	ElasticSanId pulumi.StringPtrInput
 	// An `encryption` block as defined below.
 	//
-	// > **NOTE:** The `encryption` block can only be set when `encryptionType` is set to `EncryptionAtRestWithCustomerManagedKey`.
+	// > **Note:** The `encryption` block can only be set when `encryptionType` is set to `EncryptionAtRestWithCustomerManagedKey`.
 	Encryption VolumeGroupEncryptionPtrInput
 	// Specifies the type of the key used to encrypt the data of the disk. Possible values are `EncryptionAtRestWithCustomerManagedKey` and `EncryptionAtRestWithPlatformKey`. Defaults to `EncryptionAtRestWithPlatformKey`.
 	EncryptionType pulumi.StringPtrInput
@@ -301,7 +308,7 @@ type volumeGroupArgs struct {
 	ElasticSanId string `pulumi:"elasticSanId"`
 	// An `encryption` block as defined below.
 	//
-	// > **NOTE:** The `encryption` block can only be set when `encryptionType` is set to `EncryptionAtRestWithCustomerManagedKey`.
+	// > **Note:** The `encryption` block can only be set when `encryptionType` is set to `EncryptionAtRestWithCustomerManagedKey`.
 	Encryption *VolumeGroupEncryption `pulumi:"encryption"`
 	// Specifies the type of the key used to encrypt the data of the disk. Possible values are `EncryptionAtRestWithCustomerManagedKey` and `EncryptionAtRestWithPlatformKey`. Defaults to `EncryptionAtRestWithPlatformKey`.
 	EncryptionType *string `pulumi:"encryptionType"`
@@ -321,7 +328,7 @@ type VolumeGroupArgs struct {
 	ElasticSanId pulumi.StringInput
 	// An `encryption` block as defined below.
 	//
-	// > **NOTE:** The `encryption` block can only be set when `encryptionType` is set to `EncryptionAtRestWithCustomerManagedKey`.
+	// > **Note:** The `encryption` block can only be set when `encryptionType` is set to `EncryptionAtRestWithCustomerManagedKey`.
 	Encryption VolumeGroupEncryptionPtrInput
 	// Specifies the type of the key used to encrypt the data of the disk. Possible values are `EncryptionAtRestWithCustomerManagedKey` and `EncryptionAtRestWithPlatformKey`. Defaults to `EncryptionAtRestWithPlatformKey`.
 	EncryptionType pulumi.StringPtrInput
@@ -429,7 +436,7 @@ func (o VolumeGroupOutput) ElasticSanId() pulumi.StringOutput {
 
 // An `encryption` block as defined below.
 //
-// > **NOTE:** The `encryption` block can only be set when `encryptionType` is set to `EncryptionAtRestWithCustomerManagedKey`.
+// > **Note:** The `encryption` block can only be set when `encryptionType` is set to `EncryptionAtRestWithCustomerManagedKey`.
 func (o VolumeGroupOutput) Encryption() VolumeGroupEncryptionPtrOutput {
 	return o.ApplyT(func(v *VolumeGroup) VolumeGroupEncryptionPtrOutput { return v.Encryption }).(VolumeGroupEncryptionPtrOutput)
 }

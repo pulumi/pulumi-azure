@@ -14,7 +14,7 @@ import (
 
 // Manages a Storage Sync Server Endpoint.
 //
-// > **NOTE:** The parent `storage.SyncGroup` must have an `storage.SyncCloudEndpoint` available before an `storage.SyncServerEndpoint` resource can be created.
+// > **Note:** The parent `storage.SyncGroup` must have an `storage.SyncCloudEndpoint` available before an `storage.SyncServerEndpoint` resource can be created.
 //
 // ## Example Usage
 //
@@ -108,6 +108,13 @@ import (
 //
 // ```
 //
+// ## API Providers
+//
+// <!-- This section is generated, changes will be overwritten -->
+// This resource uses the following Azure API Providers:
+//
+// * `Microsoft.StorageSync`: 2020-03-01
+//
 // ## Import
 //
 // Storage Sync Server Endpoints can be imported using the `resource id`, e.g.
@@ -128,7 +135,7 @@ type SyncServerEndpoint struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The ID of the Registered Server that will be associate with the Storage Sync Server Endpoint. Changing this forces a new Storage Sync Server Endpoint to be created.
 	//
-	// > **NOTE:** The target server must already be registered with the parent `storage.Sync` prior to creating this endpoint. For more information on registering a server see the [Microsoft documentation](https://learn.microsoft.com/azure/storage/file-sync/file-sync-server-registration)
+	// > **Note:** The target server must already be registered with the parent `storage.Sync` prior to creating this endpoint. For more information on registering a server see the [Microsoft documentation](https://learn.microsoft.com/azure/storage/file-sync/file-sync-server-registration)
 	RegisteredServerId pulumi.StringOutput `pulumi:"registeredServerId"`
 	// The path on the Windows Server to be synced to the Azure file share. Changing this forces a new Storage Sync Server Endpoint to be created.
 	ServerLocalPath pulumi.StringOutput `pulumi:"serverLocalPath"`
@@ -189,7 +196,7 @@ type syncServerEndpointState struct {
 	Name *string `pulumi:"name"`
 	// The ID of the Registered Server that will be associate with the Storage Sync Server Endpoint. Changing this forces a new Storage Sync Server Endpoint to be created.
 	//
-	// > **NOTE:** The target server must already be registered with the parent `storage.Sync` prior to creating this endpoint. For more information on registering a server see the [Microsoft documentation](https://learn.microsoft.com/azure/storage/file-sync/file-sync-server-registration)
+	// > **Note:** The target server must already be registered with the parent `storage.Sync` prior to creating this endpoint. For more information on registering a server see the [Microsoft documentation](https://learn.microsoft.com/azure/storage/file-sync/file-sync-server-registration)
 	RegisteredServerId *string `pulumi:"registeredServerId"`
 	// The path on the Windows Server to be synced to the Azure file share. Changing this forces a new Storage Sync Server Endpoint to be created.
 	ServerLocalPath *string `pulumi:"serverLocalPath"`
@@ -212,7 +219,7 @@ type SyncServerEndpointState struct {
 	Name pulumi.StringPtrInput
 	// The ID of the Registered Server that will be associate with the Storage Sync Server Endpoint. Changing this forces a new Storage Sync Server Endpoint to be created.
 	//
-	// > **NOTE:** The target server must already be registered with the parent `storage.Sync` prior to creating this endpoint. For more information on registering a server see the [Microsoft documentation](https://learn.microsoft.com/azure/storage/file-sync/file-sync-server-registration)
+	// > **Note:** The target server must already be registered with the parent `storage.Sync` prior to creating this endpoint. For more information on registering a server see the [Microsoft documentation](https://learn.microsoft.com/azure/storage/file-sync/file-sync-server-registration)
 	RegisteredServerId pulumi.StringPtrInput
 	// The path on the Windows Server to be synced to the Azure file share. Changing this forces a new Storage Sync Server Endpoint to be created.
 	ServerLocalPath pulumi.StringPtrInput
@@ -239,7 +246,7 @@ type syncServerEndpointArgs struct {
 	Name *string `pulumi:"name"`
 	// The ID of the Registered Server that will be associate with the Storage Sync Server Endpoint. Changing this forces a new Storage Sync Server Endpoint to be created.
 	//
-	// > **NOTE:** The target server must already be registered with the parent `storage.Sync` prior to creating this endpoint. For more information on registering a server see the [Microsoft documentation](https://learn.microsoft.com/azure/storage/file-sync/file-sync-server-registration)
+	// > **Note:** The target server must already be registered with the parent `storage.Sync` prior to creating this endpoint. For more information on registering a server see the [Microsoft documentation](https://learn.microsoft.com/azure/storage/file-sync/file-sync-server-registration)
 	RegisteredServerId string `pulumi:"registeredServerId"`
 	// The path on the Windows Server to be synced to the Azure file share. Changing this forces a new Storage Sync Server Endpoint to be created.
 	ServerLocalPath string `pulumi:"serverLocalPath"`
@@ -263,7 +270,7 @@ type SyncServerEndpointArgs struct {
 	Name pulumi.StringPtrInput
 	// The ID of the Registered Server that will be associate with the Storage Sync Server Endpoint. Changing this forces a new Storage Sync Server Endpoint to be created.
 	//
-	// > **NOTE:** The target server must already be registered with the parent `storage.Sync` prior to creating this endpoint. For more information on registering a server see the [Microsoft documentation](https://learn.microsoft.com/azure/storage/file-sync/file-sync-server-registration)
+	// > **Note:** The target server must already be registered with the parent `storage.Sync` prior to creating this endpoint. For more information on registering a server see the [Microsoft documentation](https://learn.microsoft.com/azure/storage/file-sync/file-sync-server-registration)
 	RegisteredServerId pulumi.StringInput
 	// The path on the Windows Server to be synced to the Azure file share. Changing this forces a new Storage Sync Server Endpoint to be created.
 	ServerLocalPath pulumi.StringInput
@@ -384,7 +391,7 @@ func (o SyncServerEndpointOutput) Name() pulumi.StringOutput {
 
 // The ID of the Registered Server that will be associate with the Storage Sync Server Endpoint. Changing this forces a new Storage Sync Server Endpoint to be created.
 //
-// > **NOTE:** The target server must already be registered with the parent `storage.Sync` prior to creating this endpoint. For more information on registering a server see the [Microsoft documentation](https://learn.microsoft.com/azure/storage/file-sync/file-sync-server-registration)
+// > **Note:** The target server must already be registered with the parent `storage.Sync` prior to creating this endpoint. For more information on registering a server see the [Microsoft documentation](https://learn.microsoft.com/azure/storage/file-sync/file-sync-server-registration)
 func (o SyncServerEndpointOutput) RegisteredServerId() pulumi.StringOutput {
 	return o.ApplyT(func(v *SyncServerEndpoint) pulumi.StringOutput { return v.RegisteredServerId }).(pulumi.StringOutput)
 }

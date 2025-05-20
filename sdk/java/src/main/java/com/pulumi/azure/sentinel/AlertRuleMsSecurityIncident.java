@@ -80,6 +80,13 @@ import javax.annotation.Nullable;
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
+ * ## API Providers
+ * 
+ * &lt;!-- This section is generated, changes will be overwritten --&gt;
+ * This resource uses the following Azure API Providers:
+ * 
+ * * `Microsoft.OperationalInsights`: 2023-12-01-preview
+ * 
  * ## Import
  * 
  * Sentinel MS Security Incident Alert Rules can be imported using the `resource id`, e.g.
@@ -220,7 +227,7 @@ public class AlertRuleMsSecurityIncident extends com.pulumi.resources.CustomReso
     /**
      * Only create incidents from alerts when alert severity level is contained in this list. Possible values are `High`, `Medium`, `Low` and `Informational`.
      * 
-     * &gt; **NOTE** At least one of the severity filters need to be set.
+     * &gt; **Note:** At least one of the severity filters need to be set.
      * 
      */
     @Export(name="severityFilters", refs={List.class,String.class}, tree="[0,1]")
@@ -229,7 +236,7 @@ public class AlertRuleMsSecurityIncident extends com.pulumi.resources.CustomReso
     /**
      * @return Only create incidents from alerts when alert severity level is contained in this list. Possible values are `High`, `Medium`, `Low` and `Informational`.
      * 
-     * &gt; **NOTE** At least one of the severity filters need to be set.
+     * &gt; **Note:** At least one of the severity filters need to be set.
      * 
      */
     public Output<List<String>> severityFilters() {

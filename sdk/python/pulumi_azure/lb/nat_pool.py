@@ -411,9 +411,9 @@ class NatPool(pulumi.CustomResource):
         """
         Manages a Load Balancer NAT pool.
 
-        > **NOTE:** This resource cannot be used with with virtual machines, instead use the `lb.NatRule` resource.
+        > **Note:** This resource cannot be used with with virtual machines, instead use the `lb.NatRule` resource.
 
-        > **NOTE** When using this resource, the Load Balancer needs to have a FrontEnd IP Configuration Attached
+        > **Note:** When using this resource, the Load Balancer needs to have a FrontEnd IP Configuration Attached
 
         ## Example Usage
 
@@ -447,6 +447,13 @@ class NatPool(pulumi.CustomResource):
             backend_port=8080,
             frontend_ip_configuration_name="PublicIPAddress")
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Network`: 2023-09-01
 
         ## Import
 
@@ -479,9 +486,9 @@ class NatPool(pulumi.CustomResource):
         """
         Manages a Load Balancer NAT pool.
 
-        > **NOTE:** This resource cannot be used with with virtual machines, instead use the `lb.NatRule` resource.
+        > **Note:** This resource cannot be used with with virtual machines, instead use the `lb.NatRule` resource.
 
-        > **NOTE** When using this resource, the Load Balancer needs to have a FrontEnd IP Configuration Attached
+        > **Note:** When using this resource, the Load Balancer needs to have a FrontEnd IP Configuration Attached
 
         ## Example Usage
 
@@ -515,6 +522,13 @@ class NatPool(pulumi.CustomResource):
             backend_port=8080,
             frontend_ip_configuration_name="PublicIPAddress")
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Network`: 2023-09-01
 
         ## Import
 

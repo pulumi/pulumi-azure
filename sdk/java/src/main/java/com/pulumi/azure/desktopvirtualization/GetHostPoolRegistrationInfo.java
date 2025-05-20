@@ -71,6 +71,13 @@ import javax.annotation.Nullable;
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
+ * ## API Providers
+ * 
+ * &lt;!-- This section is generated, changes will be overwritten --&gt;
+ * This resource uses the following Azure API Providers:
+ * 
+ * * `Microsoft.DesktopVirtualization`: 2024-04-03
+ * 
  * ## Import
  * 
  * AVD Registration Infos can be imported using the `resource id`, e.g.

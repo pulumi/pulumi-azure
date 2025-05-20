@@ -107,14 +107,7 @@ namespace Pulumi.Azure.Compute
     public partial class ManagedDisk : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The method to use when creating the managed disk. Changing this forces a new resource to be created. Possible values include:
-        /// * `Import` - Import a VHD file in to the managed disk (VHD specified with `source_uri`).
-        /// * `ImportSecure` - Securely import a VHD file in to the managed disk (VHD specified with `source_uri`).
-        /// * `Empty` - Create an empty managed disk.
-        /// * `Copy` - Copy an existing managed disk or snapshot (specified with `source_resource_id`).
-        /// * `FromImage` - Copy a Platform Image (specified with `image_reference_id`)
-        /// * `Restore` - Set by Azure Backup or Site Recovery on a restored disk (specified with `source_resource_id`).
-        /// * `Upload` - Upload a VHD disk with the help of SAS URL (to be used with `upload_size_bytes`).
+        /// The method to use when creating the managed disk. Changing this forces a new resource to be created. Possible values include: * `Import` - Import a VHD file in to the managed disk (VHD specified with `source_uri`). * `ImportSecure` - Securely import a VHD file in to the managed disk (VHD specified with `source_uri`). * `Empty` - Create an empty managed disk. * `Copy` - Copy an existing managed disk or snapshot (specified with `source_resource_id`). * `FromImage` - Copy a Platform Image (specified with `image_reference_id`) * `Restore` - Set by Azure Backup or Site Recovery on a restored disk (specified with `source_resource_id`). * `Upload` - Upload a VHD disk with the help of SAS URL (to be used with `upload_size_bytes`).
         /// </summary>
         [Output("createOption")]
         public Output<string> CreateOption { get; private set; } = null!;
@@ -130,9 +123,9 @@ namespace Pulumi.Azure.Compute
         /// <summary>
         /// The ID of a Disk Encryption Set which should be used to encrypt this Managed Disk. Conflicts with `secure_vm_disk_encryption_set_id`.
         /// 
-        /// &gt; **NOTE:** The Disk Encryption Set must have the `Reader` Role Assignment scoped on the Key Vault - in addition to an Access Policy to the Key Vault
+        /// &gt; **Note:** The Disk Encryption Set must have the `Reader` Role Assignment scoped on the Key Vault - in addition to an Access Policy to the Key Vault
         /// 
-        /// &gt; **NOTE:** Disk Encryption Sets are in Public Preview in a limited set of regions
+        /// &gt; **Note:** Disk Encryption Sets are in Public Preview in a limited set of regions
         /// </summary>
         [Output("diskEncryptionSetId")]
         public Output<string?> DiskEncryptionSetId { get; private set; } = null!;
@@ -173,7 +166,7 @@ namespace Pulumi.Azure.Compute
         /// <summary>
         /// A `encryption_settings` block as defined below.
         /// 
-        /// &gt; **NOTE:** Removing `encryption_settings` forces a new resource to be created.
+        /// &gt; **Note:** Removing `encryption_settings` forces a new resource to be created.
         /// </summary>
         [Output("encryptionSettings")]
         public Output<Outputs.ManagedDiskEncryptionSettings?> EncryptionSettings { get; private set; } = null!;
@@ -205,7 +198,7 @@ namespace Pulumi.Azure.Compute
         /// <summary>
         /// Logical Sector Size. Possible values are: `512` and `4096`. Defaults to `4096`. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **NOTE:** Setting logical sector size is supported only with `UltraSSD_LRS` disks and `PremiumV2_LRS` disks.
+        /// &gt; **Note:** Setting logical sector size is supported only with `UltraSSD_LRS` disks and `PremiumV2_LRS` disks.
         /// </summary>
         [Output("logicalSectorSize")]
         public Output<int> LogicalSectorSize { get; private set; } = null!;
@@ -275,7 +268,7 @@ namespace Pulumi.Azure.Compute
         /// <summary>
         /// The ID of the Disk Encryption Set which should be used to Encrypt this OS Disk when the Virtual Machine is a Confidential VM. Conflicts with `disk_encryption_set_id`. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **NOTE:** `secure_vm_disk_encryption_set_id` can only be specified when `security_type` is set to `ConfidentialVM_DiskEncryptedWithCustomerKey`.
+        /// &gt; **Note:** `secure_vm_disk_encryption_set_id` can only be specified when `security_type` is set to `ConfidentialVM_DiskEncryptedWithCustomerKey`.
         /// </summary>
         [Output("secureVmDiskEncryptionSetId")]
         public Output<string?> SecureVmDiskEncryptionSetId { get; private set; } = null!;
@@ -283,12 +276,12 @@ namespace Pulumi.Azure.Compute
         /// <summary>
         /// Security Type of the Managed Disk when it is used for a Confidential VM. Possible values are `ConfidentialVM_VMGuestStateOnlyEncryptedWithPlatformKey`, `ConfidentialVM_DiskEncryptedWithPlatformKey` and `ConfidentialVM_DiskEncryptedWithCustomerKey`. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **NOTE:** When `security_type` is set to `ConfidentialVM_DiskEncryptedWithCustomerKey` the value of `create_option` must be one of `FromImage` or `ImportSecure`.
+        /// &gt; **Note:** When `security_type` is set to `ConfidentialVM_DiskEncryptedWithCustomerKey` the value of `create_option` must be one of `FromImage` or `ImportSecure`.
         /// 
         /// 
-        /// &gt; **NOTE:** `security_type` cannot be specified when `trusted_launch_enabled` is set to true.
+        /// &gt; **Note:** `security_type` cannot be specified when `trusted_launch_enabled` is set to true.
         /// 
-        /// &gt; **NOTE:** `secure_vm_disk_encryption_set_id` must be specified when `security_type` is set to `ConfidentialVM_DiskEncryptedWithCustomerKey`.
+        /// &gt; **Note:** `secure_vm_disk_encryption_set_id` must be specified when `security_type` is set to `ConfidentialVM_DiskEncryptedWithCustomerKey`.
         /// </summary>
         [Output("securityType")]
         public Output<string?> SecurityType { get; private set; } = null!;
@@ -397,14 +390,7 @@ namespace Pulumi.Azure.Compute
     public sealed class ManagedDiskArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The method to use when creating the managed disk. Changing this forces a new resource to be created. Possible values include:
-        /// * `Import` - Import a VHD file in to the managed disk (VHD specified with `source_uri`).
-        /// * `ImportSecure` - Securely import a VHD file in to the managed disk (VHD specified with `source_uri`).
-        /// * `Empty` - Create an empty managed disk.
-        /// * `Copy` - Copy an existing managed disk or snapshot (specified with `source_resource_id`).
-        /// * `FromImage` - Copy a Platform Image (specified with `image_reference_id`)
-        /// * `Restore` - Set by Azure Backup or Site Recovery on a restored disk (specified with `source_resource_id`).
-        /// * `Upload` - Upload a VHD disk with the help of SAS URL (to be used with `upload_size_bytes`).
+        /// The method to use when creating the managed disk. Changing this forces a new resource to be created. Possible values include: * `Import` - Import a VHD file in to the managed disk (VHD specified with `source_uri`). * `ImportSecure` - Securely import a VHD file in to the managed disk (VHD specified with `source_uri`). * `Empty` - Create an empty managed disk. * `Copy` - Copy an existing managed disk or snapshot (specified with `source_resource_id`). * `FromImage` - Copy a Platform Image (specified with `image_reference_id`) * `Restore` - Set by Azure Backup or Site Recovery on a restored disk (specified with `source_resource_id`). * `Upload` - Upload a VHD disk with the help of SAS URL (to be used with `upload_size_bytes`).
         /// </summary>
         [Input("createOption", required: true)]
         public Input<string> CreateOption { get; set; } = null!;
@@ -420,9 +406,9 @@ namespace Pulumi.Azure.Compute
         /// <summary>
         /// The ID of a Disk Encryption Set which should be used to encrypt this Managed Disk. Conflicts with `secure_vm_disk_encryption_set_id`.
         /// 
-        /// &gt; **NOTE:** The Disk Encryption Set must have the `Reader` Role Assignment scoped on the Key Vault - in addition to an Access Policy to the Key Vault
+        /// &gt; **Note:** The Disk Encryption Set must have the `Reader` Role Assignment scoped on the Key Vault - in addition to an Access Policy to the Key Vault
         /// 
-        /// &gt; **NOTE:** Disk Encryption Sets are in Public Preview in a limited set of regions
+        /// &gt; **Note:** Disk Encryption Sets are in Public Preview in a limited set of regions
         /// </summary>
         [Input("diskEncryptionSetId")]
         public Input<string>? DiskEncryptionSetId { get; set; }
@@ -463,7 +449,7 @@ namespace Pulumi.Azure.Compute
         /// <summary>
         /// A `encryption_settings` block as defined below.
         /// 
-        /// &gt; **NOTE:** Removing `encryption_settings` forces a new resource to be created.
+        /// &gt; **Note:** Removing `encryption_settings` forces a new resource to be created.
         /// </summary>
         [Input("encryptionSettings")]
         public Input<Inputs.ManagedDiskEncryptionSettingsArgs>? EncryptionSettings { get; set; }
@@ -495,7 +481,7 @@ namespace Pulumi.Azure.Compute
         /// <summary>
         /// Logical Sector Size. Possible values are: `512` and `4096`. Defaults to `4096`. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **NOTE:** Setting logical sector size is supported only with `UltraSSD_LRS` disks and `PremiumV2_LRS` disks.
+        /// &gt; **Note:** Setting logical sector size is supported only with `UltraSSD_LRS` disks and `PremiumV2_LRS` disks.
         /// </summary>
         [Input("logicalSectorSize")]
         public Input<int>? LogicalSectorSize { get; set; }
@@ -565,7 +551,7 @@ namespace Pulumi.Azure.Compute
         /// <summary>
         /// The ID of the Disk Encryption Set which should be used to Encrypt this OS Disk when the Virtual Machine is a Confidential VM. Conflicts with `disk_encryption_set_id`. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **NOTE:** `secure_vm_disk_encryption_set_id` can only be specified when `security_type` is set to `ConfidentialVM_DiskEncryptedWithCustomerKey`.
+        /// &gt; **Note:** `secure_vm_disk_encryption_set_id` can only be specified when `security_type` is set to `ConfidentialVM_DiskEncryptedWithCustomerKey`.
         /// </summary>
         [Input("secureVmDiskEncryptionSetId")]
         public Input<string>? SecureVmDiskEncryptionSetId { get; set; }
@@ -573,12 +559,12 @@ namespace Pulumi.Azure.Compute
         /// <summary>
         /// Security Type of the Managed Disk when it is used for a Confidential VM. Possible values are `ConfidentialVM_VMGuestStateOnlyEncryptedWithPlatformKey`, `ConfidentialVM_DiskEncryptedWithPlatformKey` and `ConfidentialVM_DiskEncryptedWithCustomerKey`. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **NOTE:** When `security_type` is set to `ConfidentialVM_DiskEncryptedWithCustomerKey` the value of `create_option` must be one of `FromImage` or `ImportSecure`.
+        /// &gt; **Note:** When `security_type` is set to `ConfidentialVM_DiskEncryptedWithCustomerKey` the value of `create_option` must be one of `FromImage` or `ImportSecure`.
         /// 
         /// 
-        /// &gt; **NOTE:** `security_type` cannot be specified when `trusted_launch_enabled` is set to true.
+        /// &gt; **Note:** `security_type` cannot be specified when `trusted_launch_enabled` is set to true.
         /// 
-        /// &gt; **NOTE:** `secure_vm_disk_encryption_set_id` must be specified when `security_type` is set to `ConfidentialVM_DiskEncryptedWithCustomerKey`.
+        /// &gt; **Note:** `secure_vm_disk_encryption_set_id` must be specified when `security_type` is set to `ConfidentialVM_DiskEncryptedWithCustomerKey`.
         /// </summary>
         [Input("securityType")]
         public Input<string>? SecurityType { get; set; }
@@ -655,14 +641,7 @@ namespace Pulumi.Azure.Compute
     public sealed class ManagedDiskState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The method to use when creating the managed disk. Changing this forces a new resource to be created. Possible values include:
-        /// * `Import` - Import a VHD file in to the managed disk (VHD specified with `source_uri`).
-        /// * `ImportSecure` - Securely import a VHD file in to the managed disk (VHD specified with `source_uri`).
-        /// * `Empty` - Create an empty managed disk.
-        /// * `Copy` - Copy an existing managed disk or snapshot (specified with `source_resource_id`).
-        /// * `FromImage` - Copy a Platform Image (specified with `image_reference_id`)
-        /// * `Restore` - Set by Azure Backup or Site Recovery on a restored disk (specified with `source_resource_id`).
-        /// * `Upload` - Upload a VHD disk with the help of SAS URL (to be used with `upload_size_bytes`).
+        /// The method to use when creating the managed disk. Changing this forces a new resource to be created. Possible values include: * `Import` - Import a VHD file in to the managed disk (VHD specified with `source_uri`). * `ImportSecure` - Securely import a VHD file in to the managed disk (VHD specified with `source_uri`). * `Empty` - Create an empty managed disk. * `Copy` - Copy an existing managed disk or snapshot (specified with `source_resource_id`). * `FromImage` - Copy a Platform Image (specified with `image_reference_id`) * `Restore` - Set by Azure Backup or Site Recovery on a restored disk (specified with `source_resource_id`). * `Upload` - Upload a VHD disk with the help of SAS URL (to be used with `upload_size_bytes`).
         /// </summary>
         [Input("createOption")]
         public Input<string>? CreateOption { get; set; }
@@ -678,9 +657,9 @@ namespace Pulumi.Azure.Compute
         /// <summary>
         /// The ID of a Disk Encryption Set which should be used to encrypt this Managed Disk. Conflicts with `secure_vm_disk_encryption_set_id`.
         /// 
-        /// &gt; **NOTE:** The Disk Encryption Set must have the `Reader` Role Assignment scoped on the Key Vault - in addition to an Access Policy to the Key Vault
+        /// &gt; **Note:** The Disk Encryption Set must have the `Reader` Role Assignment scoped on the Key Vault - in addition to an Access Policy to the Key Vault
         /// 
-        /// &gt; **NOTE:** Disk Encryption Sets are in Public Preview in a limited set of regions
+        /// &gt; **Note:** Disk Encryption Sets are in Public Preview in a limited set of regions
         /// </summary>
         [Input("diskEncryptionSetId")]
         public Input<string>? DiskEncryptionSetId { get; set; }
@@ -721,7 +700,7 @@ namespace Pulumi.Azure.Compute
         /// <summary>
         /// A `encryption_settings` block as defined below.
         /// 
-        /// &gt; **NOTE:** Removing `encryption_settings` forces a new resource to be created.
+        /// &gt; **Note:** Removing `encryption_settings` forces a new resource to be created.
         /// </summary>
         [Input("encryptionSettings")]
         public Input<Inputs.ManagedDiskEncryptionSettingsGetArgs>? EncryptionSettings { get; set; }
@@ -753,7 +732,7 @@ namespace Pulumi.Azure.Compute
         /// <summary>
         /// Logical Sector Size. Possible values are: `512` and `4096`. Defaults to `4096`. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **NOTE:** Setting logical sector size is supported only with `UltraSSD_LRS` disks and `PremiumV2_LRS` disks.
+        /// &gt; **Note:** Setting logical sector size is supported only with `UltraSSD_LRS` disks and `PremiumV2_LRS` disks.
         /// </summary>
         [Input("logicalSectorSize")]
         public Input<int>? LogicalSectorSize { get; set; }
@@ -823,7 +802,7 @@ namespace Pulumi.Azure.Compute
         /// <summary>
         /// The ID of the Disk Encryption Set which should be used to Encrypt this OS Disk when the Virtual Machine is a Confidential VM. Conflicts with `disk_encryption_set_id`. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **NOTE:** `secure_vm_disk_encryption_set_id` can only be specified when `security_type` is set to `ConfidentialVM_DiskEncryptedWithCustomerKey`.
+        /// &gt; **Note:** `secure_vm_disk_encryption_set_id` can only be specified when `security_type` is set to `ConfidentialVM_DiskEncryptedWithCustomerKey`.
         /// </summary>
         [Input("secureVmDiskEncryptionSetId")]
         public Input<string>? SecureVmDiskEncryptionSetId { get; set; }
@@ -831,12 +810,12 @@ namespace Pulumi.Azure.Compute
         /// <summary>
         /// Security Type of the Managed Disk when it is used for a Confidential VM. Possible values are `ConfidentialVM_VMGuestStateOnlyEncryptedWithPlatformKey`, `ConfidentialVM_DiskEncryptedWithPlatformKey` and `ConfidentialVM_DiskEncryptedWithCustomerKey`. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **NOTE:** When `security_type` is set to `ConfidentialVM_DiskEncryptedWithCustomerKey` the value of `create_option` must be one of `FromImage` or `ImportSecure`.
+        /// &gt; **Note:** When `security_type` is set to `ConfidentialVM_DiskEncryptedWithCustomerKey` the value of `create_option` must be one of `FromImage` or `ImportSecure`.
         /// 
         /// 
-        /// &gt; **NOTE:** `security_type` cannot be specified when `trusted_launch_enabled` is set to true.
+        /// &gt; **Note:** `security_type` cannot be specified when `trusted_launch_enabled` is set to true.
         /// 
-        /// &gt; **NOTE:** `secure_vm_disk_encryption_set_id` must be specified when `security_type` is set to `ConfidentialVM_DiskEncryptedWithCustomerKey`.
+        /// &gt; **Note:** `secure_vm_disk_encryption_set_id` must be specified when `security_type` is set to `ConfidentialVM_DiskEncryptedWithCustomerKey`.
         /// </summary>
         [Input("securityType")]
         public Input<string>? SecurityType { get; set; }

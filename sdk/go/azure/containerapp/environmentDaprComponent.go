@@ -71,6 +71,13 @@ import (
 //
 // ```
 //
+// ## API Providers
+//
+// <!-- This section is generated, changes will be overwritten -->
+// This resource uses the following Azure API Providers:
+//
+// * `Microsoft.App`: 2025-01-01
+//
 // ## Import
 //
 // A Dapr Component for a Container App Environment can be imported using the `resource id`, e.g.
@@ -95,7 +102,7 @@ type EnvironmentDaprComponent struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// A list of scopes to which this component applies.
 	//
-	// > **NOTE:** See the official docs for more information at https://learn.microsoft.com/en-us/azure/container-apps/dapr-overview?tabs=bicep1%2Cyaml#component-scopes
+	// > **Note:** See the official docs for more information at https://learn.microsoft.com/en-us/azure/container-apps/dapr-overview?tabs=bicep1%2Cyaml#component-scopes
 	Scopes pulumi.StringArrayOutput `pulumi:"scopes"`
 	// A `secret` block as detailed below.
 	Secrets EnvironmentDaprComponentSecretArrayOutput `pulumi:"secrets"`
@@ -163,7 +170,7 @@ type environmentDaprComponentState struct {
 	Name *string `pulumi:"name"`
 	// A list of scopes to which this component applies.
 	//
-	// > **NOTE:** See the official docs for more information at https://learn.microsoft.com/en-us/azure/container-apps/dapr-overview?tabs=bicep1%2Cyaml#component-scopes
+	// > **Note:** See the official docs for more information at https://learn.microsoft.com/en-us/azure/container-apps/dapr-overview?tabs=bicep1%2Cyaml#component-scopes
 	Scopes []string `pulumi:"scopes"`
 	// A `secret` block as detailed below.
 	Secrets []EnvironmentDaprComponentSecret `pulumi:"secrets"`
@@ -186,7 +193,7 @@ type EnvironmentDaprComponentState struct {
 	Name pulumi.StringPtrInput
 	// A list of scopes to which this component applies.
 	//
-	// > **NOTE:** See the official docs for more information at https://learn.microsoft.com/en-us/azure/container-apps/dapr-overview?tabs=bicep1%2Cyaml#component-scopes
+	// > **Note:** See the official docs for more information at https://learn.microsoft.com/en-us/azure/container-apps/dapr-overview?tabs=bicep1%2Cyaml#component-scopes
 	Scopes pulumi.StringArrayInput
 	// A `secret` block as detailed below.
 	Secrets EnvironmentDaprComponentSecretArrayInput
@@ -213,7 +220,7 @@ type environmentDaprComponentArgs struct {
 	Name *string `pulumi:"name"`
 	// A list of scopes to which this component applies.
 	//
-	// > **NOTE:** See the official docs for more information at https://learn.microsoft.com/en-us/azure/container-apps/dapr-overview?tabs=bicep1%2Cyaml#component-scopes
+	// > **Note:** See the official docs for more information at https://learn.microsoft.com/en-us/azure/container-apps/dapr-overview?tabs=bicep1%2Cyaml#component-scopes
 	Scopes []string `pulumi:"scopes"`
 	// A `secret` block as detailed below.
 	Secrets []EnvironmentDaprComponentSecret `pulumi:"secrets"`
@@ -237,7 +244,7 @@ type EnvironmentDaprComponentArgs struct {
 	Name pulumi.StringPtrInput
 	// A list of scopes to which this component applies.
 	//
-	// > **NOTE:** See the official docs for more information at https://learn.microsoft.com/en-us/azure/container-apps/dapr-overview?tabs=bicep1%2Cyaml#component-scopes
+	// > **Note:** See the official docs for more information at https://learn.microsoft.com/en-us/azure/container-apps/dapr-overview?tabs=bicep1%2Cyaml#component-scopes
 	Scopes pulumi.StringArrayInput
 	// A `secret` block as detailed below.
 	Secrets EnvironmentDaprComponentSecretArrayInput
@@ -364,7 +371,7 @@ func (o EnvironmentDaprComponentOutput) Name() pulumi.StringOutput {
 
 // A list of scopes to which this component applies.
 //
-// > **NOTE:** See the official docs for more information at https://learn.microsoft.com/en-us/azure/container-apps/dapr-overview?tabs=bicep1%2Cyaml#component-scopes
+// > **Note:** See the official docs for more information at https://learn.microsoft.com/en-us/azure/container-apps/dapr-overview?tabs=bicep1%2Cyaml#component-scopes
 func (o EnvironmentDaprComponentOutput) Scopes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *EnvironmentDaprComponent) pulumi.StringArrayOutput { return v.Scopes }).(pulumi.StringArrayOutput)
 }

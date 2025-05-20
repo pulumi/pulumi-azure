@@ -14,6 +14,12 @@ import (
 
 // Manages a virtual machine scale set.
 //
+// ## Disclaimers
+//
+// !> **Note:** The `compute.ScaleSet` resource has been deprecated in favour of the `compute.LinuxVirtualMachineScaleSet` and `compute.WindowsVirtualMachineScaleSet` resources. Whilst this will continue to be available throughout the 2.x and 3.x releases however is in a feature-frozen state to maintain compatibility - new functionality will instead be added to the `compute.LinuxVirtualMachineScaleSet` and `compute.WindowsVirtualMachineScaleSet` resources and the `compute.ScaleSet` resource will be removed in the future.
+//
+// > **Note:** All arguments including the administrator login and password will be stored in the raw state as plain-text. [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
+//
 // ## Example Usage
 //
 // ### With Managed Disks (Recommended)
@@ -179,7 +185,7 @@ import (
 //				},
 //				NetworkProfiles: compute.ScaleSetNetworkProfileArray{
 //					&compute.ScaleSetNetworkProfileArgs{
-//						Name:    pulumi.String("mynetworkprofile"),
+//						Name:    pulumi.String("terraformnetworkprofile"),
 //						Primary: pulumi.Bool(true),
 //						IpConfigurations: compute.ScaleSetNetworkProfileIpConfigurationArray{
 //							&compute.ScaleSetNetworkProfileIpConfigurationArgs{
@@ -400,7 +406,7 @@ type ScaleSet struct {
 	BootDiagnostics ScaleSetBootDiagnosticsPtrOutput `pulumi:"bootDiagnostics"`
 	// Specifies the eviction policy for Virtual Machines in this Scale Set. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** `evictionPolicy` can only be set when `priority` is set to `Low`.
+	// > **Note:** `evictionPolicy` can only be set when `priority` is set to `Low`.
 	EvictionPolicy pulumi.StringPtrOutput `pulumi:"evictionPolicy"`
 	// Can be specified multiple times to add extension profiles to the scale set. Each `extension` block supports the fields documented below.
 	Extensions ScaleSetExtensionArrayOutput `pulumi:"extensions"`
@@ -452,7 +458,7 @@ type ScaleSet struct {
 	UpgradePolicyMode pulumi.StringOutput `pulumi:"upgradePolicyMode"`
 	// A collection of availability zones to spread the Virtual Machines over. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** Availability Zones are [only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview).
+	// > **Note:** Availability Zones are [only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview).
 	Zones pulumi.StringArrayOutput `pulumi:"zones"`
 }
 
@@ -510,7 +516,7 @@ type scaleSetState struct {
 	BootDiagnostics *ScaleSetBootDiagnostics `pulumi:"bootDiagnostics"`
 	// Specifies the eviction policy for Virtual Machines in this Scale Set. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** `evictionPolicy` can only be set when `priority` is set to `Low`.
+	// > **Note:** `evictionPolicy` can only be set when `priority` is set to `Low`.
 	EvictionPolicy *string `pulumi:"evictionPolicy"`
 	// Can be specified multiple times to add extension profiles to the scale set. Each `extension` block supports the fields documented below.
 	Extensions []ScaleSetExtension `pulumi:"extensions"`
@@ -562,7 +568,7 @@ type scaleSetState struct {
 	UpgradePolicyMode *string `pulumi:"upgradePolicyMode"`
 	// A collection of availability zones to spread the Virtual Machines over. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** Availability Zones are [only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview).
+	// > **Note:** Availability Zones are [only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview).
 	Zones []string `pulumi:"zones"`
 }
 
@@ -573,7 +579,7 @@ type ScaleSetState struct {
 	BootDiagnostics ScaleSetBootDiagnosticsPtrInput
 	// Specifies the eviction policy for Virtual Machines in this Scale Set. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** `evictionPolicy` can only be set when `priority` is set to `Low`.
+	// > **Note:** `evictionPolicy` can only be set when `priority` is set to `Low`.
 	EvictionPolicy pulumi.StringPtrInput
 	// Can be specified multiple times to add extension profiles to the scale set. Each `extension` block supports the fields documented below.
 	Extensions ScaleSetExtensionArrayInput
@@ -625,7 +631,7 @@ type ScaleSetState struct {
 	UpgradePolicyMode pulumi.StringPtrInput
 	// A collection of availability zones to spread the Virtual Machines over. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** Availability Zones are [only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview).
+	// > **Note:** Availability Zones are [only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview).
 	Zones pulumi.StringArrayInput
 }
 
@@ -640,7 +646,7 @@ type scaleSetArgs struct {
 	BootDiagnostics *ScaleSetBootDiagnostics `pulumi:"bootDiagnostics"`
 	// Specifies the eviction policy for Virtual Machines in this Scale Set. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** `evictionPolicy` can only be set when `priority` is set to `Low`.
+	// > **Note:** `evictionPolicy` can only be set when `priority` is set to `Low`.
 	EvictionPolicy *string `pulumi:"evictionPolicy"`
 	// Can be specified multiple times to add extension profiles to the scale set. Each `extension` block supports the fields documented below.
 	Extensions []ScaleSetExtension `pulumi:"extensions"`
@@ -692,7 +698,7 @@ type scaleSetArgs struct {
 	UpgradePolicyMode string `pulumi:"upgradePolicyMode"`
 	// A collection of availability zones to spread the Virtual Machines over. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** Availability Zones are [only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview).
+	// > **Note:** Availability Zones are [only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview).
 	Zones []string `pulumi:"zones"`
 }
 
@@ -704,7 +710,7 @@ type ScaleSetArgs struct {
 	BootDiagnostics ScaleSetBootDiagnosticsPtrInput
 	// Specifies the eviction policy for Virtual Machines in this Scale Set. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** `evictionPolicy` can only be set when `priority` is set to `Low`.
+	// > **Note:** `evictionPolicy` can only be set when `priority` is set to `Low`.
 	EvictionPolicy pulumi.StringPtrInput
 	// Can be specified multiple times to add extension profiles to the scale set. Each `extension` block supports the fields documented below.
 	Extensions ScaleSetExtensionArrayInput
@@ -756,7 +762,7 @@ type ScaleSetArgs struct {
 	UpgradePolicyMode pulumi.StringInput
 	// A collection of availability zones to spread the Virtual Machines over. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** Availability Zones are [only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview).
+	// > **Note:** Availability Zones are [only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview).
 	Zones pulumi.StringArrayInput
 }
 
@@ -859,7 +865,7 @@ func (o ScaleSetOutput) BootDiagnostics() ScaleSetBootDiagnosticsPtrOutput {
 
 // Specifies the eviction policy for Virtual Machines in this Scale Set. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
 //
-// > **NOTE:** `evictionPolicy` can only be set when `priority` is set to `Low`.
+// > **Note:** `evictionPolicy` can only be set when `priority` is set to `Low`.
 func (o ScaleSetOutput) EvictionPolicy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ScaleSet) pulumi.StringPtrOutput { return v.EvictionPolicy }).(pulumi.StringPtrOutput)
 }
@@ -986,7 +992,7 @@ func (o ScaleSetOutput) UpgradePolicyMode() pulumi.StringOutput {
 
 // A collection of availability zones to spread the Virtual Machines over. Changing this forces a new resource to be created.
 //
-// > **NOTE:** Availability Zones are [only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview).
+// > **Note:** Availability Zones are [only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview).
 func (o ScaleSetOutput) Zones() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ScaleSet) pulumi.StringArrayOutput { return v.Zones }).(pulumi.StringArrayOutput)
 }

@@ -51,21 +51,9 @@ public final class SqlContainerState extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.analyticalStorageTtl);
     }
 
-    /**
-     * An `autoscale_settings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual destroy-apply.
-     * 
-     * &gt; **Note:** Switching between autoscale and manual throughput is not supported via this provider and must be completed via the Azure Portal and refreshed.
-     * 
-     */
     @Import(name="autoscaleSettings")
     private @Nullable Output<SqlContainerAutoscaleSettingsArgs> autoscaleSettings;
 
-    /**
-     * @return An `autoscale_settings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual destroy-apply.
-     * 
-     * &gt; **Note:** Switching between autoscale and manual throughput is not supported via this provider and must be completed via the Azure Portal and refreshed.
-     * 
-     */
     public Optional<Output<SqlContainerAutoscaleSettingsArgs>> autoscaleSettings() {
         return Optional.ofNullable(this.autoscaleSettings);
     }
@@ -209,17 +197,9 @@ public final class SqlContainerState extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.resourceGroupName);
     }
 
-    /**
-     * The throughput of SQL container (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon container creation otherwise it cannot be updated without a manual resource destroy-apply.
-     * 
-     */
     @Import(name="throughput")
     private @Nullable Output<Integer> throughput;
 
-    /**
-     * @return The throughput of SQL container (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon container creation otherwise it cannot be updated without a manual resource destroy-apply.
-     * 
-     */
     public Optional<Output<Integer>> throughput() {
         return Optional.ofNullable(this.throughput);
     }
@@ -318,27 +298,11 @@ public final class SqlContainerState extends com.pulumi.resources.ResourceArgs {
             return analyticalStorageTtl(Output.of(analyticalStorageTtl));
         }
 
-        /**
-         * @param autoscaleSettings An `autoscale_settings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual destroy-apply.
-         * 
-         * &gt; **Note:** Switching between autoscale and manual throughput is not supported via this provider and must be completed via the Azure Portal and refreshed.
-         * 
-         * @return builder
-         * 
-         */
         public Builder autoscaleSettings(@Nullable Output<SqlContainerAutoscaleSettingsArgs> autoscaleSettings) {
             $.autoscaleSettings = autoscaleSettings;
             return this;
         }
 
-        /**
-         * @param autoscaleSettings An `autoscale_settings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual destroy-apply.
-         * 
-         * &gt; **Note:** Switching between autoscale and manual throughput is not supported via this provider and must be completed via the Azure Portal and refreshed.
-         * 
-         * @return builder
-         * 
-         */
         public Builder autoscaleSettings(SqlContainerAutoscaleSettingsArgs autoscaleSettings) {
             return autoscaleSettings(Output.of(autoscaleSettings));
         }
@@ -546,23 +510,11 @@ public final class SqlContainerState extends com.pulumi.resources.ResourceArgs {
             return resourceGroupName(Output.of(resourceGroupName));
         }
 
-        /**
-         * @param throughput The throughput of SQL container (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon container creation otherwise it cannot be updated without a manual resource destroy-apply.
-         * 
-         * @return builder
-         * 
-         */
         public Builder throughput(@Nullable Output<Integer> throughput) {
             $.throughput = throughput;
             return this;
         }
 
-        /**
-         * @param throughput The throughput of SQL container (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon container creation otherwise it cannot be updated without a manual resource destroy-apply.
-         * 
-         * @return builder
-         * 
-         */
         public Builder throughput(Integer throughput) {
             return throughput(Output.of(throughput));
         }

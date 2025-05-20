@@ -36,6 +36,13 @@ namespace Pulumi.Azure.ServiceBus
         ///     };
         /// });
         /// ```
+        /// 
+        /// ## API Providers
+        /// 
+        /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+        /// This data source uses the following Azure API Providers:
+        /// 
+        /// * `Microsoft.ServiceBus`: 2021-06-01-preview
         /// </summary>
         public static Task<GetNamespaceAuthorizationRuleResult> InvokeAsync(GetNamespaceAuthorizationRuleArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetNamespaceAuthorizationRuleResult>("azure:servicebus/getNamespaceAuthorizationRule:getNamespaceAuthorizationRule", args ?? new GetNamespaceAuthorizationRuleArgs(), options.WithDefaults());
@@ -65,6 +72,13 @@ namespace Pulumi.Azure.ServiceBus
         ///     };
         /// });
         /// ```
+        /// 
+        /// ## API Providers
+        /// 
+        /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+        /// This data source uses the following Azure API Providers:
+        /// 
+        /// * `Microsoft.ServiceBus`: 2021-06-01-preview
         /// </summary>
         public static Output<GetNamespaceAuthorizationRuleResult> Invoke(GetNamespaceAuthorizationRuleInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetNamespaceAuthorizationRuleResult>("azure:servicebus/getNamespaceAuthorizationRule:getNamespaceAuthorizationRule", args ?? new GetNamespaceAuthorizationRuleInvokeArgs(), options.WithDefaults());
@@ -94,6 +108,13 @@ namespace Pulumi.Azure.ServiceBus
         ///     };
         /// });
         /// ```
+        /// 
+        /// ## API Providers
+        /// 
+        /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+        /// This data source uses the following Azure API Providers:
+        /// 
+        /// * `Microsoft.ServiceBus`: 2021-06-01-preview
         /// </summary>
         public static Output<GetNamespaceAuthorizationRuleResult> Invoke(GetNamespaceAuthorizationRuleInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetNamespaceAuthorizationRuleResult>("azure:servicebus/getNamespaceAuthorizationRule:getNamespaceAuthorizationRule", args ?? new GetNamespaceAuthorizationRuleInvokeArgs(), options.WithDefaults());

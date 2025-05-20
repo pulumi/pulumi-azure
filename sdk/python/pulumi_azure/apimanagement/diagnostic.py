@@ -522,7 +522,7 @@ class Diagnostic(pulumi.CustomResource):
             location=example.location,
             resource_group_name=example.name,
             publisher_name="My Company",
-            publisher_email="company@mycompany.io",
+            publisher_email="company@terraform.io",
             sku_name="Developer_1")
         example_logger = azure.apimanagement.Logger("example",
             name="example-apimlogger",
@@ -574,6 +574,13 @@ class Diagnostic(pulumi.CustomResource):
                 ],
             })
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.ApiManagement`: 2022-08-01
 
         ## Import
 
@@ -628,7 +635,7 @@ class Diagnostic(pulumi.CustomResource):
             location=example.location,
             resource_group_name=example.name,
             publisher_name="My Company",
-            publisher_email="company@mycompany.io",
+            publisher_email="company@terraform.io",
             sku_name="Developer_1")
         example_logger = azure.apimanagement.Logger("example",
             name="example-apimlogger",
@@ -680,6 +687,13 @@ class Diagnostic(pulumi.CustomResource):
                 ],
             })
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.ApiManagement`: 2022-08-01
 
         ## Import
 

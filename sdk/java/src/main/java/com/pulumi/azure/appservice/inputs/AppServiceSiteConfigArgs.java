@@ -39,7 +39,7 @@ public final class AppServiceSiteConfigArgs extends com.pulumi.resources.Resourc
     /**
      * If using User Managed Identity, the User Managed Identity Client Id
      * 
-     * &gt; **NOTE:** When using User Managed Identity with Azure Container Registry the Identity will need to have the [ACRPull role assigned](https://docs.microsoft.com/azure/container-registry/container-registry-authentication-managed-identity#example-1-access-with-a-user-assigned-identity)
+     * &gt; **Note:** When using User Managed Identity with Azure Container Registry the Identity will need to have the [ACRPull role assigned](https://docs.microsoft.com/azure/container-registry/container-registry-authentication-managed-identity#example-1-access-with-a-user-assigned-identity)
      * 
      */
     @Import(name="acrUserManagedIdentityClientId")
@@ -48,7 +48,7 @@ public final class AppServiceSiteConfigArgs extends com.pulumi.resources.Resourc
     /**
      * @return If using User Managed Identity, the User Managed Identity Client Id
      * 
-     * &gt; **NOTE:** When using User Managed Identity with Azure Container Registry the Identity will need to have the [ACRPull role assigned](https://docs.microsoft.com/azure/container-registry/container-registry-authentication-managed-identity#example-1-access-with-a-user-assigned-identity)
+     * &gt; **Note:** When using User Managed Identity with Azure Container Registry the Identity will need to have the [ACRPull role assigned](https://docs.microsoft.com/azure/container-registry/container-registry-authentication-managed-identity#example-1-access-with-a-user-assigned-identity)
      * 
      */
     public Optional<Output<String>> acrUserManagedIdentityClientId() {
@@ -58,7 +58,7 @@ public final class AppServiceSiteConfigArgs extends com.pulumi.resources.Resourc
     /**
      * Should the app be loaded at all times? Defaults to `false`.
      * 
-     * &gt; **NOTE:** when using an App Service Plan in the `Free` or `Shared` Tiers `always_on` must be set to `false`.
+     * &gt; **Note:** when using an App Service Plan in the `Free` or `Shared` Tiers `always_on` must be set to `false`.
      * 
      */
     @Import(name="alwaysOn")
@@ -67,7 +67,7 @@ public final class AppServiceSiteConfigArgs extends com.pulumi.resources.Resourc
     /**
      * @return Should the app be loaded at all times? Defaults to `false`.
      * 
-     * &gt; **NOTE:** when using an App Service Plan in the `Free` or `Shared` Tiers `always_on` must be set to `false`.
+     * &gt; **Note:** when using an App Service Plan in the `Free` or `Shared` Tiers `always_on` must be set to `false`.
      * 
      */
     public Optional<Output<Boolean>> alwaysOn() {
@@ -195,18 +195,18 @@ public final class AppServiceSiteConfigArgs extends com.pulumi.resources.Resourc
     }
 
     /**
-     * A list of objects representing ip restrictions as defined below.
+     * A list of `ip_restriction` objects representing IP restrictions as defined below.
      * 
-     * &gt; **NOTE** User has to explicitly set `ip_restriction` to empty slice (`[]`) to remove it.
+     * &gt; **Note:** User has to explicitly set `ip_restriction` to empty slice (`[]`) to remove it.
      * 
      */
     @Import(name="ipRestrictions")
     private @Nullable Output<List<AppServiceSiteConfigIpRestrictionArgs>> ipRestrictions;
 
     /**
-     * @return A list of objects representing ip restrictions as defined below.
+     * @return A list of `ip_restriction` objects representing IP restrictions as defined below.
      * 
-     * &gt; **NOTE** User has to explicitly set `ip_restriction` to empty slice (`[]`) to remove it.
+     * &gt; **Note:** User has to explicitly set `ip_restriction` to empty slice (`[]`) to remove it.
      * 
      */
     public Optional<Output<List<AppServiceSiteConfigIpRestrictionArgs>>> ipRestrictions() {
@@ -261,7 +261,7 @@ public final class AppServiceSiteConfigArgs extends com.pulumi.resources.Resourc
     /**
      * Linux App Framework and version for the App Service. Possible options are a Docker container (`DOCKER|&lt;user/image:tag&gt;`), a base-64 encoded Docker Compose file (`COMPOSE|${filebase64(&#34;compose.yml&#34;)}`) or a base-64 encoded Kubernetes Manifest (`KUBE|${filebase64(&#34;kubernetes.yml&#34;)}`).
      * 
-     * &gt; **NOTE:** To set this property the App Service Plan to which the App belongs must be configured with `kind = &#34;Linux&#34;`, and `reserved = true` or the API will reject any value supplied.
+     * &gt; **Note:** To set this property the App Service Plan to which the App belongs must be configured with `kind = &#34;Linux&#34;`, and `reserved = true` or the API will reject any value supplied.
      * 
      */
     @Import(name="linuxFxVersion")
@@ -270,7 +270,7 @@ public final class AppServiceSiteConfigArgs extends com.pulumi.resources.Resourc
     /**
      * @return Linux App Framework and version for the App Service. Possible options are a Docker container (`DOCKER|&lt;user/image:tag&gt;`), a base-64 encoded Docker Compose file (`COMPOSE|${filebase64(&#34;compose.yml&#34;)}`) or a base-64 encoded Kubernetes Manifest (`KUBE|${filebase64(&#34;kubernetes.yml&#34;)}`).
      * 
-     * &gt; **NOTE:** To set this property the App Service Plan to which the App belongs must be configured with `kind = &#34;Linux&#34;`, and `reserved = true` or the API will reject any value supplied.
+     * &gt; **Note:** To set this property the App Service Plan to which the App belongs must be configured with `kind = &#34;Linux&#34;`, and `reserved = true` or the API will reject any value supplied.
      * 
      */
     public Optional<Output<String>> linuxFxVersion() {
@@ -280,7 +280,7 @@ public final class AppServiceSiteConfigArgs extends com.pulumi.resources.Resourc
     /**
      * Is &#34;MySQL In App&#34; Enabled? This runs a local MySQL instance with your app and shares resources from the App Service plan.
      * 
-     * &gt; **NOTE:** MySQL In App is not intended for production environments and will not scale beyond a single instance. Instead you may wish to use Azure Database for MySQL.
+     * &gt; **Note:** MySQL In App is not intended for production environments and will not scale beyond a single instance. Instead you may wish [to use Azure Database for MySQL](https://www.terraform.io/docs/providers/azurerm/r/mysql_database.html).
      * 
      */
     @Import(name="localMysqlEnabled")
@@ -289,7 +289,7 @@ public final class AppServiceSiteConfigArgs extends com.pulumi.resources.Resourc
     /**
      * @return Is &#34;MySQL In App&#34; Enabled? This runs a local MySQL instance with your app and shares resources from the App Service plan.
      * 
-     * &gt; **NOTE:** MySQL In App is not intended for production environments and will not scale beyond a single instance. Instead you may wish to use Azure Database for MySQL.
+     * &gt; **Note:** MySQL In App is not intended for production environments and will not scale beyond a single instance. Instead you may wish [to use Azure Database for MySQL](https://www.terraform.io/docs/providers/azurerm/r/mysql_database.html).
      * 
      */
     public Optional<Output<Boolean>> localMysqlEnabled() {
@@ -404,7 +404,7 @@ public final class AppServiceSiteConfigArgs extends com.pulumi.resources.Resourc
     /**
      * A list of `scm_ip_restriction` objects representing IP restrictions as defined below.
      * 
-     * &gt; **NOTE** User has to explicitly set `scm_ip_restriction` to empty slice (`[]`) to remove it.
+     * &gt; **Note:** User has to explicitly set `scm_ip_restriction` to empty slice (`[]`) to remove it.
      * 
      */
     @Import(name="scmIpRestrictions")
@@ -413,7 +413,7 @@ public final class AppServiceSiteConfigArgs extends com.pulumi.resources.Resourc
     /**
      * @return A list of `scm_ip_restriction` objects representing IP restrictions as defined below.
      * 
-     * &gt; **NOTE** User has to explicitly set `scm_ip_restriction` to empty slice (`[]`) to remove it.
+     * &gt; **Note:** User has to explicitly set `scm_ip_restriction` to empty slice (`[]`) to remove it.
      * 
      */
     public Optional<Output<List<AppServiceSiteConfigScmIpRestrictionArgs>>> scmIpRestrictions() {
@@ -438,7 +438,7 @@ public final class AppServiceSiteConfigArgs extends com.pulumi.resources.Resourc
     /**
      * IP security restrictions for scm to use main. Defaults to `false`.
      * 
-     * &gt; **NOTE** Any `scm_ip_restriction` blocks configured are ignored by the service when `scm_use_main_ip_restriction` is set to `true`. Any scm restrictions will become active if this is subsequently set to `false` or removed.
+     * &gt; **Note:** Any `scm_ip_restriction` blocks configured are ignored by the service when `scm_use_main_ip_restriction` is set to `true`. Any scm restrictions will become active if this is subsequently set to `false` or removed.
      * 
      */
     @Import(name="scmUseMainIpRestriction")
@@ -447,7 +447,7 @@ public final class AppServiceSiteConfigArgs extends com.pulumi.resources.Resourc
     /**
      * @return IP security restrictions for scm to use main. Defaults to `false`.
      * 
-     * &gt; **NOTE** Any `scm_ip_restriction` blocks configured are ignored by the service when `scm_use_main_ip_restriction` is set to `true`. Any scm restrictions will become active if this is subsequently set to `false` or removed.
+     * &gt; **Note:** Any `scm_ip_restriction` blocks configured are ignored by the service when `scm_use_main_ip_restriction` is set to `true`. Any scm restrictions will become active if this is subsequently set to `false` or removed.
      * 
      */
     public Optional<Output<Boolean>> scmUseMainIpRestriction() {
@@ -457,7 +457,7 @@ public final class AppServiceSiteConfigArgs extends com.pulumi.resources.Resourc
     /**
      * Should the App Service run in 32 bit mode, rather than 64 bit mode?
      * 
-     * &gt; **NOTE:** when using an App Service Plan in the `Free` or `Shared` Tiers `use_32_bit_worker_process` must be set to `true`.
+     * &gt; **Note:** when using an App Service Plan in the `Free` or `Shared` Tiers `use_32_bit_worker_process` must be set to `true`.
      * 
      */
     @Import(name="use32BitWorkerProcess")
@@ -466,7 +466,7 @@ public final class AppServiceSiteConfigArgs extends com.pulumi.resources.Resourc
     /**
      * @return Should the App Service run in 32 bit mode, rather than 64 bit mode?
      * 
-     * &gt; **NOTE:** when using an App Service Plan in the `Free` or `Shared` Tiers `use_32_bit_worker_process` must be set to `true`.
+     * &gt; **Note:** when using an App Service Plan in the `Free` or `Shared` Tiers `use_32_bit_worker_process` must be set to `true`.
      * 
      */
     public Optional<Output<Boolean>> use32BitWorkerProcess() {
@@ -498,12 +498,16 @@ public final class AppServiceSiteConfigArgs extends com.pulumi.resources.Resourc
     /**
      * The Windows Docker container image (`DOCKER|&lt;user/image:tag&gt;`)
      * 
+     * Additional examples of how to run Containers via the `azure.appservice.AppService` resource can be found in the `./examples/app-service` directory within the GitHub Repository.
+     * 
      */
     @Import(name="windowsFxVersion")
     private @Nullable Output<String> windowsFxVersion;
 
     /**
      * @return The Windows Docker container image (`DOCKER|&lt;user/image:tag&gt;`)
+     * 
+     * Additional examples of how to run Containers via the `azure.appservice.AppService` resource can be found in the `./examples/app-service` directory within the GitHub Repository.
      * 
      */
     public Optional<Output<String>> windowsFxVersion() {
@@ -588,7 +592,7 @@ public final class AppServiceSiteConfigArgs extends com.pulumi.resources.Resourc
         /**
          * @param acrUserManagedIdentityClientId If using User Managed Identity, the User Managed Identity Client Id
          * 
-         * &gt; **NOTE:** When using User Managed Identity with Azure Container Registry the Identity will need to have the [ACRPull role assigned](https://docs.microsoft.com/azure/container-registry/container-registry-authentication-managed-identity#example-1-access-with-a-user-assigned-identity)
+         * &gt; **Note:** When using User Managed Identity with Azure Container Registry the Identity will need to have the [ACRPull role assigned](https://docs.microsoft.com/azure/container-registry/container-registry-authentication-managed-identity#example-1-access-with-a-user-assigned-identity)
          * 
          * @return builder
          * 
@@ -601,7 +605,7 @@ public final class AppServiceSiteConfigArgs extends com.pulumi.resources.Resourc
         /**
          * @param acrUserManagedIdentityClientId If using User Managed Identity, the User Managed Identity Client Id
          * 
-         * &gt; **NOTE:** When using User Managed Identity with Azure Container Registry the Identity will need to have the [ACRPull role assigned](https://docs.microsoft.com/azure/container-registry/container-registry-authentication-managed-identity#example-1-access-with-a-user-assigned-identity)
+         * &gt; **Note:** When using User Managed Identity with Azure Container Registry the Identity will need to have the [ACRPull role assigned](https://docs.microsoft.com/azure/container-registry/container-registry-authentication-managed-identity#example-1-access-with-a-user-assigned-identity)
          * 
          * @return builder
          * 
@@ -613,7 +617,7 @@ public final class AppServiceSiteConfigArgs extends com.pulumi.resources.Resourc
         /**
          * @param alwaysOn Should the app be loaded at all times? Defaults to `false`.
          * 
-         * &gt; **NOTE:** when using an App Service Plan in the `Free` or `Shared` Tiers `always_on` must be set to `false`.
+         * &gt; **Note:** when using an App Service Plan in the `Free` or `Shared` Tiers `always_on` must be set to `false`.
          * 
          * @return builder
          * 
@@ -626,7 +630,7 @@ public final class AppServiceSiteConfigArgs extends com.pulumi.resources.Resourc
         /**
          * @param alwaysOn Should the app be loaded at all times? Defaults to `false`.
          * 
-         * &gt; **NOTE:** when using an App Service Plan in the `Free` or `Shared` Tiers `always_on` must be set to `false`.
+         * &gt; **Note:** when using an App Service Plan in the `Free` or `Shared` Tiers `always_on` must be set to `false`.
          * 
          * @return builder
          * 
@@ -814,9 +818,9 @@ public final class AppServiceSiteConfigArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param ipRestrictions A list of objects representing ip restrictions as defined below.
+         * @param ipRestrictions A list of `ip_restriction` objects representing IP restrictions as defined below.
          * 
-         * &gt; **NOTE** User has to explicitly set `ip_restriction` to empty slice (`[]`) to remove it.
+         * &gt; **Note:** User has to explicitly set `ip_restriction` to empty slice (`[]`) to remove it.
          * 
          * @return builder
          * 
@@ -827,9 +831,9 @@ public final class AppServiceSiteConfigArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param ipRestrictions A list of objects representing ip restrictions as defined below.
+         * @param ipRestrictions A list of `ip_restriction` objects representing IP restrictions as defined below.
          * 
-         * &gt; **NOTE** User has to explicitly set `ip_restriction` to empty slice (`[]`) to remove it.
+         * &gt; **Note:** User has to explicitly set `ip_restriction` to empty slice (`[]`) to remove it.
          * 
          * @return builder
          * 
@@ -839,9 +843,9 @@ public final class AppServiceSiteConfigArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param ipRestrictions A list of objects representing ip restrictions as defined below.
+         * @param ipRestrictions A list of `ip_restriction` objects representing IP restrictions as defined below.
          * 
-         * &gt; **NOTE** User has to explicitly set `ip_restriction` to empty slice (`[]`) to remove it.
+         * &gt; **Note:** User has to explicitly set `ip_restriction` to empty slice (`[]`) to remove it.
          * 
          * @return builder
          * 
@@ -916,7 +920,7 @@ public final class AppServiceSiteConfigArgs extends com.pulumi.resources.Resourc
         /**
          * @param linuxFxVersion Linux App Framework and version for the App Service. Possible options are a Docker container (`DOCKER|&lt;user/image:tag&gt;`), a base-64 encoded Docker Compose file (`COMPOSE|${filebase64(&#34;compose.yml&#34;)}`) or a base-64 encoded Kubernetes Manifest (`KUBE|${filebase64(&#34;kubernetes.yml&#34;)}`).
          * 
-         * &gt; **NOTE:** To set this property the App Service Plan to which the App belongs must be configured with `kind = &#34;Linux&#34;`, and `reserved = true` or the API will reject any value supplied.
+         * &gt; **Note:** To set this property the App Service Plan to which the App belongs must be configured with `kind = &#34;Linux&#34;`, and `reserved = true` or the API will reject any value supplied.
          * 
          * @return builder
          * 
@@ -929,7 +933,7 @@ public final class AppServiceSiteConfigArgs extends com.pulumi.resources.Resourc
         /**
          * @param linuxFxVersion Linux App Framework and version for the App Service. Possible options are a Docker container (`DOCKER|&lt;user/image:tag&gt;`), a base-64 encoded Docker Compose file (`COMPOSE|${filebase64(&#34;compose.yml&#34;)}`) or a base-64 encoded Kubernetes Manifest (`KUBE|${filebase64(&#34;kubernetes.yml&#34;)}`).
          * 
-         * &gt; **NOTE:** To set this property the App Service Plan to which the App belongs must be configured with `kind = &#34;Linux&#34;`, and `reserved = true` or the API will reject any value supplied.
+         * &gt; **Note:** To set this property the App Service Plan to which the App belongs must be configured with `kind = &#34;Linux&#34;`, and `reserved = true` or the API will reject any value supplied.
          * 
          * @return builder
          * 
@@ -941,7 +945,7 @@ public final class AppServiceSiteConfigArgs extends com.pulumi.resources.Resourc
         /**
          * @param localMysqlEnabled Is &#34;MySQL In App&#34; Enabled? This runs a local MySQL instance with your app and shares resources from the App Service plan.
          * 
-         * &gt; **NOTE:** MySQL In App is not intended for production environments and will not scale beyond a single instance. Instead you may wish to use Azure Database for MySQL.
+         * &gt; **Note:** MySQL In App is not intended for production environments and will not scale beyond a single instance. Instead you may wish [to use Azure Database for MySQL](https://www.terraform.io/docs/providers/azurerm/r/mysql_database.html).
          * 
          * @return builder
          * 
@@ -954,7 +958,7 @@ public final class AppServiceSiteConfigArgs extends com.pulumi.resources.Resourc
         /**
          * @param localMysqlEnabled Is &#34;MySQL In App&#34; Enabled? This runs a local MySQL instance with your app and shares resources from the App Service plan.
          * 
-         * &gt; **NOTE:** MySQL In App is not intended for production environments and will not scale beyond a single instance. Instead you may wish to use Azure Database for MySQL.
+         * &gt; **Note:** MySQL In App is not intended for production environments and will not scale beyond a single instance. Instead you may wish [to use Azure Database for MySQL](https://www.terraform.io/docs/providers/azurerm/r/mysql_database.html).
          * 
          * @return builder
          * 
@@ -1113,7 +1117,7 @@ public final class AppServiceSiteConfigArgs extends com.pulumi.resources.Resourc
         /**
          * @param scmIpRestrictions A list of `scm_ip_restriction` objects representing IP restrictions as defined below.
          * 
-         * &gt; **NOTE** User has to explicitly set `scm_ip_restriction` to empty slice (`[]`) to remove it.
+         * &gt; **Note:** User has to explicitly set `scm_ip_restriction` to empty slice (`[]`) to remove it.
          * 
          * @return builder
          * 
@@ -1126,7 +1130,7 @@ public final class AppServiceSiteConfigArgs extends com.pulumi.resources.Resourc
         /**
          * @param scmIpRestrictions A list of `scm_ip_restriction` objects representing IP restrictions as defined below.
          * 
-         * &gt; **NOTE** User has to explicitly set `scm_ip_restriction` to empty slice (`[]`) to remove it.
+         * &gt; **Note:** User has to explicitly set `scm_ip_restriction` to empty slice (`[]`) to remove it.
          * 
          * @return builder
          * 
@@ -1138,7 +1142,7 @@ public final class AppServiceSiteConfigArgs extends com.pulumi.resources.Resourc
         /**
          * @param scmIpRestrictions A list of `scm_ip_restriction` objects representing IP restrictions as defined below.
          * 
-         * &gt; **NOTE** User has to explicitly set `scm_ip_restriction` to empty slice (`[]`) to remove it.
+         * &gt; **Note:** User has to explicitly set `scm_ip_restriction` to empty slice (`[]`) to remove it.
          * 
          * @return builder
          * 
@@ -1171,7 +1175,7 @@ public final class AppServiceSiteConfigArgs extends com.pulumi.resources.Resourc
         /**
          * @param scmUseMainIpRestriction IP security restrictions for scm to use main. Defaults to `false`.
          * 
-         * &gt; **NOTE** Any `scm_ip_restriction` blocks configured are ignored by the service when `scm_use_main_ip_restriction` is set to `true`. Any scm restrictions will become active if this is subsequently set to `false` or removed.
+         * &gt; **Note:** Any `scm_ip_restriction` blocks configured are ignored by the service when `scm_use_main_ip_restriction` is set to `true`. Any scm restrictions will become active if this is subsequently set to `false` or removed.
          * 
          * @return builder
          * 
@@ -1184,7 +1188,7 @@ public final class AppServiceSiteConfigArgs extends com.pulumi.resources.Resourc
         /**
          * @param scmUseMainIpRestriction IP security restrictions for scm to use main. Defaults to `false`.
          * 
-         * &gt; **NOTE** Any `scm_ip_restriction` blocks configured are ignored by the service when `scm_use_main_ip_restriction` is set to `true`. Any scm restrictions will become active if this is subsequently set to `false` or removed.
+         * &gt; **Note:** Any `scm_ip_restriction` blocks configured are ignored by the service when `scm_use_main_ip_restriction` is set to `true`. Any scm restrictions will become active if this is subsequently set to `false` or removed.
          * 
          * @return builder
          * 
@@ -1196,7 +1200,7 @@ public final class AppServiceSiteConfigArgs extends com.pulumi.resources.Resourc
         /**
          * @param use32BitWorkerProcess Should the App Service run in 32 bit mode, rather than 64 bit mode?
          * 
-         * &gt; **NOTE:** when using an App Service Plan in the `Free` or `Shared` Tiers `use_32_bit_worker_process` must be set to `true`.
+         * &gt; **Note:** when using an App Service Plan in the `Free` or `Shared` Tiers `use_32_bit_worker_process` must be set to `true`.
          * 
          * @return builder
          * 
@@ -1209,7 +1213,7 @@ public final class AppServiceSiteConfigArgs extends com.pulumi.resources.Resourc
         /**
          * @param use32BitWorkerProcess Should the App Service run in 32 bit mode, rather than 64 bit mode?
          * 
-         * &gt; **NOTE:** when using an App Service Plan in the `Free` or `Shared` Tiers `use_32_bit_worker_process` must be set to `true`.
+         * &gt; **Note:** when using an App Service Plan in the `Free` or `Shared` Tiers `use_32_bit_worker_process` must be set to `true`.
          * 
          * @return builder
          * 
@@ -1251,6 +1255,8 @@ public final class AppServiceSiteConfigArgs extends com.pulumi.resources.Resourc
         /**
          * @param windowsFxVersion The Windows Docker container image (`DOCKER|&lt;user/image:tag&gt;`)
          * 
+         * Additional examples of how to run Containers via the `azure.appservice.AppService` resource can be found in the `./examples/app-service` directory within the GitHub Repository.
+         * 
          * @return builder
          * 
          */
@@ -1261,6 +1267,8 @@ public final class AppServiceSiteConfigArgs extends com.pulumi.resources.Resourc
 
         /**
          * @param windowsFxVersion The Windows Docker container image (`DOCKER|&lt;user/image:tag&gt;`)
+         * 
+         * Additional examples of how to run Containers via the `azure.appservice.AppService` resource can be found in the `./examples/app-service` directory within the GitHub Repository.
          * 
          * @return builder
          * 

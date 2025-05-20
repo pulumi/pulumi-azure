@@ -111,6 +111,13 @@ def get_encryption_scope(name: Optional[builtins.str] = None,
     pulumi.export("id", example_get_encryption_scope.id)
     ```
 
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.Storage`: 2023-05-01
+
 
     :param builtins.str name: The name of this Storage Encryption Scope.
     :param builtins.str storage_account_id: The ID of the Storage Account where this Storage Encryption Scope exists.
@@ -145,6 +152,13 @@ def get_encryption_scope_output(name: Optional[pulumi.Input[builtins.str]] = Non
         storage_account_id=example.id)
     pulumi.export("id", example_get_encryption_scope.id)
     ```
+
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.Storage`: 2023-05-01
 
 
     :param builtins.str name: The name of this Storage Encryption Scope.

@@ -20,10 +20,6 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * Manages a Network Connection Monitor.
- * 
- * &gt; **NOTE:** Any Network Connection Monitor resource created with API versions 2019-06-01 or earlier (v1) are now incompatible with this provider, which now only supports v2.
- * 
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
@@ -174,7 +170,7 @@ import javax.annotation.Nullable;
  *                     .build(),
  *                 NetworkConnectionMonitorEndpointArgs.builder()
  *                     .name("destination")
- *                     .address("mycompany.io")
+ *                     .address("terraform.io")
  *                     .build())
  *             .testConfigurations(NetworkConnectionMonitorTestConfigurationArgs.builder()
  *                 .name("tcpName")

@@ -12,16 +12,9 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Manages a Linux Virtual Machine Scale Set.
-//
-// ## Disclaimers
-//
-// > **Note:** As of the **v2.86.0** (November 19, 2021) release of the provider this resource will only create Virtual Machine Scale Sets with the **Uniform** Orchestration Mode. For Virtual Machine Scale Sets with **Flexible** orchestration mode, use `compute.OrchestratedVirtualMachineScaleSet`. Flexible orchestration mode is recommended for workloads on Azure.
-// rraform will automatically update & reimage the nodes in the Scale Set (if Required) during an Update - this behaviour can be configured using the `features` setting within the Provider block.
-//
 // ## Example Usage
 //
-// This example provisions a basic Linux Virtual Machine Scale Set on an internal network.
+// This example provisions a basic Linux Virtual Machine Scale Set on an internal network. Additional examples of how to use the `compute.LinuxVirtualMachineScaleSet` resource can be found in the ./examples/vm-scale-set/linux` directory within the GitHub Repository.
 //
 // ```go
 // package main
@@ -161,7 +154,7 @@ type LinuxVirtualMachineScaleSet struct {
 	DataDisks LinuxVirtualMachineScaleSetDataDiskArrayOutput `pulumi:"dataDisks"`
 	// Should Password Authentication be disabled on this Virtual Machine Scale Set? Defaults to `true`.
 	//
-	// > In general we'd recommend using SSH Keys for authentication rather than Passwords - but there's tradeoff's to each - please [see this thread for more information](https://security.stackexchange.com/questions/69407/why-is-using-an-ssh-key-more-secure-than-using-passwords).
+	// > **Note:** In general we'd recommend using SSH Keys for authentication rather than Passwords - but there's tradeoff's to each - please [see this thread for more information](https://security.stackexchange.com/questions/69407/why-is-using-an-ssh-key-more-secure-than-using-passwords).
 	//
 	// > **Note:** When a `adminPassword` is specified `disablePasswordAuthentication` must be set to `false`.
 	DisablePasswordAuthentication pulumi.BoolPtrOutput `pulumi:"disablePasswordAuthentication"`
@@ -190,11 +183,8 @@ type LinuxVirtualMachineScaleSet struct {
 	// Specifies the ID of the dedicated host group that the virtual machine scale set resides in. Changing this forces a new resource to be created.
 	HostGroupId pulumi.StringPtrOutput `pulumi:"hostGroupId"`
 	// An `identity` block as defined below.
-	Identity LinuxVirtualMachineScaleSetIdentityPtrOutput `pulumi:"identity"`
-	// The number of Virtual Machines in the Scale Set. Defaults to `0`.
-	//
-	// > **NOTE:** If you're using AutoScaling, you may wish to use [`Ignore Changes` functionality](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) to ignore changes to this field.
-	Instances pulumi.IntPtrOutput `pulumi:"instances"`
+	Identity  LinuxVirtualMachineScaleSetIdentityPtrOutput `pulumi:"identity"`
+	Instances pulumi.IntPtrOutput                          `pulumi:"instances"`
 	// The Azure location where the Linux Virtual Machine Scale Set should exist. Changing this forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
 	// The maximum price you're willing to pay for each Virtual Machine in this Scale Set, in US Dollars; which must be greater than the current spot price. If this bid price falls below the current spot price the Virtual Machines in the Scale Set will be evicted using the `evictionPolicy`. Defaults to `-1`, which means that each Virtual Machine in this Scale Set should not be evicted for price reasons.
@@ -362,7 +352,7 @@ type linuxVirtualMachineScaleSetState struct {
 	DataDisks []LinuxVirtualMachineScaleSetDataDisk `pulumi:"dataDisks"`
 	// Should Password Authentication be disabled on this Virtual Machine Scale Set? Defaults to `true`.
 	//
-	// > In general we'd recommend using SSH Keys for authentication rather than Passwords - but there's tradeoff's to each - please [see this thread for more information](https://security.stackexchange.com/questions/69407/why-is-using-an-ssh-key-more-secure-than-using-passwords).
+	// > **Note:** In general we'd recommend using SSH Keys for authentication rather than Passwords - but there's tradeoff's to each - please [see this thread for more information](https://security.stackexchange.com/questions/69407/why-is-using-an-ssh-key-more-secure-than-using-passwords).
 	//
 	// > **Note:** When a `adminPassword` is specified `disablePasswordAuthentication` must be set to `false`.
 	DisablePasswordAuthentication *bool `pulumi:"disablePasswordAuthentication"`
@@ -391,11 +381,8 @@ type linuxVirtualMachineScaleSetState struct {
 	// Specifies the ID of the dedicated host group that the virtual machine scale set resides in. Changing this forces a new resource to be created.
 	HostGroupId *string `pulumi:"hostGroupId"`
 	// An `identity` block as defined below.
-	Identity *LinuxVirtualMachineScaleSetIdentity `pulumi:"identity"`
-	// The number of Virtual Machines in the Scale Set. Defaults to `0`.
-	//
-	// > **NOTE:** If you're using AutoScaling, you may wish to use [`Ignore Changes` functionality](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) to ignore changes to this field.
-	Instances *int `pulumi:"instances"`
+	Identity  *LinuxVirtualMachineScaleSetIdentity `pulumi:"identity"`
+	Instances *int                                 `pulumi:"instances"`
 	// The Azure location where the Linux Virtual Machine Scale Set should exist. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
 	// The maximum price you're willing to pay for each Virtual Machine in this Scale Set, in US Dollars; which must be greater than the current spot price. If this bid price falls below the current spot price the Virtual Machines in the Scale Set will be evicted using the `evictionPolicy`. Defaults to `-1`, which means that each Virtual Machine in this Scale Set should not be evicted for price reasons.
@@ -508,7 +495,7 @@ type LinuxVirtualMachineScaleSetState struct {
 	DataDisks LinuxVirtualMachineScaleSetDataDiskArrayInput
 	// Should Password Authentication be disabled on this Virtual Machine Scale Set? Defaults to `true`.
 	//
-	// > In general we'd recommend using SSH Keys for authentication rather than Passwords - but there's tradeoff's to each - please [see this thread for more information](https://security.stackexchange.com/questions/69407/why-is-using-an-ssh-key-more-secure-than-using-passwords).
+	// > **Note:** In general we'd recommend using SSH Keys for authentication rather than Passwords - but there's tradeoff's to each - please [see this thread for more information](https://security.stackexchange.com/questions/69407/why-is-using-an-ssh-key-more-secure-than-using-passwords).
 	//
 	// > **Note:** When a `adminPassword` is specified `disablePasswordAuthentication` must be set to `false`.
 	DisablePasswordAuthentication pulumi.BoolPtrInput
@@ -537,10 +524,7 @@ type LinuxVirtualMachineScaleSetState struct {
 	// Specifies the ID of the dedicated host group that the virtual machine scale set resides in. Changing this forces a new resource to be created.
 	HostGroupId pulumi.StringPtrInput
 	// An `identity` block as defined below.
-	Identity LinuxVirtualMachineScaleSetIdentityPtrInput
-	// The number of Virtual Machines in the Scale Set. Defaults to `0`.
-	//
-	// > **NOTE:** If you're using AutoScaling, you may wish to use [`Ignore Changes` functionality](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) to ignore changes to this field.
+	Identity  LinuxVirtualMachineScaleSetIdentityPtrInput
 	Instances pulumi.IntPtrInput
 	// The Azure location where the Linux Virtual Machine Scale Set should exist. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
@@ -658,7 +642,7 @@ type linuxVirtualMachineScaleSetArgs struct {
 	DataDisks []LinuxVirtualMachineScaleSetDataDisk `pulumi:"dataDisks"`
 	// Should Password Authentication be disabled on this Virtual Machine Scale Set? Defaults to `true`.
 	//
-	// > In general we'd recommend using SSH Keys for authentication rather than Passwords - but there's tradeoff's to each - please [see this thread for more information](https://security.stackexchange.com/questions/69407/why-is-using-an-ssh-key-more-secure-than-using-passwords).
+	// > **Note:** In general we'd recommend using SSH Keys for authentication rather than Passwords - but there's tradeoff's to each - please [see this thread for more information](https://security.stackexchange.com/questions/69407/why-is-using-an-ssh-key-more-secure-than-using-passwords).
 	//
 	// > **Note:** When a `adminPassword` is specified `disablePasswordAuthentication` must be set to `false`.
 	DisablePasswordAuthentication *bool `pulumi:"disablePasswordAuthentication"`
@@ -687,11 +671,8 @@ type linuxVirtualMachineScaleSetArgs struct {
 	// Specifies the ID of the dedicated host group that the virtual machine scale set resides in. Changing this forces a new resource to be created.
 	HostGroupId *string `pulumi:"hostGroupId"`
 	// An `identity` block as defined below.
-	Identity *LinuxVirtualMachineScaleSetIdentity `pulumi:"identity"`
-	// The number of Virtual Machines in the Scale Set. Defaults to `0`.
-	//
-	// > **NOTE:** If you're using AutoScaling, you may wish to use [`Ignore Changes` functionality](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) to ignore changes to this field.
-	Instances *int `pulumi:"instances"`
+	Identity  *LinuxVirtualMachineScaleSetIdentity `pulumi:"identity"`
+	Instances *int                                 `pulumi:"instances"`
 	// The Azure location where the Linux Virtual Machine Scale Set should exist. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
 	// The maximum price you're willing to pay for each Virtual Machine in this Scale Set, in US Dollars; which must be greater than the current spot price. If this bid price falls below the current spot price the Virtual Machines in the Scale Set will be evicted using the `evictionPolicy`. Defaults to `-1`, which means that each Virtual Machine in this Scale Set should not be evicted for price reasons.
@@ -803,7 +784,7 @@ type LinuxVirtualMachineScaleSetArgs struct {
 	DataDisks LinuxVirtualMachineScaleSetDataDiskArrayInput
 	// Should Password Authentication be disabled on this Virtual Machine Scale Set? Defaults to `true`.
 	//
-	// > In general we'd recommend using SSH Keys for authentication rather than Passwords - but there's tradeoff's to each - please [see this thread for more information](https://security.stackexchange.com/questions/69407/why-is-using-an-ssh-key-more-secure-than-using-passwords).
+	// > **Note:** In general we'd recommend using SSH Keys for authentication rather than Passwords - but there's tradeoff's to each - please [see this thread for more information](https://security.stackexchange.com/questions/69407/why-is-using-an-ssh-key-more-secure-than-using-passwords).
 	//
 	// > **Note:** When a `adminPassword` is specified `disablePasswordAuthentication` must be set to `false`.
 	DisablePasswordAuthentication pulumi.BoolPtrInput
@@ -832,10 +813,7 @@ type LinuxVirtualMachineScaleSetArgs struct {
 	// Specifies the ID of the dedicated host group that the virtual machine scale set resides in. Changing this forces a new resource to be created.
 	HostGroupId pulumi.StringPtrInput
 	// An `identity` block as defined below.
-	Identity LinuxVirtualMachineScaleSetIdentityPtrInput
-	// The number of Virtual Machines in the Scale Set. Defaults to `0`.
-	//
-	// > **NOTE:** If you're using AutoScaling, you may wish to use [`Ignore Changes` functionality](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) to ignore changes to this field.
+	Identity  LinuxVirtualMachineScaleSetIdentityPtrInput
 	Instances pulumi.IntPtrInput
 	// The Azure location where the Linux Virtual Machine Scale Set should exist. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
@@ -1078,7 +1056,7 @@ func (o LinuxVirtualMachineScaleSetOutput) DataDisks() LinuxVirtualMachineScaleS
 
 // Should Password Authentication be disabled on this Virtual Machine Scale Set? Defaults to `true`.
 //
-// > In general we'd recommend using SSH Keys for authentication rather than Passwords - but there's tradeoff's to each - please [see this thread for more information](https://security.stackexchange.com/questions/69407/why-is-using-an-ssh-key-more-secure-than-using-passwords).
+// > **Note:** In general we'd recommend using SSH Keys for authentication rather than Passwords - but there's tradeoff's to each - please [see this thread for more information](https://security.stackexchange.com/questions/69407/why-is-using-an-ssh-key-more-secure-than-using-passwords).
 //
 // > **Note:** When a `adminPassword` is specified `disablePasswordAuthentication` must be set to `false`.
 func (o LinuxVirtualMachineScaleSetOutput) DisablePasswordAuthentication() pulumi.BoolPtrOutput {
@@ -1150,9 +1128,6 @@ func (o LinuxVirtualMachineScaleSetOutput) Identity() LinuxVirtualMachineScaleSe
 	return o.ApplyT(func(v *LinuxVirtualMachineScaleSet) LinuxVirtualMachineScaleSetIdentityPtrOutput { return v.Identity }).(LinuxVirtualMachineScaleSetIdentityPtrOutput)
 }
 
-// The number of Virtual Machines in the Scale Set. Defaults to `0`.
-//
-// > **NOTE:** If you're using AutoScaling, you may wish to use [`Ignore Changes` functionality](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) to ignore changes to this field.
 func (o LinuxVirtualMachineScaleSetOutput) Instances() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *LinuxVirtualMachineScaleSet) pulumi.IntPtrOutput { return v.Instances }).(pulumi.IntPtrOutput)
 }

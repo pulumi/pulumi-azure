@@ -65,7 +65,7 @@ import javax.annotation.Nullable;
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .publisherName("My Company")
- *             .publisherEmail("company}{@literal @}{@code exmaple.com")
+ *             .publisherEmail("company}{@literal @}{@code terraform.io")
  *             .skuName("Developer_1")
  *             .build());
  * 
@@ -88,6 +88,13 @@ import javax.annotation.Nullable;
  * }
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
+ * 
+ * ## API Providers
+ * 
+ * &lt;!-- This section is generated, changes will be overwritten --&gt;
+ * This resource uses the following Azure API Providers:
+ * 
+ * * `Microsoft.ApiManagement`: 2022-08-01
  * 
  * ## Import
  * 
@@ -173,7 +180,7 @@ public class Api extends com.pulumi.resources.CustomResource {
     /**
      * A `import` block as documented below.
      * 
-     * &gt; **NOTE:** The `display_name`, `description`, `contact`, and `license` fields can be imported by the `import` block, which might cause a drift if these fields are set along with the `import` block.
+     * &gt; **Note:** The `display_name`, `description`, `contact`, and `license` fields can be imported by the `import` block, which might cause a drift if these fields are set along with the `import` block.
      * 
      */
     @Export(name="import", refs={ApiImport.class}, tree="[0]")
@@ -182,7 +189,7 @@ public class Api extends com.pulumi.resources.CustomResource {
     /**
      * @return A `import` block as documented below.
      * 
-     * &gt; **NOTE:** The `display_name`, `description`, `contact`, and `license` fields can be imported by the `import` block, which might cause a drift if these fields are set along with the `import` block.
+     * &gt; **Note:** The `display_name`, `description`, `contact`, and `license` fields can be imported by the `import` block, which might cause a drift if these fields are set along with the `import` block.
      * 
      */
     public Output<Optional<ApiImport>> import_() {
@@ -289,7 +296,7 @@ public class Api extends com.pulumi.resources.CustomResource {
     /**
      * A list of protocols the operations in this API can be invoked. Possible values are `http`, `https`, `ws`, and `wss`.
      * 
-     * &gt; **NOTE:** `display_name`, `path` and `protocols` are required when `source_api_id` is not set.
+     * &gt; **Note:** `display_name`, `path` and `protocols` are required when `source_api_id` is not set.
      * 
      */
     @Export(name="protocols", refs={List.class,String.class}, tree="[0,1]")
@@ -298,7 +305,7 @@ public class Api extends com.pulumi.resources.CustomResource {
     /**
      * @return A list of protocols the operations in this API can be invoked. Possible values are `http`, `https`, `ws`, and `wss`.
      * 
-     * &gt; **NOTE:** `display_name`, `path` and `protocols` are required when `source_api_id` is not set.
+     * &gt; **Note:** `display_name`, `path` and `protocols` are required when `source_api_id` is not set.
      * 
      */
     public Output<List<String>> protocols() {
@@ -447,7 +454,7 @@ public class Api extends com.pulumi.resources.CustomResource {
     /**
      * The ID of the Version Set which this API is associated with.
      * 
-     * &gt; **NOTE:** When `version` is set, `version_set_id` must also be specified
+     * &gt; **Note:** When `version` is set, `version_set_id` must also be specified
      * 
      */
     @Export(name="versionSetId", refs={String.class}, tree="[0]")
@@ -456,7 +463,7 @@ public class Api extends com.pulumi.resources.CustomResource {
     /**
      * @return The ID of the Version Set which this API is associated with.
      * 
-     * &gt; **NOTE:** When `version` is set, `version_set_id` must also be specified
+     * &gt; **Note:** When `version` is set, `version_set_id` must also be specified
      * 
      */
     public Output<String> versionSetId() {

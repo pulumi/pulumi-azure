@@ -50,6 +50,13 @@ namespace Pulumi.Azure.ApiManagement
     /// });
     /// ```
     /// 
+    /// ## API Providers
+    /// 
+    /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+    /// This resource uses the following Azure API Providers:
+    /// 
+    /// * `Microsoft.ApiManagement`: 2022-08-01
+    /// 
     /// ## Import
     /// 
     /// API Version Set can be imported using the `resource id`, e.g.
@@ -94,7 +101,7 @@ namespace Pulumi.Azure.ApiManagement
         /// <summary>
         /// The name of the Header which should be read from Inbound Requests which defines the API Version.
         /// 
-        /// &gt; **NOTE:** This must be specified when `versioning_scheme` is set to `Header`.
+        /// &gt; **Note:** This must be specified when `versioning_scheme` is set to `Header`.
         /// </summary>
         [Output("versionHeaderName")]
         public Output<string?> VersionHeaderName { get; private set; } = null!;
@@ -102,7 +109,7 @@ namespace Pulumi.Azure.ApiManagement
         /// <summary>
         /// The name of the Query String which should be read from Inbound Requests which defines the API Version.
         /// 
-        /// &gt; **NOTE:** This must be specified when `versioning_scheme` is set to `Query`.
+        /// &gt; **Note:** This must be specified when `versioning_scheme` is set to `Query`.
         /// </summary>
         [Output("versionQueryName")]
         public Output<string?> VersionQueryName { get; private set; } = null!;
@@ -192,7 +199,7 @@ namespace Pulumi.Azure.ApiManagement
         /// <summary>
         /// The name of the Header which should be read from Inbound Requests which defines the API Version.
         /// 
-        /// &gt; **NOTE:** This must be specified when `versioning_scheme` is set to `Header`.
+        /// &gt; **Note:** This must be specified when `versioning_scheme` is set to `Header`.
         /// </summary>
         [Input("versionHeaderName")]
         public Input<string>? VersionHeaderName { get; set; }
@@ -200,7 +207,7 @@ namespace Pulumi.Azure.ApiManagement
         /// <summary>
         /// The name of the Query String which should be read from Inbound Requests which defines the API Version.
         /// 
-        /// &gt; **NOTE:** This must be specified when `versioning_scheme` is set to `Query`.
+        /// &gt; **Note:** This must be specified when `versioning_scheme` is set to `Query`.
         /// </summary>
         [Input("versionQueryName")]
         public Input<string>? VersionQueryName { get; set; }
@@ -252,7 +259,7 @@ namespace Pulumi.Azure.ApiManagement
         /// <summary>
         /// The name of the Header which should be read from Inbound Requests which defines the API Version.
         /// 
-        /// &gt; **NOTE:** This must be specified when `versioning_scheme` is set to `Header`.
+        /// &gt; **Note:** This must be specified when `versioning_scheme` is set to `Header`.
         /// </summary>
         [Input("versionHeaderName")]
         public Input<string>? VersionHeaderName { get; set; }
@@ -260,7 +267,7 @@ namespace Pulumi.Azure.ApiManagement
         /// <summary>
         /// The name of the Query String which should be read from Inbound Requests which defines the API Version.
         /// 
-        /// &gt; **NOTE:** This must be specified when `versioning_scheme` is set to `Query`.
+        /// &gt; **Note:** This must be specified when `versioning_scheme` is set to `Query`.
         /// </summary>
         [Input("versionQueryName")]
         public Input<string>? VersionQueryName { get; set; }

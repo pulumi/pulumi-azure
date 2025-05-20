@@ -89,6 +89,13 @@ namespace Pulumi.Azure.NewRelic
     /// });
     /// ```
     /// 
+    /// ## API Providers
+    /// 
+    /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+    /// This resource uses the following Azure API Providers:
+    /// 
+    /// * `NewRelic.Observability`: 2024-03-01
+    /// 
     /// ## Import
     /// 
     /// Azure Native New Relic Monitor can be imported using the `resource id`, e.g.
@@ -109,7 +116,7 @@ namespace Pulumi.Azure.NewRelic
         /// <summary>
         /// Specifies the account id. Changing this forces a new Azure Native New Relic Monitor to be created.
         /// 
-        /// &gt; **NOTE:** The value of `account_id` must come from an Azure Native New Relic Monitor instance of another different subscription.
+        /// &gt; **Note:** The value of `account_id` must come from an Azure Native New Relic Monitor instance of another different subscription.
         /// </summary>
         [Output("accountId")]
         public Output<string> AccountId { get; private set; } = null!;
@@ -147,7 +154,7 @@ namespace Pulumi.Azure.NewRelic
         /// <summary>
         /// Specifies the organization id. Changing this forces a new Azure Native New Relic Monitor to be created.
         /// 
-        /// &gt; **NOTE:** The value of `organization_id` must come from an Azure Native New Relic Monitor instance of another different subscription.
+        /// &gt; **Note:** The value of `organization_id` must come from an Azure Native New Relic Monitor instance of another different subscription.
         /// </summary>
         [Output("organizationId")]
         public Output<string> OrganizationId { get; private set; } = null!;
@@ -235,7 +242,7 @@ namespace Pulumi.Azure.NewRelic
         /// <summary>
         /// Specifies the account id. Changing this forces a new Azure Native New Relic Monitor to be created.
         /// 
-        /// &gt; **NOTE:** The value of `account_id` must come from an Azure Native New Relic Monitor instance of another different subscription.
+        /// &gt; **Note:** The value of `account_id` must come from an Azure Native New Relic Monitor instance of another different subscription.
         /// </summary>
         [Input("accountId")]
         public Input<string>? AccountId { get; set; }
@@ -283,7 +290,7 @@ namespace Pulumi.Azure.NewRelic
         /// <summary>
         /// Specifies the organization id. Changing this forces a new Azure Native New Relic Monitor to be created.
         /// 
-        /// &gt; **NOTE:** The value of `organization_id` must come from an Azure Native New Relic Monitor instance of another different subscription.
+        /// &gt; **Note:** The value of `organization_id` must come from an Azure Native New Relic Monitor instance of another different subscription.
         /// </summary>
         [Input("organizationId")]
         public Input<string>? OrganizationId { get; set; }
@@ -329,7 +336,7 @@ namespace Pulumi.Azure.NewRelic
         /// <summary>
         /// Specifies the account id. Changing this forces a new Azure Native New Relic Monitor to be created.
         /// 
-        /// &gt; **NOTE:** The value of `account_id` must come from an Azure Native New Relic Monitor instance of another different subscription.
+        /// &gt; **Note:** The value of `account_id` must come from an Azure Native New Relic Monitor instance of another different subscription.
         /// </summary>
         [Input("accountId")]
         public Input<string>? AccountId { get; set; }
@@ -377,7 +384,7 @@ namespace Pulumi.Azure.NewRelic
         /// <summary>
         /// Specifies the organization id. Changing this forces a new Azure Native New Relic Monitor to be created.
         /// 
-        /// &gt; **NOTE:** The value of `organization_id` must come from an Azure Native New Relic Monitor instance of another different subscription.
+        /// &gt; **Note:** The value of `organization_id` must come from an Azure Native New Relic Monitor instance of another different subscription.
         /// </summary>
         [Input("organizationId")]
         public Input<string>? OrganizationId { get; set; }

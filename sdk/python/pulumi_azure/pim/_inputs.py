@@ -134,7 +134,7 @@ if not MYPY:
         """
         The end date/time of the role assignment. Changing this forces a new resource to be created.
 
-        > Note: Only one of `duration_days`, `duration_hours` or `end_date_time` should be specified.
+        > **Note:** Only one of `duration_days`, `duration_hours` or `end_date_time` should be specified.
         """
 elif False:
     ActiveRoleAssignmentScheduleExpirationArgsDict: TypeAlias = Mapping[str, Any]
@@ -150,7 +150,7 @@ class ActiveRoleAssignmentScheduleExpirationArgs:
         :param pulumi.Input[builtins.int] duration_hours: The duration of the role assignment in hours. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] end_date_time: The end date/time of the role assignment. Changing this forces a new resource to be created.
                
-               > Note: Only one of `duration_days`, `duration_hours` or `end_date_time` should be specified.
+               > **Note:** Only one of `duration_days`, `duration_hours` or `end_date_time` should be specified.
         """
         if duration_days is not None:
             pulumi.set(__self__, "duration_days", duration_days)
@@ -189,7 +189,7 @@ class ActiveRoleAssignmentScheduleExpirationArgs:
         """
         The end date/time of the role assignment. Changing this forces a new resource to be created.
 
-        > Note: Only one of `duration_days`, `duration_hours` or `end_date_time` should be specified.
+        > **Note:** Only one of `duration_days`, `duration_hours` or `end_date_time` should be specified.
         """
         return pulumi.get(self, "end_date_time")
 
@@ -316,7 +316,7 @@ if not MYPY:
         """
         The end date/time of the role assignment. Changing this forces a new resource to be created.
 
-        > Note: Only one of `duration_days`, `duration_hours` or `end_date_time` should be specified.
+        > **Note:** Only one of `duration_days`, `duration_hours` or `end_date_time` should be specified.
         """
 elif False:
     EligibleRoleAssignmentScheduleExpirationArgsDict: TypeAlias = Mapping[str, Any]
@@ -332,7 +332,7 @@ class EligibleRoleAssignmentScheduleExpirationArgs:
         :param pulumi.Input[builtins.int] duration_hours: The duration of the role assignment in hours. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] end_date_time: The end date/time of the role assignment. Changing this forces a new resource to be created.
                
-               > Note: Only one of `duration_days`, `duration_hours` or `end_date_time` should be specified.
+               > **Note:** Only one of `duration_days`, `duration_hours` or `end_date_time` should be specified.
         """
         if duration_days is not None:
             pulumi.set(__self__, "duration_days", duration_days)
@@ -371,7 +371,7 @@ class EligibleRoleAssignmentScheduleExpirationArgs:
         """
         The end date/time of the role assignment. Changing this forces a new resource to be created.
 
-        > Note: Only one of `duration_days`, `duration_hours` or `end_date_time` should be specified.
+        > **Note:** Only one of `duration_days`, `duration_hours` or `end_date_time` should be specified.
         """
         return pulumi.get(self, "end_date_time")
 

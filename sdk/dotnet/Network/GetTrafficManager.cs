@@ -37,6 +37,13 @@ namespace Pulumi.Azure.Network
         ///     };
         /// });
         /// ```
+        /// 
+        /// ## API Providers
+        /// 
+        /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+        /// This data source uses the following Azure API Providers:
+        /// 
+        /// * `Microsoft.Network`: 2022-04-01
         /// </summary>
         public static Task<GetTrafficManagerResult> InvokeAsync(GetTrafficManagerArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetTrafficManagerResult>("azure:network/getTrafficManager:getTrafficManager", args ?? new GetTrafficManagerArgs(), options.WithDefaults());
@@ -67,6 +74,13 @@ namespace Pulumi.Azure.Network
         ///     };
         /// });
         /// ```
+        /// 
+        /// ## API Providers
+        /// 
+        /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+        /// This data source uses the following Azure API Providers:
+        /// 
+        /// * `Microsoft.Network`: 2022-04-01
         /// </summary>
         public static Output<GetTrafficManagerResult> Invoke(GetTrafficManagerInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetTrafficManagerResult>("azure:network/getTrafficManager:getTrafficManager", args ?? new GetTrafficManagerInvokeArgs(), options.WithDefaults());
@@ -97,6 +111,13 @@ namespace Pulumi.Azure.Network
         ///     };
         /// });
         /// ```
+        /// 
+        /// ## API Providers
+        /// 
+        /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+        /// This data source uses the following Azure API Providers:
+        /// 
+        /// * `Microsoft.Network`: 2022-04-01
         /// </summary>
         public static Output<GetTrafficManagerResult> Invoke(GetTrafficManagerInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetTrafficManagerResult>("azure:network/getTrafficManager:getTrafficManager", args ?? new GetTrafficManagerInvokeArgs(), options.WithDefaults());

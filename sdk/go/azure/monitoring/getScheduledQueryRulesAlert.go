@@ -28,7 +28,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			example, err := monitoring.LookupScheduledQueryRulesAlert(ctx, &monitoring.LookupScheduledQueryRulesAlertArgs{
-//				ResourceGroupName: "example-rg",
+//				ResourceGroupName: "terraform-example-rg",
 //				Name:              "tfex-queryrule",
 //			}, nil)
 //			if err != nil {

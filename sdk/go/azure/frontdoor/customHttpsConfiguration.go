@@ -12,15 +12,19 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// !> **IMPORTANT** This deploys an Azure Front Door (classic) resource which has been deprecated and will receive security updates only. Please migrate your existing Azure Front Door (classic) deployments to the new Azure Front Door (standard/premium) resources. For your convenience, the service team has exposed a `Front Door Classic` to `Front Door Standard/Premium` [migration tool](https://learn.microsoft.com/azure/frontdoor/tier-migration) to allow you to migrate your existing `Front Door Classic` instances to the new `Front Door Standard/Premium` product tiers.
+// !> **Note:** This deploys an Azure Front Door (classic) resource which has been deprecated and will receive security updates only. Please migrate your existing Azure Front Door (classic) deployments to the new Azure Front Door (standard/premium) resources. For your convenience, the service team has exposed a `Front Door Classic` to `Front Door Standard/Premium` [migration tool](https://learn.microsoft.com/azure/frontdoor/tier-migration) to allow you to migrate your existing `Front Door Classic` instances to the new `Front Door Standard/Premium` product tiers.
 //
 // Manages the Custom HTTPS Configuration for an Azure Front Door (classic) Frontend Endpoint.
 //
-// > **NOTE:** Defining custom HTTPS configurations using a separate `frontdoor.CustomHttpsConfiguration` resource allows for parallel creation/update.
+// > **Note:** Defining custom HTTPS configurations using a separate `frontdoor.CustomHttpsConfiguration` resource allows for parallel creation/update.
 //
-// !> **BREAKING CHANGE:** In order to address the ordering issue we have changed the design on how to retrieve existing sub resources such as frontend endpoints. Existing design will be deprecated and will result in an incorrect configuration. Please refer to the updated documentation below for more information.
+// !> **Note:** In order to address the ordering issue we have changed the design on how to retrieve existing sub resources such as frontend endpoints. Existing design will be deprecated and will result in an incorrect configuration. Please refer to the updated documentation below for more information.
 //
-// !> **BREAKING CHANGE:** The `resourceGroupName` field has been removed as of the `v2.58.0` provider release. If the `resourceGroupName` field has been defined in your current `frontdoor.CustomHttpsConfiguration` resource configuration file please remove it else you will receive a `An argument named "resourceGroupName" is not expected here.` error. If your pre-existing Front Door instance contained inline `customHttpsConfiguration` blocks there are additional steps that will need to be completed to successfully migrate your Front Door onto the `v2.58.0` provider which can be found in this guide.
+// !> **Note:** The `resourceGroupName` field has been removed as of the `v2.58.0` provider release. If the `resourceGroupName` field has been defined in your current `frontdoor.CustomHttpsConfiguration` resource configuration file please remove it else you will receive a `An argument named "resourceGroupName" is not expected here.` error. If your pre-existing Front Door instance contained inline `customHttpsConfiguration` blocks there are additional steps that will need to be completed to successfully migrate your Front Door onto the `v2.58.0` provider which can be found in this guide.
+//
+// !> **Note:** Azure rolled out a breaking change on Friday 9th April 2021 which may cause issues with the CDN/FrontDoor resources. More information is available in this GitHub issue - unfortunately this may necessitate a breaking change to the CDN and Front Door resources, more information will be posted in the GitHub issue as the necessary changes are identified.
+//
+// !> **Note:** On `1 April 2025`, Azure Front Door (classic) will be retired for the public cloud, existing Azure Front Door (classic) resources must be migrated out of Azure Front Door (classic) to Azure Front Door Standard/Premium before `1 October 2025` to avoid potential disruptions in service.
 //
 // ```go
 // package main

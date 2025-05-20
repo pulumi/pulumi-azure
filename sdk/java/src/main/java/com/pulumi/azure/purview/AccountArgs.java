@@ -52,7 +52,7 @@ public final class AccountArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * The name which should be used for the new Resource Group where Purview Account creates the managed resources. Changing this forces a new Purview Account to be created.
      * 
-     * &gt; **Note:** `managed_resource_group_name` must be a new Resource Group
+     * &gt; **Note:** `managed_resource_group_name` must be a new Resource Group.
      * 
      */
     @Import(name="managedResourceGroupName")
@@ -61,7 +61,7 @@ public final class AccountArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * @return The name which should be used for the new Resource Group where Purview Account creates the managed resources. Changing this forces a new Purview Account to be created.
      * 
-     * &gt; **Note:** `managed_resource_group_name` must be a new Resource Group
+     * &gt; **Note:** `managed_resource_group_name` must be a new Resource Group.
      * 
      */
     public Optional<Output<String>> managedResourceGroupName() {
@@ -203,7 +203,7 @@ public final class AccountArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param managedResourceGroupName The name which should be used for the new Resource Group where Purview Account creates the managed resources. Changing this forces a new Purview Account to be created.
          * 
-         * &gt; **Note:** `managed_resource_group_name` must be a new Resource Group
+         * &gt; **Note:** `managed_resource_group_name` must be a new Resource Group.
          * 
          * @return builder
          * 
@@ -216,7 +216,7 @@ public final class AccountArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param managedResourceGroupName The name which should be used for the new Resource Group where Purview Account creates the managed resources. Changing this forces a new Purview Account to be created.
          * 
-         * &gt; **Note:** `managed_resource_group_name` must be a new Resource Group
+         * &gt; **Note:** `managed_resource_group_name` must be a new Resource Group.
          * 
          * @return builder
          * 

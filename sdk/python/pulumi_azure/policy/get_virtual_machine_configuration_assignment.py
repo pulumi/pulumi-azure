@@ -168,6 +168,13 @@ def get_virtual_machine_configuration_assignment(name: Optional[builtins.str] = 
     pulumi.export("complianceStatus", example.compliance_status)
     ```
 
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.Compute`: 2020-06-25
+
 
     :param builtins.str name: Specifies the name of the Guest Configuration Assignment.
     :param builtins.str resource_group_name: Specifies the Name of the Resource Group where the Guest Configuration Assignment exists.
@@ -209,6 +216,13 @@ def get_virtual_machine_configuration_assignment_output(name: Optional[pulumi.In
         virtual_machine_name="example-vm")
     pulumi.export("complianceStatus", example.compliance_status)
     ```
+
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.Compute`: 2020-06-25
 
 
     :param builtins.str name: Specifies the name of the Guest Configuration Assignment.

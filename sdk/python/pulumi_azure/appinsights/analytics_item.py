@@ -307,6 +307,13 @@ class AnalyticsItem(pulumi.CustomResource):
             type="query")
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Insights`: 2015-05-01
+
         ## Import
 
         Application Insights Analytics Items can be imported using the `resource id`, e.g.
@@ -358,6 +365,13 @@ class AnalyticsItem(pulumi.CustomResource):
             scope="shared",
             type="query")
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Insights`: 2015-05-01
 
         ## Import
 

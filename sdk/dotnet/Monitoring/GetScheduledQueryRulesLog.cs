@@ -26,7 +26,7 @@ namespace Pulumi.Azure.Monitoring
         /// {
         ///     var example = Azure.Monitoring.GetScheduledQueryRulesLog.Invoke(new()
         ///     {
-        ///         ResourceGroupName = "example-rg",
+        ///         ResourceGroupName = "terraform-example-rg",
         ///         Name = "tfex-queryrule",
         ///     });
         /// 
@@ -55,7 +55,7 @@ namespace Pulumi.Azure.Monitoring
         /// {
         ///     var example = Azure.Monitoring.GetScheduledQueryRulesLog.Invoke(new()
         ///     {
-        ///         ResourceGroupName = "example-rg",
+        ///         ResourceGroupName = "terraform-example-rg",
         ///         Name = "tfex-queryrule",
         ///     });
         /// 
@@ -84,7 +84,7 @@ namespace Pulumi.Azure.Monitoring
         /// {
         ///     var example = Azure.Monitoring.GetScheduledQueryRulesLog.Invoke(new()
         ///     {
-        ///         ResourceGroupName = "example-rg",
+        ///         ResourceGroupName = "terraform-example-rg",
         ///         Name = "tfex-queryrule",
         ///     });
         /// 

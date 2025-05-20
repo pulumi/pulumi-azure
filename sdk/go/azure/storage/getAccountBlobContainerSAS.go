@@ -97,9 +97,8 @@ func GetAccountBlobContainerSAS(ctx *pulumi.Context, args *GetAccountBlobContain
 // A collection of arguments for invoking getAccountBlobContainerSAS.
 type GetAccountBlobContainerSASArgs struct {
 	// The `Cache-Control` response header that is sent when this SAS token is used.
-	CacheControl *string `pulumi:"cacheControl"`
-	// The connection string for the storage account to which this SAS applies. Typically directly from the `primaryConnectionString` attribute of an `storage.Account` resource.
-	ConnectionString string `pulumi:"connectionString"`
+	CacheControl     *string `pulumi:"cacheControl"`
+	ConnectionString string  `pulumi:"connectionString"`
 	// Name of the container.
 	ContainerName string `pulumi:"containerName"`
 	// The `Content-Disposition` response header that is sent when this SAS token is used.
@@ -112,7 +111,7 @@ type GetAccountBlobContainerSASArgs struct {
 	ContentType *string `pulumi:"contentType"`
 	// The expiration time and date of this SAS. Must be a valid ISO-8601 format time/date string.
 	//
-	// > **NOTE:** The [ISO-8601 Time offset from UTC](https://en.wikipedia.org/wiki/ISO_8601#Time_offsets_from_UTC) is currently not supported by the service, which will result into 409 error.
+	// > **Note:** The [ISO-8601 Time offset from UTC](https://en.wikipedia.org/wiki/ISO_8601#Time_offsets_from_UTC) is currently not supported by the service, which will result into 409 error.
 	Expiry string `pulumi:"expiry"`
 	// Only permit `https` access. If `false`, both `http` and `https` are permitted. Defaults to `true`.
 	HttpsOnly *bool `pulumi:"httpsOnly"`
@@ -156,9 +155,8 @@ func GetAccountBlobContainerSASOutput(ctx *pulumi.Context, args GetAccountBlobCo
 // A collection of arguments for invoking getAccountBlobContainerSAS.
 type GetAccountBlobContainerSASOutputArgs struct {
 	// The `Cache-Control` response header that is sent when this SAS token is used.
-	CacheControl pulumi.StringPtrInput `pulumi:"cacheControl"`
-	// The connection string for the storage account to which this SAS applies. Typically directly from the `primaryConnectionString` attribute of an `storage.Account` resource.
-	ConnectionString pulumi.StringInput `pulumi:"connectionString"`
+	CacheControl     pulumi.StringPtrInput `pulumi:"cacheControl"`
+	ConnectionString pulumi.StringInput    `pulumi:"connectionString"`
 	// Name of the container.
 	ContainerName pulumi.StringInput `pulumi:"containerName"`
 	// The `Content-Disposition` response header that is sent when this SAS token is used.
@@ -171,7 +169,7 @@ type GetAccountBlobContainerSASOutputArgs struct {
 	ContentType pulumi.StringPtrInput `pulumi:"contentType"`
 	// The expiration time and date of this SAS. Must be a valid ISO-8601 format time/date string.
 	//
-	// > **NOTE:** The [ISO-8601 Time offset from UTC](https://en.wikipedia.org/wiki/ISO_8601#Time_offsets_from_UTC) is currently not supported by the service, which will result into 409 error.
+	// > **Note:** The [ISO-8601 Time offset from UTC](https://en.wikipedia.org/wiki/ISO_8601#Time_offsets_from_UTC) is currently not supported by the service, which will result into 409 error.
 	Expiry pulumi.StringInput `pulumi:"expiry"`
 	// Only permit `https` access. If `false`, both `http` and `https` are permitted. Defaults to `true`.
 	HttpsOnly pulumi.BoolPtrInput `pulumi:"httpsOnly"`

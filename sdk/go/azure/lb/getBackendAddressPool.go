@@ -46,6 +46,13 @@ import (
 // })
 // }
 // ```
+//
+// ## API Providers
+//
+// <!-- This section is generated, changes will be overwritten -->
+// This data source uses the following Azure API Providers:
+//
+// * `Microsoft.Network`: 2023-09-01
 func LookupBackendAddressPool(ctx *pulumi.Context, args *LookupBackendAddressPoolArgs, opts ...pulumi.InvokeOption) (*LookupBackendAddressPoolResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupBackendAddressPoolResult

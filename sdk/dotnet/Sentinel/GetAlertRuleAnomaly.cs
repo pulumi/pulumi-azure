@@ -165,7 +165,7 @@ namespace Pulumi.Azure.Sentinel
         /// <summary>
         /// The display name of this Sentinel Alert Rule Template. Either `display_name` or `name` have to be specified.
         /// 
-        /// &gt; **NOTE** One of `name` or `display_name` must be specified.
+        /// &gt; **Note:** One of `name` or `display_name` must be specified.
         /// </summary>
         [Input("displayName")]
         public string? DisplayName { get; set; }
@@ -193,7 +193,7 @@ namespace Pulumi.Azure.Sentinel
         /// <summary>
         /// The display name of this Sentinel Alert Rule Template. Either `display_name` or `name` have to be specified.
         /// 
-        /// &gt; **NOTE** One of `name` or `display_name` must be specified.
+        /// &gt; **Note:** One of `name` or `display_name` must be specified.
         /// </summary>
         [Input("displayName")]
         public Input<string>? DisplayName { get; set; }

@@ -95,7 +95,7 @@ public final class SourceControlSlotState extends com.pulumi.resources.ResourceA
     /**
      * The ID of the Linux or Windows Web App Slot. Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE:** Function App Slots are not supported at this time.
+     * &gt; **Note:** Function App Slots are not supported at this time.
      * 
      */
     @Import(name="slotId")
@@ -104,7 +104,7 @@ public final class SourceControlSlotState extends com.pulumi.resources.ResourceA
     /**
      * @return The ID of the Linux or Windows Web App Slot. Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE:** Function App Slots are not supported at this time.
+     * &gt; **Note:** Function App Slots are not supported at this time.
      * 
      */
     public Optional<Output<String>> slotId() {
@@ -312,7 +312,7 @@ public final class SourceControlSlotState extends com.pulumi.resources.ResourceA
         /**
          * @param slotId The ID of the Linux or Windows Web App Slot. Changing this forces a new resource to be created.
          * 
-         * &gt; **NOTE:** Function App Slots are not supported at this time.
+         * &gt; **Note:** Function App Slots are not supported at this time.
          * 
          * @return builder
          * 
@@ -325,7 +325,7 @@ public final class SourceControlSlotState extends com.pulumi.resources.ResourceA
         /**
          * @param slotId The ID of the Linux or Windows Web App Slot. Changing this forces a new resource to be created.
          * 
-         * &gt; **NOTE:** Function App Slots are not supported at this time.
+         * &gt; **Note:** Function App Slots are not supported at this time.
          * 
          * @return builder
          * 

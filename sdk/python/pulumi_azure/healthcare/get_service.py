@@ -181,6 +181,13 @@ def get_service(location: Optional[builtins.str] = None,
     pulumi.export("healthcareServiceId", example.id)
     ```
 
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.HealthcareApis`: 2022-12-01
+
 
     :param builtins.str location: The Azure Region where the Service is located.
     :param builtins.str name: Specifies the name of the Healthcare Service.
@@ -223,6 +230,13 @@ def get_service_output(location: Optional[pulumi.Input[builtins.str]] = None,
         location="westus2")
     pulumi.export("healthcareServiceId", example.id)
     ```
+
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.HealthcareApis`: 2022-12-01
 
 
     :param builtins.str location: The Azure Region where the Service is located.

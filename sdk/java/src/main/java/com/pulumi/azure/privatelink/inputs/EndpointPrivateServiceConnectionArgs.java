@@ -21,7 +21,7 @@ public final class EndpointPrivateServiceConnectionArgs extends com.pulumi.resou
     /**
      * Does the Private Endpoint require Manual Approval from the remote resource owner? Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE:** If you are trying to connect the Private Endpoint to a remote resource without having the correct RBAC permissions on the remote resource set this value to `true`.
+     * &gt; **Note:** If you are trying to connect the Private Endpoint to a remote resource without having the correct RBAC permissions on the remote resource set this value to `true`.
      * 
      */
     @Import(name="isManualConnection", required=true)
@@ -30,7 +30,7 @@ public final class EndpointPrivateServiceConnectionArgs extends com.pulumi.resou
     /**
      * @return Does the Private Endpoint require Manual Approval from the remote resource owner? Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE:** If you are trying to connect the Private Endpoint to a remote resource without having the correct RBAC permissions on the remote resource set this value to `true`.
+     * &gt; **Note:** If you are trying to connect the Private Endpoint to a remote resource without having the correct RBAC permissions on the remote resource set this value to `true`.
      * 
      */
     public Output<Boolean> isManualConnection() {
@@ -100,7 +100,7 @@ public final class EndpointPrivateServiceConnectionArgs extends com.pulumi.resou
     /**
      * A message passed to the owner of the remote resource when the private endpoint attempts to establish the connection to the remote resource. The provider allows a maximum request message length of `140` characters, however the request message maximum length is dependent on the service the private endpoint is connected to. Only valid if `is_manual_connection` is set to `true`.
      * 
-     * &gt; **NOTE:** When connected to an SQL resource the `request_message` maximum length is `128`.
+     * &gt; **Note:** When connected to an SQL resource the `request_message` maximum length is `128`.
      * 
      */
     @Import(name="requestMessage")
@@ -109,7 +109,7 @@ public final class EndpointPrivateServiceConnectionArgs extends com.pulumi.resou
     /**
      * @return A message passed to the owner of the remote resource when the private endpoint attempts to establish the connection to the remote resource. The provider allows a maximum request message length of `140` characters, however the request message maximum length is dependent on the service the private endpoint is connected to. Only valid if `is_manual_connection` is set to `true`.
      * 
-     * &gt; **NOTE:** When connected to an SQL resource the `request_message` maximum length is `128`.
+     * &gt; **Note:** When connected to an SQL resource the `request_message` maximum length is `128`.
      * 
      */
     public Optional<Output<String>> requestMessage() {
@@ -119,9 +119,9 @@ public final class EndpointPrivateServiceConnectionArgs extends com.pulumi.resou
     /**
      * A list of subresource names which the Private Endpoint is able to connect to. `subresource_names` corresponds to `group_id`. Possible values are detailed in the product [documentation](https://docs.microsoft.com/azure/private-link/private-endpoint-overview#private-link-resource) in the `Subresources` column. Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE:** Some resource types (such as Storage Account) only support 1 subresource per private endpoint.
+     * &gt; **Note:** Some resource types (such as Storage Account) only support 1 subresource per private endpoint.
      * 
-     * &gt; **NOTE:** For most Private Links one or more `subresource_names` will need to be specified, please see the linked documentation for details.
+     * &gt; **Note:** For most Private Links one or more `subresource_names` will need to be specified, please see the linked documentation for details.
      * 
      */
     @Import(name="subresourceNames")
@@ -130,9 +130,9 @@ public final class EndpointPrivateServiceConnectionArgs extends com.pulumi.resou
     /**
      * @return A list of subresource names which the Private Endpoint is able to connect to. `subresource_names` corresponds to `group_id`. Possible values are detailed in the product [documentation](https://docs.microsoft.com/azure/private-link/private-endpoint-overview#private-link-resource) in the `Subresources` column. Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE:** Some resource types (such as Storage Account) only support 1 subresource per private endpoint.
+     * &gt; **Note:** Some resource types (such as Storage Account) only support 1 subresource per private endpoint.
      * 
-     * &gt; **NOTE:** For most Private Links one or more `subresource_names` will need to be specified, please see the linked documentation for details.
+     * &gt; **Note:** For most Private Links one or more `subresource_names` will need to be specified, please see the linked documentation for details.
      * 
      */
     public Optional<Output<List<String>>> subresourceNames() {
@@ -172,7 +172,7 @@ public final class EndpointPrivateServiceConnectionArgs extends com.pulumi.resou
         /**
          * @param isManualConnection Does the Private Endpoint require Manual Approval from the remote resource owner? Changing this forces a new resource to be created.
          * 
-         * &gt; **NOTE:** If you are trying to connect the Private Endpoint to a remote resource without having the correct RBAC permissions on the remote resource set this value to `true`.
+         * &gt; **Note:** If you are trying to connect the Private Endpoint to a remote resource without having the correct RBAC permissions on the remote resource set this value to `true`.
          * 
          * @return builder
          * 
@@ -185,7 +185,7 @@ public final class EndpointPrivateServiceConnectionArgs extends com.pulumi.resou
         /**
          * @param isManualConnection Does the Private Endpoint require Manual Approval from the remote resource owner? Changing this forces a new resource to be created.
          * 
-         * &gt; **NOTE:** If you are trying to connect the Private Endpoint to a remote resource without having the correct RBAC permissions on the remote resource set this value to `true`.
+         * &gt; **Note:** If you are trying to connect the Private Endpoint to a remote resource without having the correct RBAC permissions on the remote resource set this value to `true`.
          * 
          * @return builder
          * 
@@ -281,7 +281,7 @@ public final class EndpointPrivateServiceConnectionArgs extends com.pulumi.resou
         /**
          * @param requestMessage A message passed to the owner of the remote resource when the private endpoint attempts to establish the connection to the remote resource. The provider allows a maximum request message length of `140` characters, however the request message maximum length is dependent on the service the private endpoint is connected to. Only valid if `is_manual_connection` is set to `true`.
          * 
-         * &gt; **NOTE:** When connected to an SQL resource the `request_message` maximum length is `128`.
+         * &gt; **Note:** When connected to an SQL resource the `request_message` maximum length is `128`.
          * 
          * @return builder
          * 
@@ -294,7 +294,7 @@ public final class EndpointPrivateServiceConnectionArgs extends com.pulumi.resou
         /**
          * @param requestMessage A message passed to the owner of the remote resource when the private endpoint attempts to establish the connection to the remote resource. The provider allows a maximum request message length of `140` characters, however the request message maximum length is dependent on the service the private endpoint is connected to. Only valid if `is_manual_connection` is set to `true`.
          * 
-         * &gt; **NOTE:** When connected to an SQL resource the `request_message` maximum length is `128`.
+         * &gt; **Note:** When connected to an SQL resource the `request_message` maximum length is `128`.
          * 
          * @return builder
          * 
@@ -306,9 +306,9 @@ public final class EndpointPrivateServiceConnectionArgs extends com.pulumi.resou
         /**
          * @param subresourceNames A list of subresource names which the Private Endpoint is able to connect to. `subresource_names` corresponds to `group_id`. Possible values are detailed in the product [documentation](https://docs.microsoft.com/azure/private-link/private-endpoint-overview#private-link-resource) in the `Subresources` column. Changing this forces a new resource to be created.
          * 
-         * &gt; **NOTE:** Some resource types (such as Storage Account) only support 1 subresource per private endpoint.
+         * &gt; **Note:** Some resource types (such as Storage Account) only support 1 subresource per private endpoint.
          * 
-         * &gt; **NOTE:** For most Private Links one or more `subresource_names` will need to be specified, please see the linked documentation for details.
+         * &gt; **Note:** For most Private Links one or more `subresource_names` will need to be specified, please see the linked documentation for details.
          * 
          * @return builder
          * 
@@ -321,9 +321,9 @@ public final class EndpointPrivateServiceConnectionArgs extends com.pulumi.resou
         /**
          * @param subresourceNames A list of subresource names which the Private Endpoint is able to connect to. `subresource_names` corresponds to `group_id`. Possible values are detailed in the product [documentation](https://docs.microsoft.com/azure/private-link/private-endpoint-overview#private-link-resource) in the `Subresources` column. Changing this forces a new resource to be created.
          * 
-         * &gt; **NOTE:** Some resource types (such as Storage Account) only support 1 subresource per private endpoint.
+         * &gt; **Note:** Some resource types (such as Storage Account) only support 1 subresource per private endpoint.
          * 
-         * &gt; **NOTE:** For most Private Links one or more `subresource_names` will need to be specified, please see the linked documentation for details.
+         * &gt; **Note:** For most Private Links one or more `subresource_names` will need to be specified, please see the linked documentation for details.
          * 
          * @return builder
          * 
@@ -335,9 +335,9 @@ public final class EndpointPrivateServiceConnectionArgs extends com.pulumi.resou
         /**
          * @param subresourceNames A list of subresource names which the Private Endpoint is able to connect to. `subresource_names` corresponds to `group_id`. Possible values are detailed in the product [documentation](https://docs.microsoft.com/azure/private-link/private-endpoint-overview#private-link-resource) in the `Subresources` column. Changing this forces a new resource to be created.
          * 
-         * &gt; **NOTE:** Some resource types (such as Storage Account) only support 1 subresource per private endpoint.
+         * &gt; **Note:** Some resource types (such as Storage Account) only support 1 subresource per private endpoint.
          * 
-         * &gt; **NOTE:** For most Private Links one or more `subresource_names` will need to be specified, please see the linked documentation for details.
+         * &gt; **Note:** For most Private Links one or more `subresource_names` will need to be specified, please see the linked documentation for details.
          * 
          * @return builder
          * 

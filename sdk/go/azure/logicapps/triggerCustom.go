@@ -78,6 +78,8 @@ type TriggerCustom struct {
 	pulumi.CustomResourceState
 
 	// Specifies the JSON Blob defining the Body of this Custom Trigger.
+	//
+	// > **Note:** To make the Trigger more readable, you may wish to consider using HEREDOC syntax (as shown above) or the `localFile` resource to load the schema from a file on disk.
 	Body pulumi.StringOutput `pulumi:"body"`
 	// The URL of the Trigger within the Logic App Workflow. For use with certain resources like monitorActionGroup and security_center_automation.
 	CallbackUrl pulumi.StringOutput `pulumi:"callbackUrl"`
@@ -85,7 +87,7 @@ type TriggerCustom struct {
 	LogicAppId pulumi.StringOutput `pulumi:"logicAppId"`
 	// Specifies the name of the HTTP Trigger to be created within the Logic App Workflow. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** This name must be unique across all Triggers within the Logic App Workflow.
+	// > **Note:** This name must be unique across all Triggers within the Logic App Workflow.
 	Name pulumi.StringOutput `pulumi:"name"`
 }
 
@@ -126,6 +128,8 @@ func GetTriggerCustom(ctx *pulumi.Context,
 // Input properties used for looking up and filtering TriggerCustom resources.
 type triggerCustomState struct {
 	// Specifies the JSON Blob defining the Body of this Custom Trigger.
+	//
+	// > **Note:** To make the Trigger more readable, you may wish to consider using HEREDOC syntax (as shown above) or the `localFile` resource to load the schema from a file on disk.
 	Body *string `pulumi:"body"`
 	// The URL of the Trigger within the Logic App Workflow. For use with certain resources like monitorActionGroup and security_center_automation.
 	CallbackUrl *string `pulumi:"callbackUrl"`
@@ -133,12 +137,14 @@ type triggerCustomState struct {
 	LogicAppId *string `pulumi:"logicAppId"`
 	// Specifies the name of the HTTP Trigger to be created within the Logic App Workflow. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** This name must be unique across all Triggers within the Logic App Workflow.
+	// > **Note:** This name must be unique across all Triggers within the Logic App Workflow.
 	Name *string `pulumi:"name"`
 }
 
 type TriggerCustomState struct {
 	// Specifies the JSON Blob defining the Body of this Custom Trigger.
+	//
+	// > **Note:** To make the Trigger more readable, you may wish to consider using HEREDOC syntax (as shown above) or the `localFile` resource to load the schema from a file on disk.
 	Body pulumi.StringPtrInput
 	// The URL of the Trigger within the Logic App Workflow. For use with certain resources like monitorActionGroup and security_center_automation.
 	CallbackUrl pulumi.StringPtrInput
@@ -146,7 +152,7 @@ type TriggerCustomState struct {
 	LogicAppId pulumi.StringPtrInput
 	// Specifies the name of the HTTP Trigger to be created within the Logic App Workflow. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** This name must be unique across all Triggers within the Logic App Workflow.
+	// > **Note:** This name must be unique across all Triggers within the Logic App Workflow.
 	Name pulumi.StringPtrInput
 }
 
@@ -156,24 +162,28 @@ func (TriggerCustomState) ElementType() reflect.Type {
 
 type triggerCustomArgs struct {
 	// Specifies the JSON Blob defining the Body of this Custom Trigger.
+	//
+	// > **Note:** To make the Trigger more readable, you may wish to consider using HEREDOC syntax (as shown above) or the `localFile` resource to load the schema from a file on disk.
 	Body string `pulumi:"body"`
 	// Specifies the ID of the Logic App Workflow. Changing this forces a new resource to be created.
 	LogicAppId string `pulumi:"logicAppId"`
 	// Specifies the name of the HTTP Trigger to be created within the Logic App Workflow. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** This name must be unique across all Triggers within the Logic App Workflow.
+	// > **Note:** This name must be unique across all Triggers within the Logic App Workflow.
 	Name *string `pulumi:"name"`
 }
 
 // The set of arguments for constructing a TriggerCustom resource.
 type TriggerCustomArgs struct {
 	// Specifies the JSON Blob defining the Body of this Custom Trigger.
+	//
+	// > **Note:** To make the Trigger more readable, you may wish to consider using HEREDOC syntax (as shown above) or the `localFile` resource to load the schema from a file on disk.
 	Body pulumi.StringInput
 	// Specifies the ID of the Logic App Workflow. Changing this forces a new resource to be created.
 	LogicAppId pulumi.StringInput
 	// Specifies the name of the HTTP Trigger to be created within the Logic App Workflow. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** This name must be unique across all Triggers within the Logic App Workflow.
+	// > **Note:** This name must be unique across all Triggers within the Logic App Workflow.
 	Name pulumi.StringPtrInput
 }
 
@@ -265,6 +275,8 @@ func (o TriggerCustomOutput) ToTriggerCustomOutputWithContext(ctx context.Contex
 }
 
 // Specifies the JSON Blob defining the Body of this Custom Trigger.
+//
+// > **Note:** To make the Trigger more readable, you may wish to consider using HEREDOC syntax (as shown above) or the `localFile` resource to load the schema from a file on disk.
 func (o TriggerCustomOutput) Body() pulumi.StringOutput {
 	return o.ApplyT(func(v *TriggerCustom) pulumi.StringOutput { return v.Body }).(pulumi.StringOutput)
 }
@@ -281,7 +293,7 @@ func (o TriggerCustomOutput) LogicAppId() pulumi.StringOutput {
 
 // Specifies the name of the HTTP Trigger to be created within the Logic App Workflow. Changing this forces a new resource to be created.
 //
-// > **NOTE:** This name must be unique across all Triggers within the Logic App Workflow.
+// > **Note:** This name must be unique across all Triggers within the Logic App Workflow.
 func (o TriggerCustomOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *TriggerCustom) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }

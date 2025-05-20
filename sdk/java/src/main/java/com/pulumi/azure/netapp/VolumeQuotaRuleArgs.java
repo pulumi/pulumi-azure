@@ -65,9 +65,9 @@ public final class VolumeQuotaRuleArgs extends com.pulumi.resources.ResourceArgs
     /**
      * Quota Target. This can be Unix UID/GID for NFSv3/NFSv4.1 volumes and Windows User SID for CIFS based volumes. Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE:** ` quota_target  ` must be used when `quota_type` is `IndividualGroupQuota` or `IndividualUserQuota`
+     * &gt; **Note:** ` quota_target  ` must be used when `quota_type` is `IndividualGroupQuota` or `IndividualUserQuota`
      * 
-     * &gt; **NOTE:** more information about this resource can be found at [Understand default and individual user and group quotas](https://learn.microsoft.com/en-us/azure/azure-netapp-files/default-individual-user-group-quotas-introduction)
+     * &gt; **Note:** more information about this resource can be found at [Understand default and individual user and group quotas](https://learn.microsoft.com/en-us/azure/azure-netapp-files/default-individual-user-group-quotas-introduction)
      * 
      */
     @Import(name="quotaTarget")
@@ -76,9 +76,9 @@ public final class VolumeQuotaRuleArgs extends com.pulumi.resources.ResourceArgs
     /**
      * @return Quota Target. This can be Unix UID/GID for NFSv3/NFSv4.1 volumes and Windows User SID for CIFS based volumes. Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE:** ` quota_target  ` must be used when `quota_type` is `IndividualGroupQuota` or `IndividualUserQuota`
+     * &gt; **Note:** ` quota_target  ` must be used when `quota_type` is `IndividualGroupQuota` or `IndividualUserQuota`
      * 
-     * &gt; **NOTE:** more information about this resource can be found at [Understand default and individual user and group quotas](https://learn.microsoft.com/en-us/azure/azure-netapp-files/default-individual-user-group-quotas-introduction)
+     * &gt; **Note:** more information about this resource can be found at [Understand default and individual user and group quotas](https://learn.microsoft.com/en-us/azure/azure-netapp-files/default-individual-user-group-quotas-introduction)
      * 
      */
     public Optional<Output<String>> quotaTarget() {
@@ -210,9 +210,9 @@ public final class VolumeQuotaRuleArgs extends com.pulumi.resources.ResourceArgs
         /**
          * @param quotaTarget Quota Target. This can be Unix UID/GID for NFSv3/NFSv4.1 volumes and Windows User SID for CIFS based volumes. Changing this forces a new resource to be created.
          * 
-         * &gt; **NOTE:** ` quota_target  ` must be used when `quota_type` is `IndividualGroupQuota` or `IndividualUserQuota`
+         * &gt; **Note:** ` quota_target  ` must be used when `quota_type` is `IndividualGroupQuota` or `IndividualUserQuota`
          * 
-         * &gt; **NOTE:** more information about this resource can be found at [Understand default and individual user and group quotas](https://learn.microsoft.com/en-us/azure/azure-netapp-files/default-individual-user-group-quotas-introduction)
+         * &gt; **Note:** more information about this resource can be found at [Understand default and individual user and group quotas](https://learn.microsoft.com/en-us/azure/azure-netapp-files/default-individual-user-group-quotas-introduction)
          * 
          * @return builder
          * 
@@ -225,9 +225,9 @@ public final class VolumeQuotaRuleArgs extends com.pulumi.resources.ResourceArgs
         /**
          * @param quotaTarget Quota Target. This can be Unix UID/GID for NFSv3/NFSv4.1 volumes and Windows User SID for CIFS based volumes. Changing this forces a new resource to be created.
          * 
-         * &gt; **NOTE:** ` quota_target  ` must be used when `quota_type` is `IndividualGroupQuota` or `IndividualUserQuota`
+         * &gt; **Note:** ` quota_target  ` must be used when `quota_type` is `IndividualGroupQuota` or `IndividualUserQuota`
          * 
-         * &gt; **NOTE:** more information about this resource can be found at [Understand default and individual user and group quotas](https://learn.microsoft.com/en-us/azure/azure-netapp-files/default-individual-user-group-quotas-introduction)
+         * &gt; **Note:** more information about this resource can be found at [Understand default and individual user and group quotas](https://learn.microsoft.com/en-us/azure/azure-netapp-files/default-individual-user-group-quotas-introduction)
          * 
          * @return builder
          * 

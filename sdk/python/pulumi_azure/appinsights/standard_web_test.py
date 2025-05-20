@@ -519,6 +519,13 @@ class StandardWebTest(pulumi.CustomResource):
             })
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Insights`: 2022-06-15
+
         ## Import
 
         Application Insights Standard WebTests can be imported using the `resource id`, e.g.
@@ -578,6 +585,13 @@ class StandardWebTest(pulumi.CustomResource):
                 "url": "http://www.example.com",
             })
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Insights`: 2022-06-15
 
         ## Import
 

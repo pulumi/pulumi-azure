@@ -36,7 +36,7 @@ namespace Pulumi.Azure.ServiceBus
     ///         Sku = "Standard",
     ///         Tags = 
     ///         {
-    ///             { "source", "example" },
+    ///             { "source", "terraform" },
     ///         },
     ///     });
     /// 
@@ -132,7 +132,7 @@ namespace Pulumi.Azure.ServiceBus
         /// <summary>
         /// Specifies the ID of the ServiceBus Topic. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **NOTE** At least one of the 3 permissions below needs to be set.
+        /// &gt; **Note:** At least one of the 3 permissions below needs to be set.
         /// </summary>
         [Output("topicId")]
         public Output<string> TopicId { get; private set; } = null!;
@@ -223,7 +223,7 @@ namespace Pulumi.Azure.ServiceBus
         /// <summary>
         /// Specifies the ID of the ServiceBus Topic. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **NOTE** At least one of the 3 permissions below needs to be set.
+        /// &gt; **Note:** At least one of the 3 permissions below needs to be set.
         /// </summary>
         [Input("topicId", required: true)]
         public Input<string> TopicId { get; set; } = null!;
@@ -359,7 +359,7 @@ namespace Pulumi.Azure.ServiceBus
         /// <summary>
         /// Specifies the ID of the ServiceBus Topic. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **NOTE** At least one of the 3 permissions below needs to be set.
+        /// &gt; **Note:** At least one of the 3 permissions below needs to be set.
         /// </summary>
         [Input("topicId")]
         public Input<string>? TopicId { get; set; }

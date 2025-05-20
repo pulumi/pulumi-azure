@@ -55,6 +55,13 @@ namespace Pulumi.Azure.Avs
     /// });
     /// ```
     /// 
+    /// ## API Providers
+    /// 
+    /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+    /// This resource uses the following Azure API Providers:
+    /// 
+    /// * `Microsoft.AVS`: 2022-05-01
+    /// 
     /// ## Import
     /// 
     /// Azure VMware Solution Clusters can be imported using the `resource id`, e.g.

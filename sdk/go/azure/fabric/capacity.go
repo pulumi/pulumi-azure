@@ -41,7 +41,7 @@ import (
 //				return err
 //			}
 //			_, err = fabric.NewCapacity(ctx, "example", &fabric.CapacityArgs{
-//				Name:              pulumi.String("example-ffc"),
+//				Name:              pulumi.String("exampleffc"),
 //				ResourceGroupName: example.Name,
 //				Location:          pulumi.String("West Europe"),
 //				AdministrationMembers: pulumi.StringArray{
@@ -63,6 +63,13 @@ import (
 //	}
 //
 // ```
+//
+// ## API Providers
+//
+// <!-- This section is generated, changes will be overwritten -->
+// This resource uses the following Azure API Providers:
+//
+// * `Microsoft.Fabric`: 2023-11-01
 //
 // ## Import
 //

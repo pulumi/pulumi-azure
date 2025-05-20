@@ -42,6 +42,13 @@ namespace Pulumi.Azure.DigitalTwins
     /// });
     /// ```
     /// 
+    /// ## API Providers
+    /// 
+    /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+    /// This resource uses the following Azure API Providers:
+    /// 
+    /// * `Microsoft.DigitalTwins`: 2023-01-31
+    /// 
     /// ## Import
     /// 
     /// Digital Twins instances can be imported using the `resource id`, e.g.

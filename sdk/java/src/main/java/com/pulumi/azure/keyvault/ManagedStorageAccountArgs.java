@@ -51,7 +51,7 @@ public final class ManagedStorageAccountArgs extends com.pulumi.resources.Resour
     /**
      * Should Storage Account access key be regenerated periodically?
      * 
-     * &gt; **NOTE:** Azure Key Vault application needs to have access to Storage Account for auto regeneration to work. Example can be found above.
+     * &gt; **Note:** Azure Key Vault application needs to have access to Storage Account for auto regeneration to work. Example can be found above.
      * 
      */
     @Import(name="regenerateKeyAutomatically")
@@ -60,7 +60,7 @@ public final class ManagedStorageAccountArgs extends com.pulumi.resources.Resour
     /**
      * @return Should Storage Account access key be regenerated periodically?
      * 
-     * &gt; **NOTE:** Azure Key Vault application needs to have access to Storage Account for auto regeneration to work. Example can be found above.
+     * &gt; **Note:** Azure Key Vault application needs to have access to Storage Account for auto regeneration to work. Example can be found above.
      * 
      */
     public Optional<Output<Boolean>> regenerateKeyAutomatically() {
@@ -202,7 +202,7 @@ public final class ManagedStorageAccountArgs extends com.pulumi.resources.Resour
         /**
          * @param regenerateKeyAutomatically Should Storage Account access key be regenerated periodically?
          * 
-         * &gt; **NOTE:** Azure Key Vault application needs to have access to Storage Account for auto regeneration to work. Example can be found above.
+         * &gt; **Note:** Azure Key Vault application needs to have access to Storage Account for auto regeneration to work. Example can be found above.
          * 
          * @return builder
          * 
@@ -215,7 +215,7 @@ public final class ManagedStorageAccountArgs extends com.pulumi.resources.Resour
         /**
          * @param regenerateKeyAutomatically Should Storage Account access key be regenerated periodically?
          * 
-         * &gt; **NOTE:** Azure Key Vault application needs to have access to Storage Account for auto regeneration to work. Example can be found above.
+         * &gt; **Note:** Azure Key Vault application needs to have access to Storage Account for auto regeneration to work. Example can be found above.
          * 
          * @return builder
          * 

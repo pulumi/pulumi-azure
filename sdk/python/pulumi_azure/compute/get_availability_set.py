@@ -145,6 +145,13 @@ def get_availability_set(name: Optional[builtins.str] = None,
     pulumi.export("availabilitySetId", example.id)
     ```
 
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.Compute`: 2024-03-01
+
 
     :param builtins.str name: The name of the Availability Set.
     :param builtins.str resource_group_name: The name of the resource group in which the Availability Set exists.
@@ -180,6 +187,13 @@ def get_availability_set_output(name: Optional[pulumi.Input[builtins.str]] = Non
         resource_group_name="my-resource-group")
     pulumi.export("availabilitySetId", example.id)
     ```
+
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.Compute`: 2024-03-01
 
 
     :param builtins.str name: The name of the Availability Set.

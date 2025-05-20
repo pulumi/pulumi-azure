@@ -144,6 +144,13 @@ def get_replication_recovery_plan(name: Optional[builtins.str] = None,
         recovery_vault_id=vault.id)
     ```
 
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.RecoveryServices`: 2024-04-01
+
 
     :param builtins.str name: The name of the Replication Plan.
     :param builtins.str recovery_vault_id: The ID of the vault that should be updated.
@@ -180,6 +187,13 @@ def get_replication_recovery_plan_output(name: Optional[pulumi.Input[builtins.st
     example = azure.siterecovery.get_replication_recovery_plan(name="example-recovery-plan",
         recovery_vault_id=vault.id)
     ```
+
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.RecoveryServices`: 2024-04-01
 
 
     :param builtins.str name: The name of the Replication Plan.

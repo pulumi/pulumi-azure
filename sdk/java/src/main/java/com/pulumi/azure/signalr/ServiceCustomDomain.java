@@ -142,6 +142,13 @@ import javax.annotation.Nullable;
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
+ * ## API Providers
+ * 
+ * &lt;!-- This section is generated, changes will be overwritten --&gt;
+ * This resource uses the following Azure API Providers:
+ * 
+ * * `Microsoft.SignalRService`: 2024-03-01
+ * 
  * ## Import
  * 
  * Custom Domain for a SignalR service can be imported using the `resource id`, e.g.
@@ -156,7 +163,7 @@ public class ServiceCustomDomain extends com.pulumi.resources.CustomResource {
     /**
      * Specifies the custom domain name of the SignalR Custom Domain. Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE:** Please ensure the custom domain name is included in the Subject Alternative Names of the selected SignalR Custom Certificate.
+     * &gt; **Note:** Please ensure the custom domain name is included in the Subject Alternative Names of the selected SignalR Custom Certificate.
      * 
      */
     @Export(name="domainName", refs={String.class}, tree="[0]")
@@ -165,7 +172,7 @@ public class ServiceCustomDomain extends com.pulumi.resources.CustomResource {
     /**
      * @return Specifies the custom domain name of the SignalR Custom Domain. Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE:** Please ensure the custom domain name is included in the Subject Alternative Names of the selected SignalR Custom Certificate.
+     * &gt; **Note:** Please ensure the custom domain name is included in the Subject Alternative Names of the selected SignalR Custom Certificate.
      * 
      */
     public Output<String> domainName() {

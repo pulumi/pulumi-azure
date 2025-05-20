@@ -66,7 +66,7 @@ import javax.annotation.Nullable;
  *             .administratorLogin("adminTerraform")
  *             .administratorPassword("QAZwsx123")
  *             .version("8.0.21")
- *             .skuName("B_Standard_B1s")
+ *             .skuName("B_Standard_B1ms")
  *             .zone("1")
  *             .build());
  * 
@@ -123,6 +123,13 @@ import javax.annotation.Nullable;
  * }
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
+ * 
+ * ## API Providers
+ * 
+ * &lt;!-- This section is generated, changes will be overwritten --&gt;
+ * This resource uses the following Azure API Providers:
+ * 
+ * * `Microsoft.DataProtection`: 2024-04-01
  * 
  * ## Import
  * 

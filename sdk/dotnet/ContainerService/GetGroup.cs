@@ -38,6 +38,13 @@ namespace Pulumi.Azure.ContainerService
         ///     };
         /// });
         /// ```
+        /// 
+        /// ## API Providers
+        /// 
+        /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+        /// This data source uses the following Azure API Providers:
+        /// 
+        /// * `Microsoft.ContainerInstance`: 2023-05-01
         /// </summary>
         public static Task<GetGroupResult> InvokeAsync(GetGroupArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetGroupResult>("azure:containerservice/getGroup:getGroup", args ?? new GetGroupArgs(), options.WithDefaults());
@@ -69,6 +76,13 @@ namespace Pulumi.Azure.ContainerService
         ///     };
         /// });
         /// ```
+        /// 
+        /// ## API Providers
+        /// 
+        /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+        /// This data source uses the following Azure API Providers:
+        /// 
+        /// * `Microsoft.ContainerInstance`: 2023-05-01
         /// </summary>
         public static Output<GetGroupResult> Invoke(GetGroupInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetGroupResult>("azure:containerservice/getGroup:getGroup", args ?? new GetGroupInvokeArgs(), options.WithDefaults());
@@ -100,6 +114,13 @@ namespace Pulumi.Azure.ContainerService
         ///     };
         /// });
         /// ```
+        /// 
+        /// ## API Providers
+        /// 
+        /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+        /// This data source uses the following Azure API Providers:
+        /// 
+        /// * `Microsoft.ContainerInstance`: 2023-05-01
         /// </summary>
         public static Output<GetGroupResult> Invoke(GetGroupInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetGroupResult>("azure:containerservice/getGroup:getGroup", args ?? new GetGroupInvokeArgs(), options.WithDefaults());

@@ -451,7 +451,7 @@ class Backend(pulumi.CustomResource):
             location=example.location,
             resource_group_name=example.name,
             publisher_name="My Company",
-            publisher_email="company@exmaple.com",
+            publisher_email="company@terraform.io",
             sku_name="Developer_1")
         example_backend = azure.apimanagement.Backend("example",
             name="example-backend",
@@ -460,6 +460,13 @@ class Backend(pulumi.CustomResource):
             protocol="http",
             url="https://backend.com/api")
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.ApiManagement`: 2022-08-01
 
         ## Import
 
@@ -507,7 +514,7 @@ class Backend(pulumi.CustomResource):
             location=example.location,
             resource_group_name=example.name,
             publisher_name="My Company",
-            publisher_email="company@exmaple.com",
+            publisher_email="company@terraform.io",
             sku_name="Developer_1")
         example_backend = azure.apimanagement.Backend("example",
             name="example-backend",
@@ -516,6 +523,13 @@ class Backend(pulumi.CustomResource):
             protocol="http",
             url="https://backend.com/api")
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.ApiManagement`: 2022-08-01
 
         ## Import
 

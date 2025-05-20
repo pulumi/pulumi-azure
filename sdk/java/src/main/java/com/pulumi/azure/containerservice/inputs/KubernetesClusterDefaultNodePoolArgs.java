@@ -24,25 +24,9 @@ public final class KubernetesClusterDefaultNodePoolArgs extends com.pulumi.resou
 
     public static final KubernetesClusterDefaultNodePoolArgs Empty = new KubernetesClusterDefaultNodePoolArgs();
 
-    /**
-     * Should [the Kubernetes Auto Scaler](https://docs.microsoft.com/azure/aks/cluster-autoscaler) be enabled for this Node Pool?
-     * 
-     * &gt; **Note:** This requires that the `type` is set to `VirtualMachineScaleSets`.
-     * 
-     * &gt; **Note:** If you&#39;re using AutoScaling, you may wish to use [`ignoreChanges` functionality](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) to ignore changes to the `node_count` field.
-     * 
-     */
     @Import(name="autoScalingEnabled")
     private @Nullable Output<Boolean> autoScalingEnabled;
 
-    /**
-     * @return Should [the Kubernetes Auto Scaler](https://docs.microsoft.com/azure/aks/cluster-autoscaler) be enabled for this Node Pool?
-     * 
-     * &gt; **Note:** This requires that the `type` is set to `VirtualMachineScaleSets`.
-     * 
-     * &gt; **Note:** If you&#39;re using AutoScaling, you may wish to use [`ignoreChanges` functionality](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) to ignore changes to the `node_count` field.
-     * 
-     */
     public Optional<Output<Boolean>> autoScalingEnabled() {
         return Optional.ofNullable(this.autoScalingEnabled);
     }
@@ -421,21 +405,9 @@ public final class KubernetesClusterDefaultNodePoolArgs extends com.pulumi.resou
         return Optional.ofNullable(this.snapshotId);
     }
 
-    /**
-     * A mapping of tags to assign to the Node Pool.
-     * 
-     * &gt; At this time there&#39;s a bug in the AKS API where Tags for a Node Pool are not stored in the correct case - you may wish to use `ignore_changes` functionality to ignore changes to the casing until this is fixed in the AKS API.
-     * 
-     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
-    /**
-     * @return A mapping of tags to assign to the Node Pool.
-     * 
-     * &gt; At this time there&#39;s a bug in the AKS API where Tags for a Node Pool are not stored in the correct case - you may wish to use `ignore_changes` functionality to ignore changes to the casing until this is fixed in the AKS API.
-     * 
-     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -631,31 +603,11 @@ public final class KubernetesClusterDefaultNodePoolArgs extends com.pulumi.resou
             $ = new KubernetesClusterDefaultNodePoolArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param autoScalingEnabled Should [the Kubernetes Auto Scaler](https://docs.microsoft.com/azure/aks/cluster-autoscaler) be enabled for this Node Pool?
-         * 
-         * &gt; **Note:** This requires that the `type` is set to `VirtualMachineScaleSets`.
-         * 
-         * &gt; **Note:** If you&#39;re using AutoScaling, you may wish to use [`ignoreChanges` functionality](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) to ignore changes to the `node_count` field.
-         * 
-         * @return builder
-         * 
-         */
         public Builder autoScalingEnabled(@Nullable Output<Boolean> autoScalingEnabled) {
             $.autoScalingEnabled = autoScalingEnabled;
             return this;
         }
 
-        /**
-         * @param autoScalingEnabled Should [the Kubernetes Auto Scaler](https://docs.microsoft.com/azure/aks/cluster-autoscaler) be enabled for this Node Pool?
-         * 
-         * &gt; **Note:** This requires that the `type` is set to `VirtualMachineScaleSets`.
-         * 
-         * &gt; **Note:** If you&#39;re using AutoScaling, you may wish to use [`ignoreChanges` functionality](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) to ignore changes to the `node_count` field.
-         * 
-         * @return builder
-         * 
-         */
         public Builder autoScalingEnabled(Boolean autoScalingEnabled) {
             return autoScalingEnabled(Output.of(autoScalingEnabled));
         }
@@ -1178,27 +1130,11 @@ public final class KubernetesClusterDefaultNodePoolArgs extends com.pulumi.resou
             return snapshotId(Output.of(snapshotId));
         }
 
-        /**
-         * @param tags A mapping of tags to assign to the Node Pool.
-         * 
-         * &gt; At this time there&#39;s a bug in the AKS API where Tags for a Node Pool are not stored in the correct case - you may wish to use `ignore_changes` functionality to ignore changes to the casing until this is fixed in the AKS API.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
-        /**
-         * @param tags A mapping of tags to assign to the Node Pool.
-         * 
-         * &gt; At this time there&#39;s a bug in the AKS API where Tags for a Node Pool are not stored in the correct case - you may wish to use `ignore_changes` functionality to ignore changes to the casing until this is fixed in the AKS API.
-         * 
-         * @return builder
-         * 
-         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }

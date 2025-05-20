@@ -18,7 +18,7 @@ import (
 //
 // ## Example Usage
 //
-// This example provisions a Standard Redis Cache.
+// This example provisions a Standard Redis Cache. Other examples of the `redis.Cache` resource can be found in the `./examples/redis-cache` directory within the GitHub Repository
 //
 // ```go
 // package main
@@ -66,6 +66,13 @@ import (
 // * [Azure Cache for Redis planning](https://docs.microsoft.com/azure/azure-cache-for-redis/cache-planning-faq)
 // * [Redis: Available Configuration Settings](https://redis.io/topics/config)
 //
+// ## API Providers
+//
+// <!-- This section is generated, changes will be overwritten -->
+// This resource uses the following Azure API Providers:
+//
+// * `Microsoft.Cache`: 2024-11-01
+//
 // ## Import
 //
 // Redis Cache's can be imported using the `resource id`, e.g.
@@ -90,7 +97,7 @@ type Cache struct {
 	Location pulumi.StringOutput `pulumi:"location"`
 	// The minimum TLS version. Possible values are `1.0`, `1.1` and `1.2`. Defaults to `1.0`.
 	//
-	// > **NOTE:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
+	// > **Note:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
 	MinimumTlsVersion pulumi.StringPtrOutput `pulumi:"minimumTlsVersion"`
 	// The name of the Redis instance. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -128,7 +135,7 @@ type Cache struct {
 	ShardCount pulumi.IntPtrOutput `pulumi:"shardCount"`
 	// The SKU of Redis to use. Possible values are `Basic`, `Standard` and `Premium`.
 	//
-	// > **Note** Downgrading the SKU will force a new resource to be created.
+	// > **Note:** Downgrading the SKU will force a new resource to be created.
 	SkuName pulumi.StringOutput `pulumi:"skuName"`
 	// The SSL Port of the Redis Instance
 	SslPort pulumi.IntOutput `pulumi:"sslPort"`
@@ -140,7 +147,7 @@ type Cache struct {
 	TenantSettings pulumi.StringMapOutput `pulumi:"tenantSettings"`
 	// Specifies a list of Availability Zones in which this Redis Cache should be located. Changing this forces a new Redis Cache to be created.
 	//
-	// > **Please Note:** Availability Zones are [in Preview and only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview) - as such you must be opted into the Preview to use this functionality. You can [opt into the Availability Zones Preview in the Azure Portal](https://aka.ms/azenroll).
+	// > **Note:** Availability Zones are [in Preview and only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview) - as such you must be opted into the Preview to use this functionality. You can [opt into the Availability Zones Preview in the Azure Portal](https://aka.ms/azenroll).
 	Zones pulumi.StringArrayOutput `pulumi:"zones"`
 }
 
@@ -207,7 +214,7 @@ type cacheState struct {
 	Location *string `pulumi:"location"`
 	// The minimum TLS version. Possible values are `1.0`, `1.1` and `1.2`. Defaults to `1.0`.
 	//
-	// > **NOTE:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
+	// > **Note:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
 	MinimumTlsVersion *string `pulumi:"minimumTlsVersion"`
 	// The name of the Redis instance. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
@@ -245,7 +252,7 @@ type cacheState struct {
 	ShardCount *int `pulumi:"shardCount"`
 	// The SKU of Redis to use. Possible values are `Basic`, `Standard` and `Premium`.
 	//
-	// > **Note** Downgrading the SKU will force a new resource to be created.
+	// > **Note:** Downgrading the SKU will force a new resource to be created.
 	SkuName *string `pulumi:"skuName"`
 	// The SSL Port of the Redis Instance
 	SslPort *int `pulumi:"sslPort"`
@@ -257,7 +264,7 @@ type cacheState struct {
 	TenantSettings map[string]string `pulumi:"tenantSettings"`
 	// Specifies a list of Availability Zones in which this Redis Cache should be located. Changing this forces a new Redis Cache to be created.
 	//
-	// > **Please Note:** Availability Zones are [in Preview and only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview) - as such you must be opted into the Preview to use this functionality. You can [opt into the Availability Zones Preview in the Azure Portal](https://aka.ms/azenroll).
+	// > **Note:** Availability Zones are [in Preview and only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview) - as such you must be opted into the Preview to use this functionality. You can [opt into the Availability Zones Preview in the Azure Portal](https://aka.ms/azenroll).
 	Zones []string `pulumi:"zones"`
 }
 
@@ -276,7 +283,7 @@ type CacheState struct {
 	Location pulumi.StringPtrInput
 	// The minimum TLS version. Possible values are `1.0`, `1.1` and `1.2`. Defaults to `1.0`.
 	//
-	// > **NOTE:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
+	// > **Note:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
 	MinimumTlsVersion pulumi.StringPtrInput
 	// The name of the Redis instance. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
@@ -314,7 +321,7 @@ type CacheState struct {
 	ShardCount pulumi.IntPtrInput
 	// The SKU of Redis to use. Possible values are `Basic`, `Standard` and `Premium`.
 	//
-	// > **Note** Downgrading the SKU will force a new resource to be created.
+	// > **Note:** Downgrading the SKU will force a new resource to be created.
 	SkuName pulumi.StringPtrInput
 	// The SSL Port of the Redis Instance
 	SslPort pulumi.IntPtrInput
@@ -326,7 +333,7 @@ type CacheState struct {
 	TenantSettings pulumi.StringMapInput
 	// Specifies a list of Availability Zones in which this Redis Cache should be located. Changing this forces a new Redis Cache to be created.
 	//
-	// > **Please Note:** Availability Zones are [in Preview and only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview) - as such you must be opted into the Preview to use this functionality. You can [opt into the Availability Zones Preview in the Azure Portal](https://aka.ms/azenroll).
+	// > **Note:** Availability Zones are [in Preview and only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview) - as such you must be opted into the Preview to use this functionality. You can [opt into the Availability Zones Preview in the Azure Portal](https://aka.ms/azenroll).
 	Zones pulumi.StringArrayInput
 }
 
@@ -347,7 +354,7 @@ type cacheArgs struct {
 	Location *string `pulumi:"location"`
 	// The minimum TLS version. Possible values are `1.0`, `1.1` and `1.2`. Defaults to `1.0`.
 	//
-	// > **NOTE:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
+	// > **Note:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
 	MinimumTlsVersion *string `pulumi:"minimumTlsVersion"`
 	// The name of the Redis instance. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
@@ -375,7 +382,7 @@ type cacheArgs struct {
 	ShardCount *int `pulumi:"shardCount"`
 	// The SKU of Redis to use. Possible values are `Basic`, `Standard` and `Premium`.
 	//
-	// > **Note** Downgrading the SKU will force a new resource to be created.
+	// > **Note:** Downgrading the SKU will force a new resource to be created.
 	SkuName string `pulumi:"skuName"`
 	// *Only available when using the Premium SKU* The ID of the Subnet within which the Redis Cache should be deployed. This Subnet must only contain Azure Cache for Redis instances without any other type of resources. Changing this forces a new resource to be created.
 	SubnetId *string `pulumi:"subnetId"`
@@ -385,7 +392,7 @@ type cacheArgs struct {
 	TenantSettings map[string]string `pulumi:"tenantSettings"`
 	// Specifies a list of Availability Zones in which this Redis Cache should be located. Changing this forces a new Redis Cache to be created.
 	//
-	// > **Please Note:** Availability Zones are [in Preview and only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview) - as such you must be opted into the Preview to use this functionality. You can [opt into the Availability Zones Preview in the Azure Portal](https://aka.ms/azenroll).
+	// > **Note:** Availability Zones are [in Preview and only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview) - as such you must be opted into the Preview to use this functionality. You can [opt into the Availability Zones Preview in the Azure Portal](https://aka.ms/azenroll).
 	Zones []string `pulumi:"zones"`
 }
 
@@ -403,7 +410,7 @@ type CacheArgs struct {
 	Location pulumi.StringPtrInput
 	// The minimum TLS version. Possible values are `1.0`, `1.1` and `1.2`. Defaults to `1.0`.
 	//
-	// > **NOTE:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
+	// > **Note:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
 	MinimumTlsVersion pulumi.StringPtrInput
 	// The name of the Redis instance. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
@@ -431,7 +438,7 @@ type CacheArgs struct {
 	ShardCount pulumi.IntPtrInput
 	// The SKU of Redis to use. Possible values are `Basic`, `Standard` and `Premium`.
 	//
-	// > **Note** Downgrading the SKU will force a new resource to be created.
+	// > **Note:** Downgrading the SKU will force a new resource to be created.
 	SkuName pulumi.StringInput
 	// *Only available when using the Premium SKU* The ID of the Subnet within which the Redis Cache should be deployed. This Subnet must only contain Azure Cache for Redis instances without any other type of resources. Changing this forces a new resource to be created.
 	SubnetId pulumi.StringPtrInput
@@ -441,7 +448,7 @@ type CacheArgs struct {
 	TenantSettings pulumi.StringMapInput
 	// Specifies a list of Availability Zones in which this Redis Cache should be located. Changing this forces a new Redis Cache to be created.
 	//
-	// > **Please Note:** Availability Zones are [in Preview and only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview) - as such you must be opted into the Preview to use this functionality. You can [opt into the Availability Zones Preview in the Azure Portal](https://aka.ms/azenroll).
+	// > **Note:** Availability Zones are [in Preview and only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview) - as such you must be opted into the Preview to use this functionality. You can [opt into the Availability Zones Preview in the Azure Portal](https://aka.ms/azenroll).
 	Zones pulumi.StringArrayInput
 }
 
@@ -564,7 +571,7 @@ func (o CacheOutput) Location() pulumi.StringOutput {
 
 // The minimum TLS version. Possible values are `1.0`, `1.1` and `1.2`. Defaults to `1.0`.
 //
-// > **NOTE:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
+// > **Note:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
 func (o CacheOutput) MinimumTlsVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Cache) pulumi.StringPtrOutput { return v.MinimumTlsVersion }).(pulumi.StringPtrOutput)
 }
@@ -653,7 +660,7 @@ func (o CacheOutput) ShardCount() pulumi.IntPtrOutput {
 
 // The SKU of Redis to use. Possible values are `Basic`, `Standard` and `Premium`.
 //
-// > **Note** Downgrading the SKU will force a new resource to be created.
+// > **Note:** Downgrading the SKU will force a new resource to be created.
 func (o CacheOutput) SkuName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Cache) pulumi.StringOutput { return v.SkuName }).(pulumi.StringOutput)
 }
@@ -680,7 +687,7 @@ func (o CacheOutput) TenantSettings() pulumi.StringMapOutput {
 
 // Specifies a list of Availability Zones in which this Redis Cache should be located. Changing this forces a new Redis Cache to be created.
 //
-// > **Please Note:** Availability Zones are [in Preview and only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview) - as such you must be opted into the Preview to use this functionality. You can [opt into the Availability Zones Preview in the Azure Portal](https://aka.ms/azenroll).
+// > **Note:** Availability Zones are [in Preview and only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview) - as such you must be opted into the Preview to use this functionality. You can [opt into the Availability Zones Preview in the Azure Portal](https://aka.ms/azenroll).
 func (o CacheOutput) Zones() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Cache) pulumi.StringArrayOutput { return v.Zones }).(pulumi.StringArrayOutput)
 }

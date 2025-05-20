@@ -155,7 +155,7 @@ public final class AssignmentState extends com.pulumi.resources.ResourceArgs {
     /**
      * a JSON string to supply Blueprint Assignment parameter values.
      * 
-     * &gt; **NOTE:** Improperly formatted JSON, or missing values required by a Blueprint will cause the assignment to fail.
+     * &gt; **Note:** Improperly formatted JSON, or missing values required by a Blueprint will cause the assignment to fail.
      * 
      */
     @Import(name="parameterValues")
@@ -164,7 +164,7 @@ public final class AssignmentState extends com.pulumi.resources.ResourceArgs {
     /**
      * @return a JSON string to supply Blueprint Assignment parameter values.
      * 
-     * &gt; **NOTE:** Improperly formatted JSON, or missing values required by a Blueprint will cause the assignment to fail.
+     * &gt; **Note:** Improperly formatted JSON, or missing values required by a Blueprint will cause the assignment to fail.
      * 
      */
     public Optional<Output<String>> parameterValues() {
@@ -174,7 +174,7 @@ public final class AssignmentState extends com.pulumi.resources.ResourceArgs {
     /**
      * a JSON string to supply the Blueprint Resource Group information.
      * 
-     * &gt; **NOTE:** Improperly formatted JSON, or missing values required by a Blueprint will cause the assignment to fail.
+     * &gt; **Note:** Improperly formatted JSON, or missing values required by a Blueprint will cause the assignment to fail.
      * 
      */
     @Import(name="resourceGroups")
@@ -183,7 +183,7 @@ public final class AssignmentState extends com.pulumi.resources.ResourceArgs {
     /**
      * @return a JSON string to supply the Blueprint Resource Group information.
      * 
-     * &gt; **NOTE:** Improperly formatted JSON, or missing values required by a Blueprint will cause the assignment to fail.
+     * &gt; **Note:** Improperly formatted JSON, or missing values required by a Blueprint will cause the assignment to fail.
      * 
      */
     public Optional<Output<String>> resourceGroups() {
@@ -476,7 +476,7 @@ public final class AssignmentState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param parameterValues a JSON string to supply Blueprint Assignment parameter values.
          * 
-         * &gt; **NOTE:** Improperly formatted JSON, or missing values required by a Blueprint will cause the assignment to fail.
+         * &gt; **Note:** Improperly formatted JSON, or missing values required by a Blueprint will cause the assignment to fail.
          * 
          * @return builder
          * 
@@ -489,7 +489,7 @@ public final class AssignmentState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param parameterValues a JSON string to supply Blueprint Assignment parameter values.
          * 
-         * &gt; **NOTE:** Improperly formatted JSON, or missing values required by a Blueprint will cause the assignment to fail.
+         * &gt; **Note:** Improperly formatted JSON, or missing values required by a Blueprint will cause the assignment to fail.
          * 
          * @return builder
          * 
@@ -501,7 +501,7 @@ public final class AssignmentState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param resourceGroups a JSON string to supply the Blueprint Resource Group information.
          * 
-         * &gt; **NOTE:** Improperly formatted JSON, or missing values required by a Blueprint will cause the assignment to fail.
+         * &gt; **Note:** Improperly formatted JSON, or missing values required by a Blueprint will cause the assignment to fail.
          * 
          * @return builder
          * 
@@ -514,7 +514,7 @@ public final class AssignmentState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param resourceGroups a JSON string to supply the Blueprint Resource Group information.
          * 
-         * &gt; **NOTE:** Improperly formatted JSON, or missing values required by a Blueprint will cause the assignment to fail.
+         * &gt; **Note:** Improperly formatted JSON, or missing values required by a Blueprint will cause the assignment to fail.
          * 
          * @return builder
          * 

@@ -15,7 +15,7 @@ namespace Pulumi.Azure.Cognitive.Inputs
         /// <summary>
         /// Whether to allow trusted Azure Services to access the service. Possible values are `None` and `AzureServices`.
         /// 
-        /// &gt; **NOTE:** `bypass` can only be set when `kind` is set to `OpenAI`
+        /// &gt; **Note:** `bypass` can only be set when `kind` is set to `OpenAI`
         /// </summary>
         [Input("bypass")]
         public Input<string>? Bypass { get; set; }

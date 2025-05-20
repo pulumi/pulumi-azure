@@ -17,7 +17,7 @@ public final class RegistryCredentialSetAuthenticationCredentialsArgs extends co
     /**
      * The URI of the secret containing the password in a Key Vault.
      * 
-     * &gt; NOTE: Be aware that you will need to permit the Identity that is created for the Container Registry to have `get` on secrets to the Key Vault, e.g. using the `azure.keyvault.AccessPolicy` resource.
+     * &gt; **Note:** Be aware that you will need to permit the Identity that is created for the Container Registry to have `get` on secrets to the Key Vault, e.g. using the `azure.keyvault.AccessPolicy` resource.
      * 
      */
     @Import(name="passwordSecretId", required=true)
@@ -26,7 +26,7 @@ public final class RegistryCredentialSetAuthenticationCredentialsArgs extends co
     /**
      * @return The URI of the secret containing the password in a Key Vault.
      * 
-     * &gt; NOTE: Be aware that you will need to permit the Identity that is created for the Container Registry to have `get` on secrets to the Key Vault, e.g. using the `azure.keyvault.AccessPolicy` resource.
+     * &gt; **Note:** Be aware that you will need to permit the Identity that is created for the Container Registry to have `get` on secrets to the Key Vault, e.g. using the `azure.keyvault.AccessPolicy` resource.
      * 
      */
     public Output<String> passwordSecretId() {
@@ -76,7 +76,7 @@ public final class RegistryCredentialSetAuthenticationCredentialsArgs extends co
         /**
          * @param passwordSecretId The URI of the secret containing the password in a Key Vault.
          * 
-         * &gt; NOTE: Be aware that you will need to permit the Identity that is created for the Container Registry to have `get` on secrets to the Key Vault, e.g. using the `azure.keyvault.AccessPolicy` resource.
+         * &gt; **Note:** Be aware that you will need to permit the Identity that is created for the Container Registry to have `get` on secrets to the Key Vault, e.g. using the `azure.keyvault.AccessPolicy` resource.
          * 
          * @return builder
          * 
@@ -89,7 +89,7 @@ public final class RegistryCredentialSetAuthenticationCredentialsArgs extends co
         /**
          * @param passwordSecretId The URI of the secret containing the password in a Key Vault.
          * 
-         * &gt; NOTE: Be aware that you will need to permit the Identity that is created for the Container Registry to have `get` on secrets to the Key Vault, e.g. using the `azure.keyvault.AccessPolicy` resource.
+         * &gt; **Note:** Be aware that you will need to permit the Identity that is created for the Container Registry to have `get` on secrets to the Key Vault, e.g. using the `azure.keyvault.AccessPolicy` resource.
          * 
          * @return builder
          * 

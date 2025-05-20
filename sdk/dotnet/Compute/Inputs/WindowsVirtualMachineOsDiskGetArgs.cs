@@ -21,7 +21,7 @@ namespace Pulumi.Azure.Compute.Inputs
         /// <summary>
         /// A `diff_disk_settings` block as defined above. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **NOTE:** `diff_disk_settings` can only be set when `caching` is set to `ReadOnly`. More information can be found [here](https://docs.microsoft.com/azure/virtual-machines/ephemeral-os-disks-deploy#vm-template-deployment)
+        /// &gt; **Note:** `diff_disk_settings` can only be set when `caching` is set to `ReadOnly`. More information can be found [here](https://docs.microsoft.com/azure/virtual-machines/ephemeral-os-disks-deploy#vm-template-deployment)
         /// </summary>
         [Input("diffDiskSettings")]
         public Input<Inputs.WindowsVirtualMachineOsDiskDiffDiskSettingsGetArgs>? DiffDiskSettings { get; set; }
@@ -29,7 +29,7 @@ namespace Pulumi.Azure.Compute.Inputs
         /// <summary>
         /// The ID of the Disk Encryption Set which should be used to Encrypt this OS Disk. Conflicts with `secure_vm_disk_encryption_set_id`.
         /// 
-        /// &gt; **NOTE:** The Disk Encryption Set must have the `Reader` Role Assignment scoped on the Key Vault - in addition to an Access Policy to the Key Vault
+        /// &gt; **Note:** The Disk Encryption Set must have the `Reader` Role Assignment scoped on the Key Vault - in addition to an Access Policy to the Key Vault
         /// </summary>
         [Input("diskEncryptionSetId")]
         public Input<string>? DiskEncryptionSetId { get; set; }
@@ -37,7 +37,7 @@ namespace Pulumi.Azure.Compute.Inputs
         /// <summary>
         /// The Size of the Internal OS Disk in GB, if you wish to vary from the size used in the image this Virtual Machine is sourced from.
         /// 
-        /// &gt; **NOTE:** If specified this must be equal to or larger than the size of the Image the Virtual Machine is based on. When creating a larger disk than exists in the image you'll need to repartition the disk to use the remaining space.
+        /// &gt; **Note:** If specified this must be equal to or larger than the size of the Image the Virtual Machine is based on. When creating a larger disk than exists in the image you'll need to repartition the disk to use the remaining space.
         /// </summary>
         [Input("diskSizeGb")]
         public Input<int>? DiskSizeGb { get; set; }
@@ -57,7 +57,7 @@ namespace Pulumi.Azure.Compute.Inputs
         /// <summary>
         /// The ID of the Disk Encryption Set which should be used to Encrypt this OS Disk when the Virtual Machine is a Confidential VM. Conflicts with `disk_encryption_set_id`. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **NOTE:** `secure_vm_disk_encryption_set_id` can only be specified when `security_encryption_type` is set to `DiskWithVMGuestState`.
+        /// &gt; **Note:** `secure_vm_disk_encryption_set_id` can only be specified when `security_encryption_type` is set to `DiskWithVMGuestState`.
         /// </summary>
         [Input("secureVmDiskEncryptionSetId")]
         public Input<string>? SecureVmDiskEncryptionSetId { get; set; }
@@ -65,9 +65,9 @@ namespace Pulumi.Azure.Compute.Inputs
         /// <summary>
         /// Encryption Type when the Virtual Machine is a Confidential VM. Possible values are `VMGuestStateOnly` and `DiskWithVMGuestState`. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **NOTE:** `vtpm_enabled` must be set to `true` when `security_encryption_type` is specified.
+        /// &gt; **Note:** `vtpm_enabled` must be set to `true` when `security_encryption_type` is specified.
         /// 
-        /// &gt; **NOTE:** `encryption_at_host_enabled` cannot be set to `true` when `security_encryption_type` is set to `DiskWithVMGuestState`.
+        /// &gt; **Note:** `encryption_at_host_enabled` cannot be set to `true` when `security_encryption_type` is set to `DiskWithVMGuestState`.
         /// </summary>
         [Input("securityEncryptionType")]
         public Input<string>? SecurityEncryptionType { get; set; }
@@ -81,7 +81,7 @@ namespace Pulumi.Azure.Compute.Inputs
         /// <summary>
         /// Should Write Accelerator be Enabled for this OS Disk? Defaults to `false`.
         /// 
-        /// &gt; **NOTE:** This requires that the `storage_account_type` is set to `Premium_LRS` and that `caching` is set to `None`.
+        /// &gt; **Note:** This requires that the `storage_account_type` is set to `Premium_LRS` and that `caching` is set to `None`.
         /// </summary>
         [Input("writeAcceleratorEnabled")]
         public Input<bool>? WriteAcceleratorEnabled { get; set; }

@@ -19,13 +19,13 @@ namespace Pulumi.Azure.Iot.Inputs
         public Input<string>? Action { get; set; }
 
         /// <summary>
-        /// The IP address range in CIDR notation for the ip rule.
+        /// The IP address range in CIDR notation for the IP rule.
         /// </summary>
         [Input("ipMask", required: true)]
         public Input<string> IpMask { get; set; } = null!;
 
         /// <summary>
-        /// The name of the ip rule.
+        /// The name of the IP rule.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;

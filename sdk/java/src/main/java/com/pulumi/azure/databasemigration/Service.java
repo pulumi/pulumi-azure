@@ -16,10 +16,6 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * Manages a Azure Database Migration Service.
- * 
- * &gt; **NOTE:** Destroying a Database Migration Service will leave any outstanding tasks untouched. This is to avoid unexpectedly deleting any tasks managed outside of this provide.
- * 
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;

@@ -57,7 +57,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleCapacity = new Capacity("exampleCapacity", CapacityArgs.builder()
- *             .name("example-ffc")
+ *             .name("exampleffc")
  *             .resourceGroupName(example.name())
  *             .location("West Europe")
  *             .administrationMembers(current.objectId())
@@ -73,6 +73,13 @@ import javax.annotation.Nullable;
  * }
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
+ * 
+ * ## API Providers
+ * 
+ * &lt;!-- This section is generated, changes will be overwritten --&gt;
+ * This resource uses the following Azure API Providers:
+ * 
+ * * `Microsoft.Fabric`: 2023-11-01
  * 
  * ## Import
  * 

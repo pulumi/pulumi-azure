@@ -305,7 +305,7 @@ class GrafanaManagedPrivateEndpoint(pulumi.CustomResource):
         """
         Manages a Dashboard Grafana Managed Private Endpoint.
 
-        > **NOTE:** This resource will _not_ approve the managed private endpoint connection on the linked resource. This will need to be done manually via Azure CLI, PowerShell, or AzAPI resources. See here for an example that uses AzAPI.
+        > **Note:** This resource will _not_ approve the managed private endpoint connection on the linked resource. This will need to be done manually via Azure CLI, PowerShell, or AzAPI resources. See here for an example that uses AzAPI.
 
         ## Example Usage
 
@@ -338,6 +338,13 @@ class GrafanaManagedPrivateEndpoint(pulumi.CustomResource):
             group_ids=["prometheusMetrics"],
             private_link_resource_region=example_grafana.location)
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Dashboard`: 2023-09-01
 
         ## Import
 
@@ -367,7 +374,7 @@ class GrafanaManagedPrivateEndpoint(pulumi.CustomResource):
         """
         Manages a Dashboard Grafana Managed Private Endpoint.
 
-        > **NOTE:** This resource will _not_ approve the managed private endpoint connection on the linked resource. This will need to be done manually via Azure CLI, PowerShell, or AzAPI resources. See here for an example that uses AzAPI.
+        > **Note:** This resource will _not_ approve the managed private endpoint connection on the linked resource. This will need to be done manually via Azure CLI, PowerShell, or AzAPI resources. See here for an example that uses AzAPI.
 
         ## Example Usage
 
@@ -400,6 +407,13 @@ class GrafanaManagedPrivateEndpoint(pulumi.CustomResource):
             group_ids=["prometheusMetrics"],
             private_link_resource_region=example_grafana.location)
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Dashboard`: 2023-09-01
 
         ## Import
 

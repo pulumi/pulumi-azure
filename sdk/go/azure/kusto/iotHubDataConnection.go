@@ -117,6 +117,13 @@ import (
 //
 // ```
 //
+// ## API Providers
+//
+// <!-- This section is generated, changes will be overwritten -->
+// This resource uses the following Azure API Providers:
+//
+// * `Microsoft.Kusto`: 2024-04-13
+//
 // ## Import
 //
 // Kusto IotHub Data Connections can be imported using the `resource id`, e.g.
@@ -137,7 +144,7 @@ type IotHubDataConnection struct {
 	DatabaseName pulumi.StringOutput `pulumi:"databaseName"`
 	// Indication for database routing information from the data connection, by default only database routing information is allowed. Allowed values: `Single`, `Multi`. Changing this forces a new resource to be created. Defaults to `Single`.
 	DatabaseRoutingType pulumi.StringPtrOutput `pulumi:"databaseRoutingType"`
-	// Specifies the System Properties that each IoT Hub message should contain. Changing this forces a new resource to be created. Possible values are `message-id`, `sequence-number`, `to`, `absolute-expiry-time`, `iothub-enqueuedtime`, `correlation-id`, `user-id`, `iothub-ack`, `iothub-connection-device-id`, `iothub-connection-auth-generation-id` and `iothub-connection-auth-method`.
+	// Specifies the System Properties that each IoT Hub message should contain. Changing this forces a new resource to be created.
 	EventSystemProperties pulumi.StringArrayOutput `pulumi:"eventSystemProperties"`
 	// Specifies the resource id of the IotHub this data connection will use for ingestion. Changing this forces a new resource to be created.
 	IothubId pulumi.StringOutput `pulumi:"iothubId"`
@@ -213,7 +220,7 @@ type iotHubDataConnectionState struct {
 	DatabaseName *string `pulumi:"databaseName"`
 	// Indication for database routing information from the data connection, by default only database routing information is allowed. Allowed values: `Single`, `Multi`. Changing this forces a new resource to be created. Defaults to `Single`.
 	DatabaseRoutingType *string `pulumi:"databaseRoutingType"`
-	// Specifies the System Properties that each IoT Hub message should contain. Changing this forces a new resource to be created. Possible values are `message-id`, `sequence-number`, `to`, `absolute-expiry-time`, `iothub-enqueuedtime`, `correlation-id`, `user-id`, `iothub-ack`, `iothub-connection-device-id`, `iothub-connection-auth-generation-id` and `iothub-connection-auth-method`.
+	// Specifies the System Properties that each IoT Hub message should contain. Changing this forces a new resource to be created.
 	EventSystemProperties []string `pulumi:"eventSystemProperties"`
 	// Specifies the resource id of the IotHub this data connection will use for ingestion. Changing this forces a new resource to be created.
 	IothubId *string `pulumi:"iothubId"`
@@ -242,7 +249,7 @@ type IotHubDataConnectionState struct {
 	DatabaseName pulumi.StringPtrInput
 	// Indication for database routing information from the data connection, by default only database routing information is allowed. Allowed values: `Single`, `Multi`. Changing this forces a new resource to be created. Defaults to `Single`.
 	DatabaseRoutingType pulumi.StringPtrInput
-	// Specifies the System Properties that each IoT Hub message should contain. Changing this forces a new resource to be created. Possible values are `message-id`, `sequence-number`, `to`, `absolute-expiry-time`, `iothub-enqueuedtime`, `correlation-id`, `user-id`, `iothub-ack`, `iothub-connection-device-id`, `iothub-connection-auth-generation-id` and `iothub-connection-auth-method`.
+	// Specifies the System Properties that each IoT Hub message should contain. Changing this forces a new resource to be created.
 	EventSystemProperties pulumi.StringArrayInput
 	// Specifies the resource id of the IotHub this data connection will use for ingestion. Changing this forces a new resource to be created.
 	IothubId pulumi.StringPtrInput
@@ -275,7 +282,7 @@ type iotHubDataConnectionArgs struct {
 	DatabaseName string `pulumi:"databaseName"`
 	// Indication for database routing information from the data connection, by default only database routing information is allowed. Allowed values: `Single`, `Multi`. Changing this forces a new resource to be created. Defaults to `Single`.
 	DatabaseRoutingType *string `pulumi:"databaseRoutingType"`
-	// Specifies the System Properties that each IoT Hub message should contain. Changing this forces a new resource to be created. Possible values are `message-id`, `sequence-number`, `to`, `absolute-expiry-time`, `iothub-enqueuedtime`, `correlation-id`, `user-id`, `iothub-ack`, `iothub-connection-device-id`, `iothub-connection-auth-generation-id` and `iothub-connection-auth-method`.
+	// Specifies the System Properties that each IoT Hub message should contain. Changing this forces a new resource to be created.
 	EventSystemProperties []string `pulumi:"eventSystemProperties"`
 	// Specifies the resource id of the IotHub this data connection will use for ingestion. Changing this forces a new resource to be created.
 	IothubId string `pulumi:"iothubId"`
@@ -305,7 +312,7 @@ type IotHubDataConnectionArgs struct {
 	DatabaseName pulumi.StringInput
 	// Indication for database routing information from the data connection, by default only database routing information is allowed. Allowed values: `Single`, `Multi`. Changing this forces a new resource to be created. Defaults to `Single`.
 	DatabaseRoutingType pulumi.StringPtrInput
-	// Specifies the System Properties that each IoT Hub message should contain. Changing this forces a new resource to be created. Possible values are `message-id`, `sequence-number`, `to`, `absolute-expiry-time`, `iothub-enqueuedtime`, `correlation-id`, `user-id`, `iothub-ack`, `iothub-connection-device-id`, `iothub-connection-auth-generation-id` and `iothub-connection-auth-method`.
+	// Specifies the System Properties that each IoT Hub message should contain. Changing this forces a new resource to be created.
 	EventSystemProperties pulumi.StringArrayInput
 	// Specifies the resource id of the IotHub this data connection will use for ingestion. Changing this forces a new resource to be created.
 	IothubId pulumi.StringInput
@@ -435,7 +442,7 @@ func (o IotHubDataConnectionOutput) DatabaseRoutingType() pulumi.StringPtrOutput
 	return o.ApplyT(func(v *IotHubDataConnection) pulumi.StringPtrOutput { return v.DatabaseRoutingType }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the System Properties that each IoT Hub message should contain. Changing this forces a new resource to be created. Possible values are `message-id`, `sequence-number`, `to`, `absolute-expiry-time`, `iothub-enqueuedtime`, `correlation-id`, `user-id`, `iothub-ack`, `iothub-connection-device-id`, `iothub-connection-auth-generation-id` and `iothub-connection-auth-method`.
+// Specifies the System Properties that each IoT Hub message should contain. Changing this forces a new resource to be created.
 func (o IotHubDataConnectionOutput) EventSystemProperties() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *IotHubDataConnection) pulumi.StringArrayOutput { return v.EventSystemProperties }).(pulumi.StringArrayOutput)
 }

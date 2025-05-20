@@ -14,13 +14,9 @@ namespace Pulumi.Azure.Healthcare.Outputs
     public sealed class ServiceAuthenticationConfiguration
     {
         /// <summary>
-        /// The intended audience to receive authentication tokens for the service. The default value is https://azurehealthcareapis.com
+        /// The intended audience to receive authentication tokens for the service. The default value is &lt;https://azurehealthcareapis.com&gt;
         /// </summary>
         public readonly string? Audience;
-        /// <summary>
-        /// The Azure Active Directory (tenant) that serves as the authentication authority to access the service. The default authority is the Directory defined in the authentication scheme in use when running this provider.
-        /// Authority must be registered to Azure AD and in the following format: https://{Azure-AD-endpoint}/{tenant-id}.
-        /// </summary>
         public readonly string? Authority;
         /// <summary>
         /// (Boolean) Enables the 'SMART on FHIR' option for mobile and web implementations.

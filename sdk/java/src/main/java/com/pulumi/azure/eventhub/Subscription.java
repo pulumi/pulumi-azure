@@ -61,7 +61,7 @@ import javax.annotation.Nullable;
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .sku("Standard")
- *             .tags(Map.of("source", "example"))
+ *             .tags(Map.of("source", "terraform"))
  *             .build());
  * 
  *         var exampleTopic = new Topic("exampleTopic", TopicArgs.builder()
@@ -142,7 +142,7 @@ public class Subscription extends com.pulumi.resources.CustomResource {
     /**
      * whether the subscription is scoped to a client id. Defaults to `false`.
      * 
-     * &gt; **NOTE:** Client Scoped Subscription can only be used for JMS subscription (Java Message Service).
+     * &gt; **Note:** Client Scoped Subscription can only be used for JMS subscription (Java Message Service).
      * 
      */
     @Export(name="clientScopedSubscriptionEnabled", refs={Boolean.class}, tree="[0]")
@@ -151,7 +151,7 @@ public class Subscription extends com.pulumi.resources.CustomResource {
     /**
      * @return whether the subscription is scoped to a client id. Defaults to `false`.
      * 
-     * &gt; **NOTE:** Client Scoped Subscription can only be used for JMS subscription (Java Message Service).
+     * &gt; **Note:** Client Scoped Subscription can only be used for JMS subscription (Java Message Service).
      * 
      */
     public Output<Optional<Boolean>> clientScopedSubscriptionEnabled() {

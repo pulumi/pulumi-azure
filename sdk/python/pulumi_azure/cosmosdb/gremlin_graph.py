@@ -49,7 +49,6 @@ class GremlinGraphArgs:
         :param pulumi.Input['GremlinGraphIndexPolicyArgs'] index_policy: The configuration of the indexing policy. One or more `index_policy` blocks as defined below.
         :param pulumi.Input[builtins.str] name: Specifies the name of the Cosmos DB Gremlin Graph. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.int] partition_key_version: Define a partition key version. Changing this forces a new resource to be created. Possible values are `1`and `2`. This should be set to `2` in order to use large partition keys.
-        :param pulumi.Input[builtins.int] throughput: The throughput of the Gremlin graph (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon database creation otherwise it cannot be updated without a manual destroy-apply.
         :param pulumi.Input[Sequence[pulumi.Input['GremlinGraphUniqueKeyArgs']]] unique_keys: One or more `unique_key` blocks as defined below. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "account_name", account_name)
@@ -209,9 +208,6 @@ class GremlinGraphArgs:
     @property
     @pulumi.getter
     def throughput(self) -> Optional[pulumi.Input[builtins.int]]:
-        """
-        The throughput of the Gremlin graph (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon database creation otherwise it cannot be updated without a manual destroy-apply.
-        """
         return pulumi.get(self, "throughput")
 
     @throughput.setter
@@ -261,7 +257,6 @@ class _GremlinGraphState:
         :param pulumi.Input[builtins.str] partition_key_path: Define a partition key. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.int] partition_key_version: Define a partition key version. Changing this forces a new resource to be created. Possible values are `1`and `2`. This should be set to `2` in order to use large partition keys.
         :param pulumi.Input[builtins.str] resource_group_name: The name of the resource group in which the Cosmos DB Gremlin Graph is created. Changing this forces a new resource to be created.
-        :param pulumi.Input[builtins.int] throughput: The throughput of the Gremlin graph (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon database creation otherwise it cannot be updated without a manual destroy-apply.
         :param pulumi.Input[Sequence[pulumi.Input['GremlinGraphUniqueKeyArgs']]] unique_keys: One or more `unique_key` blocks as defined below. Changing this forces a new resource to be created.
         """
         if account_name is not None:
@@ -425,9 +420,6 @@ class _GremlinGraphState:
     @property
     @pulumi.getter
     def throughput(self) -> Optional[pulumi.Input[builtins.int]]:
-        """
-        The throughput of the Gremlin graph (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon database creation otherwise it cannot be updated without a manual destroy-apply.
-        """
         return pulumi.get(self, "throughput")
 
     @throughput.setter
@@ -507,7 +499,7 @@ class GremlinGraph(pulumi.CustomResource):
             }])
         ```
 
-        > **NOTE:** The CosmosDB Account needs to have the `EnableGremlin` capability enabled to use this resource - which can be done by adding this to the `capabilities` list within the `cosmosdb.Account` resource.
+        > **Note:** The CosmosDB Account needs to have the `EnableGremlin` capability enabled to use this resource - which can be done by adding this to the `capabilities` list within the `cosmosdb.Account` resource.
 
         ## Import
 
@@ -531,7 +523,6 @@ class GremlinGraph(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] partition_key_path: Define a partition key. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.int] partition_key_version: Define a partition key version. Changing this forces a new resource to be created. Possible values are `1`and `2`. This should be set to `2` in order to use large partition keys.
         :param pulumi.Input[builtins.str] resource_group_name: The name of the resource group in which the Cosmos DB Gremlin Graph is created. Changing this forces a new resource to be created.
-        :param pulumi.Input[builtins.int] throughput: The throughput of the Gremlin graph (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon database creation otherwise it cannot be updated without a manual destroy-apply.
         :param pulumi.Input[Sequence[pulumi.Input[Union['GremlinGraphUniqueKeyArgs', 'GremlinGraphUniqueKeyArgsDict']]]] unique_keys: One or more `unique_key` blocks as defined below. Changing this forces a new resource to be created.
         """
         ...
@@ -580,7 +571,7 @@ class GremlinGraph(pulumi.CustomResource):
             }])
         ```
 
-        > **NOTE:** The CosmosDB Account needs to have the `EnableGremlin` capability enabled to use this resource - which can be done by adding this to the `capabilities` list within the `cosmosdb.Account` resource.
+        > **Note:** The CosmosDB Account needs to have the `EnableGremlin` capability enabled to use this resource - which can be done by adding this to the `capabilities` list within the `cosmosdb.Account` resource.
 
         ## Import
 
@@ -690,7 +681,6 @@ class GremlinGraph(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] partition_key_path: Define a partition key. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.int] partition_key_version: Define a partition key version. Changing this forces a new resource to be created. Possible values are `1`and `2`. This should be set to `2` in order to use large partition keys.
         :param pulumi.Input[builtins.str] resource_group_name: The name of the resource group in which the Cosmos DB Gremlin Graph is created. Changing this forces a new resource to be created.
-        :param pulumi.Input[builtins.int] throughput: The throughput of the Gremlin graph (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon database creation otherwise it cannot be updated without a manual destroy-apply.
         :param pulumi.Input[Sequence[pulumi.Input[Union['GremlinGraphUniqueKeyArgs', 'GremlinGraphUniqueKeyArgsDict']]]] unique_keys: One or more `unique_key` blocks as defined below. Changing this forces a new resource to be created.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -802,9 +792,6 @@ class GremlinGraph(pulumi.CustomResource):
     @property
     @pulumi.getter
     def throughput(self) -> pulumi.Output[builtins.int]:
-        """
-        The throughput of the Gremlin graph (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon database creation otherwise it cannot be updated without a manual destroy-apply.
-        """
         return pulumi.get(self, "throughput")
 
     @property

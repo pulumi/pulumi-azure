@@ -42,6 +42,13 @@ namespace Pulumi.Azure.EventGrid
     /// });
     /// ```
     /// 
+    /// ## API Providers
+    /// 
+    /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+    /// This resource uses the following Azure API Providers:
+    /// 
+    /// * `Microsoft.EventGrid`: 2023-12-15-preview
+    /// 
     /// ## Import
     /// 
     /// EventGrid Namespace's can be imported using the `resource id`, e.g.

@@ -83,6 +83,13 @@ namespace Pulumi.Azure.Storage
     /// });
     /// ```
     /// 
+    /// ## API Providers
+    /// 
+    /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+    /// This resource uses the following Azure API Providers:
+    /// 
+    /// * `Microsoft.Storage`: 2023-05-01
+    /// 
     /// ## Import
     /// 
     /// Storage Account Local Users can be imported using the `resource id`, e.g.

@@ -20,7 +20,7 @@ import javax.annotation.Nullable;
 /**
  * Manages a Front Door (standard/premium) Origin.
  * 
- * !&gt;**IMPORTANT:** If you are attempting to implement an Origin that uses its own Private Link Service with a Load Balancer the Profile resource in your configuration file **must** have a `depends_on` meta-argument which references the `azure.privatedns.LinkService`, see `Example Usage With Private Link Service` below.
+ * !&gt; **Note:** If you are attempting to implement an Origin that uses its own Private Link Service with a Load Balancer the Profile resource in your configuration file **must** have a `depends_on` meta-argument which references the `azure.privatedns.LinkService`, see `Example Usage With Private Link Service` below.
  * 
  * ## Example Usage
  * 
@@ -387,7 +387,7 @@ public class FrontdoorOrigin extends com.pulumi.resources.CustomResource {
     /**
      * The IPv4 address, IPv6 address or Domain name of the Origin.
      * 
-     * !&gt; **IMPORTANT:** This must be unique across all Front Door Origins within a Front Door Endpoint.
+     * !&gt; **Note:** This must be unique across all Front Door Origins within a Front Door Endpoint.
      * 
      */
     @Export(name="hostName", refs={String.class}, tree="[0]")
@@ -396,7 +396,7 @@ public class FrontdoorOrigin extends com.pulumi.resources.CustomResource {
     /**
      * @return The IPv4 address, IPv6 address or Domain name of the Origin.
      * 
-     * !&gt; **IMPORTANT:** This must be unique across all Front Door Origins within a Front Door Endpoint.
+     * !&gt; **Note:** This must be unique across all Front Door Origins within a Front Door Endpoint.
      * 
      */
     public Output<String> hostName() {
@@ -447,7 +447,7 @@ public class FrontdoorOrigin extends com.pulumi.resources.CustomResource {
     /**
      * The host header value (an IPv4 address, IPv6 address or Domain name) which is sent to the origin with each request. If unspecified the hostname from the request will be used.
      * 
-     * &gt; Azure Front Door Origins, such as Web Apps, Blob Storage, and Cloud Services require this host header value to match the origin&#39;s hostname. This field&#39;s value overrides the host header defined in the Front Door Endpoint. For more information on how to properly set the origin host header value please see the [product documentation](https://docs.microsoft.com/azure/frontdoor/origin?pivots=front-door-standard-premium#origin-host-header).
+     * &gt; **Note:** Azure Front Door Origins, such as Web Apps, Blob Storage, and Cloud Services require this host header value to match the origin&#39;s hostname. This field&#39;s value overrides the host header defined in the Front Door Endpoint. For more information on how to properly set the origin host header value please see the [product documentation](https://docs.microsoft.com/azure/frontdoor/origin?pivots=front-door-standard-premium#origin-host-header).
      * 
      */
     @Export(name="originHostHeader", refs={String.class}, tree="[0]")
@@ -456,7 +456,7 @@ public class FrontdoorOrigin extends com.pulumi.resources.CustomResource {
     /**
      * @return The host header value (an IPv4 address, IPv6 address or Domain name) which is sent to the origin with each request. If unspecified the hostname from the request will be used.
      * 
-     * &gt; Azure Front Door Origins, such as Web Apps, Blob Storage, and Cloud Services require this host header value to match the origin&#39;s hostname. This field&#39;s value overrides the host header defined in the Front Door Endpoint. For more information on how to properly set the origin host header value please see the [product documentation](https://docs.microsoft.com/azure/frontdoor/origin?pivots=front-door-standard-premium#origin-host-header).
+     * &gt; **Note:** Azure Front Door Origins, such as Web Apps, Blob Storage, and Cloud Services require this host header value to match the origin&#39;s hostname. This field&#39;s value overrides the host header defined in the Front Door Endpoint. For more information on how to properly set the origin host header value please see the [product documentation](https://docs.microsoft.com/azure/frontdoor/origin?pivots=front-door-standard-premium#origin-host-header).
      * 
      */
     public Output<Optional<String>> originHostHeader() {
@@ -479,7 +479,7 @@ public class FrontdoorOrigin extends com.pulumi.resources.CustomResource {
     /**
      * A `private_link` block as defined below.
      * 
-     * &gt; **NOTE:** Private Link requires that the Front Door Profile this Origin is hosted within is using the SKU `Premium_AzureFrontDoor` and that the `certificate_name_check_enabled` field is set to `true`.
+     * &gt; **Note:** Private Link requires that the Front Door Profile this Origin is hosted within is using the SKU `Premium_AzureFrontDoor` and that the `certificate_name_check_enabled` field is set to `true`.
      * 
      */
     @Export(name="privateLink", refs={FrontdoorOriginPrivateLink.class}, tree="[0]")
@@ -488,7 +488,7 @@ public class FrontdoorOrigin extends com.pulumi.resources.CustomResource {
     /**
      * @return A `private_link` block as defined below.
      * 
-     * &gt; **NOTE:** Private Link requires that the Front Door Profile this Origin is hosted within is using the SKU `Premium_AzureFrontDoor` and that the `certificate_name_check_enabled` field is set to `true`.
+     * &gt; **Note:** Private Link requires that the Front Door Profile this Origin is hosted within is using the SKU `Premium_AzureFrontDoor` and that the `certificate_name_check_enabled` field is set to `true`.
      * 
      */
     public Output<Optional<FrontdoorOriginPrivateLink>> privateLink() {

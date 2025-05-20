@@ -20,7 +20,7 @@ import javax.annotation.Nullable;
 /**
  * Manages a Load Balancer Rule.
  * 
- * &gt; **NOTE** When using this resource, the Load Balancer needs to have a FrontEnd IP Configuration Attached
+ * &gt; **Note:** When using this resource, the Load Balancer needs to have a FrontEnd IP Configuration Attached
  * 
  * ## Example Usage
  * 
@@ -91,6 +91,13 @@ import javax.annotation.Nullable;
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
+ * ## API Providers
+ * 
+ * &lt;!-- This section is generated, changes will be overwritten --&gt;
+ * This resource uses the following Azure API Providers:
+ * 
+ * * `Microsoft.Network`: 2023-09-01
+ * 
  * ## Import
  * 
  * Load Balancer Rules can be imported using the `resource id`, e.g.
@@ -105,7 +112,7 @@ public class Rule extends com.pulumi.resources.CustomResource {
     /**
      * A list of reference to a Backend Address Pool over which this Load Balancing Rule operates.
      * 
-     * &gt; **NOTE:** In most cases users can only set one Backend Address Pool ID in the `backend_address_pool_ids`. Especially, when the sku of the LB is `Gateway`, users can set up to two IDs in the `backend_address_pool_ids`.
+     * &gt; **Note:** In most cases users can only set one Backend Address Pool ID in the `backend_address_pool_ids`. Especially, when the sku of the LB is `Gateway`, users can set up to two IDs in the `backend_address_pool_ids`.
      * 
      */
     @Export(name="backendAddressPoolIds", refs={List.class,String.class}, tree="[0,1]")
@@ -114,7 +121,7 @@ public class Rule extends com.pulumi.resources.CustomResource {
     /**
      * @return A list of reference to a Backend Address Pool over which this Load Balancing Rule operates.
      * 
-     * &gt; **NOTE:** In most cases users can only set one Backend Address Pool ID in the `backend_address_pool_ids`. Especially, when the sku of the LB is `Gateway`, users can set up to two IDs in the `backend_address_pool_ids`.
+     * &gt; **Note:** In most cases users can only set one Backend Address Pool ID in the `backend_address_pool_ids`. Especially, when the sku of the LB is `Gateway`, users can set up to two IDs in the `backend_address_pool_ids`.
      * 
      */
     public Output<Optional<List<String>>> backendAddressPoolIds() {

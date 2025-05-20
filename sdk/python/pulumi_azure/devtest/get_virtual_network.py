@@ -133,6 +133,13 @@ def get_virtual_network(lab_name: Optional[builtins.str] = None,
     pulumi.export("labSubnetName", example.allowed_subnets[0].lab_subnet_name)
     ```
 
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.DevTestLab`: 2018-09-15
+
 
     :param builtins.str lab_name: Specifies the name of the Dev Test Lab.
     :param builtins.str name: Specifies the name of the Virtual Network.
@@ -171,6 +178,13 @@ def get_virtual_network_output(lab_name: Optional[pulumi.Input[builtins.str]] = 
         resource_group_name="example-resource")
     pulumi.export("labSubnetName", example.allowed_subnets[0].lab_subnet_name)
     ```
+
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.DevTestLab`: 2018-09-15
 
 
     :param builtins.str lab_name: Specifies the name of the Dev Test Lab.

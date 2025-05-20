@@ -69,6 +69,13 @@ import (
 //
 // ```
 //
+// ## API Providers
+//
+// <!-- This section is generated, changes will be overwritten -->
+// This resource uses the following Azure API Providers:
+//
+// * `Microsoft.ApiManagement`: 2022-08-01
+//
 // ## Import
 //
 // Api Management Policy Fragments can be imported using the `resource id`, e.g.
@@ -85,13 +92,13 @@ type PolicyFragment struct {
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The format of the Policy Fragment. Possible values are `xml` or `rawxml`. Default is `xml`.
 	//
-	// > **NOTE:** The `value` property will be updated to reflect the corresponding format when `format` is updated.
+	// > **Note:** The `value` property will be updated to reflect the corresponding format when `format` is updated.
 	Format pulumi.StringPtrOutput `pulumi:"format"`
 	// The name which should be used for this Api Management Policy Fragment. Changing this forces a new Api Management Policy Fragment to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The value of the Policy Fragment.
 	//
-	// > **NOTE:** Be aware of the two format possibilities. If the `value` is not applied and continues to cause a diff the format could be wrong.
+	// > **Note:** Be aware of the two format possibilities. If the `value` is not applied and continues to cause a diff the format could be wrong.
 	Value pulumi.StringOutput `pulumi:"value"`
 }
 
@@ -137,13 +144,13 @@ type policyFragmentState struct {
 	Description *string `pulumi:"description"`
 	// The format of the Policy Fragment. Possible values are `xml` or `rawxml`. Default is `xml`.
 	//
-	// > **NOTE:** The `value` property will be updated to reflect the corresponding format when `format` is updated.
+	// > **Note:** The `value` property will be updated to reflect the corresponding format when `format` is updated.
 	Format *string `pulumi:"format"`
 	// The name which should be used for this Api Management Policy Fragment. Changing this forces a new Api Management Policy Fragment to be created.
 	Name *string `pulumi:"name"`
 	// The value of the Policy Fragment.
 	//
-	// > **NOTE:** Be aware of the two format possibilities. If the `value` is not applied and continues to cause a diff the format could be wrong.
+	// > **Note:** Be aware of the two format possibilities. If the `value` is not applied and continues to cause a diff the format could be wrong.
 	Value *string `pulumi:"value"`
 }
 
@@ -154,13 +161,13 @@ type PolicyFragmentState struct {
 	Description pulumi.StringPtrInput
 	// The format of the Policy Fragment. Possible values are `xml` or `rawxml`. Default is `xml`.
 	//
-	// > **NOTE:** The `value` property will be updated to reflect the corresponding format when `format` is updated.
+	// > **Note:** The `value` property will be updated to reflect the corresponding format when `format` is updated.
 	Format pulumi.StringPtrInput
 	// The name which should be used for this Api Management Policy Fragment. Changing this forces a new Api Management Policy Fragment to be created.
 	Name pulumi.StringPtrInput
 	// The value of the Policy Fragment.
 	//
-	// > **NOTE:** Be aware of the two format possibilities. If the `value` is not applied and continues to cause a diff the format could be wrong.
+	// > **Note:** Be aware of the two format possibilities. If the `value` is not applied and continues to cause a diff the format could be wrong.
 	Value pulumi.StringPtrInput
 }
 
@@ -175,13 +182,13 @@ type policyFragmentArgs struct {
 	Description *string `pulumi:"description"`
 	// The format of the Policy Fragment. Possible values are `xml` or `rawxml`. Default is `xml`.
 	//
-	// > **NOTE:** The `value` property will be updated to reflect the corresponding format when `format` is updated.
+	// > **Note:** The `value` property will be updated to reflect the corresponding format when `format` is updated.
 	Format *string `pulumi:"format"`
 	// The name which should be used for this Api Management Policy Fragment. Changing this forces a new Api Management Policy Fragment to be created.
 	Name *string `pulumi:"name"`
 	// The value of the Policy Fragment.
 	//
-	// > **NOTE:** Be aware of the two format possibilities. If the `value` is not applied and continues to cause a diff the format could be wrong.
+	// > **Note:** Be aware of the two format possibilities. If the `value` is not applied and continues to cause a diff the format could be wrong.
 	Value string `pulumi:"value"`
 }
 
@@ -193,13 +200,13 @@ type PolicyFragmentArgs struct {
 	Description pulumi.StringPtrInput
 	// The format of the Policy Fragment. Possible values are `xml` or `rawxml`. Default is `xml`.
 	//
-	// > **NOTE:** The `value` property will be updated to reflect the corresponding format when `format` is updated.
+	// > **Note:** The `value` property will be updated to reflect the corresponding format when `format` is updated.
 	Format pulumi.StringPtrInput
 	// The name which should be used for this Api Management Policy Fragment. Changing this forces a new Api Management Policy Fragment to be created.
 	Name pulumi.StringPtrInput
 	// The value of the Policy Fragment.
 	//
-	// > **NOTE:** Be aware of the two format possibilities. If the `value` is not applied and continues to cause a diff the format could be wrong.
+	// > **Note:** Be aware of the two format possibilities. If the `value` is not applied and continues to cause a diff the format could be wrong.
 	Value pulumi.StringInput
 }
 
@@ -302,7 +309,7 @@ func (o PolicyFragmentOutput) Description() pulumi.StringPtrOutput {
 
 // The format of the Policy Fragment. Possible values are `xml` or `rawxml`. Default is `xml`.
 //
-// > **NOTE:** The `value` property will be updated to reflect the corresponding format when `format` is updated.
+// > **Note:** The `value` property will be updated to reflect the corresponding format when `format` is updated.
 func (o PolicyFragmentOutput) Format() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PolicyFragment) pulumi.StringPtrOutput { return v.Format }).(pulumi.StringPtrOutput)
 }
@@ -314,7 +321,7 @@ func (o PolicyFragmentOutput) Name() pulumi.StringOutput {
 
 // The value of the Policy Fragment.
 //
-// > **NOTE:** Be aware of the two format possibilities. If the `value` is not applied and continues to cause a diff the format could be wrong.
+// > **Note:** Be aware of the two format possibilities. If the `value` is not applied and continues to cause a diff the format could be wrong.
 func (o PolicyFragmentOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v *PolicyFragment) pulumi.StringOutput { return v.Value }).(pulumi.StringOutput)
 }

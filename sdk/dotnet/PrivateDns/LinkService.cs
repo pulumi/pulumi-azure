@@ -12,7 +12,7 @@ namespace Pulumi.Azure.PrivateDns
     /// <summary>
     /// Manages a Private Link Service.
     /// 
-    /// &gt; **NOTE** Private Link is now in [GA](https://docs.microsoft.com/en-gb/azure/private-link/).
+    /// &gt; **Note:** Private Link is now in [GA](https://docs.microsoft.com/en-gb/azure/private-link/).
     /// 
     /// ## Import
     /// 
@@ -88,7 +88,7 @@ namespace Pulumi.Azure.PrivateDns
         /// <summary>
         /// A list of Subscription UUID/GUID's that will be able to see this Private Link Service.
         /// 
-        /// &gt; **NOTE:** If no Subscription IDs are specified then Azure allows every Subscription to see this Private Link Service.
+        /// &gt; **Note:** If no Subscription IDs are specified then Azure allows every Subscription to see this Private Link Service.
         /// </summary>
         [Output("visibilitySubscriptionIds")]
         public Output<ImmutableArray<string>> VisibilitySubscriptionIds { get; private set; } = null!;
@@ -229,7 +229,7 @@ namespace Pulumi.Azure.PrivateDns
         /// <summary>
         /// A list of Subscription UUID/GUID's that will be able to see this Private Link Service.
         /// 
-        /// &gt; **NOTE:** If no Subscription IDs are specified then Azure allows every Subscription to see this Private Link Service.
+        /// &gt; **Note:** If no Subscription IDs are specified then Azure allows every Subscription to see this Private Link Service.
         /// </summary>
         public InputList<string> VisibilitySubscriptionIds
         {
@@ -341,7 +341,7 @@ namespace Pulumi.Azure.PrivateDns
         /// <summary>
         /// A list of Subscription UUID/GUID's that will be able to see this Private Link Service.
         /// 
-        /// &gt; **NOTE:** If no Subscription IDs are specified then Azure allows every Subscription to see this Private Link Service.
+        /// &gt; **Note:** If no Subscription IDs are specified then Azure allows every Subscription to see this Private Link Service.
         /// </summary>
         public InputList<string> VisibilitySubscriptionIds
         {

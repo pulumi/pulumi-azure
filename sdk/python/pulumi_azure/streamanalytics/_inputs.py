@@ -381,25 +381,25 @@ if not MYPY:
         """
         The serialization format used for outgoing data streams. Possible values are `Avro`, `Csv`, `Json` and `Parquet`.
 
-        > **NOTE:** `batch_max_wait_time` and `batch_min_rows` are required when `type` is set to `Parquet`
+        > **Note:** `batch_max_wait_time` and `batch_min_rows` are required when `type` is set to `Parquet`
         """
         encoding: NotRequired[pulumi.Input[builtins.str]]
         """
         The encoding of the incoming data in the case of input and the encoding of outgoing data in the case of output. It currently can only be set to `UTF8`.
 
-        > **NOTE:** This is required when `type` is set to `Csv` or `Json`.
+        > **Note:** This is required when `type` is set to `Csv` or `Json`.
         """
         field_delimiter: NotRequired[pulumi.Input[builtins.str]]
         """
         The delimiter that will be used to separate comma-separated value (CSV) records. Possible values are ` ` (space), `,` (comma), `	` (tab), `|` (pipe) and `;`.
 
-        > **NOTE:** This is required when `type` is set to `Csv`.
+        > **Note:** This is required when `type` is set to `Csv`.
         """
         format: NotRequired[pulumi.Input[builtins.str]]
         """
         Specifies the format of the JSON the output will be written in. Possible values are `Array` and `LineSeparated`.
 
-        > **NOTE:** This is Required and can only be specified when `type` is set to `Json`.
+        > **Note:** This is Required and can only be specified when `type` is set to `Json`.
         """
 elif False:
     OutputBlobSerializationArgsDict: TypeAlias = Mapping[str, Any]
@@ -414,16 +414,16 @@ class OutputBlobSerializationArgs:
         """
         :param pulumi.Input[builtins.str] type: The serialization format used for outgoing data streams. Possible values are `Avro`, `Csv`, `Json` and `Parquet`.
                
-               > **NOTE:** `batch_max_wait_time` and `batch_min_rows` are required when `type` is set to `Parquet`
+               > **Note:** `batch_max_wait_time` and `batch_min_rows` are required when `type` is set to `Parquet`
         :param pulumi.Input[builtins.str] encoding: The encoding of the incoming data in the case of input and the encoding of outgoing data in the case of output. It currently can only be set to `UTF8`.
                
-               > **NOTE:** This is required when `type` is set to `Csv` or `Json`.
+               > **Note:** This is required when `type` is set to `Csv` or `Json`.
         :param pulumi.Input[builtins.str] field_delimiter: The delimiter that will be used to separate comma-separated value (CSV) records. Possible values are ` ` (space), `,` (comma), `	` (tab), `|` (pipe) and `;`.
                
-               > **NOTE:** This is required when `type` is set to `Csv`.
+               > **Note:** This is required when `type` is set to `Csv`.
         :param pulumi.Input[builtins.str] format: Specifies the format of the JSON the output will be written in. Possible values are `Array` and `LineSeparated`.
                
-               > **NOTE:** This is Required and can only be specified when `type` is set to `Json`.
+               > **Note:** This is Required and can only be specified when `type` is set to `Json`.
         """
         pulumi.set(__self__, "type", type)
         if encoding is not None:
@@ -439,7 +439,7 @@ class OutputBlobSerializationArgs:
         """
         The serialization format used for outgoing data streams. Possible values are `Avro`, `Csv`, `Json` and `Parquet`.
 
-        > **NOTE:** `batch_max_wait_time` and `batch_min_rows` are required when `type` is set to `Parquet`
+        > **Note:** `batch_max_wait_time` and `batch_min_rows` are required when `type` is set to `Parquet`
         """
         return pulumi.get(self, "type")
 
@@ -453,7 +453,7 @@ class OutputBlobSerializationArgs:
         """
         The encoding of the incoming data in the case of input and the encoding of outgoing data in the case of output. It currently can only be set to `UTF8`.
 
-        > **NOTE:** This is required when `type` is set to `Csv` or `Json`.
+        > **Note:** This is required when `type` is set to `Csv` or `Json`.
         """
         return pulumi.get(self, "encoding")
 
@@ -467,7 +467,7 @@ class OutputBlobSerializationArgs:
         """
         The delimiter that will be used to separate comma-separated value (CSV) records. Possible values are ` ` (space), `,` (comma), `	` (tab), `|` (pipe) and `;`.
 
-        > **NOTE:** This is required when `type` is set to `Csv`.
+        > **Note:** This is required when `type` is set to `Csv`.
         """
         return pulumi.get(self, "field_delimiter")
 
@@ -481,7 +481,7 @@ class OutputBlobSerializationArgs:
         """
         Specifies the format of the JSON the output will be written in. Possible values are `Array` and `LineSeparated`.
 
-        > **NOTE:** This is Required and can only be specified when `type` is set to `Json`.
+        > **Note:** This is Required and can only be specified when `type` is set to `Json`.
         """
         return pulumi.get(self, "format")
 
@@ -500,19 +500,19 @@ if not MYPY:
         """
         The encoding of the incoming data in the case of input and the encoding of outgoing data in the case of output. It currently can only be set to `UTF8`.
 
-        > **NOTE:** This is required when `type` is set to `Csv` or `Json`.
+        > **Note:** This is required when `type` is set to `Csv` or `Json`.
         """
         field_delimiter: NotRequired[pulumi.Input[builtins.str]]
         """
         The delimiter that will be used to separate comma-separated value (CSV) records. Possible values are ` ` (space), `,` (comma), `	` (tab), `|` (pipe) and `;`.
 
-        > **NOTE:** This is required when `type` is set to `Csv`.
+        > **Note:** This is required when `type` is set to `Csv`.
         """
         format: NotRequired[pulumi.Input[builtins.str]]
         """
         Specifies the format of the JSON the output will be written in. Possible values are `Array` and `LineSeparated`.
 
-        > **NOTE:** This is Required and can only be specified when `type` is set to `Json`.
+        > **Note:** This is Required and can only be specified when `type` is set to `Json`.
         """
 elif False:
     OutputEventHubSerializationArgsDict: TypeAlias = Mapping[str, Any]
@@ -528,13 +528,13 @@ class OutputEventHubSerializationArgs:
         :param pulumi.Input[builtins.str] type: The serialization format used for outgoing data streams. Possible values are `Avro`, `Csv`, `Json` and `Parquet`.
         :param pulumi.Input[builtins.str] encoding: The encoding of the incoming data in the case of input and the encoding of outgoing data in the case of output. It currently can only be set to `UTF8`.
                
-               > **NOTE:** This is required when `type` is set to `Csv` or `Json`.
+               > **Note:** This is required when `type` is set to `Csv` or `Json`.
         :param pulumi.Input[builtins.str] field_delimiter: The delimiter that will be used to separate comma-separated value (CSV) records. Possible values are ` ` (space), `,` (comma), `	` (tab), `|` (pipe) and `;`.
                
-               > **NOTE:** This is required when `type` is set to `Csv`.
+               > **Note:** This is required when `type` is set to `Csv`.
         :param pulumi.Input[builtins.str] format: Specifies the format of the JSON the output will be written in. Possible values are `Array` and `LineSeparated`.
                
-               > **NOTE:** This is Required and can only be specified when `type` is set to `Json`.
+               > **Note:** This is Required and can only be specified when `type` is set to `Json`.
         """
         pulumi.set(__self__, "type", type)
         if encoding is not None:
@@ -562,7 +562,7 @@ class OutputEventHubSerializationArgs:
         """
         The encoding of the incoming data in the case of input and the encoding of outgoing data in the case of output. It currently can only be set to `UTF8`.
 
-        > **NOTE:** This is required when `type` is set to `Csv` or `Json`.
+        > **Note:** This is required when `type` is set to `Csv` or `Json`.
         """
         return pulumi.get(self, "encoding")
 
@@ -576,7 +576,7 @@ class OutputEventHubSerializationArgs:
         """
         The delimiter that will be used to separate comma-separated value (CSV) records. Possible values are ` ` (space), `,` (comma), `	` (tab), `|` (pipe) and `;`.
 
-        > **NOTE:** This is required when `type` is set to `Csv`.
+        > **Note:** This is required when `type` is set to `Csv`.
         """
         return pulumi.get(self, "field_delimiter")
 
@@ -590,7 +590,7 @@ class OutputEventHubSerializationArgs:
         """
         Specifies the format of the JSON the output will be written in. Possible values are `Array` and `LineSeparated`.
 
-        > **NOTE:** This is Required and can only be specified when `type` is set to `Json`.
+        > **Note:** This is Required and can only be specified when `type` is set to `Json`.
         """
         return pulumi.get(self, "format")
 
@@ -609,19 +609,19 @@ if not MYPY:
         """
         The encoding of the incoming data in the case of input and the encoding of outgoing data in the case of output. It currently can only be set to `UTF8`.
 
-        > **NOTE:** This is required when `type` is set to `Csv` or `Json`.
+        > **Note:** This is required when `type` is set to `Csv` or `Json`.
         """
         field_delimiter: NotRequired[pulumi.Input[builtins.str]]
         """
         The delimiter that will be used to separate comma-separated value (CSV) records. Possible values are ` ` (space), `,` (comma), `	` (tab), `|` (pipe) and `;`.
 
-        > **NOTE:** This is required when `type` is set to `Csv`.
+        > **Note:** This is required when `type` is set to `Csv`.
         """
         format: NotRequired[pulumi.Input[builtins.str]]
         """
         Specifies the format of the JSON the output will be written in. Possible values are `Array` and `LineSeparated`.
 
-        > **NOTE:** This is Required and can only be specified when `type` is set to `Json`.
+        > **Note:** This is Required and can only be specified when `type` is set to `Json`.
         """
 elif False:
     OutputServiceBusQueueSerializationArgsDict: TypeAlias = Mapping[str, Any]
@@ -637,13 +637,13 @@ class OutputServiceBusQueueSerializationArgs:
         :param pulumi.Input[builtins.str] type: The serialization format used for outgoing data streams. Possible values are `Avro`, `Csv`, `Json` and `Parquet`.
         :param pulumi.Input[builtins.str] encoding: The encoding of the incoming data in the case of input and the encoding of outgoing data in the case of output. It currently can only be set to `UTF8`.
                
-               > **NOTE:** This is required when `type` is set to `Csv` or `Json`.
+               > **Note:** This is required when `type` is set to `Csv` or `Json`.
         :param pulumi.Input[builtins.str] field_delimiter: The delimiter that will be used to separate comma-separated value (CSV) records. Possible values are ` ` (space), `,` (comma), `	` (tab), `|` (pipe) and `;`.
                
-               > **NOTE:** This is required when `type` is set to `Csv`.
+               > **Note:** This is required when `type` is set to `Csv`.
         :param pulumi.Input[builtins.str] format: Specifies the format of the JSON the output will be written in. Possible values are `Array` and `LineSeparated`.
                
-               > **NOTE:** This is Required and can only be specified when `type` is set to `Json`.
+               > **Note:** This is Required and can only be specified when `type` is set to `Json`.
         """
         pulumi.set(__self__, "type", type)
         if encoding is not None:
@@ -671,7 +671,7 @@ class OutputServiceBusQueueSerializationArgs:
         """
         The encoding of the incoming data in the case of input and the encoding of outgoing data in the case of output. It currently can only be set to `UTF8`.
 
-        > **NOTE:** This is required when `type` is set to `Csv` or `Json`.
+        > **Note:** This is required when `type` is set to `Csv` or `Json`.
         """
         return pulumi.get(self, "encoding")
 
@@ -685,7 +685,7 @@ class OutputServiceBusQueueSerializationArgs:
         """
         The delimiter that will be used to separate comma-separated value (CSV) records. Possible values are ` ` (space), `,` (comma), `	` (tab), `|` (pipe) and `;`.
 
-        > **NOTE:** This is required when `type` is set to `Csv`.
+        > **Note:** This is required when `type` is set to `Csv`.
         """
         return pulumi.get(self, "field_delimiter")
 
@@ -699,7 +699,7 @@ class OutputServiceBusQueueSerializationArgs:
         """
         Specifies the format of the JSON the output will be written in. Possible values are `Array` and `LineSeparated`.
 
-        > **NOTE:** This is Required and can only be specified when `type` is set to `Json`.
+        > **Note:** This is Required and can only be specified when `type` is set to `Json`.
         """
         return pulumi.get(self, "format")
 
@@ -718,19 +718,19 @@ if not MYPY:
         """
         The encoding of the incoming data in the case of input and the encoding of outgoing data in the case of output. It currently can only be set to `UTF8`.
 
-        > **NOTE:** This is required when `type` is set to `Csv` or `Json`.
+        > **Note:** This is required when `type` is set to `Csv` or `Json`.
         """
         field_delimiter: NotRequired[pulumi.Input[builtins.str]]
         """
         The delimiter that will be used to separate comma-separated value (CSV) records. Possible values are ` ` (space), `,` (comma), `	` (tab), `|` (pipe) and `;`.
 
-        > **NOTE:** This is required when `type` is set to `Csv`.
+        > **Note:** This is required when `type` is set to `Csv`.
         """
         format: NotRequired[pulumi.Input[builtins.str]]
         """
         Specifies the format of the JSON the output will be written in. Possible values are `Array` and `LineSeparated`.
 
-        > **NOTE:** This is Required and can only be specified when `type` is set to `Json`.
+        > **Note:** This is Required and can only be specified when `type` is set to `Json`.
         """
 elif False:
     OutputServicebusTopicSerializationArgsDict: TypeAlias = Mapping[str, Any]
@@ -746,13 +746,13 @@ class OutputServicebusTopicSerializationArgs:
         :param pulumi.Input[builtins.str] type: The serialization format used for outgoing data streams. Possible values are `Avro`, `Csv`, `Json` and `Parquet`.
         :param pulumi.Input[builtins.str] encoding: The encoding of the incoming data in the case of input and the encoding of outgoing data in the case of output. It currently can only be set to `UTF8`.
                
-               > **NOTE:** This is required when `type` is set to `Csv` or `Json`.
+               > **Note:** This is required when `type` is set to `Csv` or `Json`.
         :param pulumi.Input[builtins.str] field_delimiter: The delimiter that will be used to separate comma-separated value (CSV) records. Possible values are ` ` (space), `,` (comma), `	` (tab), `|` (pipe) and `;`.
                
-               > **NOTE:** This is required when `type` is set to `Csv`.
+               > **Note:** This is required when `type` is set to `Csv`.
         :param pulumi.Input[builtins.str] format: Specifies the format of the JSON the output will be written in. Possible values are `Array` and `LineSeparated`.
                
-               > **NOTE:** This is Required and can only be specified when `type` is set to `Json`.
+               > **Note:** This is Required and can only be specified when `type` is set to `Json`.
         """
         pulumi.set(__self__, "type", type)
         if encoding is not None:
@@ -780,7 +780,7 @@ class OutputServicebusTopicSerializationArgs:
         """
         The encoding of the incoming data in the case of input and the encoding of outgoing data in the case of output. It currently can only be set to `UTF8`.
 
-        > **NOTE:** This is required when `type` is set to `Csv` or `Json`.
+        > **Note:** This is required when `type` is set to `Csv` or `Json`.
         """
         return pulumi.get(self, "encoding")
 
@@ -794,7 +794,7 @@ class OutputServicebusTopicSerializationArgs:
         """
         The delimiter that will be used to separate comma-separated value (CSV) records. Possible values are ` ` (space), `,` (comma), `	` (tab), `|` (pipe) and `;`.
 
-        > **NOTE:** This is required when `type` is set to `Csv`.
+        > **Note:** This is required when `type` is set to `Csv`.
         """
         return pulumi.get(self, "field_delimiter")
 
@@ -808,7 +808,7 @@ class OutputServicebusTopicSerializationArgs:
         """
         Specifies the format of the JSON the output will be written in. Possible values are `Array` and `LineSeparated`.
 
-        > **NOTE:** This is Required and can only be specified when `type` is set to `Json`.
+        > **Note:** This is Required and can only be specified when `type` is set to `Json`.
         """
         return pulumi.get(self, "format")
 
@@ -827,13 +827,13 @@ if not MYPY:
         """
         The encoding of the incoming data in the case of input and the encoding of outgoing data in the case of output. It currently can only be set to `UTF8`.
 
-        > **NOTE:** This is required when `type` is set to `Csv` or `Json`.
+        > **Note:** This is required when `type` is set to `Csv` or `Json`.
         """
         field_delimiter: NotRequired[pulumi.Input[builtins.str]]
         """
         The delimiter that will be used to separate comma-separated value (CSV) records. Possible values are ` ` (space), `,` (comma), `	` (tab), `|` (pipe) and `;`.
 
-        > **NOTE:** This is required when `type` is set to `Csv`.
+        > **Note:** This is required when `type` is set to `Csv`.
         """
 elif False:
     ReferenceInputBlobSerializationArgsDict: TypeAlias = Mapping[str, Any]
@@ -848,10 +848,10 @@ class ReferenceInputBlobSerializationArgs:
         :param pulumi.Input[builtins.str] type: The serialization format used for the reference data. Possible values are `Avro`, `Csv` and `Json`.
         :param pulumi.Input[builtins.str] encoding: The encoding of the incoming data in the case of input and the encoding of outgoing data in the case of output. It currently can only be set to `UTF8`.
                
-               > **NOTE:** This is required when `type` is set to `Csv` or `Json`.
+               > **Note:** This is required when `type` is set to `Csv` or `Json`.
         :param pulumi.Input[builtins.str] field_delimiter: The delimiter that will be used to separate comma-separated value (CSV) records. Possible values are ` ` (space), `,` (comma), `	` (tab), `|` (pipe) and `;`.
                
-               > **NOTE:** This is required when `type` is set to `Csv`.
+               > **Note:** This is required when `type` is set to `Csv`.
         """
         pulumi.set(__self__, "type", type)
         if encoding is not None:
@@ -877,7 +877,7 @@ class ReferenceInputBlobSerializationArgs:
         """
         The encoding of the incoming data in the case of input and the encoding of outgoing data in the case of output. It currently can only be set to `UTF8`.
 
-        > **NOTE:** This is required when `type` is set to `Csv` or `Json`.
+        > **Note:** This is required when `type` is set to `Csv` or `Json`.
         """
         return pulumi.get(self, "encoding")
 
@@ -891,7 +891,7 @@ class ReferenceInputBlobSerializationArgs:
         """
         The delimiter that will be used to separate comma-separated value (CSV) records. Possible values are ` ` (space), `,` (comma), `	` (tab), `|` (pipe) and `;`.
 
-        > **NOTE:** This is required when `type` is set to `Csv`.
+        > **Note:** This is required when `type` is set to `Csv`.
         """
         return pulumi.get(self, "field_delimiter")
 
@@ -910,13 +910,13 @@ if not MYPY:
         """
         The encoding of the incoming data in the case of input and the encoding of outgoing data in the case of output. It currently can only be set to `UTF8`.
 
-        > **NOTE:** This is required when `type` is set to `Csv` or `Json`.
+        > **Note:** This is required when `type` is set to `Csv` or `Json`.
         """
         field_delimiter: NotRequired[pulumi.Input[builtins.str]]
         """
         The delimiter that will be used to separate comma-separated value (CSV) records. Possible values are ` ` (space), `,` (comma), `	` (tab), `|` (pipe) and `;`.
 
-        > **NOTE:** This is required when `type` is set to `Csv`.
+        > **Note:** This is required when `type` is set to `Csv`.
         """
 elif False:
     StreamInputBlobSerializationArgsDict: TypeAlias = Mapping[str, Any]
@@ -931,10 +931,10 @@ class StreamInputBlobSerializationArgs:
         :param pulumi.Input[builtins.str] type: The serialization format used for incoming data streams. Possible values are `Avro`, `Csv` and `Json`.
         :param pulumi.Input[builtins.str] encoding: The encoding of the incoming data in the case of input and the encoding of outgoing data in the case of output. It currently can only be set to `UTF8`.
                
-               > **NOTE:** This is required when `type` is set to `Csv` or `Json`.
+               > **Note:** This is required when `type` is set to `Csv` or `Json`.
         :param pulumi.Input[builtins.str] field_delimiter: The delimiter that will be used to separate comma-separated value (CSV) records. Possible values are ` ` (space), `,` (comma), `	` (tab), `|` (pipe) and `;`.
                
-               > **NOTE:** This is required when `type` is set to `Csv`.
+               > **Note:** This is required when `type` is set to `Csv`.
         """
         pulumi.set(__self__, "type", type)
         if encoding is not None:
@@ -960,7 +960,7 @@ class StreamInputBlobSerializationArgs:
         """
         The encoding of the incoming data in the case of input and the encoding of outgoing data in the case of output. It currently can only be set to `UTF8`.
 
-        > **NOTE:** This is required when `type` is set to `Csv` or `Json`.
+        > **Note:** This is required when `type` is set to `Csv` or `Json`.
         """
         return pulumi.get(self, "encoding")
 
@@ -974,7 +974,7 @@ class StreamInputBlobSerializationArgs:
         """
         The delimiter that will be used to separate comma-separated value (CSV) records. Possible values are ` ` (space), `,` (comma), `	` (tab), `|` (pipe) and `;`.
 
-        > **NOTE:** This is required when `type` is set to `Csv`.
+        > **Note:** This is required when `type` is set to `Csv`.
         """
         return pulumi.get(self, "field_delimiter")
 
@@ -993,13 +993,13 @@ if not MYPY:
         """
         The encoding of the incoming data in the case of input and the encoding of outgoing data in the case of output. It currently can only be set to `UTF8`.
 
-        > **NOTE:** This is required when `type` is set to `Csv` or `Json`.
+        > **Note:** This is required when `type` is set to `Csv` or `Json`.
         """
         field_delimiter: NotRequired[pulumi.Input[builtins.str]]
         """
         The delimiter that will be used to separate comma-separated value (CSV) records. Possible values are ` ` (space), `,` (comma), `	` (tab), `|` (pipe) and `;`.
 
-        > **NOTE:** This is required when `type` is set to `Csv`.
+        > **Note:** This is required when `type` is set to `Csv`.
         """
 elif False:
     StreamInputEventHubSerializationArgsDict: TypeAlias = Mapping[str, Any]
@@ -1014,10 +1014,10 @@ class StreamInputEventHubSerializationArgs:
         :param pulumi.Input[builtins.str] type: The serialization format used for incoming data streams. Possible values are `Avro`, `Csv` and `Json`.
         :param pulumi.Input[builtins.str] encoding: The encoding of the incoming data in the case of input and the encoding of outgoing data in the case of output. It currently can only be set to `UTF8`.
                
-               > **NOTE:** This is required when `type` is set to `Csv` or `Json`.
+               > **Note:** This is required when `type` is set to `Csv` or `Json`.
         :param pulumi.Input[builtins.str] field_delimiter: The delimiter that will be used to separate comma-separated value (CSV) records. Possible values are ` ` (space), `,` (comma), `	` (tab), `|` (pipe) and `;`.
                
-               > **NOTE:** This is required when `type` is set to `Csv`.
+               > **Note:** This is required when `type` is set to `Csv`.
         """
         pulumi.set(__self__, "type", type)
         if encoding is not None:
@@ -1043,7 +1043,7 @@ class StreamInputEventHubSerializationArgs:
         """
         The encoding of the incoming data in the case of input and the encoding of outgoing data in the case of output. It currently can only be set to `UTF8`.
 
-        > **NOTE:** This is required when `type` is set to `Csv` or `Json`.
+        > **Note:** This is required when `type` is set to `Csv` or `Json`.
         """
         return pulumi.get(self, "encoding")
 
@@ -1057,7 +1057,7 @@ class StreamInputEventHubSerializationArgs:
         """
         The delimiter that will be used to separate comma-separated value (CSV) records. Possible values are ` ` (space), `,` (comma), `	` (tab), `|` (pipe) and `;`.
 
-        > **NOTE:** This is required when `type` is set to `Csv`.
+        > **Note:** This is required when `type` is set to `Csv`.
         """
         return pulumi.get(self, "field_delimiter")
 
@@ -1076,13 +1076,13 @@ if not MYPY:
         """
         The encoding of the incoming data in the case of input and the encoding of outgoing data in the case of output. It currently can only be set to `UTF8`.
 
-        > **NOTE:** This is required when `type` is set to `Csv` or `Json`.
+        > **Note:** This is required when `type` is set to `Csv` or `Json`.
         """
         field_delimiter: NotRequired[pulumi.Input[builtins.str]]
         """
         The delimiter that will be used to separate comma-separated value (CSV) records. Possible values are ` ` (space), `,` (comma), `	` (tab), `|` (pipe) and `;`.
 
-        > **NOTE:** This is required when `type` is set to `Csv`.
+        > **Note:** This is required when `type` is set to `Csv`.
         """
 elif False:
     StreamInputEventHubV2SerializationArgsDict: TypeAlias = Mapping[str, Any]
@@ -1097,10 +1097,10 @@ class StreamInputEventHubV2SerializationArgs:
         :param pulumi.Input[builtins.str] type: The serialization format used for incoming data streams. Possible values are `Avro`, `Csv` and `Json`.
         :param pulumi.Input[builtins.str] encoding: The encoding of the incoming data in the case of input and the encoding of outgoing data in the case of output. It currently can only be set to `UTF8`.
                
-               > **NOTE:** This is required when `type` is set to `Csv` or `Json`.
+               > **Note:** This is required when `type` is set to `Csv` or `Json`.
         :param pulumi.Input[builtins.str] field_delimiter: The delimiter that will be used to separate comma-separated value (CSV) records. Possible values are ` ` (space), `,` (comma), `	` (tab), `|` (pipe) and `;`.
                
-               > **NOTE:** This is required when `type` is set to `Csv`.
+               > **Note:** This is required when `type` is set to `Csv`.
         """
         pulumi.set(__self__, "type", type)
         if encoding is not None:
@@ -1126,7 +1126,7 @@ class StreamInputEventHubV2SerializationArgs:
         """
         The encoding of the incoming data in the case of input and the encoding of outgoing data in the case of output. It currently can only be set to `UTF8`.
 
-        > **NOTE:** This is required when `type` is set to `Csv` or `Json`.
+        > **Note:** This is required when `type` is set to `Csv` or `Json`.
         """
         return pulumi.get(self, "encoding")
 
@@ -1140,7 +1140,7 @@ class StreamInputEventHubV2SerializationArgs:
         """
         The delimiter that will be used to separate comma-separated value (CSV) records. Possible values are ` ` (space), `,` (comma), `	` (tab), `|` (pipe) and `;`.
 
-        > **NOTE:** This is required when `type` is set to `Csv`.
+        > **Note:** This is required when `type` is set to `Csv`.
         """
         return pulumi.get(self, "field_delimiter")
 
@@ -1159,13 +1159,13 @@ if not MYPY:
         """
         The encoding of the incoming data in the case of input and the encoding of outgoing data in the case of output. It currently can only be set to `UTF8`.
 
-        > **NOTE:** This is required when `type` is set to `Csv` or `Json`.
+        > **Note:** This is required when `type` is set to `Csv` or `Json`.
         """
         field_delimiter: NotRequired[pulumi.Input[builtins.str]]
         """
         The delimiter that will be used to separate comma-separated value (CSV) records. Possible values are ` ` (space), `,` (comma), `	` (tab), `|` (pipe) and `;`.
 
-        > **NOTE:** This is required when `type` is set to `Csv`.
+        > **Note:** This is required when `type` is set to `Csv`.
         """
 elif False:
     StreamInputIotHubSerializationArgsDict: TypeAlias = Mapping[str, Any]
@@ -1180,10 +1180,10 @@ class StreamInputIotHubSerializationArgs:
         :param pulumi.Input[builtins.str] type: The serialization format used for incoming data streams. Possible values are `Avro`, `Csv` and `Json`.
         :param pulumi.Input[builtins.str] encoding: The encoding of the incoming data in the case of input and the encoding of outgoing data in the case of output. It currently can only be set to `UTF8`.
                
-               > **NOTE:** This is required when `type` is set to `Csv` or `Json`.
+               > **Note:** This is required when `type` is set to `Csv` or `Json`.
         :param pulumi.Input[builtins.str] field_delimiter: The delimiter that will be used to separate comma-separated value (CSV) records. Possible values are ` ` (space), `,` (comma), `	` (tab), `|` (pipe) and `;`.
                
-               > **NOTE:** This is required when `type` is set to `Csv`.
+               > **Note:** This is required when `type` is set to `Csv`.
         """
         pulumi.set(__self__, "type", type)
         if encoding is not None:
@@ -1209,7 +1209,7 @@ class StreamInputIotHubSerializationArgs:
         """
         The encoding of the incoming data in the case of input and the encoding of outgoing data in the case of output. It currently can only be set to `UTF8`.
 
-        > **NOTE:** This is required when `type` is set to `Csv` or `Json`.
+        > **Note:** This is required when `type` is set to `Csv` or `Json`.
         """
         return pulumi.get(self, "encoding")
 
@@ -1223,7 +1223,7 @@ class StreamInputIotHubSerializationArgs:
         """
         The delimiter that will be used to separate comma-separated value (CSV) records. Possible values are ` ` (space), `,` (comma), `	` (tab), `|` (pipe) and `;`.
 
-        > **NOTE:** This is required when `type` is set to `Csv`.
+        > **Note:** This is required when `type` is set to `Csv`.
         """
         return pulumi.get(self, "field_delimiter")
 

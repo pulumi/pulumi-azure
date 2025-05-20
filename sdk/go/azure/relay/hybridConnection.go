@@ -42,7 +42,7 @@ import (
 //				ResourceGroupName: example.Name,
 //				SkuName:           pulumi.String("Standard"),
 //				Tags: pulumi.StringMap{
-//					"source": pulumi.String("managed"),
+//					"source": pulumi.String("terraform"),
 //				},
 //			})
 //			if err != nil {
@@ -63,6 +63,13 @@ import (
 //	}
 //
 // ```
+//
+// ## API Providers
+//
+// <!-- This section is generated, changes will be overwritten -->
+// This resource uses the following Azure API Providers:
+//
+// * `Microsoft.Relay`: 2021-11-01
 //
 // ## Import
 //

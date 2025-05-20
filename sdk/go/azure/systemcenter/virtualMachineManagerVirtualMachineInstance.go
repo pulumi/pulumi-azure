@@ -115,6 +115,13 @@ import (
 //
 // ```
 //
+// ## API Providers
+//
+// <!-- This section is generated, changes will be overwritten -->
+// This resource uses the following Azure API Providers:
+//
+// * `Microsoft.ScVmm`: 2023-10-07
+//
 // ## Import
 //
 // System Center Virtual Machine Manager Virtual Machine Instances can be imported into Pulumi using the `resource id`, e.g.
@@ -129,13 +136,13 @@ type VirtualMachineManagerVirtualMachineInstance struct {
 	CustomLocationId pulumi.StringOutput `pulumi:"customLocationId"`
 	// A `hardware` block as defined below. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** This resource will be restarted while updating `hardware`.
+	// > **Note:** This resource will be restarted while updating `hardware`.
 	Hardware VirtualMachineManagerVirtualMachineInstanceHardwarePtrOutput `pulumi:"hardware"`
 	// An `infrastructure` block as defined below.
 	Infrastructure VirtualMachineManagerVirtualMachineInstanceInfrastructureOutput `pulumi:"infrastructure"`
 	// A `networkInterface` block as defined below.
 	//
-	// > **NOTE:** This resource will be restarted while updating `networkInterface`.
+	// > **Note:** This resource will be restarted while updating `networkInterface`.
 	NetworkInterfaces VirtualMachineManagerVirtualMachineInstanceNetworkInterfaceArrayOutput `pulumi:"networkInterfaces"`
 	// An `operatingSystem` block as defined below. Changing this forces a new resource to be created.
 	OperatingSystem VirtualMachineManagerVirtualMachineInstanceOperatingSystemPtrOutput `pulumi:"operatingSystem"`
@@ -143,7 +150,7 @@ type VirtualMachineManagerVirtualMachineInstance struct {
 	ScopedResourceId pulumi.StringOutput `pulumi:"scopedResourceId"`
 	// A `storageDisk` block as defined below.
 	//
-	// > **NOTE:** This resource will be restarted while updating `storageDisk`.
+	// > **Note:** This resource will be restarted while updating `storageDisk`.
 	StorageDisks VirtualMachineManagerVirtualMachineInstanceStorageDiskArrayOutput `pulumi:"storageDisks"`
 	// A list of IDs of System Center Virtual Machine Manager Availability Set.
 	SystemCenterVirtualMachineManagerAvailabilitySetIds pulumi.StringArrayOutput `pulumi:"systemCenterVirtualMachineManagerAvailabilitySetIds"`
@@ -192,13 +199,13 @@ type virtualMachineManagerVirtualMachineInstanceState struct {
 	CustomLocationId *string `pulumi:"customLocationId"`
 	// A `hardware` block as defined below. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** This resource will be restarted while updating `hardware`.
+	// > **Note:** This resource will be restarted while updating `hardware`.
 	Hardware *VirtualMachineManagerVirtualMachineInstanceHardware `pulumi:"hardware"`
 	// An `infrastructure` block as defined below.
 	Infrastructure *VirtualMachineManagerVirtualMachineInstanceInfrastructure `pulumi:"infrastructure"`
 	// A `networkInterface` block as defined below.
 	//
-	// > **NOTE:** This resource will be restarted while updating `networkInterface`.
+	// > **Note:** This resource will be restarted while updating `networkInterface`.
 	NetworkInterfaces []VirtualMachineManagerVirtualMachineInstanceNetworkInterface `pulumi:"networkInterfaces"`
 	// An `operatingSystem` block as defined below. Changing this forces a new resource to be created.
 	OperatingSystem *VirtualMachineManagerVirtualMachineInstanceOperatingSystem `pulumi:"operatingSystem"`
@@ -206,7 +213,7 @@ type virtualMachineManagerVirtualMachineInstanceState struct {
 	ScopedResourceId *string `pulumi:"scopedResourceId"`
 	// A `storageDisk` block as defined below.
 	//
-	// > **NOTE:** This resource will be restarted while updating `storageDisk`.
+	// > **Note:** This resource will be restarted while updating `storageDisk`.
 	StorageDisks []VirtualMachineManagerVirtualMachineInstanceStorageDisk `pulumi:"storageDisks"`
 	// A list of IDs of System Center Virtual Machine Manager Availability Set.
 	SystemCenterVirtualMachineManagerAvailabilitySetIds []string `pulumi:"systemCenterVirtualMachineManagerAvailabilitySetIds"`
@@ -217,13 +224,13 @@ type VirtualMachineManagerVirtualMachineInstanceState struct {
 	CustomLocationId pulumi.StringPtrInput
 	// A `hardware` block as defined below. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** This resource will be restarted while updating `hardware`.
+	// > **Note:** This resource will be restarted while updating `hardware`.
 	Hardware VirtualMachineManagerVirtualMachineInstanceHardwarePtrInput
 	// An `infrastructure` block as defined below.
 	Infrastructure VirtualMachineManagerVirtualMachineInstanceInfrastructurePtrInput
 	// A `networkInterface` block as defined below.
 	//
-	// > **NOTE:** This resource will be restarted while updating `networkInterface`.
+	// > **Note:** This resource will be restarted while updating `networkInterface`.
 	NetworkInterfaces VirtualMachineManagerVirtualMachineInstanceNetworkInterfaceArrayInput
 	// An `operatingSystem` block as defined below. Changing this forces a new resource to be created.
 	OperatingSystem VirtualMachineManagerVirtualMachineInstanceOperatingSystemPtrInput
@@ -231,7 +238,7 @@ type VirtualMachineManagerVirtualMachineInstanceState struct {
 	ScopedResourceId pulumi.StringPtrInput
 	// A `storageDisk` block as defined below.
 	//
-	// > **NOTE:** This resource will be restarted while updating `storageDisk`.
+	// > **Note:** This resource will be restarted while updating `storageDisk`.
 	StorageDisks VirtualMachineManagerVirtualMachineInstanceStorageDiskArrayInput
 	// A list of IDs of System Center Virtual Machine Manager Availability Set.
 	SystemCenterVirtualMachineManagerAvailabilitySetIds pulumi.StringArrayInput
@@ -246,13 +253,13 @@ type virtualMachineManagerVirtualMachineInstanceArgs struct {
 	CustomLocationId string `pulumi:"customLocationId"`
 	// A `hardware` block as defined below. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** This resource will be restarted while updating `hardware`.
+	// > **Note:** This resource will be restarted while updating `hardware`.
 	Hardware *VirtualMachineManagerVirtualMachineInstanceHardware `pulumi:"hardware"`
 	// An `infrastructure` block as defined below.
 	Infrastructure VirtualMachineManagerVirtualMachineInstanceInfrastructure `pulumi:"infrastructure"`
 	// A `networkInterface` block as defined below.
 	//
-	// > **NOTE:** This resource will be restarted while updating `networkInterface`.
+	// > **Note:** This resource will be restarted while updating `networkInterface`.
 	NetworkInterfaces []VirtualMachineManagerVirtualMachineInstanceNetworkInterface `pulumi:"networkInterfaces"`
 	// An `operatingSystem` block as defined below. Changing this forces a new resource to be created.
 	OperatingSystem *VirtualMachineManagerVirtualMachineInstanceOperatingSystem `pulumi:"operatingSystem"`
@@ -260,7 +267,7 @@ type virtualMachineManagerVirtualMachineInstanceArgs struct {
 	ScopedResourceId string `pulumi:"scopedResourceId"`
 	// A `storageDisk` block as defined below.
 	//
-	// > **NOTE:** This resource will be restarted while updating `storageDisk`.
+	// > **Note:** This resource will be restarted while updating `storageDisk`.
 	StorageDisks []VirtualMachineManagerVirtualMachineInstanceStorageDisk `pulumi:"storageDisks"`
 	// A list of IDs of System Center Virtual Machine Manager Availability Set.
 	SystemCenterVirtualMachineManagerAvailabilitySetIds []string `pulumi:"systemCenterVirtualMachineManagerAvailabilitySetIds"`
@@ -272,13 +279,13 @@ type VirtualMachineManagerVirtualMachineInstanceArgs struct {
 	CustomLocationId pulumi.StringInput
 	// A `hardware` block as defined below. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** This resource will be restarted while updating `hardware`.
+	// > **Note:** This resource will be restarted while updating `hardware`.
 	Hardware VirtualMachineManagerVirtualMachineInstanceHardwarePtrInput
 	// An `infrastructure` block as defined below.
 	Infrastructure VirtualMachineManagerVirtualMachineInstanceInfrastructureInput
 	// A `networkInterface` block as defined below.
 	//
-	// > **NOTE:** This resource will be restarted while updating `networkInterface`.
+	// > **Note:** This resource will be restarted while updating `networkInterface`.
 	NetworkInterfaces VirtualMachineManagerVirtualMachineInstanceNetworkInterfaceArrayInput
 	// An `operatingSystem` block as defined below. Changing this forces a new resource to be created.
 	OperatingSystem VirtualMachineManagerVirtualMachineInstanceOperatingSystemPtrInput
@@ -286,7 +293,7 @@ type VirtualMachineManagerVirtualMachineInstanceArgs struct {
 	ScopedResourceId pulumi.StringInput
 	// A `storageDisk` block as defined below.
 	//
-	// > **NOTE:** This resource will be restarted while updating `storageDisk`.
+	// > **Note:** This resource will be restarted while updating `storageDisk`.
 	StorageDisks VirtualMachineManagerVirtualMachineInstanceStorageDiskArrayInput
 	// A list of IDs of System Center Virtual Machine Manager Availability Set.
 	SystemCenterVirtualMachineManagerAvailabilitySetIds pulumi.StringArrayInput
@@ -386,7 +393,7 @@ func (o VirtualMachineManagerVirtualMachineInstanceOutput) CustomLocationId() pu
 
 // A `hardware` block as defined below. Changing this forces a new resource to be created.
 //
-// > **NOTE:** This resource will be restarted while updating `hardware`.
+// > **Note:** This resource will be restarted while updating `hardware`.
 func (o VirtualMachineManagerVirtualMachineInstanceOutput) Hardware() VirtualMachineManagerVirtualMachineInstanceHardwarePtrOutput {
 	return o.ApplyT(func(v *VirtualMachineManagerVirtualMachineInstance) VirtualMachineManagerVirtualMachineInstanceHardwarePtrOutput {
 		return v.Hardware
@@ -402,7 +409,7 @@ func (o VirtualMachineManagerVirtualMachineInstanceOutput) Infrastructure() Virt
 
 // A `networkInterface` block as defined below.
 //
-// > **NOTE:** This resource will be restarted while updating `networkInterface`.
+// > **Note:** This resource will be restarted while updating `networkInterface`.
 func (o VirtualMachineManagerVirtualMachineInstanceOutput) NetworkInterfaces() VirtualMachineManagerVirtualMachineInstanceNetworkInterfaceArrayOutput {
 	return o.ApplyT(func(v *VirtualMachineManagerVirtualMachineInstance) VirtualMachineManagerVirtualMachineInstanceNetworkInterfaceArrayOutput {
 		return v.NetworkInterfaces
@@ -423,7 +430,7 @@ func (o VirtualMachineManagerVirtualMachineInstanceOutput) ScopedResourceId() pu
 
 // A `storageDisk` block as defined below.
 //
-// > **NOTE:** This resource will be restarted while updating `storageDisk`.
+// > **Note:** This resource will be restarted while updating `storageDisk`.
 func (o VirtualMachineManagerVirtualMachineInstanceOutput) StorageDisks() VirtualMachineManagerVirtualMachineInstanceStorageDiskArrayOutput {
 	return o.ApplyT(func(v *VirtualMachineManagerVirtualMachineInstance) VirtualMachineManagerVirtualMachineInstanceStorageDiskArrayOutput {
 		return v.StorageDisks
