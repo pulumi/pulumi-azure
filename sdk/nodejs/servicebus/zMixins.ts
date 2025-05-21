@@ -13,7 +13,7 @@
 // limitations under the License.
 
 import * as pulumi from "@pulumi/pulumi";
-import { getNamespace, Queue, Subscription, Topic } from ".";
+import { getNamespace, Queue, Subscription, Topic, Namespace } from ".";
 
 import * as appservice from "../appservice";
 
@@ -190,12 +190,11 @@ export class QueueEventSubscription extends appservice.EventSubscription<Service
     constructor(
         name: string, queue: Queue,
         args: QueueEventSubscriptionArgs, opts: pulumi.ComponentResourceOptions = {}) {
-        const resourceGroupName = appservice.getResourceGroupName(args, queue.resourceGroupName);
 
         super("azure:servicehub:QueueEventSubscription",
             name,
             new ServiceBusFunction(name, { ...args, queue }),
-            { ...args, resourceGroupName },
+            args,
             pulumi.mergeOptions(
                 { parent: queue, ...opts },
                 { aliases: [{ type: "azure:eventhub:QueueEventSubscription" }]}));
@@ -261,8 +260,6 @@ export class TopicEventSubscription extends appservice.EventSubscription<Service
 
         opts = { parent: topic, ...opts };
 
-        const resourceGroupName = appservice.getResourceGroupName(args, topic.resourceGroupName);
-
         const subscription = args.subscription || new Subscription(name, {
             topicId: topic.id,
             maxDeliveryCount: pulumi.output(args.maxDeliveryCount).apply(c => c === undefined ? 10 : c),
@@ -271,7 +268,7 @@ export class TopicEventSubscription extends appservice.EventSubscription<Service
         super("azure:servicehub:TopicEventSubscription",
             name,
             new ServiceBusFunction(name, { ...args, topic, subscription }),
-            { ...args, resourceGroupName },
+            args,
             pulumi.mergeOptions(opts, {
                 aliases: [{ type: "azure:eventhub:TopicEventSubscription" }] }));
 
@@ -303,14 +300,15 @@ export class ServiceBusFunction extends appservice.Function<ServiceBusContext, s
             throw new Error("[subscription] must be specified in combination with [topic]");
         }
 
-        const queueOrTopicId = (args.queue && args.queue.id) || args.topic!.id;
-        const namespaceName = (args.queue && args.queue.namespaceName) || args.topic!.namespaceName;
-        const resourceGroupName = (args.queue && args.queue.resourceGroupName) || args.topic!.resourceGroupName;
+        const namespaceId = (args.queue && args.queue.namespaceId) || args.topic!.namespaceId;
+
+        // Don't attempt to fetch the namespace until we're sure it has been created.
+        const namespace = namespaceId.apply(id => Namespace.get(id, id))
 
         // The binding does not store the Service Bus connection string directly.  Instead, the
         // connection string is put into the app settings (under whatever key we want). Then, the
         // .connection property of the binding contains the *name* of that app setting key.
-        const bindingConnectionKey = pulumi.interpolate`ServiceBus${namespaceName}ConnectionKey`;
+        const bindingConnectionKey = pulumi.interpolate`ServiceBus${namespace.name}ConnectionKey`;
 
         const trigger = {
             name: "message",
@@ -321,11 +319,6 @@ export class ServiceBusFunction extends appservice.Function<ServiceBusContext, s
             subscriptionName: args.subscription && args.subscription.name,
             connection: bindingConnectionKey,
         } as ServiceBusBindingDefinition;
-
-        // Fold the queue/topic ID into the all so we don't attempt to fetch the namespace until we're sure it has been created.
-        const namespace = pulumi.all([namespaceName, resourceGroupName, queueOrTopicId])
-            .apply(([namespaceName, resourceGroupName]) =>
-                getNamespace({ name: namespaceName, resourceGroupName }));
 
         const appSettings = pulumi.all([namespace.defaultPrimaryConnectionString, bindingConnectionKey]).apply(
             ([connectionString, key]) => ({ [key]: connectionString }));
